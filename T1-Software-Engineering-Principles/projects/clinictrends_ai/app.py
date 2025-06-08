@@ -14,10 +14,11 @@ st.subheader("NPS Feedback Analyzer at the palm of your hand")
 st.write("Upload your NPS survey data and  let ClinicTrends AI analyze it for you.")
 
 uploaded_file = st.file_uploader("Choose a CSV file", type="csv")
+
 if uploaded_file is not None:
     df = load_and_process_csv(uploaded_file)
     df["Year"] = df["Year"].astype(str).str.replace(",", "")
-    df["Date"] = pd.to_datetime(df["Date"], errors="coerce")  # Parse the Date column
+    df["Date"] = pd.to_datetime(df["Date"])  # Parse the Date column
     df["Month"] = df["Date"].dt.to_period("M").astype(str)    # Create a Month column
 
     years = sorted(list(set(str(y).replace(",", "") for y in df["Year"].dropna())))
@@ -71,6 +72,7 @@ if uploaded_file is not None:
     
         st.write("---")
         st.subheader("📈 NPS Over Time (Monthly)")
+        st.dataframe(filtered_df)
         monthly_df = filtered_df.copy()
         monthly_df = monthly_df[monthly_df["NPS Type"] != "Unknown"]
         monthly_summary = monthly_df.groupby("Month").apply(lambda x: calculate_nps(x)).reset_index()
