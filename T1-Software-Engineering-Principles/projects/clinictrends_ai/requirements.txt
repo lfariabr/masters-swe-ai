@@ -4,3 +4,5 @@ pandas
 numpy
 python-dotenv
 openai
+textblob
+wordcloud

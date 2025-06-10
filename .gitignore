@@ -1,2 +1,40 @@
 # Ignore
 GOALS.md
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg
+*.egg-info/
+*.pyd
+*.pyo
+
+# Virtualenv
+venv/
+.venv/
+env/
+
+# IDEs
+.vscode/
+.idea/
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Notebooks
+.ipynb_checkpoints/
+
+# Model files
+*.pt
+*.pth
+*.onnx
+
+# Streamlit cache
+.streamlit/config.toml
+.streamlit/*.json
+
+# HuggingFace transformers cache
+.cache/
