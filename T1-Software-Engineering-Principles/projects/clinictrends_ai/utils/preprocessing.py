@@ -35,4 +35,10 @@ def calculate_nps(df):
 def load_and_process_csv(file):
     df = pd.read_csv(file)
     df = classify_nps(df)
+
+    # Clean and process date columns
+    df["Year"] = df["Year"].astype(str).str.replace(",", "")
+    df["Date"] = pd.to_datetime(df["Date"])  
+    df["Month"] = df["Date"].dt.to_period("M").astype(str)
+
     return df
