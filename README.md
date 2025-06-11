@@ -47,10 +47,14 @@ masters_sweai/
 │   ├── assignments/
 │   ├── notes/
 │   └── projects/
+│   └── modules/
+│   └── raw/
 ├── T1-Software-Engineering-Principles/
 │   ├── assignments/
+│   ├── modules/
 │   ├── notes/
 │   └── projects/
+│   └── raw/
 └── README.md
 ```
 
@@ -68,6 +72,34 @@ masters_sweai/
 - [ ] Implement at least 2 projects per subject
 - [ ] Document key learnings and insights
 
+## T1-Software-Development-Management
+- [X] Module 1
+- [ ] Module 2
+- [ ] Module 3
+- [ ] Module 4
+- [ ] Module 5
+- [ ] Module 6
+- [ ] Module 7
+- [ ] Module 8
+- [ ] Module 9
+- [ ] Module 10
+- [ ] Module 11
+- [ ] Module 12
+
+## T1-Software-Engineering-Principles
+- [X] Module 1
+- [ ] Module 2
+- [ ] Module 3
+- [ ] Module 4
+- [ ] Module 5
+- [ ] Module 6
+- [ ] Module 7
+- [ ] Module 8
+- [ ] Module 9
+- [ ] Module 10
+- [ ] Module 11
+- [ ] Module 12
+
 ## Contributing
 While this is primarily a personal repository, I welcome discussions and constructive feedback. Feel free to open an issue if you have suggestions or questions.
 
@@ -76,5 +108,5 @@ This project is for educational purposes. All course materials and assignments a
 
 ---
 
-*Last Updated: 8 June 2025*  
+*Last Updated: 11 June 2025*  
 ![GitHub last commit](https://img.shields.io/github/last-commit/lfariabr/masters-swe-ai?style=flat-square)
