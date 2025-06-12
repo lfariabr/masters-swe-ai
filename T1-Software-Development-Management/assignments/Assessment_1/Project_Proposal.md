@@ -1,7 +1,7 @@
 # 🧾 SDM404 Assessment 1 – Project Proposal & Implementation Plan
 
 **Team Member**: Luis Faria  
-**Student ID**: [Your Student ID]  
+**Student ID**: A00187785  
 **Project Title**: [Software Project Name]  
 **Date**: 31 May 2025  
 **Word Count**: [Will be updated as we progress]
