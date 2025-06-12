@@ -18,7 +18,6 @@ This repository serves as my personal knowledge base and project portfolio while
 - **Continuous Improvement**: Regular updates and refinements to projects and notes
 
 ## Current Term: T1
-
 ### T1: Software Development Management
 - [Course Materials](./T1-Software-Development-Management/)
 - [Assignments](./T1-Software-Development-Management/assignments)
@@ -31,15 +30,7 @@ This repository serves as my personal knowledge base and project portfolio while
 - [Notes](./T1-Software-Engineering-Principles/notes)
 - [Projects](./T1-Software-Engineering-Principles/projects)
 
-## Technical Stack
-- **Languages**: Python, JavaScript/TypeScript, SQL
-- **Technologies**: 
-  - Backend: Node.js, Express, GraphQL, MongoDB
-  - AI/ML: TensorFlow, PyTorch, scikit-learn
-  - DevOps: Docker, GitHub Actions, AWS
-  - Tools: Git, VS Code, Jupyter Notebooks
-
-## Repository Structure
+## Repo Structure
 
 ```
 masters_sweai/
@@ -58,13 +49,6 @@ masters_sweai/
 └── README.md
 ```
 
-## Goals
-1. Master core software engineering principles and AI concepts
-2. Build a portfolio of practical projects
-3. Develop expertise in modern software development practices
-4. Create solutions that solve real-world problems
-5. Maintain a sustainable balance between studies and professional development
-
 ## Progress Tracking
 
 - [ ] Complete course materials for Software Development Management
@@ -72,9 +56,9 @@ masters_sweai/
 - [ ] Implement at least 2 projects per subject
 - [ ] Document key learnings and insights
 
-## T1-Software-Development-Management
+## T1-Software-Development-Management Modules
 - [X] Module 1
-- [ ] Module 2
+- [X] Module 2
 - [ ] Module 3
 - [ ] Module 4
 - [ ] Module 5
@@ -86,9 +70,15 @@ masters_sweai/
 - [ ] Module 11
 - [ ] Module 12
 
-## T1-Software-Engineering-Principles
+## T1-Software-Development-Management Assignments
+- [ ] Assessment 1 - draft ready
+- [ ] Assessment 2
+- [ ] Assessment 3
+- [ ] Assessment 4
+
+## T1-Software-Engineering-Principles Modules
 - [X] Module 1
-- [ ] Module 2
+- [X] Module 2
 - [ ] Module 3
 - [ ] Module 4
 - [ ] Module 5
@@ -99,6 +89,12 @@ masters_sweai/
 - [ ] Module 10
 - [ ] Module 11
 - [ ] Module 12
+
+## T1-Software-Engineering-Principles Assignments
+- [ ] Assessment 1 - draft ready
+- [ ] Assessment 2
+- [ ] Assessment 3
+- [ ] Assessment 4
 
 ## Contributing
 While this is primarily a personal repository, I welcome discussions and constructive feedback. Feel free to open an issue if you have suggestions or questions.
