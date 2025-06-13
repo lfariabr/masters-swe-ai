@@ -72,7 +72,7 @@ masters_sweai/
 
 ## T1-Software-Development-Management Assignments
 - [ ] Assessment 1 - draft ready
-- [ ] Assessment 2
+- [ ] Assessment 2 - draft ready
 - [ ] Assessment 3
 - [ ] Assessment 4
 
@@ -92,7 +92,7 @@ masters_sweai/
 
 ## T1-Software-Engineering-Principles Assignments
 - [ ] Assessment 1 - draft ready
-- [ ] Assessment 2
+- [ ] Assessment 2 - draft ready
 - [ ] Assessment 3
 - [ ] Assessment 4
 
@@ -106,3 +106,13 @@ This project is for educational purposes. All course materials and assignments a
 
 *Last Updated: 11 June 2025*  
 ![GitHub last commit](https://img.shields.io/github/last-commit/lfariabr/masters-swe-ai?style=flat-square)
+
+---
+
+# Backlog
+study_sep_2025_06_14
+- create follow up spreadsheet and assign task to team members 
+- follow README.ME @ clinicTrendsAI
+
+study_sdm_2025_06_14
+- refer to module controller
