@@ -19,10 +19,25 @@ def annotate_sentiments(df: pd.DataFrame, comment_col="Comment", pos_thresh=0.05
     )
     return df
 
+import plotly.express as px
 def display_sentiment_distribution(df: pd.DataFrame):
     sentiment_counts = df["Sentiment"].value_counts().reset_index()
     sentiment_counts.columns = ["Sentiment", "Count"]
-    st.bar_chart(sentiment_counts.set_index("Sentiment"))
+    fig = px.bar(sentiment_counts, x="Sentiment", y="Count", color="Sentiment")
+    st.plotly_chart(fig, use_container_width=True)
+
+def get_sentiment_distribution_figure(df: pd.DataFrame):
+    sentiment_counts = df["Sentiment"].value_counts().reset_index()
+    sentiment_counts.columns = ["Sentiment", "Count"]
+    
+    fig = px.bar(
+        sentiment_counts,
+        x="Sentiment",
+        y="Count",
+        color="Sentiment",
+        title="Sentiment Distribution",
+    )
+    return fig
 
 def display_wordcloud(df: pd.DataFrame, comment_col="Comment"):
     text = " ".join(df[comment_col].dropna().astype(str))
