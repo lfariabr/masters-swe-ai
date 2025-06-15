@@ -28,7 +28,7 @@ def main():
     # Sidebar with logo and navigation - this will be our only sidebar
     with st.sidebar:
         # Logo and title
-        st.image("https://via.placeholder.com/200x50?text=ClinicTrends+AI", width=200)
+        st.image("public/clinictrends_logo_200x200.svg", width=200)
         st.markdown("---")
         
         # Navigation menu
@@ -47,9 +47,9 @@ def main():
         # App info
         st.markdown("""
         **ClinicTrends AI**  
-        v1.2.0  
-        [GitHub Repo](#)  
-        [Documentation](#)
+        v1.3.0  
+        [GitHub Repo](https://github.com/lfariabr/masters-swe-ai/tree/master/T1-Software-Engineering-Principles/projects)  
+        [Documentation](HomePage)
         """)
     
     # Main content based on selection
