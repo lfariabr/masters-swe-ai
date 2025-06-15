@@ -77,9 +77,9 @@ masters_sweai/
 - [ ] Assessment 4
 
 ## T1-Software-Engineering-Principles Modules
-- [X] Module 1
-- [X] Module 2
-- [ ] Module 3 - here
+- [X] Module 1 - Introduction to Software Engineering
+- [X] Module 2 - Software Engineering Process
+- [ ] Module 3 - Requirements Analysis - in progress
 - [ ] Module 4
 - [ ] Module 5
 - [ ] Module 6
