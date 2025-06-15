@@ -5,11 +5,15 @@
 ### done
 v1.0.0 - app with streamlit + altair + pandas + numpy displaying NPS data - 2025_06_08
 v1.1.0 - adds nlp analysis + wordcloud + sentiment analysis - 2025_06_10
-study_sep_2025_06_13
-study_sdm_2025_06_13
 
 ### in progress
+v1.2.0 - refactor app.py to use pages
+-- uses views and utils folders
+--- adds home page with project details
+--- adds translation page using deep-translator (learns about Google Translate API)
+--- moves biz logic to DashboardPage
+-- learns how to translate on gsheets `=GOOGLETRANSLATE(C2;"pt";"en")`
 
 ### backlog
-v1.2.0 - explore more nlp and other libs - 2025_06_13
-v1.3.0 - adds comments after Dr. Ranju's checkpoint
+v1.3.0 - explore more nlp and other libs - 2025_06_13
+v1.4.0 - adds comments after Dr. Ranju's checkpoint
