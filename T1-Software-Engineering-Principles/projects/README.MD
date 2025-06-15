@@ -15,6 +15,7 @@ v1.3.0 - deploy project on streamlitcloud
 
 ### in progress
 v1.4.0 - explore more nlp and other libs - 2025_06_13
+- huggingface transformers, pipelines
 
 ### backlog
 v1.5.0 - adds comments after Dr. Ranju's checkpoint
