@@ -57,9 +57,9 @@ masters_sweai/
 - [ ] Document key learnings and insights
 
 ## T1-Software-Development-Management Modules
-- [X] Module 1
-- [X] Module 2
-- [ ] Module 3
+- [X] Module 1 - Introduction to Software Project Management
+- [X] Module 2 - Project Initiation
+- [ ] Module 3 - Project Planning I - in progress
 - [ ] Module 4
 - [ ] Module 5
 - [ ] Module 6
@@ -79,7 +79,7 @@ masters_sweai/
 ## T1-Software-Engineering-Principles Modules
 - [X] Module 1
 - [X] Module 2
-- [ ] Module 3
+- [ ] Module 3 - here
 - [ ] Module 4
 - [ ] Module 5
 - [ ] Module 6
