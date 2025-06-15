@@ -28,7 +28,16 @@ def main():
     # Sidebar with logo and navigation - this will be our only sidebar
     with st.sidebar:
         # Logo and title
-        st.image("public/clinictrends_logo_200x200.svg", width=200)
+        try:
+            logo_path = Path(__file__).parent / "public" / "clinictrends_logo_200x200.svg"
+            logo = str(logo_path) if logo_path.exists() else None
+        except Exception as e:
+            st.warning(f"Could not load logo: {e}")
+            logo = None 
+        
+        if logo:
+            st.image(logo, width=200)
+        
         st.markdown("---")
         
         # Navigation menu
