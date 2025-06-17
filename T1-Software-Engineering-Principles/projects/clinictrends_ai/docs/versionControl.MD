@@ -11,11 +11,10 @@ v1.2.0 - refactor app.py to use pages
 --- adds translation page using deep-translator (learns about Google Translate API)
 --- moves biz logic to DashboardPage
 -- learns how to translate on gsheets `=GOOGLETRANSLATE(C2;"pt";"en")`
-v1.3.0 - deploy project on streamlitcloud
+v1.3.0 - deploy project on streamlitcloud + adding Pipeline Transformers from Hugging Face's Library
 
 ### in progress
-v1.4.0 - explore more nlp and other libs - 2025_06_13
-- huggingface transformers, pipelines
+v1.4.0 - explore training TextBlob (Dr. Ranju's suggestion)
 
 ### backlog
-v1.5.0 - adds comments after Dr. Ranju's checkpoint
+v1.5.0 - try to fine tune transformers
