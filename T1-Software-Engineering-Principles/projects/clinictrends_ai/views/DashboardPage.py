@@ -86,28 +86,30 @@ def show_dashboard():
         display_wordcloud(annotated_df)
 
         st.subheader("Comments with TextBlob Sentiment")
-        st.dataframe(annotated_df[["Date", "Store", "Comment", "Sentiment", "Polarity"]].dropna().sample(50), use_container_width=True)
+        st.dataframe(annotated_df[["Date", "Store", "Comment", "Sentiment", "Polarity", "ScoreValue"]].dropna().sample(50), use_container_width=True)
 
-        # Apply Transformers
-        from transformers import pipeline
+        ######################## 
+        # EXTRA TRANSFORMERS PIPELINE
+        ######################## 
+        # st.write("---")
 
-        # Load transformer-based sentiment pipeline only once
-        sentiment_pipeline = pipeline("sentiment-analysis", model="distilbert-base-uncased-finetuned-sst-2-english")
+        # from transformers import pipeline
+        # sentiment_pipeline = pipeline("sentiment-analysis", model="distilbert-base-uncased-finetuned-sst-2-english")
 
-        st.subheader("Comments with Hugging Face Transformers Sentiment")
+        # st.subheader("Comments with Hugging Face Transformers Sentiment")
 
-        # Take a sample of comments with non-empty strings
-        sample_df = annotated_df[["Date", "Store", "Comment", "Sentiment", "Polarity"]].dropna().sample(50).copy()
+        # # Take a sample of comments with non-empty strings
+        # sample_df = annotated_df[["Date", "Store", "Comment", "Sentiment", "Polarity", "ScoreValue"]].dropna().sample(50).copy()
 
-        # Apply the Hugging Face model only to the comments
-        hf_results = sentiment_pipeline(sample_df["Comment"].tolist(), truncation=True)
+        # # Apply the Hugging Face model only to the comments
+        # hf_results = sentiment_pipeline(sample_df["Comment"].tolist(), truncation=True)
 
-        # Extract label and score into separate columns
-        sample_df["HF_Label"] = [res["label"] for res in hf_results]
-        sample_df["HF_Score"] = [round(res["score"], 3) for res in hf_results]
+        # # Extract label and score into separate columns
+        # sample_df["HF_Label"] = [res["label"] for res in hf_results]
+        # sample_df["HF_Score"] = [round(res["score"], 3) for res in hf_results]
 
-        # Show the table
-        st.dataframe(sample_df, use_container_width=True)
+        # # Show the table
+        # st.dataframe(sample_df, use_container_width=True)
     
 
 if __name__ == "__main__":
