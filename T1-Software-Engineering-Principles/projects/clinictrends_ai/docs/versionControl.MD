@@ -1,3 +1,10 @@
+# Exec Project
+```
+cd T1-Software-Engineering-Principles/projects/clinictrends_ai
+source venv/bin/activate
+streamlit run app.py
+```
+
 # projects version control
 
 ## clinictrends_ai
@@ -14,7 +21,9 @@ v1.2.0 - refactor app.py to use pages
 v1.3.0 - deploy project on streamlitcloud + adding Pipeline Transformers from Hugging Face's Library
 
 ### in progress
-v1.4.0 - explore training TextBlob (Dr. Ranju's suggestion)
+v1.4.0 - explore training TextBlob (Dr. Ranju's suggestion) - WTF...
 
 ### backlog
 v1.5.0 - try to fine tune transformers
+
+

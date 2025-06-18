@@ -19,8 +19,8 @@ def nps_type(score):
         return "Detractor"
 
 def classify_nps(df):
-    df["ScoreValue"] = df["Score"].apply(extract_score)
-    df["NPS Type"] = df["ScoreValue"].apply(nps_type)
+    df["Score"] = df["Score"].apply(extract_score)
+    df["NPS Type"] = df["Score"].apply(nps_type)
     return df
 
 def calculate_nps(df):

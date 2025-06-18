@@ -1,6 +1,7 @@
 import streamlit as st
 from pathlib import Path
 import sys
+import altair as alt
 
 # Add parent directory to path to import utils
 sys.path.append(str(Path(__file__).parent.parent))
@@ -86,7 +87,37 @@ def show_dashboard():
         display_wordcloud(annotated_df)
 
         st.subheader("Comments with TextBlob Sentiment")
-        st.dataframe(annotated_df[["Date", "Store", "Comment", "Sentiment", "Polarity", "ScoreValue"]].dropna().sample(50), use_container_width=True)
+        st.dataframe(annotated_df[["Date", "Store", "Comment", "Score", "NPS Type", "Sentiment", "Polarity"]].dropna().sample(50), use_container_width=True)
+
+        # st.write("---")
+        # st.subheader("Positive Comments")
+        # st.dataframe(annotated_df[annotated_df["Sentiment"] == "Positive"][["Date", "Store", "Comment", "Score", "NPS Type", "Sentiment", "Polarity"]].dropna(), use_container_width=True)
+        # st.subheader("Negative Comments")
+        # st.dataframe(annotated_df[annotated_df["Sentiment"] == "Negative"][["Date", "Store", "Comment", "Score", "NPS Type", "Sentiment", "Polarity"]].dropna(), use_container_width=True)
+
+        st.write("---")
+        st.markdown("### CHECKING NPS DATA vs SENTIMENT")
+        col1, col2 = st.columns(2)
+        with col1:
+            # NPS pizza graphic
+            donut_chart = nps_donut_chart(filtered_df)
+            st.altair_chart(donut_chart, use_container_width=True)
+            st.dataframe(filtered_df["NPS Type"].value_counts().reset_index(), use_container_width=True)
+        with col2:
+            # Sentiment distribution graphic
+            annotated_df["Sentiment"] = annotated_df["Sentiment"].astype(str)
+            sentiment_distribution_chart = annotated_df.groupby("Sentiment").size().reset_index(name="Count")
+
+            bar_chart = alt.Chart(sentiment_distribution_chart).mark_arc(innerRadius=50).encode(
+                theta=alt.Theta(field="Count", type="quantitative"),
+                color=alt.Color(field="Sentiment", type="nominal", scale=alt.Scale(domain=["Positive", "Negative", "Neutral"], range=["#2ecc71", "#e74c3c", "#f1c40f"])),
+                tooltip=["Sentiment", "Count"]
+            ).properties(
+                title="Sentiment Distribution"
+            )
+
+            st.altair_chart(bar_chart, use_container_width=True)
+            st.dataframe(sentiment_distribution_chart, use_container_width=True)
 
         ######################## 
         # EXTRA TRANSFORMERS PIPELINE
@@ -99,7 +130,7 @@ def show_dashboard():
         # st.subheader("Comments with Hugging Face Transformers Sentiment")
 
         # # Take a sample of comments with non-empty strings
-        # sample_df = annotated_df[["Date", "Store", "Comment", "Sentiment", "Polarity", "ScoreValue"]].dropna().sample(50).copy()
+        # sample_df = annotated_df[["Date", "Store", "Comment", "Sentiment", "Polarity", "Score"]].dropna().sample(50).copy()
 
         # # Apply the Hugging Face model only to the comments
         # hf_results = sentiment_pipeline(sample_df["Comment"].tolist(), truncation=True)
