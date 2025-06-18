@@ -53,14 +53,14 @@ masters_sweai/
 
 - [ ] Complete course materials for Software Development Management
 - [ ] Complete course materials for Software Engineering Principles
-- [ ] Implement at least 2 projects per subject
+- [ ] Implement 1 project per subject
 - [ ] Document key learnings and insights
 
 ## T1-Software-Development-Management Modules
 - [X] Module 1 - Introduction to Software Project Management
 - [X] Module 2 - Project Initiation
-- [ ] Module 3 - Project Planning I - in progress
-- [ ] Module 4
+- [X] Module 3 - Project Planning I
+- [ ] Module 4 - Project Planning II - in progress
 - [ ] Module 5
 - [ ] Module 6
 - [ ] Module 7
@@ -71,7 +71,7 @@ masters_sweai/
 - [ ] Module 12
 
 ## T1-Software-Development-Management Assignments
-- [ ] Assessment 1 - draft ready
+- [X] Assessment 1 - draft ready
 - [ ] Assessment 2 - draft ready
 - [ ] Assessment 3
 - [ ] Assessment 4
@@ -91,7 +91,7 @@ masters_sweai/
 - [ ] Module 12
 
 ## T1-Software-Engineering-Principles Assignments
-- [ ] Assessment 1 - draft ready
+- [X] Assessment 1 - draft ready
 - [ ] Assessment 2 - draft ready
 - [ ] Assessment 3
 - [ ] Assessment 4

@@ -45,6 +45,9 @@ streamlit run app.py
 
 ### 🚧 In Progress
 - **v1.4.0** – Training/fine-tuning TextBlob (suggested by Dr. Ranju)
+--- "feat(sep_clinicTrendsAI_v1.4) sets up ground for ML training to increase accuracy"
+--- "feat(sep_clinicTrendsAI_v1.4) implements training page"
+--- "feat(sep_clinicTrendsAI_v1.4) compare text blob x nps x trained model" (to-do)
 
 ### 📝 Backlog
 - **v1.5.0** – Hotfix: add support to chosing between score 1-5 or 1-10
