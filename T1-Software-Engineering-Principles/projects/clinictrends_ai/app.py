@@ -7,7 +7,7 @@ from pathlib import Path
 st.set_page_config(
     page_title="ClinicTrends AI",
     page_icon="",
-    layout="wide",
+    layout="wide", # centered
     initial_sidebar_state="expanded"
 )
 
@@ -17,12 +17,13 @@ sys.path.append(str(Path(__file__).parent))
 # Import pages
 try:
     # Try relative import first
-    from views import HomePage, DashboardPage, TranslatePage
+    from views import HomePage, DashboardPage, TranslatePage, TrainingPage
 except ImportError:
     # Fall back to direct import
     import views.HomePage as HomePage
     import views.DashboardPage as DashboardPage
     import views.TranslatePage as TranslatePage
+    import views.TrainingPage as TrainingPage
 
 def main():
     # Sidebar with logo and navigation - this will be our only sidebar
@@ -46,7 +47,7 @@ def main():
         # Page selection
         page = st.radio(
             "",
-            [" Home", " Dashboard", " Translation"],
+            [" Home", " Dashboard", " Translation", " Training"],
             index=0,
             label_visibility="collapsed"
         )
@@ -68,6 +69,8 @@ def main():
         DashboardPage.show_dashboard()
     elif page == " Translation":
         TranslatePage.show_translate()
+    elif page == " Training":
+        TrainingPage.show_training()
 
 if __name__ == "__main__":
     main()

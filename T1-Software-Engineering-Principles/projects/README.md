@@ -44,13 +44,12 @@ streamlit run app.py
 - **v1.3.0** – Deploys to Streamlit Cloud; integrates Hugging Face pipelines
 
 ### 🚧 In Progress
-- **v1.4.0** – Training/fine-tuning TextBlob (suggested by Dr. Ranju)
+- **v1.4.0** – Investigate training or fine-tuning TextBlob (suggested by Dr. Ranju)
 
 ### 📝 Backlog
-- **v1.5.0** – Hotfix: add support to chosing between score 1-5 or 1-10
-- **v1.6.0** – Fine-tune transformer models for domain-specific sentiment
-- **v1.7.0** – Add automated alert system for NPS drop detection
-- **v1.8.0** – Implement interpretable ML models for NPS prediction
+- **v1.5.0** – Fine-tune transformer models for domain-specific sentiment
+- **v1.6.0** – Add automated alert system for NPS drop detection
+- **v1.7.0** – Implement interpretable ML models for NPS prediction
 
 ---
 
