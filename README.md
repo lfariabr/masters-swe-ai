@@ -79,8 +79,8 @@ masters_sweai/
 ## T1-Software-Engineering-Principles Modules
 - [X] Module 1 - Introduction to Software Engineering
 - [X] Module 2 - Software Engineering Process
-- [ ] Module 3 - Requirements Analysis - in progress
-- [ ] Module 4
+- [X] Module 3 - Requirements Analysis
+- [ ] Module 4 - Requirements Modelling - in progress
 - [ ] Module 5
 - [ ] Module 6
 - [ ] Module 7
