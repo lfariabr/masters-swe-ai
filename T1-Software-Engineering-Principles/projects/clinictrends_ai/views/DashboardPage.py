@@ -113,7 +113,7 @@ def show_dashboard():
                 color=alt.Color(field="Sentiment", type="nominal", scale=alt.Scale(domain=["Positive", "Negative", "Neutral"], range=["#2ecc71", "#e74c3c", "#f1c40f"])),
                 tooltip=["Sentiment", "Count"]
             ).properties(
-                title="Sentiment Distribution"
+                title="Sentiment Distribution - TextBlob"
             )
 
             st.altair_chart(bar_chart, use_container_width=True)
