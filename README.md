@@ -91,8 +91,8 @@ masters_sweai/
 - [ ] Module 12
 
 ## T1-Software-Engineering-Principles Assignments
-- [X] Assessment 1 - draft ready
-- [ ] Assessment 2 - draft ready
+- [X] Assessment 1 - submitted 20/06/2025
+- [ ] Assessment 2
 - [ ] Assessment 3
 - [ ] Assessment 4
 
