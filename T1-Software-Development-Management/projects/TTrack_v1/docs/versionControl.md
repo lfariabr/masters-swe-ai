@@ -19,10 +19,13 @@ v1.3.0 - explore possibilities of processing data and matching (engine)
 -- refactor for modularity with ui and resolvers directories
 -- adds two new tabs (input and results)
 -- display processed result on results tab matching transcript with curriculum
+-- dig deeper into the database (fixed names of subjects)
+-- created tab_results2.py matching layout
 
 ### in progress
 
 ### backlog
+- make new page work tab_results2 exhibit processed data, instead of fallback
 - dig deeper into the engine.py
 - fix dark mode button text color
 - setup more pages (homepage with intro, about)

@@ -48,7 +48,7 @@ streamlit run app.py
 --- "feat(sep_clinicTrendsAI_v1.4) sets up ground for ML training to increase accuracy"
 --- "feat(sep_clinicTrendsAI_v1.4) implements training page"
 --- "feat(sep_clinicTrendsAI_v1.4) compare text blob x nps x trained model +comment" (done, 19.06)
---- "feat(sep_clinicTrendsAI_v1.4) compare text blob x nps x trained model +comment x trained model +score", looking better (done 19.06)
+--- "feat(sep_clinicTrendsAI_v1.4) compare text blob x nps x trained model +comment x trained model +score", looking interesting (done 19.06)
 --- "feat(sep_clinicTrendsAI_v1.4) compare text blob x nps x trained model +comment x trained model +score x transformers". (to be done)
 
 
