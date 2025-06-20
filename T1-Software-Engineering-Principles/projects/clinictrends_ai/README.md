@@ -49,10 +49,12 @@ streamlit run app.py
 --- "feat(sep_clinicTrendsAI_v1.4) implements training page"
 --- "feat(sep_clinicTrendsAI_v1.4) compare text blob x nps x trained model +comment" (done, 19.06)
 --- "feat(sep_clinicTrendsAI_v1.4) compare text blob x nps x trained model +comment x trained model +score", looking interesting (done 19.06)
---- "feat(sep_clinicTrendsAI_v1.4) compare text blob x nps x trained model +comment x trained model +score x transformers". (to be done)
+--- "feat(sep_clinicTrendsAI_v1.4) compare text blob x nps x trained model +comment x trained model x transformers". (done 20.06)
+
 
 
 ### 📝 Backlog
+--- "feat(sep_clinicTrendsAI_v1.4) compare text blob x nps x trained model +comment x trained model x transformers x score". (to be done)
 - **v1.5.0** – Hotfix: add support to chosing between score 1-5 or 1-10
 - **v1.6.0** – Fine-tune transformer models for domain-specific sentiment
 - **v1.7.0** – Add automated alert system for NPS drop detection

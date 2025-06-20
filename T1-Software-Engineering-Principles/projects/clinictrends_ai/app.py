@@ -17,7 +17,7 @@ sys.path.append(str(Path(__file__).parent))
 # Import pages
 try:
     # Try relative import first
-    from views import HomePage, DashboardPage, TranslatePage, TrainingPage, TrainingPage2
+    from views import HomePage, DashboardPage, TranslatePage, TrainingPage, TrainingPage2, TrainingPage3
 except ImportError:
     # Fall back to direct import
     import views.HomePage as HomePage
@@ -25,6 +25,7 @@ except ImportError:
     import views.TranslatePage as TranslatePage
     import views.TrainingPage as TrainingPage
     import views.TrainingPage2 as TrainingPage2
+    import views.TrainingPage3 as TrainingPage3
 
 def main():
     # Sidebar with logo and navigation - this will be our only sidebar
@@ -48,7 +49,7 @@ def main():
         # Page selection
         page = st.radio(
             "",
-            [" Home", " Dashboard", " Translation", " Training", " Training2"],
+            [" Home", " Dashboard", " Translation", " Training", " Training2", " Training3"],
             index=0,
             label_visibility="collapsed"
         )
@@ -74,6 +75,8 @@ def main():
         TrainingPage.show_training()
     elif page == " Training2":
         TrainingPage2.show_training2()
+    elif page == " Training3":
+        TrainingPage3.show_training3()
 
 if __name__ == "__main__":
     main()
