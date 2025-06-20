@@ -12,6 +12,7 @@ def match_transcript_with_curriculum(transcript_df, curriculum_df):
     Compare transcript and curriculum to classify subjects into:
     ✅ Done / ❌ Missing
     """
+    # TODO: Check this part!!! 
     # Normalize codes
     transcript_df = normalize_subject_codes(transcript_df)
     curriculum_df = normalize_subject_codes(curriculum_df)
