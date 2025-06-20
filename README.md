@@ -71,10 +71,10 @@ masters_sweai/
 - [ ] Module 12
 
 ## T1-Software-Development-Management Assignments
-- [X] Assessment 1 - draft ready
-- [ ] Assessment 2 - draft ready
-- [ ] Assessment 3
-- [ ] Assessment 4
+- [ ] Assessment 1 - deadline 29/06/2025 - draft (work in progress)
+- [ ] Assessment 2 - deadline 20/07/2025
+- [ ] Assessment 3 - deadline 10/08/2025
+- [ ] Assessment 4 - deadline 24/08/2025
 
 ## T1-Software-Engineering-Principles Modules
 - [X] Module 1 - Introduction to Software Engineering
@@ -92,9 +92,9 @@ masters_sweai/
 
 ## T1-Software-Engineering-Principles Assignments
 - [X] Assessment 1 - submitted 20/06/2025
-- [ ] Assessment 2
-- [ ] Assessment 3
-- [ ] Assessment 4
+- [ ] Assessment 2 - deadline 06/07/2025
+- [ ] Assessment 3 - deadline 03/08/2025
+- [ ] Assessment 4 - deadline 20/08/2025
 
 ## Contributing
 While this is primarily a personal repository, I welcome discussions and constructive feedback. Feel free to open an issue if you have suggestions or questions.
