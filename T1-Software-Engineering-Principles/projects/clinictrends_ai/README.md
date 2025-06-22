@@ -54,16 +54,16 @@ streamlit run app.py
 - **v1.3.0** – Deploys to Streamlit Cloud; integrates Hugging Face pipelines
 
 ### 🚧 In Progress
-- **v1.4.0** – Training/fine-tuning TextBlob (suggested by Dr. Ranju)
---- "feat(sep_clinicTrendsAI_v1.4) sets up ground for ML training to increase accuracy"
---- "feat(sep_clinicTrendsAI_v1.4) implements training page"
---- "feat(sep_clinicTrendsAI_v1.4) compare text blob x nps x trained model +comment" (done, 19.06)
---- "feat(sep_clinicTrendsAI_v1.4) compare text blob x nps x trained model +comment x trained model +score", looking interesting (done 19.06)
---- "feat(sep_clinicTrendsAI_v1.4) compare text blob x nps x trained model +comment x trained model x transformers". (done 20.06)
---- "feat(sep_clinicTrendsAI_v1.4) compare text blob x nps x trained model +comment x trained model x transformers". - pizza graphic... (done 22.06)
+- **v1.4.0** - Training/fine-tuning TextBlob (suggested by Dr. Ranju)
+- "feat(sep_clinicTrendsAI_v1.4) sets up ground for ML training to increase accuracy"
+- "feat(sep_clinicTrendsAI_v1.4) implements training page"
+- "feat(sep_clinicTrendsAI_v1.4) compare text blob x nps x trained model +comment" (done, 19.06)
+- "feat(sep_clinicTrendsAI_v1.4) compare text blob x nps x trained model +comment x trained model +score", looking interesting (done 19.06)
+- "feat(sep_clinicTrendsAI_v1.4) compare text blob x nps x trained model +comment x trained model x transformers". (done 20.06)
+- "feat(sep_clinicTrendsAI_v1.4) compare text blob x nps x trained model +comment x trained model x transformers". - pizza graphic... (done 22.06)
 
 ### 📝 Backlog
---- "feat(sep_clinicTrendsAI_v1.4) compare text blob x nps x trained model +comment x trained model x transformers x comments+score". (to be done)
+- "feat(sep_clinicTrendsAI_v1.4) compare text blob x nps x trained model +comment x trained model x transformers x comments+score". (to be done)
 - **v1.5.0** – Hotfix: add support to chosing between score 1-5 or 1-10
 - **v1.6.0** – Fine-tune transformer models for domain-specific sentiment
 - **v1.7.0** – Add automated alert system for NPS drop detection
