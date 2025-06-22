@@ -55,6 +55,7 @@ def show_training3():
 
         model = LogisticRegression(max_iter=1000)
         model.fit(X_train, y_train)
+
         # Predict using trained model
         df["ML_Sentiment"] = model.predict(vectorizer.transform(df["Comment"]))
 
@@ -71,53 +72,48 @@ def show_training3():
 
         st.write("---")
         st.markdown("### CHECKING NPS DATA vs SENTIMENT")
-        col1, col2 = st.columns(2)
-        df = classify_nps(df)
-
         # Clean and process date columns
         df["Year"] = df["Year"].astype(str).str.replace(",", "")
         df["Date"] = pd.to_datetime(df["Date"])  
         df["Month"] = df["Date"].dt.to_period("M").astype(str)
+        df = classify_nps(df)
 
-        from transformers import pipeline
-        sentiment_pipeline = pipeline("sentiment-analysis", model="distilbert-base-uncased-finetuned-sst-2-english")
+        # Analyze all comments with Transformers
+        st.subheader("Analyzing Sentiment with Hugging Face Transformers")
+        with st.spinner('Analyzing all comments with Transformers...'):
+            sentiment_pipeline = pipeline("sentiment-analysis", model="distilbert-base-uncased-finetuned-sst-2-english")
+            hf_results = sentiment_pipeline(df["Comment"].tolist(), truncation=True)
+            df["HF_Label"] = [res["label"] for res in hf_results]
+            df["HF_Score"] = [round(res["score"], 3) for res in hf_results]
 
-        st.subheader("Comments with Hugging Face Transformers Sentiment")
-
-        # Take a sample of comments with non-empty strings
-        sample_df = df[["Date", "Store", "Comment", "Sentiment", "Polarity", "Score"]].dropna().sample(50).copy()
-
-        # Apply the Hugging Face model only to the comments
-        hf_results = sentiment_pipeline(sample_df["Comment"].tolist(), truncation=True)
-
-        # Extract label and score into separate columns
-        sample_df["HF_Label"] = [res["label"] for res in hf_results]
-        sample_df["HF_Score"] = [round(res["score"], 3) for res in hf_results]
-
-        # Show the table
-        st.dataframe(sample_df, use_container_width=True)
+        # Create two columns for side-by-side comparison
+        col1, col2 = st.columns(2)
         
         with col1:
-            # NPS pizza graphic
+            # NPS donut chart
+            st.subheader("NPS Distribution")
             donut_chart = nps_donut_chart(df)
             st.altair_chart(donut_chart, use_container_width=True)
             st.dataframe(df["NPS Type"].value_counts().reset_index(), use_container_width=True)
+            
         with col2:
-            # Sentiment distribution graphic
-            df["ML_Sentiment"] = df["ML_Sentiment"].astype(str)
-            sentiment_distribution_chart = df.groupby("ML_Sentiment").size().reset_index(name="Count")
-            sentiment_distribution_chart.columns = ["Sentiment", "Count"]
-
-            bar_chart = alt.Chart(sentiment_distribution_chart).mark_arc(innerRadius=50).encode(
+            # Transformers sentiment donut chart
+            st.subheader("Transformers Sentiment")
+            sentiment_counts = df["HF_Label"].value_counts().reset_index()
+            sentiment_counts.columns = ["Sentiment", "Count"]
+            
+            chart = alt.Chart(sentiment_counts).mark_arc(innerRadius=50).encode(
                 theta=alt.Theta(field="Count", type="quantitative"),
-                color=alt.Color(field="Sentiment", type="nominal", scale=alt.Scale(domain=["Positive", "Negative", "Neutral"], range=["#2ecc71", "#e74c3c", "#f1c40f"])),
+                color=alt.Color(field="Sentiment", type="nominal", 
+                             scale=alt.Scale(domain=["POSITIVE", "NEGATIVE"], 
+                                          range=["#2ecc71", "#e74c3c"])),
                 tooltip=["Sentiment", "Count"]
             ).properties(
-                title="Sentiment Distribution - Custom Trained Model"
+                width=300,
+                height=300
             )
-
-            st.altair_chart(bar_chart, use_container_width=True)
-            st.dataframe(sentiment_distribution_chart, use_container_width=True)
+            st.altair_chart(chart, use_container_width=True)
+            st.dataframe(sentiment_counts, use_container_width=True)
     
 if __name__ == "__main__":
     show_training3()

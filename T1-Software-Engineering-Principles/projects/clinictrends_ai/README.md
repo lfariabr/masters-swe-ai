@@ -8,6 +8,16 @@ It is designed for small to medium-sized businesses that need actionable insight
 
 ---
 
+## 📦 Project Details
+
+| Key       | Value            |
+|-----------|------------------|
+| **Name**  | ClinicTrends AI           |
+| **Version** | 1.4.0         |
+| **Stack** | Python, Streamlit, pandas, numpy, altair, textblob, deep-translator, transformers |
+| **Goal**  | Analyze customer feedback and predict Net Promoter Score (NPS) trends using real-time data, natural language processing, and machine learning |
+
+
 ## 🔧 Getting Started
 
 ### ▶️ Run the Project
@@ -50,10 +60,10 @@ streamlit run app.py
 --- "feat(sep_clinicTrendsAI_v1.4) compare text blob x nps x trained model +comment" (done, 19.06)
 --- "feat(sep_clinicTrendsAI_v1.4) compare text blob x nps x trained model +comment x trained model +score", looking interesting (done 19.06)
 --- "feat(sep_clinicTrendsAI_v1.4) compare text blob x nps x trained model +comment x trained model x transformers". (done 20.06)
+--- "feat(sep_clinicTrendsAI_v1.4) compare text blob x nps x trained model +comment x trained model x transformers". - pizza graphic... (done 22.06)
 
 ### 📝 Backlog
---- "feat(sep_clinicTrendsAI_v1.4) compare text blob x nps x trained model +comment x trained model x transformers". - pizza graphic...
---- "feat(sep_clinicTrendsAI_v1.4) compare text blob x nps x trained model +comment x trained model x transformers x score". (to be done)
+--- "feat(sep_clinicTrendsAI_v1.4) compare text blob x nps x trained model +comment x trained model x transformers x comments+score". (to be done)
 - **v1.5.0** – Hotfix: add support to chosing between score 1-5 or 1-10
 - **v1.6.0** – Fine-tune transformer models for domain-specific sentiment
 - **v1.7.0** – Add automated alert system for NPS drop detection
@@ -81,6 +91,16 @@ Project for SEP401 – Software Engineering Principles @ Torrens University
 
 ---
 
+## 📅 Version Control Roadmap
+
+| Version | Modules            | Status         |
+|---------|---------------------|----------------|
+| 1.0.0   | Modules 1–4         | ✅ Done        |
+| 2.0.0   | Modules 5–8         | 🕐 Not started |
+| 3.0.0   | Modules 9–12        | 🕐 Not started |
+
+---
+
 ## 🧠 Insights & Learning
 
 This project explores practical applications of:
@@ -88,3 +108,9 @@ This project explores practical applications of:
 - Data visualization and business storytelling
 - Sentiment analysis and language translation
 - ML pipelines for text classification and trend prediction
+
+# Inspirational Quote based on Tech Stack and Projects' Goals
+
+---
+
+> “Whether it’s concrete or code, structure is everything.”
