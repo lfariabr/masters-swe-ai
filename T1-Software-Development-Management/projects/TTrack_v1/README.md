@@ -3,8 +3,6 @@
 
 TTrack is a desktop application designed to help students and academic staff **track academic progress** by comparing a student’s **official transcript** with their **prescribed curriculum**. It automates the validation of completed, missing, and elective subjects, offering a clean interface and clear dashboard outputs.
 
-> Built with sweat, coffee, and Ctrl+Z by Luis — acting as both the Project Manager and Tech Lead, going full gear to rock this motherf***er on!
-
 ---
 
 ## 🚀 How to Run
