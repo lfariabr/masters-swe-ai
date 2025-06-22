@@ -76,3 +76,4 @@ typing_extensions==4.14.0
 tzdata==2025.2
 urllib3==2.4.0
 wordcloud==1.9.4
+scikit-learn==1.5.2
