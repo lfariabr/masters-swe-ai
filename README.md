@@ -60,7 +60,7 @@ masters_sweai/
 - [X] Module 1 - Introduction to Software Project Management
 - [X] Module 2 - Project Initiation
 - [X] Module 3 - Project Planning I
-- [ ] Module 4 - Project Planning II - in progress
+- [X] Module 4 - Project Planning II - in progress
 - [ ] Module 5
 - [ ] Module 6
 - [ ] Module 7
@@ -80,7 +80,7 @@ masters_sweai/
 - [X] Module 1 - Introduction to Software Engineering
 - [X] Module 2 - Software Engineering Process
 - [X] Module 3 - Requirements Analysis
-- [ ] Module 4 - Requirements Modelling - in progress
+- [X] Module 4 - Requirements Modelling - in progress
 - [ ] Module 5
 - [ ] Module 6
 - [ ] Module 7
