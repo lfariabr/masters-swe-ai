@@ -68,6 +68,7 @@ streamlit run app.py
 - **v1.6.0** – Fine-tune transformer models for domain-specific sentiment
 - **v1.7.0** – Add automated alert system for NPS drop detection
 - **v1.8.0** – Implement interpretable ML models for NPS prediction
+- **v1.9.0** – Add Pytest
 
 ---
 
@@ -83,7 +84,7 @@ streamlit run app.py
 
 ## 👨‍🔬 Authors
 
-- Luis Guilherme de Barros Andrade Faria  
+- Luis Faria  
 - Jing Feng Chin  
 - Luong Hai Chau  
 
@@ -96,7 +97,7 @@ Project for SEP401 – Software Engineering Principles @ Torrens University
 | Version | Modules            | Status         |
 |---------|---------------------|----------------|
 | 1.0.0   | Modules 1–4         | ✅ Done        |
-| 2.0.0   | Modules 5–8         | 🕐 Not started |
+| 2.0.0   | Modules 5–8         | 🔥 In Progress |
 | 3.0.0   | Modules 9–12        | 🕐 Not started |
 
 ---
