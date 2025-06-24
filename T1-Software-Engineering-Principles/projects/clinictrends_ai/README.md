@@ -12,8 +12,8 @@ It is designed for small to medium-sized businesses that need actionable insight
 
 | Key       | Value            |
 |-----------|------------------|
-| **Name**  | ClinicTrends AI           |
-| **Version** | 1.4.0         |
+| **Name**  | ClinicTrends AI  |
+| **Version** | 1.4.0          |
 | **Stack** | Python, Streamlit, pandas, numpy, altair, textblob, deep-translator, transformers |
 | **Goal**  | Analyze customer feedback and predict Net Promoter Score (NPS) trends using real-time data, natural language processing, and machine learning |
 
@@ -40,35 +40,49 @@ streamlit run app.py
 
 ---
 
-## 🚀 Version History
+## ✅ Feature Progress
 
-### ✅ Done
-- **v1.0.0** – Streamlit app with Altair, pandas, numpy displaying NPS data (2025-06-08)
-- **v1.1.0** – Adds NLP sentiment analysis, wordcloud visualizations (2025-06-10)
-- **v1.2.0** – Refactors into multi-page app:
+### ✔ Done
+#### 🔹 v1.0.0 
+- Streamlit app with Altair, pandas, numpy displaying NPS data (2025-06-08)
+
+#### 🔹 v1.1.0 
+- Adds NLP sentiment analysis, wordcloud visualizations (2025-06-10)
+
+#### 🔹 v1.2.0 
+- Refactors into multi-page app:
   - Adds `views/` and `utils/` structure
   - Creates homepage with project overview
   - Adds a translation page using `deep-translator`
   - Moves business logic into `DashboardPage`
   - Notes Google Sheets translation trick: `=GOOGLETRANSLATE(C2;"pt";"en")`
-- **v1.3.0** – Deploys to Streamlit Cloud; integrates Hugging Face pipelines
 
-### 🚧 In Progress
-- **v1.4.0** - Training/fine-tuning TextBlob (suggested by Dr. Ranju)
+#### 🔹 v1.3.0 
+- Deploys to Streamlit Cloud; integrates Hugging Face pipelines
+
+---
+
+### 🔧 In Progress
+
+#### 🔸 v1.4.0 - `feature/training`
+- Training/fine-tuning TextBlob (suggested by Dr. Ranju)
 - "feat(sep_clinicTrendsAI_v1.4) sets up ground for ML training to increase accuracy"
 - "feat(sep_clinicTrendsAI_v1.4) implements training page"
 - "feat(sep_clinicTrendsAI_v1.4) compare text blob x nps x trained model +comment" (done, 19.06)
 - "feat(sep_clinicTrendsAI_v1.4) compare text blob x nps x trained model +comment x trained model +score", looking interesting (done 19.06)
 - "feat(sep_clinicTrendsAI_v1.4) compare text blob x nps x trained model +comment x trained model x transformers". (done 20.06)
 - "feat(sep_clinicTrendsAI_v1.4) compare text blob x nps x trained model +comment x trained model x transformers". - pizza graphic... (done 22.06)
+- "feat(sep_clinicTrendsAI_v1.4) adds transformers comments+score". (done 25.06)
 
-### 📝 Backlog
-- "feat(sep_clinicTrendsAI_v1.4) compare text blob x nps x trained model +comment x trained model x transformers x comments+score". (to be done)
-- **v1.5.0** – Hotfix: add support to chosing between score 1-5 or 1-10
-- **v1.6.0** – Fine-tune transformer models for domain-specific sentiment
-- **v1.7.0** – Add automated alert system for NPS drop detection
-- **v1.8.0** – Implement interpretable ML models for NPS prediction
-- **v1.9.0** – Add Pytest
+---
+
+### 🗂️ Backlog
+
+- Hotfix: add support to chosing between score 1-5 or 1-10
+- Fine-tune transformer models for domain-specific sentiment
+- Add automated alert system for NPS drop detection
+- Implement interpretable ML models for NPS prediction
+- Add Pytest coverage
 
 ---
 
@@ -82,7 +96,7 @@ streamlit run app.py
 
 ---
 
-## 👨‍🔬 Authors
+## 🤝 Contributors
 
 - Luis Faria  
 - Jing Feng Chin  

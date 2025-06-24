@@ -16,16 +16,16 @@ sys.path.append(str(Path(__file__).parent))
 
 # Import pages
 try:
-    # Try relative import first
-    from views import HomePage, DashboardPage, TranslatePage, TrainingPage, TrainingPage2, TrainingPage3
+    from views import HomePage, DashboardPage, TranslatePage, TrainingPage, TrainingPage2, TrainingPage3, TrainingPage4
+
 except ImportError:
-    # Fall back to direct import
     import views.HomePage as HomePage
     import views.DashboardPage as DashboardPage
     import views.TranslatePage as TranslatePage
     import views.TrainingPage as TrainingPage
     import views.TrainingPage2 as TrainingPage2
     import views.TrainingPage3 as TrainingPage3
+    import views.TrainingPage4 as TrainingPage4
 
 def main():
     # Sidebar with logo and navigation - this will be our only sidebar
@@ -49,7 +49,14 @@ def main():
         # Page selection
         page = st.radio(
             "",
-            [" Home", " Dashboard", " Translation", " Training", " Training2", " Training3"],
+            ["Home",
+             "Dashboard",
+             "Training - CM1", # TfidfVectorizer + LogisticRegression @ 'Comment' column.
+             "Training - CM2", # TfidfVectorizer + LogisticRegression @ 'CommentScore' column.
+             "Training - CM3", # TfidfVectorizer + LogisticRegression @ 'Comment' column + Hugging Face Transformers.
+             "Training - CM4", # TfidfVectorizer + LogisticRegression @ 'CommentScore' column + Hugging Face Transformers.
+             "Extra: Translation",
+             ],
             index=0,
             label_visibility="collapsed"
         )
@@ -59,24 +66,28 @@ def main():
         # App info
         st.markdown("""
         **ClinicTrends AI**  
-        v1.3.0  
+        v1.4.0  
         [GitHub Repo](https://github.com/lfariabr/masters-swe-ai/tree/master/T1-Software-Engineering-Principles/projects)  
         [Documentation](HomePage)
         """)
     
     # Main content based on selection
-    if page == " Home":
+    if page == "Home":
         HomePage.show_home()
-    elif page == " Dashboard":
+    elif page == "Dashboard":
         DashboardPage.show_dashboard()
-    elif page == " Translation":
-        TranslatePage.show_translate()
-    elif page == " Training":
-        TrainingPage.show_training()
-    elif page == " Training2":
-        TrainingPage2.show_training2()
-    elif page == " Training3":
-        TrainingPage3.show_training3()
 
+    elif page == "Training - CM1":
+        TrainingPage.show_training()
+    elif page == "Training - CM2":
+        TrainingPage2.show_training2()
+    elif page == "Training - CM3":
+        TrainingPage3.show_training3()
+    elif page == "Training - CM4":
+        TrainingPage4.show_training4()
+    
+    elif page == "Extra: Translation":
+        TranslatePage.show_translate()
+    
 if __name__ == "__main__":
     main()

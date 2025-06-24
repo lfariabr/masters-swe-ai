@@ -14,8 +14,8 @@ sys.path.append(str(Path(__file__).parent.parent))
 
 def show_training2():
     """Show the training page content."""
-    st.title("Training Page2")
-    st.write("This is the training page.")
+    st.title("Training Page - Custom Model 2")
+    st.write("This is the training page using TfidfVectorizer and LogisticRegression on 'Comment' column + 'Score'.")
 
     uploaded_file = st.file_uploader("Choose a CSV file", type="csv")
 

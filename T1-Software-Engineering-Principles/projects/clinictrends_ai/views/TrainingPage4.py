@@ -12,10 +12,10 @@ from utils.preprocessing import classify_nps
 # Add parent directory to path to import utils
 sys.path.append(str(Path(__file__).parent.parent))
 
-def show_training():
+def show_training4():
     """Show the training page content."""
-    st.title("Training Page - Custom Model 1")
-    st.write("This is the training page using TfidfVectorizer and LogisticRegression on 'Comment' column.")
+    st.title("Training Page - Custom Model 4")
+    st.write("This is the training page using TfidfVectorizer and LogisticRegression on 'Comment' + 'Score' column + Hugging Face Transformers.")
 
     uploaded_file = st.file_uploader("Choose a CSV file", type="csv")
 
@@ -32,14 +32,20 @@ def show_training():
 
         st.write('Data preview with NLP')
         st.write(df)
+        df["CommentScore"] = df["Comment"].astype(str) + " SCORE_" + df["Score"].astype(str)
 
         st.write("---")
         # st.write("Vectorizing data")
         from sklearn.feature_extraction.text import TfidfVectorizer
 
         vectorizer = TfidfVectorizer(stop_words="english", max_features=5000)
-        X = vectorizer.fit_transform(df["Comment"])
-        y = df["Sentiment"]
+        X = vectorizer.fit_transform(df["CommentScore"])
+        # y = df["Sentiment"]
+        from transformers import pipeline
+        sentiment_pipeline = pipeline("sentiment-analysis", model="distilbert-base-uncased-finetuned-sst-2-english")
+        hf_results = sentiment_pipeline(df["Comment"].tolist(), truncation=True)
+        df["HF_Label"] = [res["label"] for res in hf_results]
+        y = df["HF_Label"]
 
         # st.write("Vectorized data")
 
@@ -50,6 +56,9 @@ def show_training():
 
         model = LogisticRegression(max_iter=1000)
         model.fit(X_train, y_train)
+
+        # Predict using trained model
+        df["ML_Sentiment"] = model.predict(vectorizer.transform(df["CommentScore"]))
 
         # st.write("Model trained")
 
@@ -64,34 +73,48 @@ def show_training():
 
         st.write("---")
         st.markdown("### CHECKING NPS DATA vs SENTIMENT")
-        col1, col2 = st.columns(2)
-        df = classify_nps(df)
-
         # Clean and process date columns
         df["Year"] = df["Year"].astype(str).str.replace(",", "")
         df["Date"] = pd.to_datetime(df["Date"])  
         df["Month"] = df["Date"].dt.to_period("M").astype(str)
+        df = classify_nps(df)
+
+        # Analyze all comments with Transformers
+        st.subheader("Analyzing Sentiment with Hugging Face Transformers")
+        with st.spinner('Analyzing all comments with Transformers...'):
+            sentiment_pipeline = pipeline("sentiment-analysis", model="distilbert-base-uncased-finetuned-sst-2-english")
+            hf_results = sentiment_pipeline(df["Comment"].tolist(), truncation=True)
+            df["HF_Label"] = [res["label"] for res in hf_results]
+            df["HF_Score"] = [round(res["score"], 3) for res in hf_results]
+
+        # Create two columns for side-by-side comparison
+        col1, col2 = st.columns(2)
         
         with col1:
-            # NPS pizza graphic
+            # NPS donut chart
+            st.subheader("NPS Distribution")
             donut_chart = nps_donut_chart(df)
             st.altair_chart(donut_chart, use_container_width=True)
             st.dataframe(df["NPS Type"].value_counts().reset_index(), use_container_width=True)
+            
         with col2:
-            # Sentiment distribution graphic
-            df["Sentiment"] = df["Sentiment"].astype(str)
-            sentiment_distribution_chart = df.groupby("Sentiment").size().reset_index(name="Count")
-
-            bar_chart = alt.Chart(sentiment_distribution_chart).mark_arc(innerRadius=50).encode(
+            # Transformers sentiment donut chart
+            st.subheader("Transformers Sentiment")
+            sentiment_counts = df["HF_Label"].value_counts().reset_index()
+            sentiment_counts.columns = ["Sentiment", "Count"]
+            
+            chart = alt.Chart(sentiment_counts).mark_arc(innerRadius=50).encode(
                 theta=alt.Theta(field="Count", type="quantitative"),
-                color=alt.Color(field="Sentiment", type="nominal", scale=alt.Scale(domain=["Positive", "Negative", "Neutral"], range=["#2ecc71", "#e74c3c", "#f1c40f"])),
+                color=alt.Color(field="Sentiment", type="nominal", 
+                             scale=alt.Scale(domain=["POSITIVE", "NEGATIVE"], 
+                                          range=["#2ecc71", "#e74c3c"])),
                 tooltip=["Sentiment", "Count"]
             ).properties(
-                title="Sentiment Distribution - Custom Model"
+                width=300,
+                height=300
             )
-
-            st.altair_chart(bar_chart, use_container_width=True)
-            st.dataframe(sentiment_distribution_chart, use_container_width=True)
+            st.altair_chart(chart, use_container_width=True)
+            st.dataframe(sentiment_counts, use_container_width=True)
     
 if __name__ == "__main__":
-    show_training()
+    show_training4()
