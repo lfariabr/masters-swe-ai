@@ -47,6 +47,12 @@ masters_sweai/
 └── README.md
 ```
 
+| Version | Modules            | Status         |
+|---------|---------------------|----------------|
+| 1.0.0   | Modules 1–4         | ✅ Done        |
+| 2.0.0   | Modules 5–8         | 🔥 In Progress |
+| 3.0.0   | Modules 9–12        | 🕐 Not started |
+
 ## Progress Tracking
 
 - [ ] Complete course materials for Software Development Management
