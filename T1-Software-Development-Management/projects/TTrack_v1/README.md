@@ -1,4 +1,3 @@
-
 # 🧠 TTrack – Torrens Degree Tracker
 
 TTrack is a desktop application designed to help students and academic staff **track academic progress** by comparing a student’s **official transcript** with their **prescribed curriculum**. It automates the validation of completed, missing, and elective subjects, offering a clean interface and clear dashboard outputs.
@@ -20,7 +19,7 @@ python main.py
 | Key       | Value            |
 |-----------|------------------|
 | **Name**  | TTrack           |
-| **Version** | 1.5.0         |
+| **Version** | 1.5.1         |
 | **Stack** | Python, PyQt5, pandas, openpyxl |
 | **Goal**  | Compare transcript data with curriculum and return smart academic progress insights |
 | **Alt. Stack (Prototype)** | Electron + Node.js + React (explored in parallel) |
@@ -51,24 +50,34 @@ python main.py
 - Engine logic restructured
 - Internal comments, TODOs added for new output logic
 
+#### 🔹 v1.5.0 - `feature/ttracker-engine-expansion`
+- `match_transcript_with_curriculum`: compares both files and tags subjects as Done or Missing
+- `generate_progress_summary`: groups by subject type (Core, Elective, etc.) and shows how many are Done/Missing
+- `suggest_electives`: gives basic elective suggestions based on what’s still missing
+
+#### 🔹 v1.6.0 - `feature/ttracker-exe-test`
+- Added PyInstaller configuration for creating standalone executables
+- Created build scripts for both Windows (.exe) and macOS (.app)
+- Documentation for building and distributing the application
+
 ---
 
 ### 🔧 In Progress
 
-#### 🔸 v1.5.0 – `feature/ttracker-engine-expansion`
-- `match_transcript_with_curriculum`: compares both files and tags subjects as Done or Missing
-- `generate_progress_summary`: groups by subject type (Core, Elective, etc.) and shows how many are Done/Missing
-- `suggest_electives`: gives basic elective suggestions based on what’s still missing
-- TODO: deeper logic like tags, topics or even semantic similarity (based on description).
+#### 🔸 v1.7.0 - `tbd`
+- tbd
 
 ---
 
 ### 🗂️ Backlog
 
+- engine: deeper logic like tags, topics or even semantic similarity (based on description).
 - Make `tab_results2` functional: processed result shown properly
 - Fix dark mode button text color
 - Add more pages (Homepage, About)
 - Integrate with DB (MongoDB or Supabase PostgreSQL – 500MB free tier)
+- add filtering on results table
+- add A-Z sorting on results table
 
 ---
 
