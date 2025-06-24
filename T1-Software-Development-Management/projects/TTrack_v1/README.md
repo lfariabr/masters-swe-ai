@@ -71,13 +71,13 @@ python main.py
 
 ### 🗂️ Backlog
 
-- engine: deeper logic like tags, topics or even semantic similarity (based on description).
-- Make `tab_results2` functional: processed result shown properly
 - Fix dark mode button text color
-- Add more pages (Homepage, About)
+- engine: deeper logic like tags, topics or even semantic similarity (based on description).
 - Integrate with DB (MongoDB or Supabase PostgreSQL – 500MB free tier)
+- Make `tab_results2` functional: processed result shown properly
 - add filtering on results table
 - add A-Z sorting on results table
+- Add Pytest
 
 ---
 
@@ -86,14 +86,14 @@ python main.py
 | Version | Modules            | Status         |
 |---------|---------------------|----------------|
 | 1.0.0   | Modules 1–4         | ✅ Done        |
-| 2.0.0   | Modules 5–8         | 🕐 Not started |
+| 2.0.0   | Modules 5–8         | 🔥 In Progress |
 | 3.0.0   | Modules 9–12        | 🕐 Not started |
 
 ---
 
 ## 🤝 Contributors
-- **Luis** – Fullstack, Project Manager
-- **Hussain** – Fullstack (Electron prototype)
+- **Luis** – Fullstack Developer, Project Manager
+- **Hussain** – Fullstack Developer (Electron prototype)
 - **Rosa** – UI Designer
 - **Victor** – DBM / Supabase setup
 - **Nomayer** – QA, Stakeholder liaison
