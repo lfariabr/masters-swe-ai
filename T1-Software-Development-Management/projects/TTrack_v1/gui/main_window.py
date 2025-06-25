@@ -17,9 +17,7 @@ class MainWindow(QMainWindow):
         
         # Initialize theme
         self.is_dark_mode = self.check_dark_mode()
-        self.main_color = "#2c3e50" if not self.is_dark_mode else "#ffffff"
-        self.sub_color = "#555555" if not self.is_dark_mode else "#bbbbbb"
-        self.credit_color = "#777777" if not self.is_dark_mode else "#999999"
+        self.update_theme()
         
         # Store dataframes
         self.transcript_df = None
@@ -35,7 +33,7 @@ class MainWindow(QMainWindow):
     def init_ui(self):
         """Initialize the main UI components"""
         self.setWindowTitle("TTrack – Degree Tracker")
-        self.setGeometry(100, 100, 1100, 700)
+        self.setGeometry(100, 100, 1200, 800)
 
         # Create tab widget
         self.tabs = QTabWidget()
@@ -67,6 +65,143 @@ class MainWindow(QMainWindow):
             # Fallback to checking system palette
             palette = QGuiApplication.palette()
             return palette.window().color().lightness() < 128
+    
+    def update_theme(self):
+        """Update all theme colors based on current mode"""
+        if self.is_dark_mode:
+            self.setStyleSheet("""
+                QMainWindow, QWidget {
+                    background-color: #1e1e1e;
+                    color: #ffffff;
+                }
+                QLabel {
+                    color: #ffffff;
+                }
+                QTableView {
+                    background-color: #2d2d2d;
+                    color: #ffffff;
+                    gridline-color: #3e3e3e;
+                    border: 1px solid #3e3e3e;
+                }
+                QHeaderView::section {
+                    background-color: #2d2d2d;
+                    color: #ffffff;
+                    padding: 5px;
+                    border: 1px solid #3e3e3e;
+                }
+                QTabBar::tab {
+                    background: #2d2d2d;
+                    color: #aaaaaa;
+                    padding: 8px 20px;
+                    border: 1px solid #3e3e3e;
+                    border-bottom: none;
+                    border-top-left-radius: 4px;
+                    border-top-right-radius: 4px;
+                }
+                QTabBar::tab:selected {
+                    background: #1e1e1e;
+                    color: #ffffff;
+                    border-bottom: 2px solid #27ae60;
+                }
+                QTabWidget::pane {
+                    border: 1px solid #3e3e3e;
+                    top: -1px;
+                }
+                QPushButton {
+                    background-color: #2d2d2d;
+                    color: #ffffff;
+                    border: 1px solid #3e3e3e;
+                    padding: 8px 16px;
+                    border-radius: 4px;
+                }
+                QPushButton:hover {
+                    background-color: #3d3d3d;
+                }
+                QPushButton:disabled {
+                    background-color: #2d2d2d;
+                    color: #666666;
+                }
+            """)
+        else:
+            self.setStyleSheet("""
+                QMainWindow, QWidget {
+                    background-color: #f5f5f5;
+                    color: #333333;
+                }
+                QLabel {
+                    color: #333333;
+                }
+                QTableView {
+                    background-color: #ffffff;
+                    color: #333333;
+                    gridline-color: #dddddd;
+                    border: 1px solid #cccccc;
+                }
+                QHeaderView::section {
+                    background-color: #f0f0f0;
+                    color: #333333;
+                    padding: 5px;
+                    border: 1px solid #dddddd;
+                }
+                QTabBar::tab {
+                    background: #f0f0f0;
+                    color: #555555;
+                    padding: 8px 20px;
+                    border: 1px solid #cccccc;
+                    border-bottom: none;
+                    border-top-left-radius: 4px;
+                    border-top-right-radius: 4px;
+                }
+                QTabBar::tab:selected {
+                    background: #ffffff;
+                    color: #2c3e50;
+                    border-bottom: 2px solid #27ae60;
+                }
+                QTabWidget::pane {
+                    border: 1px solid #cccccc;
+                    top: -1px;
+                }
+                QPushButton {
+                    background-color: #f0f0f0;
+                    color: #333333;
+                    border: 1px solid #cccccc;
+                    padding: 8px 16px;
+                    border-radius: 4px;
+                }
+                QPushButton:hover {
+                    background-color: #e0e0e0;
+                }
+                QPushButton:disabled {
+                    background-color: #f5f5f5;
+                    color: #aaaaaa;
+                }
+            """)
+        
+        # Update color variables
+        self.main_color = "#2c3e50" if not self.is_dark_mode else "#ffffff"
+        self.sub_color = "#555555" if not self.is_dark_mode else "#bbbbbb"
+        self.credit_color = "#777777" if not self.is_dark_mode else "#999999"
+        
+        # Update UI elements if they exist
+        if hasattr(self, 'tabs'):
+            self.tabs.setStyleSheet("")
+            self.tabs.setStyleSheet(self.styleSheet())
+            
+        # Update theme toggle button if it exists
+        if hasattr(self, 'theme_toggle_btn'):
+            self.theme_toggle_btn.setText("🌙" if not self.is_dark_mode else "☀️")
+    
+    def toggle_theme(self):
+        """Toggle between light and dark theme"""
+        self.is_dark_mode = not self.is_dark_mode
+        self.update_theme()
+        
+        # Save the preference
+        try:
+            settings = QSettings()
+            settings.setValue("darkMode", self.is_dark_mode)
+        except:
+            pass  # If settings can't be saved, continue with in-memory toggle
     
     def process_data(self):
         """Process the loaded data and display results"""

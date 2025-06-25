@@ -22,10 +22,37 @@ def setup_input_tab(parent):
     layout.setContentsMargins(30, 30, 30, 30)
 
     # Title Section
+    title_layout = QHBoxLayout()
     title = QLabel("🎓 TTrack – Torrens Degree Tracker")
     title.setFont(QFont("Arial", 20, QFont.Bold))
     title.setStyleSheet(f"color: {'#ffffff' if parent.is_dark_mode else '#2c3e50'};")
-    title.setAlignment(Qt.AlignCenter)
+    
+    # Add theme toggle button
+    theme_icon = "🌙" if not parent.is_dark_mode else "☀️"
+    parent.theme_toggle_btn = QPushButton(theme_icon)
+    parent.theme_toggle_btn.setFixedSize(50, 50)
+    parent.theme_toggle_btn.setStyleSheet("""
+        QPushButton {
+            border: none;
+            border-radius: 25px;
+            font-size: 24px;
+            background: transparent;
+            padding: 0;
+            margin: 0;
+        }
+        QPushButton:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+    """)
+    parent.theme_toggle_btn.clicked.connect(parent.toggle_theme)
+    
+    # Add title and theme button to layout
+    title_layout.addStretch()
+    title_layout.addWidget(title)
+    title_layout.addStretch()
+    title_layout.addWidget(parent.theme_toggle_btn)
+    
+    layout.addLayout(title_layout)
 
     subtitle = QLabel("Built by students for academic advisors at Torrens University Australia.")
     subtitle.setStyleSheet(f"color: {'#bbbbbb' if parent.is_dark_mode else '#555555'}; font-size: 13px;")
@@ -35,7 +62,6 @@ def setup_input_tab(parent):
     credit.setStyleSheet(f"color: {'#999999' if parent.is_dark_mode else '#777777'}; font-size: 11px; font-style: italic;")
     credit.setAlignment(Qt.AlignCenter)
 
-    layout.addWidget(title)
     layout.addWidget(subtitle)
     layout.addWidget(credit)
     layout.addSpacing(20)
