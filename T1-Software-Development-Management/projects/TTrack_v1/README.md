@@ -60,18 +60,20 @@ python main.py
 - Created build scripts for both Windows (.exe) and macOS (.app)
 - Documentation for building and distributing the application
 
+#### 🔹 v1.7.0 - `feature/ttracker-dark-mode`
+- Refined logic for dark mode toggle button to work with the UI
+
 ---
 
 ### 🔧 In Progress
 
-#### 🔸 v1.7.0 - `tbd`
+#### 🔸 v1.8.0 - `tbd`
 - tbd
 
 ---
 
 ### 🗂️ Backlog
 
-- Fix dark mode button text color
 - engine: deeper logic like tags, topics or even semantic similarity (based on description).
 - Integrate with DB (MongoDB or Supabase PostgreSQL – 500MB free tier)
 - Make `tab_results2` functional: processed result shown properly
