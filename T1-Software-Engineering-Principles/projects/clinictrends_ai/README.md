@@ -13,7 +13,7 @@ It is designed for small to medium-sized businesses that need actionable insight
 | Key       | Value            |
 |-----------|------------------|
 | **Name**  | ClinicTrends AI  |
-| **Version** | 1.4.0          |
+| **Version** | 1.5.0          |
 | **Stack** | Python, Streamlit, pandas, numpy, altair, textblob, deep-translator, transformers |
 | **Goal**  | Analyze customer feedback and predict Net Promoter Score (NPS) trends using real-time data, natural language processing, and machine learning |
 
@@ -44,10 +44,10 @@ streamlit run app.py
 
 ### ✔ Done
 #### 🔹 v1.0.0 
-- Streamlit app with Altair, pandas, numpy displaying NPS data (2025-06-08)
+- Streamlit app with Altair, pandas, numpy displaying NPS data
 
 #### 🔹 v1.1.0 
-- Adds NLP sentiment analysis, wordcloud visualizations (2025-06-10)
+- Adds NLP sentiment analysis, wordcloud visualizations
 
 #### 🔹 v1.2.0 
 - Refactors into multi-page app:
@@ -60,11 +60,7 @@ streamlit run app.py
 #### 🔹 v1.3.0 
 - Deploys to Streamlit Cloud; integrates Hugging Face pipelines
 
----
-
-### 🔧 In Progress
-
-#### 🔸 v1.4.0 - `feature/training`
+#### 🔹 v1.4.0 - `feature/training`
 - Training/fine-tuning TextBlob (suggested by Dr. Ranju)
 - "feat(sep_clinicTrendsAI_v1.4) sets up ground for ML training to increase accuracy"
 - "feat(sep_clinicTrendsAI_v1.4) implements training page"
@@ -74,14 +70,23 @@ streamlit run app.py
 - "feat(sep_clinicTrendsAI_v1.4) compare text blob x nps x trained model +comment x trained model x transformers". - pizza graphic... (done 22.06)
 - "feat(sep_clinicTrendsAI_v1.4) adds transformers comments+score". (done 25.06)
 
+#### 🔹 v1.5.0 - `feature/score-1-5`
+- Add support to chosing between score 1-5 or 1-10
+
+---
+
+### 🔧 In Progress
+
+#### 🔸 v1.6.0 - `feature/tbd`
+- tbd
+
 ---
 
 ### 🗂️ Backlog
 
-- Hotfix: add support to chosing between score 1-5 or 1-10
-- Fine-tune transformer models for domain-specific sentiment
 - Add automated alert system for NPS drop detection
 - Implement interpretable ML models for NPS prediction
+- Fine-tune transformer models for domain-specific sentiment
 - Add Pytest coverage
 
 ---

@@ -87,7 +87,7 @@ def show_dashboard():
         display_wordcloud(annotated_df)
 
         st.subheader("Comments with TextBlob Sentiment")
-        st.dataframe(annotated_df[["Date", "Store", "Comment", "Score", "NPS Type", "Sentiment", "Polarity"]].dropna().sample(50), use_container_width=True)
+        st.dataframe(annotated_df[["Date", "Store", "Comment", "Score", "NPS Type", "Sentiment", "Polarity"]].dropna(), use_container_width=True)
 
         # st.write("---")
         # st.subheader("Positive Comments")
