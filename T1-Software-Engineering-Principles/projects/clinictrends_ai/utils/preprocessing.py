@@ -52,7 +52,7 @@ def load_and_process_csv(file):
 
     # Clean and process date columns
     df["Year"] = df["Year"].astype(str).str.replace(",", "")
-    df["Date"] = pd.to_datetime(df["Date"])  
+    df["Date"] = pd.to_datetime(df["Date"], dayfirst=True, format="mixed", errors="coerce")
     df["Month"] = df["Date"].dt.to_period("M").astype(str)
 
     return df
