@@ -51,10 +51,14 @@ def main():
             "",
             ["Home",
              "Dashboard",
+
+             # Training
              "Training - CM1", # TfidfVectorizer + LogisticRegression @ 'Comment' column.
              "Training - CM2", # TfidfVectorizer + LogisticRegression @ 'CommentScore' column.
              "Training - CM3", # TfidfVectorizer + LogisticRegression @ 'Comment' column + Hugging Face Transformers.
              "Training - CM4", # TfidfVectorizer + LogisticRegression @ 'CommentScore' column + Hugging Face Transformers.
+
+             # Additional
              "Extra: Translation",
              ],
             index=0,
@@ -66,8 +70,8 @@ def main():
         # App info
         st.markdown("""
         **ClinicTrends AI**  
-        v1.4.0  
-        [GitHub Repo](https://github.com/lfariabr/masters-swe-ai/tree/master/T1-Software-Engineering-Principles/projects)  
+        v1.5.0  
+        [GitHub Repo](https://github.com/lfariabr/masters-swe-ai/tree/master/T1-Software-Engineering-Principles/projects/clinictrends_ai)  
         [Documentation](HomePage)
         """)
     

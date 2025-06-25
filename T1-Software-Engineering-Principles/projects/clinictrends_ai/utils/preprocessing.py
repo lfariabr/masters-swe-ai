@@ -8,19 +8,33 @@ def extract_score(score_str):
     except:
         return None
 
-def nps_type(score):
+def nps_type(score, max_score):
     if score is None or pd.isna(score):
         return "Unknown"
-    elif score >= 9:
-        return "Promoter"
-    elif score >= 7:
-        return "Passive"
+
+    if max_score <= 5:
+        # Scale from 1–5
+        if score >= 4:
+            return "Promoter"
+        elif score == 3:
+            return "Passive"
+        else:
+            return "Detractor"
     else:
-        return "Detractor"
+        # Scale from 1–10
+        if score >= 9:
+            return "Promoter"
+        elif score >= 7:
+            return "Passive"
+        else:
+            return "Detractor"
 
 def classify_nps(df):
     df["Score"] = df["Score"].apply(extract_score)
-    df["NPS Type"] = df["Score"].apply(nps_type)
+    # Detect max score
+    max_score = df["Score"].max()
+
+    df["NPS Type"] = df["Score"].apply(lambda x: nps_type(x, max_score))
     return df
 
 def calculate_nps(df):
