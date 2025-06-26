@@ -5,15 +5,14 @@ def show_home():
     st.title("ClinicTrends AI 🔍")
     
     st.markdown("""
-    ## We analyze Your Customer Feedback
+    ## Analyze your Customer Feedback by:
     
-    We help you analyze:
-    - customer feedback throughout the period of your survey (can be yearly, monthly, etc.)
-    - measure NPS scores showing who are the promoters, passives and detractors
-    - gain insights from customer comments and uses NLP to analyze the sentiment of the comments
+    - Customer feedback throughout the period of your survey (can be yearly, monthly, etc.)
+    - Measure NPS scores showing who are the promoters, passives and detractors
+    - Gain insights from customer comments and uses NLP to analyze the sentiment of the comments
     """)
     
-    st.markdown("### Read About Our Key Features")
+    st.markdown("### Key Features")
     
     col1, col2, col3 = st.columns(3)
     
