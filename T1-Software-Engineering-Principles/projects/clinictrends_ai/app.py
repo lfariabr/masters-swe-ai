@@ -16,7 +16,16 @@ sys.path.append(str(Path(__file__).parent))
 
 # Import pages
 try:
-    from views import HomePage, DashboardPage, TranslatePage, TrainingPage, TrainingPage2, TrainingPage3, TrainingPage4
+    from views import (
+        HomePage,
+        DashboardPage,
+        TranslatePage,
+        TrainingPage,
+        TrainingPage2,
+        TrainingPage3,
+        TrainingPage4,
+        ModelsPage
+    )
 
 except ImportError:
     import views.HomePage as HomePage
@@ -26,6 +35,7 @@ except ImportError:
     import views.TrainingPage2 as TrainingPage2
     import views.TrainingPage3 as TrainingPage3
     import views.TrainingPage4 as TrainingPage4
+    import views.ModelsPage as ModelsPage
 
 def main():
     # Sidebar with logo and navigation - this will be our only sidebar
@@ -51,6 +61,7 @@ def main():
             "",
             ["Home",
              "Dashboard",
+             "Models",
 
              # Training
              "Training - CM1", # TfidfVectorizer + LogisticRegression @ 'Comment' column.
@@ -60,7 +71,7 @@ def main():
 
              # Additional
              "Extra: Translation",
-             ],
+            ],
             index=0,
             label_visibility="collapsed"
         )
@@ -70,7 +81,7 @@ def main():
         # App info
         st.markdown("""
         **ClinicTrends AI**  
-        v1.5.0  
+        v1.6.0  
         [GitHub Repo](https://github.com/lfariabr/masters-swe-ai/tree/master/T1-Software-Engineering-Principles/projects/clinictrends_ai)  
         [Documentation](HomePage)
         """)
@@ -80,6 +91,9 @@ def main():
         HomePage.show_home()
     elif page == "Dashboard":
         DashboardPage.show_dashboard()
+    elif page == "Models":
+        ModelsPage.show_models()
+
 
     elif page == "Training - CM1":
         TrainingPage.show_training()
@@ -92,6 +106,6 @@ def main():
     
     elif page == "Extra: Translation":
         TranslatePage.show_translate()
-    
+        
 if __name__ == "__main__":
     main()

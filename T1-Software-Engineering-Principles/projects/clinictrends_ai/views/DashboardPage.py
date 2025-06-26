@@ -16,12 +16,12 @@ def show_dashboard():
     st.title("ClinicTrends AI 🔍")
     
     st.markdown("""
-    We help you analyze:
+    Analyze your customer feedback by:
     - customer feedback throughout the period of your survey (can be yearly, monthly, etc.)
     - measure NPS scores showing who are the promoters, passives and detractors
     - gain insights from customer comments and uses NLP to analyze the sentiment of the comments
 
-    Upload your survey data and let us show you the results.
+    Upload your survey data and let ClinicTrends AI show you the results.
     """)
         
     uploaded_file = st.file_uploader("Choose a CSV file", type="csv")
@@ -119,29 +119,6 @@ def show_dashboard():
             st.altair_chart(bar_chart, use_container_width=True)
             st.dataframe(sentiment_distribution_chart, use_container_width=True)
 
-        ######################## 
-        # EXTRA TRANSFORMERS PIPELINE
-        ######################## 
-        # st.write("---")
-
-        # from transformers import pipeline
-        # sentiment_pipeline = pipeline("sentiment-analysis", model="distilbert-base-uncased-finetuned-sst-2-english")
-
-        # st.subheader("Comments with Hugging Face Transformers Sentiment")
-
-        # # Take a sample of comments with non-empty strings
-        # sample_df = annotated_df[["Date", "Store", "Comment", "Sentiment", "Polarity", "Score"]].dropna().sample(50).copy()
-
-        # # Apply the Hugging Face model only to the comments
-        # hf_results = sentiment_pipeline(sample_df["Comment"].tolist(), truncation=True)
-
-        # # Extract label and score into separate columns
-        # sample_df["HF_Label"] = [res["label"] for res in hf_results]
-        # sample_df["HF_Score"] = [round(res["score"], 3) for res in hf_results]
-
-        # # Show the table
-        # st.dataframe(sample_df, use_container_width=True)
-    
 
 if __name__ == "__main__":
     show_dashboard()

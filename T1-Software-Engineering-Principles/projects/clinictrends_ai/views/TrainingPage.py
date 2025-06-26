@@ -56,8 +56,6 @@ def show_training():
         st.markdown("## Model accuracy:")
         st.write(model.score(X_test, y_test))
 
-        from sklearn.metrics import classification_report
-
         y_pred = model.predict(X_test)
         st.markdown("## Classification report:")
         st.write(classification_report(y_test, y_pred))
