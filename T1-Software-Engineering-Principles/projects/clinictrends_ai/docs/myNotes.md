@@ -76,24 +76,27 @@ streamlit run app.py
 #### 🔹 v1.6.0 - `feature/clinic-trends-ai-models-page`
 - Adds one page with all available models to be ran and compared versus NPS
 
+#### 🔹 v1.7.0 - `feature/clinic-trends-ai-main-page`
+- Main interface with file upload and model selection
+- Beautiful interface for uploading file and running models
+
 ---
 
 ### 🔧 In Progress
 
-#### 🔸 v1.7.0 - `feature/clinic-trends-ai-main-page`
-- Main interface with file upload and model selection
+#### 🔸 v1.8.0 - `feature/clinic-trends-ai-tbd`
+- tbd
 
 ---
 
 ### 🗂️ Backlog
 
-- MainPage.py -> beautiful interface for uploading file and running models:
--- Main interface with file upload and model selection
-
-- Add automated alert system for NPS drop detection
-- Implement interpretable ML models for NPS prediction
-- Fine-tune transformer models for domain-specific sentiment
-- Add Pytest coverage
+- Add Pytest coverage 
+- Add automated alert system for NPS drop detection (v2.0)
+- Implement interpretable ML models for NPS prediction (v2.0)
+- Fine-tune transformer models for domain-specific sentiment (v2.0)
+- Add RESTful API development + authentication (v3.0)
+- AI-powered insights (v4.0)
 
 ---
 
