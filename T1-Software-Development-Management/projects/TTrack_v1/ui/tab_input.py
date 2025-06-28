@@ -1,6 +1,6 @@
 from PyQt5.QtWidgets import (
     QWidget, QVBoxLayout, QHBoxLayout, QPushButton,
-    QLabel, QTableView, QFileDialog
+    QLabel, QTableView, QFileDialog, QLineEdit
 )
 from PyQt5.QtGui import QFont
 from PyQt5.QtCore import Qt
@@ -26,23 +26,36 @@ def setup_input_tab(parent):
     title = QLabel("🎓 TTrack – Torrens Degree Tracker")
     title.setFont(QFont("Arial", 20, QFont.Bold))
     title.setStyleSheet(f"color: {'#ffffff' if parent.is_dark_mode else '#2c3e50'};")
+
+    # Student Info Section for Header
+    student_info_layout = QHBoxLayout()
+    student_info_layout.addWidget(QLabel("Student Name:"))
+    parent.student_name_input = QLineEdit()
+    student_info_layout.addWidget(parent.student_name_input)
+    student_info_layout.addWidget(QLabel("University:"))
+    parent.university_input = QLineEdit()
+    student_info_layout.addWidget(parent.university_input)
     
     # Add theme toggle button
     theme_icon = "🌙" if not parent.is_dark_mode else "☀️"
     parent.theme_toggle_btn = QPushButton(theme_icon)
     parent.theme_toggle_btn.setFixedSize(50, 50)
-    parent.theme_toggle_btn.setStyleSheet("""
-        QPushButton {
-            border: none;
+    parent.theme_toggle_btn.setToolTip(
+        "Switch to Dark Mode" if not parent.is_dark_mode else "Switch to Light Mode"
+    )
+    parent.theme_toggle_btn.setStyleSheet(f"""
+        QPushButton {{
+            border: 2px solid {'#2c3e50' if not parent.is_dark_mode else '#ffffff'};
             border-radius: 25px;
             font-size: 24px;
-            background: transparent;
+            background-color: {'#f0f0f0' if not parent.is_dark_mode else '#2d2d2d'};
+            color: {'#2c3e50' if not parent.is_dark_mode else '#ffffff'};
             padding: 0;
             margin: 0;
-        }
-        QPushButton:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
+        }}
+        QPushButton:hover {{
+            background-color: {'#e0e0e0' if not parent.is_dark_mode else '#3d3d3d'};
+        }}
     """)
     parent.theme_toggle_btn.clicked.connect(parent.toggle_theme)
     
@@ -77,6 +90,8 @@ def setup_input_tab(parent):
     # Connect signals
     parent.transcript_btn.clicked.connect(lambda: load_file(parent, is_transcript=True))
     parent.curriculum_btn.clicked.connect(lambda: load_file(parent, is_transcript=False))
+    parent.student_name = parent.student_name_input.text()
+    parent.university = parent.university_input.text()
     parent.process_btn.clicked.connect(parent.process_data)
     parent.process_btn.setEnabled(False)
     

@@ -41,10 +41,11 @@ def setup_results_tab(parent):
     parent.electives_table.setSortingEnabled(True)
 
     # Header Section
-    status_msg = f'Results have been processed for ""\'s progress at @ ""'
-    status_label = QLabel(status_msg)
-    status_label.setStyleSheet("font-size:15px; font-weight:bold; color:#00796B; margin-bottom:8px;")
-    layout.addWidget(status_label)
+    parent.status_label = QLabel("")
+    parent.status_label.setStyleSheet(
+        "font-size:15px; font-weight:bold; color:#00796B; margin-bottom:8px;"
+    )
+    layout.addWidget(parent.status_label)
     
     # Add to layout with section headers
     layout.addWidget(create_section_header("📘 Subject Matching Results"))
