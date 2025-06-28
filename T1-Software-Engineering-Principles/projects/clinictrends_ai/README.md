@@ -264,7 +264,7 @@ ClinicTrends AI delivers **proactive customer intelligence** through:
 - ✅ Interactive visualization suite
 - ✅ Translation capabilities
 - ✅ Comprehensive documentation
-- 🔄 Main interface with file upload and model selection
+- ✅ Main interface with file upload and model selection
 - 🔄 Pytest setup
 
 
@@ -312,12 +312,6 @@ ClinicTrends AI delivers **proactive customer intelligence** through:
 - ✅ **Multi-Model Innovation**: First comparative framework for NPS sentiment analysis
 - ✅ **Academic Excellence**: IEEE standards compliance with practical business application
 - ✅ **Open Source Impact**: Democratizing advanced analytics for healthcare SMEs
-- ✅ **Technical Leadership**: Mentoring junior developers in ML engineering best practices
-
-### Industry Recognition
-- 🏆 **Best Academic Project**: SEP401 Software Engineering Principles
-- 🏆 **Innovation Award**: Multi-modal ML approach for customer analytics
-- 🏆 **Technical Excellence**: Comprehensive software engineering methodology
 
 ---
 
@@ -341,11 +335,11 @@ ClinicTrends AI delivers **proactive customer intelligence** through:
 
 ## 🔗 Resources & Links
 
-- 🌐 **[Live Demo](https://clinictrends-ai.streamlit.app)**: Interactive application showcase
-- 📚 **[Documentation](docs/)**: Comprehensive technical specifications
-- 🎥 **[Demo Video](https://youtube.com/demo)**: Walkthrough of key features
-- 📊 **[Performance Benchmarks](docs/benchmarks.md)**: Detailed model comparison metrics
-- 🔧 **[API Documentation](docs/api.md)**: Integration guidelines for developers
+- 🌐 **[Live Demo](https://sep-torrens-dr-ranju-group-1.streamlit.app/)**: Interactive application showcase
+- 📚 **[Documentation](docs/)**: Comprehensive technical specifications (#TODO: in progress)
+- 🎥 **[Demo Video](https://youtube.com/demo)**: Walkthrough of key features (#TODO)
+- 📊 **[Performance Benchmarks](docs/benchmarks.md)**: Detailed model comparison metrics (#TODO)
+- 🔧 **[API Documentation](docs/api.md)**: Integration guidelines for developers (#TODO)
 
 ---
 
@@ -355,12 +349,11 @@ ClinicTrends AI delivers **proactive customer intelligence** through:
 
 ---
 
-## 📞 Contact & Collaboration
+## 🤝 Collaboration is Welcome
 
 **Project Lead**: Luis Faria  
 **Email**: [luis.faria@student.torrens.edu.au](mailto:luis.faria@student.torrens.edu.au)  
 **LinkedIn**: [linkedin.com/in/luisfaria](https://linkedin.com/in/luisfaria)  
-**GitHub**: [github.com/lfariabr](https://github.com/lfariabr)
 
 **Academic Supervisor**: Dr. Ranju Mandal  
 **Institution**: Torrens University Australia  
