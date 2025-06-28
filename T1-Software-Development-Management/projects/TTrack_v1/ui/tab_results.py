@@ -50,23 +50,19 @@ def setup_results_tab(parent):
     header_layout = QVBoxLayout(header_container)
     header_layout.setContentsMargins(0, 0, 0, 20)
 
-    student_name = getattr(parent, 'student_name', 'Student')
-    university = getattr(parent, 'university', 'University')
-
-    # Main header
-    header_label = QLabel(f"Results for {student_name}")
-    header_label.setObjectName("header_label")
-    header_label.setStyleSheet(f"""
+    # Replace local labels with parent attributes
+    parent.header_label = QLabel("")
+    parent.header_label.setObjectName("header_label")
+    parent.header_label.setStyleSheet(f"""
         font-size: 22px; 
         font-weight: bold; 
         color: {'#4ecdc4' if parent.is_dark_mode else '#2a9d8f'};
         margin-bottom: 4px;
     """)
 
-    # Sub header with university
-    sub_header = QLabel(f"@ {university}")
-    sub_header.setObjectName("sub_header")
-    sub_header.setStyleSheet(f"""
+    parent.sub_header = QLabel("")
+    parent.sub_header.setObjectName("sub_header")
+    parent.sub_header.setStyleSheet(f"""
         font-size: 14px;
         color: {'#bbbbbb' if parent.is_dark_mode else '#555555'};
         margin-bottom: 15px;
@@ -77,11 +73,9 @@ def setup_results_tab(parent):
     progress_layout = QHBoxLayout(progress_container)
     progress_layout.setContentsMargins(0, 0, 0, 0)
 
-    progress_bar = QProgressBar()
-    # TODO: Update progress bar
-    progress_bar.setValue(0)
-        
-    progress_bar.setStyleSheet(f"""
+    parent.progress_bar = QProgressBar()
+    parent.progress_bar.setValue(0)
+    parent.progress_bar.setStyleSheet(f"""
         QProgressBar {{
             border: none;
             border-radius: 10px;
@@ -95,25 +89,28 @@ def setup_results_tab(parent):
         }}
     """)
 
-    progress_label = QLabel(f"Degree Progress")
-    progress_label.setStyleSheet(f"color: {'#bbbbbb' if parent.is_dark_mode else '#666666'}; font-size: 12px;")
+    progress_label = QLabel("Degree Progress")
+    progress_label.setStyleSheet(
+        f"color: {'#bbbbbb' if parent.is_dark_mode else '#666666'}; font-size: 12px;"
+    )
 
     progress_layout.addWidget(progress_label, 1)
-    progress_layout.addWidget(progress_bar, 3)
+    progress_layout.addWidget(parent.progress_bar, 3)
 
-    # Add all elements to header
-    header_layout.addWidget(header_label)
-    header_layout.addWidget(sub_header)
+    # Add widgets to header
+    header_layout.addWidget(parent.header_label)
+    header_layout.addWidget(parent.sub_header)
     header_layout.addWidget(progress_container)
 
     # Add a separator line
     separator = QFrame()
     separator.setFrameShape(QFrame.HLine)
     separator.setFrameShadow(QFrame.Sunken)
-    separator.setStyleSheet(f"background-color: {'#444444' if parent.is_dark_mode else '#e9ecef'};")
+    separator.setStyleSheet(
+        f"background-color: {'#444444' if parent.is_dark_mode else '#e9ecef'};"
+    )
     header_layout.addWidget(separator)
 
-    # Add header to main layout
     layout.addWidget(header_container)
     
     # Add to layout with section headers
@@ -126,7 +123,6 @@ def setup_results_tab(parent):
     layout.addWidget(create_section_header("🧠 Suggested Electives"))
     layout.addWidget(parent.electives_table)
     
-    # Push everything to the top
     layout.addStretch()
     
     tab.setLayout(layout)
