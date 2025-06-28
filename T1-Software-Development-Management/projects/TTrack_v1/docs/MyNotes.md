@@ -70,16 +70,14 @@ python main.py
 
 ### 🔧 In Progress
 
-#### 🔸 v1.9.0 - `feature/tbd`
-- tbd
+#### 🔸 v1.9.0 - `feature/tab-results`
+- add A-Z sorting on results table
+- Make `tab_results2` functional: processed result shown properly
 
 ---
 
 ### 🗂️ Backlog
 
-- Make `tab_results2` functional: processed result shown properly
-- add filtering on results table
-- add A-Z sorting on results table
 - Add Pytest
 - Build distribution (Windows) + tests (start from them)
 
