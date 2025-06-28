@@ -101,12 +101,14 @@ def setup_input_tab(parent):
     transcript_group = QVBoxLayout()
     transcript_group.addWidget(QLabel("Transcript Table"))
     parent.transcript_table = QTableView()
+    parent.transcript_table.setSortingEnabled(True)
     transcript_group.addWidget(parent.transcript_table)
     
     # Curriculum Section
     curriculum_group = QVBoxLayout()
     curriculum_group.addWidget(QLabel("Curriculum Table"))
     parent.curriculum_table = QTableView()
+    parent.curriculum_table.setSortingEnabled(True)
     curriculum_group.addWidget(parent.curriculum_table)
     
     # Add tables to layout
