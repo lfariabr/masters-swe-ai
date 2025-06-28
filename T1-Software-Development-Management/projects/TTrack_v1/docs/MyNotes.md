@@ -71,9 +71,9 @@ python main.py
 ### 🔧 In Progress
 
 #### 🔸 v1.9.0 - `feature/tab-results`
-- add A-Z sorting on results table
-- add student name and university to results tab
-- Make `tab_results2` functional: processed result shown properly
+- add A-Z sorting on results table (done)
+- add student name and university to results tab (done)
+- update progress bar (#TODO)
 
 ---
 
