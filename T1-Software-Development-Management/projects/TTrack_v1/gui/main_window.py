@@ -241,9 +241,7 @@ class MainWindow(QMainWindow):
             # Fallback to defaults if extraction fails
             self.student_name = "Student"
             self.university = "Torrens University"
-            
-        print(f"Using student info: {self.student_name} @ {self.university}")
-            
+                        
         try:
             # Process the data using engine functions
             self.results_df = match_transcript_with_curriculum(
@@ -261,15 +259,14 @@ class MainWindow(QMainWindow):
             sub_header = self.results_tab.findChild(QLabel, "sub_header")
             
             if header_label:
-                header_label.setText(f"Results for {self.student_name}")
-                print(f"Updated header with student name: {self.student_name}")
+                header_label.setText(f"Student: {self.student_name}")
             
             if sub_header:
-                sub_header.setText(f"@ {self.university}")
-                print(f"Updated sub-header with university: {self.university}")
+                sub_header.setText(f"University: {self.university}")
             
             # Update progress bar if present
             for progress_bar in self.results_tab.findChildren(QProgressBar):
+                # TODO: update with actual progress
                 done_count = len(self.results_df[self.results_df['Status'] == 'Done'])
                 total_count = len(self.results_df)
                 progress = int(done_count / total_count * 100) if total_count > 0 else 0
