@@ -207,6 +207,8 @@ class MainWindow(QMainWindow):
         """Process the loaded data and display results"""
         if self.transcript_df is None or self.curriculum_df is None:
             return
+        self.student_name = self.student_name_input.text()
+        self.university = self.university_input.text()
             
         try:
             # Process the data using engine functions
@@ -219,6 +221,11 @@ class MainWindow(QMainWindow):
             self.helpers.populate_table(self.results_table, self.results_df)
             self.helpers.populate_table(self.summary_table, summary_df)
             self.helpers.populate_table(self.electives_table, electives_df)
+
+            # Update the label text here!
+            self.status_label.setText(
+                f'Results have been processed for "{self.student_name}"\'s progress at @ "{self.university}"'
+            )
             
             # Enable and switch to results tab
             self.tabs.setTabEnabled(1, True)
