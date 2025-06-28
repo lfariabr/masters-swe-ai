@@ -26,15 +26,6 @@ def setup_input_tab(parent):
     title = QLabel("🎓 TTrack – Torrens Degree Tracker")
     title.setFont(QFont("Arial", 20, QFont.Bold))
     title.setStyleSheet(f"color: {'#ffffff' if parent.is_dark_mode else '#2c3e50'};")
-
-    # Student Info Section for Header
-    student_info_layout = QHBoxLayout()
-    student_info_layout.addWidget(QLabel("Student Name:"))
-    parent.student_name_input = QLineEdit()
-    student_info_layout.addWidget(parent.student_name_input)
-    student_info_layout.addWidget(QLabel("University:"))
-    parent.university_input = QLineEdit()
-    student_info_layout.addWidget(parent.university_input)
     
     # Add theme toggle button
     theme_icon = "🌙" if not parent.is_dark_mode else "☀️"
@@ -90,8 +81,6 @@ def setup_input_tab(parent):
     # Connect signals
     parent.transcript_btn.clicked.connect(lambda: load_file(parent, is_transcript=True))
     parent.curriculum_btn.clicked.connect(lambda: load_file(parent, is_transcript=False))
-    parent.student_name = parent.student_name_input.text()
-    parent.university = parent.university_input.text()
     parent.process_btn.clicked.connect(parent.process_data)
     parent.process_btn.setEnabled(False)
     

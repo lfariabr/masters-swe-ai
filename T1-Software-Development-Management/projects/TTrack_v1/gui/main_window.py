@@ -1,6 +1,19 @@
 from PyQt5.QtWidgets import (
-    QMainWindow, QWidget, QVBoxLayout, QPushButton,
-    QFileDialog, QLabel, QTableView, QHBoxLayout, QTabWidget, QTableWidget, QTableWidgetItem, QMessageBox
+    QApplication,
+    QMainWindow,
+    QWidget, 
+    QVBoxLayout, 
+    QPushButton,
+    QFileDialog, 
+    QLabel, 
+    QTableView, 
+    QHBoxLayout, 
+    QTabWidget, 
+    QTableWidget, 
+    QTableWidgetItem, 
+    QMessageBox, 
+    QProgressBar, 
+    QLineEdit
 )
 from PyQt5.QtGui import QFont
 from PyQt5.QtCore import Qt
@@ -207,8 +220,29 @@ class MainWindow(QMainWindow):
         """Process the loaded data and display results"""
         if self.transcript_df is None or self.curriculum_df is None:
             return
-        self.student_name = self.student_name_input.text()
-        self.university = self.university_input.text()
+        
+        # Extract student info from transcript dataframe if available
+        try:
+            # Check if metadata columns exist - common formats for transcript data
+            if 'Student Name' in self.transcript_df.columns:
+                self.student_name = self.transcript_df['Student Name'].iloc[0]
+            elif 'Name' in self.transcript_df.columns:
+                self.student_name = self.transcript_df['Name'].iloc[0]
+            else:
+                self.student_name = "Student"
+                
+            if 'University' in self.transcript_df.columns:
+                self.university = self.transcript_df['University'].iloc[0]
+            elif 'Institution' in self.transcript_df.columns:
+                self.university = self.transcript_df['Institution'].iloc[0]
+            else:
+                self.university = "Torrens University"
+        except (AttributeError, IndexError, KeyError):
+            # Fallback to defaults if extraction fails
+            self.student_name = "Student"
+            self.university = "Torrens University"
+            
+        print(f"Using student info: {self.student_name} @ {self.university}")
             
         try:
             # Process the data using engine functions
@@ -221,12 +255,28 @@ class MainWindow(QMainWindow):
             self.helpers.populate_table(self.results_table, self.results_df)
             self.helpers.populate_table(self.summary_table, summary_df)
             self.helpers.populate_table(self.electives_table, electives_df)
-
-            # Update the label text here!
-            self.status_label.setText(
-                f'Results have been processed for "{self.student_name}"\'s progress at @ "{self.university}"'
-            )
             
+            # Update header labels with student info
+            header_label = self.results_tab.findChild(QLabel, "header_label")
+            sub_header = self.results_tab.findChild(QLabel, "sub_header")
+            
+            if header_label:
+                header_label.setText(f"Results for {self.student_name}")
+                print(f"Updated header with student name: {self.student_name}")
+            
+            if sub_header:
+                sub_header.setText(f"@ {self.university}")
+                print(f"Updated sub-header with university: {self.university}")
+            
+            # Update progress bar if present
+            for progress_bar in self.results_tab.findChildren(QProgressBar):
+                done_count = len(self.results_df[self.results_df['Status'] == 'Done'])
+                total_count = len(self.results_df)
+                progress = int(done_count / total_count * 100) if total_count > 0 else 0
+                progress_bar.setValue(progress)
+                print(f"Updated progress bar: {progress}%")
+                break
+                
             # Enable and switch to results tab
             self.tabs.setTabEnabled(1, True)
             self.tabs.setCurrentIndex(1)
