@@ -80,18 +80,21 @@ streamlit run app.py
 - Main interface with file upload and model selection
 - Beautiful interface for uploading file and running models
 
+#### 🔹 v1.8.0 - `feature/clinic-trends-ai-pytest`
+- creates pytest.ini
+- add pytest to homepage and models page
+
 ---
 
 ### 🔧 In Progress
 
-#### 🔸 v1.8.0 - `feature/clinic-trends-ai-tbd`
+#### 🔸 v1.9.0 / v2.0.0 - `feature/clinic-trends-ai-tbd`
 - tbd
 
 ---
 
 ### 🗂️ Backlog
 
-- Add Pytest coverage 
 - Add automated alert system for NPS drop detection (v2.0)
 - Implement interpretable ML models for NPS prediction (v2.0)
 - Fine-tune transformer models for domain-specific sentiment (v2.0)

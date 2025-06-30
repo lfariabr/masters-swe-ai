@@ -5,9 +5,6 @@ ClinicTrends AI - Models Comparison Page
 Enterprise-grade ML model comparison and benchmarking interface.
 Implements 4 distinct ML pipelines for comprehensive sentiment analysis.
 
-Author: Luis Faria (Tech Lead & ML Engineer)
-Course: SEP401 - Software Engineering Principles
-Institution: Torrens University Australia
 """
 
 import sys
