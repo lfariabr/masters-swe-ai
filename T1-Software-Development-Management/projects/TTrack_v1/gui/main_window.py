@@ -263,13 +263,14 @@ class MainWindow(QMainWindow):
             
             if sub_header:
                 sub_header.setText(f"University: {self.university}")
+
+            # Degree progress bar % based on DONE vs Total subjects
+            total_done = summary_df["✅ Done"].sum()
+            total_subjects = summary_df["Total"].sum()
+            progress = int(total_done / total_subjects * 100) if total_subjects > 0 else 0
             
             # Update progress bar if present
             for progress_bar in self.results_tab.findChildren(QProgressBar):
-                # TODO: update with actual progress
-                done_count = len(self.results_df[self.results_df['Status'] == 'Done'])
-                total_count = len(self.results_df)
-                progress = int(done_count / total_count * 100) if total_count > 0 else 0
                 progress_bar.setValue(progress)
                 print(f"Updated progress bar: {progress}%")
                 break
