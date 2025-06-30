@@ -257,7 +257,7 @@ ClinicTrends AI delivers **proactive customer intelligence** through:
 
 ## 📈 Development Roadmap
 
-### Phase 1: Foundation (v1.0-1.6) ✅ **COMPLETE**
+### Phase 1: Foundation (v1.0-1.8) ✅ **COMPLETE**
 - ✅ Core Streamlit application architecture
 - ✅ Multi-page navigation system
 - ✅ 4 ML model implementations
@@ -265,7 +265,7 @@ ClinicTrends AI delivers **proactive customer intelligence** through:
 - ✅ Translation capabilities
 - ✅ Comprehensive documentation
 - ✅ Main interface with file upload and model selection
-- 🔄 Pytest setup
+- ✅ Pytest initial setup
 
 
 ### Phase 2: Intelligence Enhancement (v2.0) 📋 **PLANNED** / 🔄 **IN PROGRESS**
@@ -273,6 +273,7 @@ ClinicTrends AI delivers **proactive customer intelligence** through:
 - 🔄 Automated hyperparameter optimization
 - 🔄 Real-time model retraining capabilities
 - 🔄 A/B testing framework for model comparison
+- 🔄 Pytest robustness coverage
 
 ### Phase 3: Enterprise Integration (v3.0) 📋 **PLANNED**
 - 📋 RESTful API development
@@ -318,6 +319,53 @@ ClinicTrends AI delivers **proactive customer intelligence** through:
 ## 🌟 Competitive Advantages
 
 **ClinicTrends AI isn't just analytics software – it's an intelligent business companion that transforms customer feedback into strategic competitive advantage.**
+
+## 🧪 Testing
+
+### Running Tests
+
+```bash
+# Install test dependencies
+pip install -r requirements-test.txt
+
+# Run all tests
+pytest
+
+# Run tests with coverage report
+pytest --cov=app --cov=utils --cov-report=term-missing
+
+# Generate HTML coverage report
+pytest --cov=app --cov=utils --cov-report=html
+```
+
+### Code Quality
+
+```bash
+# Run linter
+flake8 app/ utils/ tests/
+
+# Type checking
+mypy app/ utils/ tests/
+
+# Format code
+black app/ utils/ tests/
+isort app/ utils/ tests/
+```
+
+### Using Makefile
+
+For convenience, a Makefile is provided with common development tasks:
+
+```bash
+make install-test    # Install test dependencies
+make test           # Run all tests
+make test-cov       # Run tests with coverage
+make test-html      # Generate HTML coverage report
+make lint           # Run linter
+make type-check     # Run type checking
+make format         # Format code
+make check          # Run all checks (tests, linting, type checking)
+```
 
 ### Technical Differentiators
 - 🧠 **Multi-Model Ensemble**: 4 distinct ML approaches for maximum accuracy

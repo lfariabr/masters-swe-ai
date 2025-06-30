@@ -27,6 +27,11 @@ Thumbs.db
 # Notebooks
 .ipynb_checkpoints/
 
+# Tests
+.coverage
+.pytest_cache
+htmlcov/
+
 # Model files
 *.pt
 *.pth
