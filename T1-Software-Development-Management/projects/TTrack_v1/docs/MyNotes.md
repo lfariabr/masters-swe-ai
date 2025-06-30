@@ -66,20 +66,22 @@ python main.py
 #### 🔹 v1.8.0 - `feature/ttracker-sprint_review`
 - Cross checked Windsurf's memory with the project's history using Claude Sonnet 4 and matched against ChatGPT master's AI memmories
 
+#### 🔹 v1.9.0 - `feature/tab-results`
+- add A-Z sorting on results table (done)
+- add student name and university to results tab (done)
+- update progress bar (done)
+
 ---
 
 ### 🔧 In Progress
 
-#### 🔸 v1.9.0 - `feature/tab-results`
-- add A-Z sorting on results table (done)
-- add student name and university to results tab (done)
-- update progress bar (#TODO)
+#### 🔸 v1.10.0 - `feature/pytest`
+- add test coverage to the project
 
 ---
 
 ### 🗂️ Backlog
 
-- Add Pytest
 - Build distribution (Windows) + tests (start from them)
 
 - Integrate with DB (MongoDB or Supabase PostgreSQL – 500MB free tier) (v2)

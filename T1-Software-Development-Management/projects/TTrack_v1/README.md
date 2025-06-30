@@ -146,8 +146,8 @@ Following **GitFlow** with feature branches and semantic versioning:
 | **1.6.0** | Build system & distribution | ✅ Complete |
 | **1.7.0** | Theme refinements & UX polish | ✅ Complete |
 | **1.8.0** | Sprint review (Sonnet x GPT Memmories) | ✅ Complete |
-| **1.9.0** | Layout refactoring | 🛠️ In Progress |
-| **1.10.0** | Pytest integration | 🔄 Planned |
+| **1.9.0** | Layout refactoring | ✅ Complete |
+| **1.10.0** | Pytest integration | 🛠️ In Progress |
 | **1.11.0** | Build distribution | 🔄 Planned |
 | **2.0.0** | Database integration & cloud sync | 🔄 Planned |
 | **3.0.0** | AI Enhanced matching | 🔄 Planned |
