@@ -1,17 +1,19 @@
 
-# Master's in Software Engineering & Artificial Intelligence @ Torrens University
+# Master's Degree
+## Torrens University
+### Software Engineering & Artificial Intelligence
 
-This repository documents my journey through the Master of Software Engineering (Artificial Intelligence, Advanced) at Torrens University.
+This repo documents my journey through the Master's of Software Engineering (Artificial Intelligence, Advanced) at Torrens University.
 
-Study notes, case studies, experiments, and practical projects in AI, ML, and full-stack software development.  
-Whether you're a student, dev, or just curious—follow along, fork it, or contribute!
+You'll find study notes, case studies, experiments, and practical projects in AI, ML and full-stack software development.  
+Whether you're a student, dev or just curious—follow along, fork it, or contribute!
 
-Official course materials can be found at: https://www.torrens.edu.au/courses/technology/master-of-software-engineering-artificial-intelligence-advanced
+Official course materials can be found at: [Master's of SWE AI Torrens Website](https://www.torrens.edu.au/courses/technology/master-of-software-engineering-artificial-intelligence-advanced)
 
 ---
 
 ## Program Overview
-This repository serves as my personal knowledge base and project portfolio while pursuing my Masters in Software Engineering and Artificial Intelligence. Here, I document my learning journey, projects, and practical applications of the concepts I'm studying.
+This repo serves as my personal knowledge base and project portfolio while pursuing my Masters in Software Engineering and Artificial Intelligence. Here, I document my learning journey, projects, and practical applications of the concepts I'm studying.
 
 ## My Approach
 - **Learning by Doing**: Practical implementation of theoretical concepts
@@ -66,5 +68,5 @@ While this is primarily a personal repository, I welcome discussions and constru
 
 ---
 
-*Last Updated: 25 June 2025*  
+*Last Updated: 2 July 2025*  
 ![GitHub last commit](https://img.shields.io/github/last-commit/lfariabr/masters-swe-ai?style=flat-square)

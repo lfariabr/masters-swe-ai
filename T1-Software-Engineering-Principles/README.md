@@ -10,7 +10,7 @@ Dr. Ranju Mandal
 - [X] Module 3 - Requirements Analysis
 - [X] Module 4 - Requirements Modelling
 - [X] Module 5 - Software Testing and Quality
-- [ ] Module 6
+- [ ] Module 6 - Human-Computer Interaction Principles (refs: ok, summaries: pending)
 - [ ] Module 7
 - [ ] Module 8
 - [ ] Module 9
