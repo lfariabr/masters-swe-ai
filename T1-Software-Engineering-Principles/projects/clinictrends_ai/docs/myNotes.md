@@ -84,20 +84,19 @@ streamlit run app.py
 - creates pytest.ini
 - add pytest to homepage and models page
 
----
-
-### 🔧 In Progress
-
-#### 🔸 v1.9.0 - `feature/clinic-trends-ai-menu-structure`
+#### 🔹 v1.9.0 - `feature/clinic-trends-ai-menu-structure`
 - Refactor menu structure
 - Split ModelTrainer class into a resolver
 - Adds 4 models in Model Performance Comparison table
 - Add wordcloud to models page
-- Add NPS donut chart and monthly NPS trend chart to models page (#TODO)
-- Change menu to "Models Page" to "Sentiment Analysis"
-- Create menu for "NPS Analysis"
+- Add NPS donut chart and monthly NPS trend chart to models page
+- Change menu to "Models Page" to "ML Model Comparison"
+- Change dashboard to "NPS Analysis"
+- Update Pytest coverage
 
 ---
+
+### 🔧 In Progress
 
 #### 🔸 v2.0.0 - `feature/clinic-trends-ai-alert-system`
 - Add automated alert system for NPS drop detection

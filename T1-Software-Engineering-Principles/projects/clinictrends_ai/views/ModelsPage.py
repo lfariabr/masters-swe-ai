@@ -150,8 +150,6 @@ def show_models():
     # Page header with professional styling
     st.title("🧠 ML Models Comparison Dashboard")
     st.markdown("""
-    **Enterprise-grade sentiment analysis model comparison and benchmarking platform.**
-    
     Compare 4 distinct ML pipelines with comprehensive performance metrics and visualizations.
     """)
     
@@ -179,36 +177,14 @@ def show_models():
                 
                 st.success(f"✅ Successfully loaded {len(df)} records")
             
-            with st.expander("👀 Data Preview"):
+            with st.expander("👀 Data Preview (just in case you want to check it)"):
                 st.dataframe(df.sample(min(5, len(df))), use_container_width=True)
                 st.info(f"Dataset shape: {df.shape[0]} rows × {df.shape[1]} columns")
             
-            # Initialize model trainer
+            # Initialize model trainer + annotate sentiments via TextBlob
             model_trainer = ModelTrainer()
-
-            st.markdown("### 📊 Data Analysis")
-            st.write("NPS Donut Chart")
-            # TODO
-            st.write("Monthly NPS Trend Chart")
-            # TODO
-            # col1, col2 = st.columns(2)
-            
-            # with col1:
-            #     donut_chart = nps_donut_chart(filtered_df)
-            #     st.altair_chart(donut_chart, use_container_width=True)
-            
-            # with col2:
-            #     line_chart = monthly_nps_trend_chart(filtered_df, calculate_nps)
-            #     st.altair_chart(line_chart, use_container_width=True)
-            
-            st.markdown("### 🔬 Baseline NLP Processing")
-            with st.spinner("Processing baseline sentiment analysis..."):
-                st.success("✅ Baseline NLP processing complete")
-                df = annotate_sentiments(df)
-                st.markdown("#### Word Cloud from Comments")
-                display_wordcloud(df)
-                
-                df["Sentiment"] = df["Sentiment"].str.upper()
+            df = annotate_sentiments(df)                
+            df["Sentiment"] = df["Sentiment"].str.upper()
             
             st.markdown("---")
             st.markdown("### 🚀 Model Training & Evaluation")
@@ -351,6 +327,8 @@ def show_models():
             agreement_rate = np.mean(df["NPS_Sentiment"] == df["Sentiment"])
             st.write(f"✅ The agreement between NPS and sentiment is: {agreement_rate:.2%}")
             
+            st.markdown("---")
+
             st.markdown("### 💾 Export Results")
             if st.button("📥 Download Model Comparison Report", type="primary"):
                 report_data = {
