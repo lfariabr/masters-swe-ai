@@ -95,7 +95,6 @@ streamlit run app.py
 - Add wordcloud to models page
 - Add NPS donut chart and monthly NPS trend chart to models page (#TODO)
 
-
 ---
 
 #### 🔸 v2.0.0 - `feature/clinic-trends-ai-alert-system`
