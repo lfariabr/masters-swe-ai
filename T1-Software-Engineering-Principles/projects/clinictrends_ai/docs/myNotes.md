@@ -94,6 +94,8 @@ streamlit run app.py
 - Adds 4 models in Model Performance Comparison table
 - Add wordcloud to models page
 - Add NPS donut chart and monthly NPS trend chart to models page (#TODO)
+- Change menu to "Models Page" to "Sentiment Analysis"
+- Create menu for "NPS Analysis"
 
 ---
 

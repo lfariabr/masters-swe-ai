@@ -10,7 +10,7 @@ Dr. Muhammad Atif Qureshi
 - [X] Module 3 - Project Planning I
 - [X] Module 4 - Project Planning II
 - [X] Module 5 - Project Estimation
-- [ ] Module 6
+- [ ] Module 6 - Risk Analysis and Management (refs: ok, summaries: pending)
 - [ ] Module 7
 - [ ] Module 8
 - [ ] Module 9
