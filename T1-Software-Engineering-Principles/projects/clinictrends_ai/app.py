@@ -64,13 +64,13 @@ def main():
              "Models",
 
              # Training
-             "Training - CM1", # TfidfVectorizer + LogisticRegression @ 'Comment' column.
-             "Training - CM2", # TfidfVectorizer + LogisticRegression @ 'CommentScore' column.
-             "Training - CM3", # TfidfVectorizer + LogisticRegression @ 'Comment' column + Hugging Face Transformers.
-             "Training - CM4", # TfidfVectorizer + LogisticRegression @ 'CommentScore' column + Hugging Face Transformers.
+             # "Training - CM1", # TfidfVectorizer + LogisticRegression @ 'Comment' column.
+             # "Training - CM2", # TfidfVectorizer + LogisticRegression @ 'CommentScore' column.
+             # "Training - CM3", # TfidfVectorizer + LogisticRegression @ 'Comment' column + Hugging Face Transformers.
+             # "Training - CM4", # TfidfVectorizer + LogisticRegression @ 'CommentScore' column + Hugging Face Transformers.
 
              # Additional
-             "Extra: Translation",
+             "Translation",
             ],
             index=0,
             label_visibility="collapsed"
@@ -81,7 +81,7 @@ def main():
         # App info
         st.markdown("""
         **ClinicTrends AI**  
-        v1.6.0  
+        v1.9.0  
         [GitHub Repo](https://github.com/lfariabr/masters-swe-ai/tree/master/T1-Software-Engineering-Principles/projects/clinictrends_ai)  
         [Documentation](HomePage)
         """)
@@ -104,7 +104,7 @@ def main():
     elif page == "Training - CM4":
         TrainingPage4.show_training4()
     
-    elif page == "Extra: Translation":
+    elif page == "Translation":
         TranslatePage.show_translate()
         
 if __name__ == "__main__":

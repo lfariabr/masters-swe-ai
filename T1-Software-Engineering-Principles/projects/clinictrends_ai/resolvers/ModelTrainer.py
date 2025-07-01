@@ -1,0 +1,211 @@
+import numpy as np
+import pandas as pd
+import streamlit as st
+import time
+from typing import Any, Dict, Optional, Tuple
+
+# ML/AI Libraries
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import accuracy_score, precision_recall_fscore_support
+from sklearn.model_selection import train_test_split
+
+# Optional: Transformers
+try:
+    from transformers import pipeline
+    TRANSFORMERS_AVAILABLE = True
+except ImportError:
+    TRANSFORMERS_AVAILABLE = False
+
+
+class ModelTrainer:
+    """
+    Enterprise-grade ML model training and evaluation class.
+    Implements standardized training pipelines with comprehensive metrics.
+    """
+    
+    def __init__(self):
+        self.models = {}
+        self.vectorizers = {}
+        self.metrics = {}
+        
+    def train_tfidf_model(self, df: pd.DataFrame, feature_column: str, 
+                         target_column: str, model_name: str) -> Tuple[Any, Any, Any, Any, Any]:
+        """
+        Train TF-IDF (Term Frequency-Inverse Document Frequency) + Logistic Regression model with standardized pipeline.
+        
+        Args:
+            df: Training dataframe
+            feature_column: Column containing text features
+            target_column: Column containing target labels
+            model_name: Unique identifier for the model
+            
+        Returns:
+            Tuple of (trained_model, fitted_vectorizer, X_test, y_test, y_pred)
+        """
+        try:
+            # Feature extraction
+            vectorizer = TfidfVectorizer(
+                stop_words="english", 
+                max_features=5000,
+                ngram_range=(1, 2),  # Include bigrams for better context
+                min_df=2,  # Ignore terms that appear in less than 2 documents
+                max_df=0.95  # Ignore terms that appear in more than 95% of documents
+            )
+            
+            X = vectorizer.fit_transform(df[feature_column].fillna(''))
+            y = df[target_column]
+            
+            # Train-test split with stratification
+            X_train, X_test, y_train, y_test = train_test_split(
+                X, y, test_size=0.2, random_state=42, stratify=y
+            )
+            
+            # Model training
+            model = LogisticRegression(
+                max_iter=1000,
+                random_state=42,
+                class_weight='balanced'  # Handle class imbalance
+            )
+            
+            start_time = time.time()
+            model.fit(X_train, y_train)
+            training_time = time.time() - start_time
+            
+            # Store model artifacts
+            self.models[model_name] = model
+            self.vectorizers[model_name] = vectorizer
+            
+            # Calculate comprehensive metrics
+            y_pred = model.predict(X_test)
+            self.metrics[model_name] = self._calculate_metrics(
+                y_test, y_pred, model_name, training_time
+            )
+            
+            return model, vectorizer, X_test, y_test, y_pred
+            
+        except Exception as e:
+            st.error(f"❌ Error training {model_name}: {str(e)}")
+            return None, None, None, None, None
+    
+    def train_transformer_model(self, df: pd.DataFrame, feature_column: str, 
+                              model_name: str) -> Optional[pd.DataFrame]:
+        """
+        Apply pre-trained transformer model for sentiment analysis.
+        
+        Args:
+            df: Input dataframe
+            feature_column: Column containing text features
+            model_name: Unique identifier for the model
+            
+        Returns:
+            Optional[pd.DataFrame]: Transformed dataframe with sentiment scores
+        
+        Note: This is a prototype implementation as noted in README.
+        """
+        if not TRANSFORMERS_AVAILABLE:
+            st.warning(f"⚠️ Transformers not available for {model_name}")
+            return None
+            
+        try:
+            sentiment_pipeline = pipeline(
+                "sentiment-analysis", 
+                model="distilbert-base-uncased-finetuned-sst-2-english",
+                return_all_scores=False
+            )
+            
+            # Process in batches to avoid memory issues
+            batch_size = 100
+            results = []
+            
+            progress_bar = st.progress(0)
+            total_batches = len(df) // batch_size + 1
+
+            start_time = time.time()
+            
+            for i in range(0, len(df), batch_size):
+                batch = df[feature_column].iloc[i:i+batch_size].fillna('').tolist()
+                batch_results = sentiment_pipeline(batch, truncation=True)
+                results.extend(batch_results)
+                progress_bar.progress((i // batch_size + 1) / total_batches)
+            
+            training_time = time.time() - start_time
+            progress_bar.empty()
+            
+            # Convert results to dataframe format
+            df_copy = df.copy()
+            df_copy["HF_Label"] = [res["label"] for res in results]
+            df_copy["HF_Score"] = [res["score"] for res in results]
+
+            # Calculate metrics if ground truth exists
+            if "Sentiment" in df.columns:
+                y_true = df["Sentiment"]
+                y_pred = df_copy["HF_Label"]
+                
+                accuracy = accuracy_score(y_true, y_pred)
+                precision, recall, f1, _ = precision_recall_fscore_support(
+                    y_true, y_pred, average="weighted", zero_division=0
+                )
+                
+                class_counts = dict(pd.Series(y_pred).value_counts())
+                
+                self.metrics[model_name] = {
+                    "Model": model_name,
+                    "Accuracy": round(accuracy, 4),
+                    "Precision": round(precision, 4),
+                    "Recall": round(recall, 4),
+                    "F1-Score": round(f1, 4),
+                    "Training_Time": round(training_time, 2),
+                    "Class_Distribution": class_counts,
+                    "Total_Predictions": len(df_copy)
+                }
+            else:
+                # No ground truth to compare
+                self.metrics[model_name] = {
+                    "Model": model_name,
+                    "Accuracy": None,
+                    "Precision": None,
+                    "Recall": None,
+                    "F1-Score": None,
+                    "Training_Time": round(training_time, 2),
+                    "Class_Distribution": None,
+                    "Total_Predictions": len(df_copy)
+                }
+            
+            return df_copy
+            
+        except Exception as e:
+            st.error(f"❌ Error with transformer model {model_name}: {str(e)}")
+            return None
+    
+    def _calculate_metrics(self, y_true, y_pred, model_name: str, 
+                          training_time: float) -> Dict[str, Any]:
+        """Calculate comprehensive model performance metrics."""
+        try:
+            # Basic metrics
+            accuracy = accuracy_score(y_true, y_pred)
+            precision, recall, f1, support = precision_recall_fscore_support(
+                y_true, y_pred, average='weighted', zero_division=0
+            )
+            
+            # Class distribution
+            unique_labels = np.unique(np.concatenate([y_true, y_pred]))
+            class_counts = {label: sum(y_pred == label) for label in unique_labels}
+            
+            return {
+                "Model": model_name,
+                "Accuracy": round(accuracy, 4),
+                "Precision": round(precision, 4),
+                "Recall": round(recall, 4),
+                "F1-Score": round(f1, 4),
+                "Training_Time": round(training_time, 2),
+                "Class_Distribution": class_counts,
+                "Total_Predictions": len(y_pred)
+            }
+        except Exception as e:
+            st.error(f"Error calculating metrics for {model_name}: {str(e)}")
+            return {}
+
+
+# Module exports
+__all__ = ['ModelTrainer']

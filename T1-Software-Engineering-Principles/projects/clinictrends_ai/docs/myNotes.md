@@ -13,7 +13,7 @@ It is designed for small to medium-sized businesses that need actionable insight
 | Key       | Value            |
 |-----------|------------------|
 | **Name**  | ClinicTrends AI  |
-| **Version** | 1.6.0          |
+| **Version** | 1.9.0          |
 | **Stack** | Python, Streamlit, pandas, numpy, altair, textblob, deep-translator, transformers |
 | **Goal**  | Analyze customer feedback and predict Net Promoter Score (NPS) trends using real-time data, natural language processing, and machine learning |
 
@@ -88,14 +88,21 @@ streamlit run app.py
 
 ### 🔧 In Progress
 
-#### 🔸 v1.9.0 / v2.0.0 - `feature/clinic-trends-ai-tbd`
-- tbd
+#### 🔸 v1.9.0 - `feature/clinic-trends-ai-menu-structure`
+- Refactor menu structure
+- Split ModelTrainer class into a resolver
+- Adds 4 models in Model Performance Comparison table
+- Add wordcloud to models page
+- Add NPS donut chart and monthly NPS trend chart to models page (#TODO)
+
 
 ---
 
+#### 🔸 v2.0.0 - `feature/clinic-trends-ai-alert-system`
+- Add automated alert system for NPS drop detection
+
 ### 🗂️ Backlog
 
-- Add automated alert system for NPS drop detection (v2.0)
 - Implement interpretable ML models for NPS prediction (v2.0)
 - Fine-tune transformer models for domain-specific sentiment (v2.0)
 - Add RESTful API development + authentication (v3.0)

@@ -56,3 +56,9 @@ def load_and_process_csv(file):
     df["Month"] = df["Date"].dt.to_period("M").astype(str)
 
     return df
+
+def get_year_store_filters(df):
+    years = df["Year"].unique().tolist()
+    stores = df["Store"].unique().tolist()
+    return years, stores
+    
