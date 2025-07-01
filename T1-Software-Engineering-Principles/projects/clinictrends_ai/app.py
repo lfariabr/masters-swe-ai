@@ -60,8 +60,8 @@ def main():
         page = st.radio(
             "",
             ["Home",
-             "Dashboard",
-             "Models",
+             "NPS Analysis",
+             "ML Model Comparison",
 
              # Training
              # "Training - CM1", # TfidfVectorizer + LogisticRegression @ 'Comment' column.
@@ -89,9 +89,9 @@ def main():
     # Main content based on selection
     if page == "Home":
         HomePage.show_home()
-    elif page == "Dashboard":
+    elif page == "NPS Analysis":
         DashboardPage.show_dashboard()
-    elif page == "Models":
+    elif page == "ML Model Comparison":
         ModelsPage.show_models()
 
 

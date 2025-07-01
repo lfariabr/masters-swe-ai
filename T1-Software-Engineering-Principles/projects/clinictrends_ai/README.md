@@ -5,7 +5,7 @@
 [![scikit-learn](https://img.shields.io/badge/scikit--learn-1.5+-orange.svg)](https://scikit-learn.org)
 [![Transformers](https://img.shields.io/badge/🤗%20Transformers-4.52+-yellow.svg)](https://huggingface.co/transformers)
 [![License](https://img.shields.io/badge/License-Academic-green.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/Version-1.6.0-brightgreen.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/Version-1.9.0-brightgreen.svg)](CHANGELOG.md)
 
 > **Enterprise-grade ML-powered analytics platform that transforms customer feedback into actionable business intelligence through advanced NLP, predictive modeling, and real-time sentiment analysis.**
 
@@ -267,8 +267,7 @@ ClinicTrends AI delivers **proactive customer intelligence** through:
 - ✅ Main interface with file upload and model selection
 - ✅ Pytest initial setup
 
-
-### Phase 2: Intelligence Enhancement (v2.0) 📋 **PLANNED** / 🔄 **IN PROGRESS**
+### Phase 2: Intelligence Enhancement (v2.0) 🔄 **IN PROGRESS**
 - 🔄 Advanced feature engineering pipelines
 - 🔄 Automated hyperparameter optimization
 - 🔄 Real-time model retraining capabilities

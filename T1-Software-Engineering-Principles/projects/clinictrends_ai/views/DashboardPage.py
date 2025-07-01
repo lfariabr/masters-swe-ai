@@ -13,18 +13,27 @@ from utils.nlp_analysis import display_sentiment_distribution, display_wordcloud
 def show_dashboard():
     """Show the dashboard page content."""
 
-    st.title("ClinicTrends AI 🔍")
+    st.title("📈 NPS Analytics Dashboard")
     
     st.markdown("""
-    Analyze your customer feedback by:
-    - customer feedback throughout the period of your survey (can be yearly, monthly, etc.)
-    - measure NPS scores showing who are the promoters, passives and detractors
-    - gain insights from customer comments and uses NLP to analyze the sentiment of the comments
+    **Explore powerful insights from your customer feedback.**
 
-    Upload your survey data and let ClinicTrends AI show you the results.
+    The NPS Analytics Dashboard enables you to:
+    
+    - **Track customer feedback trends** over time (monthly, quarterly, yearly)
+    - **Visualize NPS performance** and identify Promoters, Passives, and Detractors
+    - **Analyze customer comments** using NLP to reveal underlying sentiment patterns
+    - **Compare NPS vs. sentiment alignment** to detect potential mismatches or hidden insights
+    
+    Use this dashboard to turn raw feedback into actionable strategies and improve customer experience.
     """)
-        
-    uploaded_file = st.file_uploader("Choose a CSV file", type="csv")
+
+    st.markdown("### 📁 Data Upload")     
+    uploaded_file = st.file_uploader(
+        "Upload your CSV file with customer feedback",
+        type="csv",
+        help="File should contain 'Comment' and 'Score' columns"
+    )
 
     if uploaded_file is not None:
         df = load_and_process_csv(uploaded_file)
@@ -43,16 +52,15 @@ def show_dashboard():
 
         if not filtered_df.empty:
             nps_score = calculate_nps(filtered_df)
-            st.write(f"NPS Score: {nps_score}")
-            
-            st.write("---")
-            st.write("Random Data Preview")
-            st.write(filtered_df.sample(3))
-            total_records = len(filtered_df)
-            st.write(f"Total Records: {total_records}")
-        
-            st.write("---")
 
+            with st.expander("👀 Data Preview (just in case you want to check it)"):
+                st.dataframe(filtered_df.sample(min(5, len(filtered_df))), use_container_width=True)
+                total_records = len(filtered_df)
+                st.info(f"Dataset shape: {filtered_df.shape[0]} rows × {filtered_df.shape[1]} columns")
+            
+            st.markdown("---")
+            
+            st.write(f"NPS Score: {nps_score}")
             col1, col2 = st.columns(2)
             
             with col1:
@@ -62,16 +70,22 @@ def show_dashboard():
             with col2:
                 line_chart = monthly_nps_trend_chart(filtered_df, calculate_nps)
                 st.altair_chart(line_chart, use_container_width=True)
+            
 
         else:
             st.warning("No data found for the selected filters.")
 
-        st.write("---")
+        st.markdown("---")
     
-    # Apply NLP
-
-        pos_thresh = st.slider("Positive threshold", min_value=0.01, max_value=0.5, value=0.05, step=0.01)
-        neg_thresh = st.slider("Negative threshold", min_value=-0.5, max_value=-0.01, value=-0.05, step=0.01)
+        # Apply NLP
+        st.subheader("Sentiment Distribution")
+        col1, col2 = st.columns(2)
+        with col1:
+            st.write("Adjust these thresholds to fine-tune sentiment classification.")
+            st.info("Comments with a polarity score above this value will be classified as POSITIVE. Lower values make the model more sensitive to mildly positive comments.")
+            pos_thresh = st.slider("Positive threshold", min_value=0.01, max_value=0.5, value=0.05, step=0.01)
+            st.warning("Comments with a polarity score below this value will be classified as NEGATIVE. Lower (more negative) values capture only strongly negative comments, while higher values include milder negativity.")
+            neg_thresh = st.slider("Negative threshold", min_value=-0.5, max_value=-0.01, value=-0.05, step=0.01)
 
         annotated_df = annotate_sentiments(
             filtered_df,
@@ -79,46 +93,55 @@ def show_dashboard():
             pos_thresh=pos_thresh,
             neg_thresh=neg_thresh
         )
-
-        st.subheader("Sentiment Distribution")
-        display_sentiment_distribution(annotated_df)
+        with col2:
+            display_sentiment_distribution(annotated_df)
 
         st.subheader("Word Cloud from Comments")
         display_wordcloud(annotated_df)
 
-        st.subheader("Comments with TextBlob Sentiment")
-        st.dataframe(annotated_df[["Date", "Store", "Comment", "Score", "NPS Type", "Sentiment", "Polarity"]].dropna(), use_container_width=True)
-
+        ## DEBUG
+        ###############
+        # st.subheader("Comments with TextBlob Sentiment")
+        # st.dataframe(annotated_df[["Date", "Store", "Comment", "Score", "NPS Type", "Sentiment", "Polarity"]].dropna(), use_container_width=True)
+        
         # st.write("---")
         # st.subheader("Positive Comments")
         # st.dataframe(annotated_df[annotated_df["Sentiment"] == "Positive"][["Date", "Store", "Comment", "Score", "NPS Type", "Sentiment", "Polarity"]].dropna(), use_container_width=True)
         # st.subheader("Negative Comments")
         # st.dataframe(annotated_df[annotated_df["Sentiment"] == "Negative"][["Date", "Store", "Comment", "Score", "NPS Type", "Sentiment", "Polarity"]].dropna(), use_container_width=True)
 
-        st.write("---")
-        st.markdown("### CHECKING NPS DATA vs SENTIMENT")
-        col1, col2 = st.columns(2)
-        with col1:
-            # NPS pizza graphic
-            donut_chart = nps_donut_chart(filtered_df)
-            st.altair_chart(donut_chart, use_container_width=True)
-            st.dataframe(filtered_df["NPS Type"].value_counts().reset_index(), use_container_width=True)
-        with col2:
-            # Sentiment distribution graphic
-            annotated_df["Sentiment"] = annotated_df["Sentiment"].astype(str)
-            sentiment_distribution_chart = annotated_df.groupby("Sentiment").size().reset_index(name="Count")
+        # st.write("---")
+        # st.markdown("### CHECKING NPS DATA vs SENTIMENT")
+        # col1, col2 = st.columns(2)
+        # with col1:
+        #     # NPS pizza graphic
+        #     donut_chart = nps_donut_chart(filtered_df)
+        #     st.altair_chart(donut_chart, use_container_width=True)
+        #     st.dataframe(filtered_df["NPS Type"].value_counts().reset_index(), use_container_width=True)
+        # with col2:
+        #     # Sentiment distribution graphic
+        #     annotated_df["Sentiment"] = annotated_df["Sentiment"].astype(str)
+        #     sentiment_distribution_chart = annotated_df.groupby("Sentiment").size().reset_index(name="Count")
 
-            bar_chart = alt.Chart(sentiment_distribution_chart).mark_arc(innerRadius=50).encode(
-                theta=alt.Theta(field="Count", type="quantitative"),
-                color=alt.Color(field="Sentiment", type="nominal", scale=alt.Scale(domain=["Positive", "Negative", "Neutral"], range=["#2ecc71", "#e74c3c", "#f1c40f"])),
-                tooltip=["Sentiment", "Count"]
-            ).properties(
-                title="Sentiment Distribution - TextBlob"
-            )
+        #     bar_chart = alt.Chart(sentiment_distribution_chart).mark_arc(innerRadius=50).encode(
+        #         theta=alt.Theta(field="Count", type="quantitative"),
+        #         color=alt.Color(field="Sentiment", type="nominal", scale=alt.Scale(domain=["Positive", "Negative", "Neutral"], range=["#2ecc71", "#e74c3c", "#f1c40f"])),
+        #         tooltip=["Sentiment", "Count"]
+        #     ).properties(
+        #         title="Sentiment Distribution - TextBlob"
+        #     )
 
-            st.altair_chart(bar_chart, use_container_width=True)
-            st.dataframe(sentiment_distribution_chart, use_container_width=True)
-
+        #     st.altair_chart(bar_chart, use_container_width=True)
+        #     st.dataframe(sentiment_distribution_chart, use_container_width=True)
+    else:
+        st.info("""
+        👆 **Upload a CSV file to begin NPS analysis**
+        
+        Your file should contain:
+        - `Comment` column: Customer feedback text
+        - `Score` column: Numerical rating (0-10)
+        - Optional: `Date`, `Store` columns for additional analysis
+        """)
 
 if __name__ == "__main__":
     show_dashboard()
