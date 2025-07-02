@@ -71,48 +71,25 @@ python main.py
 - add student name and university to results tab (done)
 - update progress bar (done)
 
+#### 🔹 v1.10.0 - `feature/pytest`
+- Run all tests: `pytest tests/`
+- Run a specific test file: `pytest tests/test_curriculum_matching.py -v`
+- Run tests with coverage report: `pytest --cov=. tests/` OR `pytest --cov=. --cov-report=term-missing tests/`
+
 ---
 
 ### 🔧 In Progress
 
-#### 🔸 v1.10.0 - `feature/pytest`
-- test_transcript_parsing
-- test_curriculum_matching
-- test_theme_switching
-- test_elective_recommendations
-Run all tests: `pytest tests/`
-Run a specific test file: `pytest tests/test_curriculum_matching.py -v`
-Run tests with coverage report: `pytest --cov=. tests/` OR `pytest --cov=. --cov-report=term-missing tests/`
-
+#### 🔸 v1.10.0 - `feature/build-distribution`
+- Build distribution (Windows + macOS) 
 
 ---
 
 ### 🗂️ Backlog
 
-- Build distribution (Windows) + tests (start from them)
-
 - Integrate with DB (MongoDB or Supabase PostgreSQL – 500MB free tier) (v2)
 - engine: deeper logic like tags, topics or even semantic similarity (based on description). (v3)
 - Login, authentication (v4)
-
----
-
-## 📅 Version Control Roadmap
-
-| Version | Modules            | Status         |
-|---------|---------------------|----------------|
-| 1.0.0   | Modules 1–4         | ✅ Done        |
-| 2.0.0   | Modules 5–8         | 🔥 In Progress |
-| 3.0.0   | Modules 9–12        | 🕐 Not started |
-
----
-
-## 🤝 Contributors
-- **Luis** – Fullstack Developer, Project Manager
-- **Hussain** – Fullstack Developer (Electron prototype)
-- **Rosa** – UI Designer
-- **Victor** – DBM / Supabase setup
-- **Nomayer** – QA, Stakeholder liaison
 
 ---
 

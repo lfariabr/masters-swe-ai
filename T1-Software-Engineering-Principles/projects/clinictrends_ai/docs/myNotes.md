@@ -8,16 +8,6 @@ It is designed for small to medium-sized businesses that need actionable insight
 
 ---
 
-## 📦 Project Details
-
-| Key       | Value            |
-|-----------|------------------|
-| **Name**  | ClinicTrends AI  |
-| **Version** | 1.9.0          |
-| **Stack** | Python, Streamlit, pandas, numpy, altair, textblob, deep-translator, transformers |
-| **Goal**  | Analyze customer feedback and predict Net Promoter Score (NPS) trends using real-time data, natural language processing, and machine learning |
-
-
 ## 🔧 Getting Started
 
 ### ▶️ Run the Project
@@ -117,38 +107,6 @@ streamlit run app.py
 - **Visualization**: Altair, wordcloud
 - **NLP**: TextBlob, Hugging Face Transformers, deep-translator
 - **Deployment**: Streamlit Cloud
-
----
-
-## 🤝 Contributors
-
-- Luis Faria  
-- Jing Feng Chin  
-- Luong Hai Chau  
-
-Project for SEP401 – Software Engineering Principles @ Torrens University
-
----
-
-## 📅 Version Control Roadmap
-
-| Version | Modules            | Status         |
-|---------|---------------------|----------------|
-| 1.0.0   | Modules 1–4         | ✅ Done        |
-| 2.0.0   | Modules 5–8         | 🔥 In Progress |
-| 3.0.0   | Modules 9–12        | 🕐 Not started |
-
----
-
-## 🧠 Insights & Learning
-
-This project explores practical applications of:
-- Software engineering planning and version control
-- Data visualization and business storytelling
-- Sentiment analysis and language translation
-- ML pipelines for text classification and trend prediction
-
-# Inspirational Quote based on Tech Stack and Projects' Goals
 
 ---
 

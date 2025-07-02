@@ -16,19 +16,21 @@ TTrack implements a **modular, event-driven architecture** following SOLID princ
 ```
 TTrack/
 ├── 🎯 main.py                    # Application entry point & orchestration
-├── 🖥️  gui/                      # Presentation layer
+├── 📊 data/                      # Data templates & samples
+├── 📚 docs/                      # Technical documentation
+├── 📦 dist/                      # Production builds
+├── 🖥️ gui/                      # Presentation layer
 │   ├── main_window.py           # Main UI controller with theme management
 │   └── utils.py                 # GUI utilities & helpers
+├── 🖼️ public/                    # Public assets like logo, icons, etc.
 ├── 🧠 resolvers/                 # Business logic layer
 │   └── engine.py                # Core matching algorithms & data processing
+├── ✅ tests/                     # Unit tests
 ├── 🎨 ui/                        # UI components & layouts
 │   ├── tab_input.py             # Data input interface
 │   ├── tab_results.py           # Results visualization
 │   ├── tab_results2.py          # Enhanced results dashboard
 │   └── helpers.py               # UI utility functions
-├── 📊 data/                      # Data templates & samples
-├── � docs/                      # Technical documentation
-└── 🚀 dist/                      # Production builds
 ```
 
 ---
