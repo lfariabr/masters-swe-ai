@@ -15,3 +15,7 @@ flake8>=4.0.1
 PyQtChart
 matplotlib
 
+# Coverage
+coverage>=6.5.0
+pytest-cov>=4.0.0
+

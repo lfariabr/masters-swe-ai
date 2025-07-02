@@ -76,7 +76,14 @@ python main.py
 ### 🔧 In Progress
 
 #### 🔸 v1.10.0 - `feature/pytest`
-- add test coverage to the project
+- test_transcript_parsing
+- test_curriculum_matching
+- test_theme_switching
+- test_elective_recommendations
+Run all tests: `pytest tests/`
+Run a specific test file: `pytest tests/test_curriculum_matching.py -v`
+Run tests with coverage report: `pytest --cov=. tests/` OR `pytest --cov=. --cov-report=term-missing tests/`
+
 
 ---
 
@@ -115,17 +122,3 @@ This project is part of **SDM404 – Software Development Management** at Torren
 - Risk Analysis
 - Budget & Roles
 - Dev Notes & Meeting Logs
-
----
-
-## 🧩 Fun Fact
-This system was built side-by-side using both **Electron+React** and **Python+PyQt5** prototypes, with the aim of presenting both to the lecturer for discussion and final implementation direction.
-
----
-
-## 👀 Next Milestone
-💡 Delivering a full Results Page with transcript/curriculum comparison, dashboard visuals, and elective recommendations, all locally processed with zero dependency on admin support.
-
----
-
-> “Software eats degrees… unless TTrack tracks them first.”
