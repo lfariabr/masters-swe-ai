@@ -31,6 +31,10 @@ ClinicTrends AI implements a **modular, microservices-inspired architecture** fo
 ```
 ClinicTrends AI/
 ├── 🚀 app.py                     # Streamlit application orchestrator
+├── ✅ tests/                     # Unit tests
+├── 📊 docs/                      # IEEE standards documentation
+│   ├── Assessment_1A.md         # Software proposal & project planning
+│   └── Assessment_1B.md         # IEEE Software Requirements Specification
 ├── 📱 views/                     # Presentation layer (MVC pattern)
 │   ├── HomePage.py              # Landing page & project overview
 │   ├── DashboardPage.py         # Interactive analytics dashboard
@@ -43,9 +47,6 @@ ClinicTrends AI/
 │   ├── visualizations.py        # Interactive chart generation
 │   ├── translate.py             # Multi-language translation engine
 │   └── ui_filters.py            # Dynamic UI component management
-├── 📊 docs/                      # IEEE standards documentation
-│   ├── Assessment_1A.md         # Software proposal & project planning
-│   └── Assessment_1B.md         # IEEE Software Requirements Specification
 └── 🎨 public/                    # Static assets & branding
 ```
 
