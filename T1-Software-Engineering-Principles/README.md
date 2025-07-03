@@ -20,6 +20,6 @@ Dr. Ranju Mandal
 
 ## Assignments
 - [X] Assessment 1 - submitted 20/06/2025
-- [ ] Assessment 2 - deadline 06/07/2025
+- [X] Assessment 2 - submitted 05/07/2025
 - [ ] Assessment 3 - deadline 03/08/2025
 - [ ] Assessment 4 - deadline 20/08/2025
