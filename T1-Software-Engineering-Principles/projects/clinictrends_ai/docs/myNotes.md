@@ -89,8 +89,8 @@ streamlit run app.py
 ### 🔧 In Progress
 
 #### 🔸 v2.0.0 - `feature/clinic-trends-ai-alert-system`
-- Adds sample csv file for enhanced UX
-- Add automated alert system for NPS drop detection
+- Adds sample csv file for enhanced UXs (done)
+- Add automated alert system for NPS drop detection (#TODO at NPSPage.py)
 
 ### 🗂️ Backlog
 
