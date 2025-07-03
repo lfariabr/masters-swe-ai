@@ -6,7 +6,7 @@ from pathlib import Path
 # Disable Streamlit's default sidebar navigation
 st.set_page_config(
     page_title="ClinicTrends AI",
-    page_icon="",
+    page_icon="🤖",
     layout="wide", # centered
     initial_sidebar_state="expanded"
 )
@@ -18,7 +18,7 @@ sys.path.append(str(Path(__file__).parent))
 try:
     from views import (
         HomePage,
-        DashboardPage,
+        NPSPage,
         TranslatePage,
         TrainingPage,
         TrainingPage2,
@@ -29,7 +29,7 @@ try:
 
 except ImportError:
     import views.HomePage as HomePage
-    import views.DashboardPage as DashboardPage
+    import views.NPSPage as NPSPage
     import views.TranslatePage as TranslatePage
     import views.TrainingPage as TrainingPage
     import views.TrainingPage2 as TrainingPage2
@@ -90,7 +90,7 @@ def main():
     if page == "Home":
         HomePage.show_home()
     elif page == "NPS Analysis":
-        DashboardPage.show_dashboard()
+        NPSPage.show_dashboard()
     elif page == "ML Model Comparison":
         ModelsPage.show_models()
 
