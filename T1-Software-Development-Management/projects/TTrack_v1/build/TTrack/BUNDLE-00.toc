@@ -1,3 +1,0 @@
-([('TTrack',
-   '/Users/luisfaria/Desktop/sEngineer/masters_SWEAI/T1-Software-Development-Management/projects/TTrack_v1/dist/TTrack',
-   'EXECUTABLE')],)
