@@ -39,6 +39,7 @@ sys.path.append(str(Path(__file__).parent.parent))
 from utils.visualizations import nps_donut_chart, monthly_nps_trend_chart
 from utils.nlp_analysis import annotate_sentiments, display_wordcloud
 from utils.preprocessing import classify_nps
+from utils.alerts import send_discord_message
 
 # Optional: Transformers (marked as prototype in README)
 try:
@@ -177,6 +178,7 @@ def show_models():
     if uploaded_file is not None:
         try:
             with st.spinner("🔄 Loading and validating data..."):
+                send_discord_message("🔄 Starting data upload and validation process at Models Page")
                 df = pd.read_csv(uploaded_file)
                 
                 required_columns = ['Comment', 'Score']
@@ -344,7 +346,7 @@ def show_models():
             st.markdown("---")
 
             st.markdown("### 💾 Export Results")
-            if st.button("📥 Download Model Comparison Report", type="primary"):
+            if st.button("📥 Download Model Comparison Report", type="primary", key="export"):
                 report_data = {
                     "model_metrics": model_trainer.metrics,
                     "data_summary": {

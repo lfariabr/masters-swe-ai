@@ -84,11 +84,14 @@ streamlit run app.py
 - Change dashboard to "NPS Analysis"
 - Update Pytest coverage
 
+#### 🔹 v2.0.0 - `feature/discord-webhook`
+- Add discord webhook for alerting when app's used at key pages
+
 ---
 
 ### 🔧 In Progress
 
-#### 🔸 v2.0.0 - `feature/clinic-trends-ai-alert-system`
+#### 🔸 v2.1.0 - `feature/clinic-trends-ai-alert-system`
 - Adds sample csv file for enhanced UXs (done)
 - Add automated alert system for NPS drop detection (#TODO at NPSPage.py)
 

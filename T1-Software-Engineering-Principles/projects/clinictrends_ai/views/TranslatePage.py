@@ -6,6 +6,7 @@ import sys
 # Add parent directory to path to import utils
 sys.path.append(str(Path(__file__).parent.parent))
 from utils.translate import translate_dataframe, translate_text
+from utils.alerts import send_discord_message
 
 def show_translate():
     st.title(" Text & File Translation")
@@ -47,6 +48,7 @@ def show_translate():
         # Translate button
         if st.button("Translate", type="primary", key="translate_btn"):
             if text_to_translate.strip():
+                send_discord_message(f"A translation request has been made with '{text_to_translate[:50]}' from '{source_lang}' to '{target_lang}'")
                 with st.spinner("Translating..."):
                     try:
                         translated_text = translate_text(
