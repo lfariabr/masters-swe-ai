@@ -76,18 +76,26 @@ python main.py
 - Run a specific test file: `pytest tests/test_curriculum_matching.py -v`
 - Run tests with coverage report: `pytest --cov=. tests/` OR `pytest --cov=. --cov-report=term-missing tests/`
 
+#### 🔹 v1.11.0 - `feature/build-distribution`
+- Build distribution (macOS at build_mac.sh)
+- Build distribution (Windows at build.bat)  
+- Updated docs @ [buildingApp.md](https://github.com/lfariabr/masters-swe-ai/tree/master/T1-Software-Development-Management/projects/TTrack_v1/docs/buildingApp.md)  
+
+
 ---
 
 ### 🔧 In Progress
 
-#### 🔸 v1.10.0 - `feature/build-distribution`
-- Build distribution (Windows + macOS) 
+#### 🔸 v1.12.0 - `feature/sample-data-to-interface`
+- Add 2 cool buttons to load sample data (transcript and curriculum) from the `data` folder
+
+#### 🔸 v2.0.0 - `feature/db-integration`
+- Integrate with DB (MongoDB or Supabase PostgreSQL – 500MB free tier)
 
 ---
 
 ### 🗂️ Backlog
 
-- Integrate with DB (MongoDB or Supabase PostgreSQL – 500MB free tier) (v2)
 - engine: deeper logic like tags, topics or even semantic similarity (based on description). (v3)
 - Login, authentication (v4)
 
