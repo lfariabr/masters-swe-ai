@@ -1,11 +1,17 @@
 # -*- mode: python ; coding: utf-8 -*-
 
+block_cipher = None
 
 a = Analysis(
     ['main.py'],
     pathex=[],
     binaries=[],
-    datas=[],
+    datas=[
+        ('data/sample_academic_transcript.xlsx', 'data'),
+        ('data/sample_prescribed_curriculum.xlsx', 'data'),
+        ('public/ttrack_logo.svg', 'public'),
+        ('public/ttrack_app_icon.svg', 'public'),
+    ],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},
@@ -14,7 +20,8 @@ a = Analysis(
     noarchive=False,
     optimize=0,
 )
-pyz = PYZ(a.pure)
+
+pyz = PYZ(a.pure, a.zipped_data, cipher=block_cipher)
 
 exe = EXE(
     pyz,
@@ -35,10 +42,4 @@ exe = EXE(
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
-)
-app = BUNDLE(
-    exe,
-    name='TTrack.app',
-    icon='TTrack.icns',
-    bundle_identifier=None,
 )
