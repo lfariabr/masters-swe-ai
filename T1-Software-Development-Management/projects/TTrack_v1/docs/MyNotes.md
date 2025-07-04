@@ -85,6 +85,11 @@ python main.py
 #### 🔹 v1.12.0 - `feature/sample-data-to-interface`
 - Add 2 cool buttons to load sample data (transcript and curriculum) from the `data` folder
 
+#### 🔹 v1.13.0 - `feature/windows-distribution`
+- Update `TTrack.spec` to include `data/` and logo assets
+- Add `info.py` with `resource_path()` helper for Windows EXE distribution
+- Update `tab_input.py` to use `resource_path()` for loading bundled files
+
 ---
 
 ### 🔧 In Progress
