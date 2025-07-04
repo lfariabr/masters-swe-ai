@@ -10,6 +10,7 @@ from utils.preprocessing import load_and_process_csv, calculate_nps
 from utils.visualizations import nps_donut_chart, monthly_nps_trend_chart
 from utils.ui_filters import get_year_store_filters
 from utils.nlp_analysis import display_sentiment_distribution, display_wordcloud, annotate_sentiments
+from utils.alerts import send_discord_message
 
 def show_dashboard():
     """Show the dashboard page content."""
@@ -50,6 +51,7 @@ def show_dashboard():
     )
 
     if uploaded_file is not None:
+        send_discord_message("🔄 Starting data upload and validation process at NPS Page")
         df = load_and_process_csv(uploaded_file)
         selected_year, selected_store = get_year_store_filters(df)
 

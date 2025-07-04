@@ -1,8 +1,10 @@
 import streamlit as st
+from utils.alerts import send_discord_message
 
 def show_home():
     """Show the home page content."""
     st.title("ClinicTrends AI 🔍")
+    send_discord_message("👀 Home page has been visited.")
     
     st.markdown("""
     ## Analyze your Customer Feedback by:
