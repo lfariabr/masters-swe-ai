@@ -42,7 +42,9 @@ def main():
     with st.sidebar:
         # Logo and title
         try:
-            logo_path = Path(__file__).parent / "public" / "clinictrends_logo_200x200.svg"
+            # logo_path = Path(__file__).parent / "public" / "clinictrends_logo_200x200.svg"
+            from info import resource_path
+            logo_path = resource_path("public/clinictrends_logo_200x200.svg")
             logo = str(logo_path) if logo_path.exists() else None
         except Exception as e:
             st.warning(f"Could not load logo: {e}")
