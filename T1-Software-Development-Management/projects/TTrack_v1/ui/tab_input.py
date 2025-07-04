@@ -1,9 +1,11 @@
 from PyQt5.QtWidgets import (
-    QWidget, QVBoxLayout, QHBoxLayout, QPushButton,
-    QLabel, QTableView, QFileDialog, QLineEdit
+    QWidget, QVBoxLayout, QHBoxLayout, QPushButton, 
+    QLabel, QTableView, QFileDialog, QLineEdit,
+    QGroupBox, QGridLayout
 )
 from PyQt5.QtGui import QFont
 from PyQt5.QtCore import Qt
+import os
 
 def setup_input_tab(parent):
     """
@@ -59,43 +61,91 @@ def setup_input_tab(parent):
     layout.addLayout(title_layout)
 
     subtitle = QLabel("Built by students for academic advisors at Torrens University Australia.")
-    subtitle.setStyleSheet(f"color: {'#bbbbbb' if parent.is_dark_mode else '#555555'}; font-size: 13px;")
+    subtitle.setStyleSheet(f"color: {'#e0e0e0' if parent.is_dark_mode else '#555555'}; font-size: 13px;")
     subtitle.setAlignment(Qt.AlignCenter)
 
     credit = QLabel("Guided by Dr. Atif Qureshi – Software Development Management, 2025")
-    credit.setStyleSheet(f"color: {'#999999' if parent.is_dark_mode else '#777777'}; font-size: 11px; font-style: italic;")
+    credit.setStyleSheet(f"color: {'#cccccc' if parent.is_dark_mode else '#777777'}; font-size: 11px; font-style: italic;")
     credit.setAlignment(Qt.AlignCenter)
 
     layout.addWidget(subtitle)
     layout.addWidget(credit)
     layout.addSpacing(20)
 
-    # Upload Section
-    button_layout = QHBoxLayout()
-    
-    # Create buttons
+    # Create main buttons
+    from .helpers import set_button_style
     parent.transcript_btn = QPushButton("📄 Upload Transcript")
     parent.curriculum_btn = QPushButton("📚 Upload Curriculum")
     parent.process_btn = QPushButton("🔍 Process Data")
     
-    # Connect signals
+    # Style buttons
+    set_button_style(parent.transcript_btn, parent.main_color, parent.is_dark_mode)
+    set_button_style(parent.curriculum_btn, parent.main_color, parent.is_dark_mode)
+    set_button_style(parent.process_btn, "#27ae60", parent.is_dark_mode)
+    
+    # Connect buttons
     parent.transcript_btn.clicked.connect(lambda: load_file(parent, is_transcript=True))
     parent.curriculum_btn.clicked.connect(lambda: load_file(parent, is_transcript=False))
     parent.process_btn.clicked.connect(parent.process_data)
     parent.process_btn.setEnabled(False)
     
-    # Style buttons
-    from .helpers import set_button_style
-    set_button_style(parent.transcript_btn, parent.main_color, parent.is_dark_mode)
-    set_button_style(parent.curriculum_btn, parent.main_color, parent.is_dark_mode)
-    set_button_style(parent.process_btn, "#27ae60", parent.is_dark_mode)
+    # Create helper buttons
+    parent.sample_transcript_btn = QPushButton("🧪 Try with Sample Data")
+    parent.sample_curriculum_btn = QPushButton("🧪 Try with Sample Data")
+    parent.download_transcript_btn = QPushButton("📦 Download the Template")
+    parent.download_curriculum_btn = QPushButton("📦 Download the Template")
     
-    # Add buttons to layout
-    button_layout.addWidget(parent.transcript_btn)
-    button_layout.addWidget(parent.curriculum_btn)
-    button_layout.addStretch()
-    button_layout.addWidget(parent.process_btn)
-    layout.addLayout(button_layout)
+    # Style helper buttons
+    sample_button_color = "#27AE60"  # Green
+    download_button_color = "#2471A3"  # Blue
+    set_button_style(parent.sample_transcript_btn, sample_button_color, parent.is_dark_mode, smaller=True)
+    set_button_style(parent.sample_curriculum_btn, sample_button_color, parent.is_dark_mode, smaller=True)
+    set_button_style(parent.download_transcript_btn, download_button_color, parent.is_dark_mode, smaller=True)
+    set_button_style(parent.download_curriculum_btn, download_button_color, parent.is_dark_mode, smaller=True)
+    
+    # Connect helper buttons
+    parent.sample_transcript_btn.clicked.connect(lambda: load_sample_file(parent, is_transcript=True))
+    parent.sample_curriculum_btn.clicked.connect(lambda: load_sample_file(parent, is_transcript=False))
+    parent.download_transcript_btn.clicked.connect(lambda: download_sample_file(parent, is_transcript=True))
+    parent.download_curriculum_btn.clicked.connect(lambda: download_sample_file(parent, is_transcript=False))
+    
+    # Create clear column headers
+    transcript_label = QLabel("Transcript")
+    transcript_label.setAlignment(Qt.AlignCenter)
+    transcript_label.setStyleSheet("font-weight: bold;")
+    
+    curriculum_label = QLabel("Curriculum")
+    curriculum_label.setAlignment(Qt.AlignCenter)
+    curriculum_label.setStyleSheet("font-weight: bold;")
+    
+    # Create action grid layout
+    action_grid = QGridLayout()
+    
+    # Add column headers
+    action_grid.addWidget(transcript_label, 0, 0)
+    action_grid.addWidget(curriculum_label, 0, 1)
+    
+    # Add main buttons
+    action_grid.addWidget(parent.transcript_btn, 1, 0)
+    action_grid.addWidget(parent.curriculum_btn, 1, 1)
+    
+    # Add helper buttons
+    action_grid.addWidget(parent.sample_transcript_btn, 2, 0)
+    action_grid.addWidget(parent.sample_curriculum_btn, 2, 1)
+    
+    action_grid.addWidget(parent.download_transcript_btn, 3, 0)
+    action_grid.addWidget(parent.download_curriculum_btn, 3, 1)
+    
+    # Add process button centered at the bottom
+    process_layout = QHBoxLayout()
+    process_layout.addStretch()
+    process_layout.addWidget(parent.process_btn)
+    process_layout.addStretch()
+    
+    # Add layouts to main layout
+    layout.addLayout(action_grid)
+    layout.addSpacing(15)
+    layout.addLayout(process_layout)
 
     # Display Section
     layout.addSpacing(15)
@@ -151,3 +201,93 @@ def load_file(parent, is_transcript=True):
         # Enable process button if both files are loaded
         if parent.transcript_df is not None and parent.curriculum_df is not None:
             parent.process_btn.setEnabled(True)
+
+
+def load_sample_file(parent, is_transcript=True):
+    """
+    Load sample data files for transcript or curriculum
+    
+    Args:
+        parent: The main window instance
+        is_transcript: Boolean indicating if loading transcript (True) or curriculum (False)
+    """
+    # Get base directory path
+    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    
+    # Define the sample file path based on type
+    file_name = "sample_academic_transcript.xlsx" if is_transcript else "sample_prescribed_curriculum.xlsx"
+    file_path = os.path.join(base_dir, "data", file_name)
+    
+    # Check if file exists
+    if not os.path.exists(file_path):
+        from PyQt5.QtWidgets import QMessageBox
+        QMessageBox.warning(parent, "File Not Found", 
+                           f"Sample {('transcript' if is_transcript else 'curriculum')} file not found at {file_path}")
+        return
+    
+    # Load the sample file
+    try:
+        from gui.utils import load_excel_as_model
+        model = load_excel_as_model(file_path)
+        
+        if is_transcript:
+            parent.transcript_table.setModel(model)
+            parent.transcript_df = parent.helpers.model_to_dataframe(model)
+            parent.statusBar().showMessage(f"Loaded sample transcript from {file_name}", 3000)
+        else:
+            parent.curriculum_table.setModel(model)
+            parent.curriculum_df = parent.helpers.model_to_dataframe(model)
+            parent.statusBar().showMessage(f"Loaded sample curriculum from {file_name}", 3000)
+        
+        # Enable process button if both files are loaded
+        if parent.transcript_df is not None and parent.curriculum_df is not None:
+            parent.process_btn.setEnabled(True)
+            
+    except Exception as e:
+        from PyQt5.QtWidgets import QMessageBox
+        QMessageBox.critical(parent, "Error Loading Sample Data", 
+                           f"Error loading sample {('transcript' if is_transcript else 'curriculum')}:\n{str(e)}")
+
+
+def download_sample_file(parent, is_transcript=True):
+    """
+    Download sample data files for transcript or curriculum to user-specified location
+    
+    Args:
+        parent: The main window instance
+        is_transcript: Boolean indicating if downloading transcript (True) or curriculum (False)
+    """
+    # Get base directory path
+    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    
+    # Define the sample file path based on type
+    file_name = "sample_academic_transcript.xlsx" if is_transcript else "sample_prescribed_curriculum.xlsx"
+    file_path = os.path.join(base_dir, "data", file_name)
+    
+    # Check if file exists
+    if not os.path.exists(file_path):
+        from PyQt5.QtWidgets import QMessageBox
+        QMessageBox.warning(parent, "File Not Found", 
+                          f"Sample {('transcript' if is_transcript else 'curriculum')} file not found at {file_path}")
+        return
+    
+    # Ask user where to save the file
+    file_type = "Transcript" if is_transcript else "Curriculum"
+    from PyQt5.QtWidgets import QFileDialog
+    save_path, _ = QFileDialog.getSaveFileName(
+        parent, 
+        f"Save {file_type} Template", 
+        file_name,
+        "Excel Files (*.xlsx)"
+    )
+    
+    if save_path:
+        try:
+            # Use shutil to copy the file
+            import shutil
+            shutil.copy2(file_path, save_path)
+            parent.statusBar().showMessage(f"Downloaded {file_type} template to {save_path}", 3000)
+        except Exception as e:
+            from PyQt5.QtWidgets import QMessageBox
+            QMessageBox.critical(parent, "Error Saving File", 
+                              f"Error saving {file_type} template: {str(e)}")

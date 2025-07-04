@@ -70,17 +70,28 @@ def populate_table(table_widget, df):
                 
     table_widget.resizeColumnsToContents()
 
-def set_button_style(button, main_color, is_dark_mode):
-    """Apply consistent styling to buttons"""
+def set_button_style(button, main_color, is_dark_mode, smaller=False):
+    """Apply consistent styling to buttons
+    
+    Args:
+        button: QPushButton to style
+        main_color: Main color for the button
+        is_dark_mode: Whether dark mode is enabled
+        smaller: Whether to use a smaller button style (default: False)
+    """
     text_color = "#ffffff" if not is_dark_mode else "#000000"
     hover_color = "#1a2533" if not is_dark_mode else "#e0e0e0"
+    
+    # Adjust padding and font size for smaller buttons
+    padding = "8px 12px" if smaller else "10px 20px"
+    font_size = "12px" if smaller else "14px"
     
     button.setStyleSheet(f"""
         QPushButton {{
             background-color: {main_color};
             color: {text_color};
-            padding: 10px 20px;
-            font-size: 14px;
+            padding: {padding};
+            font-size: {font_size};
             border-radius: 6px;
             border: 1px solid #cccccc;
         }}
