@@ -81,7 +81,7 @@ python main.py
 - Build distribution (Windows at build.bat)  
 - Updated docs @ [buildingApp.md](https://github.com/lfariabr/masters-swe-ai/tree/master/T1-Software-Development-Management/projects/TTrack_v1/docs/buildingApp.md)  
 
-#### 🔸 v1.12.0 - `feature/sample-data-to-interface`
+#### 🔹 v1.12.0 - `feature/sample-data-to-interface`
 - Add 2 cool buttons to load sample data (transcript and curriculum) from the `data` folder
 
 ---
