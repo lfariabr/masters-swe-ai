@@ -212,7 +212,7 @@ TTrack delivers **automated academic intelligence** through:
 
 ---
 
-## � Engineering Team
+## 👨‍💻 Engineering Team
 
 | Role | Contributor | Expertise |
 |------|-------------|-----------|
@@ -246,7 +246,7 @@ TTrack delivers **automated academic intelligence** through:
 
 ---
 
-## � Academic Research Context
+## 🗃️ Academic Research Context
 
 **Course**: SDM404 – Software Development Management  
 **Institution**: Torrens University Australia  
@@ -262,16 +262,17 @@ TTrack delivers **automated academic intelligence** through:
 
 ## 📚 Documentation & Resources
 
-- 📋 **[Project Specification](docs/TTrackProjectSpecification.pdf)**: Complete technical requirements
-- 🏗️ **[Build Instructions](docs/buildingApp.md)**: Deployment & distribution guide
-- 📊 **[System Flow Diagram](docs/flow_draft.png)**: Visual architecture overview
-- 🔄 **[Version Control Log](docs/versionControl.md)**: Development timeline & milestones
+Done
+- **[Build Instructions](docs/buildingApp.md)**: Deployment & distribution guide
+- **[Version Control Log](docs/MyNotes.md)**: Development timeline & milestones
+
+Planned
+- **[Project Specification](docs/TTrackProjectSpecification.pdf)**: Complete technical requirements
+- **[System Flow Diagram](docs/flow_draft.png)**: Visual architecture overview
 
 ---
 
-## 🏆 Recognition & Impact
-
-> *"TTrack represents the intersection of academic rigor and practical software engineering, demonstrating how intelligent automation can transform traditional educational processes."*
+## 🏆 Impact
 
 ### Key Achievements
 - ✅ **Zero-dependency Deployment**: Fully self-contained application
@@ -280,11 +281,7 @@ TTrack delivers **automated academic intelligence** through:
 - ✅ **Comprehensive Testing**: Robust error handling & edge case coverage
 - ✅ **Professional Documentation**: Industry-standard technical specs
 
----
-
-## 🌟 Innovation Highlights
-
-**TTrack isn't just software – it's an intelligent academic companion that transforms how educational institutions manage student progress.**
+### 🌟 Highlights
 
 - 🧠 **Smart Algorithms**: Advanced data processing with O(n log n) efficiency
 - 🎨 **Intuitive Design**: User-centered interface with accessibility focus  
