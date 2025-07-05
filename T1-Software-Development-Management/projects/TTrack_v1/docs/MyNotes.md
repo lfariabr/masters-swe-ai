@@ -6,9 +6,19 @@ TTrack is a desktop application designed to help students and academic staff **t
 
 ## 🚀 How to Run
 
+(If already with virtual env)
 ```bash
 cd T1-Software-Development-Management/projects/TTrack_v1
 source venv/bin/activate
+python main.py
+```
+
+(If not with virtual env)
+```bash
+cd T1-Software-Development-Management/projects/TTrack_v1
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
 python main.py
 ```
 
@@ -19,7 +29,7 @@ python main.py
 | Key       | Value            |
 |-----------|------------------|
 | **Name**  | TTrack           |
-| **Version** | 1.5.1         |
+| **Version** | 1.13.0         |
 | **Stack** | Python, PyQt5, pandas, openpyxl |
 | **Goal**  | Compare transcript data with curriculum and return smart academic progress insights |
 | **Alt. Stack (Prototype)** | Electron + Node.js + React (explored in parallel) |
