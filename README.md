@@ -25,11 +25,14 @@ This repo serves as both my personal knowledge base and project portfolio during
 - [Course Materials](./T1-Software-Engineering-Principles/)
 - [README](./T1-Software-Engineering-Principles/README.md)
 
-### Current Projects
-| ID | Project | Subject | Description | Read the Docs | Demo URL |
+### Projects T1
+| ID | Project | Status | Description | Folder directory | Demo URL |
 |----|---------|---------------------|----------------|----------------|----------------|
-| 1 | ClinicTrends AI   | Software Engineering Principles | A streamlit app to analyze survey records and generate insights using Machine Learning. | [ClinicTrends AI](./T1-Software-Engineering-Principles/projects/clinictrends_ai/README.md) | [Streamlit App](https://sep-torrens-dr-ranju-group-1.streamlit.app/) |
-| 2 | TTrack   | Software Development Management | A PyQt5 desktop app to help academic staff to track academic progress by comparing a student’s official transcript with prescribed curriculum using custom made algorithms.         | [TTrack](./T1-Software-Development-Management/projects/TTrack_v1/README.md) | In progress |
+| 1 | ClinicTrends AI   | ✅ Done | A streamlit app to analyze survey records and generate insights using Machine Learning. | [ClinicTrends AI](./T1-Software-Engineering-Principles/projects/clinictrends_ai/README.md) | [Streamlit App](https://sep-torrens-dr-ranju-group-1.streamlit.app/) | 
+| 2 | TTrack   | 🔥 In Progress | A PyQt5 desktop app to help academic staff to track academic progress by comparing a student’s official transcript with prescribed curriculum using custom made algorithms.         | [TTrack](./T1-Software-Development-Management/projects/TTrack_v1/README.md) | In progress |
+| 3 | CommBank Server Task | ✅ Done | Set Up c# project and update Goals with Icon         | [Backend folder](./T1-Extra/cba/CommBank-Server) | N/A |
+| 4 | CommBank Web Task | ✅ Done | Use Typescript to extend the UI | [Frontend folder](./T1-Extra/cba/CommBank-Web) | N/A |
+| 5 | CommBank API Task | 🔥 In Progress | TypeScript and Axios for making POST and GET and backend integration | TBD | N/A |
 
 
 ### Repo Structure
