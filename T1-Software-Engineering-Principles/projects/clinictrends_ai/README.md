@@ -1,4 +1,5 @@
-# 🏥 ClinicTrends AI – Intelligent Customer Satisfaction Analytics Platform
+# 🔍 ClinicTrends AI
+## Intelligent Customer Satisfaction Analytics Platform
 
 [![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)](https://python.org)
 [![Streamlit](https://img.shields.io/badge/Streamlit-1.45+-red.svg)](https://streamlit.io)
@@ -7,7 +8,7 @@
 [![License](https://img.shields.io/badge/License-Academic-green.svg)](LICENSE)
 [![Version](https://img.shields.io/badge/Version-1.9.0-brightgreen.svg)](CHANGELOG.md)
 
-> **Enterprise-grade ML-powered analytics platform that transforms customer feedback into actionable business intelligence through advanced NLP, predictive modeling, and real-time sentiment analysis.**
+> **ML-powered analytics platform that transforms customer feedback into actionable business intelligence through advanced NLP, predictive modeling, and real-time sentiment analysis.**
 
 ---
 
