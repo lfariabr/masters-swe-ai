@@ -25,26 +25,28 @@ This repo serves as both my personal knowledge base and project portfolio during
 #### Course Projects
 Project | Status | Description | Folder directory | Demo URL |
 |---------|---------------------|----------------|----------------|----------------|
-| ClinicTrends AI   | 🔥 WIP | A streamlit app to analyze survey records and generate insights using Machine Learning. | [Here](./T1-Software-Engineering-Principles/projects/clinictrends_ai/README.md) | [Here](https://sep-torrens-dr-ranju-group-1.streamlit.app/) | 
-| TTrack   | 🔥 WIP | A PyQt5 desktop app to help academic staff to track academic progress by comparing a student’s official transcript with prescribed curriculum using custom made algorithms.         | [Here](./T1-Software-Development-Management/projects/TTrack_v1/README.md) | WIP |
-| CommBank Server Task | ✅ Done | Set Up c# project and update Goals with Icon         | [Here](./T1-Extra/cba/CommBank-Server) | N/A |
-| CommBank Web Task | ✅ Done | Use Typescript to extend the UI | [Here](./T1-Extra/cba/CommBank-Web) | N/A |
-| CommBank API Task | 🔥 WIP | TypeScript and Axios for making POST and GET and backend integration | TBD | N/A |
+| ClinicTrends AI   | 🔥 | A streamlit app to analyze survey records and generate insights using Machine Learning. | [Here](./T1-Software-Engineering-Principles/projects/clinictrends_ai/README.md) | [Here](https://sep-torrens-dr-ranju-group-1.streamlit.app/) | 
+| TTrack   | 🔥 | A PyQt5 desktop app to help academic staff to track academic progress by comparing a student’s official transcript with prescribed curriculum using custom made algorithms.         | [Here](./T1-Software-Development-Management/projects/TTrack_v1/README.md) | 🔥 |
+| CommBank Server Task | ✅ | Set Up c# project and update Goals with Icon         | [Here](./T1-Extra/cba/CommBank-Server) | N/A |
+| CommBank Web Task | ✅ | Use Typescript to extend the UI | [Here](./T1-Extra/cba/CommBank-Web) | N/A |
+| CommBank API Task | 🔥 | TypeScript and Axios for making POST and GET and backend integration | TBD | N/A |
+
+Tip: ✅ = done, 🔥 = WIP, 🕐 = Not started
 
 ### Progress Tracking And Goals
 
 #### Academic Journey
 Term | Subject | Status | Lecturer | Useful URLs |
 |---------|---------------------|----------------|----------------|----------------|
-| T1 | Software Development Management | 🔥 WIP | Dr. Atif | [SDM404 Course Materials](./T1-Software-Development-Management/README.md) |
-| T1 | Software Engineering Principles | 🔥 WIP | Dr. Ranju | [SEP401 Course Materials](./T1-Software-Engineering-Principles/README.md) |
+| T1 | Software Development Management | 🔥 | Dr. Atif | [SDM404 Course Materials](./T1-Software-Development-Management/README.md) |
+| T1 | Software Engineering Principles | 🔥 | Dr. Ranju | [SEP401 Course Materials](./T1-Software-Engineering-Principles/README.md) |
 
 #### Version control
-| Version | Modules            | Status         | 
-|---------|---------------------|----------------|
-| 1.0.0   | Modules 1–4         | ✅ Done        |
-| 2.0.0   | Modules 5–8         | 🔥 WIP |
-| 3.0.0   | Modules 9–12        | 🕐 Not started |
+| Version | Modules            | Status |
+|---------|---------------------|---|
+| 1.0.0   | Modules 1–4         | ✅ |
+| 2.0.0   | Modules 5–8         | 🔥 |
+| 3.0.0   | Modules 9–12        | 🕐 |
 
 #### Goals
 - [ ] Complete course materials for Software Development Management
