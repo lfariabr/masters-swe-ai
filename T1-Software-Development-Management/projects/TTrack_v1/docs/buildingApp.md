@@ -52,3 +52,12 @@ qt.svg: Cannot open file '/Users/luisfaria/public/ttrack_app_icon.svg', because:
 2 - TTrack app opens but logo from /public/ttrack_app_icon.svg is not displayed
 3 - When I click on buttons Try with Sample Data or Download the Template, app suddenly crashes
 4 - If I try to upload files and process data, it happens as expected, data is processed and Results page appear with correctly expected information.
+
+FIX:
+1 - Created TTrack-macOs.spec file to use exclusively on build_mac.sh
+2 - Added data directory to TTrack-macOs.spec file
+3 - Rolled back tab_input to previous version and tested building again
+4 - Works fine
+
+#### QA Windows behavior:
+1 - ...
