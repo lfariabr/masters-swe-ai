@@ -192,7 +192,7 @@ Following **GitFlow** with feature branches and semantic versioning:
 | **1.8.0** | Integrates pytest:<br>- Creates `pytest.ini`<br>- Adds pytest tests for homepage and models page | ✅ Complete |
 | **1.9.0** | Refactors menu structure:<br>- Splits `ModelTrainer` into a resolver<br>- Adds 4 models to the Model Performance Comparison table<br>- Adds wordcloud to models page<br>- Adds NPS donut chart and monthly trend chart to models page<br>- Renames menus:<br> • “Models Page” → “ML Model Comparison”<br> • “Dashboard” → “NPS Analysis”<br>- Updates pytest coverage | ✅ Complete |
 | **2.0.0** | Adds Discord webhook for alerts when app is used on key pages;<br>improves homepage UX with balloons and interactive clicks | ✅ Complete |
-| **2.1.0** | Adds alert system for NPS drop detection;<br>adds downloadable sample CSV for better UX | 🔄 In Progress |
+| **2.1.0** | Adds alert system for NPS drop detection;<br>adds downloadable sample CSV for better UX | ✅ Completed |
 | **3.0.0** | Adds RESTful API development and authentication | 🔄 Planned |
 | **4.0.0** | AI-powered insights and enterprise scalability:<br>- Implement interpretable ML models for NPS prediction<br>- Fine-tune transformers for domain-specific sentiment analysis<br>- Deliver enterprise-grade performance and integrations | 🔄 Planned |
 
