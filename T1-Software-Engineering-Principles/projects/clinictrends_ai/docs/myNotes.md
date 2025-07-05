@@ -86,6 +86,7 @@ streamlit run app.py
 
 #### 🔹 v2.0.0 - `feature/discord-webhook`
 - Add discord webhook for alerting when app's used at key pages
+- Improve home page experience with st.balloons and interactive click
 
 ---
 
