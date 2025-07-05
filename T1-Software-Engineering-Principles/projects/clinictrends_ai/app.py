@@ -80,10 +80,10 @@ def main():
         
         # App info
         st.markdown("""
-        **ClinicTrends AI**  
-        v1.9.0  
-        [GitHub Repo](https://github.com/lfariabr/masters-swe-ai/tree/master/T1-Software-Engineering-Principles/projects/clinictrends_ai)  
-        [Documentation](HomePage)
+        **ClinicTrends AI**   
+        ##### An open source AI-powered tool for analyzing customer feedback and trends.
+        - **Version:** 2.0.0
+        - **GitHub:** [clinictrends_ai](https://github.com/lfariabr/masters-swe-ai/tree/master/T1-Software-Engineering-Principles/projects/clinictrends_ai)  
         """)
     
     # Main content based on selection
