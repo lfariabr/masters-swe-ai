@@ -100,16 +100,25 @@ python main.py
 - Add `info.py` with `resource_path()` helper for Windows EXE distribution
 - Update `tab_input.py` to use `resource_path()` for loading bundled files
 
+#### 🔹 v1.14.0 - `feature/macos-distribution`
+- Update `TTrack-macOs.spec` to include `data/` and logo assets
+- Uses `build_mac.sh` to build macOS app referencing `TTrack-macOs.spec`
+
 ---
 
 ### 🔧 In Progress
 
-#### 🔸 v2.0.0 - `feature/db-integration`
-- Integrate with DB (MongoDB or Supabase PostgreSQL – 500MB free tier)
+tbd
 
 ---
 
 ### 🗂️ Backlog
+
+#### 🔸 v1.15.0 - `feature/windows-distribution`
+- Write test usage case at `buildingApp.md` -> url: https://github.com/lfariabr/masters-swe-ai/tree/master/T1-Software-Development-Management/projects/TTrack_v1/docs/buildingApp.md
+
+#### 🔸 v2.0.0 - `feature/db-integration`
+- Integrate with DB (MongoDB or Supabase PostgreSQL – 500MB free tier)
 
 - engine: deeper logic like tags, topics or even semantic similarity (based on description). (v3)
 - Login, authentication (v4)

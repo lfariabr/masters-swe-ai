@@ -51,7 +51,7 @@ rm -rf build/ dist/
 
 # Run PyInstaller
 echo -e "${BLUE}[*] Building TTrack with PyInstaller...${NC}"
-python3 -m PyInstaller TTrack.spec || handle_error "PyInstaller build failed"
+python3 -m PyInstaller TTrack-macOs.spec || handle_error "PyInstaller build failed"
 
 # Check if build was successful
 if [ ! -d "dist/TTrack.app" ]; then

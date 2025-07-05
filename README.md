@@ -26,10 +26,10 @@ This repo serves as both my personal knowledge base and project portfolio during
 - [README](./T1-Software-Engineering-Principles/README.md)
 
 ### Current Projects
-| Name | Description            | URL         |
-|---------|---------------------|----------------|
-| TTrack   | A PyQt5 desktop app to help academic staff to track academic progress by comparing a student’s official transcript with prescribed curriculum using custom made algorithms.         | [TTrack](./T1-Software-Development-Management/projects/TTrack_v1/README.md) |
-| ClinicTrends AI   | A streamlit app to analyze survey records and generate insights using Machine Learning. | [ClinicTrends AI](./T1-Software-Engineering-Principles/projects/clinictrends_ai/README.md) |
+| Project | Subject | Description | URL | Demo |
+|---------|---------------------|----------------|----------------|----------------|
+| TTrack   | Software Development Management | A PyQt5 desktop app to help academic staff to track academic progress by comparing a student’s official transcript with prescribed curriculum using custom made algorithms.         | [TTrack](./T1-Software-Development-Management/projects/TTrack_v1/README.md) | [Download on your Device](./T1-Software-Development-Management/projects/TTrack_v1/dist/TTrack.app) |
+| ClinicTrends AI   | Software Engineering Principles | A streamlit app to analyze survey records and generate insights using Machine Learning. | [ClinicTrends AI](./T1-Software-Engineering-Principles/projects/clinictrends_ai/README.md) | [Streamlit App](https://sep-torrens-dr-ranju-group-1.streamlit.app/) |
 
 ### Repo Structure
 
