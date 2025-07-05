@@ -31,10 +31,8 @@ def monthly_nps_trend_chart(filtered_df: pd.DataFrame, calculate_nps_func):
 
     chart = alt.Chart(monthly_summary).mark_line(point=True).encode(
         x="Month",
-        y=alt.Y("NPS", scale=alt.Scale(domain=[-100, 100])),
+        y=alt.Y("NPS", scale=alt.Scale(domain=[0, 100])),
         tooltip=["Month", "NPS"]
-    ).properties(
-        title="Monthly NPS Trend"
     )
 
     return chart

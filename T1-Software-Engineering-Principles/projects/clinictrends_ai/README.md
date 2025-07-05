@@ -149,10 +149,6 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-### Access Points
-- **Local Development**: `http://localhost:8501`
-- **Production Demo**: [Streamlit Cloud Deployment](https://clinictrends-ai.streamlit.app)
-
 ---
 
 ## 📊 Technical Specifications
@@ -177,29 +173,28 @@ streamlit run app.py
 
 ---
 
-## 🔬 Academic Research & Methodology
+## 🔬 Development Methodology
 
-### Software Engineering Principles (SEP401)
+### Version Control Strategy
 
-**Research Focus**: Application of agile methodologies and IEEE standards in ML-driven software development
+Following **GitFlow** with feature branches and semantic versioning:
 
-#### **Phase 1: Requirements Engineering**
-- **IEEE SRS Documentation**: Comprehensive software requirements specification
-- **Stakeholder Analysis**: Multi-persona user story development
-- **Risk Assessment**: Systematic identification and mitigation strategies
-- **Sprint Planning**: 6-phase agile development methodology
-
-#### **Phase 2: Architecture Design**
-- **Modular Design Patterns**: Separation of concerns with MVC architecture
-- **Scalable Data Pipelines**: ETL processes for large-scale data processing
-- **API Design**: RESTful principles for future microservices integration
-- **Security Considerations**: Data privacy and GDPR compliance planning
-
-#### **Phase 3: Implementation & Testing**
-- **Test-Driven Development**: Comprehensive unit and integration testing
-- **Continuous Integration**: Automated testing and deployment pipelines
-- **Performance Optimization**: Profiling and optimization of ML algorithms
-- **User Experience Testing**: Iterative UI/UX improvement cycles
+| Version   | Milestone | Status |
+|-----------|-----------|--------|
+| **1.0.0** | Streamlit app with Altair, pandas, numpy displaying NPS data | ✅ Complete |
+| **1.1.0** | Adds NLP sentiment analysis, wordcloud visualizations | ✅ Complete |
+| **1.2.0** | Refactors into multi-page app:<br>- Adds `views/` and `utils/` structure<br>- Creates homepage with project overview<br>- Adds translation page using `deep-translator`<br>- Moves business logic into `DashboardPage`<br>- Notes Google Sheets translation trick: `=GOOGLETRANSLATE(C2;"pt";"en")` | ✅ Complete |
+| **1.3.0** | Deploys to Streamlit Cloud; integrates Hugging Face pipelines | ✅ Complete |
+| **1.4.0** | Implements ML training pipeline:<br>- Fine-tunes TextBlob (suggested by Dr. Ranju)<br>- Compares models:<br> • TextBlob vs. NPS vs. trained model (+comment)<br> • + trained model (+score)<br> • + transformers<br>- Adds pizza graphics and visualizations for comparison | ✅ Complete |
+| **1.5.0** | Adds support for choosing NPS scale (1-5 or 1-10) | ✅ Complete |
+| **1.6.0** | Adds Models page listing all available models for comparison vs NPS | ✅ Complete |
+| **1.7.0** | Builds main interface:<br>- File upload<br>- Model selection<br>- Beautiful UX for running analyses | ✅ Complete |
+| **1.8.0** | Integrates pytest:<br>- Creates `pytest.ini`<br>- Adds pytest tests for homepage and models page | ✅ Complete |
+| **1.9.0** | Refactors menu structure:<br>- Splits `ModelTrainer` into a resolver<br>- Adds 4 models to the Model Performance Comparison table<br>- Adds wordcloud to models page<br>- Adds NPS donut chart and monthly trend chart to models page<br>- Renames menus:<br> • “Models Page” → “ML Model Comparison”<br> • “Dashboard” → “NPS Analysis”<br>- Updates pytest coverage | ✅ Complete |
+| **2.0.0** | Adds Discord webhook for alerts when app is used on key pages;<br>improves homepage UX with balloons and interactive clicks | ✅ Complete |
+| **2.1.0** | Adds alert system for NPS drop detection;<br>adds downloadable sample CSV for better UX | 🔄 In Progress |
+| **3.0.0** | Adds RESTful API development and authentication | 🔄 Planned |
+| **4.0.0** | AI-powered insights and enterprise scalability:<br>- Implement interpretable ML models for NPS prediction<br>- Fine-tune transformers for domain-specific sentiment analysis<br>- Deliver enterprise-grade performance and integrations | 🔄 Planned |
 
 ---
 
@@ -272,6 +267,7 @@ ClinicTrends AI delivers **proactive customer intelligence** through:
 ### Phase 2: Intelligence Enhancement (v2.0) 🔄 **IN PROGRESS**
 - ✅ Provides sample csv files for enhanced UX
 - ✅ Adds Discord Webhook integration for real-time notifications
+- ✅ Alert system based on NPS and sentiment scores
 - 🔄 Advanced feature engineering pipelines
 - 🔄 Automated hyperparameter optimization
 - 🔄 Real-time model retraining capabilities
@@ -397,15 +393,3 @@ make check          # Run all checks (tests, linting, type checking)
 *Built with ❤️ and rigorous engineering principles by the ClinicTrends AI team*
 
 **"Whether it’s concrete or code, structure is everything."**
-
----
-
-## 🤝 Collaboration is Welcome
-
-**Project Lead**: Luis Faria  
-**Email**: [luis.faria@student.torrens.edu.au](mailto:luis.faria@student.torrens.edu.au)  
-**LinkedIn**: [linkedin.com/in/luisfaria](https://linkedin.com/in/luisfaria)  
-
-**Academic Supervisor**: Dr. Ranju Mandal  
-**Institution**: Torrens University Australia  
-**Course**: SEP401 – Software Engineering Principles
