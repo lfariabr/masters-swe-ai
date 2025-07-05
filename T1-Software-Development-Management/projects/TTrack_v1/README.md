@@ -1,11 +1,12 @@
-# 🎓 TTrack – Academic Progress Intelligence System
+# 🎓 TTrack
+## Academic Progress Intelligence System
 
 [![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://python.org)
 [![PyQt5](https://img.shields.io/badge/PyQt5-5.15+-green.svg)](https://pypi.org/project/PyQt5/)
 [![License](https://img.shields.io/badge/License-Academic-orange.svg)](LICENSE)
 [![Version](https://img.shields.io/badge/Version-1.7.0-brightgreen.svg)](CHANGELOG.md)
 
-> **Enterprise-grade academic progress tracking system that intelligently matches student transcripts with curriculum requirements using advanced data processing algorithms.**
+> **Academic progress tracking system that intelligently matches student transcripts with curriculum requirements using advanced data processing algorithms.**
 
 ---
 

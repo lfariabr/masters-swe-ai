@@ -76,7 +76,6 @@ def show_dashboard():
             
             st.markdown("---")
             
-            st.write(f"NPS Score: {nps_score}")
             col1, col2 = st.columns(2)
             
             with col1:
@@ -103,10 +102,53 @@ def show_dashboard():
             col3, col4 = st.columns(2)
 
             with col3:
+                st.markdown("#### 📊 Monthly NPS Trend")
                 line_chart = monthly_nps_trend_chart(filtered_df, calculate_nps)
                 st.altair_chart(line_chart, use_container_width=True)
+
             with col4:
-                st.write("NPS Alert will come here soon!")
+                st.markdown("#### 🌡️ NPS Status")
+
+                if nps_score < 50:
+                    st.error(f"⚠️ ALERT: Your NPS is critically low ({nps_score}). Immediate action is recommended!")
+                    send_discord_message(f"🚨 CRITICAL ALERT: NPS is very low ({nps_score}).")
+                elif nps_score < 80:
+                    st.warning(f"🔔 Caution: Your NPS is {nps_score}. Consider investigating customer issues.")
+                else:
+                    st.success(f"✅ All good! Your NPS is healthy at {nps_score}.")
+                
+                annotated_df = annotate_sentiments(
+                    filtered_df,
+                    comment_col="Comment",
+                    pos_thresh=0.05,
+                    neg_thresh=-0.05
+                )
+
+                # sentiment alert
+                neg_rate = (
+                    len(annotated_df[annotated_df["Sentiment"] == "Negative"])
+                    / len(annotated_df) * 100
+                )
+                if neg_rate > 30:
+                    st.error(f"⚠️ ALERT: High negative sentiment detected ({neg_rate:.1f}%).")
+                    send_discord_message(f"🚨 High negative sentiment detected ({neg_rate:.1f}%).")
+                elif neg_rate > 10:
+                    st.warning(f"🔔 Moderate negative sentiment ({neg_rate:.1f}%). Monitor customer feedback closely.")
+                else:
+                    st.success(f"✅ Low negative sentiment ({neg_rate:.1f}%). Great job!")
+
+                # # Optional sentiment alert
+                # neg_rate = (
+                #     len(annotated_df[annotated_df["Sentiment"] == "Negative"])
+                #     / len(annotated_df) * 100
+                # )
+                # if neg_rate > 30:
+                #     st.error(f"⚠️ ALERT: High negative sentiment detected ({neg_rate:.1f}%).")
+                #     send_discord_message(f"🚨 High negative sentiment detected ({neg_rate:.1f}%).")
+                # elif neg_rate > 10:
+                #     st.warning(f"🔔 Moderate negative sentiment ({neg_rate:.1f}%). Monitor customer feedback closely.")
+                # else:
+                #     st.success(f"✅ Low negative sentiment ({neg_rate:.1f}%). Great job!")
 
         else:
             st.warning("No data found for the selected filters.")
@@ -123,13 +165,8 @@ def show_dashboard():
             st.warning("Comments with a polarity score below this value will be classified as NEGATIVE. Lower (more negative) values capture only strongly negative comments, while higher values include milder negativity.")
             neg_thresh = st.slider("Negative threshold", min_value=-0.5, max_value=-0.01, value=-0.05, step=0.01)
 
-        annotated_df = annotate_sentiments(
-            filtered_df,
-            comment_col="Comment",
-            pos_thresh=pos_thresh,
-            neg_thresh=neg_thresh
-        )
         with col2:
+            # comming from pre-calculated line 120
             display_sentiment_distribution(annotated_df)
 
         st.subheader("Word Cloud from Comments")
