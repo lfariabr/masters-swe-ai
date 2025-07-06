@@ -11,11 +11,12 @@
 
 ## 🎯  What is TTrack?
 
-TTrack is a PyQt5 app that delivers **automated academic intelligence** through:
-- 🤖 **Intelligent Automation**: 95% reduction in manual processing time
-- 🎯 **Precision Matching**: Eliminates human error in requirement checking
-- 📊 **Analytics Dashboard**: Real-time progress insights and recommendations
-- 🔄 **Scalable Processing**: Handles unlimited student records efficiently
+Manual transcript checks are slow and error-prone. TTrack offers:
+- 🖥️ Desktop app built with PyQt5 for cross-platform use
+- 📑 Excel/CSV file upload and preprocessing with pandas
+- 🤖 Intelligent matching of transcript vs curriculum with fuzzy logic
+- 📊 Real-time progress analytics and elective recommendations
+- 🚀 One-click build into standalone Windows/macOS executables
 
 ---
 
