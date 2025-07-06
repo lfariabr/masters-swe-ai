@@ -139,14 +139,16 @@ Following **GitFlow** with feature branches and semantic versioning:
 - Update `TTrack-macOs.spec` to include `data/` and logo assets
 - Uses `build_mac.sh` to build macOS app referencing `TTrack-macOs.spec`
 
-#### 🔸 v1.15.0 - `feature/windows-distrib2`
+#### 🔹 v1.15.0 - `feature/windows-distrib2`
 - Write test usage case at `buildingApp.md` -> url: https://github.com/lfariabr/masters-swe-ai/tree/master/T1-Software-Development-Management/projects/TTrack_v1/docs/buildingApp.md
 
 ---
 
 ### 🔧 In Progress
 
-tbd
+#### 🔸 v1.16.0 - `feature/electron`
+- Electron: v2 of TTrack in React+Node.js wrapped by Electron
+
 
 ### 🗂️ Backlog
 
