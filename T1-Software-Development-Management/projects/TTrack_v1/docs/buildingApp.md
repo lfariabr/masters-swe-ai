@@ -82,3 +82,6 @@ Artifact TTrack-exe.zip successfully finalized. Artifact ID 3471654212
 Artifact TTrack-exe has been successfully uploaded! Final size is 75324035 bytes. Artifact ID is 3471654212
 Artifact download URL: https://github.com/lfariabr/masters-swe-ai/actions/runs/16097055928/artifacts/3471654212
 2 - I noticed, however, that the logo, which should be retrieved from public folder is not being loaded
+
+FIX:
+1 - Added `resource_path` at `main.py` to deal with PyInstaller bundle

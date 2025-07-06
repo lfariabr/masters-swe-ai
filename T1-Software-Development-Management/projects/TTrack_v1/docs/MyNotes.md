@@ -36,6 +36,41 @@ python main.py
 
 ---
 
+## 🔬 Development Methodology
+
+### Version Control Strategy
+Following **GitFlow** with feature branches and semantic versioning:
+
+| Version | Milestone | Status |
+|---------|-----------|--------|
+| **1.0.0** | Core PyQt5 + pandas integration | ✅ Complete |
+| **1.1.0** | Theme system implementation | ✅ Complete |
+| **1.2.0** | Template system & file I/O | ✅ Complete |
+| **1.3.0** | Matching engine & modular refactor | ✅ Complete |
+| **1.4.0** | Engine optimization & documentation | ✅ Complete |
+| **1.5.0** | Advanced matching algorithms | ✅ Complete |
+| **1.6.0** | Build system & distribution | ✅ Complete |
+| **1.7.0** | Theme refinements & UX polish | ✅ Complete |
+| **1.8.0** | Sprint review (Sonnet x GPT Memmories) | ✅ Complete |
+| **1.9.0** | Layout refactoring | ✅ Complete |
+| **1.10.0** | Pytest integration | ✅ Complete |
+| **1.11.0** | Build distribution macOS | ✅ Complete |
+| **1.12.0** | Sample data to interface | ✅ Complete |
+| **1.13.0** | Build distribution Windows | ✅ Complete |
+| **2.0.0** | Database integration & cloud sync | 🔄 Planned |
+| **3.0.0** | AI Enhanced matching | 🔄 Planned |
+| **4.0.0** | Enterprise scale | 🔄 Planned |
+
+
+### Code Quality Standards
+- **Test Coverage**: >85% with pytest
+- **Type Safety**: mypy static analysis
+- **Code Style**: black + isort formatting
+- **Documentation**: Comprehensive docstrings + technical specs
+- **Performance**: Profiled with cProfile for optimization
+
+---
+
 ## ✅ Feature Progress
 
 ### ✔ Done
@@ -104,14 +139,14 @@ python main.py
 - Update `TTrack-macOs.spec` to include `data/` and logo assets
 - Uses `build_mac.sh` to build macOS app referencing `TTrack-macOs.spec`
 
----
-
-### 🔧 In Progress
-
 #### 🔸 v1.15.0 - `feature/windows-distrib2`
 - Write test usage case at `buildingApp.md` -> url: https://github.com/lfariabr/masters-swe-ai/tree/master/T1-Software-Development-Management/projects/TTrack_v1/docs/buildingApp.md
 
 ---
+
+### 🔧 In Progress
+
+tbd
 
 ### 🗂️ Backlog
 
