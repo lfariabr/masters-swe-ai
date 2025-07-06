@@ -20,13 +20,38 @@ streamlit run app.py
 
 ---
 
-## 🧠 Key Features
+## 📈 Development Roadmap
 
-- 📊 Interactive NPS analytics with Altair
-- 🧾 CSV file upload and data preprocessing with pandas
-- 💬 Sentiment analysis using TextBlob + wordcloud generation
-- 🔄 Deep-translator integration for automatic translation
-- 🤖 Planned: ML-powered predictions using Hugging Face pipelines
+### Phase 1: Foundation (v1.0-1.8) ✅ **COMPLETE**
+- ✅ Core Streamlit application architecture
+- ✅ Multi-page navigation system
+- ✅ 4 ML model implementations
+- ✅ Interactive visualization suite
+- ✅ Translation capabilities
+- ✅ Comprehensive documentation
+- ✅ Main interface with file upload and model selection
+- ✅ Pytest initial setup
+
+### Phase 2: Intelligence Enhancement (v2.0) 🔄 **IN PROGRESS**
+- ✅ Provides sample csv files for enhanced UX
+- ✅ Alert system based on NPS and sentiment scores
+- ✅ A/B testing framework for model comparison
+- 🔄 Advanced feature engineering pipelines
+- 🔄 Automated hyperparameter optimization
+- 🔄 Real-time model retraining capabilities
+- 🔄 Pytest robustness coverage
+
+### Phase 3: Enterprise Integration (v3.0) 📋 **PLANNED**
+- 📋 RESTful API development
+- 📋 Database integration (PostgreSQL/MongoDB)
+- 📋 User authentication & role-based access
+- 📋 Advanced security & compliance features
+
+### Phase 4: AI-Powered Insights (v4.0) 🚀 **FUTURE**
+- 🚀 GPT-powered natural language insights
+- 🚀 Automated report generation
+- 🚀 Predictive customer lifetime value modeling
+- 🚀 Integration with CRM systems
 
 ---
 
