@@ -108,14 +108,12 @@ python main.py
 
 ### 🔧 In Progress
 
-tbd
+#### 🔸 v1.15.0 - `feature/windows-distrib2`
+- Write test usage case at `buildingApp.md` -> url: https://github.com/lfariabr/masters-swe-ai/tree/master/T1-Software-Development-Management/projects/TTrack_v1/docs/buildingApp.md
 
 ---
 
 ### 🗂️ Backlog
-
-#### 🔸 v1.15.0 - `feature/windows-distribution`
-- Write test usage case at `buildingApp.md` -> url: https://github.com/lfariabr/masters-swe-ai/tree/master/T1-Software-Development-Management/projects/TTrack_v1/docs/buildingApp.md
 
 #### 🔸 v2.0.0 - `feature/db-integration`
 - Integrate with DB (MongoDB or Supabase PostgreSQL – 500MB free tier)
