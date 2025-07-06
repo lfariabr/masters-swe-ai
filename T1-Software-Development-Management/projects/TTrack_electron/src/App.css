@@ -1,0 +1,44 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+.title-highlight {
+  color: #1d4ed8; /* blue for highlight */
+}
+
+.button-row {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.upload-btn {
+  background: #000;
+  color: #fff;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.upload-btn:hover {
+  opacity: 0.9;
+}
+
+.box {
+  margin: 1.5rem 0;
+  text-align: left;
+}
+
+.scroll-box {
+  background: #eee;
+  height: 200px;
+  overflow-y: scroll;
+  padding: 1rem;
+  border-radius: 5px;
+}
