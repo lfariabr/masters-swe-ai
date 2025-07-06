@@ -1,0 +1,96 @@
+{
+  "name": "excel-electron-demo",
+  "version": "0.1.0",
+  "description": "A desktop app for Excel file processing",
+  "author": "Your Name <your.email@example.com>",
+  "license": "MIT",
+  "private": true,
+  "main": "main.js",
+  "dependencies": {
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^13.5.0",
+    "cors": "^2.8.5",
+    "electron-forge": "^5.2.4",
+    "express": "^5.1.0",
+    "multer": "^2.0.1",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-scripts": "5.0.1",
+    "web-vitals": "^2.1.4",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "cross-env": "^7.0.3",
+    "electron": "^37.2.0",
+    "electron-builder": "^26.0.12",
+    "wait-on": "^8.0.3"
+  },
+  "scripts": {
+    "start": "cross-env BROWSER=none react-scripts start",
+    "build-react": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "server": "node server.js",
+    "dev": "concurrently \"npm run server\" \"npm start\"",
+    "electron": "electron .",
+    "electron-dev": "concurrently \"npm run dev\" \"wait-on http://localhost:3000 && npm run electron\"",
+    "start-electron": "npm run electron-dev",
+    "build": "npm run build-react",
+    "dist": "electron-builder --win --x64",
+    "full-build": "npm run build && npm run dist",
+    "clean": "rimraf dist build",
+    "make": "electron-forge make"
+  },
+  "build": {
+    "appId": "com.yourcompany.exceldemo",
+    "productName": "Excel Electron Demo",
+    "copyright": "Copyright © 2024 ${author}",
+    "win": {
+      "target": "nsis",
+      "icon": "build/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Excel Demo"
+    },
+    "files": [
+      "build/**/*",
+      "node_modules/**/*",
+      "main.js",
+      "server.js"
+    ],
+    "extraResources": [
+      {
+        "from": "backend",
+        "to": "backend",
+        "filter": [
+          "**/*"
+        ]
+      }
+    ]
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
