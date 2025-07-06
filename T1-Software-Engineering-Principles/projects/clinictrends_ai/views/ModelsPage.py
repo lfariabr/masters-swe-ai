@@ -84,7 +84,6 @@ def create_performance_dashboard(metrics: Dict[str, Dict]) -> None:
         col1, col2 = st.columns(2)
         
         with col1:
-            # Accuracy comparison
             accuracy_chart = alt.Chart(metrics_df).mark_bar().encode(
                 x=alt.X('Model:N', sort='-y'),
                 y=alt.Y('Accuracy:Q', scale=alt.Scale(domain=[0, 1])),
@@ -98,7 +97,6 @@ def create_performance_dashboard(metrics: Dict[str, Dict]) -> None:
             st.altair_chart(accuracy_chart, use_container_width=True)
         
         with col2:
-            # F1-Score comparison
             f1_chart = alt.Chart(metrics_df).mark_bar().encode(
                 x=alt.X('Model:N', sort='-y'),
                 y=alt.Y('F1-Score:Q', scale=alt.Scale(domain=[0, 1])),
@@ -113,13 +111,12 @@ def create_performance_dashboard(metrics: Dict[str, Dict]) -> None:
 
 
 def create_sentiment_visualization(df: pd.DataFrame, sentiment_column: str, 
-                                 title: str) -> None:
+                                   title: str) -> None:
     """Create standardized sentiment distribution visualization."""
     try:
         chart_data = df[sentiment_column].value_counts().reset_index()
         chart_data.columns = ["Sentiment", "Count"]
         
-        # Standardize color scheme
         color_scale = alt.Scale(
             domain=["POSITIVE", "NEGATIVE", "NEUTRAL", "Positive", "Negative", "Neutral"],
             range=["#2ecc71", "#e74c3c", "#f1c40f", "#2ecc71", "#e74c3c", "#f1c40f"]
@@ -136,8 +133,6 @@ def create_sentiment_visualization(df: pd.DataFrame, sentiment_column: str,
         )
         
         st.altair_chart(chart, use_container_width=True)
-        
-        # Display data table
         st.dataframe(chart_data, use_container_width=True)
         
     except Exception as e:
@@ -149,7 +144,6 @@ def show_models():
     Main function for the Models Comparison Page.
     Implements enterprise-grade ML model comparison interface.
     """
-    # Page header with professional styling
     st.title("🧠 ML Models Comparison Dashboard")
     st.markdown("""
     Compare 4 distinct ML pipelines with comprehensive performance metrics and visualizations.
@@ -197,7 +191,6 @@ def show_models():
                 st.dataframe(df.sample(min(5, len(df))), use_container_width=True)
                 st.info(f"Dataset shape: {df.shape[0]} rows × {df.shape[1]} columns")
             
-            # Initialize model trainer + annotate sentiments via TextBlob
             model_trainer = ModelTrainer()
             df = annotate_sentiments(df)                
             df["Sentiment"] = df["Sentiment"].str.upper()
@@ -205,32 +198,29 @@ def show_models():
             st.markdown("---")
             st.markdown("### 🚀 Model Training & Evaluation")
             st.write("Quick information about models")
+            
             with st.expander("📋 Model Architecture Information"):
                 st.markdown("""
                 ### Available Models:
                 
                 **Model 1: Comment-Based Classification**
                 - Pipeline: Raw Comments → TF-IDF Vectorization → Logistic Regression
-                - Features: 5,000 TF-IDF features with English stop-word filtering
-                - Use Case: Text-only sentiment detection
+                - Features: 5,000 TF-IDF features
                 
                 **Model 2: Enhanced Comment-Score Fusion**
-                - Pipeline: Comments + Scores → Feature Fusion → TF-IDF → Classification
+                - Pipeline: Comments + Scores → TF-IDF → Classification
                 - Innovation: Combines textual and numerical features
-                - Use Case: Holistic sentiment analysis
                 
                 **Model 3: Transformer-Enhanced Classification** *(Prototype)*
                 - Pipeline: Comments → DistilBERT → Fine-tuned Classification
-                - Technology: State-of-the-art transformer models
-                - Advantage: Context-aware sentiment understanding
                 
                 **Model 4: Hybrid Transformer-Score Integration** *(Prototype)*
                 - Pipeline: Comments + Scores → Transformer Encoding → Feature Fusion
-                - Innovation: Multi-modal learning approach
-                - Result: Highest accuracy potential
                 """)
-            st.markdown("---")
             
+            st.markdown("---")
+            df = classify_nps(df)
+
             st.markdown("#### 🤖 Model 1: Comment-Based Classification")
             with st.spinner("Training Model 1..."):
                 model1, vec1, X_test1, y_test1, y_pred1 = model_trainer.train_tfidf_model(
@@ -239,12 +229,19 @@ def show_models():
             st.success("✅ Model 1 training complete")
             
             if model1 is not None:
+                df["Model_1_Prediction"] = model1.predict(vec1.transform(df["Comment"]))
                 col1, col2 = st.columns(2)
                 with col1:
                     st.metric("Accuracy", f"{model_trainer.metrics['Model 1: Comment-Based']['Accuracy']:.3f}")
                     st.metric("F1-Score", f"{model_trainer.metrics['Model 1: Comment-Based']['F1-Score']:.3f}")
                 with col2:
                     create_sentiment_visualization(df, "Sentiment", "Model 1: Sentiment Distribution")
+                # DEBUG cross checking prediction vs original NPS Type
+                st.warning("#### 📝 Model 1 Predictions Sample")
+                st.dataframe(
+                    df[["Comment", "Score", "NPS Type", "Sentiment", "Model_1_Prediction"]].sample(min(10, len(df))),
+                    use_container_width=True
+                )
             
             st.markdown("---")
             
@@ -256,12 +253,19 @@ def show_models():
             st.success("✅ Model 2 training complete")
             
             if model2 is not None:
+                df["Model_2_Prediction"] = model2.predict(vec2.transform(df["CommentScore"]))
                 col1, col2 = st.columns(2)
                 with col1:
                     st.metric("Accuracy", f"{model_trainer.metrics['Model 2: Comment-Score Fusion']['Accuracy']:.3f}")
                     st.metric("F1-Score", f"{model_trainer.metrics['Model 2: Comment-Score Fusion']['F1-Score']:.3f}")
                 with col2:
                     create_sentiment_visualization(df, "Sentiment", "Model 2: Sentiment Distribution")
+                # DEBUG cross checking prediction vs original NPS Type
+                st.warning("#### 📝 Model 2 Predictions Sample")
+                st.dataframe(
+                    df[["CommentScore", "NPS Type", "Sentiment", "Model_2_Prediction"]].sample(min(10, len(df))),
+                    use_container_width=True
+                )
             
             st.markdown("---")
             
@@ -277,6 +281,14 @@ def show_models():
                         st.metric("Processed Records", len(df_transformer))
                     with col2:
                         create_sentiment_visualization(df_transformer, "HF_Label", "Model 3: Transformer Results")
+                    # DEBUG cross checking prediction vs original NPS Type
+                    st.warning("#### 📝 Model 3 Predictions Sample")
+                    st.dataframe(
+                        df_transformer[
+                            ["Comment", "Score", "NPS Type", "Sentiment", "HF_Label", "HF_Score"]
+                        ].sample(min(10, len(df_transformer))),
+                        use_container_width=True
+                    )
                 
                 st.markdown("---")
                 
@@ -291,10 +303,19 @@ def show_models():
                         st.metric("Processed Records", len(df_hybrid))
                     with col2:
                         create_sentiment_visualization(df_hybrid, "HF_Label", "Model 4: Hybrid Results")
+                    # DEBUG cross checking prediction vs original NPS Type
+                    st.warning("#### 📝 Model 4 Predictions Sample")
+                    st.dataframe(
+                        df_hybrid[
+                            ["CommentScore", "NPS Type", "Sentiment", "HF_Label", "HF_Score"]
+                        ].sample(min(10, len(df_hybrid))),
+                        use_container_width=True
+                    )
             else:
-                st.info("🔬 **Transformer models (3 & 4) are prototype implementations** and require additional dependencies.")
+                st.info("🔬 Transformer models (3 & 4) are prototype implementations and require additional dependencies.")
             
             st.markdown("---")
+            
             create_performance_dashboard(model_trainer.metrics)
             
             st.markdown("### 📊 NPS vs Sentiment Analysis Comparison")
@@ -330,7 +351,6 @@ def show_models():
 
             st.altair_chart(heatmap, use_container_width=True)
 
-            # Create a simple mapping:
             nps_sentiment_map = {
                 "Promoter": "POSITIVE",
                 "Passive": "NEUTRAL",
@@ -339,7 +359,6 @@ def show_models():
 
             df["NPS_Sentiment"] = df["NPS Type"].map(nps_sentiment_map)
 
-            # Calculate agreement
             agreement_rate = np.mean(df["NPS_Sentiment"] == df["Sentiment"])
             st.write(f"✅ The agreement between NPS and sentiment is: {agreement_rate:.2%}")
             
@@ -363,6 +382,9 @@ def show_models():
                     file_name=f"model_comparison_report_{pd.Timestamp.now().strftime('%Y%m%d_%H%M%S')}.json",
                     mime="application/json"
                 )
+            
+            with st.expander("🔎 Full DataFrame with All Predictions"):
+                st.dataframe(df, use_container_width=True)
             
         except Exception as e:
             st.error(f"❌ An error occurred: {str(e)}")
