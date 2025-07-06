@@ -121,7 +121,8 @@ build.bat
 
 ## 📈 Future Roadmap
 
-### Phase 2: Cloud Integration (v2.0.0) 🔄 **IN PROGRESS**
+### Phase 2: Cloud Integration and Prototyping (v2.0.0) 🔄 **IN PROGRESS**
+- 🔄 Electron: v2 of TTrack in React+Node.js wrapped by Electron
 - 🔄 Database Backend: PostgreSQL/MongoDB with 500MB+ capacity
 - 🔄 Real-time Sync: Multi-device data synchronization
 - 🔄 User Authentication: Secure login & role-based access
@@ -146,6 +147,7 @@ build.bat
 Done
 - **[Build Instructions](docs/buildingApp.md)**: Deployment & distribution guide
 - **[Version Control Log](docs/MyNotes.md)**: Development timeline & milestones
+- **[100% Anonymous Feedback Form](https://forms.gle/cWEtzLzWPoH8ezWS8)**: Deployment & distribution guide
 
 Planned
 - **[Project Specification](docs/TTrackProjectSpecification.pdf)**: Complete technical requirements

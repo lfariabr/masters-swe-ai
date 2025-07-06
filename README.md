@@ -1,7 +1,7 @@
 Welcome to my personal repository for the **Master's of Software Engineering (Artificial Intelligence, Advanced)** at **Torrens University**.
 
 Inside, you'll find my study notes, case studies, experiments, and practical projects in AI, machine learning and full-stack software development.  
-Whether you're a fellow student, developer or simply curious about the field, I hope this repo offers helpful insights—and perhaps even inspires you to fork it or contribute!
+Whether you're a fellow student, developer or simply curious about the field, I hope this repo offers helpful insights - and perhaps even inspires you to fork it or contribute!
 
 👉 Official course page: [Master's of SWE AI Torrens Website](https://www.torrens.edu.au/courses/technology/master-of-software-engineering-artificial-intelligence-advanced)
 
@@ -11,8 +11,7 @@ Whether you're a fellow student, developer or simply curious about the field, I 
 - **Learning by Doing**: Practical implementation of theoretical concepts
 - **Documentation First**: Maintaining clear, structured notes and documentation
 - **Real-world focus**: Marketable skills and practical solutions
-- **Continuous Improvement**: Regular updates and refinements to projects and notes
-- **Discipline**: Daily updates and progress tracking
+- **Continuous Improvement**: Daily updates and refinements to projects and notes
 
 ---
 
@@ -22,16 +21,19 @@ This repo serves as both my personal knowledge base and project portfolio during
 ---
 
 ### Projects
-#### Course Projects
-Project | Status | Description | Folder directory | Demo URL |
-|---------|---------------------|----------------|----------------|----------------|
-| ClinicTrends AI   | 🔥 | A streamlit app to analyze survey records and generate insights using Machine Learning. | [Here](./T1-Software-Engineering-Principles/projects/clinictrends_ai/README.md) | [Here](https://sep-torrens-dr-ranju-group-1.streamlit.app/) | 
-| TTrack   | 🔥 | A PyQt5 desktop app to help academic staff to track academic progress by comparing a student’s official transcript with prescribed curriculum using custom made algorithms.         | [Here](./T1-Software-Development-Management/projects/TTrack_v1/README.md) | 🔥 |
-| CommBank Server Task | ✅ | Set Up c# project and update Goals with Icon         | [Here](./T1-Extra/cba/CommBank-Server) | N/A |
-| CommBank Web Task | ✅ | Use Typescript to extend the UI | [Here](./T1-Extra/cba/CommBank-Web) | N/A |
-| CommBank API Task | 🔥 | TypeScript and Axios for making POST and GET and backend integration | TBD | N/A |
+Take a deep dive into how I'm approaching projects and the progress I'm making.
 
-Tip: ✅ = done, 🔥 = WIP, 🕐 = Not started
+> Tip: ✅ = done, 🔥 = WIP, 🕐 = Not started
+
+#### Course Projects
+Project | Description | Status | Folder directory | Demo URL |
+|---------|---------------------|----------------|----------------|----------------|
+| ClinicTrends AI  | A streamlit app to analyze survey records and generate insights using Machine Learning. | 🔥 | [Here](./T1-Software-Engineering-Principles/projects/clinictrends_ai/README.md) | [Here](https://sep-torrens-dr-ranju-group-1.streamlit.app/) | 
+| TTrack Python | A PyQt5 desktop app to help academic staff to track academic progress by comparing a student’s official transcript with prescribed curriculum using custom made algorithms.         | 🔥 | [Here](./T1-Software-Development-Management/projects/TTrack_v1/README.md) | 🔥 |
+| TTrack Electron | A Node.js andReact desktop app wrapped by Electron to help academic staff to track academic progress by comparing a student’s official transcript with prescribed curriculum using custom made algorithms. | 🔥 | [Here](./T1-Software-Development-Management/projects/TTrack_v2/README.md) | 🔥 |
+| CBA API Task | TypeScript and Axios for making POST and GET and backend integration | 🔥 | TBD | N/A |
+| CBA Server Task | Set Up c# project and update Goals with Icon | ✅ | [Here](./T1-Extra/cba/CommBank-Server) | N/A |
+| CBA Web Task | Use Typescript to extend the UI | ✅ | [Here](./T1-Extra/cba/CommBank-Web) | N/A |
 
 ### Progress Tracking And Goals
 
@@ -60,5 +62,5 @@ While this is primarily a personal repository, I welcome discussions and constru
 
 ---
 
-*Last Updated: 6 July 2025*  
+*Last Updated: 7 July 2025*  
 ![GitHub last commit](https://img.shields.io/github/last-commit/lfariabr/masters-swe-ai?style=flat-square)
