@@ -11,7 +11,7 @@ Dr. Muhammad Atif Qureshi
 - [X] Module 4 - Project Planning II
 - [X] Module 5 - Project Estimation
 - [X] Module 6 - Risk Analysis and Management
-- [🔥] Module 7 - Quality Management
+- [X] Module 7 - Quality Management
 - [ ] Module 8
 - [ ] Module 9
 - [ ] Module 10
