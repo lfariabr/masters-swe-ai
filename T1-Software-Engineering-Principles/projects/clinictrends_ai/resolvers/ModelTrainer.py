@@ -47,20 +47,29 @@ class ModelTrainer:
             # Feature extraction
             vectorizer = TfidfVectorizer(
                 stop_words="english", 
-                max_features=5000,
+                max_features=5000, #TODO: feature optimization (find the optimal number of features)
+                # consider 500 size feature for the comments and add one more cell for the score = 500 + 1 dimension feature number comming from score
+                # get the average size of the comments
                 ngram_range=(1, 2),  # Include bigrams for better context
                 min_df=2,  # Ignore terms that appear in less than 2 documents
                 max_df=0.95  # Ignore terms that appear in more than 95% of documents
             )
+
+            # model evaluation
+            # scenario1 model try to find particular word from a page (finds 9/10. Precision 90%) [classification problem - always get accuracy]
+            # scenario2 model try to understand the severity of the problem [regression problem - single class]
+
+            # 3 classes of classification: Promoter, Neutral, Detractor
+            # 2 classes of classification: Positive or Negative
             
-            X = vectorizer.fit_transform(df[feature_column].fillna(''))
-            y = df[target_column]
+            X = vectorizer.fit_transform(df[feature_column].fillna('')) # input
+            y = df[target_column] # output: Promoter, Neutral, Detractor
             
             # Train-test split with stratification
-            X_train, X_test, y_train, y_test = train_test_split(
+            X_train, X_test, y_train, y_test = train_test_split( # X refers to the feature and Y refers to the label that we want it to find
                 X, y, test_size=0.2, random_state=42, stratify=y
             )
-            
+            # overfit or underfit - check more #TODO
             # Model training
             model = LogisticRegression(
                 max_iter=1000,
