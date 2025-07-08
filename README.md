@@ -1,4 +1,4 @@
-Welcome to my personal repo for the **Master's of Software Engineering (Artificial Intelligence, Advanced)** at **Torrens University**.
+Welcome to my personal repo for the **Master's of Software Engineering and Artificial Intelligence (Advanced)** at **Torrens University**.
 
 Inside, you'll find my study notes, case studies, experiments, and practical projects in AI, machine learning and full-stack software development.  
 
@@ -24,7 +24,7 @@ This repo serves as both my personal knowledge base and project portfolio during
 ### Projects
 Take a deep dive into how I'm approaching projects and the progress I'm making.
 
-> Tip: ✅ = done, 🔥 = WIP, 🕐 = Not started
+> Tip: ✅ = Done, 🔥 = WIP, 🕐 = Not started
 
 #### Course Projects
 Project | Description | Status | Folder directory | Demo URL |
@@ -54,10 +54,10 @@ Term | Subject | Status | Lecturer | Useful URLs |
 | 3.0.0   | Modules 9–12        | 🕐 |
 
 #### Goals
-- [ ] Complete course materials for Software Development Management
-- [ ] Complete course materials for Software Engineering Principles
-- [ ] Implement 1 project per subject
-- [ ] Document key learnings and insights
+- [🔥] Complete course materials for Software Development Management
+- [🔥] Complete course materials for Software Engineering Principles
+- [🔥] Implement 1 project per subject
+- [🔥] Document key learnings and insights
 
 ---
 
@@ -66,5 +66,5 @@ While this is primarily a personal repository, I welcome discussions and constru
 
 ---
 
-*Last Updated: 7 July 2025*  
+*Last Updated: 9 July 2025*  
 ![GitHub last commit](https://img.shields.io/github/last-commit/lfariabr/masters-swe-ai?style=flat-square)
