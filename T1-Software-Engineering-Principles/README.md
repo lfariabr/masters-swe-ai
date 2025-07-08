@@ -11,7 +11,7 @@ Dr. Ranju Mandal
 - [X] Module 4 - Requirements Modelling
 - [X] Module 5 - Software Testing and Quality
 - [X] Module 6 - Human-Computer Interaction Principles
-- [🔥] Module 7 - High-level Software Design
+- [X] Module 7 - High-level Software Design
 - [ ] Module 8
 - [ ] Module 9
 - [ ] Module 10
