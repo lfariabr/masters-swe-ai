@@ -9,6 +9,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, precision_recall_fscore_support
 from sklearn.model_selection import train_test_split
+from sklearn.model_selection import GridSearchCV
 
 # Optional: Transformers
 try:
@@ -30,7 +31,7 @@ class ModelTrainer:
         self.metrics = {}
         
     def train_tfidf_model(self, df: pd.DataFrame, feature_column: str, 
-                         target_column: str, model_name: str) -> Tuple[Any, Any, Any, Any, Any]:
+                         target_column: str, model_name: str, score_column: str = None) -> Tuple[Any, Any, Any, Any, Any]:
         """
         Train TF-IDF (Term Frequency-Inverse Document Frequency) + Logistic Regression model with standardized pipeline.
         
@@ -44,16 +45,30 @@ class ModelTrainer:
             Tuple of (trained_model, fitted_vectorizer, X_test, y_test, y_pred)
         """
         try:
-            # Feature extraction
+            # ----- new, td-idf deep dive --------
+            # Before vectorization, analyze comment sizes
+            comment_stats = self.analyze_comment_sizes(df, feature_column)
+            st.write("Comment Size Statistics:", comment_stats)
+
+            # Find optimal feature count
+            optimal_features = self.find_optimal_features(df, feature_column, target_column)
+            st.write(f"Using optimal feature count: {optimal_features}")
+            # ----- new, td-idf deep dive --------
+            
+            # Create vectorizer with optimal feature count
             vectorizer = TfidfVectorizer(
-                stop_words="english", 
-                max_features=5000, #TODO: feature optimization (find the optimal number of features)
-                # consider 500 size feature for the comments and add one more cell for the score = 500 + 1 dimension feature number comming from score
-                # get the average size of the comments
+                stop_words="english",
+                max_features=optimal_features, # was hardcoded to 5000 ... now using optimal feature count from cross-validation
                 ngram_range=(1, 2),  # Include bigrams for better context
                 min_df=2,  # Ignore terms that appear in less than 2 documents
                 max_df=0.95  # Ignore terms that appear in more than 95% of documents
             )
+
+            # If you have a score column, use it as an additional feature
+            if score_column and score_column in df.columns:
+                X = self.create_combined_features(df, feature_column, score_column, vectorizer)
+            else:
+                X = vectorizer.fit_transform(df[feature_column].fillna(''))
 
             # model evaluation
             # scenario1 model try to find particular word from a page (finds 9/10. Precision 90%) [classification problem - always get accuracy]
@@ -62,7 +77,7 @@ class ModelTrainer:
             # 3 classes of classification: Promoter, Neutral, Detractor
             # 2 classes of classification: Positive or Negative
             
-            X = vectorizer.fit_transform(df[feature_column].fillna('')) # input
+            # Get target values
             y = df[target_column] # output: Promoter, Neutral, Detractor
             
             # Train-test split with stratification
@@ -96,6 +111,90 @@ class ModelTrainer:
         except Exception as e:
             st.error(f"❌ Error training {model_name}: {str(e)}")
             return None, None, None, None, None
+    
+    def find_optimal_features(self, df: pd.DataFrame, feature_column: str, target_column: str):
+        """
+        Find the optimal number of features for the given dataset.
+        
+        Args:
+            df: Input dataframe
+            feature_column: Column containing text features
+            target_column: Column containing target labels
+            
+        Returns:
+            int: Optimal number of features
+        """    
+        # Define parameter grid - for Pipeline, use format: step_name__parameter_name
+        param_grid = {
+            'vectorizer__max_features': [100, 300, 500, 700, 1000],
+        }
+
+        # Create pipeline
+        from sklearn.pipeline import Pipeline
+        pipeline = Pipeline([
+            ('vectorizer', TfidfVectorizer(
+                stop_words="english", 
+                ngram_range=(1, 2),
+                min_df=2,
+                max_df=0.95,
+            )),
+            ('classifier', LogisticRegression(
+                max_iter=1000,
+                random_state=42,
+                class_weight='balanced'
+            ))
+        ])
+    
+        # Initialize GridSearchCV
+        grid_search = GridSearchCV(
+            pipeline,
+            param_grid=param_grid,
+            cv=5,
+            scoring='f1_weighted',
+            n_jobs=-1,
+        )
+
+        X = df[feature_column].fillna('')
+        y = df[target_column]
+
+        # Fit GridSearchCV
+        grid_search.fit(X, y)
+
+        st.write(f"Best parameters: {grid_search.best_params_}")
+        st.write(f"Best score: {grid_search.best_score_}")
+        
+        # Return the optimal feature count
+        return grid_search.best_params_['vectorizer__max_features']
+
+    def create_combined_features(self, df, feature_column, score_column, vectorizer):
+        """Combine text features with numerical score feature"""
+        # Get TF-IDF features
+        text_features = vectorizer.transform(df[feature_column].fillna(''))
+        
+        # Get score feature and reshape for concatenation
+        score_features = df[score_column].values.reshape(-1, 1)
+        
+        # Combine features
+        from scipy.sparse import hstack
+        combined_features = hstack([text_features, score_features])
+        
+        return combined_features
+
+    def analyze_comment_sizes(self, df, feature_column):
+        """Analyze the size distribution of comments"""
+        # Calculate token counts
+        token_counts = df[feature_column].fillna('').apply(lambda x: len(x.split()))
+        
+        # Calculate statistics
+        stats = {
+            'mean_tokens': token_counts.mean(),
+            'median_tokens': token_counts.median(),
+            'min_tokens': token_counts.min(),
+            'max_tokens': token_counts.max(),
+            'std_tokens': token_counts.std()
+        }
+    
+        return stats
     
     def train_transformer_model(self, df: pd.DataFrame, feature_column: str, 
                               model_name: str) -> Optional[pd.DataFrame]:
