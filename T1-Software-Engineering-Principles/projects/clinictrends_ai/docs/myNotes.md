@@ -36,6 +36,7 @@ streamlit run app.py
 - ✅ Provides sample csv files for enhanced UX
 - ✅ Alert system based on NPS and sentiment scores
 - ✅ A/B testing framework for model comparison
+- 🔄 Model fine-tuning
 - 🔄 Advanced feature engineering pipelines
 - 🔄 Automated hyperparameter optimization
 - 🔄 Real-time model retraining capabilities
@@ -58,6 +59,7 @@ streamlit run app.py
 ## ✅ Feature Progress
 
 ### ✔ Done
+**v1.0 breakdown**
 #### 🔹 v1.0.0 - `feature/base`
 - Streamlit app with Altair, pandas, numpy displaying NPS data
 
@@ -109,6 +111,9 @@ streamlit run app.py
 - Change dashboard to "NPS Analysis"
 - Update Pytest coverage
 
+---
+**v2.0 breakdown**
+
 #### 🔹 v2.0.0 - `feature/discord-webhook`
 - Add discord webhook for alerting when app's used at key pages
 - Improve home page experience with st.balloons and interactive click
@@ -121,8 +126,9 @@ streamlit run app.py
 
 ### 🔧 In Progress
 
-#### 🔸 v2.2.0 - `feature/tbd`
-- tbd
+#### 🔸 v2.2.0 - `feature/tf-idf-max-features`
+- Testing different values for max_features in the TF-IDF vectorizer to find the optimal feature set size for model performance.
+
 
 ### 🗂️ Backlog
 
