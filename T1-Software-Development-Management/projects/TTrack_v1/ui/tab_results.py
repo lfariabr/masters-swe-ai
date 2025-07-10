@@ -53,20 +53,22 @@ def setup_results_tab(parent):
     # Replace local labels with parent attributes
     parent.header_label = QLabel("")
     parent.header_label.setObjectName("header_label")
-    parent.header_label.setStyleSheet(f"""
+    # Use direct conditional styling for header label
+    parent.header_label.setStyleSheet("""
         font-size: 22px; 
         font-weight: bold; 
-        color: {'#4ecdc4' if parent.is_dark_mode else '#2a9d8f'};
+        color: %s;
         margin-bottom: 4px;
-    """)
+    """ % ('#4ecdc4' if parent.theme_manager.is_dark_mode else '#1a7d6f'))
 
     parent.sub_header = QLabel("")
     parent.sub_header.setObjectName("sub_header")
-    parent.sub_header.setStyleSheet(f"""
+    # Use direct conditional styling with proper contrasting colors
+    parent.sub_header.setStyleSheet("""
         font-size: 14px;
-        color: {'#bbbbbb' if parent.is_dark_mode else '#555555'};
+        color: %s;
         margin-bottom: 15px;
-    """)
+    """ % ('#ffffff' if parent.theme_manager.is_dark_mode else '#333333'))
 
     # Progress indicator
     progress_container = QWidget()
@@ -80,18 +82,19 @@ def setup_results_tab(parent):
             border: none;
             border-radius: 10px;
             text-align: center;
-            background: {'#444444' if parent.is_dark_mode else '#e9ecef'};
+            background: {'#444444' if parent.theme_manager.is_dark_mode else '#e9ecef'};
             height: 8px;
         }}
         QProgressBar::chunk {{
-            background-color: {'#4ecdc4' if parent.is_dark_mode else '#2a9d8f'};
+            background-color: {'#4ecdc4' if parent.theme_manager.is_dark_mode else '#2a9d8f'};
             border-radius: 10px;
         }}
     """)
 
     progress_label = QLabel("Degree Progress")
+    progress_label.setObjectName("progress_label") # Add object name for identification
     progress_label.setStyleSheet(
-        f"color: {'#bbbbbb' if parent.is_dark_mode else '#666666'}; font-size: 12px;"
+        "color: %s; font-size: 12px;" % ('#dddddd' if parent.theme_manager.is_dark_mode else '#444444')
     )
 
     progress_layout.addWidget(progress_label, 1)
@@ -107,7 +110,7 @@ def setup_results_tab(parent):
     separator.setFrameShape(QFrame.HLine)
     separator.setFrameShadow(QFrame.Sunken)
     separator.setStyleSheet(
-        f"background-color: {'#444444' if parent.is_dark_mode else '#e9ecef'};"
+        f"background-color: {'#444444' if parent.theme_manager.is_dark_mode else '#e9ecef'};"
     )
     header_layout.addWidget(separator)
 
