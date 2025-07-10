@@ -205,12 +205,15 @@ mkdir -p src/components src/pages src/services src/utils src/styles src/hooks sr
 - Distribution packaging
 - Offline mode optimization
 
+#### 🔹 v1.17.0 - `feature/frontend-refactor`
+- PyQt5 refactor of UI for separation of concerns: `theme_manager.py`, `tab_controller.py`, `data_processor.py` --> all correctly linked to `main_window.py`
+
+
 ---
 
 ### 🔧 In Progress
 
-#### 🔸 v1.17.0 - `feature/frontend-refactor`
-- PyQt5 refactor of UI for separation of concerns: `theme_manager.py`, `tab_controller.py`, `data_processor.py` --> all correctly linked to `main_window.py`
+#### 🔸 v1.18.0 - `feature/frontend-tests`
 - Pytest adjustments to new UI structure
 
 ### 🗂️ Backlog
