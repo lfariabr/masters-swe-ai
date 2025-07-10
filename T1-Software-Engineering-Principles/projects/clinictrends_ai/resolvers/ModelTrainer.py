@@ -47,12 +47,15 @@ class ModelTrainer:
         try:
             # ----- new, td-idf deep dive --------
             # Before vectorization, analyze comment sizes
-            comment_stats = self.analyze_comment_sizes(df, feature_column)
-            st.write("Comment Size Statistics:", comment_stats)
+            with st.container(border=True):
+                with st.container(border=True):
+                    comment_stats = self.analyze_comment_sizes(df, feature_column)
+                    st.write("Comment Size Statistics:", comment_stats)
 
-            # Find optimal feature count
-            optimal_features = self.find_optimal_features(df, feature_column, target_column)
-            st.write(f"Using optimal feature count: {optimal_features}")
+                # Find optimal feature count
+                with st.container(border=True):
+                    optimal_features = self.find_optimal_features(df, feature_column, target_column)
+                    st.write(f"Using optimal feature count: {optimal_features}")
             # ----- new, td-idf deep dive --------
             
             # Create vectorizer with optimal feature count

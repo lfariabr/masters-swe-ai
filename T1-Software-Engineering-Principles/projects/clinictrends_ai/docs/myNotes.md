@@ -122,13 +122,20 @@ streamlit run app.py
 - Adds sample csv file for enhanced UXs
 - Add alert system for NPS drop detection
 
+#### 🔹 v2.2.0 - `feature/tf-idf-max-features`
+- Testing different values for max_features in the TF-IDF vectorizer to find the optimal feature set size for model performance.
+
+#### 🔹 v2.3.0 - `feature/tf-idf-deep-dive`
+- Adds notes on tf-idf vectorizer
+- Adds comments size statistics
+- Updates Models page hiding transformers for the moment while we fine tune tf-idf
+
 ---
 
 ### 🔧 In Progress
 
-#### 🔸 v2.2.0 - `feature/tf-idf-max-features`
-- Testing different values for max_features in the TF-IDF vectorizer to find the optimal feature set size for model performance.
-
+#### 🔸 v2.4.0 - `feature/tbd`
+- tbd
 
 ### 🗂️ Backlog
 
