@@ -269,122 +269,125 @@ def show_models():
             
             st.markdown("---")
             
-            if TRANSFORMERS_AVAILABLE:
-                st.markdown("#### 🤖 Model 3: Transformer-Enhanced Classification *(Prototype)*")
-                with st.spinner("Processing with transformer model..."):
-                    df_transformer = model_trainer.train_transformer_model(df, "Comment", "Model 3: Transformer")
-                
-                if df_transformer is not None:
-                    col1, col2 = st.columns(2)
-                    with col1:
-                        st.info("Transformer model applied successfully")
-                        st.metric("Processed Records", len(df_transformer))
-                    with col2:
-                        create_sentiment_visualization(df_transformer, "HF_Label", "Model 3: Transformer Results")
-                    # DEBUG cross checking prediction vs original NPS Type
-                    st.warning("#### 📝 Model 3 Predictions Sample")
-                    st.dataframe(
-                        df_transformer[
-                            ["Comment", "Score", "NPS Type", "Sentiment", "HF_Label", "HF_Score"]
-                        ].sample(min(10, len(df_transformer))),
-                        use_container_width=True
-                    )
-                
-                st.markdown("---")
-                
-                st.markdown("#### 🤖 Model 4: Hybrid Transformer-Score Integration *(Prototype)*")
-                with st.spinner("Processing hybrid transformer model..."):
-                    df_hybrid = model_trainer.train_transformer_model(df, "CommentScore", "Model 4: Hybrid")
-                
-                if df_hybrid is not None:
-                    col1, col2 = st.columns(2)
-                    with col1:
-                        st.info("Hybrid transformer model applied successfully")
-                        st.metric("Processed Records", len(df_hybrid))
-                    with col2:
-                        create_sentiment_visualization(df_hybrid, "HF_Label", "Model 4: Hybrid Results")
-                    # DEBUG cross checking prediction vs original NPS Type
-                    st.warning("#### 📝 Model 4 Predictions Sample")
-                    st.dataframe(
-                        df_hybrid[
-                            ["CommentScore", "NPS Type", "Sentiment", "HF_Label", "HF_Score"]
-                        ].sample(min(10, len(df_hybrid))),
-                        use_container_width=True
-                    )
-            else:
-                st.info("🔬 Transformer models (3 & 4) are prototype implementations and require additional dependencies.")
-            
+            st.info("Transformer models are a work in progress. Stay tuned!")
             st.markdown("---")
             
-            create_performance_dashboard(model_trainer.metrics)
-            
-            st.markdown("### 📊 NPS vs Sentiment Analysis Comparison")
-            df = classify_nps(df)
-            
-            col1, col2 = st.columns(2)
-            with col1:
-                st.markdown("**NPS Distribution**")
-                donut_chart = nps_donut_chart(df)
-                st.altair_chart(donut_chart, use_container_width=True)
-                st.dataframe(df["NPS Type"].value_counts().reset_index(), use_container_width=True)
-            
-            with col2:
-                st.markdown("**Sentiment Distribution**")
-                create_sentiment_visualization(df, "Sentiment", "Overall Sentiment Distribution")
-            
-            st.markdown("---")
-            st.markdown("### 📊 Crosstab Analysis")
-            
-            crosstab = pd.crosstab(df["NPS Type"], df["Sentiment"])
-            st.dataframe(crosstab, use_container_width=True)
-
-            ct_melted = crosstab.reset_index().melt(id_vars="NPS Type", var_name="Sentiment", value_name="Count")
-
-            heatmap = alt.Chart(ct_melted).mark_rect().encode(
-                x=alt.X('Sentiment:N'),
-                y=alt.Y('NPS Type:N'),
-                color=alt.Color('Count:Q', scale=alt.Scale(scheme='blues')),
-                tooltip=['NPS Type', 'Sentiment', 'Count']
-            ).properties(
-                title="Heatmap - NPS Type vs Sentiment"
-            )
-
-            st.altair_chart(heatmap, use_container_width=True)
-
-            nps_sentiment_map = {
-                "Promoter": "POSITIVE",
-                "Passive": "NEUTRAL",
-                "Detractor": "NEGATIVE"
-            }
-
-            df["NPS_Sentiment"] = df["NPS Type"].map(nps_sentiment_map)
-
-            agreement_rate = np.mean(df["NPS_Sentiment"] == df["Sentiment"])
-            st.write(f"✅ The agreement between NPS and sentiment is: {agreement_rate:.2%}")
-            
-            st.markdown("---")
-
-            st.markdown("### 💾 Export Results")
-            if st.button("📥 Download Model Comparison Report", type="primary", key="export"):
-                report_data = {
-                    "model_metrics": model_trainer.metrics,
-                    "data_summary": {
-                        "total_records": len(df),
-                        "columns": list(df.columns),
-                        "nps_distribution": df["NPS Type"].value_counts().to_dict(),
-                        "sentiment_distribution": df["Sentiment"].value_counts().to_dict()
-                    }
-                }
+            # if TRANSFORMERS_AVAILABLE:
+            #     st.markdown("#### 🤖 Model 3: Transformer-Enhanced Classification *(Prototype)*")
+            #     with st.spinner("Processing with transformer model..."):
+            #         df_transformer = model_trainer.train_transformer_model(df, "Comment", "Model 3: Transformer")
                 
-                st.download_button(
-                    label="Download JSON Report",
-                    data=pd.Series(report_data).to_json(),
-                    file_name=f"model_comparison_report_{pd.Timestamp.now().strftime('%Y%m%d_%H%M%S')}.json",
-                    mime="application/json"
-                )
+            #     if df_transformer is not None:
+            #         col1, col2 = st.columns(2)
+            #         with col1:
+            #             st.info("Transformer model applied successfully")
+            #             st.metric("Processed Records", len(df_transformer))
+            #         with col2:
+            #             create_sentiment_visualization(df_transformer, "HF_Label", "Model 3: Transformer Results")
+            #         # DEBUG cross checking prediction vs original NPS Type
+            #         st.warning("#### 📝 Model 3 Predictions Sample")
+            #         st.dataframe(
+            #             df_transformer[
+            #                 ["Comment", "Score", "NPS Type", "Sentiment", "HF_Label", "HF_Score"]
+            #             ].sample(min(10, len(df_transformer))),
+            #             use_container_width=True
+            #         )
+                
+            #     st.markdown("---")
+                
+            #     st.markdown("#### 🤖 Model 4: Hybrid Transformer-Score Integration *(Prototype)*")
+            #     with st.spinner("Processing hybrid transformer model..."):
+            #         df_hybrid = model_trainer.train_transformer_model(df, "CommentScore", "Model 4: Hybrid")
+                
+            #     if df_hybrid is not None:
+            #         col1, col2 = st.columns(2)
+            #         with col1:
+            #             st.info("Hybrid transformer model applied successfully")
+            #             st.metric("Processed Records", len(df_hybrid))
+            #         with col2:
+            #             create_sentiment_visualization(df_hybrid, "HF_Label", "Model 4: Hybrid Results")
+            #         # DEBUG cross checking prediction vs original NPS Type
+            #         st.warning("#### 📝 Model 4 Predictions Sample")
+            #         st.dataframe(
+            #             df_hybrid[
+            #                 ["CommentScore", "NPS Type", "Sentiment", "HF_Label", "HF_Score"]
+            #             ].sample(min(10, len(df_hybrid))),
+            #             use_container_width=True
+            #         )
+            # else:
+            #     st.info("🔬 Transformer models (3 & 4) are prototype implementations and require additional dependencies.")
             
-            with st.expander("🔎 Full DataFrame with All Predictions"):
-                st.dataframe(df, use_container_width=True)
+            # st.markdown("---")
+            
+            # create_performance_dashboard(model_trainer.metrics)
+            
+            # st.markdown("### 📊 NPS vs Sentiment Analysis Comparison")
+            # df = classify_nps(df)
+            
+            # col1, col2 = st.columns(2)
+            # with col1:
+            #     st.markdown("**NPS Distribution**")
+            #     donut_chart = nps_donut_chart(df)
+            #     st.altair_chart(donut_chart, use_container_width=True)
+            #     st.dataframe(df["NPS Type"].value_counts().reset_index(), use_container_width=True)
+            
+            # with col2:
+            #     st.markdown("**Sentiment Distribution**")
+            #     create_sentiment_visualization(df, "Sentiment", "Overall Sentiment Distribution")
+            
+            # st.markdown("---")
+            # st.markdown("### 📊 Crosstab Analysis")
+            
+            # crosstab = pd.crosstab(df["NPS Type"], df["Sentiment"])
+            # st.dataframe(crosstab, use_container_width=True)
+
+            # ct_melted = crosstab.reset_index().melt(id_vars="NPS Type", var_name="Sentiment", value_name="Count")
+
+            # heatmap = alt.Chart(ct_melted).mark_rect().encode(
+            #     x=alt.X('Sentiment:N'),
+            #     y=alt.Y('NPS Type:N'),
+            #     color=alt.Color('Count:Q', scale=alt.Scale(scheme='blues')),
+            #     tooltip=['NPS Type', 'Sentiment', 'Count']
+            # ).properties(
+            #     title="Heatmap - NPS Type vs Sentiment"
+            # )
+
+            # st.altair_chart(heatmap, use_container_width=True)
+
+            # nps_sentiment_map = {
+            #     "Promoter": "POSITIVE",
+            #     "Passive": "NEUTRAL",
+            #     "Detractor": "NEGATIVE"
+            # }
+
+            # df["NPS_Sentiment"] = df["NPS Type"].map(nps_sentiment_map)
+
+            # agreement_rate = np.mean(df["NPS_Sentiment"] == df["Sentiment"])
+            # st.write(f"✅ The agreement between NPS and sentiment is: {agreement_rate:.2%}")
+            
+            # st.markdown("---")
+
+            # st.markdown("### 💾 Export Results")
+            # if st.button("📥 Download Model Comparison Report", type="primary", key="export"):
+            #     report_data = {
+            #         "model_metrics": model_trainer.metrics,
+            #         "data_summary": {
+            #             "total_records": len(df),
+            #             "columns": list(df.columns),
+            #             "nps_distribution": df["NPS Type"].value_counts().to_dict(),
+            #             "sentiment_distribution": df["Sentiment"].value_counts().to_dict()
+            #         }
+            #     }
+                
+            #     st.download_button(
+            #         label="Download JSON Report",
+            #         data=pd.Series(report_data).to_json(),
+            #         file_name=f"model_comparison_report_{pd.Timestamp.now().strftime('%Y%m%d_%H%M%S')}.json",
+            #         mime="application/json"
+            #     )
+            
+            # with st.expander("🔎 Full DataFrame with All Predictions"):
+            #     st.dataframe(df, use_container_width=True)
             
         except Exception as e:
             st.error(f"❌ An error occurred: {str(e)}")
