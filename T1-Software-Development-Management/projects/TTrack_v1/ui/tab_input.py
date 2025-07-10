@@ -26,28 +26,31 @@ def setup_input_tab(parent):
     # Title Section
     title_layout = QHBoxLayout()
     title = QLabel("🎓 TTrack – Torrens Degree Tracker")
+    title.setObjectName("title_label") # Add object name for identification
     title.setFont(QFont("Arial", 20, QFont.Bold))
-    title.setStyleSheet(f"color: {'#ffffff' if parent.is_dark_mode else '#2c3e50'};")
+    # Force black color in light mode, white in dark mode
+    title.setStyleSheet("color: #000000; font-weight: bold; padding: 5px;" if not parent.theme_manager.is_dark_mode else "color: #ffffff; font-weight: bold; padding: 5px;")
+
     
     # Add theme toggle button
-    theme_icon = "🌙" if not parent.is_dark_mode else "☀️"
+    theme_icon = "🌙" if not parent.theme_manager.is_dark_mode else "☀️"
     parent.theme_toggle_btn = QPushButton(theme_icon)
     parent.theme_toggle_btn.setFixedSize(50, 50)
     parent.theme_toggle_btn.setToolTip(
-        "Switch to Dark Mode" if not parent.is_dark_mode else "Switch to Light Mode"
+        "Switch to Dark Mode" if not parent.theme_manager.is_dark_mode else "Switch to Light Mode"
     )
     parent.theme_toggle_btn.setStyleSheet(f"""
         QPushButton {{
-            border: 2px solid {'#2c3e50' if not parent.is_dark_mode else '#ffffff'};
+            border: 2px solid {'#2c3e50' if not parent.theme_manager.is_dark_mode else '#ffffff'};
             border-radius: 25px;
             font-size: 24px;
-            background-color: {'#f0f0f0' if not parent.is_dark_mode else '#2d2d2d'};
-            color: {'#2c3e50' if not parent.is_dark_mode else '#ffffff'};
+            background-color: {'#f0f0f0' if not parent.theme_manager.is_dark_mode else '#2d2d2d'};
+            color: {'#2c3e50' if not parent.theme_manager.is_dark_mode else '#ffffff'};
             padding: 0;
             margin: 0;
         }}
         QPushButton:hover {{
-            background-color: {'#e0e0e0' if not parent.is_dark_mode else '#3d3d3d'};
+            background-color: {'#e0e0e0' if not parent.theme_manager.is_dark_mode else '#3d3d3d'};
         }}
     """)
     parent.theme_toggle_btn.clicked.connect(parent.toggle_theme)
@@ -61,11 +64,13 @@ def setup_input_tab(parent):
     layout.addLayout(title_layout)
 
     subtitle = QLabel("Built by students for academic advisors at Torrens University Australia.")
-    subtitle.setStyleSheet(f"color: {'#e0e0e0' if parent.is_dark_mode else '#555555'}; font-size: 13px;")
+    subtitle.setObjectName("subtitle_label")
+    subtitle.setStyleSheet("color: #ffffff; font-size: 13px;" if parent.theme_manager.is_dark_mode else "color: #333333; font-size: 13px;")
     subtitle.setAlignment(Qt.AlignCenter)
 
     credit = QLabel("Guided by Dr. Atif Qureshi – Software Development Management, 2025")
-    credit.setStyleSheet(f"color: {'#cccccc' if parent.is_dark_mode else '#777777'}; font-size: 11px; font-style: italic;")
+    credit.setObjectName("credit_label")
+    credit.setStyleSheet("color: #dddddd; font-size: 11px; font-style: italic;" if parent.theme_manager.is_dark_mode else "color: #444444; font-size: 11px; font-style: italic;")
     credit.setAlignment(Qt.AlignCenter)
 
     layout.addWidget(subtitle)
@@ -79,9 +84,9 @@ def setup_input_tab(parent):
     parent.process_btn = QPushButton("🔍 Process Data")
     
     # Style buttons
-    set_button_style(parent.transcript_btn, parent.main_color, parent.is_dark_mode)
-    set_button_style(parent.curriculum_btn, parent.main_color, parent.is_dark_mode)
-    set_button_style(parent.process_btn, "#27ae60", parent.is_dark_mode)
+    set_button_style(parent.transcript_btn, parent.main_color, parent.theme_manager.is_dark_mode)
+    set_button_style(parent.curriculum_btn, parent.main_color, parent.theme_manager.is_dark_mode)
+    set_button_style(parent.process_btn, "#27ae60", parent.theme_manager.is_dark_mode)
     
     # Connect buttons
     parent.transcript_btn.clicked.connect(lambda: load_file(parent, is_transcript=True))
@@ -98,10 +103,10 @@ def setup_input_tab(parent):
     # Style helper buttons
     sample_button_color = "#27AE60"  # Green
     download_button_color = "#2471A3"  # Blue
-    set_button_style(parent.sample_transcript_btn, sample_button_color, parent.is_dark_mode, smaller=True)
-    set_button_style(parent.sample_curriculum_btn, sample_button_color, parent.is_dark_mode, smaller=True)
-    set_button_style(parent.download_transcript_btn, download_button_color, parent.is_dark_mode, smaller=True)
-    set_button_style(parent.download_curriculum_btn, download_button_color, parent.is_dark_mode, smaller=True)
+    set_button_style(parent.sample_transcript_btn, sample_button_color, parent.theme_manager.is_dark_mode, smaller=True)
+    set_button_style(parent.sample_curriculum_btn, sample_button_color, parent.theme_manager.is_dark_mode, smaller=True)
+    set_button_style(parent.download_transcript_btn, download_button_color, parent.theme_manager.is_dark_mode, smaller=True)
+    set_button_style(parent.download_curriculum_btn, download_button_color, parent.theme_manager.is_dark_mode, smaller=True)
     
     # Connect helper buttons
     parent.sample_transcript_btn.clicked.connect(lambda: load_sample_file(parent, is_transcript=True))
@@ -193,13 +198,13 @@ def load_file(parent, is_transcript=True):
         
         if is_transcript:
             parent.transcript_table.setModel(model)
-            parent.transcript_df = parent.helpers.model_to_dataframe(model)
+            parent.data_processor.set_transcript_data(parent.helpers.model_to_dataframe(model))
         else:
             parent.curriculum_table.setModel(model)
-            parent.curriculum_df = parent.helpers.model_to_dataframe(model)
+            parent.data_processor.set_curriculum_data(parent.helpers.model_to_dataframe(model))
             
         # Enable process button if both files are loaded
-        if parent.transcript_df is not None and parent.curriculum_df is not None:
+        if parent.data_processor.transcript_df is not None and parent.data_processor.curriculum_df is not None:
             parent.process_btn.setEnabled(True)
 
 
@@ -232,15 +237,15 @@ def load_sample_file(parent, is_transcript=True):
         
         if is_transcript:
             parent.transcript_table.setModel(model)
-            parent.transcript_df = parent.helpers.model_to_dataframe(model)
+            parent.data_processor.set_transcript_data(parent.helpers.model_to_dataframe(model))
             parent.statusBar().showMessage(f"Loaded sample transcript from {file_name}", 3000)
         else:
             parent.curriculum_table.setModel(model)
-            parent.curriculum_df = parent.helpers.model_to_dataframe(model)
+            parent.data_processor.set_curriculum_data(parent.helpers.model_to_dataframe(model))
             parent.statusBar().showMessage(f"Loaded sample curriculum from {file_name}", 3000)
         
         # Enable process button if both files are loaded
-        if parent.transcript_df is not None and parent.curriculum_df is not None:
+        if parent.data_processor.transcript_df is not None and parent.data_processor.curriculum_df is not None:
             parent.process_btn.setEnabled(True)
             
     except Exception as e:
