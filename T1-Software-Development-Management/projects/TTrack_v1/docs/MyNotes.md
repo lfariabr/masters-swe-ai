@@ -206,23 +206,26 @@ mkdir -p src/components src/pages src/services src/utils src/styles src/hooks sr
 - Offline mode optimization
 
 #### 🔹 v1.17.0 - `feature/frontend-refactor`
-- PyQt5 refactor of UI for separation of concerns: `theme_manager.py`, `tab_controller.py`, `data_processor.py` --> all correctly linked to `main_window.py`
-
+- PyQt5 refactor of UI for separation of concerns: 
+- `theme_manager.py` --> containing detect system, check dark mode, update theme and toggle theme
+- `tab_controller.py` --> controller of tabs for **setup**, **enable/disable** and **get** tabs (input and result)
+- `data_processor.py` --> sets transcript and curriculum data and processes it via `engine.py`
+- `main_window.py` --> `self.theme_manager`, `self.tab_controller`, `self.data_processor` + `init_ui()`
 
 ---
 
 ### 🔧 In Progress
 
-#### 🔸 v1.18.0 - `feature/frontend-tests`
-- Pytest adjustments to new UI structure
+#### 🔸 v1.18.0 - `feature/tbd` - or 2.0.0 - `feature/tbd`
+- tbd
 
 ### 🗂️ Backlog
 
-#### 🔸 v2.0.0 - `feature/db-integration`
-- Integrate with DB (MongoDB or Supabase PostgreSQL – 500MB free tier)
-
-- engine: deeper logic like tags, topics or even semantic similarity (based on description). (v3)
-- Login, authentication (v4)
+- Pytest adjustments to new UI structure (`feature/frontend-tests`)
+- Auto detect os theme (`feature/auto-detect-os-theme`)
+- v2.0.0 - `feature/db-integration` - Integrate with DB (MongoDB or Supabase PostgreSQL – 500MB free tier)
+- v3.0.0 - `feature/ai-integration` - engine: deeper logic like tags, topics or even semantic similarity (based on description)
+- v4.0.0 - `feature/login-authentication`
 
 ---
 
