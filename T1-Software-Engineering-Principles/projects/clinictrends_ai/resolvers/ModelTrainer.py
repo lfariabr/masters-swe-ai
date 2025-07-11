@@ -90,7 +90,7 @@ class ModelTrainer:
             # overfit or underfit - check more #TODO
             # Model training
             model = LogisticRegression(
-                max_iter=1000,
+                max_iter=100, # was hardcoded to 1000
                 random_state=42,
                 class_weight='balanced'  # Handle class imbalance
             )
@@ -98,6 +98,10 @@ class ModelTrainer:
             start_time = time.time()
             model.fit(X_train, y_train)
             training_time = time.time() - start_time
+
+            n_iter = model.n_iter_[0]
+            print(f"Iterations until convergence for {model_name}: {n_iter}")
+            st.write(f"Iterations until convergence for {model_name}: {n_iter}")
             
             # Store model artifacts
             self.models[model_name] = model

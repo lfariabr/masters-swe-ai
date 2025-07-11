@@ -134,8 +134,11 @@ streamlit run app.py
 
 ### 🔧 In Progress
 
-#### 🔸 v2.4.0 - `feature/tbd`
-- tbd
+#### 🔸 v2.4.0 - `feature/tf-idf-iteration-check`
+- Added n_iter = model.n_iter_[0] at ModelTrainer.py
+- print(f"Iterations until convergence for {model_name}: {n_iter}")
+- st.write(f"Iterations until convergence for {model_name}: {n_iter}")
+- keep going... 
 
 ### 🗂️ Backlog
 
