@@ -12,7 +12,7 @@ Dr. Ranju Mandal
 - [X] Module 5 - Software Testing and Quality
 - [X] Module 6 - Human-Computer Interaction Principles
 - [X] Module 7 - High-level Software Design
-- [ ] Module 8
+- [🔥] Module 8 - Low-level Software Design
 - [ ] Module 9
 - [ ] Module 10
 - [ ] Module 11
@@ -21,5 +21,5 @@ Dr. Ranju Mandal
 ## Assignments
 - [X] Assessment 1 - submitted 20/06/2025
 - [X] Assessment 2 - submitted 05/07/2025
-- [ ] Assessment 3 - deadline 03/08/2025
+- [🔥] Assessment 3 - deadline 03/08/2025
 - [ ] Assessment 4 - deadline 20/08/2025
