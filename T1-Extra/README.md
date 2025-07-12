@@ -13,4 +13,4 @@ Here's the outline of the tasks given/planned:
 | #3 Frontend and Backend   | TypeScript and Axios for making POST and GET and backend integration |  ✅ Done | 2025-07-12 |
 | #4 Testing   | Use xUnit framework to cover The `GetGoalsForUser` Route |  ✅ Done | 2025-07-13 |
 | #5 PR Task   | Create a new branch, commit & push changes to origin repository. Use GitHub and describe changes | ✅ Done | 2025-07-13 |
-| Finish Line   | TBD | 🕐 Not started | TBD |
+| #6 Certificate   | Add Certificate | ✅ Done | 2025-07-13 |
