@@ -32,9 +32,7 @@ Project | Description | Status | Folder directory | Demo URL |
 | ClinicTrends AI  | A streamlit app to analyze survey records and generate insights using Machine Learning. | 🔥 | [Here](./T1-Software-Engineering-Principles/projects/clinictrends_ai/README.md) | [Here](https://sep-torrens-dr-ranju-group-1.streamlit.app/) | 
 | TTrack Python | A PyQt5 desktop app to help academic staff to track academic progress by comparing a student’s official transcript with prescribed curriculum using custom made algorithms.         | 🔥 | [Here](./T1-Software-Development-Management/projects/TTrack_v1/README.md) | 🔥 |
 | TTrack Electron | A Node.js andReact desktop app wrapped by Electron alternative to TTrack Python. | 🔥 | [Here](./T1-Software-Development-Management/projects/TTrack_electron/README.md) | 🔥 |
-| CBA API Task | TypeScript and Axios for making POST and GET and backend integration | 🔥 | TBD | N/A |
-| CBA Server Task | Set Up c# project and update Goals with Icon | ✅ | [Here](./T1-Extra/cba/CommBank-Server) | N/A |
-| CBA Web Task | Use Typescript to extend the UI | ✅ | [Here](./T1-Extra/cba/CommBank-Web) | N/A |
+| Commonwealth Bank Forage | Virtual challenge covering backend (.NET, MongoDB) and frontend (React, Redux, TypeScript) work, unit testing with xUnit | ✅ | [Here](./T1-Extra/cba/) | N/A |
 
 ---
 
