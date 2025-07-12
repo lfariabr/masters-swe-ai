@@ -12,7 +12,7 @@ Dr. Muhammad Atif Qureshi
 - [X] Module 5 - Project Estimation
 - [X] Module 6 - Risk Analysis and Management
 - [X] Module 7 - Quality Management
-- [ ] Module 8
+- [ ] Module 8 - Project Monitoring and Control
 - [ ] Module 9
 - [ ] Module 10
 - [ ] Module 11
