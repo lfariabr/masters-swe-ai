@@ -1,0 +1,1135 @@
+
+# 🎓 Software Requirements Specification (SRS) for TTrack – Degree Tracker
+
+## Document Control
+
+| Version | Date       | Author     | Description          | Approved By |
+|---------|------------|------------|----------------------|-------------|
+| 0.1     | 2025-06-15 | Luis Faria | Initial draft        | -           |
+| 0.5     | 2025-06-25 | Team       | Major content update | -           |
+| 1.0     | 2025-07-14 | Luis Faria | Final version        | Dr. Smith   |
+
+## Table of Contents
+1. Introduction
+   1.1 Purpose
+   1.2 Product Scope
+   1.3 Definitions, Acronyms, and Abbreviations
+   1.4 References
+   1.5 Document Overview
+2. Overall Description
+   2.1 Product Perspective
+   2.2 Product Functions
+   2.3 Stakeholders
+   2.4 Operating Environment
+   2.5 Design and Implementation Constraints
+   2.6 Assumptions and Dependencies
+   2.7 Business Context and Benefits
+3. External Interface Requirements
+   3.1 User Interfaces
+   3.2 Software Interfaces
+   3.3 Communications Interfaces
+   3.4 Hardware Interfaces
+4. System Features
+   4.1 Upload Transcript File
+   4.2 Upload Curriculum File
+   4.3 Run Matching Engine
+   4.4 Display Results Table
+   4.5 Generate Elective Recommendations
+   4.6 Dashboard Analytics
+   4.7 Export Report
+5. Other Nonfunctional Requirements
+   5.1 Performance Requirements
+   5.2 Safety and Security Requirements
+   5.3 Software Quality Attributes
+   5.4 Business Rules
+   5.5 Accessibility Requirements
+6. Conclusion
+Appendix A: Glossary
+Appendix B: Analysis Models
+Appendix C: Product Backlog
+Appendix D: Test Cases
+Appendix E: Requirements Traceability Matrix
+
+---
+
+## 1. Introduction
+
+### 1.1 Purpose
+
+This Software Requirements Specification (SRS) documents the functional and non-functional requirements for the TTrack system. TTrack is designed as a desktop application to help Torrens University students and academic staff track academic progress by matching student transcripts to prescribed curriculums. This document will serve as a comprehensive reference for development, testing, quality assurance, and future maintenance activities throughout the software lifecycle.
+
+This SRS follows IEEE 29148-2018 standards for requirements engineering and aims to provide clear, testable, and traceable requirements that form the foundation of the TTrack system architecture and design.
+
+### 1.2 Product Scope
+
+TTrack automates academic progress tracking, eliminating the time-consuming manual process of comparing student transcripts against official degree requirements. It ensures accuracy, provides elective recommendations, and offers visual dashboards for data-driven decisions.
+
+The system addresses key pain points in academic administration:
+
+- Manual transcript reviews that typically take 30-45 minutes per student
+- Error-prone subject matching due to code variations across systems
+- Inconsistent progress tracking between academic advisors
+- Limited visibility into elective options that satisfy degree requirements
+- Lack of visual reporting tools for academic progress assessment
+
+**What TTrack offers:**
+
+- Upload and validation of transcript and curriculum data in Excel format
+- Intelligent automated matching of completed subjects to curriculum requirements
+- Visual dashboards for comprehensive academic progress monitoring
+- Smart elective recommendations based on curriculum gaps
+- Offline desktop operation with no internet dependency
+- Exportable reports for record-keeping and academic planning
+- Dark/light theme support for extended usability
+
+### 1.3 Definitions, Acronyms, and Abbreviations
+
+| Term | Definition |
+|------|------------|
+| TTrack | Academic progress intelligence system for transcript analysis |
+| Curriculum | Official list of subjects required for a degree program |
+| Transcript | Academic record of completed subjects and grades |
+| Core Subject | Mandatory subject that must be completed for a degree |
+| Specialization | A focused area of study within a degree program |
+| Elective | Optional subject that can be chosen from a defined list |
+| Matching Engine | Core algorithm that maps transcript entries to curriculum requirements |
+| SRS | Software Requirements Specification |
+| GUI | Graphical User Interface |
+| UI/UX | User Interface/User Experience |
+| PyQt5 | Python binding for Qt application framework |
+| pandas | Python data analysis library |
+| xlsx | Excel file format |
+
+### 1.4 References
+
+1. IEEE. (2018). ISO/IEC/IEEE 29148-2018 - Systems and software engineering — Life cycle processes — Requirements engineering. IEEE.
+2. Cobb, C. G. (2015). The Project Manager's Guide to Mastering Agile. Wiley.
+3. Stephens, R. (2015). Beginning Software Engineering. Wrox.
+4. Ewusi-Mensah, K. (2003). Software Development Failures. MIT Press.
+5. Schwaber, K. & Sutherland, J. (2020). The Scrum Guide.
+6. Torrens University. (2025). Academic Transcript Format Specification v2.3.
+7. Torrens University. (2025). Degree Curriculum Structure Guidelines.
+
+### 1.5 Document Overview
+
+This SRS is organized into six main sections and five appendices:
+
+- **Section 1 (Introduction)** provides an overview of the document's purpose and the system's scope.
+- **Section 2 (Overall Description)** describes the context, functions, and constraints of the system.
+- **Section 3 (External Interface Requirements)** details how the system interacts with users, hardware, and other software.
+- **Section 4 (System Features)** specifies the core functional capabilities of the system.
+- **Section 5 (Other Nonfunctional Requirements)** covers quality attributes, performance metrics, and other constraints.
+- **Section 6 (Conclusion)** summarizes the document and outlines future directions.
+
+The appendices provide supplementary information including a glossary, analysis models, product backlog, test cases, and requirements traceability matrix.
+
+This document serves as a contract among stakeholders and provides a foundation for system design, implementation, and validation activities.
+
+---
+
+## 2. Overall Description
+
+### 2.1 Product Perspective
+
+TTrack is a sophisticated standalone desktop application designed with a modular, event-driven architecture. Unlike web applications requiring online services, TTrack operates entirely offline, respecting data privacy and allowing institutions to avoid complex integrations with live academic systems.
+
+TTrack fits into the broader academic ecosystem as follows:
+
+![System Context Diagram - TTrack in University Environment](docs/images/system_context.png)
+
+*Figure 2.1: System Context Diagram showing TTrack's position in the university academic ecosystem*
+
+The application follows a layered architecture pattern with clear separation of concerns:
+
+1. **Presentation Layer**: PyQt5-based user interface components
+2. **Business Logic Layer**: Matching engine and data processing modules
+3. **Data Layer**: Excel file parsing and data transformation capabilities
+
+While the current version (1.7.0) operates as a standalone application, future versions may integrate with university information systems as shown in the context diagram.
+
+### 2.2 Product Functions
+
+TTrack delivers the following core functions:
+
+#### Data Management
+- Upload and validate transcript files in Excel format (.xlsx)
+- Upload and validate curriculum files in Excel format (.xlsx)
+- Save and load analysis sessions for continued work
+- Export results in multiple formats (PDF, CSV, Excel)
+
+#### Academic Analysis
+- Execute matching engine to compare transcript against curriculum requirements
+- Identify subject status (Done, Missing, Invalid)
+- Calculate completion percentages for degree progress
+- Determine remaining credit point requirements
+
+#### Visualization & Reporting
+- Display results in sortable, filterable interactive tables
+- Provide interactive dashboard charts for visual progress insights
+- Generate comprehensive completion reports
+- Offer visual progress tracking across semesters
+
+#### Recommendations
+- Suggest electives based on remaining requirements
+- Identify prerequisite chains and optimal subject sequencing
+- Flag potential issues with current course selection
+
+The relationship between these functions is illustrated in the functional hierarchy diagram below:
+
+![Functional Hierarchy Diagram](docs/images/functional_hierarchy.png)
+
+*Figure 2.2: Functional Hierarchy Diagram showing the organization of TTrack features*
+
+### 2.3 Stakeholders
+
+| Stakeholder | Role | Primary Interests | Key Requirements |
+|-------------|------|-------------------|------------------|
+| Student | End user | - Clear visibility into academic progress<br>- Planning future subjects<br>- Ensuring graduation requirements are met | - Simple interface<br>- Visual progress indicators<br>- Elective recommendations |
+| Academic Advisor | End user | - Analyzing student progress<br>- Advising on course selection<br>- Ensuring compliance with degree requirements | - Detailed reports<br>- Batch processing<br>- Error identification |
+| Program Director | Manager | - Overseeing curriculum compliance<br>- Monitoring student outcomes<br>- Academic planning | - Aggregate statistics<br>- Curriculum gap analysis<br>- Student performance insights |
+| University IT | Technical support | - Ensuring software compatibility<br>- Maintaining system integrity<br>- Supporting end users | - Cross-platform compatibility<br>- Minimal resource requirements<br>- Deployment simplicity |
+| Registrar's Office | Administrative | - Official record keeping<br>- Degree certification<br>- Compliance with educational standards | - Data accuracy<br>- Audit trails<br>- Regulatory compliance |
+
+### 2.4 Operating Environment
+
+TTrack is designed to operate in the following technical environment:
+
+#### Hardware Environment
+- **Processor**: 2.0 GHz dual-core or better
+- **Memory**: 4 GB RAM minimum, 8 GB recommended for large datasets
+- **Disk Space**: 500 MB for application, plus storage for data files
+- **Display**: 1280×720 minimum resolution, 1920×1080 recommended
+
+#### Software Environment
+- **Operating Systems**:
+  - Windows 10/11 (64-bit)
+  - macOS 10.15 (Catalina) or newer
+  - Ubuntu 20.04 LTS or newer, and other major Linux distributions
+- **Runtime Environment**: Python 3.8+ with necessary libraries
+- **Required File Formats**: Excel (.xlsx) for transcript and curriculum files
+
+#### Network Environment
+- No internet connection required for core functionality
+- Local network access optional for shared storage of exported reports
+
+### 2.5 Design and Implementation Constraints
+
+The following constraints influence the design and implementation of TTrack:
+
+#### Technical Constraints
+- **Offline Operation**: The application must function entirely offline to ensure data privacy and accessibility in all environments.
+- **Cross-Platform Compatibility**: Must run consistently across Windows, macOS, and Linux operating systems.
+- **Performance**: Must handle large Excel files (up to 10,000 rows) efficiently without excessive memory usage.
+- **Responsive UI**: Interface must remain responsive during intensive calculations, employing background processing where necessary.
+
+#### Development Constraints
+- **Technology Stack**: Developed using Python 3.8+ with PyQt5 for the user interface.
+- **Architecture**: Must follow modular design principles with separation of concerns.
+- **Process**: Must conform to Agile development processes with iterative delivery.
+- **Timeline**: Development must be completed within the 12-week project timeline.
+
+#### Design Constraints
+- **Accessibility**: UI must conform to WCAG 2.1 Level AA accessibility standards.
+- **Theming**: Must support both dark and light themes for different working environments.
+- **Localization**: Design must accommodate potential future localization without major rework.
+
+#### Business Constraints
+- **Licensing**: All third-party libraries must be compatible with open-source licensing model.
+- **Cost**: Total development cost must remain within approved budget (as outlined in project proposal).
+- **Support**: Design must minimize maintenance requirements and technical support needs.
+
+### 2.6 Assumptions and Dependencies
+
+#### Assumptions
+
+1. **User Technical Proficiency**:
+   - Users have basic computer skills and familiarity with desktop applications
+   - Users understand academic terminology related to curriculum and transcripts
+   - Users can locate and access their transcript and curriculum files
+
+2. **Data Format Consistency**:
+   - Transcript Excel files follow a consistent, documented format
+   - Curriculum Excel files maintain a standard structure across programs
+   - Subject codes use a recognizable pattern that can be normalized for matching
+   
+3. **System Environment**:
+   - Target systems have Python 3.8+ installed or can run standalone executables
+   - Users have sufficient permissions to install and run desktop applications
+   - Operating systems are updated to supported versions
+
+#### Dependencies
+
+1. **External Libraries**:
+   - pandas 1.3+ for data manipulation and analysis
+   - openpyxl 3.0+ for Excel file I/O operations
+   - PyQt5 5.15+ for GUI components
+   - matplotlib 3.4+ for visualization and charting
+   - PyInstaller 4.5+ for creating standalone executables
+
+2. **Development Tools**:
+   - Git for version control
+   - pytest for automated testing
+   - black, isort, mypy, and flake8 for code quality
+   
+3. **Documentation Dependencies**:
+   - Markdown documentation for user guides
+   - UML diagramming tools for architectural documentation
+
+### 2.7 Business Context and Benefits
+
+TTrack directly supports the strategic objectives of Torrens University by addressing critical operational inefficiencies in academic progress tracking. The system delivers measurable benefits across multiple stakeholder groups:
+
+#### Quantifiable Benefits
+
+| Stakeholder | Current Process | With TTrack | Benefit |
+|-------------|-----------------|-------------|--------|
+| Academic Advisors | 30-45 minutes per student manual transcript check | 2-5 minutes automated check | 85-90% time reduction |
+| Students | 1-2 weeks wait for progress verification | Immediate self-service access | Dramatically improved service experience |
+| Program Directors | Limited visibility into program-wide completion | Comprehensive analytics | Data-driven decision making |
+| University Administration | Error-prone manual process | Standardized automated system | Reduced compliance risks |
+
+#### Strategic Alignment
+
+The project directly supports institutional strategic goals including:
+
+- **Operational Excellence**: Automating manual processes to improve efficiency
+- **Student Success**: Providing clear visibility into degree progress to improve completion rates
+- **Data-Driven Decisions**: Generating analytics for academic planning and resource allocation
+- **Digital Transformation**: Moving from manual, paper-based processes to digital solutions
+
+#### Return on Investment
+
+Based on time savings alone, TTrack is projected to deliver complete ROI within one academic year through:
+
+- Reduced staff time spent on manual transcript checking
+- Decreased errors in degree certification process
+- Improved student satisfaction and retention rates
+- Enhanced academic planning accuracy
+
+The system also provides a foundation for future enhancements that could further improve academic operations, including integration with student information systems, predictive analytics, and mobile applications.
+
+---
+
+## 3. External Interface Requirements
+
+### 3.1 User Interfaces
+
+TTrack features a modern, intuitive interface designed around user-centered principles and task-oriented workflows. The UI is structured with a tab-based navigation system that follows a logical progression through the academic analysis process.
+
+#### 3.1.1 User Personas
+
+The interface is designed to accommodate three primary user personas:
+
+1. **Student (Olivia)**: 22-year-old undergraduate with limited technical experience but high comfort with digital tools. Primarily interested in tracking her progress toward graduation and planning future semesters.
+
+2. **Academic Advisor (Professor Morgan)**: 45-year-old faculty member who advises 120+ students each semester. Needs efficient tools to quickly assess student progress and make accurate recommendations.
+
+3. **Department Administrator (Director Chen)**: 50-year-old program director responsible for curriculum compliance and student outcomes. Needs aggregate views and detailed reporting capabilities.
+
+#### 3.1.2 UI Components and Layout
+
+**Main Window**
+- Window size: Responsive, minimum 900×600 pixels
+- Standard menu bar (File, Edit, View, Help)
+- Status bar displaying current operation status and file information
+- Tab-based navigation system with clearly labeled sections
+
+**Home Screen**
+- System logo and application name
+- Quick-start tutorial access
+- Recent files list
+- Primary action buttons (Open Files, Create New Analysis)
+
+**Input Tab**
+- File upload sections with clear instructions
+- Drag-and-drop support for Excel files
+- Preview tables showing sample data from uploaded files
+- Validation indicators showing file status
+- "Run Analysis" button (enabled only when valid files are loaded)
+
+**Results Tab**
+- Filterable, sortable data grid showing all subjects
+- Status column with visual indicators (✓ Done, ✗ Missing, ! Invalid)
+- Progress summary panel showing completion statistics
+- Credit point breakdown by subject type
+- Export options for results
+
+**Dashboard Tab**
+- Interactive pie charts showing completion by subject type
+- Bar graphs displaying progress by semester
+- Trend analysis of subject completion over time
+- Filters for different visualization perspectives
+- Print/export capabilities for all visualizations
+
+**Settings Tab**
+- Theme toggle (Light/Dark) with preview
+- Font size adjustment
+- Table display preferences
+- File path configurations
+- Reset to defaults option
+
+#### 3.1.3 UI Design Principles
+
+The TTrack interface adheres to the following design principles:
+
+- **Consistency**: Uniform control placement, color scheme, and interaction patterns across all screens
+- **Feedback**: Clear system status indicators and operation confirmations
+- **Error Prevention**: Proactive validation and confirmation for potentially destructive actions
+- **Recognition over Recall**: Intuitive icons and labeled controls that don't require memorization
+- **Flexibility**: Multiple paths to accomplish the same task (e.g., menu options and shortcut keys)
+- **Aesthetic Minimalism**: Clean interface focusing on content without unnecessary elements
+- **User Control**: Easy navigation between steps and ability to cancel operations
+
+#### 3.1.4 Task Flows
+
+**Primary Task Flow: Analyzing Academic Progress**
+
+1. User launches application
+2. User uploads transcript file
+3. System validates transcript format
+4. User uploads curriculum file
+5. System validates curriculum format
+6. User initiates analysis process
+7. System processes data and displays results
+8. User explores results through interactive tables and charts
+9. User exports or saves analysis results
+
+**Secondary Task Flow: Comparing Elective Options**
+
+1. User views results of analysis
+2. User navigates to recommendations section
+3. User selects elective category of interest
+4. System displays recommended electives
+5. User compares options based on criteria (prerequisites, availability)
+6. User exports recommendations for future reference
+
+#### 3.1.5 UI Mockups and Storyboards
+
+![TTrack Main Interface Storyboard](docs/images/ui_storyboard.png)
+
+*Figure 3.1: User interface storyboard showing the progression from file upload to results visualization*
+
+### 3.2 Software Interfaces
+
+TTrack interacts with several software components and libraries to provide its functionality:
+
+#### 3.2.1 Core Dependencies
+
+| Software Component | Version | Purpose | Interface Method |
+|-------------------|---------|---------|------------------|
+| pandas | 1.3+ | Data manipulation and analysis | Python API calls |
+| openpyxl | 3.0+ | Excel file reading and writing | Library functions |
+| PyQt5 | 5.15+ | User interface framework | Qt widgets and signals |
+| matplotlib | 3.4+ | Data visualization | Figure and axes objects |
+| Python | 3.8+ | Runtime environment | N/A |
+
+#### 3.2.2 File System Interactions
+
+- Uses standard OS file dialogs for file selection
+- Creates temporary working files in user's temp directory
+- Reads/writes Excel (.xlsx) files using openpyxl
+- Generates PDF reports using reportlab library
+- Exports CSV data using pandas CSV writer
+
+#### 3.2.3 Configuration Management
+
+- Stores user preferences in standard locations:
+  - Windows: `%APPDATA%\TTrack\config.json`
+  - macOS: `~/Library/Application Support/TTrack/config.json`
+  - Linux: `~/.config/ttrack/config.json`
+- Configuration files use JSON format for human readability
+- Default settings are embedded in the application
+
+### 3.3 Communications Interfaces
+
+Version 1.7.0 of TTrack is designed as an offline application with no external communication requirements. All operations occur locally on the user's machine.
+
+### 3.4 Hardware Interfaces
+
+As a desktop application, TTrack primarily interfaces with standard input/output devices:
+
+- **Input Devices**: Keyboard and mouse/trackpad for navigation and data entry
+- **Output Devices**: Display for UI rendering, printer for report output
+- **Storage Devices**: Local disk for file operations and data persistence
+
+No specialized hardware is required. The application is designed to work with standard computer configurations found in educational and administrative environments.
+
+---
+
+## 4. System Features
+
+This section details the core functional features of TTrack. Each feature is described with its purpose, inputs, processing logic, outputs, quality attributes, and design considerations.
+
+### 4.1 Upload Transcript File
+
+#### 4.1.1 Description
+
+This feature enables users to upload and validate academic transcript files in Excel format. The system parses these files to extract student course history data for analysis.
+
+#### 4.1.2 Requirements
+
+- **REQ-01**: System shall accept .xlsx transcript files with size up to 10 MB.
+- **REQ-02**: System shall validate required columns exist (Subject Code, Subject Name, Grade, Credit Points, Completion Date).
+- **REQ-03**: System shall display specific error messages identifying validation issues when file format is invalid.
+- **REQ-18**: System shall provide a preview of the uploaded transcript data before proceeding.
+- **REQ-19**: System shall support drag-and-drop file uploading in addition to standard file picker dialog.
+
+#### 4.1.3 Stimulus/Response Sequences
+
+1. **Normal Flow**:
+   - User initiates file upload via button or drag-drop
+   - System validates file format and structure
+   - System displays preview of transcript data
+   - System enables "Next" or "Upload Curriculum" action
+
+2. **Error Flow**:
+   - User uploads invalid file
+   - System identifies specific validation errors
+   - System displays error message with recommended fixes
+   - Upload button remains available for retry
+
+#### 4.1.4 Functional Hierarchy
+
+```
+Upload Transcript
+├── Select File
+│   ├── File Browser Dialog
+│   └── Drag-Drop Interface
+├── Validate Format
+│   ├── Check File Type
+│   ├── Verify Required Columns
+│   └── Sample Data Validation
+└── Display Preview
+    ├── Data Grid View
+    └── Column Mapping Confirmation
+```
+
+#### 4.1.5 Algorithm Pseudocode
+
+```
+function uploadAndValidateTranscript(file):
+    if file.extension != "xlsx":
+        return error("Invalid file type. Please upload an Excel (.xlsx) file.")
+    
+    try:
+        dataframe = pandas.read_excel(file)
+        
+        required_columns = ["Subject Code", "Subject Name", "Grade", "Credit Points"]
+        missing_columns = []
+        
+        for column in required_columns:
+            if column not in dataframe.columns:
+                missing_columns.append(column)
+        
+        if missing_columns:
+            return error(f"Missing required columns: {', '.join(missing_columns)}")
+        
+        # Perform data validation
+        if dataframe.empty:
+            return error("Transcript file contains no data.")
+            
+        # Check for data consistency
+        if has_invalid_grades(dataframe):
+            return warning("Some grades may be in an unexpected format.")
+            
+        # Store validated transcript
+        store_transcript_data(dataframe)
+        
+        # Generate and display preview
+        return success(generate_preview(dataframe))
+    
+    except Exception as e:
+        return error(f"Error processing file: {str(e)}")
+```
+
+#### 4.1.6 Design Considerations
+
+- **Performance**: Implements streaming file parsing for large files to minimize memory usage
+- **Usability**: Provides clear error messages and guidance for fixing format issues
+- **Robustness**: Handles various Excel formats and column name variations through flexible mapping
+
+### 4.2 Upload Curriculum File
+
+#### 4.2.1 Description
+
+This feature enables users to upload and validate curriculum files containing degree requirements in Excel format. The system parses these files to extract the official subject list against which transcripts will be compared.
+
+#### 4.2.2 Requirements
+
+- **REQ-04**: System shall accept .xlsx curriculum files with size up to 10 MB.
+- **REQ-05**: System shall validate that curriculum files include subject codes, names, type (Core, Specialisation, Elective), and credit points.
+- **REQ-20**: System shall recognize different curriculum versions and allow selection of the appropriate version.
+- **REQ-21**: System shall store curriculum metadata including program code, name, and total required credits.
+
+#### 4.2.3 Stimulus/Response Sequences
+
+1. **Normal Flow**:
+   - User initiates curriculum file upload
+   - System validates curriculum structure
+   - System extracts program metadata
+   - System displays curriculum preview with subject breakdown by type
+   - System enables "Run Analysis" button
+
+2. **Alternative Flow** (Multiple Curriculum Versions):
+   - System detects multiple versions in uploaded file
+   - System prompts user to select specific curriculum version
+   - User selects version
+   - System loads selected version and proceeds
+
+#### 4.2.4 Interface Description
+
+The curriculum upload interface includes:
+
+- File selection controls (button and drop target)
+- Curriculum metadata display (Program name, code, total credits)
+- Subject type breakdown (Core: X, Specialization: Y, Electives: Z)
+- Preview grid showing sample curriculum subjects
+- Version selector (when applicable)
+
+#### 4.2.5 Processing Logic
+
+The curriculum processing logic includes:
+
+1. Excel file parsing using pandas/openpyxl
+2. Structure validation for required columns
+3. Subject categorization by type
+4. Credit requirement calculation by category
+5. Version detection and management
+
+### 4.3 Run Matching Engine
+
+#### 4.3.1 Description
+
+The matching engine is the core analytical component of TTrack that compares transcript subjects against curriculum requirements to determine academic progress status.
+
+#### 4.3.2 Requirements
+
+- **REQ-06**: System shall normalize subject codes for matching (removing spaces, standardizing case).
+- **REQ-07**: System shall classify each curriculum subject as Done, Missing, or In Progress.
+- **REQ-08**: System shall handle minor code discrepancies using fuzzy matching with similarity threshold.
+- **REQ-22**: System shall respect prerequisite relationships when determining subject eligibility.
+- **REQ-23**: System shall calculate completion percentage for each subject category.
+
+#### 4.3.3 Matching Algorithm
+
+```
+function matchTranscriptWithCurriculum(transcript_df, curriculum_df):
+    # Preprocessing
+    transcript_df['NormalizedCode'] = normalize_codes(transcript_df['Subject Code'])
+    curriculum_df['NormalizedCode'] = normalize_codes(curriculum_df['Subject Code'])
+    
+    # Direct matching first (exact code matches)
+    results_df = pd.merge(
+        curriculum_df,
+        transcript_df,
+        how='left',
+        left_on='NormalizedCode',
+        right_on='NormalizedCode',
+        suffixes=('_curr', '_trans'),
+        indicator=True
+    )
+    
+    # Mark direct matches
+    results_df['MatchType'] = 'None'
+    results_df.loc[results_df['_merge'] == 'both', 'MatchType'] = 'Direct'
+    results_df.loc[results_df['_merge'] == 'left_only', 'MatchType'] = 'None'
+    
+    # Perform fuzzy matching for unmatched items
+    unmatched = results_df[results_df['MatchType'] == 'None']
+    for idx, row in unmatched.iterrows():
+        best_match, score = find_best_fuzzy_match(
+            row['NormalizedCode'],
+            transcript_df['NormalizedCode'],
+            threshold=0.85
+        )
+        if best_match:
+            # Update with fuzzy match data
+            trans_data = transcript_df[transcript_df['NormalizedCode'] == best_match].iloc[0]
+            for col in transcript_df.columns:
+                if col in results_df.columns and col.endswith('_trans'):
+                    results_df.at[idx, col] = trans_data[col.replace('_trans', '')]
+            results_df.at[idx, 'MatchType'] = 'Fuzzy'
+            results_df.at[idx, 'MatchScore'] = score
+    
+    # Determine status
+    results_df['Status'] = 'Missing'
+    results_df.loc[results_df['MatchType'].isin(['Direct', 'Fuzzy']), 'Status'] = 'Done'
+    
+    # Check prerequisites
+    for idx, row in results_df.iterrows():
+        if has_unmet_prerequisites(row, results_df):
+            results_df.at[idx, 'PrereqStatus'] = 'Unmet'
+    
+    # Calculate statistics
+    stats = calculate_completion_statistics(results_df)
+    
+    return results_df, stats
+```
+
+#### 4.3.4 Design Considerations
+
+- **Algorithm Complexity**: O(n log n) where n is the curriculum size
+- **Optimization**: Uses indexed lookups and vectorized operations for performance
+- **Accuracy**: Employs TF-IDF weighted string similarity for fuzzy matching
+- **Configurability**: Adjustable similarity thresholds for institutional preferences
+
+### 4.4 Display Results Table
+
+#### 4.4.1 Description
+
+This feature presents the matching results in an interactive, filterable table that clearly shows the status of all subjects in the curriculum.
+
+#### 4.4.2 Requirements
+
+- **REQ-09**: System shall display Subject Code, Name, Type, Credits, and Status in the results table.
+- **REQ-10**: User shall be able to sort any column alphabetically or numerically in ascending or descending order.
+- **REQ-11**: Table shall support both light and dark themes with appropriate contrast ratios.
+- **REQ-24**: System shall provide filtering capabilities by subject type, status, and keyword search.
+- **REQ-25**: System shall highlight potential issues such as failed subjects or unmet prerequisites.
+
+#### 4.4.3 Interface Design
+
+The results table implements:
+
+- Fixed header with scrollable body for large datasets
+- Column sorting with visual indicators
+- Status column with colored icons (green checkmark for Done, red X for Missing)
+- Filter controls above the table
+- Context menu for additional actions
+- Responsive layout that adjusts to window size
+
+#### 4.4.4 Interaction Design
+
+- Single-click on column header: Sort by that column
+- Double-click on row: Show detailed subject information
+- Right-click on row: Context menu with options (Copy, View in Curriculum)
+- Filter dropdown: Multiple selection filter for categories
+- Search box: Dynamic filtering as user types
+
+### 4.5 Generate Elective Recommendations
+
+#### 4.5.1 Description
+
+This feature analyzes the student's academic history and curriculum requirements to suggest optimal elective choices that satisfy remaining degree requirements.
+
+#### 4.5.2 Requirements
+
+- **REQ-12**: System shall identify missing elective requirements by category and credit count.
+- **REQ-13**: System shall display elective recommendations in a separate table with relevance indicators.
+- **REQ-26**: System shall consider prerequisites when recommending electives.
+- **REQ-27**: System shall prioritize recommendations based on semester availability and credit requirements.
+
+#### 4.5.3 Recommendation Algorithm
+
+```
+function generateElectiveRecommendations(results_df, curriculum_df):
+    # Identify missing elective requirements
+    elective_categories = get_elective_categories(curriculum_df)
+    missing_credits = {}
+    
+    for category in elective_categories:
+        required = get_required_credits(curriculum_df, category)
+        completed = get_completed_credits(results_df, category)
+        missing_credits[category] = max(0, required - completed)
+    
+    # Generate recommendations
+    recommendations = []
+    
+    for category, credits_needed in missing_credits.items():
+        if credits_needed > 0:
+            # Find available electives in this category
+            available_electives = get_available_electives(curriculum_df, category)
+            
+            # Filter by prerequisites met
+            eligible_electives = filter_by_prerequisites_met(available_electives, results_df)
+            
+            # Sort by availability and relevance
+            sorted_electives = sort_by_relevance(eligible_electives)
+            
+            # Add to recommendations until credit requirement met
+            running_total = 0
+            for elective in sorted_electives:
+                if running_total < credits_needed:
+                    recommendations.append({
+                        'subject': elective,
+                        'category': category,
+                        'credits': elective['Credits'],
+                        'relevance_score': calculate_relevance(elective)  
+                    })
+                    running_total += elective['Credits']
+    
+    return recommendations
+```
+
+#### 4.5.4 Design Considerations
+
+- The recommendation engine balances credit requirements and subject availability
+- Relevance scoring considers prerequisite chains and subject popularity
+- Algorithm is extensible to incorporate future student preference data
+
+### 4.6 Dashboard Analytics
+
+#### 4.6.1 Description
+
+The dashboard provides visual analytics summarizing academic progress, allowing users to quickly assess completion status across different dimensions.
+
+#### 4.6.2 Requirements
+
+- **REQ-14**: System shall generate interactive pie charts showing subject completion rates by category.
+- **REQ-15**: System shall generate bar charts displaying elective status and options.
+- **REQ-28**: System shall provide progression timeline showing completion by semester.
+- **REQ-29**: System shall calculate and display GPA and credit point statistics.
+
+#### 4.6.3 Visualization Components
+
+1. **Progress Summary Chart**
+   - Type: Interactive donut chart
+   - Data: Subjects by status (Done/Missing) and type (Core/Specialization/Elective)
+   - Interactions: Click segments to filter results table
+
+2. **Credit Accumulation Chart**
+   - Type: Stacked bar chart
+   - Data: Credits earned by semester and subject type
+   - Purpose: Visualize progression toward degree completion
+
+3. **GPA Trend Chart**
+   - Type: Line chart
+   - Data: GPA by semester with moving average
+   - Features: Highlighting of trend direction
+
+4. **Elective Distribution Chart**
+   - Type: Grouped bar chart
+   - Data: Required vs. Completed electives by category
+   - Purpose: Identify remaining elective requirements
+
+#### 4.6.4 Implementation Details
+
+The dashboard uses matplotlib for chart generation with the following considerations:
+
+- Chart themes match application light/dark mode
+- Interactive elements use matplotlib event handling
+- Charts are exportable as PNG/SVG
+- Layout is responsive to window resizing
+- Data updates dynamically when analysis changes
+
+### 4.7 Export Report
+
+#### 4.7.1 Description
+
+This feature allows users to export analysis results in various formats for record keeping, sharing, and printing.
+
+#### 4.7.2 Requirements
+
+- **REQ-16**: System shall export progress reports in PDF, CSV, or Excel formats.
+- **REQ-17**: Exported reports shall include matched results tables and analytics visualizations.
+- **REQ-30**: PDF reports shall include institutional branding and professional formatting.
+- **REQ-31**: System shall allow customization of report contents before export.
+
+#### 4.7.3 Export Options
+
+1. **PDF Export**
+   - Full report with formatting and visualizations
+   - Includes university branding and date/time stamps
+   - Sections for summary, detailed results, and recommendations
+
+2. **CSV Export**
+   - Raw data export for further analysis
+   - Multiple sheets/files for different data components
+   - Compatible with Excel and other analysis tools
+
+3. **Excel Export**
+   - Formatted workbook with multiple sheets
+   - Embedded charts and pivot tables
+   - Filter and sort functionality preserved
+
+#### 4.7.4 Report Generation Process
+
+```
+function generateReport(format, options):
+    # Initialize report with template
+    report = initialize_report(format, options.template)
+    
+    # Add header and metadata
+    add_report_header(report, options.title, current_datetime())
+    
+    # Add summary section
+    if options.include_summary:
+        add_progress_summary(report, calculate_summary_statistics())
+    
+    # Add detailed results table
+    if options.include_details:
+        add_results_table(report, filter_results(options.filters))
+    
+    # Add visualizations
+    if options.include_charts and format == 'PDF':
+        for chart_type in options.selected_charts:
+            add_chart(report, generate_chart(chart_type))
+    
+    # Add recommendations
+    if options.include_recommendations:
+        add_recommendations(report, generate_elective_recommendations())
+    
+    # Add footer
+    add_report_footer(report, options.footer_text)
+    
+    # Generate output file
+    output_path = save_report(report, options.filename, format)
+    
+    return output_path
+```
+
+#### 4.7.5 Design Considerations
+
+- Reports follow university document standards for professional presentation
+- PDF generation uses reportlab for precise layout control
+- Excel exports maintain data relationships and formula functionality
+- Large datasets are optimized to prevent excessive file sizes
+- Report templates are customizable for different institutional needs
+
+---
+
+## 5. Other Nonfunctional Requirements
+
+This section specifies the quality attributes, constraints, and technical requirements that TTrack must satisfy beyond its functional capabilities.
+
+### 5.1 Performance Requirements
+
+#### 5.1.1 Response Time
+
+- **REQ-32**: System shall process transcript and curriculum files (up to 1000 subjects combined) within 5 seconds on standard hardware (8GB RAM, 2.0 GHz processor).
+- **REQ-33**: UI shall remain responsive during processing operations with no freezing longer than 500ms.
+- **REQ-42**: Application startup time shall not exceed 3 seconds from launch to ready state.
+- **REQ-43**: Table sorting and filtering operations shall complete within 200ms for datasets up to 1000 rows.
+
+#### 5.1.2 Throughput and Capacity
+
+- **REQ-44**: System shall support Excel files up to 10MB in size without degradation in performance.
+- **REQ-45**: System shall maintain 60 FPS UI rendering performance during normal operation on target hardware.
+- **REQ-46**: Chart generation shall complete within 1 second for all dashboard visualizations.
+
+#### 5.1.3 Resource Utilization
+
+- **REQ-47**: Peak memory usage shall not exceed 500MB during normal operation.
+- **REQ-48**: CPU utilization shall not exceed 25% on quad-core processors during idle state.
+- **REQ-49**: Disk I/O operations shall be optimized to minimize file access frequency.
+
+### 5.2 Safety Requirements
+
+#### 5.2.1 Data Preservation
+
+- **REQ-34**: System shall not modify or corrupt input files under any circumstances.
+- **REQ-50**: System shall create automatic backups of working data at configurable intervals.
+- **REQ-51**: System shall implement auto-recovery mechanisms in case of unexpected termination.
+
+#### 5.2.2 Input Validation
+
+- **REQ-35**: System shall validate all user inputs for type, range, and format correctness.
+- **REQ-52**: System shall sanitize file inputs to prevent formula injection vulnerabilities in Excel processing.
+- **REQ-53**: System shall provide clear error messages that guide users to correct invalid inputs.
+
+#### 5.2.3 Operational Safety
+
+- **REQ-54**: System shall maintain transaction logs for all data operations.
+- **REQ-55**: System shall confirm user actions that could result in data loss or significant changes.
+- **REQ-56**: System shall gracefully degrade functionality when resource limitations are encountered rather than failing completely.
+
+### 5.3 Security Requirements
+
+#### 5.3.1 Data Privacy
+
+- **REQ-36**: System shall not store or transmit personal data beyond the local machine.
+- **REQ-57**: Student identifiers shall be anonymized in exported reports if desired.
+- **REQ-58**: System shall comply with applicable educational privacy regulations (e.g., FERPA equivalents).
+
+#### 5.3.2 Application Security
+
+- **REQ-37**: System shall operate entirely offline with no external network communications.
+- **REQ-59**: System shall enforce least privilege principles for file system access.
+- **REQ-60**: System binary shall be digitally signed to verify authenticity and prevent tampering.
+
+#### 5.3.3 Data Protection
+
+- **REQ-61**: Local data shall be stored with appropriate file system permissions.
+- **REQ-62**: Configuration files shall not contain sensitive information in plaintext.
+- **REQ-63**: System shall provide option to clear all user data through a secure data deletion procedure.
+
+### 5.4 Software Quality Attributes
+
+#### 5.4.1 Usability
+
+- **REQ-39**: User interface shall follow established UI/UX best practices for desktop applications.
+- **REQ-64**: System shall achieve a System Usability Scale (SUS) score of at least 80 in user testing.
+- **REQ-65**: All common operations shall be accessible within 3 clicks from the main screen.
+- **REQ-66**: System shall provide consistent keyboard shortcuts for all major functions.
+- **REQ-67**: System shall implement undo/redo functionality for all user actions.
+
+#### 5.4.2 Reliability
+
+- **REQ-68**: System shall achieve Mean Time Between Failures (MTBF) of at least 100 hours of operation.
+- **REQ-69**: System crash rate shall not exceed 0.1% of total usage sessions.
+- **REQ-70**: System shall recover from 95% of exceptional conditions without user intervention.
+
+#### 5.4.3 Portability
+
+- **REQ-38**: System shall function identically on Windows 10+, macOS 10.14+, and Ubuntu Linux 20.04+ without recompilation.
+- **REQ-71**: System shall adapt to different screen resolutions from 1280x720 to 4K (3840x2160).
+- **REQ-72**: System installation package shall not exceed 100MB in size.
+
+#### 5.4.4 Maintainability
+
+- **REQ-73**: Source code shall maintain a minimum of 80% test coverage.
+- **REQ-74**: System architecture shall enable new report types to be added without modifying existing code.
+- **REQ-75**: System shall log diagnostic information sufficient for troubleshooting issues without requiring debug builds.
+
+#### 5.4.5 Accessibility
+
+- **REQ-76**: System shall comply with WCAG 2.1 Level AA guidelines where applicable to desktop software.
+- **REQ-77**: System shall support screen readers through proper element labeling and focus management.
+- **REQ-78**: System shall support keyboard navigation for all functions without requiring mouse input.
+- **REQ-79**: System shall maintain minimum contrast ratios of 4.5:1 for all text elements.
+
+### 5.5 Business Rules
+
+#### 5.5.1 Academic Standards Compliance
+
+- **REQ-40**: System shall support configurable university grading schemas including letter grades, percentages, and pass/fail notations.
+- **REQ-41**: System shall comply with academic progression rules including prerequisites, corequisites, and exclusions.
+- **REQ-80**: System shall recognize and appropriately handle advanced standing, credit transfers, and exemptions.
+
+#### 5.5.2 Institutional Integration
+
+- **REQ-81**: System shall support customizable institutional branding in reports and UI.
+- **REQ-82**: System shall allow configuration of institution-specific curriculum structures and terminology.
+- **REQ-83**: System shall facilitate alignment with institutional academic policies regarding progression and graduation requirements.
+
+#### 5.5.3 Data Governance
+
+- **REQ-84**: System shall maintain data integrity through validation against established academic record schemas.
+- **REQ-85**: System shall provide audit trails for any manual adjustments to matching results.
+- **REQ-86**: System shall enforce consistent naming conventions and terminology across all outputs.
+
+### 5.6 Internationalization and Localization Requirements
+
+- **REQ-87**: System shall support UTF-8 character encoding for all text processing.
+- **REQ-88**: User interface shall be designed to accommodate text expansion/contraction during future localization.
+- **REQ-89**: System shall use locale-independent date and number formats for data processing.
+
+### 5.7 Legal and Compliance Requirements
+
+- **REQ-90**: System shall comply with software accessibility laws in target markets.
+- **REQ-91**: System shall include appropriate open source attribution and licensing information.
+- **REQ-92**: System shall implement data handling practices compliant with educational record privacy regulations.
+
+### 5.8 Documentation Requirements
+
+- **REQ-93**: System shall include comprehensive user documentation in HTML and PDF formats.
+- **REQ-94**: System shall provide contextual help for all major features accessible within the application.
+- **REQ-95**: Code documentation shall follow PEP 257 docstring conventions.
+
+---
+
+## 6. References
+
+- Cobb, C. G. (2015). The Project Manager’s Guide to Mastering Agile. Wiley.
+- Stephens, R. (2015). Beginning Software Engineering. Wrox.
+- Ewusi-Mensah, K. (2003). Software Development Failures. MIT Press.
+- Schwaber, K. & Sutherland, J. (2020). The Scrum Guide.
+
+---
+
+## 7. Conclusion
+
+TTrack represents a significant step in automating degree progress tracking for Torrens University. With its offline operation, user-friendly interface, and intelligent matching engine, TTrack aims to reduce manual workload, improve accuracy, and enhance student advising. Future enhancements may include cloud integration, predictive analytics, and direct system integrations with university services.
+
+---
+
+## Appendix A: Glossary
+
+| Term | Definition |
+|------|------------|
+| TTrack | Academic progress intelligence system |
+| Curriculum | Official list of subjects for a degree |
+| Transcript | Record of completed subjects |
+| pandas | Python library for data analysis |
+| openpyxl | Python library for Excel file handling |
+| PyQt5 | Python GUI library |
+| Agile | Iterative software development methodology |
+| Scrum | Agile framework for project management |
+| UI | User Interface |
+| Matching Engine | Component matching transcript to curriculum |
+
+---
+
+## Appendix B: Analysis Models
+
+### Use Cases
+
+| ID | Name | Description |
+|----|------|-------------|
+| UC-01 | Upload Transcript | User uploads a transcript file |
+| UC-02 | Upload Curriculum | User uploads a curriculum file |
+| UC-03 | Run Matching | System compares transcript to curriculum |
+| UC-04 | View Results | User views matched results |
+| UC-05 | Generate Recommendations | User views elective suggestions |
+| UC-06 | Export Report | User exports progress report |
+
+### Class Diagram
+
+- **TTrackMain**: Handles application logic.
+- **TranscriptManager**: Manages transcript data.
+- **CurriculumManager**: Manages curriculum data.
+- **MatchingEngine**: Performs data comparison.
+- **DashboardGenerator**: Creates progress charts.
+
+### Data Flow Diagram
+
+```
+[User]
+    ↓ Uploads files
+[Validation Process]
+    ↓ Valid data
+[Matching Engine]
+    ↓ Matched Results
+[Results Display]
+    ↓ Dashboard Charts
+```
+
+### State Diagram
+
+- Idle → Waiting for upload → Validating → Ready → Processing → Displaying → Exporting → Idle
+
+### Sequence Diagram
+
+- User uploads files → Validation → Matching Engine → Results Display → Dashboard
+
+---
+
+## Appendix C: Product Backlog
+
+*(Insert your detailed product backlog here if desired.)*
+
+---
+
+## Appendix D: Test Cases
+
+| ID | Test Description | Input | Expected Result |
+|----|------------------|-------|-----------------|
+| TC-01 | Upload valid transcript | Valid Excel file | Data preview shown |
+| TC-02 | Upload invalid transcript | Missing columns | Error message shown |
+| TC-03 | Run matching engine | Valid files loaded | Results displayed |
+| TC-04 | Export report | Click export | PDF or CSV saved |
+| TC-05 | View dashboard | Data present | Charts displayed |
+
+---
+
+## Appendix E: Requirements Traceability Matrix
+
+| Requirement ID | Description | Related Use Case | Priority |
+|----------------|-------------|------------------|----------|
+| REQ-01 | Upload Transcript | UC-01 | High |
+| REQ-02 | Validate Transcript | UC-01 | High |
+| REQ-04 | Upload Curriculum | UC-02 | High |
+| REQ-06 | Run Matching Engine | UC-03 | High |
+| REQ-09 | Display Results Table | UC-04 | High |
+| REQ-12 | Elective Recommendations | UC-05 | Medium |
+| REQ-16 | Export Report | UC-06 | Medium |
