@@ -1,16 +1,6 @@
 # ClinicTrends AI 💬📈
 
-**Proactive Customer Satisfaction Dashboard for Aesthetic Clinics**
-
-ClinicTrends AI is a lightweight, open-source analytics dashboard built with Streamlit that helps businesses analyze and predict Net Promoter Score (NPS) trends using real-time data, natural language processing, and machine learning.
-
-It is designed for small to medium-sized businesses that need actionable insights from customer feedback—without the complexity or cost of enterprise software.
-
----
-
-## 🔧 Getting Started
-
-### ▶️ Run the Project
+## 🔧 Work in Progress
 
 ```bash
 cd T1-Software-Engineering-Principles/projects/clinictrends_ai
@@ -20,7 +10,7 @@ streamlit run app.py
 
 ---
 
-## 📈 Development Roadmap
+## 📈 Roadmap
 
 ### Phase 1: Foundation (v1.0-1.8) ✅ **COMPLETE**
 - ✅ Core Streamlit application architecture
@@ -130,15 +120,46 @@ streamlit run app.py
 - Adds comments size statistics
 - Updates Models page hiding transformers for the moment while we fine tune tf-idf
 
+#### 🔹 v2.4.0 - `feature/tf-idf-iteration-check`
+- Added n_iter = model.n_iter_[0] at ModelTrainer.py
+- print(f"Iterations until convergence for {model_name}: {n_iter}")
+- st.write(f"Iterations until convergence for {model_name}: {n_iter}")
+
+#### 🔹 v2.5.0 - `feature/train-validation-test-split`
+- Implement proper three-way split (train/validation/test) for robust model evaluation.
+- Adjust current pipeline to avoid tuning on test data.
+- Report separate metrics for train, validation, and test sets.
+
 ---
 
 ### 🔧 In Progress
 
-#### 🔸 v2.4.0 - `feature/tf-idf-iteration-check`
-- Added n_iter = model.n_iter_[0] at ModelTrainer.py
-- print(f"Iterations until convergence for {model_name}: {n_iter}")
-- st.write(f"Iterations until convergence for {model_name}: {n_iter}")
-- keep going... 
+#### 🔸 v2.6.0 - `feature/logreg-hyperparam-tuning`
+- Expand Logistic Regression tuning:
+  - Regularization parameter C
+  - Penalty type (L1 vs. L2)
+  - Solver selection
+  - Multi-class handling (ovr vs multinomial)
+- Document best hyperparameter sets.
+
+#### 🔸 v2.7.0 - `feature/model-comparison`
+- Add experiments with alternative models:
+  - Support Vector Machine (SVM)
+  - Random Forest
+- Compare results to Logistic Regression baseline.
+- Store performance metrics for analysis.
+
+#### 🔸 v2.8.0 - `feature/outlier-handling`
+- Identify extremely long comments (e.g. > 200 tokens).
+- Implement:
+  - Truncation
+  - Or exclusion from training
+- Measure impact on model performance.
+
+#### 🔸 v2.9.0 - `feature/benchmark-check`
+- Research published benchmarks or similar projects using this dataset.
+- Compare achieved results against external references.
+- Document potential target metrics for improvement.
 
 ### 🗂️ Backlog
 
@@ -146,16 +167,6 @@ streamlit run app.py
 - Fine-tune transformer models for domain-specific sentiment (v2.0)
 - Add RESTful API development + authentication (v3.0)
 - AI-powered insights (v4.0)
-
----
-
-## 🧪 Tech Stack
-
-- **Frontend**: Streamlit
-- **Data Processing**: pandas, numpy
-- **Visualization**: Altair, wordcloud
-- **NLP**: TextBlob, Hugging Face Transformers, deep-translator
-- **Deployment**: Streamlit Cloud
 
 ---
 

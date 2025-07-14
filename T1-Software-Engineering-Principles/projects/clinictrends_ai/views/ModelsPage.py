@@ -239,7 +239,7 @@ def show_models():
                 # DEBUG cross checking prediction vs original NPS Type
                 st.warning("#### 📝 Model 1 Predictions Sample")
                 st.dataframe(
-                    df[["Comment", "Score", "NPS Type", "Sentiment", "Model_1_Prediction"]].sample(min(10, len(df))),
+                    df[["Comment", "Score", "NPS Type", "Sentiment", "Model_1_Prediction"]].sample(min(100, len(df))),
                     use_container_width=True
                 )
             
@@ -263,7 +263,7 @@ def show_models():
                 # DEBUG cross checking prediction vs original NPS Type
                 st.warning("#### 📝 Model 2 Predictions Sample")
                 st.dataframe(
-                    df[["CommentScore", "NPS Type", "Sentiment", "Model_2_Prediction"]].sample(min(10, len(df))),
+                    df[["CommentScore", "Score", "NPS Type", "Sentiment", "Model_2_Prediction"]].sample(min(100, len(df))),
                     use_container_width=True
                 )
             
