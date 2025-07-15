@@ -126,7 +126,13 @@ class ModelTrainer:
                 ## -- v2.4.0 - `feature/tf-idf-iteration-check` --
                 max_iter=100, # This was hardcoded to 1000
                 random_state=42,
-                class_weight='balanced'  # Handle class imbalance
+                class_weight='balanced',  # Handle class imbalance
+
+                ## v2.6.0 - `feature/logreg-hyperparam-tuning` --
+                C=10.0,
+                penalty='l2',
+                solver='lbfgs',
+                multi_class='ovr',
             )
             
             start_time = time.time()
@@ -215,6 +221,12 @@ class ModelTrainer:
         # Define parameter grid - for Pipeline, use format: step_name__parameter_name
         param_grid = {
             'vectorizer__max_features': [100, 300, 500, 700, 1000],
+            # v2.6.0 - `feature/logreg-hyperparam-tuning` 
+            # hardcoding for starting point
+            'classifier__C': [0.1, 1.0, 10.0],
+            'classifier__penalty': ['l2'],
+            'classifier__solver': ['lbfgs'],
+            'classifier__multi_class': ['ovr', 'multinomial'],
         }
 
         # Create pipeline
@@ -240,6 +252,7 @@ class ModelTrainer:
             cv=5,
             scoring='f1_weighted',
             n_jobs=-1,
+            verbose=1
         )
 
         X = df[feature_column].fillna('')
