@@ -102,6 +102,7 @@ streamlit run app.py
 - Update Pytest coverage
 
 ---
+
 **v2.0 breakdown**
 
 #### 🔹 v2.0.0 - `feature/discord-webhook`
