@@ -124,11 +124,11 @@ class ModelTrainer:
             # https://www.analyticsvidhya.com/blog/2020/02/underfitting-overfitting-best-fitting-machine-learning/
             model = LogisticRegression(
                 ## -- v2.4.0 - `feature/tf-idf-iteration-check` --
-                max_iter=100, # This was hardcoded to 1000
+                max_iter=100, # This was hardcoded to 1000. Now using 100 because mean_token_length is 19 and standard token is 34
                 random_state=42,
                 class_weight='balanced',  # Handle class imbalance
 
-                ## v2.6.0 - `feature/logreg-hyperparam-tuning` --
+                ## -- v2.6.0 - `feature/logreg-hyperparam-tuning` --
                 C=10.0,
                 penalty='l2',
                 solver='lbfgs',
@@ -221,12 +221,13 @@ class ModelTrainer:
         # Define parameter grid - for Pipeline, use format: step_name__parameter_name
         param_grid = {
             'vectorizer__max_features': [100, 300, 500, 700, 1000],
-            # v2.6.0 - `feature/logreg-hyperparam-tuning` 
-            # hardcoding for starting point
-            'classifier__C': [0.1, 1.0, 10.0],
-            'classifier__penalty': ['l2'],
-            'classifier__solver': ['lbfgs'],
-            'classifier__multi_class': ['ovr', 'multinomial'],
+            
+            ## -- v2.6.0 - `feature/logreg-hyperparam-tuning` 
+            ## hardcoding for starting point
+            'classifier__C': [0.1, 1.0, 10.0], # how strict or flexible the model is: range from 0.001 to 100
+            'classifier__penalty': ['l2'], # type of regularization: l1, l2, elasticnet, none
+            'classifier__solver': ['lbfgs'], # algorithm to use: lbfgs, newton-cg, liblinear, sag, saga
+            'classifier__multi_class': ['ovr', 'multinomial'], # all vs one or multinomial
         }
 
         # Create pipeline
@@ -239,7 +240,7 @@ class ModelTrainer:
                 max_df=0.95,
             )),
             ('classifier', LogisticRegression(
-                max_iter=1000,
+                max_iter=100, # maximum number of iterations, was 1000 now 100 because mean_token_length is 19 and standard token is 34
                 random_state=42,
                 class_weight='balanced'
             ))
