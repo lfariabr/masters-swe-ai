@@ -131,17 +131,17 @@ streamlit run app.py
 - Adjust current pipeline to avoid tuning on test data.
 - Report separate metrics for train, validation, and test sets.
 
----
-
-### 🔧 In Progress
-
-#### 🔸 v2.6.0 - `feature/logreg-hyperparam-tuning`
+#### 🔹v2.6.0 - `feature/logreg-hyperparam-tuning`
 - Expand Logistic Regression tuning:
   - Regularization parameter C
   - Penalty type (L1 vs. L2)
   - Solver selection
   - Multi-class handling (ovr vs multinomial)
 - Document best hyperparameter sets.
+
+---
+
+### 🔧 In Progress
 
 #### 🔸 v2.7.0 - `feature/model-comparison`
 - Add experiments with alternative models:
