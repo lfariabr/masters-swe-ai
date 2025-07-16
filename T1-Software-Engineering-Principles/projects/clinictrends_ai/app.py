@@ -24,7 +24,8 @@ try:
         TrainingPage2,
         TrainingPage3,
         TrainingPage4,
-        ModelsPage
+        ModelsPage,
+        EnhancedModels
     )
 
 except ImportError:
@@ -36,6 +37,7 @@ except ImportError:
     import views.TrainingPage3 as TrainingPage3
     import views.TrainingPage4 as TrainingPage4
     import views.ModelsPage as ModelsPage
+    import views.EnhancedModels as EnhancedModels
 
 def main():
     # Sidebar with logo and navigation - this will be our only sidebar
@@ -62,6 +64,7 @@ def main():
             ["Home",
              "NPS Analysis",
              "ML Model Comparison",
+             "Enhanced ML 🛠️🧪",
 
              # Training
              # "Training - CM1", # TfidfVectorizer + LogisticRegression @ 'Comment' column.
@@ -93,7 +96,8 @@ def main():
         NPSPage.show_dashboard()
     elif page == "ML Model Comparison":
         ModelsPage.show_models()
-
+    elif page == "Enhanced ML 🛠️🧪":
+        EnhancedModels.show_enhanced_models()
 
     elif page == "Training - CM1":
         TrainingPage.show_training()

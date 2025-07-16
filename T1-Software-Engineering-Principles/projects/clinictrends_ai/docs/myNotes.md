@@ -26,7 +26,8 @@ streamlit run app.py
 - ✅ Provides sample csv files for enhanced UX
 - ✅ Alert system based on NPS and sentiment scores
 - ✅ A/B testing framework for model comparison
-- 🔄 Model fine-tuning
+- ✅ Model fine-tuning and reaching accuracy of +80%
+- 🔄 Implementing Topic Modeling
 - 🔄 Advanced feature engineering pipelines
 - 🔄 Automated hyperparameter optimization
 - 🔄 Real-time model retraining capabilities
@@ -152,30 +153,55 @@ streamlit run app.py
 - Benefits:
   - Eliminates hardcoded model parameters.
   - Enables fully automated tuning of hyperparameters for optimal model performance.
+
+#### 🔹v2.7.0 - `feature/enhanced-model-trainer`
+- Split code between ModelTrainer.py and EnhancedModelTrainer.py
+- EnhancedModels will display work in progress with model fune tuning, metrics and Topic Modeling
+- ModelTrainer will display the current models' metrics and predictions
+
 ---
 
 ### 🔧 In Progress
 
-#### 🔸 v2.7.0 - `feature/model-comparison`
-- Add experiments with alternative models:
-  - Support Vector Machine (SVM)
-  - Random Forest
-- Compare results to Logistic Regression baseline.
-- Store performance metrics for analysis.
 
-#### 🔸 v2.8.0 - `feature/outlier-handling`
-- Identify extremely long comments (e.g. > 200 tokens).
-- Implement:
-  - Truncation
-  - Or exclusion from training
-- Measure impact on model performance.
-
-#### 🔸 v2.9.0 - `feature/benchmark-check`
-- Research published benchmarks or similar projects using this dataset.
-- Compare achieved results against external references.
-- Document potential target metrics for improvement.
 
 ### 🗂️ Backlog
+
+#### 🔸 v3.0.0 - `feature/topic-modeling`
+- current pipeline: Data ➔ Preprocessing ➔ Sentiment Analysis ➔ Performance Metrics
+- suggested pipeline: Data ➔ Preprocessing ➔ Sentiment Analysis ➔ Topic Modeling ➔ Insights ➔ Business Actions
+- Study BERTopic
+- Read the links Dr. Ranju shared. BERTopic is one of the best modern tools for topic modeling:
+  - Handles short texts better than LDA
+  - Uses embeddings (e.g. BERT) for semantically richer clusters
+  - Generates interpretable topic names.
+- Integrate BERTopic into Pipeline
+- Map Topics → Business Recommendations. E.g.:
+  - “Topic: Delivery delays” → “Improve logistics or communication”
+  - “Topic: Website issues” → “Prioritize website performance improvements”
+- Cross-Check with Literature
+  - Look for papers or blog posts analyzing your dataset. 
+  - Dr. Ranju suggests referencing prior works rather than repeating experiments unnecessarily.
+
+
+#### `feature/model-comparison`
+  - Add experiments with alternative models:
+    - Support Vector Machine (SVM)
+    - Random Forest
+  - Compare results to Logistic Regression baseline.
+  - Store performance metrics for analysis.
+
+#### `feature/outlier-handling`
+  - Identify extremely long comments (e.g. > 200 tokens).
+  - Implement:
+    - Truncation
+    - Or exclusion from training
+  - Measure impact on model performance.
+
+#### `feature/benchmark-check`
+  - Research published benchmarks or similar projects using this dataset.
+  - Compare achieved results against external references.
+  - Document potential target metrics for improvement.
 
 - Implement interpretable ML models for NPS prediction (v2.0)
 - Fine-tune transformer models for domain-specific sentiment (v2.0)
