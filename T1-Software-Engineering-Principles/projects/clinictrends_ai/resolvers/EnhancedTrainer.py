@@ -19,7 +19,7 @@ except ImportError:
     TRANSFORMERS_AVAILABLE = False
 
 
-class ModelTrainer:
+class EnhancedTrainer:
     """
     Enterprise-grade ML model training and evaluation class.
     Implements standardized training pipelines with comprehensive metrics.
@@ -50,22 +50,20 @@ class ModelTrainer:
         try:
             # ----- v2.3.0 - `feature/tf-idf-deep-dive` --------
             # Before vectorization, analyze comment sizes
-            # with st.container(border=True):
-            #     with st.container(border=True):
-            #         comment_stats = self.analyze_comment_sizes(df, feature_column)
-            #         st.write("Comment Size Statistics:", comment_stats)
+            with st.container(border=True):
+                with st.container(border=True):
+                    comment_stats = self.analyze_comment_sizes(df, feature_column)
+                    st.write("Comment Size Statistics:", comment_stats)
 
-            #     # Find optimal feature count
-            #     with st.container(border=True):
-            #         # optimal_features = self.find_optimal_features(df, feature_column, target_column)
+                # Find optimal feature count
+                with st.container(border=True):
+                    # optimal_features = self.find_optimal_features(df, feature_column, target_column)
 
-            #         # -- v2.6.1: Change the return of find_optimal_features
-            #         best_params = self.find_optimal_features(df, feature_column, target_column) 
-            #         optimal_features = best_params['vectorizer__max_features']
-            #         # st.write(f"Using optimal feature count: {optimal_features}")
-            comment_stats = self.analyze_comment_sizes(df, feature_column)
-            best_params = self.find_optimal_features(df, feature_column, target_column) 
-            optimal_features = best_params['vectorizer__max_features']
+                    # -- v2.6.1: Change the return of find_optimal_features
+                    best_params = self.find_optimal_features(df, feature_column, target_column) 
+                    optimal_features = best_params['vectorizer__max_features']
+                    # st.write(f"Using optimal feature count: {optimal_features}")
+            
             # ----- v2.3.0 - `feature/tf-idf-deep-dive` --------
             
             # Create vectorizer with optimal feature count
@@ -109,7 +107,7 @@ class ModelTrainer:
             val_samples = X_val.shape[0] if hasattr(X_val, 'shape') else len(X_val)
             test_samples = X_test.shape[0] if hasattr(X_test, 'shape') else len(X_test)
             
-            # st.info(f"Data split: Train={train_samples} samples, Validation={val_samples} samples, Test={test_samples} samples")
+            st.info(f"Data split: Train={train_samples} samples, Validation={val_samples} samples, Test={test_samples} samples")
             
             # Distribution analysis to ensure stratification worked properly
             train_dist = pd.Series(y_train).value_counts(normalize=True)
@@ -122,8 +120,8 @@ class ModelTrainer:
                 'Test %': test_dist * 100
             })
             
-            # st.write("Class distribution across splits:")
-            # st.dataframe(dist_df)
+            st.write("Class distribution across splits:")
+            st.dataframe(dist_df)
             
             # Model training
             # overfit x underfit
@@ -154,8 +152,8 @@ class ModelTrainer:
             training_time = time.time() - start_time
 
             n_iter = model.n_iter_[0]
-            # print(f"Iterations until convergence for {model_name}: {n_iter}")
-            # st.write(f"Iterations until convergence for {model_name}: {n_iter}")
+            print(f"Iterations until convergence for {model_name}: {n_iter}")
+            st.write(f"Iterations until convergence for {model_name}: {n_iter}")
             ## -- v2.4.0 - `feature/tf-idf-iteration-check` --
             
             # Store model artifacts
@@ -163,51 +161,51 @@ class ModelTrainer:
             self.vectorizers[model_name] = vectorizer
             
             # v2.5.0 - Evaluate on all three splits
-            # with st.container(border=True):
-            #     st.subheader("Model Performance Across Data Splits")
+            with st.container(border=True):
+                st.subheader("Model Performance Across Data Splits")
                 
-            # Predictions on all splits
-            y_train_pred = model.predict(X_train)
-            y_val_pred = model.predict(X_val)
-            y_test_pred = model.predict(X_test)
-            
-            # Calculate metrics for all splits
-            train_metrics = self._calculate_split_metrics(y_train, y_train_pred, "Train")
-            val_metrics = self._calculate_split_metrics(y_val, y_val_pred, "Validation")
-            test_metrics = self._calculate_split_metrics(y_test, y_test_pred, "Test")
-            
-            # Combine metrics into a single dataframe for comparison
-            metrics_df = pd.DataFrame([train_metrics, val_metrics, test_metrics])
-            # st.dataframe(metrics_df.set_index('Split'))
-            
-            # Create visualization to compare performance across splits
-            # self._visualize_split_performance(train_metrics, val_metrics, test_metrics)
-            
-            # Check for overfitting
-            acc_drop_train_val = train_metrics["Accuracy"] - val_metrics["Accuracy"]
-            acc_drop_val_test = val_metrics["Accuracy"] - test_metrics["Accuracy"]
-            f1_drop_train_val = train_metrics["F1-Score"] - val_metrics["F1-Score"]
-            
-            # Create a summary box with color-coded metrics
-            # col1, col2 = st.columns(2)
-            
-            # with col1:
-            #     st.metric("Train-Validation Accuracy Gap", 
-            #                 f"{acc_drop_train_val:.4f}",
-            #                 delta_color="inverse")
+                # Predictions on all splits
+                y_train_pred = model.predict(X_train)
+                y_val_pred = model.predict(X_val)
+                y_test_pred = model.predict(X_test)
                 
-            # with col2:
-            #     st.metric("Validation-Test Accuracy Gap", 
-            #                 f"{acc_drop_val_test:.4f}",
-            #                 delta_color="inverse")
-            
-            # # Display overfitting analysis
-            # if acc_drop_train_val > 0.05:
-            #     st.warning(f"⚠️ Potential overfitting detected: Train-Validation accuracy drop = {acc_drop_train_val:.4f}")
-            # if acc_drop_val_test > 0.05:
-            #     st.warning(f"⚠️ Potential generalization issue: Validation-Test accuracy drop = {acc_drop_val_test:.4f}")
-            # if acc_drop_train_val <= 0.05 and acc_drop_val_test <= 0.05:
-            #     st.success("✅ Model generalizes well across splits")
+                # Calculate metrics for all splits
+                train_metrics = self._calculate_split_metrics(y_train, y_train_pred, "Train")
+                val_metrics = self._calculate_split_metrics(y_val, y_val_pred, "Validation")
+                test_metrics = self._calculate_split_metrics(y_test, y_test_pred, "Test")
+                
+                # Combine metrics into a single dataframe for comparison
+                metrics_df = pd.DataFrame([train_metrics, val_metrics, test_metrics])
+                st.dataframe(metrics_df.set_index('Split'))
+                
+                # Create visualization to compare performance across splits
+                self._visualize_split_performance(train_metrics, val_metrics, test_metrics)
+                
+                # Check for overfitting
+                acc_drop_train_val = train_metrics["Accuracy"] - val_metrics["Accuracy"]
+                acc_drop_val_test = val_metrics["Accuracy"] - test_metrics["Accuracy"]
+                f1_drop_train_val = train_metrics["F1-Score"] - val_metrics["F1-Score"]
+                
+                # Create a summary box with color-coded metrics
+                col1, col2 = st.columns(2)
+                
+                with col1:
+                    st.metric("Train-Validation Accuracy Gap", 
+                             f"{acc_drop_train_val:.4f}",
+                             delta_color="inverse")
+                    
+                with col2:
+                    st.metric("Validation-Test Accuracy Gap", 
+                             f"{acc_drop_val_test:.4f}",
+                             delta_color="inverse")
+                
+                # Display overfitting analysis
+                if acc_drop_train_val > 0.05:
+                    st.warning(f"⚠️ Potential overfitting detected: Train-Validation accuracy drop = {acc_drop_train_val:.4f}")
+                if acc_drop_val_test > 0.05:
+                    st.warning(f"⚠️ Potential generalization issue: Validation-Test accuracy drop = {acc_drop_val_test:.4f}")
+                if acc_drop_train_val <= 0.05 and acc_drop_val_test <= 0.05:
+                    st.success("✅ Model generalizes well across splits")
             
             # Store comprehensive metrics using test set (for backward compatibility)
             self.metrics[model_name] = self._calculate_metrics(
@@ -278,8 +276,8 @@ class ModelTrainer:
         # Fit GridSearchCV
         grid_search.fit(X, y)
 
-        # st.write(f"Best parameters: {grid_search.best_params_}")
-        # st.write(f"Best score: {grid_search.best_score_}")
+        st.write(f"Best parameters: {grid_search.best_params_}")
+        st.write(f"Best score: {grid_search.best_score_}")
         
         # Return the optimal feature count
         return grid_search.best_params_ #['vectorizer__max_features'] -- v2.6.1: Change the return of find_optimal_features
@@ -476,29 +474,29 @@ class ModelTrainer:
             })
             
             # Create bar chart using Altair
-            # import altair as alt
+            import altair as alt
             
-            # chart = alt.Chart(viz_data).mark_bar().encode(
-            #     x=alt.X('Split:N', title='Data Split'),
-            #     y=alt.Y('Value:Q', title='Score', scale=alt.Scale(domain=[0, 1])),
-            #     color=alt.Color('Split:N', 
-            #                    scale=alt.Scale(domain=['Train', 'Validation', 'Test'],
-            #                                   range=['#5470C6', '#91CC75', '#FAC858'])),
-            #     column=alt.Column('Metric:N', title='Performance Metrics')
-            # ).properties(
-            #     title='Model Performance Across Data Splits',
-            #     width=150
-            # )
+            chart = alt.Chart(viz_data).mark_bar().encode(
+                x=alt.X('Split:N', title='Data Split'),
+                y=alt.Y('Value:Q', title='Score', scale=alt.Scale(domain=[0, 1])),
+                color=alt.Color('Split:N', 
+                               scale=alt.Scale(domain=['Train', 'Validation', 'Test'],
+                                              range=['#5470C6', '#91CC75', '#FAC858'])),
+                column=alt.Column('Metric:N', title='Performance Metrics')
+            ).properties(
+                title='Model Performance Across Data Splits',
+                width=150
+            )
             
-            # st.altair_chart(chart)
+            st.altair_chart(chart)
             
             # Add interpretation text
-            # st.write("**Interpretation Guide:**")
-            # st.write("""
-            # - **Similar heights** across all three splits indicate good generalization
-            # - **Significantly higher Train bars** compared to Validation/Test suggest overfitting
-            # - **Lower Test bars** compared to Validation suggest potential data leakage or sampling issues
-            # """)
+            st.write("**Interpretation Guide:**")
+            st.write("""
+            - **Similar heights** across all three splits indicate good generalization
+            - **Significantly higher Train bars** compared to Validation/Test suggest overfitting
+            - **Lower Test bars** compared to Validation suggest potential data leakage or sampling issues
+            """)
             
         except Exception as e:
             st.error(f"Error creating performance visualization: {str(e)}")
