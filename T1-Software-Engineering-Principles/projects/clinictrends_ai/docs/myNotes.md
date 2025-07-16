@@ -139,6 +139,19 @@ streamlit run app.py
   - Multi-class handling (ovr vs multinomial)
 - Document best hyperparameter sets.
 
+#### 🔹v2.6.1 - `feature/dynamic-hyperparameter-injection`
+- Refactored ModelTrainer.py to support dynamic hyperparameter injection for Logistic Regression.
+- Key changes:
+  - **find_optimal_features**
+    - Changed return value to return the entire `best_params` dictionary from GridSearchCV instead of only `vectorizer__max_features`.
+    - Now captures all optimal hyperparameters (e.g. `C`, `solver`, `penalty`, `multi_class`, and `max_iter`) for use in model training.
+  - **train_tfidf_model**
+    - Injects all hyperparameters dynamically into the Logistic Regression model, replacing previously hardcoded values.
+    - `max_iter` is now selected via grid search rather than being fixed.
+
+- Benefits:
+  - Eliminates hardcoded model parameters.
+  - Enables fully automated tuning of hyperparameters for optimal model performance.
 ---
 
 ### 🔧 In Progress

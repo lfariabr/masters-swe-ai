@@ -57,8 +57,12 @@ class ModelTrainer:
 
                 # Find optimal feature count
                 with st.container(border=True):
-                    optimal_features = self.find_optimal_features(df, feature_column, target_column)
-                    st.write(f"Using optimal feature count: {optimal_features}")
+                    # optimal_features = self.find_optimal_features(df, feature_column, target_column)
+
+                    # -- v2.6.1: Change the return of find_optimal_features
+                    best_params = self.find_optimal_features(df, feature_column, target_column) 
+                    optimal_features = best_params['vectorizer__max_features']
+                    # st.write(f"Using optimal feature count: {optimal_features}")
             
             # ----- v2.3.0 - `feature/tf-idf-deep-dive` --------
             
@@ -124,15 +128,23 @@ class ModelTrainer:
             # https://www.analyticsvidhya.com/blog/2020/02/underfitting-overfitting-best-fitting-machine-learning/
             model = LogisticRegression(
                 ## -- v2.4.0 - `feature/tf-idf-iteration-check` --
-                max_iter=100, # This was hardcoded to 1000. Now using 100 because mean_token_length is 19 and standard token is 34
+                # max_iter=100, # This was hardcoded to 1000. Now using 100 because mean_token_length is 19 and standard token is 34
+                max_iter=best_params['classifier__max_iter'],
                 random_state=42,
                 class_weight='balanced',  # Handle class imbalance
 
                 ## -- v2.6.0 - `feature/logreg-hyperparam-tuning` --
-                C=10.0,
-                penalty='l2',
-                solver='lbfgs',
-                multi_class='ovr',
+                # C=10.0,
+                # penalty='l2',
+                # solver='lbfgs',
+                # multi_class='ovr',
+
+                ## -- v2.6.1 - `feature/logreg-hyperparam-tuning` --
+                # removing hardcoded values
+                C=best_params['classifier__C'],
+                penalty=best_params['classifier__penalty'],
+                solver=best_params['classifier__solver'],
+                multi_class=best_params['classifier__multi_class'],
             )
             
             start_time = time.time()
@@ -228,6 +240,7 @@ class ModelTrainer:
             'classifier__penalty': ['l2'], # type of regularization: l1, l2, elasticnet, none
             'classifier__solver': ['lbfgs'], # algorithm to use: lbfgs, newton-cg, liblinear, sag, saga
             'classifier__multi_class': ['ovr', 'multinomial'], # all vs one or multinomial
+            'classifier__max_iter': [100, 300, 500], # maximum number of iterations, was 1000 now 100 because mean_token_length is 19 and standard token is 34
         }
 
         # Create pipeline
@@ -240,7 +253,8 @@ class ModelTrainer:
                 max_df=0.95,
             )),
             ('classifier', LogisticRegression(
-                max_iter=100, # maximum number of iterations, was 1000 now 100 because mean_token_length is 19 and standard token is 34
+                # max_iter removed because it is now in param_grid
+                # max_iter=100, # maximum number of iterations, was 1000 now 100 because mean_token_length is 19 and standard token is 34
                 random_state=42,
                 class_weight='balanced'
             ))
@@ -266,7 +280,7 @@ class ModelTrainer:
         st.write(f"Best score: {grid_search.best_score_}")
         
         # Return the optimal feature count
-        return grid_search.best_params_['vectorizer__max_features']
+        return grid_search.best_params_ #['vectorizer__max_features'] -- v2.6.1: Change the return of find_optimal_features
 
     def create_combined_features(self, df, feature_column, score_column, vectorizer):
         """Combine text features with numerical score feature"""
