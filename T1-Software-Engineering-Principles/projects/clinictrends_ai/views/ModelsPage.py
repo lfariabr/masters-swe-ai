@@ -269,9 +269,6 @@ def show_models():
             
             st.markdown("---")
             
-            st.info("Transformer models are a work in progress. Stay tuned!")
-            st.markdown("---")
-            
             if TRANSFORMERS_AVAILABLE:
                 st.markdown("#### 🤖 Model 3: Transformer-Enhanced Classification *(Prototype)*")
                 with st.spinner("Processing with transformer model..."):

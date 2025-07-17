@@ -155,7 +155,7 @@ def show_enhanced_models():
 
     if response.status_code == 200:
         st.download_button(
-            label="⬇️ Download Sample CSV Data2",
+            label="⬇️ Download Sample CSV Data",
             data=response.content,
             file_name="clinicTrendsAiSample.csv",
             mime="text/csv"
@@ -269,7 +269,7 @@ def show_enhanced_models():
             
             st.markdown("---")
             
-            st.info("Transformer models are a work in progress. Stay tuned!")
+            st.info("Transformer models are hidden while we progress on current models. Stay tuned!")
             st.markdown("---")
             
             # if TRANSFORMERS_AVAILABLE:

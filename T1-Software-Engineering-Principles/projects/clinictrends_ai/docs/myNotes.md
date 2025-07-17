@@ -27,9 +27,9 @@ streamlit run app.py
 - ✅ Alert system based on NPS and sentiment scores
 - ✅ A/B testing framework for model comparison
 - ✅ Model fine-tuning and reaching accuracy of +80%
-- 🔄 Implementing Topic Modeling
+- ✅ Automated hyperparameter optimization
+- 🔥 Implementing Topic Modeling
 - 🔄 Advanced feature engineering pipelines
-- 🔄 Automated hyperparameter optimization
 - 🔄 Real-time model retraining capabilities
 - 🔄 Pytest robustness coverage
 
@@ -163,18 +163,21 @@ streamlit run app.py
 
 ### 🔧 In Progress
 
-
-
 ### 🗂️ Backlog
 
-#### 🔸 v3.0.0 - `feature/topic-modeling`
+#### 🔸 v2.8.0 - `feature/topic-modeling`
 - current pipeline: Data ➔ Preprocessing ➔ Sentiment Analysis ➔ Performance Metrics
 - suggested pipeline: Data ➔ Preprocessing ➔ Sentiment Analysis ➔ Topic Modeling ➔ Insights ➔ Business Actions
-- Study BERTopic
+- Study BERTopic (BERT + clustering), Sci-kit Learn (LDA, NMF, LSA) and Gensim (LDA, LSI)
 - Read the links Dr. Ranju shared. BERTopic is one of the best modern tools for topic modeling:
   - Handles short texts better than LDA
   - Uses embeddings (e.g. BERT) for semantically richer clusters
   - Generates interpretable topic names.
+  - Useful Links:
+    - https://www.linkedin.com/pulse/topic-modeling-uncovering-hidden-themes-text-mohamed-chizari-y1w2e/
+    - https://wellsr.com/python/topic-modeling-with-bert-using-python-bertopic-library/?utm_source=chatgpt.com
+    - https://www.datacamp.com/tutorial/what-is-topic-modeling?utm_source=chatgpt.com
+    - https://hackernoon.com/nlp-tutorial-topic-modeling-in-python-with-bertopic-372w35l9
 - Integrate BERTopic into Pipeline
 - Map Topics → Business Recommendations. E.g.:
   - “Topic: Delivery delays” → “Improve logistics or communication”
