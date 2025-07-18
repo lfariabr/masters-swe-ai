@@ -1,9 +1,10 @@
-# Extra Work
+# Extra Work: 
 
-## CommBank API
-Forage Challenge
+## Forage - https://www.theforage.com/
 
-## Tasks
+## Challenge #1: Commonwealth Bank Software Engineering
+
+### Tasks
 Here's the outline of the tasks given/planned:
 
 | Task ID/Topic | Details            | Status         | Date         | 
@@ -14,3 +15,12 @@ Here's the outline of the tasks given/planned:
 | #4 Testing   | Use xUnit framework to cover The `GetGoalsForUser` Route |  ✅ Done | 2025-07-13 |
 | #5 PR Task   | Create a new branch, commit & push changes to origin repository. Use GitHub and describe changes | ✅ Done | 2025-07-13 |
 | #6 Certificate   | Add Certificate | ✅ Done | 2025-07-13 |
+
+## Challenge #2: AWS Solutions Architect Intern
+
+### Tasks
+Here's the outline of the tasks given/planned:
+
+| Task ID/Topic | Details            | Status         | Date         | 
+|---------|---------------------|----------------|------------|
+| #1 Backend   | Designing a simple, scalable, hosting architecture | 🔥 In Progress | 2025-07-18 |

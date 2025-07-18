@@ -76,6 +76,7 @@ msbuild.wrn
 *.userosscache
 *.sln.docstates
 *.userprefs
+*.windsurf/
 
 # IDE specific files
 .idea/
