@@ -1,55 +1,57 @@
 # AWS Solutions Architect Intern Task #1 - Luis Faria
 
 ## Context
-First up, let's understand a bit more about AWS
-Before we get started with this task, let's give you some more context on AWS. 
 
-AWS has myriad services for doing all kinds of things! While you don’t need to be familiar with them all, outlined below are a few that give you a sense of what type of services we provide and how they are billed. 
+Before we get started with the task, let's give some more context on Amazon Web Services (AWS). 
 
-Please have a read through the services below and click next once you're done. It's likely that you'll need to use some of this information on the next part of this task - but you can easily navigate back and forth as required! 
+AWS provides myriad services for doing all kinds of things! While you don’t need to be familiar with them all, outlined below are a few that give you a sense of what type of services AWS provides and how they are billed. 
 
-General Services
+Please have a read through the services below and proceed to next step. It's likely that you'll need to use some of this information on the next part of this task - but you can easily navigate back and forth as required! 
 
-CodePipeline
+### General Services
+
+1. **CodePipeline**
 This will build code and can deploy it to various AWS services. It is charged per pipeline. Can be used with Elastic Beanstalk for blue/green no-downtime deployments.
 
-Elastic Load Balancing
+2. **Elastic Load Balancing**
 Distributes traffic across application servers, such as EC2, Lambda or Fargate. Can use health checks to know which servers should service requests. Charges are based on the number of hours the load balancer runs and (at a high level) the amount of traffic it services. The actual charging rules can be quite complex.
 
-RDS
+3. **RDS**
 Relational database hosting platform. Charged in the same way as EC2 (i.e. a virtual machine with a set amount of resources). Servers can be resized but must be restarted to do so.
 
-Route 53
+4. **Route 53**
 AWS' domain and DNS management.
 
-S3
+5. **S3**
 Store objects in the cloud. Charged based on the amount of data being stored, how it’s stored, and for retrieval.
 
 
-Application Executors
+### Application Executors
 
 AWS provides a few ways of executing applications, from virtual machines, to container executors to function executors.
 
-EC2
+1. **EC2**
 Scalable virtual servers. Charged based on resources of the virtual servers (RAM, CPU, storage), per hour. Servers can change their resource allocation but must be restarted to apply them.
 
-Fargate
+2. **Fargate**
 Run containerized applications (e.g., Docker images). Charges are based on the resources assigned to the container (RAM, CPU, etc.) and how long it runs for. Very scalable but can require manual orchestration.
 
-Lambda
+3. **Lambda**
 An application is uploaded to Lambda and only executed when triggered, for example, on HTTP request or via S3. For example, a Lambda instance would run to just service a single HTTP request. Charging is based on the amount of memory the Lambda uses and how long it runs for, plus the number of requests. Sometimes data transfers can also be charged depending on which region(s) a Lambda is fetching data from. Highly scalable up and down. Not suited for serving static content.
 
-Lightsail
+4. **Lightsail**
 Virtual machines, like EC2 but simpler to set up. Charges are based on the resources of the Lightsail virtual machine. Virtual machines' resources can’t be changed, instead the machines must be cloned to a new instance and restarted. 
 
-Elastic Beanstalk
+5. **Elastic Beanstalk**
 Ties together EC2, RDS and Elastic Load Balancing with simple configuration and deployment. Its primary advantage is how it can facilitate the autoscaling of EC2 instances. Billing is based on a combination of the EC2, RDS and ELB that you use. Deployment is made easy with CLI tools, and we can use rolling deployments so there is no downtime. It has support for several languages including Python, NodeJS, Java and Go.
 
-Availability Zones
+### Availability Zones
 
 For extra redundancy, services can be deployed across multiple availability zones (AZ). This means that requests can fall over from one AZ to another in the case of infrastructure failure. In general, the cost of a service is multiplied by the number of availability zones it’s in.
 
 You should be able to tell the customer why you have chosen Elastic Beanstalk and what components it contains, and the purpose of these. The AWS resource pages for each service contain descriptions of how they are charged.
+
+### Pricing
 
 CodePipeline
 Elastic Load Balancing
