@@ -163,6 +163,11 @@ streamlit run app.py
 
 ### 🔧 In Progress
 
+#### 🔸 v2.8.0 - `feature/topic-modeling`
+- Integrate BERTopic into Pipeline
+  - created BERTopicModel.py
+  - `pip install bertopic` + `pip install sentence-transformers` + `pip install umap-learn plotly`
+
 ### 🗂️ Backlog
 
 #### 🔸 v2.8.0 - `feature/topic-modeling`
