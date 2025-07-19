@@ -17,12 +17,12 @@ cd T1-Extra/aws
 > "The client represents a brand that is growing consistently and is having some problems with the high demand: slow website during peak periods and server crashes due to memory overflow. The client is also experiencing some downtime during deployments and doesn't have a disaster recovery plan. 
 We need to sedign an architecture that addresses these issues for their application which is a SPA React Application backed by Python and Flask, with PostgreSQL as a database. It all runs off a single AWS EC2 instance currently (t3.medium, 4GB of RAM)."
 - [X] Draw a draft for the task thought process (**Luis**)
-- [ ] Draft the email to Lilly, including:
-  - [ ] Architecture diagram reference
-  - [ ] Explanation of each AWS component
-  - [ ] Rationale for service choices
-  - [ ] Addressing client pain points (scalability, downtime, etc.)
-- [ ] Verify that the architecture diagram and the drafted solution are fully aligned
+- [X] Draft the email to Lilly, including:
+  - [X] Architecture diagram reference
+  - [X] Explanation of each AWS component
+  - [X] Rationale for service choices
+  - [X] Addressing client pain points (scalability, downtime, etc.)
+- [X] Verify that the architecture diagram and the drafted solution are fully aligned
 - [ ] Proofread and finalize the email draft
 
 ### Task 2: Lorem Ipsum dolor sit amet (v2.0) ✅ **COMPLETE**
