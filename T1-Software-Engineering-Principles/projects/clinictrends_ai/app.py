@@ -25,7 +25,8 @@ try:
         TrainingPage3,
         TrainingPage4,
         ModelsPage,
-        EnhancedModels
+        EnhancedModels,
+        TopicModelingPage
     )
 
 except ImportError:
@@ -38,6 +39,7 @@ except ImportError:
     import views.TrainingPage4 as TrainingPage4
     import views.ModelsPage as ModelsPage
     import views.EnhancedModels as EnhancedModels
+    import views.TopicModelingPage as TopicModelingPage
 
 def main():
     # Sidebar with logo and navigation - this will be our only sidebar
@@ -65,15 +67,9 @@ def main():
              "NPS Analysis",
              "ML Model Comparison",
              "Enhanced ML 🛠️🧪",
-
-             # Training
-             # "Training - CM1", # TfidfVectorizer + LogisticRegression @ 'Comment' column.
-             # "Training - CM2", # TfidfVectorizer + LogisticRegression @ 'CommentScore' column.
-             # "Training - CM3", # TfidfVectorizer + LogisticRegression @ 'Comment' column + Hugging Face Transformers.
-             # "Training - CM4", # TfidfVectorizer + LogisticRegression @ 'CommentScore' column + Hugging Face Transformers.
-
-             # Additional
+             "Topic Modeling",
              "Translation",
+             
             ],
             index=0,
             label_visibility="collapsed"
@@ -98,16 +94,9 @@ def main():
         ModelsPage.show_models()
     elif page == "Enhanced ML 🛠️🧪":
         EnhancedModels.show_enhanced_models()
-
-    elif page == "Training - CM1":
-        TrainingPage.show_training()
-    elif page == "Training - CM2":
-        TrainingPage2.show_training2()
-    elif page == "Training - CM3":
-        TrainingPage3.show_training3()
-    elif page == "Training - CM4":
-        TrainingPage4.show_training4()
-    
+    elif page == "Topic Modeling":
+        TopicModelingPage.show_topic_modeling()
+        
     elif page == "Translation":
         TranslatePage.show_translate()
         
