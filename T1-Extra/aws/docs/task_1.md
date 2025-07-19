@@ -159,7 +159,7 @@ Dear Lilly,
 
 Thank you for reaching out to AWS regarding the scaling and deployment challenges you're experiencing with your Python web application. I understand the frustration of dealing with server overload during peak traffic and the operational disruption caused by deployment downtime. 
 
-As a Solutions Architect at AWS and Python developer, I'm excited to present a comprehensive solution that will address these pain points while positioning your startup for sustainable growth.
+As a Solutions Architect at AWS, I'm excited to present a solution that will 🔨 crush your pain points while positioning **Fastier** for sustainable growth.
 
 **Recommended Architecture Solution**
 
@@ -260,7 +260,7 @@ dotnet run
 10. Edited Goal.cs file with Icon property:
 ```csharp
 public string? Icon { get; set; }
-```
+https://www.youtube.com/watch?v=qDAgkOuijUg```
 11. Sent a post request to create a goal at /api/goal:
 ```json
 {
