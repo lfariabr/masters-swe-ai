@@ -1,4 +1,4 @@
-Welcome to my Extra Work done for the **Master's of Software Engineering and Artificial Intelligence (Advanced)** at **Torrens University**.
+Welcome to my Extra Work done for the **Master's of Software Engineering and Artificial Intelligence** at **Torrens University**.
 
 Inside, you'll find all the projects I tackled to sharpen and test my knowledge in a deep level of details.
 
@@ -6,10 +6,10 @@ I hope this setup offers helpful insights - and perhaps even inspires you to for
 
 ---
 
-### Lorem ipsum
-- **Lorem ipsum**: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor, nisl vel placerat ultricies, nisl nisl ultricies nisl, vel placerat nisl nisl vel placerat.
-- **Lorem ipsum**: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor, nisl vel placerat ultricies, nisl nisl ultricies nisl, vel placerat nisl nisl vel placerat.
-- **Lorem ipsum**: Marketable skills and practical solutions
+### Why This Repository Was Born
+- **Going Beyond the Curriculum**: This space documents the extra challenges I tackled outside of my core Master’s subjects to deepen my technical expertise and prepare for real-world engineering roles.
+- **Practice with Purpose**: Each project here was selected to reinforce hands-on skills in backend/frontend development, cloud architecture, DevOps, and testing, aligned with top-tier software engineering standards.
+- **From Theory to Market-Ready**: Building CI/CD pipelines, crafting scalable cloud systems or debugging cross-stack applications, these challenges are designed into marketable, job-ready skills.
 
 ---
 
@@ -41,10 +41,10 @@ Here's the outline of the tasks given/planned:
 
 | Task ID/Topic | Details            | Status         | Date (YY-MM-DD)         | 
 |---------|---------------------|----------------|------------|
-| #1 Web Application Hosting   | Designing a simple, scalable, hosting architecture | 🔥 | 25-07-19 |
-| #2 Lorem Ipsum   | Lorem Ipsum dolor sit amet | 🕐 | TBD |
-| #3 Lorem Ipsum   | Lorem Ipsum dolor sit amet | 🕐 | TBD |
-| #4 Lorem Ipsum   | Lorem Ipsum dolor sit amet | 🕐 | TBD |
+| #1 Web Application Hosting   | Designing a simple, scalable, hosting architecture - setup| ✅ | 25-07-19 |
+| #2 Web Application Hosting   | Designing a simple, scalable, hosting architecture - draft 1| ✅ | 25-07-19 |
+| #3 Web Application Hosting   | Designing a simple, scalable, hosting architecture - draft 2| ✅ | 25-07-20 |
+| #4 Certificate   | Add Certificate | ✅ | 25-07-20 |
 
 ---
 
