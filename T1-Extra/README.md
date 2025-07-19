@@ -18,7 +18,9 @@ Give this challenge a try yourself: [CBA Software Engineering](https://www.thefo
 
 **Tasks**
 Here's the outline of the tasks given/planned:
+
 > Tip: ✅ = Done, 🔥 = WIP, 🕐 = Not started
+
 | Task ID/Topic | Details            | Status         | Date (YY-MM-DD)         | 
 |---------|---------------------|----------------|------------|
 | #1 Backend   | Set Up c# project and update Goals with Icon | ✅ | 25-07-04 |
@@ -34,7 +36,9 @@ Here's the outline of the tasks given/planned:
 Give this challenge a try yourself: [AWS Solutions Architect](https://www.theforage.com/simulations/aws-apac/solutions-architecture-ts4o)
 **Tasks**
 Here's the outline of the tasks given/planned:
+
 > Tip: ✅ = Done, 🔥 = WIP, 🕐 = Not started
+
 | Task ID/Topic | Details            | Status         | Date (YY-MM-DD)         | 
 |---------|---------------------|----------------|------------|
 | #1 Web Application Hosting   | Designing a simple, scalable, hosting architecture | 🔥 | 25-07-19 |
