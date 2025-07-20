@@ -29,11 +29,11 @@ Take a deep dive into how I'm approaching projects and the progress I'm making.
 #### Course Projects
 Project | Description | Status | Folder directory | Demo URL |
 |---------|---------------------|----------------|----------------|----------------|
-| ClinicTrends AI  | A streamlit app to analyze survey records and generate insights using Machine Learning. | 🔥 | [Here](./T1-Software-Engineering-Principles/projects/clinictrends_ai/README.md) | [Here](https://sep-torrens-dr-ranju-group-1.streamlit.app/) | 
-| TTrack Python | A PyQt5 desktop app to help academic staff to track academic progress by comparing a student’s official transcript with prescribed curriculum using custom made algorithms. | 🔥 | [Here](./T1-Software-Development-Management/projects/TTrack_v1/README.md) | 🔥 |
-| TTrack Electron | A Node.js andReact desktop app wrapped by Electron alternative to TTrack Python. | 🔥 | [Here](./T1-Software-Development-Management/projects/TTrack_electron/README.md) | 🔥 |
-| Commonwealth Bank Forage | Virtual challenge covering backend (.NET, MongoDB) and frontend (React, Redux, TypeScript) work, unit testing with xUnit | ✅ | [Here](./T1-Extra/cba/) | N/A |
-| AWS Solutions Architect | Virtual challenge covering acting as a Solutions Architect for a client | ✅ | [Here](./T1-Extra/aws/) | N/A |
+| **ClinicTrendsAI** | Streamlit App to analyze survey records and generate insights using Machine Learning, NLP and Data Visualization. | 🔥 | [Here](./T1-Software-Engineering-Principles/projects/clinictrends_ai/README.md) | [Here](https://sep-torrens-dr-ranju-group-1.streamlit.app/) | 
+| **TTrack** | PyQt5 desktop app to help academic staff to track academic progress by comparing a student’s official transcript with prescribed curriculum using custom made algorithms. | 🔥 | [Here](./T1-Software-Development-Management/projects/TTrack_v1/README.md) | 🔥 |
+| **TTrack** | Node.js and React desktop app wrapped by Electron alternative to TTrack Python. | 🔥 | [Here](./T1-Software-Development-Management/projects/TTrack_electron/README.md) | 🔥 |
+| **Commonwealth Bank Forage** | Virtual challenge covering backend (.NET, MongoDB) and frontend (React, Redux, TypeScript) work, unit testing with xUnit | ✅ | [Here](./T1-Extra/cba/) | [dev.to](https://dev.to/lfariaus/how-i-tackled-the-commonwealths-bank-software-engineering-challenge-3ebk) |
+| **AWS Solutions Architect** | Virtual challenge covering acting as a Solutions Architect for a client | ✅ | [Here](./T1-Extra/aws/) | N/A |
 
 ---
 
@@ -65,5 +65,5 @@ While this is primarily a personal repository, I welcome discussions and constru
 
 ---
 
-*Last Updated: 9 July 2025*  
+*Last Updated: 21 July 2025*  
 ![GitHub last commit](https://img.shields.io/github/last-commit/lfariabr/masters-swe-ai?style=flat-square)
