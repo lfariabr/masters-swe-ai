@@ -25,7 +25,7 @@ def show_home():
         
         st.markdown("### Key Features")
         
-        col1, col2, col3 = st.columns(3)
+        col1, col2, col3, col4 = st.columns(4)
         
         with col1:
             st.markdown("""
@@ -44,6 +44,14 @@ def show_home():
             """)
         
         with col3:
+            st.markdown("""
+            #### 💥 Topic Modeling
+            - Analyze customer feedback
+            - Have a taste of BERTopic
+            - Visualize topics
+            """)
+        
+        with col4:
             st.markdown("""
             #### 🗣️ Translation
             - Translate customer feedback
