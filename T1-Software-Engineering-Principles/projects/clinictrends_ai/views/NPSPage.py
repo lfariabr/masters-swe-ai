@@ -11,6 +11,8 @@ from utils.visualizations import nps_donut_chart, monthly_nps_trend_chart
 from utils.ui_filters import get_year_store_filters
 from utils.nlp_analysis import display_sentiment_distribution, display_wordcloud, annotate_sentiments
 from utils.alerts import send_discord_message
+from utils.data_upload import data_upload
+
 
 def show_dashboard():
     """Show the dashboard page content."""
@@ -30,19 +32,7 @@ def show_dashboard():
     Use this dashboard to turn raw feedback into actionable strategies and improve customer experience.
     """)
 
-    st.markdown("### 📁 Data Upload")
-    csv_url = "https://raw.githubusercontent.com/lfariabr/masters-swe-ai/master/T1-Software-Engineering-Principles/projects/clinictrends_ai/public/clinicTrendsAiSample.csv"
-    response = requests.get(csv_url)
-
-    if response.status_code == 200:
-        st.download_button(
-            label="⬇️ Download Sample CSV Data",
-            data=response.content,
-            file_name="clinicTrendsAiSample.csv",
-            mime="text/csv"
-        )
-    else:
-        st.error("Sample CSV file not found!")
+    data_upload()
         
     uploaded_file = st.file_uploader(
         "Upload your CSV file with customer feedback or use the sample data",

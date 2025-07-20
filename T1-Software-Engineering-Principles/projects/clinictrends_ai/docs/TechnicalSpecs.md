@@ -1,4 +1,4 @@
-## 📊 Technical Specifications
+# 📊 Technical Specifications
 
 | Component | Technology Stack | Purpose & Implementation |
 |-----------|------------------|--------------------------|
@@ -17,5 +17,3 @@
 - **Memory Efficiency**: ~200MB RAM for full feature set
 - **Scalability**: Handles 100,000+ customer records efficiently
 - **Accuracy**: 85-92% across different model configurations
-
----
