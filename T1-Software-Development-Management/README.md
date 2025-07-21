@@ -12,7 +12,7 @@ Dr. Muhammad Atif Qureshi
 - [X] Module 5 - Project Estimation
 - [X] Module 6 - Risk Analysis and Management
 - [X] Module 7 - Quality Management
-- [🔥] Module 8 - Project Monitoring and Control
+- [X] Module 8 - Project Monitoring and Control
 - [ ] Module 9
 - [ ] Module 10
 - [ ] Module 11
@@ -21,5 +21,5 @@ Dr. Muhammad Atif Qureshi
 ## Assignments
 - [X] Assessment 1 - deadline 29/06/2025 - submitted 29/06/2025
 - [X] Assessment 2 - deadline 20/07/2025
-- [🔥] Assessment 3 - deadline 10/08/2025
+- [ ] Assessment 3 - deadline 10/08/2025
 - [ ] Assessment 4 - deadline 24/08/2025
