@@ -49,7 +49,7 @@ Term | Subject | Status | Lecturer | Useful URLs |
 | Version | Modules            | Status |
 |---------|---------------------|---|
 | 1.0.0   | Modules 1–4         | ✅ |
-| 2.0.0   | Modules 5–8         | 🔥 |
+| 2.0.0   | Modules 5–8         | ✅ |
 | 3.0.0   | Modules 9–12        | 🕐 |
 
 #### Goals

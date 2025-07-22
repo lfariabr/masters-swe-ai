@@ -13,7 +13,7 @@ Dr. Muhammad Atif Qureshi
 - [X] Module 6 - Risk Analysis and Management
 - [X] Module 7 - Quality Management
 - [X] Module 8 - Project Monitoring and Control
-- [ ] Module 9
+- [X] Module 9 - Managing People
 - [ ] Module 10
 - [ ] Module 11
 - [ ] Module 12
