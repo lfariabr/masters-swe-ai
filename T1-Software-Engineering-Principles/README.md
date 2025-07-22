@@ -13,7 +13,7 @@ Dr. Ranju Mandal
 - [X] Module 6 - Human-Computer Interaction Principles
 - [X] Module 7 - High-level Software Design
 - [X] Module 8 - Low-level Software Design
-- [ ] Module 9
+- [X] Module 9 - Software Construction - Part 1
 - [ ] Module 10
 - [ ] Module 11
 - [ ] Module 12
