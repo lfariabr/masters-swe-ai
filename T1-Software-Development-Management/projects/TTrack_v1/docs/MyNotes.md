@@ -24,18 +24,6 @@ python main.py
 
 ---
 
-## 📦 Project Details
-
-| Key       | Value            |
-|-----------|------------------|
-| **Name**  | TTrack           |
-| **Version** | 1.13.0         |
-| **Stack** | Python, PyQt5, pandas, openpyxl |
-| **Goal**  | Compare transcript data with curriculum and return smart academic progress insights |
-| **Alt. Stack (Prototype)** | Electron + Node.js + React (explored in parallel) |
-
----
-
 ## 🔬 Development Methodology
 
 ### Version Control Strategy
@@ -60,14 +48,6 @@ Following **GitFlow** with feature branches and semantic versioning:
 | **2.0.0** | Database integration & cloud sync | 🔄 Planned |
 | **3.0.0** | AI Enhanced matching | 🔄 Planned |
 | **4.0.0** | Enterprise scale | 🔄 Planned |
-
-
-### Code Quality Standards
-- **Test Coverage**: >85% with pytest
-- **Type Safety**: mypy static analysis
-- **Code Style**: black + isort formatting
-- **Documentation**: Comprehensive docstrings + technical specs
-- **Performance**: Profiled with cProfile for optimization
 
 ---
 
@@ -143,67 +123,8 @@ Following **GitFlow** with feature branches and semantic versioning:
 - Write test usage case at `buildingApp.md` -> url: https://github.com/lfariabr/masters-swe-ai/tree/master/T1-Software-Development-Management/projects/TTrack_v1/docs/buildingApp.md
 
 #### 🔹 v1.16.0 - `feature/electron`
-- Electron: v2 of TTrack in React+Node.js wrapped by Electron
-https://github.com/lfariabr/react_electron_demo.git
-
-> Setup Commands
-```bash
-npm uninstall electron-prebuilt-compile
-npm install
-npm install --save-dev electron
-npm run start-electron
-```
-
-> Project Architecture
-```bash
-# Setting up modular structure
-mkdir -p src/components src/pages src/services src/utils src/styles src/hooks src/constants
-```
-
-> Component Structure
-- **UI Components:**
-  - `FileUploader`: Handles transcript and curriculum file uploads
-  - `DataTable`: Displays tabular data with headers and rows
-  - `ProgressChart`: SVG circular visualization for degree completion
-  - `InputPage`: Manages upload workflow and initial data display
-  - `ResultsPage`: Tabbed interface for viewing results
-
-> Service Layer
-- `apiService.js`: HTTP communication with backend
-  - Upload file handling
-  - Local fallback processing when server unavailable
-  - Export functionality
-- `resolverService.js`: Core matching algorithm
-  - Transcript-curriculum course matching
-  - Status tracking (completed/missing)
-  - Recommendations generation
-
-> Server Implementation
-- Express backend (port 5000)
-- File upload/processing endpoints
-- CORS configuration for cross-origin requests
-- Graceful server handling in Electron context
-
-> Electron Integration
-- Main process spawns Express server
-- Development mode loads React dev server
-- Production loads static build files
-- Proper resource cleanup on exit
-
-> UI/UX Enhancements
-- Comprehensive CSS styling:
-  - Tab navigation system
-  - Progress visualization
-  - Error message handling
-  - Processing overlay with spinner
-  - Dark mode support
-  - Responsive design
-
-> Future Tasks
-- Improved Electron security (contextIsolation)
-- Testing suite implementation
-- Distribution packaging
-- Offline mode optimization
+- Electron: v2 of TTrack in React+Node.js wrapped by Electron (https://github.com/lfariabr/react_electron_demo.git)
+- Project Architecture: `src/components`, `src/pages`, `src/services`, `src/utils`, `src/styles`, `src/hooks`, `src/constants`
 
 #### 🔹 v1.17.0 - `feature/frontend-refactor`
 - PyQt5 refactor of UI for separation of concerns: 
@@ -223,15 +144,13 @@ mkdir -p src/components src/pages src/services src/utils src/styles src/hooks sr
 
 - Pytest adjustments to new UI structure (`feature/frontend-tests`)
 - Auto detect os theme (`feature/auto-detect-os-theme`)
-- v2.0.0 - `feature/db-integration` - Integrate with DB (MongoDB or Supabase PostgreSQL – 500MB free tier)
-- v3.0.0 - `feature/ai-integration` - engine: deeper logic like tags, topics or even semantic similarity (based on description)
-- v4.0.0 - `feature/login-authentication`
-
----
-
-## 📎 Proposal & Docs
-This project is part of **SDM404 – Software Development Management** at Torrens University. Full proposal PDF includes:
-- Timeline & Milestones
-- Risk Analysis
-- Budget & Roles
-- Dev Notes & Meeting Logs
+- v2.0.0 - `feature/db-integration` 
+  - Integrate with DB (MongoDB or Supabase PostgreSQL – 500MB free tier)
+  - Make it possible for users to save processed transcript and curriculum for future use (with a unique id)
+- v3.0.0 - `feature/logic-layer` 
+  - Engine: deeper logic like tags, topics or even semantic similarity (based on description) 
+- v4.0.0 - `feature/ai-integration` 
+  - AI or Machine Learning to summarize transcript and curriculum and recommend elective subjects 
+  - AI chatbot to answer questions about the transcript, curriculum and recommendations 
+- v5.0.0 - `feature/login-authentication`
+  - Make it possible for users to register/login on the app

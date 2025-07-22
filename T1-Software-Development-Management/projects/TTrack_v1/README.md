@@ -121,6 +121,14 @@ build.bat
 
 ## 📈 Future Roadmap
 
+### Phase 1: PyQt5 + pandas integration (v1.0.0) 🔄 **IN PROGRESS**
+- ✅ PyQt5 + pandas integration
+- ✅ Light/Dark mode support
+- ✅ File upload and preview with pandas
+- ✅ Matching engine: Transcript × Curriculum
+- ✅ Created build scripts for both Windows (.exe) and macOS (.app)
+- ✅ Run all tests: `pytest tests/`
+
 ### Phase 2: Cloud Integration and Prototyping (v2.0.0) 🔄 **IN PROGRESS**
 - ✅ Electron: v2 of TTrack in React+Node.js wrapped by Electron
 - 🔄 Database Backend: PostgreSQL/MongoDB with 500MB+ capacity
