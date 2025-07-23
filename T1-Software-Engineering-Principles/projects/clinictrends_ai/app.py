@@ -29,10 +29,6 @@ except ImportError:
     import views.HomePage as HomePage
     import views.NPSPage as NPSPage
     import views.TranslatePage as TranslatePage
-    import views.TrainingPage as TrainingPage
-    import views.TrainingPage2 as TrainingPage2
-    import views.TrainingPage3 as TrainingPage3
-    import views.TrainingPage4 as TrainingPage4
     import views.ModelsPage as ModelsPage
     import views.EnhancedModels as EnhancedModels
     import views.TopicModelingPage as TopicModelingPage

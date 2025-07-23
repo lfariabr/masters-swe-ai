@@ -63,7 +63,4 @@ Term | Subject | Status | Lecturer | Useful URLs |
 ### Contributing
 While this is primarily a personal repository, I welcome discussions and constructive feedback. Feel free to open an issue if you have suggestions or questions.
 
----
-
-*Last Updated: 21 July 2025*  
-![GitHub last commit](https://img.shields.io/github/last-commit/lfariabr/masters-swe-ai?style=flat-square)
+*Status: ![GitHub last commit](https://img.shields.io/github/last-commit/lfariabr/masters-swe-ai?style=flat-square)*

@@ -30,19 +30,11 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 
-# Suppress warnings for cleaner output
 warnings.filterwarnings('ignore')
-
-# Add parent directory to path to import utils
 sys.path.append(str(Path(__file__).parent.parent))
 
-from utils.visualizations import nps_donut_chart, monthly_nps_trend_chart
-from utils.nlp_analysis import annotate_sentiments, display_wordcloud
-from utils.preprocessing import classify_nps
-from utils.alerts import send_discord_message
-from utils.data_upload import data_upload
 
-# Optional: Transformers (marked as prototype in README)
+from resolvers.ModelTrainer import ModelTrainer
 try:
     from transformers import pipeline
     TRANSFORMERS_AVAILABLE = True
@@ -50,9 +42,11 @@ except ImportError:
     TRANSFORMERS_AVAILABLE = False
     st.warning("⚠️ Transformers library not available. Models 3 & 4 will be disabled.")
 
-# Import ModelTrainer from resolvers
-from resolvers.ModelTrainer import ModelTrainer
-
+from utils.visualizations import nps_donut_chart, monthly_nps_trend_chart
+from utils.nlp_analysis import annotate_sentiments, display_wordcloud
+from utils.preprocessing import classify_nps
+from utils.alerts import send_discord_message
+from utils.data_upload import data_upload
 
 def create_performance_dashboard(metrics: Dict[str, Dict]) -> None:
     """Create comprehensive performance comparison dashboard."""
@@ -210,170 +204,176 @@ def show_models():
             st.markdown("---")
             df = classify_nps(df)
 
-            st.markdown("#### 🤖 Model 1: Comment-Based Classification")
-            with st.spinner("Training Model 1..."):
-                model1, vec1, X_test1, y_test1, y_pred1 = model_trainer.train_tfidf_model(
-                    df, "Comment", "Sentiment", "Model 1: Comment-Based"
-                )
-            st.success("✅ Model 1 training complete")
+            tab1, tab2, tab3, tab4 = st.tabs(["Model 1", "Model 2", "Model 3", "Model 4"])
+
+            with tab1:
+                st.markdown("#### 🤖 Model 1: Comment-Based Classification")
+                with st.spinner("Training Model 1..."):
+                    model1, vec1, X_test1, y_test1, y_pred1 = model_trainer.train_tfidf_model(
+                        df, "Comment", "Sentiment", "Model 1: Comment-Based"
+                    )
+                st.success("✅ Model 1 training complete")
+                
+                if model1 is not None:
+                    df["Model_1_Prediction"] = model1.predict(vec1.transform(df["Comment"]))
+                    col1, col2 = st.columns(2)
+                    with col1:
+                        st.metric("Accuracy", f"{model_trainer.metrics['Model 1: Comment-Based']['Accuracy']:.3f}")
+                        st.metric("F1-Score", f"{model_trainer.metrics['Model 1: Comment-Based']['F1-Score']:.3f}")
+                    with col2:
+                        create_sentiment_visualization(df, "Sentiment", "Model 1: Sentiment Distribution")
+                    
+                    with st.expander("Model 1 Predictions Sample"):
+                        # DEBUG cross checking prediction vs original NPS Type
+                        st.dataframe(
+                            df[["Comment", "Score", "NPS Type", "Sentiment", "Model_1_Prediction"]].sample(min(100, len(df))),
+                            use_container_width=True
+                        )
             
-            if model1 is not None:
-                df["Model_1_Prediction"] = model1.predict(vec1.transform(df["Comment"]))
-                col1, col2 = st.columns(2)
-                with col1:
-                    st.metric("Accuracy", f"{model_trainer.metrics['Model 1: Comment-Based']['Accuracy']:.3f}")
-                    st.metric("F1-Score", f"{model_trainer.metrics['Model 1: Comment-Based']['F1-Score']:.3f}")
-                with col2:
-                    create_sentiment_visualization(df, "Sentiment", "Model 1: Sentiment Distribution")
-                # DEBUG cross checking prediction vs original NPS Type
-                st.warning("#### 📝 Model 1 Predictions Sample")
-                st.dataframe(
-                    df[["Comment", "Score", "NPS Type", "Sentiment", "Model_1_Prediction"]].sample(min(100, len(df))),
-                    use_container_width=True
-                )
+            with tab2:
+                st.markdown("#### 🤖 Model 2: Enhanced Comment-Score Fusion")
+                with st.spinner("Training Model 2..."):
+                    model2, vec2, X_test2, y_test2, y_pred2 = model_trainer.train_tfidf_model(
+                        df, "CommentScore", "Sentiment", "Model 2: Comment-Score Fusion"
+                    )
+                st.success("✅ Model 2 training complete")
+                
+                if model2 is not None:
+                    df["Model_2_Prediction"] = model2.predict(vec2.transform(df["CommentScore"]))
+                    col1, col2 = st.columns(2)
+                    with col1:
+                        st.metric("Accuracy", f"{model_trainer.metrics['Model 2: Comment-Score Fusion']['Accuracy']:.3f}")
+                        st.metric("F1-Score", f"{model_trainer.metrics['Model 2: Comment-Score Fusion']['F1-Score']:.3f}")
+                    with col2:
+                        create_sentiment_visualization(df, "Sentiment", "Model 2: Sentiment Distribution")
+                    
+                    with st.expander("Model 2 Predictions Sample"):
+                        # DEBUG cross checking prediction vs original NPS Type
+                        st.dataframe(
+                            df[["CommentScore", "Score", "NPS Type", "Sentiment", "Model_2_Prediction"]].sample(min(100, len(df))),
+                            use_container_width=True
+                        )
             
-            st.markdown("---")
-            
-            st.markdown("#### 🤖 Model 2: Enhanced Comment-Score Fusion")
-            with st.spinner("Training Model 2..."):
-                model2, vec2, X_test2, y_test2, y_pred2 = model_trainer.train_tfidf_model(
-                    df, "CommentScore", "Sentiment", "Model 2: Comment-Score Fusion"
-                )
-            st.success("✅ Model 2 training complete")
-            
-            if model2 is not None:
-                df["Model_2_Prediction"] = model2.predict(vec2.transform(df["CommentScore"]))
-                col1, col2 = st.columns(2)
-                with col1:
-                    st.metric("Accuracy", f"{model_trainer.metrics['Model 2: Comment-Score Fusion']['Accuracy']:.3f}")
-                    st.metric("F1-Score", f"{model_trainer.metrics['Model 2: Comment-Score Fusion']['F1-Score']:.3f}")
-                with col2:
-                    create_sentiment_visualization(df, "Sentiment", "Model 2: Sentiment Distribution")
-                # DEBUG cross checking prediction vs original NPS Type
-                st.warning("#### 📝 Model 2 Predictions Sample")
-                st.dataframe(
-                    df[["CommentScore", "Score", "NPS Type", "Sentiment", "Model_2_Prediction"]].sample(min(100, len(df))),
-                    use_container_width=True
-                )
-            
-            st.markdown("---")
+            # st.markdown("---")
             
             if TRANSFORMERS_AVAILABLE:
-                st.markdown("#### 🤖 Model 3: Transformer-Enhanced Classification *(Prototype)*")
-                with st.spinner("Processing with transformer model..."):
-                    df_transformer = model_trainer.train_transformer_model(df, "Comment", "Model 3: Transformer")
+                with tab3:
+                    st.markdown("#### 🤖 Model 3: Transformer-Enhanced Classification *(Prototype)*")
+                    with st.spinner("Processing with transformer model..."):
+                        df_transformer = model_trainer.train_transformer_model(df, "Comment", "Model 3: Transformer")
+                    
+                    if df_transformer is not None:
+                        col1, col2 = st.columns(2)
+                        with col1:
+                            st.info("Transformer model applied successfully")
+                            st.metric("Processed Records", len(df_transformer))
+                        with col2:
+                            create_sentiment_visualization(df_transformer, "HF_Label", "Model 3: Transformer Results")
+                        
+                        with st.expander("Model 3 Predictions Sample"):
+                            # DEBUG cross checking prediction vs original NPS Type
+                            st.dataframe(
+                                df_transformer[
+                                    ["Comment", "Score", "NPS Type", "Sentiment", "HF_Label", "HF_Score"]
+                                ].sample(min(10, len(df_transformer))),
+                            use_container_width=True
+                        )
                 
-                if df_transformer is not None:
-                    col1, col2 = st.columns(2)
-                    with col1:
-                        st.info("Transformer model applied successfully")
-                        st.metric("Processed Records", len(df_transformer))
-                    with col2:
-                        create_sentiment_visualization(df_transformer, "HF_Label", "Model 3: Transformer Results")
-                    # DEBUG cross checking prediction vs original NPS Type
-                    st.warning("#### 📝 Model 3 Predictions Sample")
-                    st.dataframe(
-                        df_transformer[
-                            ["Comment", "Score", "NPS Type", "Sentiment", "HF_Label", "HF_Score"]
-                        ].sample(min(10, len(df_transformer))),
-                        use_container_width=True
-                    )
-                
-                st.markdown("---")
-                
-                st.markdown("#### 🤖 Model 4: Hybrid Transformer-Score Integration *(Prototype)*")
-                with st.spinner("Processing hybrid transformer model..."):
-                    df_hybrid = model_trainer.train_transformer_model(df, "CommentScore", "Model 4: Hybrid")
-                
-                if df_hybrid is not None:
-                    col1, col2 = st.columns(2)
-                    with col1:
-                        st.info("Hybrid transformer model applied successfully")
-                        st.metric("Processed Records", len(df_hybrid))
-                    with col2:
-                        create_sentiment_visualization(df_hybrid, "HF_Label", "Model 4: Hybrid Results")
-                    # DEBUG cross checking prediction vs original NPS Type
-                    st.warning("#### 📝 Model 4 Predictions Sample")
-                    st.dataframe(
-                        df_hybrid[
-                            ["CommentScore", "NPS Type", "Sentiment", "HF_Label", "HF_Score"]
-                        ].sample(min(10, len(df_hybrid))),
-                        use_container_width=True
-                    )
+                with tab4:
+                    st.markdown("#### 🤖 Model 4: Hybrid Transformer-Score Integration *(Prototype)*")
+                    with st.spinner("Processing hybrid transformer model..."):
+                        df_hybrid = model_trainer.train_transformer_model(df, "CommentScore", "Model 4: Hybrid")
+                    
+                    if df_hybrid is not None:
+                        col1, col2 = st.columns(2)
+                        with col1:
+                            st.info("Hybrid transformer model applied successfully")
+                            st.metric("Processed Records", len(df_hybrid))
+                        with col2:
+                            create_sentiment_visualization(df_hybrid, "HF_Label", "Model 4: Hybrid Results")
+                        
+                        with st.expander("Model 4 Predictions Sample"):
+                            # DEBUG cross checking prediction vs original NPS Type
+                            st.dataframe(
+                                df_hybrid[
+                                    ["CommentScore", "NPS Type", "Sentiment", "HF_Label", "HF_Score"]
+                                ].sample(min(10, len(df_hybrid))),
+                            use_container_width=True
+                        )
             else:
                 st.info("🔬 Transformer models (3 & 4) are prototype implementations and require additional dependencies.")
             
             st.markdown("---")
             
-            create_performance_dashboard(model_trainer.metrics)
+            # create_performance_dashboard(model_trainer.metrics)
             
-            st.markdown("### 📊 NPS vs Sentiment Analysis Comparison")
-            df = classify_nps(df)
+            # st.markdown("### 📊 NPS vs Sentiment Analysis Comparison")
+            # df = classify_nps(df)
             
-            col1, col2 = st.columns(2)
-            with col1:
-                st.markdown("**NPS Distribution**")
-                donut_chart = nps_donut_chart(df)
-                st.altair_chart(donut_chart, use_container_width=True)
-                st.dataframe(df["NPS Type"].value_counts().reset_index(), use_container_width=True)
+            # col1, col2 = st.columns(2)
+            # with col1:
+            #     st.markdown("**NPS Distribution**")
+            #     donut_chart = nps_donut_chart(df)
+            #     st.altair_chart(donut_chart, use_container_width=True)
+            #     st.dataframe(df["NPS Type"].value_counts().reset_index(), use_container_width=True)
             
-            with col2:
-                st.markdown("**Sentiment Distribution**")
-                create_sentiment_visualization(df, "Sentiment", "Overall Sentiment Distribution")
+            # with col2:
+            #     st.markdown("**Sentiment Distribution**")
+            #     create_sentiment_visualization(df, "Sentiment", "Overall Sentiment Distribution")
             
-            st.markdown("---")
-            st.markdown("### 📊 Crosstab Analysis")
+            # st.markdown("---")
+            # st.markdown("### 📊 Crosstab Analysis")
             
-            crosstab = pd.crosstab(df["NPS Type"], df["Sentiment"])
-            st.dataframe(crosstab, use_container_width=True)
+            # crosstab = pd.crosstab(df["NPS Type"], df["Sentiment"])
+            # st.dataframe(crosstab, use_container_width=True)
 
-            ct_melted = crosstab.reset_index().melt(id_vars="NPS Type", var_name="Sentiment", value_name="Count")
+            # ct_melted = crosstab.reset_index().melt(id_vars="NPS Type", var_name="Sentiment", value_name="Count")
 
-            heatmap = alt.Chart(ct_melted).mark_rect().encode(
-                x=alt.X('Sentiment:N'),
-                y=alt.Y('NPS Type:N'),
-                color=alt.Color('Count:Q', scale=alt.Scale(scheme='blues')),
-                tooltip=['NPS Type', 'Sentiment', 'Count']
-            ).properties(
-                title="Heatmap - NPS Type vs Sentiment"
-            )
+            # heatmap = alt.Chart(ct_melted).mark_rect().encode(
+            #     x=alt.X('Sentiment:N'),
+            #     y=alt.Y('NPS Type:N'),
+            #     color=alt.Color('Count:Q', scale=alt.Scale(scheme='blues')),
+            #     tooltip=['NPS Type', 'Sentiment', 'Count']
+            # ).properties(
+            #     title="Heatmap - NPS Type vs Sentiment"
+            # )
 
-            st.altair_chart(heatmap, use_container_width=True)
+            # st.altair_chart(heatmap, use_container_width=True)
 
-            nps_sentiment_map = {
-                "Promoter": "POSITIVE",
-                "Passive": "NEUTRAL",
-                "Detractor": "NEGATIVE"
-            }
+            # nps_sentiment_map = {
+            #     "Promoter": "POSITIVE",
+            #     "Passive": "NEUTRAL",
+            #     "Detractor": "NEGATIVE"
+            # }
 
-            df["NPS_Sentiment"] = df["NPS Type"].map(nps_sentiment_map)
+            # df["NPS_Sentiment"] = df["NPS Type"].map(nps_sentiment_map)
 
-            agreement_rate = np.mean(df["NPS_Sentiment"] == df["Sentiment"])
-            st.write(f"✅ The agreement between NPS and sentiment is: {agreement_rate:.2%}")
+            # agreement_rate = np.mean(df["NPS_Sentiment"] == df["Sentiment"])
+            # st.write(f"✅ The agreement between NPS and sentiment is: {agreement_rate:.2%}")
             
-            st.markdown("---")
+            # st.markdown("---")
 
-            st.markdown("### 💾 Export Results")
-            if st.button("📥 Download Model Comparison Report", type="primary", key="export"):
-                report_data = {
-                    "model_metrics": model_trainer.metrics,
-                    "data_summary": {
-                        "total_records": len(df),
-                        "columns": list(df.columns),
-                        "nps_distribution": df["NPS Type"].value_counts().to_dict(),
-                        "sentiment_distribution": df["Sentiment"].value_counts().to_dict()
-                    }
-                }
+            # st.markdown("### 💾 Export Results")
+            # if st.button("📥 Download Model Comparison Report", type="primary", key="export"):
+            #     report_data = {
+            #         "model_metrics": model_trainer.metrics,
+            #         "data_summary": {
+            #             "total_records": len(df),
+            #             "columns": list(df.columns),
+            #             "nps_distribution": df["NPS Type"].value_counts().to_dict(),
+            #             "sentiment_distribution": df["Sentiment"].value_counts().to_dict()
+            #         }
+            #     }
                 
-                st.download_button(
-                    label="Download JSON Report",
-                    data=pd.Series(report_data).to_json(),
-                    file_name=f"model_comparison_report_{pd.Timestamp.now().strftime('%Y%m%d_%H%M%S')}.json",
-                    mime="application/json"
-                )
+            #     st.download_button(
+            #         label="Download JSON Report",
+            #         data=pd.Series(report_data).to_json(),
+            #         file_name=f"model_comparison_report_{pd.Timestamp.now().strftime('%Y%m%d_%H%M%S')}.json",
+            #         mime="application/json"
+            #     )
             
-            with st.expander("🔎 Full DataFrame with All Predictions"):
-                st.dataframe(df, use_container_width=True)
+            # with st.expander("🔎 Full DataFrame with All Predictions"):
+            #     st.dataframe(df, use_container_width=True)
             
         except Exception as e:
             st.error(f"❌ An error occurred: {str(e)}")
