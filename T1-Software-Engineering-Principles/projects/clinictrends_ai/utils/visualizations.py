@@ -3,6 +3,7 @@ import pandas as pd
 from typing import Dict
 import streamlit as st
 from utils.preprocessing import classify_nps
+import numpy as np
 
 def nps_donut_chart(filtered_df: pd.DataFrame):
     chart_data = filtered_df["NPS Type"].value_counts().reset_index()
@@ -336,3 +337,48 @@ def create_model_explanations():
         - **F1-Score**: Harmonic mean of precision and recall (balanced metric)
         - **Training Time**: Time taken to train the model on your dataset
         """)
+
+def create_nps_explanations():
+    """Create expandable sections explaining NPS metrics."""    
+    with st.expander("📖 Understanding NPS Metrics", expanded=False):
+        st.markdown("""
+        **Explore powerful insights from your customer feedback.**
+        
+        ### 📈 NPS Metrics Explained
+        
+        - **NPS Score**: Percentage of customers who are promoters (9-10) minus detractors (0-6)
+        - 🟢 **Promoters**: Customers who are very likely to recommend your product or service
+        - 🟡 **Passives**: Customers who are neutral and may be swayed by future experiences
+        - 🔴 **Detractors**: Customers who are unlikely to recommend your product or service
+
+        The NPS Analytics Dashboard enables:
+        
+        - **Track customer feedback trends** over time (monthly, quarterly, yearly)
+        - **Visualize NPS performance**: identify Promoters, Passives, and Detractors
+        - **Analyze customer comments** using NLP to reveal underlying sentiment patterns
+        - **Compare NPS vs. Sentiment Alignment**: detect potential mismatches or hidden insights
+        """)
+
+def display_nps_sentiment_agreement(df: pd.DataFrame) -> float:
+    """
+    Calculate and display the agreement rate between NPS Type and ML-predicted Sentiment.
+
+    Args:
+        df (pd.DataFrame): DataFrame containing 'NPS Type' and 'Sentiment' columns.
+
+    Returns:
+        float: Agreement rate as a decimal (e.g., 0.86 for 86%)
+    """
+    nps_sentiment_map = {
+        "Promoter": "POSITIVE",
+        "Passive": "NEUTRAL",
+        "Detractor": "NEGATIVE"
+    }
+
+    df["NPS_Sentiment"] = df["NPS Type"].map(nps_sentiment_map)
+    agreement_rate = np.mean(df["NPS_Sentiment"] == df["Sentiment"])
+
+    st.info(f"🎯 **Quick Summary**: Overall NPS-Sentiment agreement rate is {agreement_rate:.1%}")
+
+    return agreement_rate
+    

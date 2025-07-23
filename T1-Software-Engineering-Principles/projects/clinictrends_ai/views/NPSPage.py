@@ -7,7 +7,7 @@ import requests
 # Add parent directory to path to import utils
 sys.path.append(str(Path(__file__).parent.parent))
 from utils.preprocessing import load_and_process_csv, calculate_nps
-from utils.visualizations import nps_donut_chart, monthly_nps_trend_chart
+from utils.visualizations import nps_donut_chart, monthly_nps_trend_chart, create_nps_explanations
 from utils.ui_filters import get_year_store_filters
 from utils.nlp_analysis import display_sentiment_distribution, display_wordcloud, annotate_sentiments
 from utils.alerts import send_discord_message
@@ -19,17 +19,7 @@ def show_dashboard():
 
     st.title("📈 NPS Analytics Dashboard")
     
-    st.markdown("""
-    **Explore powerful insights from your customer feedback.**
-
-    The NPS Analytics Dashboard enables:
-    
-    - **Track customer feedback trends** over time (monthly, quarterly, yearly)
-    - **Visualize NPS performance**: identify Promoters, Passives, and Detractors
-    - **Analyze customer comments** using NLP to reveal underlying sentiment patterns
-    - **Compare NPS vs. Sentiment Alignment**: detect potential mismatches or hidden insights
-    
-    """)
+    create_nps_explanations()
 
     st.markdown("---")
 
@@ -39,11 +29,12 @@ def show_dashboard():
         data_upload()
 
     with col2:
+        st.markdown("#### 📁 Data Upload")
         uploaded_file = st.file_uploader(
-            "Upload your CSV file with customer feedback or use the sample data",
-            type="csv",
-            help="File should contain 'Comment' and 'Score' columns"
-        )
+        "Upload your CSV file or use the sample data",
+        type="csv",
+        help="File should contain 'Comment' and 'Score' columns"
+    )
 
     if uploaded_file is not None:
         send_discord_message("🔄 Starting data upload and validation process at NPS Page")

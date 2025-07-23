@@ -119,16 +119,19 @@ streamlit run app.py
 ### 🔧 In Progress
 
 #### 🔸 v2.8.2 - `feature/refactor-models-views`
-part 1:
+**part 1:**
   - start project.... I'm pausing now to focus on Frontend CSS Challenge a little bit. Might be inspirational to think about user experience to bring here.
   - got back here after a couple of minutes... found an interesting library, i'll test
   - created `appClinicTrendsAi.md` for instructions on how to run the app
   - imported import streamlit_shadcn_ui as ui - DISCONTINUED
   - adds tabs to models page for enhanced exp
-part 2:
+
+**part 2:**
   - drilling down functions from `ModelsPage.py` to `utils.visualizations`
-part 3:
-  - #TODO: review crosstab analysis, heatmaps...
+
+**part 3:**
+  - drilling down more functions from `ModelsPage.py` and `NPSPage.py` to `utils.visualizations`
+  - separation of concerns for review crosstab analysis, heatmaps and metrics in `utils.crosstab_analysis`
 
 #### 🔸 v2.8.3 - `feature/refactor-enhanced-models-views`
 
