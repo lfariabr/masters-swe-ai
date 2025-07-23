@@ -8,11 +8,11 @@ def data_upload():
 
     if response.status_code == 200:
         st.download_button(
-            label="⬇️ Download Sample CSV Data",
+            label="Download sample csv data",
             data=response.content,
             file_name="clinicTrendsAiSample.csv",
-            mime="text/csv"
+            mime="text/csv",
+            help="Click to download a sample CSV data for testing the application."
         )   
     else:
         st.error("Sample CSV file not found!")
-    

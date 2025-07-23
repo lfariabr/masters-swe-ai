@@ -20,10 +20,6 @@ try:
         HomePage,
         NPSPage,
         TranslatePage,
-        TrainingPage,
-        TrainingPage2,
-        TrainingPage3,
-        TrainingPage4,
         ModelsPage,
         EnhancedModels,
         TopicModelingPage
@@ -63,7 +59,7 @@ def main():
         # Page selection
         page = st.radio(
             "",
-            ["Home",
+            ["About",
              "NPS Analysis",
              "ML Model Comparison",
              "Enhanced ML 🛠️🧪",
@@ -86,7 +82,7 @@ def main():
         """)
     
     # Main content based on selection
-    if page == "Home":
+    if page == "About":
         HomePage.show_home()
     elif page == "NPS Analysis":
         NPSPage.show_dashboard()

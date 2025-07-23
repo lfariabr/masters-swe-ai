@@ -151,7 +151,7 @@ def show_models():
     """)
     
     data_upload()
-        
+    
     uploaded_file = st.file_uploader(
         "Upload your CSV file with customer feedback or use the sample data",
         type="csv",
