@@ -48,4 +48,19 @@ Here's the outline of the tasks given/planned:
 
 ---
 
+---
+
+## Challenge #3: Lumin.gg Flutter App
+**Tasks**
+Here's the outline of the tasks given/planned:
+
+> Tip: ✅ = Done, 🔥 = WIP, 🕐 = Not started
+
+| Task ID/Topic | Details            | Status         | Date (YY-MM-DD)         | 
+|---------|---------------------|----------------|------------|
+| #1 Flutter App   | Create a Flutter App: Project Structure and Dependencies | ✅ | 25-07-23 |
+| #2 Flutter App   | Flutter Basics and Widgets | 🕐 | TBD |
+
+---
+
 > "Don't watch the clock; do what it does. Keep going." - Sam Levenson
