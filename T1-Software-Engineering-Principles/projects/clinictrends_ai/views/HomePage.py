@@ -18,7 +18,7 @@ def show_home():
         🚀 **Ready to unlock all features?**  
         Click the button below read more about the Project!
         """)
-    if st.button("Unlock key features", key="unlock_features"):
+    if st.button("Unlock key features", key="unlock_features", help="Click to unlock key features", type="primary"):
         st.success("Key features unlocked! 🎉")
         send_discord_message("👀 Button to unlock features has been clicked at home.")
         st.balloons()
