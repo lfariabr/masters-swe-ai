@@ -29,9 +29,10 @@ Take a deep dive into how I'm approaching projects and the progress I'm making.
 #### Course Projects
 Project | Description | Status | Folder directory | Demo URL |
 |---------|---------------------|----------------|----------------|----------------|
-| **ClinicTrendsAI** | Streamlit App to analyze survey records and generate insights using Machine Learning, NLP and Data Visualization. | 🔥 | [Here](./T1-Software-Engineering-Principles/projects/clinictrends_ai/README.md) | [Here](https://sep-torrens-dr-ranju-group-1.streamlit.app/) | 
-| **TTrack** | PyQt5 desktop app to help academic staff to track academic progress by comparing a student’s official transcript with prescribed curriculum using custom made algorithms. | 🔥 | [Here](./T1-Software-Development-Management/projects/TTrack_v1/README.md) | 🔥 |
-| **TTrack** | Node.js and React desktop app wrapped by Electron alternative to TTrack Python. | 🔥 | [Here](./T1-Software-Development-Management/projects/TTrack_electron/README.md) | 🔥 |
+| **ClinicTrendsAI** | Streamlit App to analyze survey records and generate insights using Machine Learning, NLP and Data Visualization. | 🔥 | [Here](./T1-Software-Engineering-Principles/projects/clinictrends_ai) | [Here](https://sep-torrens-dr-ranju-group-1.streamlit.app/) | 
+| **TTrack** | PyQt5 desktop app to help academic staff to track academic progress by comparing a student’s official transcript with prescribed curriculum using custom made algorithms. | 🔥 | [Here](./T1-Software-Development-Management/projects/TTrack_v1 | 🔥 |
+| **TTrack** | Node.js and React desktop app wrapped by Electron alternative to TTrack Python. | 🔥 | [Here](./T1-Software-Development-Management/projects/TTrack_electron) | 🔥 |
+| **Lumin** | Flutter Gaming app to help users to share photos and videos with their friends and family | 🔥 | [Here](./T1-Extra/flutter/lumin_demo) | 🔥 |
 | **Commonwealth Bank Forage** | Virtual challenge covering backend (.NET, MongoDB) and frontend (React, Redux, TypeScript) work, unit testing with xUnit | ✅ | [Here](./T1-Extra/cba/) | [dev.to](https://dev.to/lfariaus/how-i-tackled-the-commonwealths-bank-software-engineering-challenge-3ebk) |
 | **AWS Solutions Architect** | Virtual challenge covering acting as a Solutions Architect for a client | ✅ | [Here](./T1-Extra/aws/) | N/A |
 
