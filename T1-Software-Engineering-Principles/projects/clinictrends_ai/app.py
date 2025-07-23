@@ -57,7 +57,7 @@ def main():
             "",
             ["About",
              "NPS Analysis",
-             "ML Model Comparison",
+             "ML Models",
              "Enhanced ML 🛠️🧪",
              "Topic Modeling",
              "Translation",
@@ -82,7 +82,7 @@ def main():
         HomePage.show_home()
     elif page == "NPS Analysis":
         NPSPage.show_dashboard()
-    elif page == "ML Model Comparison":
+    elif page == "ML Models":
         ModelsPage.show_models()
     elif page == "Enhanced ML 🛠️🧪":
         EnhancedModels.show_enhanced_models()
