@@ -104,18 +104,31 @@ streamlit run app.py
 - EnhancedModels will display work in progress with model fune tuning, metrics and Topic Modeling
 - ModelTrainer will display the current models' metrics and predictions
 
----
-
-### 🔧 In Progress
-
-#### 🔸 v2.8.0 - `feature/topic-modeling`
+#### 🔹 v2.8.0 - `feature/topic-modeling`
 - Integrate BERTopic into Pipeline
   - created BERTopicModel.py
   - `pip install bertopic` + `pip install sentence-transformers` + `pip install umap-learn plotly`
   - add streamlit Page TopicModelingPage
   - writes doc of what needs to be done yet (share with Dr. Ranju)
 
-  
+#### 🔹 v2.8.1 - `feature/refactor-about-and-nps-views`
+- separation of concerns and easy maintenance
+
+---
+
+### 🔧 In Progress
+
+
+
+#### 🔸 v2.8.2 - `feature/refactor-models-views`
+
+#### 🔸 v2.8.3 - `feature/refactor-enhanced-models-views`
+
+#### 🔸 v2.8.4 - `feature/refactor-topic-modeling-views`
+
+#### 🔸 v2.8.5 - `feature/refactor-translation-views`
+
+---
 
 ### 🗂️ Backlog
 
