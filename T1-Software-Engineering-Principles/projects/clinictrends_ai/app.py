@@ -58,10 +58,9 @@ def main():
             ["About",
              "NPS Analysis",
              "ML Models",
-             "Enhanced ML 🛠️🧪",
              "Topic Modeling",
              "Translation",
-             
+             "ML Experiments 🧪",             
             ],
             index=0,
             label_visibility="collapsed"
@@ -84,7 +83,7 @@ def main():
         NPSPage.show_dashboard()
     elif page == "ML Models":
         ModelsPage.show_models()
-    elif page == "Enhanced ML 🛠️🧪":
+    elif page == "ML Experiments 🧪":
         EnhancedModels.show_enhanced_models()
     elif page == "Topic Modeling":
         TopicModelingPage.show_topic_modeling()
