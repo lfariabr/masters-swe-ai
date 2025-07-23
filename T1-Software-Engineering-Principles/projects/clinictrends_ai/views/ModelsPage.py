@@ -50,13 +50,14 @@ from utils.data_upload import data_upload
 from utils.visualizations import (
     create_sentiment_visualization,
     create_model_explanations,
-    create_sentiment_visualization,
     create_model_summary_cards, 
     create_detailed_metrics_table,
     create_performance_charts,
     crate_nps_vs_sentiment_analysis,
-    model_architecture_info
+    model_architecture_info,
+    display_nps_sentiment_agreement
 )
+from utils.crosstab_analysis import enhanced_crosstab_analysis
 
 def show_models():
     """
@@ -76,8 +77,9 @@ def show_models():
         data_upload()
     
     with col2:
+        st.markdown("#### 📁 Data Upload")
         uploaded_file = st.file_uploader(
-        "Upload your CSV file with customer feedback or use the sample data",
+        "Upload your CSV file or use the sample data",
         type="csv",
         help="File should contain 'Comment' and 'Score' columns"
     )
@@ -210,52 +212,29 @@ def show_models():
                         )
             else:
                 st.info("🔬 Transformer models (3 & 4) are prototype implementations and require additional dependencies.")
-            
             st.markdown("---")
             
-            # Enhanced metrics presentation with multiple views
+            # Model Performance Overview
             create_model_summary_cards(model_trainer.metrics)
-            
             st.markdown("---")
             
+            # Detailed Performance Metrics
             create_detailed_metrics_table(model_trainer.metrics)
-            
             st.markdown("---")
             
+            # Performance Visualizations
             create_performance_charts(model_trainer.metrics)
-            
-            crate_nps_vs_sentiment_analysis(df)
-            
             st.markdown("---")
-            st.markdown("### 📊 Crosstab Analysis")
             
-            crosstab = pd.crosstab(df["NPS Type"], df["Sentiment"])
-            st.dataframe(crosstab, use_container_width=True)
-
-            ct_melted = crosstab.reset_index().melt(id_vars="NPS Type", var_name="Sentiment", value_name="Count")
-
-            heatmap = alt.Chart(ct_melted).mark_rect().encode(
-                x=alt.X('Sentiment:N'),
-                y=alt.Y('NPS Type:N'),
-                color=alt.Color('Count:Q', scale=alt.Scale(scheme='blues')),
-                tooltip=['NPS Type', 'Sentiment', 'Count']
-            ).properties(
-                title="Heatmap - NPS Type vs Sentiment"
-            )
-
-            st.altair_chart(heatmap, use_container_width=True)
-
-            nps_sentiment_map = {
-                "Promoter": "POSITIVE",
-                "Passive": "NEUTRAL",
-                "Detractor": "NEGATIVE"
-            }
-
-            df["NPS_Sentiment"] = df["NPS Type"].map(nps_sentiment_map)
-
-            agreement_rate = np.mean(df["NPS_Sentiment"] == df["Sentiment"])
-            st.write(f"✅ The agreement between NPS and sentiment is: {agreement_rate:.2%}")
+            # NPS vs Sentiment Analysis Comparison
+            crate_nps_vs_sentiment_analysis(df)
+            st.markdown("---")
             
+            # Enhanced Cross-Tabulation Analysis
+            enhanced_crosstab_analysis(df)
+            
+            # NPS vs Sentiment Agreement Analysis
+            display_nps_sentiment_agreement(df)
             st.markdown("---")
 
             st.markdown("### 💾 Export Results")
