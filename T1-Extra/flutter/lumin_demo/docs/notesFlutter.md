@@ -90,10 +90,20 @@ Goal: Finalize and deploy the app
 - Build for different platforms
 - Learn about app deployment
 
+---
+
 ## Current progress
 
-### v1.0.0 - Project Structure & Dependencies
-**Step 1 Complete**: Project Structure & Dependencies
+### Running the app
+```bash
+cd T1-Extra/flutter/lumin_demoZ
+flutter run -d chrome
+```
+
+### 🔹 v1.0.0 - `feature/flutter-setup` - Project Structure & Dependencies
+
+#### Step 1 - COMPLETED ✅
+**Project Structure & Dependencies**
 1. Updated pubspec.yaml with essential dependencies:
 - provider - State management (like Redux for Flutter)
 - dio - HTTP requests (like Axios for JavaScript)
@@ -124,10 +134,12 @@ SocialNetworkApp (MaterialApp)
     ├── AppBar
     └── Body (Center → Column → [Icon, Text, Text])
 ```
+
 2. StatelessWidget vs StatefulWidget
 - StatelessWidget: UI that doesn't change (like our `HomeScreen`)
 - StatefulWidget: UI that can change based on user interaction
 - Key concept: `build()` method returns the UI
+
 3. Provider Pattern Setup
 ```dart
 MultiProvider(
@@ -137,16 +149,21 @@ MultiProvider(
   child: MaterialApp(...)
 )
 ```
+
 4. Import Organization
 - Flutter material design: import `package:flutter/material.dart`;
 - Third-party packages: import `package:provider/provider.dart`;
 - Local files: import `screens/home_screen.dart`;
 
-**Step 2 Complete**: Basic App Structure
+### 🔹 v1.1.0 - `feature/flutter-structure` - Basic App Structure
+
+#### Step 2 - COMPLETED ✅
+**Basic App Structure**
 1. MainScreen - The core navigation controller with:
     - StatefulWidget with navigation state management
     - Bottom navigation bar with 5 Instagram-style tabs
     - Screen switching logic using setState()
+
 2. Navigation Screens:
     - Home 🏠 - Feed/Timeline
     - Search 🔍 - Discover content
@@ -156,11 +173,13 @@ MultiProvider(
 
 **Key Learnings**
 1. StatefulWidget Pattern
+
 2. BottomNavigationBar
 - `type: BottomNavigationBarType.fixed` - Shows all tabs
 - `currentIndex` - Tracks active tab
 - `onTap` - Handles tab switching
 - Icon states: `icon` (unselected) vs `activeIcon` (selected)
+
 3. List-Based Screen Management
 ```dart
 final List<Widget> _screens = [
@@ -171,8 +190,101 @@ final List<Widget> _screens = [
 
 body: _screens[_currentIndex], // Dynamic screen switching
 ```
+
 4. Scaffold Structure
 Each screen follows the pattern:
 - AppBar - Top navigation
 - body - Main content
 - Consistent styling across screens
+
+### 🔹 v1.3.0 - `feature/flutter-basics-and-widgets` - Learn Flutter Basics and Widgets
+
+#### Step 3 - COMPLETED ✅
+**Learn Flutter Basics and Widgets**
+
+1.Post Model (`models/post.dart`):
+- Data structure with all post properties
+- `timeAgo` helper method for relative timestamps
+- `copyWith` method for immutable updates
+
+2. Mock Data (`utils/mock_data.dart`):
+- Sample posts with realistic content
+- Different users, images, and timestamps
+- Varied engagement (likes, comments)
+
+3. Custom Post Widget (`widgets/post_widget.dart`):
+- Complete Instagram-style post layout
+- Interactive like button with state management
+- Image loading with placeholders and error handling
+- User avatars, captions, and comment previews
+
+4. Updated Home Screen:
+- `ListView.builder` for efficient scrolling
+- App bar with action buttons
+- Integration of all components
+
+**Key Learnings**
+1. Data Modeling
+```dart
+class Post {
+  final String id;
+  final String username;
+  // ... other properties
+  
+  // Helper methods
+  String get timeAgo { /* logic */ }
+  Post copyWith({...}) { /* immutable updates */ }
+}
+```
+
+2. ListView.builder Pattern
+```dart
+ListView.builder(
+  itemCount: posts.length,
+  itemBuilder: (context, index) {
+    return PostWidget(post: posts[index]);
+  },
+)
+```
+- Efficient: Only builds visible items
+- Scrollable: Handles large lists automatically
+- Dynamic: Updates when data changes
+
+3. Custom Widget Creation 
+```dart
+class PostWidget extends StatefulWidget {
+  final Post post; // Data passed from parent
+  
+  @override
+  State<PostWidget> createState() => _PostWidgetState();
+}
+```
+
+4. State Management in Widgets
+```dart
+void _toggleLike() {
+  setState(() {
+    isLiked = !isLiked;
+    likeCount = isLiked ? likeCount + 1 : likeCount - 1;
+  });
+}
+```
+
+5. Image Handling
+```dart
+CachedNetworkImage(
+  imageUrl: widget.post.imageUrl,
+  placeholder: (context, url) => CircularProgressIndicator(),
+  errorWidget: (context, url, error) => Icon(Icons.error),
+)
+```
+
+6. Widget Composition
+- Breaking complex UI into smaller, reusable pieces
+- Passing data between parent and child widgets
+- Combining multiple widgets to create rich layouts
+
+### 🔹 v1.4.0 - `feature/flutter-tbd` - TBD
+
+#### Step 4 - NOT STARTED 🕐
+**TBDs**

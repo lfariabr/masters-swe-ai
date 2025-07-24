@@ -127,6 +127,8 @@ eggs/
 .eggs/
 lib/
 lib64/
+# Flutter (Dart) source folders – KEEP
+!T1-Extra/flutter/lumin_demo/lib/
 parts/
 sdist/
 var/
