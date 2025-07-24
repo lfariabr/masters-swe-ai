@@ -11,3 +11,4 @@ Here's the outline of the tasks given/planned:
 | #2 Web Application Hosting   | Designing a simple, scalable, hosting architecture - draft 1| ✅ | 25-07-19 |
 | #3 Web Application Hosting   | Designing a simple, scalable, hosting architecture - draft 2| ✅ | 25-07-20 |
 | #4 Certificate   | Add Certificate | ✅ | 25-07-20 |
+| #5 Article   | Write an article about the challenge | ✅ | 25-07-26 |
