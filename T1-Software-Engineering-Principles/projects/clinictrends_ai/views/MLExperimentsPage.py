@@ -145,7 +145,7 @@ def show_enhanced_models():
     Main function for the Models Comparison Page.
     Implements enterprise-grade ML model comparison interface.
     """
-    st.title("🛠️🧪 Enhanced ML")
+    st.title("ML Experiments 🧪")
     st.markdown("""
     Experiments with Training.
     """)

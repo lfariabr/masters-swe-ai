@@ -115,7 +115,7 @@ streamlit run app.py
 - separation of concerns and easy maintenance
 
 #### 🔹 v2.8.2 - `feature/refactor-models-views`
-- **part 1:**
+**part 1:**
 - start project.... I'm pausing now to focus on Frontend CSS Challenge a little bit. Might be inspirational to think about user experience to bring here.
 - got back here after a couple of minutes... found an interesting library, i'll test
 - created `appClinicTrendsAi.md` for instructions on how to run the app
@@ -134,8 +134,12 @@ streamlit run app.py
 ### 🔧 In Progress
 
 #### 🔸 v2.8.3 - `feature/refactor-enhanced-models-views`
-- **part 1:**
+**part 1:**
 - reorganizing `EnhancedModels.py` page with tabs and expanders
+
+**part 2:**
+- better naming from `EnhancedModelsPage.py` to `MLExperimentsPage.py`
+- adds flow diagram [ModelTrainer_ClassDiagram](T1-Software-Engineering-Principles/projects/clinictrends_ai/docs/diagrams/ModelTrainer_ClassDiagram.png) mapping out object relationships
 
 #### 🔸 v2.8.4 - `feature/refactor-topic-modeling-views`
 
@@ -145,7 +149,7 @@ streamlit run app.py
 
 ### 🗂️ Backlog
 
-- think about adding topic modeling to Enhanced code page
+- **Add Topic Modeling to Pipeline**
 
 #### 🔸 v2.8.0 - `feature/topic-modeling`
 - current pipeline: Data ➔ Preprocessing ➔ Sentiment Analysis ➔ Performance Metrics
@@ -160,6 +164,7 @@ streamlit run app.py
     - https://wellsr.com/python/topic-modeling-with-bert-using-python-bertopic-library/?utm_source=chatgpt.com
     - https://www.datacamp.com/tutorial/what-is-topic-modeling?utm_source=chatgpt.com
     - https://hackernoon.com/nlp-tutorial-topic-modeling-in-python-with-bertopic-372w35l9
+> **Note:** Paused here to refactor pages and model class before integrating BERTopic to pipeline
 - Integrate BERTopic into Pipeline
 - Map Topics → Business Recommendations. E.g.:
   - “Topic: Delivery delays” → “Improve logistics or communication”
