@@ -11,17 +11,15 @@ from sklearn.metrics import accuracy_score, precision_recall_fscore_support
 from sklearn.model_selection import train_test_split
 from sklearn.model_selection import GridSearchCV
 
-# Optional: Transformers
 try:
     from transformers import pipeline
     TRANSFORMERS_AVAILABLE = True
 except ImportError:
     TRANSFORMERS_AVAILABLE = False
 
-
 class EnhancedTrainer:
     """
-    Enterprise-grade ML model training and evaluation class.
+    ML model training and evaluation class.
     Implements standardized training pipelines with comprehensive metrics.
     """
     
@@ -30,12 +28,18 @@ class EnhancedTrainer:
         self.vectorizers = {}
         self.metrics = {}
         
-    def train_tfidf_model(self, df: pd.DataFrame, feature_column: str, 
-                         target_column: str, model_name: str, score_column: str = None) -> Tuple[Any, Any, Any, Any, Any]:
+    def train_tfidf_model(self, 
+                          df: pd.DataFrame, 
+                          feature_column: str, 
+                          target_column: str, 
+                          model_name: str, 
+                          score_column: str = None) -> Tuple[Any, Any, Any, Any, Any]:
         """
-        Train TF-IDF (Term Frequency-Inverse Document Frequency) + Logistic Regression model with standardized pipeline.
+        Train TF-IDF (Term Frequency-Inverse Document Frequency) 
+        + Logistic Regression model with standardized pipeline.
         
-        Uses a three-way split (train/validation/test) for robust model evaluation and early detection of overfitting.
+        Uses a three-way split (train/validation/test) 
+        for robust model evaluation and early detection of overfitting.
         
         Args:
             df: Training dataframe

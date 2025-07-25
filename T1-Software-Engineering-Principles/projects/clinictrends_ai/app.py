@@ -30,7 +30,7 @@ except ImportError:
     import views.NPSPage as NPSPage
     import views.TranslatePage as TranslatePage
     import views.ModelsPage as ModelsPage
-    import views.EnhancedModels as EnhancedModels
+    import views.MLExperimentsPage as MLExperimentsPage
     import views.TopicModelingPage as TopicModelingPage
 
 def main():
@@ -84,7 +84,7 @@ def main():
     elif page == "ML Models":
         ModelsPage.show_models()
     elif page == "ML Experiments 🧪":
-        EnhancedModels.show_enhanced_models()
+        MLExperimentsPage.show_enhanced_models()
     elif page == "Topic Modeling":
         TopicModelingPage.show_topic_modeling()
         

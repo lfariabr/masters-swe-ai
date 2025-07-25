@@ -10,18 +10,18 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, precision_recall_fscore_support
 from sklearn.model_selection import train_test_split
 from sklearn.model_selection import GridSearchCV
+from sklearn.pipeline import Pipeline
+from scipy.sparse import hstack
 
-# Optional: Transformers
 try:
     from transformers import pipeline
     TRANSFORMERS_AVAILABLE = True
 except ImportError:
     TRANSFORMERS_AVAILABLE = False
 
-
 class ModelTrainer:
     """
-    Enterprise-grade ML model training and evaluation class.
+    ML model training and evaluation class.
     Implements standardized training pipelines with comprehensive metrics.
     """
     
@@ -30,12 +30,18 @@ class ModelTrainer:
         self.vectorizers = {}
         self.metrics = {}
         
-    def train_tfidf_model(self, df: pd.DataFrame, feature_column: str, 
-                         target_column: str, model_name: str, score_column: str = None) -> Tuple[Any, Any, Any, Any, Any]:
+    def train_tfidf_model(self, 
+                          df: pd.DataFrame, 
+                          feature_column: str, 
+                          target_column: str, 
+                          model_name: str, 
+                          score_column: str = None) -> Tuple[Any, Any, Any, Any, Any]:
         """
-        Train TF-IDF (Term Frequency-Inverse Document Frequency) + Logistic Regression model with standardized pipeline.
+        Train TF-IDF (Term Frequency-Inverse Document Frequency) 
+        + Logistic Regression model with standardized pipeline.
         
-        Uses a three-way split (train/validation/test) for robust model evaluation and early detection of overfitting.
+        Uses a three-way split (train/validation/test) 
+        for robust model evaluation and early detection of overfitting.
         
         Args:
             df: Training dataframe
@@ -48,31 +54,23 @@ class ModelTrainer:
             Tuple of (trained_model, fitted_vectorizer, X_test, y_test, y_pred)
         """
         try:
-            # ----- v2.3.0 - `feature/tf-idf-deep-dive` --------
-            # Before vectorization, analyze comment sizes
-            # with st.container(border=True):
-            #     with st.container(border=True):
-            #         comment_stats = self.analyze_comment_sizes(df, feature_column)
-            #         st.write("Comment Size Statistics:", comment_stats)
-
-            #     # Find optimal feature count
-            #     with st.container(border=True):
-            #         # optimal_features = self.find_optimal_features(df, feature_column, target_column)
-
-            #         # -- v2.6.1: Change the return of find_optimal_features
-            #         best_params = self.find_optimal_features(df, feature_column, target_column) 
-            #         optimal_features = best_params['vectorizer__max_features']
-            #         # st.write(f"Using optimal feature count: {optimal_features}")
+            # **v2.3.0** - `feature/tf-idf-deep-dive`
+            #   Before vectorization, we analyze comment sizes
+            #   Then we found optimal feature count
             comment_stats = self.analyze_comment_sizes(df, feature_column)
+
+            # **v2.6.1** - `feature/dynamic-hyperparameter-injection`
+            #   Here we changed the return of find_optimal_features
+            #   to return the best_params dictionary and use it to set the vectorizer
+
             best_params = self.find_optimal_features(df, feature_column, target_column) 
             optimal_features = best_params['vectorizer__max_features']
-            # ----- v2.3.0 - `feature/tf-idf-deep-dive` --------
             
             # Create vectorizer with optimal feature count
             vectorizer = TfidfVectorizer(
                 stop_words="english",
-                max_features=optimal_features, # was hardcoded to 5000 ... now using optimal feature count from cross-validation
-                ngram_range=(1, 2),  # Include bigrams for better context
+                max_features=optimal_features, # was hardcoded to 5000 ... now uses optimal feature count from cross-validation
+                ngram_range=(1, 2), 
                 min_df=2,  # Ignore terms that appear in less than 2 documents
                 max_df=0.95  # Ignore terms that appear in more than 95% of documents
             )
@@ -83,18 +81,12 @@ class ModelTrainer:
             else:
                 X = vectorizer.fit_transform(df[feature_column].fillna(''))
 
-            # Model evaluation
-            # Scenario1: Try to find particular word from a page (finds 9/10. Precision 90%) [classification problem - always get accuracy]
-            # Scenario2: Try to understand the severity of the problem [regression problem - single class]
-
-            # 3 classes of classification: Promoter, Neutral, Detractor
-            # 2 classes of classification: Positive or Negative
-            
-            # Get target values
+            # Get TARGET values
             y = df[target_column] # output: Promoter, Neutral, Detractor
             
-            # v2.5.0 - Three-way split: train (60%), validation (20%), test (20%)
-            # Step 1: First split - separate test set (80/20)
+            # **v2.5.0** - `feature/train-validation-test-split`
+            #   Adds three-way split: train (60%), validation (20%), test (20%)
+            #   Step 1: First split - separate test set (80/20)
             X_temp, X_test, y_temp, y_test = train_test_split(
                 X, y, test_size=0.2, random_state=42, stratify=y
             )
@@ -108,9 +100,7 @@ class ModelTrainer:
             train_samples = X_train.shape[0] if hasattr(X_train, 'shape') else len(X_train)
             val_samples = X_val.shape[0] if hasattr(X_val, 'shape') else len(X_val)
             test_samples = X_test.shape[0] if hasattr(X_test, 'shape') else len(X_test)
-            
-            # st.info(f"Data split: Train={train_samples} samples, Validation={val_samples} samples, Test={test_samples} samples")
-            
+                        
             # Distribution analysis to ensure stratification worked properly
             train_dist = pd.Series(y_train).value_counts(normalize=True)
             val_dist = pd.Series(y_val).value_counts(normalize=True)
@@ -122,27 +112,23 @@ class ModelTrainer:
                 'Test %': test_dist * 100
             })
             
-            # st.write("Class distribution across splits:")
-            # st.dataframe(dist_df)
-            
-            # Model training
-            # overfit x underfit
-            # https://www.analyticsvidhya.com/blog/2020/02/underfitting-overfitting-best-fitting-machine-learning/
             model = LogisticRegression(
-                ## -- v2.4.0 - `feature/tf-idf-iteration-check` --
-                # max_iter=100, # This was hardcoded to 1000. Now using 100 because mean_token_length is 19 and standard token is 34
+                ## **v2.4.0** - `feature/tf-idf-iteration-check`
+                #   max_iter=100, # was hardcoded to 1000. Now using calculated max_iter
                 max_iter=best_params['classifier__max_iter'],
                 random_state=42,
-                class_weight='balanced',  # Handle class imbalance
+                class_weight='balanced',
 
-                ## -- v2.6.0 - `feature/logreg-hyperparam-tuning` --
-                # C=10.0,
-                # penalty='l2',
-                # solver='lbfgs',
-                # multi_class='ovr',
+                ## **v2.6.0** - `feature/logreg-hyperparam-tuning`
+                #   These params were hardcoded before
+                #   Now using best_params from GridSearchCV
+                #   C=10.0,
+                #   penalty='l2',
+                #   solver='lbfgs',
+                #   multi_class='ovr',
 
-                ## -- v2.6.1 - `feature/logreg-hyperparam-tuning` --
-                # removing hardcoded values
+                ## **v2.6.1** - `feature/logreg-hyperparam-tuning`
+                #   removing hardcoded values
                 C=best_params['classifier__C'],
                 penalty=best_params['classifier__penalty'],
                 solver=best_params['classifier__solver'],
@@ -156,60 +142,32 @@ class ModelTrainer:
             n_iter = model.n_iter_[0]
             # print(f"Iterations until convergence for {model_name}: {n_iter}")
             # st.write(f"Iterations until convergence for {model_name}: {n_iter}")
-            ## -- v2.4.0 - `feature/tf-idf-iteration-check` --
+            ## **v2.4.0** - `feature/tf-idf-iteration-check`
             
             # Store model artifacts
             self.models[model_name] = model
             self.vectorizers[model_name] = vectorizer
             
-            # v2.5.0 - Evaluate on all three splits
-            # with st.container(border=True):
-            #     st.subheader("Model Performance Across Data Splits")
-                
-            # Predictions on all splits
+            # **v2.5.0** - `feature/train-validation-test-split`
+            #   Evaluate on all 3 splits we've implemented
             y_train_pred = model.predict(X_train)
             y_val_pred = model.predict(X_val)
             y_test_pred = model.predict(X_test)
             
-            # Calculate metrics for all splits
+            #   Calculate metrics for all splits
             train_metrics = self._calculate_split_metrics(y_train, y_train_pred, "Train")
             val_metrics = self._calculate_split_metrics(y_val, y_val_pred, "Validation")
             test_metrics = self._calculate_split_metrics(y_test, y_test_pred, "Test")
             
-            # Combine metrics into a single dataframe for comparison
+            #   Combine metrics into a single dataframe for comparison
             metrics_df = pd.DataFrame([train_metrics, val_metrics, test_metrics])
-            # st.dataframe(metrics_df.set_index('Split'))
             
-            # Create visualization to compare performance across splits
-            # self._visualize_split_performance(train_metrics, val_metrics, test_metrics)
-            
-            # Check for overfitting
+            #   Check for overfitting
             acc_drop_train_val = train_metrics["Accuracy"] - val_metrics["Accuracy"]
             acc_drop_val_test = val_metrics["Accuracy"] - test_metrics["Accuracy"]
             f1_drop_train_val = train_metrics["F1-Score"] - val_metrics["F1-Score"]
             
-            # Create a summary box with color-coded metrics
-            # col1, col2 = st.columns(2)
-            
-            # with col1:
-            #     st.metric("Train-Validation Accuracy Gap", 
-            #                 f"{acc_drop_train_val:.4f}",
-            #                 delta_color="inverse")
-                
-            # with col2:
-            #     st.metric("Validation-Test Accuracy Gap", 
-            #                 f"{acc_drop_val_test:.4f}",
-            #                 delta_color="inverse")
-            
-            # # Display overfitting analysis
-            # if acc_drop_train_val > 0.05:
-            #     st.warning(f"⚠️ Potential overfitting detected: Train-Validation accuracy drop = {acc_drop_train_val:.4f}")
-            # if acc_drop_val_test > 0.05:
-            #     st.warning(f"⚠️ Potential generalization issue: Validation-Test accuracy drop = {acc_drop_val_test:.4f}")
-            # if acc_drop_train_val <= 0.05 and acc_drop_val_test <= 0.05:
-            #     st.success("✅ Model generalizes well across splits")
-            
-            # Store comprehensive metrics using test set (for backward compatibility)
+            #   Store comprehensive metrics using test set (for backward compatibility)
             self.metrics[model_name] = self._calculate_metrics(
                 y_test, y_test_pred, model_name, training_time
             )
@@ -220,7 +178,11 @@ class ModelTrainer:
             st.error(f"❌ Error training {model_name}: {str(e)}")
             return None, None, None, None, None
     
-    def find_optimal_features(self, df: pd.DataFrame, feature_column: str, target_column: str):
+    def find_optimal_features(
+                            self, 
+                            df: pd.DataFrame, 
+                            feature_column: str, 
+                            target_column: str):
         """
         Find the optimal number of features for the given dataset.
         
@@ -246,7 +208,6 @@ class ModelTrainer:
         }
 
         # Create pipeline
-        from sklearn.pipeline import Pipeline
         pipeline = Pipeline([
             ('vectorizer', TfidfVectorizer(
                 stop_words="english", 
@@ -278,22 +239,20 @@ class ModelTrainer:
         # Fit GridSearchCV
         grid_search.fit(X, y)
 
-        # st.write(f"Best parameters: {grid_search.best_params_}")
-        # st.write(f"Best score: {grid_search.best_score_}")
-        
         # Return the optimal feature count
-        return grid_search.best_params_ #['vectorizer__max_features'] -- v2.6.1: Change the return of find_optimal_features
+        # **v2.6.1** - `feature/dynamic-hyperparameter-injection`
+        #   We changed the return of this function to return the best_params_ instead of just the max_features
+        return grid_search.best_params_ #['vectorizer__max_features']
 
     def create_combined_features(self, df, feature_column, score_column, vectorizer):
-        """Combine text features with numerical score feature"""
+        """
+        Combine text features with numerical score feature
+        """
         # Get TF-IDF features
         text_features = vectorizer.transform(df[feature_column].fillna(''))
-        
         # Get score feature and reshape for concatenation
         score_features = df[score_column].values.reshape(-1, 1)
-        
         # Combine features
-        from scipy.sparse import hstack
         combined_features = hstack([text_features, score_features])
         
         return combined_features
@@ -456,52 +415,6 @@ class ModelTrainer:
         except Exception as e:
             st.error(f"Error calculating metrics for {model_name}: {str(e)}")
             return {}
-
-
-    def _visualize_split_performance(self, train_metrics, val_metrics, test_metrics):
-        """Create visualizations comparing model performance across train/validation/test splits."""
-        try:
-            # Extract metrics for visualization
-            splits = ['Train', 'Validation', 'Test']
-            accuracy = [train_metrics["Accuracy"], val_metrics["Accuracy"], test_metrics["Accuracy"]]
-            precision = [train_metrics["Precision"], val_metrics["Precision"], test_metrics["Precision"]]
-            recall = [train_metrics["Recall"], val_metrics["Recall"], test_metrics["Recall"]]
-            f1 = [train_metrics["F1-Score"], val_metrics["F1-Score"], test_metrics["F1-Score"]]
-            
-            # Create DataFrame for visualization
-            viz_data = pd.DataFrame({
-                "Split": splits * 4,
-                "Metric": ["Accuracy"] * 3 + ["Precision"] * 3 + ["Recall"] * 3 + ["F1-Score"] * 3,
-                "Value": accuracy + precision + recall + f1
-            })
-            
-            # Create bar chart using Altair
-            # import altair as alt
-            
-            # chart = alt.Chart(viz_data).mark_bar().encode(
-            #     x=alt.X('Split:N', title='Data Split'),
-            #     y=alt.Y('Value:Q', title='Score', scale=alt.Scale(domain=[0, 1])),
-            #     color=alt.Color('Split:N', 
-            #                    scale=alt.Scale(domain=['Train', 'Validation', 'Test'],
-            #                                   range=['#5470C6', '#91CC75', '#FAC858'])),
-            #     column=alt.Column('Metric:N', title='Performance Metrics')
-            # ).properties(
-            #     title='Model Performance Across Data Splits',
-            #     width=150
-            # )
-            
-            # st.altair_chart(chart)
-            
-            # Add interpretation text
-            # st.write("**Interpretation Guide:**")
-            # st.write("""
-            # - **Similar heights** across all three splits indicate good generalization
-            # - **Significantly higher Train bars** compared to Validation/Test suggest overfitting
-            # - **Lower Test bars** compared to Validation suggest potential data leakage or sampling issues
-            # """)
-            
-        except Exception as e:
-            st.error(f"Error creating performance visualization: {str(e)}")
 
 # Module exports
 __all__ = ['ModelTrainer']

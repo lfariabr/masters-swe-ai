@@ -136,7 +136,6 @@ def show_models():
                         create_sentiment_visualization(df, "Sentiment", "Model 1: Sentiment Distribution")
                     
                     with st.expander("Model 1 Predictions Sample"):
-                        # DEBUG cross checking prediction vs original NPS Type
                         st.dataframe(
                             df[["Comment", "Score", "NPS Type", "Sentiment", "Model_1_Prediction"]].sample(min(100, len(df))),
                             use_container_width=True
@@ -160,7 +159,6 @@ def show_models():
                         create_sentiment_visualization(df, "Sentiment", "Model 2: Sentiment Distribution")
                     
                     with st.expander("Model 2 Predictions Sample"):
-                        # DEBUG cross checking prediction vs original NPS Type
                         st.dataframe(
                             df[["CommentScore", "Score", "NPS Type", "Sentiment", "Model_2_Prediction"]].sample(min(100, len(df))),
                             use_container_width=True
