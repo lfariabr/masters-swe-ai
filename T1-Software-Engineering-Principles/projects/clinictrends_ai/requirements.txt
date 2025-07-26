@@ -4,6 +4,7 @@ anyio==4.9.0
 attrs==25.3.0
 beautifulsoup4==4.13.4
 blinker==1.9.0
+bertopic
 cachetools==5.5.2
 certifi==2025.4.26
 charset-normalizer==3.4.2
