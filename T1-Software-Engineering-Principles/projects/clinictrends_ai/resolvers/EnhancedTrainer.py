@@ -19,8 +19,7 @@ except ImportError:
 
 class EnhancedTrainer:
     """
-    ML model training and evaluation class.
-    Implements standardized training pipelines with comprehensive metrics.
+    Copy of `ModelTrainer` class with additional features for debugging purposes.
     """
     
     def __init__(self):

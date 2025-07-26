@@ -129,17 +129,39 @@ streamlit run app.py
 - drilling down more functions from `ModelsPage.py` and `NPSPage.py` to `utils.visualizations`
 - separation of concerns for review crosstab analysis, heatmaps and metrics in `utils.crosstab_analysis`
 
----
-
-### 🔧 In Progress
-
-#### 🔸 v2.8.3 - `feature/refactor-enhanced-models-views`
+#### 🔹 v2.8.3 - `feature/refactor-enhanced-models-views`
 **part 1:**
 - reorganizing `EnhancedModels.py` page with tabs and expanders
 
 **part 2:**
 - better naming from `EnhancedModelsPage.py` to `MLExperimentsPage.py`
 - adds flow diagram [ModelTrainer_ClassDiagram](T1-Software-Engineering-Principles/projects/clinictrends_ai/docs/diagrams/ModelTrainer_ClassDiagram.png) mapping out object relationships
+
+---
+
+### 🔧 In Progress
+
+
+#### 🔸 v2.8.3
+**part 3:**
+- reading again feature 1 and 2 to get context fresh
+- reviewing **EXACTLY** what function `train_tfidf_model` does
+- thinknig that maybe 2.8.1 should split into coliumns instead of tabs - maybe back to this later
+- read diagram again and write my understanding of the functions there (#TODO this can easily became a dev.to article on my learning journey!)
+
+my notes about train_idf_model
+***intro***
+for starters, this beast is the responsible for making sure the model is an animal, ready to receive the data and return the SHARPEST model it possibly can handle. 
+the received data is gonna face a series of cuts that will return a high accuracy model able to predict the sentiment of the received comments, no matter how FAT/COMPLEX they arrive.
+> ***Fun Fact: this function is the personal trainer with a motherfucking knife in the teeths, living on the grip of life, ape shit, to get after it.***
+
+***parameters***
+- self: ?!
+- df: filtered dataframe after uploaded by user
+- feature_column: 
+- target_column: 
+- model_name: 
+- score_column: 
 
 #### 🔸 v2.8.4 - `feature/refactor-topic-modeling-views`
 
