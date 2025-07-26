@@ -192,6 +192,8 @@ def show_enhanced_models():
             st.markdown("### Model Training & Evaluation")
     
             df = classify_nps(df)
+            st.write("Delete later, just debugging")
+            st.dataframe(df.sample(min(5, len(df))), use_container_width=True)
 
             st.markdown("###### Model Training Tabs: pick your color: 🔵🟢")
             with st.expander("📋 Quick Information about Models"):
