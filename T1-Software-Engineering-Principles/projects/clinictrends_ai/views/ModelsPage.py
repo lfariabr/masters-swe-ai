@@ -122,7 +122,7 @@ def show_models():
                 st.markdown("#### 🤖 Model 1: Comment-Based Classification")
                 with st.spinner("Training Model 1..."):
                     model1, vec1, X_test1, y_test1, y_pred1 = model_trainer.train_tfidf_model(
-                        df, "Comment", "Sentiment", "Model 1: Comment-Based"
+                        df, "Comment", "NPS Type", "Model 1: Comment-Based"
                     )
                 st.success("✅ Model 1 training complete")
                 
@@ -145,7 +145,7 @@ def show_models():
                 st.markdown("#### 🤖 Model 2: Enhanced Comment-Score Fusion")
                 with st.spinner("Training Model 2..."):
                     model2, vec2, X_test2, y_test2, y_pred2 = model_trainer.train_tfidf_model(
-                        df, "CommentScore", "Sentiment", "Model 2: Comment-Score Fusion"
+                        df, "CommentScore", "NPS Type", "Model 2: Comment-Score Fusion"
                     )
                 st.success("✅ Model 2 training complete")
                 

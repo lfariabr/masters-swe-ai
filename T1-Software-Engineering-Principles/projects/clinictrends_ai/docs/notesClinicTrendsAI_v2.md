@@ -141,7 +141,6 @@ streamlit run app.py
 
 ### 🔧 In Progress
 
-
 #### 🔸 v2.8.3
 **part 3:**
 - reading again feature 1 and 2 to get context fresh
@@ -149,7 +148,7 @@ streamlit run app.py
 - thinknig that maybe 2.8.1 should split into coliumns instead of tabs - maybe back to this later
 - read diagram again and write my understanding of the functions there (#TODO this can easily became a dev.to article on my learning journey!)
 
-my notes about train_idf_model
+**train_idf_model** <> my notes
 ***intro***
 for starters, this beast is the responsible for making sure the model is an animal, ready to receive the data and return the SHARPEST model it possibly can handle. 
 the received data is gonna face a series of cuts that will return a high accuracy model able to predict the sentiment of the received comments, no matter how FAT/COMPLEX they arrive.
@@ -157,11 +156,14 @@ the received data is gonna face a series of cuts that will return a high accurac
 
 ***parameters***
 - self: ?!
-- df: filtered dataframe after uploaded by user
-- feature_column: 
-- target_column: 
-- model_name: 
-- score_column: 
+- df: preprocessed and filtered user's csv dataframe + annotated sentiment
+- feature_column: comment column
+- target_column: sentiment column (target that we want to predict)
+- model_name: unique id for the model
+- score_column: optional column containing numerical scores to use as additional features
+
+***key change***
+- target_column changed from "Sentiment" to "NPS Type" to align with the business logic
 
 #### 🔸 v2.8.4 - `feature/refactor-topic-modeling-views`
 
