@@ -176,6 +176,7 @@ def show_enhanced_models():
                 
                 df = df.dropna(subset=["Comment"])
                 df["CommentScore"] = df["Comment"].astype(str) + " SCORE_" + df["Score"].astype(str)
+                df = classify_nps(df)
                             
             with st.expander("👀 Data Preview (just in case you want to check it)"):
                 st.dataframe(df.sample(min(5, len(df))), use_container_width=True)
@@ -191,7 +192,6 @@ def show_enhanced_models():
             st.markdown("---")
             st.markdown("### Model Training & Evaluation")
     
-            df = classify_nps(df)
             st.write("Delete later, just debugging")
             st.dataframe(df.sample(min(5, len(df))), use_container_width=True)
 
@@ -214,7 +214,7 @@ def show_enhanced_models():
                 st.markdown("#### 🤖 Model 1: Comment-Based Classification")
                 with st.spinner("Training Model 1..."):
                     model1, vec1, X_test1, y_test1, y_pred1 = model_trainer.train_tfidf_model(
-                        df, "Comment", "Sentiment", "Model 1: Comment-Based"
+                        df, "Comment", "NPS Type", "Model 1: Comment-Based"
                     )
                 st.success("✅ Model 1 training complete")
             
@@ -239,7 +239,7 @@ def show_enhanced_models():
                 st.markdown("#### 🤖 Model 2: Enhanced Comment-Score Fusion")
                 with st.spinner("Training Model 2..."):
                     model2, vec2, X_test2, y_test2, y_pred2 = model_trainer.train_tfidf_model(
-                        df, "CommentScore", "Sentiment", "Model 2: Comment-Score Fusion"
+                        df, "CommentScore", "NPS Type", "Model 2: Comment-Score Fusion"
                     )
                 st.success("✅ Model 2 training complete")
             
