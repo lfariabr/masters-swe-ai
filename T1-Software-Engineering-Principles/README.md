@@ -14,12 +14,12 @@ Dr. Ranju Mandal
 - [X] Module 7 - High-level Software Design
 - [X] Module 8 - Low-level Software Design
 - [X] Module 9 - Software Construction - Part 1
-- [ ] Module 10
-- [ ] Module 11
-- [ ] Module 12
+- [ ] Module 10 - Software Construction - Part 2
+- [ ] Module 11 - Software Engineering Ethics, Quality and Standards
+- [ ] Module 12 - Student Assessment Presentations
 
 ## Assignments
-- [X] Assessment 1 - submitted 20/06/2025
-- [X] Assessment 2 - submitted 05/07/2025
+- [X] Assessment 1 - deadline 22/06/2025    
+- [X] Assessment 2 - deadline 06/07/2025
 - [ ] Assessment 3 - deadline 03/08/2025
 - [ ] Assessment 4 - deadline 20/08/2025
