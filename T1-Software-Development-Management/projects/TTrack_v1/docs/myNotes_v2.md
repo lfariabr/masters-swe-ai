@@ -42,9 +42,11 @@ Following **GitFlow** with feature branches and semantic versioning:
 
 ### 🔧 In Progress
 
-#### 🔸 v2.1.0 - `feature/tbd`
+#### 🔸 v2.1.0 - `feature/scaffolding-database`
 - Work on `utils/database.py` to implement database logic with either mongodb or postgresql
 - make it possible for users to save processed transcript and curriculum for future use (with a unique id)
+- LLM briefing task scaffolding
+
 
 ### 🗂️ Backlog
 
@@ -53,10 +55,15 @@ Following **GitFlow** with feature branches and semantic versioning:
 - v2.0.0 - `feature/db-integration` 
   - Integrate with DB (MongoDB or Supabase PostgreSQL – 500MB free tier)
   - Make it possible for users to save processed transcript and curriculum for future use (with a unique id)
-- v3.0.0 - `feature/logic-layer` 
+- v3.0.0 - `feature/login-authentication`
+  - Make it possible for users to register/login on the app via tab
+  - Save users on db
+
+---
+
+### Future
+- `feature/logic-layer` 
   - Engine: deeper logic like tags, topics or even semantic similarity (based on description) 
-- v4.0.0 - `feature/ai-integration` 
+- `feature/ai-integration` 
   - AI or Machine Learning to summarize transcript and curriculum and recommend elective subjects 
   - AI chatbot to answer questions about the transcript, curriculum and recommendations 
-- v5.0.0 - `feature/login-authentication`
-  - Make it possible for users to register/login on the app
