@@ -1,8 +1,6 @@
 # 🧠 TTrack – Torrens Degree Tracker
 
-TTrack is a desktop application designed to help students and academic staff **track academic progress** by comparing a student’s **official transcript** with their **prescribed curriculum**. It automates the validation of completed, missing, and elective subjects, offering a clean interface and clear dashboard outputs.
-
----
+v1.0.0 notes, drafts, and ideas
 
 ## 🚀 How to Run
 
@@ -132,25 +130,3 @@ Following **GitFlow** with feature branches and semantic versioning:
 - `tab_controller.py` --> controller of tabs for **setup**, **enable/disable** and **get** tabs (input and result)
 - `data_processor.py` --> sets transcript and curriculum data and processes it via `engine.py`
 - `main_window.py` --> `self.theme_manager`, `self.tab_controller`, `self.data_processor` + `init_ui()`
-
----
-
-### 🔧 In Progress
-
-#### 🔸 v1.18.0 - `feature/tbd` - or 2.0.0 - `feature/tbd`
-- tbd
-
-### 🗂️ Backlog
-
-- Pytest adjustments to new UI structure (`feature/frontend-tests`)
-- Auto detect os theme (`feature/auto-detect-os-theme`)
-- v2.0.0 - `feature/db-integration` 
-  - Integrate with DB (MongoDB or Supabase PostgreSQL – 500MB free tier)
-  - Make it possible for users to save processed transcript and curriculum for future use (with a unique id)
-- v3.0.0 - `feature/logic-layer` 
-  - Engine: deeper logic like tags, topics or even semantic similarity (based on description) 
-- v4.0.0 - `feature/ai-integration` 
-  - AI or Machine Learning to summarize transcript and curriculum and recommend elective subjects 
-  - AI chatbot to answer questions about the transcript, curriculum and recommendations 
-- v5.0.0 - `feature/login-authentication`
-  - Make it possible for users to register/login on the app

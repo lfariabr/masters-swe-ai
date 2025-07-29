@@ -8,6 +8,7 @@ from ui import helpers
 from utils.theme_manager import ThemeManager
 from utils.data_processor import DataProcessor
 from utils.tab_controller import TabController
+from utils.database import DatabaseManager
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -23,6 +24,7 @@ class MainWindow(QMainWindow):
         self.theme_manager = ThemeManager(self)
         self.tab_controller = TabController(self)
         self.data_processor = DataProcessor(self)
+        self.database_manager = DatabaseManager(self)
         
         # Initialize UI
         self.init_ui()
@@ -38,6 +40,7 @@ class MainWindow(QMainWindow):
         # Store references to UI elements for easier access
         self.input_tab = self.tab_controller.get_input_tab()
         self.results_tab = self.tab_controller.get_results_tab()
+        self.database_manager.database_test()
         
         # Set up the required tables
         self.results_table = self.results_tab.findChild(QTableWidget)
