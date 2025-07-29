@@ -1,6 +1,5 @@
 from PyQt5.QtWidgets import QTabWidget
 
-
 class TabController:
     """
     Manages application tab interactions, including:
@@ -30,6 +29,7 @@ class TabController:
         """
         from ui.tab_input import setup_input_tab
         from ui.tab_results import setup_results_tab
+        from ui.tab_studentrecords import setup_studentrecords_tab
         
         # Create tab widget
         self.tabs = QTabWidget()
@@ -37,10 +37,12 @@ class TabController:
         # Create and add tabs
         self.input_tab = setup_input_tab(self.parent)
         self.results_tab = setup_results_tab(self.parent)
+        self.studentrecords_tab = setup_studentrecords_tab(self.parent)
         
         # Add tabs to the tab widget
         self.tabs.addTab(self.input_tab, "Input")
         self.tabs.addTab(self.results_tab, "Results")
+        self.tabs.addTab(self.studentrecords_tab, "Student Records")
         
         # Initially disable results tab
         self.disable_results_tab()

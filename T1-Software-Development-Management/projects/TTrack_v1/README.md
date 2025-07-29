@@ -163,6 +163,6 @@ Planned
 
 ---
 
-*Built with ❤️ and rigorous engineering principles by the TTrack team*
+*Built with ❤️ and rigorous engineering principles.*
 
 **"Software eats degrees… unless TTrack tracks them first."**
