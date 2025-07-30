@@ -45,10 +45,12 @@ Following **GitFlow** with feature branches and semantic versioning:
   - `fetch_user_history(user_id)`
   - `get_entry_by_id(entry_id)`
   - `delete_entry(entry_id)`
-- Choose DB: MongoDB (schemaless) or PostgreSQL via Supabase (relational)
+- Choose DB: MongoDB (schemaless) or PostgreSQL via Supabase (relational) - **Update: Go with Supabase**
   - to keep backend in pure python, we can use postgresql + supabase (BaaS - Backend as a Service)
   - we can also think about using MongoDB by using PyMongo using import MongoClient
   - framework option has been discarded since it would make app more complex and web is not our main focus
+- Setup Supabase project and database schema via Supabase dashboard
+- Added logic to `utils/database.py` using error handling and try/except blocks
 
 #### ▫️ v2.2.0 - `feature/ui-to-database`
 > ***Goal: Let users persist their processed data with a unique record ID.***
