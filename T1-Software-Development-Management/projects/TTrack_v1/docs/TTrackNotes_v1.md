@@ -43,9 +43,10 @@ Following **GitFlow** with feature branches and semantic versioning:
 | **1.11.0** | Build distribution macOS | ✅ Complete |
 | **1.12.0** | Sample data to interface | ✅ Complete |
 | **1.13.0** | Build distribution Windows | ✅ Complete |
-| **2.0.0** | Database integration & cloud sync | 🔄 Planned |
-| **3.0.0** | AI Enhanced matching | 🔄 Planned |
-| **4.0.0** | Enterprise scale | 🔄 Planned |
+| **1.14.0** | macOS distribution | ✅ Complete |
+| **1.15.0** | Windows distribution | ✅ Complete |
+| **1.16.0** | Electron | ✅ Complete |
+| **1.17.0** | PyQt5 refactor | ✅ Complete |
 
 ---
 

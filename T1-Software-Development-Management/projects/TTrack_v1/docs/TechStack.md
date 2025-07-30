@@ -1,6 +1,4 @@
----
-
-## 📊 Technical Specifications
+# 📊 Technical Specifications
 
 | Component | Technology | Purpose |
 |-----------|------------|---------|
@@ -17,5 +15,3 @@
 - **Memory Footprint**: ~50MB base + data size
 - **File Processing**: Handles 10,000+ records efficiently
 - **Cross-Platform**: Native performance on Windows, macOS, Linux
-
----
