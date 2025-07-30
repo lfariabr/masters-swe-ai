@@ -137,7 +137,7 @@ streamlit run app.py
 - better naming from `EnhancedModelsPage.py` to `MLExperimentsPage.py`
 - adds flow diagram [ModelTrainer_ClassDiagram](T1-Software-Engineering-Principles/projects/clinictrends_ai/docs/diagrams/ModelTrainer_ClassDiagram.png) mapping out object relationships
 
-#### 🔸 v2.8.3
+#### � v2.8.3
 **part 3:**
 - reading again feature 1 and 2 to get context fresh
 - reviewing **EXACTLY** what function `train_tfidf_model` does
@@ -161,25 +161,27 @@ the received data is gonna face a series of cuts that will return a high accurac
 ***key change***
 - target_column changed from "Sentiment" to "NPS Type" to align with the business logic
 
+#### 🔹 v2.8.4 - `feature/sprint-review`
+- Split what will be done in the next 3 weeks and what COULD be done on the future
+
+#### 🔹 v2.8.5 - `feature/google-maps-api`
+- Checking Streamlit's new top nav (it was not worth it... i already have "st.sidebar", which might be conflicting) - 15m
+- Google Maps API Page for grabbing reviews from places
+
 ---
 
 ### 🔧 In Progress
 
-#### 🔸 v2.8.4 - `feature/sprint-review`
-- Split what will be done in the next 3 weeks and what COULD be done on the future
-
 #### week 1 - `feature/complete-bertopic-integration`
-**done**
-- Checking Streamlit's new top nav (it was not worth it... i already have "st.sidebar", which might be conflicting) - 15m
-- Google Maps API Page for grabbing reviews from places
-
-**right after**
+- added BERTopic to `MLPipeline.py` together with model_trainer (1, 2, 3 and 4)
 - Complete BERTopic integration into full pipeline
 - Map discovered topics to actionable business recommendations:
   - "Topic: Delivery delays" → "Improve logistics or communication"
   - "Topic: Website issues" → "Prioritize website performance improvements"
 - Add topic visualization and interpretation to UI
 - Document topic-to-action mapping framework
+***comming up next***
+- organize `MLPipeline.py` so that we can actually plug to `NPSPage.py`
 
 #### week 2 part 1 - `feature/outlier-handling`
 - Identify extremely long comments (> 200 tokens)

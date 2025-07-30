@@ -23,7 +23,8 @@ try:
         ModelsPage,
         MLExperimentsPage,
         TopicModelingPage,
-        GoogleMapsPage
+        GoogleMapsPage,
+        MLPipeline
     )
 
 except ImportError:
@@ -34,6 +35,7 @@ except ImportError:
     import views.MLExperimentsPage as MLExperimentsPage
     import views.TopicModelingPage as TopicModelingPage
     import views.GoogleMapsPage as GoogleMapsPage
+    import views.MLPipeline as MLPipeline
 
 def main():
     # Sidebar with logo and navigation - this will be our only sidebar
@@ -62,8 +64,13 @@ def main():
              "ML Models",
              "Topic Modeling",
              "Translation",
-             "ML Experiments 🧪", 
-             "Google Maps"            
+
+             # In progress
+             "ML Pipeline 👷",
+             "Google Maps API 👷"             
+            
+            # Commented out for now because of tests
+            #  "ML Experiments 🧪", 
             ],
             index=0,
             label_visibility="collapsed"
@@ -86,15 +93,18 @@ def main():
         NPSPage.show_dashboard()
     elif page == "ML Models":
         ModelsPage.show_models()
-    elif page == "ML Experiments 🧪":
-        MLExperimentsPage.show_enhanced_models()
     elif page == "Topic Modeling":
         TopicModelingPage.show_topic_modeling()
-        
     elif page == "Translation":
         TranslatePage.show_translate()
-    elif page == "Google Maps":
+    
+    elif page == "ML Pipeline 👷":
+        MLPipeline.show_ml_pipeline()    
+    elif page == "Google Maps API 👷":
         GoogleMapsPage.show_google_maps()
+
+    elif page == "ML Experiments 🧪":
+        MLExperimentsPage.show_enhanced_models()
         
 if __name__ == "__main__":
     main()
