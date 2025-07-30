@@ -21,8 +21,9 @@ try:
         NPSPage,
         TranslatePage,
         ModelsPage,
-        EnhancedModels,
-        TopicModelingPage
+        MLExperimentsPage,
+        TopicModelingPage,
+        GoogleMapsPage
     )
 
 except ImportError:
@@ -32,6 +33,7 @@ except ImportError:
     import views.ModelsPage as ModelsPage
     import views.MLExperimentsPage as MLExperimentsPage
     import views.TopicModelingPage as TopicModelingPage
+    import views.GoogleMapsPage as GoogleMapsPage
 
 def main():
     # Sidebar with logo and navigation - this will be our only sidebar
@@ -60,7 +62,8 @@ def main():
              "ML Models",
              "Topic Modeling",
              "Translation",
-             "ML Experiments 🧪",             
+             "ML Experiments 🧪", 
+             "Google Maps"            
             ],
             index=0,
             label_visibility="collapsed"
@@ -72,7 +75,7 @@ def main():
         st.markdown("""
         **ClinicTrends AI**   
         ##### An open source AI-powered tool for analyzing customer feedback and trends.
-        - **Version:** 2.7.0
+        - **Version:** 2.8.2
         - **GitHub:** [clinictrends_ai](https://github.com/lfariabr/masters-swe-ai/tree/master/T1-Software-Engineering-Principles/projects/clinictrends_ai)  
         """)
     
@@ -90,6 +93,8 @@ def main():
         
     elif page == "Translation":
         TranslatePage.show_translate()
+    elif page == "Google Maps":
+        GoogleMapsPage.show_google_maps()
         
 if __name__ == "__main__":
     main()
