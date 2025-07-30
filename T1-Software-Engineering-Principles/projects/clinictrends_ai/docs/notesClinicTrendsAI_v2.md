@@ -33,13 +33,13 @@ streamlit run app.py
 - 🔄 Real-time model retraining capabilities
 - 🔄 Pytest robustness coverage
 
-### Phase 3: Enterprise Integration (v3.0) 📋 **PLANNED**
+### Phase 3: Enterprise Integration (v3.0) 📋 **TBD**
 - 📋 RESTful API development
 - 📋 Database integration (PostgreSQL/MongoDB)
 - 📋 User authentication & role-based access
 - 📋 Advanced security & compliance features
 
-### Phase 4: AI-Powered Insights (v4.0) 🚀 **FUTURE**
+### Phase 4: AI-Powered Insights (v4.0) 🚀 **TBD**
 - 🚀 GPT-powered natural language insights
 - 🚀 Automated report generation
 - 🚀 Predictive customer lifetime value modeling
@@ -137,10 +137,6 @@ streamlit run app.py
 - better naming from `EnhancedModelsPage.py` to `MLExperimentsPage.py`
 - adds flow diagram [ModelTrainer_ClassDiagram](T1-Software-Engineering-Principles/projects/clinictrends_ai/docs/diagrams/ModelTrainer_ClassDiagram.png) mapping out object relationships
 
----
-
-### 🔧 In Progress
-
 #### 🔸 v2.8.3
 **part 3:**
 - reading again feature 1 and 2 to get context fresh
@@ -165,15 +161,52 @@ the received data is gonna face a series of cuts that will return a high accurac
 ***key change***
 - target_column changed from "Sentiment" to "NPS Type" to align with the business logic
 
-#### 🔸 v2.8.4 - `feature/refactor-topic-modeling-views`
+---
 
-#### 🔸 v2.8.5 - `feature/refactor-translation-views`
+### 🔧 In Progress
+
+#### 🔸 v2.8.4 - `feature/sprint-review`
+- Split what will be done in the next 3 weeks and what COULD be done on the future
+
+#### week 1 - feature/complete-bertopic-integration
+- Complete BERTopic integration into full pipeline
+- Map discovered topics to actionable business recommendations:
+  - "Topic: Delivery delays" → "Improve logistics or communication"
+  - "Topic: Website issues" → "Prioritize website performance improvements"
+- Add topic visualization and interpretation to UI
+- Document topic-to-action mapping framework
+
+#### week 2 part 1 - **feature/outlier-handling**
+- Identify extremely long comments (> 200 tokens)
+- Implement truncation vs exclusion strategies
+- Measure impact on model performance
+- Add data quality metrics to dashboard
+- Start writing insights about meeting that I had
+  - schedule in advance (check with Dr. Ranju)
+  - create "nps me" form asking for rates in various categories, including an open field to run my model on their response
+  - draw a PPT to display on the meeting with a "FOR DUMMIES" version of the ClinicTrendsAI
+    - slide about me: from project manager to swe focused on ML engineering
+    - slide talking about data from pro-corpo and insight obtained that people actually WRITE their feelings on the internet
+    - 80% of accuracy reached, do we have similar cases to that? what's the input and take based on that itself?
+    - who is the profile of the user who I assume replied
+  - grab tiktok data and run a quick comparison with Canario's tiktok viral
+  - names like Samir, Andre, Sibelius, Ciro, William, Lace, Dr Atif, Dr Ranju, Dr Nandine, Jezao
+
+#### week 2 part 2 - **feature/benchmark-validation**
+- Research published benchmarks using similar datasets
+- Compare achieved results against external references
+- Document target metrics for improvement
+- Cross-check with literature (as Dr. Ranju suggested)
+
+#### week 3 - feature/robust-testing-coverage
+- Expand pytest coverage for new topic modeling features
+- Add integration tests for end-to-end pipeline
+- Performance testing for large datasets
+- Error handling validation
 
 ---
 
 ### 🗂️ Backlog
-
-- **Add Topic Modeling to Pipeline**
 
 #### 🔸 v2.8.0 - `feature/topic-modeling`
 - current pipeline: Data ➔ Preprocessing ➔ Sentiment Analysis ➔ Performance Metrics
@@ -188,8 +221,10 @@ the received data is gonna face a series of cuts that will return a high accurac
     - https://wellsr.com/python/topic-modeling-with-bert-using-python-bertopic-library/?utm_source=chatgpt.com
     - https://www.datacamp.com/tutorial/what-is-topic-modeling?utm_source=chatgpt.com
     - https://hackernoon.com/nlp-tutorial-topic-modeling-in-python-with-bertopic-372w35l9
+
 > **Note:** Paused here to refactor pages and model class before integrating BERTopic to pipeline
-- Integrate BERTopic into Pipeline
+
+- Integrate BERTopic into Pipeline (Add Topic Modeling to Pipeline)
 - Map Topics → Business Recommendations. E.g.:
   - “Topic: Delivery delays” → “Improve logistics or communication”
   - “Topic: Website issues” → “Prioritize website performance improvements”
@@ -197,30 +232,31 @@ the received data is gonna face a series of cuts that will return a high accurac
   - Look for papers or blog posts analyzing your dataset. 
   - Dr. Ranju suggests referencing prior works rather than repeating experiments unnecessarily.
 
-
-#### `feature/model-comparison`
-  - Add experiments with alternative models:
-    - Support Vector Machine (SVM)
-    - Random Forest
-  - Compare results to Logistic Regression baseline.
-  - Store performance metrics for analysis.
-
-#### `feature/outlier-handling`
+#### Hotfixes
+- v2.8.5 - `feature/refactor-topic-modeling-views`
+- v2.8.6 - `feature/outlier-handling`
   - Identify extremely long comments (e.g. > 200 tokens).
   - Implement:
     - Truncation
     - Or exclusion from training
   - Measure impact on model performance.
-
-#### `feature/benchmark-check`
+- v2.8.7 - `feature/benchmark-check`
   - Research published benchmarks or similar projects using this dataset.
   - Compare achieved results against external references.
   - Document potential target metrics for improvement.
 
-- Implement interpretable ML models for NPS prediction (v2.0)
-- Fine-tune transformer models for domain-specific sentiment (v2.0)
-- Add RESTful API development + authentication (v3.0)
-- AI-powered insights (v4.0)
+#### Future
+- Start saving data from pipeline flow (preprocessing, sentiment analysis, topic modeling, insights, business actions, id, date, allow user to input "company name", "country")
+- Implement interpretable ML models for NPS prediction
+- Fine-tune transformer models for domain-specific sentiment
+- Add RESTful API development + authentication
+- AI-powered insights
+- `feature/model-comparison`
+  - Add experiments with alternative models:
+    - Support Vector Machine (SVM)
+    - Random Forest
+  - Compare results to Logistic Regression baseline.
+  - Store performance metrics for analysis.
 
 ---
 

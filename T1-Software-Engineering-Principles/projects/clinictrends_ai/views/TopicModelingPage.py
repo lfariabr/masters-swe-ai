@@ -32,7 +32,7 @@ def show_topic_modeling():
             st.error("Column 'Comment' not found in the uploaded file.")
         else:
             with st.expander("👀 Data Preview (just in case you want to check it)"):
-                st.dataframe(df.sample(min(5, len(df))), use_container_width=True)
+                st.dataframe(df.sample(min(200, len(df))), use_container_width=True)
                 st.info(f"Dataset shape: {df.shape[0]} rows × {df.shape[1]} columns")
             
             if st.button("Run BERTopic"):
