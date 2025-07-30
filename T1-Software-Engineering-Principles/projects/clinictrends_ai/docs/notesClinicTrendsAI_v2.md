@@ -168,7 +168,12 @@ the received data is gonna face a series of cuts that will return a high accurac
 #### 🔸 v2.8.4 - `feature/sprint-review`
 - Split what will be done in the next 3 weeks and what COULD be done on the future
 
-#### week 1 - feature/complete-bertopic-integration
+#### week 1 - `feature/complete-bertopic-integration`
+**done**
+- Checking Streamlit's new top nav (it was not worth it... i already have "st.sidebar", which might be conflicting) - 15m
+- Google Maps API Page for grabbing reviews from places
+
+**right after**
 - Complete BERTopic integration into full pipeline
 - Map discovered topics to actionable business recommendations:
   - "Topic: Delivery delays" → "Improve logistics or communication"
@@ -176,7 +181,7 @@ the received data is gonna face a series of cuts that will return a high accurac
 - Add topic visualization and interpretation to UI
 - Document topic-to-action mapping framework
 
-#### week 2 part 1 - **feature/outlier-handling**
+#### week 2 part 1 - `feature/outlier-handling`
 - Identify extremely long comments (> 200 tokens)
 - Implement truncation vs exclusion strategies
 - Measure impact on model performance
@@ -192,13 +197,13 @@ the received data is gonna face a series of cuts that will return a high accurac
   - grab tiktok data and run a quick comparison with Canario's tiktok viral
   - names like Samir, Andre, Sibelius, Ciro, William, Lace, Dr Atif, Dr Ranju, Dr Nandine, Jezao
 
-#### week 2 part 2 - **feature/benchmark-validation**
+#### week 2 part 2 - `feature/benchmark-validation`
 - Research published benchmarks using similar datasets
 - Compare achieved results against external references
 - Document target metrics for improvement
 - Cross-check with literature (as Dr. Ranju suggested)
 
-#### week 3 - feature/robust-testing-coverage
+#### week 3 - `feature/robust-testing-coverage`
 - Expand pytest coverage for new topic modeling features
 - Add integration tests for end-to-end pipeline
 - Performance testing for large datasets
