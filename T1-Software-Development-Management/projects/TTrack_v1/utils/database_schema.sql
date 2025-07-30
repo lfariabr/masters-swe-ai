@@ -1,0 +1,26 @@
+-- transcripts table
+CREATE TABLE transcripts (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  user_id TEXT NOT NULL,
+  transcript_data JSONB NOT NULL,
+  created_at TIMESTAMP DEFAULT NOW()
+);
+
+-- curricula table  
+CREATE TABLE curriculums (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  user_id TEXT NOT NULL,
+  curriculum_data JSONB NOT NULL,
+  created_at TIMESTAMP DEFAULT NOW()
+);
+
+-- sessions table
+CREATE TABLE student_records (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  user_id TEXT NOT NULL,
+  results_data JSONB,
+  summary_data JSONB,
+  electives_data JSONB,
+  progress_data JSONB,
+  created_at TIMESTAMP DEFAULT NOW()
+);

@@ -40,7 +40,6 @@ class MainWindow(QMainWindow):
         # Store references to UI elements for easier access
         self.input_tab = self.tab_controller.get_input_tab()
         self.results_tab = self.tab_controller.get_results_tab()
-        self.database_manager.database_test()
         
         # Set up the required tables
         self.results_table = self.results_tab.findChild(QTableWidget)
