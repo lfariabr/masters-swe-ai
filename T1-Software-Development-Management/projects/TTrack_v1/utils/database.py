@@ -14,20 +14,28 @@ class DatabaseManager:
         # TODO: Implement database closing logic
         pass
     
-    def insert_data(self, data):
+    def save_transcript(self, user_id, transcript_df):
         # TODO: Implement database data insertion logic
         pass
-    
-    def update_data(self, data):
-        # TODO: Implement database data update logic
+
+    def save_curriculum(self, user_id, curriculum_df):
+        # TODO: Implement database data insertion logic
         pass
-    
-    def delete_data(self, data):
+
+    def save_processed_data(self, user_id, results_table, summary_table, electives_table, progress):
+        # TODO: Implement database data insertion logic
+        pass
+
+    def fetch_user_history(self, user_id):
+        # TODO: Implement database data retrieval logic
+        pass
+
+    def get_entry_by_id(self, entry_id):
+        # TODO: Implement database data retrieval logic
+        pass
+
+    def delete_entry(self, entry_id):
         # TODO: Implement database data deletion logic
-        pass
-    
-    def query_data(self, query):
-        # TODO: Implement database data query logic
         pass
 
     def database_test(self):
