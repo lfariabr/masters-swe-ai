@@ -11,8 +11,8 @@ Following **GitFlow** with feature branches and semantic versioning:
 |---------|-----------|--------|
 | **1.x** | Core development, UI/UX, processing engine, cross-platform builds | ✅ Complete |
 | **2.0.0** | Database integration & cloud sync | ✅ Complete |
-| **2.1.0** | Scaffold database | 🔥 In Progress |
-| **2.2.0** | UI to database | 🕐 Not started |
+| **2.1.0** | Scaffold database | ✅ Complete |
+| **2.2.0** | UI to database | 🔥 In Progress |
 | **3.0.0** | Login authentication | 🕐 Not started |
 | **3.1.0** | Basic history view | 🕐 Not started |
 | **3.2.0** | Cloud sync | 🕐 Not started |
@@ -33,11 +33,7 @@ Following **GitFlow** with feature branches and semantic versioning:
 - create `utils/database.py` with logic to be filled in
 - create `ui/tab_studentrecords.py` and implement it on `gui/main_window.py`
 
----
-
-### 🔧 In Progress
-
-#### 🔸 v2.1.0 - `feature/scaffolding-database`
+#### 🟢 v2.1.0 - `feature/scaffolding-database`
 > ***Goal: Create a flexible backend layer to persist user-uploaded and processed data.***
 - Scaffold `utils/database.py`
 - Create reusable methods:
@@ -51,6 +47,11 @@ Following **GitFlow** with feature branches and semantic versioning:
   - framework option has been discarded since it would make app more complex and web is not our main focus
 - Setup Supabase project and database schema via Supabase dashboard
 - Added logic to `utils/database.py` using error handling and try/except blocks
+- Added logic to `utils/data_processor.py` to save processed data to database using `DatabaseManager` class
+
+---
+
+### 🔧 In Progress
 
 #### ▫️ v2.2.0 - `feature/ui-to-database`
 > ***Goal: Let users persist their processed data with a unique record ID.***

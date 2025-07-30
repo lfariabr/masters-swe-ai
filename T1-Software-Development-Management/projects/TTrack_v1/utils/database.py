@@ -90,7 +90,7 @@ class DatabaseManager:
                 'results_data': results_table.to_json(orient='records'),
                 'summary_data': summary_table.to_json(orient='records'),
                 'electives_data': electives_table.to_json(orient='records'),
-                'progress': progress,
+                'progress_data': progress,
                 'created_at': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
             }
             response = self.supabase.table('student_records').insert(session_data).execute()
