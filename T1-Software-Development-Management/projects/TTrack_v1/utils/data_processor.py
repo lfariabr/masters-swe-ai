@@ -1,6 +1,6 @@
 from PyQt5.QtWidgets import QMessageBox, QLabel, QProgressBar
 from resolvers.engine import match_transcript_with_curriculum, generate_progress_summary, suggest_electives
-
+import uuid
 
 class DataProcessor:
     """
@@ -100,6 +100,9 @@ class DataProcessor:
                 progress_bar.setValue(progress)
                 print(f"Updated progress bar: {progress}%")
                 break
+
+            # Database Integration
+            self._save_to_database(summary_df, electives_df, progress)
             
             return True
             
@@ -110,3 +113,57 @@ class DataProcessor:
                 f"Failed to process data: {str(e)}\n\nPlease ensure your files are in the correct format."
             )
             raise
+    
+    def _save_to_database(self, summary_df, electives_df, progress):
+        """
+        Save processed session data to database
+        
+        Args:
+            summary_df: Summary dataframe with progress data
+            electives_df: Electives suggestions dataframe  
+            progress: Progress percentage as integer
+        """
+        try:
+            user_id = f"{self.student_name}_{uuid.uuid4().hex[:8]}"
+            db_manager = self.parent.database_manager
+
+            if db_manager and db_manager.supabase:
+                # Save transcript data
+                transcript_result = db_manager.save_transcript(user_id, self.transcript_df)
+                if transcript_result:
+                    print(f"✅ Transcript saved with ID: {transcript_result.get('id')}")
+                
+                # Save curriculum data  
+                curriculum_result = db_manager.save_curriculum(user_id, self.curriculum_df)
+                if curriculum_result:
+                    print(f"✅ Curriculum saved with ID: {curriculum_result.get('id')}")
+                
+                # Save processed session data
+                session_result = db_manager.save_processed_data(
+                    user_id, 
+                    self.results_df, 
+                    summary_df, 
+                    electives_df, 
+                    progress
+                )
+                if session_result:
+                    session_id = session_result.get('id')
+                    print(f"✅ Session saved with ID: {session_id}")
+                    
+                    # Store session_id for potential UI display
+                    self.last_session_id = session_id
+                    
+                    # Optional: Show success message to user
+                    QMessageBox.information(
+                        self.parent,
+                        "Data Saved",
+                        f"Session data saved successfully!\nSession ID: {session_id[:8]}..."
+                    )
+                else:
+                    print("⚠️ Failed to save session data")
+            else:
+                print("⚠️ Database not available - data not saved")
+                
+        except Exception as e:
+            print(f"❌ Database save error: {e}")
+            # Don't show error to user - processing was successful, just save failed
