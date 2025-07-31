@@ -36,7 +36,8 @@ from utils.visualizations import (
     create_sentiment_visualization,
     create_performance_charts,
     display_nps_sentiment_agreement,
-    create_model_summary_cards
+    create_model_summary_cards,
+    create_detailed_metrics_table
 )
 from utils.crosstab_analysis import enhanced_crosstab_analysis
 
@@ -94,7 +95,6 @@ class EnhancedMLPipeline:
     
     def run_sentiment_analysis(self):
         """Execute comprehensive sentiment analysis using all 4 models."""
-        st.markdown("#### 🧠 Multi-Model Sentiment Analysis")
         
         with st.spinner("🔄 Preprocessing and annotating sentiments..."):
             # Basic sentiment annotation and NPS classification
@@ -102,63 +102,31 @@ class EnhancedMLPipeline:
             self.df["Sentiment"] = self.df["Sentiment"].str.upper()
             self.df = classify_nps(self.df)
         
-        # Display basic sentiment distribution
-        col1, col2 = st.columns(2)
-        with col1:
-            st.write("**Sentiment Distribution:**")
-            sentiment_counts = self.df["Sentiment"].value_counts()
-            st.dataframe(sentiment_counts)
-        
-        with col2:
-            st.write("**NPS Distribution:**")
-            nps_counts = self.df["NPS Type"].value_counts()
-            st.dataframe(nps_counts)
-        
         # Train all 4 ML models
         if st.button("🚀 Train All ML Models", type="primary"):
             self.train_all_models()
     
     def train_all_models(self):
         """Train all 4 ML models and display results."""
-        st.markdown("---")
-        st.markdown("### 🤖 Training ML Models")
         
-        # Create tabs for each model
-        tab1, tab2, tab3, tab4 = st.tabs([
-            "🔴 Model 1: Comment-Based", 
-            "🟡 Model 2: Comment-Score Fusion", 
-            "🟢 Model 3: Transformer", 
-            "🔵 Model 4: Hybrid Transformer"
-        ])
+        self.train_model_1()        
+        self.train_model_2()
         
-        with tab1:
-            self.train_model_1()
-        
-        with tab2:
-            self.train_model_2()
-            
         if TRANSFORMERS_AVAILABLE:
-            with tab3:
-                self.train_model_3()
-            
-            with tab4:
-                self.train_model_4()
+            self.train_model_3()    
+            self.train_model_4()
         else:
-            with tab3:
-                st.warning("⚠️ Transformers library not available. Models 3 & 4 require additional dependencies.")
-            with tab4:
-                st.warning("⚠️ Transformers library not available. Models 3 & 4 require additional dependencies.")
+            st.warning("⚠️ Transformers library not available. Models 3 & 4 require additional dependencies.")
         
         self.models_trained = True
         
         # Show model performance summary
-        st.markdown("---")
-        st.markdown("### 📊 Model Performance Summary")
+        st.success("✅ All models trained successfully")
+        create_detailed_metrics_table(self.model_trainer.metrics)
         create_model_summary_cards(self.model_trainer.metrics)
     
     def train_model_1(self):
         """Train Model 1: Comment-Based Classification."""
-        st.markdown("#### 🤖 Model 1: Comment-Based Classification")
         
         with st.spinner("Training Model 1..."):
             model1, vec1, X_test1, y_test1, y_pred1 = self.model_trainer.train_tfidf_model(
@@ -168,19 +136,8 @@ class EnhancedMLPipeline:
         if model1 is not None:
             self.df["Model_1_Prediction"] = model1.predict(vec1.transform(self.df["Comment"]))
             
-            col1, col2 = st.columns(2)
-            with col1:
-                st.metric("Accuracy", f"{self.model_trainer.metrics['Model 1: Comment-Based']['Accuracy']:.3f}")
-                st.metric("F1-Score", f"{self.model_trainer.metrics['Model 1: Comment-Based']['F1-Score']:.3f}")
-            
-            with col2:
-                create_sentiment_visualization(self.df, "Sentiment", "Model 1: Sentiment Distribution")
-            
-            st.success("✅ Model 1 training complete")
-    
     def train_model_2(self):
         """Train Model 2: Comment-Score Fusion."""
-        st.markdown("#### 🤖 Model 2: Enhanced Comment-Score Fusion")
         
         with st.spinner("Training Model 2..."):
             model2, vec2, X_test2, y_test2, y_pred2 = self.model_trainer.train_tfidf_model(
@@ -190,55 +147,21 @@ class EnhancedMLPipeline:
         if model2 is not None:
             self.df["Model_2_Prediction"] = model2.predict(vec2.transform(self.df["CommentScore"]))
             
-            col1, col2 = st.columns(2)
-            with col1:
-                st.metric("Accuracy", f"{self.model_trainer.metrics['Model 2: Comment-Score Fusion']['Accuracy']:.3f}")
-                st.metric("F1-Score", f"{self.model_trainer.metrics['Model 2: Comment-Score Fusion']['F1-Score']:.3f}")
-            
-            with col2:
-                create_sentiment_visualization(self.df, "Sentiment", "Model 2: Sentiment Distribution")
-            
-            st.success("✅ Model 2 training complete")
-    
     def train_model_3(self):
         """Train Model 3: Transformer-Enhanced."""
-        st.markdown("#### 🤖 Model 3: Transformer-Enhanced Classification *(Prototype)*")
         
         with st.spinner("Processing with transformer model..."):
             df_transformer = self.model_trainer.train_transformer_model(
                 self.df, "Comment", "Model 3: Transformer"
             )
         
-        if df_transformer is not None:
-            col1, col2 = st.columns(2)
-            with col1:
-                st.info("Transformer model applied successfully")
-                st.metric("Processed Records", len(df_transformer))
-            
-            with col2:
-                create_sentiment_visualization(df_transformer, "HF_Label", "Model 3: Transformer Results")
-            
-            st.success("✅ Model 3 processing complete")
-    
     def train_model_4(self):
         """Train Model 4: Hybrid Transformer-Score."""
-        st.markdown("#### 🤖 Model 4: Hybrid Transformer-Score Integration *(Prototype)*")
         
         with st.spinner("Processing hybrid transformer model..."):
             df_hybrid = self.model_trainer.train_transformer_model(
                 self.df, "CommentScore", "Model 4: Hybrid"
             )
-        
-        if df_hybrid is not None:
-            col1, col2 = st.columns(2)
-            with col1:
-                st.info("Hybrid transformer model applied successfully")
-                st.metric("Processed Records", len(df_hybrid))
-            
-            with col2:
-                create_sentiment_visualization(df_hybrid, "HF_Label", "Model 4: Hybrid Results")
-            
-            st.success("✅ Model 4 processing complete")
     
     def run_topic_modeling(self):
         """Execute BERTopic topic modeling pipeline."""
@@ -379,7 +302,7 @@ class EnhancedMLPipeline:
         # Color code based on NPS scores
         def color_nps(val):
             if val >= 50:
-                return 'background-color: #d4edda'  # Green for good NPS
+                return 'background-color: #2e6930'  # Green for good NPS
             elif val >= 0:
                 return 'background-color: #fff3cd'  # Yellow for neutral
             else:

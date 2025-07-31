@@ -173,6 +173,7 @@ the received data is gonna face a series of cuts that will return a high accurac
 ### 🔧 In Progress
 
 #### week 1 - `feature/complete-bertopic-integration`
+***part 1***
 - added BERTopic to `MLPipeline.py` together with model_trainer (1, 2, 3 and 4)
 - Complete BERTopic integration into full pipeline
 - Map discovered topics to actionable business recommendations:
@@ -180,8 +181,15 @@ the received data is gonna face a series of cuts that will return a high accurac
   - "Topic: Website issues" → "Prioritize website performance improvements"
 - Add topic visualization and interpretation to UI
 - Document topic-to-action mapping framework
-***comming up next***
+
+***part 2***
 - organize `MLPipeline.py` so that we can actually plug to `NPSPage.py`
+- during my process of thinking MLPipeline, I think that it is confusing to display 4 models tab for the final user, 
+- so now we run all of them in parallel, display the "Model Performance Overview" and "Detailed Performance Metrics" straight forward
+
+***next***
+- all eyes on "Step 2: Topic Modeling & Discovery"
+
 
 #### week 2 part 1 - `feature/outlier-handling`
 - Identify extremely long comments (> 200 tokens)
