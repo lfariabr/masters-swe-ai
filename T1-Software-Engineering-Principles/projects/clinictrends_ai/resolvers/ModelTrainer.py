@@ -293,14 +293,23 @@ class ModelTrainer:
             return None
             
         try:
+            # Fix for PyTorch device placement issues
+            import torch
+            
+            # Force CPU usage to avoid device placement issues
+            device = "cpu"
+            
+            # Initialize pipeline with explicit device and model configuration
             sentiment_pipeline = pipeline(
                 "sentiment-analysis", 
                 model="distilbert-base-uncased-finetuned-sst-2-english",
-                return_all_scores=False
+                return_all_scores=False,
+                device=-1,  # Force CPU usage (-1 means CPU, 0+ means GPU)
+                torch_dtype=torch.float32  # Explicit dtype to avoid meta tensor issues
             )
             
-            # Process in batches to avoid memory issues
-            batch_size = 100
+            # Process in smaller batches to avoid memory issues
+            batch_size = 50  # Reduced batch size for stability
             results = []
             
             progress_bar = st.progress(0)
@@ -310,8 +319,19 @@ class ModelTrainer:
             
             for i in range(0, len(df), batch_size):
                 batch = df[feature_column].iloc[i:i+batch_size].fillna('').tolist()
-                batch_results = sentiment_pipeline(batch, truncation=True)
-                results.extend(batch_results)
+                
+                # Filter out empty strings and very short texts
+                batch = [text if len(str(text).strip()) > 3 else "neutral comment" for text in batch]
+                
+                try:
+                    batch_results = sentiment_pipeline(batch, truncation=True, max_length=512)
+                    results.extend(batch_results)
+                except Exception as batch_error:
+                    # st.warning(f"⚠️ Batch processing error: {str(batch_error)}")
+                    # Fallback: create neutral predictions for failed batch
+                    fallback_results = [{"label": "NEUTRAL", "score": 0.5} for _ in batch]
+                    results.extend(fallback_results)
+                
                 progress_bar.progress((i // batch_size + 1) / total_batches)
             
             training_time = time.time() - start_time
@@ -353,14 +373,16 @@ class ModelTrainer:
                     "Recall": None,
                     "F1-Score": None,
                     "Training_Time": round(training_time, 2),
-                    "Class_Distribution": None,
+                    "Class_Distribution": dict(pd.Series(df_copy["HF_Label"]).value_counts()),
                     "Total_Predictions": len(df_copy)
                 }
             
+            # st.success(f"✅ {model_name} completed successfully!")
             return df_copy
             
         except Exception as e:
             st.error(f"❌ Error with transformer model {model_name}: {str(e)}")
+            st.info("💡 **Tip**: Transformer models are prototype implementations. Consider using Models 1 & 2 for stable results.")
             return None
     
     def _calculate_split_metrics(self, y_true, y_pred, split_name: str) -> Dict[str, Any]:

@@ -122,21 +122,25 @@ def create_detailed_metrics_table(metrics: Dict[str, Dict]) -> None:
         def highlight_best(s):
             if s.name in ['Accuracy', 'Precision', 'Recall', 'F1-Score']:
                 max_val = raw_metrics[s.name].max()
-                return [f'background-color: #90EE90' if float(v.rstrip('%').replace(',', '')) == max_val * (100 if s.name == 'Accuracy' else 1) else '' for v in s]
+                return [f'background-color: #2e6930' if float(v.rstrip('%').replace(',', '')) == max_val * (100 if s.name == 'Accuracy' else 1) else '' for v in s]
             elif s.name == 'Training_Time':
                 min_val = raw_metrics['Training_Time'].min()
-                return [f'background-color: #90EE90' if float(v.rstrip('s')) == min_val else '' for v in s]
+                return [f'background-color: #2e6930' if float(v.rstrip('s')) == min_val else '' for v in s]
             return ['' for _ in s]
         
         styled_df = metrics_df.style.apply(highlight_best, axis=0)
-        st.dataframe(styled_df, use_container_width=True)
+        st.dataframe(styled_df, use_container_width=True, hide_index=True)
         
         # Performance insights
         best_accuracy = raw_metrics.loc[raw_metrics['Accuracy'].idxmax(), 'Model']
         best_f1 = raw_metrics.loc[raw_metrics['F1-Score'].idxmax(), 'Model']
         fastest = raw_metrics.loc[raw_metrics['Training_Time'].idxmin(), 'Model']
         
-        st.info(f"🏆 **Best Accuracy**: {best_accuracy} | **Best F1-Score**: {best_f1} | **Fastest Training**: {fastest}")
+        st.info(f"""🏆 **Highlights to:**
+
+    Best Accuracy 🎯: {best_accuracy}  
+    Best F1-Score 🧠: {best_f1}  
+    Fastest Training ⚡: {fastest}""")
 
 def crate_nps_vs_sentiment_analysis(df: pd.DataFrame):
     st.markdown("### 📊 NPS vs Sentiment Analysis Comparison")
