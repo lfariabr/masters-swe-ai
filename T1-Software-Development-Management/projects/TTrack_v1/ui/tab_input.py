@@ -27,7 +27,7 @@ def setup_input_tab(parent):
     title_layout = QHBoxLayout()
     title = QLabel("🎓 TTrack – Torrens Degree Tracker")
     title.setObjectName("title_label") # Add object name for identification
-    title.setFont(QFont("Arial", 20, QFont.Bold))
+    title.setFont(QFont("Arial", 40, QFont.Bold))
     # Force black color in light mode, white in dark mode
     title.setStyleSheet("color: #000000; font-weight: bold; padding: 5px;" if not parent.theme_manager.is_dark_mode else "color: #ffffff; font-weight: bold; padding: 5px;")
 
@@ -65,12 +65,12 @@ def setup_input_tab(parent):
 
     subtitle = QLabel("Built by students for academic advisors at Torrens University Australia.")
     subtitle.setObjectName("subtitle_label")
-    subtitle.setStyleSheet("color: #ffffff; font-size: 13px;" if parent.theme_manager.is_dark_mode else "color: #333333; font-size: 13px;")
+    subtitle.setStyleSheet("color: #ffffff; font-size: 16px;" if parent.theme_manager.is_dark_mode else "color: #333333; font-size: 16px;")
     subtitle.setAlignment(Qt.AlignCenter)
 
     credit = QLabel("Guided by Dr. Atif Qureshi – Software Development Management, 2025")
     credit.setObjectName("credit_label")
-    credit.setStyleSheet("color: #dddddd; font-size: 11px; font-style: italic;" if parent.theme_manager.is_dark_mode else "color: #444444; font-size: 11px; font-style: italic;")
+    credit.setStyleSheet("color: #dddddd; font-size: 14px; font-style: italic;" if parent.theme_manager.is_dark_mode else "color: #444444; font-size: 14px; font-style: italic;")
     credit.setAlignment(Qt.AlignCenter)
 
     layout.addWidget(subtitle)
