@@ -69,6 +69,11 @@ Following **GitFlow** with feature branches and semantic versioning:
 - Make it possible for users to register/login on the app via tab
 - Save users on db
 
+refs
+https://supabase.com/docs/guides/auth/social-login/auth-azure
+https://www.reddit.com/r/Supabase/comments/1ecwowt/how_to_keep_local_db_up_to_date_with_remote/
+https://dev.to/jps27cse/how-to-prevent-your-supabase-project-database-from-being-paused-using-github-actions-3hel
+
 ---
 
 #### ▫️ v3.1.0 - `feature/basic-history-view`

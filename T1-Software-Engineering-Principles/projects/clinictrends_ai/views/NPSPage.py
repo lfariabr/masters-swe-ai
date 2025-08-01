@@ -3,6 +3,7 @@ from pathlib import Path
 import sys
 import altair as alt
 import requests
+import pandas as pd
 
 # Add parent directory to path to import utils
 sys.path.append(str(Path(__file__).parent.parent))
@@ -12,6 +13,7 @@ from utils.ui_filters import get_year_store_filters
 from utils.nlp_analysis import display_sentiment_distribution, display_wordcloud, annotate_sentiments
 from utils.alerts import send_discord_message
 from utils.data_upload import data_upload
+from views.MLPipelinePage import EnhancedMLPipeline
 
 
 def show_dashboard():
@@ -149,40 +151,43 @@ def show_dashboard():
         st.subheader("Word Cloud from Comments")
         display_wordcloud(annotated_df)
 
-        ## DEBUG
-        ###############
-        # st.subheader("Comments with TextBlob Sentiment")
-        # st.dataframe(annotated_df[["Date", "Store", "Comment", "Score", "NPS Type", "Sentiment", "Polarity"]].dropna(), use_container_width=True)
+        st.markdown("---")
+
+        st.subheader("🤖 Machine Learning Pipeline")
+        st.markdown("**Enhanced ML analysis combining Sentiment Models with Topic Modeling for deeper business insights.**")
         
-        # st.write("---")
-        # st.subheader("Positive Comments")
-        # st.dataframe(annotated_df[annotated_df["Sentiment"] == "Positive"][["Date", "Store", "Comment", "Score", "NPS Type", "Sentiment", "Polarity"]].dropna(), use_container_width=True)
-        # st.subheader("Negative Comments")
-        # st.dataframe(annotated_df[annotated_df["Sentiment"] == "Negative"][["Date", "Store", "Comment", "Score", "NPS Type", "Sentiment", "Polarity"]].dropna(), use_container_width=True)
-
-        # st.write("---")
-        # st.markdown("### CHECKING NPS DATA vs SENTIMENT")
-        # col1, col2 = st.columns(2)
-        # with col1:
-        #     # NPS pizza graphic
-        #     donut_chart = nps_donut_chart(filtered_df)
-        #     st.altair_chart(donut_chart, use_container_width=True)
-        #     st.dataframe(filtered_df["NPS Type"].value_counts().reset_index(), use_container_width=True)
-        # with col2:
-        #     # Sentiment distribution graphic
-        #     annotated_df["Sentiment"] = annotated_df["Sentiment"].astype(str)
-        #     sentiment_distribution_chart = annotated_df.groupby("Sentiment").size().reset_index(name="Count")
-
-        #     bar_chart = alt.Chart(sentiment_distribution_chart).mark_arc(innerRadius=50).encode(
-        #         theta=alt.Theta(field="Count", type="quantitative"),
-        #         color=alt.Color(field="Sentiment", type="nominal", scale=alt.Scale(domain=["Positive", "Negative", "Neutral"], range=["#2ecc71", "#e74c3c", "#f1c40f"])),
-        #         tooltip=["Sentiment", "Count"]
-        #     ).properties(
-        #         title="Sentiment Distribution - TextBlob"
-        #     )
-
-        #     st.altair_chart(bar_chart, use_container_width=True)
-        #     st.dataframe(sentiment_distribution_chart, use_container_width=True)
+        pipeline = EnhancedMLPipeline()
+        
+        if st.button("🔬 Start ML Pipeline Analysis", type="primary"):
+            # First load and validate the data
+            if pipeline.load_and_validate_data(uploaded_file):
+                pipeline.run_sentiment_analysis()
+                
+                st.success("🎉 ML Pipeline completed successfully!")
+            else:
+                st.error("❌ Failed to load data for ML pipeline analysis.")
+        
+        # Quick ML insights summary (always visible)
+        st.markdown("### 📋 Quick ML Insights")
+        if hasattr(pipeline, 'df') and pipeline.df is not None and not pipeline.df.empty:
+            col1, col2, col3 = st.columns(3)
+            
+            with col1:
+                if 'Sentiment' in pipeline.df.columns:
+                    sentiment_dist = pipeline.df['Sentiment'].value_counts()
+                    st.metric("Most Common Sentiment", sentiment_dist.index[0], f"{sentiment_dist.iloc[0]} comments")
+            
+            with col2:
+                if 'Topic' in pipeline.df.columns:
+                    topic_count = pipeline.df['Topic'].nunique()
+                    st.metric("Topics Discovered", topic_count, "distinct themes")
+            
+            with col3:
+                if hasattr(pipeline.model_trainer, 'metrics') and pipeline.model_trainer.metrics:
+                    best_model = max(pipeline.model_trainer.metrics.items(), key=lambda x: x[1].get('Accuracy', 0) or 0)
+                    st.metric("Best Model", best_model[0], f"{best_model[1].get('Accuracy', 0):.3f} accuracy")
+        else:
+            st.info("💡 Run the ML pipeline above to see detailed insights and topic analysis integrated with your NPS data.")
 
     else:
         st.info("""

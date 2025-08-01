@@ -187,9 +187,11 @@ the received data is gonna face a series of cuts that will return a high accurac
 - during my process of thinking MLPipeline, I think that it is confusing to display 4 models tab for the final user, 
 - so now we run all of them in parallel, display the "Model Performance Overview" and "Detailed Performance Metrics" straight forward
 
-***next***
-- all eyes on "Step 2: Topic Modeling & Discovery"
+***part 3***
+- before, I opted to first integrate Step1 into `MLPipeline.py`... getting closer!
 
+***comming up next***
+- all eyes on "Step 2: Topic Modeling & Discovery"
 
 #### week 2 part 1 - `feature/outlier-handling`
 - Identify extremely long comments (> 200 tokens)
@@ -218,6 +220,9 @@ the received data is gonna face a series of cuts that will return a high accurac
 - Add integration tests for end-to-end pipeline
 - Performance testing for large datasets
 - Error handling validation
+
+***think about new logo***
+
 
 ---
 

@@ -24,7 +24,7 @@ try:
         MLExperimentsPage,
         TopicModelingPage,
         GoogleMapsPage,
-        MLPipeline
+        MLPipelinePage
     )
 
 except ImportError:
@@ -35,7 +35,7 @@ except ImportError:
     import views.MLExperimentsPage as MLExperimentsPage
     import views.TopicModelingPage as TopicModelingPage
     import views.GoogleMapsPage as GoogleMapsPage
-    import views.MLPipeline as MLPipeline
+    import views.MLPipelinePage as MLPipelinePage
 
 def main():
     # Sidebar with logo and navigation - this will be our only sidebar
@@ -99,7 +99,7 @@ def main():
         TranslatePage.show_translate()
     
     elif page == "ML Pipeline 👷":
-        MLPipeline.show_ml_pipeline()    
+        MLPipelinePage.show_ml_pipeline()    
     elif page == "Google Maps API 👷":
         GoogleMapsPage.show_google_maps()
 
