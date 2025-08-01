@@ -9,6 +9,14 @@ from datetime import datetime
 load_dotenv()
 
 class DatabaseManager:
+    """
+    This beast is responsible for managing the connection to Supabase, our choise of BaaS (Backend as a Service).
+    It also provides methods to save and fetch data from the database.
+
+    Fun Fact: I was torn between MongoDB and Supabase for the database. Read my article about my conundrum: 
+    https://dev.to/lfariaus/my-database-conundrum-mongodb-vs-supabase-for-a-pure-python-app-3cfn
+    """
+    
     def __init__(self, parent):
         self.parent = parent
         print("DatabaseManager initialized")
@@ -33,18 +41,6 @@ class DatabaseManager:
         except Exception as e:
             print(f"Database connection failed: {e}")
             return False
-
-    def create_db(self):
-        """
-        Database tables are created via Supabase dashboard
-        """
-        print("Database tables managed via Supabase dashboard")
-    
-    def close_db(self):
-        """
-        Cleanup connection resources
-        """
-        print("Database connection closed")
     
     def save_transcript(self, user_id: str, transcript_df: pd.DataFrame) -> Optional[Dict[str, Any]]:
         """

@@ -61,8 +61,15 @@ Following **GitFlow** with feature branches and semantic versioning:
 ### 🔧 In Progress
 
 #### ▫️ v3.0.0 - `feature/login-authentication`
+***part1***
+- created tab_login for ui and login_controller for logic
+- did some research on supabase auth thinking about Torrens Microsoft Integration (https://supabase.com/docs/guides/auth)
+
+***part2***
 - Make it possible for users to register/login on the app via tab
 - Save users on db
+
+---
 
 #### ▫️ v3.1.0 - `feature/basic-history-view`
 > ***Goal: Let users retrieve previously saved sessions.***
@@ -80,6 +87,8 @@ Following **GitFlow** with feature branches and semantic versioning:
 
 #### Hotfixes
 - Pytest adjustments to new UI structure (`feature/frontend-tests`)
+- Pytest coverage on **DatabaseManager** and **DataProcessor**
+- Pytest coverage on warnings 17 passed, 38 warnings
 - Auto detect os theme (`feature/auto-detect-os-theme`)
 
 #### Future
