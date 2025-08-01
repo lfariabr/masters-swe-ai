@@ -67,7 +67,12 @@ class EnhancedMLPipeline:
             with st.spinner("🔄 Loading and validating data..."):
                 send_discord_message("🔄 Starting enhanced ML pipeline data validation")
                 
+            # Reset file pointer to beginning - CRUCIAL FIX!
+            # This is needed because the file may have been read already in NPSPage
+            uploaded_file.seek(0)
+            
             self.df = pd.read_csv(uploaded_file)
+            st.dataframe(self.df, use_container_width=True)
             
             # Validate required columns
             required_columns = ['Comment', 'Score']
