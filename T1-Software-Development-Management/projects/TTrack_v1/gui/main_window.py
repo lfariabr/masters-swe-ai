@@ -113,3 +113,26 @@ class MainWindow(QMainWindow):
         # Enable results tab if processing was successful
         if success:
             self.tab_controller.enable_results_tab()
+
+    def _save_to_database(self):
+        """
+        Save processed session data to database (triggered from UI)
+        """
+        from PyQt5.QtWidgets import QMessageBox
+        
+        # Check if data is available
+        if not hasattr(self.data_processor, 'results_df') or self.data_processor.results_df is None:
+            QMessageBox.warning(self, "No Data", "No processed data to save. Please process data first.")
+            return
+        
+        # Delegate to DataProcessor
+        success = self.data_processor.save_session_to_database()
+        
+        if success:
+            QMessageBox.information(
+                self,
+                "Data Saved",
+                f"Processed data saved successfully!"
+            )
+        else:
+            QMessageBox.warning(self, "Save Failed", "Failed to save session data to database.")

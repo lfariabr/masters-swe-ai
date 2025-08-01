@@ -6,8 +6,11 @@ from PyQt5.QtWidgets import (
     QWidget,
     QLabel,
     QFrame,
-    QProgressBar
+    QProgressBar,
+    QPushButton
 )
+from utils.data_processor import DataProcessor
+from utils.database import DatabaseManager
 
 def setup_results_tab(parent):
     """
@@ -104,6 +107,13 @@ def setup_results_tab(parent):
     header_layout.addWidget(parent.header_label)
     header_layout.addWidget(parent.sub_header)
     header_layout.addWidget(progress_container)
+
+    # Add "Save" button
+    from .helpers import set_button_style
+    save_button = QPushButton("💾 Save This Data")
+    save_button.clicked.connect(parent._save_to_database)
+    set_button_style(save_button, "#27ae60", parent.theme_manager.is_dark_mode)
+    header_layout.addWidget(save_button)
 
     # Add a separator line
     separator = QFrame()

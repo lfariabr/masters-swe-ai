@@ -1,6 +1,7 @@
 from PyQt5.QtWidgets import QMessageBox, QLabel, QProgressBar
 from resolvers.engine import match_transcript_with_curriculum, generate_progress_summary, suggest_electives
 import uuid
+import pandas as pd
 
 class DataProcessor:
     """
@@ -101,8 +102,8 @@ class DataProcessor:
                 print(f"Updated progress bar: {progress}%")
                 break
 
-            # Database Integration
-            self._save_to_database(summary_df, electives_df, progress)
+            # # Database Integration
+            # self._save_to_database(summary_df, electives_df, progress)
             
             return True
             
@@ -114,56 +115,104 @@ class DataProcessor:
             )
             raise
     
-    def _save_to_database(self, summary_df, electives_df, progress):
-        """
-        Save processed session data to database
+    # def _save_to_database(self, summary_df, electives_df, progress):
+    #     """
+    #     Save processed session data to database
         
-        Args:
-            summary_df: Summary dataframe with progress data
-            electives_df: Electives suggestions dataframe  
-            progress: Progress percentage as integer
-        """
-        try:
-            user_id = f"{self.student_name}_{uuid.uuid4().hex[:8]}"
-            db_manager = self.parent.database_manager
+    #     Args:
+    #         summary_df: Summary dataframe with progress data
+    #         electives_df: Electives suggestions dataframe  
+    #         progress: Progress percentage as integer
+    #     """
+    #     try:
+    #         user_id = f"{self.student_name}_{uuid.uuid4().hex[:8]}"
+    #         db_manager = self.parent.database_manager
 
-            if db_manager and db_manager.supabase:
-                # Save transcript data
-                transcript_result = db_manager.save_transcript(user_id, self.transcript_df)
-                if transcript_result:
-                    print(f"✅ Transcript saved with ID: {transcript_result.get('id')}")
+    #         if db_manager and db_manager.supabase:
+    #             # Save transcript data
+    #             transcript_result = db_manager.save_transcript(user_id, self.transcript_df)
+    #             if transcript_result:
+    #                 print(f"✅ Transcript saved with ID: {transcript_result.get('id')}")
                 
-                # Save curriculum data  
-                curriculum_result = db_manager.save_curriculum(user_id, self.curriculum_df)
-                if curriculum_result:
-                    print(f"✅ Curriculum saved with ID: {curriculum_result.get('id')}")
+    #             # Save curriculum data  
+    #             curriculum_result = db_manager.save_curriculum(user_id, self.curriculum_df)
+    #             if curriculum_result:
+    #                 print(f"✅ Curriculum saved with ID: {curriculum_result.get('id')}")
                 
-                # Save processed session data
-                session_result = db_manager.save_processed_data(
-                    user_id, 
-                    self.results_df, 
-                    summary_df, 
-                    electives_df, 
-                    progress
-                )
-                if session_result:
-                    session_id = session_result.get('id')
-                    print(f"✅ Session saved with ID: {session_id}")
+    #             # Save processed session data
+    #             session_result = db_manager.save_processed_data(
+    #                 user_id, 
+    #                 self.results_df, 
+    #                 summary_df, 
+    #                 electives_df, 
+    #                 progress
+    #             )
+    #             if session_result:
+    #                 session_id = session_result.get('id')
+    #                 print(f"✅ Session saved with ID: {session_id}")
                     
-                    # Store session_id for potential UI display
-                    self.last_session_id = session_id
+    #                 # Store session_id for potential UI display
+    #                 self.last_session_id = session_id
                     
-                    # Optional: Show success message to user
-                    QMessageBox.information(
-                        self.parent,
-                        "Data Saved",
-                        f"Session data saved successfully!\nSession ID: {session_id[:8]}..."
-                    )
-                else:
-                    print("⚠️ Failed to save session data")
-            else:
-                print("⚠️ Database not available - data not saved")
+    #                 # Optional: Show success message to user
+    #                 QMessageBox.information(
+    #                     self.parent,
+    #                     "Data Saved",
+    #                     f"Success! Data saved successfully!"
+    #                 )
+    #             else:
+    #                 print("⚠️ Failed to save session data")
+    #         else:
+    #             print("⚠️ Database not available - data not saved")
                 
+    #     except Exception as e:
+    #         print(f"❌ Database save error: {e}")
+    #         # Don't show error to user - processing was successful, just save failed
+
+    def save_session_to_database(self):
+        """
+        Save current session data to database (called manually from UI)
+        
+        Returns:
+            bool: True if save was successful, False otherwise
+        """
+        if self.results_df is None or self.transcript_df is None or self.curriculum_df is None:
+            return False
+            
+        try:
+            # Generate unique user_id for this session
+            user_id = f"{self.student_name}_{uuid.uuid4().hex[:8]}"
+            
+            # Access database manager from parent
+            db_manager = self.parent.database_manager
+            
+            if not (db_manager and db_manager.supabase):
+                return False
+            
+            # Calculate progress from current data
+            from resolvers.engine import generate_progress_summary
+            summary_df = generate_progress_summary(self.results_df)
+            electives_df = pd.DataFrame({'status': ['electives_placeholder']})  # Placeholder
+            
+            total_done = summary_df["✅ Done"].sum() if "✅ Done" in summary_df.columns else 0
+            total_subjects = summary_df["Total"].sum() if "Total" in summary_df.columns else 1
+            progress = int(total_done / total_subjects * 100) if total_subjects > 0 else 0
+            
+            # Save all data
+            transcript_result = db_manager.save_transcript(user_id, self.transcript_df)
+            curriculum_result = db_manager.save_curriculum(user_id, self.curriculum_df)
+            session_result = db_manager.save_processed_data(
+                user_id, self.results_df, summary_df, electives_df, progress
+            )
+            
+            if transcript_result and curriculum_result and session_result:
+                session_id = session_result.get('id')
+                print(f"✅ Session saved with ID: {session_id}")
+                self.last_session_id = session_id
+                return True
+            
+            return False
+            
         except Exception as e:
             print(f"❌ Database save error: {e}")
-            # Don't show error to user - processing was successful, just save failed
+            return False
