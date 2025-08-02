@@ -14,12 +14,12 @@ Dr. Muhammad Atif Qureshi
 - [X] Module 7 - Quality Management
 - [X] Module 8 - Project Monitoring and Control
 - [X] Module 9 - Managing People
-- [ ] Module 10
-- [ ] Module 11
-- [ ] Module 12
+- [X] Module 10 - Change Management
+- [ ] Module 11 - Project Closure
+- [ ] Module 12 - Presentation and Demo
 
 ## Assignments
-- [X] Assessment 1 - deadline 29/06/2025 - submitted 29/06/2025
+- [X] Assessment 1 - deadline 29/06/2025
 - [X] Assessment 2 - deadline 20/07/2025
 - [ ] Assessment 3 - deadline 10/08/2025
 - [ ] Assessment 4 - deadline 24/08/2025
