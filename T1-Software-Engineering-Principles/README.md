@@ -14,7 +14,7 @@ Dr. Ranju Mandal
 - [X] Module 7 - High-level Software Design
 - [X] Module 8 - Low-level Software Design
 - [X] Module 9 - Software Construction - Part 1
-- [ ] Module 10 - Software Construction - Part 2
+- [X] Module 10 - Software Construction - Part 2
 - [ ] Module 11 - Software Engineering Ethics, Quality and Standards
 - [ ] Module 12 - Student Assessment Presentations
 
