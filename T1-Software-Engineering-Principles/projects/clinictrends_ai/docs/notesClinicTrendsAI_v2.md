@@ -189,6 +189,7 @@ the received data is gonna face a series of cuts that will return a high accurac
 
 ***part 3***
 - before, I opted to first integrate Step1 into `MLPipeline.py`... getting closer!
+- iterating, was able to put train models in there...
 
 ***comming up next***
 - all eyes on "Step 2: Topic Modeling & Discovery"

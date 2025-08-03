@@ -7,7 +7,7 @@ import pandas as pd
 
 # Add parent directory to path to import utils
 sys.path.append(str(Path(__file__).parent.parent))
-from utils.preprocessing import load_and_process_csv, calculate_nps
+from utils.preprocessing import load_and_process_csv, calculate_nps, classify_nps
 from utils.visualizations import nps_donut_chart, monthly_nps_trend_chart, create_nps_explanations
 from utils.ui_filters import get_year_store_filters
 from utils.nlp_analysis import display_sentiment_distribution, display_wordcloud, annotate_sentiments
@@ -39,7 +39,7 @@ def show_dashboard():
     )
 
     if uploaded_file is not None:
-        send_discord_message("🔄 Starting data upload and validation process at NPS Page")
+        # send_discord_message("🔄 Starting data upload and validation process at NPS Page")
         df = load_and_process_csv(uploaded_file)
 
         with st.expander("👀 Data Preview (just in case you want to check it)"):
@@ -104,7 +104,7 @@ def show_dashboard():
 
                 if nps_score < 50:
                     st.error(f"⚠️ ALERT: Your NPS is critically low ({nps_score}). Immediate action is recommended!")
-                    send_discord_message(f"🚨 CRITICAL ALERT: NPS is very low ({nps_score}).")
+                    # send_discord_message(f"🚨 CRITICAL ALERT: NPS is very low ({nps_score}).")
                 elif nps_score < 80:
                     st.warning(f"🔔 Caution: Your NPS is {nps_score}. Consider investigating customer issues.")
                 else:
@@ -123,7 +123,7 @@ def show_dashboard():
                 )
                 if neg_rate > 30:
                     st.error(f"⚠️ ALERT: High negative sentiment detected ({neg_rate:.1f}%).")
-                    send_discord_message(f"🚨 High negative sentiment detected ({neg_rate:.1f}%).")
+                    # send_discord_message(f"🚨 High negative sentiment detected ({neg_rate:.1f}%).")
                 elif neg_rate > 10:
                     st.warning(f"🔔 Moderate negative sentiment ({neg_rate:.1f}%). Monitor customer feedback closely.")
                 else:
@@ -158,34 +158,15 @@ def show_dashboard():
         
         pipeline = EnhancedMLPipeline()
         
-        if st.button("🔬 Start ML Pipeline Analysis", type="primary"):
-            # First load and validate the data
-            if pipeline.load_and_validate_data(uploaded_file):
-                pipeline.run_sentiment_analysis()
-                
-                st.success("🎉 ML Pipeline completed successfully!")
+        if st.button("🚀 Train All ML Models", type="primary"):
+            if uploaded_file is not None and pipeline.load_and_validate_data(uploaded_file):
+                st.markdown("---")
+                st.markdown("### 🧠 Step 1: Multi-Model Sentiment Analysis")
+                pipeline.train_all_models()
+                st.success("✅ All models trained successfully!")
             else:
-                st.error("❌ Failed to load data for ML pipeline analysis.")
-        
-        # Quick ML insights summary (always visible)
-        st.markdown("### 📋 Quick ML Insights")
-        if hasattr(pipeline, 'df') and pipeline.df is not None and not pipeline.df.empty:
-            col1, col2, col3 = st.columns(3)
-            
-            with col1:
-                if 'Sentiment' in pipeline.df.columns:
-                    sentiment_dist = pipeline.df['Sentiment'].value_counts()
-                    st.metric("Most Common Sentiment", sentiment_dist.index[0], f"{sentiment_dist.iloc[0]} comments")
-            
-            with col2:
-                if 'Topic' in pipeline.df.columns:
-                    topic_count = pipeline.df['Topic'].nunique()
-                    st.metric("Topics Discovered", topic_count, "distinct themes")
-            
-            with col3:
-                if hasattr(pipeline.model_trainer, 'metrics') and pipeline.model_trainer.metrics:
-                    best_model = max(pipeline.model_trainer.metrics.items(), key=lambda x: x[1].get('Accuracy', 0) or 0)
-                    st.metric("Best Model", best_model[0], f"{best_model[1].get('Accuracy', 0):.3f} accuracy")
+                st.error("❌ Failed to load data for ML model training.")
+           
         else:
             st.info("💡 Run the ML pipeline above to see detailed insights and topic analysis integrated with your NPS data.")
 
