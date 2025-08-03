@@ -6,6 +6,8 @@ from services.database import DatabaseManager
 from core.data_processor import DataProcessor
 from controllers.theme_manager import ThemeManager
 from controllers.tab_controller import TabController
+from controllers.login_controller import LoginController
+from services.auth_service import AuthService
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -22,6 +24,7 @@ class MainWindow(QMainWindow):
         self.tab_controller = TabController(self)
         self.data_processor = DataProcessor(self)
         self.database_manager = DatabaseManager(self)
+        self.auth_service = AuthService()
         
         # Initialize UI
         self.init_ui()

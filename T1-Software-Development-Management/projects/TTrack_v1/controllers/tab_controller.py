@@ -77,3 +77,9 @@ class TabController:
     def get_login_tab(self):
         """Get the login tab widget"""
         return self.login_tab
+    
+    def enable_all_tabs(self):
+        """Enable all tabs"""
+        if self.tabs:
+            for i in range(self.tabs.count()):
+                self.tabs.setTabEnabled(i, True)

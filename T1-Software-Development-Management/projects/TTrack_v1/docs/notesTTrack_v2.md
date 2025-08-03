@@ -59,44 +59,45 @@ Following **GitFlow** with feature branches and semantic versioning:
 #### 🟢 v3.0.0 - `feature/structure-reorganization`
 - Core, Services and Controllers directories created and restructured, looking more professional
 
+#### 🟢 v3.1.0 - `feature/login-authentication`
+- created tab_login for ui and login_controller for logic
+- did some research on supabase auth thinking about Torrens Microsoft Integration (https://supabase.com/docs/guides/auth)
+
+#### 🟢 v3.2.0 - `feature/login-authentication`
+> ***Goal: Make it possible for users to register/login on the app via tab and save users on db.***
+- Created `AuthService` class and integrated it in `main_window`
+- Created `LoginController` class, child of AuthService
+- Implemented the login, register and logout logic to use in `tab_login.py`
+
 ---
 
 ### 🔧 In Progress
 
-#### ▫️ v3.0.0 - `feature/login-authentication`
-***part1***
-- created tab_login for ui and login_controller for logic
-- did some research on supabase auth thinking about Torrens Microsoft Integration (https://supabase.com/docs/guides/auth)
+- ***v3.2.0 - check back UX during login/logout. Fine tune.***
 
-***part2***
-- Make it possible for users to register/login on the app via tab
-- Save users on db
-
-refs
-https://supabase.com/docs/guides/auth/social-login/auth-azure
-https://www.reddit.com/r/Supabase/comments/1ecwowt/how_to_keep_local_db_up_to_date_with_remote/
-https://dev.to/jps27cse/how-to-prevent-your-supabase-project-database-from-being-paused-using-github-actions-3hel
-
----
-
-#### ▫️ v3.1.0 - `feature/basic-history-view`
+#### ▫️ v3.3.0 - `feature/basic-history-view`
 > ***Goal: Let users retrieve previously saved sessions.***
 - Update tab "Student Records" to show a list of saved records instead of mock data
 - Fetch and repopulate transcript + curriculum tables
 - Show timestamp, file summary, match summary
 
-#### ▫️ v3.2.0 - `feature/cloud-sync`
+#### ▫️ v3.4.0 - `feature/cloud-sync`
 > ***Goal: Prepare app to run with DB even when offline or in fallback mode.***
 - Abstract DB calls with try/except wrappers
 - Provide fallback to local CSV save if cloud is unavailable
 - Add .env support for database URL/secrets
 
+***refs***
+- https://supabase.com/docs/guides/auth/social-login/auth-azure
+- https://www.reddit.com/r/Supabase/comments/1ecwowt/how_to_keep_local_db_up_to_date_with_remote/
+- https://dev.to/jps27cse/how-to-prevent-your-supabase-project-database-from-being-paused-using-github-actions-3hel
+
+
 ### 🗂️ Backlog
 
 #### Hotfixes
 - Pytest adjustments to new UI structure (`feature/frontend-tests`)
-- Pytest coverage on **DatabaseManager** and **DataProcessor**
-- Pytest coverage on warnings 17 passed, 38 warnings
+- Pytest coverage on **DatabaseManager**, **DataProcessor**, **LoginController** and **AuthService** (warnings 17 passed, 38 warnings)
 - Auto detect os theme (`feature/auto-detect-os-theme`)
 
 #### Future
