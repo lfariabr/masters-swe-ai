@@ -3,7 +3,7 @@ Tests for the curriculum matching engine.
 """
 import pytest
 import pandas as pd
-from resolvers.engine import (
+from core.engine import (
     match_transcript_with_curriculum,
     generate_progress_summary,
     suggest_electives,

@@ -9,8 +9,8 @@ from PyQt5.QtWidgets import (
     QProgressBar,
     QPushButton
 )
-from utils.data_processor import DataProcessor
-from utils.database import DatabaseManager
+from core.data_processor import DataProcessor
+from services.database import DatabaseManager
 
 def setup_results_tab(parent):
     """

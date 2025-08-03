@@ -6,8 +6,8 @@ a = Analysis(
     pathex=[],
     binaries=[],
     datas=[
-        ('data/sample_academic_transcript.xlsx', 'data'),
-        ('data/sample_prescribed_curriculum.xlsx', 'data'),
+        ('services/data/sample_academic_transcript.xlsx', 'data'),
+        ('services/data/sample_prescribed_curriculum.xlsx', 'data'),
     ],
     hiddenimports=[],
     hookspath=[],

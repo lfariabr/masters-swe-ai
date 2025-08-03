@@ -53,13 +53,14 @@ TTrack implements a **modular, event-driven architecture** following SOLID princ
 ```
 TTrack/
 ├── 🎯 main.py                    # Application entry point & orchestration
-├── 📊 data/                      # Data templates & samples
-├── 📚 docs/                      # Technical documentation
+├── 🎮 controllers/               # Login, Tabs and Theme controllers
+├── 🧠 core/                      # Data processing & business logic
 ├── 📦 dist/                      # Production builds
-├── 🖥️ gui/                      # Presentation layer
+├── 📚 docs/                      # Technical documentation
+├── 🖥️ gui/                       # Presentation layer
 ├── 🖼️ public/                    # Public assets like logo, icons, etc.
-├── 🧠 resolvers/                 # Business logic layer
-├── ✅ tests/                     # Unit tests
+├── 📊 services/                  # Database & data sample
+├── ✅ tests/                     # Testing coverage
 └── 🎨 ui/                        # UI components & layouts
 ```
 
@@ -67,7 +68,7 @@ TTrack/
 
 ### Intelligent Matching Algorithm
 
-The **TTrack Engine** (`resolvers/engine.py`) implements sophisticated data processing:
+The **TTrack Engine** (`core/data_processor.py`) implements sophisticated data processing:
 
 ```python
 def match_transcript_with_curriculum(transcript_df, curriculum_df):

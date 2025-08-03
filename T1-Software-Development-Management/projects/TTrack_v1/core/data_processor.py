@@ -1,7 +1,13 @@
 from PyQt5.QtWidgets import QMessageBox, QLabel, QProgressBar
-from resolvers.engine import match_transcript_with_curriculum, generate_progress_summary, suggest_electives
 import uuid
 import pandas as pd
+
+from core.engine import (
+    match_transcript_with_curriculum,
+    generate_progress_summary,
+    suggest_electives
+)
+
 
 class DataProcessor:
     """
@@ -190,7 +196,6 @@ class DataProcessor:
                 return False
             
             # Calculate progress from current data
-            from resolvers.engine import generate_progress_summary
             summary_df = generate_progress_summary(self.results_df)
             electives_df = pd.DataFrame({'status': ['electives_placeholder']})  # Placeholder
             

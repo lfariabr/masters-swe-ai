@@ -1,14 +1,11 @@
 from PyQt5.QtWidgets import QMainWindow, QMessageBox, QTableWidget, QLabel, QProgressBar
 from PyQt5.QtCore import Qt
 
-# Import UI helper module
 from ui import helpers
-
-# Import our new utility classes
-from utils.theme_manager import ThemeManager
-from utils.data_processor import DataProcessor
-from utils.tab_controller import TabController
-from utils.database import DatabaseManager
+from services.database import DatabaseManager
+from core.data_processor import DataProcessor
+from controllers.theme_manager import ThemeManager
+from controllers.tab_controller import TabController
 
 class MainWindow(QMainWindow):
     def __init__(self):

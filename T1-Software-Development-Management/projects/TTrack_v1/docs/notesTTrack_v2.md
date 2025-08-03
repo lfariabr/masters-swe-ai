@@ -49,12 +49,15 @@ Following **GitFlow** with feature branches and semantic versioning:
 - Added logic to `utils/database.py` using error handling and try/except blocks
 - Added logic to `utils/data_processor.py` to save processed data to database using `DatabaseManager` class
 
-#### ▫️ v2.2.0 - `feature/ui-to-database`
+#### 🟢 v2.2.0 - `feature/ui-to-database`
 > ***Goal: Let users persist their processed data with a unique record ID.***
 - After processing, provide a button "💾 Save This Session"
 - Generate and show record_id (UUID or hash)
 - Save both transcript and curriculum with current timestamp and user ID
 - Display a toast/message: ✅ Session saved as ID: abc123
+
+#### 🟢 v3.0.0 - `feature/structure-reorganization`
+- Core, Services and Controllers directories created and restructured, looking more professional
 
 ---
 
