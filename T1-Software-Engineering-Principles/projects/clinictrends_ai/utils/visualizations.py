@@ -58,29 +58,57 @@ def create_model_summary_cards(metrics: Dict[str, Dict]) -> None:
                 with st.container():
                     st.markdown(f"##### {data['Model']}")
                     
-                    # Key metrics with color coding
+                    # Key metrics with safe handling of None values
                     accuracy = data['Accuracy']
                     f1_score = data['F1-Score']
                     
-                    # Color code based on performance
-                    acc_color = "🟢" if accuracy > 0.8 else "🟡" if accuracy > 0.6 else "🔴"
-                    f1_color = "🟢" if f1_score > 0.8 else "🟡" if f1_score > 0.6 else "🔴"
+                    # Safe color coding - handle None values
+                    def get_performance_color(value):
+                        if value is None:
+                            return "⚪"  # White circle for N/A
+                        elif value > 0.8:
+                            return "🟢"  # Green for excellent
+                        elif value > 0.6:
+                            return "🟡"  # Yellow for good
+                        else:
+                            return "🔴"  # Red for needs improvement
                     
-                    st.metric(
-                        label=f"{acc_color} Accuracy",
-                        value=f"{accuracy:.1%}"
-                    )
-                    st.metric(
-                        label=f"{f1_color} F1-Score",
-                        value=f"{f1_score:.3f}"
-                    )
+                    acc_color = get_performance_color(accuracy)
+                    f1_color = get_performance_color(f1_score)
+                    
+                    # Display metrics with safe formatting
+                    if accuracy is not None:
+                        st.metric(
+                            label=f"{acc_color} Accuracy",
+                            value=f"{accuracy:.1%}"
+                        )
+                    else:
+                        st.metric(
+                            label=f"{acc_color} Accuracy",
+                            value="N/A",
+                            help="No ground truth available for accuracy calculation"
+                        )
+                    
+                    if f1_score is not None:
+                        st.metric(
+                            label=f"{f1_color} F1-Score",
+                            value=f"{f1_score:.3f}"
+                        )
+                    else:
+                        st.metric(
+                            label=f"{f1_color} F1-Score",
+                            value="N/A",
+                            help="No ground truth available for F1-Score calculation"
+                        )
+                    
+                    # Training time and predictions should always be available
                     st.metric(
                         label="⏱️ Training Time",
-                        value=f"{data['Training_Time']:.2f}s"
+                        value=f"{data['Training_Time']:.2f}s" if data['Training_Time'] is not None else "N/A"
                     )
                     st.metric(
                         label="📊 Predictions",
-                        value=f"{data['Total_Predictions']:,}"
+                        value=f"{data['Total_Predictions']:,}" if data['Total_Predictions'] is not None else "N/A"
                     )
 
 
@@ -91,21 +119,35 @@ def create_detailed_metrics_table(metrics: Dict[str, Dict]) -> None:
     
     st.subheader("📋 Detailed Performance Metrics")
     
+    # Helper function to safely format metrics
+    def safe_format(value, format_type="float"):
+        if value is None:
+            return "N/A"
+        if format_type == "percentage":
+            return f"{value:.1%}"
+        elif format_type == "float":
+            return f"{value:.3f}"
+        elif format_type == "time":
+            return f"{value:.2f}s"
+        elif format_type == "int":
+            return f"{value:,}"
+        return str(value)
+    
     metrics_df = pd.DataFrame([
         {
             "Model": data["Model"],
-            "Accuracy": f"{data['Accuracy']:.1%}",
-            "Precision": f"{data['Precision']:.3f}",
-            "Recall": f"{data['Recall']:.3f}",
-            "F1-Score": f"{data['F1-Score']:.3f}",
-            "Training Time": f"{data['Training_Time']:.2f}s",
-            "Predictions": f"{data['Total_Predictions']:,}"
+            "Accuracy": safe_format(data['Accuracy'], "percentage"),
+            "Precision": safe_format(data['Precision'], "float"),
+            "Recall": safe_format(data['Recall'], "float"),
+            "F1-Score": safe_format(data['F1-Score'], "float"),
+            "Training Time": safe_format(data['Training_Time'], "time"),
+            "Predictions": safe_format(data['Total_Predictions'], "int")
         }
         for data in metrics.values() if data
     ])
     
     if not metrics_df.empty:
-        # Find best performing model for each metric
+        # Find best performing model for each metric (only for non-None values)
         raw_metrics = pd.DataFrame([
             {
                 "Model": data["Model"],
@@ -118,29 +160,81 @@ def create_detailed_metrics_table(metrics: Dict[str, Dict]) -> None:
             for data in metrics.values() if data
         ])
         
-        # Highlight best performers
+        # Highlight best performers (only for non-None values)
         def highlight_best(s):
             if s.name in ['Accuracy', 'Precision', 'Recall', 'F1-Score']:
-                max_val = raw_metrics[s.name].max()
-                return [f'background-color: #2e6930' if float(v.rstrip('%').replace(',', '')) == max_val * (100 if s.name == 'Accuracy' else 1) else '' for v in s]
-            elif s.name == 'Training_Time':
-                min_val = raw_metrics['Training_Time'].min()
-                return [f'background-color: #2e6930' if float(v.rstrip('s')) == min_val else '' for v in s]
+                # Only highlight if we have valid values to compare
+                valid_values = raw_metrics[s.name].dropna()
+                if valid_values.empty:
+                    return ['' for _ in s]
+                
+                max_val = valid_values.max()
+                highlighted = []
+                for i, v in enumerate(s):
+                    if v == "N/A":
+                        highlighted.append('')
+                    else:
+                        # Extract numeric value for comparison
+                        if s.name == 'Accuracy':
+                            numeric_val = float(v.rstrip('%')) / 100
+                        else:
+                            numeric_val = float(v)
+                        
+                        if abs(numeric_val - max_val) < 0.001:  # Account for floating point precision
+                            highlighted.append('background-color: #2e6930; color: white')
+                        else:
+                            highlighted.append('')
+                return highlighted
+                
+            elif s.name == 'Training Time':
+                valid_values = raw_metrics['Training_Time'].dropna()
+                if valid_values.empty:
+                    return ['' for _ in s]
+                
+                min_val = valid_values.min()
+                highlighted = []
+                for v in s:
+                    if v == "N/A":
+                        highlighted.append('')
+                    else:
+                        numeric_val = float(v.rstrip('s'))
+                        if abs(numeric_val - min_val) < 0.01:
+                            highlighted.append('background-color: #2e6930; color: white')
+                        else:
+                            highlighted.append('')
+                return highlighted
+            
             return ['' for _ in s]
         
         styled_df = metrics_df.style.apply(highlight_best, axis=0)
         st.dataframe(styled_df, use_container_width=True, hide_index=True)
         
-        # Performance insights
-        best_accuracy = raw_metrics.loc[raw_metrics['Accuracy'].idxmax(), 'Model']
-        best_f1 = raw_metrics.loc[raw_metrics['F1-Score'].idxmax(), 'Model']
-        fastest = raw_metrics.loc[raw_metrics['Training_Time'].idxmin(), 'Model']
+        # Performance insights (only for models with valid metrics)
+        valid_accuracy = raw_metrics.dropna(subset=['Accuracy'])
+        valid_f1 = raw_metrics.dropna(subset=['F1-Score'])
+        valid_time = raw_metrics.dropna(subset=['Training_Time'])
         
-        st.info(f"""🏆 **Highlights to:**
+        insights = []
+        if not valid_accuracy.empty:
+            best_accuracy = valid_accuracy.loc[valid_accuracy['Accuracy'].idxmax(), 'Model']
+            insights.append(f"Best Accuracy 🎯: {best_accuracy}")
+        
+        if not valid_f1.empty:
+            best_f1 = valid_f1.loc[valid_f1['F1-Score'].idxmax(), 'Model']
+            insights.append(f"Best F1-Score 🧠: {best_f1}")
+        
+        if not valid_time.empty:
+            fastest = valid_time.loc[valid_time['Training_Time'].idxmin(), 'Model']
+            insights.append(f"Fastest Training ⚡: {fastest}")
+        
+        if insights:
+            st.info(f"🏆 **Performance Highlights:**\n\n" + "\n".join(f"    {insight}" for insight in insights))
+        else:
+            st.info("💡 **Note:** No ground truth available for performance comparison. Models trained successfully for prediction.")
+    
+    else:
+        st.warning("No metrics available to display.")
 
-    Best Accuracy 🎯: {best_accuracy}  
-    Best F1-Score 🧠: {best_f1}  
-    Fastest Training ⚡: {fastest}""")
 
 def crate_nps_vs_sentiment_analysis(df: pd.DataFrame):
     st.markdown("### 📊 NPS vs Sentiment Analysis Comparison")
@@ -385,4 +479,3 @@ def display_nps_sentiment_agreement(df: pd.DataFrame) -> float:
     st.info(f"🎯 **Quick Summary**: Overall NPS-Sentiment agreement rate is {agreement_rate:.1%}")
 
     return agreement_rate
-    

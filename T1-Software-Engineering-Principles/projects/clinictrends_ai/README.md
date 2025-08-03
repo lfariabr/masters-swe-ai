@@ -125,18 +125,20 @@ def collect_metrics(y_true, y_pred, model_name):
 - ✅ A/B testing framework for model comparison
 - ✅ Model fine-tuning and reaching accuracy of +80%
 - ✅ Automated hyperparameter optimization
-- 🔥 Implementing Topic Modeling
+- ✅ Implementing Topic Modeling
 - 🔄 Advanced feature engineering pipelines
-- 🔄 Real-time model retraining capabilities
+    - ✅ Adds MLPipeline to NPSPage for centralized visualization
+    - 🔄 Adds TopicModelingPage for business insights
 - 🔄 Pytest robustness coverage
 
-### Phase 3: Enterprise Integration (v3.0) 📋 **PLANNED**
+### Phase 3: Enterprise Integration (v3.0) 📋 **TBD**
+- 📋 Real-time model retraining capabilities
 - 📋 RESTful API development
 - 📋 Database integration (PostgreSQL/MongoDB)
 - 📋 User authentication & role-based access
 - 📋 Advanced security & compliance features
 
-### Phase 4: AI-Powered Insights (v4.0) 🚀 **FUTURE**
+### Phase 4: AI-Powered Insights (v4.0) 🚀 **TBD**
 - 🚀 GPT-powered natural language insights
 - 🚀 Automated report generation
 - 🚀 Predictive customer lifetime value modeling
