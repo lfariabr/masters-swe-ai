@@ -10,7 +10,7 @@ from unittest.mock import patch, MagicMock
 # Import the main application and components
 import main
 from gui.main_window import MainWindow
-from resolvers.engine import match_transcript_with_curriculum
+from core.engine import match_transcript_with_curriculum
 
 class TestApplicationIntegration:
     """Integration tests for the TTrack application."""

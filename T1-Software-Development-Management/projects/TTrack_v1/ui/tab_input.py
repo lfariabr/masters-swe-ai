@@ -221,7 +221,7 @@ def load_sample_file(parent, is_transcript=True):
     
     # Define the sample file path based on type
     file_name = "sample_academic_transcript.xlsx" if is_transcript else "sample_prescribed_curriculum.xlsx"
-    file_path = os.path.join(base_dir, "data", file_name)
+    file_path = os.path.join(base_dir, "services/data", file_name)
     
     # Check if file exists
     if not os.path.exists(file_path):
@@ -267,7 +267,7 @@ def download_sample_file(parent, is_transcript=True):
     
     # Define the sample file path based on type
     file_name = "sample_academic_transcript.xlsx" if is_transcript else "sample_prescribed_curriculum.xlsx"
-    file_path = os.path.join(base_dir, "data", file_name)
+    file_path = os.path.join(base_dir, "services/data", file_name)
     
     # Check if file exists
     if not os.path.exists(file_path):
