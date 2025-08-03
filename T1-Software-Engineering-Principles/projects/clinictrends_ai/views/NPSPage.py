@@ -160,10 +160,19 @@ def show_dashboard():
         
         if st.button("🚀 Train All ML Models", type="primary"):
             if uploaded_file is not None and pipeline.load_and_validate_data(uploaded_file):
-                st.markdown("---")
-                st.markdown("### 🧠 Step 1: Multi-Model Sentiment Analysis")
+
+                # First, run sentiment analysis and NPS classification
+                with st.spinner("🔄 Preprocessing and annotating sentiments..."):
+                    pipeline.df = annotate_sentiments(pipeline.df)
+                    pipeline.df["Sentiment"] = pipeline.df["Sentiment"].str.upper()
+                    pipeline.df = classify_nps(pipeline.df)
+                    
+                # Now train the models with properly prepared data
                 pipeline.train_all_models()
-                st.success("✅ All models trained successfully!")
+
+                # Finally, proceed with Topic Modeling - WORK IN PROGRESS
+                # with st.spinner("🔄 Training BERTopic model..."):
+                #     pipeline.train_bertopic()
             else:
                 st.error("❌ Failed to load data for ML model training.")
            

@@ -72,7 +72,7 @@ class EnhancedMLPipeline:
             uploaded_file.seek(0)
             
             self.df = pd.read_csv(uploaded_file)
-            st.dataframe(self.df, use_container_width=True)
+            # st.dataframe(self.df, use_container_width=True)
             
             # Validate required columns
             required_columns = ['Comment', 'Score']
@@ -87,10 +87,10 @@ class EnhancedMLPipeline:
             self.df["CommentScore"] = self.df["Comment"].astype(str) + " SCORE_" + self.df["Score"].astype(str)
             
             # Display data preview
-            with st.expander("👀 Data Preview"):
-                st.dataframe(self.df.sample(min(5, len(self.df))), use_container_width=True)
-                st.info(f"Dataset shape: {self.df.shape[0]} rows × {self.df.shape[1]} columns")
-                st.success(f"Total records loaded: {len(self.df)}")
+            # with st.expander("👀 Data Preview"):
+            #     st.dataframe(self.df.sample(min(5, len(self.df))), use_container_width=True)
+            #     st.info(f"Dataset shape: {self.df.shape[0]} rows × {self.df.shape[1]} columns")
+            #     st.success(f"Total records loaded: {len(self.df)}")
             
             return True
             

@@ -28,12 +28,14 @@ streamlit run app.py
 - ✅ A/B testing framework for model comparison
 - ✅ Model fine-tuning and reaching accuracy of +80%
 - ✅ Automated hyperparameter optimization
-- 🔥 Implementing Topic Modeling
+- ✅ Implementing Topic Modeling
 - 🔄 Advanced feature engineering pipelines
-- 🔄 Real-time model retraining capabilities
+    - ✅ Adds MLPipeline to NPSPage for centralized visualization
+    - 🔄 Adds TopicModelingPage for business insights
 - 🔄 Pytest robustness coverage
 
 ### Phase 3: Enterprise Integration (v3.0) 📋 **TBD**
+- 📋 Real-time model retraining capabilities
 - 📋 RESTful API development
 - 📋 Database integration (PostgreSQL/MongoDB)
 - 📋 User authentication & role-based access
@@ -99,6 +101,21 @@ streamlit run app.py
   - Eliminates hardcoded model parameters.
   - Enables fully automated tuning of hyperparameters for optimal model performance.
 
+#### 🔹v2.6.2 - `feature/meeting-with-dr-ranju`
+- current pipeline: Data ➔ Preprocessing ➔ Sentiment Analysis ➔ Performance Metrics
+- suggested pipeline: Data ➔ Preprocessing ➔ Sentiment Analysis ➔ Topic Modeling ➔ Insights ➔ Business - Study BERTopic (BERT + clustering), Sci-kit Learn (LDA, NMF, LSA) and Gensim (LDA, LSI)
+- Read the links Dr. Ranju shared. BERTopic is one of the best modern tools for topic modeling:
+  - Handles short texts better than LDA
+  - Uses embeddings (e.g. BERT) for semantically richer clusters
+  - Generates interpretable topic names.
+  - Useful Links:
+    - https://www.linkedin.com/pulse/topic-modeling-uncovering-hidden-themes-text-mohamed-chizari-y1w2e/
+    - https://wellsr.com/python/topic-modeling-with-bert-using-python-bertopic-library/?utm_source=chatgpt.com
+    - https://www.datacamp.com/tutorial/what-is-topic-modeling?utm_source=chatgpt.com
+    - https://hackernoon.com/nlp-tutorial-topic-modeling-in-python-with-bertopic-372w35l9
+
+> **Note:** Paused here to refactor pages and model class before integrating BERTopic to pipeline
+
 #### 🔹v2.7.0 - `feature/enhanced-model-trainer`
 - Split code between ModelTrainer.py and EnhancedModelTrainer.py
 - EnhancedModels will display work in progress with model fune tuning, metrics and Topic Modeling
@@ -137,8 +154,8 @@ streamlit run app.py
 - better naming from `EnhancedModelsPage.py` to `MLExperimentsPage.py`
 - adds flow diagram [ModelTrainer_ClassDiagram](T1-Software-Engineering-Principles/projects/clinictrends_ai/docs/diagrams/ModelTrainer_ClassDiagram.png) mapping out object relationships
 
-#### � v2.8.3
-**part 3:**
+#### 🔹 v2.8.4 - `feature/refactor-model-trainer`
+**part 1:**
 - reading again feature 1 and 2 to get context fresh
 - reviewing **EXACTLY** what function `train_tfidf_model` does
 - thinknig that maybe 2.8.1 should split into coliumns instead of tabs - maybe back to this later
@@ -161,19 +178,15 @@ the received data is gonna face a series of cuts that will return a high accurac
 ***key change***
 - target_column changed from "Sentiment" to "NPS Type" to align with the business logic
 
-#### 🔹 v2.8.4 - `feature/sprint-review`
+#### 🔹 v2.8.5 - `feature/sprint-review`
 - Split what will be done in the next 3 weeks and what COULD be done on the future
 
-#### 🔹 v2.8.5 - `feature/google-maps-api`
+#### 🔹 v2.8.6 - `feature/google-maps-api`
 - Checking Streamlit's new top nav (it was not worth it... i already have "st.sidebar", which might be conflicting) - 15m
 - Google Maps API Page for grabbing reviews from places
 
----
-
-### 🔧 In Progress
-
-#### week 1 - `feature/complete-bertopic-integration`
-***part 1***
+#### 🔹 v3.0.0 - week 9 - `feature/complete-bertopic-integration`
+***part 1*** v3.0.0
 - added BERTopic to `MLPipeline.py` together with model_trainer (1, 2, 3 and 4)
 - Complete BERTopic integration into full pipeline
 - Map discovered topics to actionable business recommendations:
@@ -182,26 +195,47 @@ the received data is gonna face a series of cuts that will return a high accurac
 - Add topic visualization and interpretation to UI
 - Document topic-to-action mapping framework
 
-***part 2***
+***part 2*** v3.0.1
 - organize `MLPipeline.py` so that we can actually plug to `NPSPage.py`
 - during my process of thinking MLPipeline, I think that it is confusing to display 4 models tab for the final user, 
 - so now we run all of them in parallel, display the "Model Performance Overview" and "Detailed Performance Metrics" straight forward
 
-***part 3***
+***part 3*** v3.0.2
 - before, I opted to first integrate Step1 into `MLPipeline.py`... getting closer!
 - iterating, was able to put train models in there...
+- dealt with comprehensive error handling on `utils.visualizations.py`
+- Added spinner to `NPSPage.py` to display progress while training models
+- When we click "🚀 Train All ML Models":
+  - Step 1: Data Preprocessing & Sentiment Analysis
+    - Annotate sentiments using TextBlob
+    - Convert scores to NPS categories (Promoter/Passive/Detractor)
+    - Create "NPS Type" column for model training
+  - Step 2: Multi-Model Training
+    - Train Model 1: Comment-Based Classification
+    - Train Model 2: Comment-Score Fusion
+    - Train Model 3: Transformer-Enhanced (with graceful error handling)
+    - Train Model 4: Hybrid Transformer-Score Integration
+    - Display performance metrics and visualizations
 
-***comming up next***
-- all eyes on "Step 2: Topic Modeling & Discovery"
+---
 
-#### week 2 part 1 - `feature/outlier-handling`
+### 🔧 In Progress
+
+#### 🔸 v3.1.0 - week 10 part 1 - `feature/topic-modeling-to-pipeline`
+- `MLPipeline.py` Step 2: Topic Modeling & Discovery, fine tune
+- Integrate BERTopic into Pipeline (Add Topic Modeling to Pipeline)
+- Map Topics → Business Recommendations. E.g.:
+  - “Topic: Delivery delays” → “Improve logistics or communication”
+  - “Topic: Website issues” → “Prioritize website performance improvements”
+- add fine tuned topic modeling to `NPSPage.py`
+
+#### 🔸 v3.2.0 - week 10 part 2 - `feature/outlier-handling`
 - Identify extremely long comments (> 200 tokens)
 - Implement truncation vs exclusion strategies
 - Measure impact on model performance
 - Add data quality metrics to dashboard
 - Start writing insights about meeting that I had
   - schedule in advance (check with Dr. Ranju)
-  - create "nps me" form asking for rates in various categories, including an open field to run my model on their response
   - draw a PPT to display on the meeting with a "FOR DUMMIES" version of the ClinicTrendsAI
     - slide about me: from project manager to swe focused on ML engineering
     - slide talking about data from pro-corpo and insight obtained that people actually WRITE their feelings on the internet
@@ -210,61 +244,25 @@ the received data is gonna face a series of cuts that will return a high accurac
   - grab tiktok data and run a quick comparison with Canario's tiktok viral
   - names like Samir, Andre, Sibelius, Ciro, William, Lace, Dr Atif, Dr Ranju, Dr Nandine, Jezao
 
-#### week 2 part 2 - `feature/benchmark-validation`
+#### 🔸 v3.3.0 - week 11 - `feature/benchmark-validation`
 - Research published benchmarks using similar datasets
 - Compare achieved results against external references
 - Document target metrics for improvement
 - Cross-check with literature (as Dr. Ranju suggested)
 
-#### week 3 - `feature/robust-testing-coverage`
+#### 🔸 v3.4.0 - week 11 - `feature/robust-testing-coverage`
 - Expand pytest coverage for new topic modeling features
 - Add integration tests for end-to-end pipeline
 - Performance testing for large datasets
 - Error handling validation
 
-***think about new logo***
-
-
 ---
 
 ### 🗂️ Backlog
 
-#### 🔸 v2.8.0 - `feature/topic-modeling`
-- current pipeline: Data ➔ Preprocessing ➔ Sentiment Analysis ➔ Performance Metrics
-- suggested pipeline: Data ➔ Preprocessing ➔ Sentiment Analysis ➔ Topic Modeling ➔ Insights ➔ Business Actions
-- Study BERTopic (BERT + clustering), Sci-kit Learn (LDA, NMF, LSA) and Gensim (LDA, LSI)
-- Read the links Dr. Ranju shared. BERTopic is one of the best modern tools for topic modeling:
-  - Handles short texts better than LDA
-  - Uses embeddings (e.g. BERT) for semantically richer clusters
-  - Generates interpretable topic names.
-  - Useful Links:
-    - https://www.linkedin.com/pulse/topic-modeling-uncovering-hidden-themes-text-mohamed-chizari-y1w2e/
-    - https://wellsr.com/python/topic-modeling-with-bert-using-python-bertopic-library/?utm_source=chatgpt.com
-    - https://www.datacamp.com/tutorial/what-is-topic-modeling?utm_source=chatgpt.com
-    - https://hackernoon.com/nlp-tutorial-topic-modeling-in-python-with-bertopic-372w35l9
-
-> **Note:** Paused here to refactor pages and model class before integrating BERTopic to pipeline
-
-- Integrate BERTopic into Pipeline (Add Topic Modeling to Pipeline)
-- Map Topics → Business Recommendations. E.g.:
-  - “Topic: Delivery delays” → “Improve logistics or communication”
-  - “Topic: Website issues” → “Prioritize website performance improvements”
-- Cross-Check with Literature
-  - Look for papers or blog posts analyzing your dataset. 
-  - Dr. Ranju suggests referencing prior works rather than repeating experiments unnecessarily.
-
 #### Hotfixes
-- v2.8.5 - `feature/refactor-topic-modeling-views`
-- v2.8.6 - `feature/outlier-handling`
-  - Identify extremely long comments (e.g. > 200 tokens).
-  - Implement:
-    - Truncation
-    - Or exclusion from training
-  - Measure impact on model performance.
-- v2.8.7 - `feature/benchmark-check`
-  - Research published benchmarks or similar projects using this dataset.
-  - Compare achieved results against external references.
-  - Document potential target metrics for improvement.
+- ***think about new logo***
+- ***google maps api, think what to do with it***
 
 #### Future
 - Start saving data from pipeline flow (preprocessing, sentiment analysis, topic modeling, insights, business actions, id, date, allow user to input "company name", "country")
