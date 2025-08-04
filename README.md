@@ -56,11 +56,11 @@ Term | Subject | Status | Lecturer | Useful URLs |
 | 1.0.0   | T2-2025 Launch SDM+SEP subjects     | 06-2025 | ✅ |
 | 1.0.4   | Modules 1-4 (SDM+SEP)               | 06-2025 | ✅ |
 | 1.0.8   | Modules 5-8 (SDM+SEP)               | 07-2025 | ✅ |
-| 1.1.0   | Modules 9-12 (SDM+SEP)              | 08-2025 | 🔥 |
-| 1.2.0   | SDM course completed                | 08-2025 | 🕐 |
+| 1.0.12  | Modules 9-12 (SDM+SEP)              | 08-2025 | 🔥 |
+| 1.1.0   | SDM course completed                | 08-2025 | 🕐 |
 | 1.2.0   | SEP course completed                | 08-2025 | 🕐 |
 | 2.0.0   | T3-2025 Launch (HCD+MFA+REM+SBD)    | 08-2025 | 🕐 |
-| 2.2.0   | T3-2025 Completed                   | 12-2025 | 🕐 |
+| 2.4.0   | T3-2025 Completed                   | 12-2025 | 🕐 |
 | 3.0.0   | T1-2026 Launch                      | 02-2026 | 🕐 |
 | 3.2.0   | T1-2026 Completed                   | 05-2026 | 🕐 |
 | 4.0.0   | T2-2026 Launch                      | 06-2026 | 🕐 |
