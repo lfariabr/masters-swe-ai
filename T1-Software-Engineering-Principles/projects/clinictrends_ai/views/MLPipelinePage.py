@@ -334,47 +334,126 @@ class EnhancedMLPipeline:
         
         # Generate specific recommendations
         self.generate_recommendations(topic_insights)
-    # *** here ***
+    
     def generate_recommendations(self, topic_insights: pd.DataFrame):
         """Generate specific business recommendations based on topic and ML analysis."""
+        
         st.markdown("#### 🎯 Actionable Recommendations")
         
-        # Identify priority topics (high volume + low NPS)
-        priority_topics = topic_insights[
+        # Sort and limit data for better UX
+        problematic_topics = topic_insights[
             (topic_insights["Comment_Count"] >= topic_insights["Comment_Count"].quantile(0.5)) &
             (topic_insights["NPS_Score"] < 0)
-        ]
+        ].sort_values(['NPS_Score', 'Comment_Count'], ascending=[True, False]).head(5)
+
+        success_topics = topic_insights[
+            topic_insights["NPS_Score"] >= 50
+        ].sort_values('NPS_Score', ascending=False).head(5)
         
-        if len(priority_topics) > 0:
-            st.warning("🚨 **Priority Issues Requiring Immediate Attention:**")
-            for _, topic in priority_topics.iterrows():
-                st.write(f"- **{topic['Name']}**: {topic['Comment_Count']} comments, NPS: {topic['NPS_Score']:.1f}")
+        # Quick stats summary
+        total_topics = len(topic_insights)
+        critical_topics = len(problematic_topics)
+        success_count = len(success_topics)
+        
+        col1, col2, col3 = st.columns(3)
+        with col1:
+            st.metric("Total Topics", total_topics)
+        with col2:
+            st.metric("Critical Issues", critical_topics, delta=f"-{critical_topics}" if critical_topics > 0 else "0")
+        with col3:
+            st.metric("Success Areas", success_count, delta=f"+{success_count}")
+        
+        col1, col2 = st.columns(2)
+        with col1:
+            # Priority Issues Section
+            if len(problematic_topics) > 0:
+                st.warning(f"🚨 **Top {len(problematic_topics)} Priority Issues Requiring Immediate Attention:**")
                 
-                # Add ML model insights if available
-                if "Model1_Accuracy" in topic.index:
-                    st.write(f"  � *ML Model Accuracy: {topic['Model1_Accuracy']:.1f}%*")
+                for idx, (_, topic) in enumerate(problematic_topics.iterrows(), 1):
+                    urgency = "🔥 CRITICAL" if topic['NPS_Score'] < -1 else "⚠️ HIGH"
+                    st.write(f"{idx}. **{topic['Name']}** ({urgency})")
+                    st.write(f"   📊 {topic['Comment_Count']} comments | NPS: {topic['NPS_Score']}")
                 
-                st.write(f"  �💡 *Recommendation: Investigate and address issues in this area immediately*")
+                # Add actionable insight based on severity
+                if topic['NPS_Score'] < -1:
+                    st.write(f"   💡 *Immediate escalation needed - consider emergency response team*")
+                else:
+                    st.write(f"   💡 *Schedule improvement initiative within 30 days*")
+            
+            if len(topic_insights[(topic_insights["Comment_Count"] >= topic_insights["Comment_Count"].quantile(0.5)) & 
+                                (topic_insights["NPS_Score"] < 0)]) > 5:
+                st.info("ℹ️ Showing top 5 priority issues. Full analysis available in detailed view.")
+            else:
+                st.success("✅ No critical priority issues identified!")
         
-        # Identify success areas (high NPS)
-        success_topics = topic_insights[topic_insights["NPS_Score"] >= 50]
+        with col2:
+            # Success Areas Section
+            if len(success_topics) > 0:
+                st.success(f"✅ **Top {len(success_topics)} Success Areas to Leverage:**")
+            
+            for idx, (_, topic) in enumerate(success_topics.iterrows(), 1):
+                excellence = "🏆 EXCEPTIONAL" if topic['NPS_Score'] >= 75 else "⭐ EXCELLENT"
+                st.write(f"{idx}. **{topic['Name']}** ({excellence})")
+                st.write(f"   📊 {topic['Comment_Count']} comments | NPS: {topic['NPS_Score']}")
+            
+            st.write(f"   💡 *Recommendation: Use as best practice template for underperforming areas*")
+            
+            if len(topic_insights[topic_insights["NPS_Score"] >= 50]) > 5:
+                st.info("ℹ️ Showing top 5 success areas. Additional high-performers available in detailed view.")
         
-        if len(success_topics) > 0:
-            st.success("✅ **Success Areas to Leverage:**")
-            for _, topic in success_topics.iterrows():
-                st.write(f"- **{topic['Name']}**: NPS: {topic['NPS_Score']:.1f}")
-                st.write(f"  💡 *Recommendation: Replicate these successful practices across other areas*")
+        with st.expander("Detailed view of comments per topic"):
+            if self.df is not None and "Topic" in self.df.columns and "Name" in self.df.columns:
+                dissection_df = self.df[["Comment", "Score", "NPS Type", "Topic", "Name"]].copy()
+                dissection_df = dissection_df.sort_values(by="Topic")
+                st.dataframe(dissection_df, use_container_width=True, hide_index=True)
+            else:
+                st.warning("⚠️ Cannot display detailed data: missing Topic or Name columns.")
+
+        # Enhanced Overall Insights
+        st.markdown("---")
+        st.markdown("#### 📈 Strategic Insights")
         
-        # Overall insights
         avg_nps = topic_insights["NPS_Score"].mean()
-        st.info(f"📊 **Overall Topic-based NPS: {avg_nps:.1f}**")
+        median_nps = topic_insights["NPS_Score"].median()
+        nps_std = topic_insights["NPS_Score"].std()
         
-        if avg_nps < 0:
-            st.write("🔄 *Focus on addressing negative feedback themes to improve overall satisfaction*")
-        elif avg_nps < 50:
-            st.write("📈 *Good foundation - focus on converting passives to promoters*")
+        if avg_nps < -20:
+            st.error("🚨 **Crisis Mode**: Immediate systematic review required across all touchpoints")
+            st.write("• Establish daily monitoring dashboard")
+            st.write("• Create cross-functional crisis response team")
+            st.write("• Implement weekly customer pulse surveys")
+        elif avg_nps < 60:
+            st.warning("🔄 **Recovery Focus**: Address negative feedback themes systematically")
+            st.write("• Prioritize top 3 critical issues for immediate action")
+            st.write("• Implement bi-weekly improvement sprints")
+            st.write("• Set up customer feedback loop closure process")
+        elif avg_nps <= 80:
+            st.info("📈 **Growth Mode**: Convert satisfied customers to promoters")
+            st.write("• Focus on enhancing good-performing areas")
+            st.write("• Implement customer success programs")
+            st.write("• Create referral and advocacy opportunities")
         else:
-            st.write("🎉 *Excellent performance - maintain current strategies and scale successful practices*")
+            st.success("🎉 **Excellence Mode**: Maintain and scale successful practices")
+            st.write("• Document and replicate best practices")
+            st.write("• Expand successful initiatives")
+            st.write("• Consider premium service offerings")
+        
+        # Data quality insights
+        if nps_std > 40:
+            st.warning("⚠️ **High Variability Detected**: Inconsistent experience across topics")
+            st.write("• Focus on standardizing service delivery")
+            st.write("• Investigate root causes of performance gaps")
+        
+        # ROI prioritization
+        if len(problematic_topics) > 0 and len(success_topics) > 0:
+            st.info("💡 **Quick Win Opportunity**: Apply successful practices from high-NPS topics to critical issues")
+            
+            # Suggest specific matches if possible
+            top_success = success_topics.iloc[0]['Name'] if len(success_topics) > 0 else None
+            top_priority = problematic_topics.iloc[0]['Name'] if len(problematic_topics) > 0 else None
+            
+            if top_success and top_priority:
+                st.write(f"• Consider: What makes **'{top_success}'** successful that could improve **'{top_priority}'**?")
 
 def show_ml_pipeline():
     """

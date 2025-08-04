@@ -222,12 +222,15 @@ the received data is gonna face a series of cuts that will return a high accurac
 ### 🔧 In Progress
 
 #### 🔸 v3.1.0 - week 10 part 1 - `feature/topic-modeling-to-pipeline`
-***now***
-- working on `MLPipeline.py` Step 2: Topic Modeling & Discovery, fine tunning UX before plugging to `NPSPage.py`
+- worked on `MLPipeline.py` Step 2: Topic Modeling & Discovery, fine tunning UX before plugging to `NPSPage.py`
 - def `display_topic_results`: organized col1 and col2 info display
 - def `generate_business_insights`: displaying 15 topics upfront and full table in expander
 - def `color_nps`: adjusted to match NPS 9-10, 7-8 and below 6
-- def `generate_recommendations`: #TODO
+- def `generate_recommendations`: break it down into:
+  - Topic Performance Analysis: display 15 topics with performance metrics
+  - Actionable Recommendations: display 5 positive, 5 negative topics
+  - Detailed view of comments for each topic for raw download
+  - Strategic Insights: final recommendations based on processed data
 
 ***next***
 - Integrate BERTopic into Pipeline (Add Topic Modeling to Pipeline)
