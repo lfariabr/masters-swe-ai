@@ -225,13 +225,16 @@ class EnhancedMLPipeline:
         
         with col1:
             st.write("**Top Topics Discovered:**")
+            st.write("---")
             display_topics = self.topics_df.head(10)[["Topic", "Name", "Count"]]
-            st.dataframe(display_topics, use_container_width=True)
+            st.dataframe(display_topics, use_container_width=True, hide_index=True)
         
         with col2:
             total_topics = len(self.topics_df[self.topics_df["Topic"] != -1])
             outliers = len(self.df[self.df["Topic"] == -1]) if "Topic" in self.df.columns else 0
             
+            st.write("**Topic Statistics:**")
+            st.write("---")
             st.metric("Topics Found", total_topics)
             st.metric("Outliers", outliers)
             if len(self.df) > 0:
@@ -242,7 +245,7 @@ class EnhancedMLPipeline:
             st.markdown("#### 📈 Topic Visualizations")
             
             # Bar chart of top topics
-            fig_bar = self.topics_model.visualize_barchart(top_n_topics=8, height=400)
+            fig_bar = self.topics_model.visualize_barchart(top_n_topics=4, height=300) # top_n_topics=8 to 4
             st.plotly_chart(fig_bar, use_container_width=True)
             
             # Topic similarity heatmap (if enough topics)
@@ -306,22 +309,32 @@ class EnhancedMLPipeline:
         
         # Color code based on NPS scores
         def color_nps(val):
-            if val >= 50:
-                return 'background-color: #2e6930'  # Green for good NPS
-            elif val >= 0:
-                return 'background-color: #fff3cd'  # Yellow for neutral
+            if val >= 80:
+                return 'background-color: #98FB98'  # Light green (great NPS)
+            elif 70 <= val < 80:
+                return 'background-color: #fff0b3'  # Soft yellow (slightly stronger than #fff3cd)
             else:
-                return 'background-color: #f8d7da'  # Red for poor NPS
+                return 'background-color: #f8d7da'  # Light red (poor NPS)
         
-        styled_insights = topic_insights.style.applymap(
+        # Only show top 15 in main table
+        top_15_insights = topic_insights.head(15)
+        styled_top_15 = top_15_insights.style.applymap(
             color_nps, subset=['NPS_Score']
         )
-        
-        st.dataframe(styled_insights, use_container_width=True)
+
+        # Display top 15 styled rows
+        st.caption("**Top 15 Topics by Comment Volume:**")
+        st.dataframe(styled_top_15, use_container_width=True, hide_index=True)
+
+        # Show full unstyled table in expander
+        total_rows = len(topic_insights)
+        with st.expander(f"🔎 Show full topic insights table ({total_rows} rows)", expanded=False):
+            full_styled = topic_insights.style.applymap(color_nps, subset=['NPS_Score'])
+            st.dataframe(full_styled, use_container_width=True, hide_index=True)
         
         # Generate specific recommendations
         self.generate_recommendations(topic_insights)
-    
+    # *** here ***
     def generate_recommendations(self, topic_insights: pd.DataFrame):
         """Generate specific business recommendations based on topic and ML analysis."""
         st.markdown("#### 🎯 Actionable Recommendations")
@@ -410,59 +423,59 @@ def show_ml_pipeline():
             pipeline.run_topic_modeling()
             
             # Step 4: Advanced analytics (if data processed)
-            if pipeline.df is not None:
-                st.markdown("---")
-                st.markdown("### 📊 Step 3: Advanced Analytics")
+            # if pipeline.df is not None:
+            #     st.markdown("---")
+            #     st.markdown("### 📊 Step 3: Advanced Analytics")
                 
-                # Use tabs to avoid expander nesting issues
-                tab1, tab2, tab3 = st.tabs(["📋 Cross-Tabulation", "🤝 NPS vs Sentiment", "🔎 Complete Dataset"])
+            #     # Use tabs to avoid expander nesting issues
+            #     tab1, tab2, tab3 = st.tabs(["📋 Cross-Tabulation", "🤝 NPS vs Sentiment", "🔎 Complete Dataset"])
                 
-                with tab1:
-                    st.markdown("#### Cross-Tabulation Analysis")
-                    enhanced_crosstab_analysis(pipeline.df)
+            #     with tab1:
+            #         st.markdown("#### Cross-Tabulation Analysis")
+            #         enhanced_crosstab_analysis(pipeline.df)
                 
-                with tab2:
-                    st.markdown("#### NPS vs Sentiment Agreement")
-                    display_nps_sentiment_agreement(pipeline.df)
+            #     with tab2:
+            #         st.markdown("#### NPS vs Sentiment Agreement")
+            #         display_nps_sentiment_agreement(pipeline.df)
                 
-                with tab3:
-                    st.markdown("#### Complete Dataset with All Predictions")
-                    st.dataframe(pipeline.df, use_container_width=True)
+            #     with tab3:
+            #         st.markdown("#### Complete Dataset with All Predictions")
+            #         st.dataframe(pipeline.df, use_container_width=True)
                 
-                # Export functionality
-                st.markdown("---")
-                st.markdown("### 💾 Export Complete Analysis")
-                if st.button("📥 Download Enhanced Analysis Report", type="primary"):
-                    # Prepare comprehensive export data
-                    export_data = {
-                        "pipeline_summary": {
-                            "total_records": len(pipeline.df),
-                            "models_trained": pipeline.models_trained,
-                            "topics_discovered": len(pipeline.topics_df) if pipeline.topics_df is not None else 0
-                        },
-                        "sentiment_analysis": {
-                            "sentiment_distribution": pipeline.df["Sentiment"].value_counts().to_dict(),
-                            "nps_distribution": pipeline.df["NPS Type"].value_counts().to_dict()
-                        }
-                    }
+            #     # Export functionality
+            #     st.markdown("---")
+            #     st.markdown("### 💾 Export Complete Analysis")
+            #     if st.button("📥 Download Enhanced Analysis Report", type="primary"):
+            #         # Prepare comprehensive export data
+            #         export_data = {
+            #             "pipeline_summary": {
+            #                 "total_records": len(pipeline.df),
+            #                 "models_trained": pipeline.models_trained,
+            #                 "topics_discovered": len(pipeline.topics_df) if pipeline.topics_df is not None else 0
+            #             },
+            #             "sentiment_analysis": {
+            #                 "sentiment_distribution": pipeline.df["Sentiment"].value_counts().to_dict(),
+            #                 "nps_distribution": pipeline.df["NPS Type"].value_counts().to_dict()
+            #             }
+            #         }
                     
-                    # Add ML model metrics if available
-                    if pipeline.models_trained:
-                        export_data["ml_models"] = pipeline.model_trainer.metrics
+            #         # Add ML model metrics if available
+            #         if pipeline.models_trained:
+            #             export_data["ml_models"] = pipeline.model_trainer.metrics
                     
-                    # Add topic data if available
-                    if "Topic" in pipeline.df.columns:
-                        export_data["topic_analysis"] = {
-                            "total_topics": len(pipeline.topics_df[pipeline.topics_df["Topic"] != -1]) if pipeline.topics_df is not None else 0,
-                            "topic_distribution": pipeline.df["Name"].value_counts().to_dict() if "Name" in pipeline.df.columns else {}
-                        }
+            #         # Add topic data if available
+            #         if "Topic" in pipeline.df.columns:
+            #             export_data["topic_analysis"] = {
+            #                 "total_topics": len(pipeline.topics_df[pipeline.topics_df["Topic"] != -1]) if pipeline.topics_df is not None else 0,
+            #                 "topic_distribution": pipeline.df["Name"].value_counts().to_dict() if "Name" in pipeline.df.columns else {}
+            #             }
                     
-                    st.download_button(
-                        label="Download Enhanced Pipeline Report",
-                        data=pd.Series(export_data).to_json(indent=2),
-                        file_name=f"enhanced_ml_pipeline_{pd.Timestamp.now().strftime('%Y%m%d_%H%M%S')}.json",
-                        mime="application/json"
-                    )
+            #         st.download_button(
+            #             label="Download Enhanced Pipeline Report",
+            #             data=pd.Series(export_data).to_json(indent=2),
+            #             file_name=f"enhanced_ml_pipeline_{pd.Timestamp.now().strftime('%Y%m%d_%H%M%S')}.json",
+            #             mime="application/json"
+            #         )
     
     else:
         st.info("""
