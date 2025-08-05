@@ -187,8 +187,11 @@ class DataProcessor:
             
         try:
             # Generate unique user_id for this session
-            user_id = f"{self.student_name}_{uuid.uuid4().hex[:8]}"
-            
+            # user_id = f"{self.student_name}_{uuid.uuid4().hex[:8]}"
+
+            # Generate user_id from login controller
+            user_id = self.parent.login_controller.get_user_id()
+
             # Access database manager from parent
             db_manager = self.parent.database_manager
             
@@ -197,7 +200,7 @@ class DataProcessor:
             
             # Calculate progress from current data
             summary_df = generate_progress_summary(self.results_df)
-            electives_df = pd.DataFrame({'status': ['electives_placeholder']})  # Placeholder
+            electives_df = suggest_electives(self.results_df)  # Generate actual electives data
             
             total_done = summary_df["✅ Done"].sum() if "✅ Done" in summary_df.columns else 0
             total_subjects = summary_df["Total"].sum() if "Total" in summary_df.columns else 1
@@ -215,8 +218,9 @@ class DataProcessor:
                 print(f"✅ Session saved with ID: {session_id}")
                 self.last_session_id = session_id
                 return True
-            
-            return False
+            else:
+                print("❌ Failed to save session data")
+                return False
             
         except Exception as e:
             print(f"❌ Database save error: {e}")

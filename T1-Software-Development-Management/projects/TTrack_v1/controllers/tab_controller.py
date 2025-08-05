@@ -1,4 +1,8 @@
 from PyQt5.QtWidgets import QTabWidget
+from gui.tab_input import setup_input_tab
+from gui.tab_results import setup_results_tab
+from gui.tab_studentrecords import setup_studentrecords_tab
+from gui.tab_login import setup_login_tab
 
 class TabController:
     """
@@ -28,10 +32,6 @@ class TabController:
         Returns:
             QTabWidget: The configured tab widget
         """
-        from ui.tab_input import setup_input_tab
-        from ui.tab_results import setup_results_tab
-        from ui.tab_studentrecords import setup_studentrecords_tab
-        from ui.tab_login import setup_login_tab
         
         # Create tab widget
         self.tabs = QTabWidget()

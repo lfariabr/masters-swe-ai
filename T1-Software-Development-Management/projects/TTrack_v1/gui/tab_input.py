@@ -78,7 +78,7 @@ def setup_input_tab(parent):
     layout.addSpacing(20)
 
     # Create main buttons
-    from .helpers import set_button_style
+    from ui.helpers import set_button_style
     parent.transcript_btn = QPushButton("📄 Upload Transcript")
     parent.curriculum_btn = QPushButton("📚 Upload Curriculum")
     parent.process_btn = QPushButton("🔍 Process Data")

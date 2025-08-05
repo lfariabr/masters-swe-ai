@@ -36,7 +36,7 @@ class TestApplicationIntegration:
         from PyQt5.QtWidgets import QApplication
         from PyQt5.QtCore import QCoreApplication
         from gui.main_window import MainWindow
-        from ui.tab_input import load_file
+        from gui.tab_input import load_file
         
         # Create a test application instance if needed
         app = QApplication.instance()

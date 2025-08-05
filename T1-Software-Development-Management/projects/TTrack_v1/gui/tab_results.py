@@ -109,7 +109,7 @@ def setup_results_tab(parent):
     header_layout.addWidget(progress_container)
 
     # Add "Save" button
-    from .helpers import set_button_style
+    from ui.helpers import set_button_style
     save_button = QPushButton("💾 Save This Data")
     save_button.clicked.connect(parent._save_to_database)
     set_button_style(save_button, "#27ae60", parent.theme_manager.is_dark_mode)
