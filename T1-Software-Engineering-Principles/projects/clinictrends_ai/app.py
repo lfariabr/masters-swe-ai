@@ -24,7 +24,6 @@ try:
         MLExperimentsPage,
         TopicModelingPage,
         GoogleMapsPage,
-        MLPipelinePage
     )
 
 except ImportError:
@@ -35,7 +34,6 @@ except ImportError:
     import views.MLExperimentsPage as MLExperimentsPage
     import views.TopicModelingPage as TopicModelingPage
     import views.GoogleMapsPage as GoogleMapsPage
-    import views.MLPipelinePage as MLPipelinePage
 
 def main():
     # Sidebar with logo and navigation - this will be our only sidebar
@@ -61,13 +59,12 @@ def main():
             "",
             ["About",
              "NPS Analysis",
-             "ML Models",
-             "Topic Modeling",
+            #  "ML Models",
+            #  "Topic Modeling",
              "Translation",
 
              # In progress
-             "ML Pipeline 👷",
-             "Google Maps API 👷"             
+            #  "Google Maps API 👷"             
             
             # Commented out for now because of tests
             #  "ML Experiments 🧪", 
@@ -82,7 +79,7 @@ def main():
         st.markdown("""
         **ClinicTrends AI**   
         ##### An open source AI-powered tool for analyzing customer feedback and trends.
-        - **Version:** 3.0.0
+        - **Version:** 3.1.0
         - **GitHub:** [clinictrends_ai](https://github.com/lfariabr/masters-swe-ai/tree/master/T1-Software-Engineering-Principles/projects/clinictrends_ai)  
         """)
     
@@ -91,17 +88,15 @@ def main():
         HomePage.show_home()
     elif page == "NPS Analysis":
         NPSPage.show_dashboard()
-    elif page == "ML Models":
-        ModelsPage.show_models()
-    elif page == "Topic Modeling":
-        TopicModelingPage.show_topic_modeling()
+    # elif page == "ML Models":
+    #     ModelsPage.show_models()
+    # elif page == "Topic Modeling":
+    #     TopicModelingPage.show_topic_modeling()
     elif page == "Translation":
         TranslatePage.show_translate()
     
-    elif page == "ML Pipeline 👷":
-        MLPipelinePage.show_ml_pipeline()    
-    elif page == "Google Maps API 👷":
-        GoogleMapsPage.show_google_maps()
+    # elif page == "Google Maps API 👷":
+    #     GoogleMapsPage.show_google_maps()
 
     elif page == "ML Experiments 🧪":
         MLExperimentsPage.show_enhanced_models()

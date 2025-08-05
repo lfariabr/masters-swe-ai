@@ -54,12 +54,23 @@ ClinicTrends AI implements a **modular, microservices-inspired architecture** fo
 
 ```
 ClinicTrends AI/
-├── 🚀 app.py                    # Streamlit application orchestrator
-├── ✅ tests/                    # Unit tests
-├── 📊 docs/                     # IEEE standards documentation
-├── 📱 views/                     # Presentation layer (MVC pattern)
-├── 🧠 utils/                   # Business logic & core algorithms
-└── 🎨 public/                   # Static assets & branding
+├── 🚀 app.py                # Entry point (Streamlit orchestration)
+├── 📱 views/                # Presentation layer (UI screens)
+│   ├── HomePage.py
+│   ├── NPSPage.py
+│   ├── TranslatePage.py
+├── ⚙️ resolvers/            # Application layer (Controllers, pipeline logic)
+│   ├── ModelTrainer.py
+│   ├── BERTopicModel.py
+│   ├── pipeline_controller.py  # New split (from EnhancedMLPipeline)
+├── 🧳 utils/                # Domain layer (Preprocessing, NLP, viz, alerts)
+│   ├── preprocessing.py
+│   ├── nlp_analysis.py
+│   ├── visualizations.py
+├── 🎨 public/               # Static assets
+├── 🧪 tests/                # Unit test suite
+├── 📊 docs/                 # IEEE documentation & specs
+└── 📚 requirements.txt
 ```
 
 ---

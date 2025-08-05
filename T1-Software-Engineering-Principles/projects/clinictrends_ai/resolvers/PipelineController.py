@@ -48,10 +48,11 @@ try:
 except ImportError:
     TRANSFORMERS_AVAILABLE = False
 
-class EnhancedMLPipeline:
+class MLpipelineController:
     """
-    Enhanced ML Pipeline for ClinicTrends AI
-    Integrates 4 sentiment analysis models with topic modeling for comprehensive insights.
+    This gentleman is responsible for the the first ML Pipeline I'm implementing for ClinicTrends AI
+    It is responsible to integrate 4 sentiment analysis models as well as topic modeling for comprehensive insights on the data uploaded by the user
+    It is also responsible to train the models and display the results in a user-friendly way
     """
     
     def __init__(self):
@@ -130,6 +131,22 @@ class EnhancedMLPipeline:
         create_detailed_metrics_table(self.model_trainer.metrics)
         create_model_summary_cards(self.model_trainer.metrics)
     
+    def train_bertopic(self):
+        """Train BERTopic model and assign topics to dataframe."""
+        
+        with st.spinner("Training BERTopic model..."):
+            self.topics_model, topics, probs, embeddings = train_bertopic_model(self.df["Comment"])
+            print(topics)
+            print(probs)
+            print(embeddings)
+            print(self.topics_model)
+
+            self.run_topic_modeling()
+        
+        if self.topics_model is not None:
+            self.df["Topic"] = topics
+            self.topics_df = pd.DataFrame({"Topic": topics, "Probs": probs})
+    
     def train_model_1(self):
         """Train Model 1: Comment-Based Classification."""
         
@@ -169,48 +186,47 @@ class EnhancedMLPipeline:
             )
     
     def run_topic_modeling(self):
-        """Execute BERTopic topic modeling pipeline."""
-        st.markdown("#### 🔍 Topic Discovery & Analysis")
+        """Run topic modeling using BERTopic."""
         
-        if not self.models_trained:
-            st.info("💡 **Tip**: Train ML models first to get the most comprehensive analysis!")
-        
-        if st.button("🤖 Discover Topics with BERTopic", type="primary"):
-            with st.spinner("🔍 Training BERTopic model..."):
-                try:
-                    # Filter valid comments
-                    valid_mask = self.df["Comment"].notna() & self.df["Comment"].str.strip().ne("")
-                    valid_comments = self.df.loc[valid_mask, "Comment"]
-                    
-                    if len(valid_comments) < 10:
-                        st.warning("⚠️ Need at least 10 valid comments for topic modeling")
-                        return
-                    
+        with st.spinner("🔍 Training BERTopic model..."):
+            try:
+                # Import the topic modeling function
+                from resolvers.BERTopicModel import train_bertopic_model
+                
+                # Filter valid comments
+                valid_mask = self.df["Comment"].notna() & self.df["Comment"].str.strip().ne("")
+                valid_comments = self.df.loc[valid_mask, "Comment"]
+                        
+                if len(valid_comments) < 10:
+                    st.warning("⚠️ Need at least 10 valid comments for topic modeling")
+                else:
                     # Train BERTopic model
                     self.topics_model, topics, probs, embeddings = train_bertopic_model(valid_comments)
-                    
+                            
                     # Assign topics to dataframe
                     self.df.loc[valid_mask, "Topic"] = topics
                     self.topics_df = self.topics_model.get_topic_info()
-                    
+                            
                     # Clean topic names
                     self.topics_df["Name"] = self.topics_df.apply(
-                        lambda row: "Outliers" if row["Topic"] == -1 else row["Name"], axis=1
-                    )
-                    
+                                lambda row: "Outliers" if row["Topic"] == -1 else row["Name"], axis=1
+                            )
+                            
                     # Merge topic names with main dataframe
                     self.df = self.df.merge(
-                        self.topics_df[["Topic", "Name"]], 
-                        on="Topic", 
-                        how="left"
-                    )
-                    
+                                self.topics_df[["Topic", "Name"]], 
+                                on="Topic", 
+                                how="left"
+                            )
+                            
                     st.success("✅ Topic modeling completed!")
+                            
+                    # Display results and generate insights
                     self.display_topic_results()
                     self.generate_business_insights()
-                    
-                except Exception as e:
-                    st.error(f"❌ Topic modeling error: {str(e)}")
+
+            except Exception as e:
+                st.error(f"❌ Topic modeling error: {str(e)}")
     
     def display_topic_results(self):
         """Display topic modeling results and visualizations."""
@@ -467,7 +483,7 @@ def show_ml_pipeline():
     """)
     
     # Initialize enhanced pipeline
-    pipeline = EnhancedMLPipeline()
+    pipeline = MLpipelineController()
     
     # Model explanations
     create_model_explanations()

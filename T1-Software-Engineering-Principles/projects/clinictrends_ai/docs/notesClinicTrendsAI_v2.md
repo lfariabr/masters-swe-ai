@@ -217,11 +217,7 @@ the received data is gonna face a series of cuts that will return a high accurac
     - Train Model 4: Hybrid Transformer-Score Integration
     - Display performance metrics and visualizations
 
----
-
-### 🔧 In Progress
-
-#### 🔸 v3.1.0 - week 10 part 1 - `feature/topic-modeling-to-pipeline`
+#### 🔹 v3.1.0 - week 10 part 1 - `feature/topic-modeling-to-pipeline`
 - worked on `MLPipeline.py` Step 2: Topic Modeling & Discovery, fine tunning UX before plugging to `NPSPage.py`
 - def `display_topic_results`: organized col1 and col2 info display
 - def `generate_business_insights`: displaying 15 topics upfront and full table in expander
@@ -231,28 +227,27 @@ the received data is gonna face a series of cuts that will return a high accurac
   - Actionable Recommendations: display 5 positive, 5 negative topics
   - Detailed view of comments for each topic for raw download
   - Strategic Insights: final recommendations based on processed data
-
-***next***
 - Integrate BERTopic into Pipeline (Add Topic Modeling to Pipeline)
 - Map Topics → Business Recommendations. E.g.:
   - “Topic: Delivery delays” → “Improve logistics or communication”
   - “Topic: Website issues” → “Prioritize website performance improvements”
 - add fine tuned topic modeling to `NPSPage.py`
 
-#### 🔸 v3.2.0 - week 10 part 2 - `feature/outlier-handling`
-- Identify extremely long comments (> 200 tokens)
-- Implement truncation vs exclusion strategies
-- Measure impact on model performance
-- Add data quality metrics to dashboard
-- Start writing insights about meeting that I had
-  - schedule in advance (check with Dr. Ranju)
-  - draw a PPT to display on the meeting with a "FOR DUMMIES" version of the ClinicTrendsAI
-    - slide about me: from project manager to swe focused on ML engineering
-    - slide talking about data from pro-corpo and insight obtained that people actually WRITE their feelings on the internet
-    - 80% of accuracy reached, do we have similar cases to that? what's the input and take based on that itself?
-    - who is the profile of the user who I assume replied
-  - grab tiktok data and run a quick comparison with Canario's tiktok viral
-  - names like Samir, Andre, Sibelius, Ciro, William, Lace, Dr Atif, Dr Ranju, Dr Nandine, Jezao
+---
+
+### 🔧 In Progress
+
+#### 🔸 v3.2.0 - week 10 part 2 - `feature/sprint-review`
+- schedule in advance (check with Dr. Ranju)
+- cancel appointment with Excel BM for Monday 18th August
+- fine tune form
+- draw a PPT to display on the meeting with a "FOR DUMMIES" version of the ClinicTrendsAI
+  - slide about me: from project manager to swe focused on ML engineering
+  - slide talking about data from pro-corpo and insight obtained that people actually WRITE their feelings on the internet
+  - 80% of accuracy reached, do we have similar cases to that? what's the input and take based on that itself?
+  - who is the profile of the user who I assume replied
+- grab tiktok data and run a quick comparison with Canario's tiktok viral
+- names like Samir, Andre, Anao, Rica, Sibelius, Ciro, Will, Lace, Dr Atif, Dr Ranju, Dr Nandine
 
 #### 🔸 v3.3.0 - week 11 - `feature/benchmark-validation`
 - Research published benchmarks using similar datasets
