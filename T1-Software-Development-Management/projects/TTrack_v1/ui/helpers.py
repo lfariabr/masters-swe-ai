@@ -104,3 +104,23 @@ def set_button_style(button, main_color, is_dark_mode, smaller=False):
             color: {'#ffffff' if not is_dark_mode else '#000000'};
         }}
     """)
+
+def buttons():
+    #TODO
+    pass
+
+def dialogs():
+    #TODO
+    pass
+
+def tables():
+    #TODO
+    pass
+
+def titles():
+    #TODO
+    pass
+
+def subtitles():
+    #TODO
+    pass

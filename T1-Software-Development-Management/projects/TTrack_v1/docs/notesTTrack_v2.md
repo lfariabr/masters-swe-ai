@@ -69,23 +69,35 @@ Following **GitFlow** with feature branches and semantic versioning:
 - Created `LoginController` class, child of AuthService
 - Implemented the login, register and logout logic to use in `tab_login.py`
 
----
-
-### 🔧 In Progress
-
-- ***v3.2.0 - check back UX during login/logout. Fine tune.***
-
-#### ▫️ v3.3.0 - `feature/basic-history-view`
+#### 🟢 v3.3.0 - `feature/basic-history-view`
 > ***Goal: Let users retrieve previously saved sessions.***
 - Update tab "Student Records" to show a list of saved records instead of mock data
 - Fetch and repopulate transcript + curriculum tables
 - Show timestamp, file summary, match summary
+- Main changes:
+  - Added `get_processed_data()` method to `DatabaseManager` for loading specific session details
+  - Added `fetch_user_history()` to retrieve all sessions tied to the logged-in user
+  - Added `get_entry_by_id()` to retrieve session by unique ID (for future deep linking)
+  - Added `delete_entry()` for removing obsolete or unwanted sessions (planned feature integration)
+
+---
+
+### 🔧 In Progress
+
 
 #### ▫️ v3.4.0 - `feature/cloud-sync`
 > ***Goal: Prepare app to run with DB even when offline or in fallback mode.***
 - Abstract DB calls with try/except wrappers
 - Provide fallback to local CSV save if cloud is unavailable
 - Add .env support for database URL/secrets
+
+***v3.5.0 - check back UX during login/logout. Fine tune.***
+  - UX because buttons and dialogs are not so cool
+  - UI because tabs should be hidden when not logged in and login tab disappear when logged in
+
+***v3.6.0 - check back UX during basic-history-view***
+  - UX because results_data, summary_data and electives_data json needs to be treated for better displaying
+  - consider adding "Course Name" column to transcript, curriculum and results table
 
 ***refs***
 - https://supabase.com/docs/guides/auth/social-login/auth-azure

@@ -60,7 +60,7 @@ TTrack/
 ├── 🖥️ gui/                       # Presentation layer
 ├── 🖼️ public/                    # Public assets like logo, icons, etc.
 ├── 📊 services/                  # Database & data sample
-├── ✅ tests/                     # Testing coverage
+├── 🧪 tests/                     # Testing coverage
 └── 🎨 ui/                        # UI components & layouts
 ```
 

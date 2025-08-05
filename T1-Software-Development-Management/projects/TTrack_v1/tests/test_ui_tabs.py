@@ -7,7 +7,7 @@ from PyQt5.QtCore import Qt
 from unittest.mock import patch, MagicMock
 
 # Import the UI components to test
-from ui.tab_input import setup_input_tab
+from gui.tab_input import setup_input_tab
 
 class TestInputTab:
     """Test cases for the input tab functionality."""
@@ -25,7 +25,7 @@ class TestInputTab:
         parent.process_btn = MagicMock()
         
         # Import here to avoid circular imports
-        from ui.tab_input import setup_input_tab
+        from gui.tab_input import setup_input_tab
         
         # Set up the input tab
         tab = setup_input_tab(parent)
@@ -33,7 +33,7 @@ class TestInputTab:
         # Verify tab is created
         assert tab is not None
     
-    @patch('ui.tab_input.QFileDialog.getOpenFileName')
+    @patch('gui.tab_input.QFileDialog.getOpenFileName')
     @patch('gui.utils.load_excel_as_model')
     def test_file_loading(self, mock_load_excel, mock_file_dialog, qtbot):
         """Test file loading functionality."""
@@ -53,7 +53,7 @@ class TestInputTab:
         parent.process_btn = MagicMock()
         
         # Import here to avoid circular imports
-        from ui.tab_input import load_file
+        from gui.tab_input import load_file
         
         # Test transcript loading
         load_file(parent, is_transcript=True)
@@ -77,7 +77,7 @@ class TestResultsTabs:
     def test_results_tab_initialization(self, qtbot):
         """Test that results tabs initialize correctly."""
         # Import here to avoid Qt import issues
-        from ui.tab_results import setup_results_tab
+        from gui.tab_results import setup_results_tab
         
         # Create a parent widget with necessary attributes
         parent = MagicMock()

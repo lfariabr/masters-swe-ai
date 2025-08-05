@@ -94,6 +94,14 @@ class DatabaseManager:
         except Exception as e:
             print(f"Error saving processed data: {e}")
             return None
+    
+    def get_processed_data(self, user_id):
+        try:
+            response = self.supabase.table('student_records').select('*').eq('user_id', user_id).execute()
+            return response.data if response.data else None
+        except Exception as e:
+            print(f"Error fetching processed data: {e}")
+            return None
 
     def fetch_user_history(self, user_id):
         """
