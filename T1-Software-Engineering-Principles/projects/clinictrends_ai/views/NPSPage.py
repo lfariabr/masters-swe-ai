@@ -4,6 +4,7 @@ import sys
 import altair as alt
 import requests
 import pandas as pd
+import time
 
 # Add parent directory to path to import utils
 sys.path.append(str(Path(__file__).parent.parent))
@@ -13,7 +14,7 @@ from utils.ui_filters import get_year_store_filters
 from utils.nlp_analysis import display_sentiment_distribution, display_wordcloud, annotate_sentiments
 from utils.alerts import send_discord_message
 from utils.data_upload import data_upload
-from views.MLPipelinePage import EnhancedMLPipeline
+from resolvers.PipelineController import MLpipelineController
 
 
 def show_dashboard():
@@ -156,9 +157,10 @@ def show_dashboard():
         st.subheader("🤖 Machine Learning Pipeline")
         st.markdown("**Enhanced ML analysis combining Sentiment Models with Topic Modeling for deeper business insights.**")
         
-        pipeline = EnhancedMLPipeline()
+        pipeline = MLpipelineController()
         
-        if st.button("🚀 Train All ML Models", type="primary"):
+        if st.button("🚀 Run ML Pipeline", type="primary"):
+            progress_bar = st.progress(0)
             if uploaded_file is not None and pipeline.load_and_validate_data(uploaded_file):
 
                 # First, run sentiment analysis and NPS classification
@@ -166,13 +168,21 @@ def show_dashboard():
                     pipeline.df = annotate_sentiments(pipeline.df)
                     pipeline.df["Sentiment"] = pipeline.df["Sentiment"].str.upper()
                     pipeline.df = classify_nps(pipeline.df)
+                    progress_bar.progress(10)
+                    time.sleep(3)
+                    progress_bar.progress(20)
+                    time.sleep(3)
+                    progress_bar.progress(50)
+                    time.sleep(3)
                     
                 # Now train the models with properly prepared data
                 pipeline.train_all_models()
+                pipeline.run_topic_modeling()
+                time.sleep(3)
+                progress_bar.progress(70)
+                time.sleep(3)
+                progress_bar.progress(100)
 
-                # Finally, proceed with Topic Modeling - WORK IN PROGRESS
-                # with st.spinner("🔄 Training BERTopic model..."):
-                #     pipeline.train_bertopic()
             else:
                 st.error("❌ Failed to load data for ML model training.")
            

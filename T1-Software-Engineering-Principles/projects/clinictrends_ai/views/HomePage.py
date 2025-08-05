@@ -13,51 +13,51 @@ def show_home():
     - Gain insights from customer comments and analyze the sentiment of the comments
     - Experience the power of Machine Learning models to predict NPS scores and summarize customer feedback
     """)
+
+    st.markdown("### Key Features")
+        
+    col1, col2, col3, col4 = st.columns(4)
+    
+    with col1:
+        st.markdown("""
+        ##### 📈 NPS Analysis
+        - Calculate Net Promoter Score
+        - Track trends over time
+        - Filter by store and date
+        """)
+    
+    with col2:
+        st.markdown("""
+        ##### 💬 Sentiment Analysis
+        - Analyze customer sentiment
+        - View sentiment distribution
+        - Generate word clouds
+        """)
+    
+    with col3:
+        st.markdown("""
+        ##### 💥 Topic Modeling
+        - Analyze customer feedback
+        - Have a taste of BERTopic
+        - Visualize topics
+        """)
+    
+    with col4:
+        st.markdown("""
+        ##### 🗣️ Translation
+        - Translate customer feedback
+        - Support for multiple languages
+        - Batch process CSV files
+        """)
     
     st.warning("""
         🚀 **Ready to unlock all features?**  
         Click the button below read more about the Project!
         """)
-    if st.button("Unlock key features", key="unlock_features", help="Click to unlock key features", type="primary"):
+    if st.button("Click me!", key="unlock_features", help="Click to unlock key features", type="secondary", icon="🧪"):
         st.success("Key features unlocked! 🎉")
         send_discord_message("👀 Button to unlock features has been clicked at home.")
         st.balloons()
-        
-        st.markdown("### Key Features")
-        
-        col1, col2, col3, col4 = st.columns(4)
-        
-        with col1:
-            st.markdown("""
-            ##### 📈 NPS Analysis
-            - Calculate Net Promoter Score
-            - Track trends over time
-            - Filter by store and date
-            """)
-        
-        with col2:
-            st.markdown("""
-            ##### 💬 Sentiment Analysis
-            - Analyze customer sentiment
-            - View sentiment distribution
-            - Generate word clouds
-            """)
-        
-        with col3:
-            st.markdown("""
-            ##### 💥 Topic Modeling
-            - Analyze customer feedback
-            - Have a taste of BERTopic
-            - Visualize topics
-            """)
-        
-        with col4:
-            st.markdown("""
-            ##### 🗣️ Translation
-            - Translate customer feedback
-            - Support for multiple languages
-            - Batch process CSV files
-            """)
         
         st.markdown("---")
         st.markdown("### Get Started")
@@ -85,10 +85,10 @@ def show_home():
         st.markdown("---")
         st.markdown("### Group Members")
         st.markdown("""
-        | Name | Role | Email | LinkedIn |
-        | --- | --- | --- | --- |
-        | Luis  | Software Engineer | luis.faria@torrens.edu.au | [luisfaria](https://linkedin.com/in/lfariabr)
-        | Chau | Software Engineer | chau@torrens.edu.au | [chau](https://linkedin.com/in/chau)
+        | Name | Role | Email |
+        | --- | --- | --- |
+        | Luis Faria | Software Engineer | Luis.Faria@Student.Torrens.edu.au |
+        | Chau Luong | Software Engineer | Hai.Luong@Student.Torrens.edu.au |
         
         """)
 
