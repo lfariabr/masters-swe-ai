@@ -10,12 +10,14 @@ Following **GitFlow** with feature branches and semantic versioning:
 | Version | Milestone | Status |
 |---------|-----------|--------|
 | **1.x** | Core development, UI/UX, processing engine, cross-platform builds | ✅ Complete |
-| **2.0.0** | Database integration & cloud sync | ✅ Complete |
+| **2.0.0** | Supabase Backend Integration | ✅ Complete |
 | **2.1.0** | Scaffold database | ✅ Complete |
-| **2.2.0** | UI to database | 🔥 In Progress |
-| **3.0.0** | Login authentication | 🕐 Not started |
-| **3.1.0** | Basic history view | 🕐 Not started |
-| **3.2.0** | Cloud sync | 🕐 Not started |
+| **2.2.0** | UI to database | ✅ Complete |
+| **3.0.0** | Layered Architecture Rollout | ✅ Complete |
+| **3.1.0** | Login Controller | ✅ Complete |
+| **3.2.0** | AuthService | ✅ Complete |
+| **3.3.0** | Basic history view | ✅ Complete |
+| **3.4.0** | Cloud sync | 🔥 In Progress |
 | **TBD** | AI Enhanced matching | 🕐 Not started |
 | **TBD** | Enterprise scale | 🕐 Not started |
 
@@ -85,7 +87,7 @@ Following **GitFlow** with feature branches and semantic versioning:
 ### 🔧 In Progress
 
 
-#### ▫️ v3.4.0 - `feature/cloud-sync`
+#### ▫️ v3.4.0 - `feature/cloud-sync`(Cloud Sync: Fallback and Encryption)
 > ***Goal: Prepare app to run with DB even when offline or in fallback mode.***
 - Abstract DB calls with try/except wrappers
 - Provide fallback to local CSV save if cloud is unavailable
