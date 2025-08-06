@@ -120,7 +120,7 @@ build.bat
 
 ---
 
-## 📈 Future Roadmap
+## 📈 TTrack Roadmap
 
 ### Phase 1: PyQt5 + pandas integration (v1.0.0) 🔄 **IN PROGRESS**
 - ✅ PyQt5 + pandas integration
@@ -135,9 +135,10 @@ build.bat
 - ✅ Database Backend: PostgreSQL with 500MB+ capacity
 - ✅ User Authentication: Secure login & role-based access
 - 🔄 Cloud Sync: Fallback and Encryption
-- 🔄 API Integration: University system connectivity
+- 🔄 Pytest coverage to new classes (`DatabaseManager`, `AuthService`, `LoginController`)
 
 ### Phase 3: AI Enhancement (v3.0.0) 📋 **PLANNED**
+- 📋 API Integration: University system connectivity
 - 📋 Semantic Matching: NLP-based subject similarity detection
 - 📋 Predictive Analytics: Graduation timeline forecasting
 - 📋 Recommendation Engine: Personalized course suggestions
@@ -155,12 +156,12 @@ build.bat
 
 Done
 - **[Build Instructions](docs/buildingApp.md)**: Deployment & distribution guide
-- **[Version Control Log](docs/MyNotes.md)**: Development timeline & milestones
+- **[Version Control Log](docs/notesTTrack_v2.md)**: Development timeline & milestones
 - **[100% Anonymous Feedback Form](https://forms.gle/cWEtzLzWPoH8ezWS8)**: Deployment & distribution guide
 
 Planned
 - **[Project Specification](docs/TTrackProjectSpecification.pdf)**: Complete technical requirements
-- **[System Flow Diagram](docs/flow_draft.png)**: Visual architecture overview
+- **[System Flow Diagram](docs/diagrams/flow_draft.png)**: Visual architecture overview
 
 ---
 
