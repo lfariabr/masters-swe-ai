@@ -111,6 +111,7 @@ Following **GitFlow** with feature branches and semantic versioning:
 - Pytest adjustments to new UI structure (`feature/frontend-tests`)
 - Pytest coverage on **DatabaseManager**, **DataProcessor**, **LoginController** and **AuthService** (warnings 17 passed, 38 warnings)
 - Auto detect os theme (`feature/auto-detect-os-theme`)
+- Pitch Deck (`feature/pitch-deck`)
 
 #### Future
 - `feature/logic-layer` 

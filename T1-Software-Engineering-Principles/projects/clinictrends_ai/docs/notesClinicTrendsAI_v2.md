@@ -53,33 +53,33 @@ streamlit run app.py
 ### ✔ Done
 **v2.0 breakdown**
 
-#### 🔹 v2.0.0 - `feature/discord-webhook`
+#### 🟢 v2.0.0 - `feature/discord-webhook`
 - Add discord webhook for alerting when app's used at key pages
 - Improve home page experience with st.balloons and interactive click
 
-#### 🔹 v2.1.0 - `feature/alert-system`
+#### 🟢 v2.1.0 - `feature/alert-system`
 - Adds sample csv file for enhanced UXs
 - Add alert system for NPS drop detection
 
-#### 🔹 v2.2.0 - `feature/tf-idf-max-features`
+#### 🟢 v2.2.0 - `feature/tf-idf-max-features`
 - Testing different values for max_features in the TF-IDF vectorizer to find the optimal feature set size for model performance.
 
-#### 🔹 v2.3.0 - `feature/tf-idf-deep-dive`
+#### 🟢 v2.3.0 - `feature/tf-idf-deep-dive`
 - Adds notes on tf-idf vectorizer
 - Adds comments size statistics
 - Updates Models page hiding transformers for the moment while we fine tune tf-idf
 
-#### 🔹 v2.4.0 - `feature/tf-idf-iteration-check`
+#### 🟢 v2.4.0 - `feature/tf-idf-iteration-check`
 - Added n_iter = model.n_iter_[0] at ModelTrainer.py
 - print(f"Iterations until convergence for {model_name}: {n_iter}")
 - st.write(f"Iterations until convergence for {model_name}: {n_iter}")
 
-#### 🔹 v2.5.0 - `feature/train-validation-test-split`
+#### 🟢 v2.5.0 - `feature/train-validation-test-split`
 - Implement proper three-way split (train/validation/test) for robust model evaluation.
 - Adjust current pipeline to avoid tuning on test data.
 - Report separate metrics for train, validation, and test sets.
 
-#### 🔹v2.6.0 - `feature/logreg-hyperparam-tuning`
+#### 🟢v2.6.0 - `feature/logreg-hyperparam-tuning`
 - Expand Logistic Regression tuning:
   - Regularization parameter C
   - Penalty type (L1 vs. L2)
@@ -87,7 +87,7 @@ streamlit run app.py
   - Multi-class handling (ovr vs multinomial)
 - Document best hyperparameter sets.
 
-#### 🔹v2.6.1 - `feature/dynamic-hyperparameter-injection`
+#### 🟢v2.6.1 - `feature/dynamic-hyperparameter-injection`
 - Refactored ModelTrainer.py to support dynamic hyperparameter injection for Logistic Regression.
 - Key changes:
   - **find_optimal_features**
@@ -101,7 +101,7 @@ streamlit run app.py
   - Eliminates hardcoded model parameters.
   - Enables fully automated tuning of hyperparameters for optimal model performance.
 
-#### 🔹v2.6.2 - `feature/meeting-with-dr-ranju`
+#### 🟢v2.6.2 - `feature/meeting-with-dr-ranju`
 - current pipeline: Data ➔ Preprocessing ➔ Sentiment Analysis ➔ Performance Metrics
 - suggested pipeline: Data ➔ Preprocessing ➔ Sentiment Analysis ➔ Topic Modeling ➔ Insights ➔ Business - Study BERTopic (BERT + clustering), Sci-kit Learn (LDA, NMF, LSA) and Gensim (LDA, LSI)
 - Read the links Dr. Ranju shared. BERTopic is one of the best modern tools for topic modeling:
@@ -116,22 +116,22 @@ streamlit run app.py
 
 > **Note:** Paused here to refactor pages and model class before integrating BERTopic to pipeline
 
-#### 🔹v2.7.0 - `feature/enhanced-model-trainer`
+#### 🟢v2.7.0 - `feature/enhanced-model-trainer`
 - Split code between ModelTrainer.py and EnhancedModelTrainer.py
 - EnhancedModels will display work in progress with model fune tuning, metrics and Topic Modeling
 - ModelTrainer will display the current models' metrics and predictions
 
-#### 🔹 v2.8.0 - `feature/topic-modeling`
+#### 🟢 v2.8.0 - `feature/topic-modeling`
 - Integrate BERTopic into Pipeline
   - created BERTopicModel.py
   - `pip install bertopic` + `pip install sentence-transformers` + `pip install umap-learn plotly`
   - add streamlit Page TopicModelingPage
   - writes doc of what needs to be done yet (share with Dr. Ranju)
 
-#### 🔹 v2.8.1 - `feature/refactor-about-and-nps-views`
+#### 🟢 v2.8.1 - `feature/refactor-about-and-nps-views`
 - separation of concerns and easy maintenance
 
-#### 🔹 v2.8.2 - `feature/refactor-models-views`
+#### 🟢 v2.8.2 - `feature/refactor-models-views`
 **part 1:**
 - start project.... I'm pausing now to focus on Frontend CSS Challenge a little bit. Might be inspirational to think about user experience to bring here.
 - got back here after a couple of minutes... found an interesting library, i'll test
@@ -146,7 +146,7 @@ streamlit run app.py
 - drilling down more functions from `ModelsPage.py` and `NPSPage.py` to `utils.visualizations`
 - separation of concerns for review crosstab analysis, heatmaps and metrics in `utils.crosstab_analysis`
 
-#### 🔹 v2.8.3 - `feature/refactor-enhanced-models-views`
+#### 🟢 v2.8.3 - `feature/refactor-enhanced-models-views`
 **part 1:**
 - reorganizing `EnhancedModels.py` page with tabs and expanders
 
@@ -154,7 +154,7 @@ streamlit run app.py
 - better naming from `EnhancedModelsPage.py` to `MLExperimentsPage.py`
 - adds flow diagram [ModelTrainer_ClassDiagram](T1-Software-Engineering-Principles/projects/clinictrends_ai/docs/diagrams/ModelTrainer_ClassDiagram.png) mapping out object relationships
 
-#### 🔹 v2.8.4 - `feature/refactor-model-trainer`
+#### 🟢 v2.8.4 - `feature/refactor-model-trainer`
 **part 1:**
 - reading again feature 1 and 2 to get context fresh
 - reviewing **EXACTLY** what function `train_tfidf_model` does
@@ -178,14 +178,14 @@ the received data is gonna face a series of cuts that will return a high accurac
 ***key change***
 - target_column changed from "Sentiment" to "NPS Type" to align with the business logic
 
-#### 🔹 v2.8.5 - `feature/sprint-review`
+#### 🟢 v2.8.5 - `feature/sprint-review`
 - Split what will be done in the next 3 weeks and what COULD be done on the future
 
-#### 🔹 v2.8.6 - `feature/google-maps-api`
+#### 🟢 v2.8.6 - `feature/google-maps-api`
 - Checking Streamlit's new top nav (it was not worth it... i already have "st.sidebar", which might be conflicting) - 15m
 - Google Maps API Page for grabbing reviews from places
 
-#### 🔹 v3.0.0 - week 9 - `feature/complete-bertopic-integration`
+#### 🟢 v3.0.0 - week 9 - `feature/complete-bertopic-integration`
 ***part 1*** v3.0.0
 - added BERTopic to `MLPipeline.py` together with model_trainer (1, 2, 3 and 4)
 - Complete BERTopic integration into full pipeline
@@ -217,7 +217,7 @@ the received data is gonna face a series of cuts that will return a high accurac
     - Train Model 4: Hybrid Transformer-Score Integration
     - Display performance metrics and visualizations
 
-#### 🔹 v3.1.0 - week 10 part 1 - `feature/topic-modeling-to-pipeline`
+#### 🟢 v3.1.0 - week 10 part 1 - `feature/topic-modeling-to-pipeline`
 - worked on `MLPipeline.py` Step 2: Topic Modeling & Discovery, fine tunning UX before plugging to `NPSPage.py`
 - def `display_topic_results`: organized col1 and col2 info display
 - def `generate_business_insights`: displaying 15 topics upfront and full table in expander
@@ -237,7 +237,7 @@ the received data is gonna face a series of cuts that will return a high accurac
 
 ### 🔧 In Progress
 
-#### 🔸 v3.2.0 - week 10 part 2 - `feature/sprint-review`
+#### ▫️ v3.2.0 - week 10 part 2 - `feature/sprint-review`
 - schedule in advance (check with Dr. Ranju)
 - cancel appointment with Excel BM for Monday 18th August
 - fine tune form
@@ -249,13 +249,13 @@ the received data is gonna face a series of cuts that will return a high accurac
 - grab tiktok data and run a quick comparison with Canario's tiktok viral
 - names like Samir, Andre, Anao, Rica, Sibelius, Ciro, Will, Lace, Dr Atif, Dr Ranju, Dr Nandine
 
-#### 🔸 v3.3.0 - week 11 - `feature/benchmark-validation`
+#### ▫️ v3.3.0 - week 11 - `feature/benchmark-validation`
 - Research published benchmarks using similar datasets
 - Compare achieved results against external references
 - Document target metrics for improvement
 - Cross-check with literature (as Dr. Ranju suggested)
 
-#### 🔸 v3.4.0 - week 11 - `feature/robust-testing-coverage`
+#### ▫️ v3.4.0 - week 11 - `feature/robust-testing-coverage`
 - Expand pytest coverage for new topic modeling features
 - Add integration tests for end-to-end pipeline
 - Performance testing for large datasets
@@ -268,6 +268,7 @@ the received data is gonna face a series of cuts that will return a high accurac
 #### Hotfixes
 - ***think about new logo***
 - ***google maps api, think what to do with it***
+- Pitch Deck (`feature/pitch-deck`)
 
 #### Future
 - Start saving data from pipeline flow (preprocessing, sentiment analysis, topic modeling, insights, business actions, id, date, allow user to input "company name", "country")

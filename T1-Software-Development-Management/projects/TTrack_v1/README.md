@@ -134,6 +134,7 @@ build.bat
 - ✅ Electron: v2 of TTrack in React+Node.js wrapped by Electron
 - ✅ Database Backend: PostgreSQL with 500MB+ capacity
 - ✅ User Authentication: Secure login & role-based access
+- ✅ Layered Architecture with Core, Services and Controllers
 - 🔄 Cloud Sync: Fallback and Encryption
 - 🔄 Pytest coverage to new classes (`DatabaseManager`, `AuthService`, `LoginController`)
 
