@@ -11,6 +11,7 @@ from PyQt5.QtWidgets import (
 )
 from core.data_processor import DataProcessor
 from services.database import DatabaseManager
+from ui.helpers import download_button, set_button_style, download_processed_data
 
 def setup_results_tab(parent):
     """
@@ -109,11 +110,16 @@ def setup_results_tab(parent):
     header_layout.addWidget(progress_container)
 
     # Add "Save" button
-    from ui.helpers import set_button_style
-    save_button = QPushButton("💾 Save This Data")
+    save_button = QPushButton("💾 Save This Data to Database")
     save_button.clicked.connect(parent._save_to_database)
     set_button_style(save_button, "#27ae60", parent.theme_manager.is_dark_mode)
     header_layout.addWidget(save_button)
+
+    # Add "Download Processed Data" button
+    download_data_button = QPushButton("💾 Download Processed Data to CSV")
+    download_data_button.clicked.connect(lambda: download_processed_data(parent))
+    set_button_style(download_data_button, "#2980b9", parent.theme_manager.is_dark_mode)
+    header_layout.addWidget(download_data_button)
 
     # Add a separator line
     separator = QFrame()
@@ -129,7 +135,7 @@ def setup_results_tab(parent):
     # Add to layout with section headers
     layout.addWidget(create_section_header("📘 Subject Matching Results"))
     layout.addWidget(parent.results_table)
-    
+        
     layout.addWidget(create_section_header("📊 Progress Summary"))
     layout.addWidget(parent.summary_table)
     

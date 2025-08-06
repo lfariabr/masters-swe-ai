@@ -103,6 +103,8 @@ def setup_studentrecords_tab(parent):
         """
         parent.database_table.clearContents()
         parent.database_table.setRowCount(0)
+
+        from PyQt5.QtWidgets import QMessageBox
         
         try:
             # Use existing database manager from parent
@@ -114,6 +116,11 @@ def setup_studentrecords_tab(parent):
                 print(f"Current user id: {user_id}")
             else:
                 print("❌ User not authenticated")
+                QMessageBox.warning(
+                    parent,
+                    "User Not Authenticated",
+                    "Please login to view Student Records."
+                )
                 return
             
             # Fetch user's session history
