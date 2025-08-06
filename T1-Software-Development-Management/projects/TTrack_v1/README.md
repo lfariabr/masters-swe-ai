@@ -137,6 +137,7 @@ build.bat
 - ✅ Layered Architecture with Core, Services and Controllers
 - 🔄 Cloud Sync: Fallback and Encryption
 - 🔄 Pytest coverage to new classes (`DatabaseManager`, `AuthService`, `LoginController`)
+- 🔄 TTrack Pitch Deck
 
 ### Phase 3: AI Enhancement (v3.0.0) 📋 **PLANNED**
 - 📋 API Integration: University system connectivity

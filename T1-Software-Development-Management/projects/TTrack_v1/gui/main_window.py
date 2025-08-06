@@ -1,7 +1,8 @@
-from PyQt5.QtWidgets import QMainWindow, QMessageBox, QTableWidget, QLabel, QProgressBar
+from PyQt5.QtWidgets import QMainWindow, QMessageBox, QTableWidget, QLabel, QProgressBar, QHBoxLayout, QWidget, QVBoxLayout
 from PyQt5.QtCore import Qt
 
 from ui import helpers
+from ui.sync_status_widget import SyncStatusWidget
 from services.database import DatabaseManager
 from core.data_processor import DataProcessor
 from controllers.theme_manager import ThemeManager
@@ -22,8 +23,8 @@ class MainWindow(QMainWindow):
         # Initialize component managers
         self.theme_manager = ThemeManager(self)
         self.tab_controller = TabController(self)
-        self.data_processor = DataProcessor(self)
         self.database_manager = DatabaseManager(self)
+        self.data_processor = DataProcessor(self)
         self.auth_service = AuthService()
         
         # Initialize UI
@@ -47,7 +48,26 @@ class MainWindow(QMainWindow):
         self.summary_table = self.results_tab.findChildren(QTableWidget)[1] if len(self.results_tab.findChildren(QTableWidget)) > 1 else None
         self.electives_table = self.results_tab.findChildren(QTableWidget)[2] if len(self.results_tab.findChildren(QTableWidget)) > 2 else None
         
-        # Set central widget
+        # # Initialize sync status widget
+        # self.sync_status_widget = SyncStatusWidget(
+        #     sync_service=self.data_processor.sync_service,
+        #     theme_manager=self.theme_manager
+        # )
+        
+        # # Create main container widget with vertical layout
+        # main_container = QWidget()
+        # main_layout = QVBoxLayout(main_container)
+        # main_layout.setContentsMargins(0, 0, 0, 0)
+        # main_layout.setSpacing(0)
+        
+        # # Add sync status widget at the top
+        # main_layout.addWidget(self.sync_status_widget)
+        
+        # # Add tabs below sync status
+        # main_layout.addWidget(self.tabs)
+        
+        # # Set the main container as central widget
+        # self.setCentralWidget(main_container)
         self.setCentralWidget(self.tabs)
     
     @property
@@ -136,4 +156,4 @@ class MainWindow(QMainWindow):
                 f"Processed data saved successfully!"
             )
         else:
-            QMessageBox.warning(self, "Save Failed", "Failed to save session data to database.")
+            QMessageBox.warning(self, "Save Failed", "Failed to save. Please login and try again.")

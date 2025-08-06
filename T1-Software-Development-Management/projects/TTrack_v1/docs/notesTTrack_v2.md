@@ -82,15 +82,20 @@ Following **GitFlow** with feature branches and semantic versioning:
   - Added `get_entry_by_id()` to retrieve session by unique ID (for future deep linking)
   - Added `delete_entry()` for removing obsolete or unwanted sessions (planned feature integration)
 
+#### 🟢 v3.4.0 - `feature/cloud-sync`(Cloud Sync: Fallback and Encryption)
+> ***Goal: Prepare app to run with DB even when offline or in fallback mode.***
+- Provide fallback to save processed data in CSV if cloud is unavailable
+- Abstract DB calls with try/except wrappers
+- SyncService created to handle cloud sync logic, but not in use. Studying.
+- SyncStatusWidget created to display sync status and progress, but not in use. Studying.
+
 ---
 
 ### 🔧 In Progress
 
-#### ▫️ v3.4.0 - `feature/cloud-sync`(Cloud Sync: Fallback and Encryption)
-> ***Goal: Prepare app to run with DB even when offline or in fallback mode.***
-- Abstract DB calls with try/except wrappers
-- Provide fallback to local CSV save if cloud is unavailable
-- Add .env support for database URL/secrets
+#### ▫️ v3.5.0 - `feature/database-url-secrets`
+> ***Goal: Add .env support for database URL/secrets.***
+- to be done
 
 ***refs***
 - https://supabase.com/docs/guides/auth/social-login/auth-azure
@@ -106,6 +111,9 @@ Following **GitFlow** with feature branches and semantic versioning:
 ***v3.6.0 - check back UX during basic-history-view***
   - UX because results_data, summary_data and electives_data json needs to be treated for better displaying
   - consider adding "Course Name" column to transcript, curriculum and results table
+
+***v3.7.0 - feature/database-persistence***
+  - use SyncService and SyncStatusWidget for local data persistence
 
 - https://dev.to/jps27cse/how-to-prevent-your-supabase-project-database-from-being-paused-using-github-actions-3hel
 - Pytest adjustments to new UI structure (`feature/frontend-tests`)
