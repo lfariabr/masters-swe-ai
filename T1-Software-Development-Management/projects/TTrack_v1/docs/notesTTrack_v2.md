@@ -120,6 +120,15 @@ Following **GitFlow** with feature branches and semantic versioning:
 - Pytest coverage on **DatabaseManager**, **DataProcessor**, **LoginController** and **AuthService** (warnings 17 passed, 38 warnings)
 - Auto detect os theme (`feature/auto-detect-os-theme`)
 - Pitch Deck (`feature/pitch-deck`)
+- fine tune web form: https://forms.gle/zaH4BGeibhDrfVcL8
+- schedule in advance (check with Dr. Atif)
+- draw a PPT to display on the meeting with a "FOR DUMMIES" version of the TTrack
+- story telling:
+  - from PM to SWE focused on backend
+  - Data from Torrens & curiosity for process improvement & automation
+  - draw what I think is current flow (W/O app and compare it with app)
+- names like Samir, Andre, Anao, Rica, Sibelius, Ciro, Will, Lace, Dr Atif, Dr Ranju, Dr Nandine
+
 
 #### Future
 - `feature/logic-layer` 
