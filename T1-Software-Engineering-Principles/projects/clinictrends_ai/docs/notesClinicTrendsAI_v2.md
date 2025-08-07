@@ -233,24 +233,19 @@ the received data is gonna face a series of cuts that will return a high accurac
   - “Topic: Website issues” → “Prioritize website performance improvements”
 - add fine tuned topic modeling to `NPSPage.py`
 
----
-
-### 🔧 In Progress
-
-#### ▫️ v3.2.0 - week 10 part 2 - `feature/sprint-review`
-***done***
+#### 🟢 v3.2.0 - week 10 part 2 - `feature/sprint-review`
 - fine tune web form: https://forms.gle/uiJ2vFgoqZP4uvUx5
-
-***up next***
 - draw a PPT to display on the meeting with a "FOR DUMMIES" version of the ClinicTrendsAI
   - from PM to SWE focused on ML engineering
   - Data from PC & curiosity that people actually WRITE their feelings on the internet
   - 80% of accuracy reached, do we have similar cases to that? what's the input and take based on that?
   - who is the profile of the user who I assume replied
 - grab tiktok data and run a quick comparison with Canario's tiktok viral (tiktok vs profile)
-
-- schedule in advance (check with Dr. Ranju if we can invite outsiders)
+- check with Dr. Ranju if we can invite outsiders for the presentation of the app
 - names like Samir, Andre, Anao, Rica, Sibelius, Ciro, Will, Lace, Dr Atif, Dr Ranju, Dr Nandine
+---
+
+### 🔧 In Progress
 
 #### ▫️ v3.3.0 - week 11 - `feature/benchmark-validation`
 - Research published benchmarks using similar datasets

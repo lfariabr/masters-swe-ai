@@ -5,7 +5,7 @@
 | **Frontend** | PyQt5 5.15+ | Cross-platform GUI framework |
 | **Data Processing** | pandas 1.3+ | High-performance data manipulation |
 | **File I/O** | openpyxl 3.0+ | Excel file processing |
-| **Visualization** | matplotlib | Data plotting & charts |
+| **Visualization** | matplotlib, plotly | Data plotting & charts |
 | **Build System** | PyInstaller | Standalone executable generation |
 | **Testing** | pytest + pytest-qt | Comprehensive test coverage |
 | **Code Quality** | black, isort, mypy, flake8 | Automated code formatting & linting |
