@@ -238,15 +238,18 @@ the received data is gonna face a series of cuts that will return a high accurac
 ### 🔧 In Progress
 
 #### ▫️ v3.2.0 - week 10 part 2 - `feature/sprint-review`
-- schedule in advance (check with Dr. Ranju)
-- cancel appointment with Excel BM for Monday 18th August
-- fine tune form
+***done***
+- fine tune web form: https://forms.gle/uiJ2vFgoqZP4uvUx5
+
+***up next***
 - draw a PPT to display on the meeting with a "FOR DUMMIES" version of the ClinicTrendsAI
-  - slide about me: from project manager to swe focused on ML engineering
-  - slide talking about data from pro-corpo and insight obtained that people actually WRITE their feelings on the internet
-  - 80% of accuracy reached, do we have similar cases to that? what's the input and take based on that itself?
+  - from PM to SWE focused on ML engineering
+  - Data from PC & curiosity that people actually WRITE their feelings on the internet
+  - 80% of accuracy reached, do we have similar cases to that? what's the input and take based on that?
   - who is the profile of the user who I assume replied
-- grab tiktok data and run a quick comparison with Canario's tiktok viral
+- grab tiktok data and run a quick comparison with Canario's tiktok viral (tiktok vs profile)
+
+- schedule in advance (check with Dr. Ranju if we can invite outsiders)
 - names like Samir, Andre, Anao, Rica, Sibelius, Ciro, Will, Lace, Dr Atif, Dr Ranju, Dr Nandine
 
 #### ▫️ v3.3.0 - week 11 - `feature/benchmark-validation`

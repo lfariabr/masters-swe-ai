@@ -36,12 +36,11 @@ except ImportError:
     import views.GoogleMapsPage as GoogleMapsPage
 
 def main():
-    # Sidebar with logo and navigation - this will be our only sidebar
     with st.sidebar:
-        # Logo and title
         try:
             logo_path = Path(__file__).parent / "public" / "clinictrends_logo_200x200.svg"
             logo = str(logo_path) if logo_path.exists() else None
+
         except Exception as e:
             st.warning(f"Could not load logo: {e}")
             logo = None 
@@ -51,23 +50,21 @@ def main():
         
         st.markdown("---")
         
-        # Navigation menu
         st.markdown("### Navigation")
         
-        # Page selection
         page = st.radio(
             "",
             ["About",
              "NPS Analysis",
-            #  "ML Models",
-            #  "Topic Modeling",
              "Translation",
 
-             # In progress
-            #  "Google Maps API 👷"             
-            
-            # Commented out for now because of tests
-            #  "ML Experiments 🧪", 
+            # Work in progress
+            # "Google Maps API 👷",
+
+            # Used for tests
+            # "ML Models",
+            # "Topic Modeling",
+            # "ML Experiments 🧪", 
             ],
             index=0,
             label_visibility="collapsed"
@@ -75,31 +72,33 @@ def main():
         
         st.markdown("---")
         
-        # App info
         st.markdown("""
         **ClinicTrends AI**   
         ##### An open source AI-powered tool for analyzing customer feedback and trends.
         - **Version:** 3.1.0
-        - **GitHub:** [clinictrends_ai](https://github.com/lfariabr/masters-swe-ai/tree/master/T1-Software-Engineering-Principles/projects/clinictrends_ai)  
+        - **GitHub:** [repository](https://github.com/lfariabr/masters-swe-ai/tree/master/T1-Software-Engineering-Principles/projects/clinictrends_ai)  
         """)
     
-    # Main content based on selection
     if page == "About":
         HomePage.show_home()
+        
     elif page == "NPS Analysis":
         NPSPage.show_dashboard()
-    # elif page == "ML Models":
-    #     ModelsPage.show_models()
-    # elif page == "Topic Modeling":
-    #     TopicModelingPage.show_topic_modeling()
+
     elif page == "Translation":
         TranslatePage.show_translate()
+
+    # elif page == "ML Experiments 🧪":
+    #     MLExperimentsPage.show_enhanced_models()
+    
+    # elif page == "ML Models":
+    #     ModelsPage.show_models()
+
+    # elif page == "Topic Modeling":
+    #     TopicModelingPage.show_topic_modeling()
     
     # elif page == "Google Maps API 👷":
     #     GoogleMapsPage.show_google_maps()
 
-    elif page == "ML Experiments 🧪":
-        MLExperimentsPage.show_enhanced_models()
-        
 if __name__ == "__main__":
     main()
