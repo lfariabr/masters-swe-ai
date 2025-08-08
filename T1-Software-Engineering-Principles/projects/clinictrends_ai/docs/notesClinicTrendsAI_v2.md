@@ -29,9 +29,9 @@ streamlit run app.py
 - ✅ Model fine-tuning and reaching accuracy of +80%
 - ✅ Automated hyperparameter optimization
 - ✅ Implementing Topic Modeling
-- 🔄 Advanced feature engineering pipelines
+- ✅ Advanced feature engineering pipelines
     - ✅ Adds MLPipeline to NPSPage for centralized visualization
-    - 🔄 Adds TopicModelingPage for business insights
+    - ✅ Adds TopicModelingPage for business insights
 - 🔄 Pytest robustness coverage
 
 ### Phase 3: Enterprise Integration (v3.0) 📋 **TBD**
@@ -243,15 +243,17 @@ the received data is gonna face a series of cuts that will return a high accurac
 - grab tiktok data and run a quick comparison with Canario's tiktok viral (tiktok vs profile)
 - check with Dr. Ranju if we can invite outsiders for the presentation of the app
 - names like Samir, Andre, Anao, Rica, Sibelius, Ciro, Will, Lace, Dr Atif, Dr Ranju, Dr Nandine
----
 
-### 🔧 In Progress
-
-#### ▫️ v3.3.0 - week 11 - `feature/benchmark-validation`
+#### 🟢 v3.3.0 - week 11 - `feature/benchmark-validation`
 - Research published benchmarks using similar datasets
 - Compare achieved results against external references
 - Document target metrics for improvement
 - Cross-check with literature (as Dr. Ranju suggested)
+- Compiled files can be found [here](./T1-Software-Engineering-Principles/projects/clinictrends_ai/docs/references)
+
+---
+
+### 🔧 In Progress
 
 #### ▫️ v3.4.0 - week 11 - `feature/robust-testing-coverage`
 - Expand pytest coverage for new topic modeling features
