@@ -75,7 +75,7 @@ def main():
         st.markdown("""
         **ClinicTrends AI**   
         ##### An open source AI-powered tool for analyzing customer feedback and trends.
-        - **Version:** 3.2.0
+        - **Version:** 3.3.0
         - **GitHub:** [repository](https://github.com/lfariabr/masters-swe-ai/tree/master/T1-Software-Engineering-Principles/projects/clinictrends_ai)  
         """)
     
