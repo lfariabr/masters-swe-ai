@@ -17,7 +17,7 @@ Following **GitFlow** with feature branches and semantic versioning:
 | **3.1.0** | Login Controller | ✅ Complete |
 | **3.2.0** | AuthService | ✅ Complete |
 | **3.3.0** | Basic history view | ✅ Complete |
-| **3.4.0** | Cloud sync | 🔥 In Progress |
+| **3.4.0** | Cloud sync | ✅ Complete |
 | **TBD** | AI Enhanced matching | 🕐 Not started |
 | **TBD** | Enterprise scale | 🕐 Not started |
 
@@ -89,11 +89,7 @@ Following **GitFlow** with feature branches and semantic versioning:
 - SyncService created to handle cloud sync logic, but not in use. Studying.
 - SyncStatusWidget created to display sync status and progress, but not in use. Studying.
 
----
-
-### 🔧 In Progress
-
-#### ▫️ v3.5.0 - `feature/database-url-secrets`
+#### 🟢 v3.5.0 - `feature/database-url-secrets`
 > ***Goal: Add .env support for database URL/secrets.***
 - add dotenv in main.py
 - enhance .env.example
@@ -101,38 +97,41 @@ Following **GitFlow** with feature branches and semantic versioning:
 - create docs/BUILD.md
 - make downloaded app authentication work
 
-***refs***
-- https://supabase.com/docs/guides/auth/social-login/auth-azure
-- https://www.reddit.com/r/Supabase/comments/1ecwowt/how_to_keep_local_db_up_to_date_with_remote/
+---
+
+### 🔧 In Progress
+
+***v3.6.0 - check back UX during login/logout. Fine tune.***
+  - UX because buttons and dialogs are not so cool
+  - UI because tabs should be hidden when not logged in and login tab disappear when logged in (work on tab_controller.py)
 
 ### 🗂️ Backlog
 
 #### Hotfixes
-***v3.5.0 - check back UX during login/logout. Fine tune.***
-  - UX because buttons and dialogs are not so cool
-  - UI because tabs should be hidden when not logged in and login tab disappear when logged in (work on tab_controller.py)
 
 ***v3.6.0 - check back UX during basic-history-view***
   - UX because results_data, summary_data and electives_data json needs to be treated for better displaying
   - consider adding "Course Name" column to transcript, curriculum and results table
 
-***v3.7.0 - feature/database-persistence***
-  - use SyncService and SyncStatusWidget for local data persistence
+- (`feature/pitch-deck`): Pitch Deck 
+  - fine tune web form: https://forms.gle/zaH4BGeibhDrfVcL8
+  - schedule in advance (check with Dr. Atif)
+  - draw a PPT to display on the meeting with a "FOR DUMMIES" version of the TTrack
+  - story telling:
+    - from PM to SWE focused on backend
+    - Data from Torrens & curiosity for process improvement & automation
+    - draw what I think is current flow (W/O app and compare it with app)
+  - names like Samir, Andre, Anao, Rica, Sibelius, Ciro, Will, Lace, Dr Atif, Dr Ranju, Dr Nandine
 
+- (`feature/frontend-tests`): Pytest adjustments to new UI structure 
+- (`feature/backend-tests`): Pytest coverage on **DatabaseManager**, **DataProcessor**, **LoginController** and **AuthService** (warnings 17 passed, 38 warnings) 
+- (`feature/database-persistence`): use SyncService and SyncStatusWidget for local data persistence
+- (`feature/auto-detect-os-theme`): Auto detect os theme 
+
+***refs***
+- https://supabase.com/docs/guides/auth/social-login/auth-azure
+- https://www.reddit.com/r/Supabase/comments/1ecwowt/how_to_keep_local_db_up_to_date_with_remote/
 - https://dev.to/jps27cse/how-to-prevent-your-supabase-project-database-from-being-paused-using-github-actions-3hel
-- Pytest adjustments to new UI structure (`feature/frontend-tests`)
-- Pytest coverage on **DatabaseManager**, **DataProcessor**, **LoginController** and **AuthService** (warnings 17 passed, 38 warnings)
-- Auto detect os theme (`feature/auto-detect-os-theme`)
-- Pitch Deck (`feature/pitch-deck`)
-- fine tune web form: https://forms.gle/zaH4BGeibhDrfVcL8
-- schedule in advance (check with Dr. Atif)
-- draw a PPT to display on the meeting with a "FOR DUMMIES" version of the TTrack
-- story telling:
-  - from PM to SWE focused on backend
-  - Data from Torrens & curiosity for process improvement & automation
-  - draw what I think is current flow (W/O app and compare it with app)
-- names like Samir, Andre, Anao, Rica, Sibelius, Ciro, Will, Lace, Dr Atif, Dr Ranju, Dr Nandine
-
 
 #### Future
 - `feature/logic-layer` 

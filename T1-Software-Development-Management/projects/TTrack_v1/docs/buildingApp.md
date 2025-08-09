@@ -30,6 +30,8 @@ build.bat
 
 # The executable will be available in the 'dist' folder
 # Run it by double-clicking dist\TTrack.exe
+copy .env dist\.env
+dist\TTrack.exe
 ```
 
 #### Distribution
