@@ -101,17 +101,20 @@ Following **GitFlow** with feature branches and semantic versioning:
 
 ### 🔧 In Progress
 
-***v3.6.0 - check back UX during login/logout. Fine tune.***
-  - UX because buttons and dialogs are not so cool
-  - UI because tabs should be hidden when not logged in and login tab disappear when logged in (work on tab_controller.py)
+***v3.6.0 - `feature/login-ux`
+> ***Goal: improve UX with cool buttons and dialogs***
+- fine tuning for login and logout
+- tabs should be hidden when not logged in and login tab disappear when logged in (work on tab_controller.py)
+- login screen should have option "skip login" and allow users to go to input and see all other tabs
 
 ### 🗂️ Backlog
 
 #### Hotfixes
 
-***v3.6.0 - check back UX during basic-history-view***
-  - UX because results_data, summary_data and electives_data json needs to be treated for better displaying
-  - consider adding "Course Name" column to transcript, curriculum and results table
+***v3.7.0 - `feature/basic-history-view`
+> ***Goal: improve UX with cool buttons and dialogs***
+- UX because results_data, summary_data and electives_data json needs to be treated for better displaying
+- consider adding "Course Name" column to transcript, curriculum and results table
 
 - (`feature/pitch-deck`): Pitch Deck 
   - fine tune web form: https://forms.gle/zaH4BGeibhDrfVcL8
