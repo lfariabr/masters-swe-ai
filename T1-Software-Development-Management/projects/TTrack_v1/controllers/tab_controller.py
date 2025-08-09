@@ -90,3 +90,12 @@ class TabController:
         if self.tabs:
             for i in range(self.tabs.count()):
                 self.tabs.setTabEnabled(i, True)
+
+    def hide_login_tab(self):
+        """Hide the login tab after successful login"""
+        if self.tabs:
+            # Find and remove the login tab
+            for i in range(self.tabs.count()):
+                if self.tabs.tabText(i) == "Login":
+                    self.tabs.removeTab(i)
+                    break

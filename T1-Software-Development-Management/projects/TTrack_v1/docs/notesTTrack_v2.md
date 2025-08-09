@@ -97,26 +97,16 @@ Following **GitFlow** with feature branches and semantic versioning:
 - create docs/BUILD.md
 - make downloaded app authentication work
 
+#### 🟢 v3.6.0 - `feature/login-ux`
+> ***Goal: improve UX with cool buttons and dialogs***
+- fine tuning for login and logout
+- tabs should be hidden when not logged in and login tab disappear when logged in (work on tab_controller.py)
+
 ---
 
 ### 🔧 In Progress
 
-***v3.6.0 - `feature/login-ux`
-> ***Goal: improve UX with cool buttons and dialogs***
-- fine tuning for login and logout
-- tabs should be hidden when not logged in and login tab disappear when logged in (work on tab_controller.py)
-- login screen should have option "skip login" and allow users to go to input and see all other tabs
-
-### 🗂️ Backlog
-
-#### Hotfixes
-
-***v3.7.0 - `feature/basic-history-view`
-> ***Goal: improve UX with cool buttons and dialogs***
-- UX because results_data, summary_data and electives_data json needs to be treated for better displaying
-- consider adding "Course Name" column to transcript, curriculum and results table
-
-- (`feature/pitch-deck`): Pitch Deck 
+#### 🟡 `feature/pitch-deck`
   - fine tune web form: https://forms.gle/zaH4BGeibhDrfVcL8
   - schedule in advance (check with Dr. Atif)
   - draw a PPT to display on the meeting with a "FOR DUMMIES" version of the TTrack
@@ -125,6 +115,13 @@ Following **GitFlow** with feature branches and semantic versioning:
     - Data from Torrens & curiosity for process improvement & automation
     - draw what I think is current flow (W/O app and compare it with app)
   - names like Samir, Andre, Anao, Rica, Sibelius, Ciro, Will, Lace, Dr Atif, Dr Ranju, Dr Nandine
+
+### 🗂️ Backlog
+
+#### 🟡 v3.7.0 - `feature/basic-history-view`
+> ***Goal: improve UX with cool buttons and dialogs***
+- UX because results_data, summary_data and electives_data json needs to be treated for better displaying
+- consider adding "Course Name" column to transcript, curriculum and results table
 
 - (`feature/frontend-tests`): Pytest adjustments to new UI structure 
 - (`feature/backend-tests`): Pytest coverage on **DatabaseManager**, **DataProcessor**, **LoginController** and **AuthService** (warnings 17 passed, 38 warnings) 
