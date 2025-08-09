@@ -21,5 +21,5 @@ Dr. Muhammad Atif Qureshi
 ## Assignments
 - [X] Assessment 1 - deadline 29/06/2025
 - [X] Assessment 2 - deadline 20/07/2025
-- [ ] Assessment 3 - deadline 10/08/2025
+- [X] Assessment 3 - deadline 10/08/2025
 - [ ] Assessment 4 - deadline 24/08/2025
