@@ -52,6 +52,9 @@ class TabController:
         
         # Initially disable results tab
         self.disable_results_tab()
+
+        # Hide input, results and student records tabs and show only login tab
+        # self.hide_tabs() # TODO... think better about logic
         
         return self.tabs
     
@@ -65,6 +68,10 @@ class TabController:
         """Disable the results tab"""
         if self.tabs:
             self.tabs.setTabEnabled(2, False) # index 2, appears only after data processed
+    
+    def hide_tabs(self):
+        if self.tabs:
+            self.tabs.hide()
     
     def get_input_tab(self):
         """Get the input tab widget"""
