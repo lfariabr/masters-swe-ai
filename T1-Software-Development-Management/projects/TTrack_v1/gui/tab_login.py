@@ -188,10 +188,11 @@ def navigate_to_main_app(parent):
     # Enable other tabs
     if hasattr(parent, 'tab_controller'):
         parent.tab_controller.enable_all_tabs()
+        parent.tab_controller.hide_login_tab()  # Hide login tab when logged in
     
     # Switch to input tab
     if hasattr(parent, 'tabs'):
-        parent.tabs.setCurrentIndex(1)  # Assuming input tab is index 1
+        parent.tabs.setCurrentIndex(0)  # Now index 0 since login tab is removed
     
     print(f"✅ User logged in: {parent.login_controller.get_user_email()}")
 
@@ -230,9 +231,6 @@ def refresh_login_tab_styles(parent):
             color: {'#2c3e50' if not dark_mode else '#ffffff'};
             padding: 0;
         }}
-        QPushButton:hover {{
-            background-color: {'#e0e0e0' if not dark_mode else '#3d3d3d'};
-        }}
     """)
 
     # Inputs
@@ -257,6 +255,17 @@ def refresh_login_tab_styles(parent):
             border-radius: 5px;
             """
         )
+
+    # Make login button orange
+    parent.login_btn.setStyleSheet(
+        """
+        background-color: #F57B07;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-weight: 500;
+        """
+    )
 
     # Azure button
     # parent.azure_btn.setStyleSheet(
