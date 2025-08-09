@@ -95,7 +95,11 @@ Following **GitFlow** with feature branches and semantic versioning:
 
 #### ▫️ v3.5.0 - `feature/database-url-secrets`
 > ***Goal: Add .env support for database URL/secrets.***
-- to be done
+- add dotenv in main.py
+- enhance .env.example
+- update TTrack.spec and TTrack-macOs.spec 
+- create docs/BUILD.md
+- make downloaded app authentication work
 
 ***refs***
 - https://supabase.com/docs/guides/auth/social-login/auth-azure
@@ -106,7 +110,7 @@ Following **GitFlow** with feature branches and semantic versioning:
 #### Hotfixes
 ***v3.5.0 - check back UX during login/logout. Fine tune.***
   - UX because buttons and dialogs are not so cool
-  - UI because tabs should be hidden when not logged in and login tab disappear when logged in
+  - UI because tabs should be hidden when not logged in and login tab disappear when logged in (work on tab_controller.py)
 
 ***v3.6.0 - check back UX during basic-history-view***
   - UX because results_data, summary_data and electives_data json needs to be treated for better displaying
@@ -133,6 +137,8 @@ Following **GitFlow** with feature branches and semantic versioning:
 #### Future
 - `feature/logic-layer` 
   - Engine: deeper logic like tags, topics or even semantic similarity (based on description) 
+- `feature/azure-integration`
+  - Azure integration for easy login/register with Microsoft accounts
 - `feature/ai-integration` 
   - AI or Machine Learning to summarize transcript and curriculum and recommend elective subjects 
   - AI chatbot to answer questions about the transcript, curriculum and recommendations 

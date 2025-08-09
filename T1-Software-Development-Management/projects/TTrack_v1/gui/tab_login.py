@@ -82,11 +82,11 @@ def setup_login_tab(parent):
     layout.addWidget(parent.mode_toggle_btn, alignment=Qt.AlignCenter)
 
     # Azure button (placeholder for future Microsoft integration)
-    parent.azure_btn = QPushButton("Login with Microsoft 🔗")
-    parent.azure_btn.setFixedWidth(200)
-    parent.azure_btn.setFixedHeight(40)
-    parent.azure_btn.clicked.connect(lambda: show_coming_soon(parent))
-    layout.addWidget(parent.azure_btn, alignment=Qt.AlignCenter)
+    # parent.azure_btn = QPushButton("Login with Microsoft 🔗")
+    # parent.azure_btn.setFixedWidth(200)
+    # parent.azure_btn.setFixedHeight(40)
+    # parent.azure_btn.clicked.connect(lambda: show_coming_soon(parent))
+    # layout.addWidget(parent.azure_btn, alignment=Qt.AlignCenter)
 
     # Track current mode (login/register)
     parent.is_register_mode = False
@@ -196,13 +196,13 @@ def navigate_to_main_app(parent):
     print(f"✅ User logged in: {parent.login_controller.get_user_email()}")
 
 
-def show_coming_soon(parent):
-    """Show coming soon message for Microsoft login"""
-    QMessageBox.information(
-        parent, 
-        "Coming Soon", 
-        "Microsoft Azure integration is coming soon!\nFor now, please use email registration."
-    )
+# def show_coming_soon(parent):
+#     """Show coming soon message for Microsoft login"""
+#     QMessageBox.information(
+#         parent, 
+#         "Coming Soon", 
+#         "Microsoft Azure integration is coming soon!\nFor now, please use email registration."
+#     )
 
 
 def refresh_login_tab_styles(parent):
@@ -259,14 +259,14 @@ def refresh_login_tab_styles(parent):
         )
 
     # Azure button
-    parent.azure_btn.setStyleSheet(
-        """
-        background-color: #0078D4;
-        color: white;
-        border-radius: 5px;
-        font-weight: bold;
-        """
-    )
+    # parent.azure_btn.setStyleSheet(
+    #     """
+    #     background-color: #0078D4;
+    #     color: white;
+    #     border-radius: 5px;
+    #     font-weight: bold;
+    #     """
+    # )
 
 
 def toggle_and_refresh_theme(parent):

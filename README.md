@@ -54,21 +54,17 @@ Term | Subject | Status | Lecturer | Useful URLs |
 | Version | Modules      | Timeline | Status |
 |---------|---------------------|---|---|
 | 1.0.0   | T2-2025 Launch SDM+SEP subjects     | 06-2025 | ✅ |
-| 1.0.4   | Modules 1-4 (SDM+SEP)               | 06-2025 | ✅ |
-| 1.0.8   | Modules 5-8 (SDM+SEP)               | 07-2025 | ✅ |
-| 1.0.12  | Modules 9-12 (SDM+SEP)              | 08-2025 | 🔥 |
-| 1.1.0   | SDM course completed                | 08-2025 | 🕐 |
-| 1.2.0   | SEP course completed                | 08-2025 | 🕐 |
+| 1.2.0   | T2-2025 Completed (SDM+SEP)         | 08-2025 | 🕐 |
 | 2.0.0   | T3-2025 Launch (HCD+MFA+REM+SBD)    | 08-2025 | 🕐 |
-| 2.4.0   | T3-2025 Completed                   | 12-2025 | 🕐 |
-| 3.0.0   | T1-2026 Launch                      | 02-2026 | 🕐 |
-| 3.2.0   | T1-2026 Completed                   | 05-2026 | 🕐 |
-| 4.0.0   | T2-2026 Launch                      | 06-2026 | 🕐 |
-| 4.2.0   | T2-2026 Completed                   | 08-2026 | 🕐 |
-| 5.0.0   | T3-2026 Launch                      | 09-2026 | 🕐 |
-| 5.2.0   | T3-2026 Completed                   | 12-2026 | 🕐 |
-| 6.0.0   | T1-2027 Launch                      | 01-2027 | 🕐 |
-| 6.2.0   | T1-2027 Completed                   | 04-2027 | 🕐 |
+| 2.4.0   | T3-2025 Completed (HCD+MFA+REM+SBD) | 12-2025 | 🕐 |
+| 3.0.0   | T1-2026 Launch (TBD)                | 02-2026 | 🕐 |
+| 3.2.0   | T1-2026 Completed (TBD)             | 05-2026 | 🕐 |
+| 4.0.0   | T2-2026 Launch (TBD)                | 06-2026 | 🕐 |
+| 4.2.0   | T2-2026 Completed (TBD)             | 08-2026 | 🕐 |
+| 5.0.0   | T3-2026 Launch (TBD)                | 09-2026 | 🕐 |
+| 5.2.0   | T3-2026 Completed (TBD)             | 12-2026 | 🕐 |
+| 6.0.0   | T1-2027 Launch (TBD)                | 01-2027 | 🕐 |
+| 6.2.0   | T1-2027 Completed (TBD)             | 04-2027 | 🕐 |
 | 7.0.0   | Masters Degree Completed            | 06-2027 | 🕐 |
 
 #### Goals

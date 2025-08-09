@@ -8,16 +8,15 @@
 
 #### Building on macOS
 ```bash
-# First time only: Make the build script executable
+# First time only: Make the build script executable x
 chmod +x build_mac.sh
 
-# Install dependencies if not already installed
+# Install dependencies and build the app
 pip install -r requirements.txt
-
-# Run the build script
 ./build_mac.sh
 
-# The application bundle will be created in the 'dist' folder
+# Copy .env to the app bundle and open it
+cp .env "dist/TTrack.app/Contents/MacOS/.env"
 open dist/TTrack.app
 ```
 

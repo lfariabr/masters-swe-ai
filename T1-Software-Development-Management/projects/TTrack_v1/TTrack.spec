@@ -11,8 +11,17 @@ a = Analysis(
         ('services/data/sample_prescribed_curriculum.xlsx', 'services/data'),
         ('public/ttrack_logo.svg', 'public'),
         ('public/ttrack_app_icon.svg', 'public'),
+        ('.env.example', '.'),  # Include .env.example for user reference
     ],
-    hiddenimports=[],
+    hiddenimports=[
+        'dotenv',
+        'supabase',
+        'supabase.client',
+        'postgrest',
+        'gotrue',
+        'realtime',
+        'storage3',
+    ],
     hookspath=[],
     hooksconfig={},
     runtime_hooks=[],
