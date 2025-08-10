@@ -58,13 +58,44 @@ class TabController:
     def enable_results_tab(self):
         """Enable the results tab and switch to it"""
         if self.tabs:
-            self.tabs.setTabEnabled(2, True) # index 2, appears only after data processed
-            self.tabs.setCurrentIndex(2) # index 2, appears only after data processed
+            # Find the Results tab index dynamically (handles login tab removal)
+            results_index = -1
+            for i in range(self.tabs.count()):
+                if self.tabs.tabText(i) == "Results":
+                    results_index = i
+                    break
+            
+            if results_index >= 0:
+                self.tabs.setTabEnabled(results_index, True)
+                self.tabs.setCurrentIndex(results_index)
+                print(f"✅ Switched to Results tab at index {results_index}")
+            else:
+                print("❌ Results tab not found!")
+    
+    def switch_to_student_records(self):
+        """Switch to the Student Records tab"""
+        if self.tabs:
+            # Find the Student Records tab index dynamically
+            student_records_index = -1
+            for i in range(self.tabs.count()):
+                if self.tabs.tabText(i) == "Student Records":
+                    student_records_index = i
+                    break
+            
+            if student_records_index >= 0:
+                self.tabs.setCurrentIndex(student_records_index)
+                print(f"✅ Switched to Student Records tab at index {student_records_index}")
+            else:
+                print("❌ Student Records tab not found!")
     
     def disable_results_tab(self):
         """Disable the results tab"""
         if self.tabs:
-            self.tabs.setTabEnabled(2, False) # index 2, appears only after data processed
+            # Find the Results tab index dynamically
+            for i in range(self.tabs.count()):
+                if self.tabs.tabText(i) == "Results":
+                    self.tabs.setTabEnabled(i, False)
+                    break
     
     def hide_tabs(self):
         if self.tabs:

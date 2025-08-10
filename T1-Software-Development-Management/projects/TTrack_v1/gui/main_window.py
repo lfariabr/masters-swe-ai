@@ -155,5 +155,8 @@ class MainWindow(QMainWindow):
                 "Data Saved",
                 f"Processed data saved successfully!"
             )
+            # Redirect to Student Records tab after successful save for logged-in users
+            if self.login_controller.is_authenticated():
+                self.tab_controller.switch_to_student_records()
         else:
             QMessageBox.warning(self, "Save Failed", "Failed to save. Please login and try again.")
