@@ -102,7 +102,7 @@ Following **GitFlow** with feature branches and semantic versioning:
 - fine tuning for login and logout
 - tabs should be hidden when not logged in and login tab disappear when logged in (work on tab_controller.py)
 
-#### 🟢 `feature/pitch-deck`
+#### 🟢 v3.7.0 - `feature/pitch-deck`
   - fine tune web form: https://forms.gle/zaH4BGeibhDrfVcL8
   - schedule in advance (check with Dr. Atif)
   - draw a PPT to display on the meeting with a "FOR DUMMIES" version of the TTrack
@@ -111,16 +111,24 @@ Following **GitFlow** with feature branches and semantic versioning:
     - Data from Torrens & curiosity for process improvement & automation
     - draw what I think is current flow (W/O app and compare it with app)
 
+#### 🟢 v3.8.0 - `feature/basic-history-view`
+> ***Goal: improve UX with cool buttons and dialogs***
+- UX because results_data, summary_data and electives_data json needs to be treated for better displaying
+- add "Credit Points" and "Student Name" to Student Records table (when saving, on database and exhibition @ student recordes)
+
+***pending***
+- when clicking on "Process Data", user should be sent to Results, not to Student Records
+- increase the size of the tables displayed in table results for a height of minimum 50 pixels each
+- add "Course Name" column to transcript, curriculum and results table
+
 ---
 
 ### 🔧 In Progress
 
-#### 🟡 v3.7.0 - `feature/basic-history-view`
-> ***Goal: improve UX with cool buttons and dialogs***
-- UX because results_data, summary_data and electives_data json needs to be treated for better displaying
-- consider adding "Course Name" column to transcript, curriculum and results table
 
 ### 🗂️ Backlog
+
+hotfix database-url-secrets: not properly treating .env, since it is requiring manual work to run. How to do this for distribution?
 
 - (`feature/frontend-tests`): Pytest adjustments to new UI structure 
 - (`feature/backend-tests`): Pytest coverage on **DatabaseManager**, **DataProcessor**, **LoginController** and **AuthService** (warnings 17 passed, 38 warnings) 

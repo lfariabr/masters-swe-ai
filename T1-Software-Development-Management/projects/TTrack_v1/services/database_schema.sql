@@ -18,6 +18,8 @@ CREATE TABLE curriculums (
 CREATE TABLE student_records (
   id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
   user_id TEXT NOT NULL,
+  student_name TEXT DEFAULT 'Unknown Student',
+  credit_points INTEGER DEFAULT 0,
   results_data JSONB,
   summary_data JSONB,
   electives_data JSONB,

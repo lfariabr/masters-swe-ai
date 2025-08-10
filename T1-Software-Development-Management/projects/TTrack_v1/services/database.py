@@ -76,13 +76,15 @@ class DatabaseManager:
 
     def save_processed_data(self, user_id: str, results_table: pd.DataFrame,
                         summary_table: pd.DataFrame, electives_table: pd.DataFrame,
-                        progress: float) -> Optional[Dict[str, Any]]:
+                        progress: float, student_name: str = None, credit_points: int = 0) -> Optional[Dict[str, Any]]:
         """
         Save processed data to database
         """
         try:
             session_data = {
                 'user_id': user_id,
+                'student_name': student_name or 'Unknown Student',
+                'credit_points': credit_points,
                 'results_data': results_table.to_json(orient='records'),
                 'summary_data': summary_table.to_json(orient='records'),
                 'electives_data': electives_table.to_json(orient='records'),
