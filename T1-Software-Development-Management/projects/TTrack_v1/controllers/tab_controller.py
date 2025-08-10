@@ -52,9 +52,6 @@ class TabController:
         
         # Initially disable results tab
         self.disable_results_tab()
-
-        # Hide input, results and student records tabs and show only login tab
-        # self.hide_tabs() # TODO... think better about logic
         
         return self.tabs
     

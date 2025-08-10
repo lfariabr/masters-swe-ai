@@ -152,11 +152,27 @@ class DataProcessor:
             total_subjects = summary_df["Total"].sum() if "Total" in summary_df.columns else 1
             progress = int(total_done / total_subjects * 100) if total_subjects > 0 else 0
             
-            # Save all data
+            # Extract credit points from transcript data
+            total_credit_points = 0
+            try:
+                # Look for common credit point column names
+                credit_columns = ['Credit Points']
+                for col in credit_columns:
+                    if col in self.transcript_df.columns:
+                        # Sum all credit points, converting to numeric and handling NaN
+                        credit_points = pd.to_numeric(self.transcript_df[col], errors='coerce').fillna(0).sum()
+                        total_credit_points = int(credit_points)
+                        break
+            except Exception as e:
+                print(f"Warning: Could not extract credit points: {e}")
+                total_credit_points = 0
+            
+            # Save all data with additional fields
             transcript_result = db_manager.save_transcript(user_id, self.transcript_df)
             curriculum_result = db_manager.save_curriculum(user_id, self.curriculum_df)
             session_result = db_manager.save_processed_data(
-                user_id, self.results_df, summary_df, electives_df, progress
+                user_id, self.results_df, summary_df, electives_df, progress,
+                student_name=self.student_name, credit_points=total_credit_points
             )
             
             if transcript_result and curriculum_result and session_result:

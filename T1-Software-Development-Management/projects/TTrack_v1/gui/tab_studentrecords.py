@@ -128,61 +128,101 @@ def setup_studentrecords_tab(parent):
             print(f"Found {len(records) if records else 0} records")
             
             if records and len(records) > 0:
-                # Update table headers to match database structure
-                parent.database_table.setColumnCount(8)
+                # Update table headers for better UX - show meaningful progress data
+                parent.database_table.setColumnCount(10)
                 parent.database_table.setHorizontalHeaderLabels([
-                    "Session ID", "results_data", "summary_data", "electives_data",
-                    "User ID", "Progress", "Created Date", "Actions"
+                    "Session ID", "Student Name", "Program", "Core Done", "AI Spec Done", 
+                    "Electives Done", "W.I.L. Done", "Credit Points", "Progress %", "Created Date"
                 ])
-                
+
                 parent.database_table.setRowCount(len(records))
-                
+
                 for row, record in enumerate(records):
-                    # Extract data safely
+                    # Extract basic data
                     session_id = record.get('id', 'N/A')[:8] + "..."  # Truncate ID
-                    user_id_display = record.get('user_id', 'N/A')
+                    student_name = record.get('student_name', 'Unknown Student')
+                    credit_points = record.get('credit_points', 0)
                     progress = f"{record.get('progress_data', 0)}%"
-                    created_at = record.get('created_at', 'N/A')
-                    results_data = record.get('results_data', 'N/A')
-                    summary_data = record.get('summary_data', 'N/A')
-                    electives_data = record.get('electives_data', 'N/A')
+                    created_at = record.get('created_at', 'N/A')[:10] if record.get('created_at') else 'N/A'  # Just date
                     
-                    # Populate table
+                    # Parse nested JSON data safely
+                    import json
+                    
+                    # Initialize counters
+                    program = "Masters SWE AI"  # Default
+                    core_done = "0/5"
+                    ai_spec_done = "0/4"
+                    electives_done = "0/2"
+                    wil_done = "0/2"
+                    
+                    # Extract from summary_data (this has the counts we need)
+                    try:
+                        if record.get('summary_data'):
+                            if isinstance(record['summary_data'], str):
+                                summary = json.loads(record['summary_data'])
+                            else:
+                                summary = record['summary_data']
+                            
+                            if isinstance(summary, list):
+                                for item in summary:
+                                    item_type = item.get('Type', '')
+                                    done_count = item.get('✅ Done', 0)
+                                    total_count = item.get('Total', 0)
+                                    
+                                    if item_type == 'Core':
+                                        core_done = f"{done_count}/{total_count}"
+                                    elif item_type == 'AI Specialisation':
+                                        ai_spec_done = f"{done_count}/{total_count}"
+                                    elif item_type == 'Elective':
+                                        electives_done = f"{done_count}/{total_count}"
+                                    elif item_type == 'Work-Integrated Learning':
+                                        wil_done = f"{done_count}/{total_count}"
+                    except (json.JSONDecodeError, TypeError, KeyError) as e:
+                        print(f"Error parsing summary_data: {e}")
+                    
+                    # Populate table with organized data
                     parent.database_table.setItem(row, 0, QTableWidgetItem(session_id))
-                    parent.database_table.setItem(row, 1, QTableWidgetItem(results_data))
-                    parent.database_table.setItem(row, 2, QTableWidgetItem(summary_data))
-                    parent.database_table.setItem(row, 3, QTableWidgetItem(electives_data))
-                    parent.database_table.setItem(row, 4, QTableWidgetItem(user_id_display))
-                    parent.database_table.setItem(row, 5, QTableWidgetItem(progress))
-                    parent.database_table.setItem(row, 6, QTableWidgetItem(created_at))
-                    parent.database_table.setItem(row, 7, QTableWidgetItem("View Details"))
+                    parent.database_table.setItem(row, 1, QTableWidgetItem(student_name))
+                    parent.database_table.setItem(row, 2, QTableWidgetItem(program))
+                    parent.database_table.setItem(row, 3, QTableWidgetItem(core_done))
+                    parent.database_table.setItem(row, 4, QTableWidgetItem(ai_spec_done))
+                    parent.database_table.setItem(row, 5, QTableWidgetItem(electives_done))
+                    parent.database_table.setItem(row, 6, QTableWidgetItem(wil_done))
+                    parent.database_table.setItem(row, 7, QTableWidgetItem(str(credit_points)))
+                    parent.database_table.setItem(row, 8, QTableWidgetItem(progress))
+                    parent.database_table.setItem(row, 9, QTableWidgetItem(created_at))
+
+                # Auto-resize columns for better readability
+                parent.database_table.resizeColumnsToContents()
                 
-                print(f"✅ Loaded {len(records)} records successfully")
+                print(f"✅ Loaded {len(records)} records with organized data")
             else:
                 print("⚠️ No records found for this user")
                 # Show message in table
+                parent.database_table.setColumnCount(10)
+                parent.database_table.setHorizontalHeaderLabels([
+                    "Session ID", "Student Name", "Program", "Core Done", "AI Spec Done", 
+                    "Electives Done", "W.I.L. Done", "Credit Points", "Progress %", "Created Date"
+                ])
                 parent.database_table.setRowCount(1)
                 parent.database_table.setItem(0, 0, QTableWidgetItem("No records found"))
                 parent.database_table.setItem(0, 1, QTableWidgetItem("Process some data first"))
-                parent.database_table.setItem(0, 2, QTableWidgetItem(""))
-                parent.database_table.setItem(0, 3, QTableWidgetItem(""))
-                parent.database_table.setItem(0, 4, QTableWidgetItem(""))
-                parent.database_table.setItem(0, 5, QTableWidgetItem(""))
-                parent.database_table.setItem(0, 6, QTableWidgetItem(""))
-                parent.database_table.setItem(0, 7, QTableWidgetItem(""))
+                for col in range(2, 10):
+                    parent.database_table.setItem(0, col, QTableWidgetItem(""))
                 
         except Exception as e:
             print(f"❌ Error loading records: {e}")
             # Show error in table
+            parent.database_table.setColumnCount(10)
+            parent.database_table.setHorizontalHeaderLabels([
+                "Session ID", "Student Name", "Program", "Core Done", "AI Spec Done", 
+                "Electives Done", "W.I.L. Done", "Credit Points", "Progress %", "Created Date"
+            ])
             parent.database_table.setRowCount(1)
             parent.database_table.setItem(0, 0, QTableWidgetItem("Error"))
             parent.database_table.setItem(0, 1, QTableWidgetItem(str(e)))
-            parent.database_table.setItem(0, 2, QTableWidgetItem(""))
-            parent.database_table.setItem(0, 3, QTableWidgetItem(""))
-            parent.database_table.setItem(0, 4, QTableWidgetItem(""))
-            parent.database_table.setItem(0, 5, QTableWidgetItem(""))
-            parent.database_table.setItem(0, 6, QTableWidgetItem(""))
-            parent.database_table.setItem(0, 7, QTableWidgetItem(""))
+            for col in range(2, 10):
+                parent.database_table.setItem(0, col, QTableWidgetItem(""))
     
     # view_button = QPushButton("View Student Record")
     # view_button.clicked.connect(lambda: view_student_record(student_selector.currentData()))
