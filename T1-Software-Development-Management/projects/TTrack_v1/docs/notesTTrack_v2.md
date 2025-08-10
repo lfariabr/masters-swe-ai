@@ -115,25 +115,21 @@ Following **GitFlow** with feature branches and semantic versioning:
 > ***Goal: improve UX with cool buttons and dialogs***
 - UX because results_data, summary_data and electives_data json needs to be treated for better displaying
 - add "Credit Points" and "Student Name" to Student Records table (when saving, on database and exhibition @ student recordes)
-
-***pending***
-- when clicking on "Process Data", user should be sent to Results, not to Student Records
 - increase the size of the tables displayed in table results for a height of minimum 50 pixels each
-- add "Course Name" column to transcript, curriculum and results table
+- when clicking LOGGED IN and clicking on "Process Data", user should be sent to Results, not to Student Records
 
 ---
 
 ### 🔧 In Progress
 
+- tbd
 
 ### 🗂️ Backlog
 
-hotfix database-url-secrets: not properly treating .env, since it is requiring manual work to run. How to do this for distribution?
-
+- (`hotfix/database-url-secrets`): not properly treating .env, since it is requiring manual work to run. Think about distribution
+- (`feature/course-name-column`): add "Course Name" column to transcript, curriculum and results table
 - (`feature/frontend-tests`): Pytest adjustments to new UI structure 
 - (`feature/backend-tests`): Pytest coverage on **DatabaseManager**, **DataProcessor**, **LoginController** and **AuthService** (warnings 17 passed, 38 warnings) 
-- (`feature/database-persistence`): use SyncService and SyncStatusWidget for local data persistence
-- (`feature/auto-detect-os-theme`): Auto detect os theme 
 
 ***refs***
 - https://supabase.com/docs/guides/auth/social-login/auth-azure
@@ -141,6 +137,8 @@ hotfix database-url-secrets: not properly treating .env, since it is requiring m
 - https://dev.to/jps27cse/how-to-prevent-your-supabase-project-database-from-being-paused-using-github-actions-3hel
 
 #### Future
+- `feature/database-persistence`: use SyncService and SyncStatusWidget for local data persistence
+- `feature/auto-detect-os-theme`: Auto detect os theme 
 - `feature/logic-layer` 
   - Engine: deeper logic like tags, topics or even semantic similarity (based on description) 
 - `feature/azure-integration`

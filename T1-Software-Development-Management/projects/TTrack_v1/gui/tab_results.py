@@ -28,7 +28,7 @@ def setup_results_tab(parent):
     layout = QVBoxLayout()
     layout.setSpacing(20)
     layout.setContentsMargins(30, 30, 30, 30)
-    
+    min_height = 120
     ## 1. Results Table
     parent.results_table = QTableWidget()
     parent.results_table.setColumnCount(4)
@@ -36,10 +36,12 @@ def setup_results_tab(parent):
         ["Subject Code", "Subject Name", "Type", "Status"]
     )
     parent.results_table.setSortingEnabled(True)
+    parent.results_table.setMinimumHeight(min_height)
     
     ## 2. Summary Table
     parent.summary_table = QTableWidget()
     parent.summary_table.setSortingEnabled(True)
+    parent.summary_table.setMinimumHeight(min_height)
     
     ## 3. Electives Table
     parent.electives_table = QTableWidget()
@@ -48,6 +50,7 @@ def setup_results_tab(parent):
         ["Subject Code", "Subject Name", "Type", "Status"]
     )
     parent.electives_table.setSortingEnabled(True)
+    parent.electives_table.setMinimumHeight(min_height)
 
     # Header with student info
     header_container = QWidget()

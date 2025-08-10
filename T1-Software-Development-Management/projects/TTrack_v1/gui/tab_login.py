@@ -68,10 +68,15 @@ def setup_login_tab(parent):
     parent.login_password_input.returnPressed.connect(lambda: handle_login(parent))
     parent.login_confirm_password_input.returnPressed.connect(lambda: handle_register(parent))
     
+    # Set button properties
     for btn in (parent.login_btn, parent.register_btn):
         btn.setFixedWidth(200)
         btn.setFixedHeight(40)
         btn_layout.addWidget(btn)
+    
+    # Hide Register button by default (only show Login initially)
+    parent.register_btn.hide()
+    
     btn_layout.addStretch()
     layout.addLayout(btn_layout)
 
@@ -195,15 +200,6 @@ def navigate_to_main_app(parent):
         parent.tabs.setCurrentIndex(0)  # Now index 0 since login tab is removed
     
     print(f"✅ User logged in: {parent.login_controller.get_user_email()}")
-
-
-# def show_coming_soon(parent):
-#     """Show coming soon message for Microsoft login"""
-#     QMessageBox.information(
-#         parent, 
-#         "Coming Soon", 
-#         "Microsoft Azure integration is coming soon!\nFor now, please use email registration."
-#     )
 
 
 def refresh_login_tab_styles(parent):
