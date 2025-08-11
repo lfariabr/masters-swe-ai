@@ -20,22 +20,47 @@ def annotate_sentiments(df: pd.DataFrame, comment_col="Comment", pos_thresh=0.05
     return df
 
 import plotly.express as px
+NPS_COLORS = {
+    "Positive": "#2ecc71",  # green (Promoters vibe)
+    "Neutral":  "#f1c40f",  # yellow (Passives vibe)
+    "Negative": "#e74c3c",  # red (Detractors vibe)
+}
+
 def display_sentiment_distribution(df: pd.DataFrame):
     sentiment_counts = df["Sentiment"].value_counts().reset_index()
     sentiment_counts.columns = ["Sentiment", "Count"]
-    fig = px.bar(sentiment_counts, x="Sentiment", y="Count", color="Sentiment")
+
+    # Ensure consistent order in legend & pie
+    order = ["Positive", "Neutral", "Negative"]
+    sentiment_counts["Sentiment"] = pd.Categorical(sentiment_counts["Sentiment"], categories=order, ordered=True)
+    sentiment_counts = sentiment_counts.sort_values("Sentiment")
+
+    fig = px.pie(
+        sentiment_counts,
+        names="Sentiment",
+        values="Count",
+        color="Sentiment",
+        color_discrete_map=NPS_COLORS,
+        hole=0.0,  # keep as full pie; tweak if you want a donut
+        title="Sentiment Distribution"
+    )
     st.plotly_chart(fig, use_container_width=True)
 
 def get_sentiment_distribution_figure(df: pd.DataFrame):
     sentiment_counts = df["Sentiment"].value_counts().reset_index()
     sentiment_counts.columns = ["Sentiment", "Count"]
-    
-    fig = px.bar(
+
+    order = ["Positive", "Neutral", "Negative"]
+    sentiment_counts["Sentiment"] = pd.Categorical(sentiment_counts["Sentiment"], categories=order, ordered=True)
+    sentiment_counts = sentiment_counts.sort_values("Sentiment")
+
+    fig = px.pie(
         sentiment_counts,
-        x="Sentiment",
-        y="Count",
+        names="Sentiment",
+        values="Count",
         color="Sentiment",
-        title="Sentiment Distribution",
+        color_discrete_map=NPS_COLORS,
+        title="Sentiment Distribution"
     )
     return fig
 

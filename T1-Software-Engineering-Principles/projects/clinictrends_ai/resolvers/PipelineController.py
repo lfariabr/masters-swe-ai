@@ -240,7 +240,7 @@ class MLpipelineController:
         col1, col2 = st.columns([2, 1])
         
         with col1:
-            st.write("**Top Topics Discovered:**")
+            st.write("**Topics Discovered:**")
             st.write("---")
             display_topics = self.topics_df.head(10)[["Topic", "Name", "Count"]]
             st.dataframe(display_topics, use_container_width=True, hide_index=True)
@@ -255,24 +255,6 @@ class MLpipelineController:
             st.metric("Outliers", outliers)
             if len(self.df) > 0:
                 st.metric("Coverage", f"{((len(self.df) - outliers) / len(self.df) * 100):.1f}%")
-        
-        # Topic visualizations
-        try:
-            st.markdown("#### 📈 Topic Visualizations")
-            
-            # Bar chart of top topics
-            fig_bar = self.topics_model.visualize_barchart(top_n_topics=4, height=300) # top_n_topics=8 to 4
-            st.plotly_chart(fig_bar, use_container_width=True)
-            
-            # Topic similarity heatmap (if enough topics)
-            total_topics = len(self.topics_df[self.topics_df["Topic"] != -1])
-            if total_topics > 3:
-                with st.expander("🔥 Topic Similarity Heatmap"):
-                    fig_heatmap = self.topics_model.visualize_heatmap(height=500)
-                    st.plotly_chart(fig_heatmap, use_container_width=True)
-                    
-        except Exception as e:
-            st.warning(f"⚠️ Visualization error: {str(e)}")
     
     def generate_business_insights(self):
         """Generate actionable business insights from topics and ML models."""
@@ -288,40 +270,46 @@ class MLpipelineController:
             .groupby("Name")
             .agg(
                 Comment_Count=("Comment", "count"),
-                Avg_Score=("Score", "mean"),
+                # Avg_Score=("Score", "mean"),
                 NPS_Score=("NPS Type", lambda x: calculate_nps(pd.DataFrame({"NPS Type": x})))
             )
             .reset_index()
             .sort_values(by="Comment_Count", ascending=False)
         )
         
-        # Add ML model agreement analysis if models were trained
-        if self.models_trained and "Model_1_Prediction" in self.df.columns:
-            st.markdown("#### 🤝 ML Model vs Topic Analysis")
-            
-            # Calculate model agreement per topic
-            model_topic_analysis = (
-                self.df[self.df["Topic"] != -1]
-                .groupby("Name")
-                .agg(
-                    Model1_Accuracy=("Model_1_Prediction", lambda x: (x == self.df.loc[x.index, "NPS Type"]).mean()),
-                    Avg_Confidence=("Score", "mean")
-                )
-                .reset_index()
-            )
-            
-            # Merge with topic insights
-            topic_insights = topic_insights.merge(model_topic_analysis, on="Name", how="left")
+        # Add ML model agreement analysis if models were trained (dynamic for all Model_*_Prediction)
+        if self.models_trained:
+            pred_cols = [c for c in self.df.columns if c.startswith("Model_") and c.endswith("_Prediction")]
+            if pred_cols:
+                per_topic = self.df[self.df["Topic"] != -1][["Name", "NPS Type"] + pred_cols].copy()
+
+                acc_frames = []
+                for col in pred_cols:
+                    acc = (
+                        per_topic
+                        .assign(_hit=lambda d: (d[col] == d["NPS Type"]).astype(float))
+                        .groupby("Name", as_index=False)["_hit"].mean()
+                        .rename(columns={"_hit": f"{col.replace('_Prediction','')}_Accuracy"})
+                    )
+                    acc_frames.append(acc)
+
+                from functools import reduce
+                model_topic_analysis = reduce(lambda l, r: l.merge(r, on="Name", how="left"), acc_frames)
+                topic_insights = topic_insights.merge(model_topic_analysis, on="Name", how="left")
         
         # Display insights table
-        st.write("**Topic Performance Analysis:**")
-        
+        st.write("**Performance Analysis:**")
+
         # Format the insights for better readability
-        topic_insights["Avg_Score"] = topic_insights["Avg_Score"].round(2)
         topic_insights["NPS_Score"] = topic_insights["NPS_Score"].round(1)
-        
-        if "Model1_Accuracy" in topic_insights.columns:
-            topic_insights["Model1_Accuracy"] = (topic_insights["Model1_Accuracy"] * 100).round(1)
+
+        # Dynamically format all *_Accuracy columns
+        acc_cols = [c for c in topic_insights.columns if c.endswith("_Accuracy")]
+        for c in acc_cols:
+            topic_insights[c] = (topic_insights[c] * 100).round(1)
+
+        fmt_map = {"NPS_Score": "{:.1f}"}
+        fmt_map.update({c: "{:.1f}" for c in acc_cols})
         
         # Color code based on NPS scores
         def color_nps(val):
@@ -334,19 +322,22 @@ class MLpipelineController:
         
         # Only show top 15 in main table
         top_15_insights = topic_insights.head(15)
-        styled_top_15 = top_15_insights.style.applymap(
-            color_nps, subset=['NPS_Score']
+        styled_top_15 = (
+            top_15_insights
+            .style
+            .applymap(color_nps, subset=['NPS_Score'])
+            .format(fmt_map)
         )
 
         # Display top 15 styled rows
         st.caption("**Top 15 Topics by Comment Volume:**")
-        st.dataframe(styled_top_15, use_container_width=True, hide_index=True)
+        st.dataframe(styled_top_15, use_container_width=False, hide_index=True)
 
         # Show full unstyled table in expander
         total_rows = len(topic_insights)
         with st.expander(f"🔎 Show full topic insights table ({total_rows} rows)", expanded=False):
-            full_styled = topic_insights.style.applymap(color_nps, subset=['NPS_Score'])
-            st.dataframe(full_styled, use_container_width=True, hide_index=True)
+            full_styled = topic_insights.style.format(fmt_map)
+            st.dataframe(full_styled, use_container_width=False, hide_index=True)
         
         # Generate specific recommendations
         self.generate_recommendations(topic_insights)
@@ -354,7 +345,7 @@ class MLpipelineController:
     def generate_recommendations(self, topic_insights: pd.DataFrame):
         """Generate specific business recommendations based on topic and ML analysis."""
         
-        st.markdown("#### 🎯 Actionable Recommendations")
+        st.write("**Actionable Recommendations**")
         
         # Sort and limit data for better UX
         problematic_topics = topic_insights[

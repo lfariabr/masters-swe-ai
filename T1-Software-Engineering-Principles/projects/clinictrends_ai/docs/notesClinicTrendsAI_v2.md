@@ -251,6 +251,13 @@ the received data is gonna face a series of cuts that will return a high accurac
 - Cross-check with literature (as Dr. Ranju suggested)
 - Compiled files can be found [here](./T1-Software-Engineering-Principles/projects/clinictrends_ai/docs/references)
 
+#### 🟢 v3.4.0 - week 11 - `feature/checkpoint-dr-ranju`
+- Top 15 Topics by Comment Volume table now displays Avg_Score, NPS_Score and Avg_Confidence with rounded values
+- ***the reason .round(2) or .round(1) was not showing in the table is because st.dataframe with a pandas Styler ignores Python’s native rounding for display and instead uses its own formatting logic.***
+- removed Avg_score column from the table as it wasn't being helpful
+- ***Example: If 3 people gave 9, 7, and 8 for Topic A, the Avg_Score = (9 + 7 + 8) / 3 = 8.0.***
+- adds model 2 accuracy to generate_biz_insights
+
 ---
 
 ### 🔧 In Progress
