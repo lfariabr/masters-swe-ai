@@ -8,7 +8,7 @@ st.set_page_config(
     page_title="ClinicTrends AI",
     page_icon="🤖",
     layout="wide", # centered
-    initial_sidebar_state="collapsed"
+    initial_sidebar_state="expanded" #collapsed
 )
 
 # Add the current directory to the path
@@ -75,8 +75,8 @@ def main():
         st.markdown("""
         **ClinicTrends AI**   
         ##### An open source AI-powered tool for analyzing customer feedback and trends.
-        - **Version:** 3.3.0
-        - **GitHub:** [repository](https://github.com/lfariabr/masters-swe-ai/tree/master/T1-Software-Engineering-Principles/projects/clinictrends_ai)  
+        - **Version:** 3.4.0
+        - **GitHub:** [Repository](https://github.com/lfariabr/masters-swe-ai/tree/master/T1-Software-Engineering-Principles/projects/clinictrends_ai)  
         """)
     
     if page == "About":

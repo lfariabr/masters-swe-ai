@@ -41,7 +41,7 @@ def display_sentiment_distribution(df: pd.DataFrame):
         values="Count",
         color="Sentiment",
         color_discrete_map=NPS_COLORS,
-        hole=0.0,  # keep as full pie; tweak if you want a donut
+        hole=0.4,  # keep as full pie; tweak if you want a donut
         title="Sentiment Distribution"
     )
     st.plotly_chart(fig, use_container_width=True)

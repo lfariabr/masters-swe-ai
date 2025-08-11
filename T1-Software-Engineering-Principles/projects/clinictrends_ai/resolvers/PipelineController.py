@@ -52,7 +52,7 @@ class MLpipelineController:
     """
     This gentleman is responsible for the the first ML Pipeline I'm implementing for ClinicTrends AI
     It is responsible to integrate 4 sentiment analysis models as well as topic modeling for comprehensive insights on the data uploaded by the user
-    It is also responsible to train the models and display the results in a user-friendly way
+    Also responsible to train the models and display the results in a user-friendly way!
     """
     
     def __init__(self):
@@ -68,13 +68,9 @@ class MLpipelineController:
             with st.spinner("🔄 Loading and validating data..."):
                 send_discord_message("🔄 Starting enhanced ML pipeline data validation")
                 
-            # Reset file pointer to beginning - CRUCIAL FIX!
-            # This is needed because the file may have been read already in NPSPage
-            uploaded_file.seek(0)
-            
+            uploaded_file.seek(0)            
             self.df = pd.read_csv(uploaded_file)
-            # st.dataframe(self.df, use_container_width=True)
-            
+
             # Validate required columns
             required_columns = ['Comment', 'Score']
             missing_columns = [col for col in required_columns if col not in self.df.columns]
@@ -86,12 +82,6 @@ class MLpipelineController:
             # Clean data
             self.df = self.df.dropna(subset=["Comment"])
             self.df["CommentScore"] = self.df["Comment"].astype(str) + " SCORE_" + self.df["Score"].astype(str)
-            
-            # Display data preview
-            # with st.expander("👀 Data Preview"):
-            #     st.dataframe(self.df.sample(min(5, len(self.df))), use_container_width=True)
-            #     st.info(f"Dataset shape: {self.df.shape[0]} rows × {self.df.shape[1]} columns")
-            #     st.success(f"Total records loaded: {len(self.df)}")
             
             return True
             
@@ -128,8 +118,8 @@ class MLpipelineController:
         
         # Show model performance summary
         st.success("✅ All models trained successfully")
-        create_detailed_metrics_table(self.model_trainer.metrics)
         create_model_summary_cards(self.model_trainer.metrics)
+        create_detailed_metrics_table(self.model_trainer.metrics)
     
     def train_bertopic(self):
         """Train BERTopic model and assign topics to dataframe."""
@@ -170,19 +160,26 @@ class MLpipelineController:
             self.df["Model_2_Prediction"] = model2.predict(vec2.transform(self.df["CommentScore"]))
             
     def train_model_3(self):
-        """Train Model 3: Transformer-Enhanced."""
-        
         with st.spinner("Processing with transformer model..."):
-            df_transformer = self.model_trainer.train_transformer_model(
+            df3 = self.model_trainer.train_transformer_model(
                 self.df, "Comment", "Model 3: Transformer"
             )
-        
+        if df3 is not None:
+            map_to_nps = {"POSITIVE": "Promoter", "NEGATIVE": "Detractor", "NEUTRAL": "Passive"}
+            # align by index to be safe
+            self.df.loc[df3.index, "Model_3_Prediction"] = (
+                df3["HF_Label"].str.upper().map(map_to_nps).fillna("Passive")
+            )
+
     def train_model_4(self):
-        """Train Model 4: Hybrid Transformer-Score."""
-        
         with st.spinner("Processing hybrid transformer model..."):
-            df_hybrid = self.model_trainer.train_transformer_model(
+            df4 = self.model_trainer.train_transformer_model(
                 self.df, "CommentScore", "Model 4: Hybrid"
+            )
+        if df4 is not None:
+            map_to_nps = {"POSITIVE": "Promoter", "NEGATIVE": "Detractor", "NEUTRAL": "Passive"}
+            self.df.loc[df4.index, "Model_4_Prediction"] = (
+                df4["HF_Label"].str.upper().map(map_to_nps).fillna("Passive")
             )
     
     def run_topic_modeling(self):
@@ -190,7 +187,6 @@ class MLpipelineController:
         
         with st.spinner("🔍 Training BERTopic model..."):
             try:
-                # Import the topic modeling function
                 from resolvers.BERTopicModel import train_bertopic_model
                 
                 # Filter valid comments
@@ -208,9 +204,11 @@ class MLpipelineController:
                     self.topics_df = self.topics_model.get_topic_info()
                             
                     # Clean topic names
+                    from utils.visualizations import clean_topic_name
                     self.topics_df["Name"] = self.topics_df.apply(
-                                lambda row: "Outliers" if row["Topic"] == -1 else row["Name"], axis=1
-                            )
+                        lambda row: "Outliers" if row["Topic"] == -1 else clean_topic_name(row["Name"]),
+                        axis=1
+                    )
                             
                     # Merge topic names with main dataframe
                     self.df = self.df.merge(
@@ -218,9 +216,6 @@ class MLpipelineController:
                                 on="Topic", 
                                 how="left"
                             )
-                            
-                    st.success("✅ Topic modeling completed!")
-                            
                     # Display results and generate insights
                     self.display_topic_results()
                     self.generate_business_insights()
@@ -234,27 +229,81 @@ class MLpipelineController:
             return
         
         st.markdown("---")
-        st.markdown("### 📊 Topic Analysis Results")
-        
-        # Topic overview
+        st.markdown("#### Topic Analysis Results")
+
+        # --- Topic overview (compact & pretty) ---
+        top_n = 10
+
+        # Clean names (use the helper we added earlier)
+        def _safe_clean(x):
+            try:
+                return clean_topic_name(x)
+            except Exception:
+                return x
+
+        topics_info = self.topics_df.copy()
+        topics_info["CleanName"] = topics_info["Name"].apply(_safe_clean)
+
+        # Basic stats
+        in_scope_mask = topics_info["Topic"] != -1
+        total_found = int(in_scope_mask.sum())                    # number of non-outlier topics
+        outliers = int((self.df["Topic"] == -1).sum()) if "Topic" in self.df.columns else 0
+        coverage = ((len(self.df) - outliers) / len(self.df) * 100) if len(self.df) else 0.0
+
         col1, col2 = st.columns([2, 1])
-        
+
         with col1:
-            st.write("**Topics Discovered:**")
-            st.write("---")
-            display_topics = self.topics_df.head(10)[["Topic", "Name", "Count"]]
-            st.dataframe(display_topics, use_container_width=True, hide_index=True)
-        
+            st.markdown("**Topics Discovered**")
+
+            # Build display table
+            base = topics_info.loc[in_scope_mask, ["Topic", "CleanName", "Count"]]
+
+            table = (
+                base.sort_values("Count", ascending=False)
+                    .head(top_n)
+                    .reset_index(drop=True)
+            )
+
+            # rank + share
+            table.index = table.index + 1
+            table.insert(0, "Rank", table.index)
+            table["Share %"] = (table["Count"] / base["Count"].sum() * 100).round(1)
+
+            # ensuring unique column names: keep numeric topic as ID, cleaned as Topic
+            table = table.rename(columns={"Topic": "ID", "CleanName": "Topic"})
+            table = table[["Rank", "ID", "Topic", "Count", "Share %"]]
+
+            # Rendering
+            styled = (
+                table.style
+                    .format({"Share %": "{:.1f}%"})
+                    .bar(subset=["Count"], align="left")
+            )
+
+            st.dataframe(styled, hide_index=True, use_container_width=True)
+            st.caption(f"Showing top {len(table)} of {len(base)} topics.")
+
         with col2:
-            total_topics = len(self.topics_df[self.topics_df["Topic"] != -1])
-            outliers = len(self.df[self.df["Topic"] == -1]) if "Topic" in self.df.columns else 0
-            
-            st.write("**Topic Statistics:**")
-            st.write("---")
-            st.metric("Topics Found", total_topics)
+            st.markdown("**Topic Statistics**")
+            st.metric("Topics Found", total_found)
             st.metric("Outliers", outliers)
-            if len(self.df) > 0:
-                st.metric("Coverage", f"{((len(self.df) - outliers) / len(self.df) * 100):.1f}%")
+            st.metric("Coverage", f"{coverage:.1f}%")
+
+        # Download full table (cleaned names)
+        with st.expander("Full Topic List (See or Download)"):
+            full_table = (
+                topics_info.loc[in_scope_mask, ["Topic", "CleanName", "Count"]]
+                        .sort_values("Count", ascending=False)
+                        .rename(columns={"CleanName": "Topic Name"})
+            )
+            st.dataframe(full_table.head(50), hide_index=True, use_container_width=True)
+            st.download_button(
+                "⬇️ Download all topics (CSV)",
+                data=full_table.to_csv(index=False).encode("utf-8"),
+                file_name="topics_overview.csv",
+                mime="text/csv",
+                use_container_width=True
+            )
     
     def generate_business_insights(self):
         """Generate actionable business insights from topics and ML models."""
@@ -262,7 +311,7 @@ class MLpipelineController:
             return
         
         st.markdown("---")
-        st.markdown("### 💡 Business Insights & Recommendations")
+        st.markdown("#### Business Insights")
         
         # Calculate NPS per topic
         topic_insights = (
@@ -270,7 +319,6 @@ class MLpipelineController:
             .groupby("Name")
             .agg(
                 Comment_Count=("Comment", "count"),
-                # Avg_Score=("Score", "mean"),
                 NPS_Score=("NPS Type", lambda x: calculate_nps(pd.DataFrame({"NPS Type": x})))
             )
             .reset_index()
@@ -314,11 +362,11 @@ class MLpipelineController:
         # Color code based on NPS scores
         def color_nps(val):
             if val >= 80:
-                return 'background-color: #98FB98'  # Light green (great NPS)
-            elif 70 <= val < 80:
-                return 'background-color: #fff0b3'  # Soft yellow (slightly stronger than #fff3cd)
+                return 'background-color: #98FB98'  # Light green for great NPS (Promoter)
+            elif 60 <= val < 80:
+                return 'background-color: #fff0b3'  # Soft yellow for neutral NPS (Passive)
             else:
-                return 'background-color: #f8d7da'  # Light red (poor NPS)
+                return 'background-color: #f8d7da'  # Light red for poor NPS (Detractor)
         
         # Only show top 15 in main table
         top_15_insights = topic_insights.head(15)
@@ -329,11 +377,9 @@ class MLpipelineController:
             .format(fmt_map)
         )
 
-        # Display top 15 styled rows
         st.caption("**Top 15 Topics by Comment Volume:**")
         st.dataframe(styled_top_15, use_container_width=False, hide_index=True)
 
-        # Show full unstyled table in expander
         total_rows = len(topic_insights)
         with st.expander(f"🔎 Show full topic insights table ({total_rows} rows)", expanded=False):
             full_styled = topic_insights.style.format(fmt_map)
@@ -342,126 +388,109 @@ class MLpipelineController:
         # Generate specific recommendations
         self.generate_recommendations(topic_insights)
     
-    def generate_recommendations(self, topic_insights: pd.DataFrame):
-        """Generate specific business recommendations based on topic and ML analysis."""
-        
-        st.write("**Actionable Recommendations**")
-        
-        # Sort and limit data for better UX
-        problematic_topics = topic_insights[
-            (topic_insights["Comment_Count"] >= topic_insights["Comment_Count"].quantile(0.5)) &
-            (topic_insights["NPS_Score"] < 0)
-        ].sort_values(['NPS_Score', 'Comment_Count'], ascending=[True, False]).head(5)
+    def generate_recommendations(self, topic_insights: pd.DataFrame, top_k: int = 5):
+        """Generate compact, user-friendly recommendations (two small tables)."""
 
-        success_topics = topic_insights[
-            topic_insights["NPS_Score"] >= 50
-        ].sort_values('NPS_Score', ascending=False).head(5)
+        st.markdown("#### Actionable Recommendations")
+
+        # ---------- helpers ----------
+        nps_promoter = 81
+        nps_passive = 61
+        nps_detractor = 60
         
-        # Quick stats summary
-        total_topics = len(topic_insights)
-        critical_topics = len(problematic_topics)
-        success_count = len(success_topics)
-        
+        def _shorten(s: str, n: int = 32) -> str:
+            s = str(s)
+            return s if len(s) <= n else s[: n - 1] + "…"
+
+        def _urgency_badge(nps: float) -> str:
+            if nps < -1:
+                return "🔥 Critical"
+            if nps < 0:
+                return "⚠ High"
+            if nps <= nps_passive:
+                return "⚠ Medium"
+            return "—"
+
+        def _success_badge(nps: float) -> str:
+            if nps >= nps_promoter:
+                return "🏆 Exceptional"
+            if nps > nps_passive:
+                return "⭐ Excellent"
+            return "—"
+
+        # ---------- pick top K lists ----------
+        median_cut = topic_insights["Comment_Count"].quantile(0.5)
+        problematic_topics = (
+            topic_insights[(topic_insights["Comment_Count"] >= median_cut) & (topic_insights["NPS_Score"] < 0)]
+            .sort_values(["NPS_Score", "Comment_Count"], ascending=[True, False])
+            .head(top_k)
+            .copy()
+        )
+
+        success_topics = (
+            topic_insights[topic_insights["NPS_Score"] >= nps_promoter]
+            .sort_values("NPS_Score", ascending=False)
+            .head(top_k)
+            .copy()
+        )
+
+        # ---------- KPIs ----------
         col1, col2, col3 = st.columns(3)
-        with col1:
-            st.metric("Total Topics", total_topics)
-        with col2:
-            st.metric("Critical Issues", critical_topics, delta=f"-{critical_topics}" if critical_topics > 0 else "0")
-        with col3:
-            st.metric("Success Areas", success_count, delta=f"+{success_count}")
-        
-        col1, col2 = st.columns(2)
-        with col1:
-            # Priority Issues Section
-            if len(problematic_topics) > 0:
-                st.warning(f"🚨 **Top {len(problematic_topics)} Priority Issues Requiring Immediate Attention:**")
-                
-                for idx, (_, topic) in enumerate(problematic_topics.iterrows(), 1):
-                    urgency = "🔥 CRITICAL" if topic['NPS_Score'] < -1 else "⚠️ HIGH"
-                    st.write(f"{idx}. **{topic['Name']}** ({urgency})")
-                    st.write(f"   📊 {topic['Comment_Count']} comments | NPS: {topic['NPS_Score']}")
-                
-                # Add actionable insight based on severity
-                if topic['NPS_Score'] < -1:
-                    st.write(f"   💡 *Immediate escalation needed - consider emergency response team*")
-                else:
-                    st.write(f"   💡 *Schedule improvement initiative within 30 days*")
-            
-            if len(topic_insights[(topic_insights["Comment_Count"] >= topic_insights["Comment_Count"].quantile(0.5)) & 
-                                (topic_insights["NPS_Score"] < 0)]) > 5:
-                st.info("ℹ️ Showing top 5 priority issues. Full analysis available in detailed view.")
-            else:
-                st.success("✅ No critical priority issues identified!")
-        
-        with col2:
-            # Success Areas Section
-            if len(success_topics) > 0:
-                st.success(f"✅ **Top {len(success_topics)} Success Areas to Leverage:**")
-            
-            for idx, (_, topic) in enumerate(success_topics.iterrows(), 1):
-                excellence = "🏆 EXCEPTIONAL" if topic['NPS_Score'] >= 75 else "⭐ EXCELLENT"
-                st.write(f"{idx}. **{topic['Name']}** ({excellence})")
-                st.write(f"   📊 {topic['Comment_Count']} comments | NPS: {topic['NPS_Score']}")
-            
-            st.write(f"   💡 *Recommendation: Use as best practice template for underperforming areas*")
-            
-            if len(topic_insights[topic_insights["NPS_Score"] >= 50]) > 5:
-                st.info("ℹ️ Showing top 5 success areas. Additional high-performers available in detailed view.")
-        
-        with st.expander("Detailed view of comments per topic"):
-            if self.df is not None and "Topic" in self.df.columns and "Name" in self.df.columns:
-                dissection_df = self.df[["Comment", "Score", "NPS Type", "Topic", "Name"]].copy()
-                dissection_df = dissection_df.sort_values(by="Topic")
-                st.dataframe(dissection_df, use_container_width=True, hide_index=True)
-            else:
-                st.warning("⚠️ Cannot display detailed data: missing Topic or Name columns.")
+        col1.metric("Total Topics", int(len(topic_insights)))
+        col2.metric("Critical Issues", int(len(problematic_topics)))
+        col3.metric("Success Areas", int(len(success_topics)))
 
-        # Enhanced Overall Insights
-        st.markdown("---")
-        st.markdown("#### 📈 Strategic Insights")
-        
-        avg_nps = topic_insights["NPS_Score"].mean()
-        median_nps = topic_insights["NPS_Score"].median()
-        nps_std = topic_insights["NPS_Score"].std()
-        
-        if avg_nps < -20:
-            st.error("🚨 **Crisis Mode**: Immediate systematic review required across all touchpoints")
-            st.write("• Establish daily monitoring dashboard")
-            st.write("• Create cross-functional crisis response team")
-            st.write("• Implement weekly customer pulse surveys")
-        elif avg_nps < 60:
-            st.warning("🔄 **Recovery Focus**: Address negative feedback themes systematically")
-            st.write("• Prioritize top 3 critical issues for immediate action")
-            st.write("• Implement bi-weekly improvement sprints")
-            st.write("• Set up customer feedback loop closure process")
-        elif avg_nps <= 80:
-            st.info("📈 **Growth Mode**: Convert satisfied customers to promoters")
-            st.write("• Focus on enhancing good-performing areas")
-            st.write("• Implement customer success programs")
-            st.write("• Create referral and advocacy opportunities")
-        else:
-            st.success("🎉 **Excellence Mode**: Maintain and scale successful practices")
-            st.write("• Document and replicate best practices")
-            st.write("• Expand successful initiatives")
-            st.write("• Consider premium service offerings")
-        
-        # Data quality insights
-        if nps_std > 40:
-            st.warning("⚠️ **High Variability Detected**: Inconsistent experience across topics")
-            st.write("• Focus on standardizing service delivery")
-            st.write("• Investigate root causes of performance gaps")
-        
-        # ROI prioritization
-        if len(problematic_topics) > 0 and len(success_topics) > 0:
-            st.info("💡 **Quick Win Opportunity**: Apply successful practices from high-NPS topics to critical issues")
-            
-            # Suggest specific matches if possible
-            top_success = success_topics.iloc[0]['Name'] if len(success_topics) > 0 else None
-            top_priority = problematic_topics.iloc[0]['Name'] if len(problematic_topics) > 0 else None
-            
-            if top_success and top_priority:
-                st.write(f"• Consider: What makes **'{top_success}'** successful that could improve **'{top_priority}'**?")
+        # ---------- build compact tables ----------
+        critical_df = (
+            problematic_topics
+            .assign(
+                Topic=lambda d: d["Name"].apply(_shorten),
+                NPS=lambda d: d["NPS_Score"].round(1),
+                Comments=lambda d: d["Comment_Count"].astype(int),
+                Urgency=lambda d: d["NPS_Score"].apply(_urgency_badge),
+            )[["Topic", "NPS", "Comments", "Urgency"]]
+            .sort_values("Comments", ascending=False)
+        )
 
+        success_df = (
+            success_topics
+            .assign(
+                Topic=lambda d: d["Name"].apply(_shorten),
+                NPS=lambda d: d["NPS_Score"].round(1),
+                Comments=lambda d: d["Comment_Count"].astype(int),
+                Badge=lambda d: d["NPS_Score"].apply(_success_badge),
+            )[["Topic", "NPS", "Comments", "Badge"]]
+            .sort_values("Comments", ascending=False)
+        )
+
+        # ---------- render side-by-side, compact ----------
+        c1, c2 = st.columns(2)
+        with c1:
+            st.markdown(f"**🚨 Top {len(critical_df)} Critical/High (< 0 NPS)**")
+            if len(critical_df) == 0:
+                st.success("No critical issues found.")
+            else:
+                st.dataframe(critical_df, use_container_width=True, hide_index=True)
+        with c2:
+            st.markdown(f"**🏆 Top {len(success_df)} Success/Excellent (>{nps_promoter} NPS)**")
+            if len(success_df) == 0:
+                st.info("No success areas found.")
+            else:
+                st.dataframe(success_df, use_container_width=True, hide_index=True)
+
+        # ---------- details ----------
+        with st.expander("Show full topic table"):
+            full_df = topic_insights.rename(
+                columns={"Name": "Topic", "NPS_Score": "NPS", "Comment_Count": "Comments"}
+            )[["Topic", "NPS", "Comments"]].copy()
+            full_df["Topic"] = full_df["Topic"].apply(_shorten, n=64)  # slightly longer in the full table
+            st.dataframe(full_df, use_container_width=True, hide_index=True)
+
+        st.caption(
+            f"Legend: 🔥 Critical (< -1) · ⚠ High (< 0) · ⚠ Medium (0–≤ {nps_passive}) · "
+            f"⭐ Excellent (>{nps_passive}) · 🏆 Exceptional (>{nps_promoter})"
+        )
+    
 def show_ml_pipeline():
     """
     Main function for the enhanced ML Pipeline with complete model integration.
@@ -479,9 +508,7 @@ def show_ml_pipeline():
     # Model explanations
     create_model_explanations()
     
-    # Data upload section
-    col1, col2 = st.columns(2)
-    
+    col1, col2 = st.columns(2)    
     with col1:
         data_upload()
     
@@ -507,61 +534,6 @@ def show_ml_pipeline():
             st.markdown("---")
             st.markdown("### 🔍 Step 2: Topic Modeling & Discovery")
             pipeline.run_topic_modeling()
-            
-            # Step 4: Advanced analytics (if data processed)
-            # if pipeline.df is not None:
-            #     st.markdown("---")
-            #     st.markdown("### 📊 Step 3: Advanced Analytics")
-                
-            #     # Use tabs to avoid expander nesting issues
-            #     tab1, tab2, tab3 = st.tabs(["📋 Cross-Tabulation", "🤝 NPS vs Sentiment", "🔎 Complete Dataset"])
-                
-            #     with tab1:
-            #         st.markdown("#### Cross-Tabulation Analysis")
-            #         enhanced_crosstab_analysis(pipeline.df)
-                
-            #     with tab2:
-            #         st.markdown("#### NPS vs Sentiment Agreement")
-            #         display_nps_sentiment_agreement(pipeline.df)
-                
-            #     with tab3:
-            #         st.markdown("#### Complete Dataset with All Predictions")
-            #         st.dataframe(pipeline.df, use_container_width=True)
-                
-            #     # Export functionality
-            #     st.markdown("---")
-            #     st.markdown("### 💾 Export Complete Analysis")
-            #     if st.button("📥 Download Enhanced Analysis Report", type="primary"):
-            #         # Prepare comprehensive export data
-            #         export_data = {
-            #             "pipeline_summary": {
-            #                 "total_records": len(pipeline.df),
-            #                 "models_trained": pipeline.models_trained,
-            #                 "topics_discovered": len(pipeline.topics_df) if pipeline.topics_df is not None else 0
-            #             },
-            #             "sentiment_analysis": {
-            #                 "sentiment_distribution": pipeline.df["Sentiment"].value_counts().to_dict(),
-            #                 "nps_distribution": pipeline.df["NPS Type"].value_counts().to_dict()
-            #             }
-            #         }
-                    
-            #         # Add ML model metrics if available
-            #         if pipeline.models_trained:
-            #             export_data["ml_models"] = pipeline.model_trainer.metrics
-                    
-            #         # Add topic data if available
-            #         if "Topic" in pipeline.df.columns:
-            #             export_data["topic_analysis"] = {
-            #                 "total_topics": len(pipeline.topics_df[pipeline.topics_df["Topic"] != -1]) if pipeline.topics_df is not None else 0,
-            #                 "topic_distribution": pipeline.df["Name"].value_counts().to_dict() if "Name" in pipeline.df.columns else {}
-            #             }
-                    
-            #         st.download_button(
-            #             label="Download Enhanced Pipeline Report",
-            #             data=pd.Series(export_data).to_json(indent=2),
-            #             file_name=f"enhanced_ml_pipeline_{pd.Timestamp.now().strftime('%Y%m%d_%H%M%S')}.json",
-            #             mime="application/json"
-            #         )
     
     else:
         st.info("""

@@ -257,12 +257,29 @@ the received data is gonna face a series of cuts that will return a high accurac
 - removed Avg_score column from the table as it wasn't being helpful
 - ***Example: If 3 people gave 9, 7, and 8 for Topic A, the Avg_Score = (9 + 7 + 8) / 3 = 8.0.***
 - adds model 2 accuracy to generate_biz_insights
+- adjusted sentiment distribution area to have graphic side by side with word cloud from comments
+- created a function to clean Topic Modeling names
+```python
+def clean_topic_name(name: str, *, lower: bool = True) -> str:
+    """Turn '12_service_great_excellent_good' → 'service great excellent good'."""
+    if pd.isna(name):
+        return name
+    s = str(name).strip()
+    s = re.sub(r'^\s*-?\d+_?', '', s)   # drop leading numeric id like 0_, 12_, -1_
+    s = s.replace('_', ' ')             # underscores → spaces
+    s = re.sub(r'\s+', ' ', s).strip()  # collapse spaces
+    return s.lower() if lower else s
+```
+- added accuracy of model per topic at `Top 15 Topics by Comment Volume`
+- refactored `Actionable Recommendations` to be more compact
+- improved `Topic Analysis Results`, `Business Insights` and `Model Performance Overview`
+- adjusted sidebar to be visible and switched to v3.4.0
 
 ---
 
 ### 🔧 In Progress
 
-#### ▫️ v3.4.0 - week 11 - `feature/robust-testing-coverage`
+#### ▫️ v3.5.0 - week 11 - `feature/robust-testing-coverage`
 - Expand pytest coverage for new topic modeling features
 - Add integration tests for end-to-end pipeline
 - Performance testing for large datasets
@@ -287,7 +304,6 @@ the received data is gonna face a series of cuts that will return a high accurac
   - Add experiments with alternative models:
     - Support Vector Machine (SVM)
     - Random Forest
-  - Compare results to Logistic Regression baseline.
   - Store performance metrics for analysis.
 
 ---
