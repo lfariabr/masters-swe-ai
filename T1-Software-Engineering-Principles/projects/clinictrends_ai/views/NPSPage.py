@@ -49,23 +49,22 @@ def show_dashboard():
             st.info(f"Dataset shape: {df.shape[0]} rows × {df.shape[1]} columns")
             st.success(f"Total records loaded: {total_records}")
         
+        # st.markdown("---")
+        # st.subheader("NPS Filters")
+        # selected_year, selected_store = get_year_store_filters(df)
+
         st.markdown("---")
-
-        st.subheader("NPS Filters")
-        selected_year, selected_store = get_year_store_filters(df)
-
-        st.markdown("---")
-
         st.subheader("NPS Analysis")
-
-        col1, col2 = st.columns(2)    
-        filtered_df = df.copy()
-
-        if selected_year != "All":
-            filtered_df = filtered_df[filtered_df["Year"].astype(str) == selected_year]
-
-        if selected_store != "All":
-            filtered_df = filtered_df[filtered_df["Store"].astype(str) == selected_store]
+        
+        # col1, col2 = st.columns(2)    
+        # filtered_df = df.copy()
+        # if selected_year != "All":
+        #     filtered_df = filtered_df[filtered_df["Year"].astype(str) == selected_year]
+        # if selected_store != "All":
+        #     filtered_df = filtered_df[filtered_df["Store"].astype(str) == selected_store]
+        
+        # removed filters and did this as easier workaround
+        filtered_df = df.copy() 
 
         if not filtered_df.empty:
             nps_score = calculate_nps(filtered_df)
@@ -96,12 +95,12 @@ def show_dashboard():
             col3, col4 = st.columns(2)
 
             with col3:
-                st.markdown("#### 📊 Monthly NPS Trend")
+                st.markdown("#### Monthly NPS Trend")
                 line_chart = monthly_nps_trend_chart(filtered_df, calculate_nps)
                 st.altair_chart(line_chart, use_container_width=True)
 
             with col4:
-                st.markdown("#### 🌡️ NPS Status")
+                st.markdown("#### NPS Status")
 
                 if nps_score < 50:
                     st.error(f"⚠️ ALERT: Your NPS is critically low ({nps_score}). Immediate action is recommended!")
@@ -136,26 +135,32 @@ def show_dashboard():
         st.markdown("---")
     
         st.subheader("Sentiment Distribution")
+        st.caption("This might vary when compared to NPS scores, because it is based on the sentiment of the comments.")
+
         col1, col2 = st.columns(2)
         with col1:
-            st.write("Adjust these thresholds to fine-tune sentiment classification.")
-            st.info("Comments with a polarity score above this value will be classified as POSITIVE. Lower values make the model more sensitive to mildly positive comments.")
-            pos_thresh = st.slider("Positive threshold", min_value=0.01, max_value=0.5, value=0.05, step=0.01)
-            st.warning("Comments with a polarity score below this value will be classified as NEGATIVE. Lower (more negative) values capture only strongly negative comments, while higher values include milder negativity.")
-            neg_thresh = st.slider("Negative threshold", min_value=-0.5, max_value=-0.01, value=-0.05, step=0.01)
+            # st.write("Adjust these thresholds to fine-tune sentiment classification.")
+            # st.info("Comments with a polarity score above this value will be classified as POSITIVE. Lower values make the model more sensitive to mildly positive comments.")
+            # pos_thresh = st.slider("Positive threshold", min_value=0.01, max_value=0.5, value=0.05, step=0.01)
+            # st.warning("Comments with a polarity score below this value will be classified as NEGATIVE. Lower (more negative) values capture only strongly negative comments, while higher values include milder negativity.")
+            # neg_thresh = st.slider("Negative threshold", min_value=-0.5, max_value=-0.01, value=-0.05, step=0.01)
+            display_sentiment_distribution(annotated_df)
+            
 
         with col2:
-            display_sentiment_distribution(annotated_df)
+            # display_sentiment_distribution(annotated_df)
+            st.write("Word Cloud from Comments")
+            display_wordcloud(annotated_df)
         
+        # st.markdown("---")
+
+        # st.subheader("Word Cloud from Comments")
+        # display_wordcloud(annotated_df)
+
         st.markdown("---")
 
-        st.subheader("Word Cloud from Comments")
-        display_wordcloud(annotated_df)
-
-        st.markdown("---")
-
-        st.subheader("🤖 Machine Learning Pipeline")
-        st.markdown("**Enhanced ML analysis combining Sentiment Models with Topic Modeling for deeper business insights.**")
+        st.subheader("Machine Learning Pipeline")
+        st.markdown("Enhanced ML analysis combining **Sentiment Models** with **Topic Modeling** for deeper business insights.")
         
         pipeline = MLpipelineController()
         
@@ -169,18 +174,18 @@ def show_dashboard():
                     pipeline.df["Sentiment"] = pipeline.df["Sentiment"].str.upper()
                     pipeline.df = classify_nps(pipeline.df)
                     progress_bar.progress(10)
-                    time.sleep(3)
+                    time.sleep(2)
                     progress_bar.progress(20)
-                    time.sleep(3)
+                    time.sleep(2)
                     progress_bar.progress(50)
-                    time.sleep(3)
+                    time.sleep(2)
                     
                 # Now train the models with properly prepared data
                 pipeline.train_all_models()
                 pipeline.run_topic_modeling()
-                time.sleep(3)
+                time.sleep(2)
                 progress_bar.progress(70)
-                time.sleep(3)
+                time.sleep(2)
                 progress_bar.progress(100)
 
             else:

@@ -1,9 +1,10 @@
 import altair as alt
 import pandas as pd
-from typing import Dict
+from typing import Dict, Optional
 import streamlit as st
 from utils.preprocessing import classify_nps
 import numpy as np
+import re
 
 def nps_donut_chart(filtered_df: pd.DataFrame):
     chart_data = filtered_df["NPS Type"].value_counts().reset_index()
@@ -42,83 +43,121 @@ def monthly_nps_trend_chart(filtered_df: pd.DataFrame, calculate_nps_func):
     return chart
 
 def create_model_summary_cards(metrics: Dict[str, Dict]) -> None:
-    """Create summary cards for each model with key metrics."""
+    """Compact, ranked model cards with badges, deltas, and safe formatting."""
     if not metrics:
         st.warning("No metrics available for comparison.")
         return
-    
-    st.subheader("🎯 Model Performance Overview")
-    
-    # Create columns for model cards
-    cols = st.columns(len(metrics))
-    
-    for idx, (model_key, data) in enumerate(metrics.items()):
-        if data:
-            with cols[idx]:
-                with st.container():
-                    st.markdown(f"##### {data['Model']}")
-                    
-                    # Key metrics with safe handling of None values
-                    accuracy = data['Accuracy']
-                    f1_score = data['F1-Score']
-                    
-                    # Safe color coding - handle None values
-                    def get_performance_color(value):
-                        if value is None:
-                            return "⚪"  # White circle for N/A
-                        elif value > 0.8:
-                            return "🟢"  # Green for excellent
-                        elif value > 0.6:
-                            return "🟡"  # Yellow for good
-                        else:
-                            return "🔴"  # Red for needs improvement
-                    
-                    acc_color = get_performance_color(accuracy)
-                    f1_color = get_performance_color(f1_score)
-                    
-                    # Display metrics with safe formatting
-                    if accuracy is not None:
-                        st.metric(
-                            label=f"{acc_color} Accuracy",
-                            value=f"{accuracy:.1%}"
-                        )
-                    else:
-                        st.metric(
-                            label=f"{acc_color} Accuracy",
-                            value="N/A",
-                            help="No ground truth available for accuracy calculation"
-                        )
-                    
-                    if f1_score is not None:
-                        st.metric(
-                            label=f"{f1_color} F1-Score",
-                            value=f"{f1_score:.3f}"
-                        )
-                    else:
-                        st.metric(
-                            label=f"{f1_color} F1-Score",
-                            value="N/A",
-                            help="No ground truth available for F1-Score calculation"
-                        )
-                    
-                    # Training time and predictions should always be available
-                    st.metric(
-                        label="⏱️ Training Time",
-                        value=f"{data['Training_Time']:.2f}s" if data['Training_Time'] is not None else "N/A"
-                    )
-                    st.metric(
-                        label="📊 Predictions",
-                        value=f"{data['Total_Predictions']:,}" if data['Total_Predictions'] is not None else "N/A"
-                    )
 
+    st.markdown("#### Model Performance Overview")
+
+    # ---- normalize -> list of dicts, add safe defaults ----
+    rows = []
+    for k, d in metrics.items():
+        if not d:
+            continue
+        rows.append({
+            "key": k,
+            "name": d.get("Model", k),
+            "acc": d.get("Accuracy"),
+            "f1": d.get("F1-Score"),
+            "time": d.get("Training_Time"),
+            "n": d.get("Total_Predictions"),
+        })
+
+    if not rows:
+        st.info("No completed models to display.")
+        return
+
+    # ---- find bests for ranking / badges / deltas ----
+    acc_values = [r["acc"] for r in rows if r["acc"] is not None]
+    f1_values  = [r["f1"]  for r in rows if r["f1"]  is not None]
+    best_acc = max(acc_values) if acc_values else None
+    best_f1  = max(f1_values)  if f1_values else None
+
+    # Rank primarily by accuracy, then by F1 (desc)
+    def sort_key(r):
+        return (
+            -1 if r["acc"] is None else -r["acc"],
+            -1 if r["f1"]  is None else -r["f1"],
+        )
+    rows = sorted(rows, key=sort_key)
+
+    # ---- helpers ----
+    def perf_dot(v: Optional[float]) -> str:
+        if v is None: return "⚪"
+        if v >= 0.85: return "🟢"
+        if v >= 0.70: return "🟡"
+        return "🔴"
+
+    def fmt_pct(v: Optional[float]) -> str:
+        return f"{v:.1%}" if v is not None else "N/A"
+
+    def fmt_f1(v: Optional[float]) -> str:
+        return f"{v:.3f}" if v is not None else "N/A"
+
+    def fmt_time(s: Optional[float]) -> str:
+        if s is None: return "N/A"
+        if s < 0.005: return "<0.01s"
+        return f"{s:.2f}s"
+
+    def fmt_int(n: Optional[int]) -> str:
+        return f"{n:,}" if n is not None else "N/A"
+
+    def delta_to_best(v: Optional[float], best: Optional[float]) -> Optional[str]:
+        if v is None or best is None: return None
+        diff = v - best
+        if abs(diff) < 1e-9:
+            return "best"
+        sign = "+" if diff > 0 else ""
+        return f"{sign}{diff:.1%}"
+
+    # ---- render grid (wrap after 4 per row) ----
+    per_row = min(4, max(1, len(rows)))
+    cols = st.columns(per_row)
+
+    for i, r in enumerate(rows):
+        col = cols[i % per_row]
+        with col:
+            with st.container(border=True):
+                # header with BEST badge
+                is_best = (best_acc is not None and r["acc"] == best_acc)
+                badge = " 🥇" if is_best else ""
+                st.markdown(f"**{r['name']}{badge}**")
+
+                # Accuracy (with color and delta to calculated best)
+                acc_dot = perf_dot(r["acc"])
+                acc_delta = delta_to_best(r["acc"], best_acc)
+                st.metric(
+                    label=f"{acc_dot} Accuracy",
+                    value=fmt_pct(r["acc"]),
+                    delta=(None if acc_delta in (None, "best") else acc_delta),
+                    help=("Best accuracy" if acc_delta == "best" else None)
+                )
+                # tiny bar for accuracy for quick visual scan
+                if r["acc"] is not None:
+                    st.progress(int(round(r["acc"] * 100)))
+
+                # F1 (with color and delta to calculated best F1)
+                f1_dot = perf_dot(r["f1"])
+                f1_delta = delta_to_best(r["f1"], best_f1)
+                st.metric(
+                    label=f"{f1_dot} F1-Score",
+                    value=fmt_f1(r["f1"]),
+                    delta=(None if f1_delta in (None, "best") else f1_delta),
+                    help=("Best F1-Score" if f1_delta == "best" else None)
+                )
+
+                # Training time & predictions (compact)
+                c1, c2 = st.columns(2)
+                with c1:
+                    st.metric("⏱️ Time", fmt_time(r["time"]))
+                with c2:
+                    st.metric("📊 Predictions", fmt_int(r["n"]))
 
 def create_detailed_metrics_table(metrics: Dict[str, Dict]) -> None:
     """Create detailed metrics comparison table."""
     if not metrics:
-        return
-    
-    st.subheader("📋 Detailed Performance Metrics")
-    
+        return    
     # Helper function to safely format metrics
     def safe_format(value, format_type="float"):
         if value is None:
@@ -207,7 +246,8 @@ def create_detailed_metrics_table(metrics: Dict[str, Dict]) -> None:
             return ['' for _ in s]
         
         styled_df = metrics_df.style.apply(highlight_best, axis=0)
-        st.dataframe(styled_df, use_container_width=True, hide_index=True)
+        with st.expander("📋 Detailed Performance Metrics"):
+            st.dataframe(styled_df, use_container_width=True, hide_index=True)
         
         # Performance insights (only for models with valid metrics)
         valid_accuracy = raw_metrics.dropna(subset=['Accuracy'])
@@ -226,11 +266,6 @@ def create_detailed_metrics_table(metrics: Dict[str, Dict]) -> None:
         if not valid_time.empty:
             fastest = valid_time.loc[valid_time['Training_Time'].idxmin(), 'Model']
             insights.append(f"Fastest Training ⚡: {fastest}")
-        
-        if insights:
-            st.info(f"🏆 **Performance Highlights:**\n\n" + "\n".join(f"    {insight}" for insight in insights))
-        else:
-            st.info("💡 **Note:** No ground truth available for performance comparison. Models trained successfully for prediction.")
     
     else:
         st.warning("No metrics available to display.")
@@ -479,3 +514,13 @@ def display_nps_sentiment_agreement(df: pd.DataFrame) -> float:
     st.info(f"🎯 **Quick Summary**: Overall NPS-Sentiment agreement rate is {agreement_rate:.1%}")
 
     return agreement_rate
+
+def clean_topic_name(name: str, *, lower: bool = True) -> str:
+    """Turn '12_service_great_excellent_good' → 'service great excellent good'."""
+    if pd.isna(name):
+        return name
+    s = str(name).strip()
+    s = re.sub(r'^\s*-?\d+_?', '', s)   # drop leading numeric id like 0_, 12_, -1_
+    s = s.replace('_', ' ')             # underscores → spaces
+    s = re.sub(r'\s+', ' ', s).strip()  # collapse spaces
+    return s.lower() if lower else s
