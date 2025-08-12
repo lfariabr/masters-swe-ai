@@ -165,7 +165,7 @@ def show_dashboard():
         pipeline = MLpipelineController()
         
         if st.button("🚀 Run ML Pipeline", type="primary"):
-            progress_bar = st.progress(0)
+            progress_bar = st.progress(0, text="Initializing ML Pipeline...")
             if uploaded_file is not None and pipeline.load_and_validate_data(uploaded_file):
 
                 # First, run sentiment analysis and NPS classification
@@ -173,21 +173,21 @@ def show_dashboard():
                     pipeline.df = annotate_sentiments(pipeline.df)
                     pipeline.df["Sentiment"] = pipeline.df["Sentiment"].str.upper()
                     pipeline.df = classify_nps(pipeline.df)
-                    progress_bar.progress(10)
+                    progress_bar.progress(10, text="✅ Data preprocessing completed!")
                     time.sleep(2)
-                    progress_bar.progress(20)
+                    progress_bar.progress(20, text="🧠 Training ML models...")
                     time.sleep(2)
-                    progress_bar.progress(50)
+                    progress_bar.progress(50, text="🔍 Running topic modeling...")
                     time.sleep(2)
                     
                 # Now train the models with properly prepared data
                 pipeline.train_all_models()
                 pipeline.run_topic_modeling()
                 time.sleep(2)
-                progress_bar.progress(70)
+                progress_bar.progress(70, text="💡 Generating business insights...")
                 time.sleep(2)
-                progress_bar.progress(100)
-
+                progress_bar.progress(100, text="🎉 Complete ML Pipeline finished successfully!")
+                
             else:
                 st.error("❌ Failed to load data for ML model training.")
            

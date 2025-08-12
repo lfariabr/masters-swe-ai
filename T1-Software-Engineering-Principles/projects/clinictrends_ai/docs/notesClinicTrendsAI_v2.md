@@ -32,7 +32,7 @@ streamlit run app.py
 - ✅ Advanced feature engineering pipelines
     - ✅ Adds MLPipeline to NPSPage for centralized visualization
     - ✅ Adds TopicModelingPage for business insights
-- 🔄 Pytest robustness coverage
+- ✅ Pytest robustness coverage
 
 ### Phase 3: Enterprise Integration (v3.0) 📋 **TBD**
 - 📋 Real-time model retraining capabilities
@@ -275,27 +275,24 @@ def clean_topic_name(name: str, *, lower: bool = True) -> str:
 - improved `Topic Analysis Results`, `Business Insights` and `Model Performance Overview`
 - adjusted sidebar to be visible and switched to v3.4.0
 
+#### 🟢 v3.5.0 - week 11 - `feature/robust-testing-coverage`
+- Expand pytest coverage for new topic modeling features
+- Error handling validation
+
 ---
 
 ### 🔧 In Progress
 
-#### ▫️ v3.5.0 - week 11 - `feature/robust-testing-coverage`
-- Expand pytest coverage for new topic modeling features
-- Add integration tests for end-to-end pipeline
-- Performance testing for large datasets
-- Error handling validation
+- ***thinking about new logo***
 
 ---
 
 ### 🗂️ Backlog
 
-#### Hotfixes
-- ***think about new logo***
-- ***google maps api, think what to do with it***
-- Pitch Deck (`feature/pitch-deck`)
-
 #### Future
-- Start saving data from pipeline flow (preprocessing, sentiment analysis, topic modeling, insights, business actions, id, date, allow user to input "company name", "country")
+- Google Maps/TikTok API for getting reviews
+- OpenAI API for getting insights
+- Start saving data from pipeline flow associated with input "company name", "country"
 - Implement interpretable ML models for NPS prediction
 - Fine-tune transformer models for domain-specific sentiment
 - Add RESTful API development + authentication

@@ -21,6 +21,16 @@ import numpy as np
 # ML/AI Libraries
 from sklearn.metrics import accuracy_score, classification_report
 
+# Initialize transformers availability flag
+TRANSFORMERS_AVAILABLE = False
+try:
+    from transformers import pipeline
+    TRANSFORMERS_AVAILABLE = True
+except (ImportError, RuntimeError, ValueError) as e:
+    # Handle various import errors including PyTorch compatibility issues
+    TRANSFORMERS_AVAILABLE = False
+    print(f"Transformers not available: {e}")
+
 warnings.filterwarnings('ignore')
 sys.path.append(str(Path(__file__).parent.parent))
 
@@ -39,14 +49,6 @@ from utils.visualizations import (
     create_model_summary_cards,
     create_detailed_metrics_table
 )
-from utils.crosstab_analysis import enhanced_crosstab_analysis
-
-# Check for transformers availability
-try:
-    from transformers import pipeline
-    TRANSFORMERS_AVAILABLE = True
-except ImportError:
-    TRANSFORMERS_AVAILABLE = False
 
 class MLpipelineController:
     """

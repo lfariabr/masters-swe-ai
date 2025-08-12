@@ -34,6 +34,9 @@ Traditional customer surveys are reactive and manual. ClinicTrends AI provides:
 # Navigate to project directory
 cd T1-Software-Engineering-Principles/projects/clinictrends_ai
 
+# Create virtual environment
+python -m venv venv
+
 # Activate virtual environment
 source venv/bin/activate  # macOS/Linux
 # or
@@ -141,8 +144,8 @@ Advantage: Discover latent themes and patterns in customer feedback
 - ✅ Advanced feature engineering pipelines
     - ✅ Successful implementation of Machine Learning Pipeline (4 models) to NPSPage
     - ✅ Added Topic Modeling to Machine Learning Pipeline
-- 🔄 Pytest robustness coverage
-- 🔄 ClinicTrends AI Pitch Deck
+- ✅ Pytest robustness coverage
+- ✅ ClinicTrends AI Pitch Deck
 
 ### Phase 3: Enterprise Integration (v3.0) 📋 **TBD**
 - 📋 Real-time model retraining capabilities
@@ -163,7 +166,7 @@ Advantage: Discover latent themes and patterns in customer feedback
 
 - 🌐 **[Live Demo](https://sep-torrens-dr-ranju-group-1.streamlit.app/)**: Interactive application showcase
 - 📚 **[Documentation](docs/)**: Comprehensive technical specifications
-- 🎥 **[Demo Video](https://youtube.com/demo)**: Walkthrough of key features (in progress)
+- 🎥 **[Demo Video](https://youtube.com/demo)**: Walkthrough of key features (***in progress***)
 
 ---
 

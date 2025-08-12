@@ -1,10 +1,6 @@
 """
-ClinicTrends AI - Enhanced Models Page
-======================================
-
-Enterprise-grade ML model comparison and benchmarking interface.
-Implements 4 distinct ML pipelines for comprehensive sentiment analysis.
-
+Page created to compare models, run tests, compare results and fine tune 
+Mainly used during feature 2.0.0 until 3.0.0
 """
 
 import sys

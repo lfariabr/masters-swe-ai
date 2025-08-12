@@ -11,15 +11,22 @@ from sklearn.metrics import accuracy_score, precision_recall_fscore_support
 from sklearn.model_selection import train_test_split
 from sklearn.model_selection import GridSearchCV
 
+# Initialize transformers availability flag
+TRANSFORMERS_AVAILABLE = False
 try:
     from transformers import pipeline
     TRANSFORMERS_AVAILABLE = True
-except ImportError:
+except (ImportError, RuntimeError, ValueError) as e:
+    # Handle various import errors including PyTorch compatibility issues
     TRANSFORMERS_AVAILABLE = False
+    print(f"Transformers not available: {e}")
 
 class EnhancedTrainer:
     """
     Copy of `ModelTrainer` class with additional features for debugging purposes.
+    Not used in main app.
+    Page created to compare models, run tests, compare results and fine tune 
+    Mainly used during feature 2.0.0 until 3.0.0
     """
     
     def __init__(self):
@@ -345,7 +352,7 @@ class EnhancedTrainer:
             batch_size = 100
             results = []
             
-            progress_bar = st.progress(0)
+            progress_bar = st.progress(0, text="Training enhanced models...")
             total_batches = len(df) // batch_size + 1
 
             start_time = time.time()

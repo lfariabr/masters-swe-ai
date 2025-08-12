@@ -13,11 +13,15 @@ from sklearn.model_selection import GridSearchCV
 from sklearn.pipeline import Pipeline
 from scipy.sparse import hstack
 
+# Initialize transformers availability flag
+TRANSFORMERS_AVAILABLE = False
 try:
     from transformers import pipeline
     TRANSFORMERS_AVAILABLE = True
-except ImportError:
+except (ImportError, RuntimeError, ValueError) as e:
+    # Handle various import errors including PyTorch compatibility issues
     TRANSFORMERS_AVAILABLE = False
+    print(f"Transformers not available: {e}")
 
 class ModelTrainer:
     """
@@ -312,7 +316,7 @@ class ModelTrainer:
             batch_size = 50  # Reduced batch size for stability
             results = []
             
-            progress_bar = st.progress(0)
+            progress_bar = st.progress(0, text="Training transformer model...")
             total_batches = len(df) // batch_size + 1
 
             start_time = time.time()
