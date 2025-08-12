@@ -53,7 +53,7 @@ def main():
         st.markdown("### Navigation")
         
         page = st.radio(
-            "",
+            "Navigation",
             ["About",
              "NPS Analysis",
              "Translation",
