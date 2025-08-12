@@ -18,6 +18,13 @@ Following **GitFlow** with feature branches and semantic versioning:
 | **3.2.0** | AuthService | ✅ Complete |
 | **3.3.0** | Basic history view | ✅ Complete |
 | **3.4.0** | Cloud sync | ✅ Complete |
+| **3.5.0** | .env setup for Supabase | ✅ Complete |
+| **3.6.0** | Login UX | ✅ Complete |
+| **3.7.0** | Pitch deck work | ✅ Complete |
+| **3.8.0** | Student Records UX | ✅ Complete |
+| **3.9.0** | Encryption on Build process | ✅ Complete |
+| **3.10.0** | Engine Matching 2.0 | ✅ Complete |
+| **4.0.0** | Pytest robust coverage | 🕐 Not started |
 | **TBD** | AI Enhanced matching | 🕐 Not started |
 | **TBD** | Enterprise scale | 🕐 Not started |
 
@@ -159,10 +166,18 @@ recs_df = suggest_electives_v2(result_df, elective_bank_df, transcript_df, max_e
 
 ### 🔧 In Progress
 
-  > Notes you can show in the UI (nice UX)
-	> •	WIL gating: mark ITW601 as “Available soon” until REM502 and total 70 CP reached; mark ITA602 locked until ITW601 is ✅. (Your PDF states the WIL/prereq notes and 3 elective requirement.  ￼)
-	> •	Elective slots: students need 3 electives; any subjects from the Elective Bank count (respecting each elective’s prereqs).  ￼
-	> •	Completion %: compute both by type and overall (sum credits for ✅ / 160 total).
+#### ⚙️ v3.11.0 - `hotfix/engine-matching`
+> ***Goal: Adjust engine matching with PDF provided by Dr. Atif for Masters in IT***
+- Save course name on database. Current column "Program" should be changed to "Course Name" coomming from transcript
+- Display hardcoded transcript on sample data table (update xlsx)
+- Update "Student Records" tab when nothing's loaded (columns 5... to current existing ones...) 
+- Save student ID (add to curriculum)
+- rethink about session id
+
+> Notes you can show in the UI (nice UX)
+> •	WIL gating: mark ITW601 as “Available soon” until REM502 and total 70 CP reached; mark ITA602 locked until ITW601 is ✅. (Your PDF states the WIL/prereq notes and 3 elective requirement.  ￼)
+> •	Elective slots: students need 3 electives; any subjects from the Elective Bank count (respecting each elective’s prereqs).  ￼
+> •	Completion %: compute both by type and overall (sum credits for ✅ / 160 total).
 
 ### 🗂️ Backlog
 

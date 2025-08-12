@@ -122,7 +122,7 @@ build.bat
 
 ## 📈 TTrack Roadmap
 
-### Phase 1: PyQt5 + pandas integration (v1.0.0) 🔄 **IN PROGRESS**
+### Phase 1: PyQt5 + pandas integration (v1.0.0) ✅ **COMPLETE**
 - ✅ PyQt5 + pandas integration
 - ✅ Light/Dark mode support
 - ✅ File upload and preview with pandas
@@ -130,23 +130,25 @@ build.bat
 - ✅ Created build scripts for both Windows (.exe) and macOS (.app)
 - ✅ Run all tests: `pytest tests/`
 
-### Phase 2: Cloud Integration and Prototyping (v2.0.0) 🔄 **IN PROGRESS**
+### Phase 2: Cloud Integration and Prototyping (v2.0.0) ✅ **COMPLETE**
 - ✅ Electron: v2 of TTrack in React+Node.js wrapped by Electron
 - ✅ Database Backend: PostgreSQL with 500MB+ capacity
 - ✅ User Authentication: Secure login & role-based access
+
+### Phase 3: Cloud Integration and Prototyping (v3.0.0) 🔄 **IN PROGRESS**
 - ✅ Layered Architecture with Core, Services and Controllers
 - ✅ Cloud Sync: Fallback and Encryption
+- ✅ New Engine Matching Logic 2.0
 - 🔄 Pytest coverage to new classes (`DatabaseManager`, `AuthService`, `LoginController`)
-- 🔄 TTrack Pitch Deck
 
-### Phase 3: AI Enhancement (v3.0.0) 📋 **PLANNED**
+### Phase 4: AI Enhancement (v4.0.0) 📋 **PLANNED**
 - 📋 API Integration: University system connectivity
 - 📋 Semantic Matching: NLP-based subject similarity detection
 - 📋 Predictive Analytics: Graduation timeline forecasting
 - 📋 Recommendation Engine: Personalized course suggestions
 - 📋 Machine Learning: Continuous improvement algorithms
 
-### Phase 4: Enterprise Scale (v4.0.0) 🚀 **FUTURE**
+### Phase 5: Enterprise Scale (v5.0.0) 🚀 **FUTURE**
 - 🚀 Multi-tenant Architecture: Institution-wide deployment
 - 🚀 Advanced Analytics: Business intelligence dashboards
 - 🚀 Integration APIs: Third-party system connectivity
