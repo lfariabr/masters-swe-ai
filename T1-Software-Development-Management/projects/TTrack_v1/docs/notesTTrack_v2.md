@@ -122,14 +122,22 @@ Following **GitFlow** with feature branches and semantic versioning:
 
 ### 🔧 In Progress
 
-- tbd
+#### ⚙️ v3.9.0 - `hotfix/database-url-secrets` 
+> ***Goal: encrypt .env automatically on .exe/app files***
+- [ ] encrypt password
+- [ ] incorporate encryption in build process
+- [ ] make unecessary for user to manually edit or insert .env
 
 ### 🗂️ Backlog
-
-- (`hotfix/database-url-secrets`): not properly treating .env, since it is requiring manual work to run. Think about distribution
-- (`feature/course-name-column`): add "Course Name" column to transcript, curriculum and results table
-- (`feature/frontend-tests`): Pytest adjustments to new UI structure 
-- (`feature/backend-tests`): Pytest coverage on **DatabaseManager**, **DataProcessor**, **LoginController** and **AuthService** (warnings 17 passed, 38 warnings) 
+- `feature/engine-matching`: 
+  - Map out .pdf of course
+  - Adjust "AI Specialisation" that's not being used to "Core" as .xlsx given
+- `feature/course-name-column`: 
+  - add "Course Name" column to transcript, curriculum and results table
+- `feature/frontend-tests`: 
+  - Pytest adjustments to new UI structure 
+- `feature/backend-tests`: 
+  - Pytest coverage on **DatabaseManager**, **DataProcessor**, **LoginController** and **AuthService** (warnings 17 passed, 38 warnings) 
 
 ***refs***
 - https://supabase.com/docs/guides/auth/social-login/auth-azure
