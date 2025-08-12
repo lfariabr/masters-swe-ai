@@ -147,9 +147,10 @@ class MainWindow(QMainWindow):
             return
         
         # Delegate to DataProcessor
-        success = self.data_processor.save_session_to_database()
+        # success = self.data_processor.save_session_to_database()
+        success_v2 = self.data_processor.save_session_to_database_v2() # Test
         
-        if success:
+        if success_v2: # Test
             QMessageBox.information(
                 self,
                 "Data Saved",
