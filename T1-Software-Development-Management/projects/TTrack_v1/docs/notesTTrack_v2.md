@@ -132,19 +132,45 @@ python encrypt_env.py
 pyinstaller TTrack.spec
 ```
 
+#### 🟢 v3.10.0 -`feature/engine-matching`: 
+> ***Goal: Adjust engine matching with PDF provided by Dr. Atif for Masters in IT***
+- Map out .pdf of course
+- Update `engine.py` logic with `suggest_electives_v2`, `match_transcript_with_curriculum_v2` and `generate_progress_summary_v2`
+- Update `data_processor.py` logic with `process_data_v2`, `save_session_to_database_v2`
+- Upgrade displayed info for final user
+- Summary of what has been done on the algorithm:
+```Python
+# 1) load the canonical structures
+curriculum_df = load_curriculum_df()
+elective_bank_df = load_elective_bank_df()
+
+# 2) your transcript_df must have at least ['Subject Code'] (and ideally 'Subject Name')
+# transcript_df = pd.read_csv(...)
+
+# 3) match
+result_df = match_transcript_with_curriculum_v2(transcript_df, curriculum_df, elective_bank_df)
+
+# 4) summary + suggestions
+summary_df = generate_progress_summary_v2(result_df)
+recs_df = suggest_electives_v2(result_df, elective_bank_df, transcript_df, max_electives=3)
+```
+  
 ---
 
 ### 🔧 In Progress
 
+  > Notes you can show in the UI (nice UX)
+	> •	WIL gating: mark ITW601 as “Available soon” until REM502 and total 70 CP reached; mark ITA602 locked until ITW601 is ✅. (Your PDF states the WIL/prereq notes and 3 elective requirement.  ￼)
+	> •	Elective slots: students need 3 electives; any subjects from the Elective Bank count (respecting each elective’s prereqs).  ￼
+	> •	Completion %: compute both by type and overall (sum credits for ✅ / 160 total).
+
 ### 🗂️ Backlog
-- ⚙️ `feature/engine-matching`: 
-  - Map out .pdf of course
-  - Adjust "AI Specialisation" that's not being used to "Core" as .xlsx given
-- `feature/course-name-column`: 
+
+- ⚙️ `feature/course-name-column`: 
   - add "Course Name" column to transcript, curriculum and results table
-- `feature/frontend-tests`: 
+- ⚙️ `feature/frontend-tests`: 
   - Pytest adjustments to new UI structure 
-- `feature/backend-tests`: 
+- ⚙️ `feature/backend-tests`: 
   - Pytest coverage on **DatabaseManager**, **DataProcessor**, **LoginController** and **AuthService** (warnings 17 passed, 38 warnings) 
 
 ***refs***
