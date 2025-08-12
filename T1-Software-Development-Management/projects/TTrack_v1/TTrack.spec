@@ -11,9 +11,11 @@ a = Analysis(
         ('services/data/sample_prescribed_curriculum.xlsx', 'services/data'),
         ('public/ttrack_logo.svg', 'public'),
         ('public/ttrack_app_icon.svg', 'public'),
-        ('.env.example', '.'),  # Include .env.example for user reference
+        ('.env.enc', '.'),  # Include encrypted environment file
     ],
     hiddenimports=[
+        'cryptography',
+        'cryptography.fernet',
         'dotenv',
         'supabase',
         'supabase.client',
@@ -29,6 +31,9 @@ a = Analysis(
     noarchive=False,
     optimize=0,
 )
+
+# Exclude plaintext .env files from bundle for security
+a.datas = [x for x in a.datas if not (x[0].endswith('.env') and not x[0].endswith('.env.enc'))]
 
 pyz = PYZ(a.pure, a.zipped_data, cipher=block_cipher)
 

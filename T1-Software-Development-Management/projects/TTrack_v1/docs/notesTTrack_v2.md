@@ -118,18 +118,26 @@ Following **GitFlow** with feature branches and semantic versioning:
 - increase the size of the tables displayed in table results for a height of minimum 50 pixels each
 - when clicking LOGGED IN and clicking on "Process Data", user should be sent to Results, not to Student Records
 
+#### 🟢 v3.9.0 - `hotfix/database-url-secrets` 
+> ***Goal: encrypt .env automatically on .exe/app files***
+- Encrypt password
+- Incorporate encryption in build process
+- Make unecessary for user to manually edit or insert .env
+```bash Run macOs build
+python encrypt_env.py
+pyinstaller TTrack-macOs.spec
+```
+```bash Run Windows build
+python encrypt_env.py
+pyinstaller TTrack.spec
+```
+
 ---
 
 ### 🔧 In Progress
 
-#### ⚙️ v3.9.0 - `hotfix/database-url-secrets` 
-> ***Goal: encrypt .env automatically on .exe/app files***
-- [ ] encrypt password
-- [ ] incorporate encryption in build process
-- [ ] make unecessary for user to manually edit or insert .env
-
 ### 🗂️ Backlog
-- `feature/engine-matching`: 
+- ⚙️ `feature/engine-matching`: 
   - Map out .pdf of course
   - Adjust "AI Specialisation" that's not being used to "Core" as .xlsx given
 - `feature/course-name-column`: 
@@ -140,7 +148,7 @@ Following **GitFlow** with feature branches and semantic versioning:
   - Pytest coverage on **DatabaseManager**, **DataProcessor**, **LoginController** and **AuthService** (warnings 17 passed, 38 warnings) 
 
 ***refs***
-- https://supabase.com/docs/guides/auth/social-login/auth-azure
+- https:/x/supabase.com/docs/guides/auth/social-login/auth-azure
 - https://www.reddit.com/r/Supabase/comments/1ecwowt/how_to_keep_local_db_up_to_date_with_remote/
 - https://dev.to/jps27cse/how-to-prevent-your-supabase-project-database-from-being-paused-using-github-actions-3hel
 
