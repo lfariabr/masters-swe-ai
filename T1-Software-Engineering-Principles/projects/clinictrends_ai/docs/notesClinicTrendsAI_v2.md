@@ -22,32 +22,35 @@ streamlit run app.py
 - ✅ Main interface with file upload and model selection
 - ✅ Pytest initial setup
 
-### Phase 2: Intelligence Enhancement (v2.0) 🔄 **IN PROGRESS**
+### Phase 2: Intelligence Enhancement (v2.0) ✅ **COMPLETE**
 - ✅ Provides sample csv files for enhanced UX
 - ✅ Alert system based on NPS and sentiment scores
 - ✅ A/B testing framework for model comparison
 - ✅ Model fine-tuning and reaching accuracy of +80%
 - ✅ Automated hyperparameter optimization
 - ✅ Implementing Topic Modeling
+
+### Phase 3: Machine Learning Pipeline (v3.0) ✅ **COMPLETE**
 - ✅ Advanced feature engineering pipelines
     - ✅ Adds MLPipeline to NPSPage for centralized visualization
     - ✅ Adds TopicModelingPage for business insights
 - ✅ Pytest robustness coverage
 
-### Phase 3: Enterprise Integration (v3.0) 📋 **TBD**
+### Phase 4: Enterprise Integration (v4.0) 📋 **PLANNED**
 - 📋 Real-time model retraining capabilities
 - 📋 RESTful API development
 - 📋 Database integration (PostgreSQL/MongoDB)
 - 📋 User authentication & role-based access
 - 📋 Advanced security & compliance features
 
-### Phase 4: AI-Powered Insights (v4.0) 🚀 **TBD**
+### Phase 5: AI-Powered Insights (v5.0) 🚀 **PLANNED**
 - 🚀 GPT-powered natural language insights
 - 🚀 Automated report generation
 - 🚀 Predictive customer lifetime value modeling
 - 🚀 Integration with CRM systems
 
 ---
+
 ## ✅ Feature Progress
 
 ### ✔ Done
@@ -185,6 +188,8 @@ the received data is gonna face a series of cuts that will return a high accurac
 - Checking Streamlit's new top nav (it was not worth it... i already have "st.sidebar", which might be conflicting) - 15m
 - Google Maps API Page for grabbing reviews from places
 
+**v3.0 breakdown**
+
 #### 🟢 v3.0.0 - week 9 - `feature/complete-bertopic-integration`
 ***part 1*** v3.0.0
 - added BERTopic to `MLPipeline.py` together with model_trainer (1, 2, 3 and 4)
@@ -283,7 +288,7 @@ def clean_topic_name(name: str, *, lower: bool = True) -> str:
 
 ### 🔧 In Progress
 
-- ***thinking about new logo***
+- ***thinking about new logo and working on pitch deck***
 
 ---
 
