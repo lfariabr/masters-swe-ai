@@ -17,10 +17,9 @@ Dr. Ranju Mandal
 - [X] Module 10 - Software Construction - Part 2
 - [X] Module 11 - Software Engineering Ethics, Quality and Standards
 - [ ] Module 12 - Student Assessment Presentations
-a. Source code and applicable library, b. Test Plan, c. Digital Presentation Slides
 
 ## Assignments
 - [X] Assessment 1 - deadline 22/06/2025    
 - [X] Assessment 2 - deadline 06/07/2025
 - [X] Assessment 3 - deadline 03/08/2025
-- [ ] Assessment 4 - deadline 20/08/2025
+- [X] Assessment 4 - deadline 20/08/2025
