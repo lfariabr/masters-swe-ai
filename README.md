@@ -41,26 +41,26 @@ Project | Description | Status | Folder directory | Demo URL |
 ### Progress Tracking And Goals
 
 #### Academic Journey
-Term | Subject | Status | Lecturer | Useful URLs | Credit Points
-|---------|---------------------|----------------|----------------|----------------|----------------|
-| T2-25 | Software Development Management (***Core***) | 🔥 | Dr. Atif | [SDM404 Course Materials](./T1-Software-Development-Management/) | 10
-| T2-25 | Software Engineering Principles (***Core***) | 🔥 | Dr. Ranju | [SEP401 Course Materials](./T1-Software-Engineering-Principles/) | 10
-| T3-25 | Human Centered Design (***Core***) | 🕐 | TBD | [HCD402 Course Materials](./T3-Human-Centered-Design/) | 10
-| T3-25 | Mathematical Foundations of AI (***Core***) | 🕐 | TBD | [MFA501 Course Materials](./T3-Mathematical-Foundations-of-AI/) | 10
-| T3-25 | Research Methodologies (***Core***) | 🕐 | TBD | [REM502 Course Materials](./T3-Research-Methodologies/) | 10
-| T3-25 | Secure By Design (***Core***) | 🕐 | TBD | [SBD402 Course Materials](./T2-Secure-By-Design/) | 10
-| T1-26 | Intelligent Systems (***Core***) | 🕐 | TBD | [ISY503 Course Materials](./T1-Intelligent-Systems/) | 10
-| T1-26 | Cloud Computing Fundamentals (***Elective***) | 🕐 | TBD | [CCF501 Course Materials](./T1-Cloud-Computing-Fundamentals/) | 10
+Term | Subject | Status | Lecturer | Directory | Credit Points
+|-----------|---------------------|----------------|----------------|----------------|----------------|
+| T2-25 | Software Development Management (***Core***) | 🔥 | Dr. Atif | [SDM404](./T1-Software-Development-Management/) | 10
+| T2-25 | Software Engineering Principles (***Core***) | 🔥 | Dr. Ranju | [SEP401](./T1-Software-Engineering-Principles/) | 10
+| T3-25 | Human Centered Design (***Core***) | 🕐 | TBD | [HCD402](./T3-Human-Centered-Design/) | 10
+| T3-25 | Mathematical Foundations of AI (***Core***) | 🕐 | TBD | [MFA501](./T3-Mathematical-Foundations-of-AI/) | 10
+| T3-25 | Research Methodologies (***Core***) | 🕐 | TBD | [REM502](./T3-Research-Methodologies/) | 10
+| T3-25 | Secure By Design (***Core***) | 🕐 | TBD | [SBD402](./T2-Secure-By-Design/) | 10
+| T1-26 | Intelligent Systems (***Core***) | 🕐 | TBD | [ISY503](./T1-Intelligent-Systems/) | 10
+| T1-26 | Cloud Computing Fundamentals (***Elective***) | 🕐 | TBD | [CCF501](./T1-Cloud-Computing-Fundamentals/) | 10
 
 ***Backlog - T2-2026 onwards:***
-Core: 
-- Machine Learning (MLN601 - 10CP)
-- Deep Learning (DLE602 - 10CP)
-- Technology - Work Integrated Learning I (TWL604 - 20CP)
-- Advanced Technology - Work Integrated Learning (ATW606 - 30CP)
-Electives: 
-- DevOps Tools (DOT503 - 10CP)
-- Cloud Computing Fundamentals (CCF501 - 10CP)
+- Core: 
+    - Machine Learning (MLN601 - 10CP)
+    - Deep Learning (DLE602 - 10CP)
+    - Technology - Work Integrated Learning I (TWL604 - 20CP)
+    - Advanced Technology - Work Integrated Learning (ATW606 - 30CP)
+- Electives (***to be defined...***): 
+    - DevOps Tools (DOT503 - 10CP)
+    - Cloud Computing Fundamentals (CCF501 - 10CP)
 
 #### Version control
 | Version | Modules      | Timeline | Status |
