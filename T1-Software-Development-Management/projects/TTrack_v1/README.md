@@ -130,12 +130,12 @@ build.bat
 - ✅ Created build scripts for both Windows (.exe) and macOS (.app)
 - ✅ Run all tests: `pytest tests/`
 
-### Phase 2: Cloud Integration and Prototyping (v2.0.0) ✅ **COMPLETE**
+### Phase 2: Supabase Backend Integration (v2.0.0) ✅ **COMPLETE**
 - ✅ Electron: v2 of TTrack in React+Node.js wrapped by Electron
 - ✅ Database Backend: PostgreSQL with 500MB+ capacity
 - ✅ User Authentication: Secure login & role-based access
 
-### Phase 3: Cloud Integration and Prototyping (v3.0.0) 🔄 **IN PROGRESS**
+### Phase 3: Distribution and Engine Matching (v3.0.0) 🔄 **IN PROGRESS**
 - ✅ Layered Architecture with Core, Services and Controllers
 - ✅ Cloud Sync: Fallback and Encryption
 - ✅ New Engine Matching Logic 2.0
