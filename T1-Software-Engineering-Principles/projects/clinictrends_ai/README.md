@@ -16,9 +16,10 @@
 Traditional customer surveys are reactive and manual. ClinicTrends AI provides:
 - 📊 Interactive NPS analytics with Altair
 - 🧾 CSV file upload and data preprocessing with pandas
-- 💬 Sentiment analysis using TextBlob + wordcloud generation
+- 💬 Sentiment analysis using TextBlob + Wordcloud generation
 - 🔄 Deep-translator integration for automatic translation
 - 🤖 ML-powered predictions using Hugging Face pipelines + custom trained models
+- Topic Modelling and Business Insights using Sentence Transformers from **BERTopic** 
 
 ---
 
