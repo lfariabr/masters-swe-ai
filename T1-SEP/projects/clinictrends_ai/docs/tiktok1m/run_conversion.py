@@ -14,8 +14,8 @@ try:
     print("🚀 Starting TikTok Comments Conversion Test...")
     
     # File paths
-    input_file = "/Users/luisfaria/Desktop/sEngineer/masters_SWEAI/T1-Software-Engineering-Principles/projects/clinictrends_ai/docs/tiktok1m/rawComments.md"
-    output_file = "/Users/luisfaria/Desktop/sEngineer/masters_SWEAI/T1-Software-Engineering-Principles/projects/clinictrends_ai/docs/tiktok1m/tiktok_comments_processed.csv"
+    input_file = "/Users/luisfaria/Desktop/sEngineer/masters_SWEAI/T1-SEP/projects/clinictrends_ai/docs/tiktok1m/rawComments.md"
+    output_file = "/Users/luisfaria/Desktop/sEngineer/masters_SWEAI/T1-SEP/projects/clinictrends_ai/docs/tiktok1m/tiktok_comments_processed.csv"
     
     # Check if input file exists
     if not os.path.exists(input_file):

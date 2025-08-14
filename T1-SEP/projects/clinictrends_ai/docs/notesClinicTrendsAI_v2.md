@@ -102,7 +102,7 @@
 
 **part 2:**
 - better naming from `EnhancedModelsPage.py` to `MLExperimentsPage.py`
-- adds flow diagram [ModelTrainer_ClassDiagram](T1-Software-Engineering-Principles/projects/clinictrends_ai/docs/diagrams/ModelTrainer_ClassDiagram.png) mapping out object relationships
+- adds flow diagram [ModelTrainer_ClassDiagram](T1-SEP/projects/clinictrends_ai/docs/diagrams/ModelTrainer_ClassDiagram.png) mapping out object relationships
 
 #### 🟢 v2.8.4 - `feature/refactor-model-trainer`
 **part 1:**

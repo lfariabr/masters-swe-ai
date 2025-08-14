@@ -9,5 +9,5 @@ folderWatchBlacklist = [
   "dist",
   "node_modules",
   "site-packages",
-  "/Users/luisfaria/Desktop/sEngineer/masters_SWEAI/T1-Software-Engineering-Principles/projects/clinictrends_ai/venv/lib/python3.10/site-packages"
+  "/Users/luisfaria/Desktop/sEngineer/masters_SWEAI/T1-SEP/projects/clinictrends_ai/venv/lib/python3.10/site-packages"
 ]
