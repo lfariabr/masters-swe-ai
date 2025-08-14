@@ -13,6 +13,7 @@ from core.engine import (
 
 # Import course data loader
 from data.courses.msit_ad import load_curriculum_df, load_elective_bank_df
+from data.courses.adit21 import load_curriculum_adit_df, load_elective_bank_adit_df
 
 
 class DataProcessor:

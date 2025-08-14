@@ -166,7 +166,12 @@ recs_df = suggest_electives_v2(result_df, elective_bank_df, transcript_df, max_e
 
 ### 🔧 In Progress
 
-#### ⚙️ v3.11.0 - `hotfix/engine-matching`
+#### ⚙️ v3.11.2 - `feature/engine-adit`
+- [X] create data/courses/adit21.py to be used
+- [X] import specific functions at data_processor for testing and easy usage
+- [ ] if all good, create button on the interface (input) allowing course selection
+
+#### ⚙️ v3.11.2 - `hotfix/engine-matching`
 > ***Goal: Adjust engine matching with PDF provided by Dr. Atif for Masters in IT***
 - Save course name on database. Current column "Program" should be changed to "Course Name" coomming from transcript
 - Display hardcoded transcript on sample data table (update xlsx)
@@ -181,8 +186,6 @@ recs_df = suggest_electives_v2(result_df, elective_bank_df, transcript_df, max_e
 
 ### 🗂️ Backlog
 
-- ⚙️ `feature/course-name-column`: 
-  - add "Course Name" column to transcript, curriculum and results table
 - ⚙️ `feature/frontend-tests`: 
   - Pytest adjustments to new UI structure 
 - ⚙️ `feature/backend-tests`: 

@@ -1,3 +1,20 @@
+"""
+Course: MITA21 - Master of Information Technology (Advanced)
+
+The Master of Information Technology (Advanced) is two years in duration for a full time student. 
+Each year consists of three Study Periods, also known as Trimesters.
+
+- Core subjects - compulsory subjects that you must complete
+- Elective subjects - subjects you can choose between from the Elective Bank below. 
+Students may study an elective that is not in the list below, subject to Program Director approval. All electives must be from Level 500 or 600 subjects with at least one elective
+at Level 600.
+
+This course comprises of thirteen (13) subjects that you are required to complete: ten core subjects and three elective subjects.
+
+Prerequisite subject: a subject you must complete before undertaking another subject
+Corequisite subject: a subject you must complete with another subject at the same time
+"""
+
 import pandas as pd
 from typing import List, Dict
 
