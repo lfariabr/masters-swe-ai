@@ -1,7 +1,6 @@
-## ✅ Feature Progress
+## **v1.0 breakdown**
 
 ### ✔ Done
-**v1.0 breakdown**
 #### 🔹 v1.0.0 - `feature/base`
 - Streamlit app with Altair, pandas, numpy displaying NPS data
 
@@ -54,3 +53,5 @@
 - Update Pytest coverage
 
 ---
+
+> “Whether it’s concrete or code, structure is everything.”
