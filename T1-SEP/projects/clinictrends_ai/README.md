@@ -33,7 +33,7 @@ Traditional customer surveys are reactive and manual. ClinicTrends AI provides:
 ### Installation & Launch
 ```bash
 # Navigate to project directory
-cd T1-Software-Engineering-Principles/projects/clinictrends_ai
+cd T1-SEP/projects/clinictrends_ai
 
 # Create virtual environment
 python -m venv venv

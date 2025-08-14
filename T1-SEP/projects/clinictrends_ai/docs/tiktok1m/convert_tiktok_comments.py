@@ -214,8 +214,8 @@ class TikTokCommentsConverter:
 
 def main():
     """Main execution function."""
-    input_file = "/Users/luisfaria/Desktop/sEngineer/masters_SWEAI/T1-Software-Engineering-Principles/projects/clinictrends_ai/docs/tiktok1m/rawComments.md"
-    output_file = "/Users/luisfaria/Desktop/sEngineer/masters_SWEAI/T1-Software-Engineering-Principles/projects/clinictrends_ai/docs/tiktok1m/tiktok_comments_processed.csv"
+    input_file = "/Users/luisfaria/Desktop/sEngineer/masters_SWEAI/T1-SEP/projects/clinictrends_ai/docs/tiktok1m/rawComments.md"
+    output_file = "/Users/luisfaria/Desktop/sEngineer/masters_SWEAI/T1-SEP/projects/clinictrends_ai/docs/tiktok1m/tiktok_comments_processed.csv"
     
     converter = TikTokCommentsConverter(input_file, output_file)
     converter.convert_to_csv()

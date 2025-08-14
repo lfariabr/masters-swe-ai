@@ -110,7 +110,7 @@
 - Compare achieved results against external references
 - Document target metrics for improvement
 - Cross-check with literature (as Dr. Ranju suggested)
-- Compiled files can be found [here](./T1-Software-Engineering-Principles/projects/clinictrends_ai/docs/references)
+- Compiled files can be found [here](./T1-SEP/projects/clinictrends_ai/docs/references)
 
 #### 🟢 v3.4.0 - week 11 - `feature/checkpoint-dr-ranju`
 - Top 15 Topics by Comment Volume table now displays Avg_Score, NPS_Score and Avg_Confidence with rounded values

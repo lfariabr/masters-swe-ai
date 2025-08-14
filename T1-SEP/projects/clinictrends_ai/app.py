@@ -76,7 +76,7 @@ def main():
         **ClinicTrends AI**   
         ##### An open source AI-powered tool for analyzing customer feedback and trends.
         - **Version:** 3.5.0
-        - **GitHub:** [Repository](https://github.com/lfariabr/masters-swe-ai/tree/master/T1-Software-Engineering-Principles/projects/clinictrends_ai)  
+        - **GitHub:** [Repository](https://github.com/lfariabr/masters-swe-ai/tree/master/T1-SEP/projects/clinictrends_ai)  
         """)
     
     if page == "About":

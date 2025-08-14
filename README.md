@@ -29,7 +29,7 @@ Take a deep dive into how I'm approaching projects and the progress I'm making.
 #### Course Projects
 Project | Description | Status | Folder directory | Demo URL |
 |---------|---------------------|----------------|----------------|----------------|
-| **ClinicTrendsAI** | Streamlit App to analyze survey records and generate insights using Machine Learning, NLP and Data Visualization. | 🔥 | [Here](./T1-Software-Engineering-Principles/projects/clinictrends_ai) | [Here](https://sep-torrens-dr-ranju-group-1.streamlit.app/) | 
+| **ClinicTrendsAI** | Streamlit App to analyze survey records and generate insights using Machine Learning, NLP and Data Visualization. | 🔥 | [Here](./T1-SEP/projects/clinictrends_ai) | [Here](https://sep-torrens-dr-ranju-group-1.streamlit.app/) | 
 | **TTrack** | PyQt5 desktop app to help academic staff track academic progress by comparing a student’s transcript with prescribed curriculum using matching algorithms. | 🔥 | [Here](./T1-Software-Development-Management/projects/TTrack_v1) | 🔥 |
 | **TTrack** | Node.js and React desktop app wrapped by Electron as an exploratory alternative to TTrack Python. | 🔥 | [Here](./T1-Software-Development-Management/projects/TTrack_electron) | 🔥 |
 | **Lumin** | Flutter Gaming app to help users to share photos and videos with their friends and family | 🔥 | [Here](./T1-Extra/flutter/lumin_demo) | 🔥 |
@@ -44,7 +44,7 @@ Project | Description | Status | Folder directory | Demo URL |
 Term | Subject | Status | Lecturer | Directory | Credit Points
 |-----------|---------------------|----------------|----------------|----------------|----------------|
 | T2-25 | Software Development Management (***Core***) | 🔥 | Dr. Atif | [SDM404](./T1-Software-Development-Management/) | 10
-| T2-25 | Software Engineering Principles (***Core***) | 🔥 | Dr. Ranju | [SEP401](./T1-Software-Engineering-Principles/) | 10
+| T2-25 | Software Engineering Principles (***Core***) | 🔥 | Dr. Ranju | [SEP401](./T1-SEP/) | 10
 | T3-25 | Human Centered Design (***Core***) | 🕐 | TBD | [HCD402](./T3-Human-Centered-Design/) | 10
 | T3-25 | Mathematical Foundations of AI (***Core***) | 🕐 | TBD | [MFA501](./T3-Mathematical-Foundations-of-AI/) | 10
 | T3-25 | Research Methodologies (***Core***) | 🕐 | TBD | [REM502](./T3-Research-Methodologies/) | 10
