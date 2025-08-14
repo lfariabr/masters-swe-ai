@@ -43,14 +43,14 @@ Project | Description | Status | Folder directory | Demo URL |
 #### Academic Journey
 Term | Subject | Status | Lecturer | Useful URLs | Credit Points
 |---------|---------------------|----------------|----------------|----------------|----------------|
-| T2-2025 | Software Development Management (***Core***) | 🔥 | Dr. Atif | [SDM404 Course Materials](./T1-Software-Development-Management/) | 10
-| T2-2025 | Software Engineering Principles (***Core***) | 🔥 | Dr. Ranju | [SEP401 Course Materials](./T1-Software-Engineering-Principles/) | 10
-| T3-2025 | Human Centered Design (***Core***) | 🕐 | TBD | [HCD402 Course Materials](./T3-Human-Centered-Design/) | 10
-| T3-2025 | Mathematical Foundations of AI (***Core***) | 🕐 | TBD | [MFA501 Course Materials](./T3-Mathematical-Foundations-of-AI/) | 10
-| T3-2025 | Research Methodologies (***Core***) | 🕐 | TBD | [REM502 Course Materials](./T3-Research-Methodologies/) | 10
-| T3-2025 | Secure By Design (***Core***) | 🕐 | TBD | [SBD402 Course Materials](./T2-Secure-By-Design/) | 10
-| T1-2026 | Intelligent Systems (***Core***) | 🕐 | TBD | [ISY503 Course Materials](./T1-Intelligent-Systems/) | 10
-| T1-2026 | Cloud Computing Fundamentals (***Elective***) | 🕐 | TBD | [CCF501 Course Materials](./T1-Cloud-Computing-Fundamentals/) | 10
+| T2-25 | Software Development Management (***Core***) | 🔥 | Dr. Atif | [SDM404 Course Materials](./T1-Software-Development-Management/) | 10
+| T2-25 | Software Engineering Principles (***Core***) | 🔥 | Dr. Ranju | [SEP401 Course Materials](./T1-Software-Engineering-Principles/) | 10
+| T3-25 | Human Centered Design (***Core***) | 🕐 | TBD | [HCD402 Course Materials](./T3-Human-Centered-Design/) | 10
+| T3-25 | Mathematical Foundations of AI (***Core***) | 🕐 | TBD | [MFA501 Course Materials](./T3-Mathematical-Foundations-of-AI/) | 10
+| T3-25 | Research Methodologies (***Core***) | 🕐 | TBD | [REM502 Course Materials](./T3-Research-Methodologies/) | 10
+| T3-25 | Secure By Design (***Core***) | 🕐 | TBD | [SBD402 Course Materials](./T2-Secure-By-Design/) | 10
+| T1-26 | Intelligent Systems (***Core***) | 🕐 | TBD | [ISY503 Course Materials](./T1-Intelligent-Systems/) | 10
+| T1-26 | Cloud Computing Fundamentals (***Elective***) | 🕐 | TBD | [CCF501 Course Materials](./T1-Cloud-Computing-Fundamentals/) | 10
 
 ***Backlog - T2-2026 onwards:***
 Core: 
