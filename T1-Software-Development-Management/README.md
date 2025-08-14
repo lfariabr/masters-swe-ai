@@ -15,7 +15,7 @@ Dr. Muhammad Atif Qureshi
 - [X] Module 8 - Project Monitoring and Control
 - [X] Module 9 - Managing People
 - [X] Module 10 - Change Management
-- [ ] Module 11 - Project Closure
+- [X] Module 11 - Project Closure
 - [ ] Module 12 - Presentation and Demo
 
 ## Assignments
