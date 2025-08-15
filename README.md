@@ -1,8 +1,8 @@
 Welcome to my personal repo for the **Master's of Software Engineering and Artificial Intelligence (Advanced)** at **Torrens University**.
 
-Inside, you'll find my study notes, case studies, experiments, and practical projects in AI, machine learning and full-stack software development.  
+Inside, you'll find my study notes, case studies, experiments and practical projects in AI, Machine Learning and Full-Stack Software Development.  
 
-Whether you're a fellow student, developer or simply curious about the field, I hope this setup offers helpful insights - and perhaps even inspires you to fork it or contribute!
+Whether you're a fellow student, developer or simply curious about the field, I hope this setup offers helpful insights - and perhaps even inspires you to fork it, contribute or start something on your own!
 
 👉 Official course page: [Master's of SWE AI Torrens Website](https://www.torrens.edu.au/courses/technology/master-of-software-engineering-artificial-intelligence-advanced)
 
@@ -26,13 +26,14 @@ Take a deep dive into how I'm approaching projects and the progress I'm making.
 
 > Tip: ✅ = Done, 🔥 = WIP, 🕐 = Not started
 
-#### Course Projects
+#### 
 Project | Description | Status | Folder directory | Demo URL |
 |---------|---------------------|----------------|----------------|----------------|
-| **ClinicTrendsAI** | Streamlit App to analyze survey records and generate insights using Machine Learning, NLP and Data Visualization. | 🔥 | [Here](./T1-SEP/projects/clinictrends_ai) | [Here](https://sep-torrens-dr-ranju-group-1.streamlit.app/) | 
-| **TTrack** | PyQt5 desktop app to help academic staff track academic progress by comparing a student’s transcript with prescribed curriculum using matching algorithms. | 🔥 | [Here](./T1-Software-Development-Management/projects/TTrack_v1) | 🔥 |
-| **TTrack** | Node.js and React desktop app wrapped by Electron as an exploratory alternative to TTrack Python. | 🔥 | [Here](./T1-Software-Development-Management/projects/TTrack_electron) | 🔥 |
+| **Wedstack** | Wedding invitation web application with Next.js, TypeScript, Node.js, GraphQL and Stripe — with real-time content, gift handling, and presence confirmation. | 🔥 | [Here](https://github.com/lfariabr/wedstack) | 🔥 |
 | **Lumin** | Flutter Gaming app to help users to share photos and videos with their friends and family | 🔥 | [Here](./T1-Extra/flutter/lumin_demo) | 🔥 |
+| **ClinicTrendsAI** | Streamlit App to analyze survey records and generate insights using Machine Learning, NLP and Data Visualization. | ✅ | [Here](./T1-SEP/projects/clinictrends_ai) | [Here](https://sep-torrens-dr-ranju-group-1.streamlit.app/) | 
+| **TTrack** | PyQt5 desktop app to help academic staff track course progress bycomparing a student’s transcript X course curriculum using matching algorithms. | ✅ | [Here](./T1-SDM/projects/TTrack_v1) | 🔥 |
+| **TTrack** | Node.js and React desktop app wrapped by Electron as an exploratory alternative to TTrack Python. | ✅ | [Here](./T1-SDM/projects/TTrack_electron) | N/A |
 | **Commonwealth Bank Forage** | Virtual challenge covering backend (.NET, MongoDB) and frontend (React, Redux, TypeScript) work, unit testing with xUnit | ✅ | [Here](./T1-Extra/cba/) | [dev.to](https://dev.to/lfariaus/how-i-tackled-the-commonwealths-bank-software-engineering-challenge-3ebk) |
 | **AWS Solutions Architect** | Virtual challenge covering acting as a Solutions Architect for a client | ✅ | [Here](./T1-Extra/aws/) | [dev.to](https://dev.to/lfariaus/scaling-fastier-my-aws-solutions-architect-journey-with-forage-challenge-30j8) |
 
@@ -43,7 +44,7 @@ Project | Description | Status | Folder directory | Demo URL |
 #### Academic Journey
 Term | Subject | Status | Lecturer | Directory | Credit Points
 |-----------|---------------------|----------------|----------------|----------------|----------------|
-| T2-25 | Software Development Management (***Core***) | 🔥 | Dr. Atif | [SDM404](./T1-Software-Development-Management/) | 10
+| T2-25 | Software Development Management (***Core***) | 🔥 | Dr. Atif | [SDM404](./T1-SDM/) | 10
 | T2-25 | Software Engineering Principles (***Core***) | 🔥 | Dr. Ranju | [SEP401](./T1-SEP/) | 10
 | T3-25 | Human Centered Design (***Core***) | 🕐 | TBD | [HCD402](./T3-Human-Centered-Design/) | 10
 | T3-25 | Mathematical Foundations of AI (***Core***) | 🕐 | TBD | [MFA501](./T3-Mathematical-Foundations-of-AI/) | 10
