@@ -15,6 +15,27 @@ def load_excel_as_model(file_path):
 
     return model
 
+def _df_to_qmodel(df: pd.DataFrame) -> QStandardItemModel:
+    """Convert a DataFrame into a read-only QStandardItemModel."""
+    model = QStandardItemModel(df.shape[0], df.shape[1])
+    model.setHorizontalHeaderLabels(df.columns.tolist())
+    for r in range(df.shape[0]):
+        row_items = []
+        for c in range(df.shape[1]):
+            it = QStandardItem(str(df.iat[r, c]))
+            it.setEditable(False)
+            row_items.append(it)
+        model.appendRow(row_items)
+    return model
+
+def load_as_model_hardcoded(is_transcript: bool = True) -> QStandardItemModel:
+    """
+    Build and return a QStandardItemModel from existing hardcoded data loaders.
+    - If transcript: load from your existing hardcoded transcript DataFrame.
+    - If curriculum: load from load_curriculum_df().
+    """
+    pass #TODO
+
 def is_dark_mode():
     palette = QApplication.instance().palette()
     bg = palette.color(QPalette.Window)
