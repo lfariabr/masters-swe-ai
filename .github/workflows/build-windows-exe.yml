@@ -12,7 +12,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           sparse-checkout: |
-            T1-Software-Development-Management/projects/TTrack_v1
+            T1-SDM/projects/TTrack_v1
           sparse-checkout-cone-mode: false
 
       - name: Set up Python
@@ -22,7 +22,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          cd T1-Software-Development-Management/projects/TTrack_v1
+          cd T1-SDM/projects/TTrack_v1
           pip install -r requirements.txt
 
       - name: Install PyInstaller
@@ -30,11 +30,11 @@ jobs:
 
       - name: Build executable
         run: |
-          cd T1-Software-Development-Management/projects/TTrack_v1
+          cd T1-SDM/projects/TTrack_v1
           pyinstaller TTrack.spec
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: TTrack-exe
-          path: T1-Software-Development-Management/projects/TTrack_v1/dist/*.exe
+          path: T1-SDM/projects/TTrack_v1/dist/*.exe
