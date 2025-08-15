@@ -32,8 +32,8 @@ Project | Description | Status | Folder directory | Demo URL |
 | **Wedstack** | Wedding invitation web application with Next.js, TypeScript, Node.js, GraphQL and Stripe — with real-time content, gift handling, and presence confirmation. | 🔥 | [Here](https://github.com/lfariabr/wedstack) | 🔥 |
 | **Lumin** | Flutter Gaming app to help users to share photos and videos with their friends and family | 🔥 | [Here](./T1-Extra/flutter/lumin_demo) | 🔥 |
 | **ClinicTrendsAI** | Streamlit App to analyze survey records and generate insights using Machine Learning, NLP and Data Visualization. | ✅ | [Here](./T1-SEP/projects/clinictrends_ai) | [Here](https://sep-torrens-dr-ranju-group-1.streamlit.app/) | 
-| **TTrack** | PyQt5 desktop app to help academic staff track course progress bycomparing a student’s transcript X course curriculum using matching algorithms. | ✅ | [Here](./T1-SDM/projects/TTrack_v1) | 🔥 |
-| **TTrack** | Node.js and React desktop app wrapped by Electron as an exploratory alternative to TTrack Python. | ✅ | [Here](./T1-SDM/projects/TTrack_electron) | N/A |
+| **TTrack** | PyQt5 desktop app to help academic staff track course progress by comparing a student’s transcript X course curriculum using matching algorithms. | ✅ | [Here](./T1-SDM/projects/TTrack_v1) | 🔥 |
+| **TTrack** V2 | Node.js and React desktop app wrapped by Electron as an exploratory alternative to TTrack Python. | ✅ | [Here](./T1-SDM/projects/TTrack_electron) | N/A |
 | **Commonwealth Bank Forage** | Virtual challenge covering backend (.NET, MongoDB) and frontend (React, Redux, TypeScript) work, unit testing with xUnit | ✅ | [Here](./T1-Extra/cba/) | [dev.to](https://dev.to/lfariaus/how-i-tackled-the-commonwealths-bank-software-engineering-challenge-3ebk) |
 | **AWS Solutions Architect** | Virtual challenge covering acting as a Solutions Architect for a client | ✅ | [Here](./T1-Extra/aws/) | [dev.to](https://dev.to/lfariaus/scaling-fastier-my-aws-solutions-architect-journey-with-forage-challenge-30j8) |
 
