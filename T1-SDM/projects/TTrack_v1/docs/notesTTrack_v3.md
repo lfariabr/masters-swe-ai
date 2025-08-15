@@ -129,7 +129,7 @@ result_df = match_transcript_with_curriculum_v2(transcript_df, curriculum_df, el
 summary_df = generate_progress_summary_v2(result_df)
 recs_df = suggest_electives_v2(result_df, elective_bank_df, transcript_df, max_electives=3)
 ```
-  
+
 ---
 
 ### 🔧 In Progress
@@ -137,22 +137,24 @@ recs_df = suggest_electives_v2(result_df, elective_bank_df, transcript_df, max_e
 #### ⚙️ v3.11.2 - `feature/engine-adit`
 - [X] create data/courses/adit21.py to be used
 - [X] import specific functions at data_processor for testing and easy usage
-- [ ] if all good, create button on the interface (input) allowing course selection
+- [X] Update curriculum .xlsx to be exactly like MSIT course and make it appear on tab input
+- [ ] Display hardcoded transcript on sample data table instead of xlsx: ***work in progress @ tab_input and utils ***
+- [ ] If all good, create button on the interface (input) allowing course selection
 
 #### ⚙️ v3.11.2 - `hotfix/engine-matching`
 > ***Goal: Adjust engine matching with PDF provided by Dr. Atif for Masters in IT***
 - Save course name on database. Current column "Program" should be changed to "Course Name" coomming from transcript
-- Display hardcoded transcript on sample data table (update xlsx)
 - Update "Student Records" tab when nothing's loaded (columns 5... to current existing ones...) 
 - Save student ID (add to curriculum)
 - rethink about session id
 
+
+### 🗂️ Backlog
 > Notes you can show in the UI (nice UX)
 > •	WIL gating: mark ITW601 as “Available soon” until REM502 and total 70 CP reached; mark ITA602 locked until ITW601 is ✅. (Your PDF states the WIL/prereq notes and 3 elective requirement.  ￼)
 > •	Elective slots: students need 3 electives; any subjects from the Elective Bank count (respecting each elective’s prereqs).  ￼
 > •	Completion %: compute both by type and overall (sum credits for ✅ / 160 total).
 
-### 🗂️ Backlog
 - ⚙️ `feature/frontend-tests`: 
   - Pytest adjustments to new UI structure 
 - ⚙️ `feature/backend-tests`: 

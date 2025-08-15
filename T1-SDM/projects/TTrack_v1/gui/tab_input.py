@@ -110,7 +110,7 @@ def setup_input_tab(parent):
     
     # Connect helper buttons
     parent.sample_transcript_btn.clicked.connect(lambda: load_sample_file(parent, is_transcript=True))
-    parent.sample_curriculum_btn.clicked.connect(lambda: load_sample_file(parent, is_transcript=False))
+    parent.sample_curriculum_btn.clicked.connect(lambda: load_sample_file(parent, is_transcript=False)) #TODO: load_sample_file_hardcoded
     parent.download_transcript_btn.clicked.connect(lambda: download_sample_file(parent, is_transcript=True))
     parent.download_curriculum_btn.clicked.connect(lambda: download_sample_file(parent, is_transcript=False))
     
@@ -220,7 +220,7 @@ def load_sample_file(parent, is_transcript=True):
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     
     # Define the sample file path based on type
-    file_name = "sample_academic_transcript.xlsx" if is_transcript else "sample_prescribed_curriculum.xlsx"
+    file_name = "sample_academic_transcript.xlsx" if is_transcript else "sample_prescribed_curriculum_v2.xlsx"
     file_path = os.path.join(base_dir, "services/data", file_name)
     
     # Check if file exists
@@ -253,6 +253,22 @@ def load_sample_file(parent, is_transcript=True):
         QMessageBox.critical(parent, "Error Loading Sample Data", 
                            f"Error loading sample {('transcript' if is_transcript else 'curriculum')}:\n{str(e)}")
 
+def load_sample_file_hardcoded(parent, is_transcript=True):
+    """
+    This will be responsible to load the hardcoded sample course structure when the user clicks on the "Try with Sample Data" button
+    """
+    # Import course data loader
+    from gui.utils import load_as_model_hardcoded
+    model = load_as_model_hardcoded(is_transcript=is_transcript)
+    
+    if is_transcript:
+        parent.transcript_table.setModel(model)
+        parent.data_processor.set_transcript_data(parent.helpers.model_to_dataframe(model))
+        parent.statusBar().showMessage(f"Loaded sample transcript from hardcoded data", 3000)
+    else:
+        parent.curriculum_table.setModel(model)
+        parent.data_processor.set_curriculum_data(parent.helpers.model_to_dataframe(model))
+        parent.statusBar().showMessage(f"Loaded sample curriculum from hardcoded data", 3000)
 
 def download_sample_file(parent, is_transcript=True):
     """
@@ -266,7 +282,7 @@ def download_sample_file(parent, is_transcript=True):
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     
     # Define the sample file path based on type
-    file_name = "sample_academic_transcript.xlsx" if is_transcript else "sample_prescribed_curriculum.xlsx"
+    file_name = "sample_academic_transcript.xlsx" if is_transcript else "sample_prescribed_curriculum_v2.xlsx"
     file_path = os.path.join(base_dir, "services/data", file_name)
     
     # Check if file exists
