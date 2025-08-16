@@ -17,7 +17,9 @@ def load_excel_as_model(file_path):
 
 def _df_to_qmodel(df: pd.DataFrame) -> QStandardItemModel:
     """Convert a DataFrame into a read-only QStandardItemModel."""
-    model = QStandardItemModel(df.shape[0], df.shape[1])
+    # Note: starting with 0 rows, then append. If we pre-allocate rows and also append,
+    # we'll end up with an initial block of empty rows (visible as blank rows in the UI).
+    model = QStandardItemModel(0, df.shape[1])
     model.setHorizontalHeaderLabels(df.columns.tolist())
     for r in range(df.shape[0]):
         row_items = []
@@ -36,30 +38,23 @@ def load_as_model_hardcoded(is_transcript: bool = True) -> QStandardItemModel:
     - Curriculum (False): build from hardcoded course data (load_curriculum_df).
         academic course requirements (load_curriculum_df).
     """
+
+    # Use the same sample XLSX used by the regular sample loader
     if is_transcript:
-        # keep transcript behavior unchanged (XLSX sample)
         import os
-        base_dir = os.path.dirname(os.path.abspath(__file__))
-        file_path = os.path.join(base_dir, "sample_transcript.xlsx")
+        gui_dir = os.path.dirname(os.path.abspath(__file__))
+        project_root = os.path.dirname(gui_dir)
+        file_path = os.path.join(project_root, "services", "data", "sample_academic_transcript_v2.xlsx")
         return load_excel_as_model(file_path)
     
-    # Hardcoded curriculum data
-    from data.courses.msit_ad import load_curriculum_df, load_elective_bank_df, load_curriculum_and_bank_same_df
-    from data.courses.adit21 import load_curriculum_adit_df, load_elective_bank_adit_df, load_curriculum_and_bank_adit_same_df
+    # Hardcoded Course Curriculum data - Can be replaced in the future with a dropdown menu
+    from data.courses.msit_ad import (
+        load_curriculum_df, load_elective_bank_df, load_curriculum_and_bank_same_df)
+    from data.courses.adit21 import (
+        load_curriculum_adit_df, load_elective_bank_adit_df, load_curriculum_and_bank_adit_same_df)
 
-    # Choose the appropriate function based on the course type #TODO
-    # if 'msit' in __file__:
-    #     df = load_curriculum_and_bank_same_df()
-    # elif 'adit21' in __file__:
-    #     df = load_curriculum_and_bank_adit_same_df()
-    # else:
-    #     # Return error or empty model if no match
-    #     raise ValueError("Unsupported course type for hardcoded curriculum.")
-    
-    # df = load_curriculum_df()
-    
-    # testing to see if makes sente to bring both curriculum + bank together
-    df = load_curriculum_and_bank_same_df()
+    # Default to ADIT combined (curriculum + elective bank) for hardcoded curriculum path
+    df = load_curriculum_and_bank_adit_same_df()
 
     desired_cols = ["Subject Code", "Subject Name", "Type", "Credit Points", "Prerequisites"]
     cols = [c for c in desired_cols if c in df.columns] or list(df.columns)

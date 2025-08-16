@@ -54,27 +54,27 @@ def load_elective_bank_adit_df() -> pd.DataFrame:
     # Credits default to 10 unless noted; add prereqs where listed in your doc
     bank = [
         # Level 100 Electives:
-         {"Subject Code": "MKT102A", "Subject Name": "Understanding Advertising", "Credit Points": 10, "Prerequisites": ""},
-         {"Subject Code": "MKT103A", "Subject Name": "Integrated Marketing Communications", "Credit Points": 10, "Prerequisites": ""},
-         {"Subject Code": "PCD101", "Subject Name": "Place, Culture and Destination Management", "Credit Points": 10, "Prerequisites": ""},
-         {"Subject Code": "IDO107", "Subject Name": "Introduction to DevOps", "Credit Points": 10, "Prerequisites": ""},
-         {"Subject Code": "PST107", "Subject Name": "Probabilities and Statistics", "Credit Points": 10, "Prerequisites": ""},
-         {"Subject Code": "CAI104", "Subject Name": "Concepts in Artificial Intelligence", "Credit Points": 10, "Prerequisites": ""},
-         {"Subject Code": "JSF100", "Subject Name": "JavaScript Fundamentals", "Credit Points": 10, "Prerequisites": ""},
-         {"Subject Code": "GPR103", "Subject Name": "2D Game Programming", "Credit Points": 10, "Prerequisites": ""},
-         {"Subject Code": "CBS131", "Subject Name": "Cybersecurity Principles", "Credit Points": 10 , "Prerequisites": ""},
+         {"Subject Code": "MKT102A", "Subject Name": "Understanding Advertising", "Type": "Elective", "Credit Points": 10, "Prerequisites": ""},
+         {"Subject Code": "MKT103A", "Subject Name": "Integrated Marketing Communications", "Type": "Elective", "Credit Points": 10, "Prerequisites": ""},
+         {"Subject Code": "PCD101", "Subject Name": "Place, Culture and Destination Management", "Type": "Elective", "Credit Points": 10, "Prerequisites": ""},
+         {"Subject Code": "IDO107", "Subject Name": "Introduction to DevOps", "Type": "Elective", "Credit Points": 10, "Prerequisites": ""},
+         {"Subject Code": "PST107", "Subject Name": "Probabilities and Statistics", "Type": "Elective", "Credit Points": 10, "Prerequisites": ""},
+         {"Subject Code": "CAI104", "Subject Name": "Concepts in Artificial Intelligence", "Type": "Elective", "Credit Points": 10, "Prerequisites": ""},
+         {"Subject Code": "JSF100", "Subject Name": "JavaScript Fundamentals", "Type": "Elective", "Credit Points": 10, "Prerequisites": ""},
+         {"Subject Code": "GPR103", "Subject Name": "2D Game Programming", "Type": "Elective", "Credit Points": 10, "Prerequisites": ""},
+         {"Subject Code": "CBS131", "Subject Name": "Cybersecurity Principles", "Type": "Elective", "Credit Points": 10 , "Prerequisites": ""},
 
         # Level 200 Electives:
-        {"Subject Code": "MKG201", "Subject Name": "Business-2-Business Marketing", "Credit Points": 10, "Prerequisites": ""},
-        {"Subject Code": "PRL201", "Subject Name": "Content Creation for Social Media", "Credit Points": 10, "Prerequisites": ""},
-        {"Subject Code": "COMR2002", "Subject Name": "Business Information Systems", "Credit Points": 10, "Prerequisites": ""},
-        {"Subject Code": "CLR204", "Subject Name": "Classification and Regression", "Credit Points": 10, "Prerequisites": "PST107"},
-        {"Subject Code": "AAI202", "Subject Name": "Applications of Artificial Intelligence", "Credit Points": 10, "Prerequisites": "CAI104"},
-        {"Subject Code": "WAD200", "Subject Name": "Web App Development", "Credit Points": 10, "Prerequisites": "JSF100"},
-        {"Subject Code": "AIP201", "Subject Name": "AI & Physics for Games", "Credit Points": 10, "Prerequisites": "GPR103"},
-        {"Subject Code": "RGP204", "Subject Name": "Rapid Game Prototype", "Credit Points": 10, "Prerequisites": "GPR103"},
-        {"Subject Code": "GDP204", "Subject Name": "Game Development PlayStation", "Credit Points": 10, "Prerequisites": "GPR103"},
-        {"Subject Code": "EPT232", "Subject Name": "Ethical Hacking and Penetration Testing", "Credit Points": 10 , "Prerequisites": "CBS131"},
+        {"Subject Code": "MKG201", "Subject Name": "Business-2-Business Marketing", "Type": "Elective", "Credit Points": 10, "Prerequisites": ""},
+        {"Subject Code": "PRL201", "Subject Name": "Content Creation for Social Media", "Type": "Elective", "Credit Points": 10, "Prerequisites": ""},
+        {"Subject Code": "COMR2002", "Subject Name": "Business Information Systems", "Type": "Elective", "Credit Points": 10, "Prerequisites": ""},
+        {"Subject Code": "CLR204", "Subject Name": "Classification and Regression", "Type": "Elective", "Credit Points": 10, "Prerequisites": "PST107"},
+        {"Subject Code": "AAI202", "Subject Name": "Applications of Artificial Intelligence", "Type": "Elective", "Credit Points": 10, "Prerequisites": "CAI104"},
+        {"Subject Code": "WAD200", "Subject Name": "Web App Development", "Type": "Elective", "Credit Points": 10, "Prerequisites": "JSF100"},
+        {"Subject Code": "AIP201", "Subject Name": "AI & Physics for Games", "Type": "Elective", "Credit Points": 10, "Prerequisites": "GPR103"},
+        {"Subject Code": "RGP204", "Subject Name": "Rapid Game Prototype", "Type": "Elective", "Credit Points": 10, "Prerequisites": "GPR103"},
+        {"Subject Code": "GDP204", "Subject Name": "Game Development PlayStation", "Type": "Elective", "Credit Points": 10, "Prerequisites": "GPR103"},
+        {"Subject Code": "EPT232", "Subject Name": "Ethical Hacking and Penetration Testing", "Type": "Elective", "Credit Points": 10 , "Prerequisites": "CBS131"},
     ]
     return pd.DataFrame(bank)
 

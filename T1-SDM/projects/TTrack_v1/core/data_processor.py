@@ -143,8 +143,8 @@ class DataProcessor:
         
         try:
             # Load canonical course structures that we took from ***"MSIT Course Structure TUA.pdf"***
-            curriculum_df = load_curriculum_df() # or load_curriculum_adit_df
-            elective_bank_df = load_elective_bank_df() # or load_elective_bank_adit_df
+            curriculum_df = load_curriculum_adit_df() # load_curriculum_df or load_curriculum_adit_df
+            elective_bank_df = load_elective_bank_adit_df() # load_elective_bank_df or load_elective_bank_adit_df
             
             # Process using enhanced v2 engine
             self.results_df = match_transcript_with_curriculum_v2(
