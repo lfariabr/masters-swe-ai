@@ -142,8 +142,11 @@ recs_df = suggest_electives_v2(result_df, elective_bank_df, transcript_df, max_e
 
 #### ⚙️ v3.11.1 - `feature/engine-version-two`
 > Goal: Display hardcoded transcript on sample data table instead of xlsx: 
-- [X] create `load_sample_file_hardcoded` on `tab_input.py` to be used at `Connect helper buttons` section
-- [X] create load_as_model_hardcoded on `utils.py` 
+- [X] create `load_sample_file_hardcoded` on `tab_input.py` to be used at `Connect helper buttons` section ***- line 112***
+- [X] create `load_as_model_hardcoded(is_transcript=True)` on `utils.py` ***- line 31***
+- [X] create `load_curriculum_and_bank_same_df` at `msit_ad.py`
+- [X] create `load_curriculum_and_bank_adit_same_df` at `adit21.py`
+- [X] plugged `load_curr_and_bank` at utils.py load_as_model_hardcoded to test
 - [ ] double check if `load_sample_file_hardcoded` is with expected behaviour
 - [ ] double check if `load_as_model_hardcoded` at `utils.py` is with expected behaviour
 
