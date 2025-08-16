@@ -109,9 +109,12 @@ def setup_input_tab(parent):
     set_button_style(parent.download_curriculum_btn, download_button_color, parent.theme_manager.is_dark_mode, smaller=True)
     
     # Connect helper buttons
+    ## Transcript = Student's Progress in Courses
     parent.sample_transcript_btn.clicked.connect(lambda: load_sample_file(parent, is_transcript=True))
-    parent.sample_curriculum_btn.clicked.connect(lambda: load_sample_file(parent, is_transcript=False)) #TODO: load_sample_file_hardcoded
     parent.download_transcript_btn.clicked.connect(lambda: download_sample_file(parent, is_transcript=True))
+
+    ## Curriculum = Academic Course Requirements
+    parent.sample_curriculum_btn.clicked.connect(lambda: load_sample_file_hardcoded(parent, is_transcript=False)) #TODO: load_sample_file_hardcoded
     parent.download_curriculum_btn.clicked.connect(lambda: download_sample_file(parent, is_transcript=False))
     
     # Create clear column headers
@@ -220,7 +223,7 @@ def load_sample_file(parent, is_transcript=True):
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     
     # Define the sample file path based on type
-    file_name = "sample_academic_transcript.xlsx" if is_transcript else "sample_prescribed_curriculum_v2.xlsx"
+    file_name = "sample_academic_transcript_v2.xlsx" if is_transcript else "sample_prescribed_curriculum_v2.xlsx"
     file_path = os.path.join(base_dir, "services/data", file_name)
     
     # Check if file exists
@@ -270,7 +273,7 @@ def load_sample_file_hardcoded(parent, is_transcript=True):
         parent.data_processor.set_curriculum_data(parent.helpers.model_to_dataframe(model))
         parent.statusBar().showMessage(f"Loaded sample curriculum from hardcoded data", 3000)
     
-    # ✅ Enable Process when both are present
+    # Enable Process when both are present
     if parent.data_processor.transcript_df is not None and parent.data_processor.curriculum_df is not None:
         parent.process_btn.setEnabled(True)
 
@@ -286,7 +289,7 @@ def download_sample_file(parent, is_transcript=True):
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     
     # Define the sample file path based on type
-    file_name = "sample_academic_transcript.xlsx" if is_transcript else "sample_prescribed_curriculum_v2.xlsx"
+    file_name = "sample_academic_transcript_v2.xlsx" if is_transcript else "sample_prescribed_curriculum_v2.xlsx"
     file_path = os.path.join(base_dir, "services/data", file_name)
     
     # Check if file exists

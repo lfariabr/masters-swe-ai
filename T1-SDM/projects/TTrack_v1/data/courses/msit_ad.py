@@ -45,20 +45,20 @@ def load_elective_bank_df() -> pd.DataFrame:
     # Elective Bank (subset shown; extend if you have the full list)
     # Credits default to 10 unless noted; add prereqs where listed in your doc
     bank = [
-        {"Subject Code": "MFA501", "Subject Name": "Mathematical Foundations of AI", "Credit Points": 10, "Prerequisites": ""},
-        {"Subject Code": "BDA601", "Subject Name": "Big Data and Analytics", "Credit Points": 10, "Prerequisites": "CCF501"},
-        {"Subject Code": "DDE602", "Subject Name": "Distributed Development", "Credit Points": 10, "Prerequisites": "CCF501"},
-        {"Subject Code": "DID602A", "Subject Name": "DevOp Tools", "Credit Points": 10, "Prerequisites": ""},
-        {"Subject Code": "MIS608", "Subject Name": "Database Modelling and Database Design", "Credit Points": 10, "Prerequisites": ""},
-        {"Subject Code": "MIS609", "Subject Name": "Cybersecurity", "Credit Points": 10, "Prerequisites": ""},
-        {"Subject Code": "DLE602", "Subject Name": "Deep Learning", "Credit Points": 10, "Prerequisites": "MFA501"},
-        {"Subject Code": "MLN601", "Subject Name": "Machine Learning", "Credit Points": 10, "Prerequisites": "MFA501"},
-        {"Subject Code": "MIS607", "Subject Name": "User Experience Design", "Credit Points": 10, "Prerequisites": ""},
-        {"Subject Code": "MGT501", "Subject Name": "Management, People and Teams", "Credit Points": 10, "Prerequisites": ""},
-        {"Subject Code": "DOT503", "Subject Name": "Agile Project Management", "Credit Points": 10, "Prerequisites": "SDM404"},
-        {"Subject Code": "MIS602", "Subject Name": "Data Management and Analytics", "Credit Points": 10, "Prerequisites": ""},  # used as prereq for MIS608's pair (see doc)
-        {"Subject Code": "MGT502", "Subject Name": "Business Communication", "Credit Points": 10, "Prerequisites": ""},
-        {"Subject Code": "MGT600", "Subject Name": "Business Environments", "Credit Points": 10, "Prerequisites": ""},
+        {"Subject Code": "MFA501", "Subject Name": "Mathematical Foundations of AI", "Type": "Elective", "Credit Points": 10, "Prerequisites": ""},
+        {"Subject Code": "BDA601", "Subject Name": "Big Data and Analytics", "Type": "Elective", "Credit Points": 10, "Prerequisites": "CCF501"},
+        {"Subject Code": "DDE602", "Subject Name": "Distributed Development", "Type": "Elective", "Credit Points": 10, "Prerequisites": "CCF501"},
+        {"Subject Code": "DID602A", "Subject Name": "DevOp Tools", "Type": "Elective", "Credit Points": 10, "Prerequisites": ""},
+        {"Subject Code": "MIS608", "Subject Name": "Database Modelling and Database Design", "Type": "Elective", "Credit Points": 10, "Prerequisites": ""},
+        {"Subject Code": "MIS609", "Subject Name": "Cybersecurity", "Type": "Elective", "Credit Points": 10, "Prerequisites": ""},
+        {"Subject Code": "DLE602", "Subject Name": "Deep Learning", "Type": "Elective", "Credit Points": 10, "Prerequisites": "MFA501"},
+        {"Subject Code": "MLN601", "Subject Name": "Machine Learning", "Type": "Elective", "Credit Points": 10, "Prerequisites": "MFA501"},
+        {"Subject Code": "MIS607", "Subject Name": "User Experience Design", "Type": "Elective", "Credit Points": 10, "Prerequisites": ""},
+        {"Subject Code": "MGT501", "Subject Name": "Management, People and Teams", "Type": "Elective", "Credit Points": 10, "Prerequisites": ""},
+        {"Subject Code": "DOT503", "Subject Name": "Agile Project Management", "Type": "Elective", "Credit Points": 10, "Prerequisites": "SDM404"},
+        {"Subject Code": "MIS602", "Subject Name": "Data Management and Analytics", "Type": "Elective", "Credit Points": 10, "Prerequisites": ""},  # used as prereq for MIS608's pair (see doc)
+        {"Subject Code": "MGT502", "Subject Name": "Business Communication", "Type": "Elective", "Credit Points": 10, "Prerequisites": ""},
+        {"Subject Code": "MGT600", "Subject Name": "Business Environments", "Type": "Elective", "Credit Points": 10, "Prerequisites": ""},
         # add the rest as needed...
     ]
     return pd.DataFrame(bank)
