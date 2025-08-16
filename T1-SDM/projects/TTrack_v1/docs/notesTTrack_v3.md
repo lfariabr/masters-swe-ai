@@ -157,29 +157,26 @@ recs_df = suggest_electives_v2(result_df, elective_bank_df, transcript_df, max_e
 
 ### 🔧 In Progress
 
-#### ⚙️ v3.11.2 - `feature/engine-matching`
-> Goal: Increment data saved to the database using new fields
-- [ ] create button on the interface (input) allowing course selection between ADIT/MSIT
+#### ⚙️ v3.11.3 - `feature/course-selection`
+> Goal: Create button on the interface (input) allowing course selection between ADIT/MSIT
+- [ ] add selection button to switch between curriculum for ADIT/MSIT 
 
 ### 🗂️ Backlog
-> Notes you can show in the UI (nice UX)
-> •	WIL gating: mark ITW601 as “Available soon” until REM502 and total 70 CP reached; mark ITA602 locked until ITW601 is ✅. (Your PDF states the WIL/prereq notes and 3 elective requirement.  ￼)
-> •	Elective slots: students need 3 electives; any subjects from the Elective Bank count (respecting each elective’s prereqs).  ￼
-> •	Completion %: compute both by type and overall (sum credits for ✅ / 160 total).
 
-- ⚙️ `feature/frontend-tests`: 
-  - Pytest adjustments to new UI structure 
-- ⚙️ `feature/backend-tests`: 
-  - Pytest coverage on **DatabaseManager**, **DataProcessor**, **LoginController** and **AuthService** (warnings 17 passed, 38 warnings) 
-
-***refs***
-- https:/x/supabase.com/docs/guides/auth/social-login/auth-azure
-- https://www.reddit.com/r/Supabase/comments/1ecwowt/how_to_keep_local_db_up_to_date_with_remote/
-- https://dev.to/jps27cse/how-to-prevent-your-supabase-project-database-from-being-paused-using-github-actions-3hel
+- ⚙️ `feature/frontend-tests`: Adjustments to new UI structure 
+- ⚙️ `feature/backend-tests`: Coverage on **DatabaseManager**, **DataProcessor**, **LoginController** and **AuthService** (warnings 17 passed, 38 warnings) 
 
 #### Future
+- `feature/results-ux`: Completion %: compute both by type and overall (sum credits for ✅ / 160 total)
+- `feature/wil-upgrades`: mark ITW601 as “Available soon” until REM502 and total 70 CP reached; mark ITA602 locked until ITW601 is ✅.
+- `feature/elective-upgrades`: recommend electives based on current progression or uni directives according to availability throughout year
 - `feature/database-persistence`: use SyncService and SyncStatusWidget for local data persistence
 - `feature/auto-detect-os-theme`: Auto detect os theme 
 - `feature/logic-layer`: Engine: deeper logic like tags, topics or even semantic similarity (based on description) 
 - `feature/azure-integration`: Azure integration for easy login/register with Microsoft accounts
 - `feature/ai-integration`: AI or Machine Learning to summarize transcript and curriculum and recommend elective subjects, AI chatbot to answer questions about the transcript, curriculum and recommendations 
+
+***refs***
+- https:/x/supabase.com/docs/guides/auth/social-login/auth-azure
+- https://www.reddit.com/r/Supabase/comments/1ecwowt/how_to_keep_local_db_up_to_date_with_remote/
+- https://dev.to/jps27cse/how-to-prevent-your-supabase-project-database-from-being-paused-using-github-actions-3hel
