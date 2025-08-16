@@ -63,9 +63,9 @@ def setup_studentrecords_tab(parent):
 
     # Table widget
     parent.database_table = QTableWidget()
-    parent.database_table.setColumnCount(5)
+    parent.database_table.setColumnCount(9)
     parent.database_table.setHorizontalHeaderLabels(
-        ["Student ID", "Student Name", "Date Added", "Degree Progress"]
+        ["Session ID", "Student Name", "Course Name", "Student ID", "Core Done", "Elective Done", "Credit Points", "Progress %", "Created Date"]
     )
     parent.database_table.setSortingEnabled(True)
 
@@ -78,11 +78,11 @@ def setup_studentrecords_tab(parent):
             data_to_show = [s for s in mock_students if s[0] == selected_id]
 
         parent.database_table.setRowCount(len(data_to_show))
-        for row, (sid, name, course, date, progress) in enumerate(data_to_show):
+        for row, (sid, name, course, student_id, date, progress) in enumerate(data_to_show):
             parent.database_table.setItem(row, 0, QTableWidgetItem(sid))
             parent.database_table.setItem(row, 1, QTableWidgetItem(name))
             parent.database_table.setItem(row, 2, QTableWidgetItem(course))
-            parent.database_table.setItem(row, 3, QTableWidgetItem(date))
+            parent.database_table.setItem(row, 3, QTableWidgetItem(student_id))
             parent.database_table.setItem(row, 4, QTableWidgetItem(progress))
 
     student_selector.currentIndexChanged.connect(filter_table)
@@ -256,10 +256,11 @@ def setup_studentrecords_tab(parent):
             print(f"Found {len(records) if records else 0} records")
             if not records:
                 # No records found
-                parent.database_table.setColumnCount(6)
-                parent.database_table.setHorizontalHeaderLabels([
-                    "Session ID", "Student Name", "Program", "Credit Points", "Progress %", "Created Date"
-                ])
+                headers = [
+                    "Session ID", "Student Name", "Course Name", "Student ID", "Credit Points", "Progress %", "Created Date"
+                ]
+                parent.database_table.setColumnCount(len(headers))
+                parent.database_table.setHorizontalHeaderLabels(headers)
                 parent.database_table.setRowCount(1)
                 parent.database_table.setItem(0, 0, QTableWidgetItem("No records found"))
                 parent.database_table.setItem(0, 1, QTableWidgetItem("Process some data first"))
@@ -283,7 +284,7 @@ def setup_studentrecords_tab(parent):
             sorted_categories = sorted(all_categories)  # stable order
 
             # ---------- Build dynamic headers ----------
-            static_headers = ["Session ID", "Student Name", "Program"]
+            static_headers = ["Session ID", "Student Name", "Course Name", "Student ID"]
             progress_headers = [f"{cat} Done" for cat in sorted_categories]
             meta_headers = ["Credit Points", "Progress %", "Created Date"]
 
@@ -297,16 +298,18 @@ def setup_studentrecords_tab(parent):
             for row, record in enumerate(records):
                 session_id = record.get('id', 'N/A')[:8] + "..."
                 student_name = record.get('student_name', 'Unknown Student')
-                program = record.get('program_name', 'Masters SWE AI')
+                program = record.get('course_name', 'Unknown Course')
                 credit_points = record.get('credit_points', 0)
                 progress_value = record.get('progress', record.get('progress_data', 0)) or 0
                 progress = f"{progress_value}%"
                 created_at = record.get('created_at', 'N/A')[:10] if record.get('created_at') else 'N/A'
+                student_id = record.get('student_id', 'N/A')
 
                 # Place static columns
                 parent.database_table.setItem(row, 0, QTableWidgetItem(session_id))
                 parent.database_table.setItem(row, 1, QTableWidgetItem(student_name))
                 parent.database_table.setItem(row, 2, QTableWidgetItem(program))
+                parent.database_table.setItem(row, 3, QTableWidgetItem(student_id))
 
                 # Map category progress
                 cat_map = {cat: "0/0" for cat in sorted_categories}
@@ -325,11 +328,11 @@ def setup_studentrecords_tab(parent):
                     print(f"Error parsing summary_data for row {row}: {e}")
 
                 # Place progress columns dynamically
-                for idx, cat in enumerate(sorted_categories, start=3):
+                for idx, cat in enumerate(sorted_categories, start=4):
                     parent.database_table.setItem(row, idx, QTableWidgetItem(cat_map[cat]))
 
                 # Place meta columns after progress
-                base_idx = 3 + len(sorted_categories)
+                base_idx = 4 + len(sorted_categories)
                 parent.database_table.setItem(row, base_idx, QTableWidgetItem(str(credit_points)))
                 parent.database_table.setItem(row, base_idx + 1, QTableWidgetItem(progress))
                 parent.database_table.setItem(row, base_idx + 2, QTableWidgetItem(created_at))

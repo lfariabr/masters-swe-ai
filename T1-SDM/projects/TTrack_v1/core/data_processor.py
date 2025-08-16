@@ -35,6 +35,8 @@ class DataProcessor:
         self.results_df = None
         self.student_name = "Student"
         self.university = "Torrens University"
+        self.course_name = "Unknown Course"
+        self.student_id = ""
     
     def set_transcript_data(self, dataframe):
         """Set the transcript dataframe"""
@@ -64,10 +66,23 @@ class DataProcessor:
             else:
                 self.university = "Torrens University"
                 
+            # Additional fields
+            if 'Course Name' in self.transcript_df.columns:
+                self.course_name = self.transcript_df['Course Name'].iloc[0]
+            else:
+                self.course_name = "Unknown Course"
+            
+            if 'Student ID' in self.transcript_df.columns:
+                self.student_id = str(self.transcript_df['Student ID'].iloc[0])
+            else:
+                self.student_id = ""
+                
         except (AttributeError, IndexError, KeyError):
             # Fallback to defaults if extraction fails
             self.student_name = "Student"
             self.university = "Torrens University"
+            self.course_name = "Unknown Course"
+            self.student_id = ""
     
     def process_data(self, use_enhanced=True):
         """
@@ -242,7 +257,8 @@ class DataProcessor:
             curriculum_result = db_manager.save_curriculum(user_id, self.curriculum_df)
             session_result = db_manager.save_processed_data(
                 user_id, self.results_df, summary_df, electives_df, progress,
-                student_name=self.student_name, credit_points=total_credit_points
+                student_name=self.student_name, credit_points=total_credit_points,
+                course_name=self.course_name, student_id=self.student_id
             )
             
             if transcript_result and curriculum_result and session_result:
@@ -315,7 +331,9 @@ class DataProcessor:
                 electives_df,
                 progress,
                 student_name=self.student_name,
-                credit_points=total_credit_points
+                credit_points=total_credit_points,
+                course_name=self.course_name,
+                student_id=self.student_id
             )
 
             if transcript_result and curriculum_result and session_result:
