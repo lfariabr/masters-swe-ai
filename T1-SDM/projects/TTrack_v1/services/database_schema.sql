@@ -25,4 +25,11 @@ CREATE TABLE student_records (
   electives_data JSONB,
   progress_data JSONB,
   created_at TIMESTAMP DEFAULT NOW()
+  course_name TEXT,
+  student_id TEXT,
 );
+
+-- Add NEW columns to student_records table
+ALTER TABLE student_records 
+ADD COLUMN course_name TEXT,
+ADD COLUMN student_id TEXT;

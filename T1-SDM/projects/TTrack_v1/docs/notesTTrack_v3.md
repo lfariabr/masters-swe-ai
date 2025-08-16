@@ -146,20 +146,20 @@ recs_df = suggest_electives_v2(result_df, elective_bank_df, transcript_df, max_e
 - [X] double check if `load_sample_file_hardcoded` is with expected behaviour
 - [X] double check if `load_as_model_hardcoded` at `utils.py` is with expected behaviour
 
+#### 🟢 v3.11.2 - `feature/student-records-display`
+> Goal: Update Student Records saving and displaying data
+- [X] update "Student Records" tab when nothing's loaded (columns 5... to current existing ones...) 
+- [X] update student_records table adding new columns via SQL
+- [X] Save Course Name on database 
+- [X] Save Student ID on database
+
 ---
 
 ### 🔧 In Progress
 
-#### ⚙️ v3.11.2 - `feature/engine-version-two`
-> Goal: Fine tune UX/UI for Course Curriculum selection
-- [ ] create button on the interface (input) allowing course selection between ADIT/MSIT
-- [ ] update "Student Records" tab when nothing's loaded (columns 5... to current existing ones...) 
-
 #### ⚙️ v3.11.2 - `feature/engine-matching`
 > Goal: Increment data saved to the database using new fields
-- [ ] Save course name on database (curr column "Program" should be changed to "Course Name" comming from transcript)
-- [ ] Save student_ID (add to Student Transcript)
-- [ ] Rethink about session id being stored and replace it with regular student_record_id
+- [ ] create button on the interface (input) allowing course selection between ADIT/MSIT
 
 ### 🗂️ Backlog
 > Notes you can show in the UI (nice UX)
