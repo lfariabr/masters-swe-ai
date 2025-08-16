@@ -162,11 +162,15 @@ recs_df = suggest_electives_v2(result_df, elective_bank_df, transcript_df, max_e
 ---
 
 ### 🔧 In Progress
-- n/a
+#### ⚙️ v3.12.0 - `feature/pytest`
+> Goal: Adjust pytest coverage to new UI structure and components (Core, Services, Controllers)
+- [X] Adjust pytest.ini to remove all deprecation warnings and features
+- [X] Add coverage to Core component
+- [ ] Add coverage to Services component
+- [ ] Add coverage to Controllers component
 
 ### 🗂️ Backlog
-- ⚙️ `feature/frontend-tests`: Adjustments to new UI structure 
-- ⚙️ `feature/backend-tests`: Coverage on **DatabaseManager**, **DataProcessor**, **LoginController** and **AuthService** (warnings 17 passed, 38 warnings) 
+- N/A
 
 #### Future
 - `feature/results-ux`: Completion %: compute both by type and overall (sum credits for ✅ / 160 total)
