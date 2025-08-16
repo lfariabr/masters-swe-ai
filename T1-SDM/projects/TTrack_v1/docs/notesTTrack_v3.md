@@ -40,13 +40,13 @@ Following **GitFlow** with feature branches and semantic versioning:
 - did some research on supabase auth thinking about Torrens Microsoft Integration (https://supabase.com/docs/guides/auth)
 
 #### 🟢 v3.2.0 - `feature/login-authentication`
-> ***Goal: Make it possible for users to register/login on the app via tab and save users on db.***
+> Goal: Make it possible for users to register/login on the app via tab and save users on db.
 - Created `AuthService` class and integrated it in `main_window`
 - Created `LoginController` class, child of AuthService
 - Implemented the login, register and logout logic to use in `tab_login.py`
 
 #### 🟢 v3.3.0 - `feature/basic-history-view`
-> ***Goal: Let users retrieve previously saved sessions.***
+> Goal: Let users retrieve previously saved sessions.
 - Update tab "Student Records" to show a list of saved records instead of mock data
 - Fetch and repopulate transcript + curriculum tables
 - Show timestamp, file summary, match summary
@@ -57,14 +57,14 @@ Following **GitFlow** with feature branches and semantic versioning:
   - Added `delete_entry()` for removing obsolete or unwanted sessions (planned feature integration)
 
 #### 🟢 v3.4.0 - `feature/cloud-sync`(Cloud Sync: Fallback and Encryption)
-> ***Goal: Prepare app to run with DB even when offline or in fallback mode.***
+> Goal: Prepare app to run with DB even when offline or in fallback mode.
 - Provide fallback to save processed data in CSV if cloud is unavailable
 - Abstract DB calls with try/except wrappers
 - SyncService created to handle cloud sync logic, but not in use. Studying.
 - SyncStatusWidget created to display sync status and progress, but not in use. Studying.
 
 #### 🟢 v3.5.0 - `feature/database-url-secrets`
-> ***Goal: Add .env support for database URL/secrets.***
+> Goal: Add .env support for database URL/secrets.
 - add dotenv in main.py
 - enhance .env.example
 - update TTrack.spec and TTrack-macOs.spec 
@@ -72,12 +72,12 @@ Following **GitFlow** with feature branches and semantic versioning:
 - make downloaded app authentication work
 
 #### 🟢 v3.6.0 - `feature/login-ux`
-> ***Goal: improve UX with cool buttons and dialogs***
+> Goal: improve UX with cool buttons and dialogs
 - fine tuning for login and logout
 - tabs should be hidden when not logged in and login tab disappear when logged in (work on tab_controller.py)
 
 #### 🟢 v3.7.0 - `feature/pitch-deck`
-> ***Goal: Show off project***
+> Goal: Show off project
 - fine tune web form: https://forms.gle/zaH4BGeibhDrfVcL8
 - schedule in advance (check with Dr. Atif)
 - draw a PPT to display on the meeting with a "FOR DUMMIES" version of the TTrack
@@ -87,14 +87,14 @@ Following **GitFlow** with feature branches and semantic versioning:
 - draw what I think is current flow (W/O app and compare it with app)
 
 #### 🟢 v3.8.0 - `feature/basic-history-view`
-> ***Goal: improve UX with cool buttons and dialogs***
+> Goal: improve UX with cool buttons and dialogs
 - UX because results_data, summary_data and electives_data json needs to be treated for better displaying
 - add "Credit Points" and "Student Name" to Student Records table (when saving, on database and exhibition @ student recordes)
 - increase the size of the tables displayed in table results for a height of minimum 50 pixels each
 - when clicking LOGGED IN and clicking on "Process Data", user should be sent to Results, not to Student Records
 
 #### 🟢 v3.9.0 - `hotfix/database-url-secrets` 
-> ***Goal: encrypt .env automatically on .exe/app files***
+> Goal: encrypt .env automatically on .exe/app files
 - Encrypt password
 - Incorporate encryption in build process
 - Make unecessary for user to manually edit or insert .env
@@ -108,7 +108,7 @@ pyinstaller TTrack.spec
 ```
 
 #### 🟢 v3.10.0 -`feature/engine-matching`: 
-> ***Goal: Adjust engine matching with PDF provided by Dr. Atif for Masters in IT***
+> Goal: Adjust engine matching with PDF provided by Dr. Atif for Masters in IT
 - Map out .pdf of course
 - Update `engine.py` logic with `suggest_electives_v2`, `match_transcript_with_curriculum_v2` and `generate_progress_summary_v2`
 - Update `data_processor.py` logic with `process_data_v2`, `save_session_to_database_v2`
@@ -130,24 +130,33 @@ summary_df = generate_progress_summary_v2(result_df)
 recs_df = suggest_electives_v2(result_df, elective_bank_df, transcript_df, max_electives=3)
 ```
 
+#### 🟢 v3.11.0 - `feature/engine-adit`
+> Goal: Integrate ADIT course structure to the system 
+- [X] create data/courses/adit21.py to be used
+- [X] import specific functions at data_processor for testing and easy usage
+- [X] Update curriculum .xlsx to be exactly like MSIT course and make it appear on tab input
+
 ---
 
 ### 🔧 In Progress
 
-#### ⚙️ v3.11.2 - `feature/engine-adit`
-- [X] create data/courses/adit21.py to be used
-- [X] import specific functions at data_processor for testing and easy usage
-- [X] Update curriculum .xlsx to be exactly like MSIT course and make it appear on tab input
-- [ ] Display hardcoded transcript on sample data table instead of xlsx: ***work in progress @ tab_input and utils ***
-- [ ] If all good, create button on the interface (input) allowing course selection
+#### ⚙️ v3.11.1 - `feature/engine-version-two`
+> Goal: Display hardcoded transcript on sample data table instead of xlsx: 
+- [X] create `load_sample_file_hardcoded` on `tab_input.py` to be used at `Connect helper buttons` section
+- [X] create load_as_model_hardcoded on `utils.py` 
+- [ ] double check if `load_sample_file_hardcoded` is with expected behaviour
+- [ ] double check if `load_as_model_hardcoded` at `utils.py` is with expected behaviour
 
-#### ⚙️ v3.11.2 - `hotfix/engine-matching`
-> ***Goal: Adjust engine matching with PDF provided by Dr. Atif for Masters in IT***
-- Save course name on database. Current column "Program" should be changed to "Course Name" coomming from transcript
-- Update "Student Records" tab when nothing's loaded (columns 5... to current existing ones...) 
-- Save student ID (add to curriculum)
-- rethink about session id
+#### ⚙️ v3.11.2 - `feature/engine-version-two`
+> Goal: Fine tune UX/UI for Course Curriculum selection
+- [ ] create button on the interface (input) allowing course selection between ADIT/MSIT
+- [ ] update "Student Records" tab when nothing's loaded (columns 5... to current existing ones...) 
 
+#### ⚙️ v3.11.2 - `feature/engine-matching`
+> Goal: Increment data saved to the database using new fields
+- [ ] Save course name on database (curr column "Program" should be changed to "Course Name" comming from transcript)
+- [ ] Save student_ID (add to Student Transcript)
+- [ ] Rethink about session id being stored and replace it with regular student_record_id
 
 ### 🗂️ Backlog
 > Notes you can show in the UI (nice UX)
