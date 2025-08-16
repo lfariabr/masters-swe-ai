@@ -77,3 +77,20 @@ def load_elective_bank_adit_df() -> pd.DataFrame:
         {"Subject Code": "EPT232", "Subject Name": "Ethical Hacking and Penetration Testing", "Credit Points": 10 , "Prerequisites": "CBS131"},
     ]
     return pd.DataFrame(bank)
+
+def load_curriculum_and_bank_adit_same_df() -> pd.DataFrame:
+    """
+    Load curriculum and elective bank into a single DataFrame.
+    This is useful for matching transcript with both curriculum and electives.
+    """
+    curriculum_df = load_curriculum_adit_df()
+    bank_df = load_elective_bank_adit_df()
+
+    # Add a column to distinguish between core/elective subjects
+    curriculum_df['Source'] = 'Curriculum'
+    bank_df['Source'] = 'Elective Bank'
+
+    # Concatenate the two DataFrames
+    combined_df = pd.concat([curriculum_df, bank_df], ignore_index=True)
+    
+    return combined_df

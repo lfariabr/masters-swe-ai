@@ -269,6 +269,10 @@ def load_sample_file_hardcoded(parent, is_transcript=True):
         parent.curriculum_table.setModel(model)
         parent.data_processor.set_curriculum_data(parent.helpers.model_to_dataframe(model))
         parent.statusBar().showMessage(f"Loaded sample curriculum from hardcoded data", 3000)
+    
+    # ✅ Enable Process when both are present
+    if parent.data_processor.transcript_df is not None and parent.data_processor.curriculum_df is not None:
+        parent.process_btn.setEnabled(True)
 
 def download_sample_file(parent, is_transcript=True):
     """
