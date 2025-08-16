@@ -1,7 +1,7 @@
 from PyQt5.QtWidgets import (
     QWidget, QVBoxLayout, QHBoxLayout, QPushButton, 
     QLabel, QTableView, QFileDialog, QLineEdit,
-    QGroupBox, QGridLayout
+    QGroupBox, QGridLayout, QComboBox
 )
 from PyQt5.QtGui import QFont
 from PyQt5.QtCore import Qt
@@ -77,6 +77,63 @@ def setup_input_tab(parent):
     layout.addWidget(credit)
     layout.addSpacing(20)
 
+    # Course selection (ADIT/MSIT)
+    course_layout = QHBoxLayout()
+    is_dark = parent.theme_manager.is_dark_mode
+    course_label = QLabel("Course:")
+    course_label.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
+    course_label.setStyleSheet(
+        "font-size: 14px; font-weight: 600; color: {}".format('#dddddd' if is_dark else '#444444')
+    )
+    parent.course_selector = QComboBox()
+    parent.course_selector.setObjectName("course_selector")
+    parent.course_selector.addItems(["ADIT", "MSIT"])
+    parent.course_selector.setMinimumHeight(36)
+    parent.course_selector.setFixedWidth(220)
+    parent.course_selector.setStyleSheet(f"""
+        QComboBox {{
+            padding: 6px 12px;
+            font-size: 14px;
+            border: 2px solid {'#2c3e50' if not is_dark else '#5a5a5a'};
+            border-radius: 18px;
+            background-color: {'#f7f9fc' if not is_dark else '#2b2b2b'};
+            color: {'#1f2d3d' if not is_dark else '#ffffff'};
+            min-width: 200px;
+        }}
+        QComboBox:hover {{
+            border-color: {'#1abc9c' if not is_dark else '#9ad6c8'};
+        }}
+        QComboBox:focus {{
+            border-color: {'#16a085' if not is_dark else '#7fc4b2'};
+            outline: none;
+        }}
+        QComboBox::drop-down {{
+            subcontrol-origin: padding;
+            subcontrol-position: top right;
+            width: 28px;
+            border-left: 0px;
+        }}
+        QComboBox QAbstractItemView {{
+            background-color: {'#ffffff' if not is_dark else '#1e1e1e'};
+            color: {'#1f2d3d' if not is_dark else '#ffffff'};
+            selection-background-color: {'#e8f5f1' if not is_dark else '#3a4a48'};
+            selection-color: {'#1f2d3d' if not is_dark else '#ffffff'};
+            padding: 4px;
+        }}
+    """)
+    parent.course_selector.setToolTip("Select the course structure to use for processing")
+    # default selection
+    parent.selected_course = getattr(parent, 'selected_course', 'ADIT')
+    idx = 0 if parent.selected_course.upper() != 'MSIT' else 1
+    parent.course_selector.setCurrentIndex(idx)
+    parent.course_selector.currentTextChanged.connect(lambda val: setattr(parent, 'selected_course', val))
+    course_layout.addStretch()
+    course_layout.addWidget(course_label)
+    course_layout.addSpacing(8)
+    course_layout.addWidget(parent.course_selector)
+    course_layout.addStretch()
+    layout.addLayout(course_layout)
+
     # Create main buttons
     from ui.helpers import set_button_style
     parent.transcript_btn = QPushButton("📄 Upload Transcript")
@@ -114,7 +171,7 @@ def setup_input_tab(parent):
     parent.download_transcript_btn.clicked.connect(lambda: download_sample_file(parent, is_transcript=True))
 
     ## Curriculum = Academic Course Requirements
-    parent.sample_curriculum_btn.clicked.connect(lambda: load_sample_file_hardcoded(parent, is_transcript=False)) #TODO: load_sample_file_hardcoded
+    parent.sample_curriculum_btn.clicked.connect(lambda: load_sample_file_hardcoded(parent, is_transcript=False)) # honors selected course
     parent.download_curriculum_btn.clicked.connect(lambda: download_sample_file(parent, is_transcript=False))
     
     # Create clear column headers
@@ -262,7 +319,8 @@ def load_sample_file_hardcoded(parent, is_transcript=True):
     """
     # Import course data loader
     from gui.utils import load_as_model_hardcoded
-    model = load_as_model_hardcoded(is_transcript=is_transcript)
+    course = getattr(parent, 'selected_course', 'ADIT')
+    model = load_as_model_hardcoded(is_transcript=is_transcript, course=course)
     
     if is_transcript:
         parent.transcript_table.setModel(model)
@@ -271,7 +329,7 @@ def load_sample_file_hardcoded(parent, is_transcript=True):
     else:
         parent.curriculum_table.setModel(model)
         parent.data_processor.set_curriculum_data(parent.helpers.model_to_dataframe(model))
-        parent.statusBar().showMessage(f"Loaded sample curriculum from hardcoded data", 3000)
+        parent.statusBar().showMessage(f"Loaded sample curriculum for {course} from hardcoded data", 3000)
     
     # Enable Process when both are present
     if parent.data_processor.transcript_df is not None and parent.data_processor.curriculum_df is not None:

@@ -153,16 +153,18 @@ recs_df = suggest_electives_v2(result_df, elective_bank_df, transcript_df, max_e
 - [X] Save Course Name on database 
 - [X] Save Student ID on database
 
+#### ⚙️ v3.12.0 - `feature/course-selection`
+> Goal: Create button on the interface (input) allowing different courses to be selected
+- [X] add selection button to switch between curriculum for ADIT/MSIT 
+- [X] map at process data course selected to improve UX
+- [X] test saving and processing with different courses for different students
+
 ---
 
 ### 🔧 In Progress
-
-#### ⚙️ v3.11.3 - `feature/course-selection`
-> Goal: Create button on the interface (input) allowing course selection between ADIT/MSIT
-- [ ] add selection button to switch between curriculum for ADIT/MSIT 
+- n/a
 
 ### 🗂️ Backlog
-
 - ⚙️ `feature/frontend-tests`: Adjustments to new UI structure 
 - ⚙️ `feature/backend-tests`: Coverage on **DatabaseManager**, **DataProcessor**, **LoginController** and **AuthService** (warnings 17 passed, 38 warnings) 
 
