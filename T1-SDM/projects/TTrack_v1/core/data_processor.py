@@ -157,10 +157,17 @@ class DataProcessor:
             return False
         
         try:
-            # Load canonical course structures that we took from ***"MSIT Course Structure TUA.pdf"***
-            curriculum_df = load_curriculum_adit_df() # load_curriculum_df or load_curriculum_adit_df
-            elective_bank_df = load_elective_bank_adit_df() # load_elective_bank_df or load_elective_bank_adit_df
-            
+            # Load canonical course structures based on selected course (ADIT/MSIT)
+            selected_course = getattr(self.parent, 'selected_course', 'ADIT')
+            course_key = (selected_course or 'ADIT').strip().upper()
+            if course_key == 'MSIT':
+                from data.courses.msit_ad import load_curriculum_df as _load_curr, load_elective_bank_df as _load_bank
+            else:
+                from data.courses.adit21 import load_curriculum_adit_df as _load_curr, load_elective_bank_adit_df as _load_bank
+
+            curriculum_df = _load_curr()
+            elective_bank_df = _load_bank()
+             
             # Process using enhanced v2 engine
             self.results_df = match_transcript_with_curriculum_v2(
                 self.transcript_df, curriculum_df, elective_bank_df)
@@ -181,7 +188,7 @@ class DataProcessor:
                 header_label.setText(f"Student: {self.student_name}")
             
             if sub_header:
-                sub_header.setText(f"University: {self.university}")
+                sub_header.setText(f"University: {self.university}  •  Course: {course_key}")
 
             # Calculate progress from v2 summary
             total_done = summary_df["✅ Done"].sum() if "✅ Done" in summary_df.columns else 0

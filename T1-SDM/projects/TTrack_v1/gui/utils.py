@@ -30,7 +30,7 @@ def _df_to_qmodel(df: pd.DataFrame) -> QStandardItemModel:
         model.appendRow(row_items)
     return model
 
-def load_as_model_hardcoded(is_transcript: bool = True) -> QStandardItemModel:
+def load_as_model_hardcoded(is_transcript: bool = True, course: str = "ADIT") -> QStandardItemModel:
     """
     Build and return a QStandardItemModel.
     - Transcript (True): fall back to the existing XLSX loader (unchanged behavior).
@@ -53,8 +53,13 @@ def load_as_model_hardcoded(is_transcript: bool = True) -> QStandardItemModel:
     from data.courses.adit21 import (
         load_curriculum_adit_df, load_elective_bank_adit_df, load_curriculum_and_bank_adit_same_df)
 
-    # Default to ADIT combined (curriculum + elective bank) for hardcoded curriculum path
-    df = load_curriculum_and_bank_adit_same_df()
+    course_key = (course or "ADIT").strip().upper()
+    if course_key == "MSIT":
+        # MSIT combined (curriculum + elective bank)
+        df = load_curriculum_and_bank_same_df()
+    else:
+        # Default to ADIT combined (curriculum + elective bank)
+        df = load_curriculum_and_bank_adit_same_df()
 
     desired_cols = ["Subject Code", "Subject Name", "Type", "Credit Points", "Prerequisites"]
     cols = [c for c in desired_cols if c in df.columns] or list(df.columns)
