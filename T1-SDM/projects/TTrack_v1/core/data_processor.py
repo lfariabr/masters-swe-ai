@@ -173,7 +173,7 @@ class DataProcessor:
                 self.transcript_df, curriculum_df, elective_bank_df)
             summary_df = generate_progress_summary_v2(self.results_df)
             electives_df = suggest_electives_v2(
-                self.results_df, elective_bank_df, self.transcript_df, max_electives=3)
+                self.results_df, elective_bank_df, self.transcript_df, max_electives=20)
             
             # Populate tables using helpers
             self.parent.helpers.populate_table(self.parent.results_table, self.results_df)
@@ -309,7 +309,7 @@ class DataProcessor:
                 self.results_df,
                 elective_bank_df,
                 self.transcript_df,
-                max_electives=3
+                max_electives=20
             )
 
             # Progress %
