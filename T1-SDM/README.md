@@ -16,7 +16,7 @@ Dr. Muhammad Atif Qureshi
 - [X] Module 9 - Managing People
 - [X] Module 10 - Change Management
 - [X] Module 11 - Project Closure
-- [ ] Module 12 - Presentation and Demo
+- [X] Module 12 - Presentation and Demo
 
 ## Assignments
 - [X] Assessment 1 - deadline 29/06/2025
