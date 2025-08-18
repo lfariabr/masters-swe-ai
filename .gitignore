@@ -138,4 +138,4 @@ wheels/
 *.egg
 
 # Jupyter Notebook (if any)
-.ipynb_checkpoints
+.ipynb_checkpoints*.zip
