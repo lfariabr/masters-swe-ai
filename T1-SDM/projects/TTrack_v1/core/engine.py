@@ -30,8 +30,8 @@ def match_transcript_with_curriculum(transcript_df, curriculum_df):
     )
 
     merged['Status'] = merged['_merge'].map({
-        'both': 'Done ✅',
-        'left_only': 'Missing ❌'
+        'both': '✅ Done',
+        'left_only': '❌ Missing'
     })
 
     # Select output columns
@@ -56,7 +56,7 @@ def generate_progress_summary(result_df):
     summary = result_df.groupby(['Type', 'Status']).size().unstack(fill_value=0)
     
     # Ensure we have consistent columns
-    for status in ['Done ✅', 'Missing ❌']:
+    for status in ['✅ Done', '❌ Missing']:
         if status not in summary.columns:
             summary[status] = 0
     
@@ -65,7 +65,7 @@ def generate_progress_summary(result_df):
     
     # Calculate total
     if not summary.empty:
-        summary['Total'] = summary[['Done ✅', 'Missing ❌']].sum(axis=1)
+        summary['Total'] = summary[['✅ Done', '❌ Missing']].sum(axis=1)
     
     return summary
 
@@ -75,7 +75,7 @@ def suggest_electives(result_df, max_electives=20):
     """
     missing_electives = result_df[
         (result_df['Type'].str.lower() == 'elective') &
-        (result_df['Status'] == 'Missing ❌')
+        (result_df['Status'] == '❌ Missing')
     ]
     return missing_electives.head(max_electives)
 
@@ -125,7 +125,7 @@ def match_transcript_with_curriculum_v2(transcript_df: pd.DataFrame,
 
     # --- Core matching by code
     cores = curriculum_df[curriculum_df['Type'].str.lower() == 'core'].copy()
-    cores['Status'] = cores['Subject Code'].apply(lambda c: 'Done ✅' if c in transcript_codes else 'Missing ❌')
+    cores['Status'] = cores['Subject Code'].apply(lambda c: '✅ Done' if c in transcript_codes else '❌ Missing')
     cores['Filled By'] = ''
 
     # --- Elective slots filling
@@ -139,10 +139,10 @@ def match_transcript_with_curriculum_v2(transcript_df: pd.DataFrame,
         row_code = row['Subject Code']
         if i < n_completed:
             # mark slot "Done" and annotate which elective satisfied it
-            row['Status'] = 'Done ✅'
+            row['Status'] = '✅ Done'
             row['Filled By'] = completed_electives[i]  # which elective code satisfied this slot
         else:
-            row['Status'] = 'Missing ❌'
+            row['Status'] = '❌ Missing'
             row['Filled By'] = ''
         return row
 
@@ -176,14 +176,14 @@ def generate_progress_summary_v2(result_df: pd.DataFrame) -> pd.DataFrame:
         return None
     
     summary = result_df.groupby(['Type', 'Status']).size().unstack(fill_value=0).reset_index()
-    for status in ['Done ✅', 'Missing ❌']:
+    for status in ['✅ Done', '❌ Missing']:
         if status not in summary.columns:
             summary[status] = 0
     
-    summary['Total'] = summary[['Done ✅', 'Missing ❌']].sum(axis=1)
+    summary['Total'] = summary[['✅ Done', '❌ Missing']].sum(axis=1)
     
     # Completion % by type
-    summary['Completion %'] = (summary['Done ✅'] / summary['Total']).round(2)
+    summary['Completion %'] = (summary['✅ Done'] / summary['Total']).round(2)
     summary['Completion %'] = summary['Completion %'].apply(lambda x: f"{x*100}%")
     # Removing ".0" from Completion %
     summary['Completion %'] = summary['Completion %'].str.replace('.0%', '%')

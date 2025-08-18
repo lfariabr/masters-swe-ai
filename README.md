@@ -44,7 +44,7 @@ Project | Description | Status | Folder directory | URL |
 #### Academic Journey
 Term | Subject | Status | Lecturer | Directory | Credit Points
 |-----------|---------------------|----------------|----------------|----------------|----------------|
-| T2-25 | Software Development Management (***Core***) | 🔥 | Dr. Atif | [SDM404](./T1-SDM/) | 10
+| T2-25 | Software Development Management (***Core***) | ✅ | Dr. Atif | [SDM404](./T1-SDM/) | 10
 | T2-25 | Software Engineering Principles (***Core***) | 🔥 | Dr. Ranju | [SEP401](./T1-SEP/) | 10
 | T3-25 | Human Centered Design (***Core***) | 🕐 | TBD | [HCD402](./T3-Human-Centered-Design/) | 10
 | T3-25 | Mathematical Foundations of AI (***Core***) | 🕐 | TBD | [MFA501](./T3-Mathematical-Foundations-of-AI/) | 10
