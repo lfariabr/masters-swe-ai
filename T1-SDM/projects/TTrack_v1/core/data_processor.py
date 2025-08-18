@@ -127,8 +127,9 @@ class DataProcessor:
                 sub_header.setText(f"University: {self.university}")
 
             # Degree progress bar % based on DONE vs Total subjects
-            total_done = summary_df["✅ Done"].sum()
-            total_subjects = summary_df["Total"].sum()
+            # engine.generate_progress_summary() uses columns: 'Done ✅', 'Missing ❌'
+            total_done = summary_df["Done ✅"].sum() if "Done ✅" in summary_df.columns else 0
+            total_subjects = summary_df["Total"].sum() if "Total" in summary_df.columns else 0
             progress = int(total_done / total_subjects * 100) if total_subjects > 0 else 0
             
             # Update progress bar if present
@@ -190,8 +191,8 @@ class DataProcessor:
             if sub_header:
                 sub_header.setText(f"University: {self.university}  •  Course: {course_key}")
 
-            # Calculate progress from v2 summary
-            total_done = summary_df["✅ Done"].sum() if "✅ Done" in summary_df.columns else 0
+            # Calculate progress from v2 summary (columns: 'Done ✅', 'Missing ❌')
+            total_done = summary_df["Done ✅"].sum() if "Done ✅" in summary_df.columns else 0
             total_subjects = summary_df["Total"].sum() if "Total" in summary_df.columns else 1
             progress = int(total_done / total_subjects * 100) if total_subjects > 0 else 0
             
@@ -239,8 +240,9 @@ class DataProcessor:
             # Calculate progress from current data
             summary_df = generate_progress_summary(self.results_df)
             electives_df = suggest_electives(self.results_df)  # Generate actual electives data
-            
-            total_done = summary_df["✅ Done"].sum() if "✅ Done" in summary_df.columns else 0
+
+            # Align with engine summary columns
+            total_done = summary_df["Done ✅"].sum() if "Done ✅" in summary_df.columns else 0
             total_subjects = summary_df["Total"].sum() if "Total" in summary_df.columns else 1
             progress = int(total_done / total_subjects * 100) if total_subjects > 0 else 0
             
@@ -312,8 +314,8 @@ class DataProcessor:
                 max_electives=20
             )
 
-            # Progress %
-            total_done = summary_df["✅ Done"].sum() if "✅ Done" in summary_df.columns else 0
+            # Progress % (v2 summary columns: 'Done ✅', 'Missing ❌')
+            total_done = summary_df["Done ✅"].sum() if "Done ✅" in summary_df.columns else 0
             total_subjects = summary_df["Total"].sum() if "Total" in summary_df.columns else 1
             progress = int(total_done / total_subjects * 100) if total_subjects > 0 else 0
 
