@@ -13,6 +13,17 @@ chmod +x build_mac.sh
 
 # Install dependencies and build the app
 pip install -r requirements.txt
+
+# Intel build (recommended for older MacBooks):
+TARGET_ARCH=x86_64 MACOSX_DEPLOYMENT_TARGET=10.15 ./build_mac.sh
+
+# Universal build (larger, widest compatibility):
+TARGET_ARCH=universal2 MACOSX_DEPLOYMENT_TARGET=10.15 ./build_mac.sh
+
+# Apple Silicon build (recommended for new MacBooks):
+TARGET_ARCH=arm64 ./build_mac.sh
+
+# Default build (runs on Intel Macs):
 ./build_mac.sh
 
 # Copy .env to the app bundle and open it

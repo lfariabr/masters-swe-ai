@@ -19,6 +19,13 @@ handle_error() {
     exit 1
 }
 
+# Build parameters (configurable via env)
+: "${TARGET_ARCH:=}"         # allowed: x86_64 | arm64 | universal2 | "" (auto)
+: "${MACOSX_DEPLOYMENT_TARGET:=11.0}"  # override for older macOS, e.g. 10.15
+export MACOSX_DEPLOYMENT_TARGET
+
+echo -e "${YELLOW}[*] Build params:${NC} TARGET_ARCH='${TARGET_ARCH:-auto}' MACOSX_DEPLOYMENT_TARGET='${MACOSX_DEPLOYMENT_TARGET}'"
+
 # Detect the correct Python executable
 # Priority: python (if in pyenv), python3, then system python3
 if command -v python &> /dev/null && python --version 2>&1 | grep -q "Python 3"; then
@@ -50,11 +57,12 @@ fi
 # Check for PyInstaller
 if ! $PYTHON_CMD -c "import PyInstaller" &> /dev/null; then
     echo -e "${YELLOW}[!] PyInstaller not found. Installing...${NC}"
-    
-    # Try pip install with different strategies
-    if $PYTHON_CMD -m pip install PyInstaller; then
+    if $PYTHON_CMD -m pip install -U pip wheel setuptools; then
+        echo -e "${GREEN}[✓] Upgraded pip/setuptools/wheel${NC}"
+    fi
+    if $PYTHON_CMD -m pip install PyInstaller pyinstaller-hooks-contrib; then
         echo -e "${GREEN}[✓] PyInstaller installed successfully${NC}"
-    elif $PYTHON_CMD -m pip install --user PyInstaller; then
+    elif $PYTHON_CMD -m pip install --user PyInstaller pyinstaller-hooks-contrib; then
         echo -e "${GREEN}[✓] PyInstaller installed with --user flag${NC}"
     else
         handle_error "Failed to install PyInstaller. Please install manually: $PYTHON_CMD -m pip install PyInstaller"
@@ -70,6 +78,14 @@ if ! $PYTHON_CMD -c "import PyQt5, pandas, openpyxl, dotenv, supabase" &> /dev/n
     $PYTHON_CMD -m pip install -r requirements.txt || handle_error "Failed to install dependencies"
 fi
 
+# Extra: confirm PyQt5 plugins path is discoverable
+$PYTHON_CMD - <<'PYQTCHECK'
+import PyQt5, os
+from PyQt5.QtCore import QLibraryInfo
+print("[PyQt5] Prefix:", QLibraryInfo.location(QLibraryInfo.PrefixPath))
+print("[PyQt5] Plugins:", QLibraryInfo.location(QLibraryInfo.PluginsPath))
+PYQTCHECK
+
 echo -e "${GREEN}[✓] All dependencies verified${NC}"
 
 # Clean previous build artifacts
@@ -78,9 +94,24 @@ rm -rf build/ dist/
 
 # Build the application
 echo -e "${YELLOW}[*] Building TTrack application...${NC}"
-$PYTHON_CMD -m PyInstaller TTrack-macOs.spec --noconfirm || handle_error "PyInstaller build failed"
+if [ -n "$TARGET_ARCH" ]; then
+    echo -e "${YELLOW}[*] Using TARGET_ARCH=${TARGET_ARCH}${NC}"
+    TARGET_ARCH=$TARGET_ARCH $PYTHON_CMD -m PyInstaller TTrack-macOs.spec --noconfirm || handle_error "PyInstaller build failed"
+else
+    $PYTHON_CMD -m PyInstaller TTrack-macOs.spec --noconfirm || handle_error "PyInstaller build failed"
+fi
 
 echo -e "${GREEN}[✓] Build completed successfully${NC}"
+
+# Ad-hoc sign the app to improve compatibility and avoid some Gatekeeper issues
+if [ -d "dist/TTrack.app" ]; then
+  echo -e "${YELLOW}[*] Ad-hoc codesigning app bundle...${NC}"
+  codesign --force --deep --sign - --timestamp=none dist/TTrack.app || echo -e "${YELLOW}[!] Warning: codesign failed (app may still run)${NC}"
+
+  # Optionally strip quarantine if present (useful when moving between machines)
+  echo -e "${YELLOW}[*] Removing quarantine attribute (if present)...${NC}"
+  xattr -dr com.apple.quarantine dist/TTrack.app 2>/dev/null || true
+fi
 
 # Copy .env.example to app bundle for user setup
 echo -e "${YELLOW}[*] Setting up environment template...${NC}"
@@ -92,13 +123,25 @@ cat > "dist/SETUP.md" << EOF
 
 ## Database Configuration
 1. Navigate to: TTrack.app/Contents/MacOS/
-2. Rename \`.env.example\` to \`.env\`
-3. Edit \`.env\` with your Supabase credentials:
-   \`\`\`
+2. Rename `.env.example` to `.env`
+3. Edit `.env` with your Supabase credentials:
+   ```
    SUPABASE_URL=https://your-project.supabase.co
    SUPABASE_KEY=your-anon-key-here
-   \`\`\`
+   ```
 4. Save and run TTrack.app
+
+## Running on Older macOS / Intel Macs
+- If you see a platform plugin error (cocoa), ensure the app was built with PyQt5 plugins bundled (handled by spec).
+- If the app doesn't launch on Intel Macs, try building with:
+  ```bash
+  TARGET_ARCH=x86_64 ./build_mac.sh
+  ```
+  On Apple Silicon, run Terminal under Rosetta for best results.
+- Adjust deployment target if needed:
+  ```bash
+  MACOSX_DEPLOYMENT_TARGET=10.15 ./build_mac.sh
+  ```
 
 ## Security Note
 Never share your .env file - it contains your private database credentials.

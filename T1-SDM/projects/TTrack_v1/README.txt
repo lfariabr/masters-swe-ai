@@ -1,23 +1,19 @@
 # 🎓 TTrack
 ## Academic Progress Intelligence System
 
-[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://python.org)
-[![PyQt5](https://img.shields.io/badge/PyQt5-5.15+-green.svg)](https://pypi.org/project/PyQt5/)
-[![Version](https://img.shields.io/badge/Version-1.7.0-brightgreen.svg)](CHANGELOG.md)
-
-> **Academic progress tracking system that intelligently matches student transcripts with curriculum requirements using advanced data processing algorithms.**
+Academic progress tracking system that intelligently matches student transcripts with curriculum requirements using advanced data processing algorithms.
 
 ---
 
 ## What is TTrack?
 
 Manual transcript checks are slow and error-prone. TTrack offers:
-- 🖥️ Desktop app built with PyQt5 for cross-platform use
-- 📑 Excel/CSV file upload and preprocessing with pandas
-- 🤖 Intelligent matching of transcript vs curriculum with fuzzy logic
-- 📊 Real-time progress analytics and elective recommendations
-- 🔍 Database integration with Supabase for cloud storage and user authentication
-- 🚀 One-click build into standalone Windows/macOS executables
+- Desktop app built with PyQt5 for cross-platform use
+- Excel/CSV file upload and preprocessing with pandas
+- Intelligent matching of transcript vs curriculum with fuzzy logic
+- Real-time progress analytics and elective recommendations
+- Database integration with Supabase for cloud storage and user authentication
+- One-click build into standalone Windows/macOS executables
 
 ---
 
@@ -30,8 +26,8 @@ Manual transcript checks are slow and error-prone. TTrack offers:
 
 ### Installation & Execution
 ```bash
-# Clone and navigate
-cd TTrack_v1
+# Create virtual environment
+python -m venv venv
 
 # Activate virtual environment
 source venv/bin/activate  # macOS/Linux
@@ -100,19 +96,6 @@ def match_transcript_with_curriculum(transcript_df, curriculum_df):
 
 ---
 
-### Production Deployment
-
-### Build & Distribution
-```bash
-# macOS Application Bundle
-./build_mac.sh
-# Output: dist/TTrack.app
-
-# Windows Executable  
-build.bat
-# Output: dist/TTrack.exe
-```
-
 ### Enterprise Features
 - **Standalone Executables**: No Python installation required
 - **Cross-Platform Compatibility**: Windows, macOS, Linux support
@@ -154,16 +137,6 @@ build.bat
 - 🚀 Advanced Analytics: Business intelligence dashboards
 - 🚀 Integration APIs: Third-party system connectivity
 - 🚀 Mobile Applications: iOS/Android companion apps
-
----
-
-### Documentation & Resources
-
-- **[Version Control Log](docs/)**: Development timeline & milestones
-- **[Build Instructions](docs/buildingApp.md)**: Deployment & distribution guide
-- **[100% Anonymous Feedback Form](https://forms.gle/cWEtzLzWPoH8ezWS8)**: Deployment & distribution guide
-- **[Project Specification](.T1-SDM/assignments/)**: Full project specification
-- **[System Diagrams](docs/diagrams/)**: Visual architecture overview
 
 ---
 
