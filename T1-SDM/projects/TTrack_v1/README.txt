@@ -5,6 +5,11 @@ Academic progress tracking system that intelligently matches student transcripts
 
 ---
 
+## Demo Video
+- https://www.youtube.com/watch?v=J9bxv1EJ8yU
+
+---
+
 ## What is TTrack?
 
 Manual transcript checks are slow and error-prone. TTrack offers:
