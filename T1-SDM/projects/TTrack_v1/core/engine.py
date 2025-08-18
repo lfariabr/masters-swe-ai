@@ -3,6 +3,9 @@
 import pandas as pd
 from typing import List, Dict
 
+# Global toggle: set to False to disable prerequisite checks across the engine
+PREREQ_CHECK_ENABLED = False
+
 def normalize_subject_codes(df, col='Subject Code'):
     """Standardize subject codes for accurate matching."""
     df = df.copy()
@@ -12,7 +15,7 @@ def normalize_subject_codes(df, col='Subject Code'):
 def match_transcript_with_curriculum(transcript_df, curriculum_df):
     """
     Compare transcript and curriculum to classify subjects into:
-    ✅ Done / ❌ Missing
+    Done / Missing
     """
     # Normalize codes
     transcript_df = normalize_subject_codes(transcript_df)
@@ -27,8 +30,8 @@ def match_transcript_with_curriculum(transcript_df, curriculum_df):
     )
 
     merged['Status'] = merged['_merge'].map({
-        'both': '✅ Done',
-        'left_only': '❌ Missing'
+        'both': 'Done ✅',
+        'left_only': 'Missing ❌'
     })
 
     # Select output columns
@@ -53,7 +56,7 @@ def generate_progress_summary(result_df):
     summary = result_df.groupby(['Type', 'Status']).size().unstack(fill_value=0)
     
     # Ensure we have consistent columns
-    for status in ['✅ Done', '❌ Missing']:
+    for status in ['Done ✅', 'Missing ❌']:
         if status not in summary.columns:
             summary[status] = 0
     
@@ -62,37 +65,41 @@ def generate_progress_summary(result_df):
     
     # Calculate total
     if not summary.empty:
-        summary['Total'] = summary[['✅ Done', '❌ Missing']].sum(axis=1)
+        summary['Total'] = summary[['Done ✅', 'Missing ❌']].sum(axis=1)
     
     return summary
 
-def suggest_electives(result_df, max_electives=2):
+def suggest_electives(result_df, max_electives=20):
     """
     Recommend missing electives from the curriculum.
     """
     missing_electives = result_df[
         (result_df['Type'].str.lower() == 'elective') &
-        (result_df['Status'] == '❌ Missing')
+        (result_df['Status'] == 'Missing ❌')
     ]
     return missing_electives.head(max_electives)
 
 def suggest_electives_v2(result_df: pd.DataFrame,
                          elective_bank_df: pd.DataFrame,
                          transcript_df: pd.DataFrame,
-                         max_electives: int = 3) -> pd.DataFrame:
+                         max_electives: int = 20) -> pd.DataFrame:
     transcript_codes = set(normalize_subject_codes(transcript_df)['Subject Code'])
     
     bank = normalize_subject_codes(elective_bank_df)
+
     # Filter out those already completed
     bank = bank[~bank['Subject Code'].isin(transcript_codes)].copy()
 
-    def has_prereqs(row) -> bool:
-        reqs = parse_prereqs(row.get('Prerequisites', ''))
-        return all(req in transcript_codes for req in reqs)
-
-    # Filter out those that don't meet prereqs
-    bank['Eligible'] = bank.apply(has_prereqs, axis=1)
-    recs = bank[bank['Eligible']].head(max_electives)
+    if PREREQ_CHECK_ENABLED:
+        def has_prereqs(row) -> bool:
+            reqs = parse_prereqs(row.get('Prerequisites', ''))
+            return all(req in transcript_codes for req in reqs)
+        # Filter out those that don't meet prereqs
+        bank['Eligible'] = bank.apply(has_prereqs, axis=1)
+        recs = bank[bank['Eligible']].head(max_electives)
+    else:
+        # Show all not-yet-completed electives regardless of prerequisites
+        recs = bank.head(max_electives)
 
     return recs[['Subject Code', 'Subject Name', 'Credit Points', 'Prerequisites']]
 
@@ -118,7 +125,7 @@ def match_transcript_with_curriculum_v2(transcript_df: pd.DataFrame,
 
     # --- Core matching by code
     cores = curriculum_df[curriculum_df['Type'].str.lower() == 'core'].copy()
-    cores['Status'] = cores['Subject Code'].apply(lambda c: '✅ Done' if c in transcript_codes else '❌ Missing')
+    cores['Status'] = cores['Subject Code'].apply(lambda c: 'Done ✅' if c in transcript_codes else 'Missing ❌')
     cores['Filled By'] = ''
 
     # --- Elective slots filling
@@ -132,10 +139,10 @@ def match_transcript_with_curriculum_v2(transcript_df: pd.DataFrame,
         row_code = row['Subject Code']
         if i < n_completed:
             # mark slot "Done" and annotate which elective satisfied it
-            row['Status'] = '✅ Done'
+            row['Status'] = 'Done ✅'
             row['Filled By'] = completed_electives[i]  # which elective code satisfied this slot
         else:
-            row['Status'] = '❌ Missing'
+            row['Status'] = 'Missing ❌'
             row['Filled By'] = ''
         return row
 
@@ -148,7 +155,10 @@ def match_transcript_with_curriculum_v2(transcript_df: pd.DataFrame,
             return True
         return all(req in transcript_codes for req in reqs)
 
-    cores['PrereqMet'] = cores.apply(prereq_met, axis=1)
+    if PREREQ_CHECK_ENABLED:
+        cores['PrereqMet'] = cores.apply(prereq_met, axis=1)
+    else:
+        cores['PrereqMet'] = True  # prereq checks disabled
     filled_slots['PrereqMet'] = True  # elective slots don’t have prereqs; actual chosen electives are validated by bank entries
 
     # Final result
@@ -166,11 +176,16 @@ def generate_progress_summary_v2(result_df: pd.DataFrame) -> pd.DataFrame:
         return None
     
     summary = result_df.groupby(['Type', 'Status']).size().unstack(fill_value=0).reset_index()
-    for status in ['✅ Done', '❌ Missing']:
+    for status in ['Done ✅', 'Missing ❌']:
         if status not in summary.columns:
             summary[status] = 0
     
-    summary['Total'] = summary[['✅ Done', '❌ Missing']].sum(axis=1)
+    summary['Total'] = summary[['Done ✅', 'Missing ❌']].sum(axis=1)
+    
     # Completion % by type
-    summary['Completion %'] = (summary['✅ Done'] / summary['Total']).round(2)
+    summary['Completion %'] = (summary['Done ✅'] / summary['Total']).round(2)
+    summary['Completion %'] = summary['Completion %'].apply(lambda x: f"{x*100}%")
+    # Removing ".0" from Completion %
+    summary['Completion %'] = summary['Completion %'].str.replace('.0%', '%')
+
     return summary

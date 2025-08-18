@@ -159,15 +159,21 @@ recs_df = suggest_electives_v2(result_df, elective_bank_df, transcript_df, max_e
 - [X] map at process data course selected to improve UX
 - [X] test saving and processing with different courses for different students
 
----
-
-### 🔧 In Progress
-#### ⚙️ v3.12.0 - `feature/pytest`
+#### ⚙️ v3.13.0 - `feature/pytest`
 > Goal: Adjust pytest coverage to new UI structure and components (Core, Services, Controllers)
 - [X] Adjust pytest.ini to remove all deprecation warnings and features
 - [X] Add coverage to Core component
-- [ ] Add coverage to Services component
-- [ ] Add coverage to Controllers component
+
+#### ⚙️ v3.13.1 - `fix/results`
+> Goal: Fine tune to match app after Dr. Atif's meeting/suggestions
+- [X] Display ALL electives subjects (except the ones that have been completed) on results table instead of 3
+- [X] Fix Download to CSV Electives Table that was using deprecated dataframe
+- [X] Updated unit Tests to match these changes
+
+---
+
+### 🔧 In Progress
+- N/A
 
 ### 🗂️ Backlog
 - N/A

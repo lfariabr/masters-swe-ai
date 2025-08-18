@@ -139,7 +139,7 @@ build.bat
 - ✅ Layered Architecture with Core, Services and Controllers
 - ✅ Cloud Sync: Fallback and Encryption
 - ✅ New Engine Matching Logic 2.0
-- 🔄 Pytest coverage to new classes (`DatabaseManager`, `AuthService`, `LoginController`)
+- ✅ Pytest coverage to new classes (`DatabaseManager`, `AuthService`, `LoginController`)
 
 ### Phase 4: AI Enhancement (v4.0.0) 📋 **PLANNED**
 - 📋 API Integration: University system connectivity
@@ -160,7 +160,7 @@ build.bat
 
 Done
 - **[Build Instructions](docs/buildingApp.md)**: Deployment & distribution guide
-- **[Version Control Log](docs/notesTTrack_v2.md)**: Development timeline & milestones
+- **[Version Control Log](docs/)**: Development timeline & milestones
 - **[100% Anonymous Feedback Form](https://forms.gle/cWEtzLzWPoH8ezWS8)**: Deployment & distribution guide
 
 Planned

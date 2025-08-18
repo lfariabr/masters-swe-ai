@@ -97,6 +97,7 @@ def setup_studentrecords_tab(parent):
     student_selector.setCurrentIndex(0)
     filter_table()
     
+    # Deprecated code kept here for REFERENCE only. Line n 228 has current version 2
     # def view_all_records():
     #     """
     #     Get ALL STUDENT records from database

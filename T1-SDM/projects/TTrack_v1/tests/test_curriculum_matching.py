@@ -48,11 +48,11 @@ class TestCurriculumMatching:
         
         # Check status of matched items
         status = result.set_index('Subject Code')['Status']
-        assert status['MATH101'] == '✅ Done'
-        assert status['PHYS101'] == '✅ Done'
-        assert status['ELEC101'] == '✅ Done'
-        assert status['ELEC102'] == '❌ Missing'
-        assert status['CORE101'] == '❌ Missing'
+        assert status['MATH101'] == 'Done ✅'
+        assert status['PHYS101'] == 'Done ✅'
+        assert status['ELEC101'] == 'Done ✅'
+        assert status['ELEC102'] == 'Missing ❌'
+        assert status['CORE101'] == 'Missing ❌'
     
     def test_generate_progress_summary(self):
         """Test generation of progress summary."""
@@ -60,7 +60,7 @@ class TestCurriculumMatching:
         summary = generate_progress_summary(result)
         
         # Check that summary contains expected columns
-        expected_columns = {'Type', '✅ Done', '❌ Missing', 'Total'}
+        expected_columns = {'Type', 'Done ✅', 'Missing ❌', 'Total'}
         assert set(summary.columns) == expected_columns
         
         # Check specific counts
@@ -68,14 +68,14 @@ class TestCurriculumMatching:
         
         # Check Core subjects
         core_row = summary_dict.loc['Core']
-        assert core_row['✅ Done'] == 2  # MATH101, PHYS101
-        assert core_row['❌ Missing'] == 1  # CORE101
+        assert core_row['Done ✅'] == 2  # MATH101, PHYS101
+        assert core_row['Missing ❌'] == 1  # CORE101
         assert core_row['Total'] == 3  # Total Core subjects
         
         # Check Elective subjects
         elec_row = summary_dict.loc['Elective']
-        assert elec_row['✅ Done'] == 1  # ELEC101
-        assert elec_row['❌ Missing'] == 1  # ELEC102
+        assert elec_row['Done ✅'] == 1  # ELEC101
+        assert elec_row['Missing ❌'] == 1  # ELEC102
         assert elec_row['Total'] == 2  # Total Elective subjects
     
     def test_suggest_electives(self):
@@ -94,7 +94,7 @@ class TestCurriculumMatching:
         
         # All curriculum items should be missing
         status = result.set_index('Subject Code')['Status']
-        assert all(status == '❌ Missing')
+        assert all(status == 'Missing ❌')
 
 # Fixture for sample data
 @pytest.fixture

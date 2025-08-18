@@ -212,11 +212,31 @@ def download_processed_data(parent):
         
         # Get the data
         results_df = parent.data_processor.results_df
+        transcript_df = parent.data_processor.transcript_df
         
-        # Generate summary and electives data
-        from core.engine import generate_progress_summary, suggest_electives
-        summary_df = generate_progress_summary(results_df)
-        electives_df = suggest_electives(results_df)
+        # Generate summary and electives data (use v2 engine + canonical bank)
+        from core.engine import (
+            generate_progress_summary_v2,
+            suggest_electives_v2,
+        )
+
+        # Determine which course bank to use (ADIT/MSIT)
+        course_key = getattr(parent, 'selected_course', 'ADIT')
+        course_key = (course_key or 'ADIT').strip().upper()
+        if course_key == 'MSIT':
+            from data.courses.msit_ad import load_elective_bank_df as _load_bank
+        else:
+            from data.courses.adit21 import load_elective_bank_adit_df as _load_bank
+
+        elective_bank_df = _load_bank()
+
+        summary_df = generate_progress_summary_v2(results_df)
+        electives_df = suggest_electives_v2(
+            results_df,
+            elective_bank_df,
+            transcript_df,
+            max_electives=20
+        )
         
         # Choose directory for saving
         directory = QFileDialog.getExistingDirectory(
@@ -231,7 +251,7 @@ def download_processed_data(parent):
         # Save all files
         results_file = f"{directory}/results_{timestamp}.csv"
         summary_file = f"{directory}/summary_{timestamp}.csv"
-        electives_file = f"{directory}/electives_{timestamp}.csv"
+        electives_file = f"{directory}/suggested_electives_{timestamp}.csv"
         
         results_df.to_csv(results_file, index=False)
         summary_df.to_csv(summary_file, index=False)
@@ -244,7 +264,7 @@ def download_processed_data(parent):
             f"Processed data saved successfully!\n\n"
             f"📄 Results: results_{timestamp}.csv\n"
             f"📊 Summary: summary_{timestamp}.csv\n"
-            f"🧠 Electives: electives_{timestamp}.csv\n\n"
+            f"🧠 Suggested Electives: suggested_electives_{timestamp}.csv\n\n"
             f"📁 Location: {directory}"
         )
         

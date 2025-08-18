@@ -26,7 +26,10 @@ def test_normalize_subject_codes_removes_symbols():
     assert out["Subject Code"].tolist() == ["ITW601", "REM502", "ITA602", "BIZ501"]
 
 
-def test_suggest_electives_v2_respects_prereqs():
+def test_suggest_electives_v2_respects_prereqs(monkeypatch):
+    # Force prereq checks ON for this test only
+    import core.engine as engine
+    monkeypatch.setattr(engine, "PREREQ_CHECK_ENABLED", True, raising=False)
     # transcript has only ITW601 completed
     transcript_df = pd.DataFrame({
         "Subject Code": ["ITW601"],
@@ -46,7 +49,7 @@ def test_suggest_electives_v2_respects_prereqs():
         "Subject Code": ["CORE100"],
         "Subject Name": ["Some Core"],
         "Type": ["core"],
-        "Status": ["❌ Missing"],
+        "Status": ["Missing ❌"],
     })
 
     recs = suggest_electives_v2(result_df, elective_bank_df, transcript_df, max_electives=3)
