@@ -143,12 +143,12 @@ def clean_topic_name(name: str, *, lower: bool = True) -> str:
 ---
 
 ### 🔧 In Progress
-
-- ***thinking about new logo and working on pitch deck***
+- N/A
 
 ---
 
 ### 🗂️ Backlog
+- N/A
 
 #### Future
 - Google Maps/TikTok API for getting reviews
