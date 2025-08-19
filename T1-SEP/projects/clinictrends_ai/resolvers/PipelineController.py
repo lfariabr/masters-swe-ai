@@ -67,8 +67,8 @@ class MLpipelineController:
     def load_and_validate_data(self, uploaded_file) -> bool:
         """Load and validate uploaded CSV data."""
         try:
-            with st.spinner("🔄 Loading and validating data..."):
-                send_discord_message("🔄 Starting enhanced ML pipeline data validation")
+            # with st.spinner("🔄 Loading and validating data..."):
+            #     send_discord_message("🔄 Starting enhanced ML pipeline data validation")
                 
             uploaded_file.seek(0)            
             self.df = pd.read_csv(uploaded_file)
