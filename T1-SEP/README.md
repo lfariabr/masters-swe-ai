@@ -1,3 +1,5 @@
+# Software Engineering Principles
+
 ## Introduction
 In this subject the students are introduced to the main project management principles and modern software project management practices. During the subject, the different methods for managing and optimising the software development process are discussed along with the different techniques for performing each phase of the software development life cycle. The emphasis is on the management aspect of the subject.
 
