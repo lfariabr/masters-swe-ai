@@ -49,20 +49,21 @@ Term | Subject | Status | Lecturer | Directory | Credit Points
 | T3-25 | Mathematical Foundations of AI (***Core***) | 🕐 | TBD | [MFA501](./T3-Mathematical-Foundations-of-AI/) | 10
 | T3-25 | Research Methodologies (***Core***) | 🕐 | TBD | [REM502](./T3-Research-Methodologies/) | 10
 | T3-25 | Secure By Design (***Core***) | 🕐 | TBD | [SBD402](./T2-Secure-By-Design/) | 10
-| T1-26 | Intelligent Systems (***Core***) | 🕐 | TBD | [ISY503](./T1-Intelligent-Systems/) | 10
-| T1-26 | Cloud Computing Fundamentals (***Elective***) | 🕐 | TBD | [CCF501](./T1-Cloud-Computing-Fundamentals/) | 10
 
 ***Backlog - T2-26 onwards:***
-- Core: 
-    - Machine Learning (MLN601 - 10CP)
-    - Deep Learning (DLE602 - 10CP)
-    - Technology - Work Integrated Learning I (TWL604 - 20CP)
-    - Advanced Technology - Work Integrated Learning (ATW606 - 30CP)
-- Electives (***to be defined...***): 
-    - DevOps Tools (DOT503 - 10CP)
-    - Cloud Computing Fundamentals (CCF501 - 10CP)
-    - Cyber Security Principles (CPO442 - 10CP)
-    - User Experience Design (DID602A - 10CP)
+Core (***mandatory***): 
+- Intelligent Systems (ISY503 - 10CP)
+- Cloud Computing Fundamentals (CCF501 - 10CP) *1st elective*
+- Machine Learning (MLN601 - 10CP)
+- Deep Learning (DLE602 - 10CP)
+- Technology - Work Integrated Learning I (TWL604 - 20CP)
+- Advanced Technology - Work Integrated Learning (ATW606 - 30CP)
+
+Electives (***to be defined...***): 
+- Cloud Computing Fundamentals (CCF501 - 10CP) *?*
+- DevOps Tools (DOT503 - 10CP)
+- Cyber Security Principles (CPO442 - 10CP)
+- User Experience Design (DID602A - 10CP)
 
 #### Goals
 - [🔥] Complete course materials for all subjects
