@@ -49,8 +49,8 @@ Term | Subject | Status | Lecturer | Directory | Credit Points
 | T2 | Software Engineering Principles (***Core***) 2025 | ✅ | Dr. Ranju | [SEP401](./T1-SEP/) | 10
 | T3 | Human Centered Design (***Core***) 2025 | 🔥 | Dr. Md Whaiduzzaman | [HCD402](./T3-HCD/) | 10
 | T3 | Mathematical Foundations of AI (***Core***) 2025 | 🔥 | Dr. James Vakilian | [MFA501](./T2-MFA/) | 10
-| T3 | Research Methodologies (***Core***) 2025 | 🕐 | TBD | [REM502](./T3-REM/) | 10
-| T3 | Secure By Design (***Core***) 2025 | 🕐 | TBD | [SBD402](./T2-SBD/) | 10
+| T3 | Research Methodologies (***Core***) 2025 | 🔥 | TBD | [REM502](./T3-REM/) | 10
+| T3 | Secure By Design (***Core***) 2025 | 🔥 | Dr. Dimanthinie De Silva | [SBD402](./T2-SBD/) | 10
 
 ***Backlog - T2-26 onwards:***
 Core (***mandatory***): 
@@ -84,7 +84,7 @@ While this is primarily a personal repository, I welcome discussions and constru
 |---------|---------------------|---|---|
 | 1.0.0   | T2-2025 Launch SDM+SEP subjects     | 06-2025 | ✅ |
 | 1.2.0   | T2-2025 Completed (SDM+SEP)         | 08-2025 | ✅ |
-| 2.0.0   | T3-2025 Launch (HCD+MFA+REM+SBD)    | 08-2025 | 🕐 |
+| 2.0.0   | T3-2025 Launch (HCD+MFA+REM+SBD)    | 09-2025 | ✅ |
 | 2.4.0   | T3-2025 Completed (HCD+MFA+REM+SBD) | 12-2025 | 🕐 |
 | 3.0.0   | T1-2026 Launch (TBD)                | 02-2026 | 🕐 |
 | 3.2.0   | T1-2026 Completed (TBD)             | 05-2026 | 🕐 |
