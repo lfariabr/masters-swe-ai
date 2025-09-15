@@ -29,7 +29,7 @@ Take a deep dive into how I'm approaching projects and the progress I'm making.
 Project | Description | Status | Repository | URL |
 |---------|---------------------|----------------|----------------|----------------|
 | **ExcelPilot** | API built with Node.js, Express, Apollo Server, MongoDB, Redis and TypeScript. Features secure JWT auth, GraphQL queries/mutations, and openAi. | 🔥 | [Here](https://github.com/lfariabr/excel-pilot) | 🔥 |
-| **ZD Project** | Personal Blog using MERN stack with React Native Blog Component, hosted on AWS EC2 server and Resend for Customer Relationship Management (CRM) | ✅ | [Here](https://github.com/lfariabr/z-project.git) | [Here](https://zerodopamine.com/) |
+| **ZD Project** | Personal Blog using MERN stack with React Native Blog Component + Resend for CRM. Hosted on AWS EC2 server. | ✅ | [Here](https://github.com/lfariabr/z-project.git) | [Here](https://zerodopamine.com/) |
 | **Wedstack** | Wedding invitation web application with Next.js, TypeScript, Node.js, GraphQL and Stripe — with real-time content, gift handling, presence confirmation and a memory lane. | ✅ | [Here](https://github.com/lfariabr/wedstack) | [Here](https://weddingln.com/) |
 | **ClinicTrendsAI** | Streamlit App to analyze survey records and generate insights using Machine Learning, NLP and Data Visualization. | ✅ | [Here](./T1-SEP/projects/clinictrends_ai) | [Here](https://sep-torrens-dr-ranju-group-1.streamlit.app/) | 
 | **TTrack** | PyQt5 desktop app to help academic staff track course progress by comparing a student’s transcript X course curriculum using matching algorithms. | ✅ | [Here](./T1-SDM/projects/TTrack_v1) | [Here](https://www.youtube.com/watch?v=J9bxv1EJ8yU&t) |
@@ -49,7 +49,7 @@ Term | Subject | Status | Lecturer | Directory | Credit Points
 | T2 | Software Engineering Principles (***Core***) 2025 | ✅ | Dr. Ranju | [SEP401](./T1-SEP/) | 10
 | T3 | Human Centered Design (***Core***) 2025 | 🔥 | Dr. Md Whaiduzzaman | [HCD402](./T3-HCD/) | 10
 | T3 | Mathematical Foundations of AI (***Core***) 2025 | 🔥 | Dr. James Vakilian | [MFA501](./T2-MFA/) | 10
-| T3 | Research Methodologies (***Core***) 2025 | 🔥 | TBD | [REM502](./T3-REM/) | 10
+| T3 | Research Methodologies (***Core***) 2025 | 🔥 | Dr. Bushra Naeem | [REM502](./T3-REM/) | 10
 | T3 | Secure By Design (***Core***) 2025 | 🔥 | Dr. Dimanthinie De Silva | [SBD402](./T2-SBD/) | 10
 
 ***Backlog - T2-26 onwards:***

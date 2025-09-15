@@ -4,7 +4,7 @@
 Research and development (R&D) in the Information Communication Technology (ICT) sector is critical for an organisation’s growth and sustainability. Identifying ICT related challenges and producing timely, informed solutions ensures an organisation’s competitive advantage in the industry. This subject introduces students to the life cycle of the R&D process. This starts with problem formulation through critical thinking approaches and competition analysis through literature review and market analysis. Students will evaluate and propose research-informed, innovative ICT solutions with quantitative and qualitative analysis. This will be followed by communication of the solutions to the relevant stakeholders for appraisal and agile development. Ethical principles will also be examined and applied to the design of R&D solutions. On successful completion of this subject, students will be able to lead projects in research- informed ICT innovations and contribute to both professional and academic communities.
 
 ## Learning Facilitator
-???
+Dr. Bushra Naeem
 
 ## Modules
 - [ ] Module 1 - Introduction to Research Methodologies and Research Topic
