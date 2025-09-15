@@ -4,7 +4,7 @@
 This subject explores several non-technical aspects of software development, especially pertaining to human behaviour and interactions to emphasise the human aspects of technology. The subject covers the basic theories of knowledge, human cognition, ethical and moral values, creative aspects of the human mind and social interaction among human beings through a technological context. Students will use their existing knowledge and specialised skills to help formulate and suggest innovative solutions to problems that affect diverse societies.
 
 ## Learning Facilitator
-Dr. Md Whaiduzzaman
+Dr. Omid Haass
 
 ## Modules
 - [ ] Module 1 - Introduction to Human Centered Design (HCD)
