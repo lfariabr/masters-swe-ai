@@ -4,7 +4,7 @@
 Secure by Design introduces students to the security lifecycle of IT systems such as secure design methodologies, development of secure software and implementation and risk assessment of IT systems. Students are presented with insights into the use and scope of relevant industry standards such as OWASP or Common Criteria (ISO/IEC 15408) which are integral components of this subject. Through application of the skills and knowledge acquired throughout this subject, students have the opportunity to build the appropriate security into systems that maintain the integrity, safety and functionality of IT systems while being exposed to cyber threats.
 
 ## Learning Facilitator
-Dr. Dimanthinie De Silva
+Dr. Tanvir Rahman
 
 ## Modules
 - [ ] Module 1 - Introduction to Secure by Design: Terminology and Basic Concepts
