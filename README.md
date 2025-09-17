@@ -45,12 +45,12 @@ Project | Description | Status | Repository | URL |
 #### Academic Journey
 Term | Subject | Status | Lecturer | Directory | Credit Points
 |-----------|---------------------|----------------|----------------|----------------|----------------|
-| T2 | Software Development Management (***Core***) 2025 | ✅ | Dr. Atif | [SDM404](./T1-SDM/) | 10
-| T2 | Software Engineering Principles (***Core***) 2025 | ✅ | Dr. Ranju | [SEP401](./T1-SEP/) | 10
-| T3 | Human Centered Design (***Core***) 2025 | 🔥 | Dr. Md Whaiduzzaman | [HCD402](./T3-HCD/) | 10
+| T2 | Software Development Management (***Core***) 2025 | ✅ | Dr. Muhammad Atif | [SDM404](./T1-SDM/) | 10
+| T2 | Software Engineering Principles (***Core***) 2025 | ✅ | Dr. Ranju Mandal | [SEP401](./T1-SEP/) | 10
+| T3 | Human Centered Design (***Core***) 2025 | 🔥 | Dr. Omid Haass | [HCD402](./T3-HCD/) | 10
 | T3 | Mathematical Foundations of AI (***Core***) 2025 | 🔥 | Dr. James Vakilian | [MFA501](./T2-MFA/) | 10
 | T3 | Research Methodologies (***Core***) 2025 | 🔥 | Dr. Bushra Naeem | [REM502](./T3-REM/) | 10
-| T3 | Secure By Design (***Core***) 2025 | 🔥 | Dr. Dimanthinie De Silva | [SBD402](./T2-SBD/) | 10
+| T3 | Secure By Design (***Core***) 2025 | 🔥 | Dr. Tanvir Rahman | [SBD402](./T2-SBD/) | 10
 
 ***Backlog - T2-26 onwards:***
 Core (***mandatory***): 
