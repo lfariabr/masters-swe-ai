@@ -7,7 +7,7 @@ Research and development (R&D) in the Information Communication Technology (ICT)
 Dr. Bushra Naeem
 
 ## Modules
-- [ ] Module 1 - Introduction to Research Methodologies and Research Topic
+- [X] Module 1 - Introduction to Research Methodologies and Research Topic
 - [ ] Module 2 - Research Problems, Questions, Aims, Objectives and Hypotheses
 - [ ] Module 3 - Situating Your Research in the Broader Context – The Annotated
 - [ ] Module 4 - The Literature Review
