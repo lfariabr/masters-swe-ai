@@ -23,20 +23,22 @@ identify areas that interest you and then narrow it down to a specific topic.
 Take advantage of the opportunity to study something of pure interest and think on mid-long term goals tied to my future career and pathway here in Australia, earning that masters degree, PR, new job opporunities, opening opportunity for Doctoral or studies.
 > R: Exactly
 
-2) do you have any interesting cases that you could share?
-> R: ... ?
-Broad topic: "Impact of Social Media on Education"
-Refined problem: "How does daily use of social media affect student academic performance in Australian universities?"
+2) Do you have any interesting cases that you could share?
+> R: Broad topic: "Impact of Social Media on Education"
+> Refined problem: "How does daily use of social media affect student academic performance in Australian universities?"
 
 ## Follow up
 ### Interest Areas
 1) AI Insights from Customer Voices: Correlating Sentiment Analysis with Business Performance in Healthcare Clinics
-    - https://learning.oreilly.com/library/view/growth-product-managers/9781837635955/B19400_FM.xhtml
-    - https://learning.oreilly.com/library/view/mastering-customer-success/9781835469033/?sso_link=yes&sso_link_from=torrens-edu
-    - https://ieeexplore.ieee.org/document/9841017
-    - https://www.sciencedirect.com/science/article/pii/S036083522200256X
-    - https://www.sciencedirect.com/science/article/abs/pii/S0278431922002717?via%3Dihub
-    - https://research.ebsco.com/c/4jvgoe/viewer/pdf/rjlu3umid5?route=details
+
+**References:**
+1. Growth Product Manager’s Handbook; ***Eve Chen*** - https://learning.oreilly.com/library/view/growth-product-managers/9781837635955/B19400_FM.xhtml 
+2. Mastering Customer Success; ***Jeff Mar, Peter Armaly*** - https://learning.oreilly.com/library/view/mastering-customer-success/9781835469033/?sso_link=yes&sso_link_from=torrens-edu
+3. Better Angry Than Afraid: The Case of Post Data Breach Emotions on Customer Engagement; ***John N. Angelis; Rajendran S. Murthy; Tanya Beaulieu; Joseph C. Miller*** - https://ieeexplore.ieee.org/document/9841017
+4. Towards Lean Automation: Fine-Grained sentiment analysis for customer value identification; ***Yan Xiao, Congdong Li, Matthias Thürer, Yide Liu, Ting Qu*** - https://www.sciencedirect.com/science/article/pii/S036083522200256X
+5. Measuring patient experience in healthcare; ***Maksim Godovykh, Abraham Pizam*** - https://www.sciencedirect.com/science/article/pii/S0278431922002717?via%3Dihub
+6. The net promoter score: What should managers know?; ***John G. Dawes*** - https://research.ebsco.com/c/4jvgoe/viewer/pdf/rjlu3umid5?route=details
+
 2) Knowledge Management in AI-Enhanced Software Projects
     - tbd
 3) AI and Human Resilience: Designing Systems that Balance Automation with Human Agency
