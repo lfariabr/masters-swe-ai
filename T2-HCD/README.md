@@ -7,7 +7,7 @@ This subject explores several non-technical aspects of software development, esp
 Dr. Omid Haass
 
 ## Modules
-- [ ] Module 1 - Introduction to Human Centered Design (HCD)
+- [X] Module 1 - Introduction to Human Centered Design (HCD)
 - [ ] Module 2 - Everyday Design of Objects
 - [ ] Module 3 - User Experience Design
 - [ ] Module 4 - Trend-Based Design
