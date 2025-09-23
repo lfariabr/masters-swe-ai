@@ -85,3 +85,38 @@ Intersection of sets:
 
 ## Follow up
 - ...
+
+---
+
+## Module 2 - Vector Spaces, Subspaces, and Linear Transformation
+
+### I. Introduction to linear algebra 
+W.2 → Vectors & vector spaces
+W.3 → Introduction to Matrix theory
+W.4 → Transformations
+W.5 → Eigenvalues & Eigenvectors 
+
+### II. Data & Information
+it can be interpreted as
+- Scalars
+- Vectors
+- Matrices
+- Tensors
+
+### III. Coordinate Systems 
+x and y coordinates
+N-D coordation system:
+P (x,y,z,t) -> Space-Time (Minkowski space) 
+
+### IV. Vectors
+A vector has direction and magnitude (length)
+
+### V. Vector space
+A space with infinite number of vectors
+The better the axioms are defined and covered, the better the vector space will be and the less glitches will be present at given space
+
+### VI. Subspace
+If V is a vector space
+If W is a subset of V
+AND W is a vector space
+Then W is a Subspace of V

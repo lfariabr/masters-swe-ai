@@ -7,8 +7,8 @@ The purpose of this subject is to provide a solid mathematical background that s
 Dr. James Vakilian
 
 ## Modules
-- [ ] Module 1 - Introduction to Sets, Functions and Vectors
-- [ ] Module 2 - Vector Spaces, Subspaces, and Linear Transformation
+- [X] Module 1 - Introduction to Sets, Functions and Vectors
+- [X] Module 2 - Vector Spaces, Subspaces, and Linear Transformation
 - [ ] Module 3 - Matrices
 - [ ] Module 4 - Eigenvalues and Eigenvectors
 - [ ] Module 5 - Derivatives and Integrals
