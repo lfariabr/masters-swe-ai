@@ -68,9 +68,8 @@ Consider you being the member of the CISO-Team (Chief Information Security
 Officer Team) of an enterprise with approx. 300 employees. The business of this
 company is:
 - performing data analysis for hospitals (i.e. how many diagnosises of what type)
-- performing data analysis for retailers (i.e. how many products of what
-type). This data contains no personal data from shoppers such as credit
-cards.
+- performing data analysis for retailers (i.e. how many products of what type). 
+This data contains no personal data from shoppers such as credit cards.
 
 In both instances the data is provided by the respective client. All clients and all client data is from Australia only.
 Because of the sensitive nature of the hospital data, the data is stored on premise while the retail data, because of sheer size, is stored in a cloud storage. The cloud provider fulfills all necessary security standards and resides in Australia.
