@@ -8,7 +8,7 @@ Dr. Tanvir Rahman
 
 ## Modules
 - [X] Module 1 - Introduction to Secure by Design: Terminology and Basic Concepts
-- [ ] Module 2 - Introduction to Cyber-Security Procedures and Risk Management
+- [X] Module 2 - Introduction to Cyber-Security Procedures and Risk Management
 - [ ] Module 3 - Introduction to Cyber-Security Methods
 - [ ] Module 4 - Common Threats and Attacks
 - [ ] Module 5 - Architecture Integration with IT Systems
