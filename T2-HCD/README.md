@@ -8,7 +8,7 @@ Dr. Omid Haass
 
 ## Modules
 - [X] Module 1 - Introduction to Human Centered Design (HCD)
-- [ ] Module 2 - Everyday Design of Objects
+- [X] Module 2 - Everyday Design of Objects
 - [ ] Module 3 - User Experience Design
 - [ ] Module 4 - Trend-Based Design
 - [ ] Module 5 - The Art of Ideation
