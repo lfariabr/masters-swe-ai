@@ -18,3 +18,21 @@ Do you think this balance is right, or should I cut/add a theme?
 
 ## Topic 5 - **Strategic Alignment**
 Since this is a foundation for Assessment 2 and 3, are there adjustments I can make now that will set me up for success in those later tasks (e.g., methodology or proposal structure)?
+
+---
+
+Introduction => identify work + thesis
+Body => analyse point with summary and evaluation
+Conclusivo => overall judgment & final insights
+
+value, number pages
+
+---
+
+## Takeways
+
+1. Get consent from Pro-Corpo on usage of data I have at hands: NPS + gross revenue
+2. Decide between 2 options:
+    - Option 1: Current data (NPS) with extra literature review and compare with other papers
+    - Option 2: Current data (NPS) + data analysis of gross revenue + extra literature review and compare with other papers
+3. Read other papers on same topic and identify frameworks used and how content was broken down
