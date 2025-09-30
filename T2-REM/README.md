@@ -9,7 +9,7 @@ Dr. Bushra Naeem
 ## Modules
 - [X] Module 1 - Introduction to Research Methodologies and Research Topic
 - [X] Module 2 - Research Problems, Questions, Aims, Objectives and Hypotheses
-- [ ] Module 3 - Situating Your Research in the Broader Context – The Annotated
+- [X] Module 3 - Situating Your Research in the Broader Context – The Annotated
 - [ ] Module 4 - The Literature Review
 - [ ] Module 5 - Research Methodologies – Quantitative Research vs Qualitative Research
 - [ ] Module 6 - Research Methodologies – Mixed Method Research
