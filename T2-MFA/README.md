@@ -9,7 +9,7 @@ Dr. James Vakilian
 ## Modules
 - [X] Module 1 - Introduction to Sets, Functions and Vectors
 - [X] Module 2 - Vector Spaces, Subspaces, and Linear Transformation
-- [ ] Module 3 - Matrices
+- [X] Module 3 - Matrices
 - [ ] Module 4 - Eigenvalues and Eigenvectors
 - [ ] Module 5 - Derivatives and Integrals
 - [ ] Module 6 - Gradient and Optimisation
@@ -21,7 +21,7 @@ Dr. James Vakilian
 - [ ] Module 12 - First Order Logic in AI
 
 ## Assignments
-- [ ] Assessment 1 - deadline 05/10/2025 (This quiz is locked until Sep 29 at 12:00.)
+- [X] Assessment 1 - deadline 05/10/2025
 - [ ] Assessment 2A - deadline 26/10/2025
 - [ ] Assessment 2B - deadline 23/11/2025
 - [ ] Assessment 3 - deadline 03/12/2025
