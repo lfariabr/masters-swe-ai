@@ -81,25 +81,16 @@ The executives of the company (CEO, CFO and CMO) as well as their PA should not 
 #### Instructions
 You will be asked to write a design guide how to create a secure environment for the enterprise since the client demand information about the safety of their data. This includes addressing the following topics:
 
-- What kind of user training is required and explain why this suggested
-training is required to achieve a better cyber security?
+- What kind of user training is required and explain why this suggested training is required to achieve a better cyber security?
 - Perform a risk assessment to identify at least 5 major risks?
-- What technical and/or organisational methods can be deployed to mitigate
-assessed risks? Name at least four technical and two organisational
-methods and indicate on how to deploy them. Describe the impact on the
-users ability to work for each method.
+- What technical and/or organisational methods can be deployed to mitigate assessed risks? Name at least four technical and two organisational methods and indicate on how to deploy them. Describe the impact on the users ability to work for each method.
 - If applicable identify mandatory methods out of the list created.
 - Describe if user groups and user rights need to be implemented in the
     - analysis application and
     - the basic IT system (E-Mail, PC-Login etc.)
-- Create an appropriate password rule for user accounts both in the
-application and for general IT and administration accounts (administrator,
-root, etc.). Explain why you chose this rule or those rules and align that
-with current standards (such as NIST)
-- Define the required security measures for the storage and align them with
-current standards
-- A recommendation for a plan of action for creating and maintaining proper
-information security.
+- Create an appropriate password rule for user accounts both in the application and for general IT and administration accounts (administrator, root, etc.). Explain why you chose this rule or those rules and align that with current standards (such as NIST)
+- Define the required security measures for the storage and align them with current standards
+- A recommendation for a plan of action for creating and maintaining proper information security.
 - A recommendation for a plan to sustain business availabilities.
 - A reference to relevant security and governance standards.
 - A brief discussion on service quality vs security assurance trade-off (less than 500 words).
@@ -129,12 +120,10 @@ Length: 1,500 words + 4-6 minutes presentation with a poster
 Due Date: 03/12/2025
 
 #### Summary: 
-Cyber Security relies on well designed and implemented systems and
-applications. It is a crucial task to create a design document that addresses not only the desired technical features but all security related constraints and design systems. If such a design document lacks clarity and completeness, the resulting implementation is very likely flawed and creates a security risk.
+Cyber Security relies on well designed and implemented systems and applications. It is a crucial task to create a design document that addresses not only the desired technical features but all security related constraints and design systems. If such a design document lacks clarity and completeness, the resulting implementation is very likely flawed and creates a security risk.
 
 #### Instructions: 
-You are tasked to create a security design guide for a web based data retrieval
-application. This design guide must include all required security measures, their references to applicable standards (i.e. OWASP, ISO 27001) and the specification of technical methods, such as encryption algorithms or encrypted data transport. 
+You are tasked to create a security design guide for a web based data retrieval application. This design guide must include all required security measures, their references to applicable standards (i.e. OWASP, ISO 27001) and the specification of technical methods, such as encryption algorithms or encrypted data transport.  
 It is not necessary to include technical details on how the system should be coded or how the GUI design should look like. The guide must concentrate on the security aspects of the application. 
 
 The application is divided into three parts; Request, Retrieve and Review
