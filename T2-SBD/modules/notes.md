@@ -127,3 +127,60 @@ D(8) + R(9) + E(8) + A(8) + D(8) = **40/5** = **8 (high severity)**
 - compliance with industry regulations and standards
 - executive involvement in risk management decisions
 
+## Module 3 - Introduction to Cyber-Security Methods
+
+### Common Technical measures:
+1. Firewall: filter traffic, block threats
+2. Anti-virus: detect and remove harmful software
+3. Access control: determine who can access what
+4. Encryption: secure data during storage and transmission
+5. Back up systems: provide recovery in case of data loss
+
+### When Good measures backfire
+Example: Disabling all internet access except during business hours
+White it may stop external attacks, it disrupts email, research and collaboration
+Security is important, but if users can't do their job, the system fails
+
+### The Human Factor
+1. Users may struggle with or ignore inconvenient controls
+2. Complex password rules often lead to users writing them down
+3. Poor usability leads to non-compliance or workarounds - and ultimately, insecurity
+4. Human-centered design is essential
+
+### CIA and IAM
+**CIA**: Confidentiality, Integrity, Availability
+**IAM**: Identity and Access Management
+
+Five A's:
+Authentication: verifies user identify (passwords, biometrics, MFA)
+Authorization: grants access based on roles/privileges
+Administration: managers user roles, permissions, credetials
+Audit: records activity logs for accountabilities
+Analytics: Identifies unusual patterns or access violations
+
+> *Insight: when there's a mismatch on the behavior of users of the system, can we think about an algorithm that maps that and prompts the user to take action, like scan fingerprint or face?*
+
+### What to do in order to keep on top of security:
+Patch and Update Management
+Back up and Recovery
+
+### Physical Security Measures
+- Restrict access to server rooms, endpoints and sensitive areas
+- Use security cameras, access logs and lockable cabinets
+- Example: locking down usb ports to prevent data theft from public kiosks
+- Physical control are often the first and last line of defence
+
+### Challenges in Org Security
+Resistance rom departments due to perceived complexity
+Budget limitations and lack of exec support
+Lack of clarity in roles and responsibilities
+
+Example: overlap in IT and security response causes delay
+Solutions: Awareness campaigns, governance alignment and automation
+
+### Key Takeaways
+Technical countermeasures reduce risk but must fit the business context
+The CIA triad is central to evaluating control effectiveness
+IAM structures access and prevents abuse
+Balance is needed between strict controls and operational efficiency
+Strategy, training and planning are as important as tools
