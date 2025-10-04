@@ -56,5 +56,13 @@ https://www.youtube.com/watch?v=ecCXzW6M2o4 (left from week 02)
 
 ### Takeways:
 1. Work on assessment 1 which is due next week
-2. Form Groups!
+2. Form Groups! - send a message to Julio
+
+## Module 4 - Trend-Based Design
+
+### Core Idea
+Trend-based design connects emerging behaviors, technologies and social values to future product opportunities
+Instead of guessing what users want, it observes patterns of change (in culture, economy, tech, etc) and translates them into design strategy
+
+
 
