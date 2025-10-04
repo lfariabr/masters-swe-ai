@@ -228,3 +228,36 @@ A^-1 = [ (a22/det(A)) (-a12/det(A))
 
 ### Extra Reading
 https://www.linkedin.com/pulse/linear-algebra-fuels-artificial-intelligence-kayode-odeyemi/
+
+## Module 4 - Eigenvalues and Eigenvectors
+
+### Context
+
+**Eigenvectors**
+- Definition: A non-zero vector v that remains on its own span after a linear transformation A. 
+- Geometric Interpretation: When a matrix A is applied to an eigenvector v, the resulting vector Av is parallel to the original vector v, meaning it points in the same or opposite direction. 
+- Naming: The German prefix "eigen" means "self" or "own," suggesting the vector's intrinsic or characteristic property of the transformation. 
+
+**Eigenvalues**
+- Definition: A scalar λ that represents the factor by which an eigenvector is scaled during the transformation. 
+- Geometric Interpretation: The eigenvalue indicates whether the eigenvector is stretched (if λ > 1), shrunk (if 0 < λ < 1), or has its direction reversed (if λ < 0). 
+- Connection to Matrix: For a given matrix, each eigenvector has a corresponding eigenvalue, and multiple eigenvalues (up to the matrix's dimension) can exist. 
+
+> Note: The eigenvector is a direction that remains unchanged after a transformation (it’s the "copy" that only scales).
+> The eigenvalue is the scalar factor that tells us if that copy is stretched, shrunk, or flipped along that direction.
+
+### I. Image Processing
+
+### II. Transformation
+
+### III. Two types of Transformation
+
+### IV. Linear Transformation
+
+### V. Geometrical Interpretation of Matrices
+
+### VI. Matrix Transformation
+
+### VII. Different types of Matrix Transformation
+
+### VIII. Tutorial
