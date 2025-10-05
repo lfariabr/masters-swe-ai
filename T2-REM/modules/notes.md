@@ -44,3 +44,8 @@ Take advantage of the opportunity to study something of pure interest and think 
 3) AI and Human Resilience: Designing Systems that Balance Automation with Human Agency
     - tbd
 
+
+## Module 4 - The Literature Review
+
+- share consent letter with Dr. Naeem
+- prepare data to cross nps x sales kpis
