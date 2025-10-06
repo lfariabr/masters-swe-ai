@@ -228,3 +228,24 @@ A^-1 = [ (a22/det(A)) (-a12/det(A))
 
 ### Extra Reading
 https://www.linkedin.com/pulse/linear-algebra-fuels-artificial-intelligence-kayode-odeyemi/
+
+## Module 4 - Eigenvalues and Eigenvectors
+Linear Transformations, Eigenvalues and Eigenvectors
+
+### I. Image Processing
+- Image processing → operations performed on images to improve quality or extract information.
+- In real-world applications, images are represented as collections of pixels.
+
+### II. Transformation
+
+### III. Two types of Transformation
+
+### IV. Linear Transformation
+
+### V. Geometrical Interpretation of Matrices
+
+### VI. Matrix Transformation
+
+### VII. Different types of Matrix Transformation
+
+### VIII. Tutorial
