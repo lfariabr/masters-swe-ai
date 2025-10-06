@@ -28,7 +28,8 @@ Take a deep dive into how I'm approaching projects and the progress I'm making.
 
 Project | Description | Status | Repository | URL |
 |---------|---------------------|----------------|----------------|----------------|
-| **ExcelPilot** | API built with Node.js, Express, Apollo Server, MongoDB, Redis and TypeScript. Features secure JWT auth, GraphQL queries/mutations, and openAi. | 🔥 | [Here](https://github.com/lfariabr/excel-pilot) | 🔥 |
+| **ExcelPilot FE** | Chat system for Excel Pilot API built with Next.js, TypeScript, TailwindCSS, ShadCN, Apollo Client, Next.Auth, JWT. | 🔥 | [Here](https://github.com/lfariabr/excel-pilot-front) | 🔥 |
+| **ExcelPilot BE** | API built with Node.js, Express, Apollo Server, MongoDB, Redis and TypeScript. Features secure JWT auth, GraphQL queries/mutations, and openAi. | 🔥 | [Here](https://github.com/lfariabr/excel-pilot) | 🔥 |
 | **ZD Project** | Personal Blog using MERN stack with React Native Blog Component + Resend for CRM. Hosted on AWS EC2 server. | ✅ | [Here](https://github.com/lfariabr/z-project.git) | [Here](https://zerodopamine.com/) |
 | **Wedstack** | Wedding invitation web application with Next.js, TypeScript, Node.js, GraphQL and Stripe — with real-time content, gift handling, presence confirmation and a memory lane. | ✅ | [Here](https://github.com/lfariabr/wedstack) | [Here](https://weddingln.com/) |
 | **ClinicTrendsAI** | Streamlit App to analyze survey records and generate insights using Machine Learning, NLP and Data Visualization. | ✅ | [Here](./T1-SEP/projects/clinictrends_ai) | [Here](https://sep-torrens-dr-ranju-group-1.streamlit.app/) | 
