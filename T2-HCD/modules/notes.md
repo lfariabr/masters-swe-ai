@@ -58,3 +58,27 @@ https://www.youtube.com/watch?v=ecCXzW6M2o4 (left from week 02)
 1. Work on assessment 1 which is due next week
 2. Form Groups!
 
+## Module 4 - Trend-Based Design
+
+Benefits of trend-based design:
+1) Stronger human connection, by keeping products emotionally and culturally relevant by reflecting real users values and interests
+2) Cross disciplinary collab: design, Mkt, research, engineering working together on solutions
+3) Enhancing customer satisfaction and engagement through relevant and timely deisngs
+4) Gaining a competitive edge by offering products aligned with current market demands
+5) Driving innovation and creativity by leveraging emerging patterns and insights
+
+Identify the top 5 tech and design trends in 2026
+- sustainable solutions in material/energy
+- gen AI as core design tool
+- quantum computing in financial modeling/logistics
+- next-gen cyber security attached to UX
+- home automation advanced features
+
+### Extra videos:
+https://www.youtube.com/watch?v=BYQ5ApjPVB0 
+https://www.youtube.com/watch?v=ZXx-y7gut9I
+https://www.youtube.com/watch?v=B18Tn4Dbva0 
+https://www.youtube.com/watch?v=hTz6cPyQiTQ
+https://www.youtube.com/watch?v=RHDSNx5U3BM
+https://www.youtube.com/watch?v=OLtobPnEQN0 
+https://www.youtube.com/watch?v=R7b6uPD1W5g
