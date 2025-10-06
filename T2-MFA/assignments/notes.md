@@ -44,6 +44,30 @@ This assessment task is due in two stages throughout the trimester as outlined a
 
 Mathematical Foundations of AI. The Learning Facilitator will provide feedback via the Grade Centre on Blackboard. Feedback can be viewed in My Grades
 
+#### Assessment 2A
+Instructions for Assessment 2-Part A.
+1. Assessment due date: Sunday 11:55 pm - Week 6
+2. Weight: 20%
+3. You are given a set of programming exercises (Set 1) (with 2 exercises).
+4. Write the code for these 2 exercises (10% for each).
+5. Using toolbox/functions/libraries for the related assignments (instead of writing the code yourself) does not align with the requirements of this assessment.
+6. Submission Format: You need to submit two zip files (i.e., “Problem 1” and “Problem 2”).
+- Each zip file should include the following for the relevant problem:
+    - a. Release Build: An executable release build must be included with the submission. Ensure project settings are set to Release when creating this build.
+    - b. Source Code: All relevant source code files and project files.
+    - c. Reflective Report (Word): This should provide a detailed account of your research, critical analysis, findings, results, and references. This report should be at the postgraduate level. It should also contain your algorithm and why you have chosen this method over other methods.
+    - d. A video of the program's run: You need to record your screen while running the program and fully demonstrate the correct execution of your code with the results.
+    - e. Your code is in a text file, so the system automatically checks the AI issues.
+7. For further information, you may refer to the assessment brief.
+
+##### **Set 1**
+1. Write a program based on a recursive function to calculate the determinant of a nxn general matrix
+2. Write a program to find the Eigenvalues, Eigenvectors, and Eigenspaces of a nxn general matrix
+
+##### **Set 2**
+1. Write a program to calculate the Integral of a general function
+2. Write a program that calculates the gradient for RRBF_type1 or RRBF_type2 (choose the one you prefer). Refer to this paper: https://research.ijcaonline.org/volume92/number3/pxc3894955.pdf
+
 ## Assessment 3
 ### Assessment 3: **Project Brief** 
 Assessment: Solve an AI Problem set
