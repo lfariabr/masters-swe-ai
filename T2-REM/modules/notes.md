@@ -13,12 +13,12 @@ ethics - what are restrictions and requirements?
 
 identify areas that interest you and then narrow it down to a specific topic.
 
-## Takeways:
+### Takeways:
 - Identify 3-4 broad interest areas
 - Find 2-3 articles related to each of the interest areas
 - Share with Lecturer for validation
 
-## Questions for Dr. Bushra Naeem:
+### Questions for Dr. Bushra Naeem:
 1) so the idea is that I identify areas of interest, do some research on them, try to narrow down a few paths and share with you, so you'll be able to guide me?
 Take advantage of the opportunity to study something of pure interest and think on mid-long term goals tied to my future career and pathway here in Australia, earning that masters degree, PR, new job opporunities, opening opportunity for Doctoral or studies.
 > R: Exactly
@@ -27,8 +27,8 @@ Take advantage of the opportunity to study something of pure interest and think 
 > R: Broad topic: "Impact of Social Media on Education"
 > Refined problem: "How does daily use of social media affect student academic performance in Australian universities?"
 
-## Follow up
-### Interest Areas
+### Follow up
+#### Interest Areas
 1) AI Insights from Customer Voices: Correlating Sentiment Analysis with Business Performance in Healthcare Clinics
 
 **References:**
@@ -44,3 +44,16 @@ Take advantage of the opportunity to study something of pure interest and think 
 3) AI and Human Resilience: Designing Systems that Balance Automation with Human Agency
     - tbd
 
+## Module 2 - Research Problems, Questions, Aims, Objectives and Hypotheses
+
+## Module 3 - Situating Your Research in the Broader Context – The Annotated Bibliography
+
+## Module 4 - The Literature Review
+
+Piece of work that summarizes and critically evaluates existing research on the topic.
+It justifies the need for the research.
+
+### Questions
+
+1. Is my approach making sense?
+2. Validate if letter is good to go, she said yes.

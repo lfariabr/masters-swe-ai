@@ -47,6 +47,8 @@ It is essential that you use appropriate APA style for citing and referencing re
 Please see more information on reference here
 http://library.laureate.net.au/research_skills/referencing
 
+---
+
 ## Assessment 2
 ### Assessment 2 Brief: **Briefing** 
 Assessment: Research Tools and Methodologies
@@ -104,6 +106,8 @@ Note that the terms used in the steps listed above are defined as follows:
 #### Referencing
 
 It is essential that you use appropriate APA style for citing and referencing research. Please see more information on referencing here http://library.laureate.net.au/research_skills/referencing
+
+---
 
 ## Assessment 3
 ### Assessment 3 Brief: **Briefing** 
