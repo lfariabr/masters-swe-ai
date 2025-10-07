@@ -21,6 +21,6 @@ Dr. Omid Haass
 - [ ] Module 12 - HCD in the Field
 
 ## Assignments
-- [ ] Assessment 1 - deadline 12/10/2025
+- [X] Assessment 1 - deadline 12/10/2025
 - [ ] Assessment 2 - deadline 09/11/2025
 - [ ] Assessment 3 - deadline 03/12/2025
