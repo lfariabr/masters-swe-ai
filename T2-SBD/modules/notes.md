@@ -184,3 +184,27 @@ The CIA triad is central to evaluating control effectiveness
 IAM structures access and prevents abuse
 Balance is needed between strict controls and operational efficiency
 Strategy, training and planning are as important as tools
+
+## Module 4 - Common Threats and Attacks
+
+### Common Threats
+1. Malware: viruses, Trojans, worms, spyware, adware
+2. Phishing: social engineering attacks
+3. Insider threats: employees with access to sensitive information
+4. Ransomware: encrypts data and demands payment
+5. DDoS: Distributed Denial of Service
+6. SQL Injection: attacks on databases
+7. XSS: Cross-site Scripting
+8. CSRF: Cross-site Request Forgery
+9. Buffer overflow: attacks on memory
+10. Man-in-the-middle: attacks on communication
+
+### Common Attacks
+1. Brute Force: guessing passwords
+2. SQL Injection: attacks on databases
+3. Cross-site Scripting (XSS): attacks on web applications
+4. Cross-site Request Forgery (CSRF): attacks on web applications
+5. Buffer overflow: attacks on memory
+6. Man-in-the-middle: attacks on communication
+
+> PS: Class to be taken today

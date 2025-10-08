@@ -10,7 +10,7 @@ Dr. Tanvir Rahman
 - [X] Module 1 - Introduction to Secure by Design: Terminology and Basic Concepts
 - [X] Module 2 - Introduction to Cyber-Security Procedures and Risk Management
 - [X] Module 3 - Introduction to Cyber-Security Methods
-- [ ] Module 4 - Common Threats and Attacks
+- [X] Module 4 - Common Threats and Attacks
 - [ ] Module 5 - Architecture Integration with IT Systems
 - [ ] Module 6 - IT System Security Assessment
 - [ ] Module 7 - Secure Failure
@@ -21,6 +21,6 @@ Dr. Tanvir Rahman
 - [ ] Module 12 - Security by design in the real world
 
 ## Assignments
-- [ ] Assessment 1 - deadline 12/10/2025
+- [X] Assessment 1 - deadline 12/10/2025
 - [ ] Assessment 2 - deadline 09/11/2025
 - [ ] Assessment 3 - deadline 03/12/2025
