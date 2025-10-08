@@ -187,24 +187,55 @@ Strategy, training and planning are as important as tools
 
 ## Module 4 - Common Threats and Attacks
 
-### Common Threats
-1. Malware: viruses, Trojans, worms, spyware, adware
-2. Phishing: social engineering attacks
-3. Insider threats: employees with access to sensitive information
-4. Ransomware: encrypts data and demands payment
-5. DDoS: Distributed Denial of Service
-6. SQL Injection: attacks on databases
-7. XSS: Cross-site Scripting
-8. CSRF: Cross-site Request Forgery
-9. Buffer overflow: attacks on memory
-10. Man-in-the-middle: attacks on communication
+### Section I: Intro and remembering concepts
+Threat: potential cause of unwanted incident resulting in harm to a system or organization
+Vulnerability: weakness in the system, process or design that can be exploited by an attacker
+Attack: vulnerability acted by threat actor exploiting vulnerabilities
 
-### Common Attacks
-1. Brute Force: guessing passwords
-2. SQL Injection: attacks on databases
-3. Cross-site Scripting (XSS): attacks on web applications
-4. Cross-site Request Forgery (CSRF): attacks on web applications
-5. Buffer overflow: attacks on memory
-6. Man-in-the-middle: attacks on communication
+The relationship: actor exploits vulnerability and attack.
 
-> PS: Class to be taken today
+### Section II: understanding the attacker
+Motive: reason for the attack (money, revenge, politics)
+Means: skills and tools necessary to conduct the attack
+Method: plan for how the attack will be carried out from reckon to execution
+
+Attacker type: 
+**External**
+- script kiddies: inexperienced attackeds with pre-made tools from internet
+- hacktivists: motivated by political or social cause
+- lone wolves: individuals who develop skills over time
+- organized criminals: groups motivated by financial gain
+
+**Internal**
+- unintentional insider: accidentaly causer of breach through negligence, lack of awareness...
+- malicious insider: unhappy or compromised employee who steals data, disrupts sytems
+
+### Section III: common types of attacks
+1. Malicious software
+    - Malware (malicious software)
+        - Spyware: steals data, tracks user activity
+        - Ransomware: encrypts data and demands payment
+        - Trojan: disguises as legitimate software
+        - Virus: corrupts files, damage system
+        - Worm: spreads without any hosts
+2. Human target (social engineering - psychological manipulation)
+    - Phishing: deceives users into disclosing sensitive information
+    - Spear phishing: targets specific individuals
+    - Whaling: targets high-value targets
+    - Pretexting: creates false scenarios to deceive users
+3. Network & connectivity attacks
+    - DDoS: Distributed Denial of Service
+    - Man in the middle: intercepts and modifies communication
+4. Application and Software vulnerabilities
+    - SQL Injection: attacks on databases
+        * send query to sql -> 
+        * stored procedure -> next time, call the query and pass the parameter, no raw-queries
+        * pre compiled queries is fast and experienced
+    - XSS (Cross-Site Scripting)
+        - injection attack where attacker injects malicious scripts (usually JavaScript) into a trusted website
+
+### Section IV: Takeways
+1. Multiple Attack vectors exist - there's no single solution in cybersecurity
+2. Humans are the biggest risk - training and awareness are critical
+3. Assessment and Prioritization matter - use CVSS to focus efforts
+4. Proactive defense works best - understand attackers
