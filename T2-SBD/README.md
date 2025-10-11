@@ -21,6 +21,6 @@ Dr. Tanvir Rahman
 - [ ] Module 12 - Security by design in the real world
 
 ## Assignments
-- [ ] Assessment 1 - deadline 12/10/2025
+- [X] Assessment 1 - deadline 12/10/2025
 - [ ] Assessment 2 - deadline 09/11/2025
 - [ ] Assessment 3 - deadline 03/12/2025
