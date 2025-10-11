@@ -230,34 +230,87 @@ A^-1 = [ (a22/det(A)) (-a12/det(A))
 https://www.linkedin.com/pulse/linear-algebra-fuels-artificial-intelligence-kayode-odeyemi/
 
 ## Module 4 - Eigenvalues and Eigenvectors
-
-### Context
-
-**Eigenvectors**
-- Definition: A non-zero vector v that remains on its own span after a linear transformation A. 
-- Geometric Interpretation: When a matrix A is applied to an eigenvector v, the resulting vector Av is parallel to the original vector v, meaning it points in the same or opposite direction. 
-- Naming: The German prefix "eigen" means "self" or "own," suggesting the vector's intrinsic or characteristic property of the transformation. 
-
-**Eigenvalues**
-- Definition: A scalar λ that represents the factor by which an eigenvector is scaled during the transformation. 
-- Geometric Interpretation: The eigenvalue indicates whether the eigenvector is stretched (if λ > 1), shrunk (if 0 < λ < 1), or has its direction reversed (if λ < 0). 
-- Connection to Matrix: For a given matrix, each eigenvector has a corresponding eigenvalue, and multiple eigenvalues (up to the matrix's dimension) can exist. 
-
-> Note: The eigenvector is a direction that remains unchanged after a transformation (it’s the "copy" that only scales).
-> The eigenvalue is the scalar factor that tells us if that copy is stretched, shrunk, or flipped along that direction.
+Linear Transformations, Eigenvalues and Eigenvectors
 
 ### I. Image Processing
+- Image processing → operations performed on images to improve quality or extract information.
+- In real-world applications, images are represented as collections of pixels.
+
+My take:
+> "Instead of trying to make computers draw hyper-realistic images from scratch, this method uses real photos as puzzle pieces.
+Each face of a 3D object (like the sides of a cube or the panels of a car) is captured as a real photo. 
+> Using projective transformations (basically mathematical formulas that let you tilt, rotate, and scale images correctly in 3D space), the computer assembles these flat photos to make the full 3D object appear real.
+> The result looks like a realistic model you can move or view from different angles, perfect for 3D vision (stereo) or animation.
 
 ### II. Transformation
+T: S -> S'
+P(x,y,z) -> P'(x',y',z')
 
 ### III. Two types of Transformation
+- Linear: preservers linear relationships between variables
+- Non-linear: changes linear relationships between variables
 
+---
+
+** Reflection **
+
+1) What do you understand from transformation?
+
+A transformation is a mathematical operation that changes an object’s position, size, or orientation while possibly preserving or altering its shape. In computing terms, it’s when input data (like coordinates, pixels, or signals) is mapped to a new form according to a specific rule — often expressed using matrices. For example, rotating, scaling, or translating an image are all forms of transformations.
+
+⸻
+
+2) Have you used transformation before? What was the case?
+
+Yes, I’ve used transformations while converting and manipulating images — for instance, resizing, rotating, or converting formats (like JPG to PNG). I’ve also worked with coordinate transformations when positioning UI elements or plotting graphs in Python. These all involve some form of linear transformation where data points are mapped to new coordinate spaces.
+
+⸻
+
+3) In your opinion, where is linear transformation used in computer science?
+
+Linear transformations are everywhere in computer science — especially in graphics, machine learning, and data processing. In 2D and 3D graphics, they’re used to rotate, scale, and project objects onto screens. In AI, they appear in matrix operations inside neural networks where weights transform input data into feature representations. They’re also used in simulations, robotics, and signal processing to model linear relationships.
+
+⸻
+
+4) In your opinion, where is non-linear transformation used in computer science?
+
+Non-linear transformations appear when the relationship between input and output isn’t proportional or predictable. They’re used in route optimization, encryption, neural networks (activation functions), image enhancement, and computer vision. In these cases, data must be warped or mapped in complex ways that can’t be described by simple matrix multiplication — non-linear transformations capture that complexity.
+
+---
 ### IV. Linear Transformation
+Properties:
+TBD
 
 ### V. Geometrical Interpretation of Matrices
+Point A
+Line segment AB
+Triangle ABC
+Square ABCD
 
 ### VI. Matrix Transformation
+## Exercise 3 - Linear Transformation by Matrices
+
+1. Prove a 2×2 matrix is a linear transformation:
+T(x) = A·x
+A = [[a, b], [c, d]]
+T(x) = [a*x1 + b*x2, c*x1 + d*x2]
+→ T(x1 + x2) = T(x1) + T(x2)
+→ T(c·x) = c·T(x)
+✅ Linear
+
+2. Prove a 3×3 matrix is linear:
+Same logic applies. Matrix multiplication distributes over + and scalar *.
+
+3. Conclusion:
+Any n×n (or m×n) matrix represents a linear transformation, since:
+A(x1 + x2) = A·x1 + A·x2
+A(c·x) = c·A·x
+✅ Linear for all dimensions.
 
 ### VII. Different types of Matrix Transformation
-
-### VIII. Tutorial
+- 2D Translation
+- Scaling
+- Rotation
+- Shears
+- Reflection
+- Projections
