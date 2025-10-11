@@ -11,9 +11,9 @@ Dr. Bushra Naeem
 - [X] Module 2 - Research Problems, Questions, Aims, Objectives and Hypotheses
 - [X] Module 3 - Situating Your Research in the Broader Context – The Annotated
 - [X] Module 4 - The Literature Review
-- [ ] Module 5 - Research Methodologies – Quantitative Research vs Qualitative Research
-- [ ] Module 6 - Research Methodologies – Mixed Method Research
-- [ ] Module 7 - Research Methodologies – Choosing your methods
+- [X] Module 5 - REM, Quantitative Research vs Qualitative Research
+- [ ] Module 6 - REM, Mixed Method Research
+- [ ] Module 7 - REM, Choosing your methods
 - [ ] Module 8 - The Ethics of Human Research
 - [ ] Module 9 - Data Sampling Methods
 - [ ] Module 10 - Data Interpretation Methods
@@ -21,6 +21,6 @@ Dr. Bushra Naeem
 - [ ] Module 12 - Planning Your Research Project — Timelines and Gantt Charts
 
 ## Assignments
-- [ ] Assessment 1 - deadline 12/10/2025
+- [X] Assessment 1 - deadline 12/10/2025 ✅
 - [ ] Assessment 2 - deadline 09/11/2025
 - [ ] Assessment 3 - deadline 03/12/2025
