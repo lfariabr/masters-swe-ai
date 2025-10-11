@@ -239,3 +239,7 @@ Attacker type:
 2. Humans are the biggest risk - training and awareness are critical
 3. Assessment and Prioritization matter - use CVSS to focus efforts
 4. Proactive defense works best - understand attackers
+
+## Module 5 - Architecture Integration with IT Systems
+
+

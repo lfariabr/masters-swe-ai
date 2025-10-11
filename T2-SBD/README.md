@@ -11,7 +11,7 @@ Dr. Tanvir Rahman
 - [X] Module 2 - Introduction to Cyber-Security Procedures and Risk Management
 - [X] Module 3 - Introduction to Cyber-Security Methods
 - [X] Module 4 - Common Threats and Attacks
-- [ ] Module 5 - Architecture Integration with IT Systems
+- [X] Module 5 - Architecture Integration with IT Systems
 - [ ] Module 6 - IT System Security Assessment
 - [ ] Module 7 - Secure Failure
 - [ ] Module 8 - Domain-Driven Design
@@ -21,6 +21,6 @@ Dr. Tanvir Rahman
 - [ ] Module 12 - Security by design in the real world
 
 ## Assignments
-- [X] Assessment 1 - deadline 12/10/2025
+- [X] Assessment 1 - deadline 12/10/2025 ✅
 - [ ] Assessment 2 - deadline 09/11/2025
 - [ ] Assessment 3 - deadline 03/12/2025
