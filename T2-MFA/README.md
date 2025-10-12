@@ -11,7 +11,7 @@ Dr. James Vakilian
 - [X] Module 2 - Vector Spaces, Subspaces, and Linear Transformation
 - [X] Module 3 - Matrices
 - [X] Module 4 - Eigenvalues and Eigenvectors
-- [ ] Module 5 - Derivatives and Integrals
+- [X] Module 5 - Derivatives and Integrals
 - [ ] Module 6 - Gradient and Optimisation
 - [ ] Module 7 - Introduction to Probabilities
 - [ ] Module 8 - Random Variables and Distributions

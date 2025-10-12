@@ -288,7 +288,7 @@ Triangle ABC
 Square ABCD
 
 ### VI. Matrix Transformation
-## Exercise 3 - Linear Transformation by Matrices
+#### Exercise 3 - Linear Transformation by Matrices
 
 1. Prove a 2×2 matrix is a linear transformation:
 T(x) = A·x
@@ -307,10 +307,17 @@ A(x1 + x2) = A·x1 + A·x2
 A(c·x) = c·A·x
 ✅ Linear for all dimensions.
 
-### VII. Different types of Matrix Transformation
+#### VII. Different types of Matrix Transformation
 - 2D Translation
 - Scaling
 - Rotation
 - Shears
 - Reflection
 - Projections
+
+## Module 5 - Derivatives and Integrals
+
+Calculus is the mathematical study of continuous change. Geometry is the branch of mathematics that focuses on the study of shapes. 
+The core concepts of calculus—differentiation and integration—are built on the idea of limits, which allows us to analyze how things change over infinitesimally small intervals. 
+
+More to come...
