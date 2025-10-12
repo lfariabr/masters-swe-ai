@@ -64,8 +64,6 @@ https://www.youtube.com/watch?v=ecCXzW6M2o4 (left from week 02)
 Trend-based design connects emerging behaviors, technologies and social values to future product opportunities
 Instead of guessing what users want, it observes patterns of change (in culture, economy, tech, etc) and translates them into design strategy
 
-
-
 ## Module 4 - Trend-Based Design
 
 Benefits of trend-based design:
@@ -90,3 +88,7 @@ https://www.youtube.com/watch?v=hTz6cPyQiTQ
 https://www.youtube.com/watch?v=RHDSNx5U3BM
 https://www.youtube.com/watch?v=OLtobPnEQN0 
 https://www.youtube.com/watch?v=R7b6uPD1W5g
+
+## Module 5 - The Art of Ideation
+
+More to come in classes 13/10

@@ -11,7 +11,7 @@ Dr. Omid Haass
 - [X] Module 2 - Everyday Design of Objects
 - [X] Module 3 - User Experience Design
 - [X] Module 4 - Trend-Based Design
-- [ ] Module 5 - The Art of Ideation
+- [X] Module 5 - The Art of Ideation
 - [ ] Module 6 - Empathising with the Problem Space
 - [ ] Module 7 - Transformational Thinking
 - [ ] Module 8 - Designing within a Social Context
@@ -21,6 +21,6 @@ Dr. Omid Haass
 - [ ] Module 12 - HCD in the Field
 
 ## Assignments
-- [X] Assessment 1 - deadline 12/10/2025
+- [X] Assessment 1 - deadline 12/10/2025 ✅
 - [ ] Assessment 2 - deadline 09/11/2025
 - [ ] Assessment 3 - deadline 03/12/2025
