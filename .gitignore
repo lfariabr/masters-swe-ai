@@ -139,3 +139,8 @@ wheels/
 
 # Jupyter Notebook (if any)
 .ipynb_checkpoints*.zip
+
+# T2-REM sensitive fiels
+T2-REM/assignments/Assessment2/nps/nps.xlsx
+T2-REM/assignments/Assessment2/sales/
+
