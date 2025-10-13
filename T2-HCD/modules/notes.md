@@ -91,4 +91,20 @@ https://www.youtube.com/watch?v=R7b6uPD1W5g
 
 ## Module 5 - The Art of Ideation
 
-More to come in classes 13/10
+### Intro
+Ideation is the process of generating and developing ideas for a product or service. It is a key step in the design process, as it helps to identify and prioritize potential solutions to a problem.
+
+### Techniques
+- Brainstorming
+- Mind mapping
+- Storyboarding
+- SCAMPER
+- Six Thinking Hats
+
+
+
+### Extra videos:
+https://www.youtube.com/watch?v=zbLxs6te5to
+https://www.youtube.com/watch?v=xXsHI_VlhmY
+https://www.youtube.com/watch?v=ByjKT9IUkjA
+https://www.youtube.com/watch?v=8ka_H8npvgM
