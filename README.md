@@ -28,6 +28,7 @@ Take a deep dive into how I'm approaching projects and the progress I'm making.
 
 Project | Description | Status | Repository | URL |
 |---------|---------------------|----------------|----------------|----------------|
+| **EigenAI** | Interactive Streamlit app that teaches MFA501 math concepts like determinants, eigenvalues, and gradients step-by-step. | 🔥 | [Here](./T2-MFA/projects/eigenai) | 🔥 |
 | **ExcelPilot FE** | Chat system for Excel Pilot API built with Next.js, TypeScript, TailwindCSS, ShadCN, Apollo Client, Next.Auth, JWT. | 🔥 | [Here](https://github.com/lfariabr/excel-pilot-front) | 🔥 |
 | **ExcelPilot BE** | API built with Node.js, Express, Apollo Server, MongoDB, Redis and TypeScript. Features secure JWT auth, GraphQL queries/mutations, and openAi. | 🔥 | [Here](https://github.com/lfariabr/excel-pilot) | 🔥 |
 | **ZD Project** | Personal Blog using MERN stack with React Native Blog Component + Resend for CRM. Hosted on AWS EC2 server. | ✅ | [Here](https://github.com/lfariabr/z-project.git) | [Here](https://zerodopamine.com/) |
