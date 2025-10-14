@@ -229,7 +229,7 @@ A^-1 = [ (a22/det(A)) (-a12/det(A))
 ### Extra Reading
 https://www.linkedin.com/pulse/linear-algebra-fuels-artificial-intelligence-kayode-odeyemi/
 
-## Module 4 - Eigenvalues and Eigenvectors
+## Module 4 - Fundamentals of Linear Algebra
 Linear Transformations, Eigenvalues and Eigenvectors
 
 ### I. Image Processing
@@ -315,7 +315,119 @@ A(c·x) = c·A·x
 - Reflection
 - Projections
 
-## Module 5 - Derivatives and Integrals
+## Module 5 - Eigenvalues and Eigenvectors
+
+### I. Conceptual Analysis
+- A matrix transforms a vector — usually changing both:
+	1.	Magnitude (how long it is)
+	2.	Direction (where it points)
+- But some special vectors (called eigenvectors) are only stretched or shrunk, not rotated.
+The scalar (number) that describes how much it is stretched or shrunk is the eigenvalue (λ).
+
+In equation form:
+A x = λx
+where:
+A = matrix,
+x = eigenvector,
+λ = eigenvalue.
+
+### II. Parallel Vectors
+
+Two vectors are parallel if one is a scalar multiple of the other:
+
+V = λU
+Examples:
+
+- [2,1,5] and [10,5,25] → parallel
+- [2,1,5] and [-2,-1,-5] → parallel (but opposite direction)
+
+### III. Conceptual Examples
+
+(General Case)
+
+A 3×3 matrix multiplies a vector — both direction and magnitude change.
+This is the “normal” transformation case.
+
+(Special Case)
+
+For certain vectors, the direction remains the same; only the length changes.
+That’s where eigenvectors appear:
+
+A V = λ V
+
+If this holds true,
+- λ → eigenvalue of A
+- V → eigenvector of A
+
+### IV. Meaning of “Eigen”
+- The word “Eigen” comes from German — meaning “own” or “typical”.
+→ “Eigenvector” = “own direction” of the matrix
+→ “Eigenvalue” = “own scale” or “stretch factor” of the matrix
+
+### V. Geometrical Intuition
+- The matrix acts as a transformation that can:
+- Rotate
+- Stretch
+- Compress
+- Reflect
+- But along certain axes, it just scales the vector:
+- Blue arrow (eigenvector) keeps direction.
+- Red arrow (regular vector) changes direction.
+
+If eigenvalue λ = 1 → vector length unchanged.
+If λ > 1 → stretched.
+If 0 < λ < 1 → shrunk.
+If λ < 0 → flipped direction.
+
+### VI. Visual Analogy
+- Imagine a rubber sheet being pulled — most directions bend, but some stretch straight.
+Those straight lines are the eigen-directions.
+
+### VII. Application in Machine Learning
+- Big matrices (data) are computationally heavy.
+- Using eigen decomposition, we can represent them with smaller sets of key components:
+- Principal Component Analysis (PCA)
+- Feature compression
+- Dimensionality reduction
+- Image and face recognition (“Eigenfaces”)
+
+Eigenvalues + eigenvectors summarize large datasets efficiently.
+
+### VIII. Reflection Questions (from slides)
+1.	What is an eigenvector / eigenvalue?
+→ An eigenvector is a direction that remains unchanged in orientation after transformation.
+→ Its corresponding eigenvalue tells how much it’s scaled.
+2.	Where is it used in AI/ML?
+→ PCA, data compression, facial recognition, recommendation systems.
+3.	What makes them special?
+→ They do not rotate; they preserve direction.
+4.	Geometrical interpretation?
+→ Fixed-direction scaling.
+5.	Have I coded this before?
+→ Yes — in Python scripts for 2×2 and 3×3 matrices without using NumPy.
+
+### Reflection
+1. What is an eigenvector? What is an eigenvalue?
+> Eigenvector → direction in space that remains unchanged in orientation after transformation.
+> Eigenvalue (λ) → scale factor that defines how much the eigenvector is stretched, compressed or flipped.
+
+2. What is the application of eigenvalues and eigenvectors in AI/ML?
+> Eigenvalues and eigenvectors are used in AI/ML for reduction of dimensions and feature/data compression.
+
+3. What is the characteristic that distinguishes between eigenvectors and other matrix transformations?
+> Eigenvectors are special because they do not change direction under a transformation — they are only scaled. Other vectors are rotated or sheared, but eigenvectors preserve their alignment.
+
+4. What is the geometrical interpretation of eigenvalues and eigenvectors?
+> Geometrically, a matrix transformation can stretch, rotate, or reflect a shape. Eigenvectors represent the axes of pure scaling, where the transformation acts as a simple stretch or compression.
+> The eigenvalue tells how much the vector is scaled along that axis:
+>- λ > 1 → stretched
+>- 0 < λ < 1 → compressed
+>- λ < 0 → flipped to the opposite direction
+
+5. Have you ever used this mathematical concept before?
+> R: I believe so when training machine learning models using scikit-learn, but I imagine it abstracts the concept and math away from it.
+
+## Module 6 - Derivatives and Integrals
 
 Calculus is the mathematical study of continuous change. Geometry is the branch of mathematics that focuses on the study of shapes. 
 The core concepts of calculus—differentiation and integration—are built on the idea of limits, which allows us to analyze how things change over infinitesimally small intervals. 
