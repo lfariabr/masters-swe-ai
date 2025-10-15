@@ -28,17 +28,17 @@ Take a deep dive into how I'm approaching projects and the progress I'm making.
 
 Project | Description | Status | Repository | URL |
 |---------|---------------------|----------------|----------------|----------------|
-| **EigenAI** | Interactive Streamlit app that teaches MFA501 math concepts like determinants, eigenvalues, and gradients step-by-step. | 🔥 | [Here](./T2-MFA/projects/eigenai) | 🔥 |
+| **EigenAI** | Interactive Streamlit app that teaches MFA501 math concepts like determinants, eigenvalues, and gradients step-by-step. | 🔥 | [Here](./2025-T2/T2-MFA/projects/eigenai) | 🔥 |
 | **ExcelPilot FE** | Chat system for Excel Pilot API built with Next.js, TypeScript, TailwindCSS, ShadCN, Apollo Client, Next.Auth, JWT. | 🔥 | [Here](https://github.com/lfariabr/excel-pilot-front) | 🔥 |
 | **ExcelPilot BE** | API built with Node.js, Express, Apollo Server, MongoDB, Redis and TypeScript. Features secure JWT auth, GraphQL queries/mutations, and openAi. | 🔥 | [Here](https://github.com/lfariabr/excel-pilot) | 🔥 |
 | **ZD Project** | Personal Blog using MERN stack with React Native Blog Component + Resend for CRM. Hosted on AWS EC2 server. | ✅ | [Here](https://github.com/lfariabr/z-project.git) | [Here](https://zerodopamine.com/) |
 | **Wedstack** | Wedding invitation web application with Next.js, TypeScript, Node.js, GraphQL and Stripe — with real-time content, gift handling, presence confirmation and a memory lane. | ✅ | [Here](https://github.com/lfariabr/wedstack) | [Here](https://weddingln.com/) |
-| **ClinicTrendsAI** | Streamlit App to analyze survey records and generate insights using Machine Learning, NLP and Data Visualization. | ✅ | [Here](./T1-SEP/projects/clinictrends_ai) | [Here](https://sep-torrens-dr-ranju-group-1.streamlit.app/) | 
-| **TTrack** | PyQt5 desktop app to help academic staff track course progress by comparing a student’s transcript X course curriculum using matching algorithms. | ✅ | [Here](./T1-SDM/projects/TTrack_v1) | [Here](https://www.youtube.com/watch?v=J9bxv1EJ8yU&t) |
-| **Commonwealth Bank Forage** | Virtual challenge covering backend (.NET, MongoDB) and frontend (React, Redux, TypeScript) work, unit testing with xUnit | ✅ | [Here](./T1-Extra/cba/) | [dev.to](https://dev.to/lfariaus/how-i-tackled-the-commonwealths-bank-software-engineering-challenge-3ebk) |
-| **AWS Solutions Architect** | Virtual challenge covering acting as a Solutions Architect for a client | ✅ | [Here](./T1-Extra/aws/) | [dev.to](https://dev.to/lfariaus/scaling-fastier-my-aws-solutions-architect-journey-with-forage-challenge-30j8) |
-| **Lumin** | Flutter Gaming app to help users to share photos and videos with their friends and family | 🔌 | [Here](./T1-Extra/flutter/lumin_demo) | N/A |
-| **TTrack** V2 | Node.js and React desktop app wrapped by Electron as an exploratory alternative to TTrack Python. | 🔌 | [Here](./T1-SDM/projects/TTrack_electron) | N/A |
+| **ClinicTrendsAI** | Streamlit App to analyze survey records and generate insights using Machine Learning, NLP and Data Visualization. | ✅ | [Here](./2025-T1/T1-SEP/projects/clinictrends_ai) | [Here](https://sep-torrens-dr-ranju-group-1.streamlit.app/) | 
+| **TTrack** | PyQt5 desktop app to help academic staff track course progress by comparing a student’s transcript X course curriculum using matching algorithms. | ✅ | [Here](./2025-T1/T1-SDM/projects/TTrack_v1) | [Here](https://www.youtube.com/watch?v=J9bxv1EJ8yU&t) |
+| **Commonwealth Bank Forage** | Virtual challenge covering backend (.NET, MongoDB) and frontend (React, Redux, TypeScript) work, unit testing with xUnit | ✅ | [Here](./2025-T1/T1-Extra/cba/) | [dev.to](https://dev.to/lfariaus/how-i-tackled-the-commonwealths-bank-software-engineering-challenge-3ebk) |
+| **AWS Solutions Architect** | Virtual challenge covering acting as a Solutions Architect for a client | ✅ | [Here](./2025-T1/T1-Extra/aws/) | [dev.to](https://dev.to/lfariaus/scaling-fastier-my-aws-solutions-architect-journey-with-forage-challenge-30j8) |
+| **Lumin** | Flutter Gaming app to help users to share photos and videos with their friends and family | 🔌 | [Here](./2025-T1/T1-Extra/flutter/lumin_demo) | N/A |
+| **TTrack** V2 | Node.js and React desktop app wrapped by Electron as an exploratory alternative to TTrack Python. | 🔌 | [Here](./2025-T1/T1-SDM/projects/TTrack_electron) | N/A |
 
 ---
 
