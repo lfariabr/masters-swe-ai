@@ -242,4 +242,42 @@ Attacker type:
 
 ## Module 5 - Architecture Integration with IT Systems
 
+### Learning objectives
+- Right tool for the job
+- User impact by examining security measures and their effects on user experience
+- Foundational security methods: firewalls and access controls
+- Modern challenges: security in complex environments like public cloud and threat of advanced malware
+- Culture/compliance: user training, legal frameworks (GDPR)
 
+### Section I: Architectural Integration
+- Refers to embedding security mechanisms across hardware, software and user layers
+- Involve mapping business objectives with appropriate security models
+- Promotos e2e protection from data input to transmission and storage
+- Integration that ensures risk management and controls are consistent
+
+### Section II: User impact
+- Security measures can have a significant impact on user experience
+- If systems are too complex, users may resist or bypass security controls
+
+Context matters!
+
+### Section III: IT Infrastructure protection
+Networks, servers, storage, control systems!
+- Firewalls and network segmentation
+- Access control and identity management
+- Encryption and data protection
+- Monitoring and incident response integration
+
+### Section IV: Diverse computing environments
+- Modern IT involves multi-cloud, on-premises and hybtid systems
+- Each has its own security challenges and requirements
+
+### Section V: Regulatory and Compliance
+- GDPR, HIPAA, PCI-DSS, ISO 27001
+
+### Key takeways
+- Always analyze impact of security measure
+- Master the fundamentals (firewall, access controls)
+- Embrace shared responsibility, with provider
+- Think like an attacker: understand threats and constantly update defenses
+- Build human firewall: training and awareness
