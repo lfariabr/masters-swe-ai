@@ -132,3 +132,11 @@ B = [[4, 2],
 for lam, v in eigenpairs(B):
     print(f"λ = {lam},  v = {v}")
 print("--- end step 7 ---\n")
+
+# Step 8: Extra explanatory note
+print("""
+Tutor's Note 🧠:
+Eigenvalues tell us the **stretching factor** of the transformation.  
+Eigenvectors show the **directions** that remain fixed under transformation.  
+""")
+print("--- end step 8 ---\n")
