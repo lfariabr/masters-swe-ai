@@ -5,7 +5,26 @@ def display():
 
     image_address = "https://github.com/lfariabr/masters-swe-ai/blob/master/2025-T2/T2-MFA/projects/eigenai/assets/eigenAI-header.png?raw=true"
     st.image(image_address, use_container_width=True)
-    st.caption("🤖 EigenAI says: WELCOME TO THE OTHER SIDE, WHERE THE MATHEMATICAL MAGIC BEGINS!")
+    st.image("assets/eigenAI-header.png", use_container_width=True)
+    # st.caption("🤖 EigenAI says: 'WELCOME TO THE OTHER SIDE, WHERE THE MATHEMATICAL MAGIC BEGINS!'")
+    st.markdown(
+    """
+    <div style="
+        background-color:#1E1E1E;
+        border-left: 5px solid #00FFFF;
+        padding: 1rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        border-radius: 8px;
+    ">
+    <p style="font-size: 1.1rem; color:#E0E0E0; font-style: italic;">
+    🤖 <b>EigenAI says:</b><br>
+    “Welcome to the other side, where the mathematical magic begins.”
+    </p>
+    </div>
+    """,
+    unsafe_allow_html=True
+    )
     
     if st.button("⚡ Reveal SuperPowers"):
         st.balloons()
@@ -19,17 +38,40 @@ def display():
         
         st.markdown("### About")
         st.markdown("""
-        #### 👋 What can you do here?
+        #### 🤔 What can be done here!?
         - Explore recursive determinant and eigenvalue problems interactively  
         - Learn how to think through each computation  
         - Understand mathematical logic behind your code  
 
-        Use the sidebar or bottom navigation to explore:
-        1. Set 1 – Problem 1: Determinant  
-        2. Set 1 – Problem 2: Eigenvalues/Eigenvectors  
-        3. Set 2 – Problem 1: Integration  
-        4. Set 2 – Problem 2: RRBF Gradient  
+        Use the sidebar or bottom navigation to explore the features!
         """)
+
+        st.markdown("### Key Features")
+        col1, col2, col3, col4 = st.columns(4)
+        
+        with col1:
+            with st.container(border=True):
+                st.markdown("# 🧩")
+                st.markdown("###### Set1Problem1")
+                st.markdown("Calculate determinants recursively")
+
+        with col2:
+            with st.container(border=True):
+                st.markdown("# 🧠")
+                st.markdown("###### Set1Problem2")
+                st.markdown("Computes eigenvalues and eigenvectors")
+
+        with col3:
+            with st.container(border=True):
+                st.markdown("# 📘")
+                st.markdown("###### Set2Problem1")
+                st.markdown("Integration Concepts - To be Done")
+
+        with col4:
+            with st.container(border=True):
+                st.markdown("# 📗")
+                st.markdown("###### Set2Problem2")
+                st.markdown("RRBF Gradient Calculator - To be Done")
 
         st.markdown("---")
 
