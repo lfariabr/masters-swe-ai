@@ -1,12 +1,13 @@
 import streamlit as st
-from utils.determinant import determinant, is_square
+from resolvers.determinant import determinant, is_square
 import time
 
 def display_s1p1():
-    st.title("🧩 Set 1 – Problem 1: Determinant (Recursive)")
+    st.title("🧩 Determinant (Recursive)")
+    st.caption("Set 1 – Problem 1")
 
     st.markdown("""
-    M.A.T.E. will help you calculate the **determinant of any n×n matrix**  
+    EigenAI will help you calculate the **determinant of any n×n matrix**  
     using the **Laplace (cofactor) expansion** method — step by step.
     """)
 
@@ -15,7 +16,15 @@ def display_s1p1():
 
     for i in range(rows):
         row = st.text_input(f"Row {i+1} (comma separated):", "1,2,3")
-        matrix.append([float(x.strip()) for x in row.split(",")])
+        try:
+            parsed_row = [float(x.strip()) for x in row.split(",")]
+            if len(parsed_row) != rows:
+                st.error(f"❌ Row {i+1} must have exactly {rows} values")
+                st.stop()
+            matrix.append(parsed_row)
+        except ValueError:
+            st.error(f"❌ Row {i+1} contains non-numeric values")
+            st.stop()
 
     if st.button("✨ Compute Determinant"):
         st.info("Alright, let’s go step by step...")
@@ -35,8 +44,12 @@ def display_s1p1():
             time.sleep(0.02)
 
         if is_square(matrix):
-            det_value = determinant(matrix)
-            st.success(f"✅ Determinant = {det_value}")
+            try:
+                det_value = determinant(matrix)
+                st.success(f"✅ Determinant = {det_value}")
+            except ValueError as e:
+                st.error(f"❌ Computation failed: {str(e)}")
+                st.stop()
             st.markdown("""
             ---
             **Tutor’s Explanation:**  

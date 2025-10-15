@@ -3,7 +3,7 @@
 
 ## What is EigenAI?
 
-EigenAI plays on "eigenvaleus" and AI foundations".
+EigenAI plays on "eigenvalues" and AI foundations".
 
 It is a learning assistant web app for Torrens' Mathematical Foundations of Artificial Intelligence subject and can work as a tutor for students interested in math/programming subjects.
 
@@ -21,7 +21,7 @@ The app will act as a companion tutor that walks students through each problem s
 ### Installation & Launch
 ```bash
 # Navigate to project directory
-cd T2-MFA/projects/eigenai
+cd 2025-T2/T2-MFA/projects/eigenai
 
 # Create virtual environment
 python -m venv venv
@@ -40,7 +40,7 @@ streamlit run app.py
 
 ## 🏗️ System Architecture
 
-```
+```text
 EigenAI/
 ├── 🚀 app.py                # Entry point (Streamlit orchestration)
 ├── 📁 assets/               # Static assets
@@ -65,6 +65,8 @@ EigenAI/
 Phase 1: Foundation
 Phase 2: Intelligence Enhancement
 Phase 3: AI-Powered Insights
+
+> Detailed changelog can be found in [`CHANGELOG.md`](2025-T2/T2-MFA/projects/eigenai/docs/changelog.md)
 
 ---
 

@@ -1,9 +1,10 @@
 import streamlit as st
-from utils.eigen_solver import eigenpairs
+from resolvers.eigen_solver import eigenpairs
 import time
 
 def display_s1p2():
-    st.title("🧠 Set 1 – Problem 2: Eigenvalues & Eigenvectors")
+    st.title("🧠 Eigenvalues & Eigenvectors")
+    st.caption("Set 1 – Problem 2")
 
     st.markdown("""
     Let’s find the **eigenvalues (λ)** and **eigenvectors** of your 2×2 matrix.  
@@ -11,9 +12,17 @@ def display_s1p2():
     """)
 
     matrix = []
-    for i in range(2):
-        row = st.text_input(f"Row {i+1} (comma separated):", "2,1" if i == 0 else "1,2")
-        matrix.append([float(x.strip()) for x in row.split(",")])
+    try:
+        for i in range(2):
+            row = st.text_input(f"Row {i+1} (comma separated):", "2,1" if i == 0 else "1,2")
+            parsed_row = [float(x.strip()) for x in row.split(",")]
+            if len(parsed_row) != 2:
+                st.error(f"❌ Row {i+1} must have exactly 2 values")
+                st.stop()
+            matrix.append(parsed_row)
+    except ValueError as e:
+        st.error(f"❌ Invalid input format. Please enter numeric values separated by commas.")
+        st.stop()
 
     if st.button("🧩 Compute Eigenpairs"):
         st.info("Starting eigenvalue analysis...")
@@ -32,12 +41,16 @@ def display_s1p2():
                 status_text.text("🔹 Step 3: Finding eigenvectors from (A − λI)x = 0")
             time.sleep(0.02)
 
-        pairs = eigenpairs(matrix)
+        try:
+            pairs = eigenpairs(matrix)
+            st.success("✅ Computation complete!")
+            for lam, vec in pairs:
+                st.write(f"**λ = {lam}**, Eigenvector → {vec}")
 
-        st.success("✅ Computation complete!")
-        for lam, vec in pairs:
-            st.write(f"**λ = {lam}**, Eigenvector → {vec}")
-
+        except ValueError as e:
+            st.error(f"❌ Computation failed: {str(e)}")
+            st.stop()
+                
         st.markdown("""
         ---
         **Tutor’s Note:**  
