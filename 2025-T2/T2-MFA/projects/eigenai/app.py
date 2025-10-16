@@ -1,37 +1,45 @@
 import streamlit as st
 
 st.set_page_config(
-    page_title="EigenAI MFA501 Smart Tutor",
-    page_icon="🎓",
-    layout="wide"
+    page_title="EigenAI Portal",
+    layout="centered",
+    page_icon="🤖",
+    initial_sidebar_state="expanded"
 )
 
-st.title("Welcome to EigenAI's app")
+from views import home, set1Problem1, set1Problem2, set2Problem1, set2Problem2
 
-st.image("assets/eigenAI.png", use_container_width=True)
+# ---- Sidebar Header ----
+logo_url = "https://github.com/lfariabr/masters-swe-ai/blob/master/2025-T2/T2-MFA/projects/eigenai/assets/logo2.png?raw=true"
+st.sidebar.image(logo_url, use_container_width=True)
+st.sidebar.markdown("---")
 
-st.markdown("""
-### Your **Mathematical solver** for MFA501  
-Built to help Torrens University students master mathematical foundations of AI step by step.
+# ---- Sidebar Menu ----
+menu = st.sidebar.radio(
+    "📂 Select a screen:", [
+    "🌀 Portal",
+    "🧩 set1-problem1",
+    "🧠 set1-problem2",
+    "📘 set2-problem1",
+    "📗 set2-problem2",
+], index=0)
 
-""")
+# ---- View Routing ----
+if menu == "🌀 Portal":
+    home.display()
 
-if st.button("⚡ Reveal SuperPowers"):
-    st.balloons()
-    st.success("Navigate through the sidebar to start your assessment journey 🚀")
-    # st.image("assets/intro_bg.png", use_container_width=True)
+if menu == "🧩 set1-problem1":
+    set1Problem1.display_s1p1()
 
-    st.markdown("""
-    #### 👋 What can you do here?
-    - Explore recursive determinant and eigenvalue problems interactively  
-    - Learn how to think through each computation  
-    - Understand mathematical logic behind your code  
+if menu == "🧠 set1-problem2":
+    set1Problem2.display_s1p2()
 
-    Use the sidebar or bottom navigation to explore:
-    1. Set 1 – Problem 1: Determinant  
-    2. Set 1 – Problem 2: Eigenvalues/Eigenvectors  
-    3. Set 2 – Problem 1: Integration  
-    4. Set 2 – Problem 2: RRBF Gradient  
-    """)
+if menu == "📘 set2-problem1":
+    set2Problem1.display_s2p1()
 
-    st.markdown("---")
+if menu == "📗 set2-problem2":
+    set2Problem2.display_s2p2()
+
+# ---- Footer (Optional) ----
+st.sidebar.markdown("---")
+st.sidebar.caption("luisfaria.dev")
