@@ -20,7 +20,7 @@ def display_s1p2():
                 st.error(f"❌ Row {i+1} must have exactly 2 values")
                 st.stop()
             matrix.append(parsed_row)
-    except ValueError as e:
+    except ValueError:
         st.error(f"❌ Invalid input format. Please enter numeric values separated by commas.")
         st.stop()
 
@@ -47,8 +47,8 @@ def display_s1p2():
             for lam, vec in pairs:
                 st.write(f"**λ = {lam}**, Eigenvector → {vec}")
 
-        except ValueError as e:
-            st.error(f"❌ Computation failed: {str(e)}")
+        except ValueError:
+            st.error(f"❌ Computation failed")
             st.stop()
                 
         st.markdown("""

@@ -5,7 +5,7 @@ def display():
 
     image_address = "https://github.com/lfariabr/masters-swe-ai/blob/master/2025-T2/T2-MFA/projects/eigenai/assets/eigenAI-header.png?raw=true"
     st.image(image_address, use_container_width=True)
-    st.image("assets/eigenAI-header.png", use_container_width=True)
+    # st.image("assets/eigenAI-header.png", use_container_width=True)
     # st.caption("🤖 EigenAI says: 'WELCOME TO THE OTHER SIDE, WHERE THE MATHEMATICAL MAGIC BEGINS!'")
     st.markdown(
     """
