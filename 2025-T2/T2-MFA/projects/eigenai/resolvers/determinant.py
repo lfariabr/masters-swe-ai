@@ -15,8 +15,6 @@ A = [
     [0, 1, 4],
     [5, 6, 0]
 ]
-print(f"Matrix A: {A}")
-print("--- end step 1 ---\n")
 
 # Step 2: Tiny helpers
 def shape(A):
@@ -30,10 +28,6 @@ def is_square(A):
         return False
     return all(len(row) == m for row in A)
 
-print(f"Shape of A: {shape(A)}")
-print(f"Is A square? {is_square(A)}")
-print("--- end step 2 ---\n")
-
 # Step 3: Build a minor by removing 1 row and 1 column
 def minor_matrix(A, drop_row, drop_col):
     "Return the minor of A by removing row 'drop_row' and column 'drop_col'."
@@ -45,8 +39,6 @@ def minor_matrix(A, drop_row, drop_col):
 
 # Testing minor extraction
 M = minor_matrix(A, 0, 1)  # remove row0, col1 from A
-print(f"Minor (drop row 0, col 1): {M}")
-print("--- end step 3 ---\n")
 
 # Step 4: Determinant base cases
 def determinant(A):
@@ -75,39 +67,3 @@ def determinant(A):
             total += sign * a_0j * sub_det
         sign = -sign
     return total
-
-# Testing base cases for validation
-print(f"Determinant of [7]: {determinant([[7]])}")                      # expect 7
-print(f"Determinant of [[1,2],[3,4]]: {determinant([[1,2],[3,4]])}")    # expect -2
-print("--- end step 4 ---\n")
-
-# Step 5: Recursive demonstration with known examples
-A = [
-    [1, 2, 3],
-    [0, 4, 5],
-    [1, 0, 6]
-]
-print(f"Matrix A: {A}")
-print(f"det(A) = {determinant(A)}")  # expected: 22
-
-B = [
-    [2, 1, 3],
-    [1, 0, 2],
-    [4, 1, 8]
-]
-print(f"Matrix B: {B}")
-print(f"det(B) = {determinant(B)}")  # expected: -1
-print("--- end step 5 ---\n")
-
-# Step 6: Extra explanatory note
-print("""
-Tutor's Note 🧠:
-The determinant measures how the matrix transforms space:
-- |det(A)| > 1 → expands area/volume.
-- 0 < |det(A)| < 1 → compresses.
-- det(A) = 0 → flattens space (no inverse possible).
-
-This recursive approach uses Laplace expansion across the first row,
-calling itself on smaller and smaller minors until reaching 2×2 base cases.
-""")
-print("--- end step 6 ---\n")

@@ -40,6 +40,9 @@ if menu == "📘 set2-problem1":
 if menu == "📗 set2-problem2":
     set2Problem2.display_s2p2()
 
-# ---- Footer (Optional) ----
+# ---- Footer ----
 st.sidebar.markdown("---")
+st.sidebar.markdown("[![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/lfariabr)")
+# Torrens University Logo and Site:
+st.sidebar.markdown("[![Torrens University](https://img.shields.io/badge/Torrens-%23eb5f24.svg?&style=for-the-badge&logo=Torrens-University-Australia&logoColor=white)](https://www.torrens.edu.au/courses/technology/master-of-software-engineering-artificial-intelligence-advanced)")
 st.sidebar.caption("luisfaria.dev")
