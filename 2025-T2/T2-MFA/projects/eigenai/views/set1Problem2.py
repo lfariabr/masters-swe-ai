@@ -24,7 +24,7 @@ def display_s1p2():
         st.error(f"❌ Invalid input format. Please enter numeric values separated by commas.")
         st.stop()
 
-    if st.button("🧩 Compute Eigenpairs"):
+    if st.button("🟢 Compute Eigenpairs"):
         st.info("Starting eigenvalue analysis...")
         progress = st.progress(0)
         status_text = st.empty()

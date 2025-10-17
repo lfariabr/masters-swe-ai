@@ -14,8 +14,6 @@ A = [
     [2, 1],
     [1, 2]
 ]
-print(f"Matrix A: {A}")
-print("--- end step 1 ---\n")
 
 # Step 2: Tiny helper to check square shape
 def shape(A):
@@ -28,10 +26,6 @@ def is_square(A):
     if n != m:
         return False
     return all(len(row) == m for row in A)
-
-print(f"Shape of A: {shape(A)}")
-print(f"Is A square? {is_square(A)}")
-print("--- end step 2 ---\n")
 
 # Step 3: Implement our own sqrt (no math imports)
 def my_sqrt(x, tolerance=1e-10):
@@ -46,10 +40,6 @@ def my_sqrt(x, tolerance=1e-10):
         if abs(next_guess - guess) < tolerance:
             return next_guess
         guess = next_guess
-
-# Testing the sqrt helper
-print(f"√9 = {my_sqrt(9)}")
-print("--- end step 3 ---\n")
 
 # Step 4: Compute eigenvalues for a 2x2 matrix
 def eigenvalues_2x2(A):
@@ -76,12 +66,6 @@ def eigenvalues_2x2(A):
     λ1 = (tr + root) / 2
     λ2 = (tr - root) / 2
     return [λ1, λ2]
-
-# Testing eigenvalues
-A = [[2, 1],
-     [1, 2]]
-print(f"Eigenvalues of A: {eigenvalues_2x2(A)}")  # expect [3, 1]
-print("--- end step 4 ---\n")
 
 # Step 5: Build (A - λI) and find eigenvectors manually
 def subtract_lambda_I(A, lam):
@@ -118,17 +102,3 @@ def eigenpairs(A):
         v = eigenvector_for_lambda(A, lam)
         pairs.append((lam, v))
     return pairs
-
-# Testing final implementation
-A = [[2, 1],
-     [1, 2]]
-for lam, v in eigenpairs(A):
-    print(f"λ = {lam},  v = {v}")
-print("--- end step 6 ---\n")
-
-# Step 7: More tests
-B = [[4, 2],
-     [1, 3]]
-for lam, v in eigenpairs(B):
-    print(f"λ = {lam},  v = {v}")
-print("--- end step 7 ---\n")
