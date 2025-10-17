@@ -37,8 +37,8 @@ Project | Description | Status | Repository | URL |
 | **TTrack** | PyQt5 desktop app to help academic staff track course progress by comparing a student’s transcript X course curriculum using matching algorithms. | ✅ | [Here](./2025-T1/T1-SDM/projects/TTrack_v1) | [YT Demo](https://www.youtube.com/watch?v=J9bxv1EJ8yU&t) |
 | **Commonwealth Bank Forage** | Virtual challenge covering backend (.NET, MongoDB) and frontend (React, Redux, TypeScript) work, unit testing with xUnit | ✅ | [Here](./2025-T1/T1-Extra/cba/) | [dev.to](https://dev.to/lfariaus/how-i-tackled-the-commonwealths-bank-software-engineering-challenge-3ebk) |
 | **AWS Solutions Architect** | Virtual challenge covering acting as a Solutions Architect for a client | ✅ | [Here](./2025-T1/T1-Extra/aws/) | [dev.to](https://dev.to/lfariaus/scaling-fastier-my-aws-solutions-architect-journey-with-forage-challenge-30j8) |
-| **Lumin** | Flutter Gaming app to help users to share photos and videos with their friends and family | 🔌 | [Code](./2025-T1/T1-Extra/flutter/lumin_demo) | N/A |
-| **TTrack** V2 | Node.js and React desktop app wrapped by Electron as an exploratory alternative to TTrack Python. | 🔌 | [Code](./2025-T1/T1-SDM/projects/TTrack_electron) | N/A |
+| **Lumin** | Flutter Gaming app to help users to share photos and videos with their friends and family | 🔌 | [Here](./2025-T1/T1-Extra/flutter/lumin_demo) | N/A |
+| **TTrack** V2 | Node.js and React desktop app wrapped by Electron as an exploratory alternative to TTrack Python. | 🔌 | [Here](./2025-T1/T1-SDM/projects/TTrack_electron) | N/A |
 
 ---
 
