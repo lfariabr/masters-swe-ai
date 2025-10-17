@@ -1,4 +1,4 @@
-Reflective Report** (500+ words)
+# Reflective Report 2A – Set 1 Problem 1
 - **Overview:** EigenAI project vision and Set 1 implementation
 
 The idea of developing **EigenAI** emerged after a discussion with my lecturer, **Dr. James Vakilian**, where it was emphasized that the project should not only perform the requested calculations but also provide an interactive environment allowing any user to input their own matrices and obtain results dynamically.

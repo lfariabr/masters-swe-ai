@@ -181,7 +181,7 @@ Instructions for Assessment 2-Part A.
   - `requirements.txt` - Dependencies
   - Package in: `MFA501_Assessment2_Set1_Problem1_Source_Faria_Luis.zip`
 
-- [ ] **c. Reflective Report** (500+ words)
+- [x] **c. Reflective Report** (500+ words)
   - **Overview:** EigenAI project vision and Set 1 implementation
   - **Mathematical Approach:** Laplace expansion, cofactor formula, recursion base cases
   - **Programming Methods:** Recursive algorithms, Streamlit UI patterns, error handling
@@ -216,7 +216,7 @@ Instructions for Assessment 2-Part A.
   - `resolvers/eigen_solver.py` - Core algorithm
   - Package in: `MFA501_Assessment2_Set1_Problem2_Source_Faria_Luis.zip`
 
-- [ ] **c. Reflective Report** (500+ words)
+- [x] **c. Reflective Report** (500+ words)
   - **Overview:** Eigenvalue problem significance in AI/ML
   - **Mathematical Approach:** Characteristic polynomial, quadratic formula, Newton-Raphson
   - **Programming Methods:** Custom sqrt implementation, eigenvector computation
