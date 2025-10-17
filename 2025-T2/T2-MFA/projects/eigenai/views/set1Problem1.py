@@ -26,7 +26,7 @@ def display_s1p1():
             st.error(f"❌ Row {i+1} contains non-numeric values")
             st.stop()
 
-    if st.button("✨ Compute Determinant"):
+    if st.button("🟢 Compute Determinant"):
         st.info("Alright, let’s go step by step...")
 
         progress = st.progress(0)
@@ -52,9 +52,14 @@ def display_s1p1():
                 st.stop()
             st.markdown("""
             ---
-            **Tutor’s Explanation:**  
-            The determinant tells us the *scaling factor* of the transformation described by this matrix.  
-            A zero determinant means the matrix squashes space into a lower dimension.
+            Tutor's Note 🧠:
+            The determinant measures how the matrix transforms space:
+            - |det(A)| > 1 → expands area/volume.
+            - 0 < |det(A)| < 1 → compresses.
+            - det(A) = 0 → flattens space (no inverse possible).
+
+            This recursive approach uses Laplace expansion across the first row,
+            calling itself on smaller and smaller minors until reaching 2×2 base cases
             """)
         else:
             st.error("⛔ Matrix must be square to compute the determinant.")

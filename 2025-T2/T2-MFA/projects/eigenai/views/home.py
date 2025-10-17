@@ -32,20 +32,10 @@ def display():
         st.info("""
         👈 **Use the sidebar on your left** to navigate between different sections of the application.
 
-        Choose from **Set 1** or **Set 2** to begin your analysis.
+        👇 Read more about the project below.
         """)
         st.markdown("---")
         
-        st.markdown("### About")
-        st.markdown("""
-        #### 🤔 What can be done here!?
-        - Explore recursive determinant and eigenvalue problems interactively  
-        - Learn how to think through each computation  
-        - Understand mathematical logic behind your code  
-
-        Use the sidebar or bottom navigation to explore the features!
-        """)
-
         st.markdown("### Key Features")
         col1, col2, col3, col4 = st.columns(4)
         
