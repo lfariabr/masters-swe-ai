@@ -28,17 +28,17 @@ Take a deep dive into how I'm approaching projects and the progress I'm making.
 
 Project | Description | Status | Repository | URL |
 |---------|---------------------|----------------|----------------|----------------|
-| **EigenAI** | Interactive Streamlit app that teaches MFA501 math concepts like determinants, eigenvalues, and gradients step-by-step. | 🔥 | [Here](./2025-T2/T2-MFA/projects/eigenai) | 🔥 |
+| **EigenAI** | Interactive Streamlit app that teaches MFA501 math concepts like determinants, eigenvalues, and gradients step-by-step. | 🔥 | [Here](./2025-T2/T2-MFA/projects/eigenai) | [EigenAi](https://eigen-ai.streamlit.app/) |
 | **ExcelPilot FE** | Chat system for Excel Pilot API built with Next.js, TypeScript, TailwindCSS, ShadCN, Apollo Client, Next.Auth, JWT. | 🔥 | [Here](https://github.com/lfariabr/excel-pilot-front) | 🔥 |
 | **ExcelPilot BE** | API built with Node.js, Express, Apollo Server, MongoDB, Redis and TypeScript. Features secure JWT auth, GraphQL queries/mutations, and openAi. | 🔥 | [Here](https://github.com/lfariabr/excel-pilot) | 🔥 |
-| **ZD Project** | Personal Blog using MERN stack with React Native Blog Component + Resend for CRM. Hosted on AWS EC2 server. | ✅ | [Here](https://github.com/lfariabr/z-project.git) | [Here](https://zerodopamine.com/) |
-| **Wedstack** | Wedding invitation web application with Next.js, TypeScript, Node.js, GraphQL and Stripe — with real-time content, gift handling, presence confirmation and a memory lane. | ✅ | [Here](https://github.com/lfariabr/wedstack) | [Here](https://weddingln.com/) |
+| **ZD Project** | Personal Blog using MERN stack with React Native Blog Component + Resend for CRM. Hosted on AWS EC2 server. | ✅ | [Here](https://github.com/lfariabr/z-project.git) | [ZD portal](https://zerodopamine.com/) |
+| **Wedstack** | Wedding invitation web application with Next.js, TypeScript, Node.js, GraphQL and Stripe — with real-time content, gift handling, presence confirmation and a memory lane. | ✅ | [Here](https://github.com/lfariabr/wedstack) | [WeddingL&N](https://weddingln.com/) |
 | **ClinicTrendsAI** | Streamlit App to analyze survey records and generate insights using Machine Learning, NLP and Data Visualization. | ✅ | [Here](./2025-T1/T1-SEP/projects/clinictrends_ai) | [Here](https://sep-torrens-dr-ranju-group-1.streamlit.app/) | 
-| **TTrack** | PyQt5 desktop app to help academic staff track course progress by comparing a student’s transcript X course curriculum using matching algorithms. | ✅ | [Here](./2025-T1/T1-SDM/projects/TTrack_v1) | [Here](https://www.youtube.com/watch?v=J9bxv1EJ8yU&t) |
+| **TTrack** | PyQt5 desktop app to help academic staff track course progress by comparing a student’s transcript X course curriculum using matching algorithms. | ✅ | [Here](./2025-T1/T1-SDM/projects/TTrack_v1) | [YT Demo](https://www.youtube.com/watch?v=J9bxv1EJ8yU&t) |
 | **Commonwealth Bank Forage** | Virtual challenge covering backend (.NET, MongoDB) and frontend (React, Redux, TypeScript) work, unit testing with xUnit | ✅ | [Here](./2025-T1/T1-Extra/cba/) | [dev.to](https://dev.to/lfariaus/how-i-tackled-the-commonwealths-bank-software-engineering-challenge-3ebk) |
 | **AWS Solutions Architect** | Virtual challenge covering acting as a Solutions Architect for a client | ✅ | [Here](./2025-T1/T1-Extra/aws/) | [dev.to](https://dev.to/lfariaus/scaling-fastier-my-aws-solutions-architect-journey-with-forage-challenge-30j8) |
-| **Lumin** | Flutter Gaming app to help users to share photos and videos with their friends and family | 🔌 | [Here](./2025-T1/T1-Extra/flutter/lumin_demo) | N/A |
-| **TTrack** V2 | Node.js and React desktop app wrapped by Electron as an exploratory alternative to TTrack Python. | 🔌 | [Here](./2025-T1/T1-SDM/projects/TTrack_electron) | N/A |
+| **Lumin** | Flutter Gaming app to help users to share photos and videos with their friends and family | 🔌 | [Code](./2025-T1/T1-Extra/flutter/lumin_demo) | N/A |
+| **TTrack** V2 | Node.js and React desktop app wrapped by Electron as an exploratory alternative to TTrack Python. | 🔌 | [Code](./2025-T1/T1-SDM/projects/TTrack_electron) | N/A |
 
 ---
 
@@ -47,12 +47,12 @@ Project | Description | Status | Repository | URL |
 #### Academic Journey
 Term | Subject | Status | Lecturer | Directory | Credit Points
 |-----------|---------------------|----------------|----------------|----------------|----------------|
-| T2 | Software Development Management (***Core***) 2025 | ✅ | Dr. Muhammad Atif | [SDM404](./T1-SDM/) | 10
-| T2 | Software Engineering Principles (***Core***) 2025 | ✅ | Dr. Ranju Mandal | [SEP401](./T1-SEP/) | 10
-| T3 | Human Centered Design (***Core***) 2025 | 🔥 | Dr. Omid Haass | [HCD402](./T3-HCD/) | 10
-| T3 | Mathematical Foundations of AI (***Core***) 2025 | 🔥 | Dr. James Vakilian | [MFA501](./T2-MFA/) | 10
-| T3 | Research Methodologies (***Core***) 2025 | 🔥 | Dr. Bushra Naeem | [REM502](./T3-REM/) | 10
-| T3 | Secure By Design (***Core***) 2025 | 🔥 | Dr. Tanvir Rahman | [SBD402](./T2-SBD/) | 10
+| T2 | Software Development Management (***Core***) 2025 | ✅ | Dr. Muhammad Atif | [SDM404](./2025-T1/T1-SDM/) | 10
+| T2 | Software Engineering Principles (***Core***) 2025 | ✅ | Dr. Ranju Mandal | [SEP401](./2025-T1/T1-SEP/) | 10
+| T3 | Human Centered Design (***Core***) 2025 | 🔥 | Dr. Omid Haass | [HCD402](./2025-T2/T2-HCD/) | 10
+| T3 | Mathematical Foundations of AI (***Core***) 2025 | 🔥 | Dr. James Vakilian | [MFA501](./2025-T2/T2-MFA/) | 10
+| T3 | Research Methodologies (***Core***) 2025 | 🔥 | Dr. Bushra Naeem | [REM502](./2025-T2/T2-REM/) | 10
+| T3 | Secure By Design (***Core***) 2025 | 🔥 | Dr. Tanvir Rahman | [SBD402](./2025-T2/T2-SBD/) | 10
 
 ***Backlog - T2-26 onwards:***
 Core (***mandatory***): 
@@ -77,7 +77,7 @@ Electives (***to be defined...***):
 ---
 
 ### Contributing
-While this is primarily a personal repository, I welcome discussions and constructive feedback. Feel free to open an issue if you have suggestions or questions.
+While this is primarily a personal repository, I welcome discussions and feedback. Feel free to open an issue if you have suggestions or questions.
 
 *Status: ![GitHub last commit](https://img.shields.io/github/last-commit/lfariabr/masters-swe-ai?style=flat-square)*
 
