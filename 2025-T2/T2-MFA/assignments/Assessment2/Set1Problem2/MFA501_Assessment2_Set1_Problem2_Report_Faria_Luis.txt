@@ -1,0 +1,224 @@
+############################
+# app.py
+############################
+
+import streamlit as st
+
+st.set_page_config(
+    page_title="EigenAI Portal",
+    layout="centered",
+    page_icon="🤖",
+    initial_sidebar_state="expanded"
+)
+
+from views import home, set1Problem1, set1Problem2, set2Problem1, set2Problem2
+
+# ---- Sidebar Header ----
+logo_url = "https://github.com/lfariabr/masters-swe-ai/blob/master/2025-T2/T2-MFA/projects/eigenai/assets/logo2.png?raw=true"
+st.sidebar.image(logo_url, use_container_width=True)
+st.sidebar.markdown("---")
+
+# ---- Sidebar Menu ----
+menu = st.sidebar.radio(
+    "📂 Select a screen:", [
+    "🌀 Portal",
+    "🧩 set1-problem1",
+    "🧠 set1-problem2",
+    "📘 set2-problem1",
+    "📗 set2-problem2",
+], index=0)
+
+# ---- View Routing ----
+if menu == "🌀 Portal":
+    home.display()
+
+if menu == "🧩 set1-problem1":
+    set1Problem1.display_s1p1()
+
+if menu == "🧠 set1-problem2":
+    set1Problem2.display_s1p2()
+
+if menu == "📘 set2-problem1":
+    set2Problem1.display_s2p1()
+
+if menu == "📗 set2-problem2":
+    set2Problem2.display_s2p2()
+
+# ---- Footer ----
+st.sidebar.markdown("---")
+st.sidebar.markdown("[![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/lfariabr)")
+# Torrens University Logo and Site:
+st.sidebar.markdown("[![Torrens University](https://img.shields.io/badge/Torrens-%23eb5f24.svg?&style=for-the-badge&logo=Torrens-University-Australia&logoColor=white)](https://www.torrens.edu.au/courses/technology/master-of-software-engineering-artificial-intelligence-advanced)")
+st.sidebar.caption("luisfaria.dev")
+
+############################
+# resolvers/eigen_solver.py
+############################
+
+"""
+# Set 1;
+## Problem 2:
+Write a program that computes the eigenvalues and eigenvectors 
+of a 2x2 matrix without using any external libraries.
+
+Helper:
+cd T2-MFA/assignments/Assessment2
+python s1p2.py
+"""
+
+# Step 1: Represent the matrix using a list of lists
+A = [
+    [2, 1],
+    [1, 2]
+]
+
+# Step 2: Tiny helper to check square shape
+def shape(A):
+    "Return (rows, cols) of matrix A"
+    return len(A), (len(A[0]) if A else 0)
+
+def is_square(A):
+    "True if A is n x n and all rows have the same length"
+    n, m = shape(A)
+    if n != m:
+        return False
+    return all(len(row) == m for row in A)
+
+# Step 3: Implement our own sqrt (no math imports)
+def my_sqrt(x, tolerance=1e-10):
+    "Return square root using Newton–Raphson (no math lib)"
+    if x < 0:
+        raise ValueError("Cannot compute sqrt of negative number in real domain")
+    if x == 0:
+        return 0
+    guess = x
+    while True:
+        next_guess = 0.5 * (guess + x / guess)
+        if abs(next_guess - guess) < tolerance:
+            return next_guess
+        guess = next_guess
+
+# Step 4: Compute eigenvalues for a 2x2 matrix
+def eigenvalues_2x2(A):
+    """
+    For A = [[a,b],[c,d]]:
+    Characteristic polynomial:
+    λ² - (a + d)λ + (ad - bc) = 0
+    Solve using quadratic formula.
+    """
+    n, m = shape(A)
+    if not (n == m == 2):
+        raise ValueError("Matrix must be 2x2")
+
+    a, b = A[0]
+    c, d = A[1]
+    tr = a + d                  # trace
+    det = a * d - b * c         # determinant
+    disc = tr * tr - 4 * det    # discriminant
+
+    if disc < 0:
+        raise ValueError("Complex eigenvalues – not supported in this version")
+
+    root = my_sqrt(disc)
+    λ1 = (tr + root) / 2
+    λ2 = (tr - root) / 2
+    return [λ1, λ2]
+
+# Step 5: Build (A - λI) and find eigenvectors manually
+def subtract_lambda_I(A, lam):
+    "Return (A - λI) for a 2x2 matrix"
+    return [[A[0][0] - lam, A[0][1]],
+            [A[1][0], A[1][1] - lam]]
+
+def eigenvector_for_lambda(A, lam, tolerance=1e-9):
+    """
+    Solve (A - λI)v = 0.
+    For 2x2, only need ratio between x and y:
+        (a-λ)x + b y = 0  → y = -((a-λ)/b)x
+    """
+    a, b = A[0]
+    c, d = A[1]
+    if abs(b) > tolerance:
+        y_over_x = -((a - lam) / b)
+        v = [1, y_over_x]
+    elif abs(c) > tolerance:
+        x_over_y = -((d - lam) / c)
+        v = [x_over_y, 1]
+    else:
+        v = [1, 0]  # fallback
+    # Normalize vector for neatness
+    mx = max(abs(v[0]), abs(v[1]))
+    v = [round(v[0]/mx, 6), round(v[1]/mx, 6)]
+    return v
+
+# Step 6: Combine both into eigenpairs
+def eigenpairs(A):
+    vals = eigenvalues_2x2(A)
+    pairs = []
+    for lam in vals:
+        v = eigenvector_for_lambda(A, lam)
+        pairs.append((lam, v))
+    return pairs
+
+############################
+# views/set1Problem2.py
+############################
+import streamlit as st
+from resolvers.eigen_solver import eigenpairs
+import time
+
+def display_s1p2():
+    st.title("🧠 Eigenvalues & Eigenvectors")
+    st.caption("Set 1 – Problem 2")
+
+    st.markdown("""
+    Let’s find the **eigenvalues (λ)** and **eigenvectors** of your 2×2 matrix.  
+    M.A.T.E. will walk you through the **characteristic equation** and the logic step-by-step.
+    """)
+
+    matrix = []
+    try:
+        for i in range(2):
+            row = st.text_input(f"Row {i+1} (comma separated):", "2,1" if i == 0 else "1,2")
+            parsed_row = [float(x.strip()) for x in row.split(",")]
+            if len(parsed_row) != 2:
+                st.error(f"❌ Row {i+1} must have exactly 2 values")
+                st.stop()
+            matrix.append(parsed_row)
+    except ValueError:
+        st.error(f"❌ Invalid input format. Please enter numeric values separated by commas.")
+        st.stop()
+
+    if st.button("🟢 Compute Eigenpairs"):
+        st.info("Starting eigenvalue analysis...")
+        progress = st.progress(0)
+        status_text = st.empty()
+
+        for i in range(100):
+            progress.progress(i + 1)
+            if i == 25:
+                status_text.text("🔹 Step 1: Forming (A − λI)")
+                time.sleep(2)
+            elif i == 50:
+                status_text.text("🔹 Step 2: Solving det(A − λI) = 0 → characteristic polynomial")
+                time.sleep(2)
+            elif i == 75:
+                status_text.text("🔹 Step 3: Finding eigenvectors from (A − λI)x = 0")
+            time.sleep(0.02)
+
+        try:
+            pairs = eigenpairs(matrix)
+            st.success("✅ Computation complete!")
+            for lam, vec in pairs:
+                st.write(f"**λ = {lam}**, Eigenvector → {vec}")
+
+        except ValueError:
+            st.error(f"❌ Computation failed")
+            st.stop()
+                
+        st.markdown("""
+        ---
+        **Tutor’s Note:**  
+        Eigenvectors show the *directions* that remain fixed under transformation.  
+        Eigenvalues tell how much those directions are *stretched, shrunk, or flipped*.
+        """)

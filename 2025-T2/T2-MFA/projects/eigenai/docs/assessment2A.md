@@ -201,7 +201,7 @@ Instructions for Assessment 2-Part A.
   - Duration: 3-5 minutes
   - Format: MP4 with audio narration
 
-- [ ] **e. Code in Text File**
+- [x] **e. Code in Text File**
   - Concatenate all Python files into single `.txt` for AI detection check
   - Include comments and documentation
   - Name: `MFA501_Assessment2_Set1_Problem1_Code_Faria_Luis.txt`
@@ -231,7 +231,7 @@ Instructions for Assessment 2-Part A.
   - Show mathematical concepts visually
   - Test multiple matrices
 
-- [ ] **e. Code in Text File**
+- [x] **e. Code in Text File**
   - Name: `MFA501_Assessment2_Set1_Problem2_Code_Faria_Luis.txt`
 
 ---
