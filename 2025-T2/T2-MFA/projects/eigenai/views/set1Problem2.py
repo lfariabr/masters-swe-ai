@@ -8,7 +8,7 @@ def display_s1p2():
 
     st.markdown("""
     Let’s find the **eigenvalues (λ)** and **eigenvectors** of your 2×2 matrix.  
-    M.A.T.E. will walk you through the **characteristic equation** and the logic step-by-step.
+    EigenAI will walk you through the **characteristic equation** and the logic step-by-step.
     """)
 
     matrix = []
@@ -18,6 +18,8 @@ def display_s1p2():
             parsed_row = [float(x.strip()) for x in row.split(",")]
             if len(parsed_row) != 2:
                 st.error(f"❌ Row {i+1} must have exactly 2 values")
+                st.warning("⚠️ This tool is optimized for 2×2 matrices. "
+                "Larger matrices require iterative algorithms like QR decomposition.")
                 st.stop()
             matrix.append(parsed_row)
     except ValueError:
