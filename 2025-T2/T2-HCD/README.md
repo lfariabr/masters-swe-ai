@@ -21,6 +21,6 @@ Dr. Omid Haass
 - [ ] Module 12 - HCD in the Field
 
 ## Assignments
-- [X] Assessment 1 - deadline 12/10/2025 ✅
-- [ ] Assessment 2 - deadline 09/11/2025
-- [ ] Assessment 3 - deadline 03/12/2025
+- [X] Assessment 1 - deadline 12/10/2025 ✅, **Research Presentation** on *AI Recommendation Systems*
+- [ ] Assessment 2 - deadline 09/11/2025 🔥, **Solution Report** on *Agentic AI Systems&
+- [ ] Assessment 3 - deadline 03/12/2025 🕐, **System Solution** on *Intelligent Multi-Tier Rate Limiting System*
