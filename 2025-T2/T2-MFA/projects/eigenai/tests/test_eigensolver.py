@@ -49,16 +49,13 @@ def test_eigensolver():
         
         # Check within tolerance
         tolerance = 1e-9
-        matches = all(abs(c - e) < tolerance 
-                     for c, e in zip(computed_vals, expected_vals))
+        assert len(computed_vals) == len(expected_vals), (
+            f"Eigenvalue count mismatch: expected {len(expected_vals)}, got {len(computed_vals)}"
+        )
+        matches = all(abs(c - e) < tolerance for c, e in zip(computed_vals, expected_vals))
+        assert matches, f"Expected {expected_vals}, got {computed_vals}"
+        print(f"  ✓ PASSED: λ = {computed_vals}")
         
-        if matches:
-            print(f"  ✓ PASSED: λ = {computed_vals}")
-        else:
-            print(f"  ✗ FAILED: Expected {expected_vals}, got {computed_vals}")
-        
-        print(f"  Eigenvectors: {[p[1] for p in pairs]}\n")
-
 # Run tests if executed directly
 if __name__ == "__main__":
     test_eigensolver()
