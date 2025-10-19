@@ -6,6 +6,8 @@ Whether you're a fellow student, developer or simply curious about the field, I 
 
 👉 Official course page: [Master's of SWE AI Torrens Website](https://www.torrens.edu.au/courses/technology/master-of-software-engineering-artificial-intelligence-advanced)
 
+![CodeRabbit Pull Request Reviews](https://img.shields.io/coderabbit/prs/github/lfariabr/masters-swe-ai)
+
 ---
 
 ### My Approach
