@@ -10,9 +10,15 @@ What would your middleware flow look like from request → Redis → response?
 ---
 
 > **Reply**:
-I would have the requests requiring and decoding a JWT token on the API to start with. My middleware would also have a timed window logic with userID being key and value being counter using a lua script to cover race conditions.
-If the counter is not exceeded, return the response requested. If exceeded, return an error.
-Future enhancement could be add a token bucket improvement on redis to instead of counting up, count requests down from starting point.
+My middleware flow would be as follows:
+1. Check for the presence of a JWT token in the request header
+2. Decode the JWT token to extract user ID + plan type
+3. Build key value relation `rate:usr:<userId>:<plan>`
+4. Atomic operation with Redis + Lua script using `INCR` and `EXPIRE` logic
+5. Decision and headers: `if count <= limit -> next()`
+`else http 429 with Retry-Afer + RateLimitResetTime`
+6. Handlers and response to everyone who made till here.
+*Note: In clustered environments, ensure all instances use the same Redis cluster and synchronized clock (UTC) for consistent TTL-based windowing.*
 
 ---
 
