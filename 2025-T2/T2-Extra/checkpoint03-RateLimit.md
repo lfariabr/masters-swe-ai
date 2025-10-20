@@ -1,4 +1,4 @@
-# 🧩 ROUND 3 — SYSTEM DESIGN SCENARIO
+ # 🧩 ROUND 3 — SYSTEM DESIGN SCENARIO
 
 1. Your system has 3 tiers:
 Free plan → 5 req/min
@@ -10,14 +10,20 @@ What would your middleware flow look like from request → Redis → response?
 ---
 
 > **Reply**:
-My middleware flow would be as follows:
-1. Check for the presence of a JWT token in the request header
-2. Decode the JWT token to extract user ID + plan type
-3. Build key value relation `rate:usr:<userId>:<plan>`
-4. Atomic operation with Redis + Lua script using `INCR` and `EXPIRE` logic
-5. Decision and headers: `if count <= limit -> next()`
-`else http 429 with Retry-Afer + RateLimitResetTime`
-6. Handlers and response to everyone who made till here.
+My middleware flow would have 5 steps:
+1. Request has an Authorization header
+2. Decode the JWT token on a fetch to bring back the user and plan
+3. Generate a request on redis client with `<userId>:<plan>:<timestamp>`
+4. Atomic operation redis + lua script using `INCR` and `EXPIRE` logic to avoid race conditions
+    - if count <= limit -> next()
+    - else http 429 with `Retry-After` and `RateLimitResetTime`
+5. Handlers and response to everyone who made till here.
+
+Additional things we could add to the sprint planning:
+- 2nd middleware for Rate Limiting per IP
+- Throttling
+- Leaky Bucket
+
 *Note: In clustered environments, ensure all instances use the same Redis cluster and synchronized clock (UTC) for consistent TTL-based windowing.*
 
 ---
