@@ -33,42 +33,30 @@ containing the following information:
 
 - Title slide
     - Include your name and student number along with the Title of the
-    Project Proposal (retrieved from Assessment task 1 and redrafted based
-    on the feedback of your learning facilitator).
+    Project Proposal (retrieved from Assessment task 1 and redrafted based on the feedback of your learning facilitator).
 - Introduction
     - Research problem statement.
-    - Research questions (retrieved from Assessment 1 and redrafted based
-    on the feedback of your learning facilitator).
+    - Research questions (retrieved from Assessment 1 and redrafted based on the feedback of your learning facilitator).
     - Aims and objectives.
 - Positioning the work in the field (Findings from the critical Literature
 review)
-    - Use figures which includes tables, charts, graphs, infographics, etc.
-rather than words.
+    - Use figures which includes tables, charts, graphs, infographics, etc. rather than words.
     - Bullet points.
 - Proposed Methodology
-    - Use diagrams and examples of data visualisation to show your
-approach.
+    - Use diagrams and examples of data visualisation to show your approach.
 - Methods
-    - Show examples of your research instrument/tools (e.g., a
-sample of the survey questions used).
-    - Outline any ethical issues that may arise and how you plan to overcome
-    them.
+    - Show examples of your research instrument/tools (e.g., a sample of the survey questions used).
+    - Outline any ethical issues that may arise and how you plan to overcome them.
 - Tentative conclusion
-    - Show how your proposed methodology will answer the research
-    questions.
+    - Show how your proposed methodology will answer the research questions.
 - Timeline
-    - Both the report and the presentation should include a timeline (which
-    assumes a 12-week production cycle) showing a breakdown of the tasks
-    involved and when they should be completed. A Gantt chart would be an
-    appropriate tool to use for this section.
+    - Both the report and the presentation should include a timeline (which assumes a 12-week production cycle) showing a breakdown of the tasks involved and when they should be completed. A Gantt chart would be an appropriate tool to use for this section.
 - References (no need to talk about the references, just show the slide. Remember to follow APA style guidelines)
 
 ##### **Part 2:** Research Proposal Report
 
-The Report that forms part of this assessment task should contain the following
-sections:
-- Title: Usually a single, concise sentence that accurately reflects the
-topic of the proposed research.
+The Report that forms part of this assessment task should contain the following sections:
+- Title: Usually a single, concise sentence that accurately reflects the topic of the proposed research.
 - Introduction: Provides the background and context for the proposed research. It includes the:
     - research questions
     - aims and objectives, and
@@ -93,8 +81,7 @@ topic of the proposed research.
     - A one paragraph summary of the research proposal linking research questions with proposed methodology.
 - Proposed Timeline (assuming 12 weeks duration) outlining major deliverables. Gantt chart is recommended.
 - Referencing
-    - It is essential that you use appropriate APA style for citing and referencing sources used in your research. Please see more information on reference here:
-    - http://library.laureate.net.au/research_skills/referencing
+    - It is essential that you use appropriate APA style for citing and referencing sources used in your research. Please see more information on reference here: http://library.laureate.net.au/research_skills/referencing
 - Appendices
     - Appendices contain any tools/research instruments that you have developed.
     - Please use different appendices (e.g., Appendix A, Appendix B) for different instruments. Appendices do NOT count towards your word count.

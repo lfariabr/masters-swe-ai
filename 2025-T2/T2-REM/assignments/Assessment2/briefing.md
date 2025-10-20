@@ -29,12 +29,7 @@ The Comparative Analysis Report is an individual assessment and accounts for 30%
 2. To undertake comparative analysis of research methodologies, you need to consider an analytical approach to evaluate qualitative, quantitative, and mixed methods research methodologies. Outline the strengths andweaknesses of each approach in relation to your proposed research project.
 What steps does each approach utilise? What are the limitations associated with each approach? Justify why the approach is still selected despite the limitations.
 
-3. To propose a methodology for your research project, based on the analysis
-conducted as step 2 above, you need to determine which research
-methodology (i. e., qualitative, quantitative or mixed methods) is appropriate
-for your research project. Discuss the reasons behind your choice of
-methodology. Outline the software design, relate the methodologies and
-methods to the research question(s). Indicate the following points:
+3. To propose a methodology for your research project, based on the analysis conducted as step 2 above, you need to determine which research methodology (i. e., qualitative, quantitative or mixed methods) is appropriate for your research project. Discuss the reasons behind your choice of methodology. Outline the software design, relate the methodologies and methods to the research question(s). Indicate the following points:
 - a. What methods are being used to address the research question(s)?
 - b. What tools/research instruments are you planning on using?
 - c. How do you plan on triangulating the data that you will collect?
