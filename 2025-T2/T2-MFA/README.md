@@ -9,17 +9,17 @@ Dr. James Vakilian
 ## Modules
 - [X] Module 1 - Introduction to Sets, Functions and Vectors
 - [X] Module 2 - Vector Spaces, Subspaces
-- [X] Module 3 - Matrices
-- [X] Module 4 - Linear Transformations
-- [X] Module 5 - Eigenvalues and Eigenvectors
-- [ ] Module 6 - Derivatives and Integrals
-- [ ] Module 7 - Gradient and Optimisation
-- [ ] Module 8 - Introduction to Probabilities
-- [ ] Module 9 - Random Variables and Distributions
-- [ ] Module 10 - Descriptive Statistics for AI
-- [ ] Module 11 - Inferential Statistics for AI
-- [ ] Module 12 - Propositional Logic in AI
-- [ ] Module 13 - First Order Logic in AI
+- [X] Module 3A - Matrices
+- [X] Module 3B - Linear Transformations
+- [X] Module 4 - Eigenvalues and Eigenvectors
+- [X] Module 5A - Derivatives and Integrals
+- [ ] Module 5B - Gradient and Optimisation
+- [ ] Module 6 - Introduction to Probabilities
+- [ ] Module 7 - Random Variables and Distributions
+- [ ] Module 8 - Descriptive Statistics for AI
+- [ ] Module 9 - Inferential Statistics for AI
+- [ ] Module 10 - Propositional Logic in AI
+- [ ] Module 11 - First Order Logic in AI
 
 ## Assignments
 - [X] Assessment 1 - deadline 05/10/2025 ✅
