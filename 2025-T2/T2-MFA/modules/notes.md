@@ -121,7 +121,7 @@ If W is a subset of V
 AND W is a vector space
 Then W is a Subspace of V
 
-## Module 3 - Matrices
+## Module 3A - Matrices
 
 ### I. An Introduction to Linear Algebra
 - A branch of Abstract Mathematics
@@ -229,7 +229,7 @@ A^-1 = [ (a22/det(A)) (-a12/det(A))
 ### Extra Reading
 https://www.linkedin.com/pulse/linear-algebra-fuels-artificial-intelligence-kayode-odeyemi/
 
-## Module 4 - Fundamentals of Linear Algebra
+## Module 3B - Fundamentals of Linear Algebra
 Linear Transformations, Eigenvalues and Eigenvectors
 
 ### I. Image Processing
@@ -315,7 +315,7 @@ A(c·x) = c·A·x
 - Reflection
 - Projections
 
-## Module 5 - Eigenvalues and Eigenvectors
+## Module 4 - Eigenvalues and Eigenvectors
 
 ### I. Conceptual Analysis
 - A matrix transforms a vector — usually changing both:
@@ -433,3 +433,110 @@ Calculus is the mathematical study of continuous change. Geometry is the branch 
 The core concepts of calculus—differentiation and integration—are built on the idea of limits, which allows us to analyze how things change over infinitesimally small intervals. 
 
 More to come...
+
+## Module 5 - Derivatives and Integrals
+
+### I. Introduction to Calculus
+Branch of mathematics, originally from the calculus of infinitesimals.Developed by Isaac Newton and Gottfried Wilhelm Leibniz at the same time in the late 17th century.
+
+Differential calculus: study of rates at which quantities change
+Integral calculus: study the area under a curve
+
+### II. Mapping & Relations
+
+#### Conceptual example
+set A: {Benz, Bentley, Jaguar}
+set B: {Red, Blue, Green}
+
+f: A -> B
+f(Benz) = Red
+f(Bentley) = Blue
+f(Jaguar) = Green
+
+#### Mapping
+Correlating members of one set A with/to members of another set B
+The relation R maps elements of set A to elements of set B:
+R: A -> B
+
+#### Ordered Pair
+Cartesian product of two sets A and B
+Denoted A x B
+A x B = {(a, b) | a ∈ A, b ∈ B}
+
+#### Cartesian Multiplication
+- Note 1: (X,Y) != (Y,X)
+- Note 2: RXR = R^2 (*Plane*)
+- Note 3: RXRXR = R^3 (*Space*)
+- Note 4: RxRxRx... = R^n (*n*)
+
+#### Relation
+- One to one mapping
+- Many to one mapping
+- One to many mapping (not interested on this in Calculus)
+- Many to many mapping (not interested on this in Calculus)
+
+### III. Functions
+
+#### Conceptual example
+- set A: {Milk, Sugar, Flavor} -> inputs(x)
+- Ice Cream Machine (f: A -> B)
+- set B: {Vanilla, Chocolate, Strawberry} -> outputs(y)
+
+`f: A -> B`
+- x is the input -> independent variable
+- y is the output -> dependent variable
+
+> The same input can't generate different outputs
+
+#### Variables
+- A function may have several independent variable, set of all inputs = A
+- A function may have several dependent variable, set of all outputs = B
+
+#### Function vs Relations
+It can be one-to-one or many-to-one mapping, meaning they have a well-behaved relation.
+
+#### Domain and Range
+Domain: set of all possible inputs
+Range: set of all possible outputs
+
+#### Rules for functions
+1. Not divide by zero
+2. Not take the square root of a negative number
+3. Not defined
+
+### IV. Limits
+
+Limits study the behavior of function. Thinki about y = 1/x
+How to find? Starting from a point, example:
+x = 0,01
+x = 0,00001
+x = 0,0000001
+...
+
+#### Concept of limit - informal
+As x approaches 0, y approaches infinity.
+
+#### Definition of limit - informal
+If x -> value c from either sides -> the value of (fx) approaches a real number L, then:
+Lim f(x) = L (as x -> c)
+
+#### Definition of limit - formal
+If for every positive number epsilon, there exists a positive number delta such that for all x in the domain of f, if 0 < |x - c| < delta, then |f(x) - L| < epsilon, then:
+Lim f(x) = L (as x -> c)
+
+### V. Continuity
+It is a function that does not have any abrupt changes in value, known as discontinuities.
+
+#### Types of discontinuities
+1. Removable discontinuity
+2. Jump discontinuity
+3. Essential discontinuity
+
+#### Continuity Test
+```python
+1. f(c) exists              # c lies in the domain of f
+2. lim x->c f(x) exists     # f has a limit as x -> c
+3. lim x->c f(x) = f(c)     # the limit equals the function value at c
+```
+
+### VI. Tutorial
