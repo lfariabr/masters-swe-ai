@@ -12,7 +12,7 @@ Dr. Omid Haass
 - [X] Module 3 - User Experience Design
 - [X] Module 4 - Trend-Based Design
 - [X] Module 5 - The Art of Ideation
-- [ ] Module 6 - Empathising with the Problem Space
+- [X] Module 6 - Empathising with the Problem Space
 - [ ] Module 7 - Transformational Thinking
 - [ ] Module 8 - Designing within a Social Context
 - [ ] Module 9 - Designing for a Global Context

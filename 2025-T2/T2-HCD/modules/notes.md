@@ -101,10 +101,39 @@ Ideation is the process of generating and developing ideas for a product or serv
 - SCAMPER
 - Six Thinking Hats
 
-
-
 ### Extra videos:
 https://www.youtube.com/watch?v=zbLxs6te5to
 https://www.youtube.com/watch?v=xXsHI_VlhmY
 https://www.youtube.com/watch?v=ByjKT9IUkjA
 https://www.youtube.com/watch?v=8ka_H8npvgM
+
+## Module 6 - Empathising with the Problem Space
+
+### Context
+What is the problem space: landscape of challenges, needs and pain points. 
+It involves understanding the context, constraints and underlying causes of a problem.
+
+### Methods
+1. User research techniques
+2. Persona Development
+3. Empathy Mapping
+4. Journey Mapping
+
+### Examples
+- Empathetic Design for Online Shopping - Amazon
+- Human-Centered Design in Software Development - Slack
+- Streamlining Project Collaboration - Atlassian Jira
+
+### Conclusion
+- Empathy is a fundamental aspect of Human-Centered Design, enabling a
+deep understanding of user needs.
+- Empathizing with the problem space uncovers valuable insights and reveals opportunities for innovation.
+- Utilize various methods and best practices to effectively empathize with users.
+- Empathetic design leads to more meaningful and impactful solutions that resonate with users.
+
+### Extra videos:
+https://www.youtube.com/watch?v=6BsXKsGBK2c
+https://www.youtube.com/watch?v=i7U32Da_hBQ
+https://www.youtube.com/watch?v=tTOihFBI9Co
+https://www.youtube.com/watch?v=q654-kmF3Pc
+https://www.youtube.com/watch?v=-sR888VZCk8
