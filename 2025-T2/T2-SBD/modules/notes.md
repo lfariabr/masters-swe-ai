@@ -281,3 +281,82 @@ Networks, servers, storage, control systems!
 - Embrace shared responsibility, with provider
 - Think like an attacker: understand threats and constantly update defenses
 - Build human firewall: training and awareness
+
+## Module 6 - IT System Security Assessment
+
+### Expected Learning Outcomes
+- Explain what cybersecurity risk is and how it arises from threats and vulnerabilities
+- Differentiate between threats, vulnerabilities, and attacks in a risk context
+- Qualitative vs Quantitative methods
+- Five phases of risk assessment
+- Compliance and professional requirements
+
+#### What is risk
+possibility of loss, damage, harm due to a cyber threat
+
+##### Componentes of risk
+- Assets: what needs protection (data, systems, people, software, customer satisfaction, brand acceptance on the marke, human resources, intellectual property, etc.)
+- Threats: possible dangers (malware, phishing, social engineering, insider threats)
+- Vulnerabilities: weaknesses in security (unpatched software, weak passwords, loopholes intentional or accidental)
+
+##### Small parenthesis
+- Coding is an art of craftsmanship
+- Even with all that liberty, **clean code** principles remain
+- Technology is moving VERY fast: from cinema, to now where we record in HQ, and how about in the future? If we don't keep up, we'll be left behind.
+
+#### Risk Assessment formula
+Risk = Likelihood * Impact
+
+- What is likehlihood: Probability or chance that a specific threat will exploit a vulnerability
+- What it measures: 
+- What is loss magnitude: When a threat exploits a vulnerability, what is the impact?
+
+##### Qualitative vs Quantitative methods
+- Qualitative: deal with words, high, less, etc.
+- Quantitative: deal with numbers, numerical data  (I don't think I have this on my assessment right now, it would be interesting to add for coverage - also check if we have all key components )
+
+#### Risk Management Process
+- Five phases of risk assessment
+    - Step 1: Context Establishment
+        - define scope/boundaries
+        - identify stakeholders + requirements
+    - Step 2: Identify the risk
+        - discovering and documenting potential risks
+        - methods include: brainstorming, checklists, historial incident, threat modeling (maybe add reference of book describing sorts of attacks)
+    - Step 3: Risk analysis
+        - likeholihood
+        - risk. lvls using formulas
+        - ...
+    - Step 4: Risk evaluation
+        - comparing analyzed risks against criteria
+        - determining which risks require treatment
+        - setting priorities
+    - Step 5: Risk treatment
+        - selecting appropriate risk treatment strategies
+        - implementing controls
+        - monitoring and reviewing
+    - Step 6: Risk reporting
+        - communicating findings to stakeholders
+        - documenting risk assessment process
+            incident response
+            disaster recovery
+            business continuity
+            documents requiring regular testing and updates
+        - maintaining records of risk assessment
+
+#### DREAD framework
+- Function: A method to rate the potential severity of a threat. 
+- Categories: Uses five categories, each scored typically on a scale of 0–10. 
+    - Damage Potential: How much harm an attack can cause. 
+    - Reproducibility: How easy it is to reproduce an attack. 
+    - Exploitability: How easy it is to launch an attack. 
+    - Affected Users: The number of users who would be impacted. 
+    - Discoverability: How easy it is to find the vulnerability. 
+- Goal: To prioritize which risks to address first by calculating an overall risk score from the sum of the category scores. 
+- O
+
+#### OCTAVE
+...
+
+### Compliance requirements
+- GDPR
