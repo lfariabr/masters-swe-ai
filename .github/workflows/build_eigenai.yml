@@ -1,0 +1,41 @@
+name: Build EigenAI Executable
+
+on:
+  workflow_dispatch:  # run manually from Actions tab
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            2025-T2/T2-MFA/projects/eigenai
+          sparse-checkout-cone-mode: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          cd 2025-T2/T2-MFA/projects/eigenai
+          pip install -r requirements.txt
+          pip install pyinstaller
+
+      - name: Build executable
+        run: |
+          cd 2025-T2/T2-MFA/projects/eigenai
+          pyinstaller --onefile --noconsole `
+            --add-data "app.py;." `
+            --hidden-import streamlit.runtime.scriptrunner.script_runner `
+            launcher.py
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: EigenAI-exe
+          path: 2025-T2/T2-MFA/projects/eigenai/dist/*.exe
