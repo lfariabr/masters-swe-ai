@@ -1,14 +1,14 @@
 import os
 import sys
 import subprocess
+import time
 
 def resource_path(relative_path):
-    """Get absolute path to resource, works for dev and PyInstaller."""
+    """Get absolute path to resource (works for dev and PyInstaller)"""
     try:
-        base_path = sys._MEIPASS  # PyInstaller temp dir
+        base_path = sys._MEIPASS  # temporary folder used by PyInstaller
     except Exception:
         base_path = os.path.abspath(".")
-
     return os.path.join(base_path, relative_path)
 
 def main():
@@ -26,14 +26,14 @@ def main():
         "--server.headless=true"
     ]
 
+    # Start Streamlit in the background
     subprocess.Popen(command, shell=True)
-    print("🌐 Streamlit is starting... open http://localhost:8501")
+
+    # Give Streamlit a few seconds to start
+    time.sleep(3)
+
+    print("🌐 Streamlit should now be running — open http://localhost:8501")
+    os.system("start http://localhost:8501")
 
 if __name__ == "__main__":
     main()
-
-
-# rm -rf build dist launcher.spec
-# pyinstaller --onefile --noconsole --add-data "app.py:." --hidden-import=streamlit.runtime.scriptrunner.script_runner launcher.py
-# cd dist
-# ./launcher

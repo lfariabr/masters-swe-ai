@@ -1,14 +1,14 @@
 name: Build EigenAI Executable
 
 on:
-  workflow_dispatch:  # run manually from Actions tab
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: windows-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout EigenAI folder
         uses: actions/checkout@v4
         with:
           sparse-checkout: |
@@ -26,13 +26,13 @@ jobs:
           pip install -r requirements.txt
           pip install pyinstaller
 
-      - name: Build executable
+      - name: Build executable (fixed hidden imports)
         run: |
           cd 2025-T2/T2-MFA/projects/eigenai
-          pyinstaller --onefile --noconsole `
-            --add-data "app.py;." `
-            --hidden-import streamlit.runtime.scriptrunner.script_runner `
-            launcher.py
+          pyinstaller launcher.py --onefile --noconsole ^
+            --hidden-import=pkgutil ^
+            --hidden-import=pkg_resources ^
+            --hidden-import=streamlit.runtime.scriptrunner.script_runner
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
