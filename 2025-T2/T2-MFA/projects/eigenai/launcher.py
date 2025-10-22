@@ -1,43 +1,37 @@
 import os
-import subprocess
 import sys
-import webbrowser
+import subprocess
+
+def resource_path(relative_path):
+    """Get absolute path to resource, works for dev and PyInstaller."""
+    try:
+        base_path = sys._MEIPASS  # PyInstaller temp dir
+    except Exception:
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, relative_path)
 
 def main():
-    # Prevent recursive re-launch
-    if os.environ.get("EIGENAI_LAUNCHED"):
-        return
+    app_path = resource_path("app.py")
 
-    os.environ["EIGENAI_LAUNCHED"] = "1"
-
-    app_path = os.path.join(os.path.dirname(__file__), "app.py")
+    print("🚀 Launching EigenAI Streamlit app...")
     command = [
         sys.executable,
         "-m",
         "streamlit",
         "run",
         app_path,
-        "--server.headless=false"
+        "--server.address=127.0.0.1",
+        "--server.port=8501",
+        "--server.headless=true"
     ]
 
-    print("🚀 Launching EigenAI Streamlit app...")
-
-    try:
-        # Start the Streamlit process
-        process = subprocess.Popen(command)
-
-        # Automatically open the browser once
-        webbrowser.open_new("http://localhost:8501")
-
-        # Wait for process to finish
-        process.wait()
-
-    except KeyboardInterrupt:
-        print("💤 Shutting down EigenAI...")
-        process.terminate()
+    subprocess.Popen(command, shell=True)
+    print("🌐 Streamlit is starting... open http://localhost:8501")
 
 if __name__ == "__main__":
     main()
+
 
 # rm -rf build dist launcher.spec
 # pyinstaller --onefile --noconsole --add-data "app.py:." --hidden-import=streamlit.runtime.scriptrunner.script_runner launcher.py
