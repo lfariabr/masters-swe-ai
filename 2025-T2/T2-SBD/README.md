@@ -12,7 +12,7 @@ Dr. Tanvir Rahman
 - [X] Module 3 - Introduction to Cyber-Security Methods
 - [X] Module 4 - Common Threats and Attacks
 - [X] Module 5 - Architecture Integration with IT Systems
-- [ ] Module 6 - IT System Security Assessment
+- [X] Module 6 - IT System Security Assessment
 - [ ] Module 7 - Secure Failure
 - [ ] Module 8 - Domain-Driven Design
 - [ ] Module 9 - Reducing complexity
