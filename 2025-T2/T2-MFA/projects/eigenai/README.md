@@ -62,9 +62,23 @@ EigenAI/
 
 ## EigenAI Roadmap
 
-Phase 1: Foundation
-Phase 2: Intelligence Enhancement
-Phase 3: AI-Powered Insights
+| Version | Status | Description |
+| --- | - | --------- |
+| v0.0.1 | ✅ | Streamlit setup assets, pages and utils |
+| v0.0.2 | ✅ | Sidebar menu, logo, title and docs |
+| v0.0.3 | ✅ | Resolver refactor and assessment docs build up |
+| v0.0.4 | ✅ | UX and UI improvements |
+| v0.0.9 | ✅ | PyInstaller + release build documentation |
+| v0.1.0 | 🔥 | Assessment 2A submission |
+| vX.2.X | 🕐 | Assessment 2B submission |
+| vX.X.X | 🕐 | Login + Authentication |
+| vX.X.X | 🕐 | LLM plug with rate limiting |
+| vX.X.X | 🕐 | BaaS with Supabase |
+| vX.X.X | 🕐 | Backend Framework (FastAPI, Flask) |
+| vX.X.X | 🕐 | Test converage |
+| vX.X.X | 🕐 | Weekly digest with Agentic Integration |
+| vX.X.X | 🕐 | Security enhancements |
+
 
 > Detailed changelog can be found in [`CHANGELOG.md`](2025-T2/T2-MFA/projects/eigenai/docs/changelog.md)
 
