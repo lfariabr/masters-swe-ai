@@ -12,7 +12,7 @@ Dr. Bushra Naeem
 - [X] Module 3 - Situating Your Research in the Broader Context – The Annotated
 - [X] Module 4 - The Literature Review
 - [X] Module 5 - REM, Quantitative Research vs Qualitative Research
-- [ ] Module 6 - REM, Mixed Method Research
+- [X] Module 6 - REM, Mixed Method Research
 - [ ] Module 7 - REM, Choosing your methods
 - [ ] Module 8 - The Ethics of Human Research
 - [ ] Module 9 - Data Sampling Methods
