@@ -75,3 +75,6 @@ presentation of results
 
 ### todo
 - add appendices to assessment #2
+
+## Module 6 - Mixed Method Research
+Use mixed-methods research when your quantitative data is insufficient on its own to answer your research question, as it allows you to both test and explore a topic. If you can answer your question with numbers alone, a purely quantitative approach is fine. Use mixed methods if you need to combine broad trends (quantitative) with rich context and "why" explanations (qualitative).
