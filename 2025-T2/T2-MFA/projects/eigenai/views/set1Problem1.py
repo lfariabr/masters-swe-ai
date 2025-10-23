@@ -35,15 +35,18 @@ def display_s1p1():
             progress.progress(i + 1)
             if i == 25:
                 status_text.text("🔹 Step 1: Checking if matrix is square...")
-                time.sleep(2)
+                time.sleep(2) # 2s to let user see the progress
             elif i == 50:
                 status_text.text("🔹 Step 2: Applying recursive Laplace expansion...")
-                time.sleep(2)
+                time.sleep(2) # 2s to let user see the progress
             elif i == 75:
                 status_text.text("🔹 Step 3: Simplifying minors and cofactors...")
+                time.sleep(2) # 2s to let user see the progress
+            else:
+                status_text.text("🔹 Step 4: Displaying results")
             time.sleep(0.02)
 
-        if is_square(matrix):
+        if is_square(matrix): # used to check if the matrix is square and proceed with determinant calculation
             try:
                 det_value = determinant(matrix)
                 st.success(f"✅ Determinant = {det_value}")
@@ -52,7 +55,7 @@ def display_s1p1():
                 st.stop()
             st.markdown("""
             ---
-            Tutor's Note 🧠:
+            EigenAi's Hint 🧠:
             The determinant measures how the matrix transforms space:
             - |det(A)| > 1 → expands area/volume.
             - 0 < |det(A)| < 1 → compresses.

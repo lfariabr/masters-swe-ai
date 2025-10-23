@@ -35,12 +35,15 @@ def display_s1p2():
             progress.progress(i + 1)
             if i == 25:
                 status_text.text("🔹 Step 1: Forming (A − λI)")
-                time.sleep(2)
+                time.sleep(2) # 2s to let user see the progress
             elif i == 50:
                 status_text.text("🔹 Step 2: Solving det(A − λI) = 0 → characteristic polynomial")
-                time.sleep(2)
+                time.sleep(2) # 2s to let user see the progress
             elif i == 75:
                 status_text.text("🔹 Step 3: Finding eigenvectors from (A − λI)x = 0")
+                time.sleep(2) # 2s to let user see the progress
+            else:
+                status_text.text("🔹 Step 4: Displaying results")
             time.sleep(0.02)
 
         try:
@@ -55,7 +58,8 @@ def display_s1p2():
                 
         st.markdown("""
         ---
-        **Tutor’s Note:**  
+        ***EigenAi's Hint: 🧠** 
+
         Eigenvectors show the *directions* that remain fixed under transformation.  
         Eigenvalues tell how much those directions are *stretched, shrunk, or flipped*.
         """)

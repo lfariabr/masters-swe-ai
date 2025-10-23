@@ -15,7 +15,7 @@ from views import home, set1Problem1, set1Problem2, set2Problem1, set2Problem2
 
 # ---- Sidebar Header ----
 logo_url = "https://github.com/lfariabr/masters-swe-ai/blob/master/2025-T2/T2-MFA/projects/eigenai/assets/logo2.png?raw=true"
-st.sidebar.image(logo_url, use_container_width=True)
+st.sidebar.image(logo_url, width="stretch")
 st.sidebar.markdown("---")
 
 # ---- Sidebar Menu ----
@@ -47,8 +47,6 @@ if menu == "📗 set2-problem2":
 # ---- Footer ----
 st.sidebar.markdown("---")
 st.sidebar.markdown("[![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/lfariabr)")
-# Torrens University Logo and Site:
-st.sidebar.markdown("[![Torrens University](https://img.shields.io/badge/Torrens-%23eb5f24.svg?&style=for-the-badge&logo=Torrens-University-Australia&logoColor=white)](https://www.torrens.edu.au/courses/technology/master-of-software-engineering-artificial-intelligence-advanced)")
 st.sidebar.caption("luisfaria.dev")
 
 ############################
@@ -85,39 +83,58 @@ def is_square(A):
     return all(len(row) == m for row in A)
 
 # Step 3: Implement our own sqrt (no math imports)
-def my_sqrt(x, tolerance=1e-10):
-    "Return square root using Newton–Raphson (no math lib)"
+def my_sqrt(x, tolerance=1e-10, max_iterations=100):
+    """
+    Newton-Raphson square root approximation.
+    Typically converges in 5-6 iterations.
+    Max iterations: 100 (prevents infinite loops))
+    """
     if x < 0:
         raise ValueError("Cannot compute sqrt of negative number in real domain")
     if x == 0:
         return 0
-    guess = x
-    while True:
+    
+    # Better initial guess
+    guess = x / 2 if x >= 1 else x
+
+    for _ in range(max_iterations):
         next_guess = 0.5 * (guess + x / guess)
         if abs(next_guess - guess) < tolerance:
             return next_guess
         guess = next_guess
+    # If we get here, means didn't converege, so just return best guess
+    return guess
 
 # Step 4: Compute eigenvalues for a 2x2 matrix
 def eigenvalues_2x2(A):
     """
     For A = [[a,b],[c,d]]:
-    Characteristic polynomial:
-    λ² - (a + d)λ + (ad - bc) = 0
+    Characteristic polynomial: λ² - (a + d)λ + (ad - bc) = 0
     Solve using quadratic formula.
     """
+    if not is_square(A):
+        raise ValueError("Matrix must be square")
+    
     n, m = shape(A)
     if not (n == m == 2):
-        raise ValueError("Matrix must be 2x2")
-
-    a, b = A[0]
-    c, d = A[1]
+        raise ValueError(f"Matrix must be 2x2, got {n}x{m}")
+    
+    # Validate all elements are numbers
+    try:
+        a, b = float(A[0][0]), float(A[0][1])
+        c, d = float(A[1][0]), float(A[1][1])
+    except (ValueError, TypeError, IndexError):
+        raise ValueError("Matrix must contain valid numeric values")
+    
     tr = a + d                  # trace
     det = a * d - b * c         # determinant
     disc = tr * tr - 4 * det    # discriminant
 
     if disc < 0:
-        raise ValueError("Complex eigenvalues – not supported in this version")
+        raise ValueError(
+            f"Complex eigenvalues detected (discriminant={disc:.4f}). "
+            "This version only supports real eigenvalues."
+        )
 
     root = my_sqrt(disc)
     λ1 = (tr + root) / 2
@@ -132,23 +149,32 @@ def subtract_lambda_I(A, lam):
 
 def eigenvector_for_lambda(A, lam, tolerance=1e-9):
     """
-    Solve (A - λI)v = 0.
-    For 2x2, only need ratio between x and y:
-        (a-λ)x + b y = 0  → y = -((a-λ)/b)x
+    Solve (A - λI)v = 0 for 2x2 matrix.
+    
+    Edge cases handled:
+    - b ≈ 0: Use alternative formula via c
+    - b ≈ 0 and c ≈ 0: Diagonal matrix, return standard basis
+    - Near-zero denominators: Use epsilon checks
     """
     a, b = A[0]
     c, d = A[1]
+
+    # Handle different cases
     if abs(b) > tolerance:
-        y_over_x = -((a - lam) / b)
-        v = [1, y_over_x]
+        # Standard case: y = -((a-λ)/b)x
+        v = [1.0, -((a - lam) / b)]
     elif abs(c) > tolerance:
-        x_over_y = -((d - lam) / c)
-        v = [x_over_y, 1]
+        # Alternative when b ≈ 0
+        v = [-((d - lam) / c), 1.0]
     else:
-        v = [1, 0]  # fallback
-    # Normalize vector for neatness
-    mx = max(abs(v[0]), abs(v[1]))
-    v = [round(v[0]/mx, 6), round(v[1]/mx, 6)]
+        # Diagonal matrix case
+        v = [1.0, 0.0]
+    
+    # Normalize to unit vector (L2 norm)
+    magnitude = my_sqrt(v[0]**2 + v[1]**2)
+    if magnitude > tolerance:
+        v = [v[0]/magnitude, v[1]/magnitude]
+    
     return v
 
 # Step 6: Combine both into eigenpairs
@@ -163,6 +189,7 @@ def eigenpairs(A):
 ############################
 # views/set1Problem2.py
 ############################
+
 import streamlit as st
 from resolvers.eigen_solver import eigenpairs
 import time
@@ -173,7 +200,7 @@ def display_s1p2():
 
     st.markdown("""
     Let’s find the **eigenvalues (λ)** and **eigenvectors** of your 2×2 matrix.  
-    M.A.T.E. will walk you through the **characteristic equation** and the logic step-by-step.
+    EigenAI will walk you through the **characteristic equation** and the logic step-by-step.
     """)
 
     matrix = []
@@ -183,6 +210,8 @@ def display_s1p2():
             parsed_row = [float(x.strip()) for x in row.split(",")]
             if len(parsed_row) != 2:
                 st.error(f"❌ Row {i+1} must have exactly 2 values")
+                st.warning("⚠️ This tool is optimized for 2×2 matrices. "
+                "Larger matrices require iterative algorithms like QR decomposition.")
                 st.stop()
             matrix.append(parsed_row)
     except ValueError:
@@ -198,12 +227,15 @@ def display_s1p2():
             progress.progress(i + 1)
             if i == 25:
                 status_text.text("🔹 Step 1: Forming (A − λI)")
-                time.sleep(2)
+                time.sleep(2) # 2s to let user see the progress
             elif i == 50:
                 status_text.text("🔹 Step 2: Solving det(A − λI) = 0 → characteristic polynomial")
-                time.sleep(2)
+                time.sleep(2) # 2s to let user see the progress
             elif i == 75:
                 status_text.text("🔹 Step 3: Finding eigenvectors from (A − λI)x = 0")
+                time.sleep(2) # 2s to let user see the progress
+            else:
+                status_text.text("🔹 Step 4: Displaying results")
             time.sleep(0.02)
 
         try:
@@ -218,7 +250,8 @@ def display_s1p2():
                 
         st.markdown("""
         ---
-        **Tutor’s Note:**  
+        ***EigenAi's Hint: 🧠*** 
+
         Eigenvectors show the *directions* that remain fixed under transformation.  
         Eigenvalues tell how much those directions are *stretched, shrunk, or flipped*.
         """)

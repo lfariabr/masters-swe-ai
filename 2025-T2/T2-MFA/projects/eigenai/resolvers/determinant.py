@@ -56,7 +56,7 @@ def determinant(A):
     if n == 2:
         return A[0][0]*A[1][1] - A[0][1]*A[1][0]
 
-    # Recursive case
+    # Recursive case: if n>2, use Laplace expansion
     total = 0
     sign = 1  # starts positive for column 0, alternates each step
     for j in range(n):

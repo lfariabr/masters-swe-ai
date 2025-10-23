@@ -5,8 +5,6 @@ def display():
 
     image_address = "https://github.com/lfariabr/masters-swe-ai/blob/master/2025-T2/T2-MFA/projects/eigenai/assets/eigenAI-header.png?raw=true"
     st.image(image_address, width="stretch")
-    # st.image("assets/eigenAI-header.png", width="stretch")
-    # st.caption("🤖 EigenAI says: 'WELCOME TO THE OTHER SIDE, WHERE THE MATHEMATICAL MAGIC BEGINS!'")
     st.markdown(
     """
     <div style="
@@ -30,9 +28,9 @@ def display():
         st.balloons()
         
         st.info("""
-        👈 **Use the sidebar on your left** to navigate between different sections of the application.
-
-        👇 Read more about the project below.
+        👈 **Use the sidebar on your left** to navigate between sections of the application.
+        
+        👇 or **Read More** about the project below.
         """)
         st.markdown("---")
         
@@ -69,6 +67,21 @@ def display():
         st.markdown("""
         This project is proudly mentored by **Dr. James Vakilian**, a distinguished lecturer in Mathematics at Torrens University Australia.
 
-        For more information about Dr. Vakilian's work and contributions, you can visit his [LinkedIn profile](https://www.linkedin.com/in/james-v-70183b28/).
+        For more information about Dr. Vakilian's work and contributions, you can visit his [Dr. Vakilian's Profile](https://www.linkedin.com/in/james-v-70183b28/).
         """)
         st.markdown("---")
+
+        st.markdown("""
+        EigenAI is a project part of the Masters' in Software Engineering and Artificial Intelligence at Torres University;
+        
+        Designed to help students better understand math concepts teached at the Core Subject *Mathematical Foundations of Artificial Intelligence*.
+        """)
+        
+        st.markdown("[![Torrens University](https://img.shields.io/badge/Torrens-%23eb5f24.svg?&style=for-the-badge&logo=Torrens-University-Australia&logoColor=white)](https://www.torrens.edu.au/courses/technology/master-of-software-engineering-artificial-intelligence-advanced)")
+
+        st.markdown("---")
+        st.markdown("""
+        *Built with ❤️ and rigorous engineering principles by EigenAI team*
+
+        **"Whether it’s concrete or code, structure is everything."**
+        """)
