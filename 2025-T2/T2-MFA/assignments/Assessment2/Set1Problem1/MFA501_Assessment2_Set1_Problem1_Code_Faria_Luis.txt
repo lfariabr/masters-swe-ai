@@ -15,7 +15,7 @@ from views import home, set1Problem1, set1Problem2, set2Problem1, set2Problem2
 
 # ---- Sidebar Header ----
 logo_url = "https://github.com/lfariabr/masters-swe-ai/blob/master/2025-T2/T2-MFA/projects/eigenai/assets/logo2.png?raw=true"
-st.sidebar.image(logo_url, use_container_width=True)
+st.sidebar.image(logo_url, width="stretch")
 st.sidebar.markdown("---")
 
 # ---- Sidebar Menu ----
@@ -47,8 +47,6 @@ if menu == "📗 set2-problem2":
 # ---- Footer ----
 st.sidebar.markdown("---")
 st.sidebar.markdown("[![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/lfariabr)")
-# Torrens University Logo and Site:
-st.sidebar.markdown("[![Torrens University](https://img.shields.io/badge/Torrens-%23eb5f24.svg?&style=for-the-badge&logo=Torrens-University-Australia&logoColor=white)](https://www.torrens.edu.au/courses/technology/master-of-software-engineering-artificial-intelligence-advanced)")
 st.sidebar.caption("luisfaria.dev")
 
 ############################
@@ -113,7 +111,7 @@ def determinant(A):
     if n == 2:
         return A[0][0]*A[1][1] - A[0][1]*A[1][0]
 
-    # Recursive case
+    # Recursive case: if n>2, use Laplace expansion
     total = 0
     sign = 1  # starts positive for column 0, alternates each step
     for j in range(n):
@@ -166,15 +164,18 @@ def display_s1p1():
             progress.progress(i + 1)
             if i == 25:
                 status_text.text("🔹 Step 1: Checking if matrix is square...")
-                time.sleep(2)
+                time.sleep(2) # 2s to let user see the progress
             elif i == 50:
                 status_text.text("🔹 Step 2: Applying recursive Laplace expansion...")
-                time.sleep(2)
+                time.sleep(2) # 2s to let user see the progress
             elif i == 75:
                 status_text.text("🔹 Step 3: Simplifying minors and cofactors...")
+                time.sleep(2) # 2s to let user see the progress
+            else:
+                status_text.text("🔹 Step 4: Displaying results")
             time.sleep(0.02)
 
-        if is_square(matrix):
+        if is_square(matrix): # used to check if the matrix is square and proceed with determinant calculation
             try:
                 det_value = determinant(matrix)
                 st.success(f"✅ Determinant = {det_value}")
@@ -183,7 +184,8 @@ def display_s1p1():
                 st.stop()
             st.markdown("""
             ---
-            Tutor's Note 🧠:
+            ***EigenAi's Hint: 🧠***
+            
             The determinant measures how the matrix transforms space:
             - |det(A)| > 1 → expands area/volume.
             - 0 < |det(A)| < 1 → compresses.

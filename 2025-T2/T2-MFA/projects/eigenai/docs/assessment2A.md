@@ -169,9 +169,9 @@ Instructions for Assessment 2-Part A.
 ## Submission Checklist - Set 1 (Module 6)
 
 ### Problem 1: Determinant Calculator
-- [ ] **a. Release Build** 
+- [x] **a. Release Build** 
   - Create standalone executable using PyInstaller or cx_Freeze
-  - Test on clean machine without Python installed
+  - [ ] Test on clean machine without Python installed
   - Include in: `MFA501_Assessment2_Set1_Problem1_ReleaseBuild_Faria_Luis.zip`
 
 - [x] **b. Source Code** ✅
@@ -191,7 +191,7 @@ Instructions for Assessment 2-Part A.
   - **Conclusion:** Learning outcomes and future improvements
   - Save as: `MFA501_Assessment2_Set1_Problem1_Report_Faria_Luis.pdf`
 
-- [x] **d. Video Demo** ✅
+- [ ] **d. Video Demo** ✅
   - Screen recording showing:
     - Application launch
     - Matrix input process
@@ -207,8 +207,8 @@ Instructions for Assessment 2-Part A.
   - Name: `MFA501_Assessment2_Set1_Problem1_Code_Faria_Luis.txt`
 
 ### Problem 2: Eigenvalue/Eigenvector Calculator
-- [ ] **a. Release Build**
-  - Same executable can include both problems
+- [x] **a. Release Build**
+  - [ ] Same executable can include both problems
   - Package in: `MFA501_Assessment2_Set1_Problem2_ReleaseBuild_Faria_Luis.zip`
 
 - [x] **b. Source Code** ✅
@@ -226,7 +226,7 @@ Instructions for Assessment 2-Part A.
   - **Conclusion:** Understanding of eigen decomposition fundamentals
   - Save as: `MFA501_Assessment2_Set1_Problem2_Report_Faria_Luis.pdf`
 
-- [x] **d. Video Demo** ✅
+- [ ] **d. Video Demo** ✅
   - Demonstrate eigenvalue/eigenvector calculations
   - Show mathematical concepts visually
   - Test multiple matrices

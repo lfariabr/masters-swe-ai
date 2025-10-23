@@ -84,6 +84,6 @@ EigenAI/
 
 ---
 
-*Built with ❤️ and rigorous engineering principles by the EigenAI team*
+*Built with ❤️ and rigorous engineering principles by EigenAI team*
 
 **"Whether it’s concrete or code, structure is everything."**
