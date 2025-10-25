@@ -59,11 +59,11 @@ def determinant(A):
     # Recursive case: if n>2, use Laplace expansion
     total = 0
     sign = 1  # starts positive for column 0, alternates each step
-    for j in range(n):
-        a_0j = A[0][j]
+    for j in range(n): # Looping through columns (j) in the first row (0)
+        a_0j = A[0][j] # smart check to skip zero entries
         if a_0j != 0:
             M = minor_matrix(A, 0, j)
-            sub_det = determinant(M)
+            sub_det = determinant(M) # The recursive call!
             total += sign * a_0j * sub_det
-        sign = -sign
+        sign = -sign # Flip the sign for the next column
     return total
