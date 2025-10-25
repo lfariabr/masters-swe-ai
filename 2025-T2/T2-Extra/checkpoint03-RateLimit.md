@@ -34,7 +34,13 @@ What's a smart optimization to reduce memory usage while keeping accuracy?
 ---
 
 > **Reply**:
-We could add a token bucket with a decreasing counter and on top of that add a leaky bucket limitation to keep memory in control.
+Her's a few improvements that could have been made to the system:
+- Switch to fixed window counter (single integer + TTL) → tiny memory. 
+- Or sliding window counter (two buckets): keep only 2 counters (current minute and previous minute) and interpolate → smooth like sliding window, minimal memory.
+- Token bucket stored as just {tokens, lastRefillAt} → constant O(1) memory.
+- Reduce key cardinality (e.g., per-user, not per-user-per-route unless needed).
+- Short, tight TTLs; compact key names.
+- If you must do global abuse detection, use Count-Min Sketch (approximate, low memory).
 
 ---
 
@@ -42,7 +48,8 @@ We could add a token bucket with a decreasing counter and on top of that add a l
 ---
 
 > **Reply**:
-Rate limiting is the filtering layer for controlled request flow while throttling is what we do with failed attemps: do we discard? retry? queue?
+- Rate limiting: a policy/ceiling on how many requests are allowed per time window (enforced with 429, or by delaying). It’s about maximum allowed rate.
+- Throttling: the mechanism to slow down processing (e.g., queue/delay/jitter) to meet a desired rate. You can throttle before hitting limits to smooth bursts.
 
 ---
 
@@ -52,6 +59,10 @@ What's the critical requirement to make it consistent?
 ---
 
 > **Reply**:
-Idempotency. Avoid race conditions across different instances.
+The most critical requirement is a shared authoritative store and atomic ops. Steps to make it consistent:
+- Use a centralized/shared datastore (Redis/Redis Cluster) for counters.
+- Use atomic Lua scripts (or Redis INCRBY/EXPIRE combos in scripts).
+- Ensure all instances compute the same window (clock/tz uniform; prefer TTL-based windows vs server clocks).
+- If behind a proxy, normalize client IP (X-Forwarded-For) consistently.
 
 ---
