@@ -4,6 +4,7 @@ def display():
     st.title("You've entered the EigenAI portal")
 
     image_address = "https://github.com/lfariabr/masters-swe-ai/blob/master/2025-T2/T2-MFA/projects/eigenai/assets/eigenAI-header.png?raw=true"
+    # image_address = "assets/eigenAI-header.png"
     st.image(image_address, width="stretch")
     st.markdown(
     """

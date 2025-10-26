@@ -42,10 +42,8 @@ def display_s1p2():
             elif i == 75:
                 status_text.text("🔹 Step 3: Finding eigenvectors from (A − λI)x = 0")
                 time.sleep(2) # 2s to let user see the progress
-            else:
-                status_text.text("🔹 Step 4: Displaying results")
             time.sleep(0.02)
-
+            
         try:
             pairs = eigenpairs(matrix)
             st.success("✅ Computation complete!")
