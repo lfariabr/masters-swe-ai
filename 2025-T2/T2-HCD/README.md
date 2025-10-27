@@ -13,7 +13,7 @@ Dr. Omid Haass
 - [X] Module 4 - Trend-Based Design
 - [X] Module 5 - The Art of Ideation
 - [X] Module 6 - Empathising with the Problem Space
-- [ ] Module 7 - Transformational Thinking
+- [X] Module 7 - Transformational Thinking
 - [ ] Module 8 - Designing within a Social Context
 - [ ] Module 9 - Designing for a Global Context
 - [ ] Module 10 - The Breaking Point - How to Redesign with HCD in Mind

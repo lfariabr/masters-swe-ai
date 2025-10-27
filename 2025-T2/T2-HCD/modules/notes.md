@@ -137,3 +137,29 @@ https://www.youtube.com/watch?v=i7U32Da_hBQ
 https://www.youtube.com/watch?v=tTOihFBI9Co
 https://www.youtube.com/watch?v=q654-kmF3Pc
 https://www.youtube.com/watch?v=-sR888VZCk8
+
+## Module 7 - Transformational Thinking
+
+### Questions:
+1. Assessment #1 marks: you added a few comments, how much time do we have? Is it possible to obtain changes in grades with that?
+
+### 3 steps of transformational thinking:
+1. Understanding the problem
+2. What needs to change?
+3. Implementation and iteration
+
+### Tools and Techniques
+- Problem tree analysis: Identify root causes and relationships
+- Stakeholder analysis: Map key players and their interests
+- Backcasting: Work backwards from desired future state
+- Design thinking: Human-centered problem solving approach
+- Systems thinking: Understand interconnected components and feedback loops
+
+### Extra Videos
+https://youtu.be/ntwoHY-EbZo
+https://www.youtube.com/watch?v=D-ux47eQVQc
+https://www.youtube.com/watch?v=ntwoHY-EbZo
+https://www.youtube.com/watch?v=D-ux47eQVQc
+https://www.youtube.com/watch?v=_DN701w7ES8
+https://www.youtube.com/watch?v=6-OmQu14dlA
+https://www.youtube.com/watch?v=rT4XW9ogHD0
