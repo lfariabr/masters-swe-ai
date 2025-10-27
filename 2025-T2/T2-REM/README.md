@@ -13,7 +13,7 @@ Dr. Bushra Naeem
 - [X] Module 4 - The Literature Review
 - [X] Module 5 - REM, Quantitative Research vs Qualitative Research
 - [X] Module 6 - REM, Mixed Method Research
-- [ ] Module 7 - REM, Choosing your methods
+- [X] Module 7 - REM, Choosing your methods
 - [ ] Module 8 - The Ethics of Human Research
 - [ ] Module 9 - Data Sampling Methods
 - [ ] Module 10 - Data Interpretation Methods

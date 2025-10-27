@@ -78,3 +78,19 @@ presentation of results
 
 ## Module 6 - Mixed Method Research
 Use mixed-methods research when your quantitative data is insufficient on its own to answer your research question, as it allows you to both test and explore a topic. If you can answer your question with numbers alone, a purely quantitative approach is fine. Use mixed methods if you need to combine broad trends (quantitative) with rich context and "why" explanations (qualitative).
+
+## Module 7 - REM, Choosing your methods
+The methodological approach that you adopt for your research will determine the particular data collection method that you will need to implement.. Research methods are also determined by your research questions, aims and objectives and even your hypotheses and how you wish to report your data.
+
+So, what is the difference between a methodology and a method? The methodology is the overall approach that you adopt to conduct your research. This generally falls into three categories: qualitative, quantitative and mixed-methods (see Modules 5 and 6). Conversely, the method refers to the data collection approach you adopt. Such approaches include surveys, interviews, observations, laboratory experiments and medical interventions among others.
+
+Any materials or equipment that you need to prepare for your data collection are called research instruments or tools. This is a generic term that covers any item that you need to prepare, develop or fabricate to conduct your research. A medical device that you need to test your hypotheses is a research instrument, as are survey questions and a list of structured interview questions. In preparing your Comparative Analysis Report, you need to critically analyse the research methodologies available to you, determine your approach, research methods and develop tools for your research.
+
+The approach that you select will depend entirely on how you wish to design your research. If you need a specialised group of participants and wish to examine what they do in great detail, a qualitative approach might be preferable. In such instances, a small number of participants are used, but a large amount of data is gathered.
+
+If you wish to understand information from the general public in circumstances in which it does not matter who is being asked the question (e.g., a UI/UX or security related survey), then a quantitative approach might be best. However, you must remember to ensure validity in a large population survey; for example, you may need to sample a large group of people and control for bias. It is also important to determine the statistical significance of your quantitative sample. If your sample is too small, the results cannot be generalised to represent the larger population, as this would raise questions about the validity of your research.
+
+This module is designed to help you determine which methods you should use for Assessment task 2. You will decide this once you have critiqued the different methodological approaches available and have determined the most appropriate methodology in the context of your research.
+
+### References:
+Billups, F. D. (2021). Qualitative data collection tools: Design, development, and applications. SAGE Publications, Inc. https://doi.org/10.4135/9781071878699Links to an external site.https://methods-sagepub-com.torrens.idm.oclc.org/book/qualitative-data-collection-toolsLinks to an external site.
