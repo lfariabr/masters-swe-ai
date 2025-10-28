@@ -13,7 +13,7 @@ Dr. James Vakilian
 - [X] Module 3B - Linear Transformations
 - [X] Module 4 - Eigenvalues and Eigenvectors
 - [X] Module 5A - Derivatives and Integrals
-- [ ] Module 5B - Gradient and Optimisation
+- [X] Module 5B - Differential Calculus
 - [ ] Module 6 - Introduction to Probabilities
 - [ ] Module 7 - Random Variables and Distributions
 - [ ] Module 8 - Descriptive Statistics for AI

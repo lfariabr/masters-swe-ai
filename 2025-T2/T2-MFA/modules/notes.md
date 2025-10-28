@@ -539,4 +539,31 @@ It is a function that does not have any abrupt changes in value, known as discon
 3. lim x->c f(x) = f(c)     # the limit equals the function value at c
 ```
 
-### VI. Tutorial
+## Module 5B - Differential Calculus
+
+### I - Derivatives
+Derivatives are used to calculate the rate of change of a function at a given point.
+
+### II - Derivative of functions
+The derivative of a function f at a point x is defined as:
+f'(x) = lim[Δx->0] [f(x+Δx) - f(x)] / Δx
+
+We can calculate the derivative of common functions using rules like:
+- Power rule: d/dx[x^n] = nx^(n-1)
+- Constant rule: d/dx[c] = 0
+- Sum/Difference rule: d/dx[f(x) ± g(x)] = f'(x) ± g'(x)
+- Product rule: d/dx[f(x)g(x)] = f'(x)g(x) + f(x)g'(x)
+- Chain rule: d/dx[f(g(x))] = f'(g(x))g'(x)
+> Master these five and solve most problems!
+
+### III - Differentiability of a function
+A function is differentiable at a point if its derivative exists at that point.
+
+### IV - Some applications
+- Absolute and local maxima/minima
+- Monotonic functions
+- Maximum, Minimum & Slope
+- Concavity and convexity
+- Applied optimization problems
+
+### V - Exercises
