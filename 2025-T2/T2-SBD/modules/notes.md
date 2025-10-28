@@ -360,3 +360,5 @@ Risk = Likelihood * Impact
 
 ### Compliance requirements
 - GDPR
+
+## Module 7 - Secure Failure
