@@ -362,3 +362,65 @@ Risk = Likelihood * Impact
 - GDPR
 
 ## Module 7 - Secure Failure
+> How to manage cyber incidents?
+
+### Learning objectives
+- understand principles and stages of incident reponse
+- identify key elements that make incident response plan effective
+- evaluate strategies to detect, contain and recover from incidents
+- apply governance standars to improve org cybersecurity resilience
+
+### Section I: Mindset / Technical prepardness
+1. shift from if to when, assuming incidents will occur
+2. staff awareness and readiness are as important as technology (Proactive culture)
+3. regularly rehearse responses to != attack types (scenario planning)
+4. ensure tools are available and staff are trained (Preparedness)
+
+#### Key questions before incident
+- How to detect suspicious activity?
+- Who is in charge of incident response?
+- How to recover from the incident?
+- How to report the incident?
+
+#### Technical preparation
+- IDS - Intrusion Detection System
+- Log management, centralized storage for investigation
+- Access control: limit user privileges to reduce breach impact
+- Backups: regular, tested and stored securely
+
+### Section II: basics of incident response
+1. Preparation - tools, policies, training BEFORE incidents
+2. Detection & Analysis - identify and confirm incident quickly
+3. Containment - stop the spread without shutting down unnecessarily
+4. Eradication & Recovery - remove the threat and restore normal operations
+5. Post-incident analysis - learn and improve from the incident
+
+### Section III: crafting an IRP
+1. Define scope and objectives: define incidentes covered
+2. Identify key stakeholders: assign named contacts
+3. Incident categories: define types of incidents
+4. Response phases: define stages of response
+
+#### Maintaining and testing IRP
+- Regular updates
+- Testing and drills
+- Documentation
+- Training
+
+### Section IV: Building long term cybersecurity resilience
+- organizational radiness beyond IRP
+    - security awareness training
+    - threat intelligence integration
+    - vendor management (partners meet security criteria)
+    - continuous monitoring detecting threats early
+- linking incident response to governance
+    - Framework alignment: ISO 27001, NIST or CIS controls
+- measuring incident response effectiveness
+    - metrics and KPIs
+    - incident response metrics
+
+### Key takeaways
+- **Prepardness reduce chaos**: Planning ahead saves time and resources
+- **Roles must be clear**: Avoid confusing when every second counts
+- **Communication is clear**: Keep all stakeholders informed appropriately
+- **Learning never stops**: Update plans and training regularly
