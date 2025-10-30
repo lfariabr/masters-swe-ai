@@ -13,5 +13,6 @@
 - 23/10/2025 - v0.0.10 - improve Home page with info about Torrens and Dr. James
 - 24/10/2025 - v0.1.0 - Assessment 2A version to go
 - 26/10/2025 - v0.1.1 - Assessment 2A submission
+- 30/10/2025 - v0.1.2 - Added Set 2 Problem 1 (Numerical Integration) with Streamlit UI and `integration_solver.py`
 
 
