@@ -22,5 +22,5 @@ Dr. Bushra Naeem
 
 ## Assignments
 - [X] Assessment 1 - deadline 12/10/2025 ✅, **Critical Literature Review** on *AI Insights from Customer Feedback: Correlating Sentiment Analysis with Business Performance in Healthcare Clinics*
-- [ ] Assessment 2 - deadline 09/11/2025 🔥, **Research Tools and Methodologies** on *Exploring the Relationship between Net Promoter Score and Revenue Growth in Healthcare Clinics*
+- [X] Assessment 2 - deadline 09/11/2025 🔥, **Research Tools and Methodologies** on *Exploring the Relationship between Net Promoter Score and Revenue Growth in Healthcare Clinics*
 - [ ] Assessment 3 - deadline 03/12/2025 🕐, **Research Proposal and Presentation** on *Exploring the Relationship between Net Promoter Score and Revenue Growth in Healthcare Clinics*
