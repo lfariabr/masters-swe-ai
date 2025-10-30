@@ -569,14 +569,20 @@ A function is differentiable at a point if its derivative exists at that point.
 ### V - Exercises
 Define the following:
 
-1. Absolute maximum: 
-2. Absolute minimum: 
-3. Local maximum: 
-4. Local minimum
-5. Critical points
-6. First derivative test for local extreme values
-7. Increasing functions
-8. Decreasing functions
-9. Monotonic functions
-10. First derivative test for monotonic functions
+1. Absolute maximum: global **peak** on an interval
+2. Absolute minimum: global **valley** on an interval
+3. Local maximum: x = c, means f(c) is the **biggest** value in the neighborhood around c
+4. Local minimum: x = c, means f(c) is the **smallest** value in a neighborhood around c
+5. Critical points: x-values where f'(x) = 0 or f'(x) is undefined
+6. First derivative test for local extreme values: 
+    - If f'(x) changes from positive to negative at x = c, then f(c) is a local maximum
+    - If f'(x) changes from negative to positive at x = c, then f(c) is a local minimum
+7. Increasing functions: if x1 < x2, then f(x1) < f(x2), meaning **if x goes up, y goes up**
+8. Decreasing functions: if x1 < x2, then f(x1) > f(x2), meaning **if x goes up, y goes down**
+9. Monotonic functions: a function that is either increasing or decreasing on the given interval I
+10. First derivative test for monotonic functions: we find f'(x) and check if it is positive or negative on the interval I to define if the function is increasing or decreasing
 11. Determine local maxima or minima of function: y = f(x) = x^5 - 8x^3 + x + 2
+
+#### Refs
+Critical Points intro: https://www.youtube.com/watch?v=lDY9JcFaRd4
+First derivative test: https://www.youtube.com/watch?v=G5wlKltW7pM
