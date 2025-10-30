@@ -569,9 +569,9 @@ A function is differentiable at a point if its derivative exists at that point.
 ### V - Exercises
 Define the following:
 
-1. Absolute maximum
-2. Absolute minimum
-3. Local maximum
+1. Absolute maximum: 
+2. Absolute minimum: 
+3. Local maximum: 
 4. Local minimum
 5. Critical points
 6. First derivative test for local extreme values
