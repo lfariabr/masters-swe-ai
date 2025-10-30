@@ -567,3 +567,16 @@ A function is differentiable at a point if its derivative exists at that point.
 - Applied optimization problems
 
 ### V - Exercises
+Define the following:
+
+1. Absolute maximum
+2. Absolute minimum
+3. Local maximum
+4. Local minimum
+5. Critical points
+6. First derivative test for local extreme values
+7. Increasing functions
+8. Decreasing functions
+9. Monotonic functions
+10. First derivative test for monotonic functions
+11. Determine local maxima or minima of function: y = f(x) = x^5 - 8x^3 + x + 2
