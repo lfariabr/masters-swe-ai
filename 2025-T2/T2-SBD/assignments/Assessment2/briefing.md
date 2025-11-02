@@ -57,3 +57,344 @@ Your references will be evaluated for their relevance to the case study.
 Remember you must ensure that your arguments and justifications are based on sound reasoning and clear relevance. Ensure that you reference according to the appropriate APA style, for citing and referencing information, as well as all appropriate research sources.
 
 Please see more information on referencing here: https://library.laureate.net.au/research_skills/referencing
+
+#### Rubric
+Assessment Rubric
+Assessment
+Attributes
+Fail
+(Yet to achieve
+minimum
+standard)
+0-49%
+Pass
+(Functional)
+50-64%
+Credit
+(Proficient)
+65-74%
+Distinction
+(Advanced)
+75-84%
+High Distinction
+(Exceptional)
+85-100%
+Knowledge and
+understanding of
+risk assessment
+Demonstrates a
+limited or no
+knowledge of
+cyber security
+design by:
+Demonstrates a
+functional
+knowledge of
+cyber security
+design by:
+Demonstrates
+proficient
+knowledge of
+cyber security
+design by:
+Demonstrates
+advanced
+knowledge of
+cyber security
+design by:
+Demonstrates
+exceptional
+knowledge of
+cyber security
+design by:
+The student must
+explain why a risk
+assessment is
+essential and who
+is responsible for
+that assessment.
+• providing
+not more
+than one
+risk in the
+risk
+assessment
+• Discussion
+of one or no
+• only provide
+two risk in
+the risk
+assessment.
+• Discussion
+of more
+than one
+but less
+• provide no
+more than
+three risks in
+the risk
+assessment
+• Discussion of
+more than
+three but
+• provide no
+more than
+four risks in
+the risk
+assessment
+• Discussion
+of five or
+more cyber
+• provide at
+least five
+risks in the
+risk
+assessmen
+t
+• giving
+more than
+SBD403_Assessment 2_20240603 Page 6 of 9
+cyber than four less than five security the
+security cyber cyber methods. required
+methods. security security six cyber
+methods. methods. security
+methods
+(the
+minimum
+number for
+Percentage for this each
+criterion = 25% category
+still
+applies).
+Understanding
+correlation
+between cyber
+security methods
+and user impact
+The list of methods
+(4 and 2 as chosen
+by the student)
+Limited analysis
+capability
+• 0-2 methods
+mentioned
+and limited
+discussion
+about the
+user impact
+for each of
+them.
+Demonstrated
+analysis capability
+• 2-3
+methods
+mentioned
+and
+discussion
+about the
+user impact
+for all of
+Well-developed
+analysis capability
+• 4-6 methods
+mentioned
+and
+discussion
+about the
+user impact
+for all of
+Thorough
+analysis
+capability
+• All required
+method
+numbers
+mentioned
+and
+discussion
+about the
+Highly
+sophisticated
+and creative
+analysis
+capability
+• mentioning
+more than
+the
+required
+number
+SBD403_Assessment 2_20240603 Page 7 of 9
+must be evaluated
+about which of
+those are
+mandatory and
+which are not. The
+methods must
+have a description
+on the user
+impact, i.e. how
+much is the user
+affected by that
+method. i.e. a
+firewall does not
+restrict normal
+user work, a strict
+password regime
+and/or rights
+management does.
+them. them. user impact
+for all of
+them.
+and
+extensive
+discussion
+about the
+user
+impact.
+Percentage for this
+criterion = 30%
+No mentioning of Mentioning Mentioning risk ISMS methods Full ISMS cycle
+Understanding of
+overall ISMS
+proper ISMS
+application
+primary risk
+assessment
+implementation
+assessment,
+method testing as
+according to ISO
+but not
+implementing/for
+implemented
+SBD403_Assessment 2_20240603 Page 8 of 9
+Percentage for this
+criterion =20 %
+as ongoing
+process
+ongoing process getting one of the
+five stages
+Detailed
+knowledge about
+user rights
+management and
+password regimes
+Percentage for this
+criterion = 20 %
+No mention of
+either rights
+management or
+password rules for
+application and IT
+Limited or no
+discussion about
+the reason of
+choosing this
+specific rule.
+Mentioning of
+either rights
+management or
+password rules
+but not both.
+Limited discussion
+about the reason
+of choosing this
+specific rule.
+Mentioning of both
+rights
+management and
+password rule but
+failing to reason
+for more than one.
+Mentioning of
+both rights
+management and
+password rule
+with basic
+reasoning about
+the specific
+choice.
+Mentioning of
+both rules with
+extensive
+reasoning on
+why those rules
+were chosen.
+Limited or no use Demonstrates use Demonstrates use Demonstrates Demonstrates
+Correct citation of
+key resources,
+standards and
+evidence
+of credible and
+relevant resources
+to support and
+develop ideas.
+of credible and
+relevant
+resources to
+support and
+develop ideas, but
+of credible
+resources to
+support and
+develop ideas.
+use of good
+quality, credible
+and relevant
+resources to
+support and
+use of high-
+quality, credible
+and relevant
+resources to
+support and
+SBD403_Assessment 2_20240603 Page 9 of 9
+Percentage for this
+criterion = 5%
+Referencing does
+not resemble APA,
+or has frequent or
+repeated errors.
+these are not
+always explicit or
+well developed.
+Referencing
+resembles APA,
+with frequent or
+repeated errors.
+Referencing
+resembles APA,
+with occasional
+errors.
+develop
+arguments and
+statements.
+Shows evidence
+of wide scope
+within the
+organisation for
+sourcing
+evidence.
+APA referencing
+is free from
+errors.
+develop
+arguments and
+position
+statements.
+Shows evidence
+of wide scope
+within and
+without the
+organisation for
+sourcing
+evidence.
+APA referencing
+is free from
+errors.
+The following Subject Learning Outcomes are addressed in this assessment
+SLO b) Administer implementation of security controls, security risk mitigation approaches, and secure
+design architecture principles.
+SLO c) Explain Secure Development Lifecycle models and identify an appropriate model for a given
+situation.
+SLO e) Apply security by Design industry standard principles in systems development.
