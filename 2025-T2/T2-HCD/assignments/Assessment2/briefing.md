@@ -45,3 +45,537 @@ References are marked in relevance to ensure that your arguments and justificati
 **Ensure that you reference according to the appropriate APA style, for citing and referencing information, as well as all appropriate research sources.**
 
 It is essential that you use appropriate APA style for citing and referencing research. Please see more information on referencing here: http://library.laureate.net.au/research_skills_referencing
+
+#### Rubrics
+Assessment Rubric
+Assessment
+Attributes
+Fail
+(Yet to achieve
+minimum standard)
+0-49%
+Pass
+(Functional)
+50-64%
+Credit
+(Proficient)
+65-74%
+Distinction
+(Advanced)
+75-84%
+High Distinction
+(Exceptional)
+85-100%
+Knowledge and
+understanding of
+Human-Centred design.
+Percentage for this
+criterion = 30%
+Demonstrates a partially-
+developed understanding
+of the discussed
+technology, with:
+• An incomplete or
+flawed assessment of
+the development;
+little to no
+understanding or
+reasoning is shown.
+• Understanding of the
+immediate
+repercussions of the
+technology’s release
+are not present or
+poorly explained;
+there is no
+investigation in this
+direction.
+• There are zero (or
+few) comments made
+about inadvertent
+long term social,
+global, or cultural
+impacts of the
+technology.
+Demonstrates a functional
+knowledge of the technology
+and its effects, with:
+• An adequate assessment
+of the situation. Some
+reasoning or
+understanding exists.
+• Understanding of the
+immediate repercussions
+of the technology’s
+release are present. They
+may be somewhat poorly
+explained, but they are
+dealt with at a base level
+(at minimum).
+• A few recommendations
+have been made
+regarding the flaws of the
+system, and how the
+student would address
+them. Further
+consequences of these
+changes are not
+considered.
+Demonstrates proficient
+knowledge of the
+technology, its release, and
+the effects present. The
+submission has:
+• An accurate assessment
+of the technology’s
+release. Both reasoning
+and understanding are
+shown, and core
+contributors are
+highlighted and
+detailed.
+• Some immediate flow-
+on effects are covered
+in detail, and discussed
+to a mid-level.
+• The recommendations
+made regarding
+improving the
+technology are made
+with some justification
+and understanding.
+Consequences of these
+recommendations are
+present, and some
+supporting evidence is
+present as well.
+Demonstrates advanced
+knowledge of a
+technological development
+and its release. The
+submission contains:
+• A detailed assessment
+of the technology.
+Reasoning,
+understanding, and
+justification of decisions
+(and their results) are
+presented. Core
+contributors are
+highlighted and
+explained in detail.
+• Immediate flow-on
+effects are completely
+covered, and discussed
+to a high level. These
+flow-on effects are
+particularly focused on
+the wider context of
+society as a whole, and
+specific impacts relative
+to social, global and
+cultural areas.
+• The recommendations
+made regarding
+improving the
+Demonstrates exceptional
+knowledge of a
+technological development
+and its release. The
+submission contains:
+• A completely detailed
+assessment of the
+technology and its
+development.
+Reasoning,
+understanding and
+justification are present
+for the technology and
+the decisions made
+during development.
+Core contributors are
+present and discussed
+at the highest level.
+• The immediate flow-on
+effect examination is as
+detailed as possible,
+and discusses with a full
+understanding of
+context.
+• The recommendations
+made are of an
+outstanding quality,
+and are incredibly
+creative. They are clear
+HCD402_Assessment 2_20240603 Page 6 of 9
+Assessment
+Attributes
+Fail
+(Yet to achieve
+minimum standard)
+0-49%
+Pass
+(Functional)
+50-64%
+Credit
+(Proficient)
+65-74%
+Distinction
+(Advanced)
+75-84%
+High Distinction
+(Exceptional)
+85-100%
+technology have
+justification and
+understanding, which is
+in-depth and detailed.
+Consequences of these
+recommendations are
+detailed, and benefits
+are clear, and explained
+with supporting
+evidence.
+and developed with a
+complete
+understanding of the
+situation. An eye
+towards any of the
+three focusing lenses
+(social, global, or
+cultural.) is present.
+Analysis and application
+with synthesis of new
+knowledge
+Percentage for this
+criterion = 20%
+• Limited synthesis and
+analysis.
+• Limited
+application/recommen
+dations based upon
+analysis.
+• Demonstrated analysis
+and synthesis of new
+knowledge with
+application.
+• Shows the ability to
+interpret relevant
+information and
+literature.
+• Well-developed analysis
+and synthesis with
+application of
+recommendations
+linked to
+analysis/synthesis.
+• Thoroughly developed
+and creative analysis
+and synthesis with
+application of pretested
+models and / or
+independently
+developed models and
+justified
+recommendations
+linked to
+analysis/synthesis.
+• Highly sophisticated
+and creative analysis,
+synthesis of new with
+existing knowledge.
+• Strong application by
+way of pretested
+models and / or
+independently
+developed models.
+Recommendations are
+clearly justified based
+on the
+analysis/synthesis.
+Applying knowledge to
+new situations/other
+cases.
+HCD402_Assessment 2_20240603 Page 7 of 9
+Assessment
+Attributes
+Fail
+(Yet to achieve
+minimum standard)
+0-49%
+Pass
+(Functional)
+50-64%
+Credit
+(Proficient)
+65-74%
+Distinction
+(Advanced)
+75-84%
+High Distinction
+(Exceptional)
+85-100%
+Evaluation of
+information selected to
+support the report.
+Percentage for this
+criterion = 25%
+• Limited understanding
+of key concepts
+required to support
+the case study.
+• Confuses logic and
+emotion. Information
+taken from reliable
+sources but without a
+coherent analysis or
+synthesis.
+• Viewpoints of experts
+are taken as fact with
+little questioning, and
+source quality is
+narrow in scope.
+• Resembles a recall or
+summary of key ideas.
+• Often conflates/confuses
+assertion of personal
+opinion with information
+substantiated by evidence
+from the research/course
+materials.
+• Analysis and evaluation
+do not reflect expert
+judgement, intellectual
+independence, rigor and
+adaptability. Viewpoints
+from experts are broader,
+with a few different
+perspectives.
+• Supports personal
+opinion and information
+substantiated by
+evidence from the
+research/course
+materials.
+• Demonstrates a
+capacity to explain and
+apply relevant concepts.
+Evidence supports these
+concepts.
+• Identifies logical flaws.
+• Questions viewpoints of
+experts.
+• Discriminates between
+assertion of personal
+opinion and information
+substantiated by robust
+evidence from the
+research/course
+materials and extended
+reading.
+• Well demonstrated
+capacity to explain and
+apply relevant concepts.
+• Viewpoint of experts are
+subject to questioning.
+• Analysis and evaluation
+reflect growing
+judgement, intellectual
+independence, rigor and
+adaptability.
+• Systematically and
+critically discriminates
+between assertion of
+personal opinion and
+information
+substantiated by robust
+evidence from the
+research/course
+materials and extended
+reading.
+• Information is taken
+from sources with a
+high level of
+interpretation/evaluatio
+n to develop a
+comprehensive critical
+analysis or synthesis.
+• Identifies gaps in
+knowledge.
+• Exhibits intellectual
+independence, rigor,
+good judgement and
+adaptability.
+Effective
+Communication
+(Written)
+• Presents information.
+• Specialised language
+and terminology is
+rarely or inaccurately
+employed.
+• Communicates in a
+readable manner that
+largely adheres to the
+given format.
+• Generally employs
+• Communicates in a
+coherent and readable
+manner that adheres to
+the given format.
+• Accurately employs
+• Communicates
+coherently and concisely
+in a manner that
+adheres to the given
+format.
+• Communicates
+eloquently. Expresses
+meaning coherently,
+concisely and creatively
+within the given format.
+HCD402_Assessment 2_20240603 Page 8 of 9
+Assessment
+Attributes
+Fail
+(Yet to achieve
+minimum standard)
+0-49%
+Pass
+(Functional)
+50-64%
+Credit
+(Proficient)
+65-74%
+Distinction
+(Advanced)
+75-84%
+High Distinction
+(Exceptional)
+85-100%
+Percentage for this
+criterion = 15%
+• Meaning is repeatedly
+obscured by errors in
+the communication of
+ideas, including errors
+in structure, sequence,
+spelling, grammar,
+punctuation and/or
+the acknowledgment
+of sources.
+specialised language and
+terminology with
+accuracy.
+• Meaning is sometimes
+difficult to follow.
+Information, arguments
+and evidence are
+structured and sequenced
+in a way that is not always
+clear and logical.
+• Some errors are evident
+in spelling, grammar
+and/or punctuation.
+specialised language
+and terminology.
+• Meaning is easy to
+follow.
+• Information, arguments
+and evidence are
+structured and
+sequenced in a way that
+is clear and logical.
+• Occasional minor errors
+present in spelling,
+grammar and/or
+punctuation.
+• Accurately employs a
+wide range of
+specialised language
+and terminology.
+• Engages audience
+interest.
+• Information, arguments
+and evidence are
+structured and
+sequenced in a way that
+is, clear and persuasive.
+• Spelling, grammar and
+punctuation are free
+from errors.
+• Discerningly selects and
+precisely employs a
+wide range of
+specialised language
+and terminology.
+• Engages and sustains
+audience’s interest.
+• Information, arguments
+and evidence are
+insightful, persuasive
+and expertly presented.
+• Spelling, grammar and
+punctuation are free
+from errors.
+Correct citation of key
+resources and evidence
+Percentage for this
+criterion = 10%
+• Demonstrates
+inconsistent use of
+good quality, credible
+and relevant resources
+to support and
+develop ideas.
+• Referencing is omitted
+or does not resemble
+APA.
+• Demonstrates use of
+credible and relevant
+resources to support and
+develop ideas, but these
+are not always explicit or
+well developed.
+• Referencing resembles
+APA, with frequent or
+repeated errors.
+• Demonstrates use of
+credible resources to
+support and develop
+ideas.
+• Referencing resembles
+APA, with occasional
+errors.
+• Demonstrates use of
+good quality, credible
+and relevant resources
+to support and develop
+arguments and
+statements.
+• Show evidence of wide
+scope within the
+organisation for
+sourcing evidence.
+• APA referencing is free
+from errors.
+• Demonstrates use of
+high-quality, credible
+and relevant resources
+to support and develop
+arguments and position
+statements.
+• Show evidence of wide
+scope within and
+without the
+organisation for
+sourcing evidence.
+• APA referencing is free
+from errors.
+HCD402_Assessment 2_20240603 Page 9 of 9
+The following Subject Learning Outcomes are addressed in this assessment
+SLO a) Synthesise theoretical models of human knowledge.
+SLO b) Investigate moral philosophy to learn about real-world ethical actions.
+SLO c) Analyse ethical theories in ways that are sensitive to variations in cultural values.
+SLO d) Examine and justify the political, social and cultural effects of institutions on human behaviour.
+SLO e) Develop critical thinking by using a creative design approach.
