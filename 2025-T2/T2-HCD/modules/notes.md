@@ -163,3 +163,21 @@ https://www.youtube.com/watch?v=D-ux47eQVQc
 https://www.youtube.com/watch?v=_DN701w7ES8
 https://www.youtube.com/watch?v=6-OmQu14dlA
 https://www.youtube.com/watch?v=rT4XW9ogHD0
+
+## Module 8 - Designing within a Social Context
+
+### Introduction
+- Importance of considering context in all aspects of design.
+- Just as some tools require fine motor control, products and designs are influenced by their social contexts
+
+There are a number of methods that can be used to design within a social context, such as:
+- Contextual inquiry: This involves observing people in their natural environment to understand their needs and challenges.
+- Rapid prototyping: This involves creating quick and dirty prototypes of products or services to test with users.
+- Participatory design: This involves working with users to co-design products or services.
+
+### Extra Videos
+https://www.youtube.com/watch?v=xmrjzWSVFwM
+https://www.youtube.com/watch?v=eemOZfsrKdg
+https://www.youtube.com/watch?v=x0MnGZ1gB4k
+https://www.youtube.com/watch?v=p5dus_EC890
+https://www.youtube.com/watch?v=eygJtngcqMs
