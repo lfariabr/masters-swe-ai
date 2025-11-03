@@ -14,7 +14,7 @@ Dr. Bushra Naeem
 - [X] Module 5 - REM, Quantitative Research vs Qualitative Research
 - [X] Module 6 - REM, Mixed Method Research
 - [X] Module 7 - REM, Choosing your methods
-- [ ] Module 8 - The Ethics of Human Research
+- [X] Module 8 - The Ethics of Human Research
 - [ ] Module 9 - Data Sampling Methods
 - [ ] Module 10 - Data Interpretation Methods
 - [ ] Module 11 - Writing Your Proposal and Presentation
