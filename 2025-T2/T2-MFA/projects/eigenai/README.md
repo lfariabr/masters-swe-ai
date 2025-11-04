@@ -69,7 +69,7 @@ EigenAI/
 | v0.0.3 | ✅ | Resolver refactor and assessment docs build up |
 | v0.0.4 | ✅ | UX and UI improvements |
 | v0.0.9 | ✅ | PyInstaller + release build documentation |
-| v0.1.0 | 🔥 | Assessment 2A submission |
+| v0.1.0 | ✅ | Assessment 2A submission |
 | vX.2.X | 🕐 | Assessment 2B submission |
 | vX.X.X | 🕐 | Login + Authentication |
 | vX.X.X | 🕐 | LLM plug with rate limiting |
