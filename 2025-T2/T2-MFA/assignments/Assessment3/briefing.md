@@ -31,3 +31,13 @@ You are supposed to submit a ZIP file including:
         - Assessment3_Source_LastName_FirstName.zip
         - Assessment3_report_LastName_Firstname.pdf
         - Assessment3_ report _LastName_Firstname.docx
+
+--- 
+
+### Details
+1. Generate a random 10×10 matrix (binary image).
+2. Define a target image.
+3. Implement a cost function to measure difference.
+4. Use hill climbing to iteratively improve the random image.
+5. Stop when the cost is low or no further improvement occurs.
+6. Print/visualize each iteration.

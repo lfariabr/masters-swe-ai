@@ -586,3 +586,56 @@ Define the following:
 #### Refs
 Critical Points intro: https://www.youtube.com/watch?v=lDY9JcFaRd4
 First derivative test: https://www.youtube.com/watch?v=G5wlKltW7pM
+
+## Module 6 - Optimization
+Lecture by Dr. Niusha Shafiabady
+
+Hill climbing, Simulated Annealing, Genetic Algorithms, S.T.
+
+### Hill Climbing 
+Main idea: keep a single current node and move to a neighboring node that improves the objective function value.
+
+- Greedy local search, steepest ascent/descent variants
+- Drawback: Can get stuck in local optima; no guarantee of global optimum
+- Cure: Random restarts, random mutations, or probabilistic acceptance of worse solutions
+
+> **Note**: Hill climbing is an iterative optimization algorithm used to find the maximum/minimum value of a function. It explores the search space by moving to the best neighboring solution at each step, but can easily become trapped in local optima.
+
+### Simulated Annealing
+Main idea: probabilistic technique for approximating global optimization in a large search space.
+
+- Inspired by metallurgy: slowly cool a material to achieve a low-energy crystalline structure
+- Accepts worse solutions with a certain probability that decreases over time (temperature schedule)
+- Helps escape local optima by allowing uphill moves early in the process
+- Temperature parameter controls the probability of accepting worse solutions
+
+- Drawback: Can still get trapped in local optima if the cooling schedule is too fast or the initial temperature is too low. Solution to that can also rely on random restarts or adaptive cooling schedules
+
+> **Note**: Simulated Annealing is a probabilistic optimization algorithm that mimics the physical process of heating and slowly cooling a material to achieve a low-energy state. It accepts worse solutions with a certain probability that decreases over time, helping to escape local optima and potentially find better global solutions.
+
+### Genetic Algorithm
+Main idea: population-based metaheuristic inspired by natural selection and genetics
+
+- Uses a population of candidate solutions (chromosomes)
+- Evolutionary operators: selection, crossover (recombination), mutation
+- Selection: choose better solutions to survive and reproduce
+- Crossover: combine parts of two parent solutions to create offspring
+- Mutation: introduce random changes to maintain diversity
+- Iteratively improves population over generations to find optimal solutions
+
+> **Note**: Genetic Algorithms are population-based optimization methods that mimic natural selection. They maintain a diverse set of candidate solutions and use evolutionary operators to gradually improve the population toward better solutions.
+
+#### Stopping Criteria
+f(x) = x_1^2 + x_2^2 + ... + x_n^2 
+
+while f(x_best) > 0.00001
+{ 
+    for each generation in population:
+        evaluate fitness of all individuals
+        select parents based on fitness
+        apply crossover and mutation to create offspring
+        replace worst individuals with offspring
+    update best solution found so far
+}
+
+> **Note**: The stopping criteria for a Genetic Algorithm can be based on multiple conditions such as reaching a maximum number of generations, achieving a satisfactory fitness level, or when the improvement over several generations falls below a threshold. We define it when we want to terminate the algorithm based on these conditions to avoid unnecessary computation.

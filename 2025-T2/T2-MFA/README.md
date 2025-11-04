@@ -14,7 +14,7 @@ Dr. James Vakilian
 - [X] Module 4 - Eigenvalues and Eigenvectors
 - [X] Module 5A - Derivatives and Integrals
 - [X] Module 5B - Differential Calculus
-- [ ] Module 6 - Introduction to Probabilities
+- [X] Module 6 - Optimisation (Hill Climbing, Simulated Annealing and GA)
 - [ ] Module 7 - Random Variables and Distributions
 - [ ] Module 8 - Descriptive Statistics for AI
 - [ ] Module 9 - Inferential Statistics for AI

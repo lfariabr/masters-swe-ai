@@ -7,7 +7,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-from views import home, set1Problem1, set1Problem2, set2Problem1, set2Problem2
+from views import home, set1Problem1, set1Problem2, set2Problem1, set2Problem2, aiProblem
 
 # ---- Sidebar Header ----
 logo_url = "https://github.com/lfariabr/masters-swe-ai/blob/master/2025-T2/T2-MFA/projects/eigenai/assets/logo2.png?raw=true"
@@ -23,6 +23,7 @@ menu = st.sidebar.radio(
     "🧠 set1-problem2",
     "📘 set2-problem1",
     "📗 set2-problem2",
+    "🎓 ai-problem-set",
 ], index=0)
 
 # ---- View Routing ----
@@ -40,6 +41,9 @@ if menu == "📘 set2-problem1":
 
 if menu == "📗 set2-problem2":
     set2Problem2.display_s2p2()
+    
+if menu == "🎓 ai-problem-set":
+    aiProblem.display_assessment3()
 
 # ---- Footer ----
 st.sidebar.markdown("---")
