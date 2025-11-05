@@ -14,7 +14,7 @@ Dr. Tanvir Rahman
 - [X] Module 5 - Architecture Integration with IT Systems
 - [X] Module 6 - IT System Security Assessment
 - [X] Module 7 - Secure Failure
-- [ ] Module 8 - Domain-Driven Design
+- [X] Module 8 - Domain-Driven Design
 - [ ] Module 9 - Reducing complexity
 - [ ] Module 10 - How to maintain an Enterprise - scale system
 - [ ] Module 11 - Approaches to Attack: Common traditional techniques of cyber attacks

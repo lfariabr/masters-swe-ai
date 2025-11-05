@@ -424,3 +424,64 @@ Risk = Likelihood * Impact
 - **Roles must be clear**: Avoid confusing when every second counts
 - **Communication is clear**: Keep all stakeholders informed appropriately
 - **Learning never stops**: Update plans and training regularly
+
+## Module 8 - Domain Driven Design
+
+### Section I - Introduction to Secure Software
+Software is a critical component of any modern IT system, holding data and executing business logic.
+
+- hardware: physical components that can be touched 
+- software: electronic instructions that tell hardware what to do
+- firmware: specific software embedded in hardware to provide basic functionality
+- driver: software that allows hardware to communicate with the operating system (glue between hardware and OS)
+
+Overview of common vulnerabilities:
+- common and high-impact attacks are possible because of insecure coding practices
+- insecure coding practices lead to vulnerabilities that attackers can exploit
+- two of the most common are buffer overflows and code injection
+
+#### Deep Dive on Buffer Overflow
+It exploits a lack of boundary checks in a software system. Since a program allocates a specific amount of memory to store data, if the program doesn't properly check the boundaries of that memory allocation, an attacker can write data beyond the allocated space, potentially overwriting other variables or even executable code.
+
+#### Deep Dive on Code Injection
+Code injection occurs when an attacker inserts malicious code into an application, which is then executed by the system. This can happen when user input is directly used in commands or queries without proper validation or sanitization. Common types include SQL injection, command injection, and script injection.
+
+**The solution: security by design**
+
+### Section II - Building Security In
+- Touchpoint 1&2, Planning and Designing: Abuse cases with hacker motives, potential solutions, focusing on bad points
+- Touchpoint 3, Architectural Risk Analysis: Identify and mitigate architectural risks that could lead to security breaches
+- Touchpoint 4, Code Review: Implement security checks in code reviews to catch vulnerabilities early (Static Analysis Security Tools - SAST)
+- Touchpoints 5&6, Security Testing: Implement dynamic analysis (DAST) and penetration testing to find runtime vulnerabilities
+    - Risk based security testing: Prioritize testing based on threat and impact assessment
+    - Penetration testing: Simulate real attacks to find vulnerabilities
+- Touchpoint 7, Security Operations: Implement continuous monitoring, incident response, and security analytics to detect and respond to threats in real-time
+
+### Section III - Application Web Security
+- OWASP Top 10: Common web application vulnerabilities (Injection, XSS, CSRF, etc.)
+1. Broken Access Control: failing to enforce what authenticated users are allowed to do
+    - Ex: an user changing the ID in a URL to see another user's data
+2. Cryptographic Failures: weak encryption, poor key management, insecure data storage
+    - Ex: storing passwords in plain text
+3. Injection: SQL, NoSQL, OS, LDAP injection attacks
+    - Ex: SQL injection by manipulating input fields, Cross-Site Scripting (XSS)
+4. Insecure Design: a category focusing on flawed security architecture and design decisions
+    - Ex: a system designed without threat modeling, lacks rate-limiting, making it vulnerable to brute force attacks
+5. Security Misconfiguration: failing to implement all security controls properly
+    - Ex: leaving default usernames/passwords or leaving cloud storage (S3) publicly accessible
+6. Vulnerable and Outdated Components: using libraries with known vulnerabilities
+    - Ex: running a website on an old version of Wordpress with known vulnerabilities
+7. Idenfication and Authentication Failures: weak identification and authentication mechanisms
+    - Ex: not invalidating sessions after logout or failed login attempts
+8. Software and Data Integrity failures: insecure handling of software updates or data validation
+    - Ex: a program that deserializes user-supplied data without verification allowing an attacker to access internal resources (**Zero Trust Framework**, Checksum-based validation of requests)
+9. Security Logging & Monitoring: inadequate detection of security events
+    - Ex: An attacker brute-forces a password and the system never logs the failed attempts, making the attack invisible
+10. Server-Side Request Forgery (SSRF): a vulnerability where an attacker can trick the server into making requests to internal resources
+    - Ex: a "generate pdf from url" feature is tricked into requesting internal resources, bypassing access controls
+
+#### Key Takeaways
+- Security is a process, not a product
+- Security is everyone's job
+- Start with a plan
+- Use industry standards
