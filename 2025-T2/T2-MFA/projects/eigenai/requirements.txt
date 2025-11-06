@@ -1,2 +1,4 @@
 streamlit
 pyinstaller
+matplotlib
+numpy
