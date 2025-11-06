@@ -33,12 +33,13 @@ def parse_function(expr: str) -> Callable[[float], float]:
     # quick sanity check
     try:
         _ = f(0.0)
-    except Exception as e:
+    except (NameError, SyntaxError, TypeError, ZeroDivisionError, AttributeError) as e:
         raise ParseError(f"Invalid function: {e}")
     return f
 
 def trapezoid(f: Callable[[float], float], a: float, b: float, n: int) -> Tuple[float,int]:
-    if n <= 0: raise ValueError("trapezoid: n must be >= 1")
+    if n <= 0: 
+        raise ValueError("trapezoid: n must be >= 1")
     h = (b - a) / n
     s = 0.5 * (f(a) + f(b))
     evals = 2

@@ -43,7 +43,6 @@ def display_s1p1():
                 status_text.text("🔹 Step 3: Simplifying minors and cofactors...")
                 time.sleep(2) # 2s to let user see the progress
             time.sleep(0.02)
-            status_text.text("🔹 Step 4: Displaying results...")
 
         if is_square(matrix): # used to check if the matrix is square and proceed with determinant calculation
             try:
