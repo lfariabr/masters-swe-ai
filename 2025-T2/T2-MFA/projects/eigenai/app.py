@@ -19,10 +19,16 @@ st.sidebar.markdown("---")
 menu = st.sidebar.radio(
     "📂 Select a screen:", [
     "🌀 Portal",
+    
+    # Assessment 2A
     "🧩 set1-problem1",
     "🧠 set1-problem2",
+    
+    # Assessment 2B
     "📘 set2-problem1",
     "📗 set2-problem2",
+    
+    # Assessment 3
     "🎓 ai-problem-set",
 ], index=0)
 
