@@ -55,8 +55,11 @@ def display_s2p1():
                         "100",
                         help="Examples: 10, 100, 1000, 10000. Higher n = more accuracy but slower."
                     ).strip() or "100")
-                    if n <= 0: n = None
+                    if n <= 0: 
+                        st.warning("n must be positive")
+                        n = None
                 except ValueError:
+                    st.warning("Please enter a valid integer for n.")
                     n = None
 
             eps = 1e-6
@@ -67,7 +70,11 @@ def display_s2p1():
                         "1e-6",
                         help="Examples: 1e-6, 1e-5, 1e-4, 1e-3, 1e-2, 1e-1"
                     ).strip() or "1e-6")
+                    if eps <= 0:
+                        st.warning("eps must be positive")
+                        eps = 1e-6
                 except ValueError:
+                    st.warning("Please enter a valid positive number for eps.")
                     eps = 1e-6
     if method == "adaptive":
         st.info("Adaptive method automatically adjusts accuracy.")
