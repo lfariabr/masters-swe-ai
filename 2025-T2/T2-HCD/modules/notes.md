@@ -181,3 +181,24 @@ https://www.youtube.com/watch?v=eemOZfsrKdg
 https://www.youtube.com/watch?v=x0MnGZ1gB4k
 https://www.youtube.com/watch?v=p5dus_EC890
 https://www.youtube.com/watch?v=eygJtngcqMs
+
+## Module 9 - Designing for a Global Context
+
+### Introduction
+- Importance of designing products and services that are culturally sensitive and globally applicable.
+- Understanding diverse user needs and preferences across different markets and contexts.
+
+### Key Concepts
+- Cultural intelligence: Ability to function effectively in diverse cultural environments.
+- Localisation vs. globalisation: Balancing standardisation with cultural adaptation.
+- Inclusive design: Creating solutions that are accessible and usable by people of all abilities and backgrounds.
+
+### Methods and Tools
+- Cross-cultural research: Gathering insights from users in different cultural contexts.
+- Ethnographic studies: Immersive research to understand cultural practices and values.
+- Co-creation workshops: Involving users from different cultures in the design process.
+
+### Extra Videos
+- 
+
+
