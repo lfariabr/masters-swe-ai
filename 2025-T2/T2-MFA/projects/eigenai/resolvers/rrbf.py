@@ -46,7 +46,7 @@ class RRBFType1:
             phis.append(phi_val)
             prev = phi_val
         
-        y = sum(w * p for w, p in zip(self.weights, phis))
+        y = sum(w * p for w, p in zip(self.weights, phis, strict=True))
         return y, phis
 
     def backward(self, x, y_true):
@@ -105,7 +105,7 @@ class RRBFType1:
         """
         for _ in range(epochs):
             total_err = 0
-            for x, y in zip(X, Y):
+            for x, y in zip(X, Y, strict=True):
                 err, _ = self.backward(x, y)
                 total_err += abs(err)
             total_err /= len(X)

@@ -122,7 +122,7 @@ def display_s2p2():
             error_history = []
             for epoch in range(epochs):
                 total_err = 0
-                for x, y in zip(X, Y):
+                for x, y in zip(X, Y, strict=True):
                     err, _ = net.backward(x, y)
                     total_err += abs(err)
                 avg_err = total_err / len(X)
@@ -162,7 +162,7 @@ def display_s2p2():
             # --- Test prediction ---
             st.markdown("---")
             st.subheader("🧪 Test Prediction")
-            y_pred, phis = net.forward(test_x)
+            y_pred, _ = net.forward(test_x)
             y_actual = math.sin(test_x)
             col_test1, col_test2, col_test3 = st.columns(3)
             with col_test1:
