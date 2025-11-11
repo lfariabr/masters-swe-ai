@@ -70,7 +70,13 @@ EigenAI/
 | v0.0.4 | ✅ | UX and UI improvements |
 | v0.0.9 | ✅ | PyInstaller + release build documentation |
 | v0.1.0 | ✅ | Assessment 2A submission |
-| vX.2.X | 🕐 | Assessment 2B submission |
+| v0.1.2 | ✅ | Added integration solver for Set 2 Problem 1 |
+| v0.1.3 | ✅ | Added Hill Climbing algorithm for Set 2 Problem 2 |
+| v0.1.4 | ✅ | Reviewed Set 2 Problem 1 (Numerical Integration) |
+| v0.1.5 | ✅ | Updated Set 2 Problem 1 with matplotlib for graphic visuals |
+| v0.1.6 | ✅ | Added sympy library to display mathematical expressions and equations |
+| v0.1.7 | ✅ | Added Set 2 Problem 2 (RRBF Gradient Calculator) with Streamlit UI and `rrbf.py` |
+| vX.2.0 | 🕐 | Assessment 2B submission |
 | vX.X.X | 🕐 | Login + Authentication |
 | vX.X.X | 🕐 | LLM plug with rate limiting |
 | vX.X.X | 🕐 | BaaS with Supabase |
@@ -78,7 +84,6 @@ EigenAI/
 | vX.X.X | 🕐 | Test converage |
 | vX.X.X | 🕐 | Weekly digest with Agentic Integration |
 | vX.X.X | 🕐 | Security enhancements |
-
 
 > Detailed changelog can be found in [`CHANGELOG.md`](2025-T2/T2-MFA/projects/eigenai/docs/changelog.md)
 
