@@ -61,6 +61,11 @@ def display():
                 st.markdown("# 📗")
                 st.markdown("###### Set2Problem2")
                 st.markdown("RRBF Gradient Calculator - To be Done")
+        
+        with st.container(border=True):
+            st.markdown("# 🎓")
+            st.markdown("###### AI Problem Set")
+            st.markdown("My implementation of an AI algorithm to reconstruct a binary image from a 2D array representation using advanced reconstruction techniques.")
 
         st.markdown("---")
 
