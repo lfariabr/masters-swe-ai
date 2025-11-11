@@ -12,10 +12,10 @@ Dr. James Vakilian
 - [X] Module 3A - Matrices
 - [X] Module 3B - Linear Transformations
 - [X] Module 4 - Eigenvalues and Eigenvectors
-- [X] Module 5A - Derivatives and Integrals
-- [X] Module 5B - Differential Calculus
+- [X] Module 5 - Derivatives and Integrals
+- [X] Module 5 - Differential Calculus
 - [X] Module 6 - Optimisation (Hill Climbing, Simulated Annealing and GA)
-- [ ] Module 7 - Random Variables and Distributions
+- [X] Module 5 - Integral Calculus
 - [ ] Module 8 - Descriptive Statistics for AI
 - [ ] Module 9 - Inferential Statistics for AI
 - [ ] Module 10 - Propositional Logic in AI

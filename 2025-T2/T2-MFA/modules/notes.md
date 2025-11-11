@@ -639,3 +639,21 @@ while f(x_best) > 0.00001
 }
 
 > **Note**: The stopping criteria for a Genetic Algorithm can be based on multiple conditions such as reaching a maximum number of generations, achieving a satisfactory fitness level, or when the improvement over several generations falls below a threshold. We define it when we want to terminate the algorithm based on these conditions to avoid unnecessary computation.
+
+## Module 5 - Integral Calculus
+
+**Differential calculus** is a subfield of calculus that studies the rates at which quantities change.
+**Integral calculus** is a subfield of calulus that studies the area under a curve.
+
+Outline:
+### I. Antiderivatives
+A function F is an antiderivative of f on an interval I if F'(x) = f(x) for all x in I.
+
+y = f(x) has its antiderivative y = F(x)
+
+### II. Definite Integrals
+### III. Fundamental Theorem of Calculus
+### IV. Integration by Substitution
+### V. Integration by Parts
+### VI. Other Integration Methods
+### VII. Tutorials
