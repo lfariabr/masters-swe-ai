@@ -20,7 +20,7 @@
 - 04/11/2025 - v0.1.3 - Added Hill Climbing algorithm implementation in `hill_climber.py`
 - 06/11/2025 - v0.1.4 - Reviewed Set 2 Problem 1 (Numerical Integration)
 - 06/11/2025 - v0.1.5 - Updated Set 2 Problem 1 with matplotlib and numpy dependencies for graphic visuals
-
+- 11/11/2025 - v0.1.6 - Added simpy library to display mathematical expressions and equations
 
 
 

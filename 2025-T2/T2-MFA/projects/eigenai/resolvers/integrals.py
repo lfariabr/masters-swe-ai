@@ -131,3 +131,18 @@ def integrate(
         return val, evals, f"adaptive_simpson: {why}, eps={eps}"
     else:
         raise ValueError("Unknown method. Use 'trapezoid', 'simpson', or 'adaptive'.")
+
+# EXTERNAL LIB EXCEPTION:
+# Used only for symbolic integration; core numerical methods are implemented from scratch
+# The sympy library is used here solely for symbolic computation, not for numerical integration
+from sympy import symbols, integrate as sy_integrate, sympify
+
+def symbolic_integral(expr_str):
+    """Return the symbolic integral expression and its evaluated result."""
+    try:
+        x = symbols('x')
+        expr = sympify(expr_str)
+        symbolic_result = sy_integrate(expr, x)
+        return symbolic_result
+    except Exception as e:
+        return f"Could not compute symbolic integral: {e}"

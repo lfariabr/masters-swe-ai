@@ -2,3 +2,4 @@ streamlit
 pyinstaller
 matplotlib
 numpy
+simpy

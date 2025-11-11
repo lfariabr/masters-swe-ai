@@ -3,7 +3,7 @@
 
 import time
 import streamlit as st
-from resolvers.integrals import parse_function, integrate, ParseError
+from resolvers.integrals import parse_function, integrate, ParseError, integrate, symbolic_integral
 
 def display_s2p1():
     st.title("📘 Numerical Integration")
@@ -119,11 +119,18 @@ def display_s2p1():
             st.success(f"Result: ∫ f(x) from {a} to {b} = {val:.10f}")
             st.caption(f"Evaluations: {evals} | {info}")
 
+            # Inside your try block, after numeric output:
+            symbolic = symbolic_integral(expr)
+            st.markdown("#### Symbolic Integral Result")
+            st.latex(f"∫ {expr} \,dx = {symbolic}")
+
             # EXTERNAL LIB EXCEPTION: 
             # Note: This is a controlled use of external libraries for visualization only
             # The core integration logic is implemented from scratch without any external dependencies
             import numpy as np
             import matplotlib.pyplot as plt
+
+            st.markdown("#### Function Visualization")
 
             x = np.linspace(a, b, 200)
             y = [f(xi) for xi in x]

@@ -670,7 +670,21 @@ Summary: to find the area between the graph of y = f(x) and the x-axis over the 
 3. Add the absolute values of the integrals
 
 ### III. Fundamental Theorem of Calculus
+The Fundamental Theorem of Calculus establishes the relationship between differentiation and integration, showing that they are inverse processes.
+
+**Part 1**: if f is continuous on [a, b] then F(x) = ∫[a to x] f(t)dt is continuous on [a, b] and differentiable on (a, b) and differentiable on (a, b) and its derivative is f(x):
+F'(x) = d/dx ∫[a to x] f(t)dt = f(x)
+
+**Part 2**: if f is continuous at every point of [a, b] and F is any antiderivative of f on [a, b], then:
+∫[a to b] f(x)dx = F(b) - F(a).
+
 ### IV. Integration by Substitution
+Integration by substitution (u-substitution) is a technique used to simplify integrals by changing variables. If u = g(x) is a differentiable function whose range is an interval I and f is continuous on I, then:
+∫f(g(x))g'(x)dx = ∫f(u)du
+
 ### V. Integration by Parts
+Integration by parts is based on the product rule of differentiation. The formula is:
+∫u dv = uv - ∫v du
+
 ### VI. Other Integration Methods
 ### VII. Tutorials

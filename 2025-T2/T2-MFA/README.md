@@ -7,19 +7,18 @@ The purpose of this subject is to provide a solid mathematical background that s
 Dr. James Vakilian
 
 ## Modules
-- [X] Module 1 - Introduction to Sets, Functions and Vectors
-- [X] Module 2 - Vector Spaces, Subspaces
-- [X] Module 3A - Matrices
-- [X] Module 3B - Linear Transformations
-- [X] Module 4 - Eigenvalues and Eigenvectors
-- [X] Module 5 - Derivatives and Integrals
-- [X] Module 5 - Differential Calculus
-- [X] Module 6 - Optimisation (Hill Climbing, Simulated Annealing and GA)
-- [X] Module 5 - Integral Calculus
-- [ ] Module 8 - Descriptive Statistics for AI
-- [ ] Module 9 - Inferential Statistics for AI
-- [ ] Module 10 - Propositional Logic in AI
-- [ ] Module 11 - First Order Logic in AI
+- [X] Week #1, Module 1 - Introduction to Sets, Functions and Vectors
+- [X] Week #2, Module 2 - Vector Spaces, Subspaces
+- [X] Week #3, Module 3A - Matrices
+- [X] Week #4, Module 3B - Linear Transformations
+- [X] Week #5, Module 4 - Eigenvalues and Eigenvectors
+- [X] Week #6, Module 5 - Derivatives and Integrals
+- [X] Week #7, Module 5 - Differential Calculus
+- [X] Week #8, Module 6 - Optimisation (Hill Climbing, Simulated Annealing and GA)
+- [X] Week #9, Module 5 - Integral Calculus
+- [ ] Week #10, Module 8 - ?
+- [ ] Week #11, Module 9 - ?
+- [ ] Week #12, Module 10 - ?
 
 ## Assignments
 - [X] Assessment 1 - deadline 05/10/2025 ✅
