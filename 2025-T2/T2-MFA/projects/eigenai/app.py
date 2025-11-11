@@ -21,34 +21,34 @@ menu = st.sidebar.radio(
     "🌀 Portal",
     
     # Assessment 2A
-    "🧩 set1-problem1",
-    "🧠 set1-problem2",
+    "[set1]problem-1",
+    "[set1]problem-2",
     
     # Assessment 2B
-    "📘 set2-problem1",
-    "📗 set2-problem2",
+    "[set2]problem-1",
+    "[set2]problem-2",
     
     # Assessment 3
-    "🎓 ai-problem-set",
+    "ai-problem-set",
 ], index=0)
 
 # ---- View Routing ----
 if menu == "🌀 Portal":
     home.display()
 
-if menu == "🧩 set1-problem1":
+if menu == "[set1]problem-1":
     set1Problem1.display_s1p1()
 
-if menu == "🧠 set1-problem2":
+if menu == "[set1]problem-2":
     set1Problem2.display_s1p2()
 
-if menu == "📘 set2-problem1":
+if menu == "[set2]problem-1":
     set2Problem1.display_s2p1()
 
-if menu == "📗 set2-problem2":
+if menu == "[set2]problem-2":
     set2Problem2.display_s2p2()
     
-if menu == "🎓 ai-problem-set":
+if menu == "ai-problem-set":
     aiProblem.display_assessment3()
 
 # ---- Footer ----
