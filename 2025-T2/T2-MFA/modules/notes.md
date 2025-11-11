@@ -643,15 +643,32 @@ while f(x_best) > 0.00001
 ## Module 5 - Integral Calculus
 
 **Differential calculus** is a subfield of calculus that studies the rates at which quantities change.
-**Integral calculus** is a subfield of calulus that studies the area under a curve.
+**Integral calculus** is a subfield of calculus that studies the area under a curve.
 
 Outline:
 ### I. Antiderivatives
 A function F is an antiderivative of f on an interval I if F'(x) = f(x) for all x in I.
+y = f(x) has its antiderivative y = F(x) + C, where C is an arbitrary constant.
 
-y = f(x) has its antiderivative y = F(x)
+> Definition: Indefinite integral is the collection of all antiderivatives of f representing the indefinite integral of f with respect to x, and is denoted by  ∫f(x)dx
+> The symbol ∫ is an integral sign. The function ∫ is the integrand of the integral, and x is the variable of integration.
+
+**∫f(x)dx = F(x) + C.**
 
 ### II. Definite Integrals
+Definite integral of f from a to b is denoted by ∫[a to b] f(x)dx and represents the signed area between the graph of f and the x-axis from x = a to x = b.
+
+**∫[a to b] f(x)dx = F(b) - F(a)**
+
+where F is any antiderivative of f.
+
+> Definition: If y = f(x) is nonnegative and integrable over a closed interval [a. b], then the area under the curve y = f(x) over [a, b] is the integral of f(x) from a to b, denoted as ∫[a to b] f(x)dx.
+
+Summary: to find the area between the graph of y = f(x) and the x-axis over the interval [a, b]:
+1. Subdivide [a, b] at the zeros of f
+2. Integrate f over each subinterval
+3. Add the absolute values of the integrals
+
 ### III. Fundamental Theorem of Calculus
 ### IV. Integration by Substitution
 ### V. Integration by Parts
