@@ -70,9 +70,37 @@ def display_s2p2():
 
         # --- Data generation ---
         st.info("Generating training data from sin(x)...")
-        X = [x * 0.1 for x in range(int(-10 * range_val), int(10 * range_val))]
+        
+        # Enforce minimum range to avoid empty dataset:
+        # When 0 < range_val < 0.1, int(-10*range_val) == int(10*range_val) == 0
+        # This produces range(0, 0) which is empty!
+        # Also ensures we have at least some data to train on.
+        effective_range = max(range_val, 0.1)
+        if range_val < 0.1:
+            st.warning(f"⚠️ Range too small ({range_val:.3f}). Using minimum range of 0.1 instead.")
+        
+        # Compute integer bounds and ensure they span at least 1 unit
+        # This guarantees at least one sample even with very small ranges
+        # and prevents empty dataset generation.
+        lower_bound = int(-10 * effective_range)
+        upper_bound = int(10 * effective_range)
+        if lower_bound >= upper_bound:
+            upper_bound = lower_bound + 1  # Fallback: ensure at least 1 sample
+        
+        X = [x * 0.1 for x in range(lower_bound, upper_bound)]
         Y = [math.sin(x) for x in X]
-        st.caption(f"Generated {len(X)} training samples")
+        
+        # Guard: Explicit check for empty dataset
+        # This should never happen due to our bounds logic, but just in case...
+        if not X or len(X) == 0:
+            st.error(
+                f"❌ Failed to generate training data. "
+                f"Range bounds [{lower_bound}, {upper_bound}) produced {len(X)} samples. "
+                f"Please increase the range value to ≥ 0.1."
+            )
+            return
+        
+        st.caption(f"✅ Generated {len(X)} training samples from [{X[0]:.2f}, {X[-1]:.2f}]")
 
         # --- Progress animation ---
         progress = st.progress(0)
