@@ -15,7 +15,7 @@ Dr. Tanvir Rahman
 - [X] Module 6 - IT System Security Assessment
 - [X] Module 7 - Secure Failure
 - [X] Module 8 - Domain-Driven Design
-- [ ] Module 9 - Reducing complexity
+- [X] Module 9 - Reducing complexity
 - [ ] Module 10 - How to maintain an Enterprise - scale system
 - [ ] Module 11 - Approaches to Attack: Common traditional techniques of cyber attacks
 - [ ] Module 12 - Security by design in the real world

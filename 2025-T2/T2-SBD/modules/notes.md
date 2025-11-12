@@ -485,3 +485,49 @@ Code injection occurs when an attacker inserts malicious code into an applicatio
 - Security is everyone's job
 - Start with a plan
 - Use industry standards
+
+## Module 9 - Reducing complexity
+
+### Section I - The complexity problem
+Purpose of education: Help humans grow
+
+The downside of complexity: 
+- the human brain prefers simplicity
+- more components and interactions mean more potential points of failure
+- maintenance, operations and change management become exponentially more complex
+- it's extremely hard to create and maintain accurate documentation of a highly complex system
+
+### Module 9 objectives:
+1. understand the flaw
+2. learn good practices
+3. advocate for simplicity
+
+### Section II - 
+
+- The "Too many tools" problem
+- Solution: Unified Platforms (XDR - extended detection and response, UTM - unified threat management)
+
+#### Case Study: the password paradox
+- 90% of users admit to reusing passwords
+- users know this is a bad practice, but they do it anyway
+- why? because remembering 100 unique passwords is not humanly possible
+
+#### Simple, Stronger alternatives
+1. Multi-factor authentication (MFA) (*something you have*)
+2. Biometrics: fingerprint, face recognition, iris scan (*something you are*)
+3. Passwordless: authenticator apps, removing the need for passwords
+
+### Section IV - Practical applications
+#### Simple, Effective policies
+1. a security policy is not just technical doc, it's human document
+2. if policy is 50-page, no one will read it
+
+Clarity: use "don't share your password" to "all authentication tokens are non-transferable"
+
+### Key Takeaways
+1. Principles: Complexity is a hidden tax on security (maintenance, errors, usability friction).
+Use a risk-based lens to apply proportionate controls, not all controls.
+Unify management platforms to reduce "tools" and "alert fatigue"
+2. Application: Bad, complex rules backfire by forcing insecure user behavior.Good security is usable.
+The secure path should always be the easy path.
+Simplicity is a feature and a sign of mature Secure By Design process.
