@@ -94,3 +94,12 @@ This module is designed to help you determine which methods you should use for A
 
 ### References:
 Billups, F. D. (2021). Qualitative data collection tools: Design, development, and applications. SAGE Publications, Inc. https://doi.org/10.4135/9781071878699Links to an external site.https://methods-sagepub-com.torrens.idm.oclc.org/book/qualitative-data-collection-toolsLinks to an external site.
+
+## Module 9 - Data sampling methods
+
+Content was focused on data sampling techniques and their role in AI and machine learning research. Dr. Bushra explained three key probability sampling methods:
+1. Simple random sampling – selecting cases purely by random number generation.
+2. Systematic random sampling – calculating a sampling fraction (e.g., 1/5) and selecting every nth case after the first random start.
+3. Stratified random sampling – dividing the population into strata for more representative results.
+
+Dr. Bushra highlighted the importance of sample size, randomness, and representativeness in building reliable AI datasets. Students were asked to explore data sampling in AI applications (Section 3 of the assigned paper) and perform hypothesis testing using Python, submitting a 200-word reflection with code screenshots.
