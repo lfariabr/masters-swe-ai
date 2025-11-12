@@ -10,21 +10,20 @@ The goal was to build a platform that could securely accept user inputs, write t
 ---
 
 ## Quadrant 1 – Request Phase (Input Security) [~1 minute]
-
-The Request Phase is where most vulnerabilities originate — especially injection attacks and authentication failures.
-Here, we implemented multi-factor authentication following NIST 800-63B, combined with parameterized SQL queries to prevent SQL injection.
-All user inputs undergo server-side validation, using regex rules and canonicalization, ensuring data such as emails or IDs meet strict format limits.
+> This phase is where most vulnerabilities originate — especially injection attacks and authentication failures.
+Here, we implemented:
+- multi-factor authentication following NIST 800-63B
+- parameterized SQL queries to prevent SQL injection
+- server-side validation, using regex rules and canonicalization, ensuring data such as emails or IDs meet strict format limits.
 
 Additionally, wildcard escaping prevents unsafe use of the SQL “LIKE” operator, while CSRF tokens and SameSite=strict cookies protect state-changing operations from cross-site request forgery.
 
-Together, these measures ensure that data entering the system is clean, validated, and authenticated before it touches the database.
-As Sutton (2022) highlights, “secure coding standards are the foundation of resilience against injection and authentication flaws.”
+This way, we ensure data entering the system is clean, validated, and authenticated before it touches the database.
 
 ---
 
 ## Quadrant 2 – Retrieve Phase (Database Security) [~1 minute]
-
-The Retrieve Phase focuses on how we fetch and transmit data.
+> The Retrieve Phase focuses on how we fetch and transmit data.
 Data in transit is protected by TLS 1.3 with forward secrecy, while data at rest uses AES-256-GCM encryption, managed through AWS Key Management Service.
 
 Each database account follows the Principle of Least Privilege, meaning that doctors, analysts, and administrators have separate credentials with only the permissions they truly need.
@@ -32,8 +31,6 @@ Each database account follows the Principle of Least Privilege, meaning that doc
 We also added SHA-256 integrity checks for every retrieved record and configured role-based read limits to avoid large data exposures.
 
 No raw SQL is allowed — everything goes through ORM-based stored procedures, fully parameterized.
-
-As Calder (2020) says, “Encryption is not an afterthought — it is the backbone of trust in digital systems.”
 
 ---
 
@@ -47,8 +44,6 @@ and Administrators manage the infrastructure but can’t alter their own permiss
 Authentication tokens are JWTs signed with RSA-2048, sessions expire after 20 minutes of inactivity, and the system follows a Join–Move–Leave lifecycle for user management.
 
 This ensures separation of duties, accountability, and traceability — core to both ISO 27001 §9.2 and NIST 800-64 Rev.2.
-
-As Vacca (2014) notes, “Role-based systems translate business policy into enforceable technical boundaries.”
 
 ---
 
