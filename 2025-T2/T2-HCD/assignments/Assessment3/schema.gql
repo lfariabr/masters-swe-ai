@@ -1,0 +1,31 @@
+type Query {
+  currentQuota(userId: ID!): QuotaStatus
+  auditLog(userId: ID!, timeRange: TimeRange!): [AuditEntry]
+  systemHealth: HealthMetrics
+}
+
+type Mutation {
+  requestOverride(userId: ID!, reason: String!): OverrideRequest
+  updateUserTier(userId: ID!, tier: TierLevel!): User
+}
+
+type Subscription {
+  quotaUpdates(userId: ID!): QuotaStatus
+  throttleEvents: ThrottleEvent
+}
+
+type QuotaStatus {
+  userId: ID!
+  currentUsage: Int!
+  dailyLimit: Int!
+  resetTime: DateTime!
+  carbonFootprint: Float!
+}
+
+type ThrottleEvent {
+  requestId: ID!
+  userId: ID!
+  reason: String!
+  retryAfter: Int!
+  escalationPath: String
+}
