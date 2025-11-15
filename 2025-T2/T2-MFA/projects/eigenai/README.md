@@ -76,6 +76,7 @@ EigenAI/
 | v0.1.5 | ✅ | Updated Set 2 Problem 1 with matplotlib for graphic visuals |
 | v0.1.6 | ✅ | Added sympy library to display mathematical expressions and equations |
 | v0.1.7 | ✅ | Added Set 2 Problem 2 (RRBF Gradient Calculator) with Streamlit UI and `rrbf.py` |
+| v0.1.8 | ✅ | Added Set 3 Problem 1 (Hill Climbing Binary Image Reconstruction) with Streamlit UI and `constructor.py` |
 | vX.2.0 | 🕐 | Assessment 2B submission |
 | vX.X.X | 🕐 | Login + Authentication |
 | vX.X.X | 🕐 | LLM plug with rate limiting |
