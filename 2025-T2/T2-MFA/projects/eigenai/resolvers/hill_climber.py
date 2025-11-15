@@ -80,9 +80,17 @@ class HillClimber:
         
         plateau_counter = 0
         iteration = 0
+
+        if current_cost == 0:
+            result.final_state = current_state
+            result.final_cost = current_cost
+            result.iterations = iteration
+            result.plateau_count = plateau_counter
+            result.stop_reason = "Found optimal solution (cost = 0)"
+            return result
         
         if verbose:
-            print(f"Starting Hill Climbing:")
+            print("Starting Hill Climbing:")
             print(f"  Initial cost: {current_cost}")
             print(f"  Max iterations: {self.max_iterations}")
             print(f"  Plateau limit: {self.plateau_limit}")
@@ -156,7 +164,7 @@ class HillClimber:
         
         if verbose:
             print()
-            print(f"Hill Climbing Complete:")
+            print("Hill Climbing Complete:")
             print(f"  Stop reason: {result.stop_reason}")
             print(f"  Iterations: {result.iterations}")
             print(f"  Improvements: {result.improvements}")

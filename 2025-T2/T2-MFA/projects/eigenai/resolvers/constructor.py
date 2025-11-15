@@ -71,6 +71,11 @@ def calculate_cost(state: List[List[int]], target: List[List[int]] = TARGET_IMAG
     Returns:
         int: Number of pixels that don't match (0 = perfect match)
     """
+    # Optional: validating shapes before computing cost
+    is_valid, msg = validate_state(state)
+    if not is_valid:
+        raise ValueError(f"Invalid state: {msg}")
+        
     cost = 0
     rows = len(target)
     cols = len(target[0]) if rows > 0 else 0

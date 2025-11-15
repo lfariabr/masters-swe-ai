@@ -208,5 +208,5 @@ def display_s3p1():
             """)
             
         except Exception as e:
-            st.error(f"Algorithm failed: {str(e)}")
+            st.error(f"Algorithm failed: {e!s}")
             st.exception(e)
