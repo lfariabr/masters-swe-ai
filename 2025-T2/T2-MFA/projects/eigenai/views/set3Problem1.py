@@ -64,11 +64,7 @@ def display_s3p1():
                 st.warning("Seed must be an integer")
     
     # --- Run Hill Climbing ---
-    if st.button("🚀 Run Hill Climbing Algorithm"):
-        # Validation
-        if max_iter <= 0 or plateau_limit <= 0:
-            st.error("All parameters must be positive")
-            return
+    if st.button("🟢 Run Hill Climbing Algorithm"):
         
         # Progress animation
         progress = st.progress(0)

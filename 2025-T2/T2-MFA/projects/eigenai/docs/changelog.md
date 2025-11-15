@@ -20,8 +20,11 @@
 - 04/11/2025 - v0.1.3 - Added Hill Climbing algorithm implementation in `hill_climber.py`
 - 06/11/2025 - v0.1.4 - Reviewed Set 2 Problem 1 (Numerical Integration)
 - 06/11/2025 - v0.1.5 - Updated Set 2 Problem 1 with matplotlib and numpy dependencies for graphic visuals
-- 11/11/2025 - v0.1.6 - Added sympy library to display mathematical expressions and equations
+- 11/11/2025 - v0.1.6 - Added sympy library to display mathematical expressions and equations Set 2 Problem 1
 - 11/11/2025 - v0.1.7 - Added Set 2 Problem 2 (RRBF Gradient Calculator) with Streamlit UI and `rrbf.py`
+- 14/11/2025 - v0.1.8 - Added Set 3 Problem 1 (Hill Climbing) with Streamlit UI and `hill_climber.py` and `constructor.py`.
+
+
 
 
 
