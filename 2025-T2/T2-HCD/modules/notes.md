@@ -198,7 +198,36 @@ https://www.youtube.com/watch?v=eygJtngcqMs
 - Ethnographic studies: Immersive research to understand cultural practices and values.
 - Co-creation workshops: Involving users from different cultures in the design process.
 
-### Extra Videos
-- 
+## Module 10 - The Breaking Point - How to Redesign with HCD in Mind
 
+### The breaking point
+- Every product or service has a breaking point.
+- This is the moment when it is no longer meeting the needs of its users
+- When a product reaches its breaking point, it is time for a redesign.
 
+### Extra signs or reasons behind product redesign
+1) when internal kpi's fail... declines in conversion, retention, sucess rate
+2) when technology becomes obselete, slow performance, sec vulnerabilities, no compatibility with modern devices
+
+### Three other examples of either successful or failed product / app redesign
+1. Skype
+- Breaking point: pressure from Snapchat, WhatsApp, and Messenger drove Skype to reinvent itself as a social platform rather than a communication tool.
+- HCD sol: Added “Highlights” (Snapchat-style stories), cluttered the interface with social features, and pushed core calling functionality deeper into menus.
+- Outcome: Users rejected the redesign, citing confusion and loss of core utility. Microsoft had to reverse many changes
+ 
+2. Zoom
+- Breaking Point: During and post-pandemic fatigue, confusing navigation, scattered features (Meetings, Team Chat, Mail, Calendar) created friction for business and casual users.
+- HCD Solution: unified the product suite under a single left-hand navigation, simplified meeting controls, improved accessibility + enhanced visual hierarchy for clarity.
+- Outcome: reduced cognitive load, smoother onboarding, and stronger adoption among enterprise users.
+ 
+3. Twitter → X
+- Breaking Point: leadership shift that created an abrupt rebranding push + identity crisis as features, navigation, and community norms no longer aligned with user expectations.
+- HCD Solution: introduced a new minimalist visual identity, dark UI theme, and reorganized menus to support the “everything app” vision.
+- Output: Massive backlash, loss of long-held brand equity, user confusion, and declining trust
+ 
+### Video refs
+- https://www.youtube.com/watch?v=LIp5REFQ_Qw
+- https://www.youtube.com/watch?v=8VNkmb__gEA&t=2s
+- https://www.youtube.com/watch?v=WHo3QkaArCc&t=2s
+- https://www.youtube.com/watch?v=aFt7izJ0Zfw
+- https://www.youtube.com/watch?v=OLEYONyVSH8

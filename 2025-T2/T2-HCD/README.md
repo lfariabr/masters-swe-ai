@@ -16,7 +16,7 @@ Dr. Omid Haass
 - [X] Module 7 - Transformational Thinking
 - [X] Module 8 - Designing within a Social Context
 - [X] Module 9 - Designing for a Global Context
-- [ ] Module 10 - The Breaking Point - How to Redesign with HCD in Mind
+- [X] Module 10 - The Breaking Point - How to Redesign with HCD in Mind
 - [ ] Module 11 - Societal Influences on HCD
 - [ ] Module 12 - HCD in the Field
 
