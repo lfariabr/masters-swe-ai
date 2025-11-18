@@ -688,3 +688,107 @@ Integration by parts is based on the product rule of differentiation. The formul
 
 ### VI. Other Integration Methods
 ### VII. Tutorials
+
+## Module 10 - Foundations of Probability, Theorem & Statistics For AI
+
+### Reflection I
+1. What are the different types of phenomena? Define each and give some examples
+- Deterministic: predictable, modeled mathematically
+- Non-deterministic: unpredictable; divided into random (statistical pattern) and chaotic (no pattern).
+
+2. What is the main distinguishable characteristic for each phenomena.
+- Deterministic: outcome certainty
+- Random: uncertain short-term but stable long-term
+- Chaotic: unpredictable at all levels
+
+3. How is each phenomena modeled?
+- Deterministic: differential equations
+- Random: probability theory
+- Chaotic: nonlinear dynamic systems
+
+4. What is Probability Theorem? Why is it important?
+It is the mathematical study of uncertainty, which assigns numerical likelihood to events.
+
+5. What are the application of Probability Theorem? Give 3 examples.
+Finances, weather forecasting, machine learning
+
+6. What is probabilistic reasoning?
+It is about using probability and logic to predict outcomes from known population structure.
+
+7. Write a 500-word report on the application and significance of each type of phenomenon in computer science.
+Computer science relies on all three classes of phenomena: deterministic, random, and chaotic. Each playing distinct and critical roles.
+
+Deterministic phenomena form the backbone of classical computing...
+Non-deterministic random phenomena (and Probability Theory) dominate modern computer science, espcially artificial intelligence and machine learning...
+Chaotic phenomena, though less commonly acknowledged, are increasingly important...
+
+In summary, deterministic phenomena give computer science its reliable core, random phenomena (via probability) power modern AI and scalable algorithms, and chaotic phenomena remind us of fundamental predictability limits while opening new computational paradigms (e.g., chaotic neural networks, analog/quantum computing). Mastering all three is essential for building robust, intelligent, and realistic systems in contemporary computer science and artificial intelligence.
+
+### Reflection II
+1. What is a probability experiment?
+Action/process through which specific results (outcomes) are obtained. Where there are multiple possible outcomes, the experiment can be repeate and the outcome of any single trial is random. Example: flipping a coin.
+
+2. What is an outcome of a probability experiment?
+The result of a single trial of a probability experiment.
+
+3. What is sample space?
+It is the set of all possible outcomes of a probability experiment. Denoted S or Ω.
+Example 1: coin → S = {H, T}
+Example 2: die → S = {1,2,3,4,5,6}
+
+4. What is av event? What is a simple event?
+- Event: Any subset of the sample space (one or more outcomes we are interested in). Denoted with capital letters (A, B, E, …).
+- Simple event: An event that contains exactly one outcome. and cannot be broken down further. Example (die): simple event = {5} / composite event = {2,4,6} (even numbers)
+
+5. Sample Space S has n outcomes. How many events can S have? (Hint: try for n=2 and n=3, then generalize)
+Every event is a subset of S.
+If n=2, then there are 2^2 = 4 events.
+If n=3, then there are 2^3 = 8 events.
+
+6. Give an example of a null event?
+The empty event ∅ = { } — an event that contains no outcomes.
+Example: rolling a die and getting a 7 (impossible) → ∅.
+P(∅) = 0 → it never occurs.
+
+7. Give an example of the entire event?
+The sample space itself S — the event that contains all possible outcomes.
+Example: rolling a die and getting a number between 1 and 6 → S.
+P(S) = 1 → it always occurs.
+
+8. What are the different relationships between events?
+- Dependent events: the occurrence of one event affects the probability of the other event.
+- Independent events: the occurrence of one event does not affect the probability of the other event.
+- Mutually exclusive events: the occurrence of one event precludes the occurrence of the other event.
+- We don't know...
+
+9. In your opinion, how should we calculate probability?
+There are several valid approaches, but the two main formal ways introduced in the lecture are:
+- **Classical probability** (when all outcomes are equally likely and the sample space is finite):
+P(A) = (number of favourable outcomes for A) / (total number of possible outcomes) = n(A)/N
+- **Axiomatic probability** (Kolmogorov’s modern foundation): we assign probabilities satisfying the three axioms (non-negative, P(S)=1, additivity for disjoint events) — this is the most general and rigorous way and underpins everything else in probability theory.
+
+### Reflection IV
+1. What does the probability of the union of two events mean? How can we do it?
+The probability of the union P(A ∪ B) is the probability that at least one of the events A or B (or both) occurs – i.e., “A or B or both”.
+Formula (additive rule): **P(A ∪ B) = P(A) + P(B) - P(AB)**
+
+2. How can we calculate the probability of the union of two mutually exclusive events?
+If A and B are mutually exclusive (disjoint), they cannot happen at the same time, so P(A ∩ B) = 0.
+Therefore: **P(A ∪ B) = P(A) + P(B)**
+
+3. What does the probability of the complement of an event mean? How can we calculate the probability of the complement of an event?
+The complement Aᶜ (or “not A”) is the event that A does not occur. Since either A has to happen or it doesn’t, the total probability is 1.
+Formula: **P(Aᶜ) = 1 – P(A)** (also written as P(not A) = 1 – P(A))
+
+4. What is Conditional Probability? How is it calculated?
+Conditional probability P(A|B) is the probability that event A occurs given that event B has already occurred.
+Formula: **P(A|B) = P(A ∩ B) / P(B)**    (provided P(B) ≠ 0)
+
+5. What is the probability of two independent events?
+If A and B are independent, the occurrence of one does not affect the other.
+The probability that both happen (intersection) is the product of their individual probabilities: **P(A ∩ B) = P(A) × P(B).** (Note: independence also implies P(A|B) = P(A) and P(B|A) = P(B))
+
+6. What is the probability of event A & B, both happening?
+This is the probability of the intersection P(A ∩ B).
+- If A and B are independent: **P(A ∩ B) = P(A) × P(B)**
+- If A and B are dependent: **P(A ∩ B) = P(A|B) × P(B)**  or equivalently  **P(A ∩ B) = P(B|A) × P(A)**

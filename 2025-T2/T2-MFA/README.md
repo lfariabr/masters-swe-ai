@@ -9,16 +9,16 @@ Dr. James Vakilian
 ## Modules
 - [X] Week #1, Module 1 - Introduction to Sets, Functions and Vectors
 - [X] Week #2, Module 2 - Vector Spaces, Subspaces
-- [X] Week #3, Module 3A - Matrices
-- [X] Week #4, Module 3B - Linear Transformations
-- [X] Week #5, Module 4 - Eigenvalues and Eigenvectors
-- [X] Week #6, Module 5 - Derivatives and Integrals
-- [X] Week #7, Module 5 - Differential Calculus
-- [X] Week #8, Module 6 - Optimisation (Hill Climbing, Simulated Annealing and GA)
-- [X] Week #9, Module 5 - Integral Calculus
-- [ ] Week #10, Module 8 - ?
-- [ ] Week #11, Module 9 - ?
-- [ ] Week #12, Module 10 - ?
+- [X] Week #3, Module 3 - Matrices
+- [X] Week #4, Module 4 - Linear Transformations
+- [X] Week #5, Module 5 - Eigenvalues and Eigenvectors
+- [X] Week #6, Module 6 - Derivatives and Integrals
+- [X] Week #7, Module 7 - Differential Calculus
+- [X] Week #8, Module 8 - Optimisation (Hill Climbing, Simulated Annealing and GA)
+- [X] Week #9, Module 9 - Integral Calculus
+- [X] Week #10, Module 10 - Foundations of Probability, Theorem & Statistics For AI
+- [ ] Week #11, ?
+- [ ] Week #12, ?
 
 ## Assignments
 - [X] Assessment 1 - deadline 05/10/2025 ✅
