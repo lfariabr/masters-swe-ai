@@ -54,3 +54,32 @@ Now I’ll show a few robustness checks I implemented:
 
 ### Invalid function
 If I type something invalid, like:
+*(Type: sin(x), a=0, b=3.14159, method=adaptive)*
+
+I get an error message: "Invalid function."
+
+### Invalid interval
+If I type something invalid, like:
+*(Type: sin(x), a=0, b=0, method=adaptive)*
+
+I get an error message: "Invalid interval."
+
+### Invalid method
+If I type something invalid, like:
+*(Type: sin(x), a=0, b=0, method=adaptive)*
+
+I get an error message: "Invalid method."
+
+---
+
+## [04:10–04:40] Conclusion
+
+To wrap up, this demonstration showed how EigenAI performs numerical integration using three core techniques—Trapezoid Rule, Simpson’s Rule, and Adaptive Simpson—all implemented manually in Python.
+
+We validated the accuracy of each method with functions that have known exact integrals, and we saw how the adaptive approach intelligently refines the mesh where needed.
+I also showed the error-handling features that ensure the system responds safely to invalid inputs.
+
+Overall, the tool is working correctly, producing accurate results, and handling edge cases as expected.
+This completes the demonstration for Set 2 Problem 1.
+
+Thank you.

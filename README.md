@@ -55,18 +55,17 @@ Term | Subject | Status | Lecturer | Directory | Credit Points
 | T3 | Mathematical Foundations of AI (***Core***) 2025 | 🔥 | Dr. James Vakilian | [MFA501](./2025-T2/T2-MFA/) | 10
 | T3 | Research Methodologies (***Core***) 2025 | 🔥 | Dr. Bushra Naeem | [REM502](./2025-T2/T2-REM/) | 10
 | T3 | Secure By Design (***Core***) 2025 | 🔥 | Dr. Tanvir Rahman | [SBD402](./2025-T2/T2-SBD/) | 10
+| T1 | Intelligent Systems (***Core***) 2026 | 🕐 | TBD | [ISY503](TBD) | 10
+| T1 | Cloud Computing Fundamentals (***Elective***) 2026 | 🕐 | TBD | [CCF501](TBD) | 10
 
 ***Backlog - T2-26 onwards:***
 Core (***mandatory***): 
-- Intelligent Systems (ISY503 - 10CP)
-- Cloud Computing Fundamentals (CCF501 - 10CP) *1st elective*
 - Machine Learning (MLN601 - 10CP)
 - Deep Learning (DLE602 - 10CP)
 - Technology - Work Integrated Learning I (TWL604 - 20CP)
 - Advanced Technology - Work Integrated Learning (ATW606 - 30CP)
 
 Electives (***to be defined...***): 
-- Cloud Computing Fundamentals (CCF501 - 10CP) *?*
 - DevOps Tools (DOT503 - 10CP)
 - Cyber Security Principles (CPO442 - 10CP)
 - User Experience Design (DID602A - 10CP)
