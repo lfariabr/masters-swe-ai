@@ -531,3 +531,24 @@ Unify management platforms to reduce "tools" and "alert fatigue"
 2. Application: Bad, complex rules backfire by forcing insecure user behavior.Good security is usable.
 The secure path should always be the easy path.
 Simplicity is a feature and a sign of mature Secure By Design process.
+
+## Module 10 - How to maintain an Enterprise - scale system
+
+Area 1 - Cybersecurity Strategies: defines security goals aligned with business needs and sets timelines for implementation, covering response to incidents (detailed IRP)
+Area 2 - Standardized Process: make sure everyone's following the same rules and procedures
+Area 3 - Compliance: comply with laws, regulations, etc
+Area 4 - Senior Leadership Oversight: ensure leadership is committed and involved in security decisions
+Area 5 - Resources: allocate adequate budget, personnel, and tools for security operations
+
+### Five Types of Cybersecurity Policies
+1. Security policies - define the overall security framework and objectives
+2. Directive policies - provide specific instructions and procedures for implementation
+3. Administrative policies - govern organizational structure, roles, and responsibilities
+4. Communications and technical policies - manage data flow, network security, and technical controls
+5. Risk-based policies - prioritize security measures based on risk assessment and business impact
+
+### Implementing Governance
+1. Secure executive commitment
+2. Conduct a gap analysis of current sec policies
+3. Select a governance framework
+4. Design and implement customized policies
