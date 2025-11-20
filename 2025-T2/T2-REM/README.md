@@ -16,7 +16,7 @@ Dr. Bushra Naeem
 - [X] Module 7 - REM, Choosing your methods
 - [X] Module 8 - The Ethics of Human Research
 - [X] Module 9 - Data Sampling Methods
-- [ ] Module 10 - Data Interpretation Methods
+- [X] Module 10 - Data Interpretation Methods
 - [ ] Module 11 - Writing Your Proposal and Presentation
 - [ ] Module 12 - Planning Your Research Project — Timelines and Gantt Charts
 

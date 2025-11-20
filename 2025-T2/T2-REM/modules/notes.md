@@ -103,3 +103,58 @@ Content was focused on data sampling techniques and their role in AI and machine
 3. Stratified random sampling – dividing the population into strata for more representative results.
 
 Dr. Bushra highlighted the importance of sample size, randomness, and representativeness in building reliable AI datasets. Students were asked to explore data sampling in AI applications (Section 3 of the assigned paper) and perform hypothesis testing using Python, submitting a 200-word reflection with code screenshots.
+
+## Module 10 - Data Interpretation Methods
+
+### Core Idea
+> Once data is collected, the challenge becomes making sense of it. Data interpretation requires structure, clarity, and alignment with your research questions.
+
+### Key Concepts
+
+1. Stay Anchored to Your Research Questions
+- All interpretation must tie back to your main RQ(s), aims, and hypotheses.
+- Avoid “data fishing” — don’t report findings that don’t support your research purpose.
+
+2. Data Organisation Workflow
+- Clean → organise → structure → code → interpret → visualise.
+- Use tools such as Python, R, MATLAB, Tableau, or spreadsheets depending on data type.
+- Prepare these tools before data collection (declare them in the proposal).
+
+3. Coding & Structuring the Data
+- Quantitative: tables, summary statistics, significance tests, models.
+- Qualitative: thematic coding, categories, patterns, clusters.
+- Mixed: integrate both — use quant for trends + qual for “why”.
+
+4. Interrogating the Dataset
+
+Ask consistently:
+- What patterns stand out?
+- What is surprising?
+- How does this answer the RQ?
+- Where are the strong/weak signals?
+- What should be reported vs. ignored?
+
+### Data Storytelling (Critical Skill)
+Good interpretation ≠ just numbers.
+You must translate data into insights:
+- Build a narrative structure (problem → key finding → implication).
+- Make insights actionable and understandable.
+- Connect the dots to the broader research context.
+
+> Resource: Vora, S. (2019). The power of data storytelling.
+
+### Visualisation Guidance
+Visuals should clarify, not decorate.
+
+Five principles:
+1. Be intentional
+2. Reduce noise
+3. Highlight what matters
+4. Choose the right chart
+5.	Ensure readability and accuracy
+
+> Resource: Schwabish, J. (2021). Better data visualizations.
+
+### Inspiration
+
+Use [Information is Beautiful](https://www.informationisbeautiful.net) to explore creative formats that go beyond basic charts and help communicate complex insights visually.
