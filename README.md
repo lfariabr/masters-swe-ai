@@ -49,14 +49,14 @@ Project | Description | Status | Repository | URL |
 #### Academic Journey
 Term | Subject | Status | Lecturer | Directory | Credit Points
 |-----------|---------------------|----------------|----------------|----------------|----------------|
-| T2-25 | Software Development Management (***Core***) | ✅ | Dr. Muhammad Atif | [SDM404](./2025-T1/T1-SDM/) | 10
-| T2-25 | Software Engineering Principles (***Core***) | ✅ | Dr. Ranju Mandal | [SEP401](./2025-T1/T1-SEP/) | 10
-| T3-25 | Human Centered Design (***Core***) | 🔥 | Dr. Omid Haass | [HCD402](./2025-T2/T2-HCD/) | 10
-| T3-25 | Mathematical Foundations of AI (***Core***) | 🔥 | Dr. James Vakilian | [MFA501](./2025-T2/T2-MFA/) | 10
-| T3-25 | Research Methodologies (***Core***) | 🔥 | Dr. Bushra Naeem | [REM502](./2025-T2/T2-REM/) | 10
-| T3-25 | Secure By Design (***Core***) | 🔥 | Dr. Tanvir Rahman | [SBD402](./2025-T2/T2-SBD/) | 10
-| T1-26 | Intelligent Systems (***Core***) | 🕐 | TBD | [ISY503](TBD) | 10
-| T1-26 | Cloud Computing Fundamentals (***Elective***) | 🕐 | TBD | [CCF501](TBD) | 10
+| T2 | Software Development Management (***Core***) 2025 | ✅ | Dr. Muhammad Atif | [SDM404](./2025-T1/T1-SDM/) | 10
+| T2 | Software Engineering Principles (***Core***) 2025 | ✅ | Dr. Ranju Mandal | [SEP401](./2025-T1/T1-SEP/) | 10
+| T3 | Human Centered Design (***Core***) 2025 | 🔥 | Dr. Omid Haass | [HCD402](./2025-T2/T2-HCD/) | 10
+| T3 | Mathematical Foundations of AI (***Core***) 2025 | 🔥 | Dr. James Vakilian | [MFA501](./2025-T2/T2-MFA/) | 10
+| T3 | Research Methodologies (***Core***) 2025 | 🔥 | Dr. Bushra Naeem | [REM502](./2025-T2/T2-REM/) | 10
+| T3 | Secure By Design (***Core***) 2025 | 🔥 | Dr. Tanvir Rahman | [SBD402](./2025-T2/T2-SBD/) | 10
+| T1 | Intelligent Systems (***Core***) 2026 | 🕐 | TBD | [ISY503](TBD) | 10
+| T1 | Cloud Computing Fundamentals (***Elective***) 2026 | 🕐 | TBD | [CCF501](TBD) | 10
 
 ***Backlog - T2-26 onwards:***
 Core (***mandatory***): 
