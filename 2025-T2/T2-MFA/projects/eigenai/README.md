@@ -77,12 +77,13 @@ EigenAI/
 | v0.1.6 | ✅ | Added sympy library to display mathematical expressions and equations |
 | v0.1.7 | ✅ | Added Set 2 Problem 2 (RRBF Gradient Calculator) with Streamlit UI and `rrbf.py` |
 | v0.1.8 | ✅ | Added Set 3 Problem 1 (Hill Climbing Binary Image Reconstruction) with Streamlit UI and `constructor.py` |
-| vX.2.0 | 🕐 | Assessment 2B submission |
+| v0.2.0 | ✅ | Assessment 2B submission (Integration + RRBF) |
+| v0.3.0 | ✅ | Assessment 3 submission (Hill Climbing Algorithm) |
+| vX.X.X | 🕐 | Test converage |
 | vX.X.X | 🕐 | Login + Authentication |
 | vX.X.X | 🕐 | LLM plug with rate limiting |
 | vX.X.X | 🕐 | BaaS with Supabase |
 | vX.X.X | 🕐 | Backend Framework (FastAPI, Flask) |
-| vX.X.X | 🕐 | Test converage |
 | vX.X.X | 🕐 | Weekly digest with Agentic Integration |
 | vX.X.X | 🕐 | Security enhancements |
 

@@ -23,7 +23,7 @@
 - 11/11/2025 - v0.1.6 - Added sympy library to display mathematical expressions and equations Set 2 Problem 1
 - 11/11/2025 - v0.1.7 - Added Set 2 Problem 2 (RRBF Gradient Calculator) with Streamlit UI and `rrbf.py`
 - 14/11/2025 - v0.1.8 - Added Set 3 Problem 1 (Hill Climbing) with Streamlit UI and `hill_climber.py` and `constructor.py`.
-
+- 22/11/2025 - v0.2.0 - Assessment 2B submission with all problems completed
 
 
 
