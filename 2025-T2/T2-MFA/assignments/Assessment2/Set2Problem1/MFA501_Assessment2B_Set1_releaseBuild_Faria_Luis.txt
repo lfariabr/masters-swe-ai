@@ -36,6 +36,8 @@ Note: If Windows shows a security warning, click "More info" → "Run anyway"
 - [resolvers/](masters_SWEAI/2025-T2/T2-MFA/projects/eigenai/resolvers:0:0-0:0) - Mathematical algorithms
   - [determinant.py](masters_SWEAI/2025-T2/T2-MFA/projects/eigenai/resolvers/determinant.py:0:0-0:0) - Recursive determinant calculator
   - [eigen_solver.py](masters_SWEAI/2025-T2/T2-MFA/projects/eigenai/resolvers/eigen_solver.py:0:0-0:0) - Eigenvalue/eigenvector solver
+  - [integrals.py](masters_SWEAI/2025-T2/T2-MFA/projects/eigenai/resolvers/integrals.py:0:0-0:0) - Numerical integration methods
+  - [rrbf.py](masters_SWEAI/2025-T2/T2-MFA/projects/eigenai/resolvers/rrbf.py:0:0-0:0) - RRBF gradient computation
 - [requirements.txt](masters_SWEAI/2025-T2/T2-MFA/projects/eigenai/requirements.txt:0:0-0:0) - Dependencies
 
 ### Features

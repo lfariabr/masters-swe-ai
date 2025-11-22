@@ -23,5 +23,5 @@ Dr. James Vakilian
 ## Assignments
 - [X] Assessment 1 - deadline 05/10/2025 ✅
 - [X] Assessment 2A - deadline 26/10/2025 ✅
-- [X] Assessment 2B - deadline 23/11/2025
+- [X] Assessment 2B - deadline 23/11/2025 ✅
 - [ ] Assessment 3 - deadline 03/12/2025
