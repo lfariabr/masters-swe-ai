@@ -79,13 +79,13 @@ class HillClimber:
         
         # Initialize
         current_state = initial_state
+        start_time = time.time()
         current_cost = self.cost_function(current_state)
         result.initial_cost = current_cost
         result.cost_history = [current_cost]
         # Count the initial cost evaluation as well
         result.cost_evaluations += 1
-        start_time = time.time()
-        
+
         plateau_counter = 0
         iteration = 0
 
