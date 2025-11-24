@@ -124,6 +124,16 @@ def display_s3p1():
                 improvement_pct = ((result.initial_cost - result.final_cost) / result.initial_cost * 100) if result.initial_cost > 0 else 0
                 st.metric("Final Cost", result.final_cost, delta=f"-{improvement_pct:.1f}%", delta_color="inverse")
             
+            with st.container(border=True):
+                st.markdown("#### 📊 Performance Metrics")
+                col_performance1, col_performance2, col_performance3 = st.columns(3)
+                with col_performance1:
+                    st.metric("Execution Time", f"{result.execution_time:.4f} s")
+                with col_performance2:
+                    st.metric("Neighbors Evaluated", result.neighbors_evaluated)
+                with col_performance3:
+                    st.metric("Cost Evaluations", result.cost_evaluations)
+            
             # Stop reason
             if result.final_cost == 0:
                 st.success(f"🎉 **Perfect reconstruction!** {result.stop_reason}")

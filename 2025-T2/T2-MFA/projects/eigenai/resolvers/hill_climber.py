@@ -3,6 +3,7 @@
 # Pure Python implementation - no external libraries
 
 from typing import List, Tuple, Callable, Any, Optional
+import time
 
 class HillClimberResult:
     """
@@ -19,6 +20,10 @@ class HillClimberResult:
         self.plateau_count: int = 0
         self.stop_reason: str = ""
         self.best_move_history: List[Tuple[int, int]] = []  # Track which pixels were flipped
+        # Performance benchmarking
+        self.execution_time: float = 0.0
+        self.neighbors_evaluated: int = 0
+        self.cost_evaluations: int = 0
 
 
 class HillClimber:
@@ -74,10 +79,13 @@ class HillClimber:
         
         # Initialize
         current_state = initial_state
+        start_time = time.time()
         current_cost = self.cost_function(current_state)
         result.initial_cost = current_cost
         result.cost_history = [current_cost]
-        
+        # Count the initial cost evaluation as well
+        result.cost_evaluations += 1
+
         plateau_counter = 0
         iteration = 0
 
@@ -87,6 +95,7 @@ class HillClimber:
             result.iterations = iteration
             result.plateau_count = plateau_counter
             result.stop_reason = "Found optimal solution (cost = 0)"
+            result.execution_time = time.time() - start_time
             return result
         
         if verbose:
@@ -112,8 +121,13 @@ class HillClimber:
             best_cost = current_cost
             best_move = None
             
+            # Evaluates ALL 100 neighbors every iteration
+            # TODO We could implement a sample k random neighbors instead of evaluating all
             for neighbor, move_info in neighbors:
+                result.neighbors_evaluated += 1
                 neighbor_cost = self.cost_function(neighbor)
+                result.cost_evaluations += 1
+                
                 if neighbor_cost < best_cost:
                     best_cost = neighbor_cost
                     best_neighbor = neighbor
@@ -161,6 +175,7 @@ class HillClimber:
         result.final_cost = current_cost
         result.iterations = iteration
         result.plateau_count = plateau_counter
+        result.execution_time = time.time() - start_time
         
         if verbose:
             print()
@@ -170,5 +185,8 @@ class HillClimber:
             print(f"  Improvements: {result.improvements}")
             print(f"  Final cost: {result.final_cost}")
             print(f"  Cost reduction: {result.initial_cost - result.final_cost}")
+            print(f"  Execution time: {result.execution_time:.4f} seconds")
+            print(f"  Neighbors evaluated: {result.neighbors_evaluated}")
+            print(f"  Cost evaluations: {result.cost_evaluations}")
         
         return result
