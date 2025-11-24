@@ -17,11 +17,11 @@ Dr. James Vakilian
 - [X] Week #8, Module 8 - Optimisation (Hill Climbing, Simulated Annealing and GA)
 - [X] Week #9, Module 9 - Integral Calculus
 - [X] Week #10, Module 10 - Foundations of Probability, Theorem & Statistics For AI
-- [ ] Week #11, ?
+- [X] Week #11, ?
 - [ ] Week #12, ?
 
 ## Assignments
-- [X] Assessment 1 - deadline 05/10/2025 ✅
-- [X] Assessment 2A - deadline 26/10/2025 ✅
-- [X] Assessment 2B - deadline 23/11/2025 ✅
-- [ ] Assessment 3 - deadline 03/12/2025
+- [X] Assessment 1 - deadline 05/10/2025 ✅, **Online Quiz** on *Sets, Functions, Vectors, Matrices and Linear Transformations*
+- [X] Assessment 2A - deadline 26/10/2025 ✅, **Case Study** on *Determinants and Eigenvalues*
+- [X] Assessment 2B - deadline 23/11/2025 ✅, **Case Study** on *Derivatives, Integrals and RRBF*
+- [ ] Assessment 3 - deadline 03/12/2025 🔥, **Case Study** on *AI Problem Set*

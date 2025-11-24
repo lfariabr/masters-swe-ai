@@ -1,3 +1,6 @@
+# Master's of Software Engineering & AI
+## My Learning Journey
+
 Welcome to my personal repo for the **Master's of Software Engineering and Artificial Intelligence (Advanced)** at **Torrens University**.
 
 Inside, you'll find my study notes, case studies, experiments and practical projects in AI, Machine Learning and Full-Stack Software Development.  
@@ -7,6 +10,17 @@ Whether you're a fellow student, developer or simply curious about the field, I 
 👉 Official course page: [Master's of SWE AI Torrens Website](https://www.torrens.edu.au/courses/technology/master-of-software-engineering-artificial-intelligence-advanced)
 
 ![CodeRabbit Pull Request Reviews](https://img.shields.io/coderabbit/prs/github/lfariabr/masters-swe-ai)
+![GitHub Repo Size](https://img.shields.io/github/repo-size/lfariabr/masters-swe-ai)
+![GitHub Language Count](https://img.shields.io/github/languages/count/lfariabr/masters-swe-ai)
+
+## 📑 Table of Contents
+- [My Approach](#my-approach)
+- [Program Overview](#program-overview)
+- [Projects](#projects)
+- [Progress Tracking](#progress-tracking-and-goals)
+- [Tech Stack](#tech-stack)
+- [Contributing](#contributing)
+- [License](#license)
 
 ---
 
@@ -15,6 +29,16 @@ Whether you're a fellow student, developer or simply curious about the field, I 
 - **Documentation First**: Maintaining clear, structured notes and documentation
 - **Real-world focus**: Marketable skills and practical solutions
 - **Continuous Improvement**: Daily updates and refinements to projects and notes
+
+---
+
+### Tech Stack & Tools
+**Languages:** Python, TypeScript, JavaScript, Dart  
+**Frontend:** React, Next.js, Flutter, Streamlit  
+**Backend:** Node.js, Express, FastAPI, GraphQL  
+**AI/ML:** scikit-learn, PyTorch, transformers, BERTopic  
+**Databases:** MongoDB, PostgreSQL, Supabase, Redis  
+**Cloud & DevOps:** AWS, Docker, GitHub Actions
 
 ---
 
@@ -28,7 +52,7 @@ Take a deep dive into how I'm approaching projects and the progress I'm making.
 
 > Tip: ✅ = Done, 🔥 = WIP, 🕐 = Not started, 🔌 = Discontinued
 
-Project | Description | Status | Repository | URL |
+| Project | Description | Status | Repository | URL |
 |---------|---------------------|----------------|----------------|----------------|
 | **EigenAI** | Interactive Streamlit app that teaches MFA501 math concepts like determinants, eigenvalues, and gradients step-by-step. | 🔥 | [Here](./2025-T2/T2-MFA/projects/eigenai) | [EigenAi](https://eigen-ai.streamlit.app/) |
 | **ExcelPilot FE** | Chat system for Excel Pilot API built with Next.js, TypeScript, TailwindCSS, ShadCN, Apollo Client, Next.Auth, JWT. | 🔥 | [Here](https://github.com/lfariabr/excel-pilot-front) | 🔥 |
@@ -49,14 +73,14 @@ Project | Description | Status | Repository | URL |
 #### Academic Journey
 Term | Subject | Status | Lecturer | Directory | Credit Points
 |-----------|---------------------|----------------|----------------|----------------|----------------|
-| T2 | Software Development Management (***Core***) 2025 | ✅ | Dr. Muhammad Atif | [SDM404](./2025-T1/T1-SDM/) | 10
-| T2 | Software Engineering Principles (***Core***) 2025 | ✅ | Dr. Ranju Mandal | [SEP401](./2025-T1/T1-SEP/) | 10
-| T3 | Human Centered Design (***Core***) 2025 | 🔥 | Dr. Omid Haass | [HCD402](./2025-T2/T2-HCD/) | 10
-| T3 | Mathematical Foundations of AI (***Core***) 2025 | 🔥 | Dr. James Vakilian | [MFA501](./2025-T2/T2-MFA/) | 10
-| T3 | Research Methodologies (***Core***) 2025 | 🔥 | Dr. Bushra Naeem | [REM502](./2025-T2/T2-REM/) | 10
-| T3 | Secure By Design (***Core***) 2025 | 🔥 | Dr. Tanvir Rahman | [SBD402](./2025-T2/T2-SBD/) | 10
-| T1 | Intelligent Systems (***Core***) 2026 | 🕐 | TBD | [ISY503](TBD) | 10
-| T1 | Cloud Computing Fundamentals (***Elective***) 2026 | 🕐 | TBD | [CCF501](TBD) | 10
+| T1 | Software Development Management (***Core***) 2025 | ✅ | Dr. Muhammad Atif | [SDM404](./2025-T1/T1-SDM/) | 10
+| T1 | Software Engineering Principles (***Core***) 2025 | ✅ | Dr. Ranju Mandal | [SEP401](./2025-T1/T1-SEP/) | 10
+| T2 | Human Centered Design (***Core***) 2025 | 🔥 | Dr. Omid Haass | [HCD402](./2025-T2/T2-HCD/) | 10
+| T2 | Mathematical Foundations of AI (***Core***) 2025 | 🔥 | Dr. James Vakilian | [MFA501](./2025-T2/T2-MFA/) | 10
+| T2 | Research Methodologies (***Core***) 2025 | 🔥 | Dr. Bushra Naeem | [REM502](./2025-T2/T2-REM/) | 10
+| T2 | Secure By Design (***Core***) 2025 | 🔥 | Dr. Tanvir Rahman | [SBD402](./2025-T2/T2-SBD/) | 10
+| T3 | Intelligent Systems (***Core***) 2026 | 🕐 | TBD | [ISY503](TBD) | 10
+| T3 | Cloud Computing Fundamentals (***Elective***) 2026 | 🕐 | TBD | [CCF501](TBD) | 10
 
 ***Backlog - T2-26 onwards:***
 Core (***mandatory***): 
@@ -83,6 +107,10 @@ While this is primarily a personal repository, I welcome discussions and feedbac
 *Status: ![GitHub last commit](https://img.shields.io/github/last-commit/lfariabr/masters-swe-ai?style=flat-square)*
 
 #### Version control
+Semantic versioning tied to academic terms:
+- **Major:** New term launch
+- **Minor:** Term completion
+
 | Version | Modules      | Timeline | Status |
 |---------|---------------------|---|---|
 | 1.0.0   | T2-2025 Launch SDM+SEP subjects     | 06-2025 | ✅ |
@@ -98,3 +126,12 @@ While this is primarily a personal repository, I welcome discussions and feedbac
 | 6.0.0   | T1-2027 Launch (TBD)                | 01-2027 | 🕐 |
 | 6.2.0   | T1-2027 Completed (TBD)             | 04-2027 | 🕐 |
 | 7.0.0   | Masters Degree Completed            | 06-2027 | 🕐 |
+
+---
+
+### License
+This repository is licensed under MIT License. Feel free to use it for educational purposes.
+
+---
+
+**⭐ If you find this helpful, consider starring the repo!**

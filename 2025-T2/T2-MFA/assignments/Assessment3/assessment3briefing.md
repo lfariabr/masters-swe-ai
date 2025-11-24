@@ -31,7 +31,6 @@ You are supposed to submit a ZIP file including:
         - Assessment3_Source_LastName_FirstName.zip
         - Assessment3_report_LastName_Firstname.pdf
         - Assessment3_ report _LastName_Firstname.docx
-
 --- 
 
 ### Details
@@ -97,11 +96,9 @@ The source code that you will be submitting should be free of build warnings, bu
 
 ---
 ### Rubric
-Assessment
-Attributes
+Assessment Attributes
 Fail
-(Yet to achieve
-minimum standard)
+(Yet to achieve minimum standard)
 0-49%
 Pass
 (Functional)
@@ -115,8 +112,7 @@ Distinction
 High Distinction
 (Exceptional)
 85-100%
-Work demonstrates the
-knowledge and
+Work demonstrates the knowledge and
 understanding of the
 best mathematical
 notations and
