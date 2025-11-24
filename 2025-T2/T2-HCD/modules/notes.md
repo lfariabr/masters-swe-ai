@@ -231,3 +231,13 @@ https://www.youtube.com/watch?v=eygJtngcqMs
 - https://www.youtube.com/watch?v=WHo3QkaArCc&t=2s
 - https://www.youtube.com/watch?v=aFt7izJ0Zfw
 - https://www.youtube.com/watch?v=OLEYONyVSH8
+
+## Module 11 - Societal Influences on HCD 
+
+### Video refs
+https://www.youtube.com/watch?v=JPTuP7eXWiE
+https://www.youtube.com/watch?v=HxVN42BI0O4
+https://www.youtube.com/watch?v=HUWHkeitPdA
+https://www.youtube.com/watch?v=XVLPZrLCs1A
+https://www.youtube.com/watch?v=IHdqPqWle04
+https://www.hofstede-insights.com/fi/product/compare-countries/
