@@ -24,7 +24,8 @@
 - 11/11/2025 - v0.1.7 - Added Set 2 Problem 2 (RRBF Gradient Calculator) with Streamlit UI and `rrbf.py`
 - 14/11/2025 - v0.1.8 - Added Set 3 Problem 1 (Hill Climbing) with Streamlit UI and `hill_climber.py` and `constructor.py`.
 - 22/11/2025 - v0.2.0 - Assessment 2B submission with all problems completed
-
-
+- 25/11/2025 - v0.2.1 - Add performance metrics to Hill Climbing results display
+- 25/11/2025 - v0.2.2 - Add TODO comment to Hill Climber to sample k random neighbors instead of evaluating all
+- 25/11/2025 - v0.2.3 - Add Assessment 3 Reflective Report v2
 
 
