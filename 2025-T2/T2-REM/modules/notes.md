@@ -158,3 +158,24 @@ Five principles:
 ### Inspiration
 
 Use [Information is Beautiful](https://www.informationisbeautiful.net) to explore creative formats that go beyond basic charts and help communicate complex insights visually.
+
+## Module 11 - Writing Your Proposal and Presentation
+
+### To-Do's
+1. Writte in future tense
+2. Is the motivation clear?
+3. Literature review is deep enough? Try to get 2 from 2025
+4. Maybe add Projected/expected results Graphics
+5. Tentative conclusion with a timeline for completion
+6. Title > Methods > Contribution: can we reply to the questions?
+7. Regression, Clustering, Prediction: quantitative methods should have all of them. Do we have them?
+8. Slide order suggestion
+    1 - Title
+    2 - Problem context
+    3 - Gap
+    4 - Questions
+    5 - Methods
+    6 - Expected outcomes
+    7 - Significance
+    8 - Timeline
+    9 - Conclusion
