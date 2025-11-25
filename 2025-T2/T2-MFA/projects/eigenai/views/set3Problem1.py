@@ -7,52 +7,46 @@ from resolvers.constructor import (
 from resolvers.hill_climber import HillClimber
 
 def display_s3p1():
-    st.title("🎓 Hill Climbing: Binary Image Reconstruction")
+    st.title("🎓 Hill Climbing Algorithm")
     st.caption("Assessment 3 - AI Problem Set")
     
     st.markdown("""
     **Objective:** Reconstruct a 10×10 binary image using Hill Climbing algorithm.
     
-    > **Hill Climbing** is a local search algorithm that iteratively moves to better neighboring 
-    > states until no improvement can be made. For this problem, we start with a random binary 
-    > image and flip one pixel at a time to minimize the difference from the target.
+    > *HC is a local search algorithm that iteratively moves to better neighboring* 
+    > *states until no improvement can be made. Here, we start with a random binary* 
+    > *image and flip **one pixel at a time** to minimize the difference from the target.*
     """)
     
-    with st.expander("*⚙️ Tweak Parameters*"):
-        # --- Configuration Options (Must come BEFORE target display) ---
-        col_config1, col_config2 = st.columns(2)
+    with st.expander("*⚙️ Configuration*"):
+        use_complex = st.checkbox(
+            "🔥 Use Complex Pattern",
+            value=False,
+            help="Use checkerboard pattern instead of circle (creates local optima challenges)"
+        )
+    
+        use_stochastic = st.checkbox(
+            "⚡ Enable Stochastic Sampling",
+            value=False,
+            help="Sample random neighbors instead of evaluating all (faster but may miss optimal moves)"
+        )
         
-        with col_config1:
-            use_complex = st.checkbox(
-                "🔥 Use Complex Pattern",
-                value=False,
-                help="Use checkerboard pattern instead of circle (creates local optima challenges)"
+        if use_stochastic:
+            sample_size = st.slider(
+                "🎲 Sample Size (neighbors per iteration)",
+                min_value=10,
+                max_value=100,
+                value=50,
+                step=10,
+                help="Number of neighbors to evaluate per iteration (out of 100 total)"
             )
-        
-        with col_config2:
-            use_stochastic = st.checkbox(
-                "⚡ Enable Stochastic Sampling",
-                value=False,
-                help="Sample random neighbors instead of evaluating all (faster but may miss optimal moves)"
-            )
-            
-            if use_stochastic:
-                sample_size = st.slider(
-                    "🎲 Sample Size (neighbors per iteration)",
-                    min_value=10,
-                    max_value=100,
-                    value=50,
-                    step=10,
-                    help="Number of neighbors to evaluate per iteration (out of 100 total)"
-                )
-            else:
-                sample_size = 100
+        else:
+            sample_size = 100
     
     # Get selected target image
     target_image = get_target_image(use_complex=use_complex)
     
     # --- Display Target Image --
-    st.markdown("---")
     pattern_name = "Complex (Checkerboard)" if use_complex else "Simple (Circle)"
     st.write(f"🎯 Target Image: {pattern_name}")
     st.caption("This is the pattern we're trying to reconstruct")
@@ -68,7 +62,7 @@ def display_s3p1():
     
     # --- Algorithm Parameters ---
     st.markdown("---")
-    st.subheader("⚙️ Algorithm Parameters")
+    st.markdown("##### Algorithm Parameters")
     
     col1, col2, col3 = st.columns(3)
     with col1:
@@ -99,8 +93,6 @@ def display_s3p1():
                 random.seed(int(seed))
             except ValueError:
                 st.warning("Seed must be an integer")
-
-    # (Configuration moved above - see top of function)
         
     # --- Run Hill Climbing ---
     if st.button("🟢 Run Hill Climbing Algorithm"):
@@ -155,7 +147,7 @@ def display_s3p1():
             
             # --- Display Results ---
             st.markdown("---")
-            st.subheader("📊 Results")
+            st.markdown("##### Results")
             
             # Metrics
             col_m1, col_m2, col_m3, col_m4 = st.columns(4)
@@ -170,7 +162,7 @@ def display_s3p1():
                 st.metric("Final Cost", result.final_cost, delta=f"-{improvement_pct:.1f}%", delta_color="inverse")
             
             with st.container(border=True):
-                st.markdown("#### 📊 Performance Metrics")
+                st.markdown("#### Performance Metrics")
                 col_performance1, col_performance2, col_performance3 = st.columns(3)
                 with col_performance1:
                     st.metric("Execution Time", f"{result.execution_time:.4f} s")
@@ -178,7 +170,12 @@ def display_s3p1():
                     st.metric("Neighbors Evaluated", result.neighbors_evaluated)
                 with col_performance3:
                     st.metric("Cost Evaluations", result.cost_evaluations)
-            
+
+            config_info = f"**Configuration:** {pattern_name} | {'Stochastic' if use_stochastic else 'Full'} Evaluation"
+            if use_stochastic:
+                config_info += f" ({sample_size} neighbors/iter)"
+            st.caption(config_info)
+
             # Stop reason
             if result.final_cost == 0:
                 st.success(f"🎉 **Perfect reconstruction!** {result.stop_reason}")
@@ -191,19 +188,19 @@ def display_s3p1():
             
             # --- Initial vs Final Comparison ---
             st.markdown("---")
-            st.subheader("🔄 Initial vs Final State")
+            st.markdown("##### Initial vs Final State")
             
             col_init, col_final = st.columns(2)
             
             with col_init:
-                st.markdown("**📍 Initial State (Random)**")
+                st.caption("📍 Initial State (Random)")
                 st.markdown(f"**Cost:** {result.initial_cost} mismatched pixels")
                 st.code(format_state_text(result.initial_state), language="text")
                 with st.expander("View as binary matrix"):
                     st.code(format_state_simple(result.initial_state), language="text")
             
             with col_final:
-                st.markdown("**✨ Final State (Optimized)**")
+                st.caption("✨ Final State (Optimized)")
                 st.markdown(f"**Cost:** {result.final_cost} mismatched pixels")
                 st.code(format_state_text(result.final_state), language="text")
                 with st.expander("View as binary matrix"):
@@ -211,7 +208,7 @@ def display_s3p1():
             
             # --- Error Progression Plot ---
             st.markdown("---")
-            st.subheader("📈 Cost Progression")
+            st.markdown("##### Cost Progression")
             
             # EXTERNAL LIB EXCEPTION: Matplotlib for visualization only
             # Core algorithm is pure Python
