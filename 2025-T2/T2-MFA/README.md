@@ -17,8 +17,8 @@ Dr. James Vakilian
 - [X] Week #8, Module 8 - Optimisation (Hill Climbing, Simulated Annealing and GA)
 - [X] Week #9, Module 9 - Integral Calculus
 - [X] Week #10, Module 10 - Foundations of Probability, Theorem & Statistics For AI
-- [X] Week #11, ?
-- [ ] Week #12, ?
+- [X] Week #11, Module 11 - Prepositional Logic
+- [ ] Week #12, Module 12 - Boolean and Predicate Logic
 
 ## Assignments
 - [X] Assessment 1 - deadline 05/10/2025 ✅, **Online Quiz** on *Sets, Functions, Vectors, Matrices and Linear Transformations*

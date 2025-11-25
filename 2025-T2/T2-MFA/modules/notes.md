@@ -792,3 +792,211 @@ The probability that both happen (intersection) is the product of their individu
 This is the probability of the intersection P(A ∩ B).
 - If A and B are independent: **P(A ∩ B) = P(A) × P(B)**
 - If A and B are dependent: **P(A ∩ B) = P(A|B) × P(B)**  or equivalently  **P(A ∩ B) = P(B|A) × P(A)**
+
+## Module 11 - Prepositional Logic
+
+**Reasoning**: asking why, making sense of things
+**mythos → logos**: from stories and tradition to rational explanation and logic
+
+### Logical Reasoning
+1. Deductive: one or more statements lead to a conclusion. *Example: All men are mortal. Socrates is a man. Therefore, Socrates is mortal.*
+2. Inductive: generalization from specific observations. *Example: Every swan I have seen is white, therefore all swans are white.*
+3. Abductive: one or various possible explanations are considered, and the most plausible one is selected. *Example: The grass is wet, so it probably rained (even though other explanations are possible).*
+
+### Types of Logic
+- propositional
+- predicate
+- syllogistic
+- modal
+- informal reasoning
+- mathematical
+- philosophical
+
+### Activity 1, individual
+1. What is reasoning? Is reasoning always right?
+R: The process of using existing knowledge to form new conclusions or make sense of information. Not always right, as it can be influenced by biases, incomplete information, or flawed logic.
+
+2. What is logic?
+R: The systematic study of the principles/criteria of valid inference and demonstration. It provides a framework for distinguishing correct from incorrect reasoning.
+
+3. What's the difference between reasoning and logic?
+R: Reasoning is the process of drawing conclusions from premises, while logic is the study of the principles that govern (Rules/methods) valid reasoning.
+
+4. What are the different types of logical reasoning? Give an example for each
+R: 
+- Deductive: All men are mortal. Socrates is a man. Therefore, Socrates is mortal.
+- Inductive: Every swan I have seen is white, therefore all swans are white.
+- Abductive: The grass is wet, so it probably rained (even though other explanations are possible).
+
+5. What are the different types of logic
+R: 
+- Propositional
+- Predicate
+- Syllogistic
+- Modal
+- Informal reasoning
+- Mathematical
+- Philosophical
+
+6. What is the application of Logic in Artificial Intelligence?
+R: Logic is used in AI for knowledge representation, automated reasoning, and decision-making. It helps AI systems to draw conclusions from given information and make logical inferences.
+
+7. What is a fallacy? Give examples.
+R: A fallacy is an error in reasoning that results in an invalid argument. Examples include:
+- Ad hominem: attacking the person instead of the argument
+- Strawman: misrepresenting someone's argument to make it easier to attack
+- False dichotomy: presenting only two options when more exist
+
+#### Propositional Logic
+- either true or false
+example:
+p: 2 + 2 = 4 (True)
+q: Toronto is the capital of Canada (False)
+r: There is an infinite number of primes (True)
+
+not proposition:
+s: what time is it?
+t: have a nice day!
+
+Variable: represents a proposition for convenience
+Value: True or False (boolean type)
+Compound Proposition: formed by combining two or more simple propositions using logical connectives (AND, OR, NOT, IF-THEN, IFF)
+Example: 
+p: students are kids
+q: students are learning
+p AND q: students are kids and learning
+
+Truth table: shows all possible combinations of truth values for the propositions and the resulting truth value of the compound proposition
+
+### Activity 2, individual
+1. What is a proposition? Give an example
+R: A proposition is a statement that is either true or false.
+
+2. What are values of a proposition?
+R: The values of a proposition are True or False.
+
+3. What is truth table?
+R: A truth table is a table that shows all possible combinations of truth values for the propositions and the resulting truth value of the compound proposition.
+
+4. How can we make compound propositions? Give an example
+R: We can make compound propositions by combining two or more simple propositions using logical connectives (AND, OR, NOT, IF-THEN, IFF). Example: p = "It is raining" and q = "I will stay inside", then p AND q = "It is raining and I will stay inside".
+
+5. Why the values of a proposition may change in language? Can this happen in a program? Give reason for answer
+R: The values of a proposition may change in language because the same statement can have different meanings in different contexts. This can happen in a program if the program is not designed to handle all possible contexts.
+
+6. Truth table for p, q, r, s, t
+R: A truth table for 5 propositions (p, q, r, s, t) would have 2^5 = 32 rows, showing all possible combinations of truth values.
+
+| p | q | r | s | t |
+|---|---|---|---|---|
+| T | T | T | T | T |
+| T | T | T | T | F |
+| T | T | T | F | T |
+| T | T | T | F | F |
+| T | T | F | T | T |
+| T | T | F | T | F |
+| T | T | F | F | T |
+| T | T | F | F | F |
+| T | F | T | T | T |
+| T | F | T | T | F |
+| T | F | T | F | T |
+| T | F | T | F | F |
+| T | F | F | T | T |
+| T | F | F | T | F |
+| T | F | F | F | T |
+| T | F | F | F | F |
+| F | T | T | T | T |
+| F | T | T | T | F |
+| F | T | T | F | T |
+| F | T | T | F | F |
+| F | T | F | T | T |
+| F | T | F | T | F |
+| F | T | F | F | T |
+| F | T | F | F | F |
+| F | F | T | T | T |
+| F | F | T | T | F |
+| F | F | T | F | T |
+| F | F | T | F | F |
+| F | F | F | T | T |
+| F | F | F | T | F |
+| F | F | F | F | T |
+| F | F | F | F | F |
+
+### Propositional logic again
+Negation: NOT p (¬p) - reverses the truth value of p
+p: dogs are humans
+¬p: dogs are not humans
+
+Conjunction: p AND q (p ∧ q) - both must be true
+p: dogs are humans
+q: cats are animals
+p ∧ q: dogs are humans and cats are animals
+
+Inclusive disjunction: p OR q (p ∨ q) - at least one must be true
+p: dogs are humans
+q: cats are animals
+p ∨ q: dogs are humans or cats are animals
+
+Exclusive disjunction: p XOR q (p ⊕ q) - exactly one must be true
+p: dogs are humans
+q: cats are animals
+p ⊕ q: dogs are humans or cats are animals, but not both
+
+Implication: p → q (if p then q) - p implies q
+p: dogs are humans
+q: cats are animals
+p → q: if dogs are humans, then cats are animals
+
+Biconditional: p ↔ q (p if and only if q) - p and q have the same truth value
+p: dogs are humans
+q: cats are animals
+p ↔ q: dogs are humans if and only if cats are animals
+
+### Activity 3, Individual  
+Using the truth table, show:
+
+1. (p ⇒ q) ≡ (¬p ∨ q)  
+R:  
+
+| p | q | p ⇒ q | ¬p | ¬p ∨ q | (p ⇒ q) ≡ (¬p ∨ q) |
+|---|---|-------|----|--------|---------------------|
+| T | T |   T   | F  |   T    |          T          |
+| T | F |   F   | F  |   F    |          T          |
+| F | T |   T   | T  |   T    |          T          |
+| F | F |   T   | T  |   T    |          T          |
+
+The two columns (p ⇒ q) and (¬p ∨ q) are identical → equivalence proven.
+
+2. (p ⇔ q) ≡ (q ⇔ p)  
+R:  
+
+| p | q | p ⇒ q | q ⇒ p | (p ⇒ q) ∧ (q ⇒ p) | p ⇔ q | q ⇒ p | p ⇒ q | (q ⇒ p) ∧ (p ⇒ q) | q ⇔ p | (p ⇔ q) ≡ (q ⇔ p) |
+|---|---|-------|-------|-------------------|-------|-------|-------|-------------------|-------|-------------------|
+| T | T |   T   |   T   |        T          |   T   |   T   |   T   |        T          |   T   |         T         |
+| T | F |   F   |   T   |        F          |   F   |   T   |   F   |        F          |   F   |         T         |
+| F | T |   T   |   F   |        F          |   F   |   F   |   T   |        F          |   F   |         T         |
+| F | F |   T   |   T   |        T          |   T   |   T   |   T   |        T          |   T   |         T         |
+
+Both biconditional columns are identical → equivalence proven (biconditional is symmetric).
+
+3. What is the truth table for: (p ∨ ¬q) ∨ (p ∧ q)  
+R:  
+
+| p | q | ¬q | p ∨ ¬q | p ∧ q | (p ∨ ¬q) ∨ (p ∧ q) |
+|---|---|----|--------|-------|---------------------|
+| T | T | F  |   T    |   T   |          T          |
+| T | F | T  |   T    |   F   |          T          |
+| F | T | F  |   F    |   F   |          F          |
+| F | F | T  |   T    |   F   |          T          |
+
+Bonus simplification: (p ∨ ¬q) ∨ (p ∧ q) ≡ p ∨ ¬q
+
+4. Complete the following truth table:  
+R:  
+
+| p | q | ¬p | ¬q | ¬p ∨ ¬q | ¬p ⊕ q        | (¬p ⊕ q) → p |
+|---|---|----|----|---------|---------------|--------------|
+| T | T | F  | F  |    F    | F ⊕ T = **T** | T → T = **T** |
+| T | F | F  | T  |    T    | F ⊕ F = **F** | F → T = **T** |
+| F | T | T  | F  |    T    | T ⊕ T = **F** | F → F = **T** |
+| F | F | T  | T  |    T    | T ⊕ F = **T** | T → F = **F** |
