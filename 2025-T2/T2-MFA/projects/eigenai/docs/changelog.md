@@ -30,4 +30,5 @@
 - 25/11/2025 - v0.2.4 - Add stochastic sampling to Hill Climber and UI
 - 25/11/2025 - v0.2.5 - Add complex pattern to constructor and UI
 - 25/11/2025 - v0.2.6 - Add Assessment 3 Reflective Report v3
-
+- 26/11/2025 - v0.2.7 - Adds Release Build + Video Demo for Assessment 3
+- 26/11/2025 - v0.3.0 - Assessment 3 submission
