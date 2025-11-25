@@ -75,11 +75,13 @@ EigenAI/
 | v0.1.4 | ✅ | Reviewed Set 2 Problem 1 (Numerical Integration) |
 | v0.1.5 | ✅ | Updated Set 2 Problem 1 with matplotlib for graphic visuals |
 | v0.1.6 | ✅ | Added sympy library to display mathematical expressions and equations |
-| v0.1.7 | ✅ | Added Set 2 Problem 2 (RRBF Gradient Calculator) with Streamlit UI and `rrbf.py` |
-| v0.1.8 | ✅ | Added Set 3 Problem 1 (Hill Climbing Binary Image Reconstruction) with Streamlit UI and `constructor.py` |
+| v0.1.7 | ✅ | Added Set 2 Problem 2 (RRBF Gradient Calculator) |
+| v0.1.8 | ✅ | Added Set 3 Problem 1 (Hill Climbing Binary Image Reconstruction) |
 | v0.2.0 | ✅ | Assessment 2B submission (Integration + RRBF) |
+| v0.2.4 | ✅ | Added stochastic sampling to Hill Climber and UI |
+| v0.2.6 | ✅ | Added complex pattern to constructor and UI |
 | v0.3.0 | ✅ | Assessment 3 submission (Hill Climbing Algorithm) |
-| vX.X.X | 🕐 | Test converage |
+| vX.X.X | 🕐 | Test coverage |
 | vX.X.X | 🕐 | Login + Authentication |
 | vX.X.X | 🕐 | LLM plug with rate limiting |
 | vX.X.X | 🕐 | BaaS with Supabase |

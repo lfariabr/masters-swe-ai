@@ -1,6 +1,9 @@
 import streamlit as st
 import time
-from resolvers.constructor import create_random_state, calculate_cost, generate_neighbors, TARGET_IMAGE, format_state_text, format_state_simple
+from resolvers.constructor import (
+    create_random_state, calculate_cost, generate_neighbors, 
+    get_target_image, TARGET_IMAGE, format_state_text, format_state_simple
+)
 from resolvers.hill_climber import HillClimber
 
 def display_s3p1():
@@ -15,19 +18,53 @@ def display_s3p1():
     > image and flip one pixel at a time to minimize the difference from the target.
     """)
     
-    # --- Display Target Image ---
+    with st.expander("*⚙️ Tweak Parameters*"):
+        # --- Configuration Options (Must come BEFORE target display) ---
+        col_config1, col_config2 = st.columns(2)
+        
+        with col_config1:
+            use_complex = st.checkbox(
+                "🔥 Use Complex Pattern",
+                value=False,
+                help="Use checkerboard pattern instead of circle (creates local optima challenges)"
+            )
+        
+        with col_config2:
+            use_stochastic = st.checkbox(
+                "⚡ Enable Stochastic Sampling",
+                value=False,
+                help="Sample random neighbors instead of evaluating all (faster but may miss optimal moves)"
+            )
+            
+            if use_stochastic:
+                sample_size = st.slider(
+                    "🎲 Sample Size (neighbors per iteration)",
+                    min_value=10,
+                    max_value=100,
+                    value=50,
+                    step=10,
+                    help="Number of neighbors to evaluate per iteration (out of 100 total)"
+                )
+            else:
+                sample_size = 100
+    
+    # Get selected target image
+    target_image = get_target_image(use_complex=use_complex)
+    
+    # --- Display Target Image --
     st.markdown("---")
-    st.subheader("🎯 Target Image")
+    pattern_name = "Complex (Checkerboard)" if use_complex else "Simple (Circle)"
+    st.write(f"🎯 Target Image: {pattern_name}")
     st.caption("This is the pattern we're trying to reconstruct")
     
     col_target1, col_target2 = st.columns(2)
     with col_target1:
         st.markdown("**Text Representation:**")
-        st.code(format_state_text(TARGET_IMAGE), language="text")
+        st.code(format_state_text(target_image), language="text")
     
     with col_target2:
         st.markdown("**Binary Matrix:**")
-        st.code(format_state_simple(TARGET_IMAGE), language="text")
+        st.code(format_state_simple(target_image), language="text")
     
     # --- Algorithm Parameters ---
     st.markdown("---")
@@ -63,29 +100,7 @@ def display_s3p1():
             except ValueError:
                 st.warning("Seed must be an integer")
 
-    # Offer two options to select from: Simple method or stochastic
-    st.markdown("---")
-    st.subheader("⚙️ Optimization Mode")
-    
-    use_stochastic = st.checkbox(
-        "⚡ Enable Stochastic Sampling",
-        value=False,
-        help="Sample random neighbors instead of evaluating all (faster but may miss optimal moves)"
-    )
-    
-    if use_stochastic:
-        sample_size = st.slider(
-            "Sample Size (neighbors per iteration)",
-            min_value=10,
-            max_value=100,
-            value=50,
-            step=10,
-            help="Number of neighbors to evaluate per iteration (out of 100 total)"
-        )
-        st.info(f"🎲 **Stochastic Mode:** Evaluating {sample_size} random neighbors per iteration")
-    else:
-        sample_size = 100  # Default: evaluate all neighbors
-        st.success("🔍 **Full Evaluation Mode:** Checking all 100 neighbors per iteration")
+    # (Configuration moved above - see top of function)
         
     # --- Run Hill Climbing ---
     if st.button("🟢 Run Hill Climbing Algorithm"):
@@ -100,7 +115,7 @@ def display_s3p1():
         progress.progress(10)
         
         initial_state = create_random_state()
-        initial_cost = calculate_cost(initial_state)
+        initial_cost = calculate_cost(initial_state, target_image)
         
         st.info(f"✅ Generated random 10×10 binary image (initial cost: {initial_cost}/100 mismatched pixels)")
         
@@ -109,8 +124,12 @@ def display_s3p1():
         time.sleep(0.3)
         progress.progress(20)
         
+        # Wrap cost function to use selected target
+        def cost_fn(state):
+            return calculate_cost(state, target_image)
+        
         climber = HillClimber(
-            cost_function=calculate_cost,
+            cost_function=cost_fn,
             neighbor_function=generate_neighbors,
             max_iterations=max_iter,
             plateau_limit=plateau_limit,

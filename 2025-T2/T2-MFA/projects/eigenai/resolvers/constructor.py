@@ -6,12 +6,11 @@ import random
 from typing import List, Tuple
 
 # ========================================
-# TARGET IMAGE (10x10 Binary Matrix)
+# TARGET IMAGES (10x10 Binary Matrices)
 # ========================================
-# This represents the image we want to reconstruct
-# Pattern: Circle/Ring shape
 
-TARGET_IMAGE = [
+# Pattern 1: Circle/Ring shape (SIMPLE - smooth cost landscape)
+TARGET_IMAGE_SIMPLE = [
     [0, 0, 1, 1, 1, 1, 1, 1, 0, 0],
     [0, 1, 1, 0, 0, 0, 0, 1, 1, 0],
     [1, 1, 0, 0, 0, 0, 0, 0, 1, 1],
@@ -23,6 +22,37 @@ TARGET_IMAGE = [
     [0, 1, 1, 0, 0, 0, 0, 1, 1, 0],
     [0, 0, 1, 1, 1, 1, 1, 1, 0, 0],
 ]
+
+# Pattern 2: Checkerboard (COMPLEX - more local optima, harder to optimize)
+TARGET_IMAGE_COMPLEX = [
+    [1, 0, 1, 0, 1, 0, 1, 0, 1, 0],
+    [0, 1, 0, 1, 0, 1, 0, 1, 0, 1],
+    [1, 0, 1, 0, 1, 0, 1, 0, 1, 0],
+    [0, 1, 0, 1, 0, 1, 0, 1, 0, 1],
+    [1, 0, 1, 0, 1, 0, 1, 0, 1, 0],
+    [0, 1, 0, 1, 0, 1, 0, 1, 0, 1],
+    [1, 0, 1, 0, 1, 0, 1, 0, 1, 0],
+    [0, 1, 0, 1, 0, 1, 0, 1, 0, 1],
+    [1, 0, 1, 0, 1, 0, 1, 0, 1, 0],
+    [0, 1, 0, 1, 0, 1, 0, 1, 0, 1],
+]
+
+# Default target (for backwards compatibility)
+TARGET_IMAGE = TARGET_IMAGE_SIMPLE
+
+
+def get_target_image(use_complex: bool = False) -> List[List[int]]:
+    """
+    Get the target image based on complexity preference.
+    
+    Args:
+        use_complex: If True, return complex checkerboard pattern.
+                     If False, return simple circle pattern.
+    
+    Returns:
+        List[List[int]]: The selected target image matrix
+    """
+    return TARGET_IMAGE_COMPLEX if use_complex else TARGET_IMAGE_SIMPLE
 
 # ========================================
 # STATE REPRESENTATION
