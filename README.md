@@ -14,10 +14,9 @@ Whether you're a fellow student, developer or simply curious about the field, I 
 ![GitHub Language Count](https://img.shields.io/github/languages/count/lfariabr/masters-swe-ai)
 
 ## 📑 Table of Contents
-- [My Approach](#my-approach)
 - [Program Overview](#program-overview)
+- [Progress](#progress-tracking-and-goals)
 - [Projects](#projects)
-- [Progress Tracking](#progress-tracking-and-goals)
 - [Tech Stack](#tech-stack)
 - [Contributing](#contributing)
 - [License](#license)
@@ -47,27 +46,6 @@ This repo serves as both my personal knowledge base and project portfolio during
 
 ---
 
-### Projects
-Take a deep dive into how I'm approaching projects and the progress I'm making.
-
-> Tip: ✅ = Done, 🔥 = WIP, 🕐 = Not started, 🔌 = Discontinued
-
-| Project | Description | Status | Repository | URL |
-|---------|---------------------|----------------|----------------|----------------|
-| **EigenAI** | Interactive Streamlit app that teaches MFA501 math concepts like determinants, eigenvalues, and gradients step-by-step. | ✅ | [Here](./2025-T2/T2-MFA/projects/eigenai) | [EigenAi](https://eigen-ai.streamlit.app/) |
-| **ExcelPilot FE** | Chat system for Excel Pilot API built with Next.js, TypeScript, TailwindCSS, ShadCN, Apollo Client, Next.Auth, JWT. | 🔥 | [Here](https://github.com/lfariabr/excel-pilot-front) | 🔥 |
-| **ExcelPilot BE** | API built with Node.js, Express, Apollo Server, MongoDB, Redis and TypeScript. Features secure JWT auth, GraphQL queries/mutations, and openAi. | 🔥 | [Here](https://github.com/lfariabr/excel-pilot) | 🔥 |
-| **ZD Project** | Personal Blog using MERN stack with React Native Blog Component + Resend for CRM. Hosted on AWS EC2 server. | ✅ | [Here](https://github.com/lfariabr/z-project.git) | [ZD portal](https://zerodopamine.com/) |
-| **Wedstack** | Wedding invitation web application with Next.js, TypeScript, Node.js, GraphQL and Stripe — with real-time content, gift handling, presence confirmation and a memory lane. | ✅ | [Here](https://github.com/lfariabr/wedstack) | [WeddingL&N](https://weddingln.com/) |
-| **ClinicTrendsAI** | Streamlit App to analyze survey records and generate insights using Machine Learning, NLP and Data Visualization. | ✅ | [Here](./2025-T1/T1-SEP/projects/clinictrends_ai) | [Here](https://sep-torrens-dr-ranju-group-1.streamlit.app/) | 
-| **TTrack** | PyQt5 desktop app to help academic staff track course progress by comparing a student’s transcript X course curriculum using matching algorithms. | ✅ | [Here](./2025-T1/T1-SDM/projects/TTrack_v1) | [YT Demo](https://www.youtube.com/watch?v=J9bxv1EJ8yU&t) |
-| **Commonwealth Bank Forage** | Virtual challenge covering backend (.NET, MongoDB) and frontend (React, Redux, TypeScript) work, unit testing with xUnit | ✅ | [Here](./2025-T1/T1-Extra/cba/) | [dev.to](https://dev.to/lfariaus/how-i-tackled-the-commonwealths-bank-software-engineering-challenge-3ebk) |
-| **AWS Solutions Architect** | Virtual challenge covering acting as a Solutions Architect for a client | ✅ | [Here](./2025-T1/T1-Extra/aws/) | [dev.to](https://dev.to/lfariaus/scaling-fastier-my-aws-solutions-architect-journey-with-forage-challenge-30j8) |
-| **Lumin** | Flutter Gaming app to help users to share photos and videos with their friends and family | 🔌 | [Here](./2025-T1/T1-Extra/flutter/lumin_demo) | N/A |
-| **TTrack** V2 | Node.js and React desktop app wrapped by Electron as an exploratory alternative to TTrack Python. | 🔌 | [Here](./2025-T1/T1-SDM/projects/TTrack_electron) | N/A |
-
----
-
 ### Progress Tracking And Goals
 
 #### Academic Journey
@@ -83,21 +61,42 @@ Term | Subject | Status | Lecturer | Directory | Credit Points
 | T3 | Cloud Computing Fundamentals (***Elective***) 2026 | 🕐 | TBD | [CCF501](TBD) | 10
 
 ***Backlog - T2-26 onwards:***
-Core (***mandatory***): 
-- Machine Learning (MLN601 - 10CP)
-- Deep Learning (DLE602 - 10CP)
-- Technology - Work Integrated Learning I (TWL604 - 20CP)
-- Advanced Technology - Work Integrated Learning (ATW606 - 30CP)
+- 11x Core (***mandatory***): 
+    - Machine Learning (MLN601 - 10CP)
+    - Deep Learning (DLE602 - 10CP)
+    - Technology - Work Integrated Learning I (TWL604 - 20CP)
+    - Advanced Technology - Work Integrated Learning (ATW606 - 30CP)
 
-Electives (***to be defined...***): 
-- DevOps Tools (DOT503 - 10CP)
-- Cyber Security Principles (CPO442 - 10CP)
-- User Experience Design (DID602A - 10CP)
+- 2x Electives (***to be defined...***): 
+    - DevOps Tools (DOT503 - 10CP)
+    - Cyber Security Principles (CPO442 - 10CP)
+    - User Experience Design (DID602A - 10CP)
 
 #### Goals
 - [🔥] Complete course materials for all subjects
 - [🔥] Implement 1 project per subject
 - [🔥] Document key learnings and insights
+
+---
+
+### Projects
+Take a deep dive into how I'm approaching projects and the progress I'm making.
+
+> Tip: ✅ = Done, 🔥 = WIP, 🕐 = Not started, 🔌 = Discontinued
+
+| Project | Description | Status | Repository | URL |
+|---------|---------------------|----------------|----------------|----------------|
+| **EigenAI** | Interactive Streamlit app that teaches MFA501 math concepts like determinants, eigenvalues, and gradients step-by-step. | ✅ | [Here](./2025-T2/T2-MFA/projects/eigenai) | [EigenAi](https://eigen-ai.streamlit.app/) |
+| **ExcelPilot FE** | Chat system for backend API built with Next.js, TypeScript, TailwindCSS, ShadCN, Apollo Client, Next.Auth, JWT. | 🔌 | [Here](https://github.com/lfariabr/excel-pilot-front) | N/A |
+| **ExcelPilot BE** | API built with Node.js, Express, Apollo Server, MongoDB, Redis and TypeScript. Features secure JWT auth, GraphQL queries/mutations, and openAi. | 🔥 | [Here](https://github.com/lfariabr/excel-pilot) | 🔥 |
+| **ZD Project** | Personal Blog using MERN stack with React Native Blog Component + Resend for CRM. Hosted on AWS EC2 server. | ✅ | [Here](https://github.com/lfariabr/z-project.git) | [ZD portal](https://zerodopamine.com/) |
+| **Wedstack** | Wedding invitation web application with Next.js, TypeScript, Node.js, GraphQL and Stripe — with real-time content, gift handling, presence confirmation and a memory lane. | ✅ | [Here](https://github.com/lfariabr/wedstack) | [WeddingL&N](https://weddingln.com/) |
+| **ClinicTrendsAI** | Streamlit App to analyze survey records and generate insights using Machine Learning, NLP and Data Visualization. | ✅ | [Here](./2025-T1/T1-SEP/projects/clinictrends_ai) | [Here](https://sep-torrens-dr-ranju-group-1.streamlit.app/) | 
+| **TTrack** | PyQt5 desktop app to help academic staff track course progress by comparing a student’s transcript X course curriculum using matching algorithms. | ✅ | [Here](./2025-T1/T1-SDM/projects/TTrack_v1) | [YT Demo](https://www.youtube.com/watch?v=J9bxv1EJ8yU&t) |
+| **Commonwealth Bank Forage** | Virtual challenge covering backend (.NET, MongoDB) and frontend (React, Redux, TypeScript) work, unit testing with xUnit | ✅ | [Here](./2025-T1/T1-Extra/cba/) | [dev.to](https://dev.to/lfariaus/how-i-tackled-the-commonwealths-bank-software-engineering-challenge-3ebk) |
+| **AWS Solutions Architect** | Virtual challenge covering acting as a Solutions Architect for a client | ✅ | [Here](./2025-T1/T1-Extra/aws/) | [dev.to](https://dev.to/lfariaus/scaling-fastier-my-aws-solutions-architect-journey-with-forage-challenge-30j8) |
+| **Lumin** | Flutter Gaming app to help users to share photos and videos with their friends and family | 🔌 | [Here](./2025-T1/T1-Extra/flutter/lumin_demo) | N/A |
+| **TTrack** V2 | Node.js and React desktop app wrapped by Electron as an exploratory alternative to TTrack Python. | 🔌 | [Here](./2025-T1/T1-SDM/projects/TTrack_electron) | N/A |
 
 ---
 
@@ -107,7 +106,6 @@ While this is primarily a personal repository, I welcome discussions and feedbac
 *Status: ![GitHub last commit](https://img.shields.io/github/last-commit/lfariabr/masters-swe-ai?style=flat-square)*
 
 #### Version control
-Semantic versioning tied to academic terms:
 - **Major:** New term launch
 - **Minor:** Term completion
 
@@ -126,11 +124,6 @@ Semantic versioning tied to academic terms:
 | 6.0.0   | T1-2027 Launch (TBD)                | 01-2027 | 🕐 |
 | 6.2.0   | T1-2027 Completed (TBD)             | 04-2027 | 🕐 |
 | 7.0.0   | Masters Degree Completed            | 06-2027 | 🕐 |
-
----
-
-### License
-This repository is licensed under MIT License. Feel free to use it for educational purposes.
 
 ---
 
