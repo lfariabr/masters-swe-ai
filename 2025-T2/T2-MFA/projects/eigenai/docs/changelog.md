@@ -27,5 +27,7 @@
 - 25/11/2025 - v0.2.1 - Add performance metrics to Hill Climbing results display
 - 25/11/2025 - v0.2.2 - Add TODO comment to Hill Climber to sample k random neighbors instead of evaluating all
 - 25/11/2025 - v0.2.3 - Add Assessment 3 Reflective Report v2
-
+- 25/11/2025 - v0.2.4 - Add stochastic sampling to Hill Climber and UI
+- 25/11/2025 - v0.2.5 - Add complex pattern to constructor and UI
+- 25/11/2025 - v0.2.6 - Add Assessment 3 Reflective Report v3
 
