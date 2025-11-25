@@ -45,6 +45,10 @@ def install_dependencies(python_path):
     """Install required packages in virtual environment"""
     print("\n📦 Checking dependencies...")
     
+    # Get the directory of this script
+    script_dir = Path(__file__).parent
+    requirements_file = script_dir / "requirements.txt"
+    
     # Check if streamlit is installed
     result = subprocess.run(
         [python_path, "-c", "import streamlit"],
@@ -52,12 +56,19 @@ def install_dependencies(python_path):
     )
     
     if result.returncode != 0:
-        print("📥 Installing Streamlit...")
+        print("📥 Installing dependencies from requirements.txt...")
         subprocess.check_call([python_path, "-m", "pip", "install", "--upgrade", "pip"])
-        subprocess.check_call([python_path, "-m", "pip", "install", "streamlit"])
-        print("✅ Streamlit installed successfully")
+        
+        # Install all dependencies from requirements.txt
+        if requirements_file.exists():
+            subprocess.check_call([python_path, "-m", "pip", "install", "-r", str(requirements_file)])
+            print("✅ All dependencies installed successfully")
+        else:
+            # Fallback: install manually if requirements.txt is missing
+            subprocess.check_call([python_path, "-m", "pip", "install", "streamlit", "matplotlib", "numpy", "sympy"])
+            print("✅ Dependencies installed successfully")
     else:
-        print("✅ Streamlit is installed")
+        print("✅ Dependencies already installed")
 
 def launch_app(python_path):
     """Launch the Streamlit application"""
