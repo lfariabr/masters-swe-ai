@@ -62,7 +62,31 @@ def display_s3p1():
                 random.seed(int(seed))
             except ValueError:
                 st.warning("Seed must be an integer")
+
+    # Offer two options to select from: Simple method or stochastic
+    st.markdown("---")
+    st.subheader("⚙️ Optimization Mode")
     
+    use_stochastic = st.checkbox(
+        "⚡ Enable Stochastic Sampling",
+        value=False,
+        help="Sample random neighbors instead of evaluating all (faster but may miss optimal moves)"
+    )
+    
+    if use_stochastic:
+        sample_size = st.slider(
+            "Sample Size (neighbors per iteration)",
+            min_value=10,
+            max_value=100,
+            value=50,
+            step=10,
+            help="Number of neighbors to evaluate per iteration (out of 100 total)"
+        )
+        st.info(f"🎲 **Stochastic Mode:** Evaluating {sample_size} random neighbors per iteration")
+    else:
+        sample_size = 100  # Default: evaluate all neighbors
+        st.success("🔍 **Full Evaluation Mode:** Checking all 100 neighbors per iteration")
+        
     # --- Run Hill Climbing ---
     if st.button("🟢 Run Hill Climbing Algorithm"):
         
@@ -89,7 +113,9 @@ def display_s3p1():
             cost_function=calculate_cost,
             neighbor_function=generate_neighbors,
             max_iterations=max_iter,
-            plateau_limit=plateau_limit
+            plateau_limit=plateau_limit,
+            use_stochastic=use_stochastic,
+            sample_size=sample_size
         )
         
         # Step 3: Run algorithm

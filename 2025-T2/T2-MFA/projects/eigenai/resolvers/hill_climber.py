@@ -4,6 +4,7 @@
 
 from typing import List, Tuple, Callable, Any, Optional
 import time
+import random
 
 class HillClimberResult:
     """
@@ -47,7 +48,9 @@ class HillClimber:
         cost_function: Callable[[Any], int],
         neighbor_function: Callable[[Any], List[Tuple[Any, Any]]],
         max_iterations: int = 1000,
-        plateau_limit: int = 50
+        plateau_limit: int = 50,
+        use_stochastic: bool = False,
+        sample_size: int = 100
     ):
         """
         Initialize Hill Climber with problem-specific functions.
@@ -57,11 +60,15 @@ class HillClimber:
             neighbor_function: Function that takes a state and returns list of (neighbor, move_info)
             max_iterations: Maximum number of iterations before stopping
             plateau_limit: Stop if no improvement for this many iterations
+            use_stochastic: If True, sample random neighbors when count > sample_size
+            sample_size: Max neighbors to evaluate per iteration (stochastic mode)
         """
         self.cost_function = cost_function
         self.neighbor_function = neighbor_function
         self.max_iterations = max_iterations
         self.plateau_limit = plateau_limit
+        self.use_stochastic = use_stochastic
+        self.sample_size = sample_size
         
     def solve(self, initial_state: Any, verbose: bool = False) -> HillClimberResult:
         """
@@ -121,9 +128,15 @@ class HillClimber:
             best_cost = current_cost
             best_move = None
             
-            # Evaluates ALL 100 neighbors every iteration
-            # TODO We could implement a sample k random neighbors instead of evaluating all
-            for neighbor, move_info in neighbors:
+            # Stochastic sampling: if enabled and neighbors > threshold, sample randomly
+            if self.use_stochastic and len(neighbors) > self.sample_size:
+                neighbors_to_eval = random.sample(neighbors, self.sample_size)
+                if verbose and iteration == 1:
+                    print(f"  Using stochastic sampling: {self.sample_size} of {len(neighbors)} neighbors")
+            else:
+                neighbors_to_eval = neighbors
+            
+            for neighbor, move_info in neighbors_to_eval:
                 result.neighbors_evaluated += 1
                 neighbor_cost = self.cost_function(neighbor)
                 result.cost_evaluations += 1
