@@ -26,19 +26,25 @@ In other words, this is a small but very clear example of local search and greed
 
 ---
 
-## 01:00–01:35 – Showing the UI and Target Image
+## 01:00–01:35 – Showing the UI and Configuration Options
 
 On the screen you can see my Streamlit page for Set 3 – Problem 1.
 
-At the top, I have:
+At the top, there's a **Configuration** expander with two key options:
 
-- a selector for the **target pattern** (for example “Circle”),
-- controls for **max iterations**, **plateau limit**, and **random seed**.
+- **Pattern Complexity**: Choose between Simple (Circle) or Complex (Checkerboard) patterns. The complex pattern creates local optima, making it harder for hill climbing.
+- **Stochastic Sampling**: Enable this to sample only 50 random neighbors per iteration instead of evaluating all 100, demonstrating the speed vs. accuracy trade-off.
 
-Below that, the app displays:
+For this demo, I'll use the **Simple Circle pattern** with **full neighbor evaluation**.
+
+Below the config, the app displays:
 
 - the **target image** using block characters (1 as solid block, 0 as empty), and  
 - the **10×10 binary matrix** so the structure is clear.
+
+Then we have the standard algorithm parameters:
+
+- **Max iterations**, **plateau limit**, and **random seed** for reproducibility.
 
 This is the pattern the algorithm has to reconstruct starting from random noise.
 
@@ -77,9 +83,16 @@ Here are the results for this run:
 - Final Cost: 0 – meaning perfect reconstruction
 - Iterations: for example 147
 - Improvements: same number as iterations, so every step was an improvement
-- Execution Time: a small fraction of a second
 
-Below that, I show:
+The **Performance Metrics** section shows:
+
+- Execution Time: typically under 0.03 seconds
+- Neighbors Evaluated: around 14,700 (all 100 neighbors × 147 iterations)
+- Cost Evaluations: same as neighbors evaluated plus the initial evaluation
+
+Below the metrics, a **configuration summary** confirms which settings were used: Simple Circle pattern with Full Evaluation mode.
+
+Then I show:
 
 - the **initial random image** and its cost,
 - the **final optimized image**, which now visually matches the target,
@@ -87,7 +100,7 @@ Below that, I show:
 
 The plot shows the cost starting high and then stepping down until it reaches 0. This makes the optimisation process very easy to understand for someone learning hill climbing.
 
-This is one of the “cool features”: the user is not only told the result, they can *see* how the algorithm improves the image over time.
+This is one of the "cool features": the user is not only told the result, they can *see* how the algorithm improves the image over time.
 
 ---
 
@@ -133,13 +146,16 @@ Finally, in `set3Problem1.py` I build the Streamlit UI that:
 To wrap up:
 
 - The algorithm successfully reconstructs a 10×10 binary image, starting from random, using only local search and a simple Hamming distance cost.
-- The implementation is cleanly separated into:
-  - a **problem constructor** (target, cost, neighbours),
-  - a **generic hill climbing engine**,
+- The implementation includes **two key enhancements**:
+  - **Pattern complexity selector**: Demonstrates algorithm limitations with the checkerboard pattern that creates local optima.
+  - **Stochastic sampling**: Shows the trade-off between computational efficiency and solution quality.
+- The code is cleanly separated into:
+  - a **problem constructor** (target patterns, cost, neighbours),
+  - a **generic hill climbing engine** with optional stochastic sampling,
   - and a **Streamlit view** for interaction and visualisation.
 - Everything is implemented in **pure Python**, respecting the assessment constraints.
 
 Conceptually, this small example connects to bigger AI ideas:  
-hill climbing is a basic building block for local search, optimisation, and heuristic methods that appear in areas such as scheduling, planning, and also in the intuition behind gradient-based methods.
+hill climbing is a basic building block for local search, optimisation, and heuristic methods that appear in areas such as scheduling, planning, and also in the intuition behind gradient-based methods. The enhancements demonstrate real-world considerations like scalability and problem complexity.
 
 This concludes my demonstration for Assessment 3 – Set 3, Problem 1.
