@@ -1,0 +1,181 @@
+Proposed Solution Report
+Design and Creative Technologies
+Torrens University, Australia
+
+
+Student: Luis Guilherme de Barros Andrade Faria - A00187785
+Subject Code: HCD 402
+Subject Name: Human Centred Design
+Assessment No.: 2
+Title of Assessment: Proposed Solution Report
+Lecturer: Dr. Omid Haas
+Date: Nov 2025
+
+
+Copyright © 2025 by Luis G B A Faria
+
+
+
+Permission is hereby granted to make and distribute verbatim copies of this document provided the copyright notice and this permission notice are preserved on all copies.
+
+
+
+
+Table of Contents
+1.	Introduction	3
+2.	Development of Technology	5
+2.1	Evolution Timeline (2017 – 2025)	5
+2.2	Technical Development and Architectural Shifts	6
+2.3	Positive and Questionable Outcomes	7
+2.4	Ethical Complications and Human-Centred Design Gaps	7
+3.	Release and Immediate Undermining Effects	9
+3.1	Solution Components	9
+3.2	Early Signs and Undermining Effects	10
+3.3	User and Developer Reactions	10
+3.4	Ethical and Operational Repercussions	11
+4.	Long-Term Undermining Effects	12
+4.1	Security Abuse	12
+4.2 	Performance Degradation	13
+4.3	Social Degradation	13
+4.4 	Long Term Adjustments	13
+4.5 	Restrictions Implemented	14
+5.	Proposed Solution	14
+5.1	Problem Recap and Design Objectives	14
+5.2	Concept Overview: Intelligent Multi-Tier Rate-Limiting System	15
+5.3	Technical Architecture and Implementation	16
+5.4	Link to Assessment 3 Prototype	17
+6.	Conclusion	17
+7.	References	19
+
+
+## 1.	Introduction
+AI agents dominate headlines and automation tools (n8n, Claude, Temporal, Motion, Copilot), with global search interest skyrocketing between January 2023 and October 2025 (Figure 1). Figure 2 highlights related topics, reflecting how quickly this concept has entered mainstream technical vocabulary.
+ 
+Figure 1 – Google Trends Interest over time on “ai agent” (https://trends.google.com/trends/explore?date=2023-01-01%202025-10-16&geo=AU&q=ai%20agent&hl=en)
+ 
+Figure 2 – Google Trends Related Topics and Queries (https://trends.google.com/trends/explore?date=2023-01-01%202025-10-16&geo=AU&q=ai%20agent&hl=en)
+In response to this surge, and as part of the Human-Centred Design (HCD402) subject at Torrens University, lectured by Dr. Omid Haas, this report investigates the emerging technology of Agentic AI Systems – autonomous decision-making agents capable of performing tasks and making API calls without direct human input, addressing three key aspects:
+•	Technology: Agentic AI systems and the basic automation frameworks that enable autonomous API execution.
+•	Undermining Effect: Uncontrolled resource consumption, API abuse, and the associated economic, security and ethical risks.
+•	Proposed Solution: An Intelligent Rate Limiting system built using Node.js + GraphQL + Redis to reintroduce human-centred visibility, feedback and control.
+The discussion explores benefits and contradictions of assigning AI the role of a “digital co-worker”. It examines how leading companies – OpenAI, Anthropic and AWS – grapple with similar governance challenges, while outlining an architectural response. The proposed concept demonstrates how modern distributed-system engineering can embody HCD principles through transparency, fairness and adaptive control. This document connects research with practice, bridging system design, security engineering, and performance optimization. The aim is to show that even within advanced AI infrastructures, responsible design choices remain the key to balancing autonomy and accountability.
+
+## 2.	Development of Technology
+2.1	Evolution Timeline (2017 – 2025)
+The table below summarizes how AI moved from simple assistants to autonomous decision-makers:
+Period	Milestone	Description	HCD Implication
+2017 – 2019	Early chatbots and RPA tools	Rule-based automations such as Dialogflow or IBM Watson handled FAQs and linear tasks	High human control, limited learning.
+2020 – 2022	GPT-3 and LLM APIs	Natural-language reasoning made agents partially self-directed	Reduced transparency – users saw fluent output but not internal logic.
+2023 – 2024	LangChain, AutoGPT, BabyAGI	Open frameworks chained prompts and APIs, giving birth to “Agentic” behavior	Break in feedback loops – agents began acting before user confirmation.
+2024 – 2025	Devin, Grok, Claude 3.5	Commercial systems performed continuous tasks and wrote production code.	Loss of human oversight, new ethical and resource challenges.
+  Figure 3 – AI Agent Evolution: Chatbots → Brain → Gear → Network → Autonomous loop.
+2.2	Technical Development and Architectural Shifts
+Agentic AI emerged from three converging innovations:
+•	LLM reasoning engines (OpenAI GPT-4, Claude, Gemini 1.5) enabling plan-and-act loops.
+•	Frameworks such as LangChain and Semantic Kernel allowing modular tool access.
+•	API orchestration infrastructure with serverless micro-services, vector databases and cloud queues, providing execution autonomy.
+Agentic AI systems rely on complex decision layers obscuring reasoning paths. Post-hoc explanation techniques vary in fidelity and can mislead (Guidotti et al., 2018). Therefore, explainability must be engineered into the feedback architecture, not added as an afterthought, so decision visibility is not abstracted.
+Design teams optimized for performance and convenience, not for user understanding, violating Norman’s (2013) principle that systems must make their operations “visible and explorable”. The rapid integration of plugins, API keys, and cloud agents turned simple assistants into resource-consuming ecosystems with unpredictable side-effects.
+2.3	Positive and Questionable Outcomes
+Positive Outcomes	Questionable Outcomes
+Automated multi-step workflows across marketing, coding, and analytics.	Uncontrolled API consumption creating cost spikes of >$50 000/month.
+Continuous operations improved response times.	“Infinite-loop” behaviors exhausting compute resources.
+Democratization of AI tools through open-source frameworks	Economic inequality – only well-funded orgs can afford persistent agents.
+Faster decision-making via data-driven insights	Environmental impact – higher energy usage from constant API polling.
+ 
+Figure 4 – Paradox of Technology: Convenience vs Complexity (models/gemini-2.5-flash-image)
+Each layer of convenience (automation, speed, scalability) introduces new complexity (cost, opacity, ethical ambiguity).
+2.4	Ethical Complications and Human-Centred Design Gaps
+From a human-centred design perspective, three core issues emerged:
+•	Accountability Gap: When an autonomous agent deploys faulty code or consumes excessive resources, who is responsible? The developer, the model provider, or the user? HCD Principle Violated: Responsibility and Feedback. 
+•	Transparency Deficit: Users rarely receive understandable explanations for agent decisions. Without meaningful “why” feedback, visibility—the cornerstone of usability—is lost. 
+•	Equity and Access: The cost of continuous AI operation privileges corporations with deep budgets, marginalizing smaller innovators and reinforcing digital inequality. 
+ 
+Figure 5 – HCD Gaps in Agentic AI
+These complications set the stage for the immediate undermining effects discussed in Section 3, where technical success collided with social and ethical fragility.	
+
+## 3.	Release and Immediate Undermining Effects
+The 2024-2025 release of Agentic AI marked a turning point in AI autonomy. Unlike traditional assistants that merely responded to prompts, agentic models began to act independently – creating, deploying and executing multi-step plans without direct human supervision. Frameworks like AutoGPT, Devin, Claude Code and xAI’s Grok Agents demonstrated the potential of “self-directed” AI, where systems could write code, manage cloud resources or even operate other AI models.
+However, this rapid shift from assistive to autonomous AI introduced immediate design, ethical, and societal tensions. The promise of efficiency quickly clashed with the human-centered design values of visibility, feedback, and control. Within months, industries reported issues of runaway task execution, API abuse, and unintended data exposure, revealing how autonomy without sufficient constraint can break trust in automation.
+3.1	Solution Components
+The surge began in 2023 with open frameworks (AutoGPT, BabyAGI), followed by commercial releases: OpenAI's Assistants (Nov 2024), Anthropic's Claude 3.5 (2024), and Devin by Cognition Labs (Mar 2025). These systems performed complex workflows with minimal input, embodying Norman's (2013) "Paradox of Technology": each convenience introduces new complexity. In Agentic AI, complexity lies in oversight—systems acted beyond expectations, initiating recursive tasks and over-allocating resources, exposing the fragility of unmonitored automation.
+3.2	Early Signs and Undermining Effects
+Within the first months of release, several issues surfaced that highlighted the absence of human-centered safety mechanisms.
+•	Uncontrolled API usage: Open-source agent frameworks caused massive spikes in cloud costs, in some cases exceeding budgets overnight due to infinite task loops. 
+•	Security vulnerabilities: Agents occasionally accessed or exposed sensitive credentials while performing unsupervised file operations. 
+•	Loss of traceability: Developers found it nearly impossible to reconstruct why an agent made certain decisions after the fact, breaking the HCD principle of visibility. 
+From a social perspective, this unpredictability undermined human trust in AI-driven systems. Businesses quickly realized that autonomy without explainability was not scalable. These early warning signs indicated that technical capability had outpaced design maturity.
+3.3	User and Developer Reactions
+Reactions were divided: Developers were fascinated but cautious, often creating community patches for monitoring and manual override systems; End users and clients, particularly in finance and operations, expressed anxiety over reliability and accountability; Regulators began signaling concern about “autonomous agents acting without human consent,” echoing previous debates around algorithmic bias and automation risk. 
+Human-centered design theory positions feedback and control as essential to usability (Norman, 2013; Gee, 2006). Yet, Agentic AI inverted this relationship — users no longer guided systems; systems guided users. This role reversal produced immediate friction, with organizations implementing emergency shutdown protocols or “sandbox” limitations to contain autonomous processes.
+3.4	Ethical and Operational Repercussions
+The undermining effects became more pronounced as adoption widened:
+•	Job displacement fears resurfaced, especially in software development and analytics, as autonomous agents began completing multi-hour tasks autonomously. 
+•	Ethical ambiguity emerged: when an agent executed a harmful or biased action, who was responsible — the developer, the user, or the system itself? 
+•	Psychological distancing also appeared: human operators began treating AI outcomes as unquestionable, eroding critical oversight and reflecting a lack of oversight frameworks and ethical literacy (Hwang et al., 2020). 
+These consequences exposed a clear misalignment between technological autonomy and human accountability. Without built-in transparency and rate-control mechanisms, Agentic AI systems prioritized execution over reflection, a direct violation of the HCD ethos that technology should amplify human judgment, not replace it, and despite a global convergence around ethical principles such as transparency and accountability, most frameworks lack actionable enforcement mechanisms, leaving systems vulnerable to unchecked autonomy (Jobin, Ienca, & Vayena, 2019). Embedding operational guardrails such as rate limits, audit trails, and human override points transforms these abstract ethics into enforceable practice (Morley et al., 2021).
+Finally, while the initial release cycle of Agentic AI systems revealed immediate operational and ethical issues, the deeper implications emerged over time — from shifting labor dynamics to the erosion of trust in autonomous decision-making. The following section examines how these long-term effects have reshaped both industry standards and public perception. 
+
+## 4.	Long-Term Undermining Effects
+The economic implications of uncontrolled agentic AI deployment have created significant barriers to entry. Reports from accelerator-backed startups, including Y Combinator cohorts, indicate that autonomous agent systems can generate unexpected API costs ranging from $10,000 to over $100,000 monthly, often due to unmodeled scaling in high-volume deployments (e.g., 100,000+ calls/month from infinite loops or unchecked recursion) that exceed initial budgets (Ampcome, 2025). This cost explosion represents a violation of the HCD principle of equitable access, as only well-capitalized organizations can sustain continuous autonomous operations.
+4.1		Security Abuse
+The autonomous scale of agentic systems has enabled new categories of security threats. Agents conduct large-scale scraping that extracts full datasets, credential-stuffing operations testing stolen logins across thousands of services, and resource monopolization that degrades shared infrastructure. These multi-agent interactions can generate emergent, destabilizing behaviors when no coordination or incentive protocols exist (Shoham, Powers, & Grenager, 2007). Effective governance therefore requires incentive design and fair-allocation mechanisms to prevent negative equilibria among autonomous actors.
+4.2 	Performance Degradation
+Continuous agentic workloads have strained shared cloud infrastructure as excessive API calls saturate bandwidth and compute capacity. Misconfigured or looping agents trigger cascading failures that degrade unrelated services, while legitimate traffic faces throttling and latency. Such ungoverned scaling undermines reliability and fairness, illustrating how autonomy without coordinated oversight weakens distributed-system resilience.
+4.3		Social Degradation
+The digital divide has deepened as agentic AI capabilities concentrate among organizations able to sustain high API costs, marginalizing smaller actors. Job displacement has accelerated where automation advances without reskilling or safety nets, particularly among software and data professionals. Trust erosion follows as unstable or opaque agent behaviors reduce reliability and user confidence. These inequities mirror broader bias patterns across the machine-learning pipeline—data, labeling, optimization, and feedback—showing that fairness demands socio-technical, not purely technical, interventions (Mehrabi et al., 2021). 
+4.4 	Long Term Adjustments
+Positive	Negative
+Rate limiting becoming standard (2023-2024)	Still no standardized solution across platforms
+Cost-based pricing models emerging	No global governance framework
+4.5 	Restrictions Implemented
+•	OpenAI: Tier 1-5 rate limits (2023)
+•	Anthropic: Usage tiers and quotas (2024)
+•	Microsoft Azure: Token bucket + sliding window (2024)
+•	AWS: Enhanced API Gateway throttling (2024)
+
+## 5.	Proposed Solution
+5.1	Problem Recap and Design Objectives
+The preceding sections showed that the main undermining effect of Agentic AI systems is the absence of transparent and controllable boundaries. Without limits on API calls and task recursion, agents generate excessive cost, energy consumption, and loss of human oversight. The design objective is therefore to re-establish visibility, fairness, and accountability, the three pillars of human-centred design most disrupted by autonomous operation. Design objectives:
+•	Visibility: users and administrators must see what the system is doing and why in a custom-made dashboard.
+•	Feedback & Control: every throttled or delayed request must generate clear and actionable feedback.
+•	Fair allocation: resources should be distributed ethically and sustainably.
+•	Accountability: every autonomous action must be traceable to an auditable log.
+•	Sustainability: Rate-limiting must consider financial and environmental costs (Strubell et al., 2019; Gupta et al., 2023).
+5.2	Concept Overview: Intelligent Multi-Tier Rate-Limiting System
+The proposed Intelligent Multi-Tier Rate-Limiting (IRL) acts as a governance middleware between Agentic AI workloads and backend APIs. It dynamically adjusts execution thresholds based on user role, ethical risk level, and real-time resource metrics. This converts abstract principles—transparency, fairness, and responsibility—into enforceable operational controls (Morley et al., 2021).
+ 
+ Figure 6 – Conceptual architecture of the Intelligent Rate-Limiting System
+5.3	Technical Architecture and Implementation
+•	API Gateway (Visibility): All requests first pass through an Apollo Server gateway, where metadata (ID, purpose, and estimated cost) are logged and surfaced on a dashboard (Amershi et al., 2019). 
+•	Rate-Limiting Core: A Redis-based scheduler calculates dynamic quotas using sorted sets and token buckets. Throttling is proportional to both user priority and environmental cost estimates (Strubell et al., 2019). 
+•	Ethics & Policy Module (Accountability): Before execution, each request is evaluated against an ethics schema - rules derived from company policy or regulatory standards (Jobin et al., 2019). Violations trigger human-review flags. 
+•	Feedback & Monitoring Layer (Feedback & Learning): GraphQL subscriptions stream real-time metrics to the interface, providing clear explanations when a request is slowed or denied. Example: “Request #547 blocked – exceeds daily energy threshold.  Try again in 25 min.” 
+•	Audit & Explainability (Transparency): Every decision and throttle event is stored with causal context, allowing reconstruction of “why” a decision occurred (Guidotti et al., 2018).
+Limitations include dependency on accurate metric collection, potential latency overhead, and need for human supervision in escalation cases. Future iterations could integrate reinforcement-learning-based adaptive policies and interface-level A/B testing to optimize usability and fairness perception. 
+5.4	Link to Assessment 3 Prototype
+We will implement a working GraphQL API prototype demonstrating the live feedback interface and ethical-rule evaluation engine, allowing empirical testing of transparency comprehension, perceived control, and trust in automation. 
+
+## 6.	Conclusion
+Agentic AI represents a turning point in human-machine collaboration. Our proposed Intelligent Rate-Limiting System has been created to bring back a balance between automation efficiency and human oversight, exemplifying Human-Centered Design by embedding transparency, fairness and control into the technical core. Human-centred design aligns system goals with human values – ensuring agentic AI operates under transparent, accountable, and equitable governance frameworks.
+
+ 
+## Statement of Acknowledgment
+I acknowledge that I have used the following AI tool(s) in the creation of this report:
+•	OpenAI ChatGPT (GPT-5): Used to assist with outlining, refining structure, improving clarity of academic language, and supporting with APA 7th referencing conventions.
+
+I confirm that the use of the AI tool has been in accordance with the Torrens University Australia Academic Integrity Policy and TUA, Think and MDS’s Position Paper on the Use of AI. I confirm that the final output is authored by me and represents my own critical thinking, analysis, and synthesis of sources. I take full responsibility for the final content of this report.
+ 
+## 7.	References
+Ampcome. (2025, October 6). How much does it cost to build an AI agent? [2025 guide]. https://www.ampcome.com/post/how-much-does-it-cost-to-build-an-ai-agent-2025
+Amershi, S., Weld, D., Vorvoreanu, M., Fourney, A., Nushi, B., Collisson, P., Suh, J., Iqbal, S., Bennett, P. N., Inkpen, K., Teevan, J., Kikin-Gil, R., & Horvitz, E. (2019). Guidelines for human-AI interaction. Proceedings of the 2019 CHI Conference on Human Factors in Computing Systems, 1–13. https://doi.org/10.1145/3290605.3300233
+Gee, J. P. (2006). Why game studies now? Video games: A new art form. Games and Culture, 1(1), 58–61. https://doi.org/10.1177/1555412005281788
+Guidotti, R., Monreale, A., Ruggieri, S., Turini, F., Giannotti, F., & Pedreschi, D. (2018). A survey of methods for explaining black box models. ACM Computing Surveys, 51(5), Article 93. https://doi.org/10.1145/3236009
+Gupta, U., Kim, Y. G., Lee, S., Tse, J., Lee, H.-H. S., Wei, G.-Y., Brooks, D., & Wu, C.-J. (2023). Chasing carbon: The elusive environmental footprint of computing. IEEE Micro, 43(4), 37–47. https://doi.org/10.1109/MM.2023.3283803
+Hwang, G. J., Xie, H., Wah, B. W., & Gašević, D. (2020). Vision, challenges, roles and research issues of artificial intelligence in education. Computers and Education: Artificial Intelligence, 1(1), 100001. https://doi.org/10.1016/j.caeai.2020.100001
+Jobin, A., Ienca, M., & Vayena, E. (2019). The global landscape of AI ethics guidelines. Nature Machine Intelligence, 1, 389–399. https://doi.org/10.1038/s42256-019-0088-2
+Mehrabi, N., Morstatter, F., Saxena, N., Lerman, K., & Galstyan, A. (2021). A survey on bias and fairness in machine learning. ACM Computing Surveys, 54(6), Article 115. https://doi.org/10.1145/3457607 
+Morley, J., Machado, C. C. V., Burr, C., Cowls, J., Taddeo, M., Floridi, L., & Schafer, B. (2021). From what to how: An interdisciplinary framework for responsible AI. Patterns, 2(4), 100098. https://doi.org/10.1016/j.patter.2021.100098
+Norman, D. A. (2013). The design of everyday things: Revised and expanded edition. Basic Books.
+Shoham, Y., Powers, R., & Grenager, T. (2007). If multi-agent learning is the answer, what is the question? Artificial Intelligence, 171(7), 365–377. https://doi.org/10.1016/j.artint.2006.12.002 
+Strubell, E., Ganesh, A., & McCallum, A. (2019). Energy and policy considerations for deep learning in NLP. Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics, 3645–3650. https://doi.org/10.18653/v1/P19-1355
