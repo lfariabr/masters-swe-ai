@@ -1,14 +1,14 @@
-# CuraNexus Analytics – Security Isn't an Afterthought, It's the Architecture
+# CuraNexus Analytics – Security in Architecture, not Afterthought
 
-**Tags**: #cybersecurity #securebydesign #python #postgresql #isms
+**Tags**: #cybersecurity #securebydesign #python #postgresql
 
 > "Security bolted on after development is a band-aid. Security designed in from day one is the foundation."
 
-What if I told you that **92% of data breaches** could be prevented by embedding security into the earliest design phases—not patching it on after deployment?
+What if I told you that **92% of data breaches** could be prevented by embedding security into the earliest design phases, not patching it after deployment?
 
 That's the core philosophy behind **CuraNexus Analytics**, a healthcare and retail data analytics platform I architected from scratch during my **Secure by Design (SBD403)** subject at Torrens University Australia, under the guidance of **Dr. Tanvir Rahman**.
 
-This isn't just a university project. It's a **comprehensive security framework** that any organization can adapt when building web-based data retrieval applications.
+This was more than an university project, I approached it as a **comprehensive security framework** that any organization can adapt when building web-based data retrieval applications.
 
 ---
 
@@ -29,7 +29,7 @@ Traditional approach? Build first, secure later. **That's backwards.**
 
 ---
 
-## The Academic Journey: Two Assessments, One Cohesive System
+## Assessments Breakdown
 
 ### Assessment 1: The Foundation (Quiz – Passed ✅)
 
@@ -152,9 +152,9 @@ Because **humans are the biggest vulnerability**:
 ### Backend Stack
 | Component | Technology | Purpose |
 |-----------|------------|---------|
-| Web Framework | Python Flask/FastAPI | RESTful API + async support |
+| Web Framework | Python Django | RESTful API + async support |
 | Database | PostgreSQL 15 | ACID compliance, Row-Level Security |
-| ORM | SQLAlchemy | Parameterized queries, migration management |
+| ORM | Django ORM + Django REST Framework | Parameterized queries, migration management, API serialization |
 | Authentication | Auth0 / Custom JWT | MFA + SSO support |
 | Encryption | AWS KMS | Key management + rotation |
 | Monitoring | SIEM (Splunk/ELK) | Real-time threat detection |
@@ -200,7 +200,7 @@ Traditional approach:
 - **6 risks quantified** via DREAD framework
 - **7+ technical controls** with standard mapping
 - **User training program** with KPIs
-- **Grade**: 95% (High Distinction) 🎓
+- **Grade**: TBD (submitted Dec 2025)
 
 ### Assessment 3: Security Design Guide
 - **1500 words**: 4-phase framework (Request → Retrieve → Review → Risk)
@@ -212,7 +212,7 @@ Traditional approach:
 
 ## Real-World Applications
 
-This framework isn't theoretical—it's **immediately deployable** for:
+This framework is **immediately deployable** for any data-sensitive web application:
 
 ### Healthcare
 - Electronic Health Records (EHR) systems
@@ -258,10 +258,10 @@ Building CuraNexus taught me that **security is a competitive advantage**, not j
 
 While CuraNexus itself is an academic case study, the **methodology is fully documented**:
 
-- **Assessment 2 Report**: [SBD Implementation Guide](/2025-T2/T2-SBD/assignments/Assessment2/drafts/v6.md)
-- **Assessment 3 Report**: [Security Design Guide](/2025-T2/T2-SBD/assignments/Assessment3/drafts/draft_v8.md)
-- **Presentation Script**: [6-Minute Walkthrough](/2025-T2/T2-SBD/assignments/Assessment3/CuraNexus-A3Poster-script.md)
-- **GitHub Repository**: [Masters SWE-AI Projects](https://github.com/lfariabr/masters-swe-ai)
+- **Assessment 2 Report**: [SBD Implementation Guide](https://github.com/lfariabr/masters-swe-ai/blob/master/2025-T2/T2-SBD/assignments/Assessment2/SBD403_Faria_L_Assessment_2.pdf)
+- **Assessment 3 Report**: [Security Design Guide](https://github.com/lfariabr/masters-swe-ai/blob/master/2025-T2/T2-SBD/assignments/Assessment3/Faria_L_SBD403_A3.pdf)
+- **Presentation Video**: [6-Minute Walkthrough](https://drive.google.com/file/d/1Ie0ashpBxymIBX_TcRellMIgXPuV__Fw/view)
+- **GitHub Repository**: [Masters SWE-AI Projects](https://github.com/lfariabr/masters-swe-ai/tree/master/2025-T2/T2-SBD)
 
 ---
 
@@ -272,14 +272,14 @@ After 12 weeks of intensive security architecture work, here's what I learned:
 ### 1. **Security is a Mindset, Not a Tool**
 You can't buy security—you have to **design for it** from sprint zero.
 
-### 2. **Standards Are Your North Star**
+### 2. **Standards Are The North Star**
 ISO 27001, NIST, OWASP aren't bureaucracy—they're battle-tested frameworks that prevent catastrophic mistakes.
 
 ### 3. **Humans Are Both the Problem and the Solution**
 No amount of encryption will save you if your users click phishing links. **Training is non-negotiable.**
 
 ### 4. **Compliance Doesn't Mean Secure**
-You can check every ISO 27001 box and still get breached. **Continuous improvement (PDCA) is the only path.**
+You can check every ISO 27001 box and still get breached. **Continuous improvement (PDCA) is the way to go!**
 
 ### 5. **Security Enables Business**
 When done right, security **accelerates** product development by building trust with customers and regulators.
@@ -288,7 +288,7 @@ When done right, security **accelerates** product development by building trust 
 
 ## Let's Connect!
 
-Building CuraNexus has been a transformative journey from project manager to **security-first software engineer**. 
+Building the ***CuraNexus Analytics*** Case Study has been a transformative journey from project manager to **security-first software engineer**. I'm excited to share the lessons learned and collaborate with others who value secure, scalable software design.
 
 If you're passionate about:
 - 🔐 Secure-by-Design architecture
@@ -325,6 +325,6 @@ If you're passionate about:
 
 **Built with ❤️ and paranoia at Torrens University Australia**  
 **Subject**: SBD403 – Secure by Design  
-**Lecturer**: Dr. Tanvir Rahman  
-**Term**: T2 2025  
+**Lecturer**: [Dr. Tanvir Rahman](https://scholar.google.com/citations?user=mFe8nTEAAAAJ&hl=en)
+**Term**: T3-2025
 

@@ -86,6 +86,7 @@ Take a deep dive into how I'm approaching projects and the progress I'm making.
 
 | Project | Description | Status | Repository | URL |
 |---------|---------------------|----------------|----------------|----------------|
+| **CuraNexus Analytics** | Secure-by-Design framework for web data retrieval apps. Features ISMS implementation, DREAD threat modeling, ISO 27001/OWASP compliance. Healthcare/retail reference case. | ✅ | [Here](./2025-T2/T2-SBD/projects/curaNexusAnalytics.md) | [dev.to](https://dev.to/lfariaus/curanexus-analytics-security-in-architecture-not-afterthought-13j) |
 | **EigenAI** | Interactive Streamlit app that teaches MFA501 math concepts like determinants, eigenvalues, and gradients step-by-step. | ✅ | [Here](./2025-T2/T2-MFA/projects/eigenai) | [EigenAi](https://eigen-ai.streamlit.app/) |
 | **ExcelPilot FE** | Chat system for backend API built with Next.js, TypeScript, TailwindCSS, ShadCN, Apollo Client, Next.Auth, JWT. | 🔌 | [Here](https://github.com/lfariabr/excel-pilot-front) | N/A |
 | **ExcelPilot BE** | API built with Node.js, Express, Apollo Server, MongoDB, Redis and TypeScript. Features secure JWT auth, GraphQL queries/mutations, and openAi. | 🔥 | [Here](https://github.com/lfariabr/excel-pilot) | 🔥 |
