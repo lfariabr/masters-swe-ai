@@ -23,4 +23,4 @@ Dr. Tanvir Rahman
 ## Assignments
 - [X] Assessment 1 - deadline 12/10/2025 ✅, **Online Quiz** on *Secure by Design: Terminology and Basic Concepts*
 - [X] Assessment 2 - deadline 09/11/2025 ✅, **Case Study** on *Secure by Design Implementation Guide, CuraNexus Analytics (hospital and retails data)*
-- [ ] Assessment 3 - deadline 03/12/2025 🔥, **Case Study** on *Design Guide for a Web Based Data Retrieval Application*
+- [X] Assessment 3 - deadline 03/12/2025 🔥, **Case Study** on *Design Guide for a Web Based Data Retrieval Application*
