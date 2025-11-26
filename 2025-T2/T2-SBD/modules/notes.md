@@ -552,3 +552,79 @@ Area 5 - Resources: allocate adequate budget, personnel, and tools for security 
 2. Conduct a gap analysis of current sec policies
 3. Select a governance framework
 4. Design and implement customized policies
+
+## Module 11 - Approaches to Attack & Incident Response Planning
+
+### The reality of modern cybersecurity
+- determined attackers eventually succeed
+
+### Critical questions before the breach
+1. Pre-planning is essential; strategy cannot be formulated during chaos
+2. Define authority for system shutdowns and operational damage control
+3. Establish protocols for communication with stakeholders and media
+4. Identify the systems requiring immediate isolation, checking or retirement
+5. Set thresholds for law enforcement involvement and evidence handover
+
+### Resilience and "The Fog of War"
+- Resilience requires orderly reaction despite the confusion of an attack
+- Define Recovery Time Objective (RTO) - affordable downtime before viability loss
+- Pre-assign forensic responsibilities (in-house vs. outsourced)
+- Goal: Ensure a breach does not equal total business failure
+- Use Cyber Threat Intelligence to inform strategy, avoiding guesswork
+
+### Phases
+#### Phase 1 - Preparation
+- Establish engagement rules 
+- Deploy visibility tools like EDR/SIEM
+- Run tabletop exercises to test response procedures
+
+#### Phase 2 - Detection and Analysis
+- Filter alerts to distinguish genuine threats from false positives
+- Scope: single endpoint vs entire server farm
+- Identify Indicators of Compromise (IoCs) like hashes or IPs
+- Consequence assessment to prioritize resources
+
+#### Phase 3 - Containment
+- Short-term: isolate VLANs, pull cables, block IPs
+- Long-term: patch vulnerabilities, reset accounts and access credentials
+
+#### Phases 4 & 5 - Eradication and Recovery
+- Eradication: remove malware, eliminate backdoors, clean compromised systems
+- Recovery: restore systems from clean backups, validate integrity, resume operations, monitor for reoccurrence
+
+#### Phase 6 - Post-Incident Activities
+- Meeting with clients, customers to discuss what happened
+- Root Cause Analysis
+- Update playbooks and tools if failed to detect or respond effectively
+- Create final reports for stakeholders and leadership
+- Use lessons learned to improve future response capabilities
+
+### Digital Forensics Basics
+- Goal: determine entry point, data theft and attacker presence
+- Collect volatile data (RAM, network connections, process lists)
+- Collect non-volatile data (disk images, logs, files)
+- Work only on bit-for-bit copies of evidence
+
+### Why Disaster Plans Fail
+- Storing backups on the live networks allows them to be encrypted too
+- Plans often fail in reality because they were never rehearsed
+- Attackers often dwell in the network for weeks before the actual lockout
+- Lack of network segmentation allows rapid, unchecked spread
+
+### MAERSK case study`
+
+#### Problems
+1. Least privilege
+2. Backup stored on the same network
+3. No network segmentation
+4. Package management vulnerabilities
+
+---
+
+# Things liked/not liked Tanvir
+Liked: knowlegeable, deep understanding of topics, clear communication, patience with questions
+Not liked: N/A
+
+# Things liked/not liked SBD course
+Liked: #todo
+Not liked: #todo

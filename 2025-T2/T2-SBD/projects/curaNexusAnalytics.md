@@ -298,7 +298,7 @@ If you're passionate about:
 
 **I'd love to connect!**
 
-- **LinkedIn**: [linkedin.com/in/luisfaria](https://linkedin.com/in/luisfaria)
+- **LinkedIn**: [linkedin.com/in/lfariabr/](https://www.linkedin.com/in/lfariabr/)
 - **Portfolio**: [luisfaria.dev](https://luisfaria.dev)
 - **GitHub**: [github.com/lfariabr](https://github.com/lfariabr)
 

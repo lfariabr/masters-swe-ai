@@ -17,7 +17,7 @@ Dr. Tanvir Rahman
 - [X] Module 8 - Domain-Driven Design
 - [X] Module 9 - Reducing complexity
 - [X] Module 10 - How to maintain an Enterprise - scale system
-- [ ] Module 11 - Approaches to Attack: Common traditional techniques of cyber attacks
+- [X] Module 11 - Approaches to Attack: Common traditional techniques of cyber attacks
 - [ ] Module 12 - Security by design in the real world
 
 ## Assignments
