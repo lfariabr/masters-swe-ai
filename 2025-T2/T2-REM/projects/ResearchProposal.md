@@ -468,8 +468,7 @@ Data science isn't just about building models — it's about asking the right qu
 
 If you're working on similar research, interested in healthcare analytics, or passionate about evidence-based AI systems, I'd love to connect:
 
-📧 **Email:** [Contact via LinkedIn](https://www.linkedin.com/in/lfariabr/)  
-💼 **LinkedIn:** [linkedin.com/in/luisfaria](https://www.linkedin.com/in/lfariabr/)  
+💼 **LinkedIn:** [linkedin.com/in/lfariabr](https://www.linkedin.com/in/lfariabr/)  
 💻 **GitHub:** [github.com/lfariabr](https://github.com/lfariabr)  
 🌐 **Portfolio:** [luisfaria.dev](https://luisfaria.dev)
 
