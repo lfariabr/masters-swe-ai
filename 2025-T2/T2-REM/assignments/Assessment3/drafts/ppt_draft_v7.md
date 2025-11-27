@@ -42,19 +42,19 @@ Hypotheses:
 3. POSITIONING IN THE FIELD
 
 Literature Landscape:
-┌─────────────────────────────────────────────┐
+┌─────────────────────────────────────────────────────┐
 │ Patient Experience → Loyalty        │ ✓ Established │
-│ (Godovykh & Pizam, 2023)            │              │
-├─────────────────────────────────────────────┤
+│ (Godovykh & Pizam, 2023)            │               │
+├─────────────────────────────────────────────────────┤
 │ NPS → Intention to recommend        │ ✓ Validated  │
-│ (Reichheld, 2003; Dawes, 2024)      │              │
-├─────────────────────────────────────────────┤
-│ AI Sentiment Analysis (technical)   │ ✓ Feasible   │
-│ (Alkhnbashi et al., 2024)           │              │
-├─────────────────────────────────────────────┤
-│ NPS → Revenue in HEALTHCARE         │ ✗ MISSING    │
-│ **This Study fills this gap**       │              │
-└─────────────────────────────────────────────┘
+│ (Reichheld, 2003; Dawes, 2024)      │               │
+├─────────────────────────────────────────────────────┤
+│ AI Sentiment Analysis (technical)   │ ✓ Feasible    │
+│ (Alkhnbashi et al., 2024)           │               │
+├─────────────────────────────────────────────────────┤
+│ NPS → Revenue in HEALTHCARE         │ ✗ MISSING     │
+│ **This Study fills this gap**       │               │
+└─────────────────────────────────────────────────────┘
 
 Key Gap: Assumed correlation never tested empirically
 
