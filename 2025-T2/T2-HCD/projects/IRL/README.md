@@ -191,10 +191,10 @@ pnpm dev
 **Goal**: Get comfortable with the tech stack and project structure
 
 #### Tasks:
-- [ ] Set up Node.js + TypeScript project with proper tsconfig
+- [X] Set up Node.js + TypeScript project with proper tsconfig
 - [ ] Configure ESLint + Prettier for code quality
 - [ ] Set up Docker Compose for Redis + PostgreSQL
-- [ ] Create basic Express server with health check endpoint
+- [X] Create basic Express server with health check endpoint
 - [ ] Add Winston logger with structured logging
 - [ ] Set up Jest for unit testing
 
