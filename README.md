@@ -65,10 +65,10 @@ Term | Subject | Status | Lecturer | Directory | Credit Points
     - Technology - Work Integrated Learning I (TWL604 - 20CP)
     - Advanced Technology - Work Integrated Learning (ATW606 - 30CP)
 
-- 2x Electives (***to be defined...***): 
+- 2x Electives (***to be defined...***):
+    - Cloud Computing Fundamentals (CCF501 - 10CP)
     - DevOps Tools (DOT503 - 10CP)
     - Cyber Security Principles (CPO442 - 10CP)
-    - User Experience Design (DID602A - 10CP)
 
 #### Goals
 - [🔥] Complete course materials for all subjects
@@ -105,25 +105,22 @@ While this is primarily a personal repository, I welcome discussions and feedbac
 *Status: ![GitHub last commit](https://img.shields.io/github/last-commit/lfariabr/masters-swe-ai?style=flat-square)*
 
 #### Version control
-- **Major:** New term launch
-- **Minor:** Term completion
-
 | Version | Modules      | Timeline | Status |
 |---------|---------------------|---|---|
 | 1.0.0   | T2-2025 Launch SDM+SEP subjects     | 06-2025 | ✅ |
 | 1.2.0   | T2-2025 Completed (SDM+SEP)         | 08-2025 | ✅ |
 | 2.0.0   | T3-2025 Launch (HCD+MFA+REM+SBD)    | 09-2025 | ✅ |
 | 2.4.0   | T3-2025 Completed (HCD+MFA+REM+SBD) | 12-2025 | 🕐 |
-| 3.0.0   | T1-2026 Launch (TBD)                | 02-2026 | 🕐 |
-| 3.2.0   | T1-2026 Completed (TBD)             | 05-2026 | 🕐 |
-| 4.0.0   | T2-2026 Launch (TBD)                | 06-2026 | 🕐 |
-| 4.2.0   | T2-2026 Completed (TBD)             | 08-2026 | 🕐 |
-| 5.0.0   | T3-2026 Launch (TBD)                | 09-2026 | 🕐 |
-| 5.2.0   | T3-2026 Completed (TBD)             | 12-2026 | 🕐 |
-| 6.0.0   | T1-2027 Launch (TBD)                | 01-2027 | 🕐 |
-| 6.2.0   | T1-2027 Completed (TBD)             | 04-2027 | 🕐 |
+| 3.0.0   | T1-2026 Launch (ISY503+CCF501)      | 02-2026 | 🕐 |
+| 3.2.0   | T1-2026 Completed (ISY503+CCF501)   | 05-2026 | 🕐 |
+| 4.0.0   | T2-2026 Launch (MLN601+DLE602)      | 06-2026 | 🕐 |
+| 4.2.0   | T2-2026 Completed (MLN601+DLE602)   | 08-2026 | 🕐 |
+| 5.0.0   | T3-2026 Launch (TWL604+DOT503)      | 09-2026 | 🕐 |
+| 5.2.0   | T3-2026 Completed (TWL604+DOT503)   | 12-2026 | 🕐 |
+| 6.0.0   | T1-2027 Launch (ATW606)             | 01-2027 | 🕐 |
+| 6.2.0   | T1-2027 Completed (ATW606)          | 04-2027 | 🕐 |
 | 7.0.0   | Masters Degree Completed            | 06-2027 | 🕐 |
 
 ---
 
-**⭐ If you find this helpful, consider starring the repo!**
+**⭐ If you find this helpful, consider giving it a star!**
