@@ -2,6 +2,7 @@ import express, { Request, Response, NextFunction } from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import redis from './db/redis.js';
+import logger, { logRequest, logRateLimit } from './utils/logger.js';
 
 // Load environment variables
 dotenv.config();
@@ -19,6 +20,19 @@ app.use(cors({
   credentials: true,
 }));
 app.use(express.json());
+
+// Request logging middleware
+app.use((req: Request, res: Response, next: NextFunction) => {
+  const start = Date.now();
+  res.on('finish', () => {
+    const duration = Date.now() - start;
+    logRequest(req.method, req.path, res.statusCode, duration, {
+      ip: req.ip,
+      userAgent: req.get('User-Agent'),
+    });
+  });
+  next();
+});
 
 // Health check endpoint
 app.get('/health', async (req: Request, res: Response) => {
@@ -95,6 +109,7 @@ app.get('/api/test', async (req: Request, res: Response) => {
     });
     
     if (current > limit) {
+      logRateLimit(clientIP, 'blocked', current, limit);
       res.status(429).json({
         error: 'Too Many Requests',
         message: 'Rate limit exceeded. Please try again later.',
@@ -103,6 +118,7 @@ app.get('/api/test', async (req: Request, res: Response) => {
       return;
     }
     
+    logRateLimit(clientIP, 'allowed', current, limit);
     res.json({
       message: 'Request successful!',
       requestNumber: current,
@@ -131,9 +147,8 @@ app.get('/', (req: Request, res: Response) => {
 });
 
 // Error handling middleware
-// # Consider using a proper logging library like pino or winston for production
-app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
-  console.error('Error:', err.message);
+app.use((err: Error, req: Request, res: Response, _next: NextFunction) => {
+  logger.error('Unhandled error', { error: err.message, stack: err.stack, path: req.path });
   res.status(500).json({
     error: 'Internal Server Error',
     message: err.message,
@@ -142,6 +157,7 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
 
 // Start server
 app.listen(PORT, () => {
+  logger.info(`🚀 IRL Server started`, { port: PORT });
   console.log(`
 🚀 IRL Server running on http://localhost:${PORT}
 📊 Redis Commander at http://localhost:8081 (if using docker-compose)
@@ -156,7 +172,7 @@ Available endpoints:
 
 // Graceful shutdown
 const shutdown = async (signal: string) => {
-  console.log(`Received ${signal}. Shutting down gracefully...`);
+  logger.info(`Received ${signal}. Shutting down gracefully...`);
   await redis.quit();
   process.exit(0);
 };

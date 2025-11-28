@@ -14,7 +14,7 @@ touch package.json tsconfig.json docker-compose.yml .env.example
 ```
 
 ### **This Week**
-- [X] Complete Phase 0 (Foundation) - 2-3 days
+- [X] Complete Phase 0 (Foundation) - 2-3 days ✅ DONE
     - [X] Get a running Node.js server with Redis connected
         - created `package.json` and installed dependencies: node, express, ioredis, typescript, jest
         - created `tsconfig.json` for TypeScript configuration
@@ -25,10 +25,23 @@ touch package.json tsconfig.json docker-compose.yml .env.example
             - start the Express server 
             - connect to Redis
             - basic rate limit test endpoint*
-        NEXT:
-            - add jest tests for Redis connection and basic endpoint
-    - [ ] Document your learnings as you go
-- [ ] Set up your GitHub repo structure
+    - [X] Configure ESLint + Prettier for code quality
+        - created `.eslintrc.json` with TypeScript + Prettier integration
+        - created `.prettierrc` with project code style
+        - added npm scripts: `lint`, `lint:fix`, `format`, `format:check`
+    - [X] Add Winston logger with structured logging
+        - created `src/utils/logger.ts` with Winston
+        - helper functions: `logRequest`, `logRateLimit`, `logRedisOperation`
+        - integrated into `src/index.ts` for HTTP request logging
+        - supports JSON format in production with file transports
+    - [X] Set up Jest for unit testing
+        - created `jest.config.js` with ts-jest and 80% coverage threshold
+        - created `tests/setup.ts` for test configuration
+        - created `tests/redis.test.ts` (9 tests for Redis operations)
+        - created `tests/api.test.ts` (5 tests for API endpoints)
+        - installed supertest for HTTP testing
+        - **14 tests passing!**
+    - [X] Document your learnings as you go ← this file!
 
 ### **This Month**
 - [ ] Phase 1 Basic Rate Limiting 7 days
