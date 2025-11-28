@@ -16,13 +16,29 @@ const parseEnvInt = (
   return parsed;
 };
 
+const redisPassword = process.env.REDIS_PASSWORD;
+if (!redisPassword) {
+  throw new Error('REDIS_PASSWORD is required (see docker-compose.yml/.env)');
+}
+
 const redis = new Redis({
   host: process.env.REDIS_HOST || 'localhost',
   port: parseEnvInt(process.env.REDIS_PORT, 6379, 'REDIS_PORT'),
   password: process.env.REDIS_PASSWORD || undefined,
   db: parseEnvInt(process.env.REDIS_DB, 0, 'REDIS_DB'),
-  retryDelayOnFailover: 100,
   maxRetriesPerRequest: 3,
+  enableOfflineQueue: false, // Don't queue commands when disconnected
+  connectTimeout: 10000, // 10 second connection timeout
+  
+  retryStrategy: (times: number) => {
+    // 'times' = number of connection attempts
+    // Return: delay in milliseconds
+    // Return null/undefined to stop retrying
+
+    // Exponential backoff: delay = min(times * 50, 2000)
+    const delay = Math.min(times * 50, 2000);
+    return delay;
+  },
 });
 
 redis.on('connect', () => {

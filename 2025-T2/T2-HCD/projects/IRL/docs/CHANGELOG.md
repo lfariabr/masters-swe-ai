@@ -16,7 +16,7 @@ touch package.json tsconfig.json docker-compose.yml .env.example
 ### **This Week**
 - [X] Complete Phase 0 (Foundation) - 2-3 days
     - [X] Get a running Node.js server with Redis connected
-        - created `package.json` and installed dependencies: node, express, redis, typescript, jest
+        - created `package.json` and installed dependencies: node, express, ioredis, typescript, jest
         - created `tsconfig.json` for TypeScript configuration
         - created `docker-compose.yml` to set up Redis service
         - created .env.example, .env and .gitignore for environment variables
@@ -27,7 +27,7 @@ touch package.json tsconfig.json docker-compose.yml .env.example
             - basic rate limit test endpoint*
         NEXT:
             - add jest tests for Redis connection and basic endpoint
-- [ ] Document your learnings as you go
+    - [ ] Document your learnings as you go
 - [ ] Set up your GitHub repo structure
 
 ### **This Month**
