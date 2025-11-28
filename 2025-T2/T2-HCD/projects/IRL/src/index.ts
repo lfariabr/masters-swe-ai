@@ -155,9 +155,12 @@ app.use((err: Error, req: Request, res: Response, _next: NextFunction) => {
   });
 });
 
+// Server instance for graceful shutdown
+let server: ReturnType<typeof app.listen> | null = null;
+
 // Start server only when run directly (not when imported for tests)
 const startServer = () => {
-  const server = app.listen(PORT, () => {
+  server = app.listen(PORT, () => {
     logger.info(`🚀 IRL Server started`, { port: PORT });
     console.log(`
 🚀 IRL Server running on http://localhost:${PORT}
@@ -179,12 +182,38 @@ if (process.env.NODE_ENV !== 'test' && require.main === module) {
   startServer();
 }
 
-// Graceful shutdown
+// Graceful shutdown - properly drain connections before exiting
 const shutdown = async (signal: string) => {
   logger.info(`Received ${signal}. Shutting down gracefully...`);
-  await redis.quit();
+
+  // Stop accepting new connections and wait for existing ones to finish
+  if (server) {
+    await new Promise<void>((resolve, reject) => {
+      server!.close((err) => {
+        if (err) {
+          logger.error('Error closing HTTP server', { error: err.message });
+          reject(err);
+        } else {
+          logger.info('HTTP server closed');
+          resolve();
+        }
+      });
+    });
+  }
+
+  // Now close Redis connection
+  try {
+    await redis.quit();
+    logger.info('Redis connection closed');
+  } catch (err) {
+    logger.error('Error closing Redis connection', {
+      error: err instanceof Error ? err.message : 'Unknown error',
+    });
+  }
+
   process.exit(0);
 };
+
 process.on('SIGINT', () => shutdown('SIGINT'));
 process.on('SIGTERM', () => shutdown('SIGTERM'));
 

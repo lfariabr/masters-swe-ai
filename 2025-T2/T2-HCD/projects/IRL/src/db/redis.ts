@@ -56,10 +56,33 @@ export const waitForRedis = (): Promise<void> => {
       resolve();
       return;
     }
-    redis.once('ready', () => resolve());
-    redis.once('error', (err) => reject(err));
+
+    let timeoutId: NodeJS.Timeout;
+
+    const cleanup = () => {
+      clearTimeout(timeoutId);
+      redis.off('ready', onReady);
+      redis.off('error', onError);
+    };
+
+    const onReady = () => {
+      cleanup();
+      resolve();
+    };
+
+    const onError = (err: Error) => {
+      cleanup();
+      reject(err);
+    };
+
+    redis.once('ready', onReady);
+    redis.once('error', onError);
+
     // Timeout after 5 seconds
-    setTimeout(() => reject(new Error('Redis connection timeout')), 5000);
+    timeoutId = setTimeout(() => {
+      cleanup();
+      reject(new Error('Redis connection timeout'));
+    }, 5000);
   });
 };
 
