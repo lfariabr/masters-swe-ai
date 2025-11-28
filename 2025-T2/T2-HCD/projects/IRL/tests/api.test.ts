@@ -1,61 +1,47 @@
-import express, { Express } from 'express';
 import request from 'supertest';
+import { app, redis } from '../src/index';
+import { waitForRedis } from '../src/db/redis';
 
-// Create a minimal test app that mirrors the main app's endpoints
-function createTestApp(): Express {
-  const app = express();
-  app.use(express.json());
-
-  // Root endpoint
-  app.get('/', (_req, res) => {
-    res.json({
-      name: 'IRL Rate Limiter',
-      version: '0.1.0',
-      description: 'Intelligent Rate Limiting System for Agentic AI',
-    });
+describe('API Endpoints (Real App)', () => {
+  beforeAll(async () => {
+    // Wait for Redis to be fully connected before running tests
+    await waitForRedis();
   });
 
-  // Health check (mocked - doesn't require Redis for unit tests)
-  app.get('/health', (_req, res) => {
-    res.json({
-      status: 'ok',
-      timestamp: new Date().toISOString(),
-      redis: 'connected',
-    });
-  });
-
-  return app;
-}
-
-describe('API Endpoints', () => {
-  let app: Express;
-
-  beforeAll(() => {
-    app = createTestApp();
+  afterAll(async () => {
+    // Clean up test keys and close Redis connection
+    const keys = await redis.keys('ratelimit:*');
+    if (keys.length > 0) {
+      await redis.del(...keys);
+    }
+    await redis.quit();
   });
 
   describe('GET /', () => {
-    it('should return API info', async () => {
+    it('should return API info with correct structure', async () => {
       const response = await request(app).get('/');
 
       expect(response.status).toBe(200);
-      expect(response.body).toHaveProperty('name', 'IRL Rate Limiter');
+      expect(response.body).toHaveProperty('name', 'IRL - Intelligent Rate Limiter');
       expect(response.body).toHaveProperty('version', '0.1.0');
-      expect(response.body).toHaveProperty('description');
+      expect(response.body).toHaveProperty('endpoints');
+      expect(response.body.endpoints).toHaveProperty('health', '/health');
+      expect(response.body.endpoints).toHaveProperty('testRedis', '/test-redis');
+      expect(response.body.endpoints).toHaveProperty('testRateLimit', '/api/test');
     });
   });
 
   describe('GET /health', () => {
-    it('should return health status', async () => {
+    it('should return health status with Redis connected', async () => {
       const response = await request(app).get('/health');
 
       expect(response.status).toBe(200);
       expect(response.body).toHaveProperty('status', 'ok');
       expect(response.body).toHaveProperty('timestamp');
-      expect(response.body).toHaveProperty('redis');
+      expect(response.body).toHaveProperty('redis', 'connected');
     });
 
-    it('should return ISO timestamp', async () => {
+    it('should return valid ISO timestamp', async () => {
       const response = await request(app).get('/health');
 
       const timestamp = response.body.timestamp;
@@ -65,26 +51,97 @@ describe('API Endpoints', () => {
     });
   });
 
+  describe('GET /test-redis', () => {
+    it('should verify Redis connection and operations', async () => {
+      const response = await request(app).get('/test-redis');
+
+      expect(response.status).toBe(200);
+      expect(response.body).toHaveProperty('success', true);
+      expect(response.body).toHaveProperty('message', 'Redis is working!');
+      expect(response.body).toHaveProperty('testValue', 'Hello from IRL!');
+      expect(response.body).toHaveProperty('redisVersion');
+    });
+  });
+
+  describe('GET /api/test (Rate Limiting)', () => {
+    beforeEach(async () => {
+      // Clean up rate limit keys before each test
+      const keys = await redis.keys('ratelimit:*');
+      if (keys.length > 0) {
+        await redis.del(...keys);
+      }
+    });
+
+    it('should return success with rate limit headers', async () => {
+      const response = await request(app).get('/api/test');
+
+      expect(response.status).toBe(200);
+      expect(response.body).toHaveProperty('message', 'Request successful!');
+      expect(response.body).toHaveProperty('requestNumber', 1);
+      expect(response.body).toHaveProperty('remaining');
+      expect(response.body).toHaveProperty('limit');
+
+      // Verify rate limit headers exist and have valid values
+      expect(response.headers).toHaveProperty('x-ratelimit-limit');
+      expect(response.headers).toHaveProperty('x-ratelimit-remaining');
+      expect(response.headers).toHaveProperty('x-ratelimit-reset');
+
+      // Validate headers parse to proper numbers
+      const limit = parseInt(response.headers['x-ratelimit-limit'], 10);
+      const remaining = parseInt(response.headers['x-ratelimit-remaining'], 10);
+      const reset = parseInt(response.headers['x-ratelimit-reset'], 10);
+
+      expect(limit).toBeGreaterThan(0);
+      expect(remaining).toBeGreaterThanOrEqual(0);
+      expect(remaining).toBeLessThanOrEqual(limit);
+      expect(reset).toBeGreaterThan(Math.floor(Date.now() / 1000));
+    });
+
+    it('should increment request count on subsequent requests', async () => {
+      const response1 = await request(app).get('/api/test');
+      const response2 = await request(app).get('/api/test');
+      const response3 = await request(app).get('/api/test');
+
+      expect(response1.body.requestNumber).toBe(1);
+      expect(response2.body.requestNumber).toBe(2);
+      expect(response3.body.requestNumber).toBe(3);
+
+      // Remaining should decrease
+      expect(response2.body.remaining).toBeLessThan(response1.body.remaining);
+      expect(response3.body.remaining).toBeLessThan(response2.body.remaining);
+    });
+
+    it('should return 429 when rate limit is exceeded', async () => {
+      // Set a very low rate limit for testing
+      const originalLimit = process.env.DEFAULT_RATE_LIMIT;
+      process.env.DEFAULT_RATE_LIMIT = '3';
+
+      try {
+        // Make requests up to and beyond the limit
+        await request(app).get('/api/test'); // 1
+        await request(app).get('/api/test'); // 2
+        await request(app).get('/api/test'); // 3
+        const blockedResponse = await request(app).get('/api/test'); // 4 - should be blocked
+
+        expect(blockedResponse.status).toBe(429);
+        expect(blockedResponse.body).toHaveProperty('error', 'Too Many Requests');
+        expect(blockedResponse.body).toHaveProperty('retryAfter');
+      } finally {
+        // Restore original limit
+        if (originalLimit) {
+          process.env.DEFAULT_RATE_LIMIT = originalLimit;
+        } else {
+          delete process.env.DEFAULT_RATE_LIMIT;
+        }
+      }
+    });
+  });
+
   describe('404 Handling', () => {
     it('should return 404 for unknown routes', async () => {
-      const response = await request(app).get('/unknown-route');
+      const response = await request(app).get('/unknown-route-that-does-not-exist');
 
       expect(response.status).toBe(404);
     });
-  });
-});
-
-describe('Rate Limit Headers', () => {
-  it('should validate X-RateLimit header format', () => {
-    // Test the header format we expect
-    const headers = {
-      'X-RateLimit-Limit': '100',
-      'X-RateLimit-Remaining': '99',
-      'X-RateLimit-Reset': String(Math.floor(Date.now() / 1000) + 60),
-    };
-
-    expect(parseInt(headers['X-RateLimit-Limit'], 10)).toBeGreaterThan(0);
-    expect(parseInt(headers['X-RateLimit-Remaining'], 10)).toBeGreaterThanOrEqual(0);
-    expect(parseInt(headers['X-RateLimit-Reset'], 10)).toBeGreaterThan(Date.now() / 1000);
   });
 });

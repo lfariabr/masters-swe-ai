@@ -155,10 +155,11 @@ app.use((err: Error, req: Request, res: Response, _next: NextFunction) => {
   });
 });
 
-// Start server
-app.listen(PORT, () => {
-  logger.info(`🚀 IRL Server started`, { port: PORT });
-  console.log(`
+// Start server only when run directly (not when imported for tests)
+const startServer = () => {
+  const server = app.listen(PORT, () => {
+    logger.info(`🚀 IRL Server started`, { port: PORT });
+    console.log(`
 🚀 IRL Server running on http://localhost:${PORT}
 📊 Redis Commander at http://localhost:8081 (if using docker-compose)
 
@@ -168,7 +169,15 @@ Available endpoints:
   GET /test-redis - Test Redis connection
   GET /api/test - Test rate limiting
   `);
-});
+  });
+  return server;
+};
+
+// Only start if this is the main module (not imported)
+// Check if running via tsx/node directly vs being imported
+if (process.env.NODE_ENV !== 'test' && require.main === module) {
+  startServer();
+}
 
 // Graceful shutdown
 const shutdown = async (signal: string) => {
@@ -179,4 +188,4 @@ const shutdown = async (signal: string) => {
 process.on('SIGINT', () => shutdown('SIGINT'));
 process.on('SIGTERM', () => shutdown('SIGTERM'));
 
-export default app;
+export { app, redis, startServer };

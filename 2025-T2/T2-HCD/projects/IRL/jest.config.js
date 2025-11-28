@@ -23,6 +23,10 @@ module.exports = {
   verbose: true,
   setupFilesAfterEnv: ['<rootDir>/tests/setup.ts'],
   forceExit: true,
+  // Handle .js extensions in TypeScript imports (ESM-style imports)
+  moduleNameMapper: {
+    '^(\\.{1,2}/.*)\\.js$': '$1'
+  },
   transform: {
     '^.+\\.ts$': ['ts-jest', {
       isolatedModules: true,

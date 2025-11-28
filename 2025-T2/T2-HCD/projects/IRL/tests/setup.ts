@@ -1,6 +1,15 @@
 // Jest setup file
 // This runs before each test file
 
+import dotenv from 'dotenv';
+import path from 'path';
+
+// Load environment variables for tests
+dotenv.config({ path: path.resolve(__dirname, '../.env') });
+
+// Set test environment to prevent server from auto-starting
+process.env.NODE_ENV = 'test';
+
 // Increase timeout for integration tests
 jest.setTimeout(10000);
 
@@ -12,9 +21,3 @@ jest.setTimeout(10000);
 //   info: jest.fn(),
 //   debug: jest.fn(),
 // };
-
-// Clean up after all tests
-afterAll(async () => {
-  // Give time for any async operations to complete
-  await new Promise((resolve) => setTimeout(resolve, 100));
-});

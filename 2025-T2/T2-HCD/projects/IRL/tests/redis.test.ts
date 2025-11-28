@@ -1,9 +1,6 @@
 import Redis from 'ioredis';
-import dotenv from 'dotenv';
-import path from 'path';
 
-// Load environment variables from .env file
-dotenv.config({ path: path.resolve(__dirname, '../.env') });
+// Environment variables are loaded in setup.ts
 
 describe('Redis Connection', () => {
   let redis: Redis;
@@ -140,7 +137,7 @@ describe('Redis Connection', () => {
       expect(result).toBeNull();
     });
 
-    it('should return 0 for TTL on non-existent key', async () => {
+    it('should return -2 for TTL on non-existent key', async () => {
       const ttl = await redis.ttl('test:nonexistent:key:67890');
       expect(ttl).toBe(-2); // -2 means key does not exist
     });
