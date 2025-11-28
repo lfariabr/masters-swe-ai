@@ -7,7 +7,7 @@
 # 3. Set up your initial project structure:
 
 
-cd /Users/luisfaria/Desktop/sEngineer/masters_SWEAI/2025-T2/T2-HCD/projects/IRL
+cd 2025-T2/T2-HCD/projects/IRL
 mkdir -p src/{core,graphql,db,models,services,middleware,utils}
 mkdir -p dashboard tests k8s docs
 touch package.json tsconfig.json docker-compose.yml .env.example
@@ -20,7 +20,7 @@ touch package.json tsconfig.json docker-compose.yml .env.example
         - created `tsconfig.json` for TypeScript configuration
         - created `docker-compose.yml` to set up Redis service
         - created .env.example, .env and .gitignore for environment variables
-        - created a basic Redis client in `src/db/redisClient.ts`
+        - created a basic Redis client in `src/db/redis.ts`
         - created a comprehensive `src/index.ts` to:
             - start the Express server 
             - connect to Redis

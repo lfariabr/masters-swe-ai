@@ -9,8 +9,15 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Trust proxy for proper client IP behind load balancers/proxies
+app.set('trust proxy', true);
+
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: '*', // Adjust as needed for security
+  // process.env.ALLOWED_ORIGINS?.split(',') || ['http://localhost:3000'],
+  credentials: true,
+}));
 app.use(express.json());
 
 // Health check endpoint
@@ -58,18 +65,24 @@ app.get('/test-redis', async (req: Request, res: Response) => {
   }
 });
 
+// Lua script for atomic rate limiting: INCR + conditional EXPIRE
+const RATE_LIMIT_SCRIPT = `
+  local current = redis.call('INCR', KEYS[1])
+  if current == 1 then
+    redis.call('EXPIRE', KEYS[1], ARGV[1])
+  end
+  return current
+`;
+
 // Basic rate limit test endpoint (placeholder for Phase 1)
 app.get('/api/test', async (req: Request, res: Response) => {
   const clientIP = req.ip || 'unknown';
   const key = `ratelimit:${clientIP}`;
+  const windowSeconds = 60;
   
   try {
-    const current = await redis.incr(key);
-    
-    // Set expiry on first request
-    if (current === 1) {
-      await redis.expire(key, 60); // 1 minute window
-    }
+    // Atomic increment + expire using Lua script (no race condition)
+    const current = await redis.eval(RATE_LIMIT_SCRIPT, 1, key, windowSeconds) as number;
     
     const limit = parseInt(process.env.DEFAULT_RATE_LIMIT || '100');
     const remaining = Math.max(0, limit - current);
@@ -118,6 +131,7 @@ app.get('/', (req: Request, res: Response) => {
 });
 
 // Error handling middleware
+// # Consider using a proper logging library like pino or winston for production
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   console.error('Error:', err.message);
   res.status(500).json({
@@ -141,10 +155,12 @@ Available endpoints:
 });
 
 // Graceful shutdown
-process.on('SIGTERM', async () => {
-  console.log('Shutting down gracefully...');
+const shutdown = async (signal: string) => {
+  console.log(`Received ${signal}. Shutting down gracefully...`);
   await redis.quit();
   process.exit(0);
-});
+};
+process.on('SIGINT', () => shutdown('SIGINT'));
+process.on('SIGTERM', () => shutdown('SIGTERM'));
 
 export default app;
