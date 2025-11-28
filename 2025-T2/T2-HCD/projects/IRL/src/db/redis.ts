@@ -49,4 +49,41 @@ redis.on('error', (err) => {
   console.error('❌ Redis connection error:', err.message);
 });
 
+// Helper function to wait for Redis to be ready
+export const waitForRedis = (): Promise<void> => {
+  return new Promise((resolve, reject) => {
+    if (redis.status === 'ready') {
+      resolve();
+      return;
+    }
+
+    let timeoutId: NodeJS.Timeout;
+
+    const cleanup = () => {
+      clearTimeout(timeoutId);
+      redis.off('ready', onReady);
+      redis.off('error', onError);
+    };
+
+    const onReady = () => {
+      cleanup();
+      resolve();
+    };
+
+    const onError = (err: Error) => {
+      cleanup();
+      reject(err);
+    };
+
+    redis.once('ready', onReady);
+    redis.once('error', onError);
+
+    // Timeout after 5 seconds
+    timeoutId = setTimeout(() => {
+      cleanup();
+      reject(new Error('Redis connection timeout'));
+    }, 5000);
+  });
+};
+
 export default redis;

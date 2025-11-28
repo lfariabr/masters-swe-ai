@@ -2,6 +2,7 @@ import express, { Request, Response, NextFunction } from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import redis from './db/redis.js';
+import logger, { logRequest, logRateLimit } from './utils/logger.js';
 
 // Load environment variables
 dotenv.config();
@@ -19,6 +20,19 @@ app.use(cors({
   credentials: true,
 }));
 app.use(express.json());
+
+// Request logging middleware
+app.use((req: Request, res: Response, next: NextFunction) => {
+  const start = Date.now();
+  res.on('finish', () => {
+    const duration = Date.now() - start;
+    logRequest(req.method, req.path, res.statusCode, duration, {
+      ip: req.ip,
+      userAgent: req.get('User-Agent'),
+    });
+  });
+  next();
+});
 
 // Health check endpoint
 app.get('/health', async (req: Request, res: Response) => {
@@ -95,6 +109,7 @@ app.get('/api/test', async (req: Request, res: Response) => {
     });
     
     if (current > limit) {
+      logRateLimit(clientIP, 'blocked', current, limit);
       res.status(429).json({
         error: 'Too Many Requests',
         message: 'Rate limit exceeded. Please try again later.',
@@ -103,6 +118,7 @@ app.get('/api/test', async (req: Request, res: Response) => {
       return;
     }
     
+    logRateLimit(clientIP, 'allowed', current, limit);
     res.json({
       message: 'Request successful!',
       requestNumber: current,
@@ -131,18 +147,22 @@ app.get('/', (req: Request, res: Response) => {
 });
 
 // Error handling middleware
-// # Consider using a proper logging library like pino or winston for production
-app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
-  console.error('Error:', err.message);
+app.use((err: Error, req: Request, res: Response, _next: NextFunction) => {
+  logger.error('Unhandled error', { error: err.message, stack: err.stack, path: req.path });
   res.status(500).json({
     error: 'Internal Server Error',
     message: err.message,
   });
 });
 
-// Start server
-app.listen(PORT, () => {
-  console.log(`
+// Server instance for graceful shutdown
+let server: ReturnType<typeof app.listen> | null = null;
+
+// Start server only when run directly (not when imported for tests)
+const startServer = () => {
+  server = app.listen(PORT, () => {
+    logger.info(`🚀 IRL Server started`, { port: PORT });
+    console.log(`
 🚀 IRL Server running on http://localhost:${PORT}
 📊 Redis Commander at http://localhost:8081 (if using docker-compose)
 
@@ -152,15 +172,49 @@ Available endpoints:
   GET /test-redis - Test Redis connection
   GET /api/test - Test rate limiting
   `);
-});
+  });
+  return server;
+};
 
-// Graceful shutdown
+// Only start if this is the main module (not imported)
+// Check if running via tsx/node directly vs being imported
+if (process.env.NODE_ENV !== 'test' && require.main === module) {
+  startServer();
+}
+
+// Graceful shutdown - properly drain connections before exiting
 const shutdown = async (signal: string) => {
-  console.log(`Received ${signal}. Shutting down gracefully...`);
-  await redis.quit();
+  logger.info(`Received ${signal}. Shutting down gracefully...`);
+
+  // Stop accepting new connections and wait for existing ones to finish
+  if (server) {
+    await new Promise<void>((resolve, reject) => {
+      server!.close((err) => {
+        if (err) {
+          logger.error('Error closing HTTP server', { error: err.message });
+          reject(err);
+        } else {
+          logger.info('HTTP server closed');
+          resolve();
+        }
+      });
+    });
+  }
+
+  // Now close Redis connection
+  try {
+    await redis.quit();
+    logger.info('Redis connection closed');
+  } catch (err) {
+    logger.error('Error closing Redis connection', {
+      error: err instanceof Error ? err.message : 'Unknown error',
+    });
+  }
+
   process.exit(0);
 };
+
 process.on('SIGINT', () => shutdown('SIGINT'));
 process.on('SIGTERM', () => shutdown('SIGTERM'));
 
-export default app;
+export { app, redis, startServer };
