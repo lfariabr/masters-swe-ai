@@ -1,5 +1,12 @@
 ## Changelog
 
+### **Unreleased**
+- **Added**: Token Bucket rate limiter implementation
+    - Implemented `TokenBucket` interface and `createTokenBucket` factory in `src/core/rateLimiter/tokenBucket.ts`.
+    - Notes: initial in-memory implementation (tokens, capacity, rate, lastRefill). Not yet wired into middleware or Redis-backed atomic consumption — planned next steps.
+    - Related branch: `feat/token-bucket` (2025-11-29)
+
+
 ### **Immediate (Today)**
 ```bash
 # 1. Review the README
@@ -65,15 +72,15 @@ IRL/
 
 - [ ] Complete Phase 1 (Rate Limiting)
     - [X] **1.1**: Set up Redis client with ioredis
-    - [ ] Break down `src/index.ts` into modular files:
+    - [X] Break down `src/index.ts` into modular files:
         - `src/routes/testRateLimit.ts` - Rate limit test endpoint
         - `src/routes/health.routes.ts` - Health check endpoint
         - `src/routes/testRedisRouter.ts` - Redis connection test endpoint
-        - *more to come*
-    - [ ] **1.2**: Implement Token Bucket algorithm
+    - [X] **1.2**: Implement Token Bucket algorithm
         - Token generation rate calculation
         - Bucket capacity management
         - Atomic token consumption using Redis Lua scripts
+        - File: `src/core/rateLimiter/tokenBucket.ts`
     - [ ] **1.3**: Create REST API endpoints:
         - `POST /api/request` - Request access (consumes token)
         - `GET /api/quota/:agentId` - Check remaining quota

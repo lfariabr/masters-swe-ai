@@ -149,7 +149,7 @@ The **Intelligent Rate Limiting (IRL) System** is a governance middleware that t
 
 ### Required
 - **Node.js** 18+ ([download](https://nodejs.org/))
-- **pnpm** 8+ (`npm install -g pnpm`)
+- **npm** 8+ (`npm install -g npm`)
 - **Docker** & **Docker Compose** ([download](https://www.docker.com/))
 
 ### Optional
