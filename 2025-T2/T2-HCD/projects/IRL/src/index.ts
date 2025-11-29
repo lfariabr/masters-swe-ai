@@ -4,6 +4,9 @@ import dotenv from 'dotenv';
 import redis from './db/redis.js';
 import logger, { logRequest, logRateLimit } from './utils/logger.js';
 
+import rateLimitRouter from './routes/testRateLimit.js';
+import healthRouter from './routes/health.routes.js';
+
 // Load environment variables
 dotenv.config();
 
@@ -34,24 +37,6 @@ app.use((req: Request, res: Response, next: NextFunction) => {
   next();
 });
 
-// Health check endpoint
-app.get('/health', async (req: Request, res: Response) => {
-  try {
-    const redisPing = await redis.ping();
-    res.json({
-      status: 'ok',
-      timestamp: new Date().toISOString(),
-      redis: redisPing === 'PONG' ? 'connected' : 'disconnected',
-    });
-  } catch (error) {
-    res.status(503).json({
-      status: 'error',
-      timestamp: new Date().toISOString(),
-      redis: 'disconnected',
-    });
-  }
-});
-
 // Test Redis endpoint
 app.get('/test-redis', async (req: Request, res: Response) => {
   try {
@@ -79,59 +64,10 @@ app.get('/test-redis', async (req: Request, res: Response) => {
   }
 });
 
-// Lua script for atomic rate limiting: INCR + conditional EXPIRE
-const RATE_LIMIT_SCRIPT = `
-  local current = redis.call('INCR', KEYS[1])
-  if current == 1 then
-    redis.call('EXPIRE', KEYS[1], ARGV[1])
-  end
-  return current
-`;
-
-// Basic rate limit test endpoint (placeholder for Phase 1)
-app.get('/api/test', async (req: Request, res: Response) => {
-  const clientIP = req.ip || 'unknown';
-  const key = `ratelimit:${clientIP}`;
-  const windowSeconds = 60;
-  
-  try {
-    // Atomic increment + expire using Lua script (no race condition)
-    const current = await redis.eval(RATE_LIMIT_SCRIPT, 1, key, windowSeconds) as number;
-    
-    const limit = parseInt(process.env.DEFAULT_RATE_LIMIT || '100');
-    const remaining = Math.max(0, limit - current);
-    
-    // Set rate limit headers
-    res.set({
-      'X-RateLimit-Limit': limit.toString(),
-      'X-RateLimit-Remaining': remaining.toString(),
-      'X-RateLimit-Reset': (Math.floor(Date.now() / 1000) + 60).toString(),
-    });
-    
-    if (current > limit) {
-      logRateLimit(clientIP, 'blocked', current, limit);
-      res.status(429).json({
-        error: 'Too Many Requests',
-        message: 'Rate limit exceeded. Please try again later.',
-        retryAfter: 60,
-      });
-      return;
-    }
-    
-    logRateLimit(clientIP, 'allowed', current, limit);
-    res.json({
-      message: 'Request successful!',
-      requestNumber: current,
-      remaining,
-      limit,
-    });
-  } catch (error) {
-    res.status(500).json({
-      error: 'Internal Server Error',
-      message: error instanceof Error ? error.message : 'Unknown error',
-    });
-  }
-});
+// Rate limiting routes
+app.use('/api', rateLimitRouter);
+// Health check routes
+app.use('/', healthRouter);
 
 // Root endpoint
 app.get('/', (req: Request, res: Response) => {

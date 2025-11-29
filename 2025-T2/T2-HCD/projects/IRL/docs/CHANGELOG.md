@@ -63,6 +63,22 @@ IRL/
 └── tsconfig.json         # TypeScript config
 ```
 
+- [ ] Complete Phase 1 (Rate Limiting)
+    - [X] **1.1**: Set up Redis client with ioredis
+    - [ ] Break down `src/index.ts` into modular files:
+        - `src/routes/testRateLimit.ts` - Rate limit test endpoint
+        - `src/routes/health.routes.ts` - Health check endpoint
+    - [ ] **1.2**: Implement Token Bucket algorithm
+        - Token generation rate calculation
+        - Bucket capacity management
+        - Atomic token consumption using Redis Lua scripts
+    - [ ] **1.3**: Create REST API endpoints:
+        - `POST /api/request` - Request access (consumes token)
+        - `GET /api/quota/:agentId` - Check remaining quota
+    - [ ] **1.4**: Add rate limit middleware
+    - [ ] **1.5**: Write unit tests (>80% coverage)
+    - [ ] **1.6**: Load test with Apache Bench or k6
+
 ### **This Month**
 - [ ] Phase 1 Basic Rate Limiting 7 days
     Goal: Token Bucket algorithm with Redis backend
