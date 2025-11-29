@@ -40,8 +40,28 @@ touch package.json tsconfig.json docker-compose.yml .env.example
         - created `tests/redis.test.ts` (9 tests for Redis operations)
         - created `tests/api.test.ts` (5 tests for API endpoints)
         - installed supertest for HTTP testing
-        - **14 tests passing!**
-    - [X] Document your learnings as you go ← this file!
+        - **17 tests passing!**
+
+#### Project Structure
+ ```bash
+IRL/
+├── src/
+│   ├── index.ts          # Express server + endpoints
+│   ├── db/
+│   │   └── redis.ts      # Redis client + waitForRedis()
+│   └── utils/
+│       └── logger.ts     # Winston structured logging
+├── tests/
+│   ├── setup.ts          # Jest setup (loads .env, sets NODE_ENV)
+│   ├── redis.test.ts     # 9 Redis integration tests
+│   └── api.test.ts       # 8 API integration tests
+├── .eslintrc.json        # ESLint config
+├── .prettierrc           # Prettier config
+├── jest.config.js        # Jest config
+├── docker-compose.yml    # Redis + Redis Commander
+├── package.json          # Dependencies + scripts
+└── tsconfig.json         # TypeScript config
+```
 
 ### **This Month**
 - [ ] Phase 1 Basic Rate Limiting 7 days

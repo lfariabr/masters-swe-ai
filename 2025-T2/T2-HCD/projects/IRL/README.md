@@ -164,7 +164,7 @@ The **Intelligent Rate Limiting (IRL) System** is a governance middleware that t
 # 1. Clone & Install
 git clone https://github.com/lfariabr/masters-swe-ai.git
 cd masters-swe-ai/2025-T2/T2-HCD/projects/IRL
-pnpm install
+npm install
 
 # 2. Environment Setup
 cp .env.example .env
@@ -172,11 +172,11 @@ cp .env.example .env
 
 # 3. Start Infrastructure
 docker-compose up -d
-pnpm db:migrate
-pnpm db:seed
+npm db:migrate
+npm db:seed
 
 # 4. Start Development Server
-pnpm dev
+npm run dev
 ```
 
 **GraphQL Playground**: http://localhost:4000/graphql
