@@ -14,7 +14,7 @@ const RATE_LIMIT_SCRIPT = `
   return current
 `;
 
-router.get('/test', async (req: Request, res: Response) => {
+router.get('/test-rate-limit', async (req: Request, res: Response) => {
   const clientIP = req.ip || 'unknown';
   const key = `ratelimit:${clientIP}`;
   const windowSeconds = 60;
@@ -29,22 +29,22 @@ router.get('/test', async (req: Request, res: Response) => {
 
     const limit = parseInt(process.env.DEFAULT_RATE_LIMIT || '100', 10);
     const remaining = Math.max(0, limit - current);
+    const ttl = await redis.ttl(key);
+    const resetTime = Math.floor(Date.now() / 1000) + windowSeconds;
 
     res.set({
       'X-RateLimit-Limit': limit.toString(),
       'X-RateLimit-Remaining': remaining.toString(),
-      'X-RateLimit-Reset': (
-        Math.floor(Date.now() / 1000) + windowSeconds
-      ).toString(),
+      'X-RateLimit-Reset': resetTime.toString(),
     });
 
-        if (current > limit) {
-            logRateLimit(clientIP, 'blocked', current, limit);
-            return res.status(429).json({
-                error: 'Too Many Requests',
-                message: 'Rate limit exceeded. Please try again later.',
-                retryAfter: windowSeconds,
-            });
+    if (current > limit) {
+      logRateLimit(clientIP, 'blocked', current, limit);
+      return res.status(429).json({
+          error: 'Too Many Requests',
+          message: 'Rate limit exceeded. Please try again later.',
+          retryAfter: windowSeconds,
+      });
     }
 
     logRateLimit(clientIP, 'allowed', current, limit);
@@ -53,11 +53,14 @@ router.get('/test', async (req: Request, res: Response) => {
       requestNumber: current,
       remaining,
       limit,
+      resetTime,
     });
   } catch (error) {
+    logRateLimit(clientIP, 'error', 0, 100);
     return res.status(500).json({
       error: 'Internal Server Error',
-      message: error instanceof Error ? error.message : 'Unknown error',
+      message: 'An unexpected error occurred. Please try again later.',
+      resetTime: Math.floor(Date.now() / 1000) + windowSeconds,
     });
   }
 });

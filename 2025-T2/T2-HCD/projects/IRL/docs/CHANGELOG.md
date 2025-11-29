@@ -68,6 +68,8 @@ IRL/
     - [ ] Break down `src/index.ts` into modular files:
         - `src/routes/testRateLimit.ts` - Rate limit test endpoint
         - `src/routes/health.routes.ts` - Health check endpoint
+        - `src/routes/testRedisRouter.ts` - Redis connection test endpoint
+        - *more to come*
     - [ ] **1.2**: Implement Token Bucket algorithm
         - Token generation rate calculation
         - Bucket capacity management

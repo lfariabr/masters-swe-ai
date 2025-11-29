@@ -6,6 +6,7 @@ import logger, { logRequest, logRateLimit } from './utils/logger.js';
 
 import rateLimitRouter from './routes/testRateLimit.js';
 import healthRouter from './routes/health.routes.js';
+import testRedisRouter from './routes/testRedisRouter.js';
 
 // Load environment variables
 dotenv.config();
@@ -37,47 +38,19 @@ app.use((req: Request, res: Response, next: NextFunction) => {
   next();
 });
 
-// Test Redis endpoint
-app.get('/test-redis', async (req: Request, res: Response) => {
-  try {
-    // Set a test value
-    await redis.set('test:key', 'Hello from IRL!', 'EX', 60);
-    
-    // Get the value back
-    const value = await redis.get('test:key');
-    
-    // Get Redis info
-    const info = await redis.info('server');
-    const redisVersion = info.match(/redis_version:(.+)/)?.[1]?.trim();
-    
-    res.json({
-      success: true,
-      message: 'Redis is working!',
-      testValue: value,
-      redisVersion,
-    });
-  } catch (error) {
-    res.status(500).json({
-      success: false,
-      error: error instanceof Error ? error.message : 'Unknown error',
-    });
-  }
-});
-
-// Rate limiting routes
 app.use('/api', rateLimitRouter);
-// Health check routes
-app.use('/', healthRouter);
+app.use('/test-redis', testRedisRouter);
+app.use('/health', healthRouter);
 
 // Root endpoint
-app.get('/', (req: Request, res: Response) => {
+app.get('/', (_req: Request, res: Response) => {
   res.json({
     name: 'IRL - Intelligent Rate Limiter',
     version: '0.1.0',
     endpoints: {
       health: '/health',
       testRedis: '/test-redis',
-      testRateLimit: '/api/test',
+      testRateLimit: '/api/test-rate-limit',
     },
   });
 });
@@ -106,7 +79,7 @@ Available endpoints:
   GET /         - API info
   GET /health   - Health check
   GET /test-redis - Test Redis connection
-  GET /api/test - Test rate limiting
+  GET /api/test-rate-limit - Test rate limiting
   `);
   });
   return server;

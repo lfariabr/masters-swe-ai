@@ -1,11 +1,12 @@
 // src/routes/health.routes.ts
 import { Router, Request, Response } from 'express';
 import redis from '../db/redis.js';
+import logger from '../utils/logger.js';
 
 const router = Router();
 
 // Health check endpoint
-router.get('/health', async (req: Request, res: Response) => {
+router.get('/', async (_req: Request, res: Response) => {
   try {
     const redisPing = await redis.ping();
     res.json({
@@ -13,7 +14,8 @@ router.get('/health', async (req: Request, res: Response) => {
       timestamp: new Date().toISOString(),
       redis: redisPing === 'PONG' ? 'connected' : 'disconnected',
     });
-  } catch (error) {
+  } catch (error: any) {
+    logger.error('Health check failed', { error: error.message });
     res.status(503).json({
       status: 'error',
       timestamp: new Date().toISOString(),
