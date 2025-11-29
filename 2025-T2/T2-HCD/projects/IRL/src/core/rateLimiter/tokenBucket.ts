@@ -3,7 +3,7 @@
 // - Token generation rate calculation
 // - Bucket capacity management
 // - Serialize/deserialize for Redis storage
-// - TODO: Atomic consumption via Redis Lua script (see TOKEN_BUCKET_LUA below)
+// - Atomic consumption via Redis Lua script (see TOKEN_BUCKET_LUA below)
 
 /* ─────────────────────────────────────────────────────────────────────────────
  * Interface
@@ -29,6 +29,8 @@ export function createTokenBucket(
   tokens: number = capacity,
   lastRefill: number = Date.now(),
 ): TokenBucket {
+  if (capacity <= 0) throw new Error('TokenBucket capacity must be positive');
+  if (rate < 0) throw new Error('TokenBucket rate cannot be negative');
   return {
     capacity,
     rate,
@@ -124,7 +126,8 @@ if tokens >= amount then
 end
 
 -- persist
-redis.call('SET', key, cjson.encode({capacity, rate, tokens, lastRefill}))
+local ttl = math.ceil(capacity / rate) + 60 -- full refill time + buffer
+redis.call('SET', key, cjson.encode({capacity, rate, tokens, lastRefill}), 'EX', ttl)
 
 -- retry-after (ms)
 local retryAfterMs = 0
