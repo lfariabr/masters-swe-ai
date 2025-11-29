@@ -20,18 +20,13 @@ const BOLD = '\x1b[1m';
 
 // Custom log format for better terminal visibility
 const logFormat = printf(({ level, message, timestamp, ...metadata }) => {
-  // Remove service from display (clutters the output)
   const { service, ...rest } = metadata;
 
-  // Format metadata nicely if present
-  let metaStr = '';
-  if (Object.keys(rest).length > 0) {
-    metaStr = Object.entries(rest)
-      .map(([k, v]) => `${DIM}${k}=${RESET}${v}`)
-      .join(' ');
-  }
-
-  return `${DIM}${timestamp}${RESET} [${level}] ${BOLD}${message}${RESET} ${metaStr}`;
+  const metaString = Object.keys(rest).length > 0 
+    ? `\n${JSON.stringify(rest, null, 2)}` 
+    : '';
+  
+  return `${timestamp || ''} [${level}] ${message}${metaString}`;
 });
 
 // Create Winston logger instance
@@ -87,16 +82,18 @@ export const logRequest = (
 
 export const logRateLimit = (
   clientId: string,
-  action: 'allowed' | 'blocked',
+  action: 'allowed' | 'blocked' | 'error',
   current: number,
   limit: number,
   metadata?: Record<string, unknown>
 ) => {
-  const emoji = action === 'blocked' ? '🚫' : '✅';
+  const emoji = action === 'blocked' ? '🚫' : action === 'error' ? '⚠️' : '✅';
   const remaining = Math.max(0, limit - current);
 
   if (action === 'blocked') {
     logger.warn(`${emoji} Rate limit BLOCKED ${clientId} (${current}/${limit})`);
+  } else if (action === 'error') {
+    logger.error(`${emoji} Rate limit ERROR ${clientId} (${current}/${limit})`);
   } else {
     logger.info(`${emoji} Rate limit OK ${DIM}${remaining}/${limit} remaining${RESET}`);
   }

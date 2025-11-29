@@ -27,7 +27,7 @@ describe('API Endpoints (Real App)', () => {
       expect(response.body).toHaveProperty('endpoints');
       expect(response.body.endpoints).toHaveProperty('health', '/health');
       expect(response.body.endpoints).toHaveProperty('testRedis', '/test-redis');
-      expect(response.body.endpoints).toHaveProperty('testRateLimit', '/api/test');
+      expect(response.body.endpoints).toHaveProperty('testRateLimit', '/api/test-rate-limit');
     });
   });
 
@@ -73,7 +73,7 @@ describe('API Endpoints (Real App)', () => {
     });
 
     it('should return success with rate limit headers', async () => {
-      const response = await request(app).get('/api/test');
+      const response = await request(app).get('/api/test-rate-limit');
 
       expect(response.status).toBe(200);
       expect(response.body).toHaveProperty('message', 'Request successful!');
@@ -98,9 +98,9 @@ describe('API Endpoints (Real App)', () => {
     });
 
     it('should increment request count on subsequent requests', async () => {
-      const response1 = await request(app).get('/api/test');
-      const response2 = await request(app).get('/api/test');
-      const response3 = await request(app).get('/api/test');
+      const response1 = await request(app).get('/api/test-rate-limit');
+      const response2 = await request(app).get('/api/test-rate-limit');
+      const response3 = await request(app).get('/api/test-rate-limit');
 
       expect(response1.body.requestNumber).toBe(1);
       expect(response2.body.requestNumber).toBe(2);
@@ -118,10 +118,10 @@ describe('API Endpoints (Real App)', () => {
 
       try {
         // Make requests up to and beyond the limit
-        await request(app).get('/api/test'); // 1
-        await request(app).get('/api/test'); // 2
-        await request(app).get('/api/test'); // 3
-        const blockedResponse = await request(app).get('/api/test'); // 4 - should be blocked
+        await request(app).get('/api/test-rate-limit'); // 1
+        await request(app).get('/api/test-rate-limit'); // 2
+        await request(app).get('/api/test-rate-limit'); // 3
+        const blockedResponse = await request(app).get('/api/test-rate-limit'); // 4 - should be blocked
 
         expect(blockedResponse.status).toBe(429);
         expect(blockedResponse.body).toHaveProperty('error', 'Too Many Requests');

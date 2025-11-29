@@ -215,7 +215,7 @@ npm run dev
 **Goal**: Implement Token Bucket algorithm with Redis
 
 #### Tasks:
-- [ ] **1.1**: Set up Redis client with ioredis
+- [X] **1.1**: Set up Redis client with ioredis
 - [ ] **1.2**: Implement Token Bucket algorithm
   - Token generation rate calculation
   - Bucket capacity management
