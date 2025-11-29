@@ -1,6 +1,7 @@
 // src/routes/testRedisRouter.ts
 import { Router, Request, Response } from 'express';
 import redis from '../db/redis.js';
+import logger from '../utils/logger.js';
 
 const router = Router();
 
@@ -22,10 +23,11 @@ router.get('/', async (_req: Request, res: Response) => {
       testValue: value,
       redisVersion,
     });
-  } catch (error) {
+  } catch (error: any) {
+    logger.error('Redis test endpoint failed', error);
     res.status(500).json({
       success: false,
-      error: error instanceof Error ? error.message : 'Unknown error',
+      error: error.message,
     });
   }
 });

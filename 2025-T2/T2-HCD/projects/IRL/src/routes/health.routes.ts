@@ -15,7 +15,7 @@ router.get('/', async (_req: Request, res: Response) => {
       redis: redisPing === 'PONG' ? 'connected' : 'disconnected',
     });
   } catch (error: any) {
-    logger.error('Health check failed', { error: error.message });
+    logger.error('Health check failed', error);
     res.status(503).json({
       status: 'error',
       timestamp: new Date().toISOString(),
