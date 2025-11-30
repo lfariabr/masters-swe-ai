@@ -81,7 +81,10 @@ export function serialize(bucket: TokenBucket): string {
 /** Parse serialized bucket. Throws on invalid data. */
 export function deserialize(json: string): TokenBucket {
   const arr = JSON.parse(json);
-  if (!Array.isArray(arr) || arr.length < 4) {
+  if (!Array.isArray(arr) ||
+    arr.length < 4 ||
+    !arr.slice(0, 4).every((v) => typeof v === 'number' && Number.isFinite(v))
+  ) {
     throw new Error('Invalid TokenBucket JSON');
   }
   const [capacity, rate, tokens, lastRefill] = arr as number[];
