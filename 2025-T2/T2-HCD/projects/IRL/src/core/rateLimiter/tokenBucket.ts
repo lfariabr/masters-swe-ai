@@ -95,6 +95,7 @@ export function deserialize(json: string): TokenBucket {
  * Redis Lua Script (for atomic consumption in distributed setup)
  * Usage: redis.eval(TOKEN_BUCKET_LUA, 1, key, capacity, rate, amount, nowMs)
  * Returns: [allowed (0|1), remaining, retryAfterMs]
+ *          retryAfterMs: -1 means Infinity (rate == 0, will never refill)
  * ───────────────────────────────────────────────────────────────────────────── */
 
 export const TOKEN_BUCKET_LUA = `
@@ -108,9 +109,18 @@ local data = redis.call('GET', key)
 local tokens, lastRefill
 
 if data then
-  local t = cjson.decode(data)
-  tokens = t[3]
-  lastRefill = t[4]
+  local ok, t = pcall(cjson.decode, data)
+  -- validate structure (mirrors TS deserialize paranoia)
+  if not ok or type(t) ~= 'table' or #t < 4 or
+     type(t[1]) ~= 'number' or type(t[2]) ~= 'number' or
+     type(t[3]) ~= 'number' or type(t[4]) ~= 'number' then
+    -- corrupt data: re-initialize
+    tokens = capacity
+    lastRefill = now
+  else
+    tokens = t[3]
+    lastRefill = t[4]
+  end
 else
   tokens = capacity
   lastRefill = now
@@ -137,10 +147,14 @@ if rate > 0 then
 end
 redis.call('SET', key, cjson.encode({capacity, rate, tokens, lastRefill}), 'EX', ttl)
 
--- retry-after (ms)
+-- retry-after (ms): -1 = Infinity (zero-rate bucket, will never refill)
 local retryAfterMs = 0
-if allowed == 0 and rate > 0 then
-  retryAfterMs = math.ceil((amount - tokens) / rate * 1000)
+if allowed == 0 then
+  if rate > 0 then
+    retryAfterMs = math.ceil((amount - tokens) / rate * 1000)
+  else
+    retryAfterMs = -1
+  end
 end
 
 return {allowed, tokens, retryAfterMs}
