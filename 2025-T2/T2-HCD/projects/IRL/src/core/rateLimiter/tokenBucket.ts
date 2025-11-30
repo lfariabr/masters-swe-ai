@@ -116,10 +116,12 @@ else
   lastRefill = now
 end
 
--- refill
-local elapsed = (now - lastRefill) / 1000
-tokens = math.min(capacity, tokens + elapsed * rate)
-lastRefill = now
+-- refill (only if clock moved forward; mirrors TS early-return)
+if now > lastRefill then
+  local elapsed = (now - lastRefill) / 1000
+  tokens = math.min(capacity, tokens + elapsed * rate)
+  lastRefill = now
+end
 
 -- consume
 local allowed = 0
@@ -128,8 +130,11 @@ if tokens >= amount then
   allowed = 1
 end
 
--- persist
-local ttl = math.ceil(capacity / rate) + 60 -- full refill time + buffer
+-- persist (guard against rate == 0 to avoid division by zero)
+local ttl = 60
+if rate > 0 then
+  ttl = math.ceil(capacity / rate) + 60
+end
 redis.call('SET', key, cjson.encode({capacity, rate, tokens, lastRefill}), 'EX', ttl)
 
 -- retry-after (ms)
