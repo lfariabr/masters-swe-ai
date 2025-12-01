@@ -23,4 +23,4 @@ Dr. Omid Haass
 ## Assignments
 - [X] Assessment 1 - deadline 12/10/2025 ✅, **Research Presentation** on *AI Recommendation Systems*
 - [X] Assessment 2 - deadline 09/11/2025 ✅, **Solution Report** on *Agentic AI Systems&
-- [ ] Assessment 3 - deadline 03/12/2025 🔥, **System Solution** on *Intelligent Multi-Tier Rate Limiting System*
+- [X] Assessment 3 - deadline 03/12/2025 ✅, **System Solution** on *Intelligent Multi-Tier Rate Limiting System*
