@@ -1000,3 +1000,22 @@ R:
 | T | F | F  | T  |    T    | F ⊕ F = **F** | F → T = **T** |
 | F | T | T  | F  |    T    | T ⊕ T = **F** | F → F = **T** |
 | F | F | T  | T  |    T    | T ⊕ F = **T** | T → F = **F** |
+
+## Module 12 - First Order Logic
+
+Questions to heat up:
+1. How to train AI agent for context?
+2. How does it learn?
+
+### Types of Logic:
+1. Propositional Logic
+2. Predicate Logic
+3. Boolean Logic
+
+### Classes of Logic:
+- Classic Logics
+- Non-Classical Logics
+- Modal Logics
+- Fuzzy Logics
+- Temporal Logics
+- Probabilistic Logics
