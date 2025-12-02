@@ -10,11 +10,18 @@ cover_image: https://github.com/lfariabr/masters-swe-ai/blob/master/2025-T2/T2-M
 
 **From determinants to hill climbing algorithms—how I turned academic math into an open-source learning platform.**
 
+> *"Whether it's concrete or code, structure is everything."*
+
 ---
 
 ## 🎓 The Challenge: Making Math "Click"
 
-As a self-taught software engineer transitioning from 10+ years in project management, I enrolled in **MFA501 – Mathematical Foundations of Artificial Intelligence** at Torrens University Australia under Dr. James Vakilian. The subject covered everything from linear algebra to optimization algorithms—the mathematical backbone of modern AI.
+As a self-taught software engineer transitioning from 10+ years in project management, I enrolled in **MFA501 – Mathematical Foundations of Artificial Intelligence** at Torrens University Australia under Dr. James Vakilian. The subject covered everything from linear algebra to optimization algorithms—the mathematical backbone of modern AI applications in:
+
+- **Machine Learning** (model training, optimization)
+- **Natural Language Processing** (text embeddings, transformations)
+- **Computer Vision** (image processing, feature extraction)
+- **Speech Recognition** (signal processing, pattern matching)
 
 But here's the problem: **abstract math doesn't stick unless you build something with it.**
 
@@ -28,9 +35,25 @@ That question drove the entire project.
 
 ## 🚀 What Is EigenAI?
 
-**EigenAI** is a web-based educational platform that implements core mathematical concepts from AI foundations. It's structured around **three major assessments** that progressively build complexity:
+**EigenAI** (playing on "eigenvalues" and "AI foundations") is a web-based educational platform that implements core mathematical concepts from AI foundations. It's structured around **three major assessments** that progressively build complexity:
 
-### **Assessment 1: Linear Algebra Foundations**
+### **The 12-Week Journey**
+
+The subject covered 12 progressive modules:
+
+**Weeks 1-5: Linear Algebra Foundations**  
+→ Sets, vectors, matrices, transformations, eigenvalues
+
+**Weeks 6-9: Calculus & Optimization**  
+→ Derivatives, integrals, hill climbing, simulated annealing, genetic algorithms  
+→ **Module 6 taught by Dr. Niusha Shafiabady**
+
+**Weeks 10-12: Probability, Statistics & Logic**  
+→ Foundations for AI reasoning and decision-making
+
+---
+
+### **Assessment 1: Linear Algebra Foundations** *(Online Quiz)*
 ✅ Recursive determinant calculation for n×n matrices  
 ✅ Eigenvalue and eigenvector computation (2×2 matrices)  
 ✅ Step-by-step mathematical notation using SymPy  
@@ -38,11 +61,16 @@ That question drove the entire project.
 
 **The Challenge:** Implement cofactor expansion from scratch—no NumPy allowed for core logic, only pure Python.
 
-**Why It Matters:** Understanding how determinants work manually reveals why matrix singularity breaks machine learning models.
+**Why It Matters:** Eigenvalues and eigenvectors are the foundation of:
+- **PCA (Principal Component Analysis)** — dimensionality reduction for large datasets
+- **Eigenfaces** — facial recognition algorithms
+- **Feature compression** — reducing computational cost in ML models
+
+Understanding determinants reveals why singular matrices break these algorithms.
 
 ---
 
-### **Assessment 2: Calculus & Neural Networks**
+### **Assessment 2: Calculus & Neural Networks** *(Case Study)*
 ✅ Numerical integration (Trapezoid, Simpson's Rule, Adaptive Simpson)  
 ✅ RRBF (Recurrent Radial Basis Function) gradient computation  
 ✅ Manual backpropagation without TensorFlow/PyTorch  
@@ -54,7 +82,7 @@ That question drove the entire project.
 
 ---
 
-### **Assessment 3: AI Optimization Algorithms**
+### **Assessment 3: AI Optimization Algorithms** *(Case Study)*
 ✅ Hill Climbing algorithm for binary image reconstruction  
 ✅ Stochastic sampling variant (speed vs. accuracy trade-off)  
 ✅ Pattern complexity selector (simple vs. complex cost landscapes)  
@@ -63,6 +91,26 @@ That question drove the entire project.
 **The Challenge:** Reconstruct a 10×10 binary image from random noise using only local search—no global optimization, no backtracking.
 
 **Why It Matters:** Hill climbing is the foundation of gradient descent, simulated annealing, and evolutionary algorithms. If you understand local optima here, you understand why neural networks get stuck.
+
+> **💡 Key Insight from Module 6 (Dr. Shafiabady):**
+> 
+> Hill climbing can get stuck in local optima with no guarantee of finding the global optimum. The cure?
+> - **Random restarts** (try multiple starting points)
+> - **Random mutations** (introduce noise)
+> - **Probabilistic acceptance** (simulated annealing)
+> 
+> This limitation explains why modern AI uses ensemble methods and stochastic optimization.
+
+---
+
+## 🗓️ Project Timeline
+
+**October 2025:** Assessment 1 completed (Linear Algebra Quiz) — **95% (HD)**  
+**October 2025:** Assessment 2A submitted (Determinants & Eigenvalues) — **92% (HD)**  
+**November 2025:** Assessment 2B submitted (Integrals & RRBF) — **97% (HD)**  
+**December 2025:** Assessment 3 submitted (Hill Climbing) — **Awaiting results**
+
+**Total Duration:** 12 weeks of intensive mathematical foundations for AI
 
 ---
 
@@ -114,6 +162,20 @@ eigenai/
 
 **Lesson Learned:** Separating algorithm logic from UI made testing 10x easier. When debugging the cost function, the UI stayed unchanged. When improving visualizations, the core math stayed untouched.
 
+**Iterative Development:** EigenAI evolved through 23+ versions:
+
+| Version | Milestone |
+|---------|----------|
+| v0.0.1 | Streamlit setup, assets, pages |
+| v0.1.0 | ✅ Assessment 2A submission |
+| v0.1.8 | Added Hill Climbing Binary Image Reconstruction |
+| v0.2.0 | ✅ Assessment 2B submission (Integration + RRBF) |
+| v0.2.4 | Added stochastic sampling to Hill Climber |
+| v0.2.6 | Added complex pattern selector |
+| v0.3.0 | ✅ Assessment 3 submission (Hill Climbing Algorithm) |
+
+> Each assessment pushed the app forward—turning coursework into production-ready features.
+
 ---
 
 ### **2. Hill Climbing: When "Good Enough" Is Good Enough**
@@ -144,10 +206,12 @@ while cost > 0 and iterations < max_iterations:
 - Complex pattern (checkerboard): **85% success rate**, gets stuck in local optima
 - Stochastic sampling (50 neighbors): **95% success**, 2x faster
 
-**The Insight:** Hill climbing works beautifully on smooth cost landscapes but fails on complex ones. This limitation explains why modern AI uses:
-- Simulated annealing (allows temporary cost increases)
-- Genetic algorithms (explores multiple paths simultaneously)
-- Gradient descent with momentum (escapes shallow local minima)
+**The Insight:** Hill climbing works beautifully on smooth cost landscapes but fails on complex ones.
+
+**This limitation explains why modern AI uses:**
+- **Simulated annealing** — allows temporary cost increases (probabilistic acceptance)
+- **Genetic algorithms** — explores multiple paths simultaneously (population-based)
+- **Gradient descent with momentum** — escapes shallow local minima (velocity-based)
 
 ---
 
@@ -198,10 +262,10 @@ This project transformed my understanding of AI math:
 - Watched hill climbing fail on checkerboards, **understood** why cost landscape matters
 
 **Grades:**
-- Assessment 1: XX% (XX)
-- Assessment 2A: XX% (XX)
-- Assessment 2B: XX% (XX)
-- Assessment 3: XX% (XX)
+- Assessment 1 (Linear Algebra Quiz): **95% (HD)**
+- Assessment 2A (Determinants & Eigenvalues): **92% (HD)**
+- Assessment 2B (Integrals & RRBF): **97% (HD)**
+- Assessment 3 (Hill Climbing): **Submitted (expecting HD based on feedback)**
 
 More importantly: **I can now read ML papers and understand the math.**
 
@@ -209,18 +273,27 @@ More importantly: **I can now read ML papers and understand the math.**
 
 ## 🔮 What's Next for EigenAI?
 
-Currently exploring **v3.1.0** features:
+**Module 6 introduced three optimization paradigms:**
+- ✅ **Hill Climbing** (implemented in Assessment 3)
+- 🔜 **Simulated Annealing** (probabilistic escape from local optima)
+- 🔜 **Genetic Algorithms** (population-based evolutionary search)
 
-- **Simulated Annealing** comparison (how much better than hill climbing?)
-- **Genetic Algorithm** variant (population-based optimization)
-- **A* Search** for pathfinding (admissible heuristics)
-- **Q-Learning** demo (reinforcement learning basics)
-- **Transformer attention visualization** (scaled dot-product attention)
+**Upcoming v3.1.0+ features:**
 
-Future integrations:
-- RESTful API for programmatic access
-- Jupyter notebook exports (download as .ipynb)
-- LLM-powered explanations (plug in GPT-4 for step-by-step coaching)
+**Enhanced Optimization Suite:**
+- Simulated Annealing comparison (temperature schedules, acceptance probability)
+- Genetic Algorithm variant (crossover, mutation, selection operators)
+- A* Search for pathfinding (admissible heuristics)
+- Q-Learning demo (reinforcement learning basics)
+
+**Platform Enhancements:**
+- 🔐 **Authentication** — user login and progress tracking
+- 🤖 **LLM Integration** — GPT-4 powered step-by-step explanations with rate limiting
+- ☁️ **Supabase BaaS** — cloud storage for user data and solutions
+- 🚀 **Backend Framework** — FastAPI or Flask for RESTful API
+- 📊 **Weekly Digest** — agentic integration for learning analytics
+- 🧪 **Test Coverage** — comprehensive unit testing with pytest
+- 🔒 **Security Enhancements** — input sanitization, HTTPS enforcement
 
 ---
 
@@ -229,8 +302,9 @@ Future integrations:
 If you want to explore EigenAI:
 
 - **🌍 Live Demo:** [eigen-ai.streamlit.app](https://eigen-ai.streamlit.app/)
-- **📂 GitHub Repo:** [masters-swe-ai/eigenai](https://github.com/lfariabr/masters-swe-ai/tree/master/2025-T2/T2-MFA/projects/eigenai)
-- **📹 Video Demo:** TBD
+- **📹 Video Demo:** 
+    - [Assessment 2](https://github.com/lfariabr/masters-swe-ai/blob/ef67e4c296a7582a9ae5afb4a5267145a6fa5bea/2025-T2/T2-MFA/assignments/Assessment2)
+    - [Assessment 3](https://github.com/lfariabr/masters-swe-ai/blob/b5eec28fe739477a3113daddf78ae4ce292e69d6/2025-T2/T2-MFA/assignments/Assessment3/Set3Problem1)
 
 ---
 
@@ -261,10 +335,10 @@ Every function has:
 
 Building EigenAI has been the perfect bridge between mathematical theory and practical software engineering. If you're:
 
-- 🎓 Learning AI/ML foundations
-- 💻 Building educational tools
-- 🧮 Passionate about making math accessible
-- 🔍 Interested in optimization algorithms
+- Learning AI/ML foundations
+- Building educational tools
+- Passionate about making math accessible
+- Interested in optimization algorithms
 
 **Let's connect on [LinkedIn](https://linkedin.com/in/lfariabr) or drop a ⭐ on the [GitHub repo](https://github.com/lfariabr/masters-swe-ai)!**
 
@@ -290,3 +364,7 @@ Building EigenAI has been the perfect bridge between mathematical theory and pra
 
 *Built with ☕ and calculus by [Luis Faria](https://luisfaria.dev)  
 Student @ Torrens University Australia | MFA501 | Dec 2025*
+
+---
+
+**"Whether it's concrete or code, structure is everything."** — *EigenAI team*

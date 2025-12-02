@@ -1073,16 +1073,19 @@ When we “train a model” with data, the training loop, loss function, update 
 ### IV. Quantifiers – Talking About “All” and “Some”
 
 FOL introduces quantifiers so we can talk about groups of objects, not just single facts:
+
 - **Universal quantifier – “for all”**
     - Symbol: ∀
     - Example:
-    - “All humans are mortal” → ∀x (Human(x) → Mortal(x))
-    - “Everyone likes Mary” → ∀x likes(x, Mary)
+        - “All humans are mortal” → ∀x (Human(x) → Mortal(x))
+        - “Everyone likes Mary” → ∀x likes(x, Mary)
+
 - **Existential quantifier – “there exists”**
     - Symbol: ∃
     - Example:
         - “There exists a student who likes AI” → ∃x (Student(x) ∧ likes(x, AI))
         - “Someone likes Mary” → ∃x likes(x, Mary)
+
 - **Derived quantifiers (mentioned conceptually):**
     - “There exists exactly one” (∃!) → only one object satisfies the property.
     - “None” → negation of “there exists” → ¬∃x P(x) ≡ ∀x ¬P(x) (no x satisfies this).  ￼
@@ -1109,6 +1112,7 @@ Boolean logic is basically propositional logic implemented in electronics:
     - Truth table:
         - 0 → 1
         - 1 → 0
+
 - **AND gate (series circuit)**
     - Logical: p ∧ q
     - Truth table:
@@ -1116,6 +1120,7 @@ Boolean logic is basically propositional logic implemented in electronics:
         - 1 AND 0 = 0
         - 0 AND 1 = 0
         - 0 AND 0 = 0
+
 - **OR gate (parallel circuit)**
     - Logical: p ∨ q
     - Truth table:
@@ -1129,7 +1134,7 @@ Example from class: adding binary numbers (like 2 + 2 = 4) using logic gates (10
 
 So:
 
-Logic → Boolean algebra → Logic gates → Circuits → Computers → AI.
+> ***Logic → Boolean algebra → Logic gates → Circuits → Computers → AI.***
 
 ---
 
@@ -1141,7 +1146,7 @@ Logic → Boolean algebra → Logic gates → Circuits → Computers → AI.
 5. Probability & Fuzzy Logic: handle uncertainty and graded truth.
 6. AI/ML Models: built on top of these foundations.
 
-This is the “stack” James summarized at the end: everything we do in CS/AI ultimately sits on top of logic + math + hardware.  ￼
+This is the “stack” Dr. James summarized at the end: everything we do in CS/AI ultimately sits on top of logic + math + hardware.  ￼
 
 ---
 
@@ -1160,3 +1165,36 @@ This is the “stack” James summarized at the end: everything we do in CS/AI u
 
 5. Have you used logic (even implicitly) in your own coding / AI work?
 → Examples: if statements, while loops, guard conditions, rules in expert systems, constraints in optimization problems — all of them are built from logical foundations.
+
+---
+
+## Extra
+
+### Workshop, 120min
+
+Write a paragraph of 500 words in aprox 5' for each topic and summarize the following:
+1. What have you learned about this topic?
+2. How is this topic related to computer science?
+3. How can it assist you in your career?
+
+I. Set theory
+II. Undefined concepts
+III. Linear Algebra
+IV. Coordinate systems
+V. Vectors, Matrices & Tensors
+VI. Transformation
+VII. Eigenvalue & Eigenvectors
+VIII. Relations & Functions
+IX. Limits & Continuity
+X. Differential calculus
+XI. Integral calculus
+XII. Optimization
+XIII. Different types of phenomena
+XIV. Probability theorem
+XV. Statistics
+XVI. Distribution
+XVII. Reasoning & Logic
+XVIII. Propositional logic
+XIX. Predicate logic
+XX. Stochastic systems
+
