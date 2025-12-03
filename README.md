@@ -54,7 +54,7 @@ Term | Subject | Status | Lecturer | Directory | Credit Points
 | T2 | Human Centered Design (***Core***) 2025 | 🔥 | Dr. Omid Haass | [HCD402](./2025-T2/T2-HCD/) | 10
 | T2 | Mathematical Foundations of AI (***Core***) 2025 | ✅ | Dr. James Vakilian | [MFA501](./2025-T2/T2-MFA/) | 10
 | T2 | Research Methodologies (***Core***) 2025 | 🔥 | Dr. Bushra Naeem | [REM502](./2025-T2/T2-REM/) | 10
-| T2 | Secure By Design (***Core***) 2025 | 🔥 | Dr. Tanvir Rahman | [SBD402](./2025-T2/T2-SBD/) | 10
+| T2 | Secure By Design (***Core***) 2025 | ✅ | Dr. Tanvir Rahman | [SBD402](./2025-T2/T2-SBD/) | 10
 | T3 | Intelligent Systems (***Core***) 2026 | 🕐 | TBD | [ISY503](TBD) | 10
 | T3 | Cloud Computing Fundamentals (***Elective***) 2026 | 🕐 | TBD | [CCF501](TBD) | 10
 
