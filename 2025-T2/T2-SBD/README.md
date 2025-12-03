@@ -18,7 +18,7 @@ Dr. Tanvir Rahman
 - [X] Module 9 - Reducing complexity
 - [X] Module 10 - How to maintain an Enterprise - scale system
 - [X] Module 11 - Approaches to Attack: Common traditional techniques of cyber attacks
-- [ ] Module 12 - Security by design in the real world
+- [X] Module 12 - Security by design in the real world
 
 ## Assignments
 - [X] Assessment 1 - deadline 12/10/2025 ✅, **Online Quiz** on *Secure by Design: Terminology and Basic Concepts*

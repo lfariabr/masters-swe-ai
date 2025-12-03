@@ -621,10 +621,35 @@ Area 5 - Resources: allocate adequate budget, personnel, and tools for security 
 
 ---
 
-# Things liked/not liked Tanvir
-Liked: knowlegeable, deep understanding of topics, clear communication, patience with questions
-Not liked: N/A
+## Module 12 - Security by design in the real world
 
-# Things liked/not liked SBD course
-Liked: #todo
-Not liked: #todo
+How to integrate security into development processes
+Organizational principles important 
+We talked about both software and hardware
+The importance of context
+
+---
+
+## Things liked/not liked Tanvir
+
+- What I appreciated:
+Dr. Tanvir demonstrated exceptional subject-matter expertise and a deep, practical understanding of cybersecurity concepts. His explanations were clear, structured, and communicated with patience, even when questions became technical or repetitive. 
+One of the highlights of the term was his guidance on academic writing — especially how to identify credible sources, evaluate peer-reviewed material, and formulate original arguments. That alone significantly improved the quality of my assessments!!!
+
+- What could be improved:
+I have no negative feedback regarding Dr. Tanvir’s teaching. His delivery, support, and engagement were consistently excellent.
+
+## Things liked/not liked SBD course
+
+- What I liked about the course:
+The theoretical foundation was strong and very well explained. I left the subject with a clear understanding of secure-by-design principles, industry standards, and best-practice frameworks such as ISO 27001, NIST SP 800-63, and OWASP.
+I particularly appreciated how the theory directly connected with the assessments — being able to apply the concepts from lectures in Assessments 2 and 3 helped solidify the learning. Building the CuraNexus Analytics secure-by-design framework allowed me to demonstrate the principles in a real-world context.
+
+- What could be improved:
+I believe the course would benefit from more practical exercises or labs. We covered a lot of protocols, models, and security controls, but hands-on reinforcement would greatly enhance understanding — for example:
+- before/after case studies of companies implementing (or failing to implement) secure-by-design
+- guided labs simulating SQL injection, misconfigurations, or access control flaws
+- red-team / blue-team style activities
+- small in-class exercises on designing threat models or calculating DREAD scores
+
+Additionally, assessments could include a lightly technical component (e.g., designing a minimal secure prototype or implementing a small, security-focused feature). This would help bridge the gap between theory and applied security engineering!
