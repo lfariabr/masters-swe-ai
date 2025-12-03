@@ -1,7 +1,3 @@
-# From Academic Research to Production-Ready AI Governance: Building the Intelligent Rate Limiting System
-
-**Tags**: #ai #machinelearning #nodejs #graphql #humancentereddesign
-
 > "The design choices we make today will determine whether autonomous AI amplifies human capability—or undermines it."
 
 What happens when you give an AI agent your credit card and tell it to "solve this problem autonomously"? For one developer, it meant waking up to a **$50,000 AWS bill**.
@@ -12,15 +8,21 @@ That's not a hypothetical horror story. It's a real incident documented in my re
 
 ## The Academic Journey That Led Here
 
-### Assessment 1: The Spark (AI Recommendation Systems)
+---
+
+### Assessment 1: The Spark 
+> Outcome: AI Recommendation Systems
 
 My journey into AI governance started innocently enough with a research presentation on AI recommendation systems. I explored how platforms like Netflix and Spotify shape our choices—but also how they can trap us in filter bubbles.
 
 **The insight**: When AI systems lack transparency and human oversight, they undermine user agency.
 
-### Assessment 2: Identifying the Problem (Agentic AI Crisis)
+---
 
-For my second assessment, I dove deep into the emerging world of **Agentic AI**—autonomous agents like AutoGPT, Devin, and GPT-Engineer that don't wait for commands. They *act independently*.
+### Assessment 2: Identifying the Problem 
+> Outcome: Agentic AI Crisis
+
+For my second assessment, I dove deep into the emerging world of **Agentic AI**—autonomous agents like AutoGPT, Devin, and GPT-Engineer that don't wait for commands and *act independently*.
 
 **The 2000-word report** uncovered four critical failure modes:
 
@@ -31,7 +33,10 @@ For my second assessment, I dove deep into the emerging world of **Agentic AI**�
 
 Current solutions? **Generic HTTP 429 errors** with zero context, zero fairness, and zero human control.
 
-### Assessment 3: Building the Solution (IRL System)
+---
+
+### Assessment 3: Building the Solution 
+> Outcome: IRL System
 
 The natural progression: **Design and build a human-centered governance system**.
 
@@ -39,7 +44,8 @@ Working with teammates Julio and Tamara, we created the **Intelligent Multi-Tier
 
 ---
 
-## Cherry-Picking the Perfect Tech Stack (Because I Could)
+## Cherry-Picking the Perfect Tech Stack
+> Because I Could
 
 One of the coolest parts of academic projects? **You get to choose your technologies strategically**.
 
