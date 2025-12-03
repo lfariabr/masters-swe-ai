@@ -10,7 +10,7 @@ Tags: #research, #machinelearning, #healthcare, #nps, #dataanalytics, #python
 
 ## The Question That Started It All
 
-During my 10+ years managing aesthetic healthcare clinics across Brazil, I witnessed firsthand how Net Promoter Score (NPS) became the golden metric. Every meeting, every dashboard, every strategic decision seemed to revolve around those magic numbers: Promoters (9-10), Passives (7-8), Detractors (0-6).
+During my 6+ years working for aesthetic healthcare clinics across Brazil, I witnessed firsthand how Net Promoter Score (NPS) became the golden metric. Every meeting, every dashboard, every strategic decision seemed to revolve around those magic numbers: Promoters (9-10), Passives (7-8), Detractors (0-6).
 
 But here's the uncomfortable truth I kept noticing:
 
@@ -22,7 +22,8 @@ That question became the foundation of my Master's research at **Torrens Univers
 
 ---
 
-## 📚 Assessment 1: Critical Literature Review — Finding the Gap
+## Assessment 1: Critical Literature Review 
+> Finding the Gap
 
 ### What We Discovered
 
@@ -54,14 +55,15 @@ AI sentiment systems presume sentiment-to-performance correlations that remain s
 
 ---
 
-## 🔬 Assessment 2: Research Tools and Methodologies — Designing the Study
+## Assessment 2: Research Tools and Methodologies
+> Designing the Study
 
 ### Research Questions
 
 Based on the identified gap, I formulated two precise research questions:
 
-**RQ1:** To what extent is Net Promoter Score correlated with monthly revenue growth in healthcare clinics?  
-**RQ2:** Can NPS trends predict short-term revenue fluctuations?
+- **RQ1:** To what extent is Net Promoter Score correlated with monthly revenue growth in healthcare clinics?  
+- **RQ2:** Can NPS trends predict short-term revenue fluctuations?
 
 ### Hypotheses
 
@@ -70,17 +72,16 @@ Based on the identified gap, I formulated two precise research questions:
 
 ### Methodology: Quantitative Correlational Design
 
-**Philosophical Orientation:** Pragmatic-Positivist paradigm (Morgan, 2014)
+- **Philosophical Orientation:** Pragmatic-Positivist paradigm (Morgan, 2014)
 
-**Why Quantitative?**  
-The research questions are relational, not exploratory. We need statistical evidence, not narrative insights.
+**Why Quantitative?** R: The research questions are relational, not exploratory. We need statistical evidence, not narrative insights.
 
 ### The Dataset
 
-**Source:** Pro-Corpo Estética (Brazilian healthcare group)  
-**Size:** ~27,000 aggregated NPS survey responses  
-**Timeline:** 36 months (2022-2025)  
-**Scope:** Multiple clinic branches across Brazil
+- **Source:** Pro-Corpo Estética (Brazilian healthcare group)  
+- **Size:** ~27,000 aggregated NPS survey responses  
+- **Timeline:** 36 months (2022-2025)  
+- **Scope:** Multiple clinic branches across Brazil
 
 **Data Structure:**
 - Clinic ID / Store name
@@ -121,14 +122,15 @@ The research questions are relational, not exploratory. We need statistical evid
 
 ### Ethics & Governance
 
-✓ **Anonymized Data:** Aggregated at clinic-month level  
-✓ **Institutional Consent:** Signed approval from Pro-Corpo  
-✓ **Legal Compliance:** LGPD (Brazil) + GDPR + Australian Privacy Act (1988)  
-✓ **Researcher Reflexivity:** Documented as former collaborator
+- ✓ **Anonymized Data:** Aggregated at clinic-month level  
+- ✓ **Institutional Consent:** Signed approval from Pro-Corpo  
+- ✓ **Legal Compliance:** LGPD (Brazil) + GDPR + Australian Privacy Act (1988)  
+- ✓ **Researcher Reflexivity:** Documented as former collaborator
 
 ---
 
-## 📊 Assessment 3: Research Proposal — The Full Picture
+## Assessment 3: Research Proposal
+> The Full Picture
 
 ### Conceptual Framework
 
@@ -137,9 +139,9 @@ The research questions are relational, not exploratory. We need statistical evid
 ```
 Patient       NPS         Loyalty        Revenue
 Experience  → Score   →  Intent    →?→  Growth
-   ✓            ✓          ✓          ?
-                    ↑
-              BROKEN LINK
+   ✓            ✓          ✓        ?
+                                    ↑
+                                BROKEN LINK
 ```
 
 This study tests whether the "?" is actually a validated connection.
@@ -148,20 +150,20 @@ This study tests whether the "?" is actually a validated connection.
 
 Regardless of statistical outcome, this research provides actionable intelligence:
 
-**Scenario 1: Strong Correlation (r > 0.7, p < 0.05)**  
-✅ **Validate NPS** as strategic KPI  
-✅ Simple tracking systems sufficient  
-✅ Cost-effective patient monitoring justified
+**Scenario 1: Strong Correlation ✅ (r > 0.7, p < 0.05)**  
+- **Validate NPS** as strategic KPI  
+- Simple tracking systems sufficient  
+- Cost-effective patient monitoring justified
 
-**Scenario 2: Moderate Correlation (0.3 < r < 0.7, p < 0.05)**  
-⚠️ **Partial validation** — NPS provides some signal  
-⚠️ Justify investment in AI sentiment enhancement  
-⚠️ Richer feedback dimensions needed
+**Scenario 2: Moderate Correlation ⚠️ (0.3 < r < 0.7, p < 0.05)**  
+- **Partial validation** — NPS provides some signal  
+- Justify investment in AI sentiment enhancement  
+- Richer feedback dimensions needed
 
-**Scenario 3: Weak/No Correlation (r < 0.3 or p > 0.05)**  
-❌ **Challenge NPS validity** in healthcare  
-❌ Redirect to NLP-based alternatives  
-❌ Capture nuanced emotional/experiential data
+**Scenario 3: Weak/No Correlation ❌ (r < 0.3 or p > 0.05)**  
+- **Challenge NPS validity** in healthcare  
+- Redirect to NLP-based alternatives  
+- Capture nuanced emotional/experiential data
 
 ### Software Design Flow (ICT R&D Framework)
 
@@ -176,54 +178,26 @@ The research follows evidence-based system design principles (Wohlin & Runeson, 
 
 ---
 
-## 🚀 Why This Matters
+## Timeline: From Proposal to Publication
 
-### For Healthcare Managers
+**Phase 1: Assessment 3 Execution (12 Weeks)**
 
-- **Evidence-based decisions** replacing assumptions
-- **Cost-benefit analysis:** Simple NPS vs. AI complexity
-- **Risk mitigation:** Validate before scaling feedback systems
+- **Weeks 1-2:** Literature refinement & problem definition  
+- **Weeks 3-4:** Ethics clearance & data acquisition  
+- **Weeks 5-6:** Data cleaning & preparation  
+- **Weeks 7-8:** Descriptive & correlation analysis  
+- **Weeks 9-10:** Regression modeling & validation  
+- **Week 11:** Results interpretation & draft writing  
+- **Week 12:** Final report + presentation (Due: Dec 3, 2025)
 
-### For Academic Research
-
-- **First empirical NPS-revenue study** in healthcare context
-- **Quantitative foundation** for future AI sentiment analytics
-- **Replicable ICT R&D methodology** for business intelligence
-
-### For Torrens "Here for Good" Ethos
-
-- **Sustainable healthcare** through evidence-based decisions
-- **Patient-centered care** aligned with financial viability
-- **Responsible innovation** in healthcare technology
-
-### Broader Impact
-
-- **Replicable framework** for service industries beyond healthcare
-- **Bridge** between patient experience theory and business outcomes
-- **Foundation** for future mixed-methods research (Phase 2: NLP + AI)
-
----
-
-## 📅 Timeline: From Proposal to Publication
-
-### Phase 1: Assessment 3 Execution (12 Weeks)
-
-**Weeks 1-2:** Literature refinement & problem definition  
-**Weeks 3-4:** Ethics clearance & data acquisition  
-**Weeks 5-6:** Data cleaning & preparation  
-**Weeks 7-8:** Descriptive & correlation analysis  
-**Weeks 9-10:** Regression modeling & validation  
-**Week 11:** Results interpretation & draft writing  
-**Week 12:** Final report + presentation (Due: Dec 3, 2025)
-
-### Phase 2: Analysis Deepening (8 Weeks)
+**Phase 2: Analysis Deepening (8 Weeks)**
 
 - Extended statistical analysis (sensitivity, time-series)
 - Qualitative validation (500 text comments from NPS surveys)
 - Streamlit dashboard prototype development
 - Industry benchmarking (healthcare vs. retail)
 
-### Phase 3: Publication Pathway (20 Weeks)
+**Phase 3: Publication Pathway (20 Weeks)**
 
 **Target Journals:**
 - *International Journal of Market Research*
@@ -241,7 +215,7 @@ The research follows evidence-based system design principles (Wohlin & Runeson, 
 
 ---
 
-## 💻 Technical Implementation
+## Technical Implementation
 
 ### Code Architecture
 
@@ -367,81 +341,62 @@ print(f"\nCross-Validation R² (mean): {cv_scores.mean():.3f} (+/- {cv_scores.st
 
 ---
 
-## 🎓 Academic Rigor & Quality Assurance
+## Academic Rigor & Quality Assurance
 
 ### Literature Foundation
 
-✓ **12+ peer-reviewed sources** (2022-2025)  
-✓ **APA 7th referencing** throughout  
-✓ **Critical synthesis** via literature comparison table  
-✓ **Gap identification** grounded in systematic review
+- ✓ **12+ peer-reviewed sources** (2022-2025)  
+- ✓ **APA 7th referencing** throughout  
+- ✓ **Critical synthesis** via literature comparison table  
+- ✓ **Gap identification** grounded in systematic review
 
 ### Methodological Transparency
 
-✓ **Philosophical paradigm** explicitly stated  
-✓ **Rationale** for quantitative over qualitative approach  
-✓ **Limitations** acknowledged (single organization, omitted variables)  
-✓ **Triangulation** across temporal, spatial, methodological dimensions
+- ✓ **Philosophical paradigm** explicitly stated  
+- ✓ **Rationale** for quantitative over qualitative approach  
+- ✓ **Limitations** acknowledged (single organization, omitted variables)  
+- ✓ **Triangulation** across temporal, spatial, methodological dimensions
 
 ### Reproducibility
 
-✓ **Full dataset documentation** (Appendix A)  
-✓ **Code excerpts** with transparent preprocessing steps  
-✓ **Version control** for all analysis scripts  
-✓ **Open science principles** (results will be shared post-publication)
+- ✓ **Full dataset documentation** (Appendix A)  
+- ✓ **Code excerpts** with transparent preprocessing steps  
+- ✓ **Version control** for all analysis scripts  
+- ✓ **Open science principles** (results will be shared post-publication)
 
 ---
 
-## 🌐 Explore the Research
+## Explore the Research
 
 **Academic Submissions:**
-- [Assessment 1: Critical Literature Review](../assignments/Assessment1/REM502_Faria_L_Assessment_1_Critical-Literature-Review.md)
-- [Assessment 2: Research Tools and Methodologies](../assignments/Assessment2/REM502_Faria_L_Assessment_2_Research-Tools-and-Methodologies.md)
-- [Assessment 3: Full Research Proposal](../assignments/Assessment3/drafts/draft_v8.md)
-- [Presentation Slides](../assignments/Assessment3/drafts/ppt_draft_v7.md)
+- [Assessment 1: Critical Literature Review](https://github.com/lfariabr/masters-swe-ai/blob/master/2025-T2/T2-REM/assignments/Assessment1/REM502_Faria_L_Assessment_1_Critical-Literature-Review.pdf)
+- [Assessment 2: Research Tools and Methodologies](https://github.com/lfariabr/masters-swe-ai/blob/master/2025-T2/T2-REM/assignments/Assessment2/REM502_Faria_L_Assessment_2_Research-Tools-and-Methodologies.pdf)
+- [Assessment 3: Full Research Proposal](https://github.com/lfariabr/masters-swe-ai/blob/master/2025-T2/T2-REM/assignments/Assessment3/REM502_Faria_L_Assessment_3_Research-Proposal.pdf)
+- [Presentation Slides](https://github.com/lfariabr/masters-swe-ai/blob/master/2025-T2/T2-REM/assignments/Assessment3/REM502_Faria_L_Assessment_3.pdf)
 
 **Related Projects:**
-- [ClinicTrends AI – Sentiment Analysis Platform](../../T2-HCD/projects/ClinicTrendsAi.md)
-- [Portfolio: All Master's Projects](https://luisfaria.dev/projects)
+- [ClinicTrends AI – Sentiment Analysis Platform](https://dev.to/lfariaus/clinictrends-ai-transforming-customer-feedback-into-intelligent-insights-47en)
+- [Portfolio: All Master's Projects](https://github.com/lfariabr/masters-swe-ai)
 
 ---
 
-## 🤝 Supervisor & Acknowledgments
+## Next Steps & Future Research
 
-**Research Supervisor:**  
-**Prof. Dr. Bushra Naeem**  
-*Senior Lecturer, Research Methodologies*  
-Torrens University Australia
+#### Immediate (Assessment 3 Submission)
 
-**Industry Partner:**  
-**Pro-Corpo Estética**  
-*Healthcare Group, Brazil*  
-For providing anonymized dataset and institutional consent
+- [X] Finalize statistical analysis (Week 9-10)
+- [X] Complete written report (2,500 words)
+- [X] Design presentation slides (5-7 minutes)
+- [X] Submit by Dec 3, 2025
 
-**Academic Context:**  
-REM502 – Research Methodologies  
-Trimester 2, 2025  
-Master of Software Engineering (Artificial Intelligence)
-
----
-
-## 📈 Next Steps & Future Research
-
-### Immediate (Assessment 3 Submission)
-
-- [ ] Finalize statistical analysis (Week 9-10)
-- [ ] Complete written report (2,500 words)
-- [ ] Design presentation slides (5-7 minutes)
-- [ ] Submit by Dec 3, 2025
-
-### Short-Term (Phase 2)
+#### Short-Term (Phase 2)
 
 - [ ] Build interactive Streamlit dashboard
 - [ ] Conduct qualitative validation on text comments
 - [ ] Publish findings on personal blog/LinkedIn
 - [ ] Present at Torrens University research showcase
 
-### Long-Term (Phase 3)
+#### Long-Term (Phase 3)
 
 - [ ] Submit journal article to *International Journal of Market Research*
 - [ ] Present at ACIS Conference (2026)
@@ -451,29 +406,42 @@ Master of Software Engineering (Artificial Intelligence)
 
 ---
 
-## 💡 Key Takeaways
+## Key Takeaways
 
 **For Researchers:**  
-This study demonstrates how ICT R&D methodologies can bridge academic rigor with real-world business problems. Quantitative validation isn't just about proving correlations — it's about building evidence-based foundations for future AI systems.
+This study demonstrates how ICT R&D methodologies bridge academic rigor with real-world business problems. Quantitative validation is about proving correlations and building evidence-based foundations for future AI systems.
 
 **For Healthcare Professionals:**  
 Before investing $50K+ annually in patient feedback systems, ask one question: *"Has anyone proven this metric predicts what I care about?"* This research provides that validation framework.
 
 **For Software Engineers:**  
-Data science isn't just about building models — it's about asking the right questions first. This research journey shows how critical literature review, methodological rigor, and statistical validation create the foundation for truly intelligent systems.
+Data science is about asking the right questions first. This research journey shows how critical literature review, methodological rigor, and statistical validation create the foundation for truly intelligent systems.
 
 ---
 
-## 📬 Let's Connect
+## Supervisor & Acknowledgments
+
+**Research Supervisor:**  
+- **Prof. Dr. Bushra Naeem**  
+- *Senior Lecturer, Research Methodologies*  
+- Torrens University Australia
+
+**Industry Partner:**  
+- **Pro-Corpo Estética**  
+- *Healthcare Group, Brazil*  
+- For providing anonymized dataset and institutional consent
+
+**Academic Context:**  
+- REM502 – Research Methodologies  
+- Trimester 2, 2025  
+- Master of Software Engineering (Artificial Intelligence)
+
+---
+
+## Let's Connect
 
 If you're working on similar research, interested in healthcare analytics, or passionate about evidence-based AI systems, I'd love to connect:
 
-💼 **LinkedIn:** [linkedin.com/in/lfariabr](https://www.linkedin.com/in/lfariabr/)  
-💻 **GitHub:** [github.com/lfariabr](https://github.com/lfariabr)  
-🌐 **Portfolio:** [luisfaria.dev](https://luisfaria.dev)
-
----
-
-*Last Updated: November 2025*  
-*Status: Assessment 3 in progress (Week 11/12)*  
-*Next Milestone: Final submission Dec 3, 2025*
+- **LinkedIn:** [linkedin.com/in/lfariabr](https://www.linkedin.com/in/lfariabr/)  
+- **GitHub:** [github.com/lfariabr](https://github.com/lfariabr)  
+- **Portfolio:** [luisfaria.dev](https://luisfaria.dev)

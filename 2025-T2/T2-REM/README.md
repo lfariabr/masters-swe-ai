@@ -18,7 +18,7 @@ Dr. Bushra Naeem
 - [X] Module 9 - Data Sampling Methods
 - [X] Module 10 - Data Interpretation Methods
 - [X] Module 11 - Writing Your Proposal and Presentation
-- [ ] Module 12 - Planning Your Research Project — Timelines and Gantt Charts
+- [X] Module 12 - Planning Your Research Project — Timelines and Gantt Charts
 
 ## Assignments
 - [X] Assessment 1 - deadline 12/10/2025 ✅, **Critical Literature Review** on *AI Insights from Customer Feedback: Correlating Sentiment Analysis with Business Performance in Healthcare Clinics*
