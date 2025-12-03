@@ -243,3 +243,36 @@ https://www.youtube.com/watch?v=IHdqPqWle04
 https://www.hofstede-insights.com/fi/product/compare-countries/
 
 ## Module 12 - HCD in the Field
+
+1. **Human-Centered Design meets Cognitive Load Theory: designing interfaces that help people think.**
+
+One of the main justifications for developing a human-centered design approach for a company is to make tools and systems more usable. This particular paper deals with the concept of developing interfaces that minimise a user’s cognitive load – allowing them more mental capacity to deal with other tasks.
+
+Ensure you cover Section 1.1 to start off with – in particular the two examples – interface strategies 1 and 2. Take note of the required developments that the authors propose are made – in particular, the catering to dynamic changes, reducing variability, and creating more robust systems for users to interact with. Note the statistic used in the form-based example on page 2 – and 80% decrease in disfluencies through creating a more structured interface. Consider how creating a more structured or rigorous system could facilitate ease of use for humans in general. In particular, also note the comments made regarding cognition – load is decreased due to the decreased amount of thought required. Also note the points made immediately after example 2 – supporting a multimodal interface creates a way for humans to efficiently adapt their thought processes and allows them to expand their range of problem solving ability.
+
+Cover Section 2 for the context surrounding cognitive load, and consider the mental resources the average user may have when interacting with a product. From there, move to Section 3 – which deals specifically with the results gained from applying theory in section 2 to the interface concepts. Note section 3.1’s information before beginning, so the context surrounding the tests is clear. In Section 3.2, note that the results – in particular stylus and paper – were much higher than either of the tablet interface, due to the familiarity (or similarity) compared to the pen and paper interface that the students were more familiar with. Note also that the two pen-based systems were much more successful due to (through the lens of cognitive load theory) these similarities as well.
+
+> *APA Reference: Oviatt, S. (2006, October). Human-centered design meets cognitive load theory: designing interfaces that help people think. In Proceedings of the 14th ACM international conference on Multimedia (pp. 871-880). ACM. Retrieved from: https://dl.acm.org/citation.cfm?id=1180831*
+
+2. **Practice theory and Human-Centered Design: a sustainable Bathing example.**
+
+This resource examines the process of bathing from both a practice theory and human-centered perspective. Ensure that the Practice Theory section on page 2 is covered, to gain the appropriate context before continuing. Ensure that the vegetable examples (both 1 and 2) are covered before moving on to the Human-Centered Design subsection, to understand the authors’ perspective on the process as well.
+
+From here, move down to the Bathing Project subsection on page 3. Note that like the resource in module 11, there are three different cultures covered – this time, India, The Netherlands, and Japan. Each of these has different tendencies – all covered in the cultural inquiry section. Ensure you cover the Industry Project section on page 4 as the next step, and consider how the company translated each of the cultural tendencies into an appropriate process. The two options – scoop and scrub – are translated from the cultural inputs. Also, ensure you cover the justification, particularly regarding both the Netherlands and Japan and their relationship with daily showering or bathing and its increasing tendency over the past 50 years.
+
+Pay particular note in each section to the discussion surrounding energy and resource consumption as well. While Human-Centered Design’s central focus is the Human, as we have discussed in previous modules the environment (or other external factors) can often be motivators for users to engage with a design, product, or process. Note the large energy reduction for splash – up to 90% less warm water can be used than a traditional method discussed earlier. The discussion surrounding the Splash’s effectiveness is the evidence of the Human-Centered Design process here, and the consideration regarding its ‘effectiveness’ is something designers would consider when designing the appropriate systems to facilitate the ‘Splashing’ process. From here, move down to the final section – HCD – on page 6. Ensure you cover this section, and the final conclusion, in detail, as it accurately summarises how the approach adheres to HCD principles. Pay particular note to the discussions around iterating on final processes, and difficulties on getting participants to develop their different ways of bathing – and the lack of input on the part of the designers and researchers.
+
+> *APA Reference: Kuijer, L., & De Jong, A. (2011, March). Practice theory and human-centered design: A sustainable bathing example. In Proceedings of the Nordic Design Research Conference (pp. 221-227). School of Art and Design, Aalto University, Helsinki, Finland. Retrieved from: https://pdfs.semanticscholar.org/a713/55b868b82b3e47dbb09e5f46b9daf9087d2b.pdf?_ga=2.136932464.192761876.1566242006-12781156.1565876077*
+
+---
+
+HCD was about human centric approach with an approach towards people
+
+Problem + People that have the problem = Collaborative Design
+
+As humans, previous generation was used to compete vs human.
+Now, we are living on the era of human AI competition!
+
+The Iceberg Project: We had a brief discussion about the article release by MIT 7 days ago stating that 12% of the US workforce can be replaced by AI.
+
+Fascinating times we're experiencing!
