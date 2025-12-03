@@ -241,3 +241,5 @@ https://www.youtube.com/watch?v=HUWHkeitPdA
 https://www.youtube.com/watch?v=XVLPZrLCs1A
 https://www.youtube.com/watch?v=IHdqPqWle04
 https://www.hofstede-insights.com/fi/product/compare-countries/
+
+## Module 12 - HCD in the Field

@@ -52,7 +52,7 @@ Term | Subject | Status | Lecturer | Directory | Credit Points
 | T1 | Software Development Management (***Core***) 2025 | ✅ | Dr. Muhammad Atif | [SDM404](./2025-T1/T1-SDM/) | 10
 | T1 | Software Engineering Principles (***Core***) 2025 | ✅ | Dr. Ranju Mandal | [SEP401](./2025-T1/T1-SEP/) | 10
 | T2 | Human Centered Design (***Core***) 2025 | 🔥 | Dr. Omid Haass | [HCD402](./2025-T2/T2-HCD/) | 10
-| T2 | Mathematical Foundations of AI (***Core***) 2025 | 🔥 | Dr. James Vakilian | [MFA501](./2025-T2/T2-MFA/) | 10
+| T2 | Mathematical Foundations of AI (***Core***) 2025 | ✅ | Dr. James Vakilian | [MFA501](./2025-T2/T2-MFA/) | 10
 | T2 | Research Methodologies (***Core***) 2025 | 🔥 | Dr. Bushra Naeem | [REM502](./2025-T2/T2-REM/) | 10
 | T2 | Secure By Design (***Core***) 2025 | 🔥 | Dr. Tanvir Rahman | [SBD402](./2025-T2/T2-SBD/) | 10
 | T3 | Intelligent Systems (***Core***) 2026 | 🕐 | TBD | [ISY503](TBD) | 10
@@ -85,7 +85,7 @@ Take a deep dive into how I'm approaching projects and the progress I'm making.
 | Project | Description | Status | Repository | URL |
 |---------|---------------------|----------------|----------------|----------------|
 | **CuraNexus Analytics** | Secure-by-Design framework for web data retrieval apps. ISMS implementation, DREAD threat modeling, ISO 27001/OWASP compliance. | ✅ | [Here](./2025-T2/T2-SBD/projects/curaNexusAnalytics.md) | [dev.to](https://dev.to/lfariaus/curanexus-analytics-security-in-architecture-not-afterthought-13j) |
-| **EigenAI** | Interactive Streamlit app that teaches MFA501 math concepts like determinants, eigenvalues, and gradients step-by-step. | ✅ | [Here](./2025-T2/T2-MFA/projects/eigenai) | [EigenAi](https://eigen-ai.streamlit.app/) |
+| **EigenAI** | Interactive Streamlit app that teaches MFA501 math concepts like determinants, eigenvalues, and gradients step-by-step. | ✅ | [Here](./2025-T2/T2-MFA/projects/eigenai) | [EigenAi](https://eigen-ai.streamlit.app/) / [dev.to](https://dev.to/lfariaus/building-eigenai-teaching-math-foundations-of-ai-through-interactive-code) |
 | **ExcelPilot FE** | Chat system for backend API built with Next.js, TypeScript, TailwindCSS, ShadCN, Apollo Client, Next.Auth, JWT. | 🔌 | [Here](https://github.com/lfariabr/excel-pilot-front) | N/A |
 | **ExcelPilot BE** | API built with Node.js, Express, Apollo Server, MongoDB, Redis and TypeScript. Features secure JWT auth, GraphQL queries/mutations, and openAi. | 🔥 | [Here](https://github.com/lfariabr/excel-pilot) | 🔥 |
 | **ZD Project** | Personal Blog using MERN stack with React Native Blog Component + Resend for CRM. Hosted on AWS EC2 server. | ✅ | [Here](https://github.com/lfariabr/z-project.git) | [ZD portal](https://zerodopamine.com/) |

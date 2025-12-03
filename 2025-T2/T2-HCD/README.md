@@ -18,7 +18,7 @@ Dr. Omid Haass
 - [X] Module 9 - Designing for a Global Context
 - [X] Module 10 - The Breaking Point - How to Redesign with HCD in Mind
 - [X] Module 11 - Societal Influences on HCD
-- [ ] Module 12 - HCD in the Field
+- [X] Module 12 - HCD in the Field
 
 ## Assignments
 - [X] Assessment 1 - deadline 12/10/2025 ✅, **Research Presentation** on *AI Recommendation Systems*
