@@ -10,7 +10,7 @@ Tags: #research, #machinelearning, #healthcare, #nps, #dataanalytics, #python
 
 ## The Question That Started It All
 
-During my 6+ years working for aesthetic healthcare clinics across Brazil, I witnessed firsthand how Net Promoter Score (NPS) became the golden metric. Every meeting, every dashboard, every strategic decision seemed to revolve around those magic numbers: Promoters (9-10), Passives (7-8), Detractors (0-6).
+During my 6+ years working for aesthetic healthcare clinics across Brazil, I witnessed firsthand how **Net Promoter Score (NPS)** became the golden metric. Every meeting, every dashboard, every strategic decision seemed to revolve around those magic numbers: *Promoters (9-10), Passives (7-8), Detractors (0-6)*.
 
 But here's the uncomfortable truth I kept noticing:
 
