@@ -1,3 +1,19 @@
+# **From Academic Research to Production-Ready AI Governance: Building the Intelligent Rate Limiting System**
+
+**Tags:** #ai #machinelearning #node #graphql
+
+---
+
+***Notes:***
+To avoid fatigue, insert:
+- Architecture diagram
+- IRL explanation screenshot
+- System diagram (ASCII box diagram converted to an image)
+- A short animated GIF of your dashboard
+- Sequence diagrams
+
+---
+
 > "The design choices we make today will determine whether autonomous AI amplifies human capability—or undermines it."
 
 What happens when you give an AI agent your credit card and tell it to "solve this problem autonomously"? For one developer, it meant waking up to a **$50,000 AWS bill**.
@@ -42,6 +58,8 @@ The natural progression: **Design and build a human-centered governance system**
 
 Working with teammates Julio and Tamara, we created the **Intelligent Multi-Tier Rate-Limiting System**—a 3500-word technical specification, a 12-minute presentation, and most importantly, a **production-ready implementation**.
 
+These three assessments weren’t random tasks—they naturally built toward the final system.
+
 ---
 
 ## Cherry-Picking the Perfect Tech Stack
@@ -65,6 +83,8 @@ I didn't just pick "what I know"—I picked **what I wanted to master**:
 - **Redis**: Proven at scale (Twitter, GitHub, StackOverflow use it)
 - **GraphQL**: Real-time subscriptions for dashboard updates
 - **TypeScript**: Type safety prevents production bugs in async workflows
+
+I containerized everything because the IRL stack is meant to scale horizontally across nodes.
 
 ---
 
@@ -277,45 +297,6 @@ async function evaluateRequest(
 
 ---
 
-## Coordinating a Group Project Like a PM
-
-One unexpected benefit of my 10+ years in project management? **Leading a technical team felt natural**.
-
-### Role Distribution (Playing to Strengths)
-
-**Luis (me)**: Technical architecture + backend implementation  
-**Julio**: Environmental justice + ethical governance framework  
-**Tamara**: Human-centered design + fairness operationalization
-
-### The Process
-
-1. **Assessment 2 Foundation**: Each member wrote their own report on Agentic AI—then we voted on which solution to expand for Assessment 3
-2. **Weekly Standups**: 30-minute syncs on progress, blockers, and integration points
-3. **2,500 → 3,500 → Pitch Deck**: Iterative refinement (like agile sprints!)
-4. **Presentation Rehearsal**: 8 practice runs to nail the 12-minute timing
-
-**Key insight**: Everyone contributed meaningfully because we **matched expertise to responsibilities**.
-
----
-
-## Lessons Learned (Scars Earned)
-
-### What Went Well ✅
-
-- **Academic + Practical Blend**: Theoretically sound with production-ready code
-- **HCD Integration**: Principles weren't bolted on—they shaped the architecture
-- **Cross-Disciplinary Research**: 17 references spanning CS, HCI, Ethics, Sustainability
-- **Teamwork**: Clear roles prevented conflict and scope creep
-
-### What I'd Do Differently 🔄
-
-- **Earlier User Testing**: We predicted effectiveness based on HCI research, but haven't validated with real users yet
-- **More Diverse Pilot**: Our testing focused on developer workflows—need non-technical users
-- **Deployment Complexity**: Redis clustering is harder than expected (eventual consistency challenges)
-- **Ethics Washing Risk**: Technical guardrails supplement—but don't replace—human accountability
-
----
-
 ## The Academic Rigor Behind It
 
 This wasn't just a "build cool tech" project. It required:
@@ -344,31 +325,15 @@ This wasn't just a "build cool tech" project. It required:
 
 ---
 
-## What's Next? The Roadmap
-
-### Short-term (6-12 months)
-- Controlled usability studies with diverse populations
-- Multi-site cultural validation (individualist vs. collectivist contexts)
-
-### Medium-term (1-2 years)
-- Adaptive governance using reinforcement learning
-- Plug-ins for LangChain, Semantic Kernel, AutoGPT
-- Federated governance with blockchain audit logs
-
-### Long-term (2-5 years)
-- Longitudinal studies: Does transparency build trust over years?
-- Large-scale validation: Does carbon-aware throttling reduce emissions at scale?
-
----
-
 ## Open Source & Demo
 
 This project embodies my philosophy: **Build in public. Share generously.**
 
-- **📄 Full Report**: [Assessment 3 Technical Specification](https://github.com/lfariabr/masters-swe-ai/tree/master/2025-T2/T2-HCD/assignments/Assessment3)
-- **🎤 Presentation Deck**: [12-Minute Pitch](https://github.com/lfariabr/masters-swe-ai/blob/master/2025-T2/T2-HCD/assignments/Assessment3/drafts/ppt/asm_ppt_draft_v7.md)
-- **💻 Source Code**: Coming soon! (Currently refactoring for public release)
-- **📊 Architecture Diagrams**: [Technical Documentation](https://github.com/lfariabr/masters-swe-ai/tree/master/2025-T2/T2-HCD/assignments/Assessment3/drafts/report)
+- [Assessment 1: Evolution of Technology](https://github.com/lfariabr/masters-swe-ai/blob/master/2025-T2/T2-HCD/assignments/Assessment1/HCD402_Faria_L_Assessment_1_SlideDeck_vf.pdf)
+- [Assessment 2: Proposed Solution Report](https://github.com/lfariabr/masters-swe-ai/blob/master/2025-T2/T2-HCD/assignments/Assessment2/HCD402_Faria_L_Assessment_2.pdf)
+- [Assessment 3: System Solution Report](https://github.com/lfariabr/masters-swe-ai/blob/master/2025-T2/T2-HCD/assignments/Assessment3/Faria_Luis_Assessment3_SystemSolution.pdf)
+- [Assessment 3: System Solution Presentation](https://github.com/lfariabr/masters-swe-ai/blob/master/2025-T2/T2-HCD/assignments/Assessment3/Faria_Luis_Assessment3_Presentation.pdf)
+- [IRL Source Code](https://github.com/lfariabr/masters-swe-ai/tree/master/2025-T2/T2-HCD/projects/IRL)
 
 ---
 
@@ -385,28 +350,12 @@ We're entering an era where **AI agents will outnumber human API users**. If we 
 
 ---
 
-## Let's Connect!
+## Let’s Connect**
 
-Building this system stretched me across domains: software engineering, machine learning, ethics, sustainability, and human-centered design. I'd love to hear from:
+If you're working with healthcare data, KPIs, BI dashboards, or ML pipelines — I’d love to connect.
 
-- **AI Engineers** building agentic systems
-- **Platform Engineers** managing API infrastructure
-- **Researchers** working on AI governance
-- **Anyone** passionate about responsible AI
-
-**Find me on [LinkedIn](https://linkedin.com/in/luisfaria) or check out my [portfolio](https://luisfaria.dev)**
-
-And remember: **Every system can be improved. Every problem is an opportunity to build something better.**
+- **LinkedIn:** [linkedin.com/in/lfariabr](https://www.linkedin.com/in/lfariabr/)  
+- **GitHub:** [github.com/lfariabr](https://github.com/lfariabr)  
+- **Portfolio:** [luisfaria.dev](https://luisfaria.dev)
 
 🇦🇺🦘🔥
-
----
-
-**P.S.** If you're a student facing similar challenges—balancing academics with real-world implementation—my advice is simple:
-
-1. **Choose technologies you want to master** (not just what you know)
-2. **Play to your team's strengths** (clear roles prevent chaos)
-3. **Build in public** (your portfolio is your résumé)
-4. **Document everything** (future you will thank present you)
-
-Now go build something that matters.

@@ -1,27 +1,7 @@
 ## Changelog
 
-### **Unreleased**
-- **Added**: Token Bucket rate limiter implementation
-    - Implemented `TokenBucket` interface and `createTokenBucket` factory in `src/core/rateLimiter/tokenBucket.ts`.
-    - Notes: initial in-memory implementation (tokens, capacity, rate, lastRefill). Not yet wired into middleware or Redis-backed atomic consumption — planned next steps.
-    - Related branch: `feat/token-bucket` (2025-11-29)
-
-
-### **Immediate (Today)**
-```bash
-# 1. Review the README
-# 2. Star Phase 0 (Foundation Setup)
-# 3. Set up your initial project structure:
-
-
-cd 2025-T2/T2-HCD/projects/IRL
-mkdir -p src/{core,graphql,db,models,services,middleware,utils}
-mkdir -p dashboard tests k8s docs
-touch package.json tsconfig.json docker-compose.yml .env.example
-```
-
-### **This Week**
-- [X] Complete Phase 0 (Foundation) - 2-3 days ✅ DONE
+### ✅ **DONE**
+- [X] Complete Phase 0 (Foundation) - 2-3 days
     - [X] Get a running Node.js server with Redis connected
         - created `package.json` and installed dependencies: node, express, ioredis, typescript, jest
         - created `tsconfig.json` for TypeScript configuration
@@ -70,6 +50,11 @@ IRL/
 └── tsconfig.json         # TypeScript config
 ```
 
+### 🔥 **IN PROGRESS**
+- **Added**: Token Bucket rate limiter implementation
+    - Implemented `TokenBucket` interface and `createTokenBucket` factory in `src/core/rateLimiter/tokenBucket.ts`.
+    - Notes: initial in-memory implementation (tokens, capacity, rate, lastRefill). Not yet wired into middleware or Redis-backed atomic consumption — planned next steps.
+    - Related branch: `feat/token-bucket` (2025-11-29)
 - [ ] Complete Phase 1 (Rate Limiting)
     - [X] **1.1**: Set up Redis client with ioredis
     - [X] Break down `src/index.ts` into modular files:
@@ -90,7 +75,7 @@ IRL/
     - [ ] **1.5**: Write unit tests (>80% coverage)
     - [ ] **1.6**: Load test with Apache Bench or k6
 
-### **This Month**
+### 🕐 **BACKLOG**
 - [ ] Phase 1 Basic Rate Limiting 7 days
     Goal: Token Bucket algorithm with Redis backend
     Exit Criteria: API returns 200 or 429 with Retry-After header, tests pass
@@ -103,12 +88,12 @@ IRL/
 - [ ] Start building your dev.to article as you progress
 
 ### **Final Expected Result**
-Working rate limiter with
-✅ Token Bucket + Sliding Window algorithms
-✅ GraphQL API with real-time subscriptions
-✅ Multi-tier fair allocation
-✅ Redis-backed distributed state
-✅ >80% test coverage
+Working rate limiter with:
+- ✅ Token Bucket + Sliding Window algorithms
+- ✅ GraphQL API with real-time subscriptions
+- ✅ Multi-tier fair allocation
+- ✅ Redis-backed distributed state
+- ✅ >80% test coverage
 
 ---
 
@@ -129,4 +114,4 @@ Working rate limiter with
 - **Month 4**: Phases 8-11 (ML + Production)
 - **Months 4-5**: Phase 12 (User Research)
 
-**By end of T2**: You'll have a production-ready, research-validated AI governance system! 
+**By end of period**: Production-ready, research-validated AI governance system! 
