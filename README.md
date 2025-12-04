@@ -1,10 +1,12 @@
 # Master's of Software Engineering & AI
 
-Welcome to my personal repo for the **Master's of Software Engineering and Artificial Intelligence (Advanced)** at **Torrens University**.
+Welcome to the main repository for my **Master's of Software Engineering and Artificial Intelligence (Advanced)** at **Torrens University**.
 
-Inside, you'll find my study notes, case studies, experiments and practical projects in AI, Machine Learning and Full-Stack Software Development.  
+This space is my central hub for everything I’m learning and building throughout the degree: a mix of study notes, applied research, experiments, and full-stack + AI projects. My goal is to document concepts in a practical way and turn theory into real, working solutions.
 
-Whether you're a fellow student, developer or simply curious about the field, I hope this setup offers helpful insights - and perhaps even inspires you to fork it, contribute or start something on your own!
+Inside, you’ll find structured notes, case studies, ML/AI experiments, prototypes, and projects that reflect my interests across software engineering, artificial intelligence, cloud, and product development.
+
+Whether you’re a student, developer, or just curious about this journey, I hope this repo gives you valuable insight — and maybe even inspires you to explore, fork, or contribute
 
 👉 Official course page: [Master's of SWE AI Torrens Website](https://www.torrens.edu.au/courses/technology/master-of-software-engineering-artificial-intelligence-advanced)
 
@@ -13,7 +15,6 @@ Whether you're a fellow student, developer or simply curious about the field, I 
 ![GitHub Language Count](https://img.shields.io/github/languages/count/lfariabr/masters-swe-ai)
 
 ## 📑 Table of Contents
-- [Program Overview](#program-overview)
 - [Progress](#progress-tracking-and-goals)
 - [Projects](#projects)
 - [Tech Stack](#tech-stack)
@@ -30,17 +31,12 @@ Whether you're a fellow student, developer or simply curious about the field, I 
 ---
 
 ### Tech Stack & Tools
-**Languages:** Python, TypeScript, JavaScript, Dart  
-**Frontend:** React, Next.js, Flutter, Streamlit  
+**Languages:** Python, TypeScript, JavaScript  
+**Frontend:** React, Next.js, Streamlit  
 **Backend:** Node.js, Express, FastAPI, GraphQL  
 **AI/ML:** scikit-learn, PyTorch, transformers, BERTopic  
 **Databases:** MongoDB, PostgreSQL, Supabase, Redis  
 **Cloud & DevOps:** AWS, Docker, GitHub Actions
-
----
-
-### Program Overview
-This repo serves as both my personal knowledge base and project portfolio during my Master's. I’m capturing my learning process, practical applications of course concepts, and projects that reflect my interests in software engineering and AI.
 
 ---
 
@@ -110,7 +106,7 @@ While this is primarily a personal repository, I welcome discussions and feedbac
 | 1.0.0   | T2-2025 Launch SDM+SEP subjects     | 06-2025 | ✅ |
 | 1.2.0   | T2-2025 Completed (SDM+SEP)         | 08-2025 | ✅ |
 | 2.0.0   | T3-2025 Launch (HCD+MFA+REM+SBD)    | 09-2025 | ✅ |
-| 2.4.0   | T3-2025 Completed (HCD+MFA+REM+SBD) | 12-2025 | 🕐 |
+| 2.4.0   | T3-2025 Completed (HCD+MFA+REM+SBD) | 12-2025 | ✅ |
 | 3.0.0   | T1-2026 Launch (ISY503+CCF501)      | 02-2026 | 🕐 |
 | 3.2.0   | T1-2026 Completed (ISY503+CCF501)   | 05-2026 | 🕐 |
 | 4.0.0   | T2-2026 Launch (MLN601+DLE602)      | 06-2026 | 🕐 |
