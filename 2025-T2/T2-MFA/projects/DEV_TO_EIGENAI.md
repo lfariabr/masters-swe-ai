@@ -16,7 +16,7 @@ cover_image: https://github.com/lfariabr/masters-swe-ai/blob/master/2025-T2/T2-M
 
 ## 🎓 The Challenge: Making Math "Click"
 
-As a self-taught software engineer transitioning from 10+ years in project management, I enrolled in **MFA501 – Mathematical Foundations of Artificial Intelligence** at Torrens University Australia under Dr. James Vakilian. The subject covered everything from linear algebra to optimization algorithms—the mathematical backbone of modern AI applications in:
+As a self-taught software engineer transitioning from 10+ years in project management, I enrolled in **MFA501 – Mathematical Foundations of Artificial Intelligence** at Torrens University Australia under [Dr. James Vakilian](https://au.linkedin.com/in/james-v-70183b28). The subject covered everything from linear algebra to optimization algorithms—the mathematical backbone of modern AI applications in:
 
 - **Machine Learning** (model training, optimization)
 - **Natural Language Processing** (text embeddings, transformations)
@@ -51,7 +51,7 @@ The subject covered 12 progressive modules:
 | Weeks 6-9 | Calculus & Optimization | Derivatives, integrals, hill climbing, simulated annealing, genetic algorithms |
 | Weeks 10-12 | Probability, Statistics & Logic | Foundations for AI reasoning and decision-making |
 
-> ***Note: Module 6 taught by Dr. Niusha Shafiabady***
+> ***Note: Module 6 taught by [Dr. Niusha Shafiabady](https://www.niushashafiabady.com/)***
 
 ---
 
@@ -108,7 +108,7 @@ Understanding determinants reveals why singular matrices break these algorithms.
 
 **Why It Matters:** Hill climbing is the foundation of gradient descent, simulated annealing, and evolutionary algorithms. If you understand local optima here, you understand why neural networks get stuck.
 
-> **💡 Key Insight from Module 6 (Dr. Shafiabady):**
+> **💡 Key Insight from Module 6 ([Dr. Niusha Shafiabady](https://www.niushashafiabady.com/)):**
 > 
 > Hill climbing can get stuck in local optima with no guarantee of finding the global optimum. The cure?
 > - **Random restarts** (try multiple starting points)
@@ -190,7 +190,7 @@ eigenai/
 | v0.2.6 | Added complex pattern selector |
 | v0.3.0 | ✅ Assessment 3 submission (Hill Climbing Algorithm) |
 
-> Each assessment pushed the app forward—turning coursework into production-ready features.
+> Each assessment pushed the app forward—turning coursework into production-ready features. Detailed [`CHANGELOG.md`](https://github.com/lfariabr/masters-swe-ai/blob/master/2025-T2/T2-MFA/projects/eigenai/docs/changelog.md)
 
 ---
 
@@ -286,7 +286,7 @@ The hands-on experience has given me a deep, intuitive grasp of the mathematical
 - 🕐 **Simulated Annealing** (probabilistic escape from local optima)
 - 🕐 **Genetic Algorithms** (population-based evolutionary search)
 
-**Upcoming v3.1.0+ features:**
+**Upcoming v0.4.X+ features:**
 
 **Enhanced Optimization Suite:**
 - Simulated Annealing comparison (temperature schedules, acceptance probability)
@@ -295,14 +295,14 @@ The hands-on experience has given me a deep, intuitive grasp of the mathematical
 - Q-Learning demo (reinforcement learning basics)
 
 **Platform Enhancements:**
-- 🔐 **Authentication** — user login and progress tracking
-- 🤖 **LLM Integration** — GPT-4 powered step-by-step explanations with rate limiting
-- 🦾 **Custom Agent Framework** — Built from the ground-up using knowledge graphs and reasoning for problem-solving
-- ☁️ **Supabase BaaS** — cloud storage for user data and solutions
-- 🚀 **Backend Framework** — FastAPI or Flask for RESTful API
-- 📊 **Weekly Digest** — agentic integration for learning analytics
-- 🧪 **Test Coverage** — comprehensive unit testing with pytest
-- 🔒 **Security Enhancements** — input sanitization, HTTPS enforcement
+- **Authentication** — user login and progress tracking
+- **LLM Integration** — GPT-4 powered step-by-step explanations with rate limiting
+- **Custom Agent Framework** — Built from the ground-up using knowledge graphs and reasoning for problem-solving
+- **Supabase BaaS** — cloud storage for user data and solutions
+- **Backend Framework** — FastAPI or Flask for RESTful API
+- **Weekly Digest** — agentic integration for learning analytics
+- **Test Coverage** — comprehensive unit testing with pytest
+- **Security Enhancements** — input sanitization, HTTPS enforcement
 
 ---
 
@@ -311,9 +311,17 @@ The hands-on experience has given me a deep, intuitive grasp of the mathematical
 If you want to explore EigenAI:
 
 - **🌍 Live Demo:** [eigen-ai.streamlit.app](https://eigen-ai.streamlit.app/)
-- **📹 Video Demos:** 
-    - [Assessment 2](https://github.com/lfariabr/masters-swe-ai/blob/ef67e4c296a7582a9ae5afb4a5267145a6fa5bea/2025-T2/T2-MFA/assignments/Assessment2)
-    - [Assessment 3](https://github.com/lfariabr/masters-swe-ai/blob/b5eec28fe739477a3113daddf78ae4ce292e69d6/2025-T2/T2-MFA/assignments/Assessment3/Set3Problem1)
+- 📋 [Assessment 2A, S1P1, Determinants, Reflective Report](https://github.com/lfariabr/masters-swe-ai/blob/master/2025-T2/T2-MFA/assignments/Assessment2/Set1Problem1/MFA501_Assessment2_Set1Problem1_report_Faria_Luis.pdf)
+- 📹 [Assessment 2A, S1P1, Determinants, Video Demo](https://github.com/lfariabr/masters-swe-ai/blob/master/2025-T2/T2-MFA/assignments/Assessment2/Set1Problem1/MFA501_Assessment2_Set1Problem1_video_Faria_Luis.mp4)
+- 📋 [Assessment 2A, S1P2, Eigenvalues, Reflective Report](https://github.com/lfariabr/masters-swe-ai/blob/master/2025-T2/T2-MFA/assignments/Assessment2/Set1Problem2/MFA501_Assessment2_Set1Problem2_report_Faria_Luis.pdf)
+- 📹 [Assessment 2A, S1P2, Eigenvalues, Video Demo](https://github.com/lfariabr/masters-swe-ai/blob/master/2025-T2/T2-MFA/assignments/Assessment2/Set1Problem2/MFA501_Assessment2_Set1Problem2_video_Faria_Luis.mp4)
+- 📋 [Assessment 2B, S2P1, Integrals, Reflective Report](https://github.com/lfariabr/masters-swe-ai/blob/master/2025-T2/T2-MFA/assignments/Assessment2/Set2Problem1/MFA501_Assessment2B_Set1_report_Faria_Luis.pdf)
+- 📹 [Assessment 2B, S2P1, Integrals, Video Demo](https://github.com/lfariabr/masters-swe-ai/blob/master/2025-T2/T2-MFA/assignments/Assessment2/Set2Problem1/MFA501_Assessment2B_Set1_demo_Faria_Luis.mp4)
+- 📋 [Assessment 2B, S2P2, RRBF, Reflective Report](https://github.com/lfariabr/masters-swe-ai/blob/master/2025-T2/T2-MFA/assignments/Assessment2/Set2Problem2/MFA501_Assessment2B_Set2_report_Faria_Luis.pdf)
+- 📹 [Assessment 2B, S2P2, RRBF, Video Demo](https://github.com/lfariabr/masters-swe-ai/blob/master/2025-T2/T2-MFA/assignments/Assessment2/Set2Problem2/MFA501_Assessment2B_Set2_demo_Faria_Luis.mp4)
+- 📋 [Assessment 3, Hill Climbing, Reflective Report](https://github.com/lfariabr/masters-swe-ai/blob/master/2025-T2/T2-MFA/assignments/Assessment3/Set3Problem1/MFA501_Assessment3_report_Faria_Luis.pdf)
+- 📹 [Assessment 3, Hill Climbing, Video Demo](https://github.com/lfariabr/masters-swe-ai/blob/master/2025-T2/T2-MFA/assignments/Assessment3/Set3Problem1/MFA501_Assessment3_demo_Faria_Luis.mp4)
+- 🤖 [EigenAi Source Code](https://github.com/lfariabr/masters-swe-ai/tree/master/2025-T2/T2-MFA/projects/eigenai)
 
 ---
 
@@ -326,7 +334,11 @@ Building EigenAI has been the perfect bridge between mathematical theory and pra
 - Passionate about making math accessible
 - Interested in optimization algorithms
 
-**Let's connect on [LinkedIn](https://linkedin.com/in/lfariabr) or drop a ⭐ on the [EigenAI GitHub repo](https://github.com/lfariabr/masters-swe-ai/tree/master/2025-T2/T2-MFA/projects/eigenai)!**
+I’d love to connect:
+
+- **LinkedIn:** [linkedin.com/in/lfariabr](https://www.linkedin.com/in/lfariabr/)  
+- **GitHub:** [github.com/lfariabr](https://github.com/lfariabr)  
+- **Portfolio:** [luisfaria.dev](https://luisfaria.dev)
 
 ---
 

@@ -89,7 +89,7 @@ EigenAI/
 | vX.X.X | 🕐 | Weekly digest with Agentic Integration |
 | vX.X.X | 🕐 | Security enhancements |
 
-> Detailed changelog can be found in [`CHANGELOG.md`](2025-T2/T2-MFA/projects/eigenai/docs/changelog.md)
+> Detailed changelog can be found in [`CHANGELOG.md`](https://github.com/lfariabr/masters-swe-ai/blob/master/2025-T2/T2-MFA/projects/eigenai/docs/changelog.md)
 
 ---
 
