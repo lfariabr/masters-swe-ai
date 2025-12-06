@@ -1177,24 +1177,64 @@ Write a paragraph of 500 words in aprox 5' for each topic and summarize the foll
 2. How is this topic related to computer science?
 3. How can it assist you in your career?
 
-I. Set theory
-II. Undefined concepts
-III. Linear Algebra
-IV. Coordinate systems
-V. Vectors, Matrices & Tensors
-VI. Transformation
-VII. Eigenvalue & Eigenvectors
-VIII. Relations & Functions
-IX. Limits & Continuity
-X. Differential calculus
-XI. Integral calculus
-XII. Optimization
-XIII. Different types of phenomena
-XIV. Probability theorem
-XV. Statistics
-XVI. Distribution
-XVII. Reasoning & Logic
-XVIII. Propositional logic
-XIX. Predicate logic
-XX. Stochastic systems
+#### I. Set theory
+Rules for grouping items so membership is clear (finite/infinite sets, subsets, unions, intersections, power sets). In CS it powers data structures, databases, memory layouts, and keeps ML features organized. 
+
+#### II. Undefined concepts
+Basic ideas left undefined (like a "point") so other rules can be built on top. In CS these primitives support flexible abstractions in math libraries and type systems.
+
+#### III. Linear Algebra
+Math of vectors and matrices to model linear relationships. Essential for ML, graphics, and simulations because it keeps computations fast and structured.
+
+#### IV. Coordinate systems
+Ways to label positions with axes (2D, 3D, nD). Used in graphics, robotics, databases, and vision to place and move things correctly.
+
+#### V. Vectors, Matrices & Tensors
+Structured containers for numbers (1D, 2D, multi-D). They hold data for ML, neural nets, and scientific code so math stays efficient.
+
+#### VI. Transformation
+Functions that change data (rotate, scale, project). In ML and images, they reshape inputs so models see patterns better.
+
+#### VII. Eigenvalue & Eigenvectors
+Vectors that keep their direction when transformed; only their length changes by the eigenvalue. Key for PCA, compression, and face recognition.
+
+#### VIII. Relations & Functions
+Functions give one clear output per input; relations describe looser links. Databases, types, and constraints rely on these mappings.
+
+#### IX. Limits & Continuity
+Look at what a function does as inputs get close to a point. This keeps calculus and numeric code stable for derivatives and optimization.
+
+#### X. Differential calculus
+Derivatives measure how fast things change. Backprop in ML, control in robotics, and physics sims all depend on these rates.
+
+#### XI. Integral calculus
+Integrals add up tiny pieces to get area, volume, or totals. Needed for probabilities, physics, and expected values.
+
+#### XII. Optimization
+Methods to pick the best option under limits. Gradient descent trains ML models; similar ideas schedule tasks and plan robot paths.
+
+#### XIII. Different types of phenomena
+Deterministic is predictable, random follows chance patterns, chaotic looks random from tiny changes. CS mixes them for reliable systems and robust algorithms.
+
+#### XIV. Probability theorem
+Math for handling uncertainty with numbers. It powers Bayesian methods, probabilistic ML, risk models, crypto, and randomised algorithms.
+
+#### XV. Statistics
+Tools to summarize data and make predictions. In ML it checks models (tests, confidence intervals) and guides choices (A/B tests).
+
+#### XVI. Distribution
+Shapes that show how likely different outcomes are. Knowing them helps pick the right models and sampling methods in ML.
+
+#### XVII. Reasoning & Logic
+Ways to reach conclusions: deductive (certain), inductive (likely), abductive (best guess). AI uses these for rules, constraints, and proofs.
+
+#### XVIII. Propositional logic
+True/false statements combined with AND/OR/NOT. Forms the base of Boolean circuits, program conditions, and formal checks.
+
+#### XIX. Predicate logic
+Adds objects and quantifiers (all/some) to basic logic. Lets AI express rules, queries, and relationships in richer ways.
+
+#### XX. Stochastic systems
+Systems that include randomness. ML uses them for faster training (SGD), simulations (Monte Carlo), and sequence models (Markov chains).
+
 
