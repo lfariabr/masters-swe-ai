@@ -23,12 +23,12 @@ describe('Rate Limiter Middleware (Phase 1.4)', () => {
   });
 
   afterAll(async () => {
-    // Final cleanup
+    // Final cleanup of test keys only
+    // Note: Redis connection is closed in global teardown to avoid race conditions
     const keys = await redis.keys(`${TEST_PREFIX}*`);
     if (keys.length > 0) {
       await redis.del(...keys);
     }
-    await redis.quit();
   });
 
   /* ─────────────────────────────────────────────────────────────────────────

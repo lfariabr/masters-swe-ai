@@ -21,12 +21,12 @@ describe('Quota Routes (Phase 1.3)', () => {
   });
 
   afterAll(async () => {
-    // Final cleanup
+    // Final cleanup of test keys only
+    // Note: Redis connection is closed in global teardown to avoid race conditions
     const keys = await redis.keys(`ratelimit:agent:${TEST_AGENT_ID}*`);
     if (keys.length > 0) {
       await redis.del(...keys);
     }
-    await redis.quit();
   });
 
   /* ─────────────────────────────────────────────────────────────────────────

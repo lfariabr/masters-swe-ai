@@ -22,6 +22,7 @@ module.exports = {
   moduleFileExtensions: ['ts', 'js', 'json'],
   verbose: true,
   setupFilesAfterEnv: ['<rootDir>/tests/setup.ts'],
+  globalTeardown: '<rootDir>/tests/globalTeardown.ts',
   forceExit: true,
   // Handle .js extensions in TypeScript imports (ESM-style imports)
   moduleNameMapper: {

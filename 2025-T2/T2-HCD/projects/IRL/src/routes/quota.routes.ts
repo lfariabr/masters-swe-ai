@@ -10,9 +10,41 @@ import logger from '../utils/logger.js';
 
 const router = Router();
 
-// Default configuration (can be overridden via env vars)
-const DEFAULT_CAPACITY = parseInt(process.env.TOKEN_BUCKET_CAPACITY || '100', 10);
-const DEFAULT_RATE = parseFloat(process.env.TOKEN_BUCKET_RATE || '10'); // tokens per second
+// Safe defaults
+const SAFE_DEFAULT_CAPACITY = 100;
+const SAFE_DEFAULT_RATE = 10;
+const MAX_CAPACITY = 10000; // Sensible upper bound to prevent misconfiguration
+
+/**
+ * Safely parse and validate environment configuration.
+ * Falls back to safe defaults if values are missing, invalid, or out of range.
+ */
+function parseEnvConfig(): { capacity: number; rate: number } {
+  // Parse capacity: must be a positive integer
+  const capacityEnv = process.env.TOKEN_BUCKET_CAPACITY?.trim();
+  let capacity = SAFE_DEFAULT_CAPACITY;
+  if (capacityEnv && capacityEnv !== '') {
+    const parsed = parseInt(capacityEnv, 10);
+    if (Number.isFinite(parsed) && parsed > 0 && Number.isInteger(parsed)) {
+      capacity = Math.min(parsed, MAX_CAPACITY); // Clamp to sensible max
+    }
+  }
+
+  // Parse rate: must be a positive number
+  const rateEnv = process.env.TOKEN_BUCKET_RATE?.trim();
+  let rate = SAFE_DEFAULT_RATE;
+  if (rateEnv && rateEnv !== '') {
+    const parsed = parseFloat(rateEnv);
+    if (Number.isFinite(parsed) && parsed > 0) {
+      rate = parsed;
+    }
+  }
+
+  return { capacity, rate };
+}
+
+// Default configuration (validated from env vars with safe fallbacks)
+const { capacity: DEFAULT_CAPACITY, rate: DEFAULT_RATE } = parseEnvConfig();
 
 /**
  * Helper to run the Token Bucket Lua script
@@ -171,7 +203,12 @@ router.get('/quota/:agentId', async (req: Request, res: Response) => {
 
     // Parse existing bucket data
     try {
-      const [capacity, rate, tokens, lastRefill] = JSON.parse(data);
+        const parsed = JSON.parse(data);
+        if (!Array.isArray(parsed) || parsed.length < 4 || 
+            parsed.some(v => typeof v !== 'number')) {
+            throw new Error('Invalid bucket format');
+            }
+      const [capacity, rate, tokens, lastRefill] = parsed;
 
       // Calculate current tokens with refill
       const now = Date.now();
