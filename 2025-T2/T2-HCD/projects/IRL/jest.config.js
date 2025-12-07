@@ -22,6 +22,8 @@ module.exports = {
   moduleFileExtensions: ['ts', 'js', 'json'],
   verbose: true,
   setupFilesAfterEnv: ['<rootDir>/tests/setup.ts'],
+  // Note: globalTeardown runs in a separate process with its own module cache,
+  // so it cannot close the Redis client used by tests. We rely on forceExit instead.
   forceExit: true,
   // Handle .js extensions in TypeScript imports (ESM-style imports)
   moduleNameMapper: {

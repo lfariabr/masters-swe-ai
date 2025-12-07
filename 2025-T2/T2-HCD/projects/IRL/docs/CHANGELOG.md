@@ -1,6 +1,6 @@
 ## Changelog
 
-### ✅ **DONE**
+### ✅ **DONE** - **PHASE 0 COMPLETE** (2025-11-29)
 - [X] Complete Phase 0 (Foundation) - 2-3 days
     - [X] Get a running Node.js server with Redis connected
         - created `package.json` and installed dependencies: node, express, ioredis, typescript, jest
@@ -50,35 +50,67 @@ IRL/
 └── tsconfig.json         # TypeScript config
 ```
 
-### 🔥 **IN PROGRESS**
-- **Added**: Token Bucket rate limiter implementation
-    - Implemented `TokenBucket` interface and `createTokenBucket` factory in `src/core/rateLimiter/tokenBucket.ts`.
-    - Notes: initial in-memory implementation (tokens, capacity, rate, lastRefill). Not yet wired into middleware or Redis-backed atomic consumption — planned next steps.
-    - Related branch: `feat/token-bucket` (2025-11-29)
-- [ ] Complete Phase 1 (Rate Limiting)
+### ✅ **DONE** - **PHASE 1 COMPLETE** (2025-12-07)
+- [X] Complete Phase 1 (Rate Limiting)
     - [X] **1.1**: Set up Redis client with ioredis
     - [X] Break down `src/index.ts` into modular files:
         - `src/routes/testRateLimit.ts` - Rate limit test endpoint
         - `src/routes/health.routes.ts` - Health check endpoint
         - `src/routes/testRedisRouter.ts` - Redis connection test endpoint
-        - [ ] update tests accordingly
+        - `src/routes/quota.routes.ts` - Quota API endpoints
     - [X] **1.2**: Implement Token Bucket algorithm
         - Token generation rate calculation
         - Bucket capacity management
         - Atomic token consumption using Redis Lua scripts
         - File: `src/core/rateLimiter/tokenBucket.ts`
         - Include comprehensive test cases in `tests/tokenBucket.test.ts`
-    - [ ] **1.3**: Create REST API endpoints:
+    - [X] **1.3**: Create REST API endpoints:
         - `POST /api/request` - Request access (consumes token)
         - `GET /api/quota/:agentId` - Check remaining quota
-    - [ ] **1.4**: Add rate limit middleware
-    - [ ] **1.5**: Write unit tests (>80% coverage)
+        - File: `src/routes/quota.routes.ts`
+        - Tests: `tests/quota.routes.test.ts`
+    - [X] **1.4**: Add rate limit middleware
+        - `src/middleware/rateLimiter.middleware.ts`
+        - Configurable capacity, rate, key generator
+        - Returns 429 with Retry-After header when exceeded
+        - `agentRateLimiter` variant for agent-based rate limiting
+        - Tests: `tests/rateLimiter.middleware.test.ts`
+    - [X] **1.5**: Write unit tests (>80% coverage)
+        - **97 tests passing**
+        - **87.15% statement coverage** ✅
     - [ ] **1.6**: Load test with Apache Bench or k6
 
+#### Phase 1 Project Structure
+```bash
+IRL/
+├── src/
+│   ├── index.ts                    # Express server + endpoints
+│   ├── core/
+│   │   └── rateLimiter/
+│   │       └── tokenBucket.ts      # Token Bucket algorithm + Lua script
+│   ├── db/
+│   │   └── redis.ts                # Redis client + waitForRedis()
+│   ├── middleware/
+│   │   └── rateLimiter.middleware.ts  # Rate limit middleware
+│   ├── routes/
+│   │   ├── health.routes.ts        # Health check endpoint
+│   │   ├── quota.routes.ts         # /api/request, /api/quota/:agentId
+│   │   ├── testRateLimit.ts        # Rate limit test endpoint
+│   │   └── testRedisRouter.ts      # Redis connection test
+│   └── utils/
+│       └── logger.ts               # Winston structured logging
+├── tests/
+│   ├── setup.ts                    # Jest setup
+│   ├── api.test.ts                 # 8 API integration tests
+│   ├── redis.test.ts               # 9 Redis integration tests
+│   ├── tokenBucket.test.ts         # 38 Token Bucket unit tests
+│   ├── tokenBucketRedis.test.ts    # 14 Redis Lua script tests
+│   ├── quota.routes.test.ts        # 14 Quota API tests
+│   └── rateLimiter.middleware.test.ts  # 14 Middleware tests
+└── ...config files
+```
+
 ### 🕐 **BACKLOG**
-- [ ] Phase 1 Basic Rate Limiting 7 days
-    Goal: Token Bucket algorithm with Redis backend
-    Exit Criteria: API returns 200 or 429 with Retry-After header, tests pass
 - [ ] Phase 2 GraphQL Layer 7 days
     Goal: Replace REST with GraphQL API
     Exit Criteria: GraphQL Playground works, subscriptions fire on quota change
