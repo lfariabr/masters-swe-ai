@@ -23,8 +23,10 @@ describe('Rate Limiter Middleware (Phase 1.4)', () => {
   });
 
   afterAll(async () => {
-    // Final cleanup of test keys only
-    // Note: Redis connection is closed in global teardown to avoid race conditions
+    // Clean up test keys only
+    // Note: This test uses the shared Redis client from src/db/redis.
+    // The shared client is not closed here to avoid race conditions with other test suites.
+    // Jest's forceExit handles cleanup of shared connections.
     const keys = await redis.keys(`${TEST_PREFIX}*`);
     if (keys.length > 0) {
       await redis.del(...keys);

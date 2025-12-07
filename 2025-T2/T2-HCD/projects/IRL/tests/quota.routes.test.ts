@@ -21,8 +21,10 @@ describe('Quota Routes (Phase 1.3)', () => {
   });
 
   afterAll(async () => {
-    // Final cleanup of test keys only
-    // Note: Redis connection is closed in global teardown to avoid race conditions
+    // Clean up test keys only
+    // Note: This test uses the shared Redis client from src/index.
+    // The shared client is not closed here to avoid race conditions with other test suites.
+    // Jest's forceExit handles cleanup of shared connections.
     const keys = await redis.keys(`ratelimit:agent:${TEST_AGENT_ID}*`);
     if (keys.length > 0) {
       await redis.del(...keys);

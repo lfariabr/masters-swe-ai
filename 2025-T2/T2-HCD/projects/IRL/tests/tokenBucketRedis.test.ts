@@ -24,9 +24,12 @@ describe('TokenBucket Lua Script (Redis Integration)', () => {
   });
 
   afterAll(async () => {
-    // Clean up test key only
-    // Note: Redis connection is closed in global teardown to avoid race conditions
+    // Clean up test key
     await redis.del(TEST_KEY);
+    // Close the test-specific Redis connection
+    if (redis && redis.status !== 'end') {
+      await redis.quit();
+    }
   });
 
   /**

@@ -18,11 +18,14 @@ describe('Redis Connection', () => {
   });
 
   afterAll(async () => {
-    // Clean up test keys only
-    // Note: Redis connection is closed in global teardown to avoid race conditions
+    // Clean up test keys
     const keys = await redis.keys('test:*');
     if (keys.length > 0) {
       await redis.del(...keys);
+    }
+    // Close the test-specific Redis connection
+    if (redis && redis.status !== 'end') {
+      await redis.quit();
     }
   });
 

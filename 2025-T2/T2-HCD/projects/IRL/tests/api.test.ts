@@ -10,7 +10,9 @@ describe('API Endpoints (Real App)', () => {
 
   afterAll(async () => {
     // Clean up test keys only
-    // Note: Redis connection is closed in global teardown to avoid race conditions
+    // Note: This test uses the shared Redis client from src/index.
+    // The shared client is not closed here to avoid race conditions with other test suites.
+    // Jest's forceExit handles cleanup of shared connections.
     const keys = await redis.keys('ratelimit:*');
     if (keys.length > 0) {
       await redis.del(...keys);
