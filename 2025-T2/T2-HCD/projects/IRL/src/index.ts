@@ -7,6 +7,7 @@ import logger, { logRequest, logRateLimit } from './utils/logger.js';
 import rateLimitRouter from './routes/testRateLimit.js';
 import healthRouter from './routes/health.routes.js';
 import testRedisRouter from './routes/testRedisRouter.js';
+import quotaRouter from './routes/quota.routes.js';
 
 // Load environment variables
 dotenv.config();
@@ -39,6 +40,7 @@ app.use((req: Request, res: Response, next: NextFunction) => {
 });
 
 app.use('/api', rateLimitRouter);
+app.use('/api', quotaRouter);
 app.use('/test-redis', testRedisRouter);
 app.use('/health', healthRouter);
 
@@ -51,6 +53,8 @@ app.get('/', (_req: Request, res: Response) => {
       health: '/health',
       testRedis: '/test-redis',
       testRateLimit: '/api/test-rate-limit',
+      request: '/api/request',
+      quota: '/api/quota/:agentId',
     },
   });
 });
@@ -80,6 +84,8 @@ Available endpoints:
   GET /health   - Health check
   GET /test-redis - Test Redis connection
   GET /api/test-rate-limit - Test rate limiting
+  POST /api/request - Request access (consumes token)
+  GET /api/quota/:agentId - Check remaining quota
   `);
   });
   return server;

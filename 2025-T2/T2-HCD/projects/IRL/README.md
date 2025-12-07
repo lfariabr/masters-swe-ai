@@ -216,15 +216,15 @@ npm run dev
 
 #### Tasks:
 - [X] **1.1**: Set up Redis client with ioredis
-- [ ] **1.2**: Implement Token Bucket algorithm
+- [X] **1.2**: Implement Token Bucket algorithm
   - Token generation rate calculation
   - Bucket capacity management
   - Atomic token consumption using Redis Lua scripts
-- [ ] **1.3**: Create REST API endpoints:
+- [X] **1.3**: Create REST API endpoints:
   - `POST /api/request` - Request access (consumes token)
   - `GET /api/quota/:agentId` - Check remaining quota
-- [ ] **1.4**: Add rate limit middleware
-- [ ] **1.5**: Write unit tests (>80% coverage)
+- [X] **1.4**: Add rate limit middleware
+- [X] **1.5**: Write unit tests (>80% coverage)
 - [ ] **1.6**: Load test with Apache Bench or k6
 
 #### Learning Objectives:
