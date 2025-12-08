@@ -127,6 +127,7 @@ eggs/
 .eggs/
 lib/
 lib64/
+
 # Flutter (Dart) source folders – KEEP
 !T1-Extra/flutter/lumin_demo/lib/
 parts/
@@ -146,3 +147,14 @@ T2-REM/assignments/Assessment2/sales/
 
 # references
 2025-T2/T2-HCD/projects/IRL/docs/refs/
+
+# research
+2025-T2/T2-REM/projects/research_project/data/processed/nps_data.csv
+2025-T2/T2-REM/projects/research_project/data/processed/revenue_data.csv
+
+2025-T2/T2-REM/projects/research_project/data/raw/nps.xlsx
+2025-T2/T2-REM/projects/research_project/data/raw/vmb_2024_01.xlsx
+2025-T2/T2-REM/projects/research_project/data/raw/vmb_2024_12.xlsx
+2025-T2/T2-REM/projects/research_project/data/raw/vmb_2025_01.xlsx
+2025-T2/T2-REM/projects/research_project/data/raw/vmb_2025_02.xlsx
+2025-T2/T2-REM/projects/research_project/data/raw/vmb_2025_03.xlsx
