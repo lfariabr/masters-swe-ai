@@ -9,17 +9,6 @@ canonical_url:
 
 # Building IRL: From a $50k AWS Horror Story to Human-Centered AI Governance
 
----
-title: "Building IRL: From a $50k AWS Horror Story to Human-Centered AI Governance"
-published: false
-description: "How I turned a real $50,000 runaway bill into a production-ready rate limiter for autonomous AI agents—cost guardrails, carbon-aware throttling, and accountable governance in one trimester."
-tags: ai, machinelearning, node, graphql
-cover_image: [ADD_COVER_IMAGE_URL]
-canonical_url:
----
-
-# Building IRL: From a $50k AWS Horror Story to Human-Centered AI Governance
-
 **From runaway agents to responsible governance—how I turned academic research into a production-ready rate limiting system.**
 
 > *"The design choices we make today will determine whether autonomous AI amplifies human capability—or undermines it."*
@@ -30,7 +19,7 @@ canonical_url:
 
 What happens when you give an AI agent your credit card and tell it to "solve this problem autonomously"?
 
-For one developer, it meant waking up to a **$50,000 AWS bill**.
+For one developer, it meant waking up to a **$50,000 AWS bill**. [Reference](https://levelup.gitconnected.com/we-moved-everything-to-aws-and-our-bill-hit-50k-month-4b01e8e3c930)
 
 That's not a hypothetical horror story. It's a real incident I documented during my research—and it's the reason I spent the last trimester building the **Intelligent Rate Limiting (IRL) System** at Torrens University Australia under **[Dr. Omid Haas](https://au.linkedin.com/in/omid-haass)** in the Human-Centered Design (HCD402) subject.
 
@@ -38,7 +27,9 @@ But here's the thing: **rate limiting isn't just a technical problem. It's a hum
 
 > **Can we build governance systems that talk *with* developers, not *at* them?**
 
-![Rate Limiting Meme](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/rc44orc4nqtuiftsmi5m.png)
+![Figure 1: Google Trends Interest over time](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/6ocy18whu68iwlj0bh7t.png)
+
+*Figure 1: Google Trends Interest over time on "ai agent" (Jan 2023 – Oct 2025). Source: [Google Trends](https://trends.google.com/trends/explore?date=2023-01-01%202025-10-16&geo=AU&q=ai%20agent&hl=en)*
 
 That question drove the entire project.
 
@@ -69,6 +60,10 @@ Options:
 
 That's the difference between a **wall** and a **coach**.
 
+![Figure 2 – Conceptual Flow of IRL System](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/0s0njh2cx8ifti6rx9eb.png)
+
+*Figure 2: Conceptual flow of the Intelligent Rate-Limiting System – from agent request to governed response.*
+
 ---
 
 ## The 12-Week Journey
@@ -97,6 +92,10 @@ My journey into AI governance started innocently enough with a research presenta
 
 > 💡 **Key Insight:** Opaque systems erode trust. If users can't understand *why* a decision was made, they can't meaningfully consent to it.
 
+![Figure 3 – Paradox of Technology](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/pvbix7e9udigj1shg8re.png)
+
+*Figure 3: The Paradox of Technology – Convenience vs Complexity. As AI systems become more capable, the gap between user understanding and system behavior widens.*
+
 **[📊 VIEW PRESENTATION](https://github.com/lfariabr/masters-swe-ai/blob/master/2025-T2/T2-HCD/assignments/Assessment1/HCD402_Faria_L_Assessment_1_SlideDeck_vf.pdf)**
 
 ---
@@ -122,6 +121,14 @@ Current solutions? **Generic HTTP 429 errors** with zero context, zero fairness,
 
 > 💡 **Key Insight:** I traced one overnight spike to an autonomous agent retrying a failing call **11,000 times**. The legacy stack said nothing but `429`. That failure pattern shaped IRL's contrastive feedback model.
 
+![Figure 4 – Google Trends Related Topics](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/jrvlib9qjtufpr7482jq.png)
+
+*Figure 4: Google Trends Related Topics and Queries – showing the explosion of interest in AI agents and related technologies.*
+
+![Figure 5 – HCD Gaps in Agentic AI](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/qr2rl37golsikaihskbc.png)
+
+*Figure 5: HCD Gaps in Agentic AI – These complications set the stage for the immediate undermining effects where technical success collided with social and ethical fragility.*
+
 **Why It Matters:** This assessment defined the problem space—the gap between what developers need (context, fairness, control) and what they get (a wall).
 
 **[📄 READ FULL REPORT](https://github.com/lfariabr/masters-swe-ai/blob/master/2025-T2/T2-HCD/assignments/Assessment2/HCD402_Faria_L_Assessment_2.pdf)**
@@ -139,6 +146,10 @@ Working with teammates **Julio** and **Tamara**, we created the **Intelligent Mu
 **The Challenge:** Design a complete system solution addressing the problem from A2, with technical architecture, HCD principles, and implementation plan.
 
 **Why It Matters:** This wasn't just a paper exercise. We shipped code. We ran benchmarks. We validated the five HCD pillars against real scenarios.
+
+![Figure 6 – Early Sketching](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/nwwasnh6rzrhx2lmui96.png)
+
+*Figure 6: Early sketching of the proposed Intelligent Rate Limiting System – from whiteboard to architecture.*
 
 **[📘 SYSTEM DESIGN REPORT](https://github.com/lfariabr/masters-swe-ai/blob/master/2025-T2/T2-HCD/assignments/Assessment3/Faria_Luis_Assessment3_SystemSolution.pdf)** | **[📊 PRESENTATION](https://github.com/lfariabr/masters-swe-ai/blob/master/2025-T2/T2-HCD/assignments/Assessment3/Faria_Luis_Assessment3_Presentation.pdf)**
 
@@ -178,6 +189,14 @@ Academic projects offer a unique advantage: **you can optimize for learning AND 
 
 I containerized everything because the IRL stack is designed to scale horizontally across nodes—essential for enterprise deployments.
 
+![Figure 7 – Architecture Overview](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/z9ork5agfd421yn6kted.png)
+
+*Figure 7: Architecture overview of the Intelligent Multi-Tier Rate-Limiting System – showing the middleware layer between agentic workloads and backend APIs.*
+
+![Figure 8 – GraphQL Schema](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/pjoikotro4nd48eocbfp.png)
+
+*Figure 8: The IRL GraphQL schema acts as a clear contract, providing clients with a complete understanding of the API's capabilities. This schema enables real-time monitoring (subscriptions), user self-service (queries), and oversight workflows (mutations).*
+
 ---
 
 ## 🗝️ The 5 HCD Pillars (Story + Receipts)
@@ -203,6 +222,10 @@ Real-time dashboard showing:
 - Historical trends and anomaly detection
 
 **The story:** This is how we caught the $50k spike while it was still forming. No more black boxes.
+
+![Figure 9 – IRL Monitoring Dashboard](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/q7jgek9cd11c7dvneftv.png)
+
+*Figure 9: The IRL Monitoring Dashboard – real-time visibility into agent quotas, carbon footprint, and cost projections.*
 
 ---
 
@@ -270,6 +293,10 @@ Every throttling decision, override request, and ethical flag writes to an **app
 
 **The story:** Every pilot override and throttle is traceable. No more "the algorithm did it."
 
+![Figure 10 – Ethical Governance Lifecycle](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/b9tpuikh3i8bc8xnxnlg.png)
+
+*Figure 10: The Ethical Governance Lifecycle – from request evaluation through audit logging and appeal workflows.*
+
 ---
 
 ### **5. Sustainability** – Carbon-Aware Throttling
@@ -283,6 +310,10 @@ Integration with **real-time grid carbon intensity data** from the Green Softwar
 4. System suggests optimal execution windows based on forecasted clean energy
 
 **The story:** Pilot showed ~30% carbon drop without hurting SLAs. Research-backed: Wiesner et al. (2023) show temporal workload shifting reduces emissions by **15-30%**.
+
+![Figure 11 – Carbon Aware SDK Pseudo Code](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/9te6hdgrltmnu19at6s4.png)
+
+*Figure 11: Pseudo code for Carbon-Aware SDK TypeScript implementation – showing real-time grid intensity checks and workload deferral logic.*
 
 ---
 
