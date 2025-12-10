@@ -1,0 +1,1 @@
+[Building EigenAI: Teaching Math Foundations of AI Through Interactive Code](https://dev.to/lfariaus/building-eigenai-teaching-math-foundations-of-ai-through-interactive-code-3ni5)

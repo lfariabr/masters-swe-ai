@@ -1,0 +1,1 @@
+[Building IRL: From a $50k AWS Horror Story to Human-Centered AI Governance](https://dev.to/lfariaus/building-irl-from-a-50k-aws-horror-story-to-human-centered-ai-governance-1jdg)

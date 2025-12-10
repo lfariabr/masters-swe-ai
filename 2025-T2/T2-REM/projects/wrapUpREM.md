@@ -1,0 +1,1 @@
+[Does NPS Really Predict Revenue in Healthcare Clinics? I Spent 12 Weeks Finding Out](https://dev.to/lfariaus/does-nps-really-predict-revenue-in-healthcare-clinics-i-spent-12-weeks-finding-out-4nmj)
