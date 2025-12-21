@@ -50,7 +50,7 @@ Built a complete database schema with 6 tables matching real school systems:
 Added constraints, indexes, and triggers for data integrity.
 
 ### **Why It Matters:**
-Schools have complex data relationships. You need to design tables that handle real-world scenarios like student privacy, class assignments, and attendance tracking. This shows you understand database design principles.
+Schools have complex data relationships. The tables design must handle real-world scenarios like student privacy, class assignments, and attendance tracking. 
 
 ### **Key SQL Concepts:**
 ```sql
