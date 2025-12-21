@@ -82,12 +82,12 @@ stc-sql-lab/
 > Outcome: "He knows the basics. He won't break production."
 
 ### Tasks
-1. Install & connect -> https://www.youtube.com/watch?v=glxE7w4D8v8
+1. ✅ Install & connect -> https://www.youtube.com/watch?v=glxE7w4D8v8
 -  SQL Server Express + SSMS (matching StC's on-premise setup)
 -  Create DB: StC_SchoolLab
 -  Configure basic security (matching school's confidentiality requirements)
 
-2. Create schema (core tables)
+2. ✅ Create schema (core tables)
 - Students (with privacy-sensitive fields like in Synergetic)
 - Staff (with role-based attributes)
 - Subjects (matching school curriculum structure)

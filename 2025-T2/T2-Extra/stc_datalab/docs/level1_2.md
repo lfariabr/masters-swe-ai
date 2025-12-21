@@ -64,3 +64,6 @@ This task creates the core database schema with 6 tables matching school managem
 - NVARCHAR used for Unicode support (important for names)
 - Triggers maintain updated_date fields automatically
 - Schema matches real school systems like SEQTA and Synergetic
+- This will try to create the schema: `/opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -No -i /workspaces/masters-swe-ai/2025-T2/T2-Extra/stc_datalab/sql/01_schema.sql`
+- This will verify the tables: `/opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -No -Q "USE StC_SchoolLab; SELECT TABLE_NAME, TABLE_TYPE FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' ORDER BY TABLE_NAME;"`
+- This will preview some data: `/opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -No -Q "USE StC_SchoolLab; SELECT TOP 3 student_id, first_name, last_name, enrollment_year FROM Students; SELECT TOP 3 class_id, class_name, year_level FROM Classes; SELECT TOP 3 staff_id, first_name, last_name, role FROM Staff;"`
