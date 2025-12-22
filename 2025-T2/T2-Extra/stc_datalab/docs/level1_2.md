@@ -7,7 +7,12 @@ This task creates the core database schema with 6 tables matching school managem
 
 ### 1. Execute Schema Creation Script
 ```bash
+# Codespaces Ubuntu
 /opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -No -i /workspaces/masters-swe-ai/2025-T2/T2-Extra/stc_datalab/sql/01_schema.sql
+```
+```bash
+# Macbook
+/opt/homebrew/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -C -i /Users/luisfaria/Desktop/sEngineer/masters_SWEAI/2025-T2/T2-Extra/stc_datalab/sql/01_schema.sql
 ```
 **Purpose**: Creates all core tables, constraints, indexes, and triggers.
 - Tables created: Students, Staff, Subjects, Classes, Enrollments, Attendance
@@ -16,7 +21,12 @@ This task creates the core database schema with 6 tables matching school managem
 
 ### 2. Verify Table Creation
 ```bash
+# Codespaces Ubuntu
 /opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -No -Q "USE StC_SchoolLab; SELECT TABLE_SCHEMA, TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' ORDER BY TABLE_NAME;"
+```
+```bash
+# Macbook
+/opt/homebrew/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -C -Q "USE StC_SchoolLab; SELECT TABLE_SCHEMA, TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' ORDER BY TABLE_NAME;"
 ```
 **Purpose**: Confirms all 6 tables were created successfully.
 - Expected output: Students, Staff, Subjects, Classes, Enrollments, Attendance
@@ -64,6 +74,35 @@ This task creates the core database schema with 6 tables matching school managem
 - NVARCHAR used for Unicode support (important for names)
 - Triggers maintain updated_date fields automatically
 - Schema matches real school systems like SEQTA and Synergetic
-- This will try to create the schema: `/opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -No -i /workspaces/masters-swe-ai/2025-T2/T2-Extra/stc_datalab/sql/01_schema.sql`
-- This will verify the tables: `/opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -No -Q "USE StC_SchoolLab; SELECT TABLE_NAME, TABLE_TYPE FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' ORDER BY TABLE_NAME;"`
-- This will preview some data: `/opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -No -Q "USE StC_SchoolLab; SELECT TOP 3 student_id, first_name, last_name, enrollment_year FROM Students; SELECT TOP 3 class_id, class_name, year_level FROM Classes; SELECT TOP 3 staff_id, first_name, last_name, role FROM Staff;"`
+- Useful commands:
+
+### Try to create the schema: 
+```bash
+# Codespaces Ubuntu
+/opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -No -i /workspaces/masters-swe-ai/2025-T2/T2-Extra/stc_datalab/sql/01_schema.sql
+
+# Macos 
+/opt/homebrew/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -C -i /Users/luisfaria/Desktop/sEngineer/masters_SWEAI/2025-T2/T2-Extra/stc_datalab/sql/01_schema.sql
+```
+
+### Verify the tables: 
+```bash
+# Codespaces Ubuntu
+/opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -No -Q "USE StC_SchoolLab; SELECT TABLE_NAME, TABLE_TYPE FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' ORDER BY TABLE_NAME;"
+
+# MacOs
+/opt/homebrew/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -C \
+  -Q "USE StC_SchoolLab; SELECT TABLE_SCHEMA, TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' ORDER BY TABLE_NAME;"
+```
+
+### Preview some data: 
+```bash
+# Codespaces Ubuntu
+/opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -No -Q "USE StC_SchoolLab; SELECT TOP 3 student_id, first_name, last_name, enrollment_year FROM Students; SELECT TOP 3 class_id, class_name, year_level FROM Classes; SELECT TOP 3 staff_id, first_name, last_name, role FROM Staff;"
+# MacOs
+/opt/homebrew/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -C \
+  -Q "USE StC_SchoolLab;
+      SELECT TOP 3 student_id, first_name, last_name, enrollment_year FROM Students;
+      SELECT TOP 3 class_id, class_name, year_level FROM Classes;
+      SELECT TOP 3 staff_id, first_name, last_name, role FROM Staff;"
+```
