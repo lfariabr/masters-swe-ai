@@ -16,8 +16,7 @@ docker --version
 ```bash
 # Codespaces
 docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=StC_SchoolLab2025!" -e "MSSQL_PID=Express" -p 1433:1433 --name sqlserver --hostname sqlserver -d mcr.microsoft.com/mssql/server:2022-latest
-```
-```bash
+
 # Macbook
 docker run \
   -e 'ACCEPT_EULA=Y' \
@@ -46,8 +45,7 @@ docker ps
 ```bash
 # Debian/Ubuntu package manager
 sudo apt update && sudo apt install -y mssql-tools18
-```
-```bash
+
 # Macbook Homebrew
 brew tap microsoft/mssql-release https://github.com/microsoft/homebrew-mssql-release
 brew update
@@ -59,8 +57,7 @@ HOMEBREW_NO_AUTO_UPDATE=1 brew install sqlcmd
 ```bash
 # Test connection (Codespaces)
 /opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -No -Q "SELECT @@VERSION;"
-```
-```bash
+
 # Test connection (Macbook)
 sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -C -Q "SELECT @@VERSION;"
 ```
@@ -72,8 +69,7 @@ sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -C -Q "SELECT @@VERSION;"
 ```bash
 # Create database (Codespaces)
 /opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -No -Q "CREATE DATABASE StC_SchoolLab;"
-```
-```bash
+
 # Create database (Macbook)
 /opt/homebrew/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -C -Q "CREATE DATABASE StC_SchoolLab;"
 ```
@@ -83,8 +79,7 @@ sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -C -Q "SELECT @@VERSION;"
 ```bash
 # Codespaces
 /opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -No -Q "SELECT name FROM sys.databases WHERE name = 'StC_SchoolLab';"
-```
-```bash
+
 # Macbook
 /opt/homebrew/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -C -Q "SELECT name FROM sys.databases WHERE name = 'StC_SchoolLab';"
 ```
@@ -94,8 +89,7 @@ sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -C -Q "SELECT @@VERSION;"
 ```bash
 # Create login (Codespaces)
 /opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -No -Q "CREATE LOGIN school_user WITH PASSWORD = 'SecurePass123';"
-```
-```bash
+
 # Create login (Macbook)
 /opt/homebrew/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -C -Q "CREATE LOGIN school_user WITH PASSWORD = 'SecurePass123';"
 ```
@@ -104,8 +98,7 @@ sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -C -Q "SELECT @@VERSION;"
 ```bash
 # Create database user (Codespaces)
 /opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -No -Q "USE StC_SchoolLab; CREATE USER school_user FOR LOGIN school_user; ALTER ROLE db_datareader ADD MEMBER school_user; ALTER ROLE db_datawriter ADD MEMBER school_user;"
-```
-```bash
+
 # Create database user (Macbook)
 /opt/homebrew/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -C -Q "USE StC_SchoolLab; CREATE USER school_user FOR LOGIN school_user; ALTER ROLE db_datareader ADD MEMBER school_user; ALTER ROLE db_datawriter ADD MEMBER school_user;"
 ```
