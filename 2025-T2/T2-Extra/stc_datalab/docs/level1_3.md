@@ -101,3 +101,25 @@ ORDER BY enrolled_students DESC;
 - LEFT JOINs prevent missing records in reports
 - Aggregations provide summary insights
 - Queries match real school reporting needs
+- Useful commands:
+
+### Load sample data 
+```bash
+# Codespaces Ubuntu
+/opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -No -i /workspaces/masters-swe-ai/2025-T2/T2-Extra/stc_datalab/sql/02_sample_queries.sql
+
+# Macos 
+/opt/homebrew/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -C -i /Users/luisfaria/Desktop/sEngineer/masters_SWEAI/2025-T2/T2-Extra/stc_datalab/sql/02_sample_queries.sql
+```
+
+### Preview some data: 
+```bash
+# Codespaces Ubuntu
+/opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -No -Q "USE StC_SchoolLab; SELECT TOP 3 student_id, first_name, last_name, enrollment_year FROM Students; SELECT TOP 3 class_id, class_name, year_level FROM Classes; SELECT TOP 3 staff_id, first_name, last_name, role FROM Staff;"
+# MacOs
+/opt/homebrew/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -C \
+  -Q "USE StC_SchoolLab;
+      SELECT TOP 3 student_id, first_name, last_name, enrollment_year FROM Students;
+      SELECT TOP 3 class_id, class_name, year_level FROM Classes;
+      SELECT TOP 3 staff_id, first_name, last_name, role FROM Staff;"
+```

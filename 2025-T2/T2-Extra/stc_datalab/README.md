@@ -95,7 +95,7 @@ stc-sql-lab/
 - Enrollments (student-class relationships)
 - Attendance (simple tracking like SEQTA)
 
-3. Basic SQL competence
+3. ✅ Basic SQL competence
 - SELECT + WHERE + ORDER BY (for basic student/class queries)
 - JOINS (especially LEFT JOIN for preserving all student records)
 - GROUP BY aggregates (COUNT/SUM for attendance reporting)
