@@ -83,7 +83,7 @@ CREATE TABLE Classes (
 
 ## ✅ **Task 3: Basic SQL Competence**
 
-### **What We Did:**
+### **What I've Done:**
 Demonstrated essential SQL queries using sample data:
 - **SELECT + WHERE + ORDER BY**: Basic student filtering
 - **LEFT JOIN**: Complete reporting (shows all students, even unenrolled)
