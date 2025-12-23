@@ -5,7 +5,7 @@ This document outlines the setup of SQL Server Express using Docker in a Linux e
 
 ## Prerequisites
 - Docker installed and running
-- Ubuntu 24.04 (Codespaces environment)
+- Ubuntu 24.04 (Codespaces environment) or macOS
 - SQL Server command-line tools (mssql-tools18)
 
 ## Step-by-Step Setup
@@ -41,15 +41,25 @@ docker run -e "ACCEPT_EULA=Y" \
 Install command-line tools for database management:
 
 ```bash
+# Debian/Ubuntu package manager
 sudo apt update
 sudo apt install -y mssql-tools18
+
+# Macbook Homebrew
+brew tap microsoft/mssql-release https://github.com/microsoft/homebrew-mssql-release
+brew update
+HOMEBREW_NO_AUTO_UPDATE=1 brew install sqlcmd
 ```
 
 ### 4. Verify Connection
 Test the connection to SQL Server:
 
 ```bash
+# Test connection (Codespaces)
 /opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -No -Q "USE StC_SchoolLab; CREATE USER school_user FOR LOGIN school_user;"
+
+# Test connection (Macbook)
+sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -C -Q "SELECT @@VERSION;"
 ```
 
 Expected output: SQL Server version information confirming Express Edition on Linux.
@@ -58,7 +68,11 @@ Expected output: SQL Server version information confirming Express Edition on Li
 Execute the database creation script:
 
 ```bash
+# Codespaces
 /opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -No -i sql/00_create_db.sql
+
+# Macbook
+/opt/homebrew/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -C -i sql/00_create_db.sql
 ```
 
 ### 6. Configure Basic Security

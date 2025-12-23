@@ -81,7 +81,7 @@ CREATE TABLE Classes (
 
 ---
 
-## **Task 3: Basic SQL Competence**
+## ✅ **Task 3: Basic SQL Competence**
 
 ### **What We Did:**
 Demonstrated essential SQL queries using sample data:

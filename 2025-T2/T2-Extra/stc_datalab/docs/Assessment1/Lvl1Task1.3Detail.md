@@ -7,7 +7,11 @@ This task demonstrates fundamental SQL skills required for database operations: 
 
 ### 1. Execute Sample Data and Queries Script
 ```bash
+# Codespaces Ubuntu
 /opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -No -i /workspaces/masters-swe-ai/2025-T2/T2-Extra/stc_datalab/sql/02_sample_queries.sql
+
+# macOs 
+/opt/homebrew/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -C -i /Users/luisfaria/Desktop/sEngineer/masters_SWEAI/2025-T2/T2-Extra/stc_datalab/sql/02_sample_queries.sql
 ```
 **Purpose**: Inserts sample data and runs demonstration queries.
 - Inserts: 3 staff, 3 subjects, 3 classes, 4 students, 9 enrollments, 6 attendance records
@@ -110,6 +114,18 @@ ORDER BY enrolled_students DESC;
 
 # Macos 
 /opt/homebrew/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -C -i /Users/luisfaria/Desktop/sEngineer/masters_SWEAI/2025-T2/T2-Extra/stc_datalab/sql/02_sample_queries.sql
+```
+
+### Reset data
+
+Created `sql/03_reset_data.sql` with ordered deletes and identity reseeds so the demo DB can be cleared safely before re-running seed scripts
+
+```bash
+# Codespaces Ubuntu
+/opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -No -i /workspaces/masters-swe-ai/2025-T2/T2-Extra/stc_datalab/sql/03_reset_data.sql
+
+# Macos 
+/opt/homebrew/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -C -i /Users/luisfaria/Desktop/sEngineer/masters_SWEAI/2025-T2/T2-Extra/stc_datalab/sql/03_reset_data.sql
 ```
 
 ### Preview some data: 
