@@ -6,17 +6,17 @@ This is structured as a 3-level assessment simulation `(Level 1 → Level 2 → 
 
 ## Execution Plan (Dec 2025 - Jan 2026)
 
-| Date | Focus | Deliverables |
-|------|-------|-------------|
-| **Dec 20-21** | Setup & Schema | SQL Server Express + SSMS installation, DB creation, table structure |
-| **Dec 22-23** | Backup & Restore | Full backup/restore procedures, documentation with screenshots |
-| **Dec 24-25** | Data Generation | Realistic seed data with edge cases |
-| **Dec 26-27** | Reporting Views | Student profiles, class rolls, attendance summaries |
-| **Dec 28-29** | Stored Procedures | Parameter-based queries, optimization |
-| **Dec 30-31** | Import/Export | CSV handling, staging tables, data validation |
-| **Jan 1-2** | Runbook & Documentation | Operational procedures, troubleshooting guide |
-| **Jan 3-4** | Demo Preparation | Presentation script, screenshots, talking points |
-| **Jan 5** | Final Review | Validate all components, practice demo |
+| Date | Focus | Deliverables | Status |
+|------|-------|-------------|----|
+| **Dec 20-21** | Setup & Schema | SQL Server Express + SSMS installation, DB creation, table structure | ✅ |
+| **Dec 22-23** | Backup & Restore | Full backup/restore procedures, documentation with screenshots | ✅ |
+| **Dec 24-25** | Data Generation | Realistic seed data with edge cases | ⏱️ |
+| **Dec 26-27** | Reporting Views | Student profiles, class rolls, attendance summaries | ⏱️ |
+| **Dec 28-29** | Stored Procedures | Parameter-based queries, optimization | ⏱️ |
+| **Dec 30-31** | Import/Export | CSV handling, staging tables, data validation | ⏱️ |
+| **Jan 1-2** | Runbook & Documentation | Operational procedures, troubleshooting guide | ⏱️ |
+| **Jan 3-4** | Demo Preparation | Presentation script, screenshots, talking points | ⏱️ |
+| **Jan 5** | Final Review | Validate all components, practice demo | ⏱️ |
 
 ---
 
@@ -101,7 +101,7 @@ stc-sql-lab/
 - GROUP BY aggregates (COUNT/SUM for attendance reporting)
 - Basic indexing strategy (for performance)
 
-4. Backup & restore
+✅ 4. Backup & restore
 - Full backup (both GUI and T-SQL methods)
 - Restore to a new DB name: StC_SchoolLab_RESTORE
 - Document recovery point objectives
@@ -114,9 +114,22 @@ stc-sql-lab/
 ### Passing standard
 You can explain (out loud, calmly):
 - "What is a database vs schema vs table?"
+R: A database is the container for all data and objects for an application. A schema is a logical namespace used to organise objects and manage permissions. A table stores the actual structured data.
+> Examples:
+> - Database: StC_SchoolLab 
+>   - Contains: students, staff, classes, attendance, etc
+> - Schema: 
+>   - core: Core operational data (students, staff)
+>   - academic: Classes, subjects, attendance
+>   - reporting: Views used in powerBi
+> - Table: specific register or list
+>   - core.Students: StudentId, StudentNumber, FirstName, LastName...
 - "When would you do a restore?"
+R: When there is data corruption, hardware failure, or accidental deletion to recover a previous state
 - "Why LEFT JOIN for reporting?"
+R: LEFT JOIN ensures all records from the left table (e.g., students) are included in the report, even if there are no matching records in the right table (e.g., enrollments), which is essential for complete reporting.
 - "How do you secure sensitive student data?"
+R: By implementing appropriate access controls, encryption, and data masking techniques to protect privacy-sensitive information.
 
 ---
 

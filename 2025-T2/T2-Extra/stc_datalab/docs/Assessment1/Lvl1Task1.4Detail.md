@@ -15,7 +15,11 @@ docker exec sqlserver mkdir -p /var/opt/mssql/backup
 
 ### 2. Execute Backup and Restore Script
 ```bash
+# Codespaces Ubuntu
 /opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -No -i /workspaces/masters-swe-ai/2025-T2/T2-Extra/stc_datalab/sql/07_backup_restore.sql
+
+# macOs 
+/opt/homebrew/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -C -i /Users/luisfaria/Desktop/sEngineer/masters_SWEAI/2025-T2/T2-Extra/stc_datalab/sql/07_backup_restore.sql
 ```
 **Purpose**: Performs full backup and restore demonstration.
 - Creates backup file: StC_SchoolLab_Full.bak
