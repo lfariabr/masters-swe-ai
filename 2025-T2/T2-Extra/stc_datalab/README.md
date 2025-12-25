@@ -138,7 +138,7 @@ R: By implementing appropriate access controls, encryption, and data masking tec
 > Outcome: "He can generate real reports and move data between systems."
 
 ### Tasks
-1. Seed realistic data
+1. ✅ Seed realistic data
 - 200 students, 20 staff, 30 classes, 500 enrollments (matching StC's scale)
 - Include some NULLs and edge cases (missing phone, withdrawn student, international students)
 - Add data quality issues that would need cleaning (simulating real-world scenarios)
