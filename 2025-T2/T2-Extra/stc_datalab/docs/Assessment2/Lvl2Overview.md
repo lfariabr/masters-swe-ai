@@ -90,3 +90,7 @@ Classes      30
 Enrollments  500
 Attendance   800
 ```
+
+---
+
+## **Task 2: Create reporting views**

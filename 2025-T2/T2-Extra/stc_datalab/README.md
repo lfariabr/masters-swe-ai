@@ -10,7 +10,7 @@ This is structured as a 3-level assessment simulation `(Level 1 → Level 2 → 
 |------|-------|-------------|----|
 | **Dec 20-21** | Setup & Schema | SQL Server Express + SSMS installation, DB creation, table structure | ✅ |
 | **Dec 22-23** | Backup & Restore | Full backup/restore procedures, documentation with screenshots | ✅ |
-| **Dec 24-25** | Data Generation | Realistic seed data with edge cases | ⏱️ |
+| **Dec 24-25** | Data Generation | Realistic seed data with edge cases | ✅ |
 | **Dec 26-27** | Reporting Views | Student profiles, class rolls, attendance summaries | ⏱️ |
 | **Dec 28-29** | Stored Procedures | Parameter-based queries, optimization | ⏱️ |
 | **Dec 30-31** | Import/Export | CSV handling, staging tables, data validation | ⏱️ |
@@ -101,7 +101,7 @@ stc-sql-lab/
 - GROUP BY aggregates (COUNT/SUM for attendance reporting)
 - Basic indexing strategy (for performance)
 
-✅ 4. Backup & restore
+4. ✅ Backup & restore
 - Full backup (both GUI and T-SQL methods)
 - Restore to a new DB name: StC_SchoolLab_RESTORE
 - Document recovery point objectives

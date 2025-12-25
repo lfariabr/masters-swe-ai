@@ -11,6 +11,7 @@ IF EXISTS (SELECT 1 FROM Enrollments)
     OR EXISTS (SELECT 1 FROM Staff)
     OR EXISTS (SELECT 1 FROM Classes)
     OR EXISTS (SELECT 1 FROM Subjects)
+    OR EXISTS (SELECT 1 FROM Attendance)
 BEGIN
     RAISERROR('Seed script expects empty core tables. Please reset the database first.', 16, 1);
     RETURN;
@@ -255,20 +256,23 @@ DECLARE @EnrollmentTarget INT = 500;
 DECLARE @StudentCount INT = (SELECT COUNT(*) FROM Students);
 DECLARE @ClassCount INT = (SELECT COUNT(*) FROM Classes);
 
-;WITH Seq AS (
-    SELECT TOP (@EnrollmentTarget) ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS n
-    FROM sys.all_objects AS so1
-    CROSS JOIN sys.objects AS so2
-),
-StudentCycle AS (
+;WITH StudentCycle AS (
     SELECT student_id,
-           ROW_NUMBER() OVER (ORDER BY student_id) AS rn
+           ROW_NUMBER() OVER (ORDER BY student_id) AS student_rn
     FROM Students
 ),
 ClassCycle AS (
     SELECT class_id,
-           ROW_NUMBER() OVER (ORDER BY class_id) AS rn
+           ROW_NUMBER() OVER (ORDER BY class_id) AS class_rn
     FROM Classes
+),
+UniquePairs AS (
+    SELECT TOP (@EnrollmentTarget)
+        s.student_id,
+        c.class_id,
+        ROW_NUMBER() OVER (ORDER BY s.student_rn, c.class_rn) AS n
+    FROM StudentCycle s
+    CROSS JOIN ClassCycle c
 )
 INSERT INTO Enrollments (
     student_id,
@@ -281,28 +285,26 @@ INSERT INTO Enrollments (
     updated_date
 )
 SELECT
-    s.student_id,
-    c.class_id,
-    DATEADD(DAY, -((seq.n * 2) % 730), CAST('2024-12-01' AS DATE)) AS enrollment_date,
+    up.student_id,
+    up.class_id,
+    DATEADD(DAY, -((up.n * 2) % 730), CAST('2024-12-01' AS DATE)) AS enrollment_date,
     CASE
-        WHEN seq.n % 23 = 0 THEN 'Withdrawn'
-        WHEN seq.n % 37 = 0 THEN 'Completed'
-        WHEN seq.n % 41 = 0 THEN 'Pending'
+        WHEN up.n % 23 = 0 THEN 'Withdrawn'
+        WHEN up.n % 37 = 0 THEN 'Completed'
+        WHEN up.n % 41 = 0 THEN 'Pending'
         ELSE 'Active'
     END AS status,
     CASE
-        WHEN seq.n % 9 = 0 THEN NULL
-        WHEN seq.n % 11 = 0 THEN 'A '
-        WHEN seq.n % 13 = 0 THEN 'b'
-        WHEN seq.n % 17 = 0 THEN 'INC'
-        ELSE CHOOSE((seq.n % 5) + 1, 'A', 'B+', 'B', 'C', 'D')
+        WHEN up.n % 9 = 0 THEN NULL
+        WHEN up.n % 11 = 0 THEN 'A '
+        WHEN up.n % 13 = 0 THEN 'b'
+        WHEN up.n % 17 = 0 THEN 'INC'
+        ELSE CHOOSE((up.n % 5) + 1, 'A', 'B+', 'B', 'C', 'D')
     END AS grade,
-    CASE WHEN seq.n % 23 = 0 THEN DATEADD(DAY, 7, DATEADD(DAY, -((seq.n * 2) % 730), CAST('2024-12-01' AS DATE))) END AS withdrawal_date,
-    DATEADD(HOUR, -seq.n, SYSDATETIME()),
-    DATEADD(HOUR, -seq.n, SYSDATETIME())
-FROM Seq seq
-JOIN StudentCycle s ON s.rn = ((seq.n - 1) % @StudentCount) + 1
-JOIN ClassCycle c ON c.rn = ((seq.n * 7 - 1) % @ClassCount) + 1;
+    CASE WHEN up.n % 23 = 0 THEN DATEADD(DAY, 7, DATEADD(DAY, -((up.n * 2) % 730), CAST('2024-12-01' AS DATE))) END AS withdrawal_date,
+    DATEADD(HOUR, -up.n, SYSDATETIME()),
+    DATEADD(HOUR, -up.n, SYSDATETIME())
+FROM UniquePairs up;
 
 SET @Inserted = @@ROWCOUNT;
 PRINT CONCAT('Enrollments inserted: ', @Inserted);
