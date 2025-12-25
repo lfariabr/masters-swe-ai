@@ -113,8 +113,8 @@ stc-sql-lab/
 
 ### Passing standard
 You can explain (out loud, calmly):
-- "What is a database vs schema vs table?"
-R: A database is the container for all data and objects for an application. A schema is a logical namespace used to organise objects and manage permissions. A table stores the actual structured data.
+1. "What is a database vs schema vs table?"
+**R:** A database is the container for all data and objects for an application. A schema is a logical namespace used to organise objects and manage permissions. A table stores the actual structured data.
 > Examples:
 > - Database: StC_SchoolLab 
 >   - Contains: students, staff, classes, attendance, etc
@@ -124,12 +124,15 @@ R: A database is the container for all data and objects for an application. A sc
 >   - reporting: Views used in powerBi
 > - Table: specific register or list
 >   - core.Students: StudentId, StudentNumber, FirstName, LastName...
-- "When would you do a restore?"
-R: When there is data corruption, hardware failure, or accidental deletion to recover a previous state
-- "Why LEFT JOIN for reporting?"
-R: LEFT JOIN ensures all records from the left table (e.g., students) are included in the report, even if there are no matching records in the right table (e.g., enrollments), which is essential for complete reporting.
-- "How do you secure sensitive student data?"
-R: By implementing appropriate access controls, encryption, and data masking techniques to protect privacy-sensitive information.
+
+2. "When would you do a restore?"
+**R:** When there is data corruption, hardware failure, or accidental deletion to recover a previous state
+
+3. "Why LEFT JOIN for reporting?"
+**R:** LEFT JOIN ensures all records from the left table (e.g., students) are included in the report, even if there are no matching records in the right table (e.g., enrollments), which is essential for complete reporting.
+
+4. "How do you secure sensitive student data?"
+**R:** By implementing appropriate access controls, encryption, and data masking techniques to protect privacy-sensitive information.
 
 ---
 
