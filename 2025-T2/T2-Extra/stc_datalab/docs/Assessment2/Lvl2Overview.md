@@ -94,3 +94,77 @@ Attendance   800
 ---
 
 ## **Task 2: Create reporting views**
+
+### **What I've Done:**
+Created four essential reporting views that simulate the kind of data access needed at StC:
+
+1. View 1: **vw_StudentProfile**
+Comprehensive student data aggregating enrollments and attendance:
+- Student demographics (name, age, contact info)
+- Medical info flag (privacy-masked)
+- Enrollment summary (active/completed/withdrawn counts)
+- Attendance metrics (days present/absent/late, attendance rate %)
+
+2. View 2: **vw_ClassRoll**
+Daily class roll for teachers:
+- Class details (name, subject, teacher, room, schedule)
+- Student roster with enrollment status
+- Per-student attendance summary for the class
+- Class capacity metrics (current enrollment, available seats)
+- Latest attendance status per student
+
+3. View 3: **vw_AttendanceSummary**
+Aggregated metrics for leadership dashboards:
+- Date dimensions (day/week/month/year)
+- Class-level attendance counts by status
+- Attendance and absence rates
+- Teacher and marker information
+- Trend analysis ready (grouped by date + class)
+
+4. View 4: **vw_AcademicPerformance**
+Student performance with effort/grades calculations:
+- Final grades with grade point conversion (A=4.0, B+=3.5, etc.)
+- Attendance-based effort rating (Outstanding/Good/Satisfactory/Needs Improvement)
+- Academic standing indicator (Good Standing/At Risk/Failing)
+- Classes attended vs total classes
+- Subject credits for GPA calculations
+
+### **Why It Matters:**
+Reporting views are the backbone of any data platform. They provide a consistent, secure way to access data for reporting, analysis, and decision-making. This simulates the kind of reporting StC needs for staff and leadership, ensuring I can handle the complexity of real-world data while maintaining data integrity and security.
+
+### **Execution Results:**
+
+```bash
+# macOs script to create views
+/opt/homebrew/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -C \
+  -i /Users/luisfaria/Desktop/sEngineer/masters_SWEAI/2025-T2/T2-Extra/stc_datalab/sql/03_views.sql
+
+# macOs validation query
+/opt/homebrew/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -C -Q \
+  "USE StC_SchoolLab; SELECT TOP 10 student_name, final_grade, grade_points, academic_standing, effort_rating FROM vw_AcademicPerformance WHERE final_grade IS NOT NULL ORDER BY student_id, class_id;"
+
+# Codespaces Ubuntu script to create views
+/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -C \
+  -i /workspaces/stc_datalab/sql/03_views.sql
+
+# Codespaces Ubuntu validation query
+/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -C -Q \
+  "USE StC_SchoolLab; SELECT TOP 10 student_name, final_grade, grade_points, academic_standing, effort_rating FROM vw_AcademicPerformance WHERE final_grade IS NOT NULL ORDER BY student_id, class_id;"
+
+# Expected Output:
+Changed database context to 'StC_SchoolLab'.
+student_name                                                                                          final_grade grade_points academic_standing effort_rating    
+----------------------------------------------------------------------------------------------------- ----------- ------------ ----------------- -----------------
+Oliver Smith                                                                                          B+                   3.3 Good Standing     Needs Improvement
+Oliver Smith                                                                                          B                    3.0 Good Standing     Needs Improvement
+Oliver Smith                                                                                          C                    2.0 At Risk           Needs Improvement
+Oliver Smith                                                                                          D                    1.0 At Risk           Needs Improvement
+Oliver Smith                                                                                          A                    4.0 Good Standing     Needs Improvement
+Oliver Smith                                                                                          B+                   3.3 Good Standing     Needs Improvement
+Oliver Smith                                                                                          B                    3.0 Good Standing     Needs Improvement
+Oliver Smith                                                                                          C                    2.0 At Risk           Needs Improvement
+Oliver Smith                                                                                          A                    4.0 Good Standing     Needs Improvement
+Oliver Smith                                                                                          A                    4.0 Good Standing     Needs Improvement
+
+(10 rows affected)
+```

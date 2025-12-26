@@ -20,7 +20,7 @@ This is structured as a 3-level assessment simulation `(Level 1 → Level 2 → 
 
 ---
 
-## The Mini Project: "StC School Data Lab"
+## StC School Data Lab (Operational Simulation)
 
 > Goal: Demonstrate I can maintain SQL Server data systems, run reporting, handle imports, and operate safely (backup/restore).
 
@@ -114,25 +114,32 @@ stc-sql-lab/
 ### Passing standard
 You can explain (out loud, calmly):
 1. "What is a database vs schema vs table?"
-**R:** A database is the container for all data and objects for an application. A schema is a logical namespace used to organise objects and manage permissions. A table stores the actual structured data.
-> Examples:
-> - Database: StC_SchoolLab 
->   - Contains: students, staff, classes, attendance, etc
-> - Schema: 
->   - core: Core operational data (students, staff)
->   - academic: Classes, subjects, attendance
->   - reporting: Views used in powerBi
-> - Table: specific register or list
->   - core.Students: StudentId, StudentNumber, FirstName, LastName...
+- **R:** Database: the container for all data and objects for an application. 
+- Schema: a logical namespace used to organise objects and manage permissions. 
+- Table: stores the actual structured data.
+
+Examples:
+```bash
+# Database: StC_SchoolLab 
+- contains: students, staff, classes, attendance, etc
+
+# Schema: 
+- core: Core operational data (students, staff)
+- academic: Classes, subjects, attendance
+- reporting: Views used in powerBi
+
+# Table: specific register or list
+- core.Students: StudentId, StudentNumber, FirstName, LastName...
+```
 
 2. "When would you do a restore?"
-**R:** When there is data corruption, hardware failure, or accidental deletion to recover a previous state
+- **R:** When there is data corruption, hardware failure, or accidental deletion to recover a previous state
 
 3. "Why LEFT JOIN for reporting?"
-**R:** LEFT JOIN ensures all records from the left table (e.g., students) are included in the report, even if there are no matching records in the right table (e.g., enrollments), which is essential for complete reporting.
+- **R:** LEFT JOIN ensures all records from the left table (e.g., students) are included in the report, even if there are no matching records in the right table (e.g., enrollments), which is essential for complete reporting.
 
 4. "How do you secure sensitive student data?"
-**R:** By implementing appropriate access controls, encryption, and data masking techniques to protect privacy-sensitive information.
+- **R:** By implementing appropriate access controls, encryption, and data masking techniques to protect privacy-sensitive information.
 
 ---
 
@@ -146,7 +153,7 @@ You can explain (out loud, calmly):
 - Include some NULLs and edge cases (missing phone, withdrawn student, international students)
 - Add data quality issues that would need cleaning (simulating real-world scenarios)
 
-2. Create reporting views (similar to what feeds Power BI at StC's)
+2. ✅ Create reporting views (similar to what feeds Power BI at StC's)
 - vw_StudentProfile (comprehensive student data for staff access)
 - vw_ClassRoll (attendance tracking for teachers)
 - vw_AttendanceSummary (aggregated metrics for leadership)
