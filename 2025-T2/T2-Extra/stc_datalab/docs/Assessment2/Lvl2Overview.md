@@ -168,3 +168,94 @@ Oliver Smith                                                                    
 
 (10 rows affected)
 ```
+
+---
+
+## **Task 3: Stored procedures**
+
+### **What I've Done:**
+Created `sql/04_stored_procedures.sql` file with the following stored procedures:
+
+1. Procedure: sp_GetStudentProfile(@StudentId)
+
+**Purpose:** Detailed student lookup for staff access
+
+**Features:**
+- Input validation (positive integer, student exists)
+- Returns 3 result sets:
+  1. Comprehensive student profile from `vw_StudentProfile`
+  2. Current enrollments with class/teacher details
+  3. Recent attendance (last 30 days)
+- Error handling with descriptive messages
+
+**Use Case:** Student information retrieval, parent-teacher meetings, counseling sessions
+
+2. Procedure: sp_EnrollmentSummaryByYear(@YearLevel)
+
+**Purpose:** Class distribution reports by year level (7-12)
+**Features:**
+- Input validation (year level 7-12 for secondary school)
+- Returns 2 result sets:
+  1. Per-class enrollment metrics (active/completed/withdrawn counts, capacity utilization, enrollment status)
+  2. Year-level summary statistics (total classes, subjects, teachers, overall utilization)
+- Capacity indicators: Full, Near Capacity, Available, Under-enrolled
+
+**Use Case:** Enrollment planning, capacity management, resource allocation
+
+3. Procedure: sp_AttendanceByDate(@Date)
+**Purpose:** Daily attendance tracking for operational reporting
+
+**Features:**
+- Returns 3 result sets:
+  1. All attendance records for the specified date with student/class/teacher details
+  2. Daily summary statistics (total marked, present/absent/late/excused counts, rates)
+  3. Students with absences (for follow-up with contact information)
+- Includes day of the week for context
+
+**Use Case:** Daily roll call verification, absence follow-up, compliance reporting
+
+4. Procedure: sp_GenerateCSVExport(@TableName)
+
+**Purpose:** Generate CSV-formatted data for system integration (SEQTA, Power BI)
+
+**Features:**
+- Dynamic SQL routing based on table/view name
+- Optional `@TopN` parameter for limiting rows
+- Supported exports: Students, Staff, Classes, Enrollments, Attendance, vw_StudentProfile, Vw_AcademicPerformance
+- Returns export metadata (table name, timestamp, row count)
+- Includes joins for human-readable exports (e.g., teacher names, student names)
+
+**Use Case:** Data export for external systems, reporting tools, backups
+
+### **Why It Matters:**
+Stored procedures are a key component of any data platform. They provide a secure, consistent way to access data for reporting, analysis, and decision-making. 
+
+This simulates the kind of stored procedures StC needs for staff and leadership, ensuring I can handle the complexity of real-world data while maintaining data integrity and security.
+
+### **Execution Results:**
+
+```bash
+# macOs script to create all procedures
+/opt/homebrew/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -C \
+  -i /Users/luisfaria/Desktop/sEngineer/masters_SWEAI/2025-T2/T2-Extra/stc_datalab/sql/04_stored_procedures.sql
+
+# macOs test each procedures
+
+# Test sp_GetStudentProfile
+/opt/homebrew/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -C -Q \
+  "USE StC_SchoolLab; EXEC sp_GetStudentProfile @StudentId = 1;"
+
+# Test sp_EnrollmentSummaryByYear
+/opt/homebrew/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -C -Q \
+  "USE StC_SchoolLab; EXEC sp_EnrollmentSummaryByYear @YearLevel = 8;"
+
+# Test sp_AttendanceByDate (use a date from your seed data)
+/opt/homebrew/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -C -Q \
+  "USE StC_SchoolLab; EXEC sp_AttendanceByDate @Date = '2025-01-15';"
+
+# Test sp_GenerateCSVExport
+/opt/homebrew/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -C -Q \
+  "USE StC_SchoolLab; EXEC sp_GenerateCSVExport @TableName = 'STUDENTS', @TopN = 5;"
+```
+
+### **Validation Query:**
