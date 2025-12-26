@@ -214,14 +214,15 @@ Created `sql/04_stored_procedures.sql` file with the following stored procedures
 
 **Use Case:** Daily roll call verification, absence follow-up, compliance reporting
 
-4. Procedure: sp_GenerateCSVExport(@TableName)
+4. Procedure: sp_GetTableDataExport(@TableName)
 
-**Purpose:** Generate CSV-formatted data for system integration (SEQTA, Power BI)
+**Purpose:** Export filtered table/view data for system integration (SEQTA, Power BI)
 
 **Features:**
 - Dynamic SQL routing based on table/view name
 - Optional `@TopN` parameter for limiting rows
 - Supported exports: Students, Staff, Classes, Enrollments, Attendance, vw_StudentProfile, Vw_AcademicPerformance
+- Returns standard SQL result sets (client tools handle CSV serialization)
 - Returns export metadata (table name, timestamp, row count)
 - Includes joins for human-readable exports (e.g., teacher names, student names)
 
@@ -253,9 +254,9 @@ This simulates the kind of stored procedures StC needs for staff and leadership,
 /opt/homebrew/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -C -Q \
   "USE StC_SchoolLab; EXEC sp_AttendanceByDate @Date = '2025-01-15';"
 
-# Test sp_GenerateCSVExport
+# Test sp_GetTableDataExport
 /opt/homebrew/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -C -Q \
-  "USE StC_SchoolLab; EXEC sp_GenerateCSVExport @TableName = 'STUDENTS', @TopN = 5;"
+  "USE StC_SchoolLab; EXEC sp_GetTableDataExport @TableName = 'STUDENTS', @TopN = 5;"
 ```
 
 ### **Validation Query:**

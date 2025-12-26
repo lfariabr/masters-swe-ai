@@ -163,7 +163,7 @@ Examples:
 - sp_GetStudentProfile(@StudentId) (detailed student lookup)
 - sp_EnrollmentSummaryByYear(@YearLevel) (class distribution reports)
 - sp_AttendanceByDate(@Date) (daily attendance tracking)
-- sp_GenerateCSVExport(@TableName) (for system integration)
+- sp_GetTableDataExport(@TableName) (for system integration)
 
 4. Import/export simulation (mimicking SEQTA integration)
 - Create data/*.csv (formatted like actual school exports)

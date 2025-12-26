@@ -267,13 +267,14 @@ END;
 GO
 
 /* =====================================================================
-   Procedure 4: sp_GenerateCSVExport
-   Purpose: Generate CSV-formatted data for system integration (SEQTA, Power BI)
+   Procedure 4: sp_GetTableDataExport
+   Purpose: Export filtered table/view data for system integration (SEQTA, Power BI)
    Use case: Data export for external systems, reporting tools, backups
    Parameters: @TableName NVARCHAR(100), @TopN INT (optional)
+   Note: Returns standard SQL result sets; client tools handle CSV serialization
    ===================================================================== */
 
-CREATE OR ALTER PROCEDURE sp_GenerateCSVExport
+CREATE OR ALTER PROCEDURE sp_GetTableDataExport
     @TableName NVARCHAR(100),
     @TopN INT = NULL
 AS
@@ -450,7 +451,7 @@ GO
 -- EXEC sp_GetStudentProfile @StudentId = 1;
 -- EXEC sp_EnrollmentSummaryByYear @YearLevel = 8;
 -- EXEC sp_AttendanceByDate @Date = '2025-01-15';
--- EXEC sp_GenerateCSVExport @TableName = 'STUDENTS', @TopN = 10;
+-- EXEC sp_GetTableDataExport @TableName = 'STUDENTS', @TopN = 10;
 
 PRINT 'All 4 stored procedures created successfully.';
-PRINT 'Procedures: sp_GetStudentProfile, sp_EnrollmentSummaryByYear, sp_AttendanceByDate, sp_GenerateCSVExport';
+PRINT 'Procedures: sp_GetStudentProfile, sp_EnrollmentSummaryByYear, sp_AttendanceByDate, sp_GetTableDataExport';
