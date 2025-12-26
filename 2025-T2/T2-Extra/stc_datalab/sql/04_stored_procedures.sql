@@ -142,7 +142,7 @@ BEGIN
         COUNT(DISTINCT e.student_id) AS total_students,
         c.max_students - COUNT(DISTINCT CASE WHEN e.status = 'Active' THEN e.student_id END) AS available_seats,
         -- Capacity utilization
-        CAST(ROUND(100.0 * COUNT(DISTINCT CASE WHEN e.status = 'Active' THEN e.student_id END) / c.max_students, 2) AS DECIMAL(5,2)) AS capacity_utilization_percent,
+        CAST(ROUND(100.0 * COUNT(DISTINCT CASE WHEN e.status = 'Active' THEN e.student_id END) / NULLIF(c.max_students, 0), 2) AS DECIMAL(5,2)) AS capacity_utilization_percent,
         -- Status indicator
         CASE 
             WHEN COUNT(DISTINCT CASE WHEN e.status = 'Active' THEN e.student_id END) >= c.max_students THEN 'Full'
@@ -171,7 +171,7 @@ BEGIN
         SUM(c.max_students) AS total_capacity,
         COUNT(DISTINCT CASE WHEN e.status = 'Active' THEN e.student_id END) AS total_active_students,
         SUM(c.max_students) - COUNT(DISTINCT CASE WHEN e.status = 'Active' THEN e.student_id END) AS total_available_seats,
-        CAST(ROUND(100.0 * COUNT(DISTINCT CASE WHEN e.status = 'Active' THEN e.student_id END) / SUM(c.max_students), 2) AS DECIMAL(5,2)) AS overall_utilization_percent
+        CAST(ROUND(100.0 * COUNT(DISTINCT CASE WHEN e.status = 'Active' THEN e.student_id END) / NULLIF(SUM(c.max_students), 0), 2) AS DECIMAL(5,2)) AS overall_utilization_percent
     FROM Classes c
     LEFT JOIN Enrollments e ON c.class_id = e.class_id
     WHERE c.year_level = @YearLevel
@@ -241,8 +241,8 @@ BEGIN
         SUM(CASE WHEN a.status = 'Absent' THEN 1 ELSE 0 END) AS total_absent,
         SUM(CASE WHEN a.status = 'Late' THEN 1 ELSE 0 END) AS total_late,
         SUM(CASE WHEN a.status = 'Excused' THEN 1 ELSE 0 END) AS total_excused,
-        CAST(ROUND(100.0 * SUM(CASE WHEN a.status = 'Present' THEN 1 ELSE 0 END) / COUNT(*), 2) AS DECIMAL(5,2)) AS attendance_rate_percent,
-        CAST(ROUND(100.0 * SUM(CASE WHEN a.status = 'Absent' THEN 1 ELSE 0 END) / COUNT(*), 2) AS DECIMAL(5,2)) AS absence_rate_percent
+        CAST(ROUND(100.0 * SUM(CASE WHEN a.status = 'Present' THEN 1 ELSE 0 END) / NULLIF(COUNT(*), 0), 2) AS DECIMAL(5,2)) AS attendance_rate_percent,
+        CAST(ROUND(100.0 * SUM(CASE WHEN a.status = 'Absent' THEN 1 ELSE 0 END) / NULLIF(COUNT(*), 0), 2) AS DECIMAL(5,2)) AS absence_rate_percent
     FROM Attendance a
     WHERE a.attendance_date = @Date;
     
@@ -262,7 +262,6 @@ BEGIN
     WHERE a.attendance_date = @Date
       AND a.status = 'Absent'
     GROUP BY s.student_id, s.student_number, s.first_name, s.last_name, s.phone, s.emergency_contact, s.emergency_phone
-    HAVING COUNT(CASE WHEN a.status = 'Absent' THEN 1 END) > 0
     ORDER BY absent_count_today DESC, s.last_name;
 END;
 GO
@@ -434,14 +433,16 @@ BEGIN
         RETURN;
     END
     
-    -- Execute dynamic SQL
+    -- Execute dynamic SQL and capture row count
+    DECLARE @RowsExported INT;
     EXEC sp_executesql @SQL;
+    SET @RowsExported = @@ROWCOUNT;
     
     -- Return export metadata
     SELECT 
         @TableName AS exported_table,
         GETDATE() AS export_timestamp,
-        @@ROWCOUNT AS rows_exported;
+        @RowsExported AS rows_exported;
 END;
 GO
 
