@@ -210,7 +210,7 @@ I can explain:
 > Outcome: "Safe, documents well, and supports staff."
 
 ### Tasks
-1. Operational Runbook
+1. ✅ Operational Runbook
 Write docs/06_runbook.md like an internal StC ICT doc:
 - How to run backups (both GUI and T-SQL methods)
 - How to restore in an emergency (with RPO/RTO considerations)
