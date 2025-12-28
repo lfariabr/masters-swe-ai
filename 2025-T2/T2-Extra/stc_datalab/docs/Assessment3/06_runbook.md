@@ -1,9 +1,9 @@
 # StC SchoolLab Database - Operational Runbook
 
-**Database:** StC_SchoolLab  
-**Environment:** SQL Server Express (Local Development)  
-**Owner:** ICT Department  
-**Last Updated:** December 2025
+- **Database:** StC_SchoolLab
+- **Environment:** SQL Server Express (Local Development)
+- **Owner:** ICT Department
+- **Last Updated:** December 2025
 
 ---
 
@@ -31,7 +31,7 @@
 
 ### 1.3 Method 1: T-SQL Backup (Automated)
 
-**Full Backup:**
+#### Full Backup
 ```sql
 -- Full database backup (SQL Server Express does not support COMPRESSION)
 BACKUP DATABASE StC_SchoolLab
@@ -49,7 +49,7 @@ FROM DISK = '/var/opt/mssql/backup/StC_SchoolLab_Full.bak';
 GO
 ```
 
-**Differential Backup:**
+#### Differential Backup
 ```sql
 -- Differential backup (captures changes since last full backup)
 BACKUP DATABASE StC_SchoolLab
@@ -62,7 +62,7 @@ WITH
 GO
 ```
 
-**macOS Command Line Execution:**
+#### macOS Command Line Execution
 ```bash
 # Full backup (Note: SQL Server Express does not support COMPRESSION)
 /opt/homebrew/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -C -Q \
@@ -74,7 +74,7 @@ ls -lh /var/opt/mssql/backup/StC_SchoolLab_Full_*.bak
 
 ### 1.4 Method 2: SQL Server Management Studio (GUI)
 
-**Steps:**
+#### Steps
 1. Connect to SQL Server instance
 2. Right-click **StC_SchoolLab** database → **Tasks** → **Back Up...**
 3. Configure backup settings:
@@ -91,6 +91,67 @@ ls -lh /var/opt/mssql/backup/StC_SchoolLab_Full_*.bak
 - [ ] Backup retention policy enforced (keep 30 days minimum)
 - [ ] Off-site backup copy created (cloud storage or external drive)
 
+### 1.6 Backup/Restore Decision Tree
+
+```mermaid
+flowchart TD
+    Start([Backup/Restore Decision]) --> BackupType{What type of<br/>operation?}
+    
+    BackupType -->|Backup| BackupSchedule{Scheduled or<br/>On-Demand?}
+    BackupType -->|Restore| RestoreReason{Reason for<br/>restore?}
+    
+    BackupSchedule -->|Scheduled| FullOrDiff{Full or<br/>Differential?}
+    BackupSchedule -->|On-Demand| PreChange[Pre-Change Backup]
+    
+    FullOrDiff -->|Full| FullBackup[Run Full Backup<br/>11 PM Daily]
+    FullOrDiff -->|Differential| DiffBackup[Run Differential<br/>Every 6 hours]
+    
+    FullBackup --> Verify[RESTORE VERIFYONLY]
+    DiffBackup --> Verify
+    PreChange --> Verify
+    
+    Verify --> VerifyOK{Backup<br/>Valid?}
+    VerifyOK -->|Yes| SecureStore[Store in secure location<br/>+ Off-site copy]
+    VerifyOK -->|No| BackupFail[Alert ICT Team<br/>Retry backup]
+    
+    SecureStore --> Done([Complete])
+    BackupFail --> Done
+    
+    RestoreReason -->|Testing| TestRestore[Restore to<br/>TEST database]
+    RestoreReason -->|Disaster Recovery| CheckBackup[Verify latest backup<br/>RESTORE HEADERONLY]
+    RestoreReason -->|Data Corruption| CheckBackup
+    
+    TestRestore --> ValidateTest[Validate row counts<br/>Run key reports]
+    ValidateTest --> Done
+    
+    CheckBackup --> BackupValid{Backup<br/>Valid?}
+    BackupValid -->|No| FindAlternate[Find previous<br/>valid backup]
+    BackupValid -->|Yes| SchoolHours{During school<br/>hours 8AM-4PM?}
+    
+    FindAlternate --> BackupValid
+    
+    SchoolHours -->|Yes| Emergency[EMERGENCY MODE<br/>RTO: 30 min]
+    SchoolHours -->|No| Planned[Planned restore<br/>Notify staff]
+    
+    Emergency --> SingleUser[Set SINGLE_USER mode]
+    Planned --> SingleUser
+    
+    SingleUser --> RestoreDB[RESTORE DATABASE<br/>WITH REPLACE]
+    RestoreDB --> MultiUser[Set MULTI_USER mode]
+    
+    MultiUser --> PostValidate{Validation<br/>passed?}
+    PostValidate -->|Yes| NotifyStaff[Notify staff<br/>System online]
+    PostValidate -->|No| Rollback[Investigate issue<br/>Consider rollback]
+    
+    NotifyStaff --> Done
+    Rollback --> Done
+    
+    style Emergency fill:#ff6b6b
+    style FullBackup fill:#51cf66
+    style SecureStore fill:#51cf66
+    style NotifyStaff fill:#51cf66
+```
+
 ---
 
 ## 2. Restore Procedures
@@ -102,9 +163,9 @@ ls -lh /var/opt/mssql/backup/StC_SchoolLab_Full_*.bak
 
 ### 2.2 Emergency Restore Procedure
 
-**⚠️ CRITICAL: Always restore to a test database first to verify backup integrity**
+### ⚠️ CRITICAL: Always restore to a test database first to verify backup integrity
 
-**Step 1: Verify Backup File**
+### Step 1: Verify Backup File
 ```sql
 -- Check backup file contents
 RESTORE HEADERONLY 
@@ -114,7 +175,7 @@ RESTORE FILELISTONLY
 FROM DISK = '/var/opt/mssql/backup/StC_SchoolLab_Full.bak';
 ```
 
-**Step 2: Restore to Test Database**
+### Step 2: Restore to Test Database
 ```sql
 -- Restore to test database first
 RESTORE DATABASE StC_SchoolLab_TEST
@@ -135,7 +196,7 @@ UNION ALL SELECT 'Enrollments', COUNT(*) FROM Enrollments
 UNION ALL SELECT 'Attendance', COUNT(*) FROM Attendance;
 ```
 
-**Step 3: Production Restore (After Validation)**
+### Step 3: Production Restore (After Validation)
 ```sql
 -- Set database to single-user mode (disconnect all users)
 USE master;
@@ -155,7 +216,7 @@ ALTER DATABASE StC_SchoolLab SET MULTI_USER;
 GO
 ```
 
-**macOS Command Line Restore:**
+### macOS Command Line Restore
 ```bash
 # Emergency restore (use with caution)
 /opt/homebrew/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -C -Q \
@@ -176,25 +237,28 @@ GO
 
 ### 3.1 Student Profile Report
 
-**Purpose:** Comprehensive student lookup for counselors, teachers, and admin staff
+#### Purpose
+Comprehensive student lookup for counselors, teachers, and admin staff
 
-**Stored Procedure:** `sp_GetStudentProfile`
+#### Stored Procedure
+`sp_GetStudentProfile`
 
-**Parameters:**
+#### Parameters
 - `@StudentId` (INT, required): Student's unique identifier
 
-**Execution:**
+#### Execution
 ```bash
 /opt/homebrew/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -C -Q \
   "USE StC_SchoolLab; EXEC sp_GetStudentProfile @StudentId = 1;"
 ```
 
-**Output:** 3 result sets
+#### Output
+3 result sets
 1. **Student Profile:** Personal details, contact info, enrollment summary, attendance rate
 2. **Current Enrollments:** All classes, subjects, teachers, grades, status
 3. **Recent Attendance:** Last 30 days of attendance records
 
-**Common Use Cases:**
+#### Common Use Cases
 - Parent-teacher conferences (attendance and grade review)
 - Student counseling sessions (academic performance tracking)
 - Enrollment verification (class schedules and teacher assignments)
@@ -203,29 +267,32 @@ GO
 
 ### 3.2 Year-Level Enrollment Summary
 
-**Purpose:** Class capacity planning and resource allocation for leadership
+#### Purpose
+Class capacity planning and resource allocation for leadership
 
-**Stored Procedure:** `sp_EnrollmentSummaryByYear`
+#### Stored Procedure
+`sp_EnrollmentSummaryByYear`
 
-**Parameters:**
+#### Parameters
 - `@YearLevel` (INT, required): Year level (7-12)
 
-**Execution:**
+#### Execution
 ```bash
 /opt/homebrew/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -C -Q \
   "USE StC_SchoolLab; EXEC sp_EnrollmentSummaryByYear @YearLevel = 8;"
 ```
 
-**Output:** 2 result sets
+#### Output
+2 result sets
 1. **Class-Level Details:** Each class with enrollment counts, capacity utilization, status
 2. **Year-Level Summary:** Total classes, subjects, teachers, capacity, utilization percentage
 
-**Common Use Cases:**
+#### Common Use Cases
 - Semester planning (class size balancing)
 - Teacher workload analysis (class assignments per teacher)
 - Capacity forecasting (identifying under-enrolled or full classes)
 
-**Capacity Status Indicators:**
+#### Capacity Status Indicators
 - **Full:** 100% capacity (no seats available)
 - **Near Capacity:** 90-99% capacity (limited seats)
 - **Available:** 50-89% capacity (seats available)
@@ -235,48 +302,54 @@ GO
 
 ### 3.3 Daily Attendance Report
 
-**Purpose:** Daily roll call verification and absence follow-up
+#### Purpose
+Daily roll call verification and absence follow-up
 
-**Stored Procedure:** `sp_AttendanceByDate`
+#### Stored Procedure
+`sp_AttendanceByDate`
 
-**Parameters:**
+#### Parameters
 - `@Date` (DATE, required): Attendance date (format: 'YYYY-MM-DD')
 
-**Execution:**
+#### Execution
 ```bash
 /opt/homebrew/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -C -Q \
   "USE StC_SchoolLab; EXEC sp_AttendanceByDate @Date = '2025-01-15';"
 ```
 
-**Output:** 3 result sets
+#### Output
+3 result sets
 1. **Attendance Records:** All attendance entries with student/class/teacher details
 2. **Daily Summary:** Total marked, present/absent/late/excused counts, attendance rate
 3. **Absent Students:** Students with absences, contact information for follow-up
 
-**Common Use Cases:**
+#### Common Use Cases
 - Morning roll call verification (compliance reporting)
 - Absence follow-up (parent contact for unexplained absences)
 - Attendance trend analysis (identifying chronic absenteeism)
 
-**⚠️ Child Safety Note:** Unexplained absences require immediate follow-up per school policy
+#### ⚠️ Child Safety Note
+Unexplained absences require immediate follow-up per school policy
 
 ---
 
 ### 3.4 Data Export for External Systems
 
-**Purpose:** Export data for SEQTA, Power BI, or backup purposes
+#### Purpose
+Export data for SEQTA, Power BI, or backup purposes
 
-**Stored Procedure:** `sp_GetTableDataExport`
+#### Stored Procedure
+`sp_GetTableDataExport`
 
-**Parameters:**
+#### Parameters
 - `@TableName` (NVARCHAR, required): Table or view name (case-insensitive)
 - `@TopN` (INT, optional): Limit rows returned (default: all rows)
 
-**Supported Tables/Views:**
+#### Supported Tables/Views
 - STUDENTS, STAFF, CLASSES, ENROLLMENTS, ATTENDANCE
 - VW_STUDENTPROFILE, VW_ACADEMICPERFORMANCE
 
-**Execution:**
+#### Execution
 ```bash
 # Export top 100 students
 /opt/homebrew/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -C -Q \
@@ -287,16 +360,18 @@ GO
   "USE StC_SchoolLab; EXEC sp_GetTableDataExport @TableName = 'ATTENDANCE';"
 ```
 
-**Output:** 2 result sets
+#### Output
+2 result sets
 1. **Data Export:** Requested table/view data with human-readable joins
 2. **Export Metadata:** Table name, timestamp, row count
 
-**Common Use Cases:**
+#### Common Use Cases
 - SEQTA integration (student/staff data synchronization)
 - Power BI refresh (reporting dashboard updates)
 - Data validation (cross-system reconciliation)
 
-**Note:** Returns SQL result sets; client tools handle CSV serialization
+#### Note
+Returns SQL result sets; client tools handle CSV serialization
 
 ---
 
@@ -304,9 +379,10 @@ GO
 
 ### 4.1 Report Numbers Don't Match
 
-**Scenario:** Attendance report shows different totals than SEQTA
+#### Scenario
+Attendance report shows different totals than SEQTA
 
-**Troubleshooting Steps:**
+#### Troubleshooting Steps
 1. **Verify Date Range:** Ensure both systems use the same date filter
    ```sql
    -- Check attendance date range in our system
@@ -340,15 +416,17 @@ GO
    ORDER BY attendance_date DESC;
    ```
 
-**Resolution:** Document discrepancies, identify root cause (import timing, data transformation logic), reconcile with source system
+#### Resolution
+Document discrepancies, identify root cause (import timing, data transformation logic), reconcile with source system
 
 ---
 
 ### 4.2 Import Failed Halfway
 
-**Scenario:** SEQTA CSV import fails mid-process, leaving partial data
+#### Scenario
+SEQTA CSV import fails mid-process, leaving partial data
 
-**Troubleshooting Steps:**
+#### Troubleshooting Steps
 1. **Check Error Log:** Review SQL Server error log for failure details
    ```sql
    -- View recent error messages
@@ -373,7 +451,7 @@ GO
    - Verify column count matches table definition
    - Check for special characters or line breaks in data
 
-**Prevention:**
+#### Prevention
 - Use transactions for imports (ROLLBACK on error)
 - Validate CSV structure before import
 - Log import progress to tracking table
@@ -383,9 +461,10 @@ GO
 
 ### 4.3 Duplicate Student Records
 
-**Scenario:** Same student appears multiple times with different IDs
+#### Scenario
+Same student appears multiple times with different IDs
 
-**Troubleshooting Steps:**
+#### Troubleshooting Steps
 1. **Identify Duplicates:** Find students with matching names/DOB
    ```sql
    -- Find potential duplicate students
@@ -428,15 +507,17 @@ GO
    ADD CONSTRAINT UQ_Students_StudentNumber UNIQUE (student_number);
    ```
 
-**⚠️ CRITICAL:** Always backup database before merging records
+#### ⚠️ CRITICAL
+Always backup database before merging records
 
 ---
 
 ### 4.4 Performance Issue on Report Query
 
-**Scenario:** Report takes >30 seconds to run, staff complaining about slow response
+#### Scenario
+Report takes >30 seconds to run, staff complaining about slow response
 
-**Troubleshooting Steps:**
+#### Troubleshooting Steps
 1. **Identify Slow Query:** Enable execution plan in SSMS or use SET STATISTICS
    ```sql
    -- Enable execution time statistics
@@ -480,7 +561,7 @@ GO
    - Use EXISTS instead of IN for large subqueries
    - Filter early (WHERE before JOIN when possible)
 
-**Performance Targets:**
+#### Performance Targets
 - Simple lookups: <1 second
 - Aggregated reports: <5 seconds
 - Complex analytics: <30 seconds
@@ -489,9 +570,10 @@ GO
 
 ### 4.5 Missing Data in Power BI Reports
 
-**Scenario:** Power BI dashboard shows blank/NULL values for recent data
+#### Scenario
+Power BI dashboard shows blank/NULL values for recent data
 
-**Troubleshooting Steps:**
+#### Troubleshooting Steps
 1. **Verify Source Data:** Check if data exists in database
    ```sql
    -- Check recent attendance records
@@ -521,7 +603,7 @@ GO
    UNION ALL SELECT 'Attendance', MAX(attendance_id) FROM Attendance;
    ```
 
-**Common Causes:**
+#### Common Causes
 - Scheduled refresh failed (check Power BI service logs)
 - View filter excludes recent data (check WHERE clauses)
 - Data type mismatch (NULL values from failed conversions)
@@ -533,9 +615,10 @@ GO
 
 ### 5.1 Least Privilege Access Model
 
-**Principle:** Grant minimum permissions required for job function
+#### Principle
+Grant minimum permissions required for job function
 
-**Access Levels:**
+#### Access Levels
 
 | Role | Access | Permissions |
 |------|--------|-------------|
@@ -547,7 +630,7 @@ GO
 
 ### 5.2 Child Data Protection
 
-**⚠️ CRITICAL REQUIREMENTS:**
+#### ⚠️ CRITICAL REQUIREMENTS
 - **No direct table access** for non-ICT staff (use views/procedures only)
 - **Audit logging** for all student data access (implement trigger-based logging)
 - **Encrypted backups** stored in secure location with restricted access
@@ -556,7 +639,7 @@ GO
 
 ### 5.3 Creating Restricted User Accounts
 
-**Example: Teacher Account (Read-Only Class Data)**
+#### Example: Teacher Account (Read-Only Class Data)
 ```sql
 -- Create login
 CREATE LOGIN teacher_user WITH PASSWORD = 'SecurePassword123!';
@@ -574,7 +657,7 @@ DENY SELECT ON Students TO teacher_user;
 DENY SELECT ON Attendance TO teacher_user;
 ```
 
-**Example: Admin Staff Account (Stored Procedure Access)**
+#### Example: Admin Staff Account (Stored Procedure Access)
 ```sql
 -- Create login
 CREATE LOGIN admin_user WITH PASSWORD = 'SecurePassword456!';
@@ -624,9 +707,10 @@ END;
 
 ### 6.1 SEQTA Import Monitoring
 
-**Import Schedule:** Daily at 6:00 AM (before school starts)
+#### Import Schedule
+Daily at 6:00 AM (before school starts)
 
-**Health Checks:**
+#### Health Checks
 ```sql
 -- Check last import timestamp
 SELECT 
@@ -641,7 +725,7 @@ SELECT 'Staff', MAX(created_date), COUNT(*) FROM Staff;
 -- (Compare with SEQTA export row count)
 ```
 
-**Alert Conditions:**
+#### Alert Conditions
 - Import hasn't run in 24+ hours
 - Row count decreased (data loss indicator)
 - Duplicate records detected
@@ -649,9 +733,10 @@ SELECT 'Staff', MAX(created_date), COUNT(*) FROM Staff;
 
 ### 6.2 Power BI Data Warehouse Feed
 
-**Refresh Schedule:** Every 4 hours during school day (7 AM, 11 AM, 3 PM, 7 PM)
+#### Refresh Schedule
+Every 4 hours during school day (7 AM, 11 AM, 3 PM, 7 PM)
 
-**Health Checks:**
+#### Health Checks
 ```sql
 -- Verify views are accessible
 SELECT 'vw_StudentProfile' AS ViewName, COUNT(*) AS RowCount FROM vw_StudentProfile
@@ -668,14 +753,91 @@ SELECT
 FROM Students;
 ```
 
-**Alert Conditions:**
+#### Alert Conditions
 - View returns 0 rows (data pipeline broken)
 - Critical fields contain NULLs (data quality issue)
 - Refresh fails 2+ consecutive times
 
-### 6.3 Database Health Monitoring
+### 6.3 SEQTA/Power BI Data Integration Flow
 
-**Daily Checks:**
+```mermaid
+flowchart LR
+    subgraph SEQTA["SEQTA System"]
+        SEQTAExport[Daily Export<br/>6:00 AM]
+        CSVFiles[(CSV Files:<br/>Students, Staff,<br/>Classes, Attendance)]
+    end
+    
+    subgraph StCDB["StC_SchoolLab Database"]
+        direction TB
+        StagingTables[(Staging Tables:<br/>Staging_Students<br/>Staging_Staff)]
+        
+        Validate{Validation<br/>Rules}
+        
+        ProductionTables[(Production Tables:<br/>Students, Staff,<br/>Classes, Enrollments,<br/>Attendance)]
+        
+        Views[(Reporting Views:<br/>vw_StudentProfile<br/>vw_ClassRoll<br/>vw_AttendanceSummary<br/>vw_AcademicPerformance)]
+        
+        StoredProcs[Stored Procedures:<br/>sp_GetStudentProfile<br/>sp_EnrollmentSummaryByYear<br/>sp_AttendanceByDate<br/>sp_GetTableDataExport]
+    end
+    
+    subgraph PowerBI["Power BI Service"]
+        direction TB
+        Refresh[Scheduled Refresh<br/>Every 4 hours<br/>7AM, 11AM, 3PM, 7PM]
+        
+        Dashboards[Dashboards:<br/>Student Analytics<br/>Attendance Reports<br/>Academic Performance<br/>Enrollment Trends]
+    end
+    
+    subgraph Monitoring["Monitoring & Alerts"]
+        HealthChecks[Health Checks:<br/>Row count validation<br/>NULL detection<br/>Timestamp verification]
+        
+        Alerts[Alert System:<br/>Import failures<br/>Data quality issues<br/>Refresh failures]
+    end
+    
+    SEQTAExport --> CSVFiles
+    CSVFiles -->|Import via<br/>BULK INSERT| StagingTables
+    
+    StagingTables --> Validate
+    Validate -->|Pass| ProductionTables
+    Validate -->|Fail| Alerts
+    
+    ProductionTables --> Views
+    ProductionTables --> StoredProcs
+    
+    Views -->|ODBC/Direct Query| Refresh
+    StoredProcs -->|API/Export| Refresh
+    
+    Refresh --> Dashboards
+    
+    ProductionTables -.->|Monitor| HealthChecks
+    Views -.->|Monitor| HealthChecks
+    Refresh -.->|Monitor| HealthChecks
+    
+    HealthChecks -->|Issues detected| Alerts
+    
+    style SEQTAExport fill:#4dabf7
+    style ProductionTables fill:#51cf66
+    style Views fill:#51cf66
+    style Dashboards fill:#845ef7
+    style Alerts fill:#ff6b6b
+    style HealthChecks fill:#ffd43b
+```
+
+**Key Integration Points:**
+1. **SEQTA → Staging:** Daily CSV import at 6 AM with validation
+2. **Staging → Production:** Merge validated records, handle duplicates
+3. **Production → Views:** Real-time aggregation for reporting
+4. **Views → Power BI:** Scheduled refresh every 4 hours during school day
+5. **Monitoring:** Continuous health checks with automated alerting
+
+**Data Flow Validation:**
+- Row count reconciliation at each stage
+- Timestamp tracking for import/refresh cycles
+- NULL value detection in critical fields
+- Duplicate detection and resolution
+
+### 6.4 Database Health Monitoring
+
+#### Daily Checks
 ```sql
 -- Check database size and growth
 EXEC sp_spaceused;
@@ -725,7 +887,7 @@ ORDER BY backup_start_date DESC;
 
 ## 8. Change Management
 
-**Before making ANY changes to production:**
+#### Before making ANY changes to production
 1. ✅ Backup database (full backup + verification)
 2. ✅ Test change in development environment
 3. ✅ Document change in change log
@@ -734,15 +896,16 @@ ORDER BY backup_start_date DESC;
 6. ✅ Prepare rollback plan (restore procedure ready)
 7. ✅ Validate change post-deployment (run key reports)
 
-**Change Log Location:** `docs/change_log.md`
+#### Change Log Location
+[Complete changelog with 30+ commits](https://github.com/search?q=repo%3Alfariabr%2Fmasters-swe-ai+std+OR+stc&type=commits)
 
 ---
 
 ## 9. Disaster Recovery Plan
 
-**Scenario: Complete Database Loss**
+#### Scenario: Complete Database Loss
 
-**Recovery Steps:**
+#### Recovery Steps
 1. **Assess Damage:** Determine if database is corrupted or server is down
 2. **Retrieve Latest Backup:** Get most recent full backup from secure storage
 3. **Provision New Server:** If hardware failure, set up new SQL Server instance
@@ -753,8 +916,91 @@ ORDER BY backup_start_date DESC;
 8. **Notify Staff:** Announce system restoration and any data loss window
 9. **Post-Mortem:** Document incident, root cause, and prevention measures
 
-**Maximum Acceptable Data Loss:** 1 hour (based on backup schedule)  
-**Maximum Downtime:** 30 minutes (based on restore time + validation)
+#### Maximum Acceptable Data Loss
+1 hour (based on backup schedule)
+
+#### Maximum Downtime
+30 minutes (based on restore time + validation)
+
+### 9.1 Disaster Recovery Flowchart
+
+```mermaid
+flowchart TD
+    Start([Database Failure Detected]) --> Assess{Assess<br/>Damage}
+    
+    Assess -->|Corrupted Data| DataCorrupt[Data corruption<br/>identified]
+    Assess -->|Server Down| ServerDown[Server/hardware<br/>failure]
+    Assess -->|Connection Issues| Network[Network/connectivity<br/>issue]
+    
+    Network --> NetworkFix{Can fix<br/>quickly?}
+    NetworkFix -->|Yes| Reconnect[Restore connection<br/>Test access]
+    NetworkFix -->|No| EscalateNet[Escalate to<br/>network team]
+    
+    Reconnect --> Done([Recovery Complete])
+    EscalateNet --> Done
+    
+    DataCorrupt --> RetrieveBackup[Retrieve latest<br/>full backup]
+    ServerDown --> ProvisionServer[Provision new<br/>SQL Server instance]
+    
+    ProvisionServer --> RetrieveBackup
+    
+    RetrieveBackup --> VerifyBackup[RESTORE HEADERONLY<br/>Verify backup integrity]
+    
+    VerifyBackup --> BackupOK{Backup<br/>valid?}
+    BackupOK -->|No| FindOlder[Find previous<br/>valid backup]
+    BackupOK -->|Yes| NotifyStaff1[Notify staff:<br/>System down for recovery]
+    
+    FindOlder --> VerifyBackup
+    
+    NotifyStaff1 --> RestoreTest[Restore to TEST<br/>database first]
+    
+    RestoreTest --> ValidateTest{Test restore<br/>successful?}
+    ValidateTest -->|No| Troubleshoot[Troubleshoot<br/>restore errors]
+    ValidateTest -->|Yes| CheckRowCounts[Validate row counts<br/>Check data integrity]
+    
+    Troubleshoot --> ContactSupport{Need vendor<br/>support?}
+    ContactSupport -->|Yes| CallMS[Contact Microsoft<br/>Support]
+    ContactSupport -->|No| RestoreTest
+    
+    CallMS --> Done
+    
+    CheckRowCounts --> DataIntact{Data<br/>intact?}
+    DataIntact -->|No| AssessLoss[Assess data loss<br/>RPO: 1 hour max]
+    DataIntact -->|Yes| ProdRestore[PRODUCTION RESTORE<br/>SET SINGLE_USER]
+    
+    AssessLoss --> Acceptable{Loss<br/>acceptable?}
+    Acceptable -->|Yes| ProdRestore
+    Acceptable -->|No| FindOlder
+    
+    ProdRestore --> RestoreDB[RESTORE DATABASE<br/>WITH REPLACE]
+    RestoreDB --> MultiUser[SET MULTI_USER<br/>mode]
+    
+    MultiUser --> RestorePerms[Restore user<br/>accounts & permissions]
+    RestorePerms --> TestReports[Test all key<br/>stored procedures]
+    
+    TestReports --> ReportsOK{All reports<br/>working?}
+    ReportsOK -->|No| FixIssues[Fix issues<br/>Check views/procs]
+    ReportsOK -->|Yes| FinalValidate[Final validation:<br/>Row counts, constraints]
+    
+    FixIssues --> TestReports
+    
+    FinalValidate --> ValidationOK{Validation<br/>passed?}
+    ValidationOK -->|No| Rollback[Consider rollback<br/>Investigate further]
+    ValidationOK -->|Yes| NotifyStaff2[Notify staff:<br/>System restored & online]
+    
+    NotifyStaff2 --> PostMortem[Document incident:<br/>Root cause, timeline,<br/>prevention measures]
+    
+    PostMortem --> UpdateRunbook[Update runbook<br/>if needed]
+    UpdateRunbook --> Done
+    
+    Rollback --> Done
+    
+    style Start fill:#ff6b6b
+    style NotifyStaff1 fill:#ffd43b
+    style ProdRestore fill:#ff6b6b
+    style NotifyStaff2 fill:#51cf66
+    style Done fill:#51cf66
+```
 
 ---
 
@@ -766,4 +1012,4 @@ ORDER BY backup_start_date DESC;
 
 ---
 
-**End of Runbook**
+*End of Runbook*
