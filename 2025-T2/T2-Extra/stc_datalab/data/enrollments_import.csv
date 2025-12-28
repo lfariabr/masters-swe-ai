@@ -1,0 +1,14 @@
+student_number,class_name,enrollment_date,status,grade
+STU2025001,Mathematics 8A,2025-01-15,Active,
+STU2025001,English 8B,2025-01-15,Active,
+STU2025002,Mathematics 8A,2025-01-15,Active,
+STU2025002,Science 9A,2025-01-15,Withdrawn,
+STU2025003,English 8B,2025-01-16,Active,
+STU2025004,History 10A,2025-01-15,Active,B+
+STU2025005,Mathematics 9B,2025-01-15,Active,
+STU2025006,Art 8A,2025-01-17,Active,
+STU2025007,Music 7A,2025-01-15,Active,
+STU2025008,Physical Education 8A,2025-01-15,Active,
+STU2025009,Mathematics 8A,2025-01-18,Active,
+STU2025010,English 8B,2025-01-15,Active,
+STU2025001,Mathematics 8A,2025-01-15,Active,

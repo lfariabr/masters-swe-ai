@@ -1,0 +1,9 @@
+class_name,subject_code,teacher_email,year_level,semester,max_students,room,schedule
+Mathematics 8A,MATH08,john.smith@stc.edu.au,8,Semester 1,25,B201,Mon 9:00-10:30; Wed 9:00-10:30
+English 8B,ENG08,sarah.jones@stc.edu.au,8,Semester 1,28,A105,Tue 11:00-12:30; Thu 11:00-12:30
+Science 9A,SCI09,michael.chen@stc.edu.au,9,Semester 1,24,C301,Mon 13:00-14:30; Fri 9:00-10:30
+History 10A,HIS10,emily.wilson@stc.edu.au,10,Semester 1,30,A202,Wed 11:00-12:30; Fri 13:00-14:30
+Mathematics 9B,MATH09,john.smith@stc.edu.au,9,Semester 1,25,B201,Tue 9:00-10:30; Thu 9:00-10:30
+Art 8A,ART08,david.brown@stc.edu.au,8,Semester 1,20,D101,Fri 11:00-12:30
+Music 7A,MUS07,jennifer.taylor@stc.edu.au,7,Semester 1,22,D102,Mon 11:00-12:30; Wed 13:00-14:30
+Physical Education 8A,PE08,robert.davis@stc.edu.au,8,Semester 1,35,GYM,Tue 13:00-14:30; Thu 13:00-14:30

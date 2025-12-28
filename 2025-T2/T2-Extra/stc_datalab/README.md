@@ -107,9 +107,8 @@ stc-sql-lab/
 - Document recovery point objectives
 
 ### Deliverables
-- sql/00_create_db.sql, sql/01_schema.sql
-- docs/01_setup.md (step-by-step setup + screenshots)
-- docs/04_backup_restore.md (exact steps + screenshots)
+- ✅ sql/00_create_db.sql, sql/01_schema.sql
+- ✅ docs/Lvl1Task1.X.md (step-by-step setup and execution + screenshots)
 
 ### Passing standard
 You can explain (out loud, calmly):
@@ -165,16 +164,15 @@ Examples:
 - sp_AttendanceByDate(@Date) (daily attendance tracking)
 - sp_GetTableDataExport(@TableName) (for system integration)
 
-4. Import/export simulation (mimicking SEQTA integration)
+4. ✅ Import/export simulation (mimicking SEQTA integration)
 - Create data/*.csv (formatted like actual school exports)
 - Import into staging tables (e.g., Staging_Students)
 - Validate row counts, deduplicate, then merge into real tables
 - Document error handling for failed imports
 
 ### Deliverables
-- sql/02_seed_data.sql, sql/03_views.sql, sql/04_stored_procedures.sql
-- sql/05_indexes.sql (performance optimization for reporting queries)
-- docs/03_reporting.md, docs/05_import_export.md
+- ✅ sql/02_seed_data.sql, sql/03_views.sql, sql/04_stored_procedures.sql
+- ✅ docs/Lvl2Task2.X.md (step-by-step execution + screenshots)
 
 ### Passing standard
 You can explain:

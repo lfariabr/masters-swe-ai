@@ -275,7 +275,7 @@ This simulates the kind of stored procedures StC needs for staff and leadership,
 # Test sp_AttendanceByDate (use a date from your seed data)
 /opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -C -Q \
   "USE StC_SchoolLab; EXEC sp_AttendanceByDate @Date = '2025-01-15';"
-  
+
 # Test sp_GetTableDataExport
 /opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -C -Q \
   "USE StC_SchoolLab; EXEC sp_GetTableDataExport @TableName = 'STUDENTS', @TopN = 5;"
@@ -283,13 +283,131 @@ This simulates the kind of stored procedures StC needs for staff and leadership,
 
 ---
 
-## **Task 4: Import/export simulation**
+## **Task 4: Import/export simulation** ✅
 
 ### **What I've Done:**
+Created a complete import/export workflow mimicking SEQTA integration with the following components:
+
+**1. CSV Sample Files (`data/` folder):**
+- `students_import.csv` - 13 rows with intentional data quality issues
+- `classes_import.csv` - 8 class records with teacher assignments  
+- `enrollments_import.csv` - 13 enrollment records with duplicates
+
+**Intentional Issues for Testing:**
+- Duplicate records (STU2025001 appears twice)
+- Invalid phone numbers ('???')
+- Missing fields (NULL phones, NULL emergency contacts)
+- Casing inconsistencies (lowercase names, UPPERCASE emails)
+- Trailing spaces in names
+- Pending addresses
+
+**2. Staging Tables (`sql/05_import_export.sql`):**
+- `Staging_Students` - Loose constraints, validation flags, error tracking
+- `Staging_Classes` - For class imports
+- `Staging_Enrollments` - For enrollment imports
+- `Import_Log` - Batch tracking with row counts and status
+
+**3. Validation Stored Procedure (`sp_ValidateStagingStudents`):**
+- Required field checks (student_number, first_name, last_name, DOB)
+- Invalid data detection ('???' phones, 'Pending' addresses)
+- Duplicate detection within batch
+- Normalize emails to lowercase for consistency
+- Trailing whitespace cleanup
+- Returns validation summary and invalid records for review
+
+**4. Merge Stored Procedure (`sp_MergeStagingStudents`):**
+- Inserts new records (not in production)
+- Optional update of existing records (@ForceUpdate = 1)
+- Transaction-safe with rollback on error
+- Updates Import_Log with merge counts
+- Returns summary of inserted/updated/skipped rows
+
+**5. Export Stored Procedure (`sp_ExportStudentData`):**
+- Three export formats: FULL, BASIC, ATTENDANCE
+- Filters by year level and active status
+- Returns export metadata (format, row count, timestamp)
+- Ready for Power BI or external system consumption
 
 ### **Why It Matters:**
+This simulates how StC handles SEQTA CSV imports:
+- **Real data is messy**: Schools receive exports with duplicates, missing fields, casing issues
+- **Staging before production**: Never import directly to production tables
+- **Validation first**: Catch errors before they corrupt reporting
+- **Audit trail**: Import_Log tracks what was imported, when, and what failed
+- **Rollback capability**: Transactions ensure partial imports don't leave bad data
+- **Export for integration**: Power BI and external systems need clean, consistent data
 
 ### **Execution Results:**
+
+```bash
+# Codespaces Ubuntu - Run the import/export script
+/opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -C \
+  -i /workspaces/masters-swe-ai/2025-T2/T2-Extra/stc_datalab/sql/05_import_export.sql
+
+# macOS - Run the import/export script
+/opt/homebrew/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -C \
+  -i /Users/luisfaria/Desktop/sEngineer/masters_SWEAI/2025-T2/T2-Extra/stc_datalab/sql/05_import_export.sql
+```
+
+**Expected Output:**
+```
+--- Creating Staging Tables ---
+Staging tables created successfully.
+...
+=====================================================
+DEMO: Simulated Import Workflow
+=====================================================
+Created batch: IMPORT_20251228_120000
+Rows imported to staging: 13
+--- Running Validation ---
+
+total_rows  valid_rows  invalid_rows  duplicate_rows
+----------- ----------- ------------- --------------
+13          10          3             1
+
+--- Staging Data After Validation ---
+staging_id  student_number  first_name  last_name  is_valid  validation_errors
+----------  --------------  ----------  ---------  --------  ------------------
+1           STU2025001      Emma        Johnson    1         NULL
+2           STU2025002      Liam        Williams   1         NULL
+3           STU2025003      olivia      Brown      1         Warning: lowercase first name detected
+4           STU2025004      Noah        Taylor     1         NULL
+5           STU2025005      Ava         Anderson   0         Invalid phone number
+6           STU2025006      William     Thomas     1         Fixed: trailing space; Fixed: email lowercased
+7           STU2025007      Sophia      Jackson    1         NULL
+8           STU2025008      James       White      1         NULL
+9           STU2025009      Isabella    Harris     0         Address pending - needs update
+10          STU2025010      Oliver      Martin     1         NULL
+11          STU2025011      Mia         Garcia     1         NULL
+12          STU2025012      Benjamin    Lee        1         NULL
+13          STU2025001      Emma        Johnson    0         Duplicate student_number in batch
+
+Note: name casing is only *flagged* (warning) rather than auto-corrected, to avoid breaking real-world names like McDonald, O'Brien, van der Berg, and hyphenated surnames.
+
+To intentionally clear a nullable field during merge (e.g., address/phone/email/emergency fields), set the staging value to the sentinel string `CLEAR`.
+```
+
+### **Testing the Merge:**
+```bash
+# After validation, merge valid records to production
+# Codespaces Ubuntu
+/opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -C -Q \
+  "USE StC_SchoolLab; EXEC sp_MergeStagingStudents @ImportBatch = 'IMPORT_20251228_120000';"
+
+# Test export procedure (FULL format)
+/opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -C -Q \
+  "USE StC_SchoolLab; EXEC sp_ExportStudentData @Format = 'BASIC', @ActiveOnly = 1;"
+
+# Test export for attendance (Year 8)
+/opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -C -Q \
+  "USE StC_SchoolLab; EXEC sp_ExportStudentData @Format = 'ATTENDANCE', @YearLevel = 8;"
+```
+
+### **Files Created:**
+- `data/students_import.csv` - Sample student import file
+- `data/classes_import.csv` - Sample class import file
+- `data/enrollments_import.csv` - Sample enrollment import file
+- `sql/05_import_export.sql` - Staging tables, validation, merge, export procedures
 
 ---
 

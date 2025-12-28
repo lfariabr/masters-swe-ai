@@ -1,0 +1,14 @@
+student_number,first_name,last_name,date_of_birth,address,phone,email,emergency_contact,emergency_phone,enrollment_year
+STU2025001,Emma,Johnson,2010-03-15,123 Main Street Sydney NSW 2000,0412345678,emma.johnson@student.stc.edu.au,Sarah Johnson,0498765432,2025
+STU2025002,Liam,Williams,2010-07-22,45 Park Avenue Melbourne VIC 3000,0423456789,liam.williams@student.stc.edu.au,Michael Williams,0487654321,2025
+STU2025003,olivia,Brown,2010-01-08,78 Ocean Drive Brisbane QLD 4000,,olivia.brown@student.stc.edu.au,Jennifer Brown,0476543210,2025
+STU2025004,Noah,Taylor,2009-11-30,12 Hill Road Perth WA 6000,0445678901,noah.taylor@student.stc.edu.au,,0465432109,2025
+STU2025005,Ava,Anderson,2010-05-17,56 River Lane Adelaide SA 5000,???,ava.anderson@student.stc.edu.au,Robert Anderson,0454321098,2025
+STU2025006,William,Thomas ,2009-09-25,89 Forest Way Hobart TAS 7000,0467890123,WILLIAM.THOMAS@STUDENT.STC.EDU.AU,Linda Thomas,0443210987,2025
+STU2025007,Sophia,Jackson,2010-12-03,234 Beach Road Gold Coast QLD 4217,0478901234,sophia.jackson@student.stc.edu.au,David Jackson,0432109876,2025
+STU2025008,James,White,2009-04-11,567 Mountain View Canberra ACT 2600,0489012345,james.white@student.stc.edu.au,Karen White,0421098765,2025
+STU2025009,Isabella,Harris,2010-08-29,Address Pending,0490123456,isabella.harris@student.stc.edu.au,Mark Harris,0410987654,2025
+STU2025010,Oliver,Martin,2009-02-14,321 Valley Road Darwin NT 0800,0401234567,oliver.martin@student.stc.edu.au,Susan Martin,0409876543,2025
+STU2025011,Mia,Garcia,2010-06-20,Singapore (Boarding Student),,mia.garcia@student.stc.edu.au,Carlos Garcia,+6591234567,2025
+STU2025012,Benjamin,Lee,2009-10-05,Jakarta Indonesia (Boarding Student),0412222333,benjamin.lee@student.stc.edu.au,Wei Lee,+628123456789,2025
+STU2025001,Emma,Johnson,2010-03-15,123 Main Street Sydney NSW 2000,0412345678,emma.johnson@student.stc.edu.au,Sarah Johnson,0498765432,2025
