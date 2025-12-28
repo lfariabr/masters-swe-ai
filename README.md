@@ -80,6 +80,7 @@ Take a deep dive into how I'm approaching projects and the progress I'm making.
 
 | Project | Description | Status | Repository | URL |
 |---------|---------------------|----------------|----------------|----------------|
+| **STC Datalab** | SQL Server database project for a school with SSIS packages, SSRS reports, and data validation. | 🔥 | [Repo](https://github.com/lfariabr/masters-swe-ai/tree/master/2025-T2/T2-Extra/stc_datalab) | 🔥 |
 | **ExcelPilot BE** | Node.js, Express, Apollo Server, MongoDB, Redis and TypeScript API. Features secure JWT auth, GraphQL endpoints, and openAi. | 🔥 | [Repo](https://github.com/lfariabr/excel-pilot) | 🔥 |
 | **Intelligent Rate Limiter** | Human-centered governance middleware for Agentic AI. Carbon real-time grid awareness, explanations + audit logs. Node.js, TypeScript, GraphQL, Redis. | ✅ | [Repo](https://github.com/lfariabr/intelligent-rate-limiter) | [Article](https://dev.to/lfariaus/building-irl-from-a-50k-aws-horror-story-to-human-centered-ai-governance-1jdg) |
 | **Research Proposal** | Empirical analysis of NPS correlation with revenue in healthcare clinics using Python, Pandas, Numpy, Jupyter, and SciPy. | ✅ | [Repo](https://github.com/lfariabr/research-proposal-nps) | [Article](https://dev.to/lfariaus/does-nps-really-predict-revenue-in-healthcare-clinics-i-spent-12-weeks-finding-out-4nmj) |

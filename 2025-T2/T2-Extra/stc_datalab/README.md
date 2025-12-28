@@ -79,7 +79,7 @@ stc-sql-lab/
 
 ## LEVEL 1 — Operator Fundamentals Assessment
 
-> Outcome: "He knows the basics. He won't break production."
+> Outcome: "Know the basics. Won't break production."
 
 ### Tasks
 1. ✅ Install & connect -> https://www.youtube.com/watch?v=glxE7w4D8v8
@@ -144,7 +144,7 @@ Examples:
 
 ## LEVEL 2 — Reporting & Data Integration Assessment
 
-> Outcome: "He can generate real reports and move data between systems."
+> Outcome: "Can generate real reports and move data between systems."
 
 ### Tasks
 1. ✅ Seed realistic data
@@ -207,7 +207,7 @@ I can explain:
 
 ## LEVEL 3 — Production Mindset Assessment
 
-> Outcome: "This guy is safe, documents well, and supports staff."
+> Outcome: "Safe, documents well, and supports staff."
 
 ### Tasks
 1. Operational Runbook
@@ -258,7 +258,7 @@ I can confidently say:
 5. "I understand how to maintain data integrity across multiple school systems."
 ---
 
-## Interview “Showcase Pack” (What I'll bring to the table)
+## Interview “Showcase Pack” (What will be brought to the table)
 
 These 3 items (digital or printed):
 1. README.md (project overview + what was built)
