@@ -13,7 +13,7 @@ This is structured as a 3-level assessment simulation `(Level 1 → Level 2 → 
 | **Dec 24-25** | Data Generation | Realistic seed data with edge cases | ✅ |
 | **Dec 26-27** | Reporting Views | Student profiles, class rolls, attendance summaries | ✅ |
 | **Dec 28-29** | Stored Procedures | Parameter-based queries, optimization | ✅ |
-| **Dec 30-31** | Import/Export | CSV handling, staging tables, data validation | ⏱️ |
+| **Dec 30-31** | Import/Export | CSV handling, staging tables, data validation | ✅ |
 | **Jan 1-2** | Runbook & Documentation | Operational procedures, troubleshooting guide | ⏱️ |
 | **Jan 3-4** | Demo Preparation | Presentation script, screenshots, talking points | ⏱️ |
 | **Jan 5** | Final Review | Validate all components, practice demo | ⏱️ |
@@ -111,7 +111,7 @@ stc-sql-lab/
 - ✅ docs/Lvl1Task1.X.md (step-by-step setup and execution + screenshots)
 
 ### Passing standard
-You can explain (out loud, calmly):
+I can explain (out loud, calmly):
 1. "What is a database vs schema vs table?"
 - **R:** Database: the container for all data and objects for an application. 
 - Schema: a logical namespace used to organise objects and manage permissions. 
@@ -175,11 +175,33 @@ Examples:
 - ✅ docs/Lvl2Task2.X.md (step-by-step execution + screenshots)
 
 ### Passing standard
-You can explain:
-- "How I validate imports before trusting reports" (critical for SEQTA data)
-- "Why views/stored procedures help non-technical reporting" (for staff access)
-- "How I avoid heavy queries impacting the operational system" (performance tuning)
-- "How I'd handle the effort/grades calculations"
+I can explain:
+1. "How I validate imports before trusting reports" (critical for SEQTA data)
+- **R:** I never import CSVs straight into production tables. I land them in staging first, then validate before merge:
+  - Row counts (imported vs valid vs invalid) tracked in `Import_Log`
+  - Duplicate detection (e.g., repeated `student_number` within the batch)
+  - Field validation (required fields, known-bad placeholders like `???`, pending addresses)
+  - Non-destructive normalization where safe (emails lowercased for consistency; name casing only flagged to avoid corrupting names like McDonald/O’Brien)
+  - Only records marked `is_valid = 1` are eligible for merge; merge is transaction-safe and supports explicit clears via the sentinel value `CLEAR`.
+
+2. "Why views/stored procedures help non-technical reporting" (for staff access)
+- **R:** Views and stored procedures give staff consistent “report-ready” interfaces:
+  - Views standardise joins/aggregations (e.g., student profile, class roll, attendance summaries) so reports don’t re-implement logic differently in every query.
+  - Stored procedures provide safe, parameterised access patterns (e.g., “get student profile by ID”, “attendance by date”) and reduce ad‑hoc query risk.
+  - This supports least-privilege access: staff/tools can be granted access to views/procs without direct table access.
+
+3. "How I avoid heavy queries impacting the operational system" (performance tuning)
+- **R:** I reduce operational impact by design:
+  - Index the high-traffic join/filter keys (student/class IDs, attendance date) and keep reporting logic in views/procs.
+  - Prefer set-based queries, avoid row-by-row patterns, and keep filters sargable where possible.
+  - Use staging/ETL patterns so validation and transformation work doesn’t lock production tables.
+  - Operationally: schedule heavier exports/refreshes off-peak and monitor slow queries (then tune with execution plans if needed).
+
+4. "How I'd handle the effort/grades calculations"
+- **R:** I treat effort/grades as explicit business rules:
+  - Implement once in a view/procedure (e.g., grade → points mapping + attendance-informed effort rating) so every report uses the same logic.
+  - Validate with test slices (known students/classes) and reconcile outputs against expected examples.
+  - Document assumptions/edge cases (missing grades, ‘INC’, mixed grade formats) and keep the mapping table/rules easy to update when policy changes.
 
 ---
 
@@ -228,13 +250,12 @@ Build docs/07_demo_script.md with StC context:
 - 3 screenshots showing outputs in SSMS (report results, backup history, data validation)
 
 ### Passing standard
-You can confidently say:
-- "I always confirm backups and restore capability before changes."
-- "I document assumptions so reports are reproducible."
-- "In a school environment, confidentiality and access control are non-negotiable."
-- "I can help bridge the gap between technical and non-technical staff."
-- "I understand how to maintain data integrity across multiple school systems."
-
+I can confidently say:
+1. "I always confirm backups and restore capability before changes."
+2. "I document assumptions so reports are reproducible."
+3. "In a school environment, confidentiality and access control are non-negotiable."
+4. "I can help bridge the gap between technical and non-technical staff."
+5. "I understand how to maintain data integrity across multiple school systems."
 ---
 
 ## Interview “Showcase Pack” (What I'll bring to the table)
