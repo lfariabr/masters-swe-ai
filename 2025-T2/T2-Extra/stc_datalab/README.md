@@ -224,7 +224,7 @@ Write docs/06_runbook.md like an internal StC ICT doc:
 - Permissions principles (least privilege, child data protection, staff access levels)
 - System integration monitoring (SEQTA imports, data warehouse feeds)
 
-2. Troubleshooting scenarios
+2. ✅ Troubleshooting scenarios
 Document how you'd handle real StC scenarios:
 - Report numbers don't match (e.g., attendance discrepancies between systems)
 - Import failed halfway (e.g., SEQTA CSV import failure)
@@ -232,7 +232,7 @@ Document how you'd handle real StC scenarios:
 - Performance issue on a report query (query optimization techniques)
 - Missing data in Power BI reports (tracing data lineage)
 
-3. Training material (for non-technical staff)
+3. ✅ Training material (for non-technical staff)
 Write a simple one-pager tailored to teachers and administrators:
 - "How to request a report" (process and expectations)
 - "What details to include" (clear requirements template)
@@ -240,7 +240,7 @@ Write a simple one-pager tailored to teachers and administrators:
 - "What we can/can't do (privacy/confidentiality)" (child safety compliance)
 - "When to expect results" (SLAs and priorities)
 
-4. Presentation script
+4. ✅ Presentation script
 Build docs/07_demo_script.md with StC context:
 - 2-minute overview of the solution architecture
 - 3 reports you'll demo (student profiles, attendance, academic performance)
@@ -250,8 +250,8 @@ Build docs/07_demo_script.md with StC context:
 - Migration readiness (SharePoint to School Box considerations)
 
 ### Deliverables
-- docs/06_runbook.md (comprehensive operations guide)
-- docs/07_demo_script.md (interview presentation)
+- ✅ docs/06_runbook.md (comprehensive operations guide)
+- ✅ docs/07_demo_script.md (interview presentation)
 - 3 screenshots showing outputs in SSMS (report results, backup history, data validation)
 
 ### Passing standard
