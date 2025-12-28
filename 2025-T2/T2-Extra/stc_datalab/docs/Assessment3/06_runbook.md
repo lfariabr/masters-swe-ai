@@ -897,7 +897,7 @@ ORDER BY backup_start_date DESC;
 7. ✅ Validate change post-deployment (run key reports)
 
 #### Change Log Location
-[Complete changelog with 30+ commits](https://github.com/search?q=repo%3Alfariabr%2Fmasters-swe-ai+std+OR+stc&type=commits)
+[Complete changelog with 30+ commits](https://github.com/search?q=repo%3Alfariabr%2Fmasters-swe-ai++stc+OR+%28stc%29+OR+std+OR+%28std%29&type=commits&s=committer-date&o=desc)
 
 ---
 
@@ -1009,6 +1009,7 @@ flowchart TD
 | Version | Date | Author | Changes |
 |---------|------|--------|---------|
 | 1.0 | 29/12/2025 | Luis Faria | Initial runbook creation |
+| 1.1 | 29/12/2025 | Luis Faria | Updated runbook with comprehensive flowcharts and version history |
 
 ---
 

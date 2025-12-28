@@ -14,11 +14,11 @@ This is structured as a 3-level assessment simulation `(Level 1 → Level 2 → 
 | **Dec 26-27** | Reporting Views | Student profiles, class rolls, attendance summaries | ✅ |
 | **Dec 28-29** | Stored Procedures | Parameter-based queries, optimization | ✅ |
 | **Dec 30-31** | Import/Export | CSV handling, staging tables, data validation | ✅ |
-| **Jan 1-2** | Runbook & Documentation | Operational procedures, troubleshooting guide | ⏱️ |
+| **Jan 1-2** | Runbook & Documentation | Operational procedures, troubleshooting guide | ✅ |
 | **Jan 3-4** | Demo Preparation | Presentation script, screenshots, talking points | ⏱️ |
 | **Jan 5** | Final Review | Validate all components, practice demo | ⏱️ |
 
-> [Complete changelog with 30+ commits](https://github.com/search?q=repo%3Alfariabr%2Fmasters-swe-ai+std+OR+stc&type=commits)
+> [Complete changelog with 30+ commits](https://github.com/search?q=repo%3Alfariabr%2Fmasters-swe-ai++stc+OR+%28stc%29+OR+std+OR+%28std%29&type=commits&s=committer-date&o=desc)
 
 ---
 
