@@ -15,7 +15,7 @@ This is structured as a 3-level assessment simulation `(Level 1 → Level 2 → 
 | **Dec 28-29** | Stored Procedures | Parameter-based queries, optimization | ✅ |
 | **Dec 30-31** | Import/Export | CSV handling, staging tables, data validation | ✅ |
 | **Jan 1-2** | Runbook & Documentation | Operational procedures, troubleshooting guide | ✅ |
-| **Jan 3-4** | Demo Preparation | Presentation script, screenshots, talking points | ⏱️ |
+| **Jan 3-4** | Demo Preparation | Presentation script, screenshots, talking points | ✅ |
 | **Jan 5** | Final Review | Validate all components, practice demo | ⏱️ |
 
 > [Complete changelog with 30+ commits](https://github.com/search?q=repo%3Alfariabr%2Fmasters-swe-ai++stc+OR+%28stc%29+OR+std+OR+%28std%29&type=commits&s=committer-date&o=desc)
@@ -252,7 +252,7 @@ Build docs/07_demo_script.md with StC context:
 ### Deliverables
 - ✅ docs/06_runbook.md (comprehensive operations guide)
 - ✅ docs/07_demo_script.md (interview presentation)
-- 3 screenshots showing outputs in SSMS (report results, backup history, data validation)
+- ✅ 3 screenshots showing outputs in SSMS (report results, backup history, data validation)
 
 ### Passing standard
 I can confidently say:
@@ -263,14 +263,14 @@ I can confidently say:
 5. "I understand how to maintain data integrity across multiple school systems."
 ---
 
-## Interview “Showcase Pack” (What will be brought to the table)
+## Interview "Showcase Pack"
 
 These 3 items (digital or printed):
 1. README.md (project overview + what was built)
 2. Runbook (this screams maturity)
-3. Demo script (so I don’t ramble)
+3. Demo script (so I don't ramble)
 
-This directly maps to the job’s needs: maintaining databases + SQL reports + integrations + documentation/training.
+This directly maps to the job's needs: maintaining databases + SQL reports + integrations + documentation/training.
 
 ## StC Systems Context
 

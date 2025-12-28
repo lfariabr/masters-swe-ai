@@ -58,7 +58,7 @@ StC_SchoolLab|2025-01-29 17:00:00|2025-01-29 17:00:00|0|2.25|Differential
 ### Screenshot Capture
 1. Run command in Terminal
 2. Capture output with `Cmd + Shift + 4` (select area)
-3. Save as `01_backup_history.png`
+3. Save as `01_backup_history.jpeg`
 
 ---
 
@@ -97,7 +97,7 @@ attendance_date|class_name|status
 1. Run command in Terminal
 2. Scroll to see all 3 result sets
 3. Capture each result set separately or as one long screenshot
-4. Save as `02_student_profile.png`
+4. Save as `02_student_profile.jpeg`
 
 ---
 
@@ -117,7 +117,7 @@ EXEC sp_AttendanceByDate @Date = '$ATTENDANCE_DATE';
 ### Alternative (Hardcoded Date)
 ```bash
 /opt/homebrew/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -C -d StC_SchoolLab -W -s "|" -Q "
-EXEC sp_AttendanceByDate @Date = '2025-01-15';
+EXEC sp_AttendanceByDate @Date = '2025-11-25';
 "
 ```
 
@@ -145,7 +145,7 @@ Jane Doe|STU002|parent@email.com|0423456789|Absent
 ### Screenshot Capture
 1. Run command in Terminal
 2. Capture all 3 result sets
-3. Save as `03_daily_attendance.png`
+3. Save as `03_daily_attendance.jpeg`
 
 ---
 
@@ -176,7 +176,7 @@ year_level|total_classes|total_subjects|total_teachers|total_capacity|total_enro
 ### Screenshot Capture
 1. Run command in Terminal
 2. Capture both result sets
-3. Save as `04_enrollment_summary.png`
+3. Save as `04_enrollment_summary.jpeg`
 
 ---
 
@@ -207,7 +207,7 @@ Students|100
 ### Screenshot Capture
 1. Run command in Terminal
 2. Capture output
-3. Save as `05_row_count_validation.png`
+3. Save as `05_row_count_validation.jpeg`
 
 ---
 
@@ -256,7 +256,7 @@ Enrollments without Classes|0
 ### Screenshot Capture
 1. Run command in Terminal
 2. Capture output showing all zeros
-3. Save as `06_referential_integrity.png`
+3. Save as `06_referential_integrity.jpeg`
 
 ---
 
@@ -284,6 +284,9 @@ UNION ALL
 SELECT 'Classes', MAX(created_date), COUNT(*), DATEDIFF(HOUR, MAX(created_date), GETDATE()) FROM Classes;
 "
 ```
+
+## Screenshot
+- Saved as `07_bonus_seqta_monitoring_db_health.jpeg`
 
 ---
 
@@ -361,7 +364,7 @@ EXEC sp_GetStudentProfile @StudentId = 1;
 2. Click **Run** button (▶️)
 3. Results show 3 tabs (one for each result set)
 4. Capture each tab separately or switch between them
-5. Save as `02_student_profile_set1.png`, `02_student_profile_set2.png`, `02_student_profile_set3.png`
+5. Save as `02_student_profile_set1.jpeg`, `02_student_profile_set2.jpeg`, `02_student_profile_set3.jpeg`
 
 #### Screenshot 3: Daily Attendance Report
 
@@ -381,7 +384,7 @@ EXEC sp_AttendanceByDate @Date = @AttendanceDate;
 USE StC_SchoolLab;
 GO
 
-EXEC sp_AttendanceByDate @Date = '2025-01-15';
+EXEC sp_AttendanceByDate @Date = '2025-11-25';
 ```
 
 **How to Execute:**
@@ -499,33 +502,33 @@ WHERE c.class_id IS NULL;
 
 ### Recommended File Naming
 ```
-01_backup_history.png
-02_student_profile_overview.png
-02_student_profile_enrollments.png
-02_student_profile_attendance.png
-03_daily_attendance_records.png
-03_daily_attendance_summary.png
-03_daily_attendance_absent.png
-04_enrollment_summary_classes.png
-04_enrollment_summary_year.png
-05_row_count_validation.png
-06_referential_integrity.png
+01_backup_history.jpeg
+02_student_profile_overview.jpeg
+02_student_profile_enrollments.jpeg
+02_student_profile_attendance.jpeg
+03_daily_attendance_records.jpeg
+03_daily_attendance_summary.jpeg
+03_daily_attendance_absent.jpeg
+04_enrollment_summary_classes.jpeg
+04_enrollment_summary_year.jpeg
+05_row_count_validation.jpeg
+06_referential_integrity.jpeg
 ```
 
 ### Screenshot Folder Structure
 ```
 docs/Assessment3/screenshots/
-├── 01_backup_history.png
-├── 02_student_profile_overview.png
-├── 02_student_profile_enrollments.png
-├── 02_student_profile_attendance.png
-├── 03_daily_attendance_records.png
-├── 03_daily_attendance_summary.png
-├── 03_daily_attendance_absent.png
-├── 04_enrollment_summary_classes.png
-├── 04_enrollment_summary_year.png
-├── 05_row_count_validation.png
-└── 06_referential_integrity.png
+├── 01_backup_history.jpeg
+├── 02_student_profile_overview.jpeg
+├── 02_student_profile_enrollments.jpeg
+├── 02_student_profile_attendance.jpeg
+├── 03_daily_attendance_records.jpeg
+├── 03_daily_attendance_summary.jpeg
+├── 03_daily_attendance_absent.jpeg
+├── 04_enrollment_summary_classes.jpeg
+├── 04_enrollment_summary_year.jpeg
+├── 05_row_count_validation.jpeg
+└── 06_referential_integrity.jpeg
 ```
 
 ---

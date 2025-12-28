@@ -1,7 +1,8 @@
 # StC SchoolLab Database - Interview Demonstration Script
-**Presentation Duration:** 15-20 minutes  
-**Audience:** ICT Manager, Leadership Team  
-**Context:** Database Administrator Role Interview
+
+- **Presentation Duration:** 15-20 minutes  
+- **Audience:** ICT Manager, Leadership Team  
+- **Context:** Database Administrator Role Interview
 
 ---
 
@@ -108,7 +109,7 @@ EXEC sp_GetStudentProfile @StudentId = 1;
 **Execute in SSMS:**
 ```sql
 USE StC_SchoolLab;
-EXEC sp_AttendanceByDate @Date = '2025-01-15';
+EXEC sp_AttendanceByDate @Date = '2024-11-25';
 ```
 
 **Walk Through Results (3 result sets):**
@@ -396,11 +397,11 @@ SELECT 'Staff', MAX(created_date), COUNT(*) FROM Staff;
 > "I understand StC is considering a SharePoint to School Box migration. This database architecture is platform-agnostic - the data layer remains stable regardless of front-end changes. I'd ensure data continuity throughout that transition."
 
 **Final Thought:**
-> "I'm not just looking for a job - I'm looking to be part of a team that values operational excellence and student outcomes. I believe this demonstration shows I'm ready to contribute from day one."
+> "I'm looking to be part of a team that values operational excellence and student outcomes. I believe this demonstration shows I'm ready to contribute from day one."
 
 ---
 
-## 💬 Anticipated Questions & Responses
+## Anticipated Questions & Responses
 
 ### Technical Questions
 
@@ -537,5 +538,3 @@ UNION ALL SELECT 'Attendance', COUNT(*) FROM Attendance;
 - Not connecting technical work to school outcomes (always tie back to student success)
 
 ---
-
-**Good luck! You've got this. 🚀**
