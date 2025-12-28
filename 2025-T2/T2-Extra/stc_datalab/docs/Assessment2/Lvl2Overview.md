@@ -33,12 +33,12 @@ Real school data is messy. This simulates actual data quality challenges from sy
 ```bash
 # Codespaces Ubuntu
 # Reset database first
-/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -C \
-  -i /workspaces/stc_datalab/sql/03_reset_data.sql
+/opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -C \
+  -i /workspaces/masters-swe-ai/2025-T2/T2-Extra/stc_datalab/sql/03_reset_data.sql
 
 # Seed the database
-/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -C \
-  -i /workspaces/stc_datalab/sql/02_seed_data.sql
+/opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -C \
+  -i /workspaces/masters-swe-ai/2025-T2/T2-Extra/stc_datalab/sql/02_seed_data.sql
 
 # macOs
 # Reset database first
@@ -76,7 +76,7 @@ Seed script completed with intentional nulls, casing issues, and international s
   "USE StC_SchoolLab; SELECT 'Students' AS TableName, COUNT(*) AS Total FROM Students UNION ALL SELECT 'Staff', COUNT(*) FROM Staff UNION ALL SELECT 'Classes', COUNT(*) FROM Classes UNION ALL SELECT 'Enrollments', COUNT(*) FROM Enrollments UNION ALL SELECT 'Attendance', COUNT(*) FROM Attendance;"
 
 # Verify row counts per table (Codespaces Ubuntu)
-/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -C -Q \
+/opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -C -Q \
   "USE StC_SchoolLab; SELECT 'Students' AS TableName, COUNT(*) AS Total FROM Students UNION ALL SELECT 'Staff', COUNT(*) FROM Staff UNION ALL SELECT 'Classes', COUNT(*) FROM Classes UNION ALL SELECT 'Enrollments', COUNT(*) FROM Enrollments UNION ALL SELECT 'Attendance', COUNT(*) FROM Attendance;"
 ```
 
@@ -144,11 +144,11 @@ Reporting views are the backbone of any data platform. They provide a consistent
   "USE StC_SchoolLab; SELECT TOP 10 student_name, final_grade, grade_points, academic_standing, effort_rating FROM vw_AcademicPerformance WHERE final_grade IS NOT NULL ORDER BY student_id, class_id;"
 
 # Codespaces Ubuntu script to create views
-/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -C \
-  -i /workspaces/stc_datalab/sql/03_views.sql
+/opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -C \
+  -i /workspaces/masters-swe-ai/2025-T2/T2-Extra/stc_datalab/sql/03_views.sql
 
 # Codespaces Ubuntu validation query
-/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -C -Q \
+/opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -C -Q \
   "USE StC_SchoolLab; SELECT TOP 10 student_name, final_grade, grade_points, academic_standing, effort_rating FROM vw_AcademicPerformance WHERE final_grade IS NOT NULL ORDER BY student_id, class_id;"
 
 # Expected Output:
@@ -257,6 +257,40 @@ This simulates the kind of stored procedures StC needs for staff and leadership,
 # Test sp_GetTableDataExport
 /opt/homebrew/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -C -Q \
   "USE StC_SchoolLab; EXEC sp_GetTableDataExport @TableName = 'STUDENTS', @TopN = 5;"
+
+# Codespaces Ubuntu script to create all procedures
+/opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -C \
+  -i /workspaces/masters-swe-ai/2025-T2/T2-Extra/stc_datalab/sql/04_stored_procedures.sql
+
+# Codespaces Ubuntu test each procedures
+
+# Test sp_GetStudentProfile
+/opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -C -Q \
+  "USE StC_SchoolLab; EXEC sp_GetStudentProfile @StudentId = 1;"
+
+# Test sp_EnrollmentSummaryByYear
+/opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -C -Q \
+  "USE StC_SchoolLab; EXEC sp_EnrollmentSummaryByYear @YearLevel = 8;"
+
+# Test sp_AttendanceByDate (use a date from your seed data)
+/opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -C -Q \
+  "USE StC_SchoolLab; EXEC sp_AttendanceByDate @Date = '2025-01-15';"
+  
+# Test sp_GetTableDataExport
+/opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -C -Q \
+  "USE StC_SchoolLab; EXEC sp_GetTableDataExport @TableName = 'STUDENTS', @TopN = 5;"
 ```
 
-### **Validation Query:**
+---
+
+## **Task 4: Import/export simulation**
+
+### **What I've Done:**
+
+### **Why It Matters:**
+
+### **Execution Results:**
+
+---
+
+
