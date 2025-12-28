@@ -18,6 +18,8 @@ This is structured as a 3-level assessment simulation `(Level 1 → Level 2 → 
 | **Jan 3-4** | Demo Preparation | Presentation script, screenshots, talking points | ⏱️ |
 | **Jan 5** | Final Review | Validate all components, practice demo | ⏱️ |
 
+> [Complete changelog with 30+ commits](https://github.com/search?q=repo%3Alfariabr%2Fmasters-swe-ai+std+OR+stc&type=commits)
+
 ---
 
 ## StC School Data Lab (Operational Simulation)
@@ -80,6 +82,7 @@ stc-sql-lab/
 ## LEVEL 1 — Operator Fundamentals Assessment
 
 > Outcome: "Know the basics. Won't break production."
+[Change history](https://github.com/lfariabr/masters-swe-ai/issues/91)
 
 ### Tasks
 1. ✅ Install & connect -> https://www.youtube.com/watch?v=glxE7w4D8v8
@@ -145,6 +148,7 @@ Examples:
 ## LEVEL 2 — Reporting & Data Integration Assessment
 
 > Outcome: "Can generate real reports and move data between systems."
+[Change history](https://github.com/lfariabr/masters-swe-ai/issues/92)
 
 ### Tasks
 1. ✅ Seed realistic data
@@ -208,9 +212,10 @@ I can explain:
 ## LEVEL 3 — Production Mindset Assessment
 
 > Outcome: "Safe, documents well, and supports staff."
+[Change history](https://github.com/lfariabr/masters-swe-ai/issues/93)
 
 ### Tasks
-1. Operational Runbook
+1. ✅ Operational Runbook
 Write docs/06_runbook.md like an internal StC ICT doc:
 - How to run backups (both GUI and T-SQL methods)
 - How to restore in an emergency (with RPO/RTO considerations)
