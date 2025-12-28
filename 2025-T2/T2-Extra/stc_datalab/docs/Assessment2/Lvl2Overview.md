@@ -258,7 +258,7 @@ This simulates the kind of stored procedures StC needs for staff and leadership,
 /opt/homebrew/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -C -Q \
   "USE StC_SchoolLab; EXEC sp_GetTableDataExport @TableName = 'STUDENTS', @TopN = 5;"
 
-# Codespaces Ubuntu script to create all proceduresimpo
+# Codespaces Ubuntu script to create all procedures
 /opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P 'StC_SchoolLab2025!' -C \
   -i /workspaces/masters-swe-ai/2025-T2/T2-Extra/stc_datalab/sql/04_stored_procedures.sql
 
@@ -370,7 +370,7 @@ staging_id  student_number  first_name  last_name  is_valid  validation_errors
 ----------  --------------  ----------  ---------  --------  ------------------
 1           STU2025001      Emma        Johnson    1         NULL
 2           STU2025002      Liam        Williams   1         NULL
-3           STU2025003      Olivia      Brown      1         Fixed: lowercase first name
+3           STU2025003      olivia      Brown      1         Warning: lowercase first name detected
 4           STU2025004      Noah        Taylor     1         NULL
 5           STU2025005      Ava         Anderson   0         Invalid phone number
 6           STU2025006      William     Thomas     1         Fixed: trailing space; Fixed: uppercase email
@@ -381,6 +381,10 @@ staging_id  student_number  first_name  last_name  is_valid  validation_errors
 11          STU2025011      Mia         Garcia     1         NULL
 12          STU2025012      Benjamin    Lee        1         NULL
 13          STU2025001      Emma        Johnson    0         Duplicate student_number in batch
+
+Note: name casing is only *flagged* (warning) rather than auto-corrected, to avoid breaking real-world names like McDonald, O'Brien, van der Berg, and hyphenated surnames.
+
+To intentionally clear a nullable field during merge (e.g., address/phone/email/emergency fields), set the staging value to the sentinel string `CLEAR`.
 ```
 
 ### **Testing the Merge:**

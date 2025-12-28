@@ -148,14 +148,14 @@ BEGIN
     JOIN Duplicates d ON s.staging_id = d.staging_id
     WHERE d.rn > 1;
     
-    -- Rule 5: Normalize casing issues (informational, not invalid)
-    -- Lowercase first names
-    UPDATE Staging_Students
-    SET first_name = UPPER(LEFT(first_name, 1)) + LOWER(SUBSTRING(first_name, 2, LEN(first_name))),
-        validation_errors = COALESCE(validation_errors + '; ', '') + 'Fixed: lowercase first name'
-    WHERE import_batch = @ImportBatch
-      AND first_name COLLATE Latin1_General_CS_AS = LOWER(first_name) COLLATE Latin1_General_CS_AS
-      AND LEN(first_name) > 0;
+        -- Rule 5: Name casing issues (informational)
+        -- IMPORTANT: do NOT auto-titlecase names. It is culturally/linguistically brittle
+        -- (e.g., McDonald, O'Brien, van der Berg, hyphenated surnames). Flag for review instead.
+        UPDATE Staging_Students
+        SET validation_errors = COALESCE(validation_errors + '; ', '') + 'Warning: lowercase first name detected'
+        WHERE import_batch = @ImportBatch
+            AND first_name COLLATE Latin1_General_CS_AS = LOWER(first_name) COLLATE Latin1_General_CS_AS
+            AND LEN(first_name) > 0;
     
     -- Uppercase emails -> lowercase
     UPDATE Staging_Students
@@ -203,6 +203,12 @@ CREATE PROCEDURE sp_MergeStagingStudents
 AS
 BEGIN
     SET NOCOUNT ON;
+
+    -- Merge semantics:
+    -- - By default, NULL/empty values in staging do NOT overwrite production values.
+    -- - To intentionally clear a nullable field in production, pass the sentinel value 'CLEAR'
+    --   in the CSV/staging column; the merge will set the target column to NULL.
+    --   (Applies to: address, phone, email, emergency_contact, emergency_phone)
     
     DECLARE @RowsInserted INT = 0;
     DECLARE @RowsUpdated INT = 0;
@@ -239,11 +245,31 @@ BEGIN
             SET first_name = s.first_name,
                 last_name = s.last_name,
                 date_of_birth = s.date_of_birth,
-                address = COALESCE(s.address, p.address),
-                phone = COALESCE(s.phone, p.phone),
-                email = COALESCE(s.email, p.email),
-                emergency_contact = COALESCE(s.emergency_contact, p.emergency_contact),
-                emergency_phone = COALESCE(s.emergency_phone, p.emergency_phone),
+                                address = CASE
+                                                        WHEN s.address = 'CLEAR' THEN NULL
+                                                        WHEN s.address IS NULL OR LTRIM(RTRIM(s.address)) = '' THEN p.address
+                                                        ELSE s.address
+                                                    END,
+                                phone = CASE
+                                                    WHEN s.phone = 'CLEAR' THEN NULL
+                                                    WHEN s.phone IS NULL OR LTRIM(RTRIM(s.phone)) = '' THEN p.phone
+                                                    ELSE s.phone
+                                                END,
+                                email = CASE
+                                                    WHEN s.email = 'CLEAR' THEN NULL
+                                                    WHEN s.email IS NULL OR LTRIM(RTRIM(s.email)) = '' THEN p.email
+                                                    ELSE s.email
+                                                END,
+                                emergency_contact = CASE
+                                                                            WHEN s.emergency_contact = 'CLEAR' THEN NULL
+                                                                            WHEN s.emergency_contact IS NULL OR LTRIM(RTRIM(s.emergency_contact)) = '' THEN p.emergency_contact
+                                                                            ELSE s.emergency_contact
+                                                                        END,
+                                emergency_phone = CASE
+                                                                        WHEN s.emergency_phone = 'CLEAR' THEN NULL
+                                                                        WHEN s.emergency_phone IS NULL OR LTRIM(RTRIM(s.emergency_phone)) = '' THEN p.emergency_phone
+                                                                        ELSE s.emergency_phone
+                                                                    END,
                 updated_date = GETDATE()
             FROM Students p
             JOIN Staging_Students s ON p.student_number = s.student_number
@@ -318,6 +344,9 @@ CREATE PROCEDURE sp_ExportStudentData
 AS
 BEGIN
     SET NOCOUNT ON;
+
+    -- ActiveOnly definition (consistent across formats):
+    -- treat students enrolled this year or last year as "active" for export purposes.
     
     IF @Format = 'FULL'
     BEGIN
@@ -327,7 +356,12 @@ BEGIN
             first_name,
             last_name,
             date_of_birth,
-            DATEDIFF(YEAR, date_of_birth, GETDATE()) AS age,
+            DATEDIFF(YEAR, date_of_birth, GETDATE())
+              - CASE
+                    WHEN DATEADD(YEAR, DATEDIFF(YEAR, date_of_birth, GETDATE()), date_of_birth) > CAST(GETDATE() AS DATE)
+                    THEN 1
+                    ELSE 0
+                END AS age,
             address,
             phone,
             email,
@@ -370,9 +404,14 @@ BEGIN
         LEFT JOIN Classes c ON e.class_id = c.class_id
         LEFT JOIN Attendance a ON s.student_id = a.student_id AND c.class_id = a.class_id
         WHERE (@YearLevel IS NULL OR c.year_level = @YearLevel)
-          AND (@ActiveOnly = 0 OR e.status = 'Active')
+          AND (@ActiveOnly = 0 OR s.enrollment_year >= YEAR(GETDATE()) - 1)
         GROUP BY s.student_number, s.first_name, s.last_name, c.class_name, e.status
         ORDER BY s.last_name, s.first_name, c.class_name;
+    END
+    ELSE
+    BEGIN
+        RAISERROR('Invalid @Format. Use FULL, BASIC, or ATTENDANCE.', 16, 1);
+        RETURN;
     END
     
     -- Return export metadata
