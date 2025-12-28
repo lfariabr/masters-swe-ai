@@ -157,13 +157,15 @@ BEGIN
             AND first_name COLLATE Latin1_General_CS_AS = LOWER(first_name) COLLATE Latin1_General_CS_AS
             AND LEN(first_name) > 0;
     
-    -- Uppercase emails -> lowercase
-    UPDATE Staging_Students
-    SET email = LOWER(email),
-        validation_errors = COALESCE(validation_errors + '; ', '') + 'Fixed: uppercase email'
-    WHERE import_batch = @ImportBatch
-      AND email COLLATE Latin1_General_CS_AS = UPPER(email) COLLATE Latin1_General_CS_AS
-      AND email IS NOT NULL;
+        -- Email normalization: lowercase any email containing uppercase characters
+        -- (email local-parts can be case-sensitive in theory, but in practice school systems treat
+        -- addresses case-insensitively; lowercasing prevents report dedupe issues).
+        UPDATE Staging_Students
+        SET email = LOWER(email),
+                validation_errors = COALESCE(validation_errors + '; ', '') + 'Fixed: email lowercased'
+        WHERE import_batch = @ImportBatch
+            AND email IS NOT NULL
+            AND email COLLATE Latin1_General_CS_AS <> LOWER(email) COLLATE Latin1_General_CS_AS;
     
     -- Trailing spaces in last names
     UPDATE Staging_Students

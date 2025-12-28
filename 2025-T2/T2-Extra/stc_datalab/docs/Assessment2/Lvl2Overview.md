@@ -311,7 +311,7 @@ Created a complete import/export workflow mimicking SEQTA integration with the f
 - Required field checks (student_number, first_name, last_name, DOB)
 - Invalid data detection ('???' phones, 'Pending' addresses)
 - Duplicate detection within batch
-- Auto-fix casing issues (lowercase names → Title Case, UPPERCASE emails → lowercase)
+- Normalize emails to lowercase for consistency
 - Trailing whitespace cleanup
 - Returns validation summary and invalid records for review
 
@@ -373,7 +373,7 @@ staging_id  student_number  first_name  last_name  is_valid  validation_errors
 3           STU2025003      olivia      Brown      1         Warning: lowercase first name detected
 4           STU2025004      Noah        Taylor     1         NULL
 5           STU2025005      Ava         Anderson   0         Invalid phone number
-6           STU2025006      William     Thomas     1         Fixed: trailing space; Fixed: uppercase email
+6           STU2025006      William     Thomas     1         Fixed: trailing space; Fixed: email lowercased
 7           STU2025007      Sophia      Jackson    1         NULL
 8           STU2025008      James       White      1         NULL
 9           STU2025009      Isabella    Harris     0         Address pending - needs update
