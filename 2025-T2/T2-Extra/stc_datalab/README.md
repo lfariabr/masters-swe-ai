@@ -1,8 +1,10 @@
 # Introduction
 
-We're going to build a mini "School Data Platform" on SQL Server, and we'll document it like a real internal deliverable — so I don't just learn SQL, but also present proof.
+I've built a "School Data Platform" on SQL Server, and I've documented it like an internal deliverable — so I can learn SQL and also present proof.
 
 This is structured as a 3-level assessment simulation `(Level 1 → Level 2 → Level 3)`, matching exactly what the role given calls for: **SQL queries + reporting, data integration/imports, documentation/training, and maintaining systems responsibly**.
+
+📦 [StC DataLab Repo](https://github.com/lfariabr/stc-datalab)
 
 ## Execution Plan (Dec 2025 - Jan 2026)
 
@@ -16,7 +18,7 @@ This is structured as a 3-level assessment simulation `(Level 1 → Level 2 → 
 | **Dec 30-31** | Import/Export | CSV handling, staging tables, data validation | ✅ |
 | **Jan 1-2** | Runbook & Documentation | Operational procedures, troubleshooting guide | ✅ |
 | **Jan 3-4** | Demo Preparation | Presentation script, screenshots, talking points | ✅ |
-| **Jan 5** | Final Review | Validate all components, practice demo | ⏱️ |
+| **Jan 5** | Final Review | Validate all components, practice demo | ✅ |
 
 > [Complete changelog with 30+ commits](https://github.com/search?q=repo%3Alfariabr%2Fmasters-swe-ai++stc+OR+%28stc%29+OR+std+OR+%28std%29&type=commits&s=committer-date&o=desc)
 
@@ -28,7 +30,7 @@ This is structured as a 3-level assessment simulation `(Level 1 → Level 2 → 
 
 ### Context from StC's Environment
 
-Based on insights from L, this project simulates key aspects of StC's actual data environment:
+This project simulates key aspects of StC's actual data environment:
 
 - **On-premise SQL Server** with multiple school management systems
 - **Data integration challenges** between systems with limited direct access (like SEQTA)
@@ -47,16 +49,21 @@ Based on insights from L, this project simulates key aspects of StC's actual dat
 
 Repo / Folder Structure (what you’ll build)
 ```bash
-stc-sql-lab/
+stc/
   README.md
   docs/
-    01_setup.md
-    02_schema.md
-    03_reporting.md
-    04_backup_restore.md
-    05_import_export.md
-    06_runbook.md
-    07_demo_script.md
+    Assessment1
+      _A1_Overview.md
+      01_setup.md
+      04_backup_restore.md
+    Assessment2
+      _A2_Overview.md
+    Assessment3
+      _A3_Overview.md
+      06_runbook.md
+      07_demo_script.md
+      08_staff_training_guide.md
+      09_macos_screenshots_guide.md
   sql/
     00_create_db.sql
     01_schema.sql
@@ -71,10 +78,17 @@ stc-sql-lab/
     classes.csv
     enrollments.csv
   screenshots/
-    ssms_db_created.png
-    ssms_backup.png
-    ssms_restore.png
-    sample_report_output.png
+    ArchitectureOverview.jpeg
+    task1.jpeg
+    task2.jpeg
+    task3.jpeg
+    01_backup_history.jpeg
+    02_stsudent_profile.jpeg
+    03_daily_attendance.jpeg
+    04_enrollment_summary.jpeg
+    05_row_count_validation.jpeg
+    06_referential_integrity.jpeg
+    07_bonus_seqta_monitoring_db_health.jpeg
 ```
 
 ---
@@ -82,10 +96,10 @@ stc-sql-lab/
 ## LEVEL 1 — Operator Fundamentals Assessment
 
 > Outcome: "Know the basics. Won't break production."
-[Change history](https://github.com/lfariabr/masters-swe-ai/issues/91)
+- 📦 [Change history](https://github.com/lfariabr/masters-swe-ai/issues/91)
 
 ### Tasks
-1. ✅ Install & connect -> https://www.youtube.com/watch?v=glxE7w4D8v8
+1. ✅ Install & connect
 -  SQL Server Express + SSMS (matching StC's on-premise setup)
 -  Create DB: StC_SchoolLab
 -  Configure basic security (matching school's confidentiality requirements)
@@ -113,8 +127,7 @@ stc-sql-lab/
 - ✅ sql/00_create_db.sql, sql/01_schema.sql
 - ✅ docs/Lvl1Task1.X.md (step-by-step setup and execution + screenshots)
 
-### Passing standard
-I can explain (out loud, calmly):
+### Checkpoint
 1. "What is a database vs schema vs table?"
 - **R:** Database: the container for all data and objects for an application. 
 - Schema: a logical namespace used to organise objects and manage permissions. 
@@ -148,7 +161,7 @@ Examples:
 ## LEVEL 2 — Reporting & Data Integration Assessment
 
 > Outcome: "Can generate real reports and move data between systems."
-[Change history](https://github.com/lfariabr/masters-swe-ai/issues/92)
+- 📦 [Change history](https://github.com/lfariabr/masters-swe-ai/issues/92)
 
 ### Tasks
 1. ✅ Seed realistic data
@@ -178,8 +191,7 @@ Examples:
 - ✅ sql/02_seed_data.sql, sql/03_views.sql, sql/04_stored_procedures.sql
 - ✅ docs/Lvl2Task2.X.md (step-by-step execution + screenshots)
 
-### Passing standard
-I can explain:
+### Checkpoint
 1. "How I validate imports before trusting reports" (critical for SEQTA data)
 - **R:** I never import CSVs straight into production tables. I land them in staging first, then validate before merge:
   - Row counts (imported vs valid vs invalid) tracked in `Import_Log`
@@ -212,11 +224,11 @@ I can explain:
 ## LEVEL 3 — Production Mindset Assessment
 
 > Outcome: "Safe, documents well, and supports staff."
-[Change history](https://github.com/lfariabr/masters-swe-ai/issues/93)
+- 📦 [Change history](https://github.com/lfariabr/masters-swe-ai/issues/93)
 
 ### Tasks
 1. ✅ Operational Runbook
-Write docs/06_runbook.md like an internal StC ICT doc:
+Write `06_runbook.md` like an internal StC ICT doc:
 - How to run backups (both GUI and T-SQL methods)
 - How to restore in an emergency (with RPO/RTO considerations)
 - How to run key reports (with screenshots and parameter explanations)
@@ -254,21 +266,20 @@ Build docs/07_demo_script.md with StC context:
 - ✅ docs/07_demo_script.md (interview presentation)
 - ✅ 3 screenshots showing outputs in SSMS (report results, backup history, data validation)
 
-### Passing standard
-I can confidently say:
-1. "I always confirm backups and restore capability before changes."
-2. "I document assumptions so reports are reproducible."
+### Checkpoint
+1. "Always confirm backups and restore capability before changes."
+2. "Document assumptions so reports are reproducible."
 3. "In a school environment, confidentiality and access control are non-negotiable."
-4. "I can help bridge the gap between technical and non-technical staff."
-5. "I understand how to maintain data integrity across multiple school systems."
+4. "Bridge the gap between technical and non-technical staff."
+5. "Understand how to maintain data integrity across multiple school systems."
 ---
 
 ## Interview "Showcase Pack"
 
 These 3 items (digital or printed):
 1. README.md (project overview + what was built)
-2. Runbook (this screams maturity)
-3. Demo script (so I don't ramble)
+2. Runbook 
+3. Architecture Diagram
 
 This directly maps to the job's needs: maintaining databases + SQL reports + integrations + documentation/training.
 
