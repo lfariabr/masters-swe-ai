@@ -4,11 +4,11 @@
 
 ```
 southB/
-├── app.py          # Main entry point (refactored)
+├── app.py              # Main entry point
 ├── data_loader.py      # Data loading and processing
 ├── filters.py          # Filter components
 ├── analytics.py        # Analytics and visualizations
-└── README.MD # This file
+└── README.MD           # This file
 ```
 
 ## Module Responsibilities
@@ -43,7 +43,9 @@ southB/
 ## How to Run
 
 ```bash
-# Run the modular version
+python -m venv venv
+source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+pip install -r requirements.txt
 streamlit run app.py
 ```
 
