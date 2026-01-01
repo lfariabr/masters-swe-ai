@@ -96,6 +96,9 @@ def show_spending_over_time(df):
                 'Amount': monthly_spending.values
             })
             
+            # 
+            monthly_df = monthly_df.sort_values(by='Month', ascending=True)
+
             # Apply color heatmap to the Amount column
             styled_monthly = monthly_df.style.format({'Amount': '${:,.2f}'}).background_gradient(
                 subset=['Amount'],
