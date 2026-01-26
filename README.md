@@ -91,7 +91,7 @@ Take a deep dive into how I'm approaching projects and the progress I'm making.
 | **Commonwealth Bank Forage** | Virtual challenge covering backend (.NET, MongoDB) and frontend (React, Redux, TypeScript) work, unit testing with xUnit | ✅ | [Repo](https://github.com/lfariabr/commbank-cba-challenge) | [Article](https://dev.to/lfariaus/how-i-tackled-the-commonwealths-bank-software-engineering-challenge-3ebk) |
 | **AWS Solutions Architect** | Virtual challenge covering acting as a Solutions Architect for a client | ✅ | [Repo](./2025-T1/T1-Extra/aws/) | [Article](https://dev.to/lfariaus/scaling-fastier-my-aws-solutions-architect-journey-with-forage-challenge-30j8) |
 | **ExcelPilot FE** | Chat system for backend API built with Next.js, TypeScript, TailwindCSS, ShadCN, Apollo Client, Next.Auth, JWT. | 🔌 | [Repo](https://github.com/lfariabr/excel-pilot-front) | N/A |
-| **ExcelPilot BE** | Node.js, Express, Apollo Server, MongoDB, Redis and TypeScript API. Features secure JWT auth, GraphQL endpoints, and openAi. | 🔥 | [Repo](https://github.com/lfariabr/excel-pilot) | 🔌 |
+| **ExcelPilot BE** | Node.js, Express, Apollo Server, MongoDB, Redis and TypeScript API. Features secure JWT auth, GraphQL endpoints, and openAi. | 🔌 | [Repo](https://github.com/lfariabr/excel-pilot) | N/A |
 
 ---
 
