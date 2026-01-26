@@ -80,8 +80,7 @@ Take a deep dive into how I'm approaching projects and the progress I'm making.
 
 | Project | Description | Status | Repository | URL |
 |---------|---------------------|----------------|----------------|----------------|
-| **STC Datalab** | SQL Server database project for a school with SSIS packages, SSRS reports, and data validation. | ✅ | [Repo](https://github.com/lfariabr/stc-datalab) | 🔥 |
-| **ExcelPilot BE** | Node.js, Express, Apollo Server, MongoDB, Redis and TypeScript API. Features secure JWT auth, GraphQL endpoints, and openAi. | 🔥 | [Repo](https://github.com/lfariabr/excel-pilot) | 🔥 |
+| **STC Datalab** | SQL Server database project for a school with SSIS packages, SSRS reports, and data validation. | ✅ | [Repo](https://github.com/lfariabr/stc-datalab) | [Article](https://dev.to/lfariaus/learning-sql-server-the-hard-way-16-days-of-real-world-database-work-5hla) |
 | **Intelligent Rate Limiter** | Human-centered governance middleware for Agentic AI. Carbon real-time grid awareness, explanations + audit logs. Node.js, TypeScript, GraphQL, Redis. | ✅ | [Repo](https://github.com/lfariabr/intelligent-rate-limiter) | [Article](https://dev.to/lfariaus/building-irl-from-a-50k-aws-horror-story-to-human-centered-ai-governance-1jdg) |
 | **Research Proposal** | Empirical analysis of NPS correlation with revenue in healthcare clinics using Python, Pandas, Numpy, Jupyter, and SciPy. | ✅ | [Repo](https://github.com/lfariabr/research-proposal-nps) | [Article](https://dev.to/lfariaus/does-nps-really-predict-revenue-in-healthcare-clinics-i-spent-12-weeks-finding-out-4nmj) |
 | **CuraNexus Analytics** | Secure-by-Design framework for web data retrieval apps. ISMS implementation, DREAD threat modeling, ISO 27001/OWASP compliance. | ✅ | N/A | [Article](https://dev.to/lfariaus/curanexus-analytics-security-in-architecture-not-afterthought-13j) |
@@ -92,6 +91,7 @@ Take a deep dive into how I'm approaching projects and the progress I'm making.
 | **Commonwealth Bank Forage** | Virtual challenge covering backend (.NET, MongoDB) and frontend (React, Redux, TypeScript) work, unit testing with xUnit | ✅ | [Repo](https://github.com/lfariabr/commbank-cba-challenge) | [Article](https://dev.to/lfariaus/how-i-tackled-the-commonwealths-bank-software-engineering-challenge-3ebk) |
 | **AWS Solutions Architect** | Virtual challenge covering acting as a Solutions Architect for a client | ✅ | [Repo](./2025-T1/T1-Extra/aws/) | [Article](https://dev.to/lfariaus/scaling-fastier-my-aws-solutions-architect-journey-with-forage-challenge-30j8) |
 | **ExcelPilot FE** | Chat system for backend API built with Next.js, TypeScript, TailwindCSS, ShadCN, Apollo Client, Next.Auth, JWT. | 🔌 | [Repo](https://github.com/lfariabr/excel-pilot-front) | N/A |
+| **ExcelPilot BE** | Node.js, Express, Apollo Server, MongoDB, Redis and TypeScript API. Features secure JWT auth, GraphQL endpoints, and openAi. | 🔥 | [Repo](https://github.com/lfariabr/excel-pilot) | 🔌 |
 
 ---
 

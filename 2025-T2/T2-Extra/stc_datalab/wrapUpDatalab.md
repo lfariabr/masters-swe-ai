@@ -1,0 +1,1 @@
+[Learning SQL Server the Hard Way: 16 Days of Real-World Database Work](https://dev.to/lfariaus/learning-sql-server-the-hard-way-16-days-of-real-world-database-work-5hla)
