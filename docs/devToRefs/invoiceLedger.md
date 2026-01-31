@@ -307,7 +307,7 @@ Started in the `southB/` directory of my [masters-swe-ai repo](https://github.co
 | **GitHub Repo** | [github.com/lfariabr/invoice-ledger](https://github.com/lfariabr/invoice-ledger) |
 | **Source Code (southB origin)** | [masters-swe-ai/southB](https://github.com/lfariabr/masters-swe-ai/tree/main/2025-T2/T2-Extra/southB) |
 | **Live Demo** | [streamlit app](https://invoice-ledger.streamlit.app/) |
-| **Excel Template (fake data)** | [Download & explore the dashboard safely](https://github.com/lfariabr/invoice-ledger/blob/main/data/invoice_ledger.xlsx) |
+| **Excel Template (fake data)** | [download & explore the data safely - *fake data*](https://github.com/lfariabr/invoice-ledger/blob/main/data/invoiceLedger.xlsx) |
 
 ---
 
