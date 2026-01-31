@@ -290,7 +290,7 @@ The result isn’t just faster — it’s **far more presentable**, making it su
 **Built in 1 day** as a side project during my working hours.
 
 **Origin story:**  
-Started in the `southB/` directory of my [masters-swe-ai repo](https://github.com/lfariabr/masters-swe-ai/tree/main/2025-T2/T2-Extra/southB) as a quick experiment. When I realized how useful it was, I:
+Started in the `southB/` directory of my [masters-swe-ai repo](https://github.com/lfariabr/masters-swe-ai/tree/master/2025-T2/T2-Extra/southB) as a quick experiment. When I realized how useful it was, I:
 
 1. Cleaned up the code
 2. Made it modular
