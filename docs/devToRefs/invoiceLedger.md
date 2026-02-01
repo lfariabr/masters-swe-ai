@@ -14,7 +14,7 @@ Tags:
 
 ## 🏢 Context: Assistant Building Manager, Real Data, Real Stakes
 
-Over the last few weeks, I was working as an **Assistant Building Manager** at a large residential building in the south of Sydney, closely shadowing an experienced Building Manager with 25+ years across construction, water systems, and large-scale facilities operations.
+Over a six-week stretch, I was working as an **Assistant Building Manager** at a large residential building in the south of Sydney, closely shadowing an experienced Building Manager with 25+ years across construction, water systems, and large-scale facilities operations.
 
 Alongside day-to-day operations, I also built small internal tools — like a [Lift Finder](https://dev.to/lfariaus/engineering-principles-applied-to-daily-life-concierge-edition-1cjh) utility and [myRoster](https://dev.to/lfariaus/myroster-from-copypaste-to-2-minute-submissions-dao) (a shift automation app) — whenever I noticed repetitive friction in the workflow.
 
@@ -27,7 +27,7 @@ This role exposed me to the **full operational lifecycle** of a high-rise buildi
 
 And obviously — massive amounts of **data**.
 
-Around the same time, I was also offered — and accepted — a **Data Analyst** role at **St Catherine’s School** ([Read more](https://dev.to/lfariaus/learning-sql-server-the-hard-way-16-days-of-real-world-database-work-5hla)), which reinforced the same mindset I was applying here: treat operational noise as structured data waiting to be explored.
+Around the same time, I accepted a **Data Analyst** role at **St Catherine’s School** ([Read more](https://dev.to/lfariaus/learning-sql-server-the-hard-way-16-days-of-real-world-database-work-5hla)), which reinforced the same mindset: treat operational noise as structured data waiting to be explored.
 
 Every single decision eventually traced back to one place.
 
@@ -35,7 +35,7 @@ Every single decision eventually traced back to one place.
 
 ## 📁 The Starting Point: An Excel Invoice Ledger
 
-Inside the building's shared drive (S://BuildingName/) lived an unassuming file:
+Inside the building's shared drive (S://BuildingName/Finances/Invoices) lived an unassuming file:
 
 * A multi-sheet **invoice ledger**
 * Spanning **4+ years**
@@ -43,6 +43,9 @@ Inside the building's shared drive (S://BuildingName/) lived an unassuming file:
 * Dozens of contractors
 * Hundreds of services
 * GST, dates, approvals, variations, reworks
+
+
+![Microsoft Excel File](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/irb0oqb8zf3qm2nfo4yr.png)
 
 On paper, it was "just Excel."
 
@@ -72,7 +75,7 @@ Every question led back to it:
 | Version control chaos | Audit trail required |
 
 **The typical workflow:**
-1. Open Excel (wait for 1,500+ rows to load...)
+1. Open Excel (wait for thousands of rows to load...)
 2. Navigate to the right sheet (Building A? B? C?)
 3. Apply filters (Year... Contractor... Service...)
 4. Create pivot table (if you remember how)
@@ -116,7 +119,11 @@ So I built a tool in Python that lets **non-technical users explore it safely**.
 
 The goal was simple: turn a static spreadsheet into a safe, visual, self-service analytics tool for non-technical users.
 
-I built an **interactive analytics dashboard** using **Python + Streamlit** to feed off the `ledger.xlsx` file.
+I built an **interactive analytics dashboard** using **Python + Pandas + Streamlit** to read from the `ledger.xlsx` file.
+
+![Streamlit User Interface with loaded data](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/sg3gnzjy1nv8oca6tiqr.png)
+
+In minutes, I could answer questions that used to take 10–15 minutes of Excel wrestling — and export the evidence for emails, audits, or committee meetings.
 
 ### **What It Does**
 
@@ -290,7 +297,7 @@ The result isn’t just faster — it’s **far more presentable**, making it su
 **Built in 1 day** as a side project during my working hours.
 
 **Origin story:**  
-Started in the `southB/` directory of my [masters-swe-ai repo](https://github.com/lfariabr/masters-swe-ai/tree/master/2025-T2/T2-Extra/southB) as a quick experiment. When I realized how useful it was, I:
+Started in the `southB/` directory of my [masters-swe-ai repo](https://github.com/lfariabr/masters-swe-ai/tree/main/2025-T2/T2-Extra/southB) as a quick experiment. When I realized how useful it was, I:
 
 1. Cleaned up the code
 2. Made it modular
@@ -307,7 +314,7 @@ Started in the `southB/` directory of my [masters-swe-ai repo](https://github.co
 | **GitHub Repo** | [github.com/lfariabr/invoice-ledger](https://github.com/lfariabr/invoice-ledger) |
 | **Source Code (southB origin)** | [masters-swe-ai/southB](https://github.com/lfariabr/masters-swe-ai/tree/main/2025-T2/T2-Extra/southB) |
 | **Live Demo** | [streamlit app](https://invoice-ledger.streamlit.app/) |
-| **Excel Template (fake data)** | [download & explore the data safely - *fake data*](https://github.com/lfariabr/invoice-ledger/blob/main/data/invoiceLedger.xlsx) |
+| **Excel Template (fake data)** | [download & explore the data safely - *fake data*](https://github.com/lfariabr/invoice-ledger/raw/main/data/invoiceLedger.xlsx) |
 
 ---
 
