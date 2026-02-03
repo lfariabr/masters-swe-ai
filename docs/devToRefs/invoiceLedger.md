@@ -35,7 +35,7 @@ Every single decision eventually traced back to one place.
 
 ## 📁 The Starting Point: An Excel Invoice Ledger
 
-Inside the building's shared drive (S://BuildingName/Finances/Invoices) lived an unassuming file:
+Inside the building's shared drive (*S://BuildingName/Finances/Invoices*) lived an unassuming file:
 
 * A multi-sheet **invoice ledger**
 * Spanning **4+ years**
@@ -95,7 +95,7 @@ And in building management, manual overhead means:
 
 ## 🎓 The Engineering Lens: Treating Excel as a Dataset
 
-At the same time, I'm pursuing a **Master's in Software Engineering & Artificial Intelligence** — so my instinct kicked in:
+At the same time, I'm pursuing a **Master's in Software Engineering & Artificial Intelligence** (*see my [open-source repo](https://github.com/lfariabr/masters-swe-ai)*) — so my instinct kicked in:
 
 > This isn't an Excel problem.  
 > This is a **data exploration problem**.
