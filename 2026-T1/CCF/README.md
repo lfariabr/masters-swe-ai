@@ -32,7 +32,6 @@ This subject provides a fundamental understanding of Cloud Computing. Students w
 ## Learning Facilitator
 Dr. Divya Leekha
 
-
 ## Modules
 > Tip: ✅ = Done, 🔥 = WIP, 🕐 = Not started, 🔌 = Discontinued
 

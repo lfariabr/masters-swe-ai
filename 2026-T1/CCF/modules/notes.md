@@ -1,7 +1,11 @@
 # Cloud Computing Fundamentals - CCF501
 ## Dr. Divya Leekha
 
-### Module 1 Traditional vs Modern Computing
+## Module 1 - Traditional vs Modern Computing
+
+### TLDR
+TODO
+
 ### Introduction
 During the past two decades, the IT and telecom sectors have taken a huge leap in terms of development. New devices have evolved - like tablets, Internet of Things-based (IoT) wearable technologies, AR/VR devices, smart phones, and more. Access to the internet has been simplified, made easy and economical. Simultaneously, the applications and user demands have made underlying algorithms complex. New experiences like virtual reality and the trend to include artificial intelligence in applications have increased the need for higher computational power. The popularity of wearables and linked devices like the Google Home Mini or Alexa has meant that IoT is generating more data. All of this is then feeding AI systems essential to support these IoT devices’  learning capabilities. Applications of the Internet have evolved from search and email to videos, financial applications, video games, etc. Platforms are now not only computers but mobile phones, tablets and AR lenses.
 

@@ -51,8 +51,8 @@ Term | Subject | Status | Lecturer | Directory | Credit Points
 | T2 | Mathematical Foundations of AI (***Core***) 2025 | ✅ | Dr. James Vakilian | [MFA501](./2025-T2/T2-MFA/) | 10
 | T2 | Research Methodologies (***Core***) 2025 | ✅ | Dr. Bushra Naeem | [REM502](./2025-T2/T2-REM/) | 10
 | T2 | Secure By Design (***Core***) 2025 | ✅ | Dr. Tanvir Rahman | [SBD402](./2025-T2/T2-SBD/) | 10
-| T3 | Intelligent Systems (***Core***) 2026 | 🕐 | Dr. Fareed Ud Din | [ISY503](TBD) | 10
-| T3 | Cloud Computing Fundamentals (***Elective***) 2026 | 🕐 | Dr. Divya Leekha | [CCF501](TBD) | 10
+| T3 | Intelligent Systems (***Core***) 2026 | 🔥 | Dr. Nandini Sidnal | [ISY503](./2026-T1/T1-ISY/) | 10
+| T3 | Cloud Computing Fundamentals (***Elective***) 2026 | 🔥 | Dr. Divya Leekha | [CCF501](./2026-T1/T1-CCF/) | 10
 
 ***Backlog - T2-26 onwards:***
 - 11x Core (***mandatory***): 
@@ -107,8 +107,8 @@ While this is primarily a personal repository, I welcome discussions and feedbac
 | 1.2.0   | T2-2025 Completed (SDM+SEP)         | 08-2025 | ✅ |
 | 2.0.0   | T3-2025 Launch (HCD+MFA+REM+SBD)    | 09-2025 | ✅ |
 | 2.4.0   | T3-2025 Completed (HCD+MFA+REM+SBD) | 12-2025 | ✅ |
-| 3.0.0   | T1-2026 Launch (ISY503+CCF501)      | 02-2026 | 🕐 |
-| 3.2.0   | T1-2026 Completed (ISY503+CCF501)   | 05-2026 | 🕐 |
+| 3.0.0   | T1-2026 Launch (ISY503+CCF501)      | 02-2026 | ✅ |
+| 3.2.0   | T1-2026 Completed (ISY503+CCF501)   | 05-2026 | 🔥 |
 | 4.0.0   | T2-2026 Launch (MLN601+DLE602)      | 06-2026 | 🕐 |
 | 4.2.0   | T2-2026 Completed (MLN601+DLE602)   | 08-2026 | 🕐 |
 | 5.0.0   | T3-2026 Launch (TWL604+DOT503)      | 09-2026 | 🕐 |
