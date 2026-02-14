@@ -9,9 +9,11 @@
 | 3 | Read & summarise Keshav (2007) — How to read a paper | 🕐 |
 | 4 | Read & summarise Land et al. (2007) — Ethics of knowledge management | 🕐 |
 | 5 | Listen & summarise Channington (2019) — Responsible AI podcast | 🕐 |
-| 6 | Activity 1: Introduce Yourself forum post | 🕐 |
-| 7 | Activity 2: Discussion Forum — Ethics of bank loan AI | 🕐 |
-| 8 | Activity 3: Summarise two intelligent systems articles (journal) | 🕐 |
+| 6 | Read & summarise Hulten (2018) — Building intelligent systems | 🕐 |
+| 7 | Listen & summarise Polich (2020) — Algorithmic fairness podcast | 🕐 |
+| 8 | Activity 1: Introduce Yourself forum post | 🕐 |
+| 9 | Activity 2: Discussion Forum — Ethics of bank loan AI | 🕐 |
+| 10 | Activity 3: Summarise two intelligent systems articles (journal) | 🕐 |
 
 ---
 
@@ -182,3 +184,53 @@
 3. **Algorithm selection matters:** Choosing the right algorithm depends on data characteristics, problem type, and domain context — there is no universal best algorithm.
 4. **Deep learning scales:** DL excels with large datasets but traditional ML can be equally effective with smaller, well-structured data.
 5. **Ethics gap:** The paper focuses on technical capabilities but does not deeply address ethical considerations — a critical gap that other Module 1 resources (Land et al., 2007; Channington, 2019) are intended to fill.
+
+---
+
+### Magnimid. (2019, 15 March). 10 powerful examples of AI applications in today's world.
+
+**Citation:** Magnimid. (2019, 15 March). 10 powerful examples of AI applications in today's world. Retrieved from https://becominghuman.ai/10-powerful-examples-of-ai-applications-553f7f062d9f
+
+**Purpose:** 
+
+---
+
+### Keshav, S. (2007). How to read a paper. ACM SIGCOMM Computer Communication Review, 37(3), 83–84.
+
+**Citation:** Keshav, S. (2007). How to read a paper. ACM SIGCOMM Computer Communication Review, 37(3), 83–84. Retrieved from http://ccr.sigcomm.org/online/files/p83-keshavA.pdf
+
+**Purpose:** 
+
+---
+
+### Land, F., Amjad, U., & Nolas, S. (2007). The ethics of knowledge management. International Journal of Knowledge Management, 3(1), 1–9.
+
+**Citation:** Land, F., Amjad, U., & Nolas, S. (2007). The ethics of knowledge management. International Journal of Knowledge Management, 3(1), 1–9. Retrieved from https://www.proquest.com/scholarly-journals/ethics-knowledge-management/docview/2937274100/se-2?accountid=176901
+
+**Purpose:** 
+
+---
+
+### Channington, S. (2019). Responsible AI in Practice with Sarah Bird.
+
+**Citation:** Channington, S. (Interviewer). (2019, 4 December). Responsible AI in practice with Sarah Bird [Audio podcast]. Retrieved from https://twimlai.com/twiml-talk-322-responsible-ai-in-practice-with-sarah-bird/Links to an external site `&&` Channington, S. (Interviewer). (2019, 4 December). Responsible AI in practice with Sarah Bird [Transcript]. Retrieved from https://twimlai.com/twiml-talk-322-responsible-ai-in-practice-with-sarah-bird-transcript/
+
+**Purpose:** 
+
+---
+
+### Hulten, G. (2018). Building intelligent systems: A guide to machine learning engineering.
+
+**Citation:** Hulten, G. (2018). Building intelligent systems : A guide to machine learning engineering. New York : Apress. Retrieved from https://ebookcentral.proquest.com/lib/think/reader.action?docID=5357977&c=UERG
+
+**Purpose:** 
+
+---
+
+### Polich, K. (2020). Algorithmic fairness.
+
+**Citation:** Polich, K. (Interviewer). (2020, 13 January). Algorithmic fairness [Audio podcast]. Retrieved from http://dataskeptic.libsyn.com/algorithmic-fairness
+
+**Purpose:** 
+
+---
