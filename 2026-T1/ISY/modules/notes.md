@@ -29,7 +29,7 @@ This module is an introduction to intelligent systems. It will provide you with 
 
     Please read the contents of the following webpage. In this short reading, you will be introduced to 10 AI applications. You will begin to appreciate the varied and far-reaching influence of AI. It also contains an interesting 10-minute video at the end (use the link to the YouTube video rather than the link to the Twitter video), which describes the applications in detail. At the end of the video, there are references to the negative applications of AI that could be detrimental to human society. This will get you thinking about the ethics of AI.
 
-> *Status: to read*
+> *Status: ✅ Read + Reviewed — see [module01_notes.md](module_01_nature-and-purpose-of-intelligent-systems/module01_notes.md)*
 
 #### 3. How to Read an Academic Paper
 - Keshav, S. (2007). How to read a paper. ACM SIGCOMM Computer Communication Review, 37(3), 83–84. Retrieved from http://ccr.sigcomm.org/online/files/p83-keshavA.pdf
@@ -38,7 +38,7 @@ This module is an introduction to intelligent systems. It will provide you with 
 
     In this short reading, you are introduced to the world of academic literature. It might seem simple, but there is a skill to being able to read academic articles and this is a good place to start. This paper will help you to understand other published works on intelligent systems so that you can summarise the findings of other authors' work. You will also develop knowledge on determining suitable approaches to build AI systems.
 
-> *Status: to read*
+> *Status: ✅ Read + Reviewed — see [module01_notes.md](module_01_nature-and-purpose-of-intelligent-systems/module01_notes.md)*
 
 #### 4. The Ethics of Knowledge Management—The Importance of Ethics in AI
 - Land, F., Amjad, U. & Nolas, S. (2007). The ethics of knowledge management. International Journal of Knowledge Management, 3(1), 1–9. Retrieved from https://www.proquest.com/scholarly-journals/ethics-knowledge-management/docview/2937274100/se-2?accountid=176901
@@ -47,18 +47,20 @@ This module is an introduction to intelligent systems. It will provide you with 
 
     In this short article, you will gain an understanding of why it is important that practitioners, such as yourself, understand ethics when applying AI to their systems.
 
-> *Status: to read*
+> *Status: ✅ Read + Reviewed — see [module01_notes.md](module_01_nature-and-purpose-of-intelligent-systems/module01_notes.md)*
 
 #### 5. Responsible AI in Practice with Sarah Bird
+
 - Channington, S. (Interviewer). (2019, 4 December). Responsible AI in practice with Sarah Bird [Audio podcast]. Retrieved from https://twimlai.com/twiml-talk-322-responsible-ai-in-practice-with-sarah-bird/Links to an external site `&&` Channington, S. (Interviewer). (2019, 4 December). Responsible AI in practice with Sarah Bird [Transcript]. Retrieved from https://twimlai.com/twiml-talk-322-responsible-ai-in-practice-with-sarah-bird-transcript/
 
 *Resource Overview:*
 
     Please listen to this podcast. As you listen, you will be introduced to the ethics of AI. This podcast will help you to understand some ethical issues that arise in relation to AI, including fairness (at 20–26 minutes), which is the idea that your algorithm will not be biased in production, and differential privacy (at 26–30 minutes), which relates to the sharing of datasets without revealing any information that could harm the privacy of the participants in the dataset. You will also develop knowledge of how ethics can affect intelligent systems and AI.
 
-> *Status: to read*
+> *Status: ✅ Read + Reviewed — see [module01_notes.md](module_01_nature-and-purpose-of-intelligent-systems/module01_notes.md)*
 
 #### 6. Building Intelligent Systems
+
 - Hulten, G. (2018). Building intelligent systems : A guide to machine learning engineering. New York : Apress. Retrieved from https://ebookcentral.proquest.com/lib/think/reader.action?docID=5357977&c=UERG
 - Polich. K. (Interviewer). (2020, 13 January). Algorithmic fairness [Audio podcast]. Retrieved from http://dataskeptic.libsyn.com/algorithmic-fairness
 
@@ -68,7 +70,7 @@ This module is an introduction to intelligent systems. It will provide you with 
 
     Please listen to this podcast, which introduces you to the ethics of AI. It will help you to understand more about fairness. Please pay special attention to the talk on differential privacy (at 9–12 minutes). You will develop knowledge on how ethics can affect intelligent systems and AI.
 
-> *Status: to read*
+> *Status: ✅ Read + Reviewed — see [module01_notes.md](module_01_nature-and-purpose-of-intelligent-systems/module01_notes.md)*
 
 ---
 

@@ -5,12 +5,12 @@
 | # | Task | Status |
 |---|------|--------|
 | 1 | Read & summarise Sarker (2021) — ML algorithms overview | ✅ |
-| 2 | Read & summarise Magnimid (2019) — 10 AI applications | 🕐 |
-| 3 | Read & summarise Keshav (2007) — How to read a paper | 🕐 |
-| 4 | Read & summarise Land et al. (2007) — Ethics of knowledge management | 🕐 |
-| 5 | Listen & summarise Channington (2019) — Responsible AI podcast | 🕐 |
-| 6 | Read & summarise Hulten (2018) — Building intelligent systems | 🕐 |
-| 7 | Listen & summarise Polich (2020) — Algorithmic fairness podcast | 🕐 |
+| 2 | Read & summarise Magnimid (2019) — 10 AI applications | ✅ |
+| 3 | Read & summarise Keshav (2007) — How to read a paper | ✅ |
+| 4 | Read & summarise Land et al. (2007) — Ethics of knowledge management | ✅ |
+| 5 | Listen & summarise Channington (2019) — Responsible AI podcast | ✅ |
+| 6 | Read & summarise Hulten (2018) — Building intelligent systems | ✅ |
+| 7 | Listen & summarise Polich (2020) — Algorithmic fairness podcast | ✅ |
 | 8 | Activity 1: Introduce Yourself forum post | 🕐 |
 | 9 | Activity 2: Discussion Forum — Ethics of bank loan AI | 🕐 |
 | 10 | Activity 3: Summarise two intelligent systems articles (journal) | 🕐 |
@@ -19,7 +19,7 @@
 
 ## Key Highlights
 
-### Sarker, I. H. (2021). Machine Learning: Algorithms, Real-World Applications and Research Directions
+### 1. Sarker, I. H. (2021). Machine Learning: Algorithms, Real-World Applications and Research Directions
 
 **Citation:** Sarker, I. H. (2021). Machine learning: Algorithms, real-world applications and research directions. *SN Computer Science*, 2(3), 160. https://doi.org/10.1007/s42979-021-00592-x
 
@@ -187,50 +187,287 @@
 
 ---
 
-### Magnimid. (2019, 15 March). 10 powerful examples of AI applications in today's world.
+### 2. Magnimid. (2019, 15 March). 10 powerful examples of AI applications in today's world.
 
 **Citation:** Magnimid. (2019, 15 March). 10 powerful examples of AI applications in today's world. Retrieved from https://becominghuman.ai/10-powerful-examples-of-ai-applications-553f7f062d9f
 
-**Purpose:** 
+**Purpose:** Short overview of 10 real-world AI application domains, demonstrating how pervasive AI has become in daily life — with a closing warning about trust and negative applications.
 
 ---
 
-### Keshav, S. (2007). How to read a paper. ACM SIGCOMM Computer Communication Review, 37(3), 83–84.
+#### 1. Ten AI Application Domains
+
+| # | Domain | AI Technique / Role | Example |
+|---|--------|-------------------|---------|
+| 1 | Automated Customer Support | NLP chatbots | Order status, product search, upselling |
+| 2 | Personalised Shopping | Recommendation engines, behavioural tracking | Dynamic content, personalised alerts |
+| 3 | Healthcare | Workflow AI, image analysis | Tissue sample diagnosis, patient record security |
+| 4 | Finance | Algorithmic trading, ML forecasting | Automated portfolio advisors, report generation |
+| 5 | Smart Cars & Drones | Computer vision, sensor fusion | Autonomous vehicles, drone delivery (Amazon, Walmart) |
+| 6 | Travel & Navigation | Route optimisation, NLP chatbots | Google Maps AI routing, travel assistant chatbots |
+| 7 | Social Media | Content curation, behaviour modelling | Facebook/Instagram feed algorithms, spam filtering |
+| 8 | Smart Home Devices | Behavioural learning, voice assistants | Smart thermostats, adaptive lighting |
+| 9 | Creative Arts | Generative AI, NLP | Watson BEAT (music), Chef Watson (recipes) |
+| 10 | Security & Surveillance | Facial/voice recognition, video analytics | Multi-camera monitoring, identity detection |
+
+#### 2. Ethical Warning (Final Note)
+
+- AI-powered robots and marketing tools operate with **minimal human intervention**
+- Society's **trust** in AI is crucial for wider adoption — requires convenience, speed, accuracy, and assurance
+- The article's embedded video highlights **negative applications** of AI that could be detrimental to human society
+- Key question: who is accountable when AI systems cause harm?
+
+#### Key Takeaways for ISY503
+
+- Directly supports **Activity 2** — the bank loan AI scenario uses NLP and computer vision (domains 1, 3, 4 from the table), raising the same trust and accountability concerns
+- Supports **Activity 3** — provides examples of intelligent systems to contextualise article summaries
+- Complements Sarker (2021) by showing *where* ML algorithms are applied in practice
+
+---
+
+### 3. Keshav, S. (2007). How to read a paper. ACM SIGCOMM Computer Communication Review, 37(3), 83–84.
 
 **Citation:** Keshav, S. (2007). How to read a paper. ACM SIGCOMM Computer Communication Review, 37(3), 83–84. Retrieved from http://ccr.sigcomm.org/online/files/p83-keshavA.pdf
 
-**Purpose:** 
+**Purpose:** Practical guide to efficiently reading research papers using a structured three-pass method, plus a technique for conducting literature surveys.
 
 ---
 
-### Land, F., Amjad, U., & Nolas, S. (2007). The ethics of knowledge management. International Journal of Knowledge Management, 3(1), 1–9.
+#### 1. The Three-Pass Method
+
+| Pass | Goal | Time | What to Do |
+|------|------|------|-----------|
+| **1st — Bird's-eye** | General idea; decide if worth reading further | 5–10 min | Read title, abstract, intro; scan headings; read conclusions; glance references |
+| **2nd — Content** | Grasp content, not details | ~1 hr | Study figures/diagrams carefully; mark unread references; jot key points in margins |
+| **3rd — Re-implement** | Deep understanding; identify innovations and hidden flaws | 4–5 hr (beginners) | Virtually re-create the work; challenge every assumption; note ideas for future work |
+
+#### 2. The Five Cs (After Pass 1)
+
+- **Category** — What type of paper? (measurement, analysis, prototype, survey)
+- **Context** — Related papers? Theoretical bases used?
+- **Correctness** — Are assumptions valid?
+- **Contributions** — Main contributions of the paper?
+- **Clarity** — Is it well written?
+
+#### 3. Literature Survey Method (3 Steps)
+
+1. **Find seed papers** — Use Google Scholar / CiteSeer with well-chosen keywords → find 3–5 recent papers → do Pass 1 → read related work sections → look for a survey paper
+2. **Identify key researchers** — Find shared citations and repeated author names in bibliographies → download key papers → visit researchers' websites to find top conferences
+3. **Scan top conferences** — Browse recent proceedings for high-quality related work → make two passes through these papers → iterate if they cite key papers you missed
+
+#### 4. Writing Implication
+
+- Most reviewers and readers will only do **one pass** — so write coherent headings and concise abstracts
+- If a reader cannot understand highlights in 5 minutes, the paper will likely never be read
+
+#### Key Takeaways for ISY503
+
+- Directly supports **Activity 3** — use the three-pass method and Five Cs to summarise the two intelligent systems articles
+- Provides a reusable skill for all future ISY503 modules and assessments requiring literature analysis
+- The literature survey method is useful for Assessment 1 (case study) background research
+
+---
+
+### 4. Land, F., Amjad, U., & Nolas, S. (2007). The ethics of knowledge management. International Journal of Knowledge Management, 3(1), 1–9.
 
 **Citation:** Land, F., Amjad, U., & Nolas, S. (2007). The ethics of knowledge management. International Journal of Knowledge Management, 3(1), 1–9. Retrieved from https://www.proquest.com/scholarly-journals/ethics-knowledge-management/docview/2937274100/se-2?accountid=176901
 
-**Purpose:** 
+**Purpose:** Discussion paper arguing that knowledge management (KM) research and practice needs an ethics dimension — covering research ethics, practice ethics, and intellectual property rights, with real-world examples of knowledge manipulation.
 
 ---
 
-### Channington, S. (2019). Responsible AI in Practice with Sarah Bird.
+#### 1. Why KM Needs an Ethics Dimension
+
+- **KM Research ethics** — Researchers face dilemmas: should they whistle-blow illegal practices? IS researchers have been slow to flag ethical issues (Hosein, 2005), partly because funding depends on sponsor goodwill
+- **KM Practice ethics** — KM systems enable knowledge to be created, omitted, withheld, suppressed, amplified, diminished, or distorted — sometimes accidentally, often instrumentally
+- Key distinction: **Knowledge Management** (IS discipline, ~20 years old) vs **Management of Knowledge** (older concept — manipulation/distortion of knowledge for desired outcomes)
+
+#### 2. Three Ethical Dimensions
+
+| Dimension | Core Issue | Example |
+|-----------|-----------|---------|
+| **Socio-economic** | Hidden agenda — KM may increase organisational power over knowledge workers; capturing tacit knowledge makes workers dispensable | Bryant (2006): KM as euphemism for downsizing |
+| **Technical** | Data mining systems that gather citizen data without consent, profile groups as threats, sell data onwards | Hosein (2005): surveillance system suspended after policy-makers raised ethics concerns |
+| **Legalistic** | Intellectual property rights — who owns knowledge? Balance between corporate rights and societal benefit | Human Genome debate; Open Source movement |
+
+#### 3. The "Dark Side" of KM — Knowledge Manipulation
+
+- **Enron** — Reputation for knowledge-sharing, but senior management engineered massive fraud via knowledge manipulation; final stages involved shredding documents (with auditors' help)
+- **NGOs** (Ebrahim, 2003) — Information flows from local NGOs to international funding agencies are manipulated for survival; budget validation is a political process requiring accountability
+
+#### 4. Seven Ethical Questions for KM Systems
+
+1. What ethical issues (discrimination, domination) arise from sponsor–designer–user interactions?
+2. How is accountability built into all aspects of KM?
+3. Who promulgates ethical standards and enforces them?
+4. How are disputes involving contested value systems resolved?
+5. Can accountability systems avoid stifling innovation?
+6. How do we respond to unintended ethical consequences of new systems?
+7. How do we ensure transparency and uncover hidden agendas?
+
+#### 5. Intellectual Property Rights
+
+- **Human Genome debate** — US team (Collins): IP belongs to sponsoring org → patent results. Cambridge team (Sulston): genome belongs to humanity → share freely. Both eventually agreed to share. Yet 20% of known human genome has been patented by private companies
+- **Open Source / Wikipedia** — Inverts traditional IP; contributors receive no reward; raises its own ethical issues (special interest groups adding bias to entries)
+
+#### Key Takeaways for ISY503
+
+- Directly supports **Activity 2** — the bank loan AI scenario involves knowledge manipulation (training only on "similar feeling" writing), lack of accountability (who audits the algorithm?), and fairness concerns (socio-economic bias in handwriting analysis)
+- The seven ethical questions provide a framework for evaluating any intelligent system's ethics
+- Connects to Channington (2019) and Polich (2020) on the *practical* side of fairness and accountability
+
+---
+
+### 5. Channington, S. (2019). Responsible AI in Practice with Sarah Bird.
 
 **Citation:** Channington, S. (Interviewer). (2019, 4 December). Responsible AI in practice with Sarah Bird [Audio podcast]. Retrieved from https://twimlai.com/twiml-talk-322-responsible-ai-in-practice-with-sarah-bird/Links to an external site `&&` Channington, S. (Interviewer). (2019, 4 December). Responsible AI in practice with Sarah Bird [Transcript]. Retrieved from https://twimlai.com/twiml-talk-322-responsible-ai-in-practice-with-sarah-bird-transcript/
 
-**Purpose:** 
+**Purpose:** TWIML AI Podcast interview with Sarah Bird (Microsoft Azure ML) covering practical responsible AI tooling — interpretability, fairness, and differential privacy — with emphasis on building ethics into engineering processes.
 
 ---
 
-### Hulten, G. (2018). Building intelligent systems: A guide to machine learning engineering.
+#### 1. Responsible AI Is Everyone's Job
+
+- AI ethics is **not a solved problem** — fundamentally hard and will always need attention
+- Analogy to **security**: not one person's job; must be built into processes and tooling so every developer considers it
+- User research and design teams are naturally equipped to think about people — bring them into the conversation early
+- Build responsible AI into **MLOps pipelines**: reproducible, repeatable processes with fairness checks before production
+
+#### 2. Interpretability — InterpretML Toolkit (12–20 min)
+
+- Open-source toolkit for model interpretability: SHAP, LIME, and others unified in one API
+- **Glass-Box explainers** — inherently interpretable models (linear models, decision trees) you can inspect directly
+- **Black-Box explainers** — algorithms that explain opaque models (e.g., neural nets) via feature importance, local/global explanations
+- Interactive dashboard for exploring model behaviour
+- Interpretability is *one way* to ensure ethical AI, but robust testing regimes are another — the industry hasn't settled the debate
+
+#### 3. Fairness — FairLearn Toolkit (20–26 min)
+
+- Collection of **fairness techniques** from research, unified in one toolkit
+- Over **21 different fairness metrics** catalogued in published research; common ones built into FairLearn
+- Compare model performance across **sensitive attribute groups** (e.g., gender, age) — does the model have the same accuracy/outcomes for men and women?
+- **Mitigation techniques**: post-processing (threshold adjustment per group), iterative retraining to reduce disparity
+- **Pareto trade-off**: plot accuracy vs disparity — models on the Pareto curve show the best available trade-offs; optimising for one sensitive attribute may not transfer to another
+- Start with **domain expertise** to define fairness for your setting, *then* find metrics that align — don't start from the metrics
+
+#### 4. Differential Privacy (26–30 min)
+
+- Open-source privacy platform built with **Harvard**; first published by Microsoft Research in 2006
+- Adds **mathematical noise** to query results so you cannot reconstruct underlying individual data
+- Enables **data sharing for research** (e.g., medical datasets) without compromising participant privacy
+- Particularly valuable for **societal datasets** where privacy concerns currently limit what researchers can do
+- Built in **open source** because privacy algorithms are easy to implement incorrectly — community inspection is essential
+- US Census Bureau was adopting differential privacy for the 2020 Census (first real large-scale deployment)
+
+#### Key Takeaways for ISY503
+
+- Directly supports **Activity 2** — the bank loan AI needs fairness analysis: which sensitive attributes (writing style as proxy for socio-economic status?) are used? What fairness metric applies? FairLearn's Pareto approach shows you can't just maximise accuracy
+- Complements Land et al. (2007) — Land asks *who* ensures ethics; Bird answers with *tooling and processes*
+- The "responsible AI = security" analogy is a useful framing for Assessment 1 (case study)
+
+---
+
+### 6. Hulten, G. (2018). Building intelligent systems: A guide to machine learning engineering.
 
 **Citation:** Hulten, G. (2018). Building intelligent systems : A guide to machine learning engineering. New York : Apress. Retrieved from https://ebookcentral.proquest.com/lib/think/reader.action?docID=5357977&c=UERG
 
-**Purpose:** 
+**Purpose:** Practical guide to leveraging ML in production — covers end-to-end design of intelligent systems (IS) that use ML and user data to improve over time. The introduction frames the book's scope, audience, and what each role will learn.
 
 ---
 
-### Polich, K. (2020). Algorithmic fairness.
+#### 1. Book Scope — Five Key Learnings
+
+- **When to use an IS** and how to make it achieve your goals
+- **User interaction design** — effective interactions between users and the IS
+- **Implementation** — client, service, and back-end architecture
+- **Building intelligence** — powering the IS with ML and growing it over time
+- **Lifecycle orchestration** — managing an IS throughout its lifecycle
+
+#### 2. Target Audience Roles
+
+| Role | What They'll Learn |
+|------|-------------------|
+| **Software Engineers** | Entities/abstractions in IS, conceptual ML understanding, IS design patterns |
+| **ML Practitioners** | System constraints on modelling, how to influence other participants, supporting systems (escalation paths, guardrails) |
+| **Managers** | Intuition for when ML is appropriate, ROI estimation, investment level decisions |
+| **Program Managers** | Planning, staffing, and managing IS projects; lifecycle; team skills |
+
+#### 3. Three Pillars for Software Engineers
+
+- **Entities and abstractions** — runtime, context, features, models, telemetry, training data, intelligence management, orchestration
+- **Conceptual ML understanding** — enough to discuss tradeoffs between engineering and modelling investments (not deep statistics/maths)
+- **IS patterns** — pros/cons of running intelligence in client vs service; bounding probabilistic components; telemetry for system evolution
+
+#### 4. Key Distinction from Other ML Books
+
+- Most ML books teach data and modelling skills (like programming language books)
+- This book is more like a **software engineering book** — teaches how to take base ML skills and produce working systems
+- Based on 10+ years building Internet-scale IS with hundreds of millions of daily user interactions
+
+#### Key Takeaways for ISY503
+
+- Provides the **practical engineering perspective** that complements Sarker's (2021) theoretical algorithm overview
+- The user interaction design focus connects to Channington/Bird's point about UX in responsible AI
+- Useful framing for Assessment 1: an intelligent system is more than just a model — it's client + service + backend + intelligence + orchestration
+
+---
+
+### 7. Polich, K. (2020). Algorithmic fairness.
 
 **Citation:** Polich, K. (Interviewer). (2020, 13 January). Algorithmic fairness [Audio podcast]. Retrieved from http://dataskeptic.libsyn.com/algorithmic-fairness
 
-**Purpose:** 
+**Purpose:** Data Skeptic podcast interview with Aaron Roth (UPenn, co-author of *The Ethical Algorithm*) covering differential privacy's definition, mechanisms, and real-world deployment — with insights on interpretability, fairness, and the policy dimensions of privacy.
+
+---
+
+#### 1. Why Anonymization Fails
+
+- Traditional approach: remove names, SSNs → declare data "anonymized"
+- This is **fundamentally broken** — datasets can be cross-referenced with public data
+- **Latanya Sweeney** (1997): Massachusetts released "anonymized" medical records; Sweeney cross-referenced with voter registration using just zip code + age + gender → identified Governor Bill Weld's medical records
+- Anonymization is **heuristic** — "I think I'm clever" today, but someone cleverer may break it tomorrow
+
+#### 2. Differential Privacy — Definition (9–12 min)
+
+- **Core idea**: imagine the study was conducted *without* your data — if the results would be essentially the same, your privacy hasn't been violated
+- **Formal guarantee**: no one can tell, substantially better than random guessing, whether your data was included in the dataset
+- Unlike anonymization, differential privacy provides **mathematical proof** of privacy — no future attacker can break it regardless of cleverness
+- Analogous to encryption: linked to a **computational hardness** guarantee
+
+#### 3. The Coin-Flip Mechanism (Plausible Deniability)
+
+- Example: surveying an embarrassing question (e.g., "Have you had an affair?")
+- **Mechanism**: flip a coin. Heads → answer truthfully. Tails → flip again and answer yes/no based on second flip
+- Every respondent has **plausible deniability** — any "yes" answer could be the coin, not the truth
+- **Law of large numbers**: aggregate statistics remain accurate because noise is known and averages out over many respondents
+- This is differential privacy made **visceral and understandable**
+
+#### 4. Privacy vs Accuracy Trade-off
+
+- Differential privacy makes it impossible to determine facts about any single individual
+- **Cost**: you need **more data** to achieve the same accuracy with privacy protections than without
+- This trade-off is **unavoidable** — more privacy = less accuracy for a fixed dataset size
+- Rare conditions/small subgroups may get "washed away" in the noise
+
+#### 5. Privacy as a Policy Question
+
+- Differential privacy has a tuneable **parameter** (the "knob") — more privacy or more accuracy
+- **Who controls the knob?** This is a **policy question**, not a mathematical one
+- Different stakeholders care about different things — the trade-off between privacy and accuracy of statistical products is at some level fundamentally at odds
+- **US Census 2020**: first large-scale deployment; Census committed to releasing all statistical products with differential privacy guarantees. Previous heuristic methods were shown to be breakable via database reconstruction attacks
+
+#### 6. Interpretability ≠ Fairness
+
+- Ethics **transcends the tool** — "a hammer can pound a nail or pound a finger"
+- A black-box algorithm *can* be ethical; an interpretable one *can* be unethical
+- Interpretability is linked to fairness (you can inspect for bias) but is neither necessary nor sufficient for fairness
+- Fairness guarantees can potentially come from **mathematical/algorithmic techniques** rather than human inspection
+
+#### Key Takeaways for ISY503
+
+- Directly supports **Activity 2** — the bank loan AI raises fairness questions: is the algorithm fair even if we can't inspect it? Differential privacy is relevant if the bank shares loan data for research
+- The Latanya Sweeney example is a concrete case to cite in discussions about data ethics
+- Complements Channington/Bird (2019) — Bird covers fairness *tooling* (FairLearn); Roth covers the *theoretical foundations* (why anonymization fails, what differential privacy guarantees)
+- The "privacy as policy" framing connects to Land et al.'s question: *who promulgates ethical standards?*
 
 ---
