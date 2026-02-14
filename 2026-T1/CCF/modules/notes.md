@@ -44,7 +44,7 @@ This subject provides a fundamental understanding of cloud computing. You will b
     - 4. Cloud Computing in Daily Life
     - 5. Wrapping up: Cloud Computing
 
-> *Status: to watch*
+> *Status: ✅ Watched + Reviewed* — [Summary](module_01_traditional-vs-modern-computing/module01_notes.md#2-nishimura-h-2022-introduction-to-aws-for-non-engineers-1-cloud-concepts)
 
 #### 3. Advantages and Disadvantages of Cloud Computing
 - Eliaçık, E. (2022). The good, bad, and ugly sides of the cloud computing (2022). Dataconomy. https://dataconomy.com/2022/05/pros-and-cons-of-cloud-computing-2022/
@@ -56,7 +56,7 @@ This subject provides a fundamental understanding of cloud computing. You will b
     - Is the cloud actually riskier than traditional options, such as storing data locally?
     - What are the consequences for my business and me if my provider goes offline for just 5 minutes?
 
-> *Status: to read*
+> *Status: ✅ Read + Reviewed* — [Summary](module_01_traditional-vs-modern-computing/module01_notes.md#3-eliaçık-e-2022-the-good-bad-and-ugly-sides-of-cloud-computing)
 
 #### 4. Benefits of Cloud Computing
 - Accenture Technology. (2020, June 5). Benefits of cloud computing | Accenture. [Video]. [YouTube](https://www.youtube.com/watch?v=p1Nr03gtkyU&t).
@@ -74,7 +74,7 @@ This subject provides a fundamental understanding of cloud computing. You will b
 
     Virtualisation is one of the key technologies that enables cloud computing. In order to understand cloud computing, one must know about the virtualisation technology and how virtualisation is utilised in cloud computing. Please read Section 4.1 “Virtualization Technology” and Section 4.4 “Pros and Cons of Virtualization” of Chapter 4, which provides great insight into virtualisation technology, its characteristics and why it is suitable for use in cloud computing.
 
-> *Status: to read*
+> *Status: ✅ Read + Reviewed* — [Summary](module_01_traditional-vs-modern-computing/module01_notes.md#5-manvi-s--shyam-g-k-2021-cloud-computing-concepts-and-technologies--chapter-4-virtualisation)
 
 ---
 
