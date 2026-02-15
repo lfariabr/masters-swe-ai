@@ -4,7 +4,7 @@
 
 | # | Task | Status |
 |---|------|--------|
-| 1 | Read & summarise Sarker (2021) — ML algorithms overview | ✅ |
+| **1** | Read & summarise Sarker (2021) — ML algorithms overview | ✅ |
 | 2 | Read & summarise Magnimid (2019) — 10 AI applications | ✅ |
 | 3 | Read & summarise Keshav (2007) — How to read a paper | ✅ |
 | 4 | Read & summarise Land et al. (2007) — Ethics of knowledge management | ✅ |

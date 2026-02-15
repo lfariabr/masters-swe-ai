@@ -6,8 +6,8 @@
 |---|------|--------|
 | **1** | Read & summarise McHaney (2021) — Cloud technologies Ch.1 | ✅ |
 | **2** | Watch & summarise Nishimura (2022) — Intro to AWS videos | ✅ |
-| 3 | Read & summarise Eliaçık (2022) — Pros/cons of cloud computing | ✅ |
-| *4* | Watch & summarise Accenture (2020) — Why cloud matters | ✅ |
+| **3** | Read & summarise Eliaçık (2022) — Pros/cons of cloud computing | ✅ |
+| **4** | Watch & summarise Accenture (2020) — Why cloud matters | ✅ |
 | 5 | Read & summarise Manvi & Shyam (2021) — Virtualisation Ch.4 | ✅ |
 | 6 | Activity 1: Introduce Yourself | 🕐 |
 | 7 | Activity 2: Break the Ice | 🕐 |
