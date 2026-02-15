@@ -344,3 +344,16 @@
 2. The characteristics (partitioning, isolation, encapsulation, consolidation) explain *how* cloud providers can serve millions of customers on shared physical infrastructure
 3. The pros/cons complement Eliaçık's cloud-level analysis — virtualisation trade-offs cascade up to cloud trade-offs (e.g., vendor availability → cloud downtime)
 4. For Activity 3 (TCO): virtualisation's cost predictability and reduced workload are key TCO advantages, but implementation costs and chain dependencies are TCO risks
+
+---
+
+## Activities
+
+### Activity 1: Introduce Yourself
+[Content to be added]
+
+### Activity 2: Break the Ice
+[Content to be added]
+
+### Activity 3: Thinking Exercise on Total Cost of Ownership
+[Content to be added]
