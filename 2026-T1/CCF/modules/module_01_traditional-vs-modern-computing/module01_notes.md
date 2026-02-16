@@ -350,10 +350,43 @@
 ## Activities
 
 ### Activity 1: Introduce Yourself
-[Content to be added]
+Hi everyone, my name is Luis, I'm a software engineer with 10+ years of experience in Brazil.
+I've worked across a variety of sectors like healthcare, ad agencies, tech agencies, gaming.
+
+Currently holding a Data Analyst role, working with SQL pipelines and analytics in an educational environment.
+
+I'm looking forward to gain more insights on cloud computing and virtualisation topics, and how they relate to the course content, especially in the context of modern software development and deployment practices. Also it will be interesting to consume more theoretical content on that subject.
+Current knowledge of cloud computing is advanced, as I've used both AWS and DigitalOcean as VPS providers.
+Favorite phone app I'd highlight Youtube, as I find it entertaining and organized.
 
 ### Activity 2: Break the Ice
-[Content to be added]
+
+At a previous company, we experienced a security breach where critical business data was stolen and encrypted by ransomware attackers. The attackers demanded payment to decrypt our files, which contained essential client information and project deliverables.
+ 
+Fortunately, we had implemented a weekly backup routine to an ejectable drive that was stored offsite. This allowed us to recover most of our data without paying the ransom. However, the recovery process was extremely stressful and time-consuming - we had to:
+- Rebuild systems from scratch
+- Change all passwords across the organization
+- Manually restore files from physical media
+- Deal with up to a week of lost work (since backups were weekly)
+- Implement emergency security protocols
+ 
+The entire incident resulted in nearly a week of business disruption and significant client relationship damage.
+
+Cloud-based alternatives that would make this situation better to handle:
+- Automatic, continuous backup: No more weekly manual backups with potential data loss
+- Multi-factor authentication
 
 ### Activity 3: Thinking Exercise on Total Cost of Ownership
-[Content to be added]
+After reviewing the module materials, I realised that Total Cost of Ownership (TCO) in cloud computing goes far beyond just comparing server prices.
+
+In traditional IT environments, costs include not only hardware, but also power, cooling, maintenance, upgrades, staffing, downtime risks, and over-provisioning to handle peak demand. Over time, operational costs often exceed the original infrastructure investment.
+
+Cloud computing shifts this model to a pay-as-you-go structure, reducing upfront capital expenses and improving flexibility. Elastic scalability helps avoid over-provisioning, and managed services reduce administrative workload. However, cloud is not automatically cheaper. Migration costs, data transfer fees, governance requirements, and lack of cost monitoring can increase expenses quickly.
+
+In my view, the real advantage of cloud in TCO is not just cost reduction, but improved efficiency, resilience, and business agility. The financial decision should therefore consider both direct costs and long-term strategic value.
+
+---
+
+## Class Notes
+
+### 16/02/2026 - 11:30AM

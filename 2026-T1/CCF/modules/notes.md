@@ -91,7 +91,7 @@ What is your current knowledge of cloud computing?
 (maybe you know a lot, or perhaps you know very little—either way, welcome to CCF501!)
 What is your favourite phone app?
 
-> *Status: to do*
+> *Status: ✅ Done*
 
 ---
 
@@ -104,7 +104,7 @@ Tag them in this discussion forum and outline a current or past problem with tra
 Identify at least two alternative(s) you think cloud computing may offer in your responses to each other.
 Post your answer in the Module 1 discussion forum.
 
-> *Status: to do*
+> *Status: ✅ Done*
 
 ---
 
@@ -115,4 +115,4 @@ Consider this article and your own observations after reading through and watchi
 
 Post your thoughts for this exercise in the Module 1 ‘Thinking Exercise on TCO’ discussion forum.
 
-> *Status: to do*
+> *Status: ✅ Done*
