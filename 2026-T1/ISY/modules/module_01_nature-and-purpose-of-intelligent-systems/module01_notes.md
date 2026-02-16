@@ -5,8 +5,8 @@
 | # | Task | Status |
 |---|------|--------|
 | **1** | Read & summarise Sarker (2021) — ML algorithms overview | ✅ |
-| 2 | Read & summarise Magnimid (2019) — 10 AI applications | ✅ |
-| 3 | Read & summarise Keshav (2007) — How to read a paper | ✅ |
+| **2** | Read & summarise Magnimid (2019) — 10 AI applications | ✅ |
+| **3** | Read & summarise Keshav (2007) — How to read a paper | ✅ |
 | 4 | Read & summarise Land et al. (2007) — Ethics of knowledge management | ✅ |
 | 5 | Listen & summarise Channington (2019) — Responsible AI podcast | ✅ |
 | 6 | Read & summarise Hulten (2018) — Building intelligent systems | ✅ |
