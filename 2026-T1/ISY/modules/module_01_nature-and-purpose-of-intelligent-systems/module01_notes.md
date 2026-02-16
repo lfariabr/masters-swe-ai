@@ -7,10 +7,10 @@
 | **1** | Read & summarise Sarker (2021) — ML algorithms overview | ✅ |
 | **2** | Read & summarise Magnimid (2019) — 10 AI applications | ✅ |
 | **3** | Read & summarise Keshav (2007) — How to read a paper | ✅ |
-| 4 | Read & summarise Land et al. (2007) — Ethics of knowledge management | ✅ |
-| 5 | Listen & summarise Channington (2019) — Responsible AI podcast | ✅ |
-| 6 | Read & summarise Hulten (2018) — Building intelligent systems | ✅ |
-| 7 | Listen & summarise Polich (2020) — Algorithmic fairness podcast | ✅ |
+| **4** | Read & summarise Land et al. (2007) — Ethics of knowledge management | ✅ |
+| **5** | Listen & summarise Channington (2019) — Responsible AI podcast | ✅ |
+| **6** | Read & summarise Hulten (2018) — Building intelligent systems | ✅ |
+| **7** | Listen & summarise Polich (2020) — Algorithmic fairness podcast | ✅ |
 | 8 | Activity 1: Introduce Yourself forum post | 🕐 |
 | 9 | Activity 2: Discussion Forum — Ethics of bank loan AI | 🕐 |
 | 10 | Activity 3: Summarise two intelligent systems articles (journal) | 🕐 |
@@ -471,3 +471,48 @@
 - The "privacy as policy" framing connects to Land et al.'s question: *who promulgates ethical standards?*
 
 ---
+
+## Activities
+
+### Activity 1: Introduce Yourself
+[to-do]
+Hi everyone, I'm Luis — Software Engineer with 10+ years building production systems across healthcare, fintech, marketing, and education. Currently working part-time as a Data Analyst (SQL pipelines, Power BI, analytics) while pursuing this masters in SWE/AI.
+
+I've implemented ML models in production including recommendation systems, NLP sentiment analysis, and topic modeling with BERTopic, and I'm here to deepen my understanding of the theoretical foundations and ethical frameworks behind intelligent systems. Particularly excited about Module 8 (Computer Vision) and Module 9 (NLP).
+
+Looking forward to collaborating with you all on case studies and learning how to balance tech performance with fairness and societal impact.
+
+### Activity 2: Discussion Forum Post
+[to-do]
+
+> *(Bank using ML + NLP for loan approval)*
+
+- Using the resources you have read in this Module, discuss the ethics of the situation given above. Ensure you also discuss the concept of fairness in the scenario.
+- Describe each of these (ethics and fairness) in no more than 100 words.
+
+#### Ethics
+This system raises critical ethical concerns across Land et al.'s framework: (1) **Accountability** — who audits the algorithm's decisions? (2) **Hidden agendas** — handwriting analysis may encode socio-economic bias (education level, cultural background) disguised as "feeling" detection. (3) **Knowledge manipulation** — training only on "similar feeling" writing creates a self-reinforcing filter that excludes diverse communication styles. The system lacks transparency (Channington, 2019) — customers cannot understand why they're rejected, violating principles of explainability. Additionally, using handwriting as a proxy for creditworthiness has no causal validity, risking discrimination against non-native writers or those with disabilities.
+
+#### Fairness
+The system violates multiple fairness principles from FairLearn's framework (Bird, 2019). **Demographic parity** is compromised — handwriting style correlates with education, age, and cultural background, creating disparate impact across protected groups. **Equal opportunity** fails — qualified borrowers with "different feeling" writing are systematically excluded regardless of actual creditworthiness. The 2,000-sample training set likely lacks diversity, amplifying bias. Roth's differential privacy lens reveals another issue: if the bank shares this data for research, handwriting samples could re-identify individuals. The system optimizes for a proxy metric (writing similarity) rather than the actual outcome (loan repayment), violating fairness-through-awareness principles.
+
+### Activity 3: Summarising Two Intelligent Systems Articles
+[to-do]
+The summaries should be posted to your private journal for Module 1, be no more than 200 words each (400 total) and should address:
+- Why solving that specific problem was important;
+- What intelligent system or AI technique was used; and
+- What were the ethics discussed in the work.
+
+#### Summary: Lee & Park AI Ethics via Text Mining 
+**Problem Importance:** As AI rapidly evolves, identifying emerging ethical concerns before they manifest as societal harm is critical. Lee & Park (2018) address this by using text mining to detect "future signals" — early indicators of ethical issues in AI discourse that require proactive governance rather than reactive regulation.
+
+**Intelligent System/Technique:** The study employs a hybrid text mining approach combining quantitative (term frequency analysis, co-occurrence networks) and qualitative methods (semantic network analysis) on academic literature and news articles about AI ethics. This unsupervised learning approach identifies clusters of ethical concerns and their evolution over time, functioning as an early-warning intelligent system for policy-makers.
+
+**Ethics Discussion:** The paper identifies five major ethical themes: privacy invasion, algorithmic bias, job displacement, autonomous weapon systems, and AI rights/consciousness. The meta-ethical insight is that text mining itself raises ethical questions — whose voices are amplified in the corpus? The study advocates for "anticipatory ethics" frameworks that evolve alongside AI capabilities, rather than lagging behind technological deployment. This connects to Land et al.'s question: who promulgates ethical standards, and how do we respond to unintended consequences before they scale?
+
+#### Summary: Calvo et al. (2019) - Human Autonomy in AI Systems
+**Problem Importance:** AI systems increasingly mediate human decision-making (health apps, recommendation engines, smart assistants), raising a fundamental question: do these systems support or undermine human autonomy? Calvo et al. (2019) argue that without explicit autonomy-preserving design, AI risks becoming a tool for manipulation rather than empowerment — particularly in digital well-being contexts where vulnerable users seek guidance.
+
+**Intelligent System/Technique:** The paper presents a normative framework rather than a specific ML technique. It applies Self-Determination Theory (SDT) from psychology to AI system design, proposing that ethical AI must support three psychological needs: competence (helping users develop skills), relatedness (fostering genuine social connection), and autonomy (enabling informed, voluntary choices). The framework provides design heuristics for evaluating whether recommendation systems, chatbots, and persuasive technologies respect user agency.
+
+**Ethics Discussion:** The core ethical tension is paternalism vs autonomy — when should AI intervene in user choices? The paper distinguishes "autonomy-supportive" AI (transparent, user-controlled) from "autonomy-undermining" AI (manipulative, opaque). This connects to Channington's interpretability argument: users cannot exercise autonomy over systems they don't understand. The framework challenges the "engagement maximization" paradigm dominant in tech, advocating instead for human flourishing as the design objective.

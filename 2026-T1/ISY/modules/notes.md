@@ -100,4 +100,10 @@ Using the techniques outlined in ‘How to read a paper’ (Keshav, 2007), write
 - What intelligent system or AI technique was used; and
 - What were the ethics discussed in the work.
 
+First article: 
+- Lee, Y. J. & Park, J. Y. (2018). Identification of future signal based on the quantitative and qualitative text mining: A case study on ethical issues in artificial intelligence. Quality and Quantity, 52(2), 653-667. Retrieved from: https://search-proquest-com.ezproxy.laureate.net.au/docview/2007683211?accountid=176901
+
+Second article
+- Calvo, R., Peters, D., Vold, K. V. & Ryan, R. (2019). Supporting human autonomy in AI systems: A framework for ethical enquiry. In C. Burr & L. Floridi (Eds) Ethics of digital well-being: A multidisciplinary approach (pp. 1–29). Springer Open. Retrieved from: https://pdfs.semanticscholar.org/60cb/2a6278cfb7c641ebe08a8ce78d7839c4267f.pdf
+
 > *Status: to do*
