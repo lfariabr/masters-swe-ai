@@ -2,6 +2,8 @@
 
 ## Task List
 
+> Tip: ✅ = Done, 🔥 = WIP, 🕐 = Not started
+
 | # | Task | Status |
 |---|------|--------|
 | **1** | Read & summarise Sarker (2021) — ML algorithms overview | ✅ |
@@ -11,9 +13,9 @@
 | **5** | Listen & summarise Channington (2019) — Responsible AI podcast | ✅ |
 | **6** | Read & summarise Hulten (2018) — Building intelligent systems | ✅ |
 | **7** | Listen & summarise Polich (2020) — Algorithmic fairness podcast | ✅ |
-| 8 | Activity 1: Introduce Yourself forum post | 🕐 |
-| 9 | Activity 2: Discussion Forum — Ethics of bank loan AI | 🕐 |
-| 10 | Activity 3: Summarise two intelligent systems articles (journal) | 🕐 |
+| **8** | Activity 1: Introduce Yourself forum post | ✅ |
+| **9** | Activity 2: Discussion Forum — Ethics of bank loan AI | ✅ |
+| **10** | Activity 3: Summarise two intelligent systems articles (journal) | ✅ |
 
 ---
 
@@ -475,44 +477,49 @@
 ## Activities
 
 ### Activity 1: Introduce Yourself
-[to-do]
-Hi everyone, I'm Luis — Software Engineer with 10+ years building production systems across healthcare, fintech, marketing, and education. Currently working part-time as a Data Analyst (SQL pipelines, Power BI, analytics) while pursuing this masters in SWE/AI.
+Hi everyone, I'm Luis — Software Engineer with 10+ years experience building systems across healthcare, fintech, marketing, and education. Currently working part-time as a Data Analyst (SQL pipelines, Power BI, analytics) while pursuing this masters in SWE/AI.
 
-I've implemented ML models in production including recommendation systems, NLP sentiment analysis, and topic modeling with BERTopic, and I'm here to deepen my understanding of the theoretical foundations and ethical frameworks behind intelligent systems. Particularly excited about Module 8 (Computer Vision) and Module 9 (NLP).
+I've implemented ML models in production including recommendation systems, NLP sentiment analysis, and topic modeling with BERTopic, and I'm here to deepen the understanding I have of the theoretical foundations and ethical frameworks behind intelligent systems - particularly excited about Module 8 (Computer Vision) and Module 9 (NLP).
 
-Looking forward to collaborating with you all on case studies and learning how to balance tech performance with fairness and societal impact.
+Looking forward to collaborating with you all on case studies and learning how to balance tech performance with fairness!
 
 ### Activity 2: Discussion Forum Post
-[to-do]
-
 > *(Bank using ML + NLP for loan approval)*
-
-- Using the resources you have read in this Module, discuss the ethics of the situation given above. Ensure you also discuss the concept of fairness in the scenario.
-- Describe each of these (ethics and fairness) in no more than 100 words.
+> - Using the resources you have read in this Module, discuss the ethics of the situation given above. Ensure you also discuss the concept of fairness in the scenario.
+> - Describe each of these (ethics and fairness) in no more than 100 words.
 
 #### Ethics
-This system raises critical ethical concerns across Land et al.'s framework: (1) **Accountability** — who audits the algorithm's decisions? (2) **Hidden agendas** — handwriting analysis may encode socio-economic bias (education level, cultural background) disguised as "feeling" detection. (3) **Knowledge manipulation** — training only on "similar feeling" writing creates a self-reinforcing filter that excludes diverse communication styles. The system lacks transparency (Channington, 2019) — customers cannot understand why they're rejected, violating principles of explainability. Additionally, using handwriting as a proxy for creditworthiness has no causal validity, risking discrimination against non-native writers or those with disabilities.
+The bank's system raises several ethical concerns. 
+1. It judges the ability to repay the loan based on handwriting style and tone (factors unrelated to financial responsibility). 
+2. It lacks transparency: customers don't know they're being assessed on handwriting, preventing informed consent. 
+3. Handwriting might correlate with education level, cultural background, or language proficiency, meaning the system could reject marginalized groups. 
+4. Finally, the bank assumes correlation equals causation: just because polite writers historically repaid loans doesn't mean politeness causes repayment. The real factors (income, job stability) remain hidden, making this ethically questionable.
 
 #### Fairness
-The system violates multiple fairness principles from FairLearn's framework (Bird, 2019). **Demographic parity** is compromised — handwriting style correlates with education, age, and cultural background, creating disparate impact across protected groups. **Equal opportunity** fails — qualified borrowers with "different feeling" writing are systematically excluded regardless of actual creditworthiness. The 2,000-sample training set likely lacks diversity, amplifying bias. Roth's differential privacy lens reveals another issue: if the bank shares this data for research, handwriting samples could re-identify individuals. The system optimizes for a proxy metric (writing similarity) rather than the actual outcome (loan repayment), violating fairness-through-awareness principles.
+This system violates individual and group fairness. 
+1. Individual fairness requires that people with similar financial profiles receive similar treatment, yet 2 applicants with identical incomes and credit scores could get different decisions based on handwriting style. 
+2. Group fairness demands that protected groups aren't systematically disadvantaged, but handwriting correlates with education, culture, and language proficiency, meaning immigrants, non-native speakers, or those with less formal education face higher rejection rates for reasons unrelated to their ability to repay the loan. 
+3. The system also lacks procedural fairness: decision criteria should be transparent and relevant, but handwriting assessment is neither, creating unjust outcomes hidden hidden behind a 'the computer said no' excuse.
+
 
 ### Activity 3: Summarising Two Intelligent Systems Articles
-[to-do]
-The summaries should be posted to your private journal for Module 1, be no more than 200 words each (400 total) and should address:
-- Why solving that specific problem was important;
-- What intelligent system or AI technique was used; and
-- What were the ethics discussed in the work.
+> The summaries should be posted to your private journal for Module 1, be no more than 200 words each (400 total) and should address:
+> - Why solving that specific problem was important;
+> - What intelligent system or AI technique was used; and
+> - What were the ethics discussed in the work.
 
 #### Summary: Lee & Park AI Ethics via Text Mining 
-**Problem Importance:** As AI rapidly evolves, identifying emerging ethical concerns before they manifest as societal harm is critical. Lee & Park (2018) address this by using text mining to detect "future signals" — early indicators of ethical issues in AI discourse that require proactive governance rather than reactive regulation.
+The problem they tried to solve was spotting new AI ethics problems before they blew up. Traditionally, this meant paying expert panels to read tons of articles and guess what's coming, which was slow, expensive, and subjective.
 
-**Intelligent System/Technique:** The study employs a hybrid text mining approach combining quantitative (term frequency analysis, co-occurrence networks) and qualitative methods (semantic network analysis) on academic literature and news articles about AI ethics. This unsupervised learning approach identifies clusters of ethical concerns and their evolution over time, functioning as an early-warning intelligent system for policy-makers.
+Lee & Park used a combination of text mining and semantic network analysis to scan 708 articles (1994–2016) and categorize ethical issues as strong signals (already big news, e.g., privacy breaches), weak signals (emerging issues experts discuss but the public doesn't know yet, e.g., who's legally responsible when a self-driving car kills someone?), and latent signals (barely discussed, might become important later, e.g., emotional robots). They used Natural Language Processing to extract keywords and mapped them using Degree of Visibility and Degree of Diffusion metrics.
 
-**Ethics Discussion:** The paper identifies five major ethical themes: privacy invasion, algorithmic bias, job displacement, autonomous weapon systems, and AI rights/consciousness. The meta-ethical insight is that text mining itself raises ethical questions — whose voices are amplified in the corpus? The study advocates for "anticipatory ethics" frameworks that evolve alongside AI capabilities, rather than lagging behind technological deployment. This connects to Land et al.'s question: who promulgates ethical standards, and how do we respond to unintended consequences before they scale?
+The ethics discussed in the work revolved around the need for a more systematic approach to AI ethics, highlighting the importance of early detection of emerging ethical issues and the need for a more objective and data-driven method for identifying these issues.
+
+The ethics discussed included privacy violations from AI surveillance, safety and accountability for autonomous vehicles, human abuse by malicious AI, and emerging concerns like legal liability, killer military robots, and AI singularity (the risk of AI surpassing human control).
 
 #### Summary: Calvo et al. (2019) - Human Autonomy in AI Systems
-**Problem Importance:** AI systems increasingly mediate human decision-making (health apps, recommendation engines, smart assistants), raising a fundamental question: do these systems support or undermine human autonomy? Calvo et al. (2019) argue that without explicit autonomy-preserving design, AI risks becoming a tool for manipulation rather than empowerment — particularly in digital well-being contexts where vulnerable users seek guidance.
+As AI systems increasingly mediate human experience, from health to politics, designing them in ways that genuinely serve users rather than exploit them has become an urgent ethical imperative. Calvo et al. argued that existing engineering ethics frameworks focus on machine autonomy and productivity, leaving human autonomy largely unexamined and at risk.
 
-**Intelligent System/Technique:** The paper presents a normative framework rather than a specific ML technique. It applies Self-Determination Theory (SDT) from psychology to AI system design, proposing that ethical AI must support three psychological needs: competence (helping users develop skills), relatedness (fostering genuine social connection), and autonomy (enabling informed, voluntary choices). The framework provides design heuristics for evaluating whether recommendation systems, chatbots, and persuasive technologies respect user agency.
+The intelligent system examined was an AI-enhanced video recommender system, specifically YouTube's, used as a real-world case study. The authors did not build a new system; instead, they applied the METUX model (Motivation, Engagement and Thriving in User Experience) grounded in Self-Determination Theory (SDT) as an analytical framework. METUX defines six spheres of technology experience: Adoption, Interface, Task, Behaviour, Life, and Society, enabling designers to evaluate how AI design decisions impact human autonomy at each level.
 
-**Ethics Discussion:** The core ethical tension is paternalism vs autonomy — when should AI intervene in user choices? The paper distinguishes "autonomy-supportive" AI (transparent, user-controlled) from "autonomy-undermining" AI (manipulative, opaque). This connects to Channington's interpretability argument: users cannot exercise autonomy over systems they don't understand. The framework challenges the "engagement maximization" paradigm dominant in tech, advocating instead for human flourishing as the design objective.
+The ethics discussed centred on autonomy violations: algorithmic filter bubbles that distort users' social reality, autoplay features that bypass informed consent, clickbait-driven deception, and attention-harvesting business models that treat users as means rather than ends. The paper argues that autonomy-supportive AI design is not optional, it's an ethical imperative, and that multi-sphere analysis is necessary to capture contradictory and downstream effects on human wellbeing.

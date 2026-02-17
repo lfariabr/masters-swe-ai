@@ -79,7 +79,7 @@ This module is an introduction to intelligent systems. It will provide you with 
 #### Activity 1: Introduce Yourself
 Write a short paragraph about yourself in the ‘Introduce Yourself’ discussion forum. The ‘Introduce Yourself’ discussion forum is a great way for students to get to know each other and feel part of the college community. It will help you to join with others to create study groups and support each other outside of class time. The forum has the potential to provide supportive friendships throughout the course.
 
-> *Status: to do*
+> *Status: ✅ Done*
 
 #### Activity 2: Discussion Forum Post
 Consider the following situation:
@@ -92,7 +92,7 @@ A bank is using an intelligent system to grant loans. The bank gives each custom
 - Please read other students’ posts and comment on why you agree or disagree or provide help with other students’ posts.
 - Please reply to at least two other students’ posts.
 
-> *Status: to do*
+> *Status: ✅ Done*
 
 #### Activity 3: Summarising Two Intelligent Systems Articles
 Using the techniques outlined in ‘How to read a paper’ (Keshav, 2007), write a summary of the two following journal articles. The summaries should be posted to your private journal for Module 1, be no more than 200 words each (400 total) and should address:
@@ -106,4 +106,4 @@ First article:
 Second article
 - Calvo, R., Peters, D., Vold, K. V. & Ryan, R. (2019). Supporting human autonomy in AI systems: A framework for ethical enquiry. In C. Burr & L. Floridi (Eds) Ethics of digital well-being: A multidisciplinary approach (pp. 1–29). Springer Open. Retrieved from: https://pdfs.semanticscholar.org/60cb/2a6278cfb7c641ebe08a8ce78d7839c4267f.pdf
 
-> *Status: to do*
+> *Status: ✅ Done*
