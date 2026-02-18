@@ -7,8 +7,14 @@
 - Introduction to ABC Enterprise and their app launch scenario
 - Preview of key findings and recommendations
 
+Cloud computing has become embedded in our lives: we use it from the moment we wake up to the time we go to sleep – we’re constantly connected. Emails, social media, streaming, file storage, smart home devices are all examples of cloud computing. This technology is a powerful enabler to our personal lives alone, even more to the business context, which is this report’s focus, as we will dive on ABC Enterprise app case scenario.
+
+ABC app offers delivery services, providing an interesting link between customers-restaurants and has already experience great success on leveraging cloud for expanding the business. The app’s customer base has already grown 10x in a single month, and this report will take it to another level by planning accordingly to support the possibility of scaling even more.
+
 ## 1. Benefits of Cloud Computing vs. Traditional IT Infrastructure
 *[250 words]*
+Considering ABC Enterprise as our Case Study, we'll be comparing approaches to their 
+
 ### 1.1 Cost Efficiency and Pay-as-you-grow Model
 - Analysis of how ABC reduced IT start-up costs by 80%
 - Cloud characteristic: On-demand self-service and measured service
