@@ -523,3 +523,12 @@ As AI systems increasingly mediate human experience, from health to politics, de
 The intelligent system examined was an AI-enhanced video recommender system, specifically YouTube's, used as a real-world case study. The authors did not build a new system; instead, they applied the METUX model (Motivation, Engagement and Thriving in User Experience) grounded in Self-Determination Theory (SDT) as an analytical framework. METUX defines six spheres of technology experience: Adoption, Interface, Task, Behaviour, Life, and Society, enabling designers to evaluate how AI design decisions impact human autonomy at each level.
 
 The ethics discussed centred on autonomy violations: algorithmic filter bubbles that distort users' social reality, autoplay features that bypass informed consent, clickbait-driven deception, and attention-harvesting business models that treat users as means rather than ends. The paper argues that autonomy-supportive AI design is not optional, it's an ethical imperative, and that multi-sphere analysis is necessary to capture contradictory and downstream effects on human wellbeing.
+
+---
+
+
+## Class Notes
+
+### 18/02/2026 - 11:30AM
+
+ 

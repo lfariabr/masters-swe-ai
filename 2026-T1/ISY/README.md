@@ -37,7 +37,7 @@ Dr. Nandini Sidnal
 ## Modules
 > Tip: ✅ = Done, 🔥 = WIP, 🕐 = Not started, 🔌 = Discontinued
 
-- [ ] Module 1 - The Nature and Purpose of Intelligent Systems
+- [X] Module 1 - The Nature and Purpose of Intelligent Systems
 - [ ] Module 2 - Introduction to Machine Learning
 - [ ] Module 3 - Machine Learning Models
 - [ ] Module 4 - Introduction to Deep Learning
