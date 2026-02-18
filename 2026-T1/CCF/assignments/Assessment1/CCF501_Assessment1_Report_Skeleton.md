@@ -9,15 +9,17 @@
 
 Cloud computing has become embedded in our lives: we use it from the moment we wake up to the time we go to sleep – we’re constantly connected. Emails, social media, streaming, file storage, smart home devices are all examples of cloud computing. This technology is a powerful enabler to our personal lives alone, even more to the business context, which is this report’s focus, as we will dive on ABC Enterprise app case scenario.
 
-ABC app offers delivery services, providing an interesting link between customers-restaurants and has already experience great success on leveraging cloud for expanding the business. The app’s customer base has already grown 10x in a single month, and this report will take it to another level by planning accordingly to support the possibility of scaling even more.
+ABC app offers delivery services, providing an interesting link between customers-restaurants and has already experience great success on leveraging cloud for expanding the business. The app’s customer base has already grown 10x in a single month, and this report will take it to another level by presenting a plan to be able to accordingly to support the possibility of continuous scale. Why not grown 100x? 1000x? 100000000x?
 
 ## 1. Benefits of Cloud Computing vs. Traditional IT Infrastructure
 *[250 words]*
-Considering ABC Enterprise as our Case Study, we'll be comparing approaches to their 
+Traditional IT Infrastructure often means on-premises services, which leads to the need of a specific room to storing the computer, HVAC systems for refrigeration, a specialized network team, cables, energy, the list goes on. Cloud, in the other hand, offers a few interesting features that will be outlined below.
 
 ### 1.1 Cost Efficiency and Pay-as-you-grow Model
 - Analysis of how ABC reduced IT start-up costs by 80%
 - Cloud characteristic: On-demand self-service and measured service
+
+The company hired XYZ cloud provider and routes traffic via Route 53 to ABC cloud infra backed by elastic computing instances of VM running the web and app servers, with backups and imagery. This is super-efficient, given ABC pays for usage.
 
 ### 1.2 Rapid Scalability for Business Growth
 - Discussion of ABC's 10x customer growth in a single month
