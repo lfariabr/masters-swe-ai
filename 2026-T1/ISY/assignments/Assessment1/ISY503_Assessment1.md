@@ -52,9 +52,7 @@ Read the selected case study and integrate your report writing with what you hav
 - Background: This section should provide sufficient background information on, and explain the application of, the intelligent system including machine learning models and methods.
 - Method: Elaborate here on the method(s) used and explain how the research was undertaken. You should include the source of data used in the case study, and identify any ethical issues that may have arisen upon its use (e.g., medical history of patients).
 - Results: What was the outcome of the case study?
-Discussion: In this section you should explain the relevant and significance of your chosen
-study, and you should identify obstacles restricting the intelligent system. You should also
-mention any constraints reported in the article.
+- Discussion: In this section you should explain the relevant and significance of your chosen study, and you should identify obstacles restricting the intelligent system. You should also mention any constraints reported in the article.
 - Recommendations: This section should include critical perspectives and recommendations to improve or enhance the system.
 - References: You should support your report with additional peer-reviewed journal articles. These should be in appropriate APA style.
 
