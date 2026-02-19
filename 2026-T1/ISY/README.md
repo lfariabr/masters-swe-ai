@@ -12,8 +12,7 @@ This subject aims to give a broad introduction of intelligent systems, that is, 
 - `c)` Apply knowledge based or learning based methods to solve problems in complex environments that attempt to simulate human thought and
 decision making processes, allowing modern society to make further advancements.
 - `d)` Communicate clearly and effectively using the technical language of the field and constructively engage with different stakeholders.
-- `e)` Apply the foundational principles of AI learnt throughout the course and apply it to the different areas of Natural Language Processing, Speech
-Recognition, Computer Vision and Machine Learning
+- `e)` Apply the foundational principles of AI learnt throughout the course and apply it to the different areas of Natural Language Processing, Speech Recognition, Computer Vision and Machine Learning
 
 ## Delivery Schedule
 | Week | Module | Learning Activities | Assessment Progression & Due Date | SLOs addressed |
