@@ -1,4 +1,4 @@
-# Module 1: Traditional vs Modern Computing
+# Module 2: Essentials of Cloud Computing and Characteristics
 
 ## Task List
 
