@@ -116,3 +116,57 @@ Consider this article and your own observations after reading through and watchi
 Post your thoughts for this exercise in the Module 1 ‘Thinking Exercise on TCO’ discussion forum.
 
 > *Status: ✅ Done*
+
+---
+
+## Module 2 - Essentials of Cloud Computing and Characteristics
+
+### TLDR
+
+### Introduction
+In Module 1, we viewed a brief history of traditional IT and its evolution to cloud computing. Before we delve into what superpowers the cloud holds, we need to learn a little bit about the cloud as a concept.
+
+For instance:
+- What exactly is the cloud? (Does Superman look like a regular human male?)
+- What are the essential characteristics of the cloud? (What overarching behaviours does Superman have? Can he walk, talk, fly?)
+- What are the definitions and standards around the cloud? (Why can’t everyone be called Superman? What makes him unique?)
+
+This module briefly answers these questions and we will expand on these topics later in the subject.
+
+### Resources
+
+#### 1. What is Cloud Computing?
+- Amazon Web Services. (n.d.). What is cloud computing? https://aws.amazon.com/what-is-cloud-computing/
+
+*Resource Overview:*
+
+    This AWS resource provides a great overview of cloud computing, the benefits of cloud computing, and the answer to the question, ‘Who is using cloud computing?’ as we see how BMW, Coca-Cola, Netflix and others use the cloud to deliver their services.
+
+> *Status: 🕐 To-Do* 
+
+#### 2. National Institute of Standards and Technology (NIST) Cloud Computing
+- NIST. (2022). NIST cloud computing program - NCCP. https://www.nist.gov/programs-projects/nist-cloud-computing-program-nccp
+
+*Resource Overview:*
+
+    What is cloud and what are the essential characteristics of cloud computing? This reading provides the answers to these questions as given by the National Institute of Standards and Technology (NIST), the US government’s national IT agency.
+
+> *Status: 🕐 To-Do* 
+
+### Learning Activities
+
+---
+```bash
+--- PLACEHOLDER:
+## Module X - ...
+### TLDR
+### Introduction
+### Resources
+### Learning Activities
+
+--- STATUS
+# *Status: 🕐 To-Do*                <--- starting point
+# *Status: ✅ Watched + Reviewed*   <--- for video resources
+# *Status: ✅ Read + Reviewed*      <--- for articles, papers, chapters
+# *Status: ✅ Done*                 <--- for activities
+```
