@@ -126,6 +126,12 @@ Post your thoughts for this exercise in the Module 1 ‘Thinking Exercise on TCO
 ## Module 2 - Essentials of Cloud Computing and Characteristics
 
 ### TLDR
+- Cloud = on-demand delivery of IT resources over the internet with pay-as-you-go pricing (AWS)
+- NIST defines **5 essential characteristics**: On-demand self-service, Broad network access, Resource pooling, Rapid elasticity, Measured service
+- Key benefits: agility (fast experimentation), elasticity (dynamic scaling), cost savings (opex over capex), global deployment
+- NIST SP 500-332 extends these foundations to **cloud federation** — interoperability across administrative domains
+- Cloud in education: reduces IT costs, enables virtual classrooms and personalised learning, but challenges remain (security, governance, compliance)
+- Standards matter: NIST definitions are vendor-neutral and widely adopted by governments, enterprises, and academia
 
 ---
 
@@ -150,7 +156,7 @@ This module briefly answers these questions and we will expand on these topics l
 
     This AWS resource provides a great overview of cloud computing, the benefits of cloud computing, and the answer to the question, ‘Who is using cloud computing?’ as we see how BMW, Coca-Cola, Netflix and others use the cloud to deliver their services.
 
-> *Status: 🕐 To-Do* 
+> *Status: ✅ Read + Reviewed — see [module02_notes.md](module_02_essentials-of-cloud/module02_notes.md)*
 
 #### 2. National Institute of Standards and Technology (NIST) Cloud Computing
 - NIST. (2022). NIST cloud computing program - NCCP. https://www.nist.gov/programs-projects/nist-cloud-computing-program-nccp
@@ -159,7 +165,7 @@ This module briefly answers these questions and we will expand on these topics l
 
     What is cloud and what are the essential characteristics of cloud computing? This reading provides the answers to these questions as given by the National Institute of Standards and Technology (NIST), the US government’s national IT agency.
 
-> *Status: 🕐 To-Do* 
+> *Status: ✅ Read + Reviewed — see [module02_notes.md](module_02_essentials-of-cloud/module02_notes.md)*
 
 #### 3. Five Essential Characteristics of Cloud Computing
 - Naved, M., Sanchez, D. T., Dela Cruz, A. P., Jr., Peconcillo, L. B., Jr., Peteros, E. D., & Tenerife, J. J. L. (2022). Identifying the role of cloud computing technology in management of educational institutions. Materials Today: Proceedings, 51(8), 2309–2312. https://doi.org/10.1016/j.matpr.2021.11.414
@@ -168,7 +174,7 @@ This module briefly answers these questions and we will expand on these topics l
 
     This article discusses the importance of cloud computing technologies in educational institution management. Please read Section 1 ‘Introduction’ to get an overview of the history of cloud computing. We advise you to focus on Section 2 ‘Characteristics of Cloud Computing’, which discusses the five essential characteristics of cloud technology provided by NIST.
 
-> *Status: 🕐 To-Do* 
+> *Status: ✅ Read + Reviewed — see [module02_notes.md](module_02_essentials-of-cloud/module02_notes.md)*
 
 #### 4. Benefits of Cloud Computing
 - Carpenter, T. (2020, May 27). AWS Certified Solutions Architect - Associate (SAA-C02) Cert Prep 1: Cloud services overview [Video]. LinkedIn Learning.  https://www.linkedin.com/learning/aws-certified-solutions-architect-associate-saa-c02-cert-prep-1-cloud-services-overview/benefits-of-cloud-computing
@@ -180,7 +186,7 @@ This module briefly answers these questions and we will expand on these topics l
     - How achieving automation through a cloud deployment model reduces time
     - How service resiliency is achieved through cloud deployment ( around the 4:50 mark)
 
-> *Status: 🕐 To-Do* 
+> *Status: 🔥 WIP — needs manual access*
 
 #### 5. Defining the Essential Characteristics of Cloud Computing
 - Linthicum, D. (2021). Learning cloud computing: Core concepts [Video]. LinkedIn Learning. https://www.linkedin.com/learning/learning-cloud-computing-core-concepts-13966302/overview-of-cloud-computing
@@ -192,7 +198,7 @@ This module briefly answers these questions and we will expand on these topics l
     1. Overview of cloud computing
     2. Cloud characteristics
 
-> *Status: 🕐 To-Do* 
+> *Status: 🔥 WIP — needs manual access*
 
 #### 6. How to Avoid Death by PowerPoint
 - TEDx Talks. (2014, April 15). How to avoid death By PowerPoint | David JP Phillips | TEDxStockholmSalon [Video]. YouTube. https://www.youtube.com/watch?v=DU5l825k30E
@@ -201,7 +207,7 @@ This module briefly answers these questions and we will expand on these topics l
 
     Watch David Phillips, a Swedish wizard of communications, demonstrate before your very eyes how PowerPoint presentations can be drastically improved by following five principles. You will learn more here in 20 minutes about presenting than most people seem to in 20 years. Chances are that adopting this presentation style will improve your Assessment 1 performance and scores.
 
-> *Status: 🕐 To-Do* 
+> *Status: 🔥 WIP — needs manual access*
 
 ---
 
