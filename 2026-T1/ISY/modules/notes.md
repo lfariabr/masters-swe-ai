@@ -214,9 +214,31 @@ Based on the relation they find, they can classify or predict the outcome of dat
 
 *Status: 🕐 To-Do* 
 
+---
+
 ### Learning Activities
 
-to-do
+#### Activity 1: Metrics Suitability
+- Halligan, S., Altman, D. & Mallett, S. (2015). Disadvantages of using the area under the receiver operating characteristic curve to assess imaging tests: A discussion and proposal for an alternative approach. European Radiology, 25(4), 932–939. Retrieved from: https://doi.org/10.1007/s00330-014-3487-0
+
+It is now a good time to undertake some further independent research. In this learning activity, you should undertake a web search to learn about the limitations of the metrics of ML. Metrics describe how well your model understands a problem and makes a decision. However, not every metric is suitable for every situation. The article in the additional resource section outlines a case scenario in which the ROC curve cannot be used as a good metric. ROC curves have been employed in psychophysics to assess human (and occasionally non-human or animal) detection of weak signals. Please read the article, understand the situation, summarise the article and, in 100 words, explain how the authors discovered that this metric was not suitable to their problem. You need to upload your summary to the Metrics Suitability discussion forum in this Module.
+
+Write a summary of at least 100 words.
+
+Post your summary to the Module 2: Metrics Suitability Discussion Forum. Read through the posts of your peers. Do you all share the same view of how the authors discovered that this metric was unsuitable? If not, why not? Comment on the post of at least one other person.
+
+> *Status: 🕐 To-Do*
+
+#### Activity 2: Metrics for Unsupervised Approaches
+- Inglés-Romero, J. F., Espín, J. M., Jiménez-Andreu, R., Font, R. & Vicente-Chicote, C. (2018). Towards the use of quality-of-service metrics in reinforcement learning: A robotics example. Paper presented at MODELS Workshops 2018, 465–474. Retrieved from: http://ceur-ws.org/Vol-2245/morse_paper_4.pdf
+
+The metrics discussed in this Module were mainly directed at supervised learning. For other approaches, such as reinforcement learning and unsupervised learning, other types of metrics should be applied, as the value of targets or outcomes are not available as they are for supervised learning. To understand the metrics of unsupervised learning, you need to read and summarise the following articles. Read the summaries of your peers. You may find that they have captured the essence of an article succinctly or these summaries may be helpful if you have not quite understood something.
+
+Write two summaries of at least 100 words for each paper.
+
+Post your two summaries to the Module 2: Unsupervised Metrics Discussion Forum (i.e., one summary on reinforcement learning and another summary on unsupervised learning metrics).
+
+> *Status: 🕐 To-Do*
 
 ---
 ```bash
