@@ -6,10 +6,10 @@
 
 | # | Task | Status |
 |---|------|--------|
-| R1 | AWS — What is Cloud Computing? (PDF) | ✅ Read + Reviewed |
+| **R1** | AWS — What is Cloud Computing? (PDF) | ✅ Read + Reviewed |
 | R2 | NIST Cloud Computing Program (PDF) | ✅ Read + Reviewed |
 | R3 | Naved et al. (2022) — Role of Cloud in Education (PDF) | ✅ Read + Reviewed |
-| R4 | Carpenter (2020) — AWS SAA Cert Prep 1: Benefits of Cloud (LinkedIn Learning) | 🔥 WIP — needs manual access |
+| **R4** | Carpenter (2020) — AWS SAA Cert Prep 1: Benefits of Cloud (LinkedIn Learning) | 🔥 WIP — needs manual access |
 | R5 | Linthicum (2021) — Learning Cloud Computing: Core Concepts (LinkedIn Learning) | 🔥 WIP — needs manual access |
 | R6 | Phillips (2014) — How to Avoid Death by PowerPoint (YouTube) | 🔥 WIP — needs manual access |
 | A1 | Race to Fill In the Five Essentials — Discussion Forum | 🕐 To-Do |
@@ -112,3 +112,21 @@ Federation interactions are described across three planes:
 | Risk & compliance | Loss of data location control in shared environments; vendor lock-in risk |
 | Governance | Institutions need new frameworks for cloud decision-making and policy |
 | IT staffing | New skill sets required; outsourcing changes IT roles significantly |
+
+---
+
+#### R4 - Carpenter (2020) — AWS SAA Cert Prep 1: Benefits of Cloud (LinkedIn Learning) | 
+
+Explores why cloud computing is advantageous, including reduced hardware and operational costs, and increased resiliency, performance, and capacity.
+
+**Cost Reduction:**
+- Hardware Costs: No need to invest in physical servers and storage upfront. Instead, deploy virtual servers and storage as needed and pay for them based on usage. This eliminates the need for large capital expenditures on hardware.
+- Operational Costs: Managing physical hardware requires personnel to handle maintenance and troubleshooting. With AWS, much of this management is automated, reducing the time and effort required by IT staff. This allows IT staff to focus on other valuable tasks.
+
+**Time Reduction through Automation:**
+
+AWS allows deploy servers and other resources quickly through management console. This process can take just a few minutes compared to the weeks it might take to order, receive, and set up physical hardware. Additionally, features like auto-scaling automatically adjust resources based on demand, further reducing the need for manual intervention.
+
+**Service Resiliency:**
+
+AWS provides health monitoring for all instances (servers). If an instance is found to be unhealthy, AWS can automatically start a new instance to replace it, ensuring continuous operation without manual intervention. This automatic handling of failures enhances the resiliency of services.
