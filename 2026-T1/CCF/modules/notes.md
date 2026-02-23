@@ -198,7 +198,7 @@ This module briefly answers these questions and we will expand on these topics l
     1. Overview of cloud computing
     2. Cloud characteristics
 
-> *Status: 🔥 WIP — needs manual access*
+> *Status: ✅ Read + Reviewed — see [module02_notes.md](module_02_essentials-of-cloud/module02_notes.md)*
 
 #### 6. How to Avoid Death by PowerPoint
 - TEDx Talks. (2014, April 15). How to avoid death By PowerPoint | David JP Phillips | TEDxStockholmSalon [Video]. YouTube. https://www.youtube.com/watch?v=DU5l825k30E
@@ -207,7 +207,7 @@ This module briefly answers these questions and we will expand on these topics l
 
     Watch David Phillips, a Swedish wizard of communications, demonstrate before your very eyes how PowerPoint presentations can be drastically improved by following five principles. You will learn more here in 20 minutes about presenting than most people seem to in 20 years. Chances are that adopting this presentation style will improve your Assessment 1 performance and scores.
 
-> *Status: 🔥 WIP — needs manual access*
+> *Status: ✅ Read + Reviewed — see [module02_notes.md](module_02_essentials-of-cloud/module02_notes.md)*
 
 ---
 
@@ -218,7 +218,7 @@ It’s a race! The early bird who posts first gets to do the easiest part of the
 
 Post your reflection in the Module 2 discussion forum.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Done*
 
 #### Activity 2: State of Cloud Adoption in Australia and New Zealand—Discussion Forum
 - Williams, S. (2021). Australia and New Zealand lead cloud adoption, but more progress to be made. ChannelLife. https://channellife.co.nz/story/australia-and-new-zealand-lead-cloud-adoption-but-more-progress-to-be-made

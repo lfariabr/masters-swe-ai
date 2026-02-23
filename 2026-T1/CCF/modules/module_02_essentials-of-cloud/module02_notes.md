@@ -12,8 +12,8 @@
 | **R4** | Carpenter (2020) — AWS SAA Cert Prep 1: Benefits of Cloud (LinkedIn Learning) | ✅ Watched + Reviewed |
 | **R5** | Linthicum (2021) — Learning Cloud Computing: Core Concepts (LinkedIn Learning) | ✅ Watched + Reviewed |
 | R6 | Phillips (2014) — How to Avoid Death by PowerPoint (YouTube) | 🔥 WIP — needs manual access |
-| **A1** | Race to Fill In the Five Essentials — Discussion Forum | 🕐 To-Do |
-| *A2* | State of Cloud Adoption in ANZ — Discussion Forum | 🕐 To-Do |
+| **A1** | Race to Fill In the Five Essentials — Discussion Forum | ✅ Done |
+| **A2** | State of Cloud Adoption in ANZ — Discussion Forum | ✅ Done |
 | *A3* | Key Cloud Services by Cloud Service Providers — Discussion Forum | 🕐 To-Do |
 
 ---
@@ -167,15 +167,44 @@ Understand cloud governance, monitoring, and management to keep your cloud-based
 
 ### Activity 1: Race to Fill In the Five Essentials of Cloud—Discussion Forum
 
-I chose the characteristic of "Resource pooling" and my explanation in 100 characters is:
-"Grouping computing resources (CPU, memory, storage) to serve multiple users, enhancing efficiency."
-
+```bash
+# Activity 1 Submission
+I chose the characteristic "Resource pooling" and my explanation in 100 chars is:
+Grouping computing resources (CPU, memory, storage) to serve multiple users, enhancing efficiency.
+```
 ### Activity 2: State of Cloud Adoption in Australia and New Zealand—Discussion Forum
 
 1) What factors had you not come across before and were surprised by?
 2) What complications are Australian and New Zealand businesses facing and how are they looking to solve them?
 
+```bash
+Two findings stood out to me from the Infosys Cloud Radar 2021 report:
+
+1. The 60% profit threshold: that adoption benefits only materialize once organizations move at least 60% of their systems to the cloud. For AI-driven value, this jumps to 80%. This explains why many early cloud adopters haven't seen expected ROI...
+2. ANZ's declining competitive position: Despite currently ranking joint-first globally with 43% cloud adoption, our projected trajectory will drop us to joint-third by 2022. Less than 1 in 5 ANZ enterprises have crossed the critical 60% threshold needed to unlock profit benefits.
+
+Complications ANZ Businesses Face:
+1. Speed vs. Capability Gap: we excel at using cloud for deployment speed and infrastructure scaling but underperform on capability metrics like discovering new revenue streams, leveraging AI for data insights, and innovation. This suggests a tactical use instead of strategic cloud use.
+2. Cost-Focused Mindset: The "Effective Performers" cohort (33% of companies) say they prioritize cost savings over growth enablement. This conservative approach may reduce expenses short-term but limits long-term competitive advantage for them.
+
+Moving forward, ANZ enterprises plan to increase cloud adoption from 17% to 40%+ crossing the 60% threshold by 2022. However, the real challenge isn't just how much we move to the cloud, but how we use it! 
+Exceptional performers (16% globally) distinguish themselves by employing hybrid multi-cloud strategies with 3+ providers and focusing on growth drivers - not just cost reduction, which will require specialized skills on the cloud (awesome for us, studying it!).
+```
+
 ### Activity 3: Key Cloud Computing Services Offered by the Cloud Service Provider—Discussion Forum
 
 Select any two cloud service providers from AWS, Microsoft Azure, IBM Cloud or GCP and discuss at least one key service offered by them. 
 Why do you think this key service unlocks so much value for the customer?
+
+---
+
+## Class Notes
+
+### 23/02/2026 - 11:30AM
+
+Essential characteristics:
+1. On-demand self-service
+2. Broad network access
+3. Resource pooling
+4. Rapid elasticity
+5. Measured service
