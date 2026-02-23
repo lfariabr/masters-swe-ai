@@ -7,14 +7,14 @@
 | # | Task | Status |
 |---|------|--------|
 | **R1** | AWS — What is Cloud Computing? (PDF) | ✅ Read + Reviewed |
-| R2 | NIST Cloud Computing Program (PDF) | ✅ Read + Reviewed |
-| R3 | Naved et al. (2022) — Role of Cloud in Education (PDF) | ✅ Read + Reviewed |
-| **R4** | Carpenter (2020) — AWS SAA Cert Prep 1: Benefits of Cloud (LinkedIn Learning) | 🔥 WIP — needs manual access |
-| R5 | Linthicum (2021) — Learning Cloud Computing: Core Concepts (LinkedIn Learning) | 🔥 WIP — needs manual access |
+| **R2** | NIST Cloud Computing Program (PDF) | ✅ Read + Reviewed |
+| **R3** | Naved et al. (2022) — Role of Cloud in Education (PDF) | ✅ Read + Reviewed |
+| **R4** | Carpenter (2020) — AWS SAA Cert Prep 1: Benefits of Cloud (LinkedIn Learning) | ✅ Watched + Reviewed |
+| **R5** | Linthicum (2021) — Learning Cloud Computing: Core Concepts (LinkedIn Learning) | ✅ Watched + Reviewed |
 | R6 | Phillips (2014) — How to Avoid Death by PowerPoint (YouTube) | 🔥 WIP — needs manual access |
-| A1 | Race to Fill In the Five Essentials — Discussion Forum | 🕐 To-Do |
-| A2 | State of Cloud Adoption in ANZ — Discussion Forum | 🕐 To-Do |
-| A3 | Key Cloud Services by Cloud Service Providers — Discussion Forum | 🕐 To-Do |
+| **A1** | Race to Fill In the Five Essentials — Discussion Forum | 🕐 To-Do |
+| *A2* | State of Cloud Adoption in ANZ — Discussion Forum | 🕐 To-Do |
+| *A3* | Key Cloud Services by Cloud Service Providers — Discussion Forum | 🕐 To-Do |
 
 ---
 
@@ -130,3 +130,52 @@ AWS allows deploy servers and other resources quickly through management console
 **Service Resiliency:**
 
 AWS provides health monitoring for all instances (servers). If an instance is found to be unhealthy, AWS can automatically start a new instance to replace it, ensuring continuous operation without manual intervention. This automatic handling of failures enhances the resiliency of services.
+
+--- 
+
+#### R5 - Linthicum, D. (2021), Defining the Essential Characteristics of Cloud Computing
+Learn the essentials of cloud computing, including deployment models (private, public, hybrid, multi-cloud) and delivery models (SaaS, PaaS, IaaS).
+
+**Core concepts, part 1**
+
+On-demand & self-service: Access resources as needed.
+Ubiquitous network access: Connect via the internet.
+Resource pooling: Share resources among users.
+Rapid elasticity: Scale resources up or down quickly.
+Pay-per-use: Only pay for what you use.
+Deployment models: Private, public, community, multi-cloud, hybrid.
+
+**Core concepts, part 2**
+
+SaaS: Software as a Service, applications delivered over the internet.
+PaaS: Platform as a Service, provides a platform allowing customers to develop, run, and manage applications.
+IaaS: Infrastructure as a Service, offers virtualized computing resources over the internet.
+Cloud security: Importance of securing cloud environments.
+Cloud migration: Planning and executing a move to the cloud.
+
+**Conclusion**
+Understand cloud governance, monitoring, and management to keep your cloud-based infrastructure secure and efficient. Explore advanced cloud operations and multi-cloud strategies.
+
+---
+
+#### R6 - How to Avoid Death by PowerPoint
+...
+
+---
+
+## Activities
+
+### Activity 1: Race to Fill In the Five Essentials of Cloud—Discussion Forum
+
+I chose the characteristic of "Resource pooling" and my explanation in 100 characters is:
+"Grouping computing resources (CPU, memory, storage) to serve multiple users, enhancing efficiency."
+
+### Activity 2: State of Cloud Adoption in Australia and New Zealand—Discussion Forum
+
+1) What factors had you not come across before and were surprised by?
+2) What complications are Australian and New Zealand businesses facing and how are they looking to solve them?
+
+### Activity 3: Key Cloud Computing Services Offered by the Cloud Service Provider—Discussion Forum
+
+Select any two cloud service providers from AWS, Microsoft Azure, IBM Cloud or GCP and discuss at least one key service offered by them. 
+Why do you think this key service unlocks so much value for the customer?

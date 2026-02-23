@@ -186,7 +186,7 @@ This module briefly answers these questions and we will expand on these topics l
     - How achieving automation through a cloud deployment model reduces time
     - How service resiliency is achieved through cloud deployment ( around the 4:50 mark)
 
-> *Status: 🔥 WIP — needs manual access*
+> *Status: ✅ Read + Reviewed — see [module02_notes.md](module_02_essentials-of-cloud/module02_notes.md)*
 
 #### 5. Defining the Essential Characteristics of Cloud Computing
 - Linthicum, D. (2021). Learning cloud computing: Core concepts [Video]. LinkedIn Learning. https://www.linkedin.com/learning/learning-cloud-computing-core-concepts-13966302/overview-of-cloud-computing
