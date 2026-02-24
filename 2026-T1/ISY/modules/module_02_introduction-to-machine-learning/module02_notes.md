@@ -12,7 +12,7 @@
 | **3** | Udacity (2016) — Training and Testing | Video | ✅ Read + Reviewed |
 | **4** | Prabhakaran (2017) — Top 15 Evaluation Metrics for Classification | Web article | ✅ Read + Reviewed |
 | **5** | Hawkins (2004) — The Problem of Overfitting | PDF paper | ✅ Read + Reviewed |
-| 6 | Chandrashekar & Sahin (2014) — A Survey on Feature Selection Methods | PDF paper | ✅ Read + Reviewed |
+| **6** | Chandrashekar & Sahin (2014) — A Survey on Feature Selection Methods | PDF paper | ✅ Read + Reviewed |
 | 7 | Inglés-Romero et al. (2018) — QoS Metrics in Reinforcement Learning | PDF paper | ✅ Read + Reviewed |
 | 8 | Palacio-Niño (2019) — Evaluation Metrics for Unsupervised Learning | PDF paper | ✅ Read + Reviewed |
 | 9 | Hulten (2018) — Building Intelligent Systems (eBook) | Authenticated eBook | 🔥 WIP — needs institutional library access |
