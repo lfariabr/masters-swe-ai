@@ -582,3 +582,25 @@ Net benefit:
 | **MDP** | Markov Decision Process — mathematical framework for RL |
 | **Reward** | Scalar feedback in RL indicating quality of an action |
 | **Silhouette Coefficient** | Internal clustering quality metric; range [−1, 1] |
+
+---
+
+## Activities
+
+### Activity 1: Metrics Suitability (Discussion Forum)
+```bash
+# Activity 1 Submission
+```
+
+### Activity 2: Metrics for Unsupervised Approaches (Discussion Forum)
+```bash
+# Activity 2 Submission
+```
+
+---
+
+## Class Notes
+
+### 25/02/2026 - 11:30AM
+
+
