@@ -232,7 +232,7 @@ Feel free to include your own experiences and observations from your professiona
 
 Post your reflection in the Module 2 discussion forum.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Done*
 
 #### Activity 3: Key Cloud Computing Services Offered by the Cloud Service Provider—Discussion Forum
 - Ke, X. (2022, January 12).  Choosing a cloud platform for developers: AWS, Azure, and GCP [Video]. LinkedIn Learning. https://www.linkedin.com/learning/choosing-a-cloud-platform-for-developers-aws-azure-and-gcp/current-major-cloud-providers-14489110?u=72036930
@@ -246,7 +246,7 @@ For example, Amazon Web Services (AWS), Microsoft Azure and Google Cloud Platfor
 Now that you are more familiar with cloud service providers and services, select any two cloud service providers from AWS, Microsoft Azure, IBM Cloud or GCP and discuss at least one key service offered by them. 
 Why do you think this key service unlocks so much value for the customer?
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Done*
 
 ---
 ```bash

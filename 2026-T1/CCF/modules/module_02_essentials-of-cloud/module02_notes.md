@@ -14,7 +14,7 @@
 | R6 | Phillips (2014) — How to Avoid Death by PowerPoint (YouTube) | 🔥 WIP — needs manual access |
 | **A1** | Race to Fill In the Five Essentials — Discussion Forum | ✅ Done |
 | **A2** | State of Cloud Adoption in ANZ — Discussion Forum | ✅ Done |
-| *A3* | Key Cloud Services by Cloud Service Providers — Discussion Forum | 🕐 To-Do |
+| **A3** | Key Cloud Services by Cloud Service Providers — Discussion Forum | ✅ Done |
 
 ---
 
@@ -195,6 +195,14 @@ Exceptional performers (16% globally) distinguish themselves by employing hybrid
 
 Select any two cloud service providers from AWS, Microsoft Azure, IBM Cloud or GCP and discuss at least one key service offered by them. 
 Why do you think this key service unlocks so much value for the customer?
+
+```bash
+# Activity 3 Submission
+I chose AWS and Microsoft Azure for this activity.
+AWS Key Service: Amazon S3 (Simple Storage Service) works as an object storage service that offers scalability, data availability, security and performance. It allows customers to store and retrieve any amount of data, from anywhere on the web. The value it unlocks is huge due to its durability (99.99%) and scalability, making it ideal for backup, archiving, big data analytics, and content distribution. It also integrates with other AWS services, enabling seamless data workflows and cost-effective storage solutions.
+
+Microsoft Entra ID is a cloud-based identity and access management service that provides secure access to applications and resources. It offers features like single sign-on, multi-factor authentication, and conditional access policies. The value it unlocks for customers is significant as it enhances security by protecting against unauthorized access, simplifies user management, and enables secure collaboration across on-premises and cloud environments. It also integrates with Microsoft 365 and other Azure services, providing an unified identity solution for organizations.
+```
 
 ---
 
