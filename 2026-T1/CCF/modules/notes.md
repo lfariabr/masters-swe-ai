@@ -249,6 +249,91 @@ Why do you think this key service unlocks so much value for the customer?
 > *Status: ✅ Done*
 
 ---
+
+## Module 3 - Cloud Computing Deployment Models
+
+### TLDR
+
+### Introduction
+From Module 2, you now know what cloud is, and its utility and history. Now, it’s time to look at different deployment models that cloud can be utilised in. In Module 3, we will discuss four cloud computing deployment models:
+- Public cloud
+- Private cloud
+- Hybrid clouds
+- Community cloud
+
+### Resources
+
+#### 1. Introduction to Cloud Deployment Models
+- Linthicum, D. (2021, May 25). Learning cloud computing: Core concepts [Video]. LinkedIn Learning. https://www.linkedin.com/learning/learning-cloud-computing-core-concepts-13966302/public-private-and-hybrid-clouds
+
+*Resource Overview:*
+
+    This quick-to-the-point introduction to the cloud deployment models covers the basics of the three major cloud deployment models: public, private and hybrid. Pay attention to the differing degrees of accessibility, privacy and security.
+
+> *Status: 🕐 To-Do*
+
+#### 2. Cloud Computing Deployment Models and Cloud Challenges
+- Manvi, S., & Shyam, G. K. (2021). Cloud computing: Concepts and technologies. CRC Press. https://learning-oreilly-com.torrens.idm.oclc.org/library/view/cloud-computing/9781000338058/xhtml/01chap_01.xhtml#sec1_3
+
+*Resource Overview:*
+
+    Please read through Chapter 1.3 ‘Deployment Models’, which is a snapshot of the various cloud deployment models available. Then read through Chapter 1.5 ‘Cloud Computing Platforms and Technologies’, which covers the second-order consequences of choosing a given deployment model. Like an architect designing a house, the choices made during the design phase will affect the people (the users) long after the designs are realised. Being mindful of short-term and long-term cloud computing needs matters when selecting a suitable deployment model.
+
+    To access resources from O’Reilly, please ensure that you are logged into your Torrens University student account and it is best that you go through the Library Catalogue on this [link](https://torrens.idm.oclc.org/login?url=https://www.oreilly.com/library/view/temporary-access/?orpq&email=^u). You can also access the FAQs for accessing O’Reilly on [this link](https://faq.torrens.edu.au/faq/270350).
+
+#### 3. Cloud Deployment Models—IBM Cloud Education
+- IBM. (n.d.). What is a public cloud?. https://www.ibm.com/cloud/learn/public-cloud
+- IBM. (n.d.). What is private cloud? https://www.ibm.com/cloud/learn/introduction-to-private-cloud
+- IBM. (n.d.). What is hybrid cloud? https://www.ibm.com/cloud/learn/hybrid-cloud
+
+*Resource Overview:*
+    
+    Here, we will look deeper into the three deployment models with the help of an industry leader, IBM. The links below cover comparisons of each model, and also give you some additional resources as part of the IBM Cloud Education—a handy resource to widen your cloud knowledge.
+
+#### 4. Reviewing Cloud Deployment Models
+- Chandrasekaran, K. (2015). Essentials of cloud computing. CRC Press. https://learning-oreilly-com.torrens.idm.oclc.org/library/view/essentials-of-cloud/9781482205435/chapter-22.htm
+
+*Resource Overview:*
+
+    Did you find concepts like the different deployment models’ characteristics, advantages and disadvantages tricky to recall? You may like to answer review questions 1, 5, 6, 8 and 9 here on [page 65](https://ebookcentral.proquest.com/lib/think/reader.action?c=UERG&docID=1731944&ppg=89) to test what you have retained.
+
+#### 5. Virtual Private Cloud (VPC)
+- IBM. (n.d.). What is a virtual private cloud (VPC)? https://www.ibm.com/cloud/learn/vpc
+
+*Resource Overview:*
+
+    A pubic cloud is like living with your family in one of the apartments. It’s somewhat private. But a virtual private cloud (VPC) is like having your own private studio apartment. Since only you hold the keys, you alone decide who is allowed in. This adds security and privacy. This article covers the feature, benefits and architecture of a VPC.
+
+---
+
+### Learning Activities
+
+#### Activity 1: Deployment Model Case Study—Discussion Forum
+Do your research on the internet and find a real-life case study for one of the deployment models discussed in this module (public, private, hybrid or community). Write about the case study in your own words in the discussion forum and include details about the scenario, current and future requirements, and why the chosen model is the best option for the company in no more than 300 words.
+
+As part of the exercise, you may want to consider drawing a mind map outlining the various considerations the company may have had to make when migrating to the cloud. You could do this as a hand-drawn image or take a photo then upload it to the discussion forum, or draw it in an application like PowerPoint.
+
+Post your answer in the Module 3 discussion forum.
+
+> *Status: 🕐 To-Do*
+
+#### Activity 2: Case Study: Optimising Cloud Costs—Discussion forum post
+- Cheema, S., Baron, C., Bleckmann, K., Pitchaikani, M., & Shrestha, D. (2019). IT@Intel brief | A holistic cloud approach for big savings. Intel. https://www.intel.com.au/content/www/au/en/it-management/intel-it-best-practices/a-holistic-cloud-approach-for-big-savings-solutions-brief.html
+
+There are various business challenges associated with Cloud deployments. ‘Higher costs’ are regarded as one of them. Read the following white paper titled ‘IT@Intel Brief, A Holistic Cloud Approach for Big Savings’ and answer the following questions:
+
+1. What are the business challenges associated with higher cloud costs?
+2. What are the strategies adopted by the vendor to reduce costs?
+3. Briefly discuss one of the cost reduction strategies that you think can be applicable if you wish to deploy a service in the cloud.
+Post your answer to the Module 3 discussion forum.
+
+Note: Do not use this resource in Assessment 1.
+
+> *Status: 🕐 To-Do*
+
+
+---
+
 ```bash
 --- PLACEHOLDER:
 ## Module X - ...
