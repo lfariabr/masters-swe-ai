@@ -16,8 +16,8 @@
 | **7** | Inglés-Romero et al. (2018) — QoS Metrics in Reinforcement Learning | PDF paper | ✅ Read + Reviewed |
 | **8** | Palacio-Niño (2019) — Evaluation Metrics for Unsupervised Learning | PDF paper | ✅ Read + Reviewed |
 | 9 | Hulten (2018) — Building Intelligent Systems (eBook) | Authenticated eBook | 🔥 WIP — needs institutional library access |
-| 10 | Halligan et al. (2015) — Disadvantages of ROC AUC for Imaging Tests | PDF paper | ✅ Read + Reviewed |
-| A1 | Activity 1: Metrics Suitability (Discussion Forum) | Activity | 🕐 To-Do |
+| **10** | Halligan et al. (2015) — Disadvantages of ROC AUC for Imaging Tests | PDF paper | ✅ Read + Reviewed |
+| **A1** | Activity 1: Metrics Suitability (Discussion Forum) | Activity | ✅ Done |
 | A2 | Activity 2: Metrics for Unsupervised Approaches (Discussion Forum) | Activity | 🕐 To-Do |
 
 ---
@@ -588,8 +588,15 @@ Net benefit:
 ## Activities
 
 ### Activity 1: Metrics Suitability (Discussion Forum)
-```bash
-# Activity 1 Submission
+```
+# Activity 1 Submission — Halligan et al. (2015)
+
+Halligan et al. (2015) identified several ways ROC AUC is unsuitable for evaluating imaging tests:
+
+First, radiologist confidence scores are rarely normally distributed: they cluster at extreme values, forcing the ROC curve to extrapolate beyond actual data, making the AUC statistically unreliable.
+Second, AUC averages performance across all possible decision thresholds, yet in clinical practice only one threshold matter: the one determined by disease prevalence. 
+Third, false-positive and false-negative errors carry vastly different costs in imaging (e.g., missed cancer vs. unnecessary biopsy), but AUC treats them symmetrically. 
+The authors propose Net Benefit as a clinically meaningful alternative that accounts for prevalence and asymmetric misclassification costs.
 ```
 
 ### Activity 2: Metrics for Unsupervised Approaches (Discussion Forum)

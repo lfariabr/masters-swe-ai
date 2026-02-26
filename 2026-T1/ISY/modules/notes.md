@@ -233,7 +233,7 @@ Write a summary of at least 100 words.
 
 Post your summary to the Module 2: Metrics Suitability Discussion Forum. Read through the posts of your peers. Do you all share the same view of how the authors discovered that this metric was unsuitable? If not, why not? Comment on the post of at least one other person.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Done*
 
 #### Activity 2: Metrics for Unsupervised Approaches
 - Inglés-Romero, J. F., Espín, J. M., Jiménez-Andreu, R., Font, R. & Vicente-Chicote, C. (2018). Towards the use of quality-of-service metrics in reinforcement learning: A robotics example. Paper presented at MODELS Workshops 2018, 465–474. Retrieved from: http://ceur-ws.org/Vol-2245/morse_paper_4.pdf
@@ -245,6 +245,19 @@ Write two summaries of at least 100 words for each paper.
 Post your two summaries to the Module 2: Unsupervised Metrics Discussion Forum (i.e., one summary on reinforcement learning and another summary on unsupervised learning metrics).
 
 > *Status: 🕐 To-Do*
+
+---
+
+## Module 3 - Machine Learning Models
+
+### TLDR
+
+### Introduction
+A machine learning (ML) model is the brain of an intelligent system. Its logic tries to mimic and simulate the way in which the human mind thinks and decides. Like a baby, who can deduce from experience that they will be burnt if they touch a flame, a ML model fits to a dataset and finds a logic between features and targets to gain experience. It can then predict the outcome of a new data by examining what it learned. There are many types of ML models. In this Module, you will first be introduced to six types of ML models. You will later need to investigate three more on your own. Next, this Module will examine some techniques (e.g., cross-validation) that can be used to choose a model that is appropriate to your problem. Then, this Module will show that a model can be improved if the hyperparameters of the model are tuned. Finally, some techniques for fine tuning the Model will also be discussed.
+
+### Resources
+
+### Learning Activities
 
 ---
 ```bash
