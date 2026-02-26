@@ -282,9 +282,9 @@ From Module 2, you now know what cloud is, and its utility and history. Now, it�
     To access resources from O’Reilly, please ensure that you are logged into your Torrens University student account and it is best that you go through the Library Catalogue on this [link](https://torrens.idm.oclc.org/login?url=https://www.oreilly.com/library/view/temporary-access/?orpq&email=^u). You can also access the FAQs for accessing O’Reilly on [this link](https://faq.torrens.edu.au/faq/270350).
 
 #### 3. Cloud Deployment Models—IBM Cloud Education
-- IBM. (n.d.). What is a public cloud?. https://www.ibm.com/cloud/learn/public-cloud
-- IBM. (n.d.). What is private cloud? https://www.ibm.com/cloud/learn/introduction-to-private-cloud
-- IBM. (n.d.). What is hybrid cloud? https://www.ibm.com/cloud/learn/hybrid-cloud
+- IBM. (n.d.). What is a public cloud?. https://www.ibm.com/think/topics/public-cloud
+- IBM. (n.d.). What is private cloud? https://www.ibm.com/think/topics/private-cloud
+- IBM. (n.d.). What is hybrid cloud? https://www.ibm.com/think/topics/hybrid-cloud
 
 *Resource Overview:*
     
@@ -298,7 +298,7 @@ From Module 2, you now know what cloud is, and its utility and history. Now, it�
     Did you find concepts like the different deployment models’ characteristics, advantages and disadvantages tricky to recall? You may like to answer review questions 1, 5, 6, 8 and 9 here on [page 65](https://ebookcentral.proquest.com/lib/think/reader.action?c=UERG&docID=1731944&ppg=89) to test what you have retained.
 
 #### 5. Virtual Private Cloud (VPC)
-- IBM. (n.d.). What is a virtual private cloud (VPC)? https://www.ibm.com/cloud/learn/vpc
+- IBM. (n.d.). What is a virtual private cloud (VPC)? https://www.ibm.com/think/topics/vpc
 
 *Resource Overview:*
 
