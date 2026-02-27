@@ -253,6 +253,13 @@ Why do you think this key service unlocks so much value for the customer?
 ## Module 3 - Cloud Computing Deployment Models
 
 ### TLDR
+- Four deployment models: **Public** (multi-tenant, provider-managed), **Private** (single-tenant, org-controlled), **Hybrid** (best of both, most adopted), **Community** (shared among similar orgs e.g. banks)
+- **Public cloud** = utility model; pay-per-use; high scalability but less control; security is improving (Gartner: 60% fewer incidents than on-prem)
+- **Private cloud** = full control + compliance; higher cost; four subtypes: on-prem, VPC, hosted, managed
+- **Hybrid cloud** = dominant enterprise strategy (~77% adoption); enables cloud bursting, workload portability, 2.5× more value than single-vendor approach (IBM IBV)
+- **VPC** = private cloud-like environment on public infrastructure; logically isolated via ACLs + security groups; best of both worlds (public economics + private security)
+- Platform choice matters: open-source CMPs (OpenStack, CloudStack) vs. commercial (Azure, VMware); choosing wrong platform has long-term costs
+- Cloud challenges remain: security, governance, compliance, vendor lock-in, multi-cloud complexity
 
 ### Introduction
 From Module 2, you now know what cloud is, and its utility and history. Now, it’s time to look at different deployment models that cloud can be utilised in. In Module 3, we will discuss four cloud computing deployment models:
@@ -270,7 +277,7 @@ From Module 2, you now know what cloud is, and its utility and history. Now, it�
 
     This quick-to-the-point introduction to the cloud deployment models covers the basics of the three major cloud deployment models: public, private and hybrid. Pay attention to the differing degrees of accessibility, privacy and security.
 
-> *Status: 🕐 To-Do*
+> *Status: 🔥 WIP — LinkedIn Learning video, requires manual watch (authenticated access)*
 
 #### 2. Cloud Computing Deployment Models and Cloud Challenges
 - Manvi, S., & Shyam, G. K. (2021). Cloud computing: Concepts and technologies. CRC Press. https://learning-oreilly-com.torrens.idm.oclc.org/library/view/cloud-computing/9781000338058/xhtml/01chap_01.xhtml#sec1_3
@@ -281,14 +288,18 @@ From Module 2, you now know what cloud is, and its utility and history. Now, it�
 
     To access resources from O’Reilly, please ensure that you are logged into your Torrens University student account and it is best that you go through the Library Catalogue on this [link](https://torrens.idm.oclc.org/login?url=https://www.oreilly.com/library/view/temporary-access/?orpq&email=^u). You can also access the FAQs for accessing O’Reilly on [this link](https://faq.torrens.edu.au/faq/270350).
 
+> *Status: ✅ Read + Reviewed — see [module03_notes.md](./module_03_cloud-computing-deployment-models/module03_notes.md#resource-2--manvi-s--shyam-g-k-2021-cloud-computing-concepts-and-technologies-crc-press-ch13--ch15)*
+
 #### 3. Cloud Deployment Models—IBM Cloud Education
 - IBM. (n.d.). What is a public cloud?. https://www.ibm.com/think/topics/public-cloud
 - IBM. (n.d.). What is private cloud? https://www.ibm.com/think/topics/private-cloud
 - IBM. (n.d.). What is hybrid cloud? https://www.ibm.com/think/topics/hybrid-cloud
 
 *Resource Overview:*
-    
+
     Here, we will look deeper into the three deployment models with the help of an industry leader, IBM. The links below cover comparisons of each model, and also give you some additional resources as part of the IBM Cloud Education—a handy resource to widen your cloud knowledge.
+
+> *Status: ✅ Read + Reviewed — see [module03_notes.md](./module_03_cloud-computing-deployment-models/module03_notes.md#resource-3--ibm-cloud-education-public--private--hybrid-cloud)*
 
 #### 4. Reviewing Cloud Deployment Models
 - Chandrasekaran, K. (2015). Essentials of cloud computing. CRC Press. https://learning-oreilly-com.torrens.idm.oclc.org/library/view/essentials-of-cloud/9781482205435/chapter-22.htm
@@ -297,12 +308,16 @@ From Module 2, you now know what cloud is, and its utility and history. Now, it�
 
     Did you find concepts like the different deployment models’ characteristics, advantages and disadvantages tricky to recall? You may like to answer review questions 1, 5, 6, 8 and 9 here on [page 65](https://ebookcentral.proquest.com/lib/think/reader.action?c=UERG&docID=1731944&ppg=89) to test what you have retained.
 
+> *Status: 🔥 WIP — O’Reilly + ProQuest authenticated access required; needs manual review*
+
 #### 5. Virtual Private Cloud (VPC)
 - IBM. (n.d.). What is a virtual private cloud (VPC)? https://www.ibm.com/think/topics/vpc
 
 *Resource Overview:*
 
     A pubic cloud is like living with your family in one of the apartments. It’s somewhat private. But a virtual private cloud (VPC) is like having your own private studio apartment. Since only you hold the keys, you alone decide who is allowed in. This adds security and privacy. This article covers the feature, benefits and architecture of a VPC.
+
+> *Status: ✅ Read + Reviewed — see [module03_notes.md](./module_03_cloud-computing-deployment-models/module03_notes.md#resource-5--ibm-nd-what-is-a-virtual-private-cloud-vpc)*
 
 ---
 
