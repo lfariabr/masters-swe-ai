@@ -237,6 +237,7 @@ Post your summary to the Module 2: Metrics Suitability Discussion Forum. Read th
 
 #### Activity 2: Metrics for Unsupervised Approaches
 - Inglés-Romero, J. F., Espín, J. M., Jiménez-Andreu, R., Font, R. & Vicente-Chicote, C. (2018). Towards the use of quality-of-service metrics in reinforcement learning: A robotics example. Paper presented at MODELS Workshops 2018, 465–474. Retrieved from: http://ceur-ws.org/Vol-2245/morse_paper_4.pdf
+- Palacio-Niño, J. O. (2019). Evaluation metrics for unsupervised learning algorithms. Retrieved from https://arxiv.org/abs/1905.05667
 
 The metrics discussed in this Module were mainly directed at supervised learning. For other approaches, such as reinforcement learning and unsupervised learning, other types of metrics should be applied, as the value of targets or outcomes are not available as they are for supervised learning. To understand the metrics of unsupervised learning, you need to read and summarise the following articles. Read the summaries of your peers. You may find that they have captured the essence of an article succinctly or these summaries may be helpful if you have not quite understood something.
 
@@ -244,7 +245,7 @@ Write two summaries of at least 100 words for each paper.
 
 Post your two summaries to the Module 2: Unsupervised Metrics Discussion Forum (i.e., one summary on reinforcement learning and another summary on unsupervised learning metrics).
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Done*
 
 ---
 

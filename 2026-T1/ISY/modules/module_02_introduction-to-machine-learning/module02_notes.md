@@ -18,7 +18,7 @@
 | 9 | Hulten (2018) — Building Intelligent Systems (eBook) | Authenticated eBook | 🔥 WIP — needs institutional library access |
 | **10** | Halligan et al. (2015) — Disadvantages of ROC AUC for Imaging Tests | PDF paper | ✅ Read + Reviewed |
 | **A1** | Activity 1: Metrics Suitability (Discussion Forum) | Activity | ✅ Done |
-| A2 | Activity 2: Metrics for Unsupervised Approaches (Discussion Forum) | Activity | 🕐 To-Do |
+| **A2** | Activity 2: Metrics for Unsupervised Approaches (Discussion Forum) | Activity | ✅ Done |
 
 ---
 
@@ -588,7 +588,7 @@ Net benefit:
 ## Activities
 
 ### Activity 1: Metrics Suitability (Discussion Forum)
-```
+```bash
 # Activity 1 Submission — Halligan et al. (2015)
 
 Halligan et al. (2015) identified several ways ROC AUC is unsuitable for evaluating imaging tests:
@@ -600,8 +600,29 @@ The authors propose Net Benefit as a clinically meaningful alternative that acco
 ```
 
 ### Activity 2: Metrics for Unsupervised Approaches (Discussion Forum)
-```bash
+```
 # Activity 2 Submission
+
+Reinforcement Learning: Inglés-Romero et al. (2018)
+
+The main insight from Inglés-Romero et al. (2018) is that defining a good reward function in RL is harder than it looks.
+
+The paper introduces RoQME, a framework that enriches the reward signal using Quality of Service (QoS) metrics — non-functional properties like safety, reliability, and user satisfaction — rather than a single hand-crafted scalar. 
+
+The experiment puts a "Santa Bot" robot in a shopping mall, learning to match gifts to children based on satisfaction scores derived from a facial-expression belief network. 
+After 1,000 Q-learning episodes, the agent hit 72% average and 84% max performance against the optimal baseline. Crucially, when RoQME was misconfigured, the agent failed to learn at all — confirming that reward quality determines learning quality.
+
+This contrasts with supervised learning, where the target labels are given upfront and the challenge is fitting the model, not specifying the objective.
+
+Unsupervised Learning Metrics: Palacio-Niño (2019)
+
+Palacio-Niño (2019) tackles something hard: how do we evaluate a model when there are no correct labels to compare against? In supervised learning we measure against known targets; in unsupervised learning the algorithm discovers structure, and evaluating whether that discovery is meaningful is a different challenge entirely. 
+
+The paper anchors on Kleinberg's Impossibility Theorem: no clustering algorithm can simultaneously satisfy richness, consistency, and scale invariance, which means every algorithm involves trade-offs by design. From there, the paper distinguishes two evaluation strategies: 
+1. External criteria (Rand Index, NMI, Purity) when ground-truth labels exist for validation
+2. Internal criteria (Silhouette, Davies-Bouldin,Calinski-Harabász) when they don't. 
+
+The Silhouette Coefficient stands out as a practical 1st check, as it measures how similar a point is to its own cluster versus the nearest other cluster, giving a quick read on structure quality without needing any labels.
 ```
 
 ---
