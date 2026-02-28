@@ -41,7 +41,7 @@ This report examines the DHITA framework as a case study in applying intelligent
 
 ### 2.1 Intelligent System Overview
 
-DHITA is a supervised ML system for text analytics operating as a two-step pipeline: (1) feature engineering — transforming raw DHI text into numerical representations — and (2) predictive modeling — applying those features to trained classifiers and regressors for clinical outcome prediction.
+DHITA is a supervised ML system for text analytics operating as a two-step pipeline: (1) feature engineering — transforming raw DHI text into numerical representations — and (2) predictive modeling — applying those features to trained classifiers and regressors.
 
 ### 2.2 Machine Learning Models
 
@@ -50,15 +50,26 @@ Two predictive models are deployed. **Model A** — a Random Forest classifier (
 Feature selection is performed using the Least Absolute Shrinkage and Selection Operator (LASSO) with 50-fold cross-validation (Tibshirani, 1996). LASSO imposes L1 regularization that drives irrelevant feature coefficients to zero, selecting a compact interpretable subset from the 241 available features — necessary given the limited sample size.
 
 ### 2.3 Methods and Techniques
-#TODO: (convert to a table)
-The feature engineering layer combines seven representation strategies to produce 241 features per user. 
-1. *Metadata features* (n=5) capture session-level statistics such as message length and response time. 
-2. *Word frequency features* (n=79) apply minimum/maximum occurrence thresholds to filter vocabulary by clinical relevance. 
-3. *GloVe word embeddings* (n=50) average 50-dimensional pre-trained vectors across tokens to produce a fixed-length document representation (Pennington et al., 2014). 
-4. *Part-of-speech (POS) tagging* (n=44) uses Apache OpenNLP to count grammatical category frequencies at approximately 95% accuracy. 
-5. *Latent Dirichlet Allocation (LDA) topic modeling* (n=10) extracts eight latent themes from the corpus (Blei et al., 2003). 
-6. *Sentiment lexicons* (n=30) leverage NRC Emotion Lexicon, AFINN, and Bing to quantify affective tone. 
-7. Area Under the ROC Curve (AUC) serves as the primary evaluation metric, selected for its robustness to class imbalance.
+
+The feature engineering layer produces 241 features per user across seven categories (Table 1). Each group captures a distinct linguistic or behavioural dimension, ensuring non-redundant representations.
+
+**Table 1.** DHITA Feature Engineering Strategies
+
+| Feature Type | Count | Method / Tool | Key Reference |
+|---|---:|---|---|
+| Metadata | 5 | Message length, response time, session statistics | — |
+| Word frequency | 79 | MINOCC/MAXOCC threshold filtering | — |
+| Word embeddings | 50 | GloVe 50-dim averaged vectors | Pennington et al. (2014) |
+| POS tags | 44 | Apache OpenNLP (~95% accuracy) | — |
+| Topic model | 10 | LDA, 8 latent topics | Blei et al. (2003) |
+| Sentiment lexicons | 30 | NRC, AFINN, Bing | — |
+| Communication stats | 23 | Message count, frequency, patterns | — |
+| **Total** | **241** | | |
+
+Area Under the ROC Curve (AUC) serves as the primary evaluation metric, selected for robustness to class imbalance.
+
+> 📸 **[Figure 1 — Suggested]** DHITA two-step pipeline architecture
+> **Nano Banana prompt:** "Minimalist technical flow diagram. Left box: 'DHI Text Input (journals + coach messages)'. Centre: 7 parallel feature extraction boxes (Metadata n=5, Word Frequency n=79, GloVe Embeddings n=50, POS Tags n=44, LDA Topics n=10, Sentiment Lexicons n=30, Communication Stats n=23) all converging into one '241-dim Feature Vector' box. Right: two output branches — 'Model A: Random Forest → Symptom Severity AUC 0.72' and 'Model B: Logistic Regression → 6-month Outcome'. Clean academic style, blue-grey palette, white background, sans-serif labels."
 
 ### 2.4 Related Work
 
@@ -79,11 +90,25 @@ The study employed a retrospective observational design, re-analyzing text data 
 
 The dataset comprised 37,228 intervention text snippets from SBED participant journals and 4,285 coach-user messages from the HBI program, contributed by 372 users in total. Of these, 100 users with complete six-month follow-up assessments using the Eating Disorder Examination Questionnaire (EDE-Q) were used for outcome prediction. The study population was homogeneous: predominantly college-age females with subclinical eating disorders — a deliberate clinical design choice that simultaneously limits external validity.
 
-Text preprocessing followed standard NLP practices: tokenization, stemming (Porter stemmer), and vocabulary filtering via MINOCC/MAXOCC thresholds to remove rare and overly common tokens. GloVe vectors were averaged across tokens per document. LDA was trained on the full corpus to extract eight latent topics. Model evaluation used a within-user protocol for Model A (training and testing on the same user's temporal data) and a cross-user protocol for Model B (evaluation across 100 users). LASSO with 50-fold cross-validation was applied for feature selection prior to final model fitting.
+Text preprocessing followed standard NLP practices: tokenization, stemming (Porter stemmer), and vocabulary filtering via MINOCC/MAXOCC thresholds to remove rare and overly common tokens. GloVe vectors were averaged across tokens per document. Model evaluation used a within-user protocol for Model A (training and testing on the same user's temporal data) and a cross-user protocol for Model B (evaluation across 100 users). LASSO with 50-fold cross-validation was applied for feature selection prior to final model fitting.
 
 ### 3.3 Ethical Considerations
 
-The dataset contains sensitive mental health disclosures — eating disorder diaries and private coach messages. Privacy is maintained at the aggregate feature level, but re-identification risk persists in small, homogeneous cohorts; participants consented to RCT participation, not secondary NLP analysis. Training exclusively on college-age females introduces demographic bias, limiting equitable performance across other populations. LASSO provides partial interpretability, but Random Forest lacks native explainability, requiring post-hoc tools for clinical audit. Most critically, AUC 0.57–0.72 is insufficient for autonomous clinical decisions; deploying predictions without human-in-the-loop oversight risks triage errors and harm to vulnerable users.
+Four interdependent ethical dimensions arise from DHITA's design and data (Table 3).
+
+**Table 3.** Ethical Considerations
+
+| Dimension | Issue | Risk Level |
+|---|---|---|
+| Privacy & consent | RCT consent ≠ secondary NLP analysis; re-identification risk in small cohorts | High |
+| Bias & fairness | Dataset limited to college-age females; cross-population performance unvalidated | High |
+| Explainability | Random Forest lacks native interpretability; LASSO provides partial audit trail only | Medium |
+| Clinical safety | AUC 0.57–0.72 insufficient for autonomous decisions; human oversight mandatory | Critical |
+
+Ethical deployment demands updated consent protocols, mandatory human-in-the-loop review, and population-diverse replication before any clinical use.
+
+> 📸 **[Figure 3 — Suggested]** Ethical risk quadrant
+> **Nano Banana prompt:** "2×2 risk quadrant. X-axis: 'Severity of Harm (Low → High)'. Y-axis: 'Likelihood of Occurrence (Low → High)'. Four labelled points: top-right 'Clinical Over-reliance' (red dot), top-left 'Re-identification Risk' (orange dot), bottom-right 'Algorithmic Bias' (orange dot), bottom-left 'Explainability Gap' (yellow dot). Clean academic infographic, white background, minimal style."
 
 ### 3.4 Implementation Process
 
@@ -98,13 +123,24 @@ The pipeline was implemented using standard scientific Python tooling, with Apac
 
 ### 4.1 Performance Metrics
 
-Model A (symptom severity prediction, Random Forest) achieved an AUC of 0.72 under within-user evaluation — where the model trains and tests on the same individual's temporal data. Under the more rigorous cross-user protocol, AUC dropped to 0.57, marginally above the random baseline of 0.50. Model B (six-month outcome prediction, Logistic Regression) identified approximately 10 key predictive features following LASSO selection. Both models outperformed the random baseline; within-user AUC of 0.72 represents the study's strongest result.
+Table 2 summarises model performance; both models outperformed the random baseline (AUC 0.50).
+
+**Table 2.** DHITA Predictive Model Performance
+
+| Model | Algorithm | Task | Protocol | AUC |
+|---|---|---|---|---:|
+| A | Random Forest (200 trees) | Symptom severity | Within-user | **0.72** |
+| A | Random Forest (200 trees) | Symptom severity | Cross-user | 0.57 |
+| B | Logistic Regression | 6-month outcome | Cross-user | ~10 features selected |
+
+> 📸 **[Figure 2 — Suggested]** Model AUC comparison bar chart
+> **Nano Banana prompt:** "Simple horizontal bar chart. Three bars: 'Model A Within-User' (AUC 0.72, highlighted in teal), 'Model A Cross-User' (AUC 0.57, mid-blue), 'Random Baseline' (AUC 0.50, grey). X-axis: 0.0 to 1.0. Vertical dashed line at 0.85 labelled 'Clinical Decision Support Threshold'. Clean academic style, white background, minimal grid lines."
 
 ### 4.2 Key Findings
 
-The most discriminative features for outcome prediction centered on thematic and behavioral signals: body-image and diet-related language, references to program content ("help," "program" terms), and temporal engagement metrics such as message response rate and response time. This suggests that linguistic engagement with program content — not just emotional tone — predicts treatment trajectory.
+The most discriminative features for outcome prediction centered on thematic and behavioral signals: body-image and diet-related language, references to program content ("help," "program" terms), and temporal engagement metrics such as message response rate and response time. This suggests that linguistic engagement with program content predicts treatment trajectory, not just emotional tone.
 
-The full feature set comprised 241 dimensions: metadata (5), communication statistics (23), word frequency (79), GloVe embeddings (50), POS tags (44), LDA topics (10), and sentiment scores (30). Correlation analysis of the feature matrix showed low inter-feature correlation, confirming that the seven feature groups contribute non-redundant information.
+Feature group counts are detailed in Table 1 (Background); correlation analysis confirmed low inter-feature overlap across all seven groups.
 
 ### 4.3 Visual Analysis
 
@@ -119,13 +155,13 @@ The original paper reports ROC curves for both models, with Model A's within-use
 
 ### 5.1 Relevance and Significance
 
-DHITA demonstrates that NLP-derived features from digital health text carry predictive signal for clinical outcomes. The framework's modular design is a genuine contribution: by standardizing the feature engineering and modeling pipeline, it provides a replicable scaffold for DHI researchers, reducing the barrier to applying NLP in new health domains. The proof-of-concept AUC of 0.72 for symptom severity prediction validates the core hypothesis that linguistic signals in DHI text are clinically informative.
+DHITA demonstrates that NLP-derived features from digital health text carry predictive signal for clinical outcomes. The framework's modular design is a genuine contribution: by standardizing the feature engineering and modeling pipeline, it provides a replicable scaffold for DHI researchers, reducing the barrier to applying NLP in new health domains. The AUC of 0.72 confirms that linguistic signals in DHI text carry clinically informative content.
 
 ### 5.2 Obstacles and Limitations
 
 **Technical Obstacles:** The within-user/cross-user performance gap — from AUC 0.72 to 0.57 — is the study's most critical finding. It reveals that the model learns idiosyncratic patterns specific to individuals rather than generalizable population-level signals, fundamentally limiting scalability to new users.
 
-**Methodological Limitations:** The dataset is drawn exclusively from college-age females with eating disorders enrolled in structured RCTs. This narrow population restricts external validity and raises equity concerns: the model may perform poorly on demographically distinct groups. The 100-user outcome prediction sample is small, increasing variance in cross-user evaluation.
+**Methodological Limitations:** The dataset is drawn exclusively from college-age females with eating disorders enrolled in structured RCTs. This narrow population restricts external validity and raises equity concerns: the model may perform poorly on demographically distinct groups. The 100-user outcome prediction sample is small, increasing variance in cross-user evaluation. Beyond accuracy, the framework's narrow training population means its deployment would primarily benefit users demographically similar to the RCT cohort, reinforcing existing health inequity.
 
 **Constraints Reported in Article:** The authors explicitly acknowledge the preliminary status of the results, the absence of deep learning methods, and the need for validation across additional conditions and populations.
 
@@ -146,7 +182,7 @@ Replacing GloVe embeddings with contextual representations from transformer mode
 
 ### 6.2 Ethical and Practical Recommendations
 
-Any clinical deployment must incorporate mandatory human-in-the-loop review; no triage decision should rely solely on algorithmic output. SHAP or LIME explainability tools would enable clinicians to audit predictions. Consent frameworks must be updated to explicitly cover secondary NLP analysis. Integrating passive sensing signals — app usage frequency, session timing, response latency — alongside text features could improve predictive power without requiring additional sensitive disclosures. Future work could explore federated learning to enable multi-site training while preserving participant privacy.
+Any clinical deployment must incorporate mandatory human-in-the-loop review; no triage decision should rely solely on algorithmic output. SHAP or LIME explainability tools would enable clinicians to audit predictions. Consent frameworks must be updated to explicitly cover secondary NLP analysis. Integrating passive sensing signals — app usage frequency, session timing, response latency — alongside text features could improve predictive power without requiring additional sensitive disclosures. Future work could explore federated learning to enable multi-site training while preserving participant privacy. Longer term, accurate predictions could trigger automated coaching nudges, providing timely support without requiring constant clinician availability.
 
 **Target Word Count:** ~150-200 words
 
@@ -251,5 +287,5 @@ Funk et al.'s DHITA framework represents a meaningful step toward scalable clini
 
 ---
 
-**Last Updated:** 2026-02-25
+**Last Updated:** 2026-03-01
 **Status:** 🔥 Work in Progress
