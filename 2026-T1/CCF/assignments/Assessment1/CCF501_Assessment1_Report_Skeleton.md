@@ -64,15 +64,16 @@ Cloud providers offer three levers:
 **Recommendation:** A hybrid cost model - reserved capacity for stable customer-facing tiers (web/app, databases), pay-as-you-go autoscaling for demand spikes, and spot instances for background jobs and analytics pipelines. TCO modelling should include not just cloud fees but also migration cost, security tooling, and engineering effort (Bittok, 2022). As Bittok (2022) notes, cloud adoption is rarely about the cheapest bill - it's about better ROI: less downtime, faster launches, and automation that avoids linear headcount growth.
 
 ## 6. Cloud Provider Recommendation: AWS
-The realistic shortlist is AWS, Azure, or GCP. All three cover the technical baseline, but differentiate by ecosystem strength (Nishimura, 2022). AWS is the strongest fit for ABC: the scenario already references Route 53 (an AWS service), implying existing AWS-aligned architecture patterns. AWS pioneered affordable cloud infrastructure for start-ups - S3 and EC2 launched in 2006 - and offers the broadest managed-service catalogue for automation (Nishimura, 2022; Amazon Web Services, n.d.-a). 
-Two essential AWS elements for ABC's automation requirements: 
+Azure suits Microsoft-aligned enterprises; GCP leads in analytics. AWS best fits ABC: Route 53 already anchors the described architecture, and AWS offers the broadest automation-ready managed-service catalogue (Nishimura, 2022; Amazon Web Services, n.d.-a).
 
-### 1. Elastic Load Balancing + Auto Scaling: 
-Keeps the app responsive during demand surges by distributing traffic and scaling instances automatically, directly implementing rapid elasticity (Mell & Grance, 2011; Amazon Web Services, n.d.). 
+### 1. Elastic Load Balancing (ELB)
+Automates traffic routing and health-checks across EC2 instances without operator intervention — critical for ABC's delivery and taxi services where latency causes churn. ELB integrates natively with Route 53 and Auto Scaling already in ABC's stack; Azure Application Gateway and GCP Cloud Load Balancing require additional configuration to achieve the same (Amazon Web Services, n.d.).
 
-### 2. AWS Lambda: 
-Serverless compute for event-driven automation: order events, payment webhooks, image processing, notifications. No servers to manage; costs align with actual execution (Amazon Web Services, n.d.). Together, these turn operational workflows into policy-driven, event-driven systems - reusable, modular services consistent with SOA principles (McHaney, 2021).
+### 2. Auto Scaling
+Provisions or terminates EC2 instances based on demand signals, directly implementing NIST's rapid elasticity (Mell & Grance, 2011). The 10x surge required no manual intervention because capacity becomes policy-driven, not operator-driven — a fundamental shift from traditional IT (Amazon Web Services, n.d.).
 
+### 3. AWS Lambda
+Event-driven compute for ABC's workflow automation: order placed → delivery assigned; payment confirmed → restaurant notified. Unlike EC2, Lambda requires no server management; unlike SQS, no queue consumer. Functions scale to zero when idle and cost only per invocation (Amazon Web Services, n.d.; McHaney, 2021).
 
 ## 7. Conclusion
 Cloud computing is the right strategic move for ABC: measured service, rapid elasticity, and resource pooling (Mell & Grance, 2011) directly translate into business automation outcomes - scaling without procurement delays, operations without linear headcount growth, and faster time-to-market (Accenture Technology, 2020). The recommended stack is public cloud deployment, blended IaaS/PaaS service model, hybrid cost model, and AWS as provider. Managed well, ABC's infrastructure stops being a bottleneck and becomes a competitive advantage - scaling as far as product-market fit allows (Eliaçık, 2022).
