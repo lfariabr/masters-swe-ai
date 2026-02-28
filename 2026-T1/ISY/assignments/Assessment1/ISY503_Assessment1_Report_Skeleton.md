@@ -50,8 +50,15 @@ Two predictive models are deployed. **Model A** — a Random Forest classifier (
 Feature selection is performed using the Least Absolute Shrinkage and Selection Operator (LASSO) with 50-fold cross-validation (Tibshirani, 1996). LASSO imposes L1 regularization that drives irrelevant feature coefficients to zero, selecting a compact interpretable subset from the 241 available features — necessary given the limited sample size.
 
 ### 2.3 Methods and Techniques
-
-The feature engineering layer combines seven representation strategies to produce 241 features per user. *Metadata features* (n=5) capture session-level statistics such as message length and response time. *Word frequency features* (n=79) apply minimum/maximum occurrence thresholds to filter vocabulary by clinical relevance. *GloVe word embeddings* (n=50) average 50-dimensional pre-trained vectors across tokens to produce a fixed-length document representation (Pennington et al., 2014). *Part-of-speech (POS) tagging* (n=44) uses Apache OpenNLP to count grammatical category frequencies at approximately 95% accuracy. *Latent Dirichlet Allocation (LDA) topic modeling* (n=10) extracts eight latent themes from the corpus (Blei et al., 2003). *Sentiment lexicons* (n=30) leverage NRC Emotion Lexicon, AFINN, and Bing to quantify affective tone. Area Under the ROC Curve (AUC) serves as the primary evaluation metric, selected for its robustness to class imbalance.
+#TODO: (convert to a table)
+The feature engineering layer combines seven representation strategies to produce 241 features per user. 
+1. *Metadata features* (n=5) capture session-level statistics such as message length and response time. 
+2. *Word frequency features* (n=79) apply minimum/maximum occurrence thresholds to filter vocabulary by clinical relevance. 
+3. *GloVe word embeddings* (n=50) average 50-dimensional pre-trained vectors across tokens to produce a fixed-length document representation (Pennington et al., 2014). 
+4. *Part-of-speech (POS) tagging* (n=44) uses Apache OpenNLP to count grammatical category frequencies at approximately 95% accuracy. 
+5. *Latent Dirichlet Allocation (LDA) topic modeling* (n=10) extracts eight latent themes from the corpus (Blei et al., 2003). 
+6. *Sentiment lexicons* (n=30) leverage NRC Emotion Lexicon, AFINN, and Bing to quantify affective tone. 
+7. Area Under the ROC Curve (AUC) serves as the primary evaluation metric, selected for its robustness to class imbalance.
 
 ### 2.4 Related Work
 

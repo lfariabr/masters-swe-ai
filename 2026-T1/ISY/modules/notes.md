@@ -252,6 +252,7 @@ Post your two summaries to the Module 2: Unsupervised Metrics Discussion Forum (
 ## Module 3 - Machine Learning Models
 
 ### TLDR
+A **ML model** is the core logic of an intelligent system — it learns a mapping from features to targets. Module 3 surveys seven supervised classifiers: **Logistic Regression (LR)**, **Naïve Bayes (NB)**, **Stochastic Gradient Descent (SGD)**, **K-Nearest Neighbours (KNN)**, **Decision Tree (DT)**, **Random Forest (RF)**, and **Support Vector Machine (SVM)**. **Model selection** is the process of choosing the best-fit pipeline from candidates, using either probabilistic criteria (AIC, BIC) for linear models or **resampling methods** (cross-validation) in general. **Cross-validation** avoids the overoptimism of training-set evaluation by splitting data: **LOO** leaves one point out per fold (unbiased but expensive); **K-Fold CV** (k = 5 or 10 in practice) partitions data into V equal folds — computationally efficient and the default choice. **Hyperparameter tuning** is post-fit model babysitting: **grid search** exhaustively tests all combinations (exponential cost) while **random search** samples randomly and outperforms grid when hyperparameter importance is unequal (the typical case).
 
 ### Introduction
 A machine learning (ML) model is the brain of an intelligent system. Its logic tries to mimic and simulate the way in which the human mind thinks and decides. Like a baby, who can deduce from experience that they will be burnt if they touch a flame, a ML model fits to a dataset and finds a logic between features and targets to gain experience. It can then predict the outcome of a new data by examining what it learned. There are many types of ML models. In this Module, you will first be introduced to six types of ML models. You will later need to investigate three more on your own. Next, this Module will examine some techniques (e.g., cross-validation) that can be used to choose a model that is appropriate to your problem. Then, this Module will show that a model can be improved if the hyperparameters of the model are tuned. Finally, some techniques for fine tuning the Model will also be discussed.
@@ -264,47 +265,37 @@ A machine learning (ML) model is the brain of an intelligent system. Its logic t
 - Analytics India Magazine. (2018, 15 February). 6 types of classification algorithms [Video file]. https://www.youtube.com/watch?v=ppXFoltcX7A
 
 *Resource Overview:*
-    
+
     Please watch the following short video. Despite the fact that it is very short, this video explains the idea of the following classifiers: Logistic Regression (LR), Naïve Bayes (NB), Stochastic Gradient Descent (SGD), K-Nearest Neighbours (KNN), Decision Tree (DT), Random Forest (RF) and Support Vector Machine (SVM). To gain a deeper understanding of each of the classifiers, please click on the link in the description of the video.
 
-> *Status: 🕐 To-Do*
+> *Status: 🔥 WIP — needs manual watch (see [module03_notes.md](./module_03_machine-learning-models/module03_notes.md))*
 
 #### 2. Model Selection
 - Brownlee, J. (2019, 2 December). A gentle introduction to model selection for machine learning. Retrieved from https://machinelearningmastery.com/a-gentle-introduction-to-model-selection-for-machine-learning/
 
 *Resource Overview:*
-    
-    Please watch the following short video. Despite the fact that it is very short, this video explains the idea of the following classifiers: Logistic Regression (LR), Naïve Bayes (NB), Stochastic Gradient Descent (SGD), K-Nearest Neighbours (KNN), Decision Tree (DT), Random Forest (RF) and Support Vector Machine (SVM). To gain a deeper understanding of each of the classifiers, please click on the link in the description of the video.
 
-> *Status: 🕐 To-Do*
-
-
-#### 2. Model Selection
-- Brownlee, J. (2019, 2 December). A gentle introduction to model selection for machine learning. Retrieved from https://machinelearningmastery.com/a-gentle-introduction-to-model-selection-for-machine-learning/
-
-*Resource Overview:*
-    
     In this link, an introduction to model selection has been represented. Read this article to gain an understanding of what model selection is, the considerations of model selection and model selection techniques. You may notice in the resampling techniques of model selection, that the train and test technique is mentioned; we discussed this technique in the previous module. In this Module, another important technique is discussed: cross-validation.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module03_notes.md](./module_03_machine-learning-models/module03_notes.md)*
 
 #### 3. Cross-Validation
 - Arlot, S. & Celisse, A. (2010). A survey of cross-validation procedures for model selection. Statistics Surveys, 4, 40–79. Retrieved from https://projecteuclid.org/download/pdfview_1/euclid.ssu/1268143839
 
 *Resource Overview:*
-    
+
     Please read Section 4.1, which discusses the philosophy of cross-validation. You need to first understand the purpose of cross-validation. Then, jump to Section 4.3 to read about some examples of cross-validation. In Section 4.3, read sub-sections 4.3.1 and 4.3.2, as they describe the main cross-validation techniques that will be used in this course: Leave One Out (LOO) and V-Fold (or K-Fold) cross-validation.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module03_notes.md](./module_03_machine-learning-models/module03_notes.md)*
 
 #### 4. Hyperparameter Tuning
 - Feurer, M. & Hutter, F. (2019) Hyperparameter optimization. In F. Hutter, L. Kotthoff & J. Vanschoren (Eds) Automated machine learning (pp. 3–34). Cham, Switzerland: Springer. Retrieved from https://link.springer.com/chapter/10.1007/978-3-030-05318-5_1
 
 *Resource Overview:*
-    
+
     Please read Section 1.3 to gain an understanding of hyperparameter tuning, which is a process of babysitting your model to make it even better. Many hyperparameters in a model may need to be changed to find the best value for them; this is called hyperparameter tuning. Grid and random searches are the main techniques used to fine tune a model (see the discussion in Section 1.3.1).
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module03_notes.md](./module_03_machine-learning-models/module03_notes.md)*
 
 ---
 

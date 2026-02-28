@@ -6,3 +6,238 @@
 ## Task List
 
 | # | Resource / Activity | Type | Status |
+|---|---------------------|------|--------|
+| 1 | Analytics India Magazine (2018) — 6 Types of Classification Algorithms | Video | 🔥 WIP — needs manual watch |
+| 2 | Brownlee (2019) — A Gentle Introduction to Model Selection | Article | ✅ Read + Reviewed |
+| 3 | Arlot & Celisse (2010) — A Survey of Cross-Validation Procedures | Academic paper | ✅ Read + Reviewed |
+| 4 | Feurer & Hutter (2019) — Hyperparameter Optimization | Book chapter | ✅ Read + Reviewed |
+| A1 | Extra Machine Learning Models (Linear Regression, PCA, AdaBoost, XGBoost) | Activity | 🕐 To-Do |
+| A2 | K-Fold Cross-Validation Discussion (K = 1, 2, 5, 10, N–2, N–1) | Activity | 🕐 To-Do |
+
+---
+
+## Key Highlights
+
+### 1. Analytics India Magazine (2018). 6 Types of Classification Algorithms [Video]
+
+**Citation:** Analytics India Magazine. (2018, 15 February). *6 types of classification algorithms* [Video file]. https://www.youtube.com/watch?v=ppXFoltcX7A
+
+**Purpose:** Introduces seven supervised classifiers — Logistic Regression (LR), Naïve Bayes (NB), Stochastic Gradient Descent (SGD), K-Nearest Neighbours (KNN), Decision Tree (DT), Random Forest (RF), and Support Vector Machine (SVM) — in a short visual format.
+
+> 🔥 **WIP — needs manual watch.** No transcript available; highlights cannot be extracted automatically. Watch the video and note the logic, boundary conditions, and use-case fit for each of the seven classifiers.
+
+---
+
+### 2. Brownlee, J. (2019). A Gentle Introduction to Model Selection for Machine Learning
+
+**Citation:** Brownlee, J. (2019, 2 December). *A gentle introduction to model selection for machine learning*. Machine Learning Mastery. https://machinelearningmastery.com/a-gentle-introduction-to-model-selection-for-machine-learning/
+
+**Purpose:** Explains what model selection is, why performance alone is insufficient, and introduces the two main families of model selection techniques.
+
+#### 1. What Is Model Selection?
+
+**Model selection** is the process of choosing one final machine learning model from a collection of candidate models for a training dataset. It applies to:
+- Comparing **different algorithm types** (e.g. logistic regression vs. SVM vs. KNN)
+- Comparing **same-type models** with different hyperparameter configurations (e.g. SVM with different kernels)
+
+> *Model selection is distinct from model assessment.* Selection = choosing the best among candidates. Assessment = evaluating how well the chosen model will generalise.
+
+#### 2. Considerations for Model Selection
+
+The concept of a "best" model is not useful — all models carry some predictive error from data noise, incomplete sampling, and algorithm limitations. The goal is a **"good enough" model** that satisfies one or more of:
+
+| Criterion | Description |
+|-----------|-------------|
+| Stakeholder constraints | Simplicity, explainability, maintainability |
+| Resource constraints | Acceptable training/inference time and cost |
+| Naive baseline comparison | Better than a trivial default |
+| Peer comparison | Best among tested alternatives |
+| State-of-the-art comparison | Competitive with published benchmarks |
+
+**Key insight:** Model selection is not selecting a pre-fitted model but selecting a **model development pipeline** — because different algorithms require different data preparation steps (filtering, transformation, feature selection, feature engineering).
+
+#### 3. Model Selection Techniques
+
+Two main classes:
+
+| Class | Mechanism | Best suited for |
+|-------|-----------|-----------------|
+| **Probabilistic Measures** | Score via in-sample error + complexity penalty | Simpler linear models (LR, logistic regression) |
+| **Resampling Methods** | Estimate out-of-sample error by splitting data | All model types; most practical setting |
+
+**Probabilistic measures** include:
+- **AIC** (Akaike Information Criterion)
+- **BIC** (Bayesian Information Criterion)
+- **MDL** (Minimum Description Length)
+- **SRM** (Structural Risk Minimization)
+
+> Training error is *optimistically biased*; probabilistic measures add a complexity penalty to compensate.
+
+**Resampling methods** include:
+- Random train/test splits
+- **Cross-validation** (k-fold, LOO, etc.) — most widely used
+- Bootstrap
+
+> "Probably the simplest and most widely used method for estimating prediction error is cross-validation." — *The Elements of Statistical Learning*, 2017
+
+#### Key Takeaways for Intelligent Systems
+
+- Never judge a model on training error alone — always estimate out-of-sample performance.
+- Select among **pipelines**, not just algorithms; data preprocessing is part of what is being compared.
+- When data is sufficient: use **train / validation / test** split. When data is limited: use **cross-validation**.
+- Probabilistic criteria (AIC/BIC) are tractable for linear models; resampling (CV) is the universal fallback.
+
+---
+
+### 3. Arlot, S. & Celisse, A. (2010). A Survey of Cross-Validation Procedures for Model Selection
+
+**Citation:** Arlot, S. & Celisse, A. (2010). A survey of cross-validation procedures for model selection. *Statistics Surveys*, 4, 40–79. https://projecteuclid.org/download/pdfview_1/euclid.ssu/1268143839
+
+**Purpose:** Provides a rigorous theoretical and empirical survey of cross-validation methods, establishing when and why they work for model selection.
+
+#### 1. Cross-Validation Philosophy (Section 4.1)
+
+As noted by Larson (1931), **training and evaluating a model on the same data yields an overoptimistic result** — the resubstitution error is biased downward (overfitting).
+
+CV's solution: **split the data** so the training sample and the validation sample are independent.
+- **Training sample** → used to fit the algorithm
+- **Validation sample** → used to estimate its true risk (generalisation error)
+
+Averaging estimates over multiple splits gives a **cross-validation estimate** of the risk.
+
+**Why CV is universal:**
+- Assumes only that data are identically distributed (i.i.d.) and that training/validation splits are independent
+- Applies to regression, classification, density estimation — almost any statistical framework
+- Most other model selection procedures (e.g. Cp/Mallows) are framework-specific
+
+#### 2. From Validation to Cross-Validation (Section 4.2)
+
+| Method | Description |
+|--------|-------------|
+| **Hold-out (simple validation)** | Single train/validation split. Fast but high variance estimate. |
+| **Cross-validation (general)** | Average over B splits of the data. Lower variance, more reliable. |
+
+#### 3. Classical CV Examples (Section 4.3)
+
+##### 3a. Exhaustive Data Splitting (Section 4.3.1)
+
+**Leave-One-Out (LOO):**
+- Training set size: n − 1 (one data point is left out at a time)
+- Each of the n data points is successively the validation point
+- Requires **n model fits** — computationally expensive for large datasets
+- Essentially unbiased estimate of the risk, but high variance
+
+$$\hat{L}^{LOO}(A; D_n) = \frac{1}{n} \sum_{j=1}^{n} \gamma\left(A(D_n^{(-j)}); \xi_j\right)$$
+
+**Leave-p-Out (LPO):**
+- Exhaustive CV where p data points are left out each time
+- Considers all C(n, p) subsets — computationally infeasible for large p
+- LPO with p = 1 = LOO
+
+##### 3b. Partial Data Splitting (Section 4.3.2)
+
+**V-Fold Cross-Validation (VFCV) — also called K-Fold CV:**
+- Data is partitioned into V subsamples of approximately equal size (≈ n/V each)
+- Each subsample successively plays the role of the validation set
+- Requires only **V model fits** — much more efficient than LOO
+- Introduced by Geisser (1975) as a computationally tractable alternative to LOO
+- **VFCV with V = n is equivalent to LOO**
+
+| V (K) value | Training size | Validation size | Notes |
+|-------------|---------------|-----------------|-------|
+| V = 2 | n/2 | n/2 | High bias, low compute |
+| V = 5 | 4n/5 | n/5 | Common practical choice |
+| V = 10 | 9n/10 | n/10 | Common practical choice |
+| V = n (LOO) | n − 1 | 1 | Unbiased, but O(n) compute |
+
+Other partial splitting methods: **BICV** (Balanced Incomplete CV), **RLT** (Repeated Learning-Testing), **MCCV** (Monte-Carlo CV — allows repeated splits).
+
+#### Key Takeaways for Intelligent Systems
+
+- Use CV to get an unbiased estimate of how well your model generalises to unseen data.
+- **LOO**: use when data is very small (maximises training data per fold); expensive for large n.
+- **K-Fold (V-Fold)**: default practical choice — k = 5 or k = 10 is standard. Balances bias and compute cost.
+- K-Fold with K = n collapses to LOO; K = 1 is invalid (no validation set).
+- For model selection in ISY503: use **5-fold or 10-fold CV** to compare classifiers on your dataset.
+
+---
+
+### 4. Feurer, M. & Hutter, F. (2019). Hyperparameter Optimization
+
+**Citation:** Feurer, M. & Hutter, F. (2019). Hyperparameter optimization. In F. Hutter, L. Kotthoff & J. Vanschoren (Eds), *Automated machine learning* (pp. 3–34). Cham, Switzerland: Springer. https://link.springer.com/chapter/10.1007/978-3-030-05318-5_1
+
+**Purpose:** Surveys hyperparameter optimisation (HPO) methods, covering the formulation of HPO as a blackbox problem and the practical search strategies used to find optimal configurations.
+
+#### 1. What Are Hyperparameters?
+
+**Hyperparameters** are model settings that are not learned from data during training — they must be set *before* training begins. Examples:
+- Number of neighbours K in KNN
+- Max depth of a Decision Tree
+- Regularisation strength (C, λ) in SVM or logistic regression
+- Learning rate and batch size in gradient-based methods
+
+**Hyperparameter optimisation (HPO)** = finding the configuration of hyperparameters that minimises a loss (or maximises performance) on a validation set.
+
+> "Babysitting your model to make it even better." — ISY503 Module 3 overview
+
+#### 2. HPO as a Blackbox Problem (Section 1.3)
+
+HPO treats the mapping from hyperparameter configuration → validation performance as a **blackbox function**: expensive to evaluate (requires training a full model), non-convex, and with no accessible gradient. Global optimisation algorithms are preferred.
+
+#### 3. Model-Free Blackbox Methods (Section 1.3.1)
+
+**Grid Search:**
+- User specifies a finite set of values per hyperparameter; evaluates the **Cartesian product** of all combinations
+- Suffers from the **curse of dimensionality**: evaluations grow exponentially with the number of hyperparameters
+- For N hyperparameters with budget B, only B^(1/N) distinct values per hyperparameter can be explored
+
+**Random Search:**
+- Samples configurations **at random** until a computational budget is exhausted
+- Outperforms grid search when hyperparameters have **unequal importance** (many real-world cases)
+- For N hyperparameters with budget B, explores **B distinct values per hyperparameter** (vs. B^(1/N) for grid)
+- Advantages: easy to parallelise, no communication overhead, flexible budget allocation
+
+| Method | Values explored per HP (budget B, N HPs) | Best when |
+|--------|-------------------------------------------|-----------|
+| Grid search | B^(1/N) | All HPs equally important, small N |
+| Random search | B | Some HPs more important than others |
+
+**Population-Based Methods:**
+- Genetic algorithms, evolutionary strategies (e.g. CMA-ES), particle swarm optimisation
+- Maintain a *population* of configurations, improve via mutations and crossover
+- Embarrassingly parallel (N configurations evaluated simultaneously)
+- CMA-ES is competitive in black-box benchmarks
+
+#### 4. Bayesian Optimisation (Section 1.3.2)
+
+**Bayesian optimisation** is state-of-the-art for HPO of expensive blackbox functions:
+- Builds a **surrogate model** (e.g. Gaussian Process) of the objective function
+- Uses an **acquisition function** to decide where to evaluate next, balancing exploration and exploitation
+- Shown to outperform grid/random search for tuning deep neural networks
+- Handles constraints and multi-objective optimisation
+
+#### Key Takeaways for Intelligent Systems
+
+- Always tune hyperparameters — the default configuration is rarely optimal.
+- **Grid search**: systematic but inefficient for high-dimensional hyperparameter spaces.
+- **Random search**: preferred baseline when hyperparameter importance is unequal (the common case).
+- Combine CV with HPO: tune hyperparameters using cross-validation to avoid overfitting to the validation set.
+- For ISY503 practical work: use `GridSearchCV` or `RandomizedSearchCV` from scikit-learn with k-fold CV.
+
+```python
+from sklearn.model_selection import GridSearchCV, RandomizedSearchCV
+from sklearn.svm import SVC
+
+# Grid search example
+param_grid = {'C': [0.1, 1, 10], 'kernel': ['rbf', 'linear']}
+grid_search = GridSearchCV(SVC(), param_grid, cv=5, scoring='f1')
+grid_search.fit(X_train, y_train)
+print(grid_search.best_params_)
+
+# Random search example (more efficient for larger spaces)
+from scipy.stats import loguniform
+param_dist = {'C': loguniform(0.01, 100), 'kernel': ['rbf', 'linear']}
+rand_search = RandomizedSearchCV(SVC(), param_dist, n_iter=20, cv=5, random_state=42)
+rand_search.fit(X_train, y_train)
+print(rand_search.best_params_)
+```
