@@ -260,6 +260,94 @@ A machine learning (ML) model is the brain of an intelligent system. Its logic t
 
 ### Learning Activities
 
+#### 1. Six Types of Classification Algorithms
+- Analytics India Magazine. (2018, 15 February). 6 types of classification algorithms [Video file]. https://www.youtube.com/watch?v=ppXFoltcX7A
+
+*Resource Overview:*
+    
+    Please watch the following short video. Despite the fact that it is very short, this video explains the idea of the following classifiers: Logistic Regression (LR), Naïve Bayes (NB), Stochastic Gradient Descent (SGD), K-Nearest Neighbours (KNN), Decision Tree (DT), Random Forest (RF) and Support Vector Machine (SVM). To gain a deeper understanding of each of the classifiers, please click on the link in the description of the video.
+
+> *Status: 🕐 To-Do*
+
+#### 2. Model Selection
+- Brownlee, J. (2019, 2 December). A gentle introduction to model selection for machine learning. Retrieved from https://machinelearningmastery.com/a-gentle-introduction-to-model-selection-for-machine-learning/
+
+*Resource Overview:*
+    
+    Please watch the following short video. Despite the fact that it is very short, this video explains the idea of the following classifiers: Logistic Regression (LR), Naïve Bayes (NB), Stochastic Gradient Descent (SGD), K-Nearest Neighbours (KNN), Decision Tree (DT), Random Forest (RF) and Support Vector Machine (SVM). To gain a deeper understanding of each of the classifiers, please click on the link in the description of the video.
+
+> *Status: 🕐 To-Do*
+
+
+#### 2. Model Selection
+- Brownlee, J. (2019, 2 December). A gentle introduction to model selection for machine learning. Retrieved from https://machinelearningmastery.com/a-gentle-introduction-to-model-selection-for-machine-learning/
+
+*Resource Overview:*
+    
+    In this link, an introduction to model selection has been represented. Read this article to gain an understanding of what model selection is, the considerations of model selection and model selection techniques. You may notice in the resampling techniques of model selection, that the train and test technique is mentioned; we discussed this technique in the previous module. In this Module, another important technique is discussed: cross-validation.
+
+> *Status: 🕐 To-Do*
+
+#### 3. Cross-Validation
+- Arlot, S. & Celisse, A. (2010). A survey of cross-validation procedures for model selection. Statistics Surveys, 4, 40–79. Retrieved from https://projecteuclid.org/download/pdfview_1/euclid.ssu/1268143839
+
+*Resource Overview:*
+    
+    Please read Section 4.1, which discusses the philosophy of cross-validation. You need to first understand the purpose of cross-validation. Then, jump to Section 4.3 to read about some examples of cross-validation. In Section 4.3, read sub-sections 4.3.1 and 4.3.2, as they describe the main cross-validation techniques that will be used in this course: Leave One Out (LOO) and V-Fold (or K-Fold) cross-validation.
+
+> *Status: 🕐 To-Do*
+
+#### 4. Hyperparameter Tuning
+- Feurer, M. & Hutter, F. (2019) Hyperparameter optimization. In F. Hutter, L. Kotthoff & J. Vanschoren (Eds) Automated machine learning (pp. 3–34). Cham, Switzerland: Springer. Retrieved from https://link.springer.com/chapter/10.1007/978-3-030-05318-5_1
+
+*Resource Overview:*
+    
+    Please read Section 1.3 to gain an understanding of hyperparameter tuning, which is a process of babysitting your model to make it even better. Many hyperparameters in a model may need to be changed to find the best value for them; this is called hyperparameter tuning. Grid and random searches are the main techniques used to fine tune a model (see the discussion in Section 1.3.1).
+
+> *Status: 🕐 To-Do*
+
+---
+
+### Learning Activities
+
+#### Activity 1: Extra Machine Learning Models
+Now that you have learned about the following models:
+- Logistic Regression,
+- Decision Tree,
+- Random Forest,
+- K-Nearest Neighbour,
+- Naïve Bayes and
+- Stochastic Gradient Descent.
+
+It is time to undertake some research of your own. Conduct some research on the following models:
+- Linear Regression;
+- Principal Component Analysis (PCA);
+- AdaBoos;
+- XGBoost.
+
+Write at least 50 words about each model (approximately 200 words in total). Describe each of the models in terms of:
+- It's logic;
+- How it simulates human thoughts; and
+- Its decision-making process.
+- Your summary should include at least one reference.
+
+> *Status: 🕐 To-Do* 
+
+#### Activity 2: Extra Machine Learning Models
+Cross-validation is a crucial part of model selection in ML, as it simulates and enables a model to be evaluated with new data. K-Fold cross-validation is one technique commonly used in cross-validation. Using the resources you have read in this Module, please discuss K-Fold cross-validation and what would happen if the k-values were as follows:
+- K = 1
+- K = 2
+- K = 5
+- K = 10
+- K = N – 2
+- K = N – 1
+
+*Note: N is the total number of rows in the dataset.*
+
+Describe each of these in no more than 50 words each.
+
+> *Status: 🕐 To-Do* 
+
 ---
 ```bash
 --- PLACEHOLDER:
