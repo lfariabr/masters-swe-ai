@@ -7,10 +7,10 @@
 | # | Task | Status |
 |---|------|--------|
 | R1 | Linthicum (2021) — LinkedIn Learning video (public/private/hybrid) | 🔥 WIP — needs manual watch (auth required) |
-| R2 | Manvi & Shyam (2021) — Ch.1.3 Deployment Models + Ch.1.5 Platforms & Technologies | ✅ Read + Reviewed |
-| R3 | IBM — What is a Public Cloud? | ✅ Read + Reviewed |
-| R3 | IBM — What is Private Cloud? | ✅ Read + Reviewed |
-| R3 | IBM — What is Hybrid Cloud? | ✅ Read + Reviewed |
+| **R2** | Manvi & Shyam (2021) — Ch.1.3 Deployment Models + Ch.1.5 Platforms & Technologies | ✅ Read + Reviewed |
+| **R3** | IBM — What is a Public Cloud? | ✅ Read + Reviewed |
+| **R3** | IBM — What is Private Cloud? | ✅ Read + Reviewed |
+| **R3** | IBM — What is Hybrid Cloud? | ✅ Read + Reviewed |
 | R4 | Chandrasekaran (2015) — Review questions (Ch.22, Q1/5/6/8/9) | 🔥 WIP — O'Reilly + ProQuest auth required |
 | R5 | IBM — What is a Virtual Private Cloud (VPC)? | ✅ Read + Reviewed |
 | A1 | Deployment Model Case Study — Discussion Forum | 🕐 Not started |
