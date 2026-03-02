@@ -37,7 +37,7 @@ Dr. Divya Leekha
 
 - [X] Module 1 - Traditional Computing, Practices and their evaluation in the context of Modern Computing Requirements. How does it fit for modern computing requirements?
 - [X] Module 2 - Essentials of Cloud Computing and Characteristics
-- [ ] Module 3 - Cloud Computing Deployment Models
+- [X] Module 3 - Cloud Computing Deployment Models
 - [ ] Module 4 - Cloud Computing Service Models
 - [ ] Module 5 - Major Public Cloud Providers and their comparison
 - [ ] Module 6 - Advanced cloud models and concepts

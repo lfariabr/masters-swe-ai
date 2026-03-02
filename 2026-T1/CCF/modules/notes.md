@@ -330,7 +330,7 @@ As part of the exercise, you may want to consider drawing a mind map outlining t
 
 Post your answer in the Module 3 discussion forum.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Done* — Morningstar hybrid cloud case study; see [module03_notes.md](module_03_cloud-computing-deployment-models/module03_notes.md#activity-1--deployment-model-case-study-morningstar-hybrid-cloud-with-aws-outposts)
 
 #### Activity 2: Case Study: Optimising Cloud Costs—Discussion forum post
 - Cheema, S., Baron, C., Bleckmann, K., Pitchaikani, M., & Shrestha, D. (2019). IT@Intel brief | A holistic cloud approach for big savings. Intel. https://www.intel.com.au/content/www/au/en/it-management/intel-it-best-practices/a-holistic-cloud-approach-for-big-savings-solutions-brief.html

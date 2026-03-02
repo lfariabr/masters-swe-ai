@@ -6,14 +6,14 @@
 
 | # | Task | Status |
 |---|------|--------|
-| R1 | Linthicum (2021) — LinkedIn Learning video (public/private/hybrid) | 🔥 WIP — needs manual watch (auth required) |
+| **R1** | Linthicum (2021) — LinkedIn Learning video (public/private/hybrid) | ✅ Read + Reviewed |
 | **R2** | Manvi & Shyam (2021) — Ch.1.3 Deployment Models + Ch.1.5 Platforms & Technologies | ✅ Read + Reviewed |
 | **R3** | IBM — What is a Public Cloud? | ✅ Read + Reviewed |
 | **R3** | IBM — What is Private Cloud? | ✅ Read + Reviewed |
 | **R3** | IBM — What is Hybrid Cloud? | ✅ Read + Reviewed |
 | R4 | Chandrasekaran (2015) — Review questions (Ch.22, Q1/5/6/8/9) | 🔥 WIP — O'Reilly + ProQuest auth required |
 | R5 | IBM — What is a Virtual Private Cloud (VPC)? | ✅ Read + Reviewed |
-| A1 | Deployment Model Case Study — Discussion Forum | 🕐 Not started |
+| **A1** | Deployment Model Case Study — Discussion Forum | ✅ Done |
 | A2 | Case Study: Optimising Cloud Costs — Discussion Forum | 🕐 Not started |
 
 ---
@@ -329,3 +329,78 @@ Intel's approach reflects a broader "data center transformation strategy" focuse
 - Shadow IT is a concrete, measurable business risk in cloud deployments
 - A cloud-broker model (internal advisory function) can drive significant savings at scale
 - Intel's case demonstrates that hybrid + multi-cloud strategies need intentional management to deliver ROI
+
+---
+
+## Learning Activities
+
+### Activity 1 — Deployment Model Case Study: Morningstar (Hybrid Cloud with AWS Outposts)
+
+My research led me to Morningstar, a global investment research and financial data firm, that operated approximately 14,000 on-premises servers across multiple data centres.
+
+They reported that a full public cloud migration wasn't feasible, as legacy applications couldn't be immediately re-architected, and certain workloads required low-latency local processing. As their CTO put it: "Like many companies, we have the challenge of having a robust legacy infrastructure and it doesn’t always make sense to just do a straight lift and shift to a public cloud provider"
+
+Sources: 
+- Information Week: https://www.informationweek.com/it-infrastructure/morningstar-on-reshaping-its-infrastructure-for-flexibility
+- Datamation: https://www.datamation.com/cloud/hybrid-cloud-case-studies/
+- AWS Outposts: https://aws.amazon.com/outposts/
+
+Morningstar needed to run latency-sensitive financial data applications on-premises while eliminating the cost and overhead of self-managed infrastructure. Development teams also required a consistent cloud-native experience to containerize apps and modernize without waiting for full cloud readiness across all workloads.
+
+The goal was to migrate to AWS Regions as workloads become cloud-ready, without re-architecting. Morningstar also needed to scale containerized development across teams, supporting multi-cloud flexibility (AWS, Azure, GCP), and accelerating delivery to keep pace with business demands.
+
+They chose AWS Outposts, a fully managed AWS infrastructure deployed physically on Morningstar's premises, delivering a textbook hybrid cloud solution. 
+
+The flow became:
+- Developers *build once* using standard AWS services and run applications on-premises today, 
+- then migrate to an AWS Region when ready with no code changes. 
+
+This eliminates on-premises operational overhead while preserving the low-latency and control required by legacy systems. 
+
+A pure public cloud would break latency-dependent workloads; a pure private cloud wouldn't allow managed services and cloud-native tooling. Hybrid cloud — specifically the Outposts model — was the only architecture that bridged both.
+
+```mermaid
+mindmap
+  root((Morningstar Hybrid Cloud))
+    DRIVERS
+      Legacy app modernisation
+      Developer productivity
+      Multi-cloud flexibility
+    CONSTRAINTS
+      ~14,000 on-prem servers
+      Low-latency financial data
+      Cannot lift-and-shift all workloads
+    PRIVATE CLOUD: AWS OUTPOSTS
+      Legacy application hosting
+      Low-latency data processing
+      On-prem containerised workloads
+    PUBLIC CLOUD: AWS + Azure + GCP
+      Cloud-native managed services
+      Storage Gateway
+      Target for progressive migration
+    HYBRID BENEFITS
+      Build once, run anywhere
+      Stepstone migration model
+      No re-architecture required
+      Operational overhead eliminated
+```
+
+---
+
+### Activity 2 — Case Study: Optimising Cloud Costs
+
+The most common driver of cloud cost overruns isn't a technical failure — it's organisational. When teams bypass centralised IT and procure cloud resources independently, visibility breaks down fast. The result is duplicated services, overprovisioned capacity, and spend that's hard to attribute or justify. Without governance, cloud budgets become unpredictable.
+
+Vendors address this through a combination of centralised management across all accounts and workloads, rightsizing resources to match actual demand rather than worst-case estimates, and automating scaling so infrastructure adjusts dynamically rather than sitting idle. A cloud-broker approach — an internal function that routes workloads to the right environment — rounds this out by preventing blind lift-and-shift decisions.
+
+Of these, the one I'd apply first is rightsizing paired with continuous monitoring. Before provisioning anything, I'd define a baseline — expected CPU, memory, storage — then monitor actual usage in the first few weeks and scale down where there's slack. For an ML pipeline, that might mean using spot instances for training and only reserving on-demand capacity for inference. Small adjustments early on compound into meaningful savings over time.
+
+---
+
+## Class Notes
+
+### 02/03/2026 - 11:30AM
+
+Essential characteristics: broad network access, on-demand self-service, resource pooling, rapid elasticity, measured service.
+Deployment models: public, private, hybrid, community 
+Service models: IaaS, PaaS, SaaS ( to be presented on week 4)
