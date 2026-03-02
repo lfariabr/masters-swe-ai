@@ -8,7 +8,7 @@ Cloud computing has become a core business utility - email, storage, and smart d
 Traditional IT means owning everything - servers, cooling, procurement cycles, and the staff to keep it running (McHaney, 2021). For a high-growth start-up like ABC, that model is a strategic handicap. Cloud flips it: instead of buying capacity, ABC rents capability, aligned to the NIST essential characteristics of on‑demand self‑service, measured service, rapid elasticity, and resource pooling (Mell & Grance, 2011).
 
 ### 2.1 Cost Efficiency and Pay-as-you-grow Model
-Cloud shifts spend from CAPEX to OPEX - no upfront servers, no idle hardware costs (Eliaçık, 2022). ABC's ~80% reduction in start-up IT costs is the "measured service" characteristic in action: pay for compute-hours, storage GB-months, and data transfer actually consumed (Mell & Grance, 2011). As McHaney (2021) notes, operational overhead - personnel, training, upgrades, and security - often exceeds hardware cost over time, making pay-as-you-go a structural advantage. Beyond the bill, standard tasks like backups, patching, and scaling can be codified and automated, reducing human toil across the delivery pipeline (Accenture Technology, 2020).
+Cloud shifts spend from CAPEX to OPEX - no upfront servers, no idle hardware costs (Eliaçık, 2022). ABC's ~80% reduction in start-up IT costs is the "measured service" characteristic in action: pay for compute-hours, storage GB-months, and data transfer actually consumed (Mell & Grance, 2011). As McHaney (2021) notes, operational overhead - personnel, training, upgrades, and security - often exceeds hardware cost over time, making pay-as-you-go a structural advantage. Beyond the bill, standard tasks like backups, patching, and scaling can be codified and automated, reducing human toil across the delivery pipeline (Accenture Technology, 2020). Figure 1 illustrates ABC's end-to-end request flow across the AWS stack.
 
 ```mermaid
 sequenceDiagram
@@ -51,7 +51,15 @@ Deeper managed-service adoption makes provider migration expensive (Eliaçık, 2
 ## 4. Recommended Cloud Models for ABC Enterprise
 Cloud service models sit on a control-versus-responsibility spectrum (McHaney, 2021). IaaS gives ABC full flexibility over compute and configuration, but it also means managing operating systems and scaling policies. PaaS reduces that burden by abstracting infrastructure management, allowing the team to focus on building and improving the application itself. SaaS, while efficient, offers limited customization and is therefore less appropriate for a start-up that must differentiate its digital platform. 
 
-Deployment models also affect scalability and automation. Private cloud increases control but sacrifices elasticity and cost efficiency. Hybrid cloud can support cloud bursting and workload portability, yet introduces architectural complexity that exceeds ABC's current operational maturity (Manvi & Shyam, 2021). For ABC - a fast-growing, customer-facing platform - public cloud remains the most strategically aligned option due to its scalability, global availability, and built-in automation capabilities (Mell & Grance, 2011; Nishimura, 2022). 
+Deployment models also affect scalability and automation. Private cloud increases control but sacrifices elasticity and cost efficiency. Hybrid cloud can support cloud bursting and workload portability, yet introduces architectural complexity that exceeds ABC's current operational maturity (Manvi & Shyam, 2021). For ABC - a fast-growing, customer-facing platform - public cloud remains the most strategically aligned option due to its scalability, global availability, and built-in automation capabilities (Mell & Grance, 2011; Nishimura, 2022) (see Table 1).
+
+| Deployment Model | Cost | Elasticity | ABC Fit |
+| --- | --- | --- | --- |
+| Public Cloud | Low — OPEX only | High — Auto Scaling | ✅ Recommended |
+| Private Cloud | High — CAPEX + ops staff | Limited — fixed capacity | ❌ Over-engineered for start-up |
+| Hybrid Cloud | Medium — dual infrastructure | Moderate — complex to manage | ⚠️ Premature for current maturity |
+
+*Table 1: Deployment model trade-offs for ABC Enterprise.*
 
 **Recommendation:** A blended approach: IaaS for flexible compute layers, and PaaS for managed databases, load balancing, autoscaling, and serverless functions. This balance preserves flexibility while embedding the rapid elasticity and measured service characteristics (Mell & Grance, 2011) directly into the infrastructure layer, without rebuilding operational maturity from scratch (Accenture Technology, 2020).
 
@@ -64,7 +72,15 @@ Cloud providers offer three levers:
 **Recommendation:** A hybrid cost model - reserved capacity for stable customer-facing tiers (web/app, databases), pay-as-you-go autoscaling for demand spikes, and spot instances for background jobs and analytics pipelines. TCO modelling should include not just cloud fees but also migration cost, security tooling, and engineering effort (Bittok, 2022). As Bittok (2022) notes, cloud adoption is rarely about the cheapest bill - it's about better ROI: less downtime, faster launches, and automation that avoids linear headcount growth.
 
 ## 6. Cloud Provider Recommendation: AWS
-Azure suits Microsoft-aligned enterprises; GCP leads in analytics. AWS best fits ABC: Route 53 already anchors the described architecture, and AWS offers the broadest automation-ready managed-service catalogue (Nishimura, 2022; Amazon Web Services, n.d.-a).
+Azure suits Microsoft-aligned enterprises; GCP leads in analytics. AWS best fits ABC: Route 53 already anchors the described architecture, and AWS offers the broadest automation-ready managed-service catalogue (Nishimura, 2022; Amazon Web Services, n.d.-a) (see Table 2).
+
+| Provider | Ecosystem Fit | Load Balancing | Serverless | ABC Alignment |
+| --- | --- | --- | --- | --- |
+| AWS | Broadest managed-service catalogue | ELB — native Route 53 integration | Lambda — event-driven, zero idle cost | ✅ Best fit — Route 53 in stack |
+| Azure | Microsoft / enterprise-aligned | Application Gateway — extra config | Azure Functions — separate ecosystem | ⚠️ No Microsoft signals in ABC |
+| GCP | Analytics and ML-first | Cloud Load Balancing — GKE-oriented | Cloud Run / Functions — container-first | ❌ No analytics-heavy workloads yet |
+
+*Table 2: Cloud provider comparison for ABC Enterprise.*
 
 ### 1. Elastic Load Balancing (ELB)
 Automates traffic routing and health-checks across EC2 instances without operator intervention — critical for ABC's delivery and taxi services where latency causes churn. ELB integrates natively with Route 53 and Auto Scaling already in ABC's stack; Azure Application Gateway and GCP Cloud Load Balancing require additional configuration to achieve the same (Amazon Web Services, n.d.).
@@ -90,11 +106,20 @@ Cloud computing is the right strategic move for ABC: measured service, rapid ela
 
 ### Appendix B – High-Level Architecture Diagram
 
-Simple layered diagram:
+```mermaid
+graph TD
+    A["User / Browser"] -->|"HTTPS request"| B["Route 53 (DNS)"]
+    B -->|"Route to endpoint"| C["Elastic Load Balancer (ELB)"]
+    C -->|"Distribute traffic"| D["EC2 Instances"]
+    D -->|"Query / Write"| E["RDS (Managed DB)"]
+    E -.->|"Return data"| D
+    D -->|"Store / Retrieve"| F["S3 (Storage)"]
+    F -.->|"Return assets"| D
+    D -.->|"Event trigger (order placed / payment confirmed)"| G["AWS Lambda"]
+    G -.->|"Notification / Assignment"| D
 ```
-User → Route 53 → Load Balancer → EC2 → RDS → S3
-```
-- Lambda event triggers
+
+*Figure 2: ABC Enterprise high-level cloud architecture on AWS — replace with generated image (Nano Banana #1).*
 
 ### Appendix C – Cost Model Breakdown Example
 | Cost Category | On-Prem | Cloud |
@@ -113,7 +138,16 @@ User → Route 53 → Load Balancer → EC2 → RDS → S3
 | Hypervisor | Data governance |
 
 ### Appendix E — NIST Five Essential Characteristics Mapped to ABC
-A table mapping each NIST characteristic (On-demand Self-service, Broad Network Access, Resource Pooling, Rapid Elasticity, Measured Service) to a concrete ABC use case. Example: Rapid Elasticity → 10x customer surge absorbed without new hardware procurement. This directly reinforces your theoretical grounding and gives the rubric marker something visual to reference.
+
+| NIST Characteristic | ABC Use Case | AWS Service |
+| --- | --- | --- |
+| On-Demand Self-Service | Dev team provisions EC2 and RDS instances via console — no vendor call required | EC2, RDS, S3 |
+| Broad Network Access | App accessible via mobile, browser, and API across delivery and taxi service regions | Route 53, CloudFront |
+| Resource Pooling | ABC shares AWS physical hardware; workloads logically isolated per tenant via VPC | VPC, EC2 |
+| Rapid Elasticity | 10× customer surge absorbed automatically — no procurement delay or manual intervention | Auto Scaling |
+| Measured Service | ~80% reduction in start-up IT costs — pay only for compute-hours and GB-months consumed | AWS Cost Explorer, CloudWatch |
+
+*Table 3: NIST essential cloud characteristics mapped to ABC Enterprise (Mell & Grance, 2011) — replace with generated image (Nano Banana #2).*
 
 ### Appendix F – Glossary of Terms
 
@@ -127,6 +161,9 @@ A table mapping each NIST characteristic (On-demand Self-service, Broad Network 
 | PaaS | Platform as a Service |
 | IaaS | Infrastructure as a Service |
 | SaaS | Software as a Service |
+
+*Table 4: Glossary of Terms*
+
 
 ## References
 Accenture Technology. (2020, June 5). *Why cloud matters* [Video]. YouTube. https://www.youtube.com/watch?v=p1Nr03gtkyU
