@@ -296,5 +296,7 @@ Funk et al.'s DHITA framework represents a meaningful step toward scalable clini
 
 ---
 
-**Last Updated:** 2026-03-01
+**Last Updated:** 2026-03-03
 **Status:** 🔥 Work in Progress
+
+claude --resume 8b2e8b97-d35c-4b00-aeab-38a30d051e03

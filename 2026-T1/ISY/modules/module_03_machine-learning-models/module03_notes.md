@@ -7,8 +7,8 @@
 
 | # | Resource / Activity | Type | Status |
 |---|---------------------|------|--------|
-| 1 | Analytics India Magazine (2018) — 6 Types of Classification Algorithms | Video | 🔥 WIP — needs manual watch |
-| 2 | Brownlee (2019) — A Gentle Introduction to Model Selection | Article | ✅ Read + Reviewed |
+| **1** | Analytics India Magazine (2018) — 6 Types of Classification Algorithms | Video | ✅ Watched + Reviewed |
+| **2** | Brownlee (2019) — A Gentle Introduction to Model Selection | Article | ✅ Read + Reviewed |
 | 3 | Arlot & Celisse (2010) — A Survey of Cross-Validation Procedures | Academic paper | ✅ Read + Reviewed |
 | 4 | Feurer & Hutter (2019) — Hyperparameter Optimization | Book chapter | ✅ Read + Reviewed |
 | A1 | Extra Machine Learning Models (Linear Regression, PCA, AdaBoost, XGBoost) | Activity | 🕐 To-Do |
@@ -24,7 +24,26 @@
 
 **Purpose:** Introduces seven supervised classifiers — Logistic Regression (LR), Naïve Bayes (NB), Stochastic Gradient Descent (SGD), K-Nearest Neighbours (KNN), Decision Tree (DT), Random Forest (RF), and Support Vector Machine (SVM) — in a short visual format.
 
-> 🔥 **WIP — needs manual watch.** No transcript available; highlights cannot be extracted automatically. Watch the video and note the logic, boundary conditions, and use-case fit for each of the seven classifiers.
+#### 1. KNN (K-Nearest Neighbours)
+Classifies by majority vote of K nearest neighbours; lazy learner, no training phase, sensitive to K and feature scale.
+
+#### 2. Decision Tree
+Recursively splits data on best feature thresholds forming interpretable rules; prone to overfitting without pruning.
+
+#### 3. Random Forest
+Ensemble of decision trees trained on random feature subsets via bagging; reduces variance and overfitting risk.
+
+#### 4. Naive Bayes
+Applies Bayes' theorem assuming feature independence; fast, probabilistic classifier, excels on text classification.
+
+#### 5. SVM (Support Vector Machine)
+Finds maximum-margin hyperplane between classes; uses kernels (RBF, polynomial) to handle non-linear boundaries.
+
+#### 6. Logistic Regression
+Models class probability via sigmoid function; linear decision boundary, interpretable coefficients, fast to train.
+
+#### 7. SGD (Stochastic Gradient Descent)
+Optimises model weights via gradient updates on one sample at a time; scalable to large datasets, sensitive to learning rate.
 
 ---
 
