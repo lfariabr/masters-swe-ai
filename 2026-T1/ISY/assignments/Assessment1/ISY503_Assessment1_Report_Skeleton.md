@@ -47,11 +47,11 @@ DHITA is a supervised ML system for text analytics operating as a two-step pipel
 
 Two predictive models are deployed. **Model A** — a Random Forest classifier (Breiman, 2001) with 200 decision trees — predicts session-level symptom severity from post-session text entries. Random Forest is well-suited to this task because it handles high-dimensional, mixed-type feature sets without requiring feature scaling and reduces overfitting through ensemble aggregation. **Model B** — a Logistic Regression classifier — predicts long-term clinical outcomes (eating disorder remission) at six-month follow-up. Logistic Regression was chosen for interpretability, which is critical in clinical contexts where prediction rationale must be auditable.
 
-Feature selection is performed using the Least Absolute Shrinkage and Selection Operator (LASSO) with 50-fold cross-validation (Tibshirani, 1996). LASSO imposes L1 regularization that drives irrelevant feature coefficients to zero, selecting a compact interpretable subset from the 241 available features — necessary given the limited sample size.
+Feature selection is performed using the Least Absolute Shrinkage and Selection Operator (LASSO) with 50-fold cross-validation (Tibshirani, 1996). LASSO imposes L1 regularization that drives irrelevant feature coefficients to zero, selecting a compact interpretable subset from the 220 available features — necessary given the limited sample size.
 
 ### 2.3 Methods and Techniques
 
-The feature engineering layer produces 241 features per user across seven categories (Table 1). Each group captures a distinct linguistic or behavioural dimension, ensuring non-redundant representations.
+The feature engineering layer produces 220 features per user across seven categories (Table 1). Each group captures a distinct linguistic or behavioural dimension, ensuring non-redundant representations.
 
 **Table 1.** DHITA Feature Engineering Strategies
 
@@ -63,13 +63,12 @@ The feature engineering layer produces 241 features per user across seven catego
 | POS tags | 44 | Apache OpenNLP (~95% accuracy) | — |
 | Topic model | 10 | LDA, 8 latent topics | Blei et al. (2003) |
 | Sentiment lexicons | 30 | NRC, AFINN, Bing | — |
-| Communication stats | 23 | Message count, frequency, patterns | — |
-| **Total** | **241** | | |
+| Communication stats | 2 | average response rate and average response time | — |
 
 Area Under the ROC Curve (AUC) serves as the primary evaluation metric, selected for robustness to class imbalance.
 
 > 📸 **[Figure 1 — Suggested]** DHITA two-step pipeline architecture
-> **Nano Banana prompt:** "Minimalist technical flow diagram. Left box: 'DHI Text Input (journals + coach messages)'. Centre: 7 parallel feature extraction boxes (Metadata n=5, Word Frequency n=79, GloVe Embeddings n=50, POS Tags n=44, LDA Topics n=10, Sentiment Lexicons n=30, Communication Stats n=23) all converging into one '241-dim Feature Vector' box. Right: two output branches — 'Model A: Random Forest → Symptom Severity AUC 0.72' and 'Model B: Logistic Regression → 6-month Outcome'. Clean academic style, blue-grey palette, white background, sans-serif labels."
+> **Nano Banana prompt:** "Minimalist technical flow diagram. Left box: 'DHI Text Input (journals + coach messages)'. Centre: 7 parallel feature extraction boxes (Metadata n=5, Word Frequency n=79, GloVe Embeddings n=50, POS Tags n=44, LDA Topics n=10, Sentiment Lexicons n=30, Communication Stats n=23) all converging into one '220-dim Feature Vector' box. Right: two output branches — 'Model A: Random Forest → Symptom Severity AUC 0.72' and 'Model B: Logistic Regression → 6-month Outcome'. Clean academic style, blue-grey palette, white background, sans-serif labels."
 
 ### 2.4 Related Work
 
@@ -112,7 +111,7 @@ Ethical deployment demands updated consent protocols, mandatory human-in-the-loo
 
 ### 3.4 Implementation Process
 
-The pipeline was implemented using standard scientific Python tooling, with Apache OpenNLP providing POS tagging. No deep learning frameworks were required; computational demands were modest and hardware constraints are not reported as a limiting factor.
+The pipeline was implemented using an R package called Digital Health Interventions Text Analytics (DHITA), with Apache OpenNLP providing POS tagging. No deep learning frameworks were required; computational demands were modest and hardware constraints are not reported as a limiting factor.
 
 **Target Word Count:** ~350-400 words
 
@@ -197,6 +196,16 @@ Funk et al.'s DHITA framework represents a meaningful step toward scalable clini
 
 ---
 
+## Appendices
+
+### Appendix A: Glossary of Technical Terms
+| Term | Definition |
+|---|---|
+| GloVe | Global Vectors for Word Representation; a method for generating word embeddings based on co-occurrence statistics. |
+| DHI | Digital Health Intervention; technology-based programs designed to support health outcomes. |
+
+---
+
 ## References
 > **Format:** APA 7th Edition
 > **Requirement:** Support report with additional peer-reviewed journal articles
@@ -261,7 +270,7 @@ Funk et al.'s DHITA framework represents a meaningful step toward scalable clini
 - GloVe embeddings (Pennington et al., 2014) — averaged 50-dim vectors as document representation
 - Latent Dirichlet Allocation (LDA) topic modeling — 8 latent topics extracted from DHI corpus
 - Part-of-speech (POS) tagging via Apache OpenNLP (~95% accuracy)
-- LASSO regularization (L1) for feature selection — 50-fold cross-validation, 241 → ~10 features
+- LASSO regularization (L1) for feature selection — 50-fold cross-validation, 220 → ~10 features
 - Logistic Regression for interpretable binary outcome prediction
 - Random Forest (200 trees) for symptom severity prediction
 - Sentiment lexicons: NRC Emotion Lexicon, AFINN, Bing
