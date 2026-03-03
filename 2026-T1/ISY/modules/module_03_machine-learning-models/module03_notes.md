@@ -9,8 +9,8 @@
 |---|---------------------|------|--------|
 | **1** | Analytics India Magazine (2018) — 6 Types of Classification Algorithms | Video | ✅ Watched + Reviewed |
 | **2** | Brownlee (2019) — A Gentle Introduction to Model Selection | Article | ✅ Read + Reviewed |
-| 3 | Arlot & Celisse (2010) — A Survey of Cross-Validation Procedures | Academic paper | ✅ Read + Reviewed |
-| 4 | Feurer & Hutter (2019) — Hyperparameter Optimization | Book chapter | ✅ Read + Reviewed |
+| **3** | Arlot & Celisse (2010) — A Survey of Cross-Validation Procedures | Academic paper | ✅ Read + Reviewed |
+| **4** | Feurer & Hutter (2019) — Hyperparameter Optimization | Book chapter | ✅ Read + Reviewed |
 | A1 | Extra Machine Learning Models (Linear Regression, PCA, AdaBoost, XGBoost) | Activity | 🕐 To-Do |
 | A2 | K-Fold Cross-Validation Discussion (K = 1, 2, 5, 10, N–2, N–1) | Activity | 🕐 To-Do |
 
