@@ -260,3 +260,47 @@ rand_search = RandomizedSearchCV(SVC(), param_dist, n_iter=20, cv=5, random_stat
 rand_search.fit(X_train, y_train)
 print(rand_search.best_params_)
 ```
+
+---
+
+## Module Summary: Core Vocabulary
+
+| Term | Definition |
+|------|------------|
+| Supervised Learning | Learns a mapping from inputs to outputs using labelled training data. |
+| Classification | Supervised task where the output is a discrete class label. |
+| Regression | Supervised task where the output is a continuous numeric value. |
+| Overfitting | Model fits training data too closely; fails to generalise to unseen data. |
+| Hyperparameter | Model setting chosen *before* training; not learned from data (e.g. K in KNN, C in SVM). |
+| Model Selection | Process of choosing the best model/pipeline from a set of candidates. |
+| Model Assessment | Estimating how well the chosen model will generalise to new data. |
+| Cross-Validation (CV) | Estimates generalisation error by averaging performance over multiple train/validation splits. |
+| K-Fold CV | Splits data into K folds; each fold serves as validation once; requires K model fits. |
+| Leave-One-Out (LOO) | CV where n−1 samples train the model and 1 is validated; unbiased but O(n) compute. |
+| Bagging | Bootstrap aggregating — trains each model on a random data subset; used by Random Forest to reduce variance. |
+| Ensemble | Combines predictions from multiple models to improve accuracy and reduce variance. |
+| Grid Search | Evaluates all hyperparameter combinations (Cartesian product); grows exponentially with number of HPs. |
+| Random Search | Randomly samples hyperparameter configs; outperforms grid search when HPs have unequal importance. |
+| Bayesian Optimisation | Builds a surrogate model of the objective function to guide the next evaluation; state-of-the-art for HPO. |
+| AIC / BIC | Probabilistic model selection criteria; penalise model complexity to correct for optimistic training error. |
+
+---
+
+## Activities
+
+### Activity 1: Extra Machine Learning Models
+
+```bash
+
+```
+
+#### Activity 2: Extra Machine Learning Models
+```bash
+
+```
+
+---
+
+## Class Notes
+
+### 04/03/2026 - 11:30AM

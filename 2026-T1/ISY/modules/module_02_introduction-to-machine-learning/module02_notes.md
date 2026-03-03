@@ -600,7 +600,7 @@ The authors propose Net Benefit as a clinically meaningful alternative that acco
 ```
 
 ### Activity 2: Metrics for Unsupervised Approaches (Discussion Forum)
-```
+```bash
 # Activity 2 Submission
 
 Reinforcement Learning: Inglés-Romero et al. (2018)
