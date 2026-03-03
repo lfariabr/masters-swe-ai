@@ -68,7 +68,7 @@ The feature engineering layer produces 220 features per user across seven catego
 Area Under the ROC Curve (AUC) serves as the primary evaluation metric, selected for robustness to class imbalance.
 
 > 📸 **[Figure 1 — Suggested]** DHITA two-step pipeline architecture
-> **Nano Banana prompt:** "Minimalist technical flow diagram. Left box: 'DHI Text Input (journals + coach messages)'. Centre: 7 parallel feature extraction boxes (Metadata n=5, Word Frequency n=79, GloVe Embeddings n=50, POS Tags n=44, LDA Topics n=10, Sentiment Lexicons n=30, Communication Stats n=23) all converging into one '220-dim Feature Vector' box. Right: two output branches — 'Model A: Random Forest → Symptom Severity AUC 0.72' and 'Model B: Logistic Regression → 6-month Outcome'. Clean academic style, blue-grey palette, white background, sans-serif labels."
+> **Nano Banana prompt:** "Minimalist technical flow diagram. Left box: 'DHI Text Input (journals + coach messages)'. Centre: 7 parallel feature extraction boxes (Metadata n=5, Word Frequency n=79, GloVe Embeddings n=50, POS Tags n=44, LDA Topics n=10, Sentiment Lexicons n=30, Communication Stats n=2) all converging into one '220-dim Feature Vector' box. Right: two output branches — 'Model A: Random Forest → Symptom Severity AUC 0.72' and 'Model B: Logistic Regression → 6-month Outcome'. Clean academic style, blue-grey palette, white background, sans-serif labels."
 
 ### 2.4 Related Work
 
@@ -129,7 +129,7 @@ Table 2 summarises model performance; both models outperformed the random baseli
 | Model | Algorithm | Task | Protocol | AUC |
 |---|---|---|---|---:|
 | A | Random Forest (200 trees) | Symptom severity | Within-user | **0.72** |
-| A | Random Forest (200 trees) | Symptom severity | Cross-user | 0.57 |
+| A | Logistic Regression | Symptom severity | Cross-user | 0.57 |
 | B | Logistic Regression | 6-month outcome | Cross-user | ~10 features selected |
 
 > 📸 **[Figure 2 — Suggested]** Model AUC comparison bar chart
@@ -166,7 +166,7 @@ DHITA demonstrates that NLP-derived features from digital health text carry pred
 
 ### 5.3 Comparison with State-of-the-Art
 
-The study predates the broad adoption of transformer-based NLP. Since 2020, BERT and its clinical variants (e.g., BioBERT, MentalBERT) have substantially advanced clinical text mining. Averaged GloVe embeddings cannot capture contextual meaning; replacing them with transformer representations would likely yield measurable AUC improvements and is the most actionable technical upgrade available today.
+The study predates the broad adoption of transformer-based NLP. Since 2020, BERT and its clinical variants — notably BioBERT (Lee et al., 2020) and MentalBERT (Ji et al., 2022) — have substantially advanced clinical text mining. Averaged GloVe embeddings cannot capture contextual meaning; replacing them with transformer representations would likely yield measurable AUC improvements and is the most actionable technical upgrade available today.
 
 **Target Word Count:** ~250-300 words
 
@@ -177,11 +177,11 @@ The study predates the broad adoption of transformer-based NLP. Since 2020, BERT
 
 ### 6.1 Technical Improvements
 
-Replacing GloVe embeddings with contextual representations from transformer models — such as MentalBERT or BioBERT — would capture semantic nuance that averaged static vectors cannot represent, likely pushing AUC toward the ≥0.85 threshold required for clinical decision support. Expanding the corpus to diverse populations (age groups, genders, comorbid conditions) would directly address the generalizability gap.
+Replacing GloVe embeddings with contextual representations from transformer models — such as MentalBERT (Ji et al., 2022) or BioBERT (Lee et al., 2020) — would capture semantic nuance that averaged static vectors cannot represent, likely pushing AUC toward the ≥0.85 threshold required for clinical decision support. Expanding the corpus to diverse populations (age groups, genders, comorbid conditions) would directly address the generalizability gap.
 
 ### 6.2 Ethical and Practical Recommendations
 
-Any clinical deployment must incorporate mandatory human-in-the-loop review; no triage decision should rely solely on algorithmic output. SHAP or LIME explainability tools would enable clinicians to audit predictions. Consent frameworks must be updated to explicitly cover secondary NLP analysis. Integrating passive sensing signals — app usage frequency, session timing, response latency — alongside text features could improve predictive power without requiring additional sensitive disclosures. Future work could explore federated learning to enable multi-site training while preserving participant privacy. Longer term, accurate predictions could trigger automated coaching nudges, providing timely support without requiring constant clinician availability.
+Any clinical deployment must incorporate mandatory human-in-the-loop review; no triage decision should rely solely on algorithmic output. SHAP or LIME explainability tools would enable clinicians to audit predictions. Consent frameworks must be updated to explicitly cover secondary NLP analysis. Integrating passive sensing signals — app usage frequency, session timing, response latency — alongside text features could improve predictive power without requiring additional sensitive disclosures. Future work could explore federated learning (Rieke et al., 2020) to enable multi-site training while preserving participant privacy. Longer term, accurate predictions could trigger automated coaching nudges, providing timely support without requiring constant clinician availability.
 
 **Target Word Count:** ~150-200 words
 
@@ -203,6 +203,83 @@ Funk et al.'s DHITA framework represents a meaningful step toward scalable clini
 |---|---|
 | GloVe | Global Vectors for Word Representation; a method for generating word embeddings based on co-occurrence statistics. |
 | DHI | Digital Health Intervention; technology-based programs designed to support health outcomes. |
+
+---
+
+### Appendix B: DHITA vs Transformer Architecture Comparison
+
+> 📸 **[Figure B — Suggested]** DHITA classical pipeline vs. transformer upgrade (side-by-side)
+> **Nano Banana prompt:** "Two-column side-by-side. Left column header: 'DHITA (2020)'. Pipeline: Raw Text → [GloVe avg | LDA | POS | Sentiment] → 220-dim vector → Random Forest / Logistic Regression → AUC 0.57–0.72. Right column header: 'Transformer Upgrade'. Pipeline: Raw Text → [BERT/MentalBERT tokenizer] → Contextual Embeddings → Fine-tuned Classification Head → AUC target ≥0.85. Both columns same height, separated by vertical line. Header: 'Feature Representation Strategy'. Academic style, blue-grey palette."
+
+---
+
+### Appendix C: Exploratory Pipeline Notebook Skeleton
+
+> 📸 **[Figure C — Suggested]** Six-step pipeline flow diagram (classical + transformer branches)
+> **Nano Banana prompt:** "Vertical flow diagram with 6 numbered steps, each a rounded rectangle. Steps 1–3 in blue ('Classical'), steps 4–6 split: left branch blue (classical), right branch teal (transformer). Converge at Step 6 'AUC Comparison'. Clean notebook-style layout, monospace labels, white background."
+
+```
+Step 1 — Load & Inspect Data
+Step 2 — Preprocessing (tokenise, stem, MINOCC/MAXOCC filter)
+Step 3 — Classical Feature Engineering (metadata, word freq, GloVe avg, POS, LDA, sentiment)
+Step 4 — Transformer Features (HuggingFace MentalBERT embeddings, no averaging)
+Step 5 — Model Training (RF, LR, fine-tuned transformer)
+Step 6 — Evaluation (ROC/AUC comparison, LASSO feature selection)
+```
+
+---
+
+### Appendix D: LASSO Regularisation Concept Diagram
+
+> 📸 **[Figure D — Suggested]** Before/after feature selection via LASSO
+> **Nano Banana prompt:** "Two-panel diagram. Left panel: bar chart with 220 bars (represent features), all varying heights, labelled 'All 220 Features'. Right panel: same chart but 210 bars collapsed to zero (grey), 10 bars tall and highlighted in teal, labelled '10 Selected Features (λ≈0.15)'. Arrow between panels labelled 'LASSO Regularisation'. Below right panel: small U-curve labelled 'MSE vs λ' with dashed line at minimum. Academic style, clean white background."
+
+---
+
+### Appendix E: User Journey Sequence Diagram
+
+```mermaid
+sequenceDiagram
+    participant U as User
+    participant DHI as DHI Platform
+    participant C as Coach
+    participant DHITA as DHITA System
+
+    U->>DHI: Submit diary entry (text snippet)
+    DHI->>DHITA: Forward text + timestamp
+    DHITA->>DHITA: Step 1 — Feature Engineering (220 features)
+    DHITA->>DHITA: Step 2 — Model A predicts symptom severity
+    DHITA-->>C: Alert: symptom severity score
+    C->>U: Personalised response / nudge
+    loop 6-month follow-up
+        U->>DHI: Continue messages
+        DHITA->>DHITA: Aggregate user-level features
+        DHITA->>DHITA: Model B predicts 6-month outcome
+    end
+    DHITA-->>C: Outcome prediction report
+```
+
+---
+
+### Appendix F: Explain Like I'm Five (Non-Assessable)
+
+> This appendix is a personal learning aid — not part of the submitted assessment.
+
+**What is DHITA, really?**
+
+Imagine you're keeping a diary about your eating habits and how you're feeling. You write in it every day, and an online coach sends you encouraging messages back. Now imagine a computer program that reads all those diary entries and messages — not to judge you, but to spot hidden patterns.
+
+That's DHITA. It reads thousands of diary entries from people getting help with eating disorders. Instead of a human having to read everything (which would take forever and couldn't scale), DHITA does three things:
+
+1. **Breaks the writing into clues** — which words come up most, what mood the writing suggests, how quickly someone replies to their coach.
+2. **Bundles the clues into 220 numbers** — a unique "fingerprint" that describes each person's communication style at a given point in time.
+3. **Feeds the numbers into a prediction machine** — essentially a very sophisticated pattern-matcher that says: "based on these signals, this person is likely struggling today" or "this person is at risk of not recovering in six months."
+
+**The catch?** DHITA was trained only on data from college-age women with eating disorders. It's like a recipe written for one specific dish — if you try to cook something different with it, the results might not be reliable. That's why the report recommends testing it on more diverse populations before any real clinical use.
+
+**Why does AUC 0.72 matter?**
+
+Imagine flipping a coin to predict whether someone will improve — that's AUC 0.50. DHITA scores 0.72, meaning it's meaningfully better than guessing. But the bar for clinical tools is usually ≥0.85, so it's promising, not ready.
 
 ---
 
@@ -228,6 +305,28 @@ Funk et al.'s DHITA framework represents a meaningful step toward scalable clini
 
 9. Devlin, J., Chang, M.-W., Lee, K., & Toutanova, K. (2019). BERT: Pre-training of deep bidirectional transformers for language understanding. *Proceedings of NAACL-HLT 2019*, 4171–4186. https://doi.org/10.18653/v1/N19-1423
 
+10. Lee, J., Yoon, W., Kim, S., Kim, D., Kim, S., So, C. H., & Kang, J. (2020). BioBERT: A pre-trained biomedical language representation model for biomedical text mining. *Bioinformatics, 36*(4), 1234–1240. https://doi.org/10.1093/bioinformatics/btz682
+
+11. Ji, S., Pan, S., Li, G., Cambria, E., Long, G., & Huang, Z. (2022). MentalBERT: Publicly available pretrained language models for mental healthcare. *Proceedings of the 13th Language Resources and Evaluation Conference (LREC 2022)*, 7184–7190.
+
+12. Rieke, N., Hancox, J., Li, W., Milletarì, F., Roth, H. R., Albarqouni, S., Bakas, S., Galtier, M. N., Landman, B. A., Maier-Hein, K., Ourselin, S., Sheller, M., Summers, R. M., Trask, A., Xu, D., Baust, M., & Cardoso, M. J. (2020). The future of digital health with federated learning. *npj Digital Medicine, 3*(1), 119. https://doi.org/10.1038/s41746-020-00323-1
+
+---
+
+## Statement of Acknowledgment
+I acknowledge that I have used the following AI tool(s) in the creation of this report:
+- OpenAI ChatGPT (GPT-5)
+- Anthropic Claude Sonnet 4.6
+
+Both have been used to assist with outlining, refining structure, improving clarity of academic language, and supporting APA 7th referencing conventions. 
+
+Prompt examples:
+1. *"I'm writing a 1,500-word case study report on Funk et al. (2020) — a framework for applying NLP in digital health interventions. Here is the assessment rubric [pasted]. Help me write a 200–250 word Introduction section that covers the problem significance and outlines the report structure. Do not add content I haven't asked for."*
+2. *"Here is a numbered list of seven DHITA feature engineering categories with counts and methods. Convert this into a clean markdown table with four columns: Feature Type, Count, Method/Tool, Key Reference. Preserve all existing data exactly."*
+3. *"My §3.3 ethics section is one dense 90-word paragraph. Rewrite it as a one-sentence framing statement followed by a four-row table. Rows: Privacy & consent, Bias & fairness, Explainability, Clinical safety — each with an Issue column and a Risk Level (High / Medium / Critical). Keep total word count similar to the original."*
+
+I confirm that the use of the AI tool has been in accordance with the Torrens University Australia Academic Integrity Policy and TUA, Think and MDS’s Position Paper on the Use of AI. I confirm that the final output is authored by me and represents my own critical thinking, analysis, and synthesis of sources. I take full responsibility for the final content of this report.
+
 ---
 
 ## Submission Checklist
@@ -239,6 +338,7 @@ Funk et al.'s DHITA framework represents a meaningful step toward scalable clini
 - [ ] Proofread for grammar and clarity
 - [ ] File named: `ISY503_Faria_L_Assessment_1.pdf`
 - [ ] Submitted via MyLearn before 22/03/2026 11:55pm AEST
+- [ ] **[Post-submission]** Run Appendix C notebook skeleton locally (DHITA R package + Python MentalBERT via HuggingFace) to deepen implementation understanding and build a portfolio prototype
 
 ---
 
@@ -293,10 +393,11 @@ Funk et al.'s DHITA framework represents a meaningful step toward scalable clini
 - Calvo et al. (2017) — NLP in mental health applications
 - WHO (2022) — mental health burden statistics
 - Devlin et al. (2019) — BERT (for future directions comparison)
+- Lee et al. (2020) — BioBERT, biomedical language model (§5.3, §6.1)
+- Ji et al. (2022) — MentalBERT, mental health language model (§5.3, §6.1)
+- Rieke et al. (2020) — Federated learning for digital health (§6.2)
 
 ---
 
 **Last Updated:** 2026-03-03
 **Status:** 🔥 Work in Progress
-
-claude --resume 8b2e8b97-d35c-4b00-aeab-38a30d051e03
