@@ -38,7 +38,7 @@ Dr. Nandini Sidnal
 
 - [X] Module 1 - The Nature and Purpose of Intelligent Systems
 - [X] Module 2 - Introduction to Machine Learning
-- [ ] Module 3 - Machine Learning Models
+- [X] Module 3 - Machine Learning Models
 - [ ] Module 4 - Introduction to Deep Learning
 - [ ] Module 5 - Machine Learning in Depth
 - [ ] Module 6 - Machine Learning in Practice

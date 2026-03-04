@@ -291,11 +291,21 @@ print(rand_search.best_params_)
 ### Activity 1: Extra Machine Learning Models
 
 ```bash
-
+Linear Regression: 
+Principal Component Analysis (PCA):
+AdaBoost:
+XGBoost:
 ```
 
 #### Activity 2: Extra Machine Learning Models
 ```bash
+K-Fold Cross-Validation is ...
+K = 1 means
+K = 2 means
+K = 5 means
+K = 10 means
+K = N–2 means
+K = N–1 means
 
 ```
 
@@ -304,3 +314,19 @@ print(rand_search.best_params_)
 ## Class Notes
 
 ### 04/03/2026 - 11:30AM
+
+#### Exercises To-Do
+1. Predict if an email is spam or not spam: Naive Bayes classifier
+2. Estimate the price of a used car: 
+3. Predict whether a patient has diabetes (Yes/No): 
+4. Predict the number of products sold next week
+5. Identify a fruit as apple, banana, or orange
+6. Forecast the temperature for tomorrow
+7. Predict whether a customer will churn (leave the service) or stay
+8. Predict the salary of a professional based on experience, education, and location
+9. Classify images of animals into categories like cat, dog, or horse
+10. Predict the number of likes a social media post will get based on text and image content
+11. Determine whether a bank transaction is fraudulent
+12. Predict a student’s final exam score based on performance in assignments and attendance
+13. Classify a movie review as positive, neutral, or negative
+14. Estimate the remaining battery life of a smartphone in minutes
