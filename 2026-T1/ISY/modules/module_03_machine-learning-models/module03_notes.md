@@ -320,17 +320,44 @@ K = N–1 means: Equivalent to Leave-One-Out (LOO); n-1 samples train, 1 validat
 
 #### Exercises
 
-1. Predict if an email is spam or not spam: Naive Bayes classifier
-2. Estimate the price of a used car: 
-3. Predict whether a patient has diabetes (Yes/No): 
-4. Predict the number of products sold next week
-5. Identify a fruit as apple, banana, or orange
-6. Forecast the temperature for tomorrow
-7. Predict whether a customer will churn (leave the service) or stay
-8. Predict the salary of a professional based on experience, education, and location
-9. Classify images of animals into categories like cat, dog, or horse
-10. Predict the number of likes a social media post will get based on text and image content
-11. Determine whether a bank transaction is fraudulent
-12. Predict a student’s final exam score based on performance in assignments and attendance
-13. Classify a movie review as positive, neutral, or negative
-14. Estimate the remaining battery life of a smartphone in minutes
+1. Predict if an email is spam or not spam: `R:` Naive Bayes classifier
+2. Estimate the price of a used car: `R:` Linear Regression
+3. Predict whether a patient has diabetes (Yes/No): `R:` Logistic Regression
+4. Predict the number of products sold next week: `R:` Linear Regression
+5. Identify a fruit as apple, banana, or orange: `R:` Decision Tree
+6. Forecast the temperature for tomorrow: `R:` Linear Regression
+7. Predict whether a customer will churn (leave the service) or stay: `R:` Logistic Regression
+8. Predict the salary of a professional based on experience, education, and location: `R:` Linear Regression
+9. Classify images of animals into categories like cat, dog, or horse: `R:` Random Forest
+10. Predict the number of likes a social media post will get based on text and image content: `R:` Linear Regression
+11. Determine whether a bank transaction is fraudulent: `R:` Isolation Forest
+12. Predict a student’s final exam score based on performance in assignments and attendance: `R:` Linear Regression
+13. Classify a movie review as positive, neutral, or negative: `R:` Naive Bayes classifier
+14. Estimate the remaining battery life of a smartphone in minutes: `R:` Linear Regression
+
+##### Feedback on Exercise Answers
+
+✅ Correct and well-matched:
+- 1 (Naive Bayes — spam),
+- 2 (LR — car price),
+- 3 (Logistic — diabetes),
+- 5 (DT — fruit),
+- 7 (Logistic — churn),
+- 8 (LR — salary),
+- 10 (LR — likes),
+- 12 (LR — exam score),
+- 13 (Naive Bayes — sentiment),
+- 14 (LR — battery life)                                                                                                                                                                                 
+⚠️  Partially correct / worth noting:
+
+#4 & #6 — Linear Regression for next-week sales / tomorrow's temperature
+Linear Regression is technically valid (continuous output), but both are inherently time series problems. LR ignores temporal ordering and trends. In practice you'd use ARIMA, or LR with lag
+features. For this module's scope it's acceptable, but flag it: "LR as a baseline; time series methods preferred."
+
+#9 — Random Forest for image classification
+Correct algorithm class (multi-class classification), but Random Forest on raw pixel features performs poorly in practice. Images need CNNs. If this is a structured feature set (colour histogram,
+shape descriptors, etc.), RF works. Worth adding: "RF on extracted features; CNN for raw image input."
+
+#11 — Isolation Forest for fraud detection
+Good — but Isolation Forest is an unsupervised anomaly detection model, which assumes you have no labelled fraud data. If labels exist (which they usually do in production), supervised classifiers
+(XGBoost, Random Forest) are standard. Both are valid depending on context — worth stating the assumption.
