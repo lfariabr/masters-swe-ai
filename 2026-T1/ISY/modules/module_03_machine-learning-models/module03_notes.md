@@ -291,22 +291,25 @@ print(rand_search.best_params_)
 ### Activity 1: Extra Machine Learning Models
 
 ```bash
-Linear Regression: 
-Principal Component Analysis (PCA):
-AdaBoost:
-XGBoost:
+Linear Regression: Predicts a continuous numeric output as a weighted sum of input features; fits a line/plane by minimising mean squared error. Supervised regression algorithm — interpretable coefficients, fast to train, assumes linear relationship.
+
+Principal Component Analysis (PCA): Unsupervised dimensionality reduction technique that projects data onto orthogonal axes (principal components) ordered by explained variance. Reduces noise, removes correlated features, and compresses data — not a classifier but a preprocessing step.
+
+AdaBoost (Adaptive Boosting): Sequential ensemble that trains weak learners (typically shallow trees) where each iteration reweights misclassified samples so the next learner focuses on harder cases. Final prediction is a weighted vote of all learners; sensitive to outliers and noise.
+
+XGBoost (Extreme Gradient Boosting): Highly optimised gradient boosting framework that builds trees sequentially to minimise a regularised objective (L1/L2). Handles missing values natively, supports parallelisation, and consistently dominates tabular ML benchmarks.
 ```
 
 #### Activity 2: Extra Machine Learning Models
 ```bash
-K-Fold Cross-Validation is ...
-K = 1 means
-K = 2 means
-K = 5 means
-K = 10 means
-K = N–2 means
-K = N–1 means
+K-Fold Cross-Validation is a resampling technique that partitions the dataset into K equal folds; each fold serves as the validation set once while the remaining K-1 folds train the model. Performance is averaged across all K iterations to produce a robust generalisation estimate.
 
+K = 1 means: Invalid — all data is used for training with nothing reserved for validation; no generalisation estimate is possible.
+K = 2 means: Half the data trains, half validates per fold; high bias (model sees only 50% of data each round), but fast to compute. Rarely used in practice.
+K = 5 means: 80% trains, 20% validates per fold; the standard practical default — good bias-variance tradeoff at reasonable compute cost.
+K = 10 means: 90% trains, 10% validates per fold; most common choice in the literature; slightly lower bias than K=5 but higher compute.
+K = N–2 means: Near-LOO — only 2 samples left out per fold; almost all data trains each model; very low bias but extremely high compute; rarely justified.
+K = N–1 means: Equivalent to Leave-One-Out (LOO); n-1 samples train, 1 validates; maximally unbiased estimate but requires n model fits — O(n) compute.
 ```
 
 ---
@@ -315,7 +318,8 @@ K = N–1 means
 
 ### 04/03/2026 - 11:30AM
 
-#### Exercises To-Do
+#### Exercises
+
 1. Predict if an email is spam or not spam: Naive Bayes classifier
 2. Estimate the price of a used car: 
 3. Predict whether a patient has diabetes (Yes/No): 

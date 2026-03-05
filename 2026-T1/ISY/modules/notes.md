@@ -322,7 +322,7 @@ Write at least 50 words about each model (approximately 200 words in total). Des
 - Its decision-making process.
 - Your summary should include at least one reference.
 
-> *Status: 🕐 To-Do* 
+> *Status: ✅ Done*
 
 #### Activity 2: Extra Machine Learning Models
 Cross-validation is a crucial part of model selection in ML, as it simulates and enables a model to be evaluated with new data. K-Fold cross-validation is one technique commonly used in cross-validation. Using the resources you have read in this Module, please discuss K-Fold cross-validation and what would happen if the k-values were as follows:
@@ -337,7 +337,7 @@ Cross-validation is a crucial part of model selection in ML, as it simulates and
 
 Describe each of these in no more than 50 words each.
 
-> *Status: 🕐 To-Do* 
+> *Status: ✅ Done*
 
 ---
 ```bash
