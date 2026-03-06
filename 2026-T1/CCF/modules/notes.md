@@ -397,7 +397,7 @@ In Module 3, we discussed cloud computing deployment models: public, private, hy
 > *Status: 🕐 To-Do*
 
 #### 4. Commercial Examples of SaaS Provision
-- Christina. (2021). 21 best SaaS product videos and animations: Great explainer examples for inspiration. Blue Carrot. https://bluecarrot.io/marketing/11-saas-videos-examples-marketing-trends/
+- Christina. (2021). 21 best SaaS product videos and animations: Great explainer examples for inspiration. Blue Carrot. https://bluecarrot.io/marketing/11-saas-videos-examples-marketing-trends/ (*Note: Try to grep the full content from the html attributes by a ping on the domain or something. I tried downloading the content as pdf but it broke badly.*)
 
 *Resource Overview:*
 
@@ -406,7 +406,7 @@ In Module 3, we discussed cloud computing deployment models: public, private, hy
 > *Status: 🕐 To-Do*
 
 #### 5. Service Models of Cloud Computing
-- Shore, M. (2020, July 23).  Cybersecurity with cloud computing [Video]. LinkedIn Learning. https://www.linkedin.com/learning/cybersecurity-with-cloud-computing-2/cloud-services
+- Shore, M. (2020, July 23).  Cybersecurity with cloud computing [Video]. LinkedIn Learning. https://www.linkedin.com/learning/cybersecurity-with-cloud-computing-2/cloud-services (*Note: potential linking this with FreshService automation project, because we're dealing with user data... maybe ask for a meeting with Renuka and John again to talk about security practices... what I'm doing versus what is mandatory from the company, graising the standards in levels of documentation... from design guide doc to ppt documentation to the team... also hardening my readme to-do list.*)
 
 *Resource Overview:*
 
@@ -419,7 +419,7 @@ In Module 3, we discussed cloud computing deployment models: public, private, hy
 > *Status: 🕐 To-Do*
 
 #### 6. Configuring provisioning for Microsoft 365
-- IBM (2022). Configuring provisioning for Microsoft 365. IBM. https://www.ibm.com/docs/en/security-verify?topic=endpoints-configuring-provisioning-microsoft-365
+- IBM (2022). Configuring provisioning for Microsoft 365. IBM. https://www.ibm.com/docs/en/security-verify?topic=endpoints-configuring-provisioning-microsoft-365 (*Note: I have no idea the format that this will be or the goal or advantage of doing this since I work at Saint Catherine... please confirm.*)
 
 *Resource Overview:*
 
