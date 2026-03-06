@@ -211,7 +211,7 @@ PaaS implementation team roles: **Project Owner** (champion), **Executive Sponso
 | **What you manage** | OS, middleware, runtime, apps | Apps and data only | Nothing |
 | **What provider manages** | Hardware, networking, storage | Hardware + OS + middleware + runtime | Everything |
 | **Who uses it** | IT admins, DevOps engineers | Developers | End users |
-| **Figure 6.1 label** | Build | Buy | Deploy |
+| **Figure 6.1 label** | Build | Deploy | Buy |
 | **Key benefit** | Infrastructure flexibility and control | Developer productivity | Immediate use, no setup |
 | **Key risk** | Management overhead | Tool restrictions | Vendor dependency |
 | **Cost model** | PAYG / reserved / BYOL | PAYG per app/deployment | Subscription (monthly/annual) |
@@ -260,23 +260,102 @@ Core lifecycle operations in IBM Verify → Microsoft 365:
 
 #### 3. Configuration Process (Azure Portal → IBM Verify)
 
-```
-Azure Portal (Microsoft Entra ID)
-  └─ Register app
-  └─ Configure redirect URI + multitenant account type
-  └─ Add API permissions:
-       • Directory.ReadWrite.All
-       • User.ReadWrite.All
-       • RoleManagement.ReadWrite.Directory
-  └─ Grant admin consent
-  └─ Generate and store Client Secret
+**Purpose:** Register an Azure app and connect it to IBM Security Verify so that Verify can automate M365 user lifecycle operations (create, update, suspend, deprovision) via the Microsoft Graph API.
 
-IBM Security Verify
-  └─ Input: Domain name + Client ID + Client Secret
-  └─ Map M365 Schema Extensions → Verify attributes
+**Assumptions:**
+- You hold **Microsoft 365 Global Administrator** (or Application Administrator) rights
+- You hold **IBM Security Verify Administrator** rights
+- Your M365 tenant domain name is known (e.g. `contoso.onmicrosoft.com`)
+- No existing app registration for IBM Verify is present in Azure Entra ID
+
+**Expected outcome:** An Azure app registration with a client secret, admin consent granted for Graph API scopes, and the resulting credentials (Domain, Client ID, Client Secret) entered in IBM Security Verify — enabling full automated provisioning.
+
+**Step-by-step:**
+
+1. Sign in to the [Azure Portal](https://portal.azure.com) → navigate to **Microsoft Entra ID → App registrations → New registration**
+2. Enter a display name (e.g. `IBM-Verify-M365-Provisioning`), select **Accounts in any organizational directory (Multitenant)**, leave redirect URI blank, click **Register**
+3. Copy the **Application (client) ID** — this is your `CLIENT_ID`
+4. Navigate to **API permissions → Add a permission → Microsoft Graph → Application permissions**, then add:
+   - `Directory.ReadWrite.All`
+   - `User.ReadWrite.All`
+   - `RoleManagement.ReadWrite.Directory`
+5. Click **Grant admin consent for [your tenant]** — all three permissions must show a green tick
+6. Navigate to **Certificates & secrets → New client secret**, enter a description and expiry, click **Add**; copy the **Value** immediately — this is your `CLIENT_SECRET`
+7. In **IBM Security Verify**, navigate to the M365 application entry → **Provisioning tab** → enter:
+   - Domain name: `contoso.onmicrosoft.com`
+   - Client ID: `<APPLICATION_CLIENT_ID>`
+   - Client Secret: `<CLIENT_SECRET_VALUE>`
+8. In the **Schema Extension Mapping** section, map any M365 custom attributes to the corresponding IBM Verify attribute fields, then click **Save**
+
+**Example: Register app via MS Graph API (alternative to portal UI)**
+
+```bash
+# Requires az CLI logged in as Global Admin
+az ad app create \
+  --display-name "IBM-Verify-M365-Provisioning" \
+  --sign-in-audience AzureADMultipleOrgs
+
+# Grant required Graph permissions (replace <APP_ID> with the output above)
+az ad app permission add \
+  --id <APP_ID> \
+  --api 00000003-0000-0000-c000-000000000000 \
+  --api-permissions \
+    19dbc75e-c2e2-444c-a770-ec69d8559fc7=Role \
+    741f803b-c850-494e-b5df-cde7c675a1ca=Role \
+    9e3f62cf-ca93-4989-b6ce-bf83c28f9fe8=Role
+
+# Grant admin consent
+az ad app permission admin-consent --id <APP_ID>
 ```
 
-**Prerequisites:** Microsoft 365 admin account + IBM Verify admin permissions + three credentials (domain name, Client ID, Client Secret).
+**Validate token exchange (curl)**
+
+```bash
+# Request an OAuth2 access token using client credentials
+curl -X POST \
+  "https://login.microsoftonline.com/<TENANT_ID>/oauth2/v2.0/token" \
+  -H "Content-Type: application/x-www-form-urlencoded" \
+  -d "client_id=<CLIENT_ID>" \
+  -d "client_secret=<CLIENT_SECRET>" \
+  -d "scope=https://graph.microsoft.com/.default" \
+  -d "grant_type=client_credentials"
+# Expected: HTTP 200 with { "access_token": "eyJ0...", "token_type": "Bearer", ... }
+```
+
+**Sequence diagram**
+
+```mermaid
+sequenceDiagram
+    participant Admin as M365 Admin
+    participant AP as Azure Portal (Entra ID)
+    participant Graph as Microsoft Graph API
+    participant IV as IBM Security Verify
+
+    Admin->>AP: Register new app (Multitenant)
+    AP-->>Admin: App registered → CLIENT_ID
+    Admin->>AP: Add Graph permissions (Directory, User, RoleManagement)
+    Admin->>AP: Grant admin consent
+    AP-->>Admin: Consent granted (green tick)
+    Admin->>AP: Generate Client Secret
+    AP-->>Admin: CLIENT_SECRET value
+    Admin->>IV: Enter Domain + CLIENT_ID + CLIENT_SECRET
+    IV->>Graph: POST /oauth2/v2.0/token (client_credentials)
+    Graph-->>IV: Access token
+    IV->>Graph: PATCH /users/{id} (provision/update user)
+    Graph-->>IV: HTTP 200 OK
+    IV-->>Admin: Provisioning active
+```
+
+**Validation checks**
+
+| Check | What to look for |
+|-------|-----------------|
+| Token exchange | `POST /oauth2/v2.0/token` returns HTTP 200 with `access_token` |
+| User provisioning | New user appears in **M365 Admin Center → Active Users** within ~5 minutes |
+| Sync log | IBM Verify provisioning log shows `Status: Success` with no error codes |
+| Permission scope | Decoded JWT (`access_token`) includes `Directory.ReadWrite.All` in `roles` claim |
+
+**Prerequisites:** Microsoft 365 Global Administrator account + IBM Verify admin permissions + tenant domain name, Client ID, and Client Secret.
 
 #### Key Takeaways for CCF501
 
