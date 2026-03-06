@@ -402,7 +402,7 @@ In Module 3, we discussed cloud computing deployment models: public, private, hy
 
 *Resource Overview:*
 
-    Please read “Chapter 5: Infrastructure-as-a-Service (Iaas) Delivery Model in Cloud” and “Chapter 6: SaaS and PaaS in Cloud” which discusses different service models. Consider these chapters as like the tour of a car engine by a mechanic, where you see what is usually out of sight, and you see how it all fits together. Chapter 5 covers IaaS while Chapter 6 covers Paas and SaaS. Both chapters include important jargon and explain the mechanisms for how these systems actually work.
+    Please read “Chapter 5: Infrastructure-as-a-Service (Iaas) Delivery Model in Cloud” and “Chapter 6: SaaS and PaaS in Cloud” which discusses different service models. Consider these chapters as like the tour of a car engine by a mechanic, where you see what is usually out of sight, and you see how it all fits together. Chapter 5 covers IaaS while Chapter 6 covers PaaS and SaaS. Both chapters include important jargon and explain the mechanisms for how these systems actually work.
 
 > *Status: ✅ Read + Reviewed — see [module04_notes.md](module_04_cloud-computing-service-models/module04_notes.md#3-manvi-s--shyam-g-k-2021-cloud-computing-concepts-and-technologies-ch-5--6-crc-press)*
 
@@ -429,7 +429,7 @@ In Module 3, we discussed cloud computing deployment models: public, private, hy
 > *Status: 🕐 To-Do*
 
 #### 6. Configuring provisioning for Microsoft 365
-- IBM (2022). Configuring provisioning for Microsoft 365. IBM. https://www.ibm.com/docs/en/security-verify?topic=endpoints-configuring-provisioning-microsoft-365 (*Note: I have no idea the format that this will be or the goal or advantage of doing this since I work at Saint Catherine... please confirm.*)
+- IBM (2022). Configuring provisioning for Microsoft 365. IBM. https://www.ibm.com/docs/en/security-verify?topic=endpoints-configuring-provisioning-microsoft-365
 
 *Resource Overview:*
 
