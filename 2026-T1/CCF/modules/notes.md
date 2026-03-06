@@ -351,6 +351,12 @@ Note: Do not use this resource in Assessment 1.
 ## Module 4 - Cloud Computing Service Models
 
 ### TLDR
+- Three service models differ by **abstraction level**: **IaaS** (build — rent raw VMs/storage/networking), **PaaS** (deploy — platform handles infra, you write code), **SaaS** (buy — fully managed software, zero setup)
+- **IaaS** characteristics: dynamic scaling, SLA-backed service levels, PAYG/reserved/BYOL licensing, transparent metering; top providers: AWS EC2, Azure, GCP Compute Engine
+- **SaaS** characteristics: configurable, accelerated feature delivery, open REST/SOAP APIs (enables mashups), collaborative/social features; examples: Salesforce, Adobe CC, Slack, Office 365
+- **PaaS** characteristics: runtime framework, high abstraction, full automation of deploy/config, built-in cloud services (caching, queuing, identity); examples: Heroku, AWS Beanstalk, Red Hat OpenShift
+- Shared challenges across all three: governance, vendor lock-in, regulatory compliance, SLA evaluation — critical before signing any cloud contract
+- **SaaS provisioning** = automated user lifecycle management (create/update/suspend/deprovision) in cloud apps via identity platforms like IBM Security Verify
 
 ### Introduction
 In Module 3, we discussed cloud computing deployment models: public, private, hybrid and community clouds. In Module 4, we will take a look at how different models of cloud services can be utilised; specifically, common use cases that benefit from cloud computing. This module will discuss three cloud computing service models in more detail (see Figure 1):
@@ -392,9 +398,9 @@ In Module 3, we discussed cloud computing deployment models: public, private, hy
 
 *Resource Overview:*
 
-    Please read "Chapter 5: Infrastructure-as-a-Service (Iaas) Delivery Model in Cloud” and “Chapter 6: SaaS and PaaS in Cloud” which discusses different service models. Consider these chapters as like the tour of a car engine by a mechanic, where you see what is usually out of sight, and you see how it all fits together. Chapter 5 covers IaaS while Chapter 6 covers Paas and SaaS. Both chapters include important jargon and explain the mechanisms for how these systems actually work.
+    Please read “Chapter 5: Infrastructure-as-a-Service (Iaas) Delivery Model in Cloud” and “Chapter 6: SaaS and PaaS in Cloud” which discusses different service models. Consider these chapters as like the tour of a car engine by a mechanic, where you see what is usually out of sight, and you see how it all fits together. Chapter 5 covers IaaS while Chapter 6 covers Paas and SaaS. Both chapters include important jargon and explain the mechanisms for how these systems actually work.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module04_notes.md](module_04_cloud-computing-service-models/module04_notes.md#3-manvi-s--shyam-g-k-2021-cloud-computing-concepts-and-technologies-ch-5--6-crc-press)*
 
 #### 4. Commercial Examples of SaaS Provision
 - Christina. (2021). 21 best SaaS product videos and animations: Great explainer examples for inspiration. Blue Carrot. https://bluecarrot.io/marketing/11-saas-videos-examples-marketing-trends/ (*Note: Try to grep the full content from the html attributes by a ping on the domain or something. I tried downloading the content as pdf but it broke badly.*)
@@ -425,7 +431,7 @@ In Module 3, we discussed cloud computing deployment models: public, private, hy
 
     As we discussed above, SaaS provisioning provides features for handling users and accounts for an application in the cloud. Read this documentation by IBM, which details provisioning features that can be configured for Microsoft 365 in the IBM Security (IBM’s cloud security platform).
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module04_notes.md](module_04_cloud-computing-service-models/module04_notes.md#6-ibm-2022-configuring-provisioning-for-microsoft-365-ibm-security-verify)*
 
 ---
 
