@@ -277,7 +277,7 @@ From Module 2, you now know what cloud is, and its utility and history. Now, it�
 
     This quick-to-the-point introduction to the cloud deployment models covers the basics of the three major cloud deployment models: public, private and hybrid. Pay attention to the differing degrees of accessibility, privacy and security.
 
-> *Status: 🔥 WIP — LinkedIn Learning video, requires manual watch (authenticated access)*
+> *Status: ✅ Read + Reviewed*
 
 #### 2. Cloud Computing Deployment Models and Cloud Challenges
 - Manvi, S., & Shyam, G. K. (2021). Cloud computing: Concepts and technologies. CRC Press. https://learning-oreilly-com.torrens.idm.oclc.org/library/view/cloud-computing/9781000338058/xhtml/01chap_01.xhtml#sec1_3
@@ -344,8 +344,104 @@ Post your answer to the Module 3 discussion forum.
 
 Note: Do not use this resource in Assessment 1.
 
+> *Status: ✅ Done*
+
+---
+
+## Module 4 - Cloud Computing Service Models
+
+### TLDR
+
+### Introduction
+In Module 3, we discussed cloud computing deployment models: public, private, hybrid and community clouds. In Module 4, we will take a look at how different models of cloud services can be utilised; specifically, common use cases that benefit from cloud computing. This module will discuss three cloud computing service models in more detail (see Figure 1):
+
+- IaaS (Infrastructure as a Service)
+- PaaS (Platform as a Service)
+- SaaS (Software as a Service)
+
+[Figure 1:](https://mylearn.torrens.edu.au/courses/22101/files/8990200/preview)
+
+### Resources
+
+#### 1. Introduction to Cloud Service Models
+- Linthicum, D. (2021, May 25). Learning cloud computing: Core concepts [Video]. LinkedIn Learning. https://www.linkedin.com/learning/learning-cloud-computing-core-concepts-13966302/understanding-saas-iaas-and-paas
+
+*Resource Overview:*
+
+    Here is a 10-minute introduction to cloud service models and how they work, covered sequentially as listed below. These videos also cover the leading brands that dominate these respective markets.
+        - 4—Understanding SaaS, IaaS, and PaaS
+        - 5—SaaS Clouds
+        - 6—IaaS Clouds
+        - 7—PaaS Clouds
+
 > *Status: 🕐 To-Do*
 
+#### 2. Understanding IaaS, PaaS and SaaS—IBM
+- IBM. (n.d.). SaaS explained in 5 mins [Video]. https://mediacenter.ibm.com/media/SaaS Explained in 5 minutes/1_wko8of9g
+- IBM. (n.d.). PaaS explained [Video]. https://mediacenter.ibm.com/media/PaaS Explained/1_1jybkm6s
+- IBM Technology. (2020, January 16). IaaS explained [Video]. https://www.youtube.com/watch?v=XRdmfo4M_YA
+
+*Resource Overview:*
+
+    The following three short videos overview IaaS, SaaS and PaaS from the cloud team staff at IBM. This should build on the previous resource by giving you some context and analogies for each model so that you can grasp it and be able to discern between them confidently.
+
+> *Status: 🕐 To-Do*
+
+#### 3. SaaS, PaaS and IaaS—Chapters 5 and 6
+- Manvi, S., & Shyam, G. K. (2021). Cloud computing: Concepts and technologies. CRC Press. https://learning-oreilly-com.torrens.idm.oclc.org/library/view/cloud-computing/9781000338058/xhtml/05chap_05.xhtml
+
+*Resource Overview:*
+
+    Please read "Chapter 5: Infrastructure-as-a-Service (Iaas) Delivery Model in Cloud” and “Chapter 6: SaaS and PaaS in Cloud” which discusses different service models. Consider these chapters as like the tour of a car engine by a mechanic, where you see what is usually out of sight, and you see how it all fits together. Chapter 5 covers IaaS while Chapter 6 covers Paas and SaaS. Both chapters include important jargon and explain the mechanisms for how these systems actually work.
+
+> *Status: 🕐 To-Do*
+
+#### 4. Commercial Examples of SaaS Provision
+- Christina. (2021). 21 best SaaS product videos and animations: Great explainer examples for inspiration. Blue Carrot. https://bluecarrot.io/marketing/11-saas-videos-examples-marketing-trends/
+
+*Resource Overview:*
+
+    SaaS provisioning provides features such as creating new users, deleting users, modification of user profiles, suspending a user account and so on, for an application in the cloud. Here is a collection of 21 popular commercial SaaS applications including some common ones like OneDrive, Google Drive and Adobe Marketing Cloud. Look through this list and see which ones you already know, and look into a one or two that catch your eye.
+
+> *Status: 🕐 To-Do*
+
+#### 5. Service Models of Cloud Computing
+- Shore, M. (2020, July 23).  Cybersecurity with cloud computing [Video]. LinkedIn Learning. https://www.linkedin.com/learning/cybersecurity-with-cloud-computing-2/cloud-services
+
+*Resource Overview:*
+
+    This series of videos addresses the different service models of cloud computing. Please watch Videos 1.3 to 1.6 (approximately 15 minutes) to learn about the different service models in cloud computing.
+        - 3—Cloud Services
+        - 4—Infrastructure as a Service
+        - 5—Platform as a Service
+        - 6—Software as a Service
+
+> *Status: 🕐 To-Do*
+
+#### 6. Configuring provisioning for Microsoft 365
+- IBM (2022). Configuring provisioning for Microsoft 365. IBM. https://www.ibm.com/docs/en/security-verify?topic=endpoints-configuring-provisioning-microsoft-365
+
+*Resource Overview:*
+
+    As we discussed above, SaaS provisioning provides features for handling users and accounts for an application in the cloud. Read this documentation by IBM, which details provisioning features that can be configured for Microsoft 365 in the IBM Security (IBM’s cloud security platform).
+
+> *Status: 🕐 To-Do*
+
+---
+
+### Learning Activities
+
+#### Activity 1: Your Favourite SaaS Application—Discussion Forum
+Pick your favourite business SaaS application and write a post of 100 words discussing what features and characteristics of the application you like the best. What do you think business would be like for the application’s developers had they stuck with a traditional IT model?
+
+Post your answer in the Module 4 discussion forum. While you are in the forum, read through other students’ posts and comment on them. Do any posts stand out to you? Why? Comment on two posts from your peers.
+
+#### Activity 2: Thinking Exercise: No Crowd, No Cloud—Discussion Forum
+One of the challenges of taking up cloud-based services for any organisation (or even individuals!) is the human tendency to stick with the familiar and resistance to change. This is evident across many groups, based on many factors including age, background, experience and so on.
+
+In this thinking exercise, you are asked to reflect on what you have seen so far in Modules 1 to 4. List what aspects of adopting the various cloud services and deployment models you may anticipate hesitation and challenges in. Feel free to tell stories of your past experiences in your post. You can also do some research and explain where you think the challenges may stand. One great resource where you will find challenges specific to the APAC region is in the Additional Learning Resources section.
+
+Post your answer in the Module 4 discussion forum. Please read through other students’ posts and comment on them. Does anyone share the same experiences as you? Is there anything in the forum that surprises you? Or that you had not thought of? Comment on two posts that stand out to you. Remember, this is your community; it is helpful for everyone to exchange ideas and communicate here. Enjoy!
 
 ---
 
