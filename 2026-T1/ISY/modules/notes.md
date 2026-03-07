@@ -259,8 +259,6 @@ A machine learning (ML) model is the brain of an intelligent system. Its logic t
 
 ### Resources
 
-### Learning Activities
-
 #### 1. Six Types of Classification Algorithms
 - Analytics India Magazine. (2018, 15 February). 6 types of classification algorithms [Video file]. https://www.youtube.com/watch?v=ppXFoltcX7A
 
@@ -268,7 +266,7 @@ A machine learning (ML) model is the brain of an intelligent system. Its logic t
 
     Please watch the following short video. Despite the fact that it is very short, this video explains the idea of the following classifiers: Logistic Regression (LR), Naïve Bayes (NB), Stochastic Gradient Descent (SGD), K-Nearest Neighbours (KNN), Decision Tree (DT), Random Forest (RF) and Support Vector Machine (SVM). To gain a deeper understanding of each of the classifiers, please click on the link in the description of the video.
 
-> *Status: 🔥 WIP — needs manual watch (see [module03_notes.md](./module_03_machine-learning-models/module03_notes.md))*
+> *Status: ✅ Read + Reviewed — see [module03_notes.md](./module_03_machine-learning-models/module03_notes.md)*
 
 #### 2. Model Selection
 - Brownlee, J. (2019, 2 December). A gentle introduction to model selection for machine learning. Retrieved from https://machinelearningmastery.com/a-gentle-introduction-to-model-selection-for-machine-learning/
@@ -340,6 +338,82 @@ Describe each of these in no more than 50 words each.
 > *Status: ✅ Done*
 
 ---
+
+## Module 4 - Introduction to Deep Learning
+
+### TLDR
+
+### Introduction
+Now that you know about simpler machine learning (ML) models, it is time to learn about a more complex model called deep learning. Deep learning is the state-of-the-art model of ML and it revolutionised artificial intelligence (AI) and intelligent systems. Deep learning uses artificial neural networks (ANNs) to train and fit models. ANNs are networks of neurons. A neuron is the smallest element in a neural network that decides what should be the output based on the input it receives. For example, imagine that students in a classroom are neurons. The decision of each student alone cannot change a rule of the class (e.g., a rule about the hours of the class); however, if the majority of students responded, the rule would change. Thus, the decision of an ANN is based on the decision of each neuron. In this Module, you will learn what a neuron is and the different activation functions that a neuron can use. Later, the idea of ANN will be presented and you will examine how it learns and simulates the human brain. The two main ANNs (i.e., the convolutional neural network and recurrent neural network) will also be introduced. The learning activity will also ensure that you become familiar with the jargon associated with deep learning.
+
+### Resources
+
+
+#### 1. Basics of Neuron
+- Gupta, D. (2020, 30 January). Fundamentals of deep learning—Activation functions and when to use them? [Blog post]. Retrieved from https://www.analyticsvidhya.com/blog/2020/01/fundamentals-deep-learning-activation-functions-when-to-use-them/
+
+*Resource Overview:*
+
+    This resource will give you an understanding of neurons. Neurons are the elements of neural networks, upon which deep learning is based. Please read this post carefully and pay attention to the different activation functions that can be found in each neuron. After you gain an understanding of a neuron, you will then see how neurons connect to each other to form a network (i.e., an ANN).
+
+> *Status: 🕐 To-Do*
+
+#### 2. What are Artificial Neural Networks?
+- Krogh, A. (2008). What are artificial neural networks? Nature biotechnology, 26(2), 195–197. Retrieved from https://www.proquest.com/scholarly-journals/what-are-artificial-neural-networks/docview/222305221/se-2?accountid=176901
+
+*Resource Overview:*
+
+    If you connect the output of a neuron to the input of another neuron, you will have two layers of neurons. If each layer has more than one neuron connected to the neurons of the next layer, you have a neural network. Now, consider input as a layer, output as a layer and the layers of neurons in the middle as hidden layers. An ANN is a neural network that connects the input layer to the output lawyer (the several hidden layers simulate the human brain). By reading the learning section of this article, you will gain an understanding of how an ANN learns like a brain. Further, by reading the back propagation section, you will gain an understanding of how learning from an output is reflected to each neuron in the hidden layers.
+
+> *Status: 🕐 To-Do*
+
+#### 3. Convolutional Neural Networks
+- LeCun, Y., Bengio, Y. & Hinton, G. (2015). Deep learning. Nature, 521(7553), 436–444. Retrieved from https://www.proquest.com/scholarly-journals/deep-learning/docview/1685003444/se-2?accountid=176901
+
+*Resource Overview:*
+
+    Please read the section on convolutional neural networks (CNNs) (p. 439) in the following article to gain an understanding of CNNs. CNNs are a special type of neural networks that are frequently used in the field of computer vision. Ever since they first appeared, they revolutionized the field of computer vision. Many state-of-the-art computer vision advancements, including Single Shot MultiBox Detector (SSD) and You Only Look Once (YOLO), use CNNs. Next, turn to page 441 and read the section on recurrent neural networks (RNNs) to gain an understanding of RNNs. RNNs are a special type of neural networks that are frequently used in the field of natural language processing. The main idea behind RNNs is that learning does not stop after one step and that one neural network should connect to another neural network. This feature enables them to understand language, as the elements of languages (e.g., verbs, subjects and objects) and even sentences are related to other verbs, subjects, objects and sentences. Please read the part that explains long short-term memory (LSTM) networks, as these networks are state-of-the-art in natural language processing.
+
+> *Status: 🕐 To-Do*
+
+#### 4. Building Intelligent Systems
+- Hulten, G. (2018). Building intelligent systems : A guide to machine learning engineering. New York : Apress. Retrieved from https://ebookcentral-proquest-com.torrens.idm.oclc.org/lib/think/detail.action?docID=5357977
+
+*Resource Overview:*
+
+    Additional Learning Resource.
+
+> *Status: 🕐 To-Do*
+
+---
+
+### Learning Activities
+
+#### Activity 1: Deep Learning Discussion Forum Post
+
+Using the resources you have read in this Module, describe a scenario in which you would prefer to use deep learning and a scenario in which you would prefer not to use deep learning.
+
+Describe each scenario in no more than 100 words and then read through the posts of your peers. Do you mostly agree or disagree with them as to when the various scenarios should be used? Did reading through other students’ work cause you to change your mind?
+
+Post your answer to the Module 4 discussion forum.
+
+> *Status: 🕐 To-Do*
+
+#### Activity 2: ANN Details
+
+Based on the material provided in this module, you were introduced to ANNs. To better understand how ANNs simulate the human brain and also make yourself more familiar with the jargon associated with deep learning, you need to study the following concepts on your own:
+- learning rate,
+- loss function,
+- batch,
+- epoch,
+- dropout
+
+Write short summaries of at least 50 words explaining each of the concepts (approximately 250 words in total). Upload your summary for the ANN learning activity to your personal journal using the link below.
+
+> *Status: 🕐 To-Do*
+
+---
+
 ```bash
 --- PLACEHOLDER:
 ## Module X - ...
