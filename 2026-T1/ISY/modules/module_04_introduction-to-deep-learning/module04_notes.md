@@ -44,7 +44,7 @@
 | Binary Step | f(x) = 1 if x≥0, else 0 | {0,1} | Zero gradient — blocks backprop | Binary classifiers only (legacy) |
 | Linear | f(x) = ax | (−∞, ∞) | Constant gradient — no improvement per layer | Simple/interpretable tasks |
 | Sigmoid | f(x) = 1/(1+e^−x) | (0, 1) | Non-linear; vanishing gradient for \|x\|>3 | Binary classification (output layer) |
-| Tanh | tanh(x) = 2sigmoid(2x)−1 | (−1, 1) | Zero-centered; steeper than sigmoid | Hidden layers (preferred over sigmoid) |
+| Tanh | tanh(x) = 2sigmoid(2x)−1 | (−1, 1) | Zero-centred; steeper than sigmoid | Hidden layers (preferred over sigmoid) |
 | ReLU | f(x) = max(0, x) | [0, ∞) | Fast; sparse activation; dying ReLU for x<0 | Hidden layers (default choice) |
 | Leaky ReLU | f(x) = 0.01x if x<0, else x | (−∞, ∞) | Fixes dying ReLU; non-zero gradient for x<0 | When dead neurons are a problem |
 | Param. ReLU | f(x) = ax if x<0, else x | (−∞, ∞) | Learnable slope 'a'; network tunes it | When Leaky ReLU still underperforms |
@@ -98,17 +98,17 @@
   - Gradient descent iteratively minimises the total error across all training examples
   - Repeats until the error no longer decreases significantly
 
-#### 4. Over-fitting and Generalization
+#### 4. Over-fitting and Generalisation
 
 - **Over-fitting**: the network learns training data too well (too many parameters relative to training examples) → poor performance on new data
 - Example: a network with 10 hidden units solving a 2-class, 100-example problem has 221 free parameters — too many
-- **Cross-validation**: split data into k folds; train on k-1, test on 1; repeat → unbiased estimate of generalization
-- **Regularization** and **ensemble averaging** over several networks help limit over-fitting
+- **Cross-validation**: split data into k folds; train on k-1, test on 1; repeat → unbiased estimate of generalisation
+- **Regularisation** and **ensemble averaging** over several networks help limit over-fitting
 
 #### 5. Extensions and Applications
 
 - Multi-class classification: add one output unit per class
-- Regression: replace step function with a continuous function; minimize squared error
+- Regression: replace step function with a continuous function; minimise squared error
 - **Applications demonstrated**: speech recognition (NETtalk), protein secondary structure prediction, cancer classification, gene prediction
 - Other related architectures: Boltzmann machines, unsupervised networks, Kohonen nets, support vector machines
 
@@ -117,7 +117,7 @@
 - **Back-propagation** is the cornerstone of ANN training — gradient-based weight updates propagate error signals backward through the network
 - **Hidden layers** give ANNs the power to solve non-linear classification and regression problems
 - **Over-fitting** is a persistent risk — always evaluate on independent test data; use cross-validation
-- ANNs achieve state-of-the-art performance across biology, medicine, engineering and language when properly trained and regularized
+- ANNs achieve state-of-the-art performance across biology, medicine, engineering and language when properly trained and regularised
 
 ---
 
@@ -132,11 +132,11 @@
 - Enabled breakthroughs in: speech recognition, visual object recognition, object detection, drug discovery, genomics, NLP
 - A deep-learning system may have **hundreds of millions of adjustable weights** trained on millions of labelled examples
 
-#### 2. Supervised Learning and Optimization
+#### 2. Supervised Learning and Optimisation
 
 - **Supervised learning**: the model is shown labelled examples and learns to map input → output
 - **Objective (loss) function**: measures error (distance) between the model's output scores and the desired output
-- **Stochastic Gradient Descent (SGD)**: most common optimization; shows the model a mini-batch of examples, computes gradients, adjusts weights in the direction that reduces error
+- **Stochastic Gradient Descent (SGD)**: most common optimisation method; shows the model a mini-batch of examples, computes gradients, adjusts weights in the direction that reduces error
 - The **weight vector** is adjusted in the opposite direction to the gradient — equivalent to moving downhill on the error landscape
 
 #### 3. Backpropagation in Multilayer Networks
@@ -162,6 +162,17 @@ CNNs are designed for **array-structured data**: images (2D pixel arrays), audio
 Input Image → [Conv + ReLU + Pool] × N → Fully Connected → Softmax Output
 ```
 
+*CNN architecture (convolutional stack):*
+```mermaid
+flowchart LR
+    A[Input Image\n H×W×C] --> B[Conv + ReLU\nfeature maps]
+    B --> C[Max Pooling\nreduce H,W]
+    C --> D[Conv + ReLU\ndeeper features]
+    D --> E[Max Pooling\nreduce H,W]
+    E --> F[Fully Connected\nlayers]
+    F --> G[Softmax\nclass probabilities]
+```
+
 - **Why CNNs work**: natural signals (images, audio) have local statistics that repeat across positions; pooling provides robustness to small transformations
 - **ImageNet 2012 breakthrough**: deep CNN (AlexNet) halved error rates → triggered the modern computer vision revolution
 
@@ -184,6 +195,22 @@ RNNs are designed for **sequential data**: speech, text, time series, language.
 - Can be unfolded in time to look like a very deep feedforward network where all layers share the same weights
 - **Training challenge — Backpropagation Through Time (BPTT)**: gradients either **explode** or **vanish** as they propagate over many time steps — standard RNNs struggle to learn long-range dependencies
 
+*RNN temporal unrolling — same weights W reused at every time step:*
+```mermaid
+flowchart LR
+    x0[x₀] --> h0[h₀]
+    h0 -->|W| h1[h₁]
+    x1[x₁] --> h1
+    h1 -->|W| h2[h₂]
+    x2[x₂] --> h2
+    h2 -->|W| h3[h₃]
+    x3[x₃] --> h3
+    h0 --> o0[o₀]
+    h1 --> o1[o₁]
+    h2 --> o2[o₂]
+    h3 --> o3[o₃]
+```
+
 #### 7. Long Short-Term Memory (LSTM) — p.442
 
 **LSTM** (Hochreiter & Schmidhuber, 1997) directly addresses the vanishing gradient problem.
@@ -193,6 +220,20 @@ RNNs are designed for **sequential data**: speech, text, time series, language.
 - The memory cell has a **self-connection** that is multiplicatively gated — allowing it to maintain information for long periods without the gradient decaying
 - **Why LSTMs work**: gradient can flow through the memory cell without vanishing, enabling learning of long-range dependencies
 - LSTMs with multiple layers subsequently proved far more effective than conventional RNNs
+
+*LSTM memory cell — gates control information flow:*
+```mermaid
+flowchart LR
+    xt[xₜ input] --> fg[Forget Gate\nf = σ·W·h,x]
+    xt --> ig[Input Gate\ni = σ·W·h,x]
+    xt --> og[Output Gate\no = σ·W·h,x]
+    xt --> cc[Cell Candidate\ng = tanh·W·h,x]
+    fg -->|f × Cₜ₋₁| cell[Cell State Cₜ\nmemory]
+    ig -->|i × g| cell
+    cell --> ht[Hidden State hₜ\no × tanh·Cₜ]
+    og --> ht
+    ht --> next[Next time step]
+```
 
 **LSTM Applications:**
 
@@ -207,7 +248,7 @@ RNNs are designed for **sequential data**: speech, text, time series, language.
 
 - Deep nets learn **distributed representations**: words mapped to dense real-valued vectors (**word vectors / word embeddings**)
 - Semantically similar words end up **close together in vector space** (e.g., "Tuesday" and "Wednesday" have similar vectors)
-- Traditional **N-grams**: count short symbol sequences; cannot generalize beyond seen contexts; need huge training corpora
+- Traditional **N-grams**: count short symbol sequences; cannot generalise beyond seen contexts; need huge training corpora
 - **Neural language models**: associate each word with a vector; the network learns to convert input word vectors into an output word vector predicting the next word
 
 #### Key Takeaways for ISY503
