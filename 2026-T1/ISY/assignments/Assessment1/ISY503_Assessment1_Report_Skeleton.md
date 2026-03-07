@@ -20,13 +20,13 @@ Funk, B., Sadeh-Sharvit, S., Fitzsimmons-Craft, E. E., Trockel, M. T., Monterubi
 
 ### 1.1 Case Study Overview
 
-Digital health interventions (DHIs) — including smartphone apps, online coaching platforms, and web-based therapy programs — generate large volumes of unstructured text through participant journals, coach-user messages, and self-monitoring logs. Extracting clinically meaningful insights from this text manually is time-intensive and does not scale to the thousands of users these platforms serve.
+Digital health interventions (DHIs) — including smartphone apps, online coaching platforms, and web-based therapy programs — generate large volumes of unstructured text through participant journals, coach-user messages, and logs. Extracting clinically meaningful insights from this text manually is time-intensive and does not scale to the thousands of users these platforms serve.
 
 Funk et al. (2020) addressed this gap by proposing the Digital Health Intervention Text Analytics (DHITA) framework: a reusable two-step natural language processing (NLP) pipeline designed to automate feature extraction from DHI text and apply those features to supervised machine learning models for clinical outcome prediction. The framework was validated on data from two randomized controlled trials (RCTs) targeting eating disorders among college-age women.
 
 ### 1.2 Problem Significance
 
-Mental health conditions affect over 970 million people globally, yet specialist care access remains severely constrained (World Health Organization, 2022). DHIs offer a scalable route to evidence-based support, but their clinical value depends on monitoring user progress at scale — a task manual review cannot sustain. Intelligent NLP systems can bridge this gap by transforming unstructured language into actionable clinical signals.
+Mental health conditions affect over 970 million people globally, yet specialist care access remains severely constrained (World Health Organization, 2022). DHIs offer a scalable route to evidence-based support, but their clinical value depends on monitoring user progress at scale, a task **manual review cannot sustain**. Intelligent NLP systems can bridge this gap by transforming unstructured language into actionable clinical signals.
 
 ### 1.3 Report Structure
 
@@ -41,7 +41,9 @@ This report examines the DHITA framework as a case study in applying intelligent
 
 ### 2.1 Intelligent System Overview
 
-DHITA is a supervised ML system for text analytics operating as a two-step pipeline: (1) feature engineering — transforming raw DHI text into numerical representations — and (2) predictive modeling — applying those features to trained classifiers and regressors.
+DHITA is a supervised ML system for text analytics operating as a two-step pipeline: 
+1. Feature engineering: transforming raw DHI text into numerical representations; 
+2. Predictive modeling: applying those features to trained classifiers and regressors.
 
 ### 2.2 Machine Learning Models
 
@@ -122,7 +124,7 @@ The pipeline was implemented using an R package called Digital Health Interventi
 
 ### 4.1 Performance Metrics
 
-Table 2 summarises model performance; both models outperformed the random baseline (AUC 0.50).
+Both models outperformed the random baseline (AUC 0.50).
 
 **Table 2.** DHITA Predictive Model Performance
 
