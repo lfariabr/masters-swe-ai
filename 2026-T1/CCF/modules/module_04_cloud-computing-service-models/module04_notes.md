@@ -6,18 +6,48 @@
 
 | # | Task | Status |
 |---|------|--------|
-| 1 | Watch & summarise Linthicum (2021) — SaaS, IaaS, PaaS intro (LinkedIn Learning) | 🔥 WIP — LinkedIn auth required |
-| 2 | Watch & summarise IBM (n.d.) — SaaS, PaaS, IaaS explained (IBM media + YouTube) | 🔥 WIP — video, no transcript |
-| **3** | **Read & summarise Manvi & Shyam (2021) — IaaS (Ch. 5), SaaS & PaaS (Ch. 6)** | **✅** |
+| **1** | Watch & summarise Linthicum (2021) — SaaS, IaaS, PaaS intro (LinkedIn Learning) | ✅ |
+| **2** | Watch & summarise IBM (n.d.) — SaaS, PaaS, IaaS explained (IBM media + YouTube) | ✅ |
+| 3 | Read & summarise Manvi & Shyam (2021) — IaaS (Ch. 5), SaaS & PaaS (Ch. 6) | **✅** |
 | 4 | Read & summarise Christina (2021) — 21 SaaS product videos (Blue Carrot) | 🔥 WIP — JS-heavy page, content not extractable |
-| 5 | Watch & summarise Shore (2020) — Cybersecurity with Cloud, service models (LinkedIn Learning) | 🔥 WIP — LinkedIn auth required |
-| **6** | **Read & summarise IBM (2022) — Configuring provisioning for Microsoft 365** | **✅** |
+| **5** | Watch & summarise Shore (2020) — Cybersecurity with Cloud, service models (LinkedIn Learning) | ✅ |
+| 6 | Read & summarise IBM (2022) — Configuring provisioning for Microsoft 365 | **✅** |
 | 7 | Activity 1: Your Favourite SaaS Application | 🕐 |
 | 8 | Activity 2: Thinking Exercise — No Crowd, No Cloud | 🕐 |
 
 ---
 
 ## Key Highlights
+
+### 2. IBM (n.d.). SaaS, PaaS, IaaS explained. IBM Cloud.
+
+**Citation:** IBM. (n.d.). *SaaS, PaaS, IaaS explained*. IBM Cloud. https://www.ibm.com/cloud/learn/iaas-paas-saas
+**Purpose:** Provides a concise, high-level overview of the three cloud service models (IaaS, PaaS, SaaS) with clear definitions, examples, and use cases — ideal for an introductory framing of the module.
+
+#### Table of comparisons
+| SaaS | Paas | IaaS |
+|-----|------|------|
+| Application | -- | -- |
+| Data | -- | -- |
+| Runtime | Runtime | -- |
+| OS | OS | -- |
+| Virtualization | Virtualization | Virtualization |
+| Hardware | Hardware | Hardware |
+
+#### SaaS
+- Software hosted by provider, accessed via web browser
+- Examples: Gmail, Salesforce, Dropbox
+- Benefits: no maintenance, accessible anywhere, automatic updates
+
+#### PaaS
+- Platform for developing and deploying applications without managing infrastructure
+- Examples: Heroku, Google App Engine, AWS Elastic Beanstalk
+- Benefits: faster development, built-in scalability, supports distributed teams
+
+#### IaaS
+- Virtualized computing resources (VMs, storage, networking) on demand
+- Examples: AWS EC2, Azure VMs, Google Compute Engine
+- Benefits: flexible, scalable, pay-as-you-go
 
 ### 3. Manvi, S., & Shyam, G. K. (2021). Cloud computing: Concepts and technologies (Ch. 5 & 6). CRC Press.
 
@@ -224,6 +254,46 @@ PaaS implementation team roles: **Project Owner** (champion), **Executive Sponso
 3. SaaS characteristics (open APIs, collaborative features) explain why enterprise adoption has grown — and why governance/compliance (Ch. 5.6) remain top concerns
 4. The **Adobe Creative Cloud** case (perpetual → subscription 2013) is a strong real-world anchor for Activity 1's "Favourite SaaS Application" discussion
 5. PaaS vs IaaS distinction: IaaS gives you VMs to configure; PaaS gives you a deployment target — developers push code, provider handles the rest
+
+---
+
+### 5. Shore, J. (2020). Cybersecurity with cloud computing: Service models. LinkedIn Learning.
+**Citation:** Shore, J. (2020). *Cybersecurity with cloud computing: Service models*. LinkedIn Learning. https://www.linkedin.com/learning/cybersecurity-with-cloud-computing-service-models
+**Purpose:** Provides a concise, security-focused overview of the three cloud service models (IaaS, PaaS, SaaS) with clear definitions, examples, and security implications — ideal for framing the security considerations of each model in the module.
+
+#### Cloud services
+- Cloud Architecture Components: The main components include the cloud consumer, cloud provider, cloud broker, cloud auditor, and cloud carrier.
+- Service Layers: The three primary service layers are Infrastructure as a Service (IaaS), Platform as a Service (PaaS), and Software as a Service (SaaS). Each higher layer involves more management by the service provider and less by the customer.
+- Emerging Cloud Services: New forms of cloud services include Network as a Service (NaaS), Storage as a Service, Backup as a Service, Security as a Service (SecaaS), and Function as a Service (FaaS).
+
+#### IaaS
+Overview: 
+IaaS involves outsourcing equipment like storage, hardware, servers, and networking components to a service provider who owns and maintains it.
+
+Key Characteristics: 
+IaaS offers utility-style access, always-on availability, billing based on consumption, and offloads traditional tech administration tasks to the provider.
+
+Use Cases: 
+Common use cases include setting up test environments, providing storage and backup, hosting websites, and provisioning high-performance computing for big data analysis.
+
+### PaaS
+Overview: PaaS builds upon Infrastructure as a Service (IaaS) by adding the operating system, development services, and middleware.
+
+Key Characteristics: 
+Development and Deployment: PaaS simplifies development and deployment by providing integrated development environments, collaboration tools, and application instrumentation.
+
+Use Cases:
+Google App Engine and AWS Cloud9 are examples of PaaS, supporting various programming languages and offering environments for rapid application development and deployment.
+
+### SaaS
+Overview: 
+SaaS delivers software applications over the internet, eliminating the need for local installation and maintenance
+
+Key Characteristics:
+SaaS applications are accessible from any device with an internet connection, offer automatic updates, and typically operate on a subscription model.
+
+Use Cases:
+Examples of SaaS include Google Workspace (formerly G Suite), Microsoft Office 365, Salesforce,
 
 ---
 

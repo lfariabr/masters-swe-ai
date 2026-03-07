@@ -384,7 +384,7 @@ In Module 3, we discussed cloud computing deployment models: public, private, hy
         - 6—IaaS Clouds
         - 7—PaaS Clouds
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Done*
 
 #### 2. Understanding IaaS, PaaS and SaaS—IBM
 - IBM. (n.d.). SaaS explained in 5 mins [Video]. https://mediacenter.ibm.com/media/SaaS Explained in 5 minutes/1_wko8of9g
@@ -395,7 +395,7 @@ In Module 3, we discussed cloud computing deployment models: public, private, hy
 
     The following three short videos overview IaaS, SaaS and PaaS from the cloud team staff at IBM. This should build on the previous resource by giving you some context and analogies for each model so that you can grasp it and be able to discern between them confidently.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Done*
 
 #### 3. SaaS, PaaS and IaaS—Chapters 5 and 6
 - Manvi, S., & Shyam, G. K. (2021). Cloud computing: Concepts and technologies. CRC Press. https://learning-oreilly-com.torrens.idm.oclc.org/library/view/cloud-computing/9781000338058/xhtml/05chap_05.xhtml
@@ -426,7 +426,7 @@ In Module 3, we discussed cloud computing deployment models: public, private, hy
         - 5—Platform as a Service
         - 6—Software as a Service
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Done*
 
 #### 6. Configuring provisioning for Microsoft 365
 - IBM (2022). Configuring provisioning for Microsoft 365. IBM. https://www.ibm.com/docs/en/security-verify?topic=endpoints-configuring-provisioning-microsoft-365
