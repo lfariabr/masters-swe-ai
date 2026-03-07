@@ -343,11 +343,17 @@ Describe each of these in no more than 50 words each.
 
 ### TLDR
 
+- **Neurons** apply a weighted sum of inputs followed by an **activation function** to introduce non-linearity; without it, deep networks collapse into linear regression
+- **Activation functions**: ReLU is the modern default for hidden layers; Sigmoid/Tanh suffer from vanishing gradients; Softmax used for multi-class outputs
+- **ANNs** are trained via **back-propagation** (gradient descent): forward pass computes predictions, backward pass updates weights to minimise error
+- **CNNs** exploit spatial structure through local connections, shared filter banks, and pooling — state-of-the-art for computer vision (e.g., ImageNet 2012 breakthrough)
+- **RNNs** process sequential data by maintaining a hidden state vector; standard RNNs suffer from vanishing/exploding gradients over long sequences
+- **LSTMs** solve the long-range dependency problem using gated memory cells — state-of-the-art for NLP, speech recognition, and machine translation
+
 ### Introduction
 Now that you know about simpler machine learning (ML) models, it is time to learn about a more complex model called deep learning. Deep learning is the state-of-the-art model of ML and it revolutionised artificial intelligence (AI) and intelligent systems. Deep learning uses artificial neural networks (ANNs) to train and fit models. ANNs are networks of neurons. A neuron is the smallest element in a neural network that decides what should be the output based on the input it receives. For example, imagine that students in a classroom are neurons. The decision of each student alone cannot change a rule of the class (e.g., a rule about the hours of the class); however, if the majority of students responded, the rule would change. Thus, the decision of an ANN is based on the decision of each neuron. In this Module, you will learn what a neuron is and the different activation functions that a neuron can use. Later, the idea of ANN will be presented and you will examine how it learns and simulates the human brain. The two main ANNs (i.e., the convolutional neural network and recurrent neural network) will also be introduced. The learning activity will also ensure that you become familiar with the jargon associated with deep learning.
 
 ### Resources
-
 
 #### 1. Basics of Neuron
 - Gupta, D. (2020, 30 January). Fundamentals of deep learning—Activation functions and when to use them? [Blog post]. Retrieved from https://www.analyticsvidhya.com/blog/2020/01/fundamentals-deep-learning-activation-functions-when-to-use-them/
@@ -356,7 +362,7 @@ Now that you know about simpler machine learning (ML) models, it is time to lear
 
     This resource will give you an understanding of neurons. Neurons are the elements of neural networks, upon which deep learning is based. Please read this post carefully and pay attention to the different activation functions that can be found in each neuron. After you gain an understanding of a neuron, you will then see how neurons connect to each other to form a network (i.e., an ANN).
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module04_notes.md](./module_04_introduction-to-deep-learning/module04_notes.md)*
 
 #### 2. What are Artificial Neural Networks?
 - Krogh, A. (2008). What are artificial neural networks? Nature biotechnology, 26(2), 195–197. Retrieved from https://www.proquest.com/scholarly-journals/what-are-artificial-neural-networks/docview/222305221/se-2?accountid=176901
@@ -365,7 +371,7 @@ Now that you know about simpler machine learning (ML) models, it is time to lear
 
     If you connect the output of a neuron to the input of another neuron, you will have two layers of neurons. If each layer has more than one neuron connected to the neurons of the next layer, you have a neural network. Now, consider input as a layer, output as a layer and the layers of neurons in the middle as hidden layers. An ANN is a neural network that connects the input layer to the output lawyer (the several hidden layers simulate the human brain). By reading the learning section of this article, you will gain an understanding of how an ANN learns like a brain. Further, by reading the back propagation section, you will gain an understanding of how learning from an output is reflected to each neuron in the hidden layers.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module04_notes.md](./module_04_introduction-to-deep-learning/module04_notes.md)*
 
 #### 3. Convolutional Neural Networks
 - LeCun, Y., Bengio, Y. & Hinton, G. (2015). Deep learning. Nature, 521(7553), 436–444. Retrieved from https://www.proquest.com/scholarly-journals/deep-learning/docview/1685003444/se-2?accountid=176901
@@ -374,7 +380,7 @@ Now that you know about simpler machine learning (ML) models, it is time to lear
 
     Please read the section on convolutional neural networks (CNNs) (p. 439) in the following article to gain an understanding of CNNs. CNNs are a special type of neural networks that are frequently used in the field of computer vision. Ever since they first appeared, they revolutionized the field of computer vision. Many state-of-the-art computer vision advancements, including Single Shot MultiBox Detector (SSD) and You Only Look Once (YOLO), use CNNs. Next, turn to page 441 and read the section on recurrent neural networks (RNNs) to gain an understanding of RNNs. RNNs are a special type of neural networks that are frequently used in the field of natural language processing. The main idea behind RNNs is that learning does not stop after one step and that one neural network should connect to another neural network. This feature enables them to understand language, as the elements of languages (e.g., verbs, subjects and objects) and even sentences are related to other verbs, subjects, objects and sentences. Please read the part that explains long short-term memory (LSTM) networks, as these networks are state-of-the-art in natural language processing.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module04_notes.md](./module_04_introduction-to-deep-learning/module04_notes.md)*
 
 #### 4. Building Intelligent Systems
 - Hulten, G. (2018). Building intelligent systems : A guide to machine learning engineering. New York : Apress. Retrieved from https://ebookcentral-proquest-com.torrens.idm.oclc.org/lib/think/detail.action?docID=5357977
@@ -383,7 +389,7 @@ Now that you know about simpler machine learning (ML) models, it is time to lear
 
     Additional Learning Resource.
 
-> *Status: 🕐 To-Do*
+> *Status: 🔥 WIP — needs manual access (ProQuest eBook via Torrens library)*
 
 ---
 
