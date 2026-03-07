@@ -2,7 +2,7 @@
 *CCF501 Cloud Computing Fundamentals - Assessment 1 Report*
 
 ## 1. Executive Summary
-Cloud computing has become a core business utility - email, storage, and smart devices all run on someone else's infrastructure, delivered on demand (Nishimura, 2022). For ABC Enterprise from our case study, this model translated directly into results: start-up IT costs dropped by ~80% and the platform absorbed a 10x customer surge within a month, without a matching increase in headcount (Eliaçık, 2022; McHaney, 2021). This report outlines three key benefits of cloud adoption, the main challenges to manage, and a practical recommendation for service model, deployment model, cost model, and cloud provider. Where ABC needs a provider beyond "XYZ", AWS is recommended for its maturity, global reach, and automation-ready managed services (Amazon Web Services, n.d.).
+Cloud computing has become a core business utility - email, storage, and smart devices all run on someone else's infrastructure, delivered on demand (Nishimura, 2022). For ABC Enterprise from our case study, this model translated directly into results: start-up IT costs dropped by ~80% and the platform absorbed a 10x customer surge within a month, without a matching increase in headcount (Eliaçık, 2022; McHaney, 2021). This report outlines three key benefits of cloud adoption, the main challenges to manage, and a practical recommendation for service model, deployment model, cost model, and cloud provider. Where ABC needs a provider beyond "XYZ", AWS is recommended for its maturity, global reach, and automation-ready managed services (Amazon Web Services, n.d.-a).
 
 ## 2. Benefits of Cloud Computing vs. Traditional IT Infrastructure
 Traditional IT means owning everything - servers, cooling, procurement cycles, and the staff to keep it running (McHaney, 2021). For a high-growth start-up like ABC, that model is a strategic handicap. Cloud flips it: instead of buying capacity, ABC rents capability, aligned to the NIST essential characteristics of on‑demand self‑service, measured service, rapid elasticity, and resource pooling (Mell & Grance, 2011).
@@ -51,7 +51,7 @@ Deeper managed-service adoption makes provider migration expensive (Eliaçık, 2
 ## 4. Recommended Cloud Models for ABC Enterprise
 Cloud service models sit on a control-versus-responsibility spectrum (IBM, n.d.-a; Linthicum, 2021; McHaney, 2021). IaaS gives ABC full flexibility over compute and configuration, but it also means managing operating systems and scaling policies. PaaS reduces that burden by abstracting infrastructure management, allowing the team to focus on building and improving the application itself. SaaS, while efficient, offers limited customization and is therefore less appropriate for a start-up that must differentiate its digital platform.
 
-Deployment models also affect scalability and automation. NIST's fourth model — community cloud, shared among sector-specific organisations — does not apply to ABC's consumer platform (Manvi & Shyam, 2021). Private cloud increases control but sacrifices elasticity and cost efficiency. Hybrid cloud can support cloud bursting and workload portability, yet introduces architectural complexity that exceeds ABC's current operational maturity (Manvi & Shyam, 2021). For ABC — public cloud is the most strategically aligned option: Gartner data shows IaaS workloads experience 60% fewer security incidents than traditional data centres (IBM, n.d.-b), with the scalability and automation ABC requires (Mell & Grance, 2011; Nishimura, 2022) (see Table 1).
+Deployment models also affect scalability and automation. NIST's fourth model — community cloud, shared among sector-specific organisations — does not apply to ABC's consumer platform (Manvi & Shyam, 2021). Private cloud increases control but sacrifices elasticity and cost efficiency. Hybrid cloud can support cloud bursting and workload portability, yet introduces architectural complexity that exceeds ABC's current operational maturity (Manvi & Shyam, 2021). For ABC — public cloud is the most strategically aligned option: IBM (n.d.-b), citing Gartner analysis, reports IaaS workloads experience 60% fewer security incidents than traditional data centres, with the scalability and automation ABC requires (Mell & Grance, 2011; Nishimura, 2022) (see Table 1).
 
 | Deployment Model | Cost | Elasticity | ABC Fit |
 | --- | --- | --- | --- |
@@ -83,10 +83,10 @@ Azure suits Microsoft-aligned enterprises; GCP leads in analytics. AWS best fits
 *Table 2: Cloud provider comparison for ABC Enterprise.*
 
 ### 1. Elastic Load Balancing (ELB)
-Automates traffic routing and health-checks across EC2 instances without operator intervention — critical for ABC's delivery and taxi services where latency causes churn. ELB integrates natively with Route 53 and Auto Scaling already in ABC's stack (Amazon Web Services, n.d.).
+Automates traffic routing and health-checks across EC2 instances without operator intervention — critical for ABC's delivery and taxi services where latency causes churn. ELB integrates natively with Route 53 and Auto Scaling already in ABC's stack (Amazon Web Services, n.d.-a).
 
 ### 2. Auto Scaling
-Provisions or terminates EC2 instances based on demand signals, directly implementing NIST's rapid elasticity (Mell & Grance, 2011). The 10x surge required no manual intervention because capacity becomes policy-driven, not operator-driven — a fundamental shift from traditional IT (Amazon Web Services, n.d.).
+Provisions or terminates EC2 instances based on demand signals, directly implementing NIST's rapid elasticity (Mell & Grance, 2011). The 10x surge required no manual intervention because capacity becomes policy-driven, not operator-driven — a fundamental shift from traditional IT (Amazon Web Services, n.d.-a).
 
 ### 3. AWS Lambda
 Event-driven compute for ABC's workflow automation: order placed → delivery assigned; payment confirmed → restaurant notified. Lambda requires no server management and scales to zero when idle, charging only per invocation (Amazon Web Services, n.d.; McHaney, 2021).
@@ -182,7 +182,7 @@ IBM. (n.d.-a). *SaaS, PaaS, IaaS explained.* IBM Cloud. https://www.ibm.com/clou
 
 IBM. (n.d.-b). *What is a public cloud?* IBM. https://www.ibm.com/think/topics/public-cloud
 
-IBM. (n.d.-c). *What is private cloud?* IBM. https://www.ibm.com/think/topics/private-cloud
+IBM. (n.d.-c). *What is a virtual private cloud (VPC)?* IBM. https://www.ibm.com/think/topics/vpc
 
 Linthicum, D. (2021). *Learning cloud computing: Core concepts* [Video]. LinkedIn Learning. https://www.linkedin.com/learning/learning-cloud-computing-core-concepts-13966302/overview-of-cloud-computing
 

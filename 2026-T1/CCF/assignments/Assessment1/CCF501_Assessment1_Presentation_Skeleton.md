@@ -65,7 +65,7 @@
 - More customers ≠ more headcount — the linear relationship is broken
 
 **Speaker note:**
-> "In traditional IT, a 10x surge would mean a procurement cycle — hardware arrives after the opportunity passes. Traditional IT locks teams into a *lead strategy*: procure capacity ahead of demand to avoid shortfalls (McHaney, 2021). Cloud enables a *lag strategy* instead — resources provision only as demand arrives, eliminating idle capital spend. With cloud auto scaling, ABC's capacity became a policy, not a purchase order. And through resource pooling, ABC gets enterprise-grade infrastructure it couldn't afford to build alone."
+> "In traditional IT, a 10x surge would mean a procurement cycle — hardware arrives after the opportunity passes. Traditional IT locks teams into a *lead strategy*: procure capacity ahead of demand to avoid shortfalls (McHaney, 2021). Cloud enables a *lag strategy* instead — resources provision only as demand arrives, eliminating idle capital spend. With cloud auto-scaling, ABC's capacity became a policy, not a purchase order. And through resource pooling, ABC gets enterprise-grade infrastructure it couldn't afford to build alone."
 
 **Visual — 🍌 Nano Banana #7: 10x Surge Growth Chart**
 > Create a professional bar chart diagram in Lucidchart flowchart style, white background. X-axis: "Month 0" and "Month 1". Two grouped bars per month. Bar 1 (dark blue): "Infrastructure Capacity". Bar 2 (orange): "Customer Demand". At Month 0, both bars equal height. At Month 1, Customer Demand bar is 10x taller while Infrastructure Capacity bar auto-matches it with a dashed "Auto Scaled" line at the top. Add annotation arrow pointing to Month 1: "10x surge — no manual intervention". Title: "Rapid Elasticity: ABC's 10x Growth Absorbed by Auto Scaling". Output as image.
@@ -104,7 +104,7 @@
 - **Why public?** ABC is consumer-facing, high-growth, no regulatory mandate for private infrastructure
 
 **Speaker note:**
-> "The recommendation is a blended IaaS-PaaS model on public cloud. Public cloud also delivers stronger security outcomes than many expect — Gartner analysis shows IaaS workloads experience 60% fewer security incidents than traditional data centres (IBM, n.d.). Private cloud would give control ABC doesn't need yet at a cost it can't justify. As ABC scales, a Virtual Private Cloud (VPC) — isolated private networking on public cloud infrastructure — is a viable intermediate step without the full overhead of a dedicated private cluster."
+> "The recommendation is a blended IaaS-PaaS model on public cloud. Public cloud also delivers stronger security outcomes than many expect — IBM (n.d.), citing Gartner, reports IaaS workloads experience 60% fewer security incidents than traditional data centres. Private cloud would give control ABC doesn't need yet at a cost it can't justify. As ABC scales, a Virtual Private Cloud (VPC) — isolated private networking on public cloud infrastructure — is a viable intermediate step without the full overhead of a dedicated private cluster."
 
 **Visual — 🍌 Nano Banana #9: Service + Deployment Model Spectrum**
 > Create a professional two-section infographic in Lucidchart flowchart style, white background. Top section header: "Service Model — ABC Recommendation". Three horizontally arranged boxes: "IaaS" (dark blue, labelled "Compute + config flexibility"), "PaaS ✅" (green, labelled "Managed DB, LB, serverless — recommended"), "SaaS" (grey, labelled "Limited customisation"). An arrow under them labelled "Control ← → Managed". Bottom section header: "Deployment Model — ABC Recommendation". Three horizontally arranged boxes: "Private Cloud" (red, labelled "High cost, limited elasticity ❌"), "Hybrid Cloud" (amber, labelled "Premature complexity ⚠️"), "Public Cloud ✅" (green, labelled "Scalable, automated, cost-effective"). Title: "Recommended Cloud Models for ABC Enterprise". Output as image.
@@ -201,7 +201,9 @@
 - Accenture Technology. (2020). *Why Cloud Matters* [Video]. YouTube.
 - Carpenter, T. (2020). *AWS SAA-C02 Cert Prep 1: Cloud Services Overview* [Video]. LinkedIn Learning.
 - Naved, M., et al. (2022). Identifying the role of cloud computing in educational institutions. *Materials Today: Proceedings*.
-- IBM. (n.d.). *SaaS, PaaS, IaaS explained; What is a public cloud?; What is private cloud?* IBM Cloud.
+- IBM. (n.d.-a). *SaaS, PaaS, IaaS explained.* IBM Cloud.
+- IBM. (n.d.-b). *What is a public cloud?* IBM.
+- IBM. (n.d.-c). *What is a virtual private cloud (VPC)?* IBM.
 - Shore, J. (2020). *Cybersecurity with Cloud Computing: Service Models* [Video]. LinkedIn Learning.
 - Linthicum, D. (2021). *Learning Cloud Computing: Core Concepts* [Video]. LinkedIn Learning.
 
