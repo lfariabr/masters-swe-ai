@@ -348,7 +348,6 @@ Now that you know about simpler machine learning (ML) models, it is time to lear
 
 ### Resources
 
-
 #### 1. Basics of Neuron
 - Gupta, D. (2020, 30 January). Fundamentals of deep learning—Activation functions and when to use them? [Blog post]. Retrieved from https://www.analyticsvidhya.com/blog/2020/01/fundamentals-deep-learning-activation-functions-when-to-use-them/
 
