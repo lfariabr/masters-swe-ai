@@ -8,7 +8,7 @@ Cloud computing has become a core business utility - email, storage, and smart d
 Traditional IT means owning everything - servers, cooling, procurement cycles, and the staff to keep it running (McHaney, 2021). For a high-growth start-up like ABC, that model is a strategic handicap. Cloud flips it: instead of buying capacity, ABC rents capability, aligned to the NIST essential characteristics of on‑demand self‑service, measured service, rapid elasticity, and resource pooling (Mell & Grance, 2011).
 
 ### 2.1 Cost Efficiency and Pay-as-you-grow Model
-Cloud shifts spend from CAPEX to OPEX - no upfront servers, no idle hardware costs (Eliaçık, 2022). ABC's ~80% reduction in start-up IT costs is the "measured service" characteristic in action: pay for compute-hours, storage GB-months, and data transfer actually consumed (Mell & Grance, 2011). As McHaney (2021) notes, operational overhead - personnel, training, upgrades, and security - often exceeds hardware cost over time, making pay-as-you-go a structural advantage. Beyond the bill, standard tasks like backups, patching, and scaling can be codified and automated, reducing human toil across the delivery pipeline (Accenture Technology, 2020). Figure 1 illustrates ABC's end-to-end request flow across the AWS stack.
+Cloud shifts spend from CAPEX to OPEX - no upfront servers, no idle hardware costs (Eliaçık, 2022). ABC's ~80% reduction in start-up IT costs is the "measured service" characteristic in action: pay for compute-hours, storage GB-months, and data transfer actually consumed (Mell & Grance, 2011). As McHaney (2021) notes, operational overhead - personnel, training, upgrades, and security - often exceeds hardware cost over time, making pay-as-you-go a structural advantage. Beyond the bill, standard tasks like backups, patching, and scaling can be codified and automated, reducing human toil across the delivery pipeline (Accenture Technology, 2020; Carpenter, 2020). Traditional IT forces a *lead strategy* — procuring capacity ahead of demand to avoid shortfalls — while cloud enables a *lag strategy* that provisions resources only as demand materialises, eliminating idle capital spend (McHaney, 2021). Figure 1 illustrates ABC's end-to-end request flow across the AWS stack.
 
 ```mermaid
 sequenceDiagram
@@ -31,16 +31,16 @@ sequenceDiagram
 *Figure 1: ABC Enterprise cloud traffic flow — from user request through Route 53, load balancing, compute, storage, and database layers.*
 
 ### 2.2 Rapid Scalability for Business Growth
-A 10x customer surge in a single month exposes the core weakness of on-premises infrastructure: procurement lead times mean hardware arrives after the opportunity has passed (McHaney, 2021). Cloud's rapid elasticity lets ABC scale compute up during campaigns or city launches and scale down when demand normalizes - automatically, not reactively (Mell & Grance, 2011). Eliaçık (2022) highlights that this "endless scalability" protects against outages from traffic spikes, keeping latency low and availability high. For an app handling delivery, taxi bookings, and payments, that's not a `nice-to-have` - it's a retention strategy.
+A 10x customer surge in a single month exposes the core weakness of on-premises infrastructure: procurement lead times mean hardware arrives after the opportunity has passed (McHaney, 2021). Cloud's rapid elasticity lets ABC scale compute up during campaigns or city launches and scale down when demand normalizes - automatically, not reactively (Mell & Grance, 2011). Eliaçık (2022) highlights that this "endless scalability" protects against outages from traffic spikes, keeping latency low and availability high. For an app handling delivery, taxi bookings, and payments, that's not a `nice-to-have` - it's a retention strategy. Cloud automation also strengthens resiliency — failed instances are automatically detected and replaced, removing single points of failure without operator intervention (Carpenter, 2020).
 
 ### 2.3 Reduced IT Management Overhead
-In on-premises environments, more customers mean more infrastructure, which means more people to maintain it (McHaney, 2021). Cloud breaks that linear relationship. Through resource pooling and virtualization, providers consolidate physical resources across tenants - Manvi and Shyam (2021) describe this as partitioning, isolation, and consolidation that allows multiple workloads to share hardware without interference. ABC borrows that operational maturity: automated maintenance, managed monitoring, and resilient architectures that would be expensive to replicate in-house (Accenture Technology, 2020).
+In on-premises environments, more customers mean more infrastructure, which means more people to maintain it (McHaney, 2021). Cloud breaks that linear relationship. Through resource pooling and virtualization, providers consolidate physical resources across tenants - Manvi and Shyam (2021) describe this as partitioning, isolation, and consolidation that allows multiple workloads to share hardware without interference. ABC borrows that operational maturity: automated maintenance, managed monitoring, and resilient architectures that would be expensive to replicate in-house (Accenture Technology, 2020). Naved et al. (2022) confirm this pattern across diverse organisations: cloud resource pooling consistently reduces operational overhead while maintaining service quality.
 
 ## 3. Challenges and Mitigation Strategies
 Cloud adoption is not risk-free. Three challenges are most relevant for ABC (Eliaçık, 2022):
 
-### 1. **Security and privacy:** 
-ABC handles payments and customer PII. Eliaçık (2022) notes that entrusting sensitive data to a third party means breaches may not be detected immediately. Mitigation: least privilege IAM, mandatory MFA, encryption at rest/in transit, and continuous alerting. The shared responsibility model means the provider secures the cloud infrastructure — ABC must secure what it deploys on top.
+### 1. **Security and privacy:**
+ABC handles payments and customer PII. Security is the top concern for cloud adopters — 90% of security professionals cite it as a challenge, alongside governance (71%) and compliance (68%) (Manvi & Shyam, 2021). Eliaçık (2022) notes that entrusting sensitive data to a third party means breaches may not be detected immediately. Mitigation: least privilege IAM, mandatory MFA, encryption at rest/in transit, and continuous alerting. The shared responsibility model clarifies the division: the provider secures the cloud infrastructure — ABC secures what it deploys on top (Shore, 2020).
 
 ### 2. **Cost volatility:** 
 Pay-as-you-go can spiral without guardrails - overprovisioned instances and excessive egress generate surprise bills (Bittok, 2022). Mitigation: FinOps habits from day one: budget alerts, resource tagging, rightsizing, and reserved pricing for stable workloads.
@@ -49,9 +49,9 @@ Pay-as-you-go can spiral without guardrails - overprovisioned instances and exce
 Deeper managed-service adoption makes provider migration expensive (Eliaçık, 2022), and cloud requires a different operating mindset - infrastructure-as-code, monitoring-first, shared responsibility (McHaney, 2021). Mitigation: prioritize portability (containers, standard databases) and invest in targeted upskilling. Manvi and Shyam (2021) highlight that chain dependency in virtualized environments is a key risk teams must understand to operate effectively.
 
 ## 4. Recommended Cloud Models for ABC Enterprise
-Cloud service models sit on a control-versus-responsibility spectrum (McHaney, 2021). IaaS gives ABC full flexibility over compute and configuration, but it also means managing operating systems and scaling policies. PaaS reduces that burden by abstracting infrastructure management, allowing the team to focus on building and improving the application itself. SaaS, while efficient, offers limited customization and is therefore less appropriate for a start-up that must differentiate its digital platform. 
+Cloud service models sit on a control-versus-responsibility spectrum (IBM, n.d.-a; Linthicum, 2021; McHaney, 2021). IaaS gives ABC full flexibility over compute and configuration, but it also means managing operating systems and scaling policies. PaaS reduces that burden by abstracting infrastructure management, allowing the team to focus on building and improving the application itself. SaaS, while efficient, offers limited customization and is therefore less appropriate for a start-up that must differentiate its digital platform.
 
-Deployment models also affect scalability and automation. Private cloud increases control but sacrifices elasticity and cost efficiency. Hybrid cloud can support cloud bursting and workload portability, yet introduces architectural complexity that exceeds ABC's current operational maturity (Manvi & Shyam, 2021). For ABC - a fast-growing, customer-facing platform - public cloud remains the most strategically aligned option due to its scalability, global availability, and built-in automation capabilities (Mell & Grance, 2011; Nishimura, 2022) (see Table 1).
+Deployment models also affect scalability and automation. NIST defines four models: public, private, hybrid, and community cloud — the last being shared among sector-specific organisations (e.g., banks, health systems) and not applicable to ABC's consumer platform (Manvi & Shyam, 2021). Private cloud increases control but sacrifices elasticity and cost efficiency. Hybrid cloud can support cloud bursting and workload portability, yet introduces architectural complexity that exceeds ABC's current operational maturity (Manvi & Shyam, 2021). For ABC - a fast-growing, customer-facing platform - public cloud remains the most strategically aligned option: Gartner analysis indicates IaaS workloads on public cloud experience 60% fewer security incidents than traditional data centres (IBM, n.d.-b), while delivering the scalability and built-in automation ABC requires (Mell & Grance, 2011; Nishimura, 2022) (see Table 1).
 
 | Deployment Model | Cost | Elasticity | ABC Fit |
 | --- | --- | --- | --- |
@@ -60,6 +60,8 @@ Deployment models also affect scalability and automation. Private cloud increase
 | Hybrid Cloud | Medium — dual infrastructure | Moderate — complex to manage | ⚠️ Premature for current maturity |
 
 *Table 1: Deployment model trade-offs for ABC Enterprise.*
+
+> **Note on VPC:** A Virtual Private Cloud — logically isolated private networking on public cloud infrastructure — offers a viable future option for ABC's more sensitive workloads, combining public cloud economics with enhanced network control (IBM, n.d.-c).
 
 **Recommendation:** A blended approach: IaaS for flexible compute layers, and PaaS for managed databases, load balancing, autoscaling, and serverless functions. This balance preserves flexibility while embedding the rapid elasticity and measured service characteristics (Mell & Grance, 2011) directly into the infrastructure layer, without rebuilding operational maturity from scratch (Accenture Technology, 2020).
 
@@ -174,7 +176,17 @@ Amazon Web Services. (n.d.-b). *AWS Pricing.* https://aws.amazon.com/pricing/
 
 Bittok, T. (2022, January 22). *Cloud total cost of ownership.* LinkedIn Pulse. https://www.linkedin.com/pulse/cloud-total-cost-ownership-theophilus-bittok/
 
+Carpenter, T. (2020, May 27). *AWS Certified Solutions Architect – Associate (SAA-C02) Cert Prep 1: Cloud services overview* [Video]. LinkedIn Learning. https://www.linkedin.com/learning/aws-certified-solutions-architect-associate-saa-c02-cert-prep-1-cloud-services-overview/benefits-of-cloud-computing
+
 Eliaçık, E. (2022). *The good, bad, and ugly sides of cloud computing.* Dataconomy. https://dataconomy.com/2022/05/pros-and-cons-of-cloud-computing-2022/
+
+IBM. (n.d.-a). *SaaS, PaaS, IaaS explained.* IBM Cloud. https://www.ibm.com/cloud/learn/iaas-paas-saas
+
+IBM. (n.d.-b). *What is a public cloud?* IBM. https://www.ibm.com/think/topics/public-cloud
+
+IBM. (n.d.-c). *What is private cloud?* IBM. https://www.ibm.com/think/topics/private-cloud
+
+Linthicum, D. (2021). *Learning cloud computing: Core concepts* [Video]. LinkedIn Learning. https://www.linkedin.com/learning/learning-cloud-computing-core-concepts-13966302/overview-of-cloud-computing
 
 Manvi, S., & Shyam, G. K. (2021). *Cloud computing: Concepts and technologies* (Chapter 4). CRC Press. https://learning-oreilly-com.torrens.idm.oclc.org/library/view/cloud-computing/9781000338058/
 
@@ -182,8 +194,12 @@ McHaney, R. (2021). *Cloud technologies: An overview of cloud computing technolo
 
 Mell, P., & Grance, T. (2011). *The NIST definition of cloud computing* (Special Publication 800-145). National Institute of Standards and Technology. https://doi.org/10.6028/NIST.SP.800-145
 
+Naved, M., Sanchez, D. T., Dela Cruz, A. P., Jr., Peconcillo, L. B., Jr., Peteros, E. D., & Tenerife, J. J. L. (2022). Identifying the role of cloud computing technology in management of educational institutions. *Materials Today: Proceedings, 51*(8), 2309–2312. https://doi.org/10.1016/j.matpr.2021.11.414
+
 Nishimura, H. (2022, August 30). *Introduction to AWS for non-engineers: 1 cloud concepts* [Video]. LinkedIn Learning. https://www.linkedin.com/learning/introduction-to-aws-for-non-engineers-1-cloud-concepts-2/
 
 Rahman, M. S., & Raza, M. (2021). Cloud computing security challenges and its potential solution. *International Journal of Computer Applications, 174*(6), 29–33. https://doi.org/10.5120/ijca2021921167
+
+Shore, J. (2020). *Cybersecurity with cloud computing: Service models* [Video]. LinkedIn Learning. https://www.linkedin.com/learning/cybersecurity-with-cloud-computing-service-models
 
 Singh, S., & Chana, I. (2016). Cloud resource provisioning: Survey, status and future research directions. *Knowledge and Information Systems, 49*(3), 1005–1069. https://doi.org/10.1007/s10115-016-0922-3
