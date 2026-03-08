@@ -164,6 +164,75 @@ graph TD
 
 *Table 4: Glossary of Terms*
 
+### Appendix G – Indicative KPI Benchmarks for ABC Enterprise Cloud Implementation
+
+> **Note:** All figures below are indicative estimates derived from AWS public pricing, startup benchmarking data, and the case study outcomes stated in this report (~80% cost reduction; 10× customer surge absorbed). They are intended to illustrate order-of-magnitude scale and are not audited actuals.
+
+#### G.1 Cloud Resources Provisioned ("What We Are Hiring")
+
+| AWS Service | Role | Baseline Config | Auto-Scale Ceiling |
+|---|---|---|---|
+| EC2 (web/app tier) | Serve API requests for all three verticals | 2× t3.medium (2 vCPU, 4 GB RAM) | 20× c5.xlarge (4 vCPU, 8 GB RAM) |
+| Auto Scaling | Scale EC2 fleet up/down on demand signals | Policy-driven (CloudWatch triggers) | Absorbed 10× surge with zero manual intervention |
+| Elastic Load Balancer (ELB) | Distribute inbound traffic across EC2 fleet | Always-on (hourly charge) | Scales transparently — no manual config |
+| RDS (PostgreSQL) | Structured data: orders, rides, payments, users | db.r5.large (2 vCPU, 16 GB) — Multi-AZ | Read replicas added on demand |
+| S3 | Receipt storage, media assets, backups | Pay-per-GB — no provisioned minimum | Unlimited (object storage) |
+| AWS Lambda | Event-driven workflows: order assignment, payment notifications, driver dispatch | 128 MB / 3s timeout per function | 1,000 concurrent executions (default limit, raisable) |
+| Route 53 | DNS routing and health checks | Always-on (per-query billing) | Globally redundant by default |
+| VPC | Network isolation — multi-tenant segmentation per vertical | Single VPC with subnet per workload tier | Peering and private endpoints as needed |
+| CloudFront | CDN — low-latency delivery of static assets to distributed users | Global edge network (always-on) | Scales to any volume; invalidation on deploy |
+| CloudWatch | Monitoring, alerting, autoscale triggers | Always-on (free tier + paid metrics) | Retains 15 months of metrics |
+| Cost Explorer | FinOps — cost tracking, rightsizing, usage analysis | Always-on (no provisioning needed) | Validates ~80% cost reduction claim |
+| AWS WAF + Shield Standard | Security layer — DDoS mitigation, traffic filtering | Included (Shield Standard free) | Shield Advanced available for high-volume attacks |
+
+*Table G1: AWS services provisioned for ABC Enterprise — baseline configuration and scaling ceiling.*
+
+---
+
+#### G.2 Expected Volume — Baseline (Normal Operations)
+
+| Vertical | Daily Active Users | Transactions / Day | Data Generated / Day | Avg Response Time Target |
+|---|---|---|---|---|
+| **Food Delivery** | ~8,000 active users | ~6,000 orders/day | ~500 MB (order data, receipts, images) | < 300 ms (order placement) |
+| **Ride-Hailing (Taxi)** | ~4,000 active users | ~3,000 rides/day | ~200 MB (trip data, GPS events, receipts) | < 500 ms (driver dispatch) |
+| **Payments** | ~12,000 transactions | ~12,000 payment events/day | ~100 MB (transaction records, audit logs) | < 200 ms (payment confirmation) |
+| **Platform total** | ~15,000 unique users/day | ~21,000 events/day | ~800 MB/day | — |
+
+*Table G2: Baseline expected volume per vertical — normal operations, pre-growth-campaign.*
+
+---
+
+#### G.3 Peak Expected Volume (10× Surge — City Launch / Campaign Event)
+
+| Vertical | Peak DAU | Peak Transactions / Hour | Peak Data Throughput | EC2 Instances Required |
+|---|---|---|---|---|
+| **Food Delivery** | ~80,000 active users | ~6,000 orders/hr (lunchtime spike) | ~5 GB/hr | 8–12× c5.xlarge |
+| **Ride-Hailing (Taxi)** | ~40,000 active users | ~3,000 ride requests/hr | ~2 GB/hr | 4–6× c5.xlarge |
+| **Payments** | ~120,000 transactions | ~15,000 payment events/hr | ~1 GB/hr | 2–4× c5.xlarge (stateless processors) |
+| **Platform total (peak)** | ~150,000 unique users/day | ~24,000 events/hr | ~8 GB/hr | Up to 20× c5.xlarge (Auto Scaling) |
+
+*Table G3: Peak volume per vertical — 10× surge scenario as referenced in Section 2.2 (Eliaçık, 2022).*
+
+---
+
+#### G.4 Estimated Monthly Cost Breakdown by Vertical
+
+| Cost Component | Food Delivery | Ride-Hailing (Taxi) | Payments | Platform Shared | **Total (Baseline)** |
+|---|---|---|---|---|---|
+| EC2 compute (on-demand) | ~$180 | ~$90 | ~$60 | ~$120 (infra baseline) | ~$450/mo |
+| RDS managed database | ~$120 | ~$80 | ~$100 | — | ~$300/mo |
+| S3 storage (per GB-month) | ~$50 | ~$25 | ~$15 | — | ~$90/mo |
+| Lambda invocations | ~$30 | ~$40 | ~$20 | — | ~$90/mo |
+| Data transfer (egress) | ~$40 | ~$20 | ~$10 | — | ~$70/mo |
+| Route 53 + ELB + CloudWatch | — | — | — | ~$80 | ~$80/mo |
+| **Vertical subtotal** | **~$420/mo** | **~$255/mo** | **~$205/mo** | **~$200/mo** | **~$1,080/mo** |
+| **Peak month (10× surge)** | **~$4,200/mo** | **~$2,550/mo** | **~$2,050/mo** | **~$600/mo** | **~$9,400/mo** |
+
+*Table G4: Indicative monthly AWS cost breakdown by vertical — baseline vs. 10× peak surge (AWS pricing, n.d.-b). Reserved instance pricing for stable tiers would reduce baseline by ~40–60% (Bittok, 2022). Spot instances are applicable for background batch jobs (analytics, report generation) at up to 90% off on-demand rates.*
+
+**Cost model note:** The ~80% start-up cost reduction referenced in Section 2.1 compares against a traditional on-premises alternative estimated at ~$50,000–$70,000 upfront CAPEX (servers, networking, licensing) plus ~$5,000–$8,000/month in operational overhead (staff, maintenance, power). Cloud baseline of ~$1,080/month represents an ~85% reduction in monthly IT spend at equivalent capacity (Eliaçık, 2022; McHaney, 2021).
+
+---
 
 ## References
 Accenture Technology. (2020, June 5). *Why cloud matters* [Video]. YouTube. https://www.youtube.com/watch?v=p1Nr03gtkyU

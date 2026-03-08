@@ -301,3 +301,10 @@ Examples of SaaS include Google Workspace (formerly G Suite), Microsoft Office 3
 ### Activity 1: Your Favourite SaaS Application
 
 ### Activity 2: Thinking Exercise — No Crowd, No Cloud
+
+
+---
+
+## Class Notes
+
+### 09/03/2026 - 11:30
