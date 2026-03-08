@@ -24,12 +24,12 @@
 ## Slide 2 — What Is Cloud Computing?
 
 **Content:**
-- "On-demand delivery of compute, storage and services over the internet" (Mell & Grance, 2011)
+- "On-demand delivery of compute, storage and services over the internet" (Mell & Grance, 2011; Naved et al., 2022)
 - **5 NIST characteristics:** On-Demand Self-Service · Broad Network Access · Resource Pooling · Rapid Elasticity · Measured Service
 - Key shift: from **owning capacity** → **renting capability**
 
 **Speaker note:**
-> "Cloud is not just hosting — it's a fundamentally different operating model. NIST defines five essential characteristics. For ABC, rapid elasticity and measured service are the ones that directly explain the 80% cost cut and the 10x surge absorption."
+> "Cloud is not just hosting — it's a fundamentally different operating model with deep historical roots: from 1960s mainframes to 1970s virtualisation, 1999 Salesforce, and 2006 AWS (Naved et al., 2022). NIST defines five essential characteristics. For ABC, rapid elasticity and measured service are the ones that directly explain the 80% cost cut and the 10x surge absorption."
 
 **Visual — 🍌 Nano Banana #5: NIST Wheel Diagram**
 > Create a professional circular infographic diagram in Lucidchart flowchart style, white background. A central circle labelled "Cloud Computing (NIST, 2011)" in dark navy. Five rounded rectangles arranged radially around it, connected by lines. Labels: "On-Demand Self-Service", "Broad Network Access", "Resource Pooling", "Rapid Elasticity", "Measured Service". Each box in a different shade: blue, teal, orange, green, purple. Use clean sans-serif font. Title above diagram: "5 Essential Characteristics of Cloud Computing". Output as image.
@@ -65,7 +65,7 @@
 - More customers ≠ more headcount — the linear relationship is broken
 
 **Speaker note:**
-> "In traditional IT, a 10x surge would mean a procurement cycle — hardware arrives after the opportunity passes. With cloud auto scaling, ABC's capacity became a policy, not a purchase order. And through resource pooling, ABC gets enterprise-grade infrastructure it couldn't afford to build alone."
+> "In traditional IT, a 10x surge would mean a procurement cycle — hardware arrives after the opportunity passes. Traditional IT locks teams into a *lead strategy*: procure capacity ahead of demand to avoid shortfalls (McHaney, 2021). Cloud enables a *lag strategy* instead — resources provision only as demand arrives, eliminating idle capital spend. With cloud auto-scaling, ABC's capacity became a policy, not a purchase order. And through resource pooling, ABC gets enterprise-grade infrastructure it couldn't afford to build alone."
 
 **Visual — 🍌 Nano Banana #7: 10x Surge Growth Chart**
 > Create a professional bar chart diagram in Lucidchart flowchart style, white background. X-axis: "Month 0" and "Month 1". Two grouped bars per month. Bar 1 (dark blue): "Infrastructure Capacity". Bar 2 (orange): "Customer Demand". At Month 0, both bars equal height. At Month 1, Customer Demand bar is 10x taller while Infrastructure Capacity bar auto-matches it with a dashed "Auto Scaled" line at the top. Add annotation arrow pointing to Month 1: "10x surge — no manual intervention". Title: "Rapid Elasticity: ABC's 10x Growth Absorbed by Auto Scaling". Output as image.
@@ -85,7 +85,7 @@
 | **Vendor Lock-in + Skills Gap** — migration cost + mindset shift (McHaney, 2021) | Portability-first (containers, standard DBs), targeted cloud upskilling |
 
 **Speaker note:**
-> "Cloud adoption is not risk-free. Three challenges dominate for ABC. The good news: each has a direct mitigation. Security is a shared responsibility — ABC secures what it deploys, AWS secures the infrastructure."
+> "Cloud adoption is not risk-free. Three challenges dominate for ABC — and industry data makes them concrete: 90% of security professionals cite security as their top concern, with governance (71%) and compliance (68%) close behind (Manvi & Shyam, 2021). The good news: each has a direct mitigation. Security follows a shared responsibility model — the provider secures the infrastructure, ABC secures what it deploys on top (Shore, 2020)."
 
 **Visual — 🍌 Nano Banana #8: Challenge vs Mitigation Table**
 > Create a professional two-column comparison table diagram in Lucidchart flowchart style, white background. Three rows. Left column header "Challenge" in dark red, right column header "Mitigation" in dark green. Row 1: "Security & Privacy — PII + payment data" | "IAM least-privilege, MFA, encryption, shared responsibility model". Row 2: "Cost Volatility — pay-as-you-go sprawl" | "FinOps: budget alerts, tagging, rightsizing, reserved pricing". Row 3: "Vendor Lock-in + Skills Gap" | "Containers + standard DBs for portability; cloud upskilling programme". Alternating row backgrounds (white / light grey). Title: "Cloud Challenges and Mitigations for ABC Enterprise". Output as image.
@@ -104,7 +104,7 @@
 - **Why public?** ABC is consumer-facing, high-growth, no regulatory mandate for private infrastructure
 
 **Speaker note:**
-> "The recommendation is a blended IaaS-PaaS model on public cloud. Private cloud would give control ABC doesn't need yet and at a cost it can't justify. Public cloud gives rapid elasticity and measured service out of the box."
+> "The recommendation is a blended IaaS-PaaS model on public cloud. Public cloud also delivers stronger security outcomes than many expect — IBM (n.d.), citing Gartner, reports IaaS workloads experience 60% fewer security incidents than traditional data centres. Private cloud would give control ABC doesn't need yet at a cost it can't justify. As ABC scales, a Virtual Private Cloud (VPC) — isolated private networking on public cloud infrastructure — is a viable intermediate step without the full overhead of a dedicated private cluster."
 
 **Visual — 🍌 Nano Banana #9: Service + Deployment Model Spectrum**
 > Create a professional two-section infographic in Lucidchart flowchart style, white background. Top section header: "Service Model — ABC Recommendation". Three horizontally arranged boxes: "IaaS" (dark blue, labelled "Compute + config flexibility"), "PaaS ✅" (green, labelled "Managed DB, LB, serverless — recommended"), "SaaS" (grey, labelled "Limited customisation"). An arrow under them labelled "Control ← → Managed". Bottom section header: "Deployment Model — ABC Recommendation". Three horizontally arranged boxes: "Private Cloud" (red, labelled "High cost, limited elasticity ❌"), "Hybrid Cloud" (amber, labelled "Premature complexity ⚠️"), "Public Cloud ✅" (green, labelled "Scalable, automated, cost-effective"). Title: "Recommended Cloud Models for ABC Enterprise". Output as image.
@@ -199,6 +199,13 @@
 - Amazon Web Services. (n.d.-a). *AWS Well-Architected Framework*. AWS.
 - Nishimura, H. (2022). *Introduction to AWS for Non-Engineers* [Course]. LinkedIn Learning.
 - Accenture Technology. (2020). *Why Cloud Matters* [Video]. YouTube.
+- Carpenter, T. (2020). *AWS SAA-C02 Cert Prep 1: Cloud Services Overview* [Video]. LinkedIn Learning.
+- Naved, M., et al. (2022). Identifying the role of cloud computing in educational institutions. *Materials Today: Proceedings*.
+- IBM. (n.d.-a). *SaaS, PaaS, IaaS explained.* IBM Cloud.
+- IBM. (n.d.-b). *What is a public cloud?* IBM.
+- IBM. (n.d.-c). *What is a virtual private cloud (VPC)?* IBM.
+- Shore, J. (2020). *Cybersecurity with Cloud Computing: Service Models* [Video]. LinkedIn Learning.
+- Linthicum, D. (2021). *Learning Cloud Computing: Core Concepts* [Video]. LinkedIn Learning.
 
 **Visual:** Plain reference slide — no image prompt needed. *(~10s)*
 
