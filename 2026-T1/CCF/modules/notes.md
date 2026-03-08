@@ -353,8 +353,8 @@ Note: Do not use this resource in Assessment 1.
 ### TLDR
 - Three service models differ by **abstraction level**: **IaaS** (build — rent raw VMs/storage/networking), **PaaS** (deploy — platform handles infra, you write code), **SaaS** (buy — fully managed software, zero setup) (Manvi & Shyam, 2021, Ch. 5–6)
 - **IaaS** characteristics: dynamic scaling, SLA-backed service levels, PAYG/reserved/BYOL licensing, transparent metering; top providers: AWS EC2, Azure, GCP Compute Engine (Manvi & Shyam, 2021, §5.1)
-- **SaaS** characteristics: configurable, accelerated feature delivery, open REST/SOAP APIs (enables mashups), collaborative/social features; examples: Salesforce, Adobe CC, Slack, Office 365 (Manvi & Shyam, 2021, §6.2, §6.4)
 - **PaaS** characteristics: runtime framework, high abstraction, full automation of deploy/config, built-in cloud services (caching, queuing, identity); examples: Heroku, AWS Beanstalk, Red Hat OpenShift (Manvi & Shyam, 2021, §6.7, §6.9)
+- **SaaS** characteristics: configurable, accelerated feature delivery, open REST/SOAP APIs (enables mashups), collaborative/social features; examples: Salesforce, Adobe CC, Slack, Office 365 (Manvi & Shyam, 2021, §6.2, §6.4)
 - Shared challenges across all three: governance, vendor lock-in, regulatory compliance, SLA evaluation — critical before signing any cloud contract (Manvi & Shyam, 2021, §5.6)
 - **SaaS provisioning** = automated user lifecycle management (create/update/suspend/deprovision) in cloud apps via identity platforms like IBM Security Verify (IBM, 2022)
 

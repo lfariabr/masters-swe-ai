@@ -8,7 +8,7 @@
 |---|------|--------|
 | **1** | Watch & summarise Linthicum (2021) — SaaS, IaaS, PaaS intro (LinkedIn Learning) | ✅ |
 | **2** | Watch & summarise IBM (n.d.) — SaaS, PaaS, IaaS explained (IBM media + YouTube) | ✅ |
-| 3 | Read & summarise Manvi & Shyam (2021) — IaaS (Ch. 5), SaaS & PaaS (Ch. 6) | **✅** |
+| **3** | Read & summarise Manvi & Shyam (2021) — IaaS (Ch. 5), SaaS & PaaS (Ch. 6) | **✅** |
 | 4 | Read & summarise Christina (2021) — 21 SaaS product videos (Blue Carrot) | 🔥 WIP — JS-heavy page, content not extractable |
 | **5** | Watch & summarise Shore (2020) — Cybersecurity with Cloud, service models (LinkedIn Learning) | ✅ |
 | 6 | Read & summarise IBM (2022) — Configuring provisioning for Microsoft 365 | **✅** |
