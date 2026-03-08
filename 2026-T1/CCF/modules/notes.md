@@ -413,7 +413,7 @@ In Module 3, we discussed cloud computing deployment models: public, private, hy
 
     SaaS provisioning provides features such as creating new users, deleting users, modification of user profiles, suspending a user account and so on, for an application in the cloud. Here is a collection of 21 popular commercial SaaS applications including some common ones like OneDrive, Google Drive and Adobe Marketing Cloud. Look through this list and see which ones you already know, and look into a one or two that catch your eye.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed*
 
 #### 5. Service Models of Cloud Computing
 - Shore, M. (2020, July 23).  Cybersecurity with cloud computing [Video]. LinkedIn Learning. https://www.linkedin.com/learning/cybersecurity-with-cloud-computing-2/cloud-services (*Note: potential linking this with FreshService automation project, because we're dealing with user data... maybe ask for a meeting with Renuka and John again to talk about security practices... what I'm doing versus what is mandatory from the company, graising the standards in levels of documentation... from design guide doc to ppt documentation to the team... also hardening my readme to-do list.*)
