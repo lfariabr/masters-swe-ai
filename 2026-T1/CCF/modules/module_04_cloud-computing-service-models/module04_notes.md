@@ -11,7 +11,7 @@
 | **3** | Read & summarise Manvi & Shyam (2021) — IaaS (Ch. 5), SaaS & PaaS (Ch. 6) | ✅ |
 | **4** | Read & summarise Christina (2021) — 21 SaaS product videos (Blue Carrot) | ✅ |
 | **5** | Watch & summarise Shore (2020) — Cybersecurity with Cloud, service models (LinkedIn Learning) | ✅ |
-| 7 | Activity 1: Your Favourite SaaS Application | 🕐 |
+| **7** | Activity 1: Your Favourite SaaS Application | ✅ |
 | 8 | Activity 2: Thinking Exercise — No Crowd, No Cloud | 🕐 |
 
 ---
@@ -300,11 +300,27 @@ Examples of SaaS include Google Workspace (formerly G Suite), Microsoft Office 3
 
 ### Activity 1: Your Favourite SaaS Application
 
+**My favourite SaaS application: GitHub**
+
+GitHub is my go-to SaaS for software development. What stands out most is its seamless collaboration model: pull requests, code reviews, and Issues create a structured workflow accessible from any browser, anywhere. GitHub Actions takes it further by automating CI/CD pipelines directly in the repository and eliminating the need for separate build servers.
+
+If GitHub's devs stayed with a traditional IT model, selling boxed or on-premise software, the platform would never have achieved its global network effect. Organisations would manage their own Git servers, forgoing real-time collaboration features, automatic updates, and the vast open-source ecosystem that makes GitHub indispensable today.
+
+*(~100 words)*
+
 ### Activity 2: Thinking Exercise — No Crowd, No Cloud
 
+**No Crowd, No Cloud**
+
+Cloud computing's viability depends on mass adoption. Without the "crowd," providers like AWS or Azure couldn't justify the capital investment needed to build and maintain global infrastructure — the economies of scale that make cloud affordable simply don't materialise.
+
+The biggest barrier to reaching that critical mass is resistance to change. Adopting cloud requires both technical upskilling and a cultural mindset shift. Organisations afraid of data breaches, loss of control, or migration complexity default to on-premise — and in doing so, slow the very network effects that would make cloud computing safer, cheaper, and more reliable for everyone.
+
+*(~100 words)*
 
 ---
 
 ## Class Notes
 
 ### 09/03/2026 - 11:30
+

@@ -89,7 +89,7 @@ Automates traffic routing and health-checks across EC2 instances without operato
 Provisions or terminates EC2 instances based on demand signals, directly implementing NIST's rapid elasticity (Mell & Grance, 2011). The 10x surge required no manual intervention because capacity becomes policy-driven, not operator-driven — a fundamental shift from traditional IT (Amazon Web Services, n.d.-a).
 
 ### 3. AWS Lambda
-Event-driven compute for ABC's workflow automation: order placed → delivery assigned; payment confirmed → restaurant notified. Lambda requires no server management and scales to zero when idle, charging only per invocation (Amazon Web Services, n.d.; McHaney, 2021).
+Event-driven compute for ABC's workflow automation: order placed → delivery assigned; payment confirmed → restaurant notified. Lambda requires no server management and scales to zero when idle, charging only per invocation (Amazon Web Services, n.d.-a; McHaney, 2021).
 
 ## 7. Conclusion
 Cloud computing is the right strategic move for ABC: measured service, rapid elasticity, and resource pooling (Mell & Grance, 2011) translate directly into automation outcomes — scaling without procurement delays, zero headcount growth, faster time-to-market (Accenture Technology, 2020). Recommended stack: public cloud, blended IaaS/PaaS, hybrid cost model, AWS. Managed well, ABC's infrastructure stops being a bottleneck and becomes a competitive advantage (Eliaçık, 2022).
@@ -119,7 +119,7 @@ graph TD
     G -.->|"Notification / Assignment"| D
 ```
 
-*Figure 2: ABC Enterprise high-level cloud architecture on AWS — replace with generated image (Nano Banana #1).*
+*Figure 2: ABC Enterprise high-level cloud architecture on AWS*
 
 ### Appendix C – Cost Model Breakdown Example
 | Cost Category | On-Prem | Cloud |
@@ -147,7 +147,7 @@ graph TD
 | Rapid Elasticity | 10× customer surge absorbed automatically — no procurement delay or manual intervention | Auto Scaling |
 | Measured Service | ~80% reduction in start-up IT costs — pay only for compute-hours and GB-months consumed | AWS Cost Explorer, CloudWatch |
 
-*Table 3: NIST essential cloud characteristics mapped to ABC Enterprise (Mell & Grance, 2011) — replace with generated image (Nano Banana #2).*
+*Table 3: NIST essential cloud characteristics mapped to ABC Enterprise (Mell & Grance, 2011)*
 
 ### Appendix F – Glossary of Terms
 

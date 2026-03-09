@@ -446,12 +446,16 @@ Pick your favourite business SaaS application and write a post of 100 words disc
 
 Post your answer in the Module 4 discussion forum. While you are in the forum, read through other students’ posts and comment on them. Do any posts stand out to you? Why? Comment on two posts from your peers.
 
+*Status: ✅ Done* 
+
 #### Activity 2: Thinking Exercise: No Crowd, No Cloud—Discussion Forum
 One of the challenges of taking up cloud-based services for any organisation (or even individuals!) is the human tendency to stick with the familiar and resistance to change. This is evident across many groups, based on many factors including age, background, experience and so on.
 
 In this thinking exercise, you are asked to reflect on what you have seen so far in Modules 1 to 4. List what aspects of adopting the various cloud services and deployment models you may anticipate hesitation and challenges in. Feel free to tell stories of your past experiences in your post. You can also do some research and explain where you think the challenges may stand. One great resource where you will find challenges specific to the APAC region is in the Additional Learning Resources section.
 
 Post your answer in the Module 4 discussion forum. Please read through other students’ posts and comment on them. Does anyone share the same experiences as you? Is there anything in the forum that surprises you? Or that you had not thought of? Comment on two posts that stand out to you. Remember, this is your community; it is helpful for everyone to exchange ideas and communicate here. Enjoy!
+
+*Status: ✅ Done* 
 
 ---
 
