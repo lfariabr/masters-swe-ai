@@ -8,7 +8,7 @@
 | # | Resource / Activity | Type | Status |
 |---|---------------------|------|--------|
 | **1** | Gupta, D. (2020) — Activation Functions and When to Use Them | Reading | ✅ |
-| 2 | Krogh, A. (2008) — What are Artificial Neural Networks? | Reading | ✅ |
+| **2** | Krogh, A. (2008) — What are Artificial Neural Networks? | Reading | ✅ |
 | 3 | LeCun, Y. et al. (2015) — Deep Learning (CNNs & RNNs) | Reading | ✅ |
 | 4 | Hulten, G. (2018) — Building Intelligent Systems (ProQuest eBook) | Reading | 🔥 WIP |
 | A1 | Deep Learning Discussion Forum Post | Activity | 🕐 |
