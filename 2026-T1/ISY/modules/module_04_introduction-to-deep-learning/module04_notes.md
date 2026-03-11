@@ -258,3 +258,47 @@ flowchart LR
 - **LSTMs** are the state-of-the-art RNN variant — gated memory cells enable learning of long-range dependencies essential for language and speech
 - The deep learning revolution was enabled by three factors: **more data** (ImageNet), **faster hardware** (GPUs), and **algorithmic advances** (ReLU, dropout, SGD)
 - Combining CNNs + RNNs enables powerful multimodal systems (e.g., image captioning: vision CNN → language RNN)
+
+
+---
+
+## Module Summary: Core Vocabulary
+
+| Term | Definition |
+|------|------------|
+| Supervised Learning | Learns a mapping from inputs to outputs using labelled training data. |
+| Classification | Supervised task where the output is a discrete class label. |
+| Regression | Supervised task where the output is a continuous numeric value. |
+| Overfitting | Model fits training data too closely; fails to generalise to unseen data. |
+| Hyperparameter | Model setting chosen *before* training; not learned from data (e.g. K in KNN, C in SVM). |
+| Model Selection | Process of choosing the best model/pipeline from a set of candidates. |
+| Model Assessment | Estimating how well the chosen model will generalise to new data. |
+| Cross-Validation (CV) | Estimates generalisation error by averaging performance over multiple train/validation splits. |
+| K-Fold CV | Splits data into K folds; each fold serves as validation once; requires K model fits. |
+| Leave-One-Out (LOO) | CV where n−1 samples train the model and 1 is validated; unbiased but O(n) compute. |
+| Bagging | Bootstrap aggregating — trains each model on a random data subset; used by Random Forest to reduce variance. |
+| Ensemble | Combines predictions from multiple models to improve accuracy and reduce variance. |
+| Grid Search | Evaluates all hyperparameter combinations (Cartesian product); grows exponentially with number of HPs. |
+| Random Search | Randomly samples hyperparameter configs; outperforms grid search when HPs have unequal importance. |
+| Bayesian Optimisation | Builds a surrogate model of the objective function to guide the next evaluation; state-of-the-art for HPO. |
+| AIC / BIC | Probabilistic model selection criteria; penalise model complexity to correct for optimistic training error. |
+
+---
+
+## Activities
+
+### Activity 1: Deep Learning Discussion Forum Post
+
+> *Status: 🕐 To-Do*
+
+### Activity 2: ANN Details (learning rate, loss function, batch size, epoch, dropout)
+
+> *Status: 🕐 To-Do*
+
+---
+
+## Class Notes
+
+### 11/03/2026 - 11:30AM
+
+#### Exercises
