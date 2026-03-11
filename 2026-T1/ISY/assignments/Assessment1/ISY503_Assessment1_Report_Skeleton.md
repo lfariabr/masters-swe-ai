@@ -26,7 +26,7 @@ Funk et al. (2020) addressed this gap by proposing the Digital Health Interventi
 
 ### 1.2 Problem Significance
 
-Mental health conditions affect over 970 million people globally, yet specialist care access remains severely constrained (World Health Organization, 2022). DHIs offer a scalable route to evidence-based support, but their clinical value depends on monitoring user progress at scale, a task **manual review cannot sustain**. Intelligent NLP systems can bridge this gap by transforming unstructured language into actionable clinical signals.
+In 2019, an estimated 970 million people lived with a mental disorder (World Health Organization, 2022), yet specialist care access remains severely constrained. DHIs offer a scalable route to evidence-based support, but their clinical value depends on monitoring user progress at scale, a task **manual review cannot sustain**. Intelligent NLP systems can bridge this gap by transforming unstructured language into actionable clinical signals.
 
 ### 1.3 Report Structure
 
@@ -74,7 +74,7 @@ Area Under the ROC Curve (AUC) serves as the primary evaluation metric, selected
 
 ### 2.4 Related Work
 
-Prior health NLP work focused on clinical notes and social media (Sarker, 2021); DHIs present a distinct type — longitudinal coach-participant dialogues within structured therapeutic contexts. Earlier DHI studies used isolated sentiment scores or word counts. DHITA is the first framework to systematically combine all major NLP feature classes in a single replicable pipeline.
+Prior health NLP work (Calvo et al., 2017) focused on clinical notes and social media (Sarker, 2021); DHIs present a distinct type — longitudinal coach-participant dialogues within structured therapeutic contexts. Earlier DHI studies used isolated sentiment scores or word counts. DHITA is the first framework to systematically combine all major NLP feature classes in a single replicable pipeline.
 
 **Target Word Count:** ~350-400 words
 
@@ -95,9 +95,9 @@ Text preprocessing followed standard NLP practices: tokenization, stemming (Port
 
 ### 3.3 Ethical Considerations
 
-Four interdependent ethical dimensions arise from DHITA's design and data (Table 3).
+Four interdependent ethical dimensions arise from DHITA's design and data (Table 2).
 
-**Table 3.** Ethical Considerations
+**Table 2.** Ethical Considerations
 
 | Dimension | Issue | Risk Level |
 |---|---|---|
@@ -126,13 +126,13 @@ The pipeline was implemented using an R package called Digital Health Interventi
 
 Both models outperformed the random baseline (AUC 0.50).
 
-**Table 2.** DHITA Predictive Model Performance
+**Table 3.** DHITA Predictive Model Performance
 
 | Model | Algorithm | Task | Protocol | AUC |
 |---|---|---|---|---:|
 | A | Random Forest (200 trees) | Symptom severity | Within-user | **0.72** |
 | A | Logistic Regression | Symptom severity | Cross-user | 0.57 |
-| B | Logistic Regression | 6-month outcome | Cross-user | ~10 features selected |
+| B | Logistic Regression | 6-month outcome | Cross-user | Not reported |
 
 > 📸 **[Figure 2 — Suggested]** Model AUC comparison bar chart
 > **Nano Banana prompt:** "Simple horizontal bar chart. Three bars: 'Model A Within-User' (AUC 0.72, highlighted in teal), 'Model A Cross-User' (AUC 0.57, mid-blue), 'Random Baseline' (AUC 0.50, grey). X-axis: 0.0 to 1.0. Vertical dashed line at 0.85 labelled 'Clinical Decision Support Threshold'. Clean academic style, white background, minimal grid lines."
@@ -168,7 +168,7 @@ DHITA demonstrates that NLP-derived features from digital health text carry pred
 
 ### 5.3 Comparison with State-of-the-Art
 
-The study predates the broad adoption of transformer-based NLP. Since 2020, BERT and its clinical variants — notably BioBERT (Lee et al., 2020) and MentalBERT (Ji et al., 2022) — have substantially advanced clinical text mining. Averaged GloVe embeddings cannot capture contextual meaning; replacing them with transformer representations would likely yield measurable AUC improvements and is the most actionable technical upgrade available today.
+The study predates the broad adoption of transformer-based NLP. Since 2020, BERT and its clinical variants (Devlin et al., 2019) — notably BioBERT (Lee et al., 2020) and MentalBERT (Ji et al., 2022) — have substantially advanced clinical text mining. Averaged GloVe embeddings cannot capture contextual meaning; replacing them with transformer representations would likely yield measurable AUC improvements and is the most actionable technical upgrade available today.
 
 **Target Word Count:** ~250-300 words
 
@@ -263,55 +263,33 @@ sequenceDiagram
 
 ---
 
-### Appendix F: Explain Like I'm Five (Non-Assessable)
-
-> This appendix is a personal learning aid — not part of the submitted assessment.
-
-**What is DHITA, really?**
-
-Imagine you're keeping a diary about your eating habits and how you're feeling. You write in it every day, and an online coach sends you encouraging messages back. Now imagine a computer program that reads all those diary entries and messages — not to judge you, but to spot hidden patterns.
-
-That's DHITA. It reads thousands of diary entries from people getting help with eating disorders. Instead of a human having to read everything (which would take forever and couldn't scale), DHITA does three things:
-
-1. **Breaks the writing into clues** — which words come up most, what mood the writing suggests, how quickly someone replies to their coach.
-2. **Bundles the clues into 220 numbers** — a unique "fingerprint" that describes each person's communication style at a given point in time.
-3. **Feeds the numbers into a prediction machine** — essentially a very sophisticated pattern-matcher that says: "based on these signals, this person is likely struggling today" or "this person is at risk of not recovering in six months."
-
-**The catch?** DHITA was trained only on data from college-age women with eating disorders. It's like a recipe written for one specific dish — if you try to cook something different with it, the results might not be reliable. That's why the report recommends testing it on more diverse populations before any real clinical use.
-
-**Why does AUC 0.72 matter?**
-
-Imagine flipping a coin to predict whether someone will improve — that's AUC 0.50. DHITA scores 0.72, meaning it's meaningfully better than guessing. But the bar for clinical tools is usually ≥0.85, so it's promising, not ready.
-
----
-
 ## References
 > **Format:** APA 7th Edition
 > **Requirement:** Support report with additional peer-reviewed journal articles
 
-1. Funk, B., Sadeh-Sharvit, S., Fitzsimmons-Craft, E. E., Trockel, M. T., Monterubio, G. E., Goel, N. J., Balantekin, K. N., Eichen, D. M., Flatt, R. E., Firebaugh, M. L., Jacobi, C., Graham, A. K., Hoogendoorn, M., Wilfley, D. E., & Taylor, C. B. (2020). A framework for applying natural language processing in digital health interventions. *Journal of Medical Internet Research, 22*(2), e13855. https://doi.org/10.2196/13855
+1. Blei, D. M., Ng, A. Y., & Jordan, M. I. (2003). Latent Dirichlet allocation. *Journal of Machine Learning Research, 3*, 993–1022. https://www.jmlr.org/papers/v3/blei03a.html
 
-2. Blei, D. M., Ng, A. Y., & Jordan, M. I. (2003). Latent Dirichlet allocation. *Journal of Machine Learning Research, 3*, 993–1022. https://www.jmlr.org/papers/v3/blei03a.html
+2. Breiman, L. (2001). Random forests. *Machine Learning, 45*(1), 5–32. https://doi.org/10.1023/A:1010933404324
 
-3. Pennington, J., Socher, R., & Manning, C. D. (2014). GloVe: Global vectors for word representation. *Proceedings of the 2014 Conference on Empirical Methods in Natural Language Processing (EMNLP)*, 1532–1543. https://doi.org/10.3115/v1/D14-1162
+3. Calvo, R. A., Milne, D. N., Hussain, M. S., & Christensen, H. (2017). Natural language processing in mental health applications using non-clinical texts. *Natural Language Engineering, 23*(5), 649–685. https://doi.org/10.1017/S1351324916000383
 
-4. Tibshirani, R. (1996). Regression shrinkage and selection via the lasso. *Journal of the Royal Statistical Society: Series B (Methodological), 58*(1), 267–288. https://doi.org/10.1111/j.2517-6161.1996.tb02080.x
+4. Devlin, J., Chang, M.-W., Lee, K., & Toutanova, K. (2019). BERT: Pre-training of deep bidirectional transformers for language understanding. *Proceedings of NAACL-HLT 2019*, 4171–4186. https://doi.org/10.18653/v1/N19-1423
 
-5. Breiman, L. (2001). Random forests. *Machine Learning, 45*(1), 5–32. https://doi.org/10.1023/A:1010933404324
+5. Funk, B., Sadeh-Sharvit, S., Fitzsimmons-Craft, E. E., Trockel, M. T., Monterubio, G. E., Goel, N. J., Balantekin, K. N., Eichen, D. M., Flatt, R. E., Firebaugh, M. L., Jacobi, C., Graham, A. K., Hoogendoorn, M., Wilfley, D. E., & Taylor, C. B. (2020). A framework for applying natural language processing in digital health interventions. *Journal of Medical Internet Research, 22*(2), e13855. https://doi.org/10.2196/13855
 
-6. Sarker, A. (2021). Machine learning: Algorithms, real-world applications and research directions. *SN Computer Science, 2*(3), 160. https://doi.org/10.1007/s42979-021-00592-x
+6. Ji, S., Zhang, T., Ansari, L., Fu, J., Tiwari, P., & Cambria, E. (2022). MentalBERT: Publicly available pretrained language models for mental healthcare. In N. Calzolari, F. Béchet, P. Blache, K. Choukri, C. Cieri, T. Declerck, S. Goggi, H. Isahara, B. Maegaard, J. Mariani, H. Mazo, J. Odijk, & S. Piperidis (Eds.), *Proceedings of the Thirteenth Language Resources and Evaluation Conference* (pp. 7184–7190). European Language Resources Association. https://aclanthology.org/2022.lrec-1.778
 
-7. Calvo, R. A., Milne, D. N., Hussain, M. S., & Christensen, H. (2017). Natural language processing in mental health applications using non-clinical texts. *Natural Language Engineering, 23*(5), 649–685. https://doi.org/10.1017/S1351324916000383
+7. Lee, J., Yoon, W., Kim, S., Kim, D., Kim, S., So, C. H., & Kang, J. (2020). BioBERT: A pre-trained biomedical language representation model for biomedical text mining. *Bioinformatics, 36*(4), 1234–1240. https://doi.org/10.1093/bioinformatics/btz682
 
-8. World Health Organization. (2022). *World mental health report: Transforming mental health for all*. WHO Press. https://www.who.int/publications/i/item/9789240049338
+8. Pennington, J., Socher, R., & Manning, C. D. (2014). GloVe: Global vectors for word representation. *Proceedings of the 2014 Conference on Empirical Methods in Natural Language Processing (EMNLP)*, 1532–1543. https://doi.org/10.3115/v1/D14-1162
 
-9. Devlin, J., Chang, M.-W., Lee, K., & Toutanova, K. (2019). BERT: Pre-training of deep bidirectional transformers for language understanding. *Proceedings of NAACL-HLT 2019*, 4171–4186. https://doi.org/10.18653/v1/N19-1423
+9. Rieke, N., Hancox, J., Li, W., Milletarì, F., Roth, H. R., Albarqouni, S., Bakas, S., Galtier, M. N., Landman, B. A., Maier-Hein, K., Ourselin, S., Sheller, M., Summers, R. M., Trask, A., Xu, D., Baust, M., & Cardoso, M. J. (2020). The future of digital health with federated learning. *npj Digital Medicine, 3*(1), 119. https://doi.org/10.1038/s41746-020-00323-1
 
-10. Lee, J., Yoon, W., Kim, S., Kim, D., Kim, S., So, C. H., & Kang, J. (2020). BioBERT: A pre-trained biomedical language representation model for biomedical text mining. *Bioinformatics, 36*(4), 1234–1240. https://doi.org/10.1093/bioinformatics/btz682
+10. Sarker, A. (2021). Machine learning: Algorithms, real-world applications and research directions. *SN Computer Science, 2*(3), 160. https://doi.org/10.1007/s42979-021-00592-x
 
-11. Ji, S., Pan, S., Li, G., Cambria, E., Long, G., & Huang, Z. (2022). MentalBERT: Publicly available pretrained language models for mental healthcare. *Proceedings of the 13th Language Resources and Evaluation Conference (LREC 2022)*, 7184–7190.
+11. Tibshirani, R. (1996). Regression shrinkage and selection via the lasso. *Journal of the Royal Statistical Society: Series B (Methodological), 58*(1), 267–288. https://doi.org/10.1111/j.2517-6161.1996.tb02080.x
 
-12. Rieke, N., Hancox, J., Li, W., Milletarì, F., Roth, H. R., Albarqouni, S., Bakas, S., Galtier, M. N., Landman, B. A., Maier-Hein, K., Ourselin, S., Sheller, M., Summers, R. M., Trask, A., Xu, D., Baust, M., & Cardoso, M. J. (2020). The future of digital health with federated learning. *npj Digital Medicine, 3*(1), 119. https://doi.org/10.1038/s41746-020-00323-1
+12. World Health Organization. (2022). *World mental health report: Transforming mental health for all*. WHO Press. https://www.who.int/publications/i/item/9789240049338
 
 ---
 
@@ -332,13 +310,13 @@ I confirm that the use of the AI tool has been in accordance with the Torrens Un
 ---
 
 ## Submission Checklist
-- [ ] Word count within 1350-1650 words (1500 ± 10%)
-- [ ] All sections completed with sufficient depth
-- [ ] Ethical considerations thoroughly addressed
-- [ ] At least 8 peer-reviewed references in APA format
-- [ ] Technical language used appropriately
-- [ ] Proofread for grammar and clarity
-- [ ] File named: `ISY503_Faria_L_Assessment_1.pdf`
+- [X] Word count within 1350-1650 words (1500 ± 10%)
+- [X] All sections completed with sufficient depth
+- [X] Ethical considerations thoroughly addressed
+- [X] At least 8 peer-reviewed references in APA format
+- [X] Technical language used appropriately
+- [X] Proofread for grammar and clarity
+- [X] File named: `ISY503_Faria_L_Assessment_1.pdf`
 - [ ] Submitted via MyLearn before 22/03/2026 11:55pm AEST
 - [ ] **[Post-submission]** Run Appendix C notebook skeleton locally (DHITA R package + Python MentalBERT via HuggingFace) to deepen implementation understanding and build a portfolio prototype
 
