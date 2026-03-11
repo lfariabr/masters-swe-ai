@@ -5,10 +5,10 @@
 Cloud computing has become a core business utility - email, storage, and smart devices all run on someone else's infrastructure, delivered on demand (Nishimura, 2022). For ABC Enterprise from our case study, this model translated directly into results: start-up IT costs dropped by ~80% and the platform absorbed a 10x customer surge within a month, without a matching increase in headcount (Eliaçık, 2022; McHaney, 2021). This report outlines three key benefits of cloud adoption, the main challenges to manage, and a practical recommendation for service model, deployment model, cost model, and cloud provider. Where ABC needs a provider beyond "XYZ", AWS is recommended for its maturity, global reach, and automation-ready managed services (Amazon Web Services, n.d.-a).
 
 ## 2. Benefits of Cloud Computing vs. Traditional IT Infrastructure
-Traditional IT means owning everything - servers, cooling, procurement cycles, and the staff to keep it running (McHaney, 2021). For a high-growth start-up like ABC, that model is a strategic handicap. Cloud flips it: instead of buying capacity, ABC rents capability, aligned to the NIST essential characteristics of on‑demand self‑service, measured service, rapid elasticity, and resource pooling (Mell & Grance, 2011).
+Traditional IT means owning servers, cooling, and the staff to keep it running (McHaney, 2021). For a high-growth start-up like ABC, that model is a strategic handicap. Cloud flips it: instead of buying capacity, ABC rents capability, aligned to the NIST characteristics of on-demand self-service, measured service, rapid elasticity, and resource pooling (Mell & Grance, 2011).
 
 ### 2.1 Cost Efficiency and Pay-as-you-grow Model
-Cloud shifts spend from CAPEX to OPEX - no upfront servers, no idle hardware costs (Eliaçık, 2022). ABC's ~80% reduction in start-up IT costs is the "measured service" characteristic in action: pay for compute-hours, storage GB-months, and data transfer actually consumed (Mell & Grance, 2011). As McHaney (2021) notes, operational overhead - personnel, training, upgrades, and security - often exceeds hardware cost over time, making pay-as-you-go a structural advantage. Beyond the bill, standard tasks like backups, patching, and scaling can be codified and automated, reducing human toil across the delivery pipeline (Accenture Technology, 2020; Carpenter, 2020). Figure 1 illustrates ABC's end-to-end request flow across the AWS stack.
+Cloud shifts spend from CAPEX to OPEX - no upfront servers, no idle hardware costs (Eliaçık, 2022). ABC's ~80% reduction in start-up IT costs is the "measured service" characteristic in action: pay for compute-hours, storage GB-months, and data transfer actually consumed (Mell & Grance, 2011). As McHaney (2021) notes, operational overhead - personnel, training, upgrades, and security - often exceeds hardware cost over time, making pay-as-you-go a structural advantage. Beyond the bill, standard tasks like backups, patching, and scaling can be codified and automated, reducing human toil across the delivery pipeline (Carpenter, 2020).
 
 ```mermaid
 sequenceDiagram
@@ -31,27 +31,27 @@ sequenceDiagram
 *Figure 1: ABC Enterprise cloud traffic flow — from user request through Route 53, load balancing, compute, storage, and database layers.*
 
 ### 2.2 Rapid Scalability for Business Growth
-A 10x customer surge in a single month exposes the core weakness of on-premises infrastructure: procurement lead times mean hardware arrives after the opportunity has passed (McHaney, 2021). Cloud's rapid elasticity lets ABC scale compute up during campaigns or city launches and scale down when demand normalizes - automatically, not reactively (Mell & Grance, 2011). Eliaçık (2022) highlights that this "endless scalability" protects against outages from traffic spikes, keeping latency low and availability high. For an app handling delivery, taxi bookings, and payments, that's not a `nice-to-have` - it's a retention strategy.
+A 10x customer surge in a single month exposes the core weakness of on-premises infrastructure: procurement lead times mean hardware arrives after the opportunity has passed (McHaney, 2021). Cloud's rapid elasticity lets ABC scale compute up during campaigns or city launches and scale down when demand normalizes - automatically, not reactively (Mell & Grance, 2011). Eliaçık (2022) highlights that this scalability protects against outages from traffic spikes — critical for an app handling delivery, taxi bookings, and payments.
 
 ### 2.3 Reduced IT Management Overhead
-In on-premises environments, more customers mean more infrastructure, which means more people to maintain it (McHaney, 2021). Cloud breaks that linear relationship. Through resource pooling and virtualization, providers consolidate physical resources across tenants - Manvi and Shyam (2021) describe this as partitioning, isolation, and consolidation that allows multiple workloads to share hardware without interference. ABC borrows that operational maturity: automated maintenance, managed monitoring, and resilient architectures that would be expensive to replicate in-house (Accenture Technology, 2020; Naved et al., 2022).
+In on-premises environments, more customers mean more infrastructure and more staff to maintain it (McHaney, 2021). Cloud breaks that linear relationship. Through resource pooling, providers consolidate physical resources across tenants — Manvi and Shyam (2021) describe this as partitioning and isolation that allows multiple workloads to share hardware. ABC gains automated maintenance and resilient architectures that would be expensive to replicate in-house (Naved et al., 2022).
 
 ## 3. Challenges and Mitigation Strategies
 Cloud adoption is not risk-free. Three challenges are most relevant for ABC (Eliaçık, 2022):
 
 ### 1. **Security and privacy:**
-ABC handles payments and customer PII. Security is the top concern for cloud adopters — 90% of security professionals cite it as a challenge, alongside governance (71%) and compliance (68%) (Manvi & Shyam, 2021). Eliaçık (2022) notes that entrusting sensitive data to a third party means breaches may not be detected immediately. Mitigation: least privilege IAM, mandatory MFA, encryption at rest/in transit, and continuous alerting. The shared responsibility model clarifies the division: the provider secures the cloud infrastructure — ABC secures what it deploys on top (Shore, 2020).
+ABC handles payments and customer PII. Security is the top concern for cloud adopters — 90% of security professionals cite it as a challenge, alongside governance (71%) and compliance (68%) (Manvi & Shyam, 2021). Mitigation: least privilege IAM, mandatory MFA, encryption at rest/in transit, and continuous alerting — the shared responsibility model clarifies the provider/customer division (Shore, 2020).
 
 ### 2. **Cost volatility:** 
 Pay-as-you-go can spiral without guardrails - overprovisioned instances and excessive egress generate surprise bills (Bittok, 2022). Mitigation: FinOps habits from day one: budget alerts, resource tagging, rightsizing, and reserved pricing for stable workloads.
 
 ### 3. **Vendor lock-in and skills gap:** 
-Deeper managed-service adoption makes provider migration expensive (Eliaçık, 2022), and cloud requires a different operating mindset - infrastructure-as-code, monitoring-first, shared responsibility (McHaney, 2021). Mitigation: prioritize portability (containers, standard databases) and invest in targeted upskilling. Manvi and Shyam (2021) note that chain dependency in virtualized environments is a key operational risk.
+Deeper managed-service adoption makes provider migration expensive (Eliaçık, 2022). Mitigation: prioritize portability (containers, standard databases) and invest in targeted upskilling (McHaney, 2021).
 
 ## 4. Recommended Cloud Models for ABC Enterprise
-Cloud service models sit on a control-versus-responsibility spectrum (IBM, n.d.-a; Linthicum, 2021; McHaney, 2021). IaaS gives ABC full flexibility over compute and configuration, but it also means managing operating systems and scaling policies. PaaS reduces that burden by abstracting infrastructure management, allowing the team to focus on building and improving the application itself. SaaS, while efficient, offers limited customization and is therefore less appropriate for a start-up that must differentiate its digital platform.
+Cloud service models sit on a control-versus-responsibility spectrum (IBM, n.d.-a; Linthicum, 2021; McHaney, 2021). IaaS provides full compute flexibility; PaaS abstracts infrastructure so the team can focus on development; SaaS offers limited customisation — less suited to a start-up that must differentiate its platform.
 
-Deployment models also affect scalability and automation. NIST's fourth model — community cloud, shared among sector-specific organisations — does not apply to ABC's consumer platform (Manvi & Shyam, 2021). Private cloud increases control but sacrifices elasticity and cost efficiency. Hybrid cloud can support cloud bursting and workload portability, yet introduces architectural complexity that exceeds ABC's current operational maturity (Manvi & Shyam, 2021). For ABC — public cloud is the most strategically aligned option: IBM (n.d.-b), citing Gartner analysis, reports IaaS workloads experience 60% fewer security incidents than traditional data centres, with the scalability and automation ABC requires (Mell & Grance, 2011; Nishimura, 2022) (see Table 1).
+Deployment models vary in elasticity and cost. Community cloud does not apply to ABC's consumer use case. Private cloud sacrifices elasticity; hybrid introduces complexity that exceeds ABC's current maturity (Manvi & Shyam, 2021). Public cloud is the most strategically aligned option: IBM (n.d.-b) reports IaaS workloads experience 60% fewer security incidents than traditional data centers (see Table 1).
 
 | Deployment Model | Cost | Elasticity | ABC Fit |
 | --- | --- | --- | --- |
@@ -61,7 +61,7 @@ Deployment models also affect scalability and automation. NIST's fourth model �
 
 *Table 1: Deployment model trade-offs for ABC Enterprise.*
 
-**Recommendation:** A blended IaaS/PaaS approach — IaaS for compute flexibility, PaaS for managed databases, load balancing, and serverless functions — preserves rapid elasticity and measured service (Mell & Grance, 2011) without rebuilding operational maturity from scratch (Accenture Technology, 2020). A Virtual Private Cloud (VPC) can address future network isolation needs (IBM, n.d.-c).
+**Recommendation:** A blended IaaS/PaaS approach — IaaS for compute flexibility, PaaS for managed databases and serverless functions — preserves rapid elasticity and measured service (Mell & Grance, 2011). A Virtual Private Cloud (VPC) can address future network isolation needs (IBM, n.d.-c).
 
 ## 5. Recommended Cost Model
 Cloud providers offer three levers: 
@@ -83,16 +83,16 @@ Azure suits Microsoft-aligned enterprises; GCP leads in analytics. AWS best fits
 *Table 2: Cloud provider comparison for ABC Enterprise.*
 
 ### 1. Elastic Load Balancing (ELB)
-Automates traffic routing and health-checks across EC2 instances without operator intervention — critical for ABC's delivery and taxi services where latency causes churn. ELB integrates natively with Route 53 and Auto Scaling already in ABC's stack (Amazon Web Services, n.d.-a).
+Automates traffic routing and health-checks across EC2 instances — critical for ABC's latency-sensitive services. Integrates natively with Route 53 and Auto Scaling (Amazon Web Services, n.d.-a).
 
 ### 2. Auto Scaling
-Provisions or terminates EC2 instances based on demand signals, directly implementing NIST's rapid elasticity (Mell & Grance, 2011). The 10x surge required no manual intervention because capacity becomes policy-driven, not operator-driven — a fundamental shift from traditional IT (Amazon Web Services, n.d.-a).
+Provisions or terminates EC2 instances on demand signals, directly implementing NIST's rapid elasticity (Mell & Grance, 2011). The 10x surge required no manual intervention — capacity becomes policy-driven, not operator-driven (Amazon Web Services, n.d.-a).
 
 ### 3. AWS Lambda
-Event-driven compute for ABC's workflow automation: order placed → delivery assigned; payment confirmed → restaurant notified. Lambda requires no server management and scales to zero when idle, charging only per invocation (Amazon Web Services, n.d.-a; McHaney, 2021).
+Event-driven compute for ABC's workflow automation: order placed → delivery assigned; payment confirmed → restaurant notified. Scales to zero when idle, charging only per invocation (Amazon Web Services, n.d.-a).
 
 ## 7. Conclusion
-Cloud computing is the right strategic move for ABC: measured service, rapid elasticity, and resource pooling (Mell & Grance, 2011) translate directly into automation outcomes — scaling without procurement delays, zero headcount growth, faster time-to-market (Accenture Technology, 2020). Recommended stack: public cloud, blended IaaS/PaaS, hybrid cost model, AWS. Managed well, ABC's infrastructure stops being a bottleneck and becomes a competitive advantage (Eliaçık, 2022).
+Cloud computing is the right strategic move for ABC: measured service, rapid elasticity, and resource pooling (Mell & Grance, 2011) translate directly into automation outcomes — scaling without procurement delays, zero headcount growth, faster time-to-market. Recommended stack: public cloud, blended IaaS/PaaS, hybrid cost model, AWS. Managed well, ABC's infrastructure stops being a bottleneck and becomes a competitive advantage (Eliaçık, 2022).
 
 ## 8. Appendices
 
@@ -103,6 +103,8 @@ Cloud computing is the right strategic move for ABC: measured service, rapid ela
 | Scaling | Hardware procurement | Auto Scaling | 
 | Deployment speed | Weeks/months | Minutes |
 | Automation | Manual ops | Policy-driven |
+
+*Table 3 – Cloud vs Traditional IT Comparison.*
 
 ### Appendix B – High-Level Architecture Diagram
 
@@ -129,6 +131,8 @@ graph TD
 | Scaling | Hardware purchase | Auto scaling |
 | Downtime cost | High | Reduced |
 
+*Table 4 – Cost Model Breakdown.*
+
 ### Appendix D – Shared Responsibility Model Diagram
 
 | Cloud Provider secures | ABC secures |
@@ -136,6 +140,8 @@ graph TD
 | Physical infra | IAM |
 | Networking | Applications |
 | Hypervisor | Data governance |
+
+*Table 5 – Shared Responsibility Model.*
 
 ### Appendix E — NIST Five Essential Characteristics Mapped to ABC
 
@@ -147,28 +153,9 @@ graph TD
 | Rapid Elasticity | 10× customer surge absorbed automatically — no procurement delay or manual intervention | Auto Scaling |
 | Measured Service | ~80% reduction in start-up IT costs — pay only for compute-hours and GB-months consumed | AWS Cost Explorer, CloudWatch |
 
-*Table 3: NIST essential cloud characteristics mapped to ABC Enterprise (Mell & Grance, 2011)*
+*Table 6 – NIST essential cloud characteristics mapped to ABC Enterprise (Mell & Grance, 2011).*
 
-### Appendix F – Glossary of Terms
-
-| Term | Meaning |
-| ---- | ---- |
-| CAPEX | Capital Expenditure |
-| OPEX | Operational Expenditure |
-| IAM | Identity and Access Management |
-| TCO | Total Cost of Ownership |
-| SOA | Service-Oriented Architecture |
-| PaaS | Platform as a Service |
-| IaaS | Infrastructure as a Service |
-| SaaS | Software as a Service |
-
-*Table 4: Glossary of Terms*
-
-### Appendix G – Indicative KPI Benchmarks for ABC Enterprise Cloud Implementation
-
-> **Note:** All figures below are indicative estimates derived from AWS public pricing, startup benchmarking data, and the case study outcomes stated in this report (~80% cost reduction; 10× customer surge absorbed). They are intended to illustrate order-of-magnitude scale and are not audited actuals.
-
-#### G.1 Cloud Resources Provisioned ("What We Are Hiring")
+### Appendix F – Cloud Resources Provisioned ("What We Are Hiring")
 
 | AWS Service | Role | Baseline Config | Auto-Scale Ceiling |
 |---|---|---|---|
@@ -185,88 +172,62 @@ graph TD
 | Cost Explorer | FinOps — cost tracking, rightsizing, usage analysis | Always-on (no provisioning needed) | Validates ~80% cost reduction claim |
 | AWS WAF + Shield Standard | Security layer — DDoS mitigation, traffic filtering | Included (Shield Standard free) | Shield Advanced available for high-volume attacks |
 
-*Table G1: AWS services provisioned for ABC Enterprise — baseline configuration and scaling ceiling.*
+*Table 7 – AWS services provisioned for ABC Enterprise — baseline configuration and scaling ceiling.*
 
----
+### Appendix G – Glossary of Terms
 
-#### G.2 Expected Volume — Baseline (Normal Operations)
+| Term | Meaning |
+| ---- | ---- |
+| CAPEX | Capital Expenditure |
+| OPEX | Operational Expenditure |
+| IAM | Identity and Access Management |
+| TCO | Total Cost of Ownership |
+| SOA | Service-Oriented Architecture |
+| PaaS | Platform as a Service |
+| IaaS | Infrastructure as a Service |
+| SaaS | Software as a Service |
+| VPC | Virtual Private Cloud |
+| ELB | Elastic Load Balancer |
+| EC2 | Elastic Compute Cloud |
+| RDS | Relational Database Service |
+| Route 53 | AWS DNS service |
+| Auto Scaling | AWS service for automatic scaling of compute resources |
+| Shared Responsibility Model | Cloud security model defining provider vs customer security obligations |
+| Measured Service | Cloud characteristic where resource usage is monitored and billed accordingly |
+| Rapid Elasticity | Cloud characteristic allowing resources to scale up/down automatically based on demand |
 
-| Vertical | Daily Active Users | Transactions / Day | Data Generated / Day | Avg Response Time Target |
-|---|---|---|---|---|
-| **Food Delivery** | ~8,000 active users | ~6,000 orders/day | ~500 MB (order data, receipts, images) | < 300 ms (order placement) |
-| **Ride-Hailing (Taxi)** | ~4,000 active users | ~3,000 rides/day | ~200 MB (trip data, GPS events, receipts) | < 500 ms (driver dispatch) |
-| **Payments** | ~12,000 transactions | ~12,000 payment events/day | ~100 MB (transaction records, audit logs) | < 200 ms (payment confirmation) |
-| **Platform total** | ~15,000 unique users/day | ~21,000 events/day | ~800 MB/day | — |
-
-*Table G2: Baseline expected volume per vertical — normal operations, pre-growth-campaign.*
-
----
-
-#### G.3 Peak Expected Volume (10× Surge — City Launch / Campaign Event)
-
-| Vertical | Peak DAU | Peak Transactions / Hour | Peak Data Throughput | EC2 Instances Required |
-|---|---|---|---|---|
-| **Food Delivery** | ~80,000 active users | ~6,000 orders/hr (lunchtime spike) | ~5 GB/hr | 8–12× c5.xlarge |
-| **Ride-Hailing (Taxi)** | ~40,000 active users | ~3,000 ride requests/hr | ~2 GB/hr | 4–6× c5.xlarge |
-| **Payments** | ~120,000 transactions | ~15,000 payment events/hr | ~1 GB/hr | 2–4× c5.xlarge (stateless processors) |
-| **Platform total (peak)** | ~150,000 unique users/day | ~24,000 events/hr | ~8 GB/hr | Up to 20× c5.xlarge (Auto Scaling) |
-
-*Table G3: Peak volume per vertical — 10× surge scenario as referenced in Section 2.2 (Eliaçık, 2022).*
-
----
-
-#### G.4 Estimated Monthly Cost Breakdown by Vertical
-
-| Cost Component | Food Delivery | Ride-Hailing (Taxi) | Payments | Platform Shared | **Total (Baseline)** |
-|---|---|---|---|---|---|
-| EC2 compute (on-demand) | ~$180 | ~$90 | ~$60 | ~$120 (infra baseline) | ~$450/mo |
-| RDS managed database | ~$120 | ~$80 | ~$100 | — | ~$300/mo |
-| S3 storage (per GB-month) | ~$50 | ~$25 | ~$15 | — | ~$90/mo |
-| Lambda invocations | ~$30 | ~$40 | ~$20 | — | ~$90/mo |
-| Data transfer (egress) | ~$40 | ~$20 | ~$10 | — | ~$70/mo |
-| Route 53 + ELB + CloudWatch | — | — | — | ~$80 | ~$80/mo |
-| **Vertical subtotal** | **~$420/mo** | **~$255/mo** | **~$205/mo** | **~$200/mo** | **~$1,080/mo** |
-| **Peak month (10× surge)** | **~$4,200/mo** | **~$2,550/mo** | **~$2,050/mo** | **~$600/mo** | **~$9,400/mo** |
-
-*Table G4: Indicative monthly AWS cost breakdown by vertical — baseline vs. 10× peak surge (AWS pricing, n.d.-b). Reserved instance pricing for stable tiers would reduce baseline by ~40–60% (Bittok, 2022). Spot instances are applicable for background batch jobs (analytics, report generation) at up to 90% off on-demand rates.*
-
-**Cost model note:** The ~80% start-up cost reduction referenced in Section 2.1 compares against a traditional on-premises alternative estimated at ~$50,000–$70,000 upfront CAPEX (servers, networking, licensing) plus ~$5,000–$8,000/month in operational overhead (staff, maintenance, power). Cloud baseline of ~$1,080/month represents an ~85% reduction in monthly IT spend at equivalent capacity (Eliaçık, 2022; McHaney, 2021).
+*Table 8 – Glossary of Terms*
 
 ---
 
 ## References
-Accenture Technology. (2020, June 5). *Why cloud matters* [Video]. YouTube. https://www.youtube.com/watch?v=p1Nr03gtkyU
+Amazon Web Services. (n.d.-a). AWS Well-Architected Framework. https://aws.amazon.com/architecture/well-architected/
 
-Amazon Web Services. (n.d.-a). *AWS Well-Architected Framework.* https://aws.amazon.com/architecture/well-architected/
+Amazon Web Services. (n.d.-b). AWS Pricing. https://aws.amazon.com/pricing/ 
 
-Amazon Web Services. (n.d.-b). *AWS Pricing.* https://aws.amazon.com/pricing/
+Bittok, T. (2022, January 22). Cloud total cost of ownership. LinkedIn Pulse. https://www.linkedin.com/pulse/cloud-total-cost-ownership-theophilus-bittok-/
 
-Bittok, T. (2022, January 22). *Cloud total cost of ownership.* LinkedIn Pulse. https://www.linkedin.com/pulse/cloud-total-cost-ownership-theophilus-bittok/
+Carpenter, T. (2020, May 27). AWS Certified Solutions Architect – Associate (SAA-C02) Cert Prep 1: Cloud services overview. LinkedIn Learning. https://www.linkedin.com/learning/aws-certified-solutions-architect-associate-saa-c02-cert-prep-1-cloud-services-overview/benefits-of-cloud-computing
 
-Carpenter, T. (2020, May 27). *AWS Certified Solutions Architect – Associate (SAA-C02) Cert Prep 1: Cloud services overview* [Video]. LinkedIn Learning. https://www.linkedin.com/learning/aws-certified-solutions-architect-associate-saa-c02-cert-prep-1-cloud-services-overview/benefits-of-cloud-computing
+Eliaçık, E. (2022). Pros and cons of cloud computing. Dataconomy. https://dataconomy.com/2022/05/pros-and-cons-of-cloud-computing-2022/
 
-Eliaçık, E. (2022). *The good, bad, and ugly sides of cloud computing.* Dataconomy. https://dataconomy.com/2022/05/pros-and-cons-of-cloud-computing-2022/
+IBM. (n.d.-a). SaaS, PaaS, IaaS explained. IBM Cloud. https://www.ibm.com/think/topics/iaas-paas-saas
 
-IBM. (n.d.-a). *SaaS, PaaS, IaaS explained.* IBM Cloud. https://www.ibm.com/cloud/learn/iaas-paas-saas
+IBM. (n.d.-b). What is a public cloud? IBM. https://www.ibm.com/think/topics/public-cloud 
 
-IBM. (n.d.-b). *What is a public cloud?* IBM. https://www.ibm.com/think/topics/public-cloud
+IBM. (n.d.-c). What is a virtual private cloud (VPC)? IBM. https://www.ibm.com/think/topics/vpc
 
-IBM. (n.d.-c). *What is a virtual private cloud (VPC)?* IBM. https://www.ibm.com/think/topics/vpc
+Linthicum, D. (2021, May 25). Learning cloud computing: Core concepts. LinkedIn Learning. https://www.linkedin.com/learning/learning-cloud-computing-core-concepts-13710481/
 
-Linthicum, D. (2021). *Learning cloud computing: Core concepts* [Video]. LinkedIn Learning. https://www.linkedin.com/learning/learning-cloud-computing-core-concepts-13966302/overview-of-cloud-computing
+Manvi, S., & Shyam, G. K. (2021). Cloud computing: Concepts and technologies (Chapter 4). CRC Press. https://learning-oreilly-com.torrens.idm.oclc.org/library/view/cloud-computing/9781000338058/ 
 
-Manvi, S., & Shyam, G. K. (2021). *Cloud computing: Concepts and technologies* (Chapter 4). CRC Press. https://learning-oreilly-com.torrens.idm.oclc.org/library/view/cloud-computing/9781000338058/
+McHaney, R. (2021). Cloud technologies: An overview of cloud computing technologies for managers. Wiley. https://ieeexplore-ieee-org.torrens.idm.oclc.org/servlet/opac?bknumber=9820907 
 
-McHaney, R. (2021). *Cloud technologies: An overview of cloud computing technologies for managers.* Wiley. https://ieeexplore-ieee-org.torrens.idm.oclc.org/servlet/opac?bknumber=9820907
+Mell, P., & Grance, T. (2011). The NIST definition of cloud computing (Special Publication 800-145). National Institute of Standards and Technology. https://doi.org/10.6028/NIST.SP.800-145 
 
-Mell, P., & Grance, T. (2011). *The NIST definition of cloud computing* (Special Publication 800-145). National Institute of Standards and Technology. https://doi.org/10.6028/NIST.SP.800-145
+Naved, M., Sanchez, D. T., Dela Cruz, A. P., Jr., Peconcillo, L. B., Jr., Peteros, E. D., & Tenerife, J. J. L. (2022). Identifying the role of cloud computing technology in management of educational institutions. Materials Today: Proceedings, 51(8), 2309–2312. https://doi.org/10.1016/j.matpr.2021.11.414
 
-Naved, M., Sanchez, D. T., Dela Cruz, A. P., Jr., Peconcillo, L. B., Jr., Peteros, E. D., & Tenerife, J. J. L. (2022). Identifying the role of cloud computing technology in management of educational institutions. *Materials Today: Proceedings, 51*(8), 2309–2312. https://doi.org/10.1016/j.matpr.2021.11.414
+Nishimura, H. (2022, August 30). Introduction to AWS for non-engineers: 1 cloud concepts. LinkedIn Learning. https://www.linkedin.com/learning/introduction-to-aws-for-non-engineers-1-cloud-concepts-2/ 
 
-Nishimura, H. (2022, August 30). *Introduction to AWS for non-engineers: 1 cloud concepts* [Video]. LinkedIn Learning. https://www.linkedin.com/learning/introduction-to-aws-for-non-engineers-1-cloud-concepts-2/
+Shore, M. (2020). Cybersecurity with cloud computing: Service models. LinkedIn Learning. https://www.linkedin.com/learning/cybersecurity-with-cloud-computing-2/
 
-Rahman, M. S., & Raza, M. (2021). Cloud computing security challenges and its potential solution. *International Journal of Computer Applications, 174*(6), 29–33. https://doi.org/10.5120/ijca2021921167
-
-Shore, J. (2020). *Cybersecurity with cloud computing: Service models* [Video]. LinkedIn Learning. https://www.linkedin.com/learning/cybersecurity-with-cloud-computing-service-models
-
-Singh, S., & Chana, I. (2016). Cloud resource provisioning: Survey, status and future research directions. *Knowledge and Information Systems, 49*(3), 1005–1069. https://doi.org/10.1007/s10115-016-0922-3
