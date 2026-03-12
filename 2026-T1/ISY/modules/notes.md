@@ -403,7 +403,7 @@ Describe each scenario in no more than 100 words and then read through the posts
 
 Post your answer to the Module 4 discussion forum.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Done*
 
 #### Activity 2: ANN Details
 
@@ -416,7 +416,7 @@ Based on the material provided in this module, you were introduced to ANNs. To b
 
 Write short summaries of at least 50 words explaining each of the concepts (approximately 250 words in total). Upload your summary for the ANN learning activity to your personal journal using the link below.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Done*
 
 ---
 

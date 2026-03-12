@@ -11,8 +11,8 @@
 | **2** | Krogh, A. (2008) — What are Artificial Neural Networks? | Reading | ✅ |
 | 3 | LeCun, Y. et al. (2015) — Deep Learning (CNNs & RNNs) | Reading | ✅ |
 | 4 | Hulten, G. (2018) — Building Intelligent Systems (ProQuest eBook) | Reading | 🔥 WIP |
-| A1 | Deep Learning Discussion Forum Post | Activity | 🕐 |
-| A2 | ANN Details (learning rate, loss fn, batch, epoch, dropout) | Activity | 🕐 |
+| **A1** | Deep Learning Discussion Forum Post | Activity | ✅ |
+| **A2** | ANN Details (learning rate, loss fn, batch, epoch, dropout) | Activity | ✅ |
 
 ---
 
@@ -289,11 +289,96 @@ flowchart LR
 
 ### Activity 1: Deep Learning Discussion Forum Post
 
-> *Status: 🕐 To-Do*
+I would use deep learning to solve a problem where:
+- the input data is unstructured, like processing images, audio, or NLP
+- manual feature engineering is too difficult
+- we have vast amounts of data available (hundreds of thousands or millions of data points)
+- need the model that automatically learns features directly from raw data, without human intervention
+
+A concrete use case is autonomous driving: a self-driving car needs to process raw camera images to identify pedestrians, traffic signs, and other vehicles. This maps directly to CNNs, which exploit local spatial structure through shared filter banks and pooling — exactly the kind of task where hand-engineering features is infeasible.
+
+I would not use deep learning if:
+- the dataset is small (1000-10000s of samples). Deep learning would overfit and methods like SVM or Random Forest would generalise better.
+- the dataset is small and structured or tabular — simpler models win here, though large structured datasets with complex interactions can still benefit from DL
+- interpretability is a requirement. Deep learning models are often considered "black boxes" and may not provide insights into how decisions are made.
+- limited computational resources. Training deep learning models can be resource-intensive and may not be feasible in all environments.
+
+Task example is credit risk assessment model for a bank: to predict whether a loan applicant is a good or bad credit risk based on structured data (income, credit history, etc.). A simpler model like logistic regression or a decision tree would be more appropriate here due to the structured nature of the data and the need for interpretability.
+
+
+> *Status: ✅ Done*
 
 ### Activity 2: ANN Details (learning rate, loss function, batch size, epoch, dropout)
 
-> *Status: 🕐 To-Do*
+High level detail:
+
+```python
+# **Learning rate** — controls the step size of weight updates during gradient descent (SGD). Typical range: 0.0001–0.01.
+- Too high → overshoots the error minimum, training diverges or oscillates
+- Too low → extremely slow convergence, may get stuck in local minima
+- Common practice: start at 0.001 and use a learning rate scheduler to decay over epochs
+# ANALOGY: Like adjusting your stride when walking downhill in thick fog.
+# Giant steps → you overshoot the valley floor and stumble up the other side.
+# Tiny steps → you'll get there eventually, but it takes all day.
+# The right step size lets you descend steadily without overshooting the bottom.
+
+# **Loss function** — measures the difference between the model's predictions and the true labels; its gradient drives backpropagation.
+- Cross-entropy loss → classification tasks (output is a probability distribution via Softmax)
+- Mean Squared Error (MSE) → regression tasks (output is a continuous value)
+- Choice of loss function must match the task; a mismatch will produce nonsensical gradients
+# ANALOGY: Like a GPS telling you how far off-route you are.
+# Without it, you have no idea if you're getting closer to the destination or drifting further away.
+# The type of GPS also matters — one built for hiking trails (classification) vs motorways (regression)
+# will guide you completely differently, even on the same journey.
+
+# **Batch size** — number of training examples used in one forward/backward pass before updating weights. Typical values: 32, 64, 128.
+- Large batch → stable gradient estimates, faster per-epoch wall-clock time, but may generalise worse (sharp minima)
+- Small batch → noisier gradients, acts as implicit regularisation, often generalises better
+- Mini-batch SGD (32–256) is the standard compromise
+# ANALOGY: Like getting editorial feedback on your writing.
+# Send one sentence at a time (batch=1) → feedback is noisy and painfully slow.
+# Send the entire manuscript at once (full batch) → you wait ages for a single response.
+# Sending it chapter by chapter (mini-batch) → regular, useful feedback without overwhelming anyone.
+
+# **Epoch** — one full pass of the entire training dataset through the network.
+- Too few epochs → underfitting; the model has not converged
+- Too many epochs → overfitting; the model memorises training data
+- Early stopping (monitor validation loss and halt when it stops improving) is the standard mitigation
+# ANALOGY: Like re-reading a textbook.
+# Each full read-through = one epoch. One pass is rarely enough to learn the material.
+# But read the same book 500 times and you stop understanding it — you start reciting it word for word.
+# That's overfitting. Early stopping is the moment you realise you're no longer learning, just memorising.
+
+# **Dropout** — regularisation technique: during each training forward pass, randomly zeroes a fraction of neuron activations, forcing the network to learn redundant representations. Disabled at inference time.
+- Typical rate: 0.2–0.5 (drop 20–50% of units per layer)
+- Too high → underfitting (too much information is discarded)
+- Too low → insufficient regularisation, overfitting persists
+- Particularly effective in fully-connected layers; less common in convolutional layers
+# CLAUDEX ANALOGY: Like studying for an exam with random pages of your notes removed each session.
+# You can't rely on memorising specific notes, so you're forced to understand the concepts deeply enough
+# to reconstruct them from different starting points each time.
+# On exam day (inference) all your notes are back — but you've built real understanding,
+# not a dependence on a specific set of cues.
+```
+
+**Learning rate** — controls the step size taken when updating weights during gradient descent. 
+- Set too high, the model overshoots the optimal minimum and training diverges or oscillates. 
+- Set too low, convergence is slow and the model may get stuck in a local minimum. 
+A typical starting value is 0.001, often reduced gradually using a learning rate scheduler as training progresses and the loss landscape flattens.
+
+**Loss function** — measures the gap between the model's predictions and the true labels, producing a scalar error value that drives backpropagation. 
+- Cross-entropy loss is standard for classification tasks, penalising confident wrong predictions heavily. 
+- Mean Squared Error (MSE) is the default for regression. 
+The loss function must match the task — a mismatch produces meaningless gradients and a model that cannot learn effectively regardless of architecture.
+
+**Batch size** — determines how many training examples are processed together before weights are updated. Large batches produce stable gradient estimates but can generalise poorly due to sharp minima; small batches introduce noise that acts as implicit regularisation. 
+Mini-batch sizes of 32–128 are the standard compromise, balancing computational efficiency with the stochastic behaviour of gradient descent that helps the model escape poor local minima.
+
+**Epoch** — think of it like re-reading a textbook. Each time you read the whole thing cover to cover, that is one epoch. The network sees every training example once, adjusts its weights, and then starts over from the beginning. One read-through is rarely enough to learn — the model needs multiple passes to gradually improve. But if you read the same book 500 times, you stop understanding it and start reciting it word for word: that is overfitting. The sweet spot is the number of epochs where the model has genuinely learned the patterns without memorising the specific examples it trained on. Early stopping monitors performance on unseen validation data and halts training the moment improvement stalls.
+
+**Dropout** — a regularisation technique that randomly deactivates a fraction of neurons during each training forward pass, forcing the network to develop distributed, redundant representations rather than relying on specific pathways. It is disabled at inference time so all neurons contribute to the final prediction. Typical rates range from 0.2 to 0.5. Too high a rate causes underfitting by discarding too much information; too low provides insufficient protection against overfitting in deep fully-connected layers.
+
+> *Status: ✅ Done*
 
 ---
 
