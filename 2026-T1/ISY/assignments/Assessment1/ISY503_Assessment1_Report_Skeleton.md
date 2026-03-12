@@ -141,6 +141,8 @@ Both models outperformed the random baseline (AUC 0.50).
 
 The most discriminative features for outcome prediction centered on thematic and behavioral signals: body-image and diet-related language, references to program content ("help," "program" terms), and temporal engagement metrics such as message response rate and response time. This suggests that linguistic engagement with program content predicts treatment trajectory, not just emotional tone.
 
+Both LR and RF were evaluated under both protocols. RF achieved the highest within-user AUC (0.72) but overfitted when applied across users; LR, being a simpler and less variance-prone model, generalised better and yielded the best cross-user result (AUC 0.57). Among the LASSO-selected features at λ≈0.15, the ten retained predictors included response rate, four specific content words (body, help, program, lct), three POS tag types, possessive endings, and baseline symptom level — confirming that behavioural engagement signals and baseline severity are the most transferable predictors across users.
+
 Feature group counts are detailed in Table 1 (Background); correlation analysis confirmed low inter-feature overlap across all seven groups.
 
 ### 4.3 Visual Analysis
@@ -203,8 +205,24 @@ Funk et al.'s DHITA framework represents a meaningful step toward scalable clini
 ### Appendix A: Glossary of Technical Terms
 | Term | Definition |
 |---|---|
-| GloVe | Global Vectors for Word Representation; a method for generating word embeddings based on co-occurrence statistics. |
-| DHI | Digital Health Intervention; technology-based programs designed to support health outcomes. |
+| AUC | Area Under the Receiver Operating Characteristic Curve; a performance metric for classification models measuring the ability to distinguish between classes. Values range from 0.5 (random) to 1.0 (perfect). |
+| DHITA | Digital Health Intervention Text Analytics; the two-step NLP framework proposed by Funk et al. (2020) for automated feature extraction and predictive modeling from DHI text data. |
+| DHI | Digital Health Intervention; technology-based programs (apps, online platforms, web therapy) designed to support health outcomes at scale. |
+| Federated Learning | A distributed machine learning approach where models are trained across multiple decentralised data sources without sharing raw data, preserving participant privacy. |
+| GloVe | Global Vectors for Word Representation; a method for generating static word embeddings by analysing word co-occurrence statistics across a large corpus. |
+| LDA | Latent Dirichlet Allocation; a generative probabilistic model for topic modeling that represents each document as a mixture of latent topics. |
+| LASSO | Least Absolute Shrinkage and Selection Operator; a regression method applying L1 regularisation that drives irrelevant feature coefficients to zero, performing feature selection and regularisation simultaneously. |
+| LIME | Local Interpretable Model-agnostic Explanations; a technique that explains individual predictions of any classifier by approximating it locally with an interpretable model. |
+| Logistic Regression | A statistical model that predicts the probability of a binary outcome using a logistic (sigmoid) function applied to a linear combination of input features. |
+| NLP | Natural Language Processing; a subfield of AI concerned with enabling computers to analyse, understand, and generate human language. |
+| POS Tagging | Part-of-Speech Tagging; the process of labelling each word in a text with its grammatical category (noun, verb, adjective, etc.), used as a feature in NLP pipelines. |
+| Random Forest | An ensemble learning method that constructs many decision trees on random data subsets and outputs the majority vote across trees, reducing overfitting through aggregation. |
+| RCT | Randomised Controlled Trial; an experimental study design where participants are randomly assigned to intervention or control conditions to establish causal evidence. |
+| ROC | Receiver Operating Characteristic curve; a plot of true positive rate against false positive rate at varying classification thresholds, used to evaluate binary classifier performance. |
+| SHAP | SHapley Additive exPlanations; a game-theory-based method for explaining individual model predictions by attributing a contribution value to each input feature. |
+| Transformer | A deep learning architecture using self-attention mechanisms to process sequential data in parallel, enabling rich contextual understanding in NLP tasks (e.g., BERT, BioBERT, MentalBERT). |
+| Sentiment Lexicon | A curated list of words associated with specific emotions or sentiment polarities, used for sentiment analysis. |
+
 
 ---
 
@@ -285,7 +303,7 @@ sequenceDiagram
 
 9. Rieke, N., Hancox, J., Li, W., Milletarì, F., Roth, H. R., Albarqouni, S., Bakas, S., Galtier, M. N., Landman, B. A., Maier-Hein, K., Ourselin, S., Sheller, M., Summers, R. M., Trask, A., Xu, D., Baust, M., & Cardoso, M. J. (2020). The future of digital health with federated learning. *npj Digital Medicine, 3*(1), 119. https://doi.org/10.1038/s41746-020-00323-1
 
-10. Sarker, A. (2021). Machine learning: Algorithms, real-world applications and research directions. *SN Computer Science, 2*(3), 160. https://doi.org/10.1007/s42979-021-00592-x
+10. Sarker I. H. (2021). Machine learning: Algorithms, real-world applications and research directions. *SN Computer Science, 2*(3), 160. https://doi.org/10.1007/s42979-021-00592-x
 
 11. Tibshirani, R. (1996). Regression shrinkage and selection via the lasso. *Journal of the Royal Statistical Society: Series B (Methodological), 58*(1), 267–288. https://doi.org/10.1111/j.2517-6161.1996.tb02080.x
 
