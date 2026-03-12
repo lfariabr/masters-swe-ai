@@ -15,6 +15,7 @@
 - Prof. Dr. Divya Leekha | March 2026
 
 **Speaker note:**
+> *(Lecturer: Prof. Dr. Divya Leekha — "LEE-kha")*
 > "Today I'll walk you through how cloud computing transformed ABC Enterprise — slashing IT costs by 80%, absorbing a 10x customer surge, and turning manual operations into automated, policy-driven systems. Here's how."
 
 **Visual:** Existing building/sky photo background — no new image prompt needed. *(~15s)*
@@ -29,7 +30,7 @@
 - Key shift: from **owning capacity** → **renting capability**
 
 **Speaker note:**
-> "Cloud is not just hosting — it's a fundamentally different operating model with deep historical roots: from 1960s mainframes to 1970s virtualisation, 1999 Salesforce, and 2006 AWS (Naved et al., 2022). NIST defines five essential characteristics. For ABC, rapid elasticity and measured service are the ones that directly explain the 80% cost cut and the 10x surge absorption."
+> "Cloud is not just hosting — it's a fundamentally different model. NIST traces its roots from 1960s mainframes to virtualisation in the 70s, Salesforce in 1999, and AWS in 2006 (Naved et al., 2022). Five essential characteristics define it — for ABC, rapid elasticity and measured service are the two that directly explain the 80% cost cut and the 10x surge absorption."
 
 **Visual — 🍌 Nano Banana #5: NIST Wheel Diagram**
 > Create a professional circular infographic diagram in Lucidchart flowchart style, white background. A central circle labelled "Cloud Computing (NIST, 2011)" in dark navy. Five rounded rectangles arranged radially around it, connected by lines. Labels: "On-Demand Self-Service", "Broad Network Access", "Resource Pooling", "Rapid Elasticity", "Measured Service". Each box in a different shade: blue, teal, orange, green, purple. Use clean sans-serif font. Title above diagram: "5 Essential Characteristics of Cloud Computing". Output as image.
@@ -61,11 +62,12 @@
 **Content:**
 - **Rapid Elasticity:** 10x customer surge in one month — absorbed automatically, no procurement delay (McHaney, 2021)
   - Auto Scaling provisions/terminates instances based on demand signals
+  - Traditional IT = *lead strategy* (buy ahead); Cloud = *lag strategy* (provision on demand)
 - **Resource Pooling:** Providers consolidate workloads — ABC borrows enterprise-grade resilience (Manvi & Shyam, 2021)
 - More customers ≠ more headcount — the linear relationship is broken
 
 **Speaker note:**
-> "In traditional IT, a 10x surge would mean a procurement cycle — hardware arrives after the opportunity passes. Traditional IT locks teams into a *lead strategy*: procure capacity ahead of demand to avoid shortfalls (McHaney, 2021). Cloud enables a *lag strategy* instead — resources provision only as demand arrives, eliminating idle capital spend. With cloud auto-scaling, ABC's capacity became a policy, not a purchase order. And through resource pooling, ABC gets enterprise-grade infrastructure it couldn't afford to build alone."
+> "In traditional IT, a 10x surge means a procurement cycle — hardware arrives after the opportunity passes. Traditional IT locks teams into a *lead strategy* — buy ahead of demand to avoid shortfalls. Cloud enables the opposite: a *lag strategy* — provision only as demand arrives, eliminating idle capital spend. With Auto Scaling, ABC’s capacity became a policy, not a purchase order. And through resource pooling, ABC gets enterprise-grade infrastructure it couldn’t afford to build alone."
 
 **Visual — 🍌 Nano Banana #7: 10x Surge Growth Chart**
 > Create a professional bar chart diagram in Lucidchart flowchart style, white background. X-axis: "Month 0" and "Month 1". Two grouped bars per month. Bar 1 (dark blue): "Infrastructure Capacity". Bar 2 (orange): "Customer Demand". At Month 0, both bars equal height. At Month 1, Customer Demand bar is 10x taller while Infrastructure Capacity bar auto-matches it with a dashed "Auto Scaled" line at the top. Add annotation arrow pointing to Month 1: "10x surge — no manual intervention". Title: "Rapid Elasticity: ABC's 10x Growth Absorbed by Auto Scaling". Output as image.
@@ -81,11 +83,15 @@
 | Challenge | Mitigation |
 |-----------|------------|
 | **Security & PII** — payments + customer data exposed to third party (Eliaçık, 2022) | Least-privilege IAM, MFA, encryption at rest/in transit, shared responsibility model |
+| ↳ 90% of security professionals cite security as top concern; governance 71%, compliance 68% (Manvi & Shyam, 2021) | |
 | **Cost Volatility** — pay-as-you-go can spiral without guardrails (Bittok, 2022) | FinOps: budget alerts, resource tagging, rightsizing, reserved pricing |
 | **Vendor Lock-in + Skills Gap** — migration cost + mindset shift (McHaney, 2021) | Portability-first (containers, standard DBs), targeted cloud upskilling |
 
 **Speaker note:**
-> "Cloud adoption is not risk-free. Three challenges dominate for ABC — and industry data makes them concrete: 90% of security professionals cite security as their top concern, with governance (71%) and compliance (68%) close behind (Manvi & Shyam, 2021). The good news: each has a direct mitigation. Security follows a shared responsibility model — the provider secures the infrastructure, ABC secures what it deploys on top (Shore, 2020)."
+> "Cloud adoption is not risk-free — three challenges, each with a direct mitigation.
+> 1. Security & PII: 90% of security professionals cite it as top concern — governance 71%, compliance 68% (Manvi & Shyam, 2021). Mitigation: least-privilege IAM, MFA, shared responsibility model.
+> 2. Cost volatility: pay-as-you-go can spiral. Mitigation: FinOps — budget alerts, rightsizing, reserved pricing.
+> 3. Vendor lock-in + skills gap: Mitigation: containers + standard databases for portability, targeted upskilling."
 
 **Visual — 🍌 Nano Banana #8: Challenge vs Mitigation Table**
 > Create a professional two-column comparison table diagram in Lucidchart flowchart style, white background. Three rows. Left column header "Challenge" in dark red, right column header "Mitigation" in dark green. Row 1: "Security & Privacy — PII + payment data" | "IAM least-privilege, MFA, encryption, shared responsibility model". Row 2: "Cost Volatility — pay-as-you-go sprawl" | "FinOps: budget alerts, tagging, rightsizing, reserved pricing". Row 3: "Vendor Lock-in + Skills Gap" | "Containers + standard DBs for portability; cloud upskilling programme". Alternating row backgrounds (white / light grey). Title: "Cloud Challenges and Mitigations for ABC Enterprise". Output as image.
@@ -102,9 +108,10 @@
   - Private: ❌ over-engineered for a start-up
   - Hybrid: ⚠️ premature complexity
 - **Why public?** ABC is consumer-facing, high-growth, no regulatory mandate for private infrastructure
+  - IaaS workloads: 60% fewer security incidents than on-premise (IBM, n.d.-b, citing Gartner)
 
 **Speaker note:**
-> "The recommendation is a blended IaaS-PaaS model on public cloud. Public cloud also delivers stronger security outcomes than many expect — IBM (n.d.), citing Gartner, reports IaaS workloads experience 60% fewer security incidents than traditional data centres. Private cloud would give control ABC doesn't need yet at a cost it can't justify. As ABC scales, a Virtual Private Cloud (VPC) — isolated private networking on public cloud infrastructure — is a viable intermediate step without the full overhead of a dedicated private cluster."
+> "The recommendation is a blended IaaS-PaaS model on public cloud — say it as 'I-as-a-S plus P-as-a-S' *(pronunciation cue)*. The security case: IBM, citing Gartner, puts IaaS workloads at 60% fewer security incidents than on-premise. Private cloud would give control ABC doesn't need yet. As ABC scales, a VPC — isolated private networking on public cloud — is a viable intermediate step."
 
 **Visual — 🍌 Nano Banana #9: Service + Deployment Model Spectrum**
 > Create a professional two-section infographic in Lucidchart flowchart style, white background. Top section header: "Service Model — ABC Recommendation". Three horizontally arranged boxes: "IaaS" (dark blue, labelled "Compute + config flexibility"), "PaaS ✅" (green, labelled "Managed DB, LB, serverless — recommended"), "SaaS" (grey, labelled "Limited customisation"). An arrow under them labelled "Control ← → Managed". Bottom section header: "Deployment Model — ABC Recommendation". Three horizontally arranged boxes: "Private Cloud" (red, labelled "High cost, limited elasticity ❌"), "Hybrid Cloud" (amber, labelled "Premature complexity ⚠️"), "Public Cloud ✅" (green, labelled "Scalable, automated, cost-effective"). Title: "Recommended Cloud Models for ABC Enterprise". Output as image.
@@ -124,11 +131,9 @@
 - "Cloud adoption is about better ROI — less downtime, faster launches, automation" (Bittok, 2022)
 
 **Speaker note:**
-> "Cost model is not just about the cheapest bill. ABC needs predictability for stable workloads and flexibility for spikes. Reserved for base, pay-as-you-go for surges, spot for batch jobs. TCO includes not just cloud fees but migration cost, security tooling and engineering effort."
+> "Cost model is not just about the cheapest bill — it's about matching spend to behaviour. ABC needs predictability for stable workloads and flexibility for spikes: reserved for the base, pay-as-you-go for surges, spot for background batch jobs. And TCO goes beyond cloud fees — migration cost, security tooling, and engineering effort all count. Getting this mix right turns cloud from a cost centre into a competitive advantage — not just cheaper, but faster to market."
 
-**Visual:** Reuse 🍌 Nano Banana #6 (CAPEX vs OPEX) — or describe a simple 3-tier cost pyramid in speaker notes: Base (Reserved) → Middle (Pay-as-you-go) → Top (Spot). No new prompt needed.
-
-*(~30s)*
+**Visual:** Text-only slide — no image prompt needed. *(~30s)*
 
 ---
 
@@ -162,7 +167,13 @@
 - **AWS Lambda:** Event-driven — order placed → delivery assigned; payment confirmed → restaurant notified. Zero server management. Scales to zero when idle.
 
 **Speaker note:**
-> "Three services — three automation wins for ABC. ELB keeps the app responsive for delivery and taxi users. Auto Scaling means the team sleeps through a 10x surge. Lambda turns ABC's workflows into code — order placed triggers delivery assignment automatically."
+> ⚠️ DISTINCTION: Route 53 = DNS routing (already mentioned Slide 8). ELB = load balancer. DIFFERENT SERVICES — do not conflate.
+>
+> "Three services — three automation wins for ABC:
+> 1. ELB: routes traffic + health-checks EC2. For delivery and taxi users, latency IS the churn point — ELB is non-negotiable.
+> 2. Auto Scaling: the team sleeps through a 10x surge. Capacity as policy, not purchase order — circles back to the lag strategy.
+> 3. Lambda: the event chain. Order placed → delivery assigned. Payment confirmed → restaurant notified. Zero servers. Costs scale to zero when idle.
+> Together: these are the automation backbone that turns ABC’s infrastructure into a competitive advantage."
 
 **Visual — 🍌 Reuse Nano Banana #1** (AWS architecture diagram — from report plan). No new prompt needed.
 
@@ -207,6 +218,9 @@
 - Shore, J. (2020). *Cybersecurity with Cloud Computing: Service Models* [Video]. LinkedIn Learning.
 - Linthicum, D. (2021). *Learning Cloud Computing: Core Concepts* [Video]. LinkedIn Learning.
 
+**Speaker note:**
+> "These are the sources that ground every claim in this presentation and the accompanying report. The full reference list is in the submitted paper. Thank you for your time."
+
 **Visual:** Plain reference slide — no image prompt needed. *(~10s)*
 
 ---
@@ -222,6 +236,7 @@
 | #7 | 4 | 10x surge bar chart | New — prompt above |
 | #8 | 5 | Challenges vs Mitigation table | New — prompt above |
 | #9 | 6 | Service + Deployment model spectrum | New — prompt above |
+| — | 7 | Cost model — text-only, no visual | No prompt needed |
 
 ---
 
@@ -233,6 +248,8 @@
 - [ ] Each slide has: title, bullet content, speaker note, visual instruction
 - [ ] Nano banana prompts #5–#9 are Lucidchart style, image output
 - [ ] Existing prompts #1 and #4 reused — no duplication
+- [ ] Slide 7 is text-only — no visual prompt (no stale #6 cross-reference)
+- [ ] Every statistic cited in speaker notes has a corresponding bullet on the slide
 
 ---
 
