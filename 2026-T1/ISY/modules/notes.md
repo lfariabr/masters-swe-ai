@@ -420,6 +420,106 @@ Write short summaries of at least 50 words explaining each of the concepts (appr
 
 ---
 
+## Module 5 - Machine Learning in Depth
+
+### TLDR
+
+### Introduction
+Machine Learning (ML) plays a significant role in the modern world as many complex problems require an in-depth analysis of the data behind them to attempt to answer the questions that arise of them. How many people in this population have a mortgage? What is the likelihood that children belonging to a particular socio-economic group will grow up to be a doctor? What will the share prices of Company x look like in years to come? These are the types of questions machine learning algorithms have the power to solve.
+
+You will learn about the various types of machine learning models and algorithms to which you were introduced to in Module 3, have several flashbacks to your high school or undergraduate statistics courses and be awed by the power of machine learning models.
+
+### Resources
+
+
+#### 1. Types of Machine Learning algorithms
+- Pierson, P.E.L (2019, 25 October). Grouping machine learning algorithms [Video file]. Retrieved from https://www.lynda.com/Python-tutorials/Grouping-machine-learning-algorithms/5025804/2252869-4.html
+
+*Resource Overview:*
+
+    In module 3, you were introduced to different "types" of machine learning algorithms. In this Module, you will learn that those main algorithms you became familiar with fit into further categories within the machine learning world. Here's where you will learn the difference between "supervised" and "unsupervised" algorithms, to help you more accurately determine which type of algorithm fits your particular problem and data set.
+
+> *Status: 🕐 To-Do* 
+
+#### 2. Regression in Machine Learning – the different types
+- Dave, A. (2018, 4 December). Regression in machine learning. Retrieved from https://medium.com/datadriveninvestor/regression-in-machine-learning-296caae933ec
+
+*Resource Overview:*
+
+    Regression is an important concept in Machine Learning. Being one of the two important categories of a "Supervised" learning technique, it is likely you'll need to work with this concept as you advance your studies and also in practical applications. As you have learnt, a "Supervised" learning algorithm presumes you have a labelled data set of objects you want to work with. When you have labelled data and want to use it derive relationships between variables that describe the dataset that way, it is said that you have a machine learning technique that uses regression. There are many types of regression that can be modelled in the world of machine learning and this resource introduces you to some common types.
+
+> *Status: 🕐 To-Do* 
+
+#### 3. Classification in Machine Learning
+- Cuesta, H. (2017). Practical Data Analysis, Second edition, Packt Publishing. Retrieved from: https://search.ebscohost.com/login.aspx?direct=true&AuthType=shib&db=nlebk&AN=1364690&site=ehost-live&custid=ns251549&ebv=EB&ppid=pp_87
+
+*Resource Overview:*
+
+    While you learnt above that a problem that looks at deriving relationships between variables in a labelled data set can use regression, a problem where you need to classify data points into categories – think 'yes' or 'no', 'disease' or 'no disease' – is called classification. You had a brief introduction to the six types of classification algorithms in Module 3. In Chapter 4 of this resource, you will take a look at the theory behind some of these algorithms as it applies to a specific task of text classification to further your understanding of this very important problem-solving machine learning technique (and to help you develop foundational knowledge for Assessment 2).
+
+> *Status: 🕐 To-Do* 
+
+#### 4. Unsupervised Machine Learning algorithms
+- Ross, D. (2017, 6 December). Understanding the real capabilities of machine learning. Retrieved from https://venturebeat.com/2017/12/06/understanding-the-real-capabilities-of-unsupervised-machine-learning
+
+*Resource Overview:*
+
+    It might not surprise you that since there is a "supervised" machine learning model type, there would be an "unsupervised" type as well. Why are they important to know? Well, because they solve a different kind of problem – where you aren't really telling the algorithm to determine classifications or outcomes you define using relationships between variables. It is up to the algorithm to determine groupings. What types of problems would they help solve? Read the following resource to help understand the uses cases of these types of algorithms.
+
+> *Status: 🕐 To-Do* 
+
+#### 5. Importance of analysing your data sets
+- WTF is the Bias-Variance Tradeoff? (n.d.) Retrieved from https://elitedatascience.com/bias-variance-tradeoff
+
+*Resource Overview:*
+
+    You might have heard of the saying "Garbage in, garbage out" – which refers to the quality of data an algorithm or system processes to provide a (hopefully) enhanced or useful output. However, if the data it is processing is plagued with errors, then it is likely the results will be skewed or plain wrong. The same is true in machine learning algorithms. Here that data, often referred to as "training data" needs to be analysed for two important qualities within the dataset – known as "Bias" and "Variance". Bias refers to assumptions in training data that need to be addressed for better prediction. Bias is an inherent error in data. Conversely, variance is related to model perfection and occurs when a model tries to fit several inputs. So, how do these qualities of the training dataset affect the results of the machine learning algorithms? Consult this infographic-rich resource to help you grasp these important concepts and another important relationship between them – "Bias-Variance Tradeoff".
+
+> *Status: 🕐 To-Do* 
+
+#### 6. Support Vector Machine
+A heavyweight supervised learning model that applies to both regression and classification problems
+
+- Zhao, A. (2019, 22 August). Support Vector Machines: A Visual Explanation with Sample Python Code. https://www.youtube.com/watch?v=N1vOgolbjSc
+
+*Resource Overview:*
+
+    Have you ever wanted to classify recipes you find on the internet into categories for future reference? Regardless of whether you have or not, watch this clever machine learning solution that uses a Support Vector Machine to differentiate between muffin and cupcake recipes. Perhaps you can think about how the model can be modified to classify your own favourite recipes as you watch?
+    
+> *Status: 🕐 To-Do* 
+
+#### 7. The mathematics behind supervised learning algorithms
+- Maini, V. (2017, August 20). Machine Learning for Humans, Part 2.1: Supervised Learning. Retrieved from: https://medium.com/machine-learning-for-humans/supervised-learning-740383a2feab
+
+*Resource Overview:*
+
+    Keen to learn more on what you can get machine learning algorithms to do with labelled data sets? Take a closer look at the mathematics behind at the common supervised machine learning algorithms like Linear Regression and Gradient descent.
+    
+> *Status: 🕐 To-Do* 
+
+#### 8. The mathematics behind unsupervised learning algorithms
+- Maini, V. (2017, August 20). Machine Learning for Humans, Part 3: Unsupervised Learning. Retrieved from: https://medium.com/machine-learning-for-humans/unsupervised-learning-f45587588294
+
+*Resource Overview:*
+
+    This resource takes a more in depth look into advanced concepts within the world of unsupervised learning algorithms. Learn about some interesting applications where such algorithms play an important role.
+    
+> *Status: 🕐 To-Do* 
+
+---
+
+### Learning Activities
+
+#### Activity 1: A dive into classification in machine learning
+
+It is now time to use the knowledge you’ve gained in the above resources to apply them in a hands-on exercise on a state-of-the-art platform such as Azure. In this Microsoft run tutorial, you’ll learn to define the classification problem, use several classification models like the ones you researched previously in Module 3 (Logistic Regression) and another one you were introduced to in this module (Support Vector Machine). Follow the instructions in this resource to complete this tutorial.
+
+https://docs.microsoft.com/en-us/learn/modules/introduction-to-classification/
+
+> *Status: 🕐 To-Do* 
+
+---
+
 ```bash
 --- PLACEHOLDER:
 ## Module X - ...

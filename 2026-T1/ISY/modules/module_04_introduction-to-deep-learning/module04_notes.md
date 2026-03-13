@@ -165,12 +165,12 @@ Input Image → [Conv + ReLU + Pool] × N → Fully Connected → Softmax Output
 *CNN architecture (convolutional stack):*
 ```mermaid
 flowchart LR
-    A[Input Image\n H×W×C] --> B[Conv + ReLU\nfeature maps]
-    B --> C[Max Pooling\nreduce H,W]
-    C --> D[Conv + ReLU\ndeeper features]
-    D --> E[Max Pooling\nreduce H,W]
-    E --> F[Fully Connected\nlayers]
-    F --> G[Softmax\nclass probabilities]
+    A[Input Image<br> H×W×C] --> B[Conv + ReLU<br>feature maps]
+    B --> C[Max Pooling<br>reduce H,W]
+    C --> D[Conv + ReLU<br>deeper features]
+    D --> E[Max Pooling<br>reduce H,W]
+    E --> F[Fully Connected<br>layers]
+    F --> G[Softmax<br>class probabilities]
 ```
 
 - **Why CNNs work**: natural signals (images, audio) have local statistics that repeat across positions; pooling provides robustness to small transformations
