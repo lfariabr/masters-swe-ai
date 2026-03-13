@@ -141,7 +141,7 @@ Both models outperformed the random baseline (AUC 0.50).
 
 The most discriminative features for outcome prediction centered on thematic and behavioral signals: body-image and diet-related language, references to program content ("help," "program" terms), and temporal engagement metrics such as message response rate and response time. This suggests that linguistic engagement with program content predicts treatment trajectory, not just emotional tone.
 
-Both LR and RF were evaluated under both protocols. RF achieved the highest within-user AUC (0.72) but overfitted when applied across users; LR, being a simpler and less variance-prone model, generalised better and yielded the best cross-user result (AUC 0.57). Among the LASSO-selected features at λ≈0.15, the ten retained predictors included response rate, four specific content words (body, help, program, lct), three POS tag types, possessive endings, and baseline symptom level — confirming that behavioural engagement signals and baseline severity are the most transferable predictors across users.
+Both LR and RF were evaluated under both protocols. RF achieved AUC 0.72 within-user but overfitted across users; LR generalised better, yielding AUC 0.57 cross-user. Among the LASSO-selected features at λ≈0.15, the ten retained predictors included response rate, four content words (body, help, program, lct), three POS tag types, possessive endings, and baseline symptom level — confirming that behavioural signals are more transferable than individual linguistic style.
 
 Feature group counts are detailed in Table 1 (Background); correlation analysis confirmed low inter-feature overlap across all seven groups.
 
@@ -228,6 +228,19 @@ Funk et al.'s DHITA framework represents a meaningful step toward scalable clini
 
 ### Appendix B: DHITA vs Transformer Architecture Comparison
 
+The table below contrasts the classical DHITA pipeline (Funk et al., 2020) with a transformer-based upgrade as recommended in §6.1. The key distinction is in word representation: DHITA uses averaged static GloVe vectors that collapse all token contexts into a single fixed vector, losing positional and contextual information. Transformer models process the full token sequence and produce context-sensitive embeddings, enabling the model to distinguish, for example, "not eating" from "eating" — a critical nuance in eating disorder text.
+
+| Aspect | DHITA (2020) | Transformer Upgrade |
+|--------|-------------|---------------------|
+| Input representation | Averaged GloVe 50-dim static vectors | Contextual token embeddings (e.g., MentalBERT) |
+| Feature extraction | Hand-engineered: metadata, POS, LDA, sentiment, word freq | Learned end-to-end from raw text via self-attention |
+| Feature dimensionality | 220 features → 10 via LASSO | 768-dim contextual embeddings (no manual selection) |
+| Model algorithm | Random Forest (within-user) / Logistic Regression (cross-user) | Fine-tuned classification head on pre-trained transformer |
+| AUC performance | 0.57–0.72 | Target ≥0.85 (clinical decision support threshold) |
+| Interpretability | Partial — LASSO coefficients provide audit trail | Low natively; requires SHAP/LIME post-hoc explanation |
+| Compute requirements | Low — R package, standard CPU | High — GPU required for fine-tuning; inference manageable |
+| Training data needed | Moderate — validated on 372 users | Large — benefits from domain pre-training (MentalBERT trained on Reddit/social health corpora) |
+
 > 📸 **[Figure B — Suggested]** DHITA classical pipeline vs. transformer upgrade (side-by-side)
 > **Nano Banana prompt:** "Two-column side-by-side. Left column header: 'DHITA (2020)'. Pipeline: Raw Text → [GloVe avg | LDA | POS | Sentiment] → 220-dim vector → Random Forest / Logistic Regression → AUC 0.57–0.72. Right column header: 'Transformer Upgrade'. Pipeline: Raw Text → [BERT/MentalBERT tokenizer] → Contextual Embeddings → Fine-tuned Classification Head → AUC target ≥0.85. Both columns same height, separated by vertical line. Header: 'Feature Representation Strategy'. Academic style, blue-grey palette."
 
@@ -235,21 +248,47 @@ Funk et al.'s DHITA framework represents a meaningful step toward scalable clini
 
 ### Appendix C: Exploratory Pipeline Notebook Skeleton
 
-> 📸 **[Figure C — Suggested]** Six-step pipeline flow diagram (classical + transformer branches)
-> **Nano Banana prompt:** "Vertical flow diagram with 6 numbered steps, each a rounded rectangle. Steps 1–3 in blue ('Classical'), steps 4–6 split: left branch blue (classical), right branch teal (transformer). Converge at Step 6 'AUC Comparison'. Clean notebook-style layout, monospace labels, white background."
+This skeleton outlines a post-submission implementation exercise replicating and extending DHITA. Steps 1–3 reproduce the classical pipeline; Steps 4–6 introduce the transformer branch for comparison. Both branches converge at Step 6 for a side-by-side AUC evaluation.
 
 ```
 Step 1 — Load & Inspect Data
+  # Load DHI text dataset (CSV or JSON); inspect class balance, text length distribution,
+  # missing values; confirm user ID and timestamp columns are present.
+
 Step 2 — Preprocessing (tokenise, stem, MINOCC/MAXOCC filter)
-Step 3 — Classical Feature Engineering (metadata, word freq, GloVe avg, POS, LDA, sentiment)
-Step 4 — Transformer Features (HuggingFace MentalBERT embeddings, no averaging)
+  # Tokenise with NLTK/spaCy; apply Porter stemmer; remove tokens appearing in fewer than
+  # MINOCC or more than MAXOCC fraction of documents; lowercase; strip punctuation.
+
+Step 3 — Classical Feature Engineering
+  # Compute per-snippet: metadata (nWords, nChars), word frequency vectors, GloVe 50-dim
+  # averaged embeddings, POS tag counts via spaCy, LDA topic proportions (k=8),
+  # sentiment scores (NRC, AFINN, Bing). Aggregate to user level for Model B.
+
+Step 4 — Transformer Features (HuggingFace MentalBERT embeddings)
+  # Tokenise with MentalBERT tokenizer (max_length=128, truncation=True);
+  # extract [CLS] token embedding (768-dim) per snippet — no averaging needed.
+  # Fine-tune classification head or use embeddings as fixed features.
+
 Step 5 — Model Training (RF, LR, fine-tuned transformer)
-Step 6 — Evaluation (ROC/AUC comparison, LASSO feature selection)
+  # Classical: fit RF (n_estimators=200) and LR with LASSO (C=1/λ) using 50-fold CV
+  # for feature selection; evaluate within-user and cross-user splits.
+  # Transformer: fine-tune with AdamW, lr=2e-5, epochs=3; evaluate on held-out split.
+
+Step 6 — Evaluation (ROC/AUC comparison)
+  # Plot ROC curves for all models (RF_within, RF_across, LR_within, LR_across, Transformer);
+  # report AUC with 95% CI via bootstrap; compare against DHITA baseline (0.57–0.72).
 ```
+
+> 📸 **[Figure C — Suggested]** Six-step pipeline flow diagram (classical + transformer branches)
+> **Nano Banana prompt:** "Vertical flow diagram with 6 numbered steps, each a rounded rectangle. Steps 1–3 in blue ('Classical'), steps 4–6 split: left branch blue (classical), right branch teal (transformer). Converge at Step 6 'AUC Comparison'. Clean notebook-style layout, monospace labels, white background."
 
 ---
 
 ### Appendix D: LASSO Regularisation Concept Diagram
+
+LASSO (Least Absolute Shrinkage and Selection Operator) extends standard linear regression by adding an L1 penalty term — the sum of the absolute values of all coefficients — to the loss function. As the regularisation constant λ increases, this penalty grows, forcing the model to shrink less important feature coefficients progressively toward zero. Unlike L2 regularisation (Ridge), which shrinks all coefficients proportionally, L1 produces exact zeros: irrelevant features are eliminated entirely, performing feature selection and regularisation simultaneously.
+
+In the DHITA case study, 220 candidate features were evaluated across a range of λ values using 50-fold cross-validation. The mean squared error (MSE) reached its minimum at λ≈0.15, at which point only 10 features retained non-zero coefficients (Figure D). These 10 features — response rate, four content words, three POS tag types, possessive endings, and baseline symptom level — represent the most generalisable predictors of eating disorder symptom severity across users.
 
 > 📸 **[Figure D — Suggested]** Before/after feature selection via LASSO
 > **Nano Banana prompt:** "Two-panel diagram. Left panel: bar chart with 220 bars (represent features), all varying heights, labelled 'All 220 Features'. Right panel: same chart but 210 bars collapsed to zero (grey), 10 bars tall and highlighted in teal, labelled '10 Selected Features (λ≈0.15)'. Arrow between panels labelled 'LASSO Regularisation'. Below right panel: small U-curve labelled 'MSE vs λ' with dashed line at minimum. Academic style, clean white background."
@@ -257,6 +296,8 @@ Step 6 — Evaluation (ROC/AUC comparison, LASSO feature selection)
 ---
 
 ### Appendix E: User Journey Sequence Diagram
+
+The diagram below illustrates how a single user's interaction with a DHI platform triggers the DHITA system across two time horizons. In the short term, each diary entry is forwarded to DHITA, which extracts 220 features and applies Model A to predict near-term symptom severity — alerting the coach for a personalised response. Over the six-month intervention, user messages are continuously aggregated and fed into Model B, which predicts long-term therapeutic outcome and delivers a summary report to the coach at follow-up. The diagram makes explicit that DHITA operates passively in the background: the user interacts only with the DHI platform, while all ML inference is invisible to them.
 
 ```mermaid
 sequenceDiagram
