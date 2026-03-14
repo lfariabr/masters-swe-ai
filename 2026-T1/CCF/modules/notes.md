@@ -463,6 +463,12 @@ Post your answer in the Module 4 discussion forum. Please read through other stu
 
 ### TLDR
 
+- **Three service tiers** — **IaaS** (infrastructure on demand: EC2, Azure VMs, GCE), **PaaS** (managed platform: Elastic Beanstalk, Bedrock, Azure), **SaaS** (ready software: HubSpot, Slack, Dropbox) — define the control vs. management trade-off (Manvi & Shyam, 2021)
+- **Big 3 providers** — **AWS** leads on catalogue (200+ services, 88 zones, 34% market share); **Azure** leads in enterprise Microsoft integration and AI/ML tooling (Synapse, Azure ML); **GCP** leads on price (~$52/mo) and Kubernetes heritage (Kuijpers, 2022; Winchester, 2022)
+- **No universal winner** — selection depends on existing ecosystem, analytics needs, budget, geographic reach, and training costs
+- **Serverless trend** — Lambda/Google Functions reduce costs to zero at idle and scale automatically, but introduce cold-start latency and vendor lock-in risk (Kuijpers, 2022)
+- **Real-world evidence** — RSK (edtech) used IaaS+PaaS on AWS to build a full LMS in 2 months, absorb 20,000 concurrent users, and grow 300%; Fujita Health University used Amazon Bedrock (PaaS GenAI) to cut discharge summary time by 90%
+
 ### Introduction
 In Module 4, we explored the various types of Cloud Deployment Models and Service Models and examined their simple use cases. Now, in Module 5, we will examine how to implement the cloud services in real-life scenarios. What facilities and resources do we have at our disposal? Module 5 will address these questions by exploring the services offered by the major cloud service providers and examine each use case in detail with real-life case examples.
 
@@ -475,7 +481,7 @@ In Module 4, we explored the various types of Cloud Deployment Models and Servic
 
     These chapters provide an overview of three key cloud service delivery models: IaaS, PaaS and SaaS followed by an introduction to the major cloud service providers who offer these services. For the service providers that you have not heard of before, consider why they may not be as popular as the major vendors that you have heard of. Please read the following sections from Chapter 5 and Chapter 6 to learn more about exciting Cloud Services and Service Providers:
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module05_notes.md](module_05_cloud-providers-comparison/module05_notes.md)*
 
 #### 2. How to Choose the Right Cloud Platform
 - Kuijpers, M. (2022, January 7). AWS vs Azure vs Google Cloud: How to choose the right cloud platform. Touchtribe. https://www.touchtribe.nl/en/blog/aws-vs-azure-vs-google-cloud
@@ -484,7 +490,7 @@ In Module 4, we explored the various types of Cloud Deployment Models and Servic
 
     It is important to understand some pros and cons of each cloud service providers prior to selecting them. The following resource provides an overview on the big three cloud service providers. For example, AWS is a good choice if you are aiming for the lowest possible down time. Microsoft Azure, on the other hand, is appropriate for cloud applications development. Read the in-depth comparison from the following resource and identify which cloud service provider is the best one for your requirements.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module05_notes.md](module_05_cloud-providers-comparison/module05_notes.md)*
 
 #### 3. AWS vs. Azure vs. Google: Cloud Comparison
 - Winchester, D. S. (2022, February 1). Comparison of the BIG 3 cloud [Article]. LinkedIn. https://www.linkedin.com/pulse/comparison-big-3-cloud-init6-networks?trk=organization-update-content_share-article
@@ -493,7 +499,7 @@ In Module 4, we explored the various types of Cloud Deployment Models and Servic
 
     This resource provides a concise comparison of the three major cloud service providers and their strengths and weaknesses. While reading this resource, take note of the angle adopted in this resource. Perhaps it may appear more commercially oriented. Take note of the factors that differentiate each cloud service depending on differing business perspectives.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module05_notes.md](module_05_cloud-providers-comparison/module05_notes.md)*
 
 #### 4. Migrating Applications to Cloud Computing
 - Linthicum, D. (2021). Understanding the business case. In Learning cloud computing: Application migration. LinkedIn Learning. https://www.linkedin.com/learning/learning-cloud-computing-application-migration/understanding-the-business-case?autoplay=true&resume=false&u=72036930
@@ -506,7 +512,7 @@ In Module 4, we explored the various types of Cloud Deployment Models and Servic
     – Private Cloud Migration
     David Linthicum, the Deloitte consultant from our earlier videos, outlines how moving to a public cloud could be beneficial for businesses since it reduces the data centre costs for them. A private cloud, on the other hand, provides edge computing solutions and better application management systems. Private clouds may not save costs upfront but can provide faster bandwidth and service provision to clients, therefore reducing costs in the long term or perhaps increasing profits.
 
-> *Status: 🕐 To-Do*
+> *Status: 🔥 WIP — needs manual access (LinkedIn Learning auth-gated) — see [module05_notes.md](module_05_cloud-providers-comparison/module05_notes.md)*
 
 ### Learning Activities
 
