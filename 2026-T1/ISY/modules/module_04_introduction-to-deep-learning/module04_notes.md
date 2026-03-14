@@ -9,8 +9,8 @@
 |---|---------------------|------|--------|
 | **1** | Gupta, D. (2020) — Activation Functions and When to Use Them | Reading | ✅ |
 | **2** | Krogh, A. (2008) — What are Artificial Neural Networks? | Reading | ✅ |
-| 3 | LeCun, Y. et al. (2015) — Deep Learning (CNNs & RNNs) | Reading | ✅ |
-| 4 | Hulten, G. (2018) — Building Intelligent Systems (ProQuest eBook) | Reading | 🔥 WIP |
+| **3** | LeCun, Y. et al. (2015) — Deep Learning (CNNs & RNNs) | Reading | ✅ |
+| **4** | Hulten, G. (2018) — Building Intelligent Systems (ProQuest eBook) | Reading | ✅ |
 | **A1** | Deep Learning Discussion Forum Post | Activity | ✅ |
 | **A2** | ANN Details (learning rate, loss fn, batch, epoch, dropout) | Activity | ✅ |
 
@@ -224,13 +224,13 @@ flowchart LR
 *LSTM memory cell — gates control information flow:*
 ```mermaid
 flowchart LR
-    xt[xₜ input] --> fg[Forget Gate\nf = σ·W·h,x]
-    xt --> ig[Input Gate\ni = σ·W·h,x]
-    xt --> og[Output Gate\no = σ·W·h,x]
-    xt --> cc[Cell Candidate\ng = tanh·W·h,x]
-    fg -->|f × Cₜ₋₁| cell[Cell State Cₜ\nmemory]
+    xt[xₜ input] --> fg[Forget Gate<br>f = σ·W·h,x]
+    xt --> ig[Input Gate<br>i = σ·W·h,x]
+    xt --> og[Output Gate<br>o = σ·W·h,x]
+    xt --> cc[Cell Candidate<br>g = tanh·W·h,x]
+    fg -->|f × Cₜ₋₁| cell[Cell State Cₜ<br>memory]
     ig -->|i × g| cell
-    cell --> ht[Hidden State hₜ\no × tanh·Cₜ]
+    cell --> ht[Hidden State hₜ<br>o × tanh·Cₜ]
     og --> ht
     ht --> next[Next time step]
 ```
