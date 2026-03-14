@@ -459,6 +459,90 @@ Post your answer in the Module 4 discussion forum. Please read through other stu
 
 ---
 
+## Module 5 — Major Public Cloud Providers and their comparison
+
+### TLDR
+
+### Introduction
+In Module 4, we explored the various types of Cloud Deployment Models and Service Models and examined their simple use cases. Now, in Module 5, we will examine how to implement the cloud services in real-life scenarios. What facilities and resources do we have at our disposal? Module 5 will address these questions by exploring the services offered by the major cloud service providers and examine each use case in detail with real-life case examples.
+
+### Resources
+
+#### 1. Cloud Services and Service Providers
+- Manvi, S., & Shyam, G. K. (2021). Cloud computing: Concepts and technologies. CRC Press. https://learning-oreilly-com.torrens.idm.oclc.org/library/view/cloud-computing/9781000338058/xhtml/05chap_05.xhtml#sec5_4_1
+
+*Resource Overview:*
+
+    These chapters provide an overview of three key cloud service delivery models: IaaS, PaaS and SaaS followed by an introduction to the major cloud service providers who offer these services. For the service providers that you have not heard of before, consider why they may not be as popular as the major vendors that you have heard of. Please read the following sections from Chapter 5 and Chapter 6 to learn more about exciting Cloud Services and Service Providers:
+
+> *Status: 🕐 To-Do*
+
+#### 2. How to Choose the Right Cloud Platform
+- Kuijpers, M. (2022, January 7). AWS vs Azure vs Google Cloud: How to choose the right cloud platform. Touchtribe. https://www.touchtribe.nl/en/blog/aws-vs-azure-vs-google-cloud
+
+*Resource Overview:*
+
+    It is important to understand some pros and cons of each cloud service providers prior to selecting them. The following resource provides an overview on the big three cloud service providers. For example, AWS is a good choice if you are aiming for the lowest possible down time. Microsoft Azure, on the other hand, is appropriate for cloud applications development. Read the in-depth comparison from the following resource and identify which cloud service provider is the best one for your requirements.
+
+> *Status: 🕐 To-Do*
+
+#### 3. AWS vs. Azure vs. Google: Cloud Comparison
+- Winchester, D. S. (2022, February 1). Comparison of the BIG 3 cloud [Article]. LinkedIn. https://www.linkedin.com/pulse/comparison-big-3-cloud-init6-networks?trk=organization-update-content_share-article
+
+*Resource Overview:*
+
+    This resource provides a concise comparison of the three major cloud service providers and their strengths and weaknesses. While reading this resource, take note of the angle adopted in this resource. Perhaps it may appear more commercially oriented. Take note of the factors that differentiate each cloud service depending on differing business perspectives.
+
+> *Status: 🕐 To-Do*
+
+#### 4. Migrating Applications to Cloud Computing
+- Linthicum, D. (2021). Understanding the business case. In Learning cloud computing: Application migration. LinkedIn Learning. https://www.linkedin.com/learning/learning-cloud-computing-application-migration/understanding-the-business-case?autoplay=true&resume=false&u=72036930
+
+*Resource Overview:*
+
+    Watch this series of videos which provide an overview of public and private cloud migration:
+    – Understanding the Business Case
+    – Understanding the Risks
+    – Private Cloud Migration
+    David Linthicum, the Deloitte consultant from our earlier videos, outlines how moving to a public cloud could be beneficial for businesses since it reduces the data centre costs for them. A private cloud, on the other hand, provides edge computing solutions and better application management systems. Private clouds may not save costs upfront but can provide faster bandwidth and service provision to clients, therefore reducing costs in the long term or perhaps increasing profits.
+
+> *Status: 🕐 To-Do*
+
+### Learning Activities
+
+#### Activity 1: Case Study 1—Cloud-Based E-Learning Platform
+
+Read Case Study 1: “Rumah Siap Kerja Pivots to a Cloud-based E-Learning Platform in 2 Months on AWS” and write a short report to address the following questions:
+- Analyse the service model Rumah Siap Kerja chose.
+- What were the different services provided?
+- Name the method that was adopted to improve the end-user experience.
+
+Please answer all questions based on the case study provided and post your response (within 200 words) in the Module 5 discussion forum
+
+*Note: For more details on what each section should include, refer to page 3 of the Assessment 2 Brief.*
+
+Write your answer in the Module 5 discussion forum within 200 words.
+
+**Important note: Students are advised against using this case study for their Assessment 2.**
+
+Please reply to at least two other students’ posts – find a post you agree with and one that challenges your own opinion.
+
+#### Activity 2: Case study 2—Patient Records on AWS
+
+Read Case Study 2: “Fujita Health University Aims to Improve Continuity of Patient Care and Deliver Higher Quality Healthcare with Patient Records on AWS” and write a short report to address the following questions:
+
+- Analyse the service model stated in this case study.
+- How did AWS cloud provide support for Fujita Health University transitioning to patient-centric care?
+- Name the Amazon cloud services used in the case study to provide better patient-care experience. Research about these cloud services and list at least one characteristic of each service in bullet points.
+
+Please answer all questions based on the case study provided and post your response (within 200 words ) in the Module 5 discussion forum
+
+**Important note: Students are advised against using this case study for their Assessment 2.**
+
+Please reply to at least two other students’ posts – find a post you agree with and one that challenges your own opinion.
+
+---
+
 ```bash
 --- PLACEHOLDER:
 ## Module X - ...

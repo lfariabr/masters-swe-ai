@@ -89,7 +89,7 @@
 
 **Speaker note:**
 > "Cloud adoption is not risk-free — three challenges, each with a direct mitigation.
-> 1. Security & PII: 90% of security professionals cite it as top concern — governance 71%, compliance 68% (Manvi & Shyam, 2021). Mitigation: least-privilege IAM, MFA, shared responsibility model.
+> 1. Security & PII: Mitigation: least-privilege IAM, MFA, shared responsibility model.
 > 2. Cost volatility: pay-as-you-go can spiral. Mitigation: FinOps — budget alerts, rightsizing, reserved pricing.
 > 3. Vendor lock-in + skills gap: Mitigation: containers + standard databases for portability, targeted upskilling."
 
@@ -242,14 +242,14 @@
 
 ## Verification Checklist
 
-- [ ] 11 slides total — timed at 5.5–6.5 min
-- [ ] Every key report section (§2–§7) represented
-- [ ] AWS services (ELB, Auto Scaling, Lambda) on their own slide (Slide 9)
-- [ ] Each slide has: title, bullet content, speaker note, visual instruction
-- [ ] Nano banana prompts #5–#9 are Lucidchart style, image output
-- [ ] Existing prompts #1 and #4 reused — no duplication
-- [ ] Slide 7 is text-only — no visual prompt (no stale #6 cross-reference)
-- [ ] Every statistic cited in speaker notes has a corresponding bullet on the slide
+- [X] 12 slides total — timed at 5.5–6.5 min
+- [X] Every key report section (§2–§7) represented
+- [X] AWS services (ELB, Auto Scaling, Lambda) on their own slide (Slide 9)
+- [X] Each slide has: title, bullet content, speaker note, visual instruction
+- [X] Nano banana prompts #5–#9 are Lucidchart style, image output
+- [X] Existing prompts #1 and #4 reused — no duplication
+- [X] Slide 7 is text-only — no visual prompt (no stale #6 cross-reference)
+- [X] Every statistic cited in speaker notes has a corresponding bullet on the slide
 
 ---
 

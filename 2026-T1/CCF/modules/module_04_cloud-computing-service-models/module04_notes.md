@@ -12,7 +12,7 @@
 | **4** | Read & summarise Christina (2021) — 21 SaaS product videos (Blue Carrot) | ✅ |
 | **5** | Watch & summarise Shore (2020) — Cybersecurity with Cloud, service models (LinkedIn Learning) | ✅ |
 | **7** | Activity 1: Your Favourite SaaS Application | ✅ |
-| 8 | Activity 2: Thinking Exercise — No Crowd, No Cloud | 🕐 |
+| **8** | Activity 2: Thinking Exercise — No Crowd, No Cloud | ✅ |
 
 ---
 
