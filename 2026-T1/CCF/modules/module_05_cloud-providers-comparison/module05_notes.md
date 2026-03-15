@@ -8,7 +8,7 @@
 |---|------|--------|
 | **1** | Read & summarise Manvi & Shyam (2021) — IaaS, SaaS, PaaS chapters | ✅ |
 | **2** | Read & summarise Kuijpers (2022) — AWS vs Azure vs GCP platform comparison | ✅ |
-| **3** | Read & summarise Winchester (2022) — Big 3 cloud comparison for enterprise | ✅ |
+| **3** | Read & summarise Winchester (2022) — Big 3 cloud comparison for enterprise | ✅ | 
 | **4** | Watch & summarise Linthicum (2021) — Cloud migration business case videos | ✅ |
 | 5 | Activity 1: Case Study — Rumah Siap Kerja e-learning platform on AWS | 🕐 |
 | 6 | Activity 2: Case Study — Fujita Health University patient records on AWS | 🕐 |
@@ -244,6 +244,43 @@
 
 #### Method to Improve End-User Experience
 **Amazon CloudFront (CDN) + Amazon S3** — distributes video content from geographically nearest server, ensuring high performance during traffic spikes. This **halved RSK's data transfer charges** and eliminated video delivery bottlenecks.
+
+#### Architecture Diagram
+
+```mermaid
+graph TD
+    Users["👥 Users<br>500 avg → 20,000 peak concurrent"]
+
+    subgraph AWS["☁️ AWS Public Cloud"]
+        CF["Amazon CloudFront<br>CDN — nearest edge server"]
+        S3["Amazon S3<br>Video & asset storage"]
+        ASG["EC2 Auto Scaling Group<br>Elastic capacity management"]
+
+        subgraph EC2Group["IaaS — Compute Layer"]
+            EC2a["EC2 Instance"]
+            EC2b["EC2 Instance"]
+            EC2c["EC2 Instance (scaled)"]
+        end
+
+        RDS["Amazon RDS<br>Managed relational DB<br>auto-patching + backups"]
+        SES["Amazon SES<br>Transactional email<br>5,000+ registrations/day"]
+        Aurora["Amazon Aurora *(planned)*<br>Serverless DB"]
+    end
+
+    Users -->|"HTTPS requests"| CF
+    CF -->|"Serve cached video"| S3
+    CF -->|"Dynamic requests"| ASG
+    ASG --> EC2a
+    ASG --> EC2b
+    ASG --> EC2c
+    EC2a & EC2b & EC2c -->|"Queries"| RDS
+    EC2a & EC2b & EC2c -->|"Send emails"| SES
+    RDS -.->|"Future migration"| Aurora
+
+    style AWS fill:#f0f7ff,stroke:#2d7dd2
+    style EC2Group fill:#e8f4ea,stroke:#3a9e4a
+    style Aurora stroke-dasharray: 5 5
+```
 
 #### Outcomes
 - Full LMS built and deployed in **2 months**
