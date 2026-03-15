@@ -9,7 +9,7 @@
 | **1** | Read & summarise Manvi & Shyam (2021) — IaaS, SaaS, PaaS chapters | ✅ |
 | **2** | Read & summarise Kuijpers (2022) — AWS vs Azure vs GCP platform comparison | ✅ |
 | **3** | Read & summarise Winchester (2022) — Big 3 cloud comparison for enterprise | ✅ |
-| 4 | Watch & summarise Linthicum (2021) — Cloud migration business case videos | 🔥 WIP — needs manual access |
+| **4** | Watch & summarise Linthicum (2021) — Cloud migration business case videos | ✅ |
 | 5 | Activity 1: Case Study — Rumah Siap Kerja e-learning platform on AWS | 🕐 |
 | 6 | Activity 2: Case Study — Fujita Health University patient records on AWS | 🕐 |
 
@@ -17,7 +17,7 @@
 
 ## Key Highlights
 
-### 1. Manvi, S., & Shyam, G. K. (2021). Cloud computing: Concepts and technologies. CRC Press.
+### 1. Manvi, S., & Shyam, G. K. (2021). Cloud computing: Concepts and technologies. CRC Press. ✅
 
 **Citation:** Manvi, S., & Shyam, G. K. (2021). *Cloud computing: Concepts and technologies*. CRC Press.
 
@@ -80,7 +80,7 @@
 
 ---
 
-### 2. Kuijpers, M. (2022, January 7). AWS vs Azure vs Google Cloud: How to choose the right cloud platform. Touchtribe.
+### 2. Kuijpers, M. (2022, January 7). AWS vs Azure vs Google Cloud: How to choose the right cloud platform. Touchtribe. ✅
 
 **Citation:** Kuijpers, M. (2022, January 7). AWS vs Azure vs Google Cloud: How to choose the right cloud platform. Touchtribe. https://www.touchtribe.nl/en/blog/aws-vs-azure-vs-google-cloud
 
@@ -198,7 +198,7 @@
 
 ### 4. Linthicum, D. (2021). Understanding the business case. In Learning cloud computing: Application migration. LinkedIn Learning.
 
-**Status: 🔥 WIP — needs manual access (LinkedIn Learning auth-gated)**
+**Status: ✅**
 
 *Videos to watch:*
 - Understanding the Business Case
