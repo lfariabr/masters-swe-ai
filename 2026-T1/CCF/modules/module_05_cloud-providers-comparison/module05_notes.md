@@ -10,8 +10,8 @@
 | **2** | Read & summarise Kuijpers (2022) — AWS vs Azure vs GCP platform comparison | ✅ |
 | **3** | Read & summarise Winchester (2022) — Big 3 cloud comparison for enterprise | ✅ | 
 | **4** | Watch & summarise Linthicum (2021) — Cloud migration business case videos | ✅ |
-| 5 | Activity 1: Case Study — Rumah Siap Kerja e-learning platform on AWS | 🕐 |
-| 6 | Activity 2: Case Study — Fujita Health University patient records on AWS | 🕐 |
+| **5** | Activity 1: Case Study — Rumah Siap Kerja e-learning platform on AWS | ✅ |
+| **6** | Activity 2: Case Study — Fujita Health University patient records on AWS | ✅ |
 
 ---
 
@@ -333,3 +333,9 @@ graph TD
 - Clinicians reported increased satisfaction and workstyle transformation
 - Scaled to **30+ medical departments** by Q1 2025
 - Validated as a low-risk, high-impact GenAI use case for healthcare automation
+
+---
+
+## Class Notes
+
+### 16/03/2026 - 11:30

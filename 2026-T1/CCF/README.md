@@ -39,7 +39,7 @@ Dr. Divya Leekha
 - [X] Module 2 - Essentials of Cloud Computing and Characteristics
 - [X] Module 3 - Cloud Computing Deployment Models
 - [X] Module 4 - Cloud Computing Service Models
-- [ ] Module 5 - Major Public Cloud Providers and their comparison
+- [X] Module 5 - Major Public Cloud Providers and their comparison
 - [ ] Module 6 - Advanced cloud models and concepts
 - [ ] Module 7 - Public, Private and Hybrid Deployment Models, key considerations
 - [ ] Module 8 - Deployment case studies
