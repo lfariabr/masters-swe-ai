@@ -9,7 +9,7 @@
 |---|---------------------|------|--------|
 | R1 | Pierson (2019) — Grouping ML algorithms | Video (Lynda) | 🔥 WIP — needs manual watch |
 | **R2** | Dave (2018) — Regression in Machine Learning | Article (PDF) | ✅ Read + Reviewed |
-| R3 | Cuesta (2017) — Text Classification Ch.4 | Book chapter (PDF) | ✅ Read + Reviewed |
+| **R3** | Cuesta (2017) — Text Classification Ch.4 | Book chapter (PDF) | ✅ Read + Reviewed |
 | R4 | Ross (2017) — Unsupervised ML capabilities | Article (PDF) | ✅ Read + Reviewed |
 | R5 | WTF is the Bias-Variance Tradeoff? | Infographic (PDF) | ✅ Read + Reviewed |
 | R6 | Zhao (2019) — SVM Visual Explanation | Video (YouTube) | 🔥 WIP — needs manual watch |
@@ -68,7 +68,6 @@ Two problem types:
 Common algorithms: SVM, neural networks, decision trees, **Naive Bayes**, hidden Markov models.
 
 #### 2. Supervised Classification Pipeline
-<!-- here -->
 
 ```
 Training Data → Feature Extraction → Trained Classifier → Class Label
