@@ -55,15 +55,14 @@ Term | Subject | Status | Lecturer | Directory | Credit Points
 | T3 | Cloud Computing Fundamentals (***Elective***) 2026 | 🔥 | Dr. Divya Leekha | [CCF501](./2026-T1/CCF/) | 10
 
 ***Backlog - T2-26 onwards:***
-- 11x Core (***mandatory***): 
+- 2x Core (***mandatory***): 
     - Machine Learning (MLN601 - 10CP)
     - Deep Learning (DLE602 - 10CP)
     - Technology - Work Integrated Learning I (TWL604 - 20CP)
     - Advanced Technology - Work Integrated Learning (ATW606 - 30CP)
 
-- 2x Electives (***to be defined...***):
-    - Cloud Computing Fundamentals (CCF501 - 10CP)
-    - DevOps Tools (DOT503 - 10CP)
+- 1x Elective (***to be defined...***):
+    - Big Data and Analytics (BDA601 - 10CP)
     - Cyber Security Principles (CPO442 - 10CP)
 
 #### Goals
@@ -90,8 +89,6 @@ Take a deep dive into how I'm approaching projects and the progress I'm making.
 | **TTrack** | PyQt5 desktop app to help academic staff track course progress by comparing a student’s transcript X course curriculum using matching algorithms. | ✅ | [Repo](https://github.com/lfariabr/ttrack) | [YT Demo](https://www.youtube.com/watch?v=J9bxv1EJ8yU&t) |
 | **Commonwealth Bank Forage** | Virtual challenge covering backend (.NET, MongoDB) and frontend (React, Redux, TypeScript) work, unit testing with xUnit | ✅ | [Repo](https://github.com/lfariabr/commbank-cba-challenge) | [Article](https://dev.to/lfariaus/how-i-tackled-the-commonwealths-bank-software-engineering-challenge-3ebk) |
 | **AWS Solutions Architect** | Virtual challenge covering acting as a Solutions Architect for a client | ✅ | [Repo](./2025-T1/T1-Extra/aws/) | [Article](https://dev.to/lfariaus/scaling-fastier-my-aws-solutions-architect-journey-with-forage-challenge-30j8) |
-| **ExcelPilot FE** | Chat system for backend API built with Next.js, TypeScript, TailwindCSS, ShadCN, Apollo Client, Next.Auth, JWT. | 🔌 | [Repo](https://github.com/lfariabr/excel-pilot-front) | N/A |
-| **ExcelPilot BE** | Node.js, Express, Apollo Server, MongoDB, Redis and TypeScript API. Features secure JWT auth, GraphQL endpoints, and openAi. | 🔌 | [Repo](https://github.com/lfariabr/excel-pilot) | N/A |
 
 ---
 
