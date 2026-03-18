@@ -512,7 +512,7 @@ In Module 4, we explored the various types of Cloud Deployment Models and Servic
     – Private Cloud Migration
     David Linthicum, the Deloitte consultant from our earlier videos, outlines how moving to a public cloud could be beneficial for businesses since it reduces the data centre costs for them. A private cloud, on the other hand, provides edge computing solutions and better application management systems. Private clouds may not save costs upfront but can provide faster bandwidth and service provision to clients, therefore reducing costs in the long term or perhaps increasing profits.
 
-> *Status: 🔥 WIP — needs manual access (LinkedIn Learning auth-gated) — see [module05_notes.md](module_05_cloud-providers-comparison/module05_notes.md)*
+> *Status: ✅ Read + Reviewed — see [module05_notes.md](module_05_cloud-providers-comparison/module05_notes.md)*
 
 ### Learning Activities
 
@@ -528,6 +528,8 @@ Please answer all questions based on the case study provided and post your respo
 *Note: For more details on what each section should include, refer to page 3 of the Assessment 2 Brief.*
 
 Write your answer in the Module 5 discussion forum within 200 words.
+
+> *Status: ✅ Done* 
 
 **Important note: Students are advised against using this case study for their Assessment 2.**
 
@@ -546,6 +548,85 @@ Please answer all questions based on the case study provided and post your respo
 **Important note: Students are advised against using this case study for their Assessment 2.**
 
 Please reply to at least two other students’ posts – find a post you agree with and one that challenges your own opinion.
+
+> *Status: ✅ Done* 
+
+---
+
+## Module 6 - Advanced Cloud Models and Concepts
+
+### TLDR
+
+### Introduction
+In Module 6, you will study the concepts of the advanced cloud service technologies that support large-scale cloud services deployments. If you browse the job sites, you would come across some listings like ‘DevOps’ or ‘cloud architect’. These jobs (and many other recent IT jobs) assume that you have a good understanding of the contemporary cloud computing technologies such as serverless computing, cloudlet (fog) computing and cloud orchestrations. These advanced cloud technologies are of profound importance in your future IT career. In this module, we will explore the concept of these advanced cloud service technologies to support deployment of enterprise-grade large scale cloud services.
+
+### Resources
+
+#### 1. Advanced Concepts in Cloud Computing
+- Manvi, S., & Shyam, G. K. (2021). Cloud computing: Concepts and technologies. CRC Press. https://learning-oreilly-com.torrens.idm.oclc.org/library/view/cloud-computing/9781000338058/xhtml/05chap_05.xhtml#sec5_4_1
+
+*Resource Overview:*
+
+    Cloud computing is constantly evolving through research and development. Exciting advancements have been made to accommodate the requirement of future business and personal computing. Serverless computing, edge computing, fog computing and other technologies are being considered to make future cloud computing experiences even better. Therefore, it is important to know about these advancements as a cloud computing professional. Please read the following advanced topics from “Chapter 10: What is the Cloud Future?” on pages 225 to 234 which provides great insights on the future of cloud computing technologies, including:
+        - Everything as a Service (EaaS)
+        - Serverless Architecture
+        - Multicloud
+        - Edge Computing
+        - Fog Computing.
+
+> *Status: 🕐 To-Do* 
+
+#### 2. Beyond the Cloud: Edge Computing
+- AWS Online Tech Talks. (2020, October 27). Computing at the edge: Choosing the best option for your application. YouTube. https://www.youtube.com/watch?v=hms0IkNqNJo
+
+*Resource Overview:*
+
+    A fascinating talk that explores future use cases and implications for cloud computing. Data and bandwidth usage from self-driving cars, 5G-enabled devices and AI-enabled services will dictate the need for new cloud architectures, ideas and models to help keep with up with the demand.
+
+> *Status: 🕐 To-Do* 
+
+#### 3. Advanced Cloud Architecture
+- Atchison, L. (2022). 2. Microservices [Videos]. In Cloud architecture: Advanced concepts. LinkedIn Learning.
+    - https://www.linkedin.com/learning/cloud-architecture-advanced-concepts-14595141/understanding-microservices?u=56744473
+    - https://www.linkedin.com/learning/cloud-architecture-advanced-concepts-14595141/advantages-of-serverless-computing?u=56744473
+
+*Resource Overview:*
+
+    These two LinkedIn Learning course units (approximately 18 minutes) introduce you to some architectural patterns and advanced concepts in cloud computing. Watch these short clips to demystify some of those fanciful terms you may have heard before, like:
+
+> *Status: 🕐 To-Do* 
+
+#### 4. Cloud Orchestration
+- Chapple, M. (2022). Cloud orchestration [Video]. In CCSP Cert Prep: 1 Cloud concepts, architecture, and design. LinkedIn Learning. https://www.linkedin.com/learning/ccsp-cert-prep-1-cloud-concepts-architecture-and-design-14683746/cloud-orchestration?autoplay=true&resume=false&u=72036930
+
+*Resource Overview:*
+
+    You might have heard in the video about Edge Computing (AWS Online Tech Talks, 2020), a discussion about cloud orchestration. Put simply, when multiple cloud models are used to provision services, there is a need to ensure these individual deployments work together well and efficiently. This is the concept of cloud orchestration and this video (Section 3.5, approximately 3 minutes) provides a good introduction to the nuances of this process.
+
+> *Status: 🕐 To-Do* 
+
+#### 5. Agility: A Key Consideration for Cloud Computing
+- CLinthicum, D. (2023). An insider’s guide to cloud computing. Addison-Wesley Professional. https://learning-oreilly-com.torrens.idm.oclc.org/library/view/an-insiders-guide/9780137935819/ch01.html#ch01lev1sec1
+
+*Resource Overview:*
+
+    Agility is a key consideration when deploying on the cloud. The author of the following resource defines agility as a soft value for cloud computing and emphasises how a business can support rapid changes and respond to new opportunities. Please read Chapter 1, Section 1.6 titled *"Agility"* and Chapter 2, Section 2.2 titled “Junk Data on Premises Moved to the Cloud Is Still Junk Data” which introduces agility in the context of cloud computing.
+
+> *Status: 🕐 To-Do* 
+
+### Learning Activities
+
+#### 1. Activity 1: Try It for Yourself — Core Cloud Services (Introduction to Microsoft Azure)
+- APA Reference: Microsoft. (n.d.). Introduction to Azure fundamentals. https://docs.microsoft.com/en-us/learn/modules/welcome-to-azure/
+
+It is time to put all of the knowledge you have acquired so far into action! In this hands-on lab, you will set up a virtual machine on Microsoft Azure and run a basic web server on it. You will also experience how real-life cloud computing applications scale on-demand by increasing compute power. The first four units mentioned in the course provide a useful overview of how Microsoft Azure can satisfy real-world business requirements and the lab itself starts from Unit 5 It is a good idea to read through the introductory modules before starting the lab. Please navigate to this link to start your hands-on lab: https://docs.microsoft.com/en-us/learn/modules/welcome-to-azure/
+
+#### 2. Activity 2: Collaborative Learning Activity: Everything as a Service (XaaS)
+Complexity in the field of cloud computing comes from many factors including the use case, the amount of data, platform and/or technical limitations, to name a few. As you saw in some of the Essential Resources, future use cases of cloud computing appear to evolve and grow in line with the changing demands of the market. So much so, that the term “Everything as a Service” (called either EaaS or XaaS—where the ‘X’ is a placeholder for any letter) has been bandied around to represent the concept that businesses may choose to offer anything as a service through the cloud.
+
+In this Collaborative Learning Activity, come prepared to your class with an example of an interesting application of XaaS you have found. In the class, you can discuss their characteristics and learn about the complexities inherent in providing this service on the cloud with other students. To facilitate collaboration, groups will be formed by the learning facilitator with 3-4 students and you will be invited to be in the designated breakout room during the class. You will discuss with your peers to complete this activity.
+
+To participate in the learning activity, connect with your peers and discuss your opinions in your next scheduled class.
 
 ---
 

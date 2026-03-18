@@ -35,12 +35,12 @@ Dr. Divya Leekha
 ## Modules
 > Tip: ✅ = Done, 🔥 = WIP, 🕐 = Not started, 🔌 = Discontinued
 
-- [X] Module 1 - Traditional Computing, Practices and their evaluation in the context of Modern Computing Requirements. How does it fit for modern computing requirements?
-- [X] Module 2 - Essentials of Cloud Computing and Characteristics
-- [X] Module 3 - Cloud Computing Deployment Models
-- [X] Module 4 - Cloud Computing Service Models
-- [X] Module 5 - Major Public Cloud Providers and their comparison
-- [ ] Module 6 - Advanced cloud models and concepts
+- [X] Module 1 ✅ - Traditional Computing, Practices and their evaluation in the context of Modern Computing Requirements. How does it fit for modern computing requirements?
+- [X] Module 2 ✅ - Essentials of Cloud Computing and Characteristics
+- [X] Module 3 ✅ - Cloud Computing Deployment Models
+- [X] Module 4 ✅ - Cloud Computing Service Models
+- [X] Module 5 ✅ - Major Public Cloud Providers and their comparison
+- [ ] Module 6 🔥 - Advanced cloud models and concepts
 - [ ] Module 7 - Public, Private and Hybrid Deployment Models, key considerations
 - [ ] Module 8 - Deployment case studies
 - [ ] Module 9 - Governance / Legal obligations of Cloud Providers and Consumers
@@ -50,5 +50,5 @@ Dr. Divya Leekha
 
 ## Assignments
 - [X] Assessment 1 - deadline 15/03/2026 ✅, **Technology Report and Presentation** on *The Key Contributions of Cloud Computing to Business Automation*
-- [ ] Assessment 2 - deadline 12/04/2026 🕐, **Case Study** on *Analysis of Cloud Services and Deployment Models*
+- [ ] Assessment 2 - deadline 12/04/2026 🔥, **Case Study** on *Analysis of Cloud Services and Deployment Models*
 - [ ] Assessment 3 - deadline 06/05/2026 🕐, **Case Study** on *Cloud Application Deployment*
