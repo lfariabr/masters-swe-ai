@@ -11,7 +11,7 @@
 | **R2** | Dave (2018) — Regression in Machine Learning | Article (PDF) | ✅ Read + Reviewed |
 | **R3** | Cuesta (2017) — Text Classification Ch.4 | Book chapter (PDF) | ✅ Read + Reviewed |
 | **R4** | Ross (2017) — Unsupervised ML capabilities | Article (PDF) | ✅ Read + Reviewed |
-| R5 | WTF is the Bias-Variance Tradeoff? | Infographic (PDF) | ✅ Read + Reviewed |
+| **R5** | WTF is the Bias-Variance Tradeoff? | Infographic (PDF) | ✅ Read + Reviewed |
 | R6 | Zhao (2019) — SVM Visual Explanation | Video (YouTube) | 🔥 WIP — needs manual watch |
 | R7 | Maini (2017) — ML for Humans Pt 2.1 | Article (PDF) | ✅ Read + Reviewed |
 | R8 | Maini (2017) — ML for Humans Pt 3 | Article (PDF) | ✅ Read + Reviewed |
