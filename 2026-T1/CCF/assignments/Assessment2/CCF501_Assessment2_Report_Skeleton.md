@@ -1,297 +1,324 @@
 # Cloud Services and Deployment Models: A Cross-Sector Case Study Analysis
 *CCF501 Cloud Computing Fundamentals — Assessment 2 Case Study Report*
 
-<!-- RUBRIC: Content, audience and purpose 10% — Introduction must establish cloud context and link to all three case studies -->
+<!-- RUBRIC: Content, audience and purpose 10% — Introduction must establish cloud context and link to all three case studies; written in complete sentences and paragraphs -->
+<!-- WORD COUNT TARGET: ~2,900 words (±10%), excluding references -->
+<!-- STRUCTURE: Introduction (~400w) + 3 × Case Study (~750w each) + Conclusion (~250w) = 2,900w -->
 
 ---
 
 ## 1. Introduction (~400 words)
 
-<!-- SLO a, b, c — Set the scene: what is cloud computing, why does it matter across sectors, and what do the three case studies reveal? -->
+<!-- RUBRIC: Content, audience and purpose 10% — Set the scene: what is cloud computing, why does it matter across sectors, preview all three case studies -->
+<!-- SLO a, b, c — introduce NIST characteristics, name the three cases, state report purpose -->
 
-Cloud computing has fundamentally reshaped how organisations across every sector deliver services, manage infrastructure, and drive automation. Rather than owning and operating physical data centres, enterprises now consume compute, storage, and intelligence on demand — scaling elastically, paying only for what they use, and offloading infrastructure management to specialist providers (Mell & Grance, 2011). The shift from Capital Expenditure (CAPEX)-heavy on-premises environments to Operational Expenditure (OPEX)-driven cloud models is no longer a trend exclusive to technology companies; it is a cross-industry imperative (Author, Year).
+Cloud computing has fundamentally reshaped how organisations across every sector deliver services, manage infrastructure, and drive automation. Rather than owning and operating physical data centres, enterprises now consume compute, storage, networking, and intelligence on demand — scaling elastically, paying only for what they use, and offloading infrastructure management to specialist providers (Mell & Grance, 2011). The National Institute of Standards and Technology (NIST) defines cloud computing as a model for enabling ubiquitous, convenient, on-demand network access to a shared pool of configurable computing resources that can be rapidly provisioned and released with minimal management effort (Mell & Grance, 2011). The shift from Capital Expenditure (CAPEX)-heavy on-premises environments to Operational Expenditure (OPEX)-driven cloud models is no longer a trend exclusive to technology companies — it is a cross-industry imperative that spans government agencies, AI-native startups, and century-old industrial manufacturers alike (McHaney, 2021).
 
-This report analyses three real-world case studies drawn from distinct sectors — Automotive (Formula 1), Multimedia (Snapchat), and Pharmaceutical (Moderna) — each representing a different combination of cloud service model, deployment model, and provider ecosystem. By examining how cloud was applied in each context, this report aims to demonstrate how essential cloud elements enable business automation, distinguish cloud from traditional IT approaches, and identify the key service offerings that made each outcome possible (Author, Year).
+This report analyses three real-world case studies drawn from distinct sectors — government law enforcement (Victoria Police), artificial intelligence and software startup (ChatAndBuild), and industrial manufacturing (Voith) — each provided by the subject facilitator and representing a different combination of cloud service model, deployment model, and provider ecosystem. By examining how cloud was applied in each context, this report aims to: describe the essential cloud elements that enabled business automation in each case (SLO a); distinguish cloud adoption from traditional IT infrastructure approaches (SLO b); and identify the key cloud service offerings that made each outcome possible (SLO c).
 
-<!-- TODO: Expand on why service model and deployment model choices differ by sector — link to NIST essential characteristics (Mell & Grance, 2011) -->
+The three cases collectively illustrate how cloud computing is not a single, monolithic technology but a spectrum of services and deployment strategies calibrated to organisational context, risk appetite, and automation goals. Victoria Police leveraged Microsoft Power Platform (PaaS) within a hybrid multi-environment model to democratise application development across a law enforcement agency — transforming previously invisible, ungoverned Microsoft Access databases into a governed, scalable innovation ecosystem (Microsoft, 2026). ChatAndBuild, an AI-native startup based in Singapore, migrated to Google Cloud Platform to eliminate the manual infrastructure burden that was impeding real-time AI agent creation, achieving a 45% reduction in infrastructure overhead and a 30–70% improvement in generation latency (Google Cloud, n.d.). Voith, a 150-year-old manufacturing company operating across 60 countries, selected AWS following a competitive provider assessment to consolidate 3,500 servers distributed across 146 global locations into six AWS regions — projecting 30% cost savings compared to the legacy setup (Amazon Web Services, 2026).
 
-<!-- TODO: Introduce the structure of the report (three case study sections + conclusion) -->
-
-[PLACEHOLDER: ~200 additional words to reach ~400w target — contextualise the challenge each sector faced before cloud adoption and the significance of the outcomes achieved]
+<!-- TODO: Add a brief forward reference to the report structure (three case study sections followed by a synthesising conclusion) — ~30–50 words -->
 
 ---
 
-## 2. Case Study 1: Formula 1 — Automotive (~750 words)
+## 2. Case Study 1 — Victoria Police & Microsoft Power Platform (~750 words)
 
-<!-- RUBRIC: Service offerings + deployment model comparison 40% — Must identify specific services, compare deployment models in a table, reflect on outcomes -->
+<!-- RUBRIC: Service offerings + deployment model comparison 40% — Identify specific services, compare deployment models in a table, analyse outcomes -->
 <!-- SLO a: essential computing elements for automation | SLO b: cloud vs traditional IT | SLO c: key service offerings -->
 
-### 2.1 Case Overview
+### 2.1 Case Overview (~100 words)
 
-Formula 1 teams operate at the intersection of engineering precision and computational intensity. Aerodynamic simulations — Computational Fluid Dynamics (CFD) workloads — require processing billions of data points to model airflow around a race car chassis. Before cloud adoption, simulation throughput was constrained by on-premises High-Performance Computing (HPC) cluster capacity: fixed hardware meant fixed throughput, introducing bottlenecks at critical design phases of the season (Author, Year).
+Victoria Police — Australia's principal state law enforcement agency — adopted Microsoft Power Platform to establish a **fusion development framework**: a governed model that enables non-professional developers (police personnel across business units) to build data-driven applications safely, without depending solely on a constrained central IT team (Microsoft, 2026). The catalyst was a surge in self-directed application-building activity during the pandemic, when employees teaching themselves to use Power Apps revealed both the appetite for low-code tooling and the security risk of ungoverned 'shadow' applications built on standalone Microsoft Access databases. Rather than restricting this behaviour, Victoria Police channelled it — creating structured pathways from personal productivity through to enterprise-grade production deployment, with two applications (Global Whereabouts and Bail Reporting) already progressing to enterprise adoption (Microsoft, 2026).
 
-By migrating CFD workloads to cloud HPC infrastructure, Formula 1 achieved aerodynamic simulations 70% faster than previous models (as cited in CCF501 Assessment 2 Brief, 2024). This outcome was not simply a result of more compute — it was enabled by the cloud's **rapid elasticity** and **on-demand self-service** characteristics (Mell & Grance, 2011), which allowed the team to burst simulation capacity to hundreds or thousands of cores on demand, then release those resources when the run completed.
+### 2.2 Service Model Analysis (~150 words)
 
-<!-- TODO: Identify the specific cloud provider and services used (e.g., AWS HPC, Azure HPC, GCP) — verify from course materials or facilitator case study document -->
+<!-- RUBRIC: 40% — Identify and justify the service model (IaaS/PaaS/SaaS); explain how provider services addressed the business challenge -->
+<!-- SLO c: key service offerings -->
 
-[PLACEHOLDER: ~100 additional words on case background and cloud provider details]
+Victoria Police's cloud adoption aligns primarily with a **Platform as a Service (PaaS)** model. Power Apps and Power Platform abstract the underlying infrastructure — Microsoft manages the compute, networking, and database layers of Dataverse and the Power Platform runtime — while Victoria Police's developers focus on application logic, data models, and user experience (McHaney, 2021). This is the defining characteristic of PaaS: the provider controls the platform, the customer controls the application (IBM, n.d.-a). Some Microsoft 365 productivity workloads (SharePoint, Teams, Outlook) sit at the **SaaS** layer — fully managed software delivered over the network. There is no IaaS footprint in this case; Victoria Police has not provisioned raw virtual machines or unmanaged storage — all development occurs within the abstracted Power Platform environment (Microsoft, 2026).
 
-### 2.2 Service Model Analysis
-
-<!-- RUBRIC: 40% — Identify and analyse the service model (IaaS/PaaS/SaaS); explain how provider services addressed the business challenge -->
-
-Formula 1's CFD workloads align with an **Infrastructure as a Service (IaaS)** model: the team requires direct control over compute instance types, networking configuration, and storage I/O to optimise simulation performance. IaaS provides the raw compute substrate — virtual machines, high-bandwidth storage, and GPU/CPU node types — without abstracting the configuration layer that HPC workflows depend on (McHaney, 2021).
-
-Key services utilised:
-
-| Service Category | Service Example | Role in Case Study |
+| Service Model | Characteristic | Fit for Victoria Police |
 |---|---|---|
-| HPC Compute | [Provider] HPC Cluster / Spot Instances | Burst simulation capacity on demand |
-| High-Performance Storage | [Provider] Parallel File System / Object Storage | Low-latency I/O for simulation datasets |
-| Networking | High-bandwidth VPC / InfiniBand-equivalent | Node-to-node communication in simulation cluster |
-| Orchestration | [Provider] Job Scheduler / Batch | Automated queuing and dispatch of CFD runs |
+| IaaS | Customer manages OS, runtime, storage | Not applicable — no raw compute provisioned |
+| **PaaS** | Provider manages platform; customer builds applications | ✅ **Primary model** — Power Apps, Dataverse, Power Platform runtime |
+| SaaS | Provider manages everything; customer uses software | Partial — Microsoft 365 (SharePoint, Teams) as data and collaboration substrate |
 
-<!-- TODO: Populate specific provider service names once facilitator case study document is confirmed -->
+*Table 1: Service model analysis for Victoria Police (Microsoft, 2026).*
 
-[PLACEHOLDER: ~150 additional words analysing how each service category contributed to automation outcomes — link to SLO a]
+### 2.3 Deployment Model Comparison (~150 words)
 
-### 2.3 Deployment Model Comparison
+<!-- RUBRIC: 40% — Compare and contrast deployment models; table must be present and substantiated -->
+<!-- SLO b: cloud vs traditional IT -->
 
-<!-- RUBRIC: 40% — Compare and contrast deployment models; table format acceptable here -->
+Victoria Police operates a **hybrid, multi-environment deployment model**: a personal productivity environment (the default Microsoft 365 tenant available to all staff), dedicated fusion environments (isolated, governed Power Platform environments provisioned on request by business units with executive endorsement), and enterprise production environments (reviewed and approved by the central Power Platform team) (Microsoft, 2026). This tiered model is a practical application of hybrid cloud architecture — multiple environment tiers serving different governance, security, and scale requirements simultaneously (Manvi & Shyam, 2021).
 
-| Deployment Model | Cost | Elasticity | Control | Fit for F1 CFD Workloads |
+| Deployment Model | Governance | Security | Scalability | Fit for Victoria Police |
 |---|---|---|---|---|
-| On-Premises HPC | High CAPEX — fixed cluster | None — constrained by hardware | Full | Limited — peak capacity becomes a ceiling |
-| Private Cloud | Medium CAPEX + ops | Limited | High | Partial — more flexible than bare metal but still fixed ceiling |
-| Public Cloud | OPEX — pay per simulation run | High — burst to 1,000s of cores | Moderate | Recommended — elasticity matches variable simulation demand |
-| Hybrid Cloud | Medium — dual infrastructure | High with complexity | High | Viable — on-prem for baseline, cloud burst for peaks |
+| On-Premises (MS Access) | Low — invisible to IT | High risk — unaudited shadow apps | None | ❌ Prior state — security blind spots, no transparency |
+| **Hybrid (Multi-env Power Platform)** | High — tiered approval flow with exec endorsement | High — centralised standards, security review | Moderate | ✅ **Adopted** — balances innovation with enterprise controls |
+| Public Cloud (ungoverned) | Low | Low | High | ❌ Creates same shadow IT risk as pre-migration state |
+| Private Cloud | High | High | Limited | ⚠️ High cost; no low-code developer ecosystem available |
 
-*Table 1: Deployment model trade-offs for Formula 1 CFD workloads.*
+*Table 2: Deployment model comparison for Victoria Police (Microsoft, 2026; Manvi & Shyam, 2021).*
 
-<!-- TODO: Justify recommended model with evidence from course materials — link to McHaney (2021), Mell & Grance (2011) -->
+### 2.4 Cloud Services Analysis (~200 words)
 
-[PLACEHOLDER: ~100 additional words contrasting traditional HPC infrastructure with cloud elasticity — link to SLO b]
+<!-- RUBRIC: 40% — Demonstrate understanding of specific services; map to automation outcomes; SLO a and SLO c -->
 
-### 2.4 Cloud Services Analysis
+The fusion framework relies on a layered set of Microsoft Power Platform services, each enabling a distinct stage of the application lifecycle (Microsoft, 2026):
 
-<!-- RUBRIC: 40% — Analyse the application of services; demonstrate understanding of how specific services enable automation outcomes -->
+| Service | Purpose | Business Outcome |
+|---|---|---|
+| Power Apps (Low-code / PaaS) | Enable non-professional developers to build data-driven apps without code | Personnel build and iterate solutions without the central IT bottleneck |
+| Microsoft Dataverse | Model-driven, structured data store underpinning enterprise apps | Replaces isolated MS Access databases with a governed, transparent, and auditable data layer |
+| Power Platform Environments | Isolated development, test, and production workspaces per business unit | Clear pathway from personal innovation to enterprise-grade deployment |
+| Power Platform Approval Flow | Governs requests for dedicated fusion environments via a model-driven app | Ensures executive endorsement and security team review before promotion to production |
+| Microsoft 365 (SharePoint) | Data substrate and collaboration layer for initial prototypes | Familiar toolset lowers the barrier to entry for non-technical builders |
+| Copilot Studio (exploration) | AI-assisted app development using generative coding | Future capability to further accelerate the build-to-deploy cycle |
+
+*Table 3: Microsoft Power Platform services utilised by Victoria Police and their business outcomes (Microsoft, 2026).*
 
 ```mermaid
 graph TD
-    A["F1 Engineering Team"] -->|"Submit CFD job"| B["Job Scheduler / Batch Orchestrator"]
-    B -->|"Provision burst cluster"| C["HPC Compute Nodes (IaaS VMs)"]
-    C -->|"Read/write simulation data"| D["High-Performance Parallel Storage"]
-    C -->|"Node-to-node comms"| E["High-Bandwidth Network Fabric"]
-    D -->|"Return results"| F["Simulation Results Store"]
-    F -->|"Visualise / analyse"| A
+    A["Police Personnel<br>(Citizen Developer)"] -->|"Self-builds in M365 default env"| B["Personal Productivity Environment<br>(Microsoft 365 / Power Apps Basic)"]
+    B -->|"App reaches 300+ users — signals value"| C["Business Unit requests<br>Dedicated Fusion Environment"]
+    C -->|"Approval flow via Power Platform<br>model-driven app"| D["Security & Business Engagement Review<br>+ Executive Endorsement"]
+    D -->|"Approved"| E["Dedicated Fusion Environment<br>(Power Apps Premium + Dataverse)"]
+    E -->|"Prototype passes quality and security review"| F["Central Power Platform Team Review"]
+    F -->|"Promoted to enterprise production"| G["Enterprise Apps<br>(Global Whereabouts / Bail Reporting)"]
+    G -->|"Monitored, governed, scaled"| H["Frontline Police Benefits<br>(real-time data access, reduced admin)"]
 ```
 
-*Figure 1: Formula 1 cloud HPC architecture — CFD job dispatch through burst compute to results storage.*
+*Figure 1: Victoria Police fusion development lifecycle — from citizen developer prototype through tiered governance to enterprise production (Microsoft, 2026).*
 
-[PLACEHOLDER: ~150 additional words analysing how the automation pipeline — job dispatch, burst provisioning, results retrieval — maps to NIST essential characteristics (on-demand self-service, rapid elasticity, measured service) — link to SLO a and SLO c]
+### 2.5 Reflection (~150 words)
 
-### 2.5 Reflection
+<!-- RUBRIC: 20% SLO a — NIST essential characteristics; 20% SLO b — cloud vs traditional IT -->
 
-[PLACEHOLDER: ~150 words — reflect on lessons from this case: what made the cloud approach successful, what limitations or risks exist (e.g. data sovereignty for IP-sensitive simulation data, cost management for large burst runs), and what this means for traditional IT in high-performance engineering contexts — link to SLO b]
+The Victoria Police case demonstrates how cloud's **on-demand self-service** characteristic (Mell & Grance, 2011) can be safely extended to non-professional developers when paired with tiered governance. In a traditional IT model, every application request would queue behind the central IT team — a bottleneck that drove staff to build ungoverned Microsoft Access solutions outside the organisation's visibility. The Power Platform model inverts this dynamic: rather than centralising all development capacity, it governs the _pathway_ to production while allowing distributed development (Microsoft, 2026). This represents a fundamental distinction from traditional IT: the cloud enables a spectrum of developer access that on-premises tooling structurally cannot support (McHaney, 2021).
+
+However, risks remain significant. Sensitive law enforcement data held within a cloud-managed PaaS environment requires robust data residency controls and compliance with the Australian Protective Security Policy Framework (PSPF). As enterprise adoption scales to cover regions and thousands of officers, the risk surface expands correspondingly — a concern Efrain Tionko (Head of Digital Delivery and Transformation, Victoria Police) explicitly acknowledged when noting the need to increase controls as employee access grows (Microsoft, 2026).
 
 ---
 
-## 3. Case Study 2: Snapchat — Multimedia (~750 words)
+## 3. Case Study 2 — ChatAndBuild & Google Cloud (~750 words)
 
 <!-- RUBRIC: Service offerings + deployment model comparison 40% -->
 <!-- SLO a: essential computing elements | SLO b: cloud vs traditional IT | SLO c: key service offerings -->
 
-### 3.1 Case Overview
+### 3.1 Case Overview (~100 words)
 
-Snapchat is a real-time multimedia messaging platform where latency is directly tied to user experience and retention. Sending a *Snap* — a time-limited photo or video — requires media capture, compression, upload, server-side processing, content delivery, and recipient notification to occur within milliseconds. At scale (hundreds of millions of daily active users), even marginal latency improvements have significant product impact.
+ChatAndBuild is a Singapore-based AI-native startup whose platform enables anyone — from a 4-year-old designing a mathematics game to a 78-year-old building a strategy simulation — to turn natural language into working applications and AI agents instantly (Google Cloud, n.d.). Serving over 140,000 users, the company's vision of the "Intelligence-Ownership Economy" — where users own Non-Fungible Agents (NFAs) with persistent memory, skills, and personality — placed extreme demands on infrastructure reliability and latency. The company's previous infrastructure imposed 30–70% higher latency on real-time generation, caused context rot in long-lived agents (loss of user history), and required engineers to manually provision servers days before global hackathons to prevent IP surge crashes (Google Cloud, n.d.). ChatAndBuild migrated to Google Cloud to establish a fully AI-native, elastically scalable infrastructure capable of operating at global speed.
 
-By migrating to cloud infrastructure and leveraging content delivery and managed media processing services, Snapchat reduced the latency speed of sending *Snaps* by 20% (as cited in CCF501 Assessment 2 Brief, 2024). This outcome reflects the cloud's **broad network access** and **resource pooling** characteristics (Mell & Grance, 2011) — globally distributed edge nodes and shared compute substrates reducing the physical and logical distance between user and processing.
+### 3.2 Service Model Analysis (~150 words)
 
-<!-- TODO: Identify specific cloud provider (Google Cloud Platform is the primary Snapchat provider — verify from facilitator case study) -->
+<!-- RUBRIC: 40% — Identify and justify the service model; specify which layer each GCP service represents -->
+<!-- SLO c: key service offerings -->
 
-[PLACEHOLDER: ~100 additional words on scale context, user base, and the business consequence of latency at Snapchat's scale]
+ChatAndBuild's architecture spans **IaaS and PaaS** layers. Google Compute Engine provides the raw virtual machine infrastructure (IaaS) that enables elastic scaling of the worker fleet from approximately 10 to 100+ instances during global hackathon events — handled automatically through instance groups and autoscaling policies (Google Cloud, n.d.). On top of this, a rich suite of managed PaaS services handles AI orchestration, containerised workload management, data analytics, state synchronisation, and CI/CD — abstracting operational complexity so the engineering team can focus on product development rather than infrastructure management (McHaney, 2021).
 
-### 3.2 Service Model Analysis
-
-<!-- RUBRIC: 40% — Identify and analyse the service model; explain provider services -->
-
-Snapchat's real-time media delivery aligns with a **Platform as a Service (PaaS)** and **Software as a Service (SaaS)** blend: managed media processing, CDN, and object storage abstract infrastructure concerns, allowing Snapchat engineers to focus on application logic rather than server management (Author, Year).
-
-Key services utilised:
-
-| Service Category | Service Example | Role in Case Study |
+| Service Model | Characteristic | Fit for ChatAndBuild |
 |---|---|---|
-| Content Delivery Network (CDN) | [Provider] CDN / Edge Caching | Distribute Snap delivery to edge nodes near users |
-| Object Storage | [Provider] Blob / Object Storage | Store and retrieve Snap media files at scale |
-| Managed Media Processing | [Provider] Transcoding / ML APIs | Compress, filter, and process Snap content server-side |
-| Real-time Messaging / Pub-Sub | [Provider] Pub/Sub / Messaging | Notify recipients of new Snaps instantly |
-| Autoscaling Compute | [Provider] Managed Container Service | Scale processing capacity with user demand |
+| **IaaS** | Raw compute provisioned on demand; customer manages OS and runtime | ✅ Google Compute Engine — elastic worker fleet scaling for burst demand |
+| **PaaS** | Managed platform; provider handles runtime and infrastructure operations | ✅ **Primary layer** — Vertex AI, GKE, Cloud Run, BigQuery, Cloud SQL, Firebase |
+| SaaS | Fully managed software | Partial — Firebase and Firestore as managed backend services |
 
-<!-- TODO: Populate specific provider service names once facilitator case study confirmed -->
+*Table 4: Service model analysis for ChatAndBuild (Google Cloud, n.d.).*
 
-[PLACEHOLDER: ~150 additional words analysing how CDN placement and edge processing reduce round-trip latency — link to SLO a and SLO c]
+### 3.3 Deployment Model Comparison (~150 words)
 
-### 3.3 Deployment Model Comparison
+<!-- RUBRIC: 40% — Compare deployment models; justify the recommended model with evidence -->
+<!-- SLO b: cloud vs traditional IT -->
 
-| Deployment Model | Latency | Global Reach | Cost | Fit for Snapchat |
+ChatAndBuild operates on **public cloud** across multiple Google Cloud regions. Cloud Load Balancing routes each request to the nearest available region, ensuring sub-second response times for users globally. The multi-region public cloud model was the only viable option for a startup serving over 140,000 users across time zones, where global hackathon spikes require instantly elastic capacity — and where the prior on-premises approach required engineers to manually provision servers days in advance (Google Cloud, n.d.).
+
+| Deployment Model | Elasticity | Global Reach | Latency | Fit for ChatAndBuild |
 |---|---|---|---|---|
-| On-Premises Data Centre | High — centralised processing | None — single geography | High CAPEX | Not suitable — single DC cannot serve global users at low latency |
-| Private Cloud | Medium | Limited to owned DCs | High CAPEX + ops | Partial — no global edge footprint |
-| Public Cloud | Low — edge CDN nodes globally | High — multi-region | OPEX | Recommended — global PoP network reduces user-to-server distance |
-| Multi-Cloud | Lowest (optimised routing) | Highest | Complex OPEX | Advanced option — Snapchat uses GCP primary + edge partners |
+| On-Premises | None — fixed servers | Single geography | High | ❌ Prior state — manual provisioning; 30–70% higher latency; engineers as human autoscalers |
+| Private Cloud | Limited | Single geography | Medium | ❌ No global edge; cannot serve 140,000+ users across time zones |
+| **Public Cloud (Multi-region)** | High — auto-scale 10→100+ instances in minutes | Global PoP via Cloud Load Balancing | Low — sub-second | ✅ **Adopted** — GKE + Cloud Run auto-scale to demand with zero downtime |
+| Multi-Cloud | Highest | Highest | Lowest | ⚠️ Premature complexity for current startup scale |
 
-*Table 2: Deployment model trade-offs for Snapchat real-time media delivery.*
+*Table 5: Deployment model comparison for ChatAndBuild (Google Cloud, n.d.; Manvi & Shyam, 2021).*
 
-[PLACEHOLDER: ~100 additional words contrasting traditional centralised media delivery with distributed cloud CDN — link to SLO b]
+### 3.4 Cloud Services Analysis (~200 words)
 
-### 3.4 Cloud Services Analysis
+<!-- RUBRIC: 40% — Map services to business outcomes; SLO a and SLO c -->
+
+The Google Cloud architecture forms an integrated "idea-to-app" engine where each service layer contributes to the real-time generation pipeline (Google Cloud, n.d.):
+
+| Service | Purpose | Business Outcome |
+|---|---|---|
+| Vertex AI + Gemini models | Routes prompts to specialised coding and research agents; multimodal generation | Core AI engine — 30–70% latency reduction vs previous setup |
+| Google Kubernetes Engine (GKE) | Isolated namespaces per agent graph; manages thousands of concurrent builder sessions | Zero-downtime event scaling — 13B+ tokens processed at a global hackathon |
+| Cloud Run + Cloud Functions | Stateless microservices that auto-spin for traffic bursts | Handles demand spikes without idle compute; no pre-provisioning required |
+| Cloud Load Balancing | Routes every request to the nearest region | Sub-second response times globally |
+| BigQuery | Telemetry layer — tracks billions of tokens to prevent context rot | Maintains long-term agent memory continuity and intelligence |
+| Cloud SQL + Firestore + Firebase | Structured data management and real-time user state synchronisation | Eliminates context rot; persistent, coherent agent sessions |
+| Cloud CDN + Cloud Storage | Stores and delivers generated application assets globally | Final app delivery to end users with low latency |
+| Cloud Build + Artifact Registry | CI/CD pipeline for continuous feature deployment | Feature delivery velocity doubled (2× faster) |
+| VPC Service Controls + Cloud Armor + IAM | Security perimeter for regulated enterprise and government markets | SOC2 compliance; strict audit logging for enterprise and government partners |
+
+*Table 6: Google Cloud services utilised by ChatAndBuild and their business outcomes (Google Cloud, n.d.).*
 
 ```mermaid
-sequenceDiagram
-    participant U1 as Sender (Mobile)
-    participant CDN as CDN Edge Node
-    participant MP as Media Processing (PaaS)
-    participant Store as Object Storage
-    participant PS as Pub/Sub Messaging
-    participant U2 as Recipient (Mobile)
-
-    U1->>CDN: Upload Snap (routed to nearest edge)
-    CDN->>MP: Forward for processing (compress / filter)
-    MP->>Store: Store processed Snap
-    MP->>PS: Publish delivery event
-    PS->>U2: Push notification (Snap available)
-    U2->>CDN: Retrieve Snap from nearest edge node
-    CDN-->>U2: Deliver Snap (low latency)
+graph TD
+    A["User — Natural Language Prompt"] -->|"Real-time request"| B["Cloud Load Balancing<br>(routes to nearest region)"]
+    B -->|"Orchestrate agent graph"| C["Vertex AI<br>(Gemini — coding + research agents)"]
+    C -->|"Containerised workload"| D["GKE<br>(isolated namespace per agent graph)"]
+    D -->|"Traffic burst handling"| E["Cloud Run + Cloud Functions<br>(stateless microservices)"]
+    D -->|"Token telemetry / context tracking"| F["BigQuery<br>(context rot prevention — billions of tokens)"]
+    D -->|"Real-time state sync"| G["Firebase + Firestore<br>(persistent agent memory)"]
+    E -->|"Store generated app assets"| H["Cloud Storage + Cloud CDN"]
+    H -->|"Deliver completed app to user"| A
+    I["Cloud Build + Artifact Registry"] -->|"Deploy 2× faster"| D
+    J["VPC Service Controls<br>Cloud Armor + IAM"] -.->|"Security perimeter<br>(SOC2 compliance)"| D
 ```
 
-*Figure 2: Snapchat cloud media delivery pipeline — edge upload, server-side processing, CDN distribution.*
+*Figure 2: ChatAndBuild Google Cloud architecture — natural language prompt through Vertex AI orchestration, GKE execution, and CDN delivery to end user (Google Cloud, n.d.).*
 
-[PLACEHOLDER: ~150 additional words mapping each service to NIST characteristics (broad network access, resource pooling) and explaining how the pipeline achieves 20% latency reduction — link to SLO a and SLO c]
+### 3.5 Reflection (~150 words)
 
-### 3.5 Reflection
+<!-- RUBRIC: 20% SLO a — NIST characteristics; 20% SLO b — cloud vs traditional IT -->
 
-[PLACEHOLDER: ~150 words — reflect on Snapchat's case: what made the cloud architecture successful for real-time media at scale, what risks exist (data privacy for user-generated content, cost at petabyte scale, CDN vendor dependency), and how this differs from a traditional content delivery approach — link to SLO b]
+ChatAndBuild's migration to Google Cloud exemplifies NIST's **rapid elasticity** and **on-demand self-service** characteristics (Mell & Grance, 2011) at their most extreme. Scaling a worker fleet from 10 to 100+ Compute Engine instances in minutes — autonomously, based on load — is structurally impossible with on-premises infrastructure, where capacity must be physically provisioned days in advance (Google Cloud, n.d.). The 45% reduction in infrastructure overhead reflects **measured service** in practice: Google Cloud's transparent billing policy replaced opaque fixed infrastructure costs, freeing engineering capacity for product development rather than server management.
+
+The contrast with traditional IT is direct. In the prior architecture, Christel Buchanan (Founder and CEO, ChatAndBuild) described engineers as acting as "the autoscaler" — manually provisioning, restarting, and monitoring systems, where any instability introduced latency or broken agent sessions (as cited in Google Cloud, n.d.). Cloud automation replaced this reactive human-in-the-loop model with policy-driven elasticity, eliminating the operational fragility that undermined user trust in long-lived AI agents. Remaining risks include data sovereignty for AI-generated content across multi-region deployments, and long-term vendor dependency on GCP's AI ecosystem as the platform deepens its reliance on Vertex AI and Gemini models.
 
 ---
 
-## 4. Case Study 3: Moderna — Pharmaceutical (~750 words)
+## 4. Case Study 3 — Voith & AWS (~750 words)
 
 <!-- RUBRIC: Service offerings + deployment model comparison 40% -->
 <!-- SLO a: essential computing elements | SLO b: cloud vs traditional IT | SLO c: key service offerings -->
 
-### 4.1 Case Overview
+### 4.1 Case Overview (~100 words)
 
-Moderna is a biotechnology company whose core product — mRNA-based therapeutics — depends on rapid genomic sequencing, protein structure modelling, and clinical trial data analysis. Vaccine development traditionally takes years, constrained by laboratory throughput, sequential experiment cycles, and siloed data systems. When the SARS-CoV-2 genome was published in January 2020, Moderna's ability to sequence and begin developing its mRNA COVID-19 vaccine in just 48 hours represented a paradigm shift for pharmaceutical R&D (as cited in CCF501 Assessment 2 Brief, 2024).
+Voith is a 150-year-old family-owned manufacturing company with over 22,000 employees across 60 countries, producing machinery for the hydroelectric, papermaking, and transportation industries through its three divisions: Voith Hydro, Voith Paper, and Voith Turbo (Amazon Web Services, 2026). Its legacy IT footprint was vast and fragmented: 3,500 servers distributed across 146 global locations, managing a mix of legacy applications that were difficult and expensive to maintain. Seeking to lower maintenance costs, improve productivity, and access modern cloud capabilities, Voith conducted a competitive cloud provider assessment — presenting providers with near-unsolvable test scenarios before selecting AWS based on its solution maturity and collaborative approach (Amazon Web Services, 2026). The migration is being executed in structured waves: rehosting, consolidation, modernisation, and retirement of legacy applications, supported by AWS Professional Services and Slalom as the AWS Implementation Partner.
 
-Cloud computing was central to this speed: AI/ML-driven genomic analysis, elastic HPC for protein folding simulations, and collaborative data platforms enabled Moderna to compress what would have been weeks of sequential laboratory work into parallel cloud-accelerated pipelines (Author, Year). This is a direct demonstration of cloud's **measured service** and **on-demand self-service** characteristics enabling automation at scientific scale (Mell & Grance, 2011).
+### 4.2 Service Model Analysis (~150 words)
 
-<!-- TODO: Identify specific cloud provider (AWS is Moderna's primary cloud partner — verify from facilitator case study) -->
+<!-- RUBRIC: 40% — Identify and justify the service model; analyse how provider services addressed the business challenge -->
+<!-- SLO c: key service offerings -->
 
-[PLACEHOLDER: ~100 additional words on context: the COVID-19 timeline, what 48-hour sequencing means relative to traditional timelines, and the business/public health implications]
+Voith's migration spans **IaaS and PaaS** service models, reflecting the phased, multi-wave approach to cloud adoption. In the initial rehosting wave, legacy applications are lifted and shifted to AWS virtual machine infrastructure (IaaS) — maintaining the existing operating model while immediately achieving data centre consolidation. As the migration progresses into modernisation waves, Voith transitions workloads to managed PaaS services — such as Amazon Athena for serverless analytics — reducing the operational effort of running systems and eliminating the need for dedicated database administration staff (Amazon Web Services, 2026).
 
-### 4.2 Service Model Analysis
-
-<!-- RUBRIC: 40% — Identify and analyse the service model -->
-
-Moderna's workloads span multiple service models. Genomic sequencing pipelines and AI/ML model training leverage **IaaS** (GPU compute clusters) and **PaaS** (managed ML platforms), while clinical trial data management and regulatory reporting use **SaaS** platforms integrated into the cloud ecosystem (Author, Year).
-
-Key services utilised:
-
-| Service Category | Service Example | Role in Case Study |
+| Service Model | Characteristic | Fit for Voith |
 |---|---|---|
-| AI/ML Platform | [Provider] ML Platform / SageMaker | Train and deploy mRNA sequence prediction models |
-| HPC / GPU Compute | [Provider] GPU Instances (IaaS) | Run protein folding and genomic simulations at scale |
-| Data Lake / Analytics | [Provider] Data Lake / Big Data Platform | Store and query large genomic and clinical datasets |
-| Secure Collaboration | [Provider] Secure File Share / VPN | Enable cross-institutional data sharing under compliance |
-| Managed Database | [Provider] Managed Relational DB | Store structured trial data with HIPAA-compliant controls |
+| **IaaS** | Virtual machines, storage; customer manages OS and runtime | ✅ Rehosting wave — lift-and-shift of 3,500 servers to AWS virtual infrastructure |
+| **PaaS** | Managed services; provider handles platform operations | ✅ Modernisation wave — Amazon Athena, managed databases, DevOps tooling |
+| SaaS | Fully managed software | Partial — AWS GameDays (training); future SaaS productivity tooling |
 
-<!-- TODO: Populate specific provider services once facilitator case study confirmed -->
+*Table 7: Service model analysis for Voith (Amazon Web Services, 2026).*
 
-[PLACEHOLDER: ~150 additional words analysing how AI/ML automation and elastic compute parallelised what were previously sequential lab workflows — link to SLO a and SLO c]
+### 4.3 Deployment Model Comparison (~150 words)
 
-### 4.3 Deployment Model Comparison
+<!-- RUBRIC: 40% — Compare deployment models; justify chosen model with evidence -->
+<!-- SLO b: cloud vs traditional IT -->
 
-| Deployment Model | Data Control | Compliance | Scalability | Fit for Moderna |
+Voith migrated to a **public cloud** model deployed across **six AWS regions**, replacing 146 globally dispersed on-premises locations. The choice of public cloud was driven by the need for global standardisation, centralised security management, and access to modern managed services — objectives that a private or hybrid model could not deliver at the required global scale (Amazon Web Services, 2026). Infrastructure as Code (IaC) enforces consistent configuration standards across all regions, eliminating the policy fragmentation inherent in managing 146 independent sites.
+
+| Deployment Model | Cost | Standardisation | Global Reach | Fit for Voith |
 |---|---|---|---|---|
-| On-Premises | Full | Manageable internally | Limited — fixed capacity | Inadequate — cannot burst for emergency genomic analysis |
-| Private Cloud | High | High | Moderate | Partial — improved elasticity but limited global collaboration |
-| Public Cloud | Shared responsibility | Provider certification required | High | Viable with HIPAA/GxP-compliant provider services |
-| Hybrid Cloud | High (sensitive data on-prem) | High | High | Recommended — sensitive genomic IP on-prem, burst HPC and AI to public cloud |
+| On-Premises (146 sites) | High CAPEX — 3,500 servers | Low — fragmented legacy systems per site | Global but ungovernable | ❌ Prior state — high cost, poor standardisation, legacy debt |
+| Private Cloud | High CAPEX + ops | Moderate | Limited to owned data centres | ❌ Cannot consolidate 60-country footprint at acceptable cost |
+| **Public Cloud (6 AWS regions)** | OPEX — 30% projected savings | High — IaC enforces standards globally | ✅ 6 regions cover global operations | ✅ **Adopted** — consolidation + modernisation + cost reduction |
+| Hybrid Cloud | Medium — dual infrastructure | Medium | High | ⚠️ Transitional state — may be required long-term for OT/SCADA systems |
 
-*Table 3: Deployment model trade-offs for Moderna pharmaceutical R&D.*
+*Table 8: Deployment model comparison for Voith (Amazon Web Services, 2026; McHaney, 2021).*
 
-[PLACEHOLDER: ~100 additional words justifying hybrid as the recommended model — link to compliance requirements (HIPAA, GxP) and the need for elastic burst capacity — link to SLO b]
+### 4.4 Cloud Services Analysis (~200 words)
 
-### 4.4 Cloud Services Analysis
+<!-- RUBRIC: 40% — Map services to automation outcomes; SLO a and SLO c -->
+
+Voith's AWS engagement combines migration services, managed analytics, DevOps tooling, skills development infrastructure, and FinOps practices to deliver both immediate consolidation benefits and long-term operational modernisation (Amazon Web Services, 2026):
+
+| Service | Purpose | Business Outcome |
+|---|---|---|
+| AWS Professional Services | Expert-led migration planning and execution across four waves | Structured migration with increasing velocity as team skills develop wave-by-wave |
+| Slalom (AWS Implementation Partner) | On-the-ground migration execution and workforce upskilling | Accelerated migration with embedded partner expertise; reduced time-to-cloud |
+| Amazon Athena | Serverless analytics — queries data in S3 without provisioning servers | Eliminates database server administration overhead; pay-per-query cost model |
+| Infrastructure as Code (IaC) | Automated, version-controlled infrastructure provisioning across 6 regions | Central quality standards maintained globally; eliminates manual configuration drift across 146→6 consolidation |
+| Centralised DevOps Model | Operations previously scattered across business units moved to shared DevOps practice | Standardised deployment pipelines; reduced manual ops toil organisation-wide |
+| Centralised Security Management | Unified security governance across all AWS regions | Single security posture replaces 146 fragmented site policies; standardised compliance |
+| AWS GameDays | Gamified learning events — hands-on AWS skills development for employees | Builds in-house cloud capability across 22,000+ employees; reduces external partner dependency |
+| FinOps Practices | Cost governance — identify, optimise, and attribute cloud spend continuously | Tracks and validates 30% savings target; informs rightsizing and reserved capacity decisions |
+
+*Table 9: AWS services utilised by Voith and their business outcomes (Amazon Web Services, 2026).*
 
 ```mermaid
 graph TD
-    A["Genomic Sequence Input"] -->|"Submit sequence data"| B["Data Lake / Genomic Data Store"]
-    B -->|"Trigger ML pipeline"| C["AI/ML Platform (Sequence Prediction)"]
-    C -->|"Burst GPU jobs"| D["HPC GPU Compute Cluster (IaaS)"]
-    D -->|"Protein folding simulation results"| E["Results Analytics Store"]
-    E -->|"Validate candidates"| F["Clinical Trial Data Platform (SaaS)"]
-    F -->|"Regulatory submission pipeline"| G["Compliance & Reporting Layer"]
+    A["146 On-Premises Sites<br>3,500 Servers — Legacy IT"] -->|"Competitive assessment<br>→ AWS selected"| B["AWS Professional Services<br>+ Slalom Partner"]
+    B -->|"Wave 1: Rehosting"| C["AWS IaaS<br>(EC2 — lift-and-shift)"]
+    B -->|"Wave 2: Consolidation"| D["Similar apps merged<br>Legacy applications retired"]
+    B -->|"Wave 3: Modernisation"| E["PaaS Services<br>(Athena, Managed DBs, DevOps)"]
+    B -->|"Wave 4: Retirement"| F["Remaining legacy decommissioned"]
+    C --> G["6 AWS Regions<br>Standardised via IaC"]
+    D --> G
+    E --> G
+    G -->|"Centralised security management"| H["Unified Security Governance<br>(single policy across 60 countries)"]
+    G -->|"FinOps practices"| I["30% Cost Savings<br>(projected vs legacy)"]
+    G -->|"AWS GameDays + upskilling"| J["Skilled Workforce<br>(22,000+ employees, 4 migration waves)"]
 ```
 
-*Figure 3: Moderna cloud R&D pipeline — genomic input through AI/ML, HPC simulation, and clinical data management.*
+*Figure 3: Voith AWS migration architecture — four-wave migration from 146 on-premises sites to 6 standardised AWS regions (Amazon Web Services, 2026).*
 
-[PLACEHOLDER: ~150 additional words mapping pipeline stages to NIST characteristics (on-demand self-service, rapid elasticity, measured service) and explaining how parallel cloud pipelines collapsed the traditional 48-week timeline to 48 hours — link to SLO a and SLO c]
+### 4.5 Reflection (~150 words)
 
-### 4.5 Reflection
+<!-- RUBRIC: 20% SLO a — NIST characteristics; 20% SLO b — cloud vs traditional IT -->
 
-[PLACEHOLDER: ~150 words — reflect on Moderna's case: what made the cloud approach transformational for pharmaceutical R&D, what risks exist (genomic data sovereignty, regulatory compliance, IP security in shared cloud environments), and what this means for the future of cloud in life sciences — link to SLO b]
+Voith's case illustrates NIST's **resource pooling** and **measured service** characteristics in a large-scale enterprise migration context (Mell & Grance, 2011). Consolidating 3,500 physical servers across 146 locations into six AWS regions is resource pooling at an organisational scale: disparate hardware investments are replaced by shared, logically isolated cloud infrastructure maintained by AWS. The projected 30% cost savings reflects measured service in practice — Voith pays for what it consumes, and FinOps practices provide the continuous visibility required to optimise that consumption over time (Amazon Web Services, 2026).
+
+The contrast with traditional IT is structural. In the legacy model, each of 146 sites maintained its own servers, security policies, and operational procedures — producing a fragmented, high-cost, and inconsistently governed global estate. Cloud consolidation collapses this complexity: a single IaC configuration enforces consistent standards globally, while centralised security management eliminates the policy fragmentation that defines large on-premises footprints (McHaney, 2021). As Holger Mutschler (Senior Manager of IT Infrastructure and Cloud Transformation, Voith) observed, "using infrastructure as code makes it possible to maintain central quality standards globally while using cloud capabilities" (as cited in Amazon Web Services, 2026). A key residual risk is operational technology (OT) integration — manufacturing SCADA and industrial control systems may require on-premises or edge-deployed infrastructure, creating a long-term hybrid architecture requirement beyond the scope of the current migration programme.
 
 ---
 
 ## 5. Conclusion (~250 words)
 
-<!-- RUBRIC: Content and purpose 10% — Summary only; no new information; no tables, graphs, or dot points -->
-<!-- NOTE: Brief requires conclusion to be written in complete sentences and paragraphs — no lists or diagrams -->
+<!-- RUBRIC: Content and purpose 10% — Summary only; no new information introduced; no tables, graphs, diagrams, or dot points -->
+<!-- NOTE: Brief requires complete sentences and paragraphs throughout — no lists, tables, or diagrams -->
+<!-- SLO a, b, c — synthesise key insights from all three cases -->
 
-<!-- SLO a, b, c — Bring together the three case studies, restate key insights, and identify areas for further investigation -->
+[PLACEHOLDER: ~250 words — three prose paragraphs; expand starters below into full paragraphs]
 
-[PLACEHOLDER: ~250 words — structured as prose paragraphs only]
+Across all three case studies, a consistent set of cloud principles underpinned the outcomes: on-demand self-service enabled each organisation to provision capability without manual IT intervention; rapid elasticity allowed both ChatAndBuild and Voith to scale resources to match demand — whether a global hackathon spike or a 146-site migration wave; and measured service translated consumption directly into financial and operational accountability, from Victoria Police's governed fusion environments to Voith's 30% projected cost savings (Mell & Grance, 2011). Despite operating in radically different sectors — government law enforcement, AI startup, and industrial manufacturing — each organisation achieved outcomes that were structurally impossible under their prior on-premises configurations, confirming that the essential cloud elements of automation are sector-agnostic even as their application is highly context-specific (McHaney, 2021).
 
-Paragraph 1 — Synthesise the three cases: what common cloud principles (elasticity, on-demand provisioning, managed services) underpinned the outcomes across Formula 1, Snapchat, and Moderna, despite the different sectors, service models, and deployment models each employed.
+In each case, fixed on-premises infrastructure represented a ceiling — on developer throughput (Victoria Police's constrained IT queue driving shadow application risk), on real-time AI generation capacity (ChatAndBuild's manual provisioning bottleneck degrading agent reliability), and on global standardisation (Voith's fragmented 146-site estate producing inconsistent governance). Cloud removed these ceilings by decoupling capacity from physical hardware procurement and enabling OPEX-aligned, consumption-driven cost models in place of CAPEX-constrained, fixed-capacity traditional IT (McHaney, 2021; Mell & Grance, 2011).
 
-Paragraph 2 — Contrast with traditional IT: in each case, fixed on-premises infrastructure would have imposed a ceiling on throughput, reach, or speed that the cloud removed — reinforcing the fundamental distinction between CAPEX-constrained traditional IT and OPEX-elastic cloud (Mell & Grance, 2011; McHaney, 2021).
-
-Paragraph 3 — Key service offerings identified across cases and their significance for major cloud providers. Identify gaps or areas requiring further investigation (e.g. cost governance for burst workloads, compliance frameworks for regulated industries, multi-cloud portability).
+Key areas warranting further investigation across these cases include cloud cost governance at enterprise scale, compliance frameworks for regulated sectors (law enforcement data residency, manufacturing OT system integration), and multi-cloud portability strategies as vendor dependency on Microsoft, Google Cloud, and AWS ecosystems deepens. The three case studies collectively demonstrate that cloud adoption is not a single transition event but an evolving capability requiring continuous governance, workforce skills development, and architectural adaptation to remain strategically effective.
 
 ---
 
 ## References
 
-<!-- APA 7th edition format — minimum 10–12 references -->
-<!-- RUBRIC: Citations 10% — in-text citations must appear throughout report; min 10 resources; no APA errors -->
+<!-- APA 7th edition — minimum 12 references -->
+<!-- RUBRIC: Citations 10% — in-text citations must appear throughout; min 10 resources; meticulous APA with no errors -->
 
-Author, A. A. (Year). *Title of work: Capital letter also for subtitle*. Publisher. https://doi.org/xxxxx
+Amazon Web Services. (2026). *Voith saves 30% by improving operations and consolidating workloads on AWS* [Case study]. Amazon Web Services. [URL from facilitator-provided PDF]
 
-Author, B. B., & Author, C. C. (Year). Title of article. *Journal Name, Volume*(Issue), page–page. https://doi.org/xxxxx
+Google Cloud. (n.d.). *ChatAndBuild: Building the future of ownable, evolving AI agents* [Case study]. Google Cloud. [URL from facilitator-provided PDF]
 
-Amazon Web Services. (n.d.). *AWS for Formula 1* [Case study]. https://[verify-url]
+IBM. (n.d.-a). *SaaS, PaaS, IaaS explained*. IBM. https://www.ibm.com/think/topics/iaas-paas-saas
 
-Amazon Web Services. (n.d.). *AWS for Moderna* [Case study]. https://[verify-url]
+IBM. (n.d.-b). *What is a public cloud?* IBM. https://www.ibm.com/think/topics/public-cloud
 
-Google Cloud. (n.d.). *Snapchat on Google Cloud* [Case study]. https://[verify-url]
-
-McHaney, R. (2021). *Cloud technologies: An overview of cloud computing technologies for managers.* Wiley. https://ieeexplore-ieee-org.torrens.idm.oclc.org/servlet/opac?bknumber=9820907
-
-Mell, P., & Grance, T. (2011). *The NIST definition of cloud computing* (Special Publication 800-145). National Institute of Standards and Technology. https://doi.org/10.6028/NIST.SP.800-145
+Linthicum, D. (2021, May 25). *Learning cloud computing: Core concepts* [Video]. LinkedIn Learning. https://www.linkedin.com/learning/learning-cloud-computing-core-concepts-13710481/
 
 Manvi, S., & Shyam, G. K. (2021). *Cloud computing: Concepts and technologies* (Chapter 4). CRC Press. https://learning-oreilly-com.torrens.idm.oclc.org/library/view/cloud-computing/9781000338058/
 
+McHaney, R. (2021). *Cloud technologies: An overview of cloud computing technologies for managers*. Wiley. https://ieeexplore-ieee-org.torrens.idm.oclc.org/servlet/opac?bknumber=9820907
+
+Mell, P., & Grance, T. (2011). *The NIST definition of cloud computing* (Special Publication 800-145). National Institute of Standards and Technology. https://doi.org/10.6028/NIST.SP.800-145
+
+Microsoft. (2026, February 18). *How Victoria Police created a fusion framework to scale PowerApps innovation* [Case study]. Microsoft. [URL from facilitator-provided PDF]
+
 Nishimura, H. (2022, August 30). *Introduction to AWS for non-engineers: 1 cloud concepts* [Video]. LinkedIn Learning. https://www.linkedin.com/learning/introduction-to-aws-for-non-engineers-1-cloud-concepts-2/
 
-<!-- PLACEHOLDER REF 9 — Add provider-specific reference (e.g. Azure, GCP documentation) -->
-Author, D. D. (Year). *Title*. Publisher.
+<!-- PLACEHOLDER REF 11 — Add peer-reviewed journal article on government cloud / low-code digital transformation -->
+<!-- Search Torrens library: "government cloud adoption" OR "low-code platform digital transformation" -->
+Author, A. A. (Year). Title of article. *Journal Name, Volume*(Issue), page–page. https://doi.org/xxxxx
 
-<!-- PLACEHOLDER REF 10 — Add peer-reviewed journal article on cloud in one of the three sectors -->
-Author, E. E. (Year). Title of article. *Journal Name, Volume*(Issue), page–page. https://doi.org/xxxxx
-
-<!-- PLACEHOLDER REF 11 — Add case study or industry report (e.g. Gartner, IDC, McKinsey on cloud adoption) -->
-Author, F. F. (Year). *Title of report*. Organisation. https://[url]
-
-<!-- PLACEHOLDER REF 12 — Add additional academic or technical reference -->
-Author, G. G. (Year). Title of article. *Journal Name, Volume*(Issue), page–page. https://doi.org/xxxxx
+<!-- PLACEHOLDER REF 12 — Add peer-reviewed journal article on enterprise cloud migration OR FinOps cost governance -->
+<!-- Search Torrens library: "enterprise cloud migration strategy" OR "cloud cost optimisation FinOps" -->
+Author, B. B. (Year). Title of article. *Journal Name, Volume*(Issue), page–page. https://doi.org/xxxxx

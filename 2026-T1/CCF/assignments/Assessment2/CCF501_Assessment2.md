@@ -101,6 +101,25 @@ Prepare a 2,900-word report (+/-10%), excluding references, based on the three c
 
 ---
 
+---
+
+## Facilitator-Provided Case Studies (Actual — for this enrolment)
+
+> **Note:** The Context section above lists illustrative industry examples from the assessment brief (F1, Snapchat, Moderna). The three case studies **actually provided by the Learning Facilitator** for this enrolment are:
+
+| # | Company | Sector | Provider | Service Model | Deployment | Key Outcome |
+|---|---------|--------|----------|---------------|------------|-------------|
+| 1 | Victoria Police | Gov / Law Enforcement | Microsoft (Power Platform / Azure) | PaaS | Hybrid multi-environment | Fusion framework; 2 enterprise apps (Global Whereabouts, Bail Reporting) progressing to enterprise |
+| 2 | ChatAndBuild | AI / Software Startup | Google Cloud (GCP) | IaaS + PaaS | Public cloud (multi-region) | 45% infra overhead reduction; 30–70% latency reduction; 13B+ tokens at zero downtime |
+| 3 | Voith | Manufacturing | AWS | IaaS + PaaS | Public cloud (6 regions) | 30% projected cost savings; 146 sites → 6 AWS regions |
+
+Source PDFs (in this folder):
+- `case-studymicrosoft-How-Victoria-Police-created-a-fusion-framework-to-scale-PowerApps-innovation.pdf`
+- `case-study-google-cloud-ChatAndBuild-case-study.pdf`
+- `case-study-aws-voith-saves-30pp-by-improving-operations-and-consolidating-workloads.pdf`
+
+---
+
 ## Submission Instructions
 - **Due date (12-week course):** By 11:55pm AEST Sunday of Module 8 (Week 8) — *12 April 2026*
 - **Due date (intensive 6-week course):** By 11:55pm AEST Sunday of Module 8 (Week 4)
