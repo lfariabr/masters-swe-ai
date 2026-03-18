@@ -12,7 +12,7 @@
 | **R3** | Cuesta (2017) — Text Classification Ch.4 | Book chapter (PDF) | ✅ Read + Reviewed |
 | **R4** | Ross (2017) — Unsupervised ML capabilities | Article (PDF) | ✅ Read + Reviewed |
 | **R5** | WTF is the Bias-Variance Tradeoff? | Infographic (PDF) | ✅ Read + Reviewed |
-| R6 | Zhao (2019) — SVM Visual Explanation | Video (YouTube) | 🔥 WIP — needs manual watch |
+| **R6** | Zhao (2019) — SVM Visual Explanation | Video (YouTube) | 🔥 WIP — needs manual watch |
 | R7 | Maini (2017) — ML for Humans Pt 2.1 | Article (PDF) | ✅ Read + Reviewed |
 | R8 | Maini (2017) — ML for Humans Pt 3 | Article (PDF) | ✅ Read + Reviewed |
 | A1 | Azure classification tutorial | Hands-on (MS Learn) | 🕐 To-Do |
@@ -348,3 +348,11 @@ Reduces complexity while maintaining as much structure/variance as possible.
 - Hierarchical clustering: flexible cluster count; dendrogram reveals structure.
 - PCA/SVD: reduce dimensions while preserving the most variance — essential for high-dimensional datasets.
 - Unsupervised methods often precede supervised pipelines as data preprocessing steps.
+
+---
+
+## Class Notes
+
+### 18/03/2026 - 11:30AM
+
+#### Exercises
