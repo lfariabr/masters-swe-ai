@@ -446,7 +446,7 @@ You will learn about the various types of machine learning models and algorithms
 
     In module 3, you were introduced to different "types" of machine learning algorithms. In this Module, you will learn that those main algorithms you became familiar with fit into further categories within the machine learning world. Here's where you will learn the difference between "supervised" and "unsupervised" algorithms, to help you more accurately determine which type of algorithm fits your particular problem and data set.
 
-> *Status: 🔥 WIP — needs manual watch (Lynda video, auth required)*
+> *Status: ✅ Read + Reviewed — see [module05_notes.md](module_05_ml-in-depth/module05_notes.md)*
 
 #### 2. Regression in Machine Learning – the different types
 - Dave, A. (2018, 4 December). Regression in machine learning. Retrieved from https://medium.com/datadriveninvestor/regression-in-machine-learning-296caae933ec
@@ -493,7 +493,7 @@ A heavyweight supervised learning model that applies to both regression and clas
 
     Have you ever wanted to classify recipes you find on the internet into categories for future reference? Regardless of whether you have or not, watch this clever machine learning solution that uses a Support Vector Machine to differentiate between muffin and cupcake recipes. Perhaps you can think about how the model can be modified to classify your own favourite recipes as you watch?
 
-> *Status: 🔥 WIP — needs manual watch (YouTube video)*
+> *Status: ✅ Read + Reviewed — see [module05_notes.md](module_05_ml-in-depth/module05_notes.md)*
 
 #### 7. The mathematics behind supervised learning algorithms
 - Maini, V. (2017, August 20). Machine Learning for Humans, Part 2.1: Supervised Learning. Retrieved from: https://medium.com/machine-learning-for-humans/supervised-learning-740383a2feab
@@ -524,6 +524,95 @@ It is now time to use the knowledge you’ve gained in the above resources to ap
 https://docs.microsoft.com/en-us/learn/modules/introduction-to-classification/
 
 > *Status: 🕐 To-Do* 
+
+---
+
+## Module 6 - Machine Learning in Practice
+
+### TLDR
+
+### Introduction
+In this module, you will be introduced to the many influential and nifty Python libraries that make machine learning powerful. From Numpy (used for linear algebraic functions modelling) to Pandas (a Structural Query Language – SQL based) library for data manipulation and analysis as well as Matplotlib for effective visualisation, you will be privy to the tools of the trade. The module will also introduce the step by step activities involved in developing and evaluating a ML model – from pre-processing datasets, feature engineering, hyperparameter tuning and evaluation of models to prepare you for the next assessment.
+
+### Resources
+
+#### 1. Python libraries for dataset analysis and manipulation in machine learning
+- Edureka! (2019, 13 August). Best Python Libraries For Data Science & Machine Learning | Data Science Python Libraries | Edureka [Video file]. Retrieved from: https://www.youtube.com/watch?v=LepMvJdr2-w
+
+*Resource Overview:*
+
+    This video is a neat introduction to the five main Python-based libraries used to help solving complex problems using machine learning models. From basic mathematical computations to representing and manipulating datasets using linear algebraic and polynomial modelling techniques to problems solved best by analysing time series data, these libraries will become your best friends as you embark on your machine learning journey. Watch this video from 2.49 until about 13.30 for an overview of some of the libraries you will become intimately familiar with during the course.
+
+> *Status: 🕐 To-Do*
+
+#### 2. Visualisation
+
+- blondiebytes. (2019, 23 July). Learn Matplotlib in 6 minutes | Matplotlib Python tutorial [Video file]. Retrieved fromhttps://www.youtube.com/watch?v=nzKy9GY12yo
+
+*Resource Overview:*
+
+    Watch the following video to gain an understanding of the Matplotlib library in Python. It takes you through some of the main functions used to draw, manipulate and learn about different types of visualisation you can employ – from histograms to scatter plots and bar charts. Visualisation is an important part of machine learning as it helps you understand your data and the results of your models.
+
+> *Status: 🕐 To-Do*
+
+#### 3. Dataset pre-processing
+- Bonnin, R. (2017). Machine Learning for Developers, England: Packt Publishing. Retrieved from https://search.ebscohost.com/login.aspx?direct=true&AuthType=shib&db=nlebk&AN=1637915&site=ehost-live&custid=ns251549&ebv=EB&ppid=pp_47
+
+*Resource Overview:*
+
+    An important part of working with machine learning models is of course the data set that describes the problem to be solved. However, as we learnt in the previous module, the concept of “Garbage in, garbage out” can really throw a spanner in the works when it comes to a machine learning model applied to “messy” data. Read the chapter titled “Dataset preprocessing” to understand some key techniques to employ on the dataset you’re working with to ensure the machine learning model works optimally.
+
+> *Status: 🕐 To-Do*
+
+#### 4. Feature Engineering
+- Julian, D. (2016). Designing Machine Learning Systems with Python Birmingham, England: Packt. Retrieved from https://search.ebscohost.com/login.aspx?direct=true&AuthType=shib&db=nlebk&AN=1218065&site=ehost-live&custid=ns251549&ebv=EB&ppid=pp_149
+
+*Resource Overview:*
+
+    Just like features and characteristics of people or even inanimate objects describe many different aspects about them and play a role in determining how they behave in certain situations, features of datasets play a similar role in their use and behaviour when solving particular problems within the machine learning paradigm. Read chapter 7 of the following text resource to understand the different types of features datasets could contain, the influence they could wield in machine learning model training and validation, how to transform them using statistical techniques including one which we asked you to individually research in Module 2- Principle Component Analysis.
+
+> *Status: 🕐 To-Do*
+
+#### 5. Making the model work – hyperparameter tuning
+- Paul, S. (2018, August 15). Hyperparameter Optimization in Machine Learning Models. Retrieved from https://www.datacamp.com/community/tutorials/parameter-optimization-machine-learning-models
+
+*Resource Overview:*
+
+    To ensure a machine learning model works to the best of its abilities, ML practitioners have another trick up their sleeve – the tweaking or tuning of so called “hyperparameters” which play a big role in the outcome of a model. In this resource you’ll be introduced to these important model-varying factors including the various forms they take depending on the ML model involved. Learn about the most optimal way to search for and tune hyperparameters as the resource presents you with a case study to put them into action.
+
+> *Status: 🕐 To-Do*
+
+#### 6. Evaluating models
+- Ng, R. (n.d.). Evaluating a classification model. Retrieved from https://www.ritchieng.com/machine-learning-evaluate-classification-model/
+
+*Resource Overview:*
+
+    How do we know that the machine learning model got the analysis, prediction or classification right on a particular data set? This is where several evaluation models and techniques come in to help. Read through sections 3 to 7 (inclusive) to see various statistical techniques and their use in real-world datasets with sample code you can try in a Jupyter notebook on https://jupyter.org/. You can read ahead from section 8 onwards to get a sneak peak of what we will be covering in future modules.
+
+> *Status: 🕐 To-Do*
+
+#### 7. Measuring success of the model
+- Reference: Jedamski, D. (2019, May 10). Measuring Success [Video file]. Retrieved from https://www.linkedin.com/learning/applied-machine-learning-foundations/leveraging-machine-learning?u=56744473
+
+*Resource Overview:*
+
+    Now that we know how to pre-process data, identify features and hyperparameters and understand how to analyse model performance, we now need to understand how the model will generalise in new examples of data. You will learn the concepts behind establishing a “training” and “validation” data set as well as “cross validation”. Watch all four lessons within section 3 of this video course on Applied Machine Learning and attempt the quiz at the end to test your understanding.
+
+> *Status: 🕐 To-Do*
+
+### Learning Activities
+
+#### Activity 1: Learning Activity: Discussion Forum Post
+
+Refer to the Jupyter Notebook resources in Blackboard. Using the resources you have read in this Module and the previous module, discuss the best metric to compare the models in your Jupyter Notebook. Select one metric that you think is the best metric, one metric that you think is not a good metric and one metric that you were confused or unsure about.
+
+Describe these in no more than 100 words each.
+
+Post your answer to the Module 6 discussion forum.
+
+What have your peers found? Do you all agree on which is the best metric to use to make comparisons on the models? Reply to their posts and start a discussion in the forum (about your views on which model is best/not good) with another person from your class.
+
+> *Status: 🕐 To-Do*
 
 ---
 

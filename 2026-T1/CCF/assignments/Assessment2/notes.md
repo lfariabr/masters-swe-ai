@@ -30,3 +30,5 @@ Still to do before 12 April:
 1. Write the conclusion (biggest remaining prose gap)
 2. Find the 2 missing academic references via Torrens library search
 3. Review/expand a specific section that feels thin
+
+claude --resume cc6b1606-cba8-4fd8-bfcc-6af572d72346

@@ -36,20 +36,20 @@ Dr. Nandini Sidnal
 ## Modules
 > Tip: ✅ = Done, 🔥 = WIP, 🕐 = Not started, 🔌 = Discontinued
 
-- [X] Module 1 - The Nature and Purpose of Intelligent Systems
-- [X] Module 2 - Introduction to Machine Learning
-- [X] Module 3 - Machine Learning Models
-- [X] Module 4 - Introduction to Deep Learning
-- [X] Module 5 - Machine Learning in Depth
-- [ ] Module 6 - Machine Learning in Practice
-- [ ] Module 7 - Deep Learning in Practice
-- [ ] Module 8 - Computer Vision
-- [ ] Module 9 - Natural Language Processing
-- [ ] Module 10 - Speech Recognition
-- [ ] Module 11 - Emotional Intelligence when working with Intelligent Systems
-- [ ] Module 12 - Deploying Intelligent Systems
+- [X] Module 1 ✅ - The Nature and Purpose of Intelligent Systems
+- [X] Module 2 ✅ - Introduction to Machine Learning
+- [X] Module 3 ✅ - Machine Learning Models
+- [X] Module 4 ✅ - Introduction to Deep Learning
+- [X] Module 5 ✅ - Machine Learning in Depth
+- [ ] Module 6 🔥 - Machine Learning in Practice
+- [ ] Module 7 🕐 - Deep Learning in Practice
+- [ ] Module 8 🕐 - Computer Vision
+- [ ] Module 9 🕐 - Natural Language Processing
+- [ ] Module 10 🕐 - Speech Recognition
+- [ ] Module 11 🕐 - Emotional Intelligence when working with Intelligent Systems
+- [ ] Module 12 🕐 - Deploying Intelligent Systems
 
 ## Assignments
 - [X] Assessment 1 - deadline 22/03/2026 ✅, **Case Study** on *Application of an Intelligent System (NLP or Computer Vision)*
-- [ ] Assessment 2 - deadline 12/04/2026 🕐, **Programming Task** on *Implementation of a Machine Learning Model (Linear Regression)*
+- [ ] Assessment 2 - deadline 12/04/2026 🔥, **Programming Task** on *Implementation of a Machine Learning Model (Linear Regression)*
 - [ ] Assessment 3 - deadline 06/05/2026 🕐, **Final Project** on *Applying the foundational principles of AI (NLP or Computer Vision)*
