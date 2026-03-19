@@ -46,6 +46,23 @@ data_std = std_scale.transform(data)
 
 #### 2. Model Selection Decision Framework
 
+```mermaid
+graph TD
+    A[Start: What is your ML problem?] --> B{Data has labels?}
+    B -->|No labels| C{Group by similarity?}
+    C -->|Yes| D[Clustering]
+    C -->|No| E{Reduce dimensions?}
+    E -->|Yes| F[Dimensionality Reduction]
+    E -->|No| G[Other unsupervised]
+
+    B -->|Has labels| H{Output type?}
+    H -->|Continuous value| I[Regression]
+    H -->|Discrete classes| J[Classification]
+    H -->|Sequential / time-ordered| K[RNN]
+    H -->|Spatial patterns| L[CNN]
+    H -->|Reward-based strategy| M[Reinforcement Learning]
+```
+
 | Question | Answer → Model type |
 |----------|---------------------|
 | Group data by similarity, no labels? | **Clustering** |
@@ -173,6 +190,16 @@ from sklearn.decomposition import PCA
 pca = PCA(n_components=1)
 pca.fit(X)
 X_reduced = pca.transform(X)
+```
+
+```mermaid
+graph LR
+    A[Raw n-dimensional data] --> B[Scale & mean-normalize]
+    B --> C[Compute covariance matrix]
+    C --> D[Find eigenvectors]
+    D --> E[Select k components]
+    E --> F[Project onto k-dimensional subspace]
+    F --> G[Reduced representation]
 ```
 
 #### 5. Model-Feature Type Interactions
