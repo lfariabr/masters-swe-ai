@@ -49,7 +49,7 @@
 
 #### 4. Serverless Architecture
 
-- **Serverless** = dynamically automating provisioning/deprovisioning of infrastructure in real time
+- **Serverless** = dynamically automating provisioning/deprovisioning of infrastructure in real-time
 - Cloud clients don't manage servers; the model *automatically* scales resources to demand
 - Already powering Gmail and YouTube (Google)
 - Consistent with NoOps philosophy — aligns with DevOps momentum
@@ -61,6 +61,18 @@
 |---|---|
 | **Hybrid Cloud** | Mix of on-premises, private, and public cloud |
 | **Multicloud** | Multiple *public* cloud vendors used simultaneously |
+
+```mermaid
+graph LR
+    subgraph Hybrid["Hybrid Cloud"]
+        A["On-Premises\nPrivate"] <-->|"VPN / Direct Connect"| B["Public Cloud\n(single vendor)"]
+    end
+    subgraph Multi["Multicloud"]
+        C["AWS\n(compute)"] & D["Azure\n(enterprise apps)"] & E["GCP\n(analytics)"]
+    end
+```
+
+*Figure: Hybrid Cloud (on-prem + one public vendor) vs Multicloud (multiple public vendors).*
 
 - Motivation: avoid vendor lock-in, improve negotiating leverage on SLAs, meet governance requirements, optimise for geographic proximity or speed
 - Best-in-class approach: e.g. Salesforce for CRM, Office 365 for productivity, AWS for compute
@@ -97,6 +109,16 @@
 | **CC** (Cloudlet Computing) | Small trusted cloud at network edge, near mobile devices |
 | **MEC** (Mobile Edge Computing) | Compute/storage via Radio Access Network edge |
 
+```mermaid
+graph TD
+    D["IoT Device / Mobile"] -->|"Offload compute"| MCC["MCC\n(Mobile Cloud Computing)\nCloud handles heavy processing"]
+    D -->|"Low-latency local"| CC["CC\n(Cloudlet)\nSmall cloud at WiFi/LTE edge"]
+    D -->|"RAN-level processing"| MEC["MEC\n(Mobile Edge Computing)\nCompute at base station / RAN"]
+    MCC & CC & MEC -->|"Aggregate / sync"| Cloud["Central Cloud\n(AWS / Azure / GCP)"]
+```
+
+*Figure: Three edge computing models (MCC, CC, MEC) and their relationship to the central cloud.*
+
 - Benefits: low latency, high bandwidth, location awareness, scalability
 
 #### 9. Fog Computing
@@ -106,6 +128,24 @@
 - Three-tier architecture: **IoT Layer → Fog Layer → Cloud Layer**
 - Advantages acronym **SCALE**: **S**ecurity, **C**ognition, **A**gility, **L**atency, **E**fficiency
 - Key distinction: Fog is not a replacement for cloud — it's a structured intermediary that *improves* IoT-Cloud interaction
+
+```mermaid
+graph TD
+    subgraph Tier1["Tier 1 — IoT Layer"]
+        A1["Sensor / Device"] & A2["Wearable"] & A3["Vehicle / Drone"]
+    end
+    subgraph Tier2["Tier 2 — Fog Layer"]
+        B["Fog Node(s)\n(gateway, router, micro-server)\nPreprocessing + local decision"]
+    end
+    subgraph Tier3["Tier 3 — Cloud Layer"]
+        C["Central Cloud\nDeep analytics, storage, AI training"]
+    end
+    Tier1 -->|"Raw data stream"| Tier2
+    Tier2 -->|"Filtered / aggregated data"| Tier3
+    Tier3 -.->|"Policy / model updates"| Tier2
+```
+
+*Figure: Three-tier Fog computing architecture — IoT devices feed fog nodes for local preprocessing before reaching the central cloud (De Donno et al., 2019).*
 
 #### 10. Other Emerging Trends
 
@@ -172,8 +212,8 @@
 
 - Agility = value multiplier: it enables more revenue, faster market entry, improved stock prices
 - **The challenge**: value of agility is unknown until observed — requires best/worst-case scenario modelling
-- Best case example: electric lawnmowers see explosive demand → cloud scale-up captures revenue
-- Worst case example: economic downturn reduces demand for the same product
+- Best-case example: electric lawnmowers see explosive demand → cloud scale-up captures revenue
+- Worst-case example: economic downturn reduces demand for the same product
 - Rule of thumb: *the more your business depends on change, the more valuable cloud is to it*
 - **Operational savings should NOT be the primary cloud justification** — this was the key missed insight in early cloud adoption
 
