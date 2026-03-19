@@ -530,6 +530,7 @@ https://docs.microsoft.com/en-us/learn/modules/introduction-to-classification/
 ## Module 6 - Machine Learning in Practice
 
 ### TLDR
+Module 6 covers the **practical ML pipeline** — the hands-on steps between having a dataset and a working model. Key tools are **NumPy**, **Pandas**, and **Matplotlib** for data handling and visualisation. The pipeline itself involves: **dataset preprocessing** (normalization, feature scaling, imputation), **feature engineering** (quantitative vs. ordinal vs. categorical types, PCA for dimensionality reduction), **hyperparameter tuning** (grid search vs. random search), and **model evaluation** (MAE/MSE for regression; accuracy, precision, recall, F1, confusion matrix for classification). The "Garbage in, garbage out" principle from Module 5 is operationalised here — clean, well-engineered features are the single biggest lever on model performance.
 
 ### Introduction
 In this module, you will be introduced to the many influential and nifty Python libraries that make machine learning powerful. From Numpy (used for linear algebraic functions modelling) to Pandas (a Structural Query Language – SQL based) library for data manipulation and analysis as well as Matplotlib for effective visualisation, you will be privy to the tools of the trade. The module will also introduce the step by step activities involved in developing and evaluating a ML model – from pre-processing datasets, feature engineering, hyperparameter tuning and evaluation of models to prepare you for the next assessment.
@@ -562,7 +563,7 @@ In this module, you will be introduced to the many influential and nifty Python 
 
     An important part of working with machine learning models is of course the data set that describes the problem to be solved. However, as we learnt in the previous module, the concept of “Garbage in, garbage out” can really throw a spanner in the works when it comes to a machine learning model applied to “messy” data. Read the chapter titled “Dataset preprocessing” to understand some key techniques to employ on the dataset you’re working with to ensure the machine learning model works optimally.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module06_notes.md](module_06_ml-in-practice/module06_notes.md)*
 
 #### 4. Feature Engineering
 - Julian, D. (2016). Designing Machine Learning Systems with Python Birmingham, England: Packt. Retrieved from https://search.ebscohost.com/login.aspx?direct=true&AuthType=shib&db=nlebk&AN=1218065&site=ehost-live&custid=ns251549&ebv=EB&ppid=pp_149
@@ -571,7 +572,7 @@ In this module, you will be introduced to the many influential and nifty Python 
 
     Just like features and characteristics of people or even inanimate objects describe many different aspects about them and play a role in determining how they behave in certain situations, features of datasets play a similar role in their use and behaviour when solving particular problems within the machine learning paradigm. Read chapter 7 of the following text resource to understand the different types of features datasets could contain, the influence they could wield in machine learning model training and validation, how to transform them using statistical techniques including one which we asked you to individually research in Module 2- Principle Component Analysis.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module06_notes.md](module_06_ml-in-practice/module06_notes.md)*
 
 #### 5. Making the model work – hyperparameter tuning
 - Paul, S. (2018, August 15). Hyperparameter Optimization in Machine Learning Models. Retrieved from https://www.datacamp.com/community/tutorials/parameter-optimization-machine-learning-models
@@ -580,7 +581,7 @@ In this module, you will be introduced to the many influential and nifty Python 
 
     To ensure a machine learning model works to the best of its abilities, ML practitioners have another trick up their sleeve – the tweaking or tuning of so called “hyperparameters” which play a big role in the outcome of a model. In this resource you’ll be introduced to these important model-varying factors including the various forms they take depending on the ML model involved. Learn about the most optimal way to search for and tune hyperparameters as the resource presents you with a case study to put them into action.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module06_notes.md](module_06_ml-in-practice/module06_notes.md)*
 
 #### 6. Evaluating models
 - Ng, R. (n.d.). Evaluating a classification model. Retrieved from https://www.ritchieng.com/machine-learning-evaluate-classification-model/
