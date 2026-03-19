@@ -556,6 +556,13 @@ Please reply to at least two other students’ posts – find a post you agree w
 ## Module 6 - Advanced Cloud Models and Concepts
 
 ### TLDR
+Advanced cloud concepts — the next layer beyond IaaS/PaaS/SaaS:
+- **Serverless/NoOps**: automate provisioning so teams focus on code, not infrastructure
+- **Edge & Fog computing**: push compute *closer to the data source* (IoT devices) to cut latency
+- **Multicloud**: use multiple public cloud vendors to avoid lock-in and optimise per workload
+- **EaaS/XaaS**: subscription-everything model continues expanding — anything can be a service
+- **Agility as the real cloud value**: soft values (agility, speed, innovation) outweigh cost savings alone
+- **Data quality before migration**: lift-fix-and-shift beats lift-and-shift; bad data in cloud = expensive bad data
 
 ### Introduction
 In Module 6, you will study the concepts of the advanced cloud service technologies that support large-scale cloud services deployments. If you browse the job sites, you would come across some listings like ‘DevOps’ or ‘cloud architect’. These jobs (and many other recent IT jobs) assume that you have a good understanding of the contemporary cloud computing technologies such as serverless computing, cloudlet (fog) computing and cloud orchestrations. These advanced cloud technologies are of profound importance in your future IT career. In this module, we will explore the concept of these advanced cloud service technologies to support deployment of enterprise-grade large scale cloud services.
@@ -574,7 +581,7 @@ In Module 6, you will study the concepts of the advanced cloud service technolog
         - Edge Computing
         - Fog Computing.
 
-> *Status: 🕐 To-Do* 
+> *Status: ✅ Read + Reviewed — see [module06_notes.md](module_06_advanced-cloud-models-and-concepts/module06_notes.md)*
 
 #### 2. Beyond the Cloud: Edge Computing
 - AWS Online Tech Talks. (2020, October 27). Computing at the edge: Choosing the best option for your application. YouTube. https://www.youtube.com/watch?v=hms0IkNqNJo
@@ -583,7 +590,7 @@ In Module 6, you will study the concepts of the advanced cloud service technolog
 
     A fascinating talk that explores future use cases and implications for cloud computing. Data and bandwidth usage from self-driving cars, 5G-enabled devices and AI-enabled services will dictate the need for new cloud architectures, ideas and models to help keep with up with the demand.
 
-> *Status: 🕐 To-Do* 
+> *Status: 🔥 WIP — needs manual watch (YouTube video)*
 
 #### 3. Advanced Cloud Architecture
 - Atchison, L. (2022). 2. Microservices [Videos]. In Cloud architecture: Advanced concepts. LinkedIn Learning.
@@ -594,7 +601,7 @@ In Module 6, you will study the concepts of the advanced cloud service technolog
 
     These two LinkedIn Learning course units (approximately 18 minutes) introduce you to some architectural patterns and advanced concepts in cloud computing. Watch these short clips to demystify some of those fanciful terms you may have heard before, like:
 
-> *Status: 🕐 To-Do* 
+> *Status: 🔥 WIP — requires LinkedIn Learning authentication (manual access needed)*
 
 #### 4. Cloud Orchestration
 - Chapple, M. (2022). Cloud orchestration [Video]. In CCSP Cert Prep: 1 Cloud concepts, architecture, and design. LinkedIn Learning. https://www.linkedin.com/learning/ccsp-cert-prep-1-cloud-concepts-architecture-and-design-14683746/cloud-orchestration?autoplay=true&resume=false&u=72036930
@@ -603,16 +610,16 @@ In Module 6, you will study the concepts of the advanced cloud service technolog
 
     You might have heard in the video about Edge Computing (AWS Online Tech Talks, 2020), a discussion about cloud orchestration. Put simply, when multiple cloud models are used to provision services, there is a need to ensure these individual deployments work together well and efficiently. This is the concept of cloud orchestration and this video (Section 3.5, approximately 3 minutes) provides a good introduction to the nuances of this process.
 
-> *Status: 🕐 To-Do* 
+> *Status: 🔥 WIP — requires LinkedIn Learning authentication (manual access needed)*
 
 #### 5. Agility: A Key Consideration for Cloud Computing
 - CLinthicum, D. (2023). An insider’s guide to cloud computing. Addison-Wesley Professional. https://learning-oreilly-com.torrens.idm.oclc.org/library/view/an-insiders-guide/9780137935819/ch01.html#ch01lev1sec1
 
 *Resource Overview:*
 
-    Agility is a key consideration when deploying on the cloud. The author of the following resource defines agility as a soft value for cloud computing and emphasises how a business can support rapid changes and respond to new opportunities. Please read Chapter 1, Section 1.6 titled *"Agility"* and Chapter 2, Section 2.2 titled “Junk Data on Premises Moved to the Cloud Is Still Junk Data” which introduces agility in the context of cloud computing.
+    Agility is a key consideration when deploying on the cloud. The author of the following resource defines agility as a soft value for cloud computing and emphasises how a business can support rapid changes and respond to new opportunities. Please read Chapter 1, Section 1.6 titled *”Agility”* and Chapter 2, Section 2.2 titled “Junk Data on Premises Moved to the Cloud Is Still Junk Data” which introduces agility in the context of cloud computing.
 
-> *Status: 🕐 To-Do* 
+> *Status: ✅ Read + Reviewed — see [module06_notes.md](module_06_advanced-cloud-models-and-concepts/module06_notes.md)*
 
 ### Learning Activities
 
