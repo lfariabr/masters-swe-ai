@@ -8,9 +8,9 @@
 |---|------|--------|
 | **1** | Read & summarise McHaney, R. (2021) — What Is the Cloud Future? | ✅ |
 | 2 | Watch & summarise AWS Online Tech Talks (2020) — Computing at the Edge | 🔥 WIP |
-| 3 | Watch & summarise Atchison, L. (2022) — Microservices & Serverless | 🔥 WIP |
-| 4 | Watch & summarise Chapple, M. (2022) — Cloud Orchestration | 🔥 WIP |
-| **5** | Read & summarise Clinthicum, D. (2023) — Agility & Cloud Storage | ✅ |
+| **3** | Watch & summarise Atchison, L. (2022) — Microservices & Serverless | ✅ |
+| **4** | Watch & summarise Chapple, M. (2022) — Cloud Orchestration | ✅ |
+| 5 | Read & summarise Clinthicum, D. (2023) — Agility & Cloud Storage | ✅ |
 | 6 | Activity 1: Try It for Yourself — Core Cloud Services (Azure) | 🕐 |
 | 7 | Activity 2: Collaborative Learning — Everything as a Service (XaaS) | 🕐 |
 
@@ -78,7 +78,6 @@ graph LR
 - Best-in-class approach: e.g. Salesforce for CRM, Office 365 for productivity, AWS for compute
 
 #### 6. Machine Learning in the Cloud
-<!-- here -->
 - ML packages offered as cheap SDKs/APIs by all major cloud vendors
 - **Supervised learning**: human-guided training, then prediction model
 - **Unsupervised learning**: algorithmic iteration; suits complex domains (speech recognition, image classification)
@@ -111,10 +110,10 @@ graph LR
 
 ```mermaid
 graph TD
-    D["IoT Device / Mobile"] -->|"Offload compute"| MCC["MCC\n(Mobile Cloud Computing)\nCloud handles heavy processing"]
-    D -->|"Low-latency local"| CC["CC\n(Cloudlet)\nSmall cloud at WiFi/LTE edge"]
-    D -->|"RAN-level processing"| MEC["MEC\n(Mobile Edge Computing)\nCompute at base station / RAN"]
-    MCC & CC & MEC -->|"Aggregate / sync"| Cloud["Central Cloud\n(AWS / Azure / GCP)"]
+    D["IoT Device / Mobile"] -->|"Offload compute"| MCC["MCC<br>(Mobile Cloud Computing)<br>Cloud handles heavy processing"]
+    D -->|"Low-latency local"| CC["CC<br>(Cloudlet)<br>Small cloud at WiFi/LTE edge"]
+    D -->|"RAN-level processing"| MEC["MEC<br>(Mobile Edge Computing)<br>Compute at base station / RAN"]
+    MCC & CC & MEC -->|"Aggregate / sync"| Cloud["Central Cloud<br>(AWS / Azure / GCP)"]
 ```
 
 *Figure: Three edge computing models (MCC, CC, MEC) and their relationship to the central cloud.*
@@ -162,6 +161,8 @@ graph TD
 4. Activity 2 (XaaS discussion) is directly supported here: EaaS and the proliferation of "as a service" models is the contextual foundation
 5. The progression NoOps → Serverless → Edge/Fog → Multicloud shows how cloud architecture is decentralising to meet real-world demands
 
+> *Status: ✅ Completed*
+
 ---
 
 ### 2. AWS Online Tech Talks. (2020). Computing at the edge.
@@ -176,7 +177,17 @@ graph TD
 
 **Citation:** Atchison, L. (2022). 2. Microservices [Videos]. In Cloud architecture: Advanced concepts. LinkedIn Learning.
 
-> *Status: 🔥 WIP — requires LinkedIn Learning authentication (manual access needed)*
+#### Microservices
+- Monolithic vs. Microservice Architectures: Traditional monolithic applications are large, single pieces of code, while modern applications use a service architecture divided by business logic.
+- Service Ownership: Each service has its own data, business logic, and responsibilities, and is owned by a unique team. Teams can own multiple services, but each service is managed independently.
+
+#### Serverless Computing
+- On-Demand Resource Allocation: Serverless computing allows for the allocation of computation resources at a process or procedure level without needing to allocate full servers.
+- Granular Resource Management: It eliminates the need to manage operating systems and infrastructure, focusing more on the application layer, which results in less wasted resources.
+- Examples of Serverless Services: AWS Lambda, Azure Functions, and Google Cloud Functions are examples of serverless computing services, while Amazon S3 and DynamoDB are examples of serverless storage and database services.
+
+
+> *Status: ✅ Completed*
 
 ---
 
@@ -184,7 +195,12 @@ graph TD
 
 **Citation:** Chapple, M. (2022). Cloud orchestration [Video]. In CCSP Cert Prep: 1 Cloud concepts, architecture, and design. LinkedIn Learning.
 
-> *Status: 🔥 WIP — requires LinkedIn Learning authentication (manual access needed)*
+- **Cloud orchestration** automates workflows for managing cloud environments, making it easier to create workloads and shift operations between environments.
+- It builds upon **Infrastructure as Code**, allowing administrators to write reusable scripts instead of manually managing resources.
+- **APIs** provided by cloud service providers enable programmatic function calls for various actions, supporting multiple programming languages.
+- Organizations can use either native capabilities from their cloud provider or third-party solutions for cloud orchestration, with third-party solutions often supporting multiple cloud providers.
+
+> *Status: ✅ Completed*
 
 ---
 
