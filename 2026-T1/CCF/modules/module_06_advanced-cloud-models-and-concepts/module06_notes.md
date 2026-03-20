@@ -65,10 +65,10 @@
 ```mermaid
 graph LR
     subgraph Hybrid["Hybrid Cloud"]
-        A["On-Premises\nPrivate"] <-->|"VPN / Direct Connect"| B["Public Cloud\n(single vendor)"]
+        A["On-Premises<br>Private"] <-->|"VPN / Direct Connect"| B["Public Cloud<br>(single vendor)"]
     end
     subgraph Multi["Multicloud"]
-        C["AWS\n(compute)"] & D["Azure\n(enterprise apps)"] & E["GCP\n(analytics)"]
+        C["AWS<br>(compute)"] & D["Azure<br>(enterprise apps)"] & E["GCP<br>(analytics)"]
     end
 ```
 
@@ -78,7 +78,7 @@ graph LR
 - Best-in-class approach: e.g. Salesforce for CRM, Office 365 for productivity, AWS for compute
 
 #### 6. Machine Learning in the Cloud
-
+<!-- here -->
 - ML packages offered as cheap SDKs/APIs by all major cloud vendors
 - **Supervised learning**: human-guided training, then prediction model
 - **Unsupervised learning**: algorithmic iteration; suits complex domains (speech recognition, image classification)
