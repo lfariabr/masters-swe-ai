@@ -1,6 +1,8 @@
 # Assessment 2 — Study Notes
 > Session: 2026-03-18 | Notebook: `intro_to_modeling_Luis.ipynb`
 
+> claude --resume 8dfd9e3d-ab3c-4db3-ac16-03fd5715851e
+
 ---
 
 ## TL;DR
