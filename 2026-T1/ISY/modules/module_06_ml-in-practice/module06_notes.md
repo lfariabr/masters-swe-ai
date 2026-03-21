@@ -7,7 +7,7 @@
 
 | # | Resource / Activity | Type | Status |
 |---|---------------------|------|--------|
-| **1** | Watch & summarise Edureka! (2019) — Best Python Libraries for Data Science & ML | Video | 🔥 WIP — needs manual watch |
+| **1** | Watch & summarise Edureka! (2019) — Best Python Libraries for Data Science & ML | ✅ |
 | **2** | Watch & summarise blondiebytes (2019) — Learn Matplotlib in 6 minutes | Video | 🔥 WIP — needs manual watch |
 | **3** | Read & summarise Bonnin, R. (2017) — Dataset preprocessing | Chapter | ✅ |
 | **4** | Read & summarise Julian, D. (2016) — Features: How Algorithms See the World | Chapter | ✅ |
@@ -21,6 +21,71 @@
 ## Key Highlights
 
 ---
+
+### 1. Edureka! (2019). Best Python Libraries for Data Science & ML.
+
+#### Statistics: 
+NumPy, pandas
+
+#### Visualization: 
+Matplotlib, Seaborn
+
+#### Machine Learning: 
+1. scikit-learn
+- provides sets of standard datasets
+- machine learning algorithms
+- in-built functions for feature extraction and selection
+- model evaluation
+
+2. XGBoost (built in c++)
+- Fast data processing
+- supports parallel computation
+- provides internal parameters for evaluation
+- higher accuracy
+
+3. Eli5:
+- integration with scikit-learn
+- explains predictions made by classifiers/regressors
+- support for inspecting black-box models (e.g., deep learning)
+- analyses predictions from general linear models
+
+#### Deep Learning: 
+1. TensorFlow
+- build and train multiple neural networks
+- statistical analysis
+- in-built functions to improve the accuracy
+- comes with an in-built visualizer (TensorBoard) to track and visualize metrics during training
+
+2. Keras
+- support various types of neural networks (CNN, RNN, etc.)
+- advanced neural network computations
+- provides pre-processed dataset
+- easily extensible and modular (custom layers, loss functions, optimizers, etc.)
+
+3. PyTorch
+- APIs to integrate with ML/data science frameworks
+- support for multi-dimensional arrays
+- 200+ mathematical operations
+- builds dynamic computational graphs (vs. static in TensorFlow) — more intuitive for debugging and research
+
+#### Natural Language Processing: 
+1. NLTK
+- provides a suit of data and text processing methods
+- contains wrapperse for industrial-level NLP libraries
+- comprehensive documentation & api documentation guide
+- huge community of users
+
+2. spaCy
+- linguistic computation
+- analyse grammatical structure of sentences
+- methods for text processing (tokenization, lemmatization, etc.)
+- support for 60+ languages
+
+3. gensim
+- precisely classify documents
+- text processing algorithms
+- provides i/o wrappers for common data formats
+- intuitive gui for visualising document similarity
 
 ### 3. Bonnin, R. (2017). Machine Learning for Developers.
 
