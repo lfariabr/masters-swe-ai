@@ -523,14 +523,21 @@ It is now time to use the knowledge you’ve gained in the above resources to ap
 
 https://docs.microsoft.com/en-us/learn/modules/introduction-to-classification/
 
-> *Status: 🕐 To-Do* 
+> *Status: ✅ Done* 
 
 ---
 
 ## Module 6 - Machine Learning in Practice
 
 ### TLDR
-Module 6 covers the **practical ML pipeline** — the hands-on steps between having a dataset and a working model. Key tools are **NumPy**, **Pandas**, and **Matplotlib** for data handling and visualisation. The pipeline itself involves: **dataset preprocessing** (normalization, feature scaling, imputation), **feature engineering** (quantitative vs. ordinal vs. categorical types, PCA for dimensionality reduction), **hyperparameter tuning** (grid search vs. random search), and **model evaluation** (MAE/MSE for regression; accuracy, precision, recall, F1, confusion matrix for classification). The "Garbage in, garbage out" principle from Module 5 is operationalised here — clean, well-engineered features are the single biggest lever on model performance.
+- Module 6 covers the **practical ML pipeline** — the hands-on steps between having a dataset and a working model. 
+- Key tools are **NumPy**, **Pandas**, and **Matplotlib** for data handling and visualisation. 
+- The pipeline itself involves: 
+    - **dataset preprocessing** (normalization, feature scaling, imputation), 
+    - **feature engineering** (quantitative vs. ordinal vs. categorical types, PCA for dimensionality reduction), 
+    - **hyperparameter tuning** (grid search vs. random search), 
+    - **model evaluation** (MAE/MSE for regression; accuracy, precision, recall, F1, confusion matrix for classification). 
+The "Garbage in, garbage out" principle from Module 5 is operationalised here — clean, well-engineered features are the single biggest lever on model performance.
 
 ### Introduction
 In this module, you will be introduced to the many influential and nifty Python libraries that make machine learning powerful. From Numpy (used for linear algebraic functions modelling) to Pandas (a Structural Query Language – SQL based) library for data manipulation and analysis as well as Matplotlib for effective visualisation, you will be privy to the tools of the trade. The module will also introduce the step by step activities involved in developing and evaluating a ML model – from pre-processing datasets, feature engineering, hyperparameter tuning and evaluation of models to prepare you for the next assessment.
@@ -544,7 +551,7 @@ In this module, you will be introduced to the many influential and nifty Python 
 
     This video is a neat introduction to the five main Python-based libraries used to help solving complex problems using machine learning models. From basic mathematical computations to representing and manipulating datasets using linear algebraic and polynomial modelling techniques to problems solved best by analysing time series data, these libraries will become your best friends as you embark on your machine learning journey. Watch this video from 2.49 until about 13.30 for an overview of some of the libraries you will become intimately familiar with during the course.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module06_notes.md](./module_06_ml-in-practice/module06_notes.md)*
 
 #### 2. Visualisation
 
@@ -554,7 +561,7 @@ In this module, you will be introduced to the many influential and nifty Python 
 
     Watch the following video to gain an understanding of the Matplotlib library in Python. It takes you through some of the main functions used to draw, manipulate and learn about different types of visualisation you can employ – from histograms to scatter plots and bar charts. Visualisation is an important part of machine learning as it helps you understand your data and the results of your models.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module06_notes.md](./module_06_ml-in-practice/module06_notes.md)*
 
 #### 3. Dataset pre-processing
 - Bonnin, R. (2017). Machine Learning for Developers, England: Packt Publishing. Retrieved from https://search.ebscohost.com/login.aspx?direct=true&AuthType=shib&db=nlebk&AN=1637915&site=ehost-live&custid=ns251549&ebv=EB&ppid=pp_47
@@ -599,7 +606,7 @@ In this module, you will be introduced to the many influential and nifty Python 
 
     Now that we know how to pre-process data, identify features and hyperparameters and understand how to analyse model performance, we now need to understand how the model will generalise in new examples of data. You will learn the concepts behind establishing a “training” and “validation” data set as well as “cross validation”. Watch all four lessons within section 3 of this video course on Applied Machine Learning and attempt the quiz at the end to test your understanding.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module06_notes.md](./module_06_ml-in-practice/module06_notes.md)*
 
 ### Learning Activities
 

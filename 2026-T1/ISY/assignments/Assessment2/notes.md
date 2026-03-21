@@ -8,8 +8,8 @@
 ## TL;DR
 
 - Task 0: data cleaning done — `'?'` values handled, imputation strategy in place
-- Task 1: baseline model runs but doesn't learn — flat loss, predicting mean price (~$13k) for everything
-- Root cause: unscaled features → Task 2 fix is normalization, not hyperparameter tuning
+- Task 1: fixed with `AdagradOptimizer` — avg_loss dropped from ~62M → ~10.8M (~83% reduction), RMSE ~$3,290
+- Root cause of original failure: unscaled features → optimizer divergence → model predicting mean for everything
 - Scatter plots confirmed which features actually correlate with price
 
 ---
@@ -84,6 +84,31 @@ Features that showed a clear diagonal pattern (strong correlation with price):
 - **Negative:** `highway-mpg`, `city-mpg` — fuel-efficient = cheaper (econoboxes vs performance cars)
 - **Weak/flat:** `symboling`, `stroke`, `compression-ratio` — scattered, low predictive value
 
+### Solution for Task 1
+Since we are explicitly told not to use normalization, we replaced GradientDescentOptimizer with AdagradOptimizer. Adagrad adapts the learning rate per parameter, which reduces sensitivity to feature scale differences and prevents divergence or NaN loss early in training. With 15 numeric features spanning different magnitudes (e.g. engine displacement vs. price ratios), adaptive optimization is particularly beneficial.
+
+#### Results after Task 1 changes
+
+`label/mean` is fixed at **$13,207** throughout.
+
+| Step | avg_loss | prediction/mean |
+|------|----------|-----------------|
+| 1,000 | 15,046,353 | $13,599 |
+| 2,000 | 13,564,830 | $14,004 |
+| 3,000 | 12,317,929 | $12,702 |
+| 5,000 | 11,341,380 | $13,204 |
+| 8,000 | 11,028,722 | $13,474 |
+| 10,000 | **10,822,464** | $13,157 |
+
+**vs GradientDescentOptimizer:**
+
+| | GradientDescent | Adagrad |
+|---|---|---|
+| Final avg_loss | ~62,900,000 | **10,822,464** |
+| Behaviour | Predicting mean every time | Actually learning |
+| RMSE | ~$7,929 | **~$3,290** |
+
+> ~83% reduction in loss. The model is no longer lazy.
 ---
 
 ## What's next — Task 2 (TODO)
@@ -106,9 +131,9 @@ After normalization, all features live in ~(−2, +2). Gradients are balanced. T
 
 ### Task progression
 1. ✅ Task 0: clean the data
-2. ✅ Task 1: baseline — prove the raw model fails
-3. 🕐 Task 2: add normalization — model should converge
-4. 🕐 Task 3+: hyperparameter experiments on a model that actually works
+2. ✅ Task 1: fix optimizer → model learns (avg_loss ~10.8M, RMSE ~$3,290)
+3. 🕐 Task 2: add normalization → expect further loss reduction
+4. 🕐 Task 3+: categorical features + combined model
 
 ---
 
