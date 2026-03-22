@@ -11,7 +11,7 @@
 | **3** | Watch & summarise Atchison, L. (2022) — Microservices & Serverless | ✅ |
 | **4** | Watch & summarise Chapple, M. (2022) — Cloud Orchestration | ✅ |
 | 5 | Read & summarise Clinthicum, D. (2023) — Agility & Cloud Storage | ✅ |
-| 6 | Activity 1: Try It for Yourself — Core Cloud Services (Azure) | 🕐 |
+| **6** | Activity 1: Try It for Yourself — Core Cloud Services (Azure) | ✅ |
 | 7 | Activity 2: Collaborative Learning — Everything as a Service (XaaS) | 🕐 |
 
 ---

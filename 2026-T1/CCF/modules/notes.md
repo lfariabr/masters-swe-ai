@@ -601,7 +601,7 @@ In Module 6, you will study the concepts of the advanced cloud service technolog
 
     These two LinkedIn Learning course units (approximately 18 minutes) introduce you to some architectural patterns and advanced concepts in cloud computing. Watch these short clips to demystify some of those fanciful terms you may have heard before, like:
 
-> *Status: 🔥 WIP — requires LinkedIn Learning authentication (manual access needed)*
+> *Status: ✅ Done*
 
 #### 4. Cloud Orchestration
 - Chapple, M. (2022). Cloud orchestration [Video]. In CCSP Cert Prep: 1 Cloud concepts, architecture, and design. LinkedIn Learning. https://www.linkedin.com/learning/ccsp-cert-prep-1-cloud-concepts-architecture-and-design-14683746/cloud-orchestration?autoplay=true&resume=false&u=72036930
@@ -610,7 +610,7 @@ In Module 6, you will study the concepts of the advanced cloud service technolog
 
     You might have heard in the video about Edge Computing (AWS Online Tech Talks, 2020), a discussion about cloud orchestration. Put simply, when multiple cloud models are used to provision services, there is a need to ensure these individual deployments work together well and efficiently. This is the concept of cloud orchestration and this video (Section 3.5, approximately 3 minutes) provides a good introduction to the nuances of this process.
 
-> *Status: 🔥 WIP — requires LinkedIn Learning authentication (manual access needed)*
+> *Status: ✅ Done*
 
 #### 5. Agility: A Key Consideration for Cloud Computing
 - CLinthicum, D. (2023). An insider’s guide to cloud computing. Addison-Wesley Professional. https://learning-oreilly-com.torrens.idm.oclc.org/library/view/an-insiders-guide/9780137935819/ch01.html#ch01lev1sec1
@@ -627,6 +627,8 @@ In Module 6, you will study the concepts of the advanced cloud service technolog
 - APA Reference: Microsoft. (n.d.). Introduction to Azure fundamentals. https://docs.microsoft.com/en-us/learn/modules/welcome-to-azure/
 
 It is time to put all of the knowledge you have acquired so far into action! In this hands-on lab, you will set up a virtual machine on Microsoft Azure and run a basic web server on it. You will also experience how real-life cloud computing applications scale on-demand by increasing compute power. The first four units mentioned in the course provide a useful overview of how Microsoft Azure can satisfy real-world business requirements and the lab itself starts from Unit 5 It is a good idea to read through the introductory modules before starting the lab. Please navigate to this link to start your hands-on lab: https://docs.microsoft.com/en-us/learn/modules/welcome-to-azure/
+
+> *Status: ✅ Done*
 
 #### 2. Activity 2: Collaborative Learning Activity: Everything as a Service (XaaS)
 Complexity in the field of cloud computing comes from many factors including the use case, the amount of data, platform and/or technical limitations, to name a few. As you saw in some of the Essential Resources, future use cases of cloud computing appear to evolve and grow in line with the changing demands of the market. So much so, that the term “Everything as a Service” (called either EaaS or XaaS—where the ‘X’ is a placeholder for any letter) has been bandied around to represent the concept that businesses may choose to offer anything as a service through the cloud.

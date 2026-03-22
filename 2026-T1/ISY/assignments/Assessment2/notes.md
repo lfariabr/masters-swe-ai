@@ -112,6 +112,7 @@ Since we are explicitly told not to use normalization, we replaced GradientDesce
 ---
 
 ## What's next — Task 2 (TODO)
+claude --resume 8dfd9e3d-ab3c-4db3-ac16-03fd5715851e
 
 ### The real fix: Normalization (not just hyperparameters)
 
