@@ -7,9 +7,9 @@
 | **#** | Task | Status |
 |---|------|--------|
 | **1** | Read & summarise McHaney, R. (2021) — What Is the Cloud Future? | ✅ |
-| 2 | Watch & summarise AWS Online Tech Talks (2020) — Computing at the Edge | 🔥 WIP |
+| **2** | Watch & summarise AWS Online Tech Talks (2020) — Computing at the Edge | ✅ |
 | **3** | Watch & summarise Atchison, L. (2022) — Microservices & Serverless | ✅ |
-| **4** | Watch & summarise Chapple, M. (2022) — Cloud Orchestration | ✅ |
+| **4** | Watch & summarise Chapple, M. (2022) — Cloud Orchestration | ✅ | 
 | 5 | Read & summarise Clinthicum, D. (2023) — Agility & Cloud Storage | ✅ |
 | **6** | Activity 1: Try It for Yourself — Core Cloud Services (Azure) | ✅ |
 | 7 | Activity 2: Collaborative Learning — Everything as a Service (XaaS) | 🕐 |
@@ -168,6 +168,18 @@ graph TD
 ### 2. AWS Online Tech Talks. (2020). Computing at the edge.
 
 **Citation:** AWS Online Tech Talks. (2020, October 27). Computing at the edge: Choosing the best option for your application. YouTube. https://www.youtube.com/watch?v=hms0IkNqNJo
+
+#### Introduction
+Edge computing is a rapidly growing movement. With IoT, mobile, industrial applications, video everywhere, demand for lower latency, and disconnected operation, architectures increasingly look for service endpoints that live closer to devices. But what patterns and cloud solutions are right for you? In this tech talk, we were able to learn about the portfolio of AWS edge services including AWS IoT Greengrass, AWS Snow Family, AWS Outposts, and AWS Wavelength. These edge computing options solve different problems. See reference architectures showing design patterns for your solutions.
+
+#### AWS Edge Architectures
+![AWS Edge Architectures](aws-edge.jpg)
+
+#### Learning Objectives: 
+- Understand why edge computing is a trend 
+- Learn about major edge computing use cases
+- Get an overview of AWS edge computing services and how to apply them to different use cases
+
 
 > *Status: 🔥 WIP — needs manual watch (YouTube video, no transcript available via fetch)*
 
