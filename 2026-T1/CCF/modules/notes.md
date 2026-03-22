@@ -590,7 +590,7 @@ In Module 6, you will study the concepts of the advanced cloud service technolog
 
     A fascinating talk that explores future use cases and implications for cloud computing. Data and bandwidth usage from self-driving cars, 5G-enabled devices and AI-enabled services will dictate the need for new cloud architectures, ideas and models to help keep with up with the demand.
 
-> *Status: 🔥 WIP — needs manual watch (YouTube video)*
+> *Status: ✅ Done*
 
 #### 3. Advanced Cloud Architecture
 - Atchison, L. (2022). 2. Microservices [Videos]. In Cloud architecture: Advanced concepts. LinkedIn Learning.
