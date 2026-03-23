@@ -292,47 +292,79 @@ graph TD
 
 ---
 
-### Activity 2: Fujita Health University Hospital — GenAI for Clinical Workflows via Amazon Bedrock
+### Activity 2: Fujita Health University Hospital — PHR System on AWS
 
-**Source:** Vallikkat, M., & Matsumoto, S. (IDC, June 2025). *Leveraging GenAI in Healthcare: How Fujita Health University Hospital Transformed Clinical Workflows by Leveraging Amazon Bedrock.* IDC Perspective #AP52884325.
+**Source:** Amazon Web Services. (2022). *Fujita Health University aims to improve continuity of patient care and deliver higher quality healthcare with patient records on AWS.* https://aws.amazon.com/solutions/case-studies/fujita-health-university-case-study/
 
 #### Situation
-- Fujita Health University Hospital (FHUP), Japan — 1,376 beds, one of Japan's largest medical facilities
-- Challenge: Discharge summary preparation required ~10 minutes per patient — immense clinician burden requiring cross-department collaboration
-- Strategic context: FUJITA VISION 2030 — Smart Hospital digital transformation (DX)
+- Japanese university hospital situated on a major seismic fault line — DR was a business continuity requirement, not optional
+- Handwritten and paper-based medical notes were the norm → clinicians spent more time on admin than on patients
+- Goal: digital PHR (Personal Health Record) system to centralise X-rays, EMR data, and AI diagnostic models at scale
+- Hard compliance requirement: 3 Japanese ministries (Health, Labour & Welfare; Internal Affairs; Economy, Trade & Industry)
 
-#### Service Model Analysis
-**PaaS on public cloud (AWS):**
-- **Amazon Bedrock** = fully managed PaaS GenAI platform; Foundation Models (FMs) accessed via API; no server management; no direct embedding into existing systems
-- **PHR Platform on AWS** = data warehouse aggregating 1.2M EMRs + real-world data (genomics, psychiatric conditions)
-- Governance structure: Clinical Oversight Committee (clinicians, data scientists, legal experts, patient safety officers)
+#### Service Model Chosen
+**PaaS on public AWS cloud:**
+- **Container layer:** Amazon ECS (orchestration) + AWS Fargate (serverless compute) — no server management; PHR app deployed as containers
+- **Security layer:** Amazon Cognito (user access control) + AWS WAF (web application firewall)
+- **Compliance framework:** FHIR Works on AWS — pre-built toolkit for health data exchange interfaces aligned to ministry requirements
+- **Future direction:** Data lake on AWS for personalised patient communications and IoT integration
 
-#### How AWS Supported Transition to Patient-Centric Care
-1. **Amazon Bedrock** automated discharge summary generation — reduced time from **10 minutes → 1 minute per patient** (90% reduction), directly freeing clinicians for patient interaction
-2. Policy-based security architecture embedded data protection at every solution layer
-3. GenAI integrated structured + unstructured clinical data via API without disrupting core systems
-4. Scaled from PoC (50 summaries, Respiratory Medicine dept.) → **30+ departments by Q1 2025** via FH-Hub
+#### AWS Services Used
 
-#### AWS Cloud Services Used
+| Service | Role | Characteristic |
+|---------|------|---------------|
+| **FHIR Works on AWS** | Health data exchange compliance toolkit | Pre-built framework aligned to 3 Japanese ministries; accelerated compliant setup |
+| **Amazon ECS** | Container orchestration for PHR application | Fully managed; no cluster infrastructure to operate |
+| **AWS Fargate** | Serverless compute for containers | No EC2 provisioning; scales to workload; zero idle cost |
+| **Amazon Cognito** | User authentication & access control | Manages login for staff and patients |
+| **AWS WAF** | Web Application Firewall | Protects patient records against common web exploits |
+| **Data Lake on AWS** *(planned)* | Patient analytics + IoT integration | Enables personalised outreach, drug discovery APIs, omnichannel health tracking |
 
-| Service | Characteristic |
-|---------|---------------|
-| **Amazon Bedrock** | Managed GenAI platform; provides Foundation Models (FMs) via API; fully serverless — no infrastructure management |
-| **Fujita Healthcare Platform (PHR) on AWS** | Centralises 1.2M EMRs + real-world data (RWD); enables secondary clinical data use for research |
-| **FH-Hub** | Integrates dispersed medical information across hospital departments; ensures data reliability for GenAI |
-| **Data Warehouse (DWH) on AWS** | Aggregates RWD from hospitals, clinics, health checkup centres |
+#### Why AWS Over On-Premises
+The FHIR-compliant framework was already in place at AWS — no custom compliance build required. Weekly co-design sessions with AWS engineers + third-party audit of the on-premises → cloud data transfer reduced migration risk. Cloud storage also eliminated the physical disaster risk from the university's seismic location.
 
-#### Challenges Encountered
-- **Data scarcity:** Incomplete records and missing medical histories → affected GenAI accuracy
-- **Skill gap:** Internal team lacked prompt engineering + model fine-tuning expertise → partnered with AWS; considering RAG (Retrieval-Augmented Generation) to improve contextual accuracy
-- **AI inaccuracies:** Model misused clinical terminology; misrepresented treatment dates → switched to more suitable LLM, reinforced prompt engineering
+#### Architecture Diagram
+
+```mermaid
+graph TD
+    Staff["🏥 Clinical Staff<br>6,000 trial users → 1M+ patients (planned)"]
+    Patients["👤 Patients<br>Annual health check data entry"]
+
+    subgraph AWS["☁️ AWS Public Cloud"]
+        Cognito["Amazon Cognito<br>User authentication & access control"]
+        WAF["AWS WAF<br>Web Application Firewall"]
+        FHIR["FHIR Works on AWS<br>Ministry-compliant data exchange"]
+
+        subgraph Containers["PaaS — Container Layer"]
+            ECS["Amazon ECS<br>Container orchestration"]
+            Fargate["AWS Fargate<br>Serverless compute engine"]
+        end
+
+        PHR["PHR Data Store<br>X-rays, EMR, health records"]
+        DataLake["Data Lake on AWS *(planned)*<br>IoT + personalised comms + drug discovery"]
+    end
+
+    Staff & Patients -->|"Login"| Cognito
+    Cognito -->|"Authenticated request"| WAF
+    WAF -->|"Filtered traffic"| ECS
+    ECS --> Fargate
+    Fargate -->|"Read / write records"| PHR
+    PHR <-->|"FHIR-compliant exchange"| FHIR
+    PHR -.->|"Future: analytics + IoT"| DataLake
+
+    style AWS fill:#f0f7ff,stroke:#2d7dd2
+    style Containers fill:#e8f4ea,stroke:#3a9e4a
+    style DataLake stroke-dasharray: 5 5
+```
 
 #### Outcomes
-- Discharge summary time: **10 min → 1 min** (90% reduction per patient)
-- Improved consistency and quality of clinical documentation
-- Clinicians reported increased satisfaction and workstyle transformation
-- Scaled to **30+ medical departments** by Q1 2025
-- Validated as a low-risk, high-impact GenAI use case for healthcare automation
+- PHR system trialled with **6,000 staff** before public rollout
+- Target: **1,000,000 patient records** within 3–4 years of deployment
+- Doctors spending more time on patient interaction vs. administrative work
+- Higher record reliability; reduced risk of diagnostic errors
+- DR risk eliminated — data protected from on-site seismic events
+- API-driven innovation pipeline: drug discovery, medical devices, omnichannel health tracking
+- *"Everyone is rowing in the same direction, which gives us confidence for the next step in migrating our EMR to AWS."* — Nobuyuki Kobayashi, Head of IT, Fujita Health University
 
 ---
 

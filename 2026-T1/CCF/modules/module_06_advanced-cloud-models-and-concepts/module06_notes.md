@@ -287,3 +287,9 @@ Edge computing is a rapidly growing movement. With IoT, mobile, industrial appli
 3. **Lift-fix-and-shift** aligns with software engineering principles: technical debt addressed *before* migration is cheaper than patching it after
 4. **Shared responsibility model** introduced here in the storage context directly relates to security and governance topics — reinforces the CSP boundary concept
 5. The unified data layer concept (common views, common access, common security) is the data architecture equivalent of cloud's service model abstraction
+
+---
+
+## Class Notes
+
+### 23/03/2026 - 11:30
