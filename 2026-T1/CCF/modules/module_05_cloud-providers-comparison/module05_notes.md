@@ -366,6 +366,15 @@ graph TD
 - API-driven innovation pipeline: drug discovery, medical devices, omnichannel health tracking
 - *"Everyone is rowing in the same direction, which gives us confidence for the next step in migrating our EMR to AWS."* — Nobuyuki Kobayashi, Head of IT, Fujita Health University
 
+#### 200 word summary:
+Fujita Health University Hospital in Japan was still relying on handwritten medical notes — clinicians spending more time on paperwork than on patients. On top of that, the hospital sits on a major fault line, making on-premises data storage a physical risk, not just a technical one.
+
+They moved to AWS to build a digital PHR (Personal Health Record) system. The compliance requirement was strict: three Japanese ministries with overlapping standards. FHIR Works on AWS already had the compliant framework in place, which cut setup time significantly. The hospital worked weekly with AWS engineers and brought in a third-party auditor to make sure the migration from on-premises was clean.
+
+The architecture runs on PaaS — Amazon ECS and AWS Fargate handle the containerised app without any server management. Amazon Cognito controls access, AWS WAF sits in front to filter traffic. No EC2 instances to provision or patch.
+
+The system launched with 6,000 staff in trial. Target is 1 million patient records within a few years. Future plans include a data lake for personalised communications and drug discovery APIs. The cloud move also solved the DR problem — seismic risk gone.
+
 ---
 
 ## Class Notes
