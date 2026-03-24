@@ -5,6 +5,59 @@
 
 ---
 
+## ML Pipeline Overview
+
+```mermaid
+flowchart TD
+    RAW["UCI Autos Dataset<br>205 rows · 26 features<br>'?' placeholders for missing values"]
+
+    RAW --> T0
+
+    subgraph T0["Task 0 — Data Preparation"]
+        T0A["Convert '?' → NaN (errors='coerce')"]
+        T0B["Drop rows: price = NaN or ≤ 0<br>(4 rows removed → 201 rows)"]
+        T0C["Impute missing features with column mean<br>15 numeric · 10 categorical · 0 NaNs remaining"]
+        T0A --> T0B --> T0C
+    end
+
+    T0 --> T1
+
+    subgraph T1["Task 1 — Numeric Features, No Normalization"]
+        T1A["DNNRegressor · hidden=[64] · batch=16<br>AdagradOptimizer lr=0.01"]
+        T1B["avg_loss 18,720,354 · RMSE ~$4,327 ✅<br>Best result across all tasks"]
+        T1A --> T1B
+    end
+
+    T1 --> T2
+
+    subgraph T2["Task 2 — Normalization Experiments"]
+        T2A["T2.1 Z-score + Adagrad<br>avg_loss 187M · RMSE ~$13,686 ⚠️"]
+        T2B["T2.2 Min-Max + Adagrad<br>avg_loss 192M · RMSE ~$13,888 ⚠️"]
+        T2C["T2.3 GD + Z-score<br>NaN at lr=0.5 / 0.01 / 0.0001 ❌"]
+        T2D["T2.4 PCA 9-components + Adagrad<br>avg_loss 215M · RMSE ~$14,668 ⚠️"]
+        T2E["Root cause: Adagrad + small normalised gradients<br>= effective lr → 0. Models underfit, not overfit."]
+        T2A & T2B & T2C & T2D --> T2E
+    end
+
+    T2 --> T3
+
+    subgraph T3["Task 3 — Categorical Features Only 🕐"]
+        T3A["indicator_column + vocabulary_list<br>for 10 categorical features"]
+    end
+
+    T3 --> T4
+
+    subgraph T4["Task 4 — All Features Combined 🕐"]
+        T4A["Numeric Z-score + Categorical indicator<br>25 features total · expected best result"]
+    end
+
+    style T1B fill:#1a3a1a,color:#7fff7f
+    style T2C fill:#3a1a1a,color:#ff7f7f
+    style T2E fill:#2a2a1a,color:#ffff7f
+```
+
+---
+
 ## TL;DR
 
 - Task 0: data cleaning done — `'?'` values handled, imputation strategy in place
