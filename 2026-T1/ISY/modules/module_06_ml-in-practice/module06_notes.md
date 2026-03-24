@@ -10,7 +10,7 @@
 | **1** | Watch & summarise Edureka! (2019) — Best Python Libraries for Data Science & ML | ✅ |
 | **2** | Watch & summarise blondiebytes (2019) — Learn Matplotlib in 6 minutes | Video | ✅ |
 | **3** | Read & summarise Bonnin, R. (2017) — Dataset preprocessing | Chapter | ✅ |
-| 4 | Read & summarise Julian, D. (2016) — Features: How Algorithms See the World | Chapter | ✅ |
+| **4** | Read & summarise Julian, D. (2016) — Features: How Algorithms See the World | Chapter | ✅ |
 | 5 | Read & summarise Paul, S. (2018) — Hyperparameter Optimization in ML Models | Article | ✅ |
 | 6 | Read & summarise Ng, R. (n.d.) — Evaluating a classification model | Article | 🔥 WIP — URL returns 404 |
 | **7** | Watch & summarise Jedamski, D. (2019) — Measuring Success | Video | ✅ |
