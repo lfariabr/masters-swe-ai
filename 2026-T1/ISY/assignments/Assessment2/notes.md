@@ -1,5 +1,5 @@
 # Assessment 2 — Study Notes
-> Session: 2026-03-18 | Notebook: `intro_to_modeling_Luis.ipynb`
+> Sessions: 2026-03-18 / 2026-03-25 | Notebooks: `intro_to_modeling_Luis.ipynb` → `car_data_ML_pipeline.ipynb`
 
 > claude --resume 8dfd9e3d-ab3c-4db3-ac16-03fd5715851e
 
@@ -11,6 +11,8 @@
 - Task 1: fixed with `AdagradOptimizer` — avg_loss dropped from ~62M → ~10.8M (~83% reduction), RMSE ~$3,290
 - Root cause of original failure: unscaled features → optimizer divergence → model predicting mean for everything
 - Scatter plots confirmed which features actually correlate with price
+- Task 2: normalization added — Z-score + Adagrad avg_loss 187M (~$13,686 RMSE), worse than T1 due to Adagrad/normalization interaction
+- Task 2.3: GradientDescentOptimizer diverges (NaN) at all tested lr — feature normalization alone insufficient without label normalization
 
 ---
 
@@ -111,30 +113,74 @@ Since we are explicitly told not to use normalization, we replaced GradientDesce
 > ~83% reduction in loss. The model is no longer lazy.
 ---
 
-## What's next — Task 2 (TODO)
-claude --resume 8dfd9e3d-ab3c-4db3-ac16-03fd5715851e
+## Task 2 — Normalization Experiments
 
-### The real fix: Normalization (not just hyperparameters)
+**Config baseline:** same as best T1 run — batch=16, hidden=[64], Adagrad lr=0.01.
 
-Hyperparameter tuning (learning rate, layers, batch size) is tweaking. The model is **fundamentally broken** by scale differences. Fix that first.
+### Task 2.1 — Z-score Normalization
 
-**Z-score normalization:**
 ```python
-x_normalized = (x - mean) / std_deviation
+normalizer_fn=lambda val, fn=feature_name: (val - x_df.mean()[fn]) / (epsilon + x_df.std()[fn])
 ```
 
-After normalization, all features live in ~(−2, +2). Gradients are balanced. The optimizer can learn which features matter.
+| Step | avg_loss | prediction/mean |
+|------|----------|-----------------|
+| 1,000 | 232,202,900 | $143 |
+| 3,000 | 221,591,340 | $444 |
+| 5,000 | 211,321,300 | $739 |
+| 8,000 | 196,636,160 | $1,172 |
+| 10,000 | **187,324,060** | $1,455 |
 
-### Expected outcome after Task 2
-- Loss should start **decreasing** meaningfully (not flat)
-- Model should pick up on `engine-size`, `horsepower`, `weight` etc. as dominant predictors
-- RMSE should drop significantly below $7,930
+RMSE ~$13,686. prediction/mean climbing toward $13,207 but only reached $1,455 at 10k steps.
+
+### Task 2.2 — Min-Max Normalization
+
+```python
+normalizer_fn=lambda val, fn=feature_name: (val - x_df[fn].min()) / (epsilon + x_df[fn].max() - x_df[fn].min())
+```
+
+| Step | avg_loss | prediction/mean |
+|------|----------|-----------------|
+| 1,000 | 232,308,110 | $178 |
+| 5,000 | 213,847,760 | $864 |
+| 10,000 | **192,884,350** | $1,691 |
+
+RMSE ~$13,888. Slightly worse than Z-score. **Z-score wins.**
+
+### Why normalization made things worse
+
+Counterintuitive result. The issue is the **Adagrad + small gradient interaction**:
+
+1. Z-score compresses features to ~(-3, +3) → smaller gradient magnitudes
+2. Adagrad accumulates squared gradients per parameter and divides by their root — denominator still grows even with small gradients
+3. Effective lr = `0.01 / sqrt(accumulated_squared_grads)` → shrinks over time
+4. Combined: small initial gradients + shrinking lr → model crawls toward mean
+
+**Fix:** higher lr (0.1–1.0) with normalized inputs to compensate for smaller gradient magnitudes.
+
+### Task 2.3 — GradientDescentOptimizer + Z-score
+
+Tested lr: 0.5, 0.01, 0.0001. All → `NanLossDuringTrainingError`.
+
+**Root cause:** Labels (price) are still raw ($5k–$45k). Even with normalized features (~(-1,1)), the output-layer gradient at step 1:
+
+```
+∂L/∂w_output ≈ lr × (prediction - label) × input
+             ≈ lr × (0 - 13,207) × 1
+```
+
+At lr=0.0001: update ≈ 1.3 per step — large relative to initial weights (~0.1). GD has no adaptive protection → explodes.
+
+Adagrad survived this because its accumulated denominator naturally dampens the first large update.
+
+**Conclusion:** Feature normalization alone is not sufficient. GD on this dataset requires EITHER label normalization (scale price to ~N(0,1)) OR an adaptive optimizer (Adagrad, Adam).
 
 ### Task progression
-1. ✅ Task 0: clean the data
-2. ✅ Task 1: fix optimizer → model learns (avg_loss ~10.8M, RMSE ~$3,290)
-3. 🕐 Task 2: add normalization → expect further loss reduction
-4. 🕐 Task 3+: categorical features + combined model
+1. ✅ Task 0: data cleaned — 201 rows, 0 NaNs, mean imputation
+2. ✅ Task 1: AdagradOptimizer — avg_loss 18,720,354 (~$4,327 RMSE)
+3. ✅ Task 2: Z-score best (187M), GD failure documented
+4. 🕐 Task 3: categorical features only
+5. 🕐 Task 4: all features combined
 
 ---
 
