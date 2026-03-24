@@ -11,8 +11,9 @@
 - Task 1: fixed with `AdagradOptimizer` — avg_loss dropped from ~62M → ~10.8M (~83% reduction), RMSE ~$3,290
 - Root cause of original failure: unscaled features → optimizer divergence → model predicting mean for everything
 - Scatter plots confirmed which features actually correlate with price
-- Task 2: normalization added — Z-score + Adagrad avg_loss 187M (~$13,686 RMSE), worse than T1 due to Adagrad/normalization interaction
+- Task 2: 4 experiments — Z-score (187M), Min-Max (192M), GD/NaN, PCA/9-components (215M) — all worse than T1 due to Adagrad+normalization interaction
 - Task 2.3: GradientDescentOptimizer diverges (NaN) at all tested lr — feature normalization alone insufficient without label normalization
+- Task 2.4: PCA (9 components, 95% variance) — same slowness pattern, no improvement over Z-score
 
 ---
 
@@ -175,10 +176,39 @@ Adagrad survived this because its accumulated denominator naturally dampens the 
 
 **Conclusion:** Feature normalization alone is not sufficient. GD on this dataset requires EITHER label normalization (scale price to ~N(0,1)) OR an adaptive optimizer (Adagrad, Adam).
 
+### Task 2.4 — PCA + Adagrad
+
+Dimensionality reduction: 15 correlated numeric features → 9 principal components (95% variance threshold). Components are orthogonal — no multicollinearity.
+
+| Step | avg_loss | prediction/mean |
+|------|----------|-----------------|
+| 1,000 | 235,170,930 | $60 |
+| 3,000 | 230,710,560 | $183 |
+| 5,000 | 226,191,630 | $306 |
+| 8,000 | 219,522,670 | $490 |
+| 10,000 | **215,141,230** | $611 |
+
+RMSE ~$14,668. **Worse than Z-score and Min-Max.**
+
+Note: predicted 5–7 components; actual was 9 — car features are more independent than expected.
+
+Same root cause as T2.1/T2.2: PCA components are standardized inputs → same Adagrad slowness problem. Fewer features (9 vs 15) didn't compensate because the Adagrad decay dominates.
+
+### T2 Summary
+
+| Sub-task | Normalization | avg_loss (10k) | RMSE |
+|----------|--------------|----------------|------|
+| T2.1 | Z-score + Adagrad | 187,324,060 | ~$13,686 |
+| T2.2 | Min-Max + Adagrad | 192,884,350 | ~$13,888 |
+| T2.3 | GD + Z-score | NaN (all lr) | — |
+| T2.4 | PCA (9 components) + Adagrad | 215,141,230 | ~$14,668 |
+
+**Winner: T2.1 Z-score.** All are worse than T1 (18.7M) — the Adagrad+normalization interaction is the bottleneck across all variants.
+
 ### Task progression
 1. ✅ Task 0: data cleaned — 201 rows, 0 NaNs, mean imputation
 2. ✅ Task 1: AdagradOptimizer — avg_loss 18,720,354 (~$4,327 RMSE)
-3. ✅ Task 2: Z-score best (187M), GD failure documented
+3. ✅ Task 2: Z-score best (187M), GD failure documented, PCA attempted (215M)
 4. 🕐 Task 3: categorical features only
 5. 🕐 Task 4: all features combined
 
