@@ -113,7 +113,7 @@ Post your answer in the Module 1 discussion forum.
 ---
 
 #### Activity 3: Thinking Exercise on Total Cost of Ownership—Discussion Forum
-One of the top considerations, right off the bat, in investing in new IT services or infrastructure is the total cost of ownership (TCO) of the new project. In this article, Cloud Total Cost of OwnershipLinks to an external site., the authors discuss the ‘economics’ of cloud computing and describe the journey facing companies who consider the adoption of cloud.
+One of the top considerations, right off the bat, in investing in new IT services or infrastructure is the total cost of ownership (TCO) of the new project. In this article, Cloud Total Cost of Ownership., the authors discuss the ‘economics’ of cloud computing and describe the journey facing companies who consider the adoption of cloud.
 
 Consider this article and your own observations after reading through and watching some of the resources in this module. What advantages (if any) may there be in terms of the TCO of investing in the cloud?
 
@@ -636,6 +636,105 @@ Complexity in the field of cloud computing comes from many factors including the
 In this Collaborative Learning Activity, come prepared to your class with an example of an interesting application of XaaS you have found. In the class, you can discuss their characteristics and learn about the complexities inherent in providing this service on the cloud with other students. To facilitate collaboration, groups will be formed by the learning facilitator with 3-4 students and you will be invited to be in the designated breakout room during the class. You will discuss with your peers to complete this activity.
 
 To participate in the learning activity, connect with your peers and discuss your opinions in your next scheduled class.
+
+---
+
+## Module 7 - Public, Private and Hybrid Deployment Models, key considerations
+
+### TLDR
+
+### Introduction
+Although there a plethora of public cloud providers that also offer various deployment options, one size does not fit all. Just like you may try on a piece of clothing for size, it is advisable you seek a trial period or agreement in terms of services consumed. With the ever-increasing pressure on businesses to keep up with consumer demands (think the likes of ‘click and collect’ or compatibility with devices ranging from the latest releases of mobile phone software to the most recent Internet of Things (IoT) devices), there is a need to conduct solid research, establish a strategy and seek advice on the key factors that will influence the selection of cloud service solutions for your business.
+
+In Module 7, you will be exposed to a range of resources that explore the key considerations for businesses looking to seek clarity on the choice of deployment models. You will learn to appreciate the multi-tiered set of factors – ranging from business environment to budget, future business strategy to security, and location of the business and local ICT law, to name a few.
+
+### Resources
+
+#### 1. Choose a Cloud Deployment Platform: Public, Private, Multicloud
+- Linthicum, D. (2021). Public clouds [Video]. In Learning cloud computing: Application migration. LinkedIn Learning. https://www.linkedin.com/learning/learning-cloud-computing-application-migration/public-clouds?autoplay=true&resume=false&u=72036930
+
+*Resource Overview:*
+
+    The agility, scalability, control, elasticity and cost define which cloud service strategy is optimal for businesses, given the options of public, private and multicloud cloud services. Please watch the videos from Sections 3.1 to 3.4 (approximately 12 minutes) to learn about the pros and cons and trade-offs between public, private and multicloud deployment:
+    1. Public Clouds
+    2. Private Clouds
+    3. Multicloud
+    4. Other Options
+
+> *Status: 🕐 To-Do*
+
+#### 2. Selecting Appropriate Public Cloud Platforms
+- Linthicum, D. (2019). Application and data compatibility [Video]. In Learning cloud computing: Public cloud platforms. LinkedIn Learning.  https://www.linkedin.com/learning/learning-cloud-computing-public-cloud-platforms-2/normalizing-the-offerings?autoplay=true&resume=false&u=56744473
+
+*Resource Overview:*
+
+    So, what are the key things to consider when choosing a public cloud provider? You may think security is one of the top things to consider and you would be right, but there are definitely more considerations. Please watch the videos from Sections 3.1 to 3.2 (approximately 6 minutes), Sections 4.1 to 4.2 (approximately 3 minutes) and Sections 5.1 to 5.2 (approximately 5 minutes) to know about the offerings of the big three (Amazon Web Services, Microsoft Azure and Google Cloud respectively) as the provider for public cloud platform.
+
+> *Status: 🕐 To-Do*
+
+#### 3. Hybrid Cloud and Multicloud
+- VMware. (n.d.). What is hybrid cloud? https://www.vmware.com/topics/glossary/content/hybrid-cloud.html.
+- Linthicum, D. (2022). What is Multicloud? [Video]. In Planning a multicloud solution. LinkedIn Learning. https://www.linkedin.com/learning/planning-a-multicloud-solution-15038994/what-is-multicloud?autoplay=true&resume=false&u=56744473
+
+*Resource Overview:*
+
+    As a cloud computing professional, you will be required to deploy a hybrid cloud model or multicloud model for your clients. A hybrid cloud combines both public and private cloud to provide a flexible solution. On the other hand, a multicloud includes more than one public cloud provider. Therefore, It is important to know which solution should be chosen, either a hybrid cloud or multicloud, for a given scenario based on a client’s requirements.
+
+    The article “What is Hybrid Cloud?” discusses working mechanisms, architecture and deployment challenges of hybrid clouds. It also briefly discusses the differences between hybrids architecture and different hybrid cloud platforms.
+
+    The video series discusses requirements for multicloud and its advantages and disadvantages. Please watch these sections to learn more about multicloud solution:
+    0.2 – What is Multicloud?
+    0.3 – Why Multicloud?
+
+> *Status: 🕐 To-Do*
+
+#### 4. Understanding Hybrid Cloud With AWS
+- Amazon Web Services. (n.d.). Understanding hybrid cloud with AWS. https://pages.awscloud.com/rs/112-TZM-766/images/Understanding-Hybrid-Cloud-With-AWS.pdf
+
+*Resource Overview:*
+
+    This article discusses hybrid cloud deployment challenges and how AWS is tackling these challenges to meet business demands. Read about what challenges to consider during hybrid cloud deployment and how AWS is addressing them by utilising their hybrid cloud architecture.
+
+> *Status: 🕐 To-Do*
+
+#### 5. Top Cloud Providers
+- Dignan, L. (2019, August 15). Top cloud providers 2019: AWS, Microsoft Azure, and Google Cloud; IBM makes hybrid move; Salesforce dominates SaaS. ZDNET. https://www.zdnet.com/article/top-cloud-providers-2019-aws-microsoft-azure-google-cloud-ibm-makes-hybrid-move-salesforce-dominates-saas/
+
+*Resource Overview:*
+
+    If the number of providers and the services they offer on the cloud you have seen so far doesn’t have you in a spin, then considering the new players and markets within the public and hybrid cloud that are being targeted will! Read through this fascinating comparison on the various players in the field, how they are adopting to the latest trends in cloud, including the ‘multicloud’ in this ZDNet article.
+
+> *Status: 🕐 To-Do*
+
+### Learning Activities
+
+#### Activity 1: Analysing a Real-Life Cloud Strategy Document—Discussion Forum
+- APA Reference: Australian Government Department of the Environment and Energy. (2019). Cloud strategy. Commonwealth of Australia. https://www.environment.gov.au/system/files/resources/210c5b71-85c4-414f-853e-359655a44445/files/cloud-strategy.pdf
+
+In this learning activity, read through the Australian Government Department of the Environment and Energy’s Cloud Strategy document.
+
+Then, outline, in no more than 250 words, whether (based on the Essential Resources you have read and watched in this module) you agree or disagree with either one of the following:
+
+- The department’s choice of cloud deployment model
+- Staff and business transformation plans
+- The chosen approach to migrating to the hybrid cloud.
+
+Post your response in the Module 7: Learning Activity 1 discussion forum.
+
+#### Activity 2: Case Study
+- APA Reference: Microsoft. (2022). PwC builds multitenant enterprise decision support site with Power Pages. https://customers.microsoft.com/en-us/story/1558972627174665363-pricewaterhousecoopers-banking-and-capital-markets-power-pages
+
+Read the following case study titled "PwC Builds Multitenant Enterprise Decision Support Site with Power Pages" and write a short response in no more than 300 words by answering the following questions:
+- Analyse the case study by briefly discussing the challenges PwC was having.
+- Analyse the service model for the case study.
+- List different services provided by the cloud service provider.
+- Analyse the applications of different services used.
+
+Post your response in the Module 7: Learning Activity 2 discussion forum.
+
+> Important note: Students are advised against using this case study for their Assessment 2.
+
+
 
 ---
 
