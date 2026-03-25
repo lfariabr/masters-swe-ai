@@ -41,7 +41,7 @@ Dr. Nandini Sidnal
 - [X] Module 3 ✅ - Machine Learning Models
 - [X] Module 4 ✅ - Introduction to Deep Learning
 - [X] Module 5 ✅ - Machine Learning in Depth
-- [ ] Module 6 🔥 - Machine Learning in Practice
+- [X] Module 6 ✅ - Machine Learning in Practice
 - [ ] Module 7 🕐 - Deep Learning in Practice
 - [ ] Module 8 🕐 - Computer Vision
 - [ ] Module 9 🕐 - Natural Language Processing
