@@ -77,6 +77,21 @@ A single operating model must address:
 
 > Key insight: A hybrid cloud can be part of a multi-cloud strategy, but multi-cloud ≠ hybrid.
 
+```mermaid
+graph TD
+    A[Cloud Deployment Strategy] --> B[Hybrid Cloud]
+    A --> C[Multi-Cloud]
+    B --> B1[Public + Private combined]
+    B --> B2[Single operating model]
+    B --> B3[Data/workload portability]
+    C --> C1[Multiple public providers]
+    C --> C2[Vendor flexibility]
+    C --> C3[Best-of-breed services]
+    D[Enterprise Reality] --> E[Often Both: Hybrid Multi-Cloud]
+    E --> B
+    E --> C
+```
+
 #### Key Takeaways for CCF501
 
 1. **Activity 1** (Australian Govt cloud strategy) will likely involve evaluating a hybrid cloud deployment — the VMware framework provides vocabulary for that critique
@@ -126,6 +141,19 @@ A single operating model must address:
 | └ Snowmobile | Shipping-container data centre; up to 100PB |
 | **VMware Cloud on AWS** | Runs VMware SDDC on bare-metal AWS; enables cold/live (vMotion) migrations |
 | **ECS/EKS Anywhere** | Extends container management (ECS or EKS) into customer-managed infrastructure |
+
+```mermaid
+graph LR
+    LL[Low latency] --> OP[AWS Outposts / Local Zones]
+    DR[Data residency] --> OP
+    DP[Local data processing] --> OP
+    VM[VMware migration] --> VC[VMware Cloud on AWS]
+    EC[Enterprise cloud migration] --> OP
+    DC[Data centre extension] --> SF[Snow Family]
+    ME[Mobile edge workloads] --> WL[AWS Wavelength]
+    RE[Remote / no connectivity] --> SF
+    CT[Container harmonization] --> EA[ECS/EKS Anywhere]
+```
 
 #### 4. Real-World Customer Use Cases
 
@@ -293,11 +321,30 @@ The department's adoption strategy prioritises: **SaaS → PaaS → Commercial o
 |--------|-------------|--------------|
 | **Re-host** | Lift-and-shift to cloud infrastructure | Fast migration, but misses cloud benefits (scalability) |
 | **Re-factor** | Run on PaaS using existing languages/frameworks | Reuses investments; risk of framework lock-in |
-| **Revise** | Extend/modify code before re-hosting or re-factoring | Optimised for cloud; requires upfront dev cost and time |
+| **Revise** | Extend/modify code before re-hosting or re-factoring | Optimized for cloud; requires upfront dev cost and time |
 | **Rebuild** | Discard and redesign on PaaS | Access to innovative features; loses existing code investment |
 | **Replace** | Discard and adopt SaaS equivalent | Avoids dev cost; risks data semantics issues and vendor lock-in |
 
 Prime candidates for cloud migration: customer-facing portals, online training/forms/docs, partner integrations, e-commerce payment gateways, cloud management/brokerage systems.
+
+```mermaid
+graph TD
+    Start[Application Assessment] --> Q1{Cloud requirements met as-is?}
+    Q1 -->|Yes| RH[Re-host: Lift & Shift]
+    Q1 -->|No| Q2{Existing framework runs on PaaS?}
+    Q2 -->|Yes| RF[Re-factor: Move to PaaS]
+    Q2 -->|No| Q3{Worth modifying code?}
+    Q3 -->|Yes| RV[Revise: Extend then migrate]
+    Q3 -->|No| Q4{SaaS equivalent exists?}
+    Q4 -->|Yes| RP[Replace: Adopt SaaS]
+    Q4 -->|No| RB[Rebuild: Redesign on PaaS]
+
+    RH --> T1[⚡ Fast / ⚠️ Misses cloud benefits]
+    RF --> T2[⚡ Reuses code / ⚠️ Framework lock-in]
+    RV --> T3[⚡ Optimized / ⚠️ Upfront dev cost]
+    RB --> T4[⚡ Innovation / ⚠️ Loses code investment]
+    RP --> T5[⚡ No dev cost / ⚠️ Vendor lock-in]
+```
 
 #### Key Takeaways for CCF501 — Activity 1 Discussion
 
@@ -352,13 +399,24 @@ This is primarily a **PaaS/SaaS hybrid** deployment — PwC consumes managed pla
 
 #### 4. Architecture Flow
 
-```
-User login (Power Pages multitenant)
-  → Input: cyber licensing portfolio data
-    → C# plugins in Dataverse (business logic computation)
-      → JSON output retrieved via Power Pages Web API
-        → Transformed into Power Apps framework components
-          → Rendered as web visuals (cost/coverage analysis, "What-if" scenarios)
+```mermaid
+sequenceDiagram
+    participant U as User
+    participant PP as Power Pages (Multitenant Portal)
+    participant DV as Dataverse
+    participant PL as C# Plugins (Business Logic)
+    participant API as Power Pages Web API
+    participant PAF as Power Apps Framework
+
+    U->>PP: Login (tenant-isolated session)
+    U->>PP: Input cyber licensing portfolio data
+    PP->>DV: Trigger data storage
+    DV->>PL: Execute business logic computation
+    PL-->>DV: Return JSON results
+    DV-->>API: Expose JSON via Web API
+    API-->>PP: Retrieve JSON
+    PP->>PAF: Transform JSON into component data
+    PAF-->>U: Render cost/coverage visuals + What-if scenarios
 ```
 
 #### 5. Outcomes

@@ -643,12 +643,13 @@ To participate in the learning activity, connect with your peers and discuss you
 
 ### TLDR
 
-- **Deployment model choice** is driven by a multi-factor matrix: cost, security, compliance, latency, data sovereignty, and future business strategy
-- **Public cloud** (AWS, Azure, GCP) offers elasticity and scale; **private cloud** retains control over sensitive data; **hybrid** bridges both for organisations that can't fully migrate
-- **Hybrid ≠ multi-cloud**: hybrid combines public + private; multi-cloud uses multiple public providers — and most large enterprises end up with both
-- **Key providers** occupy distinct niches — AWS leads IaaS breadth, Azure wins enterprise bundles, GCP leads AI/ML; IBM and VMware own the hybrid management layer
-- **AWS hybrid portfolio** (Outposts, Local Zones, Wavelength, Snow Family) solves latency, data residency, and edge workload constraints that prevent full cloud migration
-- Deployment decisions must account for **local ICT law, data residency regulations, and vendor lock-in risk** — not just technical capabilities
+- **Deployment model choice**: multi-factor decision — cost, security, compliance, latency, data sovereignty
+- **Public cloud**: elasticity and scale on demand (AWS, Azure, GCP)
+- **Private cloud**: full control over sensitive data; hosted on-premises or by a third party
+- **Hybrid ≠ multi-cloud**: hybrid = public + private combined; multi-cloud = multiple public vendors
+- **Provider niches**: AWS leads IaaS breadth; Azure wins enterprise bundles; GCP leads AI/ML; IBM/VMware own hybrid management
+- **AWS hybrid services**: Outposts, Local Zones, Wavelength, Snow Family solve latency, data residency, and edge constraints
+- **Non-technical factors matter**: local ICT law, data sovereignty regulations, and vendor lock-in risk shape deployment decisions
 
 ### Introduction
 Although there a plethora of public cloud providers that also offer various deployment options, one size does not fit all. Just like you may try on a piece of clothing for size, it is advisable you seek a trial period or agreement in terms of services consumed. With the ever-increasing pressure on businesses to keep up with consumer demands (think the likes of ‘click and collect’ or compatibility with devices ranging from the latest releases of mobile phone software to the most recent Internet of Things (IoT) devices), there is a need to conduct solid research, establish a strategy and seek advice on the key factors that will influence the selection of cloud service solutions for your business.
