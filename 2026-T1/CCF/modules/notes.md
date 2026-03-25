@@ -643,6 +643,14 @@ To participate in the learning activity, connect with your peers and discuss you
 
 ### TLDR
 
+- **Deployment model choice**: multi-factor decision — cost, security, compliance, latency, data sovereignty
+- **Public cloud**: elasticity and scale on demand (AWS, Azure, GCP)
+- **Private cloud**: full control over sensitive data; hosted on-premises or by a third party
+- **Hybrid ≠ multi-cloud**: hybrid = public + private combined; multi-cloud = multiple public vendors
+- **Provider niches**: AWS leads IaaS breadth; Azure wins enterprise bundles; GCP leads AI/ML; IBM/VMware own hybrid management
+- **AWS hybrid services**: Outposts, Local Zones, Wavelength, Snow Family solve latency, data residency, and edge constraints
+- **Non-technical factors matter**: local ICT law, data sovereignty regulations, and vendor lock-in risk shape deployment decisions
+
 ### Introduction
 Although there a plethora of public cloud providers that also offer various deployment options, one size does not fit all. Just like you may try on a piece of clothing for size, it is advisable you seek a trial period or agreement in terms of services consumed. With the ever-increasing pressure on businesses to keep up with consumer demands (think the likes of ‘click and collect’ or compatibility with devices ranging from the latest releases of mobile phone software to the most recent Internet of Things (IoT) devices), there is a need to conduct solid research, establish a strategy and seek advice on the key factors that will influence the selection of cloud service solutions for your business.
 
@@ -661,7 +669,7 @@ In Module 7, you will be exposed to a range of resources that explore the key co
     3. Multicloud
     4. Other Options
 
-> *Status: 🕐 To-Do*
+> *Status: 🔥 WIP — needs manual watch (LinkedIn Learning video, no transcript)*
 
 #### 2. Selecting Appropriate Public Cloud Platforms
 - Linthicum, D. (2019). Application and data compatibility [Video]. In Learning cloud computing: Public cloud platforms. LinkedIn Learning.  https://www.linkedin.com/learning/learning-cloud-computing-public-cloud-platforms-2/normalizing-the-offerings?autoplay=true&resume=false&u=56744473
@@ -670,7 +678,7 @@ In Module 7, you will be exposed to a range of resources that explore the key co
 
     So, what are the key things to consider when choosing a public cloud provider? You may think security is one of the top things to consider and you would be right, but there are definitely more considerations. Please watch the videos from Sections 3.1 to 3.2 (approximately 6 minutes), Sections 4.1 to 4.2 (approximately 3 minutes) and Sections 5.1 to 5.2 (approximately 5 minutes) to know about the offerings of the big three (Amazon Web Services, Microsoft Azure and Google Cloud respectively) as the provider for public cloud platform.
 
-> *Status: 🕐 To-Do*
+> *Status: 🔥 WIP — needs manual watch (LinkedIn Learning video, no transcript)*
 
 #### 3. Hybrid Cloud and Multicloud
 - VMware. (n.d.). What is hybrid cloud? https://www.vmware.com/topics/glossary/content/hybrid-cloud.html.
@@ -686,7 +694,7 @@ In Module 7, you will be exposed to a range of resources that explore the key co
     0.2 – What is Multicloud?
     0.3 – Why Multicloud?
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed (VMware article — r3_what-is-hybrid-cloud.pdf) | 🔥 WIP (Multicloud video — needs manual watch) — see [module07_notes.md](module_07_deployment-models-key-considerations/module07_notes.md)*
 
 #### 4. Understanding Hybrid Cloud With AWS
 - Amazon Web Services. (n.d.). Understanding hybrid cloud with AWS. https://pages.awscloud.com/rs/112-TZM-766/images/Understanding-Hybrid-Cloud-With-AWS.pdf
@@ -695,7 +703,7 @@ In Module 7, you will be exposed to a range of resources that explore the key co
 
     This article discusses hybrid cloud deployment challenges and how AWS is tackling these challenges to meet business demands. Read about what challenges to consider during hybrid cloud deployment and how AWS is addressing them by utilising their hybrid cloud architecture.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module07_notes.md](module_07_deployment-models-key-considerations/module07_notes.md)*
 
 #### 5. Top Cloud Providers
 - Dignan, L. (2019, August 15). Top cloud providers 2019: AWS, Microsoft Azure, and Google Cloud; IBM makes hybrid move; Salesforce dominates SaaS. ZDNET. https://www.zdnet.com/article/top-cloud-providers-2019-aws-microsoft-azure-google-cloud-ibm-makes-hybrid-move-salesforce-dominates-saas/
@@ -704,7 +712,7 @@ In Module 7, you will be exposed to a range of resources that explore the key co
 
     If the number of providers and the services they offer on the cloud you have seen so far doesn’t have you in a spin, then considering the new players and markets within the public and hybrid cloud that are being targeted will! Read through this fascinating comparison on the various players in the field, how they are adopting to the latest trends in cloud, including the ‘multicloud’ in this ZDNet article.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module07_notes.md](module_07_deployment-models-key-considerations/module07_notes.md)*
 
 ### Learning Activities
 
