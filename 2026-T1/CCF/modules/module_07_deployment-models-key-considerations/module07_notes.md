@@ -6,7 +6,7 @@
 
 | **#** | Task | Status |
 |---|------|--------|
-| **1** | Watch & summarise Linthicum (2021) — Public, Private, Multicloud (LinkedIn Learning) | 🔥 |
+| 1 | Watch & summarise Linthicum (2021) — Public, Private, Multicloud (LinkedIn Learning) | ✅ |
 | **2** | Watch & summarise Linthicum (2019) — Selecting Public Cloud Platforms (LinkedIn Learning) | 🔥 |
 | **3a** | Read & summarise VMware (n.d.) — What is Hybrid Cloud? | ✅ |
 | **3b** | Watch & summarise Linthicum (2022) — What is Multicloud? (LinkedIn Learning) | 🔥 |
@@ -20,6 +20,44 @@
 ---
 
 ## Key Highlights
+
+### 1. Linthicum, D. (2021). Public, private, multicloud. LinkedIn Learning. https://www.linkedin.com/learning/public-private-multicloud
+
+#### 1. Public Cloud
+- Runs outside of the enterprise, provides elastic scaling, don't own hardware or software
+- Advantages: feature-rich, high scalability, no maintenance, global reach
+- Disadvantages: less control, potential security concerns, data residency issues
+- Characteristics: elasticity & scalability, control, productivity, agility, cost
+
+#### 2. Private Cloud
+- Runs inside the enterprise, considered more secure, you own and maintain hardware and software
+- Advantages: more control, better security, data residency compliance
+- Disadvantages: higher cost, maintenance overhead, less scalable
+- Characteristics: control, security, data residency, customisation, cost
+
+#### 3. Multicloud
+- Using multiple cloud providers (public, private, or both) to meet different needs
+- Advantages: avoid vendor lock-in, leverage best-of-breed services, improve resilience
+- Disadvantages: increased complexity, higher management overhead, potential integration challenges
+- Characteristics: flexibility, best-of-breed, resilience, complexity, cost
+
+#### 4. Other options
+- Understand the business reasons and risks for cloud migration.
+- Know the types of migrations and how to pick workloads.
+- Choose the right platform and use cloud tools like AWS and Microsoft.
+- Set up a migration process and plan for scaling.
+- Address security and governance throughout migration.
+
+#### 5. Chapter quiz
+1. How long will it take you to implement changes in the scale of a private cloud?
+- hours to days
+- days to weeks
+- **weeks to months**
+
+2. You have an application written in FORTRAN and COBOL that uses several databases. How would you describe this application?
+- efficient and robust
+- **tangled and layered**
+- simple and streamlined
 
 ### 3a. VMware. (n.d.). What is hybrid cloud?
 
