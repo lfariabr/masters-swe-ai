@@ -628,6 +628,12 @@ What have your peers found? Do you all agree on which is the best metric to use 
 
 ### TLDR
 
+- **TensorFlow** is Google's open-source DL framework — programs are built as **computational graphs** (build phase) then run inside a **Session** (run phase); tensors are multidimensional arrays flowing through the graph
+- **ANNs** are built from **perceptrons** — the fundamental neuron unit; single-layer perceptrons can only solve linearly separable problems (the XOR problem breaks them), but **multi-layer networks** overcome all such limitations via back-propagation
+- **CNNs** (convolutional + pooling + dense layers) excel at image recognition; **RNNs/LSTMs** handle sequential data (NLP, time-series) — the vanishing gradient problem motivates LSTMs
+- **Regularisation** (L2/ridge, dropout, data augmentation, early stopping) is essential to prevent **overfitting** — the L2 penalty term `λ × Σwᵢ²` pushes weights toward zero while λ (the regularisation rate) controls the strength of this effect
+- **Keras** is the high-level API layered on top of TensorFlow that makes building, compiling, and training deep learning models practical in Python
+
 ### Introduction
 Welcome to deep learning in practice! We discussed deep learning earlier so that you could gain an understanding of the logic behind neurons and the networks of neurons that create artificial neural networks (ANNs). Deep learning involves connecting many neurons to each other and considering the whole network of neurons as one machine learning (ML) model. Although there are many different libraries, including Theano, PyTorch, Torch, Caffe, and CNTK that can be used for training these types of models, we will focus on Keras and TensorFlow (TF) in this module. Tensors are matrices that have been efficiently designed for high computational calculations. As deep learning uses a lot of data and sends data from the multiple layers that make it up, there can be large numbers of complex computations needed within these layers. Thus, efficiency in calculations are critical and TF is perfect for the job as you will see in the resources within this module.
 
@@ -640,7 +646,7 @@ Welcome to deep learning in practice! We discussed deep learning earlier so that
 
     Tensorflow is an open-source library developed by Google Brian, a scientific team working on machine learning within Google. Although it can be used in conjunction with traditional machine learning algorithms like linear regression, it does have a powerful influence within deep learning models. In this introductory resource (Chapter 2), you will be taken on a tour of the library, its mathematical foundations, code structure, data model, configuration, visualization and applications. As you will see, the power of this mathematically-rich resource will lend itself well to the complex problem solving that needs to be embarked on in deep learning networks.
 
-> *Status: 🕐 To-Do* 
+> *Status: ✅ Read + Reviewed — see [module07_notes.md](module_07_dl-in-practice/module07_notes.md)*
 
 #### 2. Single Layer and Multiple Layers
 - Graupe, D. (2013). Advanced series in circuits and systems, Vol 7—Principles of artificial neural networks (3rd ed.). Hackensack, NJ: World Scientific. Retrieved from https://search.ebscohost.com/login.aspx?direct=true&AuthType=shib&db=nlebk&AN=622050&site=ehost-live&custid=ns251549&ebv=EB&ppid=pp_9
@@ -649,7 +655,7 @@ Welcome to deep learning in practice! We discussed deep learning earlier so that
 
     In previous modules, you were introduced to the neuron. In this resource, we will build on the concept of the neurons and the layers it can help form as it applies in ANNs. Read Chapter 3 (sections 3.1 – 3.4.1) to gain an overview of the perceptron and the major multi-layer network architectures it is used in. You can then take a deeper look at the perceptrons and activation functions in Chapter 4 as well as a run through of a case study to show you how it is all used in real problem.
 
-> *Status: 🕐 To-Do* 
+> *Status: ✅ Read + Reviewed — see [module07_notes.md](module_07_dl-in-practice/module07_notes.md)*
 
 #### 3. Using TensorFlow for Deep learning – a practical view
 - Sentdex. (2018, 11 August). Deep learning with Python, TensorFlow, and Keras tutorial [Video file]. Retrieved from https://www.youtube.com/watch?v=wQ8BIBpya2k
@@ -658,7 +664,7 @@ Welcome to deep learning in practice! We discussed deep learning earlier so that
 
     Let’s take a practical approach to what you’ve learnt thus far in the module and watch how to build a deep learning model using TensorFlow, Python and a high-level API library called Keras. In this video, you will be learning how you can use deep learning models to recognise handwritten digits. You are welcome to also consult the tutorial notes and download the source code to try along with the video. These extra resources are listed at the bottom of the video.
 
-> *Status: 🕐 To-Do* 
+> *Status: ✅ Watched + Reviewed — see [module07_notes.md](module_07_dl-in-practice/module07_notes.md)*
 
 #### 4. Convolutional Neural Networks
 - Zaccone, G., Karim, M. & Menshawy, A. (2017). Deep learning with Tensorflow. Birmingham, England: Packt. Retrieved from https://search.ebscohost.com/login.aspx?direct=true&AuthType=shib&db=nlebk&AN=1508099&site=ehost-live&custid=ns251549&ebv=EB&ppid=pp_119
@@ -676,7 +682,7 @@ Welcome to deep learning in practice! We discussed deep learning earlier so that
 
     In this learning resource, you will watch the video below to understand how Recurrent Neural Networks (RNNs) work. A RNN is a network of ANNs—the output of one ANN is connected to the input of another ANN. Watch as the section that discusses the vanishing gradient, as it is very important to understand how Long Short-Term Memory (LSTM) networks were created. With the power of RNNs, many challenges, especially in the field of natural language processing, have now been addressed. Follow the steps of the notebook to see the model in action. After you have familiarised yourself with it, you will be ready to examine intelligent systems in more detail.
 
-> *Status: 🕐 To-Do* 
+> *Status: ✅ Watched + Reviewed — see [module07_notes.md](module_07_dl-in-practice/module07_notes.md)*
 
 #### 6. Regularisation
 - Google.com. (2020, 10 February). Machine Learning Crash Course – Regularisation for Simplicity [Video file]. Retrieved from https://developers.google.com/machine-learning/crash-course/regularization-for-simplicity/video-lecture
@@ -685,14 +691,14 @@ Welcome to deep learning in practice! We discussed deep learning earlier so that
 
     A common problem in deep learning models is the tendency to “overfit” i.e. they become reliant on the training data so much that any introduction to new examples will make the model not recognise data points that may actually be similar to the training data but has been represented in a different way in the example data. Watch this accessible, plain-English video lecture from Google to explain the concept in greater detail as well as how Regularisation methods can be useful to avoid the problem of “overfitting”.
 
-> *Status: 🕐 To-Do* 
+> *Status: ✅ Watched + Reviewed — see [module07_notes.md](module_07_dl-in-practice/module07_notes.md)*
 
 #### 7. Other Regularisation Methods
 - Deeplearning.ai. (2017a, 25 August). Other regularization methods (C2W1L08) [Video file]. Retrieved from https://www.youtube.com/watch?v=BOCLq2gpcGU
 
     There are many different methods to avoid the problem of overfitting. Data augmentation is one such option. Data augmentation refers to giving the same data in different ways to a model; for example, rotating or flipping an image. Conversely, early stopping prevents a model from looking further into the details of the training data, enabling it to be more generalised and thus prevent overfitting. Watch the following video by Andrew Ng.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Watched + Reviewed — see [module07_notes.md](module_07_dl-in-practice/module07_notes.md)*
 
 ### Learning Activities
 
