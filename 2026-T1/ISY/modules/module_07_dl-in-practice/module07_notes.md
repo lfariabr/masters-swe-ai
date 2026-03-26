@@ -1,6 +1,14 @@
 # Module 07 — Deep Learning in Practice
 ## ISY503 Intelligent Systems
 
+## TL;DR
+
+- **TensorFlow** programs are built as a **computational graph** (define ops/tensors) then executed inside a **Session**; Keras wraps this into a clean Sequential API
+- **Perceptrons** are the building blocks of ANNs — single-layer networks can only solve linearly separable problems; multi-layer networks (≥2 hidden layers) with back-propagation overcome all such limits
+- **CNNs** (convolutional + pooling + dense layers) excel at spatial pattern recognition (images); **RNNs/LSTMs** capture temporal patterns (sequences) — the **vanishing gradient** problem is why vanilla RNNs forget early context, motivating LSTMs
+- **Regularisation** (L2, data augmentation, early stopping) fights overfitting; tune `λ` (regularisation rate) to balance fitting the data vs. keeping weights small
+- Quick recipe: `Sequential → Dense/Conv2D → compile(Adam, sparse_categorical_crossentropy) → fit → evaluate` — train/val accuracy gap is your first overfitting signal
+
 ---
 
 ## Task List
@@ -13,7 +21,7 @@
 | 4 | Read & summarise Zaccone et al. (2017) — CNNs (Ch. 4) | Reading | 🔥 WIP |
 | **5** | **Watch & summarise Phi (2018) — Illustrated guide to RNNs** | Video | **✅** |
 | **6** | **Watch & summarise Google (2020) — Regularisation for Simplicity** | Video | **✅** |
-| **7** | **Watch & summarise Deeplearning.ai (2017) — Other regularization methods** | Video | **✅** |
+| **7** | **Watch & summarise Deeplearning.ai (2017) — Other regularisation methods** | Video | **✅** |
 | 8 | Activity 1: CNN Modification | Activity | 🕐 |
 | 9 | Activity 2: RNN Visualisation | Activity | 🕐 |
 
@@ -65,6 +73,14 @@ TensorFlow programs are built around a **computational graph** — a directed ac
 **Two edge types:**
 - **Normal edges:** carry tensor data from one op to another
 - **Special edges (control dependencies):** enforce execution order without carrying data
+
+```mermaid
+graph TD
+    A["x (tf.placeholder)"] -->|tensor| C["multiply op (tf.Operation)"]
+    B["y (tf.placeholder)"] -->|tensor| C
+    C -->|tensor z| D["Session.run()"]
+    D --> E["result = 72.0"]
+```
 
 ```python
 # Classic TF 1.x pattern
@@ -368,8 +384,6 @@ The regularisation rate λ determines how much each goal is weighted. A model th
 
 ---
 
-## WIP Resources (Need Manual Access/Watch)
-
 ### 3. Sentdex. (2018). Deep learning with Python, TensorFlow, and Keras tutorial.
 
 **Citation:** Sentdex. (2018, 11 August). *Deep learning with Python, TensorFlow, and Keras tutorial* [Video file]. Retrieved from https://www.youtube.com/watch?v=wQ8BIBpya2k
@@ -381,8 +395,9 @@ The regularisation rate λ determines how much each goal is weighted. A model th
 #### 1. Neural Network Concepts (Quick Recap)
 
 - **Goal:** Map inputs (X₁, X₂, X₃) → outputs (e.g. dog vs. cat)
-- **Single hidden layer:** only captures **linear** relationships
-- **Two or more hidden layers** = "deep" neural network → captures non-linear relationships
+- **Single-layer perceptron (no hidden layer):** can only solve **linearly separable** problems — the XOR limitation from Resource 2
+- **One hidden layer with non-linear activations:** can capture non-linear relationships, but may be insufficient for complex tasks
+- **Two or more hidden layers** = "deep" neural network → greatly expands representational power for complex, hierarchical patterns
 - Each connection between layers has a unique **weight**; each neuron applies an **activation function** to its weighted sum of inputs
 
 **Activation functions covered:**
@@ -512,6 +527,20 @@ Standard feed-forward networks treat each input independently — they have no m
 #### 2. RNN Structure: The Hidden State
 
 An RNN adds a **looping mechanism** that passes a **hidden state** from one time step to the next:
+
+```mermaid
+graph LR
+    h0["h₀ (init)"] --> RNN1["RNN cell t=1"]
+    x1["x₁ (what)"] --> RNN1
+    RNN1 --> h1["h₁"]
+    h1 --> RNN2["RNN cell t=2"]
+    x2["x₂ (time)"] --> RNN2
+    RNN2 --> h2["h₂"]
+    h2 --> RNN3["RNN cell t=3"]
+    x3["x₃ (is)"] --> RNN3
+    RNN3 --> h3["h₃ (final)"]
+    h3 --> out["Classifier → intent"]
+```
 
 ```
 At each time step t:

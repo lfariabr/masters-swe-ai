@@ -691,7 +691,7 @@ Welcome to deep learning in practice! We discussed deep learning earlier so that
 
     A common problem in deep learning models is the tendency to “overfit” i.e. they become reliant on the training data so much that any introduction to new examples will make the model not recognise data points that may actually be similar to the training data but has been represented in a different way in the example data. Watch this accessible, plain-English video lecture from Google to explain the concept in greater detail as well as how Regularisation methods can be useful to avoid the problem of “overfitting”.
 
-> *Status: ✅ Read + Reviewed — see [module07_notes.md](module_07_dl-in-practice/module07_notes.md)*
+> *Status: ✅ Watched + Reviewed — see [module07_notes.md](module_07_dl-in-practice/module07_notes.md)*
 
 #### 7. Other Regularisation Methods
 - Deeplearning.ai. (2017a, 25 August). Other regularization methods (C2W1L08) [Video file]. Retrieved from https://www.youtube.com/watch?v=BOCLq2gpcGU
