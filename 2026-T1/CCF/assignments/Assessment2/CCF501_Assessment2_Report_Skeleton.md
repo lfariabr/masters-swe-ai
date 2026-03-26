@@ -290,7 +290,37 @@ Key areas warranting further investigation across these cases include cloud cost
 
 ## Appendices
 
-### ?
+### Appendix A: Cross-Case Comparison Summary
+
+*Table A1: Side-by-side comparison of the three case studies across provider, service model, deployment model, key services, and business outcomes.*
+
+| Attribute | Case Study 1 — Victoria Police | Case Study 2 — ChatAndBuild | Case Study 3 — Voith |
+|---|---|---|---|
+| **Sector** | Government / Law Enforcement | AI / Software Startup | Industrial Manufacturing |
+| **Cloud Provider** | Microsoft (Azure ecosystem) | Google Cloud Platform (GCP) | Amazon Web Services (AWS) |
+| **Service Model** | PaaS (primary) + SaaS (partial) | IaaS + PaaS | IaaS + PaaS |
+| **Deployment Model** | Hybrid — multi-environment (personal → fusion → enterprise) | Public cloud — multi-region | Public cloud — 6 AWS regions |
+| **Prior State** | Ungoverned MS Access shadow apps; central IT bottleneck | 30–70% higher latency; engineers manually provisioning servers days before events | 3,500 servers across 146 locations; fragmented legacy applications |
+| **Key Services** | Power Apps, Dataverse, Power Platform Environments, Power Automate, Copilot Studio | Vertex AI, GKE, Cloud Run, BigQuery, Firebase, Cloud CDN, Cloud Build, Cloud Armor | AWS Professional Services, Amazon Athena, IaC, Centralised DevOps, AWS GameDays, FinOps |
+| **Primary Automation Outcome** | Governed fusion framework — citizen developers build enterprise-grade apps via tiered approval | Real-time AI code and agent generation at sub-second latency for 140,000+ users | Consolidated global operations; IaC-enforced standards across 60 countries |
+| **Headline Result** | 2 enterprise apps in production (Global Whereabouts; Bail Reporting) | 45% infrastructure overhead ↓; 30–70% latency ↓; 2× faster feature delivery | 30% projected cost savings; 146 → 6 site consolidation |
+| **SLO Alignment** | SLO a: PaaS automation; SLO b: shadow IT → governed cloud; SLO c: Power Platform | SLO a: AI-native cloud elements; SLO b: manual ops → elastic cloud; SLO c: GCP services | SLO a: migration automation; SLO b: on-prem → public cloud; SLO c: AWS managed services |
+
+---
+
+### Appendix B: NIST Essential Characteristics — Cross-Case Mapping
+
+*Table B1: Mapping of NIST's five essential cloud characteristics (Mell & Grance, 2011) to each case study, showing which characteristics were primary drivers of the outcomes achieved.*
+
+| NIST Characteristic | Victoria Police | ChatAndBuild | Voith |
+|---|---|---|---|
+| **On-demand self-service** | ✅ Primary — police personnel provision their own Power Platform environments and build applications without central IT intervention (Microsoft, 2026) | ✅ Autoscaling policies provision and terminate Compute Engine instances automatically without engineer intervention (Google Cloud, n.d.) | ✅ IaC enables automated, consistent provisioning of infrastructure across 6 regions without manual configuration per site (Amazon Web Services, 2026) |
+| **Broad network access** | ✅ Officers across all stations access Global Whereabouts and Bail Reporting from any device via Microsoft 365 (Microsoft, 2026) | ✅ 140,000+ users globally access the platform via browser; Cloud Load Balancing routes to the nearest region for sub-second response (Google Cloud, n.d.) | ✅ 22,000+ employees across 60 countries access centralised systems via 6 standardised AWS regions (Amazon Web Services, 2026) |
+| **Resource pooling** | ✅ Multiple business units share Power Platform infrastructure; Dataverse pools structured data storage across all fusion applications (Microsoft, 2026) | ✅ GKE clusters pool compute across thousands of concurrent agent graphs and user sessions (Google Cloud, n.d.) | ✅ **Primary driver** — 3,500 servers across 146 sites pooled into 6 shared, logically isolated AWS regions (Amazon Web Services, 2026) |
+| **Rapid elasticity** | ⚠️ Limited — Power Platform environments scale within Microsoft's managed bounds; not the primary driver for this case | ✅ **Primary driver** — worker fleet scales from 10 → 100+ Compute Engine instances within minutes during global hackathon events with zero downtime (Google Cloud, n.d.) | ⚠️ Wave-based migration progressively expands the cloud footprint; real-time elasticity is not the primary driver for this manufacturing workload |
+| **Measured service** | ✅ Tiered governance tracks app usage and adoption; Power Platform visibility surfaces which apps reach 300+ users and warrant promotion (Microsoft, 2026) | ✅ 45% infrastructure overhead reduction reflects consumption-based billing replacing fixed legacy infrastructure costs (Google Cloud, n.d.) | ✅ **Primary driver** — FinOps practices provide continuous cost visibility and track progress toward 30% savings target; OPEX model replaces CAPEX-heavy 146-site estate (Amazon Web Services, 2026) |
+
+*Legend: ✅ Present and significant &nbsp;|&nbsp; ⚠️ Partial / limited &nbsp;|&nbsp; ❌ Not applicable*
 
 ## References
 
