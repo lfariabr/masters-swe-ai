@@ -12,13 +12,13 @@
 <!-- RUBRIC: Content, audience and purpose 10% — Set the scene: what is cloud computing, why does it matter across sectors, preview all three case studies -->
 <!-- SLO a, b, c — introduce NIST characteristics, name the three cases, state report purpose -->
 
-Cloud computing has fundamentally reshaped how organisations across every sector deliver services, manage infrastructure, and drive automation. Rather than owning and operating physical data centres, enterprises now consume compute, storage, networking, and intelligence on demand — scaling elastically, paying only for what they use, and offloading infrastructure management to specialist providers (Mell & Grance, 2011). The National Institute of Standards and Technology (NIST) defines cloud computing as a model for enabling ubiquitous, convenient, on-demand network access to a shared pool of configurable computing resources that can be rapidly provisioned and released with minimal management effort (Mell & Grance, 2011). The shift from Capital Expenditure (CAPEX)-heavy on-premises environments to Operational Expenditure (OPEX)-driven cloud models is no longer a trend exclusive to technology companies — it is a cross-industry imperative that spans government agencies, AI-native startups, and century-old industrial manufacturers alike (McHaney, 2021).
+Cloud computing has fundamentally reshaped how organisations across every sector deliver services, manage infrastructure, and drive automation. Rather than owning and operating physical data centres, enterprises now consume compute, storage, networking, and intelligence on demand — scaling elastically, paying only for what they use, and offloading infrastructure management to specialist providers (Mell & Grance, 2011). The National Institute of Standards and Technology (NIST) defines cloud computing as a model for enabling ubiquitous, convenient, on-demand network access to a shared pool of configurable computing resources that can be rapidly provisioned and released with minimal management effort (Mell & Grance, 2011). The shift from Capital Expenditure (CAPEX)-heavy on-premises environments to Operational Expenditure (OPEX)-driven cloud models is no longer a trend exclusive to technology companies — it is a cross-industry imperative that spans government agencies, AI-native startups, and century-old industrial manufacturers alike (Linthicum, 2021; McHaney, 2021).
 
 This report analyses three real-world case studies drawn from distinct sectors — government law enforcement (Victoria Police), artificial intelligence and software startup (ChatAndBuild), and industrial manufacturing (Voith) — each provided by the subject facilitator and representing a different combination of cloud service model, deployment model, and provider ecosystem. By examining how cloud was applied in each context, this report aims to: describe the essential cloud elements that enabled business automation in each case (SLO a); distinguish cloud adoption from traditional IT infrastructure approaches (SLO b); and identify the key cloud service offerings that made each outcome possible (SLO c).
 
 The three cases collectively illustrate how cloud computing is not a single, monolithic technology but a spectrum of services and deployment strategies calibrated to organisational context, risk appetite, and automation goals. Victoria Police leveraged Microsoft Power Platform (PaaS) within a hybrid multi-environment model to democratise application development across a law enforcement agency — transforming previously invisible, ungoverned Microsoft Access databases into a governed, scalable innovation ecosystem (Microsoft, 2026). ChatAndBuild, an AI-native startup based in Singapore, migrated to Google Cloud Platform to eliminate the manual infrastructure burden that was impeding real-time AI agent creation, achieving a 45% reduction in infrastructure overhead and a 30–70% improvement in generation latency (Google Cloud, n.d.). Voith, a 150-year-old manufacturing company operating across 60 countries, selected AWS following a competitive provider assessment to consolidate 3,500 servers distributed across 146 global locations into six AWS regions — projecting 30% cost savings compared to the legacy setup (Amazon Web Services, 2026).
 
-<!-- TODO: Add a brief forward reference to the report structure (three case study sections followed by a synthesising conclusion) — ~30–50 words -->
+The following sections examine each case in turn — analysing service and deployment model choices, mapping specific cloud services to their automation outcomes, and reflecting on the contrast with traditional IT approaches — before synthesising the findings in a concluding analysis.
 
 ---
 
@@ -98,7 +98,7 @@ graph TD
 
 The Victoria Police case demonstrates how cloud's **on-demand self-service** characteristic (Mell & Grance, 2011) can be safely extended to non-professional developers when paired with tiered governance. In a traditional IT model, every application request would queue behind the central IT team — a bottleneck that drove staff to build ungoverned Microsoft Access solutions outside the organisation's visibility. The Power Platform model inverts this dynamic: rather than centralising all development capacity, it governs the _pathway_ to production while allowing distributed development (Microsoft, 2026). This represents a fundamental distinction from traditional IT: the cloud enables a spectrum of developer access that on-premises tooling structurally cannot support (McHaney, 2021).
 
-However, risks remain significant. Sensitive law enforcement data held within a cloud-managed PaaS environment requires robust data residency controls and compliance with the Australian Protective Security Policy Framework (PSPF). As enterprise adoption scales to cover regions and thousands of officers, the risk surface expands correspondingly — a concern Efrain Tionko (Head of Digital Delivery and Transformation, Victoria Police) explicitly acknowledged when noting the need to increase controls as employee access grows (Microsoft, 2026).
+However, risks remain significant. Public sector cloud adoption introduces governance and compliance challenges that private-sector deployments typically do not face — including data residency obligations, citizen privacy legislation, and the requirement to maintain public trust in how sensitive information is managed (Bittok, 2021). For Victoria Police, law enforcement data held within a cloud-managed PaaS environment requires robust data residency controls and compliance with the Australian Protective Security Policy Framework (PSPF). As enterprise adoption scales to cover regions and thousands of officers, the risk surface expands correspondingly — a concern Efrain Tionko (Head of Digital Delivery and Transformation, Victoria Police) explicitly acknowledged when noting the need to increase controls as employee access grows (Microsoft, 2026).
 
 ---
 
@@ -131,7 +131,7 @@ ChatAndBuild's architecture spans **IaaS and PaaS** layers. Google Compute Engin
 <!-- RUBRIC: 40% — Compare deployment models; justify the recommended model with evidence -->
 <!-- SLO b: cloud vs traditional IT -->
 
-ChatAndBuild operates on **public cloud** across multiple Google Cloud regions. Cloud Load Balancing routes each request to the nearest available region, ensuring sub-second response times for users globally. The multi-region public cloud model was the only viable option for a startup serving over 140,000 users across time zones, where global hackathon spikes require instantly elastic capacity — and where the prior on-premises approach required engineers to manually provision servers days in advance (Google Cloud, n.d.).
+ChatAndBuild operates on **public cloud** across multiple Google Cloud regions — a model where infrastructure is owned and operated by a third-party provider, shared across multiple tenants but logically isolated per customer, and accessible globally over the internet (IBM, n.d.-b). Cloud Load Balancing routes each request to the nearest available region, ensuring sub-second response times for users globally. The multi-region public cloud model was the only viable option for a startup serving over 140,000 users across time zones, where global hackathon spikes require instantly elastic capacity — and where the prior on-premises approach required engineers to manually provision servers days in advance (Google Cloud, n.d.).
 
 | Deployment Model | Elasticity | Global Reach | Latency | Fit for ChatAndBuild |
 |---|---|---|---|---|
@@ -195,7 +195,7 @@ The contrast with traditional IT is direct. In the prior architecture, Christel 
 
 ### 4.1 Case Overview (~100 words)
 
-Voith is a 150-year-old family-owned manufacturing company with over 22,000 employees across 60 countries, producing machinery for the hydroelectric, papermaking, and transportation industries through its three divisions: Voith Hydro, Voith Paper, and Voith Turbo (Amazon Web Services, 2026). Its legacy IT footprint was vast and fragmented: 3,500 servers distributed across 146 global locations, managing a mix of legacy applications that were difficult and expensive to maintain. Seeking to lower maintenance costs, improve productivity, and access modern cloud capabilities, Voith conducted a competitive cloud provider assessment — presenting providers with near-unsolvable test scenarios before selecting AWS based on its solution maturity and collaborative approach (Amazon Web Services, 2026). The migration is being executed in structured waves: rehosting, consolidation, modernisation, and retirement of legacy applications, supported by AWS Professional Services and Slalom as the AWS Implementation Partner.
+Voith is a 150-year-old family-owned manufacturing company with over 22,000 employees across 60 countries, producing machinery for the hydroelectric, papermaking, and transportation industries through its three divisions: Voith Hydro, Voith Paper, and Voith Turbo (Amazon Web Services, 2026). Its legacy IT footprint was vast and fragmented: 3,500 servers distributed across 146 global locations, managing a mix of legacy applications that were difficult and expensive to maintain. Cloud migration at enterprise scale offers documented benefits including lower infrastructure cost, improved operational agility, and access to managed services that would be impractical to build and maintain on-premises — alongside well-documented challenges such as migration complexity, vendor dependency, and workforce skills gaps (Rahman & Raza, 2022). Seeking to lower maintenance costs, improve productivity, and access modern cloud capabilities, Voith conducted a competitive cloud provider assessment — presenting providers with near-unsolvable test scenarios before selecting AWS based on its solution maturity and collaborative approach (Amazon Web Services, 2026). The migration is being executed in structured waves: rehosting, consolidation, modernisation, and retirement of legacy applications, supported by AWS Professional Services and Slalom as the AWS Implementation Partner.
 
 ### 4.2 Service Model Analysis (~150 words)
 
@@ -217,7 +217,7 @@ Voith's migration spans **IaaS and PaaS** service models, reflecting the phased,
 <!-- RUBRIC: 40% — Compare deployment models; justify chosen model with evidence -->
 <!-- SLO b: cloud vs traditional IT -->
 
-Voith migrated to a **public cloud** model deployed across **six AWS regions**, replacing 146 globally dispersed on-premises locations. The choice of public cloud was driven by the need for global standardisation, centralised security management, and access to modern managed services — objectives that a private or hybrid model could not deliver at the required global scale (Amazon Web Services, 2026). Infrastructure as Code (IaC) enforces consistent configuration standards across all regions, eliminating the policy fragmentation inherent in managing 146 independent sites.
+Voith migrated to a **public cloud** model deployed across **six AWS regions**, replacing 146 globally dispersed on-premises locations. The choice of public cloud was driven by the need for global standardisation, centralised security management, and access to modern managed services — objectives that a private or hybrid model could not deliver at the required global scale (Amazon Web Services, 2026; Nishimura, 2022). Infrastructure as Code (IaC) enforces consistent configuration standards across all regions, eliminating the policy fragmentation inherent in managing 146 independent sites.
 
 | Deployment Model | Cost | Standardisation | Global Reach | Fit for Voith |
 |---|---|---|---|---|
@@ -280,8 +280,6 @@ The contrast with traditional IT is structural. In the legacy model, each of 146
 <!-- NOTE: Brief requires complete sentences and paragraphs throughout — no lists, tables, or diagrams -->
 <!-- SLO a, b, c — synthesise key insights from all three cases -->
 
-[PLACEHOLDER: ~250 words — three prose paragraphs; expand starters below into full paragraphs]
-
 Across all three case studies, a consistent set of cloud principles underpinned the outcomes: on-demand self-service enabled each organisation to provision capability without manual IT intervention; rapid elasticity allowed both ChatAndBuild and Voith to scale resources to match demand — whether a global hackathon spike or a 146-site migration wave; and measured service translated consumption directly into financial and operational accountability, from Victoria Police's governed fusion environments to Voith's 30% projected cost savings (Mell & Grance, 2011). Despite operating in radically different sectors — government law enforcement, AI startup, and industrial manufacturing — each organisation achieved outcomes that were structurally impossible under their prior on-premises configurations, confirming that the essential cloud elements of automation are sector-agnostic even as their application is highly context-specific (McHaney, 2021).
 
 In each case, fixed on-premises infrastructure represented a ceiling — on developer throughput (Victoria Police's constrained IT queue driving shadow application risk), on real-time AI generation capacity (ChatAndBuild's manual provisioning bottleneck degrading agent reliability), and on global standardisation (Voith's fragmented 146-site estate producing inconsistent governance). Cloud removed these ceilings by decoupling capacity from physical hardware procurement and enabling OPEX-aligned, consumption-driven cost models in place of CAPEX-constrained, fixed-capacity traditional IT (McHaney, 2021; Mell & Grance, 2011).
@@ -290,14 +288,21 @@ Key areas warranting further investigation across these cases include cloud cost
 
 ---
 
+## Appendices
+
+### ?
+
 ## References
 
-<!-- APA 7th edition — minimum 12 references -->
+<!-- APA 7th edition — 12 references, alphabetical order by first author surname -->
 <!-- RUBRIC: Citations 10% — in-text citations must appear throughout; min 10 resources; meticulous APA with no errors -->
+<!-- NOTE: URLs for the three case study PDFs must be retrieved from the source documents before final submission -->
 
-Amazon Web Services. (2026). *Voith saves 30% by improving operations and consolidating workloads on AWS* [Case study]. Amazon Web Services. [URL from facilitator-provided PDF]
+Amazon Web Services. (2026). *Voith saves 30% by improving operations and consolidating workloads on AWS* [Case study]. Amazon Web Services. [\[URL — retrieve from source PDF\]](https://aws.amazon.com/solutions/case-studies/voith-case-study/)
 
-Google Cloud. (n.d.). *ChatAndBuild: Building the future of ownable, evolving AI agents* [Case study]. Google Cloud. [URL from facilitator-provided PDF]
+Bittok, A. C. (2021). Cloud service adoption challenges in public sector: A case study in Kenyan Counties. *Journal of the International Association for Computer Information Systems*, *22*(1), 52–62.
+
+Google Cloud. (n.d.). *ChatAndBuild: Building the future of ownable, evolving AI agents* [Case study]. Google Cloud. https://cloud.google.com/customers/chatandbuild
 
 IBM. (n.d.-a). *SaaS, PaaS, IaaS explained*. IBM. https://www.ibm.com/think/topics/iaas-paas-saas
 
@@ -311,14 +316,8 @@ McHaney, R. (2021). *Cloud technologies: An overview of cloud computing technolo
 
 Mell, P., & Grance, T. (2011). *The NIST definition of cloud computing* (Special Publication 800-145). National Institute of Standards and Technology. https://doi.org/10.6028/NIST.SP.800-145
 
-Microsoft. (2026, February 18). *How Victoria Police created a fusion framework to scale PowerApps innovation* [Case study]. Microsoft. [URL from facilitator-provided PDF]
+Microsoft. (2026, February 18). *How Victoria Police created a fusion framework to scale PowerApps innovation* [Case study]. Microsoft. https://www.microsoft.com/en/customers/story/26103-victoria-police-microsoft-power-platform
 
 Nishimura, H. (2022, August 30). *Introduction to AWS for non-engineers: 1 cloud concepts* [Video]. LinkedIn Learning. https://www.linkedin.com/learning/introduction-to-aws-for-non-engineers-1-cloud-concepts-2/
 
-<!-- PLACEHOLDER REF 11 — Add peer-reviewed journal article on government cloud / low-code digital transformation -->
-<!-- Search Torrens library: "government cloud adoption" OR "low-code platform digital transformation" -->
-Author, A. A. (Year). Title of article. *Journal Name, Volume*(Issue), page–page. https://doi.org/xxxxx
-
-<!-- PLACEHOLDER REF 12 — Add peer-reviewed journal article on enterprise cloud migration OR FinOps cost governance -->
-<!-- Search Torrens library: "enterprise cloud migration strategy" OR "cloud cost optimisation FinOps" -->
-Author, B. B. (Year). Title of article. *Journal Name, Volume*(Issue), page–page. https://doi.org/xxxxx
+Rahman, M. A., & Raza, N. (2022). Cloud computing migration challenges, benefits and framework. *International Journal of Computer Science and Information Technology*, *14*(1), 65–78. https://doi.org/10.5121/ijcsit.2022.14105

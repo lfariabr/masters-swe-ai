@@ -7,7 +7,7 @@
 | **#** | Task | Status |
 |---|------|--------|
 | 1 | Watch & summarise Linthicum (2021) — Public, Private, Multicloud (LinkedIn Learning) | ✅ |
-| **2** | Watch & summarise Linthicum (2019) — Selecting Public Cloud Platforms (LinkedIn Learning) | 🔥 |
+| *2* | Watch & summarise Linthicum (2019) — Selecting Public Cloud Platforms (LinkedIn Learning) | 🔥 |
 | **3a** | Read & summarise VMware (n.d.) — What is Hybrid Cloud? | ✅ |
 | **3b** | Watch & summarise Linthicum (2022) — What is Multicloud? (LinkedIn Learning) | 🔥 |
 | **4** | Read & summarise Amazon Web Services (n.d.) — Understanding Hybrid Cloud With AWS | ✅ |
@@ -58,6 +58,25 @@
 - efficient and robust
 - **tangled and layered**
 - simple and streamlined
+
+### 2. Linthicum, D. (2019). Selecting public cloud platforms. LinkedIn Learning. https://www.linkedin.com/learning/selecting-public-cloud-platforms
+
+#### 1. AWS
+- Leading cloud platform often included in cloud evaluations, but it's important to assess how well it fits your specific requirements.
+- Supports various storage types (block, object, file) and major database systems, along with multiple operating systems like Linux, Red Hat, and Windows.
+- Security features include identity access management, encryption, and compliance with industry standards like HIPAA and Sarbanes-Oxley
+- The evaluation uses a weighted ranking system based on disruptive vectors such as storage, provisioning, security, compute, and management to objectively compare cloud providers.
+
+##### Service categories:
+- AWS offers a wide range of services including deployment and management tools, application services like content delivery and networking, and foundational services such as compute, storage, and databases.
+- Not all AWS services will be used by every organization; it's important to focus on the services that meet your specific needs.
+- Evaluating cloud providers involves looking at capabilities like storage, security, compute, networking, and governance to choose the best fit for your requirements.
+
+#### 2. Microsoft Azure
+<!-- todo -->
+
+#### 3. Google Cloud Platform
+<!-- todo -->
 
 ### 3a. VMware. (n.d.). What is hybrid cloud?
 
