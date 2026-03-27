@@ -17,7 +17,7 @@
 |---|---------------------|------|--------|
 | **1** | **Read & summarise Zaccone & Karim (2018) — A First Look at TensorFlow (Ch. 2)** | Reading | **✅** |
 | **2** | **Read & summarise Graupe (2013) — ANN Principles & Perceptron (Ch. 3–4)** | Reading | **✅** |
-| **3** | **Watch & summarise Sentdex (2018) — Deep learning with Python, TensorFlow & Keras** | Video | **✅** |
+| 3 | **Watch & summarise Sentdex (2018) — Deep learning with Python, TensorFlow & Keras** | Video | **✅** |
 | 4 | Read & summarise Zaccone et al. (2017) — CNNs (Ch. 4) | Reading | 🔥 WIP |
 | **5** | **Watch & summarise Phi (2018) — Illustrated guide to RNNs** | Video | **✅** |
 | **6** | **Watch & summarise Google (2020) — Regularisation for Simplicity** | Video | **✅** |
@@ -428,9 +428,9 @@ import tensorflow as tf
 model = tf.keras.models.Sequential()
 
 model.add(tf.keras.layers.Flatten())          # Input: 28×28 → 784 flat values
-model.add(tf.keras.layers.Dense(128, activation=tf.nn.relu))   # Hidden layer 1
-model.add(tf.keras.layers.Dense(128, activation=tf.nn.relu))   # Hidden layer 2
-model.add(tf.keras.layers.Dense(10, activation=tf.nn.softmax)) # Output: 10 classes
+model.add(tf.keras.layers.Dense(128, activation='relu'))   # Hidden layer 1
+model.add(tf.keras.layers.Dense(128, activation='relu'))   # Hidden layer 2
+model.add(tf.keras.layers.Dense(10, activation='softmax')) # Output: 10 classes
 ```
 
 **Layer types:**
