@@ -6,77 +6,183 @@
 
 | **#** | Task | Status |
 |---|------|--------|
-| 1 | Watch & summarise Linthicum (2021) — Public, Private, Multicloud (LinkedIn Learning) | ✅ |
-| *2* | Watch & summarise Linthicum (2019) — Selecting Public Cloud Platforms (LinkedIn Learning) | 🔥 |
-| **3a** | Read & summarise VMware (n.d.) — What is Hybrid Cloud? | ✅ |
-| **3b** | Watch & summarise Linthicum (2022) — What is Multicloud? (LinkedIn Learning) | 🔥 |
-| **4** | Read & summarise Amazon Web Services (n.d.) — Understanding Hybrid Cloud With AWS | ✅ |
-| **5** | Read & summarise Dignan (2019) — Top Cloud Providers 2019 (ZDNet) | ✅ |
-| **6** | Activity 1: Analysing a Real-Life Cloud Strategy Document — Discussion Forum | ✅ |
-| **7** | Activity 2: Case Study — PwC builds multitenant enterprise decision support site | ✅ |
+| **1** | Watch & summarise Linthicum (2021) — Public, Private, Multicloud (LinkedIn Learning) | ✅ |
+| **2** | Watch & summarise Linthicum (2019) — Selecting Public Cloud Platforms (LinkedIn Learning) | ✅ |
+| 3a | Read & summarise VMware (n.d.) — What is Hybrid Cloud? | ✅ |
+| 3b | Watch & summarise Linthicum (2022) — What is Multicloud? (LinkedIn Learning) | 🔥 |
+| 4 | Read & summarise Amazon Web Services (n.d.) — Understanding Hybrid Cloud With AWS | ✅ |
+| 5 | Read & summarise Dignan (2019) — Top Cloud Providers 2019 (ZDNet) | ✅ |
+| 6 | Activity 1: Analysing a Real-Life Cloud Strategy Document — Discussion Forum | ✅ |
+| 7 | Activity 2: Case Study — PwC builds multitenant enterprise decision support site | ✅ |
 
-> Resources 1, 2, and 3b are LinkedIn Learning videos with no publicly accessible transcript — mark as 🔥 WIP and watch manually.
+> Resource 3b (Linthicum 2022 — What is Multicloud?) is still 🔥 WIP — watch manually.
 
 ---
 
 ## Key Highlights
 
-### 1. Linthicum, D. (2021). Public, private, multicloud. LinkedIn Learning. https://www.linkedin.com/learning/public-private-multicloud
+### 1. Linthicum, D. (2021). Public clouds, private clouds, multicloud [Video]. LinkedIn Learning.
 
-#### 1. Public Cloud
-- Runs outside of the enterprise, provides elastic scaling, don't own hardware or software
-- Advantages: feature-rich, high scalability, no maintenance, global reach
-- Disadvantages: less control, potential security concerns, data residency issues
-- Characteristics: elasticity & scalability, control, productivity, agility, cost
+**Citation:** Linthicum, D. (2021). Public clouds [Video]. In Learning cloud computing: Application migration. LinkedIn Learning. https://www.linkedin.com/learning/learning-cloud-computing-application-migration/public-clouds
 
-#### 2. Private Cloud
-- Runs inside the enterprise, considered more secure, you own and maintain hardware and software
-- Advantages: more control, better security, data residency compliance
-- Disadvantages: higher cost, maintenance overhead, less scalable
-- Characteristics: control, security, data residency, customisation, cost
+**Purpose:** Compares public, private, and multicloud deployment strategies across agility, cost, control, and security dimensions — helping practitioners choose the right model for a given workload.
 
-#### 3. Multicloud
-- Using multiple cloud providers (public, private, or both) to meet different needs
-- Advantages: avoid vendor lock-in, leverage best-of-breed services, improve resilience
-- Disadvantages: increased complexity, higher management overhead, potential integration challenges
-- Characteristics: flexibility, best-of-breed, resilience, complexity, cost
+---
 
-#### 4. Other options
-- Understand the business reasons and risks for cloud migration.
-- Know the types of migrations and how to pick workloads.
-- Choose the right platform and use cloud tools like AWS and Microsoft.
-- Set up a migration process and plan for scaling.
-- Address security and governance throughout migration.
+#### 1. Deployment Model Comparison
 
-#### 5. Chapter quiz
-1. How long will it take you to implement changes in the scale of a private cloud?
-- hours to days
-- days to weeks
-- **weeks to months**
+| Dimension | Public Cloud | Private Cloud | Multicloud |
+|-----------|-------------|--------------|-----------|
+| **Where it runs** | Outside the enterprise (provider DC) | Inside the enterprise (own DC or dedicated hosted) | Mix of any of the above |
+| **Hardware ownership** | Provider owns and maintains | Organisation owns and maintains | Depends on combination |
+| **Scalability** | ⚡ High — elastic on demand | ⚠️ Low — hardware provisioning takes weeks to months | ⚡ High — leverage best provider per workload |
+| **Control** | ⚠️ Low — limited to what provider exposes | ✅ High — full stack ownership | Variable |
+| **Security posture** | ⚠️ Shared responsibility; potential residency issues | ✅ Stronger — data stays on-prem | Complexity increases attack surface |
+| **Data residency** | ⚠️ Harder to enforce | ✅ Easily enforced | Requires careful governance |
+| **Cost model** | OpEx — pay-as-you-go | CapEx — upfront hardware investment | Mixed |
+| **Maintenance burden** | ✅ None — provider managed | ⚠️ High — organisation manages everything | Shared across providers |
+| **Key strength** | Feature-rich, global reach, agility | Compliance, control, customisation | Avoid lock-in, best-of-breed services |
+| **Key risk** | Vendor dependency, cost unpredictability | Slower response to demand spikes | Operational complexity, integration overhead |
 
-2. You have an application written in FORTRAN and COBOL that uses several databases. How would you describe this application?
-- efficient and robust
-- **tangled and layered**
-- simple and streamlined
+#### 2. The Deployment Spectrum
 
-### 2. Linthicum, D. (2019). Selecting public cloud platforms. LinkedIn Learning. https://www.linkedin.com/learning/selecting-public-cloud-platforms
+```mermaid
+graph LR
+    PR[Private Cloud\n Full control\n High cost\n Slow scale]
+    HY[Hybrid Cloud\n Balance\n Workload portability]
+    PU[Public Cloud\n Elastic\n Low maintenance\n Less control]
+    MC[Multicloud\n Best-of-breed\n No lock-in\n High complexity]
 
-#### 1. AWS
-- Leading cloud platform often included in cloud evaluations, but it's important to assess how well it fits your specific requirements.
-- Supports various storage types (block, object, file) and major database systems, along with multiple operating systems like Linux, Red Hat, and Windows.
-- Security features include identity access management, encryption, and compliance with industry standards like HIPAA and Sarbanes-Oxley
-- The evaluation uses a weighted ranking system based on disruptive vectors such as storage, provisioning, security, compute, and management to objectively compare cloud providers.
+    PR -- "Add public capacity" --> HY
+    HY -- "Expand to full public" --> PU
+    PU -- "Add second provider" --> MC
+    PR -- "Use multiple private + public" --> MC
+```
 
-##### Service categories:
-- AWS offers a wide range of services including deployment and management tools, application services like content delivery and networking, and foundational services such as compute, storage, and databases.
-- Not all AWS services will be used by every organization; it's important to focus on the services that meet your specific needs.
-- Evaluating cloud providers involves looking at capabilities like storage, security, compute, networking, and governance to choose the best fit for your requirements.
+#### 3. When to Choose Each Model
 
-#### 2. Microsoft Azure
-<!-- todo -->
+| Use case | Best fit |
+|----------|---------|
+| Sensitive government or regulated data (healthcare, finance) | **Private cloud** |
+| Startup or SaaS product needing rapid global scale | **Public cloud** |
+| Enterprise with legacy on-prem systems + cloud growth | **Hybrid cloud** |
+| Large org wanting AWS for compute and GCP for AI/ML | **Multicloud** |
+| Application with FORTRAN/COBOL legacy and complex database layers | **Private first** — tangled architecture is hard to migrate without refactoring |
 
-#### 3. Google Cloud Platform
-<!-- todo -->
+> 💡 **Key quiz insight:** Scaling a private cloud takes **weeks to months** — this is the fundamental reason enterprises adopt public or hybrid cloud for variable demand.
+
+#### 4. Migration Readiness Checklist
+
+Before choosing a deployment model for migration:
+- [ ] Understand the **business drivers and risk tolerance** for moving to cloud
+- [ ] Identify **workload characteristics** — latency sensitivity, data classification, compliance requirements
+- [ ] Select the **right platform** based on workload fit, not default preference
+- [ ] Design the **migration process**: phased, big-bang, or parallel run
+- [ ] Plan for **scaling**: how will the new environment handle growth?
+- [ ] Address **security and governance** from day one, not as an afterthought
+
+#### Key Takeaways for CCF501
+
+1. Private cloud = control and compliance; public cloud = agility and scale — hybrid is the practical middle ground for most enterprises
+2. The scaling lag of private cloud (weeks to months) is a key driver for hybrid adoption — directly relevant to Activity 1 (govt dept moving to hybrid)
+3. Multicloud avoids lock-in but adds management complexity — this trade-off underpins the module's "key considerations" theme
+
+---
+
+### 2. Linthicum, D. (2019). Application and data compatibility [Video]. LinkedIn Learning.
+
+**Citation:** Linthicum, D. (2019). Application and data compatibility [Video]. In Learning cloud computing: Public cloud platforms. LinkedIn Learning. https://www.linkedin.com/learning/learning-cloud-computing-public-cloud-platforms-2/normalizing-the-offerings
+
+**Purpose:** Teaches a structured, weighted evaluation framework for selecting a public cloud provider, applied to AWS, Azure, and GCP across storage, compute, security, networking, provisioning, management, and governance dimensions.
+
+---
+
+#### 1. The Evaluation Framework
+
+Linthicum uses a **weighted scoring system** (called "disruptive vectors") to objectively rank providers rather than relying on brand preference. Each dimension is scored and weighted based on organisational priorities.
+
+```mermaid
+graph TD
+    EF[Provider Evaluation Framework] --> ST[Storage]
+    EF --> CO[Compute]
+    EF --> SE[Security]
+    EF --> NW[Networking]
+    EF --> PR[Provisioning]
+    EF --> MG[Management]
+    EF --> GV[Governance]
+
+    ST --> WS[Weighted Score per provider]
+    CO --> WS
+    SE --> WS
+    NW --> WS
+    PR --> WS
+    MG --> WS
+    GV --> WS
+
+    WS --> IDX[Index Score → Provider Selection]
+```
+
+> The key insight: cloud selection should be **data-driven**, not marketing-driven. Score what matters to your organisation, then compare.
+
+#### 2. Provider Comparison — The Big Three
+
+| Evaluation Dimension | AWS | Microsoft Azure | Google Cloud Platform |
+|---------------------|-----|----------------|----------------------|
+| **Market position** | 🥇 Leader — most services, largest ecosystem | 🥈 Strong #2 — especially in enterprise | 🥉 Solid #3 — specialises in AI/data |
+| **Storage** | Block, object, file + all major DBs | Strong storage and provisioning | Object (Cloud Storage), BigQuery for big data |
+| **Compute** | EC2, ECS, Lambda (serverless) | VMs, AKS (Kubernetes), Functions | Compute Engine, App Engine (PaaS), GKE |
+| **Databases** | DynamoDB, RDS, Aurora, DocumentDB | SQL Server, Cosmos DB, Azure SQL | Cloud SQL, BigQuery, Dataflow (data integration) |
+| **Security** | IAM, encryption, HIPAA + SOX compliance | Average — improving rapidly | Strong governance and compliance features |
+| **AI / ML** | SageMaker, Rekognition, Lex | Cognitive Services, Azure ML, OpenAI partnership | Best-in-class: BigQuery ML, Vertex AI, Translation |
+| **Best for** | Broad enterprise, developer ecosystem, first cloud | Microsoft-centric orgs (.NET, SQL Server, Office 365) | Data-heavy, AI-driven, IoT, edge computing |
+| **Evaluation score (example)** | Highest index overall | ~2.7 index score (Linthicum example) | Strong in specialised AI/data vectors |
+
+#### 3. AWS vs Azure vs GCP — Service Breadth
+
+```mermaid
+graph LR
+    subgraph AWS ["AWS — Broadest"]
+        A1[Compute: EC2, Lambda]
+        A2[Storage: S3, EBS, EFS]
+        A3[DB: RDS, DynamoDB, Aurora]
+        A4[AI/ML: SageMaker, Lex]
+        A5[Management: CloudWatch, CloudTrail]
+    end
+
+    subgraph AZ ["Azure — Enterprise-Focused"]
+        B1[Compute: VMs, AKS, Functions]
+        B2[Storage: Blob, Disk, Files]
+        B3[DB: SQL, Cosmos DB]
+        B4[AI: Cognitive Services, OpenAI]
+        B5[Integration: O365, Teams, D365]
+    end
+
+    subgraph GCP ["GCP — Data & AI Specialist"]
+        C1[Compute: Compute Engine, App Engine]
+        C2[Storage: Cloud Storage]
+        C3[DB: Cloud SQL, BigQuery]
+        C4[AI/ML: Vertex AI, Translation, IoT]
+        C5[Data: Dataflow, Pub/Sub]
+    end
+```
+
+#### 4. How to Apply the Framework
+
+| Step | Action |
+|------|--------|
+| **1. Define priorities** | Weight dimensions by business need (e.g. if compliance is critical, weight Security × 2) |
+| **2. Score each provider** | Rate each provider 1–5 on every dimension |
+| **3. Apply weights** | Multiply score × weight for each dimension |
+| **4. Sum index scores** | Compare total weighted scores |
+| **5. Validate shortlist** | Test top candidates with a proof-of-concept on your actual workloads |
+
+> Not all AWS services will be used by every organisation — evaluate fit for *your* specific requirements, not service count.
+
+#### Key Takeaways for CCF501
+
+1. A structured evaluation framework beats gut feeling — this is the professional approach to cloud platform selection covered in the module's "key considerations" theme
+2. Azure wins when the org is already Microsoft-centric; AWS wins on breadth; GCP wins on AI/data — knowing this helps argue provider choice in assignments
+3. Security, governance, and data residency should be **weighted higher** for regulated industries (government, healthcare, finance) — directly applicable to Activity 1 and Assessment 2
 
 ### 3a. VMware. (n.d.). What is hybrid cloud?
 
