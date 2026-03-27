@@ -694,7 +694,7 @@ In Module 7, you will be exposed to a range of resources that explore the key co
     0.2 – What is Multicloud?
     0.3 – Why Multicloud?
 
-> *Status: ✅ Read + Reviewed (VMware article — r3_what-is-hybrid-cloud.pdf) | 🔥 WIP (Multicloud video — needs manual watch) — see [module07_notes.md](module_07_deployment-models-key-considerations/module07_notes.md)*
+> *Status: ✅ Read + Reviewed — see [module07_notes.md](module_07_deployment-models-key-considerations/module07_notes.md)*
 
 #### 4. Understanding Hybrid Cloud With AWS
 - Amazon Web Services. (n.d.). Understanding hybrid cloud with AWS. https://pages.awscloud.com/rs/112-TZM-766/images/Understanding-Hybrid-Cloud-With-AWS.pdf

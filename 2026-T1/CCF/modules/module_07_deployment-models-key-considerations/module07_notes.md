@@ -8,14 +8,14 @@
 |---|------|--------|
 | **1** | Watch & summarise Linthicum (2021) — Public, Private, Multicloud (LinkedIn Learning) | ✅ |
 | **2** | Watch & summarise Linthicum (2019) — Selecting Public Cloud Platforms (LinkedIn Learning) | ✅ |
-| 3a | Read & summarise VMware (n.d.) — What is Hybrid Cloud? | ✅ |
-| 3b | Watch & summarise Linthicum (2022) — What is Multicloud? (LinkedIn Learning) | 🔥 |
+| **3a** | Read & summarise VMware (n.d.) — What is Hybrid Cloud? | ✅ |
+| **3b** | Watch & summarise Linthicum (2022) — What is Multicloud? (LinkedIn Learning) | ✅ |
 | 4 | Read & summarise Amazon Web Services (n.d.) — Understanding Hybrid Cloud With AWS | ✅ |
 | 5 | Read & summarise Dignan (2019) — Top Cloud Providers 2019 (ZDNet) | ✅ |
 | 6 | Activity 1: Analysing a Real-Life Cloud Strategy Document — Discussion Forum | ✅ |
 | 7 | Activity 2: Case Study — PwC builds multitenant enterprise decision support site | ✅ |
 
-> Resource 3b (Linthicum 2022 — What is Multicloud?) is still 🔥 WIP — watch manually.
+> All resources completed. ✅
 
 ---
 
@@ -260,6 +260,65 @@ graph TD
 1. **Activity 1** (Australian Govt cloud strategy) will likely involve evaluating a hybrid cloud deployment — the VMware framework provides vocabulary for that critique
 2. Hybrid cloud selection factors (security, compliance, workload type) directly map to the module's "key considerations" theme
 3. The hybrid vs multi-cloud distinction is critical for Assessment 2 (service model analysis)
+
+
+### 3b. Linthicum, D. (2022). What is Multicloud? [Video]. LinkedIn Learning.
+
+**Citation:** Linthicum, D. (2022). What is Multicloud? [Video]. In Planning a multicloud solution. LinkedIn Learning. https://www.linkedin.com/learning/planning-a-multicloud-solution-15038994/what-is-multicloud?autoplay=true&resume=false&u=56744473
+
+**Purpose:** Defines multicloud, distinguishes it clearly from hybrid cloud, and frames the business case — when multicloud delivers real value vs when it adds unnecessary complexity.
+
+---
+
+#### 1. Multicloud vs Hybrid Cloud — The Critical Distinction
+
+| Dimension | Multicloud | Hybrid Cloud |
+|-----------|-----------|-------------|
+| **Definition** | Multiple **public** cloud providers in one architecture | Mix of **different cloud types** (private + public + community) or legacy + cloud |
+| **Typical providers** | AWS + Azure, or AWS + GCP, etc. | On-prem data centre + AWS, or private cloud + Azure |
+| **Primary driver** | Best-of-breed services; avoid lock-in | Data residency, compliance, legacy app support |
+| **Complexity** | High — managing multiple vendor APIs and billing | Medium — single operating model goal |
+| **Overlap possible?** | Yes — a multicloud can also be hybrid | Yes — a hybrid often includes multiple public clouds |
+
+> 💡 Multicloud = **which** public clouds. Hybrid = **what types** of cloud environments.
+
+#### 2. Why Businesses Choose Multicloud
+
+```mermaid
+graph LR
+    MC[Multicloud Strategy] --> BV[Best-of-breed services\nAWS for compute,\nGCP for AI/ML]
+    MC --> LI[Avoid vendor lock-in\nNo single-provider dependency]
+    MC --> PN[Price negotiation\nLeverage provider competition]
+    MC --> RS[Resilience\nRedundancy across providers]
+    MC --> RG[Regulatory fit\nDifferent regions/providers\nfor data sovereignty]
+```
+
+#### 3. The Business Value Test
+
+Multicloud is not a default — it should be justified. Linthicum frames it as a deliberate business decision:
+
+| Question | If YES → | If NO → |
+|----------|----------|---------|
+| Do different workloads need genuinely different provider strengths? | Multicloud adds value | Single cloud is simpler |
+| Is vendor lock-in a real strategic risk? | Multicloud is warranted | Lock-in risk may be overstated |
+| Can the organisation manage multi-vendor complexity? | Proceed with multicloud | Stick to single or hybrid |
+| Does the cost of integration exceed the savings? | Reconsider | Multicloud is viable |
+
+#### 4. Multicloud Trade-offs at a Glance
+
+| Advantage | Disadvantage |
+|-----------|-------------|
+| Best-of-breed service selection | Higher operational complexity |
+| No single-vendor dependency | More tooling, skills, and training required |
+| Improved negotiating leverage on pricing | Harder to achieve a unified management plane |
+| Geographic and regulatory flexibility | Integration and data transfer costs can add up |
+| Resilience through provider redundancy | Security posture harder to enforce consistently |
+
+#### Key Takeaways for CCF501
+
+1. Multicloud ≠ hybrid — a common exam trap; the distinction is tested in the module's learning activities
+2. The business value test is the right framing for Activity 1 (does the Australian Govt dept's hybrid approach deliver real value?) and Assessment 2 (justify the service model choice)
+3. Complexity is the main cost of multicloud — always weigh it against the strategic benefit before recommending it
 
 ---
 
