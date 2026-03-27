@@ -13,7 +13,7 @@
 | 4 | Read & summarise Amazon Web Services (n.d.) — Understanding Hybrid Cloud With AWS | ✅ |
 | 5 | Read & summarise Dignan (2019) — Top Cloud Providers 2019 (ZDNet) | ✅ |
 | 6 | Activity 1: Analysing a Real-Life Cloud Strategy Document — Discussion Forum | ✅ |
-| 7 | Activity 2: Case Study — PwC builds multitenant enterprise decision support site | ✅ |
+| **7** | Activity 2: Case Study — PwC builds multitenant enterprise decision support site | ✅ |
 
 > All resources completed. ✅
 
@@ -574,6 +574,17 @@ graph TD
 2. **Staff and business transformation**: The 4 Cloud Foundations (especially Workforce Skills and ICT Operating Model) show the department recognised cloud is not just a technology change — it's an organisational transformation
 3. **Hybrid cloud migration approach**: The Hybrid Cloud Decision Framework provides structured criteria for workload placement; the "5 Rs" show the migration approach is iterative, not big-bang
 4. Strong alignment with Module 7 resources: the department's approach mirrors VMware's hybrid model and AWS's "extend cloud to where data lives" philosophy
+
+#### Forum Discussion:
+I agree with the department's chosen approach to migrating to hybrid cloud, as expressed through its Hybrid Cloud Decision Framework and the 5Rs application transformation strategy.
+
+Rather than a big-bang migration, the department proposed an iterative, workload-by-workload evaluation — prioritising SaaS before PaaS, commercial off-the-shelf before custom builds, and applying the 5Rs (Re-host, Re-factor, Revise, Rebuild, Replace) to guide each application's path to the cloud. This is a pragmatic approach: it acknowledges that not all systems are cloud-ready, avoids the costly refactoring trap, and preserves optionality at each stage.
+
+This aligns directly with VMware's (n.d.) observation that migration without refactoring is one of the central challenges of hybrid cloud adoption — dissimilar environments force costly rework if the operating model isn't consistent from the start. The department's framework addresses this by establishing governance criteria — compliance, security, business value, and consumption preference — before any workload moves, rather than retrofitting governance afterwards.
+
+One limitation worth noting is that the strategy dates from 2019. The SaaS-first priority order remains sound, but the multicloud management tooling available today (such as AWS Outposts or Azure Arc) has matured considerably, which may open more flexible Re-host and Re-factor paths than the department originally anticipated.
+
+Overall, the iterative, criteria-driven migration approach reflects industry best practice and positions the department to modernise without exposing itself to unnecessary operational risk.
 
 ---
 

@@ -61,9 +61,8 @@ Term | Subject | Status | Lecturer | Directory | Credit Points
     - Technology - Work Integrated Learning I (TWL604 - 20CP)
     - Advanced Technology - Work Integrated Learning (ATW606 - 30CP)
 
-- 1x Elective (***to be defined...***):
+- 1x Elective (***defined...***):
     - Big Data and Analytics (BDA601 - 10CP)
-    - Cyber Security Principles (CPO442 - 10CP)
 
 #### Goals
 - [🔥] Complete course materials for all subjects
