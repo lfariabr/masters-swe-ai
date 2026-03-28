@@ -230,23 +230,82 @@ The field traces to McCulloch & Pitts (1943), who proposed five foundational ass
 
 #### 3. The Perceptron: Structure and Activation Functions (Chapter 4)
 
-The **perceptron** is the fundamental building block of nearly all ANN architectures.
+##### What the hell is a perceptron?
 
-**Input-output relation:**
+A **perceptron** is a fake neuron. That's it. It takes some numbers in, multiplies each by a weight, adds them up, and then decides whether to "fire" or not based on some threshold. It's the 1958 attempt by Frank Rosenblatt to model how a single brain cell works.
+
+Think of it like a decision-making machine with a terrible memory:
+- **Inputs** = evidence (pixel values, sensor readings, features)
+- **Weights** = how much you trust each piece of evidence
+- **Activation** = your final verdict
+
+```mermaid
+graph LR
+    x1["x₁ = 0.8"] -->|"w₁ = 0.5"| S((Σ))
+    x2["x₂ = 0.3"] -->|"w₂ = 1.2"| S
+    x3["x₃ = 0.9"] -->|"w₃ = -0.4"| S
+    bias["bias = 1"] -->|"w₀ = 0.1"| S
+    S -->|"z = Σwᵢxᵢ"| A["Activation\nf(z)"]
+    A -->|"y = 0 or 1\n(or between)"| OUT["Output"]
 ```
-z_i = Σ w_ij * x_ij     (weighted sum of inputs)
-y_i = f(z_i)             (activation function applied)
+
+**Step by step:**
+1. Each input `xᵢ` is multiplied by its weight `wᵢ` — weights say "how important is this input?"
+2. All weighted inputs are **summed**: `z = w₁x₁ + w₂x₂ + w₃x₃ + bias`
+3. The sum `z` is passed through an **activation function** `f(z)` — this squashes the output into a useful range and introduces non-linearity
+4. The result `y` is the perceptron's output (a prediction)
+
+**The bias** is a constant input that shifts the activation threshold — like adjusting how hard it is for the neuron to "fire".
+
+---
+
+##### Activation Functions: the "how loud does it fire?" dial
+
+The activation function decides what the perceptron outputs after computing the weighted sum. Different functions give different behaviours:
+
+```mermaid
+graph LR
+    subgraph "Hard Threshold (step)"
+        direction TB
+        HT["z < 0 → y = 0\nz ≥ 0 → y = 1"]
+    end
+    subgraph "Sigmoid (smooth step)"
+        direction TB
+        SIG["y = 1 / (1 + e⁻ᶻ)\noutput: 0 → 1"]
+    end
+    subgraph "Tanh (zero-centred)"
+        direction TB
+        TH["y = tanh(z)\noutput: -1 → 1"]
+    end
+    subgraph "ReLU (modern default)"
+        direction TB
+        RL["y = max(0, z)\noutput: 0 → ∞"]
+    end
 ```
 
-**Activation functions:**
+| Function | Shape | Output range | When to use |
+|----------|-------|-------------|-------------|
+| **Hard threshold** | Binary jump at 0 | {0, 1} | Conceptual/historical only — not differentiable, can't train with gradient descent |
+| **Sigmoid** | Smooth S-curve | (0, 1) | Output layer for binary classification — "probability it's a cat" |
+| **Tanh** | Sigmoid shifted down | (-1, 1) | Hidden layers when you need zero-centred outputs |
+| **ReLU** | Flat then linear | [0, ∞) | Default for hidden layers — fast, avoids vanishing gradient |
+| **Softmax** | Sum-to-one normaliser | (0, 1) each, Σ=1 | Output layer for multi-class — "probability distribution over 10 digits" |
 
-| Function | Formula | Range | Notes |
-|----------|---------|-------|-------|
-| **Sigmoid** | `y = 1 / (1 + exp(-z))` | (0, 1) | Smooth, differentiable; most common |
-| **Tanh** | `y = tanh(z)` | (-1, 1) | Bipolar version; zero-centred |
-| **Hard threshold** | `y = 1 if z≥0, else 0` | {0, 1} | Adaline uses this; not differentiable at 0 |
+**Why does the shape matter?**
+- **Hard threshold** is on/off — no gradient, so you can't train it iteratively
+- **Sigmoid/tanh** are smooth — you can compute gradients and nudge weights in the right direction
+- **ReLU** is simple and fast, but can "die" (output 0 forever) if the neuron gets stuck in the negative zone
+- **Softmax** converts raw scores into probabilities that sum to 1.0 — mandatory for multi-class output
 
-The sigmoid and tanh are "squashing functions" — they keep outputs bounded, mimicking biological neuron saturation.
+**The "squashing" intuition:**
+Without activation functions, stacking layers of weighted sums would just produce another weighted sum (a linear function). Activation functions break linearity — that's what allows deep networks to represent complex curved decision boundaries, not just straight lines.
+
+```mermaid
+graph TD
+    LIN["Linear only (no activation)\nAll layers = one big linear function\nCannot represent XOR or curves"]
+    NL["Non-linear activation (ReLU/Sigmoid)\nEach layer warps the space\nCan represent any boundary with enough neurons"]
+    LIN -->|"add activation functions"| NL
+```
 
 ---
 
