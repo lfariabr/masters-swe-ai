@@ -15,10 +15,10 @@
 
 | # | Resource / Activity | Type | Status |
 |---|---------------------|------|--------|
-| **1** | **Read & summarise Zaccone & Karim (2018) — A First Look at TensorFlow (Ch. 2)** | Reading | **✅** |
-| **2** | **Read & summarise Graupe (2013) — ANN Principles & Perceptron (Ch. 3–4)** | Reading | **✅** |
+| 1 | **Read & summarise Zaccone & Karim (2018) — A First Look at TensorFlow (Ch. 2)** | Reading | **✅** |
+| 2 | **Read & summarise Graupe (2013) — ANN Principles & Perceptron (Ch. 3–4)** | Reading | **✅** |
 | 3 | **Watch & summarise Sentdex (2018) — Deep learning with Python, TensorFlow & Keras** | Video | **✅** |
-| 4 | Read & summarise Zaccone et al. (2017) — CNNs (Ch. 4) | Reading | 🔥 WIP |
+| **4** | **Read & summarise Zaccone et al. (2017) — CNNs (Ch. 4)** | Reading | **✅** |
 | **5** | **Watch & summarise Phi (2018) — Illustrated guide to RNNs** | Video | **✅** |
 | **6** | **Watch & summarise Google (2020) — Regularisation for Simplicity** | Video | **✅** |
 | **7** | **Watch & summarise Deeplearning.ai (2017) — Other regularisation methods** | Video | **✅** |
@@ -357,92 +357,6 @@ This demonstrates that even a single perceptron can be a powerful regression too
 
 ---
 
-### 6. Google.com. (2020). Machine Learning Crash Course – Regularisation for Simplicity.
-
-**Citation:** Google.com. (2020, 10 February). *Machine Learning Crash Course – Regularisation for Simplicity* [Video file]. Retrieved from https://developers.google.com/machine-learning/crash-course/regularization-for-simplicity/video-lecture
-
-**Purpose:** Explains how overfitting occurs in deep learning models and introduces regularisation techniques — specifically L2 regularisation and early stopping — to improve a model's ability to generalise to new data.
-
----
-
-#### 1. The Overfitting Problem
-
-**Overfitting** = a model memorises the training data so well it performs poorly on new examples.
-
-- Deep learning models are especially prone to overfitting due to their large number of parameters
-- An overfit model has **low training loss** but **high test/validation loss**
-- The model learns noise and idiosyncratic patterns in training data, not the underlying signal
-
----
-
-#### 2. L2 Regularisation (Ridge Regularisation)
-
-L2 regularisation penalises large weights by adding a complexity term to the loss function:
-
-```
-Objective = Minimise(Loss + λ × Complexity)
-
-where Complexity = w₁² + w₂² + ... + wₙ²
-```
-
-**Key properties:**
-- Encourages weights **toward zero** but never all the way to zero (all features retain some contribution)
-- Large weights are penalised disproportionately: a single weight of 5.0 contributes ~25× more penalty than a weight of 1.0
-- Produces weight distributions that approximate a **normal distribution centred at zero**
-
----
-
-#### 3. Lambda (Regularisation Rate)
-
-**Lambda (λ)** is the hyperparameter controlling regularisation strength:
-
-| Lambda setting | Effect on weights | Risk |
-|----------------|------------------|------|
-| **High λ** | Pulls weights strongly toward zero | Underfitting (model too simple) |
-| **Low λ** | Minimal weight penalty | Overfitting (model too complex) |
-| **λ = 0** | No regularisation | Pure loss minimisation |
-
-**Tuning challenge:** Lambda and learning rate work in opposition:
-- High **learning rate** → pulls weights away from zero
-- High **lambda** → pulls weights toward zero
-- Finding the right balance between these two forces is critical for optimal generalisation
-
----
-
-#### 4. Early Stopping (Alternative Regularisation)
-
-**Early stopping** halts training before the model fully converges, typically when validation loss starts increasing:
-
-| Property | Effect |
-|----------|--------|
-| Training loss | Usually increases (not fully minimised) |
-| Test/validation loss | Can decrease (better generalisation) |
-| Comparison to L2 | Generally less effective than carefully tuned λ |
-
-Early stopping is a simple heuristic but less principled than L2 regularisation — it can miss the optimal stopping point.
-
----
-
-#### 5. The Fundamental Regularisation Trade-off
-
-Regularisation introduces a deliberate tension between two competing goals:
-
-1. **Minimise loss** → fit the training data as closely as possible
-2. **Minimise complexity** → keep weights small and the model simple
-
-The regularisation rate λ determines how much each goal is weighted. A model that achieves both — low training loss **and** small weights — is more likely to generalise well to unseen data.
-
----
-
-#### Key Takeaways for ISY503
-
-1. **Every deep learning model you build is at risk of overfitting** — regularisation is not optional in practice, especially with small datasets
-2. **L2 (weight decay)** is built into most deep learning frameworks: in Keras/TensorFlow, it's added as `kernel_regularizer=tf.keras.regularizers.l2(lambda_val)` in any Dense or Conv layer
-3. **Activity 1 (CNN Modification)** will likely involve tuning regularisation — understanding how λ affects weight distributions helps you interpret what's happening
-4. **Connects to Resource 7 (Andrew Ng):** data augmentation and early stopping are complementary regularisation strategies to L2
-
----
-
 ### 3. Sentdex. (2018). Deep learning with Python, TensorFlow, and Keras tutorial.
 
 **Citation:** Sentdex. (2018, 11 August). *Deep learning with Python, TensorFlow, and Keras tutorial* [Video file]. Retrieved from https://www.youtube.com/watch?v=wQ8BIBpya2k
@@ -554,10 +468,188 @@ predicted_class = np.argmax(predictions[0])
 
 ---
 
+---
+
 ### 4. Zaccone, G., Karim, M. & Menshawy, A. (2017). Deep learning with TensorFlow, Ch. 4 (CNNs).
-> *Status: 🔥 WIP — needs manual access (EBSCO eBook)*
-> Access at: https://search.ebscohost.com/login.aspx?direct=true&AuthType=shib&db=nlebk&AN=1508099
-> Covers: CNN architecture (convolutional layers, pooling layers, fully connected layers); handwriting detection example
+
+**Citation:** Zaccone, G., Karim, M. & Menshawy, A. (2017). *Deep learning with TensorFlow*. Birmingham, England: Packt. Retrieved from https://search.ebscohost.com/login.aspx?direct=true&AuthType=shib&db=nlebk&AN=1508099
+
+**Purpose:** Covers Convolutional Neural Networks (CNNs) — the architecture behind image recognition. Explains why stacking specialised conv/pooling/dense layers dramatically outperforms a flat Dense network for spatial data, and walks through building a CNN step-by-step for handwriting detection.
+
+> *Supplementary source: Karpathy, A. et al. (n.d.). CS231n: Convolutional Neural Networks for Visual Recognition. Stanford University. Retrieved from https://cs231n.github.io/convolutional-networks/*
+
+---
+
+#### 1. What the hell is a CNN and why not just use Dense layers?
+
+Imagine trying to recognise a cat in a photo using a fully-connected (Dense) network. A 224×224 image has 150,528 pixels (×3 for RGB = 451,584 inputs). Every input connects to every neuron — that's **millions of parameters before you've even processed one image**. It's slow, it wastes memory, and it ignores the most obvious fact about images: **nearby pixels are related**.
+
+A CNN exploits spatial structure with two key ideas:
+- **Local connectivity** — each neuron only looks at a small patch of the image (a "receptive field"), not the whole thing
+- **Weight sharing** — the same filter (set of weights) slides across the entire image, detecting the same feature everywhere
+
+The result: far fewer parameters, faster training, and a network that generalises better.
+
+```mermaid
+graph TD
+    A["Dense Network\n451,584 inputs × millions of weights\nTreats image as flat list\nIgnores spatial structure"]
+    B["CNN\nFilters slide over small patches\nSame weights reused across image\n~3,000× fewer parameters"]
+    A -->|"replace with"| B
+```
+
+---
+
+#### 2. The CNN Architecture: Layers Stack Up
+
+A typical CNN processes an image through three types of layer, in sequence:
+
+```mermaid
+graph LR
+    IMG["Input Image\n28×28×1\n(greyscale)"] --> C1["Conv Layer\nLearn edges & curves"]
+    C1 --> P1["Pooling Layer\nShrink spatial size"]
+    P1 --> C2["Conv Layer\nLearn textures & shapes"]
+    C2 --> P2["Pooling Layer\nShrink again"]
+    P2 --> FL["Flatten\n2D → 1D vector"]
+    FL --> FC["Dense / FC Layer\nCombine features"]
+    FC --> OUT["Output\nSoftmax → class probs"]
+```
+
+| Layer type | What it does | Learns |
+|------------|-------------|--------|
+| **Convolutional** | Slides filters over input, computes dot products | Edges, textures, patterns |
+| **Pooling** | Shrinks spatial dimensions by summarising regions | Nothing — no weights |
+| **Fully connected (Dense)** | Combines all features for final classification | How features combine into classes |
+
+---
+
+#### 3. Convolutional Layers: The Core
+
+A **filter** (also called a **kernel**) is a small matrix of learnable weights — typically 3×3 or 5×5. It slides across the input image, computing a dot product at each position. The result is a **feature map** — a 2D grid showing where (and how strongly) that feature appears in the image.
+
+```mermaid
+graph TD
+    subgraph "Filter slides over image"
+        direction LR
+        IMG2["Image patch\n(5×5)"] -->|"element-wise multiply + sum"| FM["Single value\nin feature map"]
+    end
+    FM --> FMP["Feature map\n(one per filter)"]
+    FMP --> STACK["Stack of feature maps\n= output volume"]
+```
+
+**Key properties:**
+
+| Property | Description | Example |
+|----------|-------------|---------|
+| **Filter size (F)** | Spatial extent of each filter | 3×3, 5×5 |
+| **Depth (K)** | Number of filters = number of feature maps produced | 32, 64, 128 |
+| **Stride (S)** | How many pixels the filter moves each step | 1 (small) or 2 (downsampling) |
+| **Padding (P)** | Zeros added around the border | `same` padding preserves spatial size |
+
+**Output size formula:**
+```
+W_out = (W_in - F + 2P) / S + 1
+```
+Example: 28×28 input, 3×3 filter, stride 1, padding 1 → output is still 28×28.
+
+**What each filter learns:**
+- **Early layers:** simple edges (horizontal, vertical, diagonal)
+- **Middle layers:** textures, corners, curves
+- **Deep layers:** complex shapes, object parts (eyes, wheels, etc.)
+
+This is called **hierarchical feature learning** — the network builds up complexity layer by layer from simple to abstract.
+
+---
+
+#### 4. Pooling Layers: Controlled Shrinking
+
+After a conv layer, spatial dimensions are still large. Pooling **downsamples** — it summarises regions of the feature map into a single value, reducing size and computation.
+
+**Max pooling** (the standard): take the **maximum** value in each region.
+
+```
+Input (4×4):          After 2×2 Max Pool (stride 2):
+  1  3  2  4              3  4
+  5  6  1  2    →         6  3
+  3  2  1  1
+  2  1  3  2
+```
+
+| Pool type | Takes | When to use |
+|-----------|-------|-------------|
+| **Max pooling** | Maximum of the region | Standard — keeps the strongest activation |
+| **Average pooling** | Mean of the region | Older; sometimes used in final layers |
+| **Global average pooling** | Mean of entire feature map | Modern replacement for Flatten + Dense |
+
+**Why pooling helps:**
+- Reduces spatial size → fewer parameters downstream
+- Introduces **translation invariance** — a feature detected slightly left or right still activates
+- Controls overfitting by discarding exact positional information
+
+---
+
+#### 5. The Full CNN Forward Pass (MNIST Handwriting Example)
+
+```mermaid
+graph LR
+    IN["Input\n28×28×1\n(digit image)"]
+    IN --> CV1["Conv2D\n32 filters, 3×3\nOutput: 26×26×32"]
+    CV1 --> MP1["MaxPool 2×2\nOutput: 13×13×32"]
+    MP1 --> CV2["Conv2D\n64 filters, 3×3\nOutput: 11×11×64"]
+    CV2 --> MP2["MaxPool 2×2\nOutput: 5×5×64"]
+    MP2 --> FL2["Flatten\nOutput: 1600"]
+    FL2 --> FC2["Dense 128 + ReLU"]
+    FC2 --> OUT2["Dense 10 + Softmax\nOutput: P(digit 0–9)"]
+```
+
+In Keras/TensorFlow:
+
+```python
+model = tf.keras.Sequential([
+    tf.keras.layers.Conv2D(32, (3,3), activation='relu', input_shape=(28,28,1)),
+    tf.keras.layers.MaxPooling2D(2,2),
+    tf.keras.layers.Conv2D(64, (3,3), activation='relu'),
+    tf.keras.layers.MaxPooling2D(2,2),
+    tf.keras.layers.Flatten(),
+    tf.keras.layers.Dense(128, activation='relu'),
+    tf.keras.layers.Dense(10, activation='softmax')
+])
+model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
+```
+
+This is the exact pattern used in **Activity 1 (CNN Modification)**.
+
+---
+
+#### 6. Why Convolution >> Dense for Images
+
+| Property | Dense (fully connected) | CNN (convolutional) |
+|----------|------------------------|---------------------|
+| **Parameter count** | Millions (every pixel × every neuron) | Thousands (filter weights shared across image) |
+| **Spatial awareness** | None — treats image as a flat list | Full — exploits local pixel relationships |
+| **Translation invariance** | None — shifting the object breaks it | Partial — pooling adds robustness to shifts |
+| **AlexNet without sharing** | ~105 million weights (first layer alone) | ~35,000 unique weights (3,000× reduction) |
+| **Typical accuracy on MNIST** | ~97% | ~99%+ |
+
+---
+
+#### 7. Classic CNN Architectures (Brief Lineage)
+
+| Architecture | Year | Key innovation |
+|-------------|------|---------------|
+| **LeNet** | 1990s | First CNN; digit recognition; established conv→pool→dense template |
+| **AlexNet** | 2012 | Won ImageNet (16% vs 26% error); proved deep CNNs on GPUs work |
+| **VGGNet** | 2014 | Depth matters — 16 layers of 3×3 convs only; 140M parameters |
+| **GoogLeNet/Inception** | 2014 | Inception modules; 4M params (35× fewer than AlexNet) |
+| **ResNet** | 2015 | Skip connections; 152 layers; solved vanishing gradient in very deep nets |
+
+---
+
+#### Key Takeaways for ISY503
+
+1. **Activity 1 (CNN Modification)** builds exactly this architecture — Conv2D → MaxPool → Conv2D → MaxPool → Flatten → Dense → Softmax; changing filter counts, sizes, or adding layers is the "modification" part
+2. **CNNs before RNNs** — CNNs teach you specialised layers and hierarchical feature extraction; RNNs extend the same idea to the time dimension instead of space
+3. **Parameter sharing** is the single most important insight — it's why CNNs scale to real images where Dense networks fail
+4. **Pooling = translation invariance** — a slight shift in the digit's position doesn't break the prediction; this is a key property you'd test in Activity 1
 
 ---
 
@@ -666,6 +758,93 @@ Both architectures use **gates** — neural network layers that learn what infor
 2. The hidden state diagram directly maps to the Jupyter Notebook code — `hidden_state` is the tensor being passed between time steps
 3. **Short-term memory** is why the Jupyter Notebook example may struggle on longer sequences — this motivates using LSTMs in practice
 4. RNNs are the sequential counterpart to CNNs: CNNs capture spatial patterns (pixels), RNNs capture temporal patterns (sequences)
+
+---
+
+
+### 6. Google.com. (2020). Machine Learning Crash Course – Regularisation for Simplicity.
+
+**Citation:** Google.com. (2020, 10 February). *Machine Learning Crash Course – Regularisation for Simplicity* [Video file]. Retrieved from https://developers.google.com/machine-learning/crash-course/regularization-for-simplicity/video-lecture
+
+**Purpose:** Explains how overfitting occurs in deep learning models and introduces regularisation techniques — specifically L2 regularisation and early stopping — to improve a model's ability to generalise to new data.
+
+---
+
+#### 1. The Overfitting Problem
+
+**Overfitting** = a model memorises the training data so well it performs poorly on new examples.
+
+- Deep learning models are especially prone to overfitting due to their large number of parameters
+- An overfit model has **low training loss** but **high test/validation loss**
+- The model learns noise and idiosyncratic patterns in training data, not the underlying signal
+
+---
+
+#### 2. L2 Regularisation (Ridge Regularisation)
+
+L2 regularisation penalises large weights by adding a complexity term to the loss function:
+
+```
+Objective = Minimise(Loss + λ × Complexity)
+
+where Complexity = w₁² + w₂² + ... + wₙ²
+```
+
+**Key properties:**
+- Encourages weights **toward zero** but never all the way to zero (all features retain some contribution)
+- Large weights are penalised disproportionately: a single weight of 5.0 contributes ~25× more penalty than a weight of 1.0
+- Produces weight distributions that approximate a **normal distribution centred at zero**
+
+---
+
+#### 3. Lambda (Regularisation Rate)
+
+**Lambda (λ)** is the hyperparameter controlling regularisation strength:
+
+| Lambda setting | Effect on weights | Risk |
+|----------------|------------------|------|
+| **High λ** | Pulls weights strongly toward zero | Underfitting (model too simple) |
+| **Low λ** | Minimal weight penalty | Overfitting (model too complex) |
+| **λ = 0** | No regularisation | Pure loss minimisation |
+
+**Tuning challenge:** Lambda and learning rate work in opposition:
+- High **learning rate** → pulls weights away from zero
+- High **lambda** → pulls weights toward zero
+- Finding the right balance between these two forces is critical for optimal generalisation
+
+---
+
+#### 4. Early Stopping (Alternative Regularisation)
+
+**Early stopping** halts training before the model fully converges, typically when validation loss starts increasing:
+
+| Property | Effect |
+|----------|--------|
+| Training loss | Usually increases (not fully minimised) |
+| Test/validation loss | Can decrease (better generalisation) |
+| Comparison to L2 | Generally less effective than carefully tuned λ |
+
+Early stopping is a simple heuristic but less principled than L2 regularisation — it can miss the optimal stopping point.
+
+---
+
+#### 5. The Fundamental Regularisation Trade-off
+
+Regularisation introduces a deliberate tension between two competing goals:
+
+1. **Minimise loss** → fit the training data as closely as possible
+2. **Minimise complexity** → keep weights small and the model simple
+
+The regularisation rate λ determines how much each goal is weighted. A model that achieves both — low training loss **and** small weights — is more likely to generalise well to unseen data.
+
+---
+
+#### Key Takeaways for ISY503
+
+1. **Every deep learning model you build is at risk of overfitting** — regularisation is not optional in practice, especially with small datasets
+2. **L2 (weight decay)** is built into most deep learning frameworks: in Keras/TensorFlow, it's added as `kernel_regularizer=tf.keras.regularizers.l2(lambda_val)` in any Dense or Conv layer
+3. **Activity 1 (CNN Modification)** will likely involve tuning regularisation — understanding how λ affects weight distributions helps you interpret what's happening
+4. **Connects to Resource 7 (Andrew Ng):** data augmentation and early stopping are complementary regularisation strategies to L2
 
 ---
 
