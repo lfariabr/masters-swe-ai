@@ -673,7 +673,7 @@ Welcome to deep learning in practice! We discussed deep learning earlier so that
 
     Refer to your Jupyter Notebook (remember this is in Blackboard) for this section. Read the instructions in your Jupyter Notebook to gain an understanding of how to build a Convolutional Neural Network (CNN) step by step. An example for hand writing detection is provided. As a supplementary resource, you can read the section entitled ‘Build your first Convolutional Neural Network’ in Chapter 4. You need to see how pooling layers, convoluted layers and fully connected layers are developed. After seeing the example you will realise how great the model is! It can make mistakes in cases that would also be difficult for human beings; however, it eventually becomes really good! Now, let’s examine another type of deep neural networks: the Recurrent Neural Networks (RNNs).
 
-> *Status: 🕐 To-Do* 
+> *Status: ✅ Read + Reviewed — see [module07_notes.md](module_07_dl-in-practice/module07_notes.md)*
 
 #### 5. Recurrent Neural Networks
 - Phi, M. (2018, 26 August). Illustrated guide to recurrent neural networks: Understanding the intuition [Video file]. Retrieved from https://www.youtube.com/watch?v=LHXXI4-IEns
