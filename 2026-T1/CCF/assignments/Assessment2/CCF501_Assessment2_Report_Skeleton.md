@@ -29,7 +29,7 @@ The following sections examine each case in turn — analysing service and deplo
 
 ### 2.1 Case Overview (~100 words)
 
-Victoria Police — Australia's principal state law enforcement agency — adopted Microsoft Power Platform to establish a **fusion development framework**: a governed model that enables non-professional developers (police personnel across business units) to build data-driven applications safely, without depending solely on a constrained central IT team (Microsoft, 2026). The catalyst was a surge in self-directed application-building activity during the pandemic, when employees teaching themselves to use Power Apps revealed both the appetite for low-code tooling and the security risk of ungoverned 'shadow' applications built on standalone Microsoft Access databases. Rather than restricting this behaviour, Victoria Police channelled it — creating structured pathways from personal productivity through to enterprise-grade production deployment, with two applications (Global Whereabouts and Bail Reporting) already progressing to enterprise adoption (Microsoft, 2026).
+Victoria Police — Australia's principal state law enforcement agency — adopted Microsoft Power Platform to establish a **fusion development framework**: a governed model enabling non-professional developers (police personnel across business units) to build data-driven applications safely, without depending on a constrained central IT team (Microsoft, 2026). The catalyst was a pandemic-era surge in self-directed app-building, when employees teaching themselves Power Apps revealed both the appetite for low-code tooling and the risk of ungoverned 'shadow' applications built on standalone Microsoft Access databases. Rather than restricting this behaviour, Victoria Police channelled it — creating structured pathways from personal productivity through to enterprise-grade production, with two fusion-born applications already progressing to enterprise adoption (Microsoft, 2026).
 
 ### 2.2 Service Model Analysis (~150 words)
 
@@ -55,10 +55,10 @@ Victoria Police operates a **hybrid, multi-environment deployment model**: a per
 
 | Deployment Model | Governance | Security | Scalability | Fit for Victoria Police |
 |---|---|---|---|---|
-| On-Premises (MS Access) | Low — invisible to IT | High risk — unaudited shadow apps | None | ❌ Prior state — security blind spots, no transparency |
-| **Hybrid (Multi-env Power Platform)** | High — tiered approval flow with exec endorsement | High — centralised standards, security review | Moderate | ✅ **Adopted** — balances innovation with enterprise controls |
-| Public Cloud (ungoverned) | Low | Low | High | ❌ Creates same shadow IT risk as pre-migration state |
-| Private Cloud | High | High | Limited | ⚠️ High cost; no low-code developer ecosystem available |
+| On-Premises (MS Access) | Low — invisible to IT | High risk — unaudited shadow apps | None | ❌ Prior state — ungoverned shadow apps |
+| **Hybrid (Multi-env Power Platform)** | High — tiered approval flow with exec endorsement | High — centralised standards, security review | Moderate | ✅ **Adopted** — governed innovation pathway |
+| Public Cloud (ungoverned) | Low | Low | High | ❌ Same shadow IT risk as before |
+| Private Cloud | High | High | Limited | ⚠️ High cost; no low-code ecosystem |
 
 *Table 2: Deployment model comparison for Victoria Police (Microsoft, 2026; Manvi & Shyam, 2021).*
 
@@ -71,11 +71,9 @@ The fusion framework relies on a layered set of Microsoft Power Platform service
 | Service | Purpose | Business Outcome |
 |---|---|---|
 | Power Apps (Low-code / PaaS) | Enable non-professional developers to build data-driven apps without code | Personnel build and iterate solutions without the central IT bottleneck |
-| Microsoft Dataverse | Model-driven, structured data store underpinning enterprise apps | Replaces isolated MS Access databases with a governed, transparent, and auditable data layer |
-| Power Platform Environments | Isolated development, test, and production workspaces per business unit | Clear pathway from personal innovation to enterprise-grade deployment |
-| Power Platform Approval Flow | Governs requests for dedicated fusion environments via a model-driven app | Ensures executive endorsement and security team review before promotion to production |
+| Microsoft Dataverse | Model-driven, structured data store underpinning enterprise apps | Replaces isolated MS Access databases with a governed, transparent, auditable data layer |
+| Power Platform Governance Framework (Environments + Approval Flow) | Isolated workspaces per business unit; approval flow with executive endorsement before promotion | Tiered pathway from personal productivity to enterprise production; prevents ungoverned shadow apps |
 | Microsoft 365 (SharePoint) | Data substrate and collaboration layer for initial prototypes | Familiar toolset lowers the barrier to entry for non-technical builders |
-| Copilot Studio (exploration) | AI-assisted app development using generative coding | Future capability to further accelerate the build-to-deploy cycle |
 
 *Table 3: Microsoft Power Platform services utilised by Victoria Police and their business outcomes (Microsoft, 2026).*
 
@@ -96,9 +94,7 @@ graph TD
 
 <!-- RUBRIC: 20% SLO a — NIST essential characteristics; 20% SLO b — cloud vs traditional IT -->
 
-The Victoria Police case demonstrates how cloud's **on-demand self-service** characteristic (Mell & Grance, 2011) can be safely extended to non-professional developers when paired with tiered governance. In a traditional IT model, every application request would queue behind the central IT team — a bottleneck that drove staff to build ungoverned Microsoft Access solutions outside the organisation's visibility. The Power Platform model inverts this dynamic: rather than centralising all development capacity, it governs the _pathway_ to production while allowing distributed development (Microsoft, 2026). This represents a fundamental distinction from traditional IT: the cloud enables a spectrum of developer access that on-premises tooling structurally cannot support (McHaney, 2021).
-
-However, risks remain significant. Public sector cloud adoption introduces governance and compliance challenges that private-sector deployments typically do not face — including data residency obligations, citizen privacy legislation, and the requirement to maintain public trust in how sensitive information is managed (Bittok, 2021). For Victoria Police, law enforcement data held within a cloud-managed PaaS environment requires robust data residency controls and compliance with the Australian Protective Security Policy Framework (PSPF). As enterprise adoption scales to cover regions and thousands of officers, the risk surface expands correspondingly — a concern Efrain Tionko (Head of Digital Delivery and Transformation, Victoria Police) explicitly acknowledged when noting the need to increase controls as employee access grows (Microsoft, 2026).
+The Victoria Police case demonstrates cloud's **on-demand self-service** characteristic (Mell & Grance, 2011) applied beyond technical teams — extending it to non-professional developers under tiered governance. In a traditional IT model, every application request queued behind a constrained central team, driving staff toward ungoverned Microsoft Access solutions outside IT visibility. Power Platform inverts this: it governs the _pathway_ to production while allowing distributed development (Microsoft, 2026) — a structural distinction that on-premises tooling cannot replicate (McHaney, 2021). The primary risk is data residency: sensitive law enforcement data in a PaaS environment requires compliance with the Australian Protective Security Policy Framework (PSPF), and the risk surface expands as adoption scales to thousands of officers across regions — a challenge Efrain Tionko (Head of Digital Delivery, Victoria Police) explicitly acknowledged (Microsoft, 2026).
 
 ---
 
@@ -109,7 +105,7 @@ However, risks remain significant. Public sector cloud adoption introduces gover
 
 ### 3.1 Case Overview (~100 words)
 
-ChatAndBuild is a Singapore-based AI-native startup whose platform enables anyone — from a 4-year-old designing a mathematics game to a 78-year-old building a strategy simulation — to turn natural language into working applications and AI agents instantly (Google Cloud, n.d.). Serving over 140,000 users, the company's vision of the "Intelligence-Ownership Economy" — where users own Non-Fungible Agents (NFAs) with persistent memory, skills, and personality — placed extreme demands on infrastructure reliability and latency. The company's previous infrastructure imposed 30–70% higher latency on real-time generation, caused context rot in long-lived agents (loss of user history), and required engineers to manually provision servers days before global hackathons to prevent IP surge crashes (Google Cloud, n.d.). ChatAndBuild migrated to Google Cloud to establish a fully AI-native, elastically scalable infrastructure capable of operating at global speed.
+ChatAndBuild is a Singapore-based AI-native startup whose platform enables anyone to turn natural language into working applications and AI agents instantly, serving over 140,000 users globally (Google Cloud, n.d.). The company's previous infrastructure imposed 30–70% higher latency on real-time generation and caused context rot in long-lived AI agents — loss of user history that eroded platform trust. Global hackathon events required engineers to manually provision servers days in advance to prevent crashes from IP surges, making elasticity a critical business requirement. ChatAndBuild migrated to Google Cloud to establish a fully AI-native, elastically scalable infrastructure capable of operating at global speed (Google Cloud, n.d.).
 
 ### 3.2 Service Model Analysis (~150 words)
 
@@ -131,14 +127,14 @@ ChatAndBuild's architecture spans **IaaS and PaaS** layers. Google Compute Engin
 <!-- RUBRIC: 40% — Compare deployment models; justify the recommended model with evidence -->
 <!-- SLO b: cloud vs traditional IT -->
 
-ChatAndBuild operates on **public cloud** across multiple Google Cloud regions — a model where infrastructure is owned and operated by a third-party provider, shared across multiple tenants but logically isolated per customer, and accessible globally over the internet (IBM, n.d.-b). Cloud Load Balancing routes each request to the nearest available region, ensuring sub-second response times for users globally. The multi-region public cloud model was the only viable option for a startup serving over 140,000 users across time zones, where global hackathon spikes require instantly elastic capacity — and where the prior on-premises approach required engineers to manually provision servers days in advance (Google Cloud, n.d.).
+ChatAndBuild operates on **public cloud** across multiple Google Cloud regions. Cloud Load Balancing routes each request to the nearest available region, ensuring sub-second response times globally. The multi-region model was the only viable option for a startup serving over 140,000 users across time zones, where hackathon spikes require instantly elastic capacity and prior on-premises approaches demanded days of manual server provisioning (Google Cloud, n.d.).
 
 | Deployment Model | Elasticity | Global Reach | Latency | Fit for ChatAndBuild |
 |---|---|---|---|---|
-| On-Premises | None — fixed servers | Single geography | High | ❌ Prior state — manual provisioning; 30–70% higher latency; engineers as human autoscalers |
-| Private Cloud | Limited | Single geography | Medium | ❌ No global edge; cannot serve 140,000+ users across time zones |
-| **Public Cloud (Multi-region)** | High — auto-scale 10→100+ instances in minutes | Global PoP via Cloud Load Balancing | Low — sub-second | ✅ **Adopted** — GKE + Cloud Run auto-scale to demand with zero downtime |
-| Multi-Cloud | Highest | Highest | Lowest | ⚠️ Premature complexity for current startup scale |
+| On-Premises | None — fixed servers | Single geography | High | ❌ Prior state — 30–70% higher latency |
+| Private Cloud | Limited | Single geography | Medium | ❌ No global edge or elastic capacity |
+| **Public Cloud (Multi-region)** | High — auto-scale 10→100+ instances in minutes | Global PoP via Cloud Load Balancing | Low — sub-second | ✅ **Adopted** — auto-scale, zero downtime |
+| Multi-Cloud | Highest | Highest | Lowest | ⚠️ Premature for current startup scale |
 
 *Table 5: Deployment model comparison for ChatAndBuild (Google Cloud, n.d.; Manvi & Shyam, 2021).*
 
@@ -151,14 +147,10 @@ The Google Cloud architecture forms an integrated "idea-to-app" engine where eac
 | Service | Purpose | Business Outcome |
 |---|---|---|
 | Vertex AI + Gemini models | Routes prompts to specialised coding and research agents; multimodal generation | Core AI engine — 30–70% latency reduction vs previous setup |
-| Google Kubernetes Engine (GKE) | Isolated namespaces per agent graph; manages thousands of concurrent builder sessions | Zero-downtime event scaling — 13B+ tokens processed at a global hackathon |
-| Cloud Run + Cloud Functions | Stateless microservices that auto-spin for traffic bursts | Handles demand spikes without idle compute; no pre-provisioning required |
-| Cloud Load Balancing | Routes every request to the nearest region | Sub-second response times globally |
-| BigQuery | Telemetry layer — tracks billions of tokens to prevent context rot | Maintains long-term agent memory continuity and intelligence |
-| Cloud SQL + Firestore + Firebase | Structured data management and real-time user state synchronisation | Eliminates context rot; persistent, coherent agent sessions |
-| Cloud CDN + Cloud Storage | Stores and delivers generated application assets globally | Final app delivery to end users with low latency |
-| Cloud Build + Artifact Registry | CI/CD pipeline for continuous feature deployment | Feature delivery velocity doubled (2× faster) |
-| VPC Service Controls + Cloud Armor + IAM | Security perimeter for regulated enterprise and government markets | SOC2 compliance; strict audit logging for enterprise and government partners |
+| Google Kubernetes Engine (GKE) | Isolated namespaces per agent graph; manages thousands of concurrent builder sessions | Zero-downtime scaling — 13B+ tokens processed at a global hackathon |
+| Cloud Run + Cloud Functions | Stateless microservices that auto-spin for traffic bursts; Load Balancing routes to nearest region | Demand spikes handled without idle compute; sub-second response times globally |
+| Data & State Layer (BigQuery + Cloud SQL + Firestore + Firebase) | Token telemetry to prevent context rot; structured data management; real-time user state sync | Persistent, coherent agent sessions; eliminates loss of user history |
+| Security & Delivery (VPC Service Controls + Cloud Armor + IAM + Cloud CDN) | Security perimeter for regulated markets; delivers generated assets globally | SOC2 compliance; strict audit logging; low-latency asset delivery to end users |
 
 *Table 6: Google Cloud services utilised by ChatAndBuild and their business outcomes (Google Cloud, n.d.).*
 
@@ -182,9 +174,7 @@ graph TD
 
 <!-- RUBRIC: 20% SLO a — NIST characteristics; 20% SLO b — cloud vs traditional IT -->
 
-ChatAndBuild's migration to Google Cloud exemplifies NIST's **rapid elasticity** and **on-demand self-service** characteristics (Mell & Grance, 2011) at their most extreme. Scaling a worker fleet from 10 to 100+ Compute Engine instances in minutes — autonomously, based on load — is structurally impossible with on-premises infrastructure, where capacity must be physically provisioned days in advance (Google Cloud, n.d.). The 45% reduction in infrastructure overhead reflects **measured service** in practice: Google Cloud's transparent billing policy replaced opaque fixed infrastructure costs, freeing engineering capacity for product development rather than server management.
-
-The contrast with traditional IT is direct. In the prior architecture, Christel Buchanan (Founder and CEO, ChatAndBuild) described engineers as acting as "the autoscaler" — manually provisioning, restarting, and monitoring systems, where any instability introduced latency or broken agent sessions (as cited in Google Cloud, n.d.). Cloud automation replaced this reactive human-in-the-loop model with policy-driven elasticity, eliminating the operational fragility that undermined user trust in long-lived AI agents. Remaining risks include data sovereignty for AI-generated content across multi-region deployments, and long-term vendor dependency on GCP's AI ecosystem as the platform deepens its reliance on Vertex AI and Gemini models.
+ChatAndBuild's migration exemplifies NIST's **rapid elasticity** and **on-demand self-service** characteristics (Mell & Grance, 2011) at their most extreme. Scaling a worker fleet from 10 to 100+ Compute Engine instances in minutes — autonomously, based on load — is structurally impossible with on-premises infrastructure, where capacity must be physically provisioned days in advance (Google Cloud, n.d.). In the prior architecture, engineers acted as manual autoscalers; any instability meant broken agent sessions and eroded user trust. The 45% infrastructure overhead reduction reflects **measured service** in practice: consumption-based billing replaced fixed infrastructure costs, freeing the team to ship product rather than manage servers (Google Cloud, n.d.). Key ongoing risks include data sovereignty for AI-generated content across multi-region deployments and long-term vendor dependency on GCP's AI ecosystem.
 
 ---
 
@@ -195,7 +185,7 @@ The contrast with traditional IT is direct. In the prior architecture, Christel 
 
 ### 4.1 Case Overview (~100 words)
 
-Voith is a 150-year-old family-owned manufacturing company with over 22,000 employees across 60 countries, producing machinery for the hydroelectric, papermaking, and transportation industries through its three divisions: Voith Hydro, Voith Paper, and Voith Turbo (Amazon Web Services, 2026). Its legacy IT footprint was vast and fragmented: 3,500 servers distributed across 146 global locations, managing a mix of legacy applications that were difficult and expensive to maintain. Cloud migration at enterprise scale offers documented benefits including lower infrastructure cost, improved operational agility, and access to managed services that would be impractical to build and maintain on-premises — alongside well-documented challenges such as migration complexity, vendor dependency, and workforce skills gaps (Rahman & Raza, 2022). Seeking to lower maintenance costs, improve productivity, and access modern cloud capabilities, Voith conducted a competitive cloud provider assessment — presenting providers with near-unsolvable test scenarios before selecting AWS based on its solution maturity and collaborative approach (Amazon Web Services, 2026). The migration is being executed in structured waves: rehosting, consolidation, modernisation, and retirement of legacy applications, supported by AWS Professional Services and Slalom as the AWS Implementation Partner.
+Voith is a 150-year-old family-owned manufacturing company with over 22,000 employees across 60 countries, producing machinery for the hydroelectric, papermaking, and transportation industries (Amazon Web Services, 2026). Its legacy IT footprint was vast and fragmented: 3,500 servers across 146 global locations managing applications that were difficult and expensive to maintain. Seeking to lower costs, improve productivity, and access modern cloud capabilities, Voith conducted a competitive provider assessment — presenting providers with near-unsolvable test scenarios before selecting AWS based on its solution maturity and collaborative approach (Amazon Web Services, 2026). The migration proceeds in four structured waves: rehosting, consolidation, modernisation, and retirement of legacy applications, supported by AWS Professional Services and Slalom as the AWS Implementation Partner.
 
 ### 4.2 Service Model Analysis (~150 words)
 
@@ -217,14 +207,14 @@ Voith's migration spans **IaaS and PaaS** service models, reflecting the phased,
 <!-- RUBRIC: 40% — Compare deployment models; justify chosen model with evidence -->
 <!-- SLO b: cloud vs traditional IT -->
 
-Voith migrated to a **public cloud** model deployed across **six AWS regions**, replacing 146 globally dispersed on-premises locations. The choice of public cloud was driven by the need for global standardisation, centralised security management, and access to modern managed services — objectives that a private or hybrid model could not deliver at the required global scale (Amazon Web Services, 2026; Nishimura, 2022). Infrastructure as Code (IaC) enforces consistent configuration standards across all regions, eliminating the policy fragmentation inherent in managing 146 independent sites.
+Voith migrated to a **public cloud** model deployed across **six AWS regions**, replacing 146 globally dispersed on-premises locations. The choice of public cloud was driven by the need for global standardisation, centralised security management, and access to modern managed services — objectives that a private or hybrid model could not deliver at the required global scale (Amazon Web Services, 2026; McHaney, 2021). Infrastructure as Code (IaC) enforces consistent configuration standards across all regions, eliminating the policy fragmentation inherent in managing 146 independent sites.
 
 | Deployment Model | Cost | Standardisation | Global Reach | Fit for Voith |
 |---|---|---|---|---|
-| On-Premises (146 sites) | High CAPEX — 3,500 servers | Low — fragmented legacy systems per site | Global but ungovernable | ❌ Prior state — high cost, poor standardisation, legacy debt |
-| Private Cloud | High CAPEX + ops | Moderate | Limited to owned data centres | ❌ Cannot consolidate 60-country footprint at acceptable cost |
-| **Public Cloud (6 AWS regions)** | OPEX — 30% projected savings | High — IaC enforces standards globally | ✅ 6 regions cover global operations | ✅ **Adopted** — consolidation + modernisation + cost reduction |
-| Hybrid Cloud | Medium — dual infrastructure | Medium | High | ⚠️ Transitional state — may be required long-term for OT/SCADA systems |
+| On-Premises (146 sites) | High CAPEX — 3,500 servers | Low — fragmented legacy systems per site | Global but ungovernable | ❌ Prior state — fragmented, costly |
+| Private Cloud | High CAPEX + ops | Moderate | Limited to owned data centres | ❌ Cannot consolidate 60-country footprint |
+| **Public Cloud (6 AWS regions)** | OPEX — 30% projected savings | High — IaC enforces standards globally | ✅ 6 regions cover global operations | ✅ **Adopted** — consolidation + savings |
+| Hybrid Cloud | Medium — dual infrastructure | Medium | High | ⚠️ May be needed for OT/SCADA |
 
 *Table 8: Deployment model comparison for Voith (Amazon Web Services, 2026; McHaney, 2021).*
 
@@ -236,14 +226,11 @@ Voith's AWS engagement combines migration services, managed analytics, DevOps to
 
 | Service | Purpose | Business Outcome |
 |---|---|---|
-| AWS Professional Services | Expert-led migration planning and execution across four waves | Structured migration with increasing velocity as team skills develop wave-by-wave |
-| Slalom (AWS Implementation Partner) | On-the-ground migration execution and workforce upskilling | Accelerated migration with embedded partner expertise; reduced time-to-cloud |
-| Amazon Athena | Serverless analytics — queries data in S3 without provisioning servers | Eliminates database server administration overhead; pay-per-query cost model |
-| Infrastructure as Code (IaC) | Automated, version-controlled infrastructure provisioning across 6 regions | Central quality standards maintained globally; eliminates manual configuration drift across 146→6 consolidation |
-| Centralised DevOps Model | Operations previously scattered across business units moved to shared DevOps practice | Standardised deployment pipelines; reduced manual ops toil organisation-wide |
-| Centralised Security Management | Unified security governance across all AWS regions | Single security posture replaces 146 fragmented site policies; standardised compliance |
-| AWS GameDays | Gamified learning events — hands-on AWS skills development for employees | Builds in-house cloud capability across 22,000+ employees; reduces external partner dependency |
-| FinOps Practices | Cost governance — identify, optimise, and attribute cloud spend continuously | Tracks and validates 30% savings target; informs rightsizing and reserved capacity decisions |
+| Migration Execution Support (AWS Professional Services + Slalom) | Expert-led migration planning, execution, and on-the-ground upskilling across four waves | Structured migration with increasing velocity; embedded partner expertise reduces time-to-cloud |
+| Amazon Athena | Serverless analytics — queries data in S3 without provisioning servers | Eliminates database administration overhead; pay-per-query cost model |
+| Infrastructure as Code (IaC) | Automated, version-controlled infrastructure provisioning across 6 regions | Central quality standards enforced globally; eliminates configuration drift from 146 sites to 6 |
+| Operational Standardisation (Centralised DevOps + Security Management) | Scattered business unit operations moved to shared DevOps model; unified security governance | Standardised pipelines and single security posture replace 146 fragmented site policies |
+| FinOps Practices | Continuous cost governance — identify, optimise, and attribute cloud spend | Tracks and validates 30% savings target; informs rightsizing decisions |
 
 *Table 9: AWS services utilised by Voith and their business outcomes (Amazon Web Services, 2026).*
 
@@ -268,9 +255,7 @@ graph TD
 
 <!-- RUBRIC: 20% SLO a — NIST characteristics; 20% SLO b — cloud vs traditional IT -->
 
-Voith's case illustrates NIST's **resource pooling** and **measured service** characteristics in a large-scale enterprise migration context (Mell & Grance, 2011). Consolidating 3,500 physical servers across 146 locations into six AWS regions is resource pooling at an organisational scale: disparate hardware investments are replaced by shared, logically isolated cloud infrastructure maintained by AWS. The projected 30% cost savings reflects measured service in practice — Voith pays for what it consumes, and FinOps practices provide the continuous visibility required to optimise that consumption over time (Amazon Web Services, 2026).
-
-The contrast with traditional IT is structural. In the legacy model, each of 146 sites maintained its own servers, security policies, and operational procedures — producing a fragmented, high-cost, and inconsistently governed global estate. Cloud consolidation collapses this complexity: a single IaC configuration enforces consistent standards globally, while centralised security management eliminates the policy fragmentation that defines large on-premises footprints (McHaney, 2021). As Holger Mutschler (Senior Manager of IT Infrastructure and Cloud Transformation, Voith) observed, "using infrastructure as code makes it possible to maintain central quality standards globally while using cloud capabilities" (as cited in Amazon Web Services, 2026). A key residual risk is operational technology (OT) integration — manufacturing SCADA and industrial control systems may require on-premises or edge-deployed infrastructure, creating a long-term hybrid architecture requirement beyond the scope of the current migration programme.
+Voith's case illustrates NIST's **resource pooling** and **measured service** characteristics at enterprise scale (Mell & Grance, 2011). Consolidating 3,500 servers across 146 locations into six AWS regions replaces fragmented hardware with shared, logically isolated cloud infrastructure — resource pooling at an organisational level. The projected 30% cost savings reflects measured service: Voith pays for consumption, with FinOps practices providing visibility to optimise spend continuously (Amazon Web Services, 2026). The contrast with traditional IT is structural: each of 146 sites previously maintained its own servers and security policies, producing inconsistent governance across 60 countries. Cloud consolidation resolves this with a single IaC configuration enforcing standards globally and centralised security replacing fragmented site policies (McHaney, 2021). A residual risk is operational technology integration — manufacturing SCADA systems may require on-premises infrastructure long-term, creating a hybrid architecture requirement outside the current migration scope.
 
 ---
 

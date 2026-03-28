@@ -27,8 +27,10 @@ Still to do before 12 April:
 └───────────────────┴─────────────────────────────────────────────────────┘   
   
 ## Next                                                                
-1. Write the conclusion (biggest remaining prose gap)
-2. Find the 2 missing academic references via Torrens library search
-3. Review/expand a specific section that feels thin
+1. ~~Write the conclusion (biggest remaining prose gap)~~ 
+2. ~~Find the 2 missing academic references via Torrens library search~~
+3. ~~Review/expand a specific section that feels thin~~
+4. ~~Trim case study sections to meet word count~~
+5. ~~Validate word count 3187 out of max 2900+10% = 3190~~
 
-claude --resume cc6b1606-cba8-4fd8-bfcc-6af572d72346
+claude --resume "assessment2-case-study-skeleton"
