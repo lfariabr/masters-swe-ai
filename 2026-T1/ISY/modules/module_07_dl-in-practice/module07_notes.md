@@ -15,14 +15,14 @@
 
 | # | Resource / Activity | Type | Status |
 |---|---------------------|------|--------|
-| 1 | **Read & summarise Zaccone & Karim (2018) — A First Look at TensorFlow (Ch. 2)** | Reading | **✅** |
-| 2 | **Read & summarise Graupe (2013) — ANN Principles & Perceptron (Ch. 3–4)** | Reading | **✅** |
-| 3 | **Watch & summarise Sentdex (2018) — Deep learning with Python, TensorFlow & Keras** | Video | **✅** |
-| **4** | **Read & summarise Zaccone et al. (2017) — CNNs (Ch. 4)** | Reading | **✅** |
-| **5** | **Watch & summarise Phi (2018) — Illustrated guide to RNNs** | Video | **✅** |
-| **6** | **Watch & summarise Google (2020) — Regularisation for Simplicity** | Video | **✅** |
-| **7** | **Watch & summarise Deeplearning.ai (2017) — Other regularisation methods** | Video | **✅** |
-| 8 | Activity 1: CNN Modification | Activity | 🕐 |
+| 1 | **Read & summarise Zaccone & Karim (2018) — A First Look at TensorFlow (Ch. 2)** | Reading | ✅ |
+| 2 | **Read & summarise Graupe (2013) — ANN Principles & Perceptron (Ch. 3–4)** | Reading | ✅ |
+| 3 | **Watch & summarise Sentdex (2018) — Deep learning with Python, TensorFlow & Keras** | Video | ✅ |
+| 4 | **Read & summarise Zaccone et al. (2017) — CNNs (Ch. 4)** | Reading | ✅ |
+| **5** | **Watch & summarise Phi (2018) — Illustrated guide to RNNs** | Video | ✅ |
+| **6** | **Watch & summarise Google (2020) — Regularisation for Simplicity** | Video | ✅ |
+| **7** | **Watch & summarise Deeplearning.ai (2017) — Other regularisation methods** | Video | ✅ |
+| 8 | **Activity 1: CNN Modification** | Activity | ✅ |
 | 9 | Activity 2: RNN Visualisation | Activity | 🕐 |
 
 ---

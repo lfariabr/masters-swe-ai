@@ -706,11 +706,11 @@ Welcome to deep learning in practice! We discussed deep learning earlier so that
 
 In this practical resource, you will be developing a basic CNN model to classify images of clothing items. Follow the instructions in this lab resource from Tensorflow themselves and run the code on Google Colab. You will be exercising some of the theoretical concepts you’ve learnt about in previous modules – such as optimisation and loss functions as well as putting into practice the topics and libraries you’ve been introduced to in this module:
 
-https://www.tensorflow.org/tutorials/keras/classificationLinks to an external site.
+https://www.tensorflow.org/tutorials/keras/classification
 
 If you have any trouble or want to ask any questions, post them to the Discussion Forum for Module 7. Often your peers are experiencing the same challenges as you. So they are a great source of help!
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Done*
 
 #### Activity 2: RNN Visualisation
 
