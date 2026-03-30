@@ -49,6 +49,6 @@ Dr. Divya Leekha
 - [ ] Module 12 - Implementation of Security Policy at various providers
 
 ## Assignments
-- [X] Assessment 1 - deadline 15/03/2026 ✅, **Technology Report and Presentation** on *The Key Contributions of Cloud Computing to Business Automation*
+- [X] Assessment 1 - deadline 15/03/2026 ✅, **Technology Report and Presentation** on *The Key Contributions of Cloud Computing to Business Automation*, 81/100 pts
 - [ ] Assessment 2 - deadline 12/04/2026 🔥, **Case Study** on *Analysis of Cloud Services and Deployment Models*
 - [ ] Assessment 3 - deadline 06/05/2026 🕐, **Case Study** on *Cloud Application Deployment*
