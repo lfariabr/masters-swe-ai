@@ -12,8 +12,8 @@
 | **3b** | Watch & summarise Linthicum (2022) — What is Multicloud? (LinkedIn Learning) | ✅ |
 | 4 | Read & summarise Amazon Web Services (n.d.) — Understanding Hybrid Cloud With AWS | ✅ |
 | 5 | Read & summarise Dignan (2019) — Top Cloud Providers 2019 (ZDNet) | ✅ |
-| 6 | Activity 1: Analysing a Real-Life Cloud Strategy Document — Discussion Forum | ✅ |
-| **7** | Activity 2: Case Study — PwC builds multitenant enterprise decision support site | ✅ |
+| **6** | Activity 1: Analysing a Real-Life Cloud Strategy Document — Discussion Forum | ✅ |
+| 7 | Activity 2: Case Study — PwC builds multitenant enterprise decision support site | ✅ |
 
 > All resources completed. ✅
 
