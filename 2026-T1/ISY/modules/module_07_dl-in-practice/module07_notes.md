@@ -915,3 +915,13 @@ Andrew Ng presents the **orthogonalisation principle**: ideally, optimise the co
 2. The **orthogonalisation principle** is a mental model worth keeping: when debugging a model, ask "is this an optimisation problem or a variance problem?" — they have different solutions
 3. **Early stopping + TensorBoard** (from Resource 1) pair naturally — you can visualise the training/val loss curves in TensorBoard and identify the optimal stopping point visually
 4. In Keras: early stopping is implemented as `tf.keras.callbacks.EarlyStopping(monitor='val_loss', patience=3)`
+
+
+---
+
+### Extra Content
+1, Done, Deep Learning with Python, TensorFlow, and Keras tutorial, https://www.youtube.com/watch?v=wQ8BIBpya2k
+2, Done, Loading in your own data - Deep Learning basics with Python, TensorFlow and Keras p.2, https://www.youtube.com/watch?v=j-3vuBynnOE&t=8s
+3, Done, Convolutional Neural Networks - Deep Learning basics with Python, TensorFlow and Keras p.3: https://www.youtube.com/watch?v=WvoLTXIjBYU
+4, To-do, Analyzing Models with TensorBoard - Deep Learning with Python, TensorFlow and Keras p.4, https://www.youtube.com/watch?v=BqgTU7_cBnk
+5, To-do, Optimizing with TensorBoard - Deep Learning w/ Python, TensorFlow & Keras p.5, https://www.youtube.com/watch?v=lV09_8432VA
