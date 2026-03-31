@@ -729,6 +729,8 @@ Then, outline, in no more than 250 words, whether (based on the Essential Resour
 
 Post your response in the Module 7: Learning Activity 1 discussion forum.
 
+> Status: ✅ Done*
+
 #### Activity 2: Case Study
 - APA Reference: Microsoft. (2022). PwC builds multitenant enterprise decision support site with Power Pages. https://customers.microsoft.com/en-us/story/1558972627174665363-pricewaterhousecoopers-banking-and-capital-markets-power-pages
 
@@ -742,7 +744,97 @@ Post your response in the Module 7: Learning Activity 2 discussion forum.
 
 > Important note: Students are advised against using this case study for their Assessment 2.
 
+> Status: ✅ Done*
 
+---
+
+## Module 8 - Deployment case studies
+
+### TLDR
+
+### Introduction
+There is virtually no limit to the types of applications or functions the cloud can host. As you work through the resources in Module 8, prepare to be amazed at the ingenuity of the solutions offered by the cloud services and, at the same time, marvel at the pace in which major cloud service providers are innovating their services/businesses. The characteristics of cloud computing you have learnt about in the earlier modules are on full display as this module will demonstrate the impressive case examples of business adaptation of cloud services and their success stories.
+
+### Resources
+
+#### 1. Case Study – eHealth NSW Transforms Public Health System with the Cloud
+- Amazon Web Services. (2022). eHealth NSW transforms public health system with the cloud. https://aws.amazon.com/solutions/case-studies/ehealth-nsw-case-study/?did=cr_card&trk=cr_card
+
+*Resource Overview:*
+
+    This case study outlines the eHealth NSW’s transformation from on-site infrastructure to Amazon Web Service (AWS) cloud. By migrating to cloud, eHealth NSW was able to improve their quality of service by reducing manual operational activities, providing faster access to patient data to clinicians and supporting remote connectivity for staff, patients and clinical consultants. Read this customer story to identify how migrating applications and services to cloud can reduce cost and improve performance greatly for a client, in this case, eHealth NSW
+
+> *Status: To-Do*
+
+#### 2. Case Study – How Google Cloud Helped Twitter to Boost Speed and Accuracy
+- Phalip, J., & Niemitz, S. (2020, March 19). Modernizing Twitter's ad engagement analytics platform. Google Cloud.  https://cloud.google.com/blog/products/data-analytics/modernizing-twitters-ad-engagement-analytics-platform
+
+*Resource Overview:*
+
+    This case study outlines a success story for the Twitter advertisement analytics platform upon migrating from on-site architecture (data centres) to Google Cloud. The cloud architecture and cloud platform modernisation, carried out by the Twitter team in phases, completely transformed the way Twitter handled the large volume of data prior to cloud migration.
+
+> *Status: To-Do*
+
+#### 3. Case Study – The City of Charles Sturt Improves the Public Service Delivery with the Help of AWS Cloud
+- Amazon Web Services. (2021). The City of Charles Sturt transforms public service delivery for its community using the AWS cloud. https://aws.amazon.com/solutions/case-studies/city-of-charles-sturt/?did=cr_card&trk=cr_card
+
+*Resource Overview:*
+
+    In Module 6, we covered agility, one of the fundamental requirements of cloud computing. Read this case study which discusses how the agility of AWS cloud transformed the City of Charles Sturt’s (CCS) experience in server provisioning, deploying new applications and server uptime.
+
+> *Status: To-Do*
+
+#### 4. Innocens BV uses predictive AI to protect the most vulnerable newborns
+- IBM. (n.d.). Innocens BV uses predictive AI to protect the most vulnerable newborns [Video]. https://mediacenter.ibm.com/media/Innocens BV uses predictive AI to protect the most vulnerable newborns./1_zs73psgr/61201542
+
+*Resource Overview:*
+
+    This video captures the essence of hosting an AI application in IBM Cloud. Innocens, the health care startup, has developed an edge computing solution to identify and monitor infants at risk, analysing infants’ vital signs in real-time. Watch this customer story to understand how cloud can transform modern medicine and revolutionise disease diagnosis and treatments.
+
+> *Status: To-Do*
+
+### Learning Activities
+
+#### Activity 1: A Cloud Deployment Success Story—Discussion Forum
+- Microsoft. (2021). Vitaldent is smiling with better customer insights, quality patient interactions on Dynamics 365. https://customers.microsoft.com/en-us/story/1333893572939563840-vitaldent-health-provider-dynamics-365
+
+Vitaldent is one of the fastest growing dental clinic network in Spain. They are now expanding their business around the world and boast a network of 3,500 health professionals. Vitaldent has grown rapidly in the last few years after migrating to cloud with Microsoft Dynamic 365.
+
+Read the case study “Vitaldent Is Smiling With Better Customer Insights, Quality Patient Interactions on Dynamics 365”, then answer the following questions:
+
+1. List the challenges mentioned in the case study for the Microsoft Dynamic 365 migration.
+2. How were the challenges solved?
+3. List the applications of the different services used in the case study.
+
+Post your response of no more than 250 words in the Module 8 discussion forum.
+
+
+#### Activity 2: Hands-On Lab — Setting Up and Deploying Amazon EC2 Linux Instances
+
+##### STAGE 1:
+- Amazon Web Services. (n.d.). Set up to use Amazon EC2.  https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/get-set-up-for-amazon-ec2.html
+
+For your first cloud experience, you will be creating and deploying Amazon EC2 instances. Amazon Elastic Compute Cloud, also called Amazon EC2, provides scalable computing capacity in the Amazon Web Services (AWS) Cloud. Using Amazon EC2, you can eliminate the need for investing in hardware upfront, so you can develop and deploy applications faster. You will be completing the following tasks to create and launch your first Amazon EC2 instance:
+
+1. Sign up for AWS
+2. Create a key pair
+3. Create a security group
+
+Step-by-step direction is provided in this guide titled "Set up to use Amazon EC2". You will need to follow these steps to successfully configure Amazon EC2 instance. Your Learning Facilitator may support you to access the AWS Academy.
+
+
+##### STAGE 2:
+- Amazon Web Services. (n.d.). Tutorial: Get started with Amazon EC2 Linux instances. https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html
+
+Your next task is to launch an EC2 instance. Step-by-step direction is provided in the tutorial titled "Tutorial: Get started with Amazon EC2 Linux instances". You need to follow these steps to work with the Amazon EC2 instance. You will be doing the following tasks:
+
+1. Launch an EC2 instance.
+2. Connect to your EC2 instance.
+3. Clean up your instance.
+
+
+#### Activity 3: Lab Reflections—Discussion Forum
+From Learning Activity 2, summarize the Amazon EC2 configuration steps and your working experience in a 200-word reflection. Post your reflection in the Module 8 discussion forum.
 
 ---
 
