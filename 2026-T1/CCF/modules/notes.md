@@ -752,6 +752,12 @@ Post your response in the Module 7: Learning Activity 2 discussion forum.
 
 ### TLDR
 
+- **Cloud transformations deliver measurable outcomes** — performance, cost, speed, and resilience gains are consistent across healthcare, social media, and local government case studies
+- **Phased migration reduces risk** — Twitter's two-stage approach and CCS's lift-and-shift via AWS MAP both show that structured methodology beats big-bang migrations
+- **Managed services eliminate operational overhead** — replacing homegrown or on-prem tooling (Manhattan, Scalding, Nighthawk) with cloud-native services (Dataflow, Bigtable, Pub/Sub) cuts toil and improves reliability
+- **Edge + cloud is the pattern for real-time AI** — Innocens BV's sepsis detection solution processes at the bedside and trains in IBM Cloud, illustrating Module 6's hybrid/edge models in production
+- **Agility is the consistent win** — eHealth NSW went from 6–8 weeks to create an environment to under 4 hours; CCS provisioned and secured 48 apps in 93 days
+
 ### Introduction
 There is virtually no limit to the types of applications or functions the cloud can host. As you work through the resources in Module 8, prepare to be amazed at the ingenuity of the solutions offered by the cloud services and, at the same time, marvel at the pace in which major cloud service providers are innovating their services/businesses. The characteristics of cloud computing you have learnt about in the earlier modules are on full display as this module will demonstrate the impressive case examples of business adaptation of cloud services and their success stories.
 
@@ -764,7 +770,7 @@ There is virtually no limit to the types of applications or functions the cloud 
 
     This case study outlines the eHealth NSW’s transformation from on-site infrastructure to Amazon Web Service (AWS) cloud. By migrating to cloud, eHealth NSW was able to improve their quality of service by reducing manual operational activities, providing faster access to patient data to clinicians and supporting remote connectivity for staff, patients and clinical consultants. Read this customer story to identify how migrating applications and services to cloud can reduce cost and improve performance greatly for a client, in this case, eHealth NSW
 
-> *Status: To-Do*
+> *Status: ✅ Read + Reviewed — see [module08_notes.md](module_08_deployment-case-studies/module08_notes.md)*
 
 #### 2. Case Study – How Google Cloud Helped Twitter to Boost Speed and Accuracy
 - Phalip, J., & Niemitz, S. (2020, March 19). Modernizing Twitter's ad engagement analytics platform. Google Cloud.  https://cloud.google.com/blog/products/data-analytics/modernizing-twitters-ad-engagement-analytics-platform
@@ -773,7 +779,7 @@ There is virtually no limit to the types of applications or functions the cloud 
 
     This case study outlines a success story for the Twitter advertisement analytics platform upon migrating from on-site architecture (data centres) to Google Cloud. The cloud architecture and cloud platform modernisation, carried out by the Twitter team in phases, completely transformed the way Twitter handled the large volume of data prior to cloud migration.
 
-> *Status: To-Do*
+> *Status: ✅ Read + Reviewed — see [module08_notes.md](module_08_deployment-case-studies/module08_notes.md)*
 
 #### 3. Case Study – The City of Charles Sturt Improves the Public Service Delivery with the Help of AWS Cloud
 - Amazon Web Services. (2021). The City of Charles Sturt transforms public service delivery for its community using the AWS cloud. https://aws.amazon.com/solutions/case-studies/city-of-charles-sturt/?did=cr_card&trk=cr_card
@@ -782,7 +788,7 @@ There is virtually no limit to the types of applications or functions the cloud 
 
     In Module 6, we covered agility, one of the fundamental requirements of cloud computing. Read this case study which discusses how the agility of AWS cloud transformed the City of Charles Sturt’s (CCS) experience in server provisioning, deploying new applications and server uptime.
 
-> *Status: To-Do*
+> *Status: ✅ Read + Reviewed — see [module08_notes.md](module_08_deployment-case-studies/module08_notes.md)*
 
 #### 4. Innocens BV uses predictive AI to protect the most vulnerable newborns
 - IBM. (n.d.). Innocens BV uses predictive AI to protect the most vulnerable newborns [Video]. https://mediacenter.ibm.com/media/Innocens BV uses predictive AI to protect the most vulnerable newborns./1_zs73psgr/61201542
@@ -791,7 +797,7 @@ There is virtually no limit to the types of applications or functions the cloud 
 
     This video captures the essence of hosting an AI application in IBM Cloud. Innocens, the health care startup, has developed an edge computing solution to identify and monitor infants at risk, analysing infants’ vital signs in real-time. Watch this customer story to understand how cloud can transform modern medicine and revolutionise disease diagnosis and treatments.
 
-> *Status: To-Do*
+> *Status: ✅ Watched + Reviewed — see [module08_notes.md](module_08_deployment-case-studies/module08_notes.md)*
 
 ### Learning Activities
 
@@ -808,6 +814,7 @@ Read the case study “Vitaldent Is Smiling With Better Customer Insights, Quali
 
 Post your response of no more than 250 words in the Module 8 discussion forum.
 
+> *Status: ✅ Done — see [module08_notes.md](module_08_deployment-case-studies/module08_notes.md)*
 
 #### Activity 2: Hands-On Lab — Setting Up and Deploying Amazon EC2 Linux Instances
 
@@ -832,9 +839,12 @@ Your next task is to launch an EC2 instance. Step-by-step direction is provided 
 2. Connect to your EC2 instance.
 3. Clean up your instance.
 
+> *Status: ✅ Done — see [module08_notes.md](module_08_deployment-case-studies/module08_notes.md)*
 
 #### Activity 3: Lab Reflections—Discussion Forum
 From Learning Activity 2, summarize the Amazon EC2 configuration steps and your working experience in a 200-word reflection. Post your reflection in the Module 8 discussion forum.
+
+> *Status: ✅ Done — see [module08_notes.md](module_08_deployment-case-studies/module08_notes.md)*
 
 ---
 
