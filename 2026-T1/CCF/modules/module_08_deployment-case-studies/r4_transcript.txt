@@ -1,0 +1,294 @@
+1
+00:00:02,840 --> 00:00:05,280
+From my training
+in Sydney,
+
+2
+00:00:05,280 --> 00:00:06,840
+I clearly understood how
+
+3
+00:00:06,840 --> 00:00:08,460
+important it was to tailor
+
+4
+00:00:08,460 --> 00:00:10,500
+treatment to vulnerable
+
+5
+00:00:10,500 --> 00:00:12,260
+neonates at the bedside.
+
+6
+00:00:12,260 --> 00:00:13,540
+I started looking
+at trends
+
+7
+00:00:13,540 --> 00:00:14,880
+of data at all time,
+
+8
+00:00:14,880 --> 00:00:16,280
+and trying to extract
+
+9
+00:00:16,280 --> 00:00:17,880
+additional
+information from
+
+10
+00:00:17,880 --> 00:00:19,880
+vital signs
+that related to
+
+11
+00:00:19,880 --> 00:00:22,160
+complications
+such as sepsis.
+
+12
+00:00:22,160 --> 00:00:24,620
+At the same time, I
+really felt that nothing
+
+13
+00:00:24,620 --> 00:00:26,280
+changed at the bedside
+
+14
+00:00:26,280 --> 00:00:28,020
+for my patients
+and parents.
+
+15
+00:00:28,020 --> 00:00:29,660
+Sepsis is a real
+
+16
+00:00:29,660 --> 00:00:31,460
+serious infection
+in preterm.
+
+17
+00:00:31,460 --> 00:00:33,690
+Infants don't
+recognize it early,
+
+18
+00:00:33,690 --> 00:00:35,010
+you're often
+then too late,
+
+19
+00:00:35,010 --> 00:00:37,110
+and then you need
+augmented therapy.
+
+20
+00:00:37,110 --> 00:00:38,530
+We really wanted to create
+
+21
+00:00:38,530 --> 00:00:40,630
+a solution that
+basically equals
+
+22
+00:00:40,630 --> 00:00:42,710
+performance of a
+healthcare worker at
+
+23
+00:00:42,710 --> 00:00:44,270
+the bedside not detecting
+
+24
+00:00:44,270 --> 00:00:46,170
+Sepsis days and
+days ahead.
+
+25
+00:00:46,170 --> 00:00:47,550
+It's really where you can
+
+26
+00:00:47,550 --> 00:00:49,130
+operationalize the model.
+
+27
+00:00:49,130 --> 00:00:50,710
+Based on our data in
+
+28
+00:00:50,710 --> 00:00:52,530
+University Hospital
+of Antwerp,
+
+29
+00:00:52,530 --> 00:00:54,070
+and on the cross
+validation
+
+30
+00:00:54,070 --> 00:00:55,210
+and internal validation,
+
+31
+00:00:55,210 --> 00:00:56,410
+we're able to detect
+
+32
+00:00:56,410 --> 00:01:00,230
+about 75% of severe
+sepsis cases.
+
+33
+00:01:00,230 --> 00:01:02,830
+But the model has quite
+a high precision.
+
+34
+00:01:02,830 --> 00:01:05,250
+You need a trusted
+tech partner that can
+
+35
+00:01:05,250 --> 00:01:08,230
+deliver on all the aspects
+of trustworthy AI.
+
+36
+00:01:08,230 --> 00:01:10,770
+That's the partner
+that I found with IBM.
+
+37
+00:01:10,770 --> 00:01:12,090
+It begins with providing
+
+38
+00:01:12,090 --> 00:01:13,410
+a safe environment for
+
+39
+00:01:13,410 --> 00:01:14,970
+all your data pro vining
+
+40
+00:01:14,970 --> 00:01:17,190
+significant compute
+power to really
+
+41
+00:01:17,190 --> 00:01:19,650
+allow computational
+heavy iterations
+
+42
+00:01:19,650 --> 00:01:21,490
+to run at a fast pace,
+
+43
+00:01:21,490 --> 00:01:23,270
+because that's really
+what you need.
+
+44
+00:01:23,270 --> 00:01:25,490
+An important aspect
+for us is to try to
+
+45
+00:01:25,490 --> 00:01:26,970
+scale this solution
+
+46
+00:01:26,970 --> 00:01:28,710
+to different Niko centers.
+
+47
+00:01:28,710 --> 00:01:30,050
+We are working
+together with
+
+48
+00:01:30,050 --> 00:01:33,130
+IBM research to build
+a federated model in
+
+49
+00:01:33,130 --> 00:01:35,030
+the cloud that
+can learn by
+
+50
+00:01:35,030 --> 00:01:37,090
+aggregation of
+different models
+
+51
+00:01:37,090 --> 00:01:38,570
+in different centers.
+
+52
+00:01:38,570 --> 00:01:40,130
+When we design sprints of
+
+53
+00:01:40,130 --> 00:01:42,890
+the user interface,
+we involve parents.
+
+54
+00:01:42,890 --> 00:01:44,930
+It always gives
+some new insights
+
+55
+00:01:44,930 --> 00:01:47,085
+into how you can
+tackle these issues.
+
+56
+00:01:47,085 --> 00:01:48,560
+You are confronted as a
+
+57
+00:01:48,560 --> 00:01:50,640
+neonatal intensive
+care specialist
+
+58
+00:01:50,640 --> 00:01:53,500
+with a Sepsis in a
+vulnerable baby.
+
+59
+00:01:53,500 --> 00:01:55,520
+You get that drive
+and that passion.
+
+60
+00:01:55,520 --> 00:01:57,760
+You really do
+not want to miss
+
+61
+00:01:57,760 --> 00:02:00,260
+a sepsis that is
+visible in the data.
+
+62
+00:02:00,260 --> 00:02:02,640
+I really feel and think
+we can do better.
+
+63
+00:02:02,640 --> 00:02:04,440
+It fits perfectly into
+
+64
+00:02:04,440 --> 00:02:07,600
+an artificial
+intelligence project.
