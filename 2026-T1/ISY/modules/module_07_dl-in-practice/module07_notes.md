@@ -23,7 +23,7 @@
 | **6** | **Watch & summarise Google (2020) — Regularisation for Simplicity** | Video | ✅ |
 | **7** | **Watch & summarise Deeplearning.ai (2017) — Other regularisation methods** | Video | ✅ |
 | 8 | **Activity 1: CNN Modification** | Activity | ✅ |
-| 9 | Activity 2: RNN Visualisation | Activity | 🕐 |
+| 9 | **Activity 2: RNN Visualisation** | Activity | ✅ |
 
 ---
 

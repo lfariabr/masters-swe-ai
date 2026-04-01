@@ -716,7 +716,7 @@ If you have any trouble or want to ask any questions, post them to the Discussio
 
 Using the visualisation techniques you have learned thus far, create a visualisation for the convergence of RNNs using the example provided in your Jupyter Notebook. This exercise will challenge you to work with RNNs and test your ability to mix what you learned previously with what you learned in this Module. Now, you should be able to understand visualisation better than numbers. Your code generates the visualisation. Take a photograph of your code and visualisation and upload it to the RNN visualisation Discussion Forum.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Done*
 
 ---
 
