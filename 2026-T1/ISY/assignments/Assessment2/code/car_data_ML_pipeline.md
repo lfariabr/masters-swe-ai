@@ -1,5 +1,5 @@
 # Programming Task
-> jupyter nbconvert --to markdown car_data_ML_pipeline.ipynb 
+> jupyter nbconvert --to markdown car_data_ML_pipeline.ipynb
 
 Design and Creative Technologies, Torrens Unversity
 
@@ -26,16 +26,16 @@ Copyright © 2026 by Luis G B A Faria
 import numpy as np
 import pandas as pd
 import math
-# Correct and specific sklearn imports
 from sklearn import preprocessing, decomposition
 
-# 3. TensorFlow Setup (if needed for older code)
+# 3. TensorFlow Setup
 import tensorflow.compat.v1 as tf
 tf.disable_v2_behavior()
 
 # 4. Set pandas output display settings
-pd.options.display.float_format = '{:.2f}'.format
+pd.options.display.float_format = "{:.2f}".format
 pd.options.display.max_rows = 15
+
 ```
 
     WARNING:tensorflow:From /opt/anaconda3/envs/py310_env/lib/python3.10/site-packages/tensorflow/python/compat/v2_compat.py:107: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
@@ -134,41 +134,17 @@ car_data[4:7]
   </thead>
   <tbody>
     <tr>
-      <th>59</th>
-      <td>1</td>
-      <td>129</td>
-      <td>mazda</td>
-      <td>gas</td>
-      <td>std</td>
-      <td>two</td>
-      <td>hatchback</td>
-      <td>fwd</td>
-      <td>front</td>
-      <td>98.80</td>
-      <td>...</td>
-      <td>122</td>
-      <td>2bbl</td>
-      <td>3.39</td>
-      <td>3.39</td>
-      <td>8.60</td>
-      <td>84</td>
-      <td>4800</td>
-      <td>26</td>
-      <td>32</td>
-      <td>8845</td>
-    </tr>
-    <tr>
-      <th>115</th>
+      <th>109</th>
       <td>0</td>
-      <td>161</td>
+      <td>?</td>
       <td>peugot</td>
       <td>gas</td>
       <td>std</td>
       <td>four</td>
-      <td>sedan</td>
+      <td>wagon</td>
       <td>rwd</td>
       <td>front</td>
-      <td>107.90</td>
+      <td>114.20</td>
       <td>...</td>
       <td>120</td>
       <td>mpfi</td>
@@ -179,7 +155,7 @@ car_data[4:7]
       <td>5000</td>
       <td>19</td>
       <td>24</td>
-      <td>16630</td>
+      <td>12440</td>
     </tr>
     <tr>
       <th>91</th>
@@ -205,6 +181,30 @@ car_data[4:7]
       <td>37</td>
       <td>6649</td>
     </tr>
+    <tr>
+      <th>195</th>
+      <td>-1</td>
+      <td>74</td>
+      <td>volvo</td>
+      <td>gas</td>
+      <td>std</td>
+      <td>four</td>
+      <td>wagon</td>
+      <td>rwd</td>
+      <td>front</td>
+      <td>104.30</td>
+      <td>...</td>
+      <td>141</td>
+      <td>mpfi</td>
+      <td>3.78</td>
+      <td>3.15</td>
+      <td>9.50</td>
+      <td>114</td>
+      <td>5400</td>
+      <td>23</td>
+      <td>28</td>
+      <td>13415</td>
+    </tr>
   </tbody>
 </table>
 <p>3 rows × 26 columns</p>
@@ -220,7 +220,7 @@ car_data.info()
 ```
 
     <class 'pandas.core.frame.DataFrame'>
-    Index: 205 entries, 155 to 183
+    Index: 205 entries, 183 to 101
     Data columns (total 26 columns):
      #   Column             Non-Null Count  Dtype  
     ---  ------             --------------  -----  
@@ -327,68 +327,14 @@ car_data[numeric_feature_names]
   </thead>
   <tbody>
     <tr>
-      <th>155</th>
-      <td>0</td>
-      <td>91</td>
-      <td>95.70</td>
-      <td>169.70</td>
-      <td>63.60</td>
-      <td>59.10</td>
-      <td>3110</td>
-      <td>92</td>
-      <td>62</td>
-      <td>4800</td>
-      <td>27</td>
-      <td>32</td>
-      <td>3.05</td>
-      <td>3.03</td>
-      <td>9.00</td>
-    </tr>
-    <tr>
-      <th>86</th>
-      <td>1</td>
-      <td>125</td>
-      <td>96.30</td>
-      <td>172.40</td>
-      <td>65.40</td>
-      <td>51.60</td>
-      <td>2405</td>
-      <td>122</td>
-      <td>88</td>
-      <td>5000</td>
-      <td>25</td>
-      <td>32</td>
-      <td>3.35</td>
-      <td>3.46</td>
-      <td>8.50</td>
-    </tr>
-    <tr>
-      <th>50</th>
-      <td>1</td>
-      <td>104</td>
-      <td>93.10</td>
-      <td>159.10</td>
-      <td>64.20</td>
-      <td>54.10</td>
-      <td>1890</td>
-      <td>91</td>
-      <td>68</td>
-      <td>5000</td>
-      <td>30</td>
-      <td>31</td>
-      <td>3.03</td>
-      <td>3.15</td>
-      <td>9.00</td>
-    </tr>
-    <tr>
-      <th>185</th>
+      <th>183</th>
       <td>2</td>
-      <td>94</td>
+      <td>122</td>
       <td>97.30</td>
       <td>171.70</td>
       <td>65.50</td>
       <td>55.70</td>
-      <td>2212</td>
+      <td>2209</td>
       <td>109</td>
       <td>85</td>
       <td>5250</td>
@@ -399,22 +345,76 @@ car_data[numeric_feature_names]
       <td>9.00</td>
     </tr>
     <tr>
-      <th>59</th>
-      <td>1</td>
-      <td>129</td>
-      <td>98.80</td>
-      <td>177.80</td>
-      <td>66.50</td>
-      <td>53.70</td>
-      <td>2385</td>
-      <td>122</td>
-      <td>84</td>
-      <td>4800</td>
-      <td>26</td>
-      <td>32</td>
-      <td>3.39</td>
-      <td>3.39</td>
-      <td>8.60</td>
+      <th>31</th>
+      <td>2</td>
+      <td>137</td>
+      <td>86.60</td>
+      <td>144.60</td>
+      <td>63.90</td>
+      <td>50.80</td>
+      <td>1819</td>
+      <td>92</td>
+      <td>76</td>
+      <td>6000</td>
+      <td>31</td>
+      <td>38</td>
+      <td>2.91</td>
+      <td>3.41</td>
+      <td>9.20</td>
+    </tr>
+    <tr>
+      <th>99</th>
+      <td>0</td>
+      <td>106</td>
+      <td>97.20</td>
+      <td>173.40</td>
+      <td>65.20</td>
+      <td>54.70</td>
+      <td>2324</td>
+      <td>120</td>
+      <td>97</td>
+      <td>5200</td>
+      <td>27</td>
+      <td>34</td>
+      <td>3.33</td>
+      <td>3.47</td>
+      <td>8.50</td>
+    </tr>
+    <tr>
+      <th>77</th>
+      <td>2</td>
+      <td>161</td>
+      <td>93.70</td>
+      <td>157.30</td>
+      <td>64.40</td>
+      <td>50.80</td>
+      <td>1944</td>
+      <td>92</td>
+      <td>68</td>
+      <td>5500</td>
+      <td>31</td>
+      <td>38</td>
+      <td>2.97</td>
+      <td>3.23</td>
+      <td>9.40</td>
+    </tr>
+    <tr>
+      <th>109</th>
+      <td>0</td>
+      <td>?</td>
+      <td>114.20</td>
+      <td>198.90</td>
+      <td>68.40</td>
+      <td>58.70</td>
+      <td>3230</td>
+      <td>120</td>
+      <td>97</td>
+      <td>5000</td>
+      <td>19</td>
+      <td>24</td>
+      <td>3.46</td>
+      <td>3.19</td>
+      <td>8.40</td>
     </tr>
     <tr>
       <th>...</th>
@@ -435,40 +435,58 @@ car_data[numeric_feature_names]
       <td>...</td>
     </tr>
     <tr>
-      <th>158</th>
-      <td>0</td>
-      <td>91</td>
-      <td>95.70</td>
-      <td>166.30</td>
-      <td>64.40</td>
-      <td>53.00</td>
-      <td>2275</td>
-      <td>110</td>
-      <td>56</td>
-      <td>4500</td>
-      <td>34</td>
-      <td>36</td>
-      <td>3.27</td>
-      <td>3.35</td>
-      <td>22.50</td>
+      <th>202</th>
+      <td>-1</td>
+      <td>95</td>
+      <td>109.10</td>
+      <td>188.80</td>
+      <td>68.90</td>
+      <td>55.50</td>
+      <td>3012</td>
+      <td>173</td>
+      <td>134</td>
+      <td>5500</td>
+      <td>18</td>
+      <td>23</td>
+      <td>3.58</td>
+      <td>2.87</td>
+      <td>8.80</td>
     </tr>
     <tr>
-      <th>24</th>
+      <th>163</th>
       <td>1</td>
-      <td>148</td>
-      <td>93.70</td>
-      <td>157.30</td>
-      <td>63.80</td>
-      <td>50.60</td>
-      <td>1967</td>
-      <td>90</td>
-      <td>68</td>
+      <td>168</td>
+      <td>94.50</td>
+      <td>168.70</td>
+      <td>64.00</td>
+      <td>52.60</td>
+      <td>2169</td>
+      <td>98</td>
+      <td>70</td>
+      <td>4800</td>
+      <td>29</td>
+      <td>34</td>
+      <td>3.19</td>
+      <td>3.03</td>
+      <td>9.00</td>
+    </tr>
+    <tr>
+      <th>193</th>
+      <td>0</td>
+      <td>?</td>
+      <td>100.40</td>
+      <td>183.10</td>
+      <td>66.90</td>
+      <td>55.10</td>
+      <td>2563</td>
+      <td>109</td>
+      <td>88</td>
       <td>5500</td>
+      <td>25</td>
       <td>31</td>
-      <td>38</td>
-      <td>2.97</td>
-      <td>3.23</td>
-      <td>9.40</td>
+      <td>3.19</td>
+      <td>3.40</td>
+      <td>9.00</td>
     </tr>
     <tr>
       <th>146</th>
@@ -489,39 +507,21 @@ car_data[numeric_feature_names]
       <td>9.00</td>
     </tr>
     <tr>
-      <th>42</th>
-      <td>1</td>
-      <td>107</td>
-      <td>96.50</td>
-      <td>169.10</td>
-      <td>66.00</td>
-      <td>51.00</td>
-      <td>2293</td>
-      <td>110</td>
-      <td>100</td>
-      <td>5500</td>
-      <td>25</td>
-      <td>31</td>
-      <td>3.15</td>
-      <td>3.58</td>
-      <td>9.10</td>
-    </tr>
-    <tr>
-      <th>183</th>
-      <td>2</td>
-      <td>122</td>
-      <td>97.30</td>
-      <td>171.70</td>
-      <td>65.50</td>
-      <td>55.70</td>
-      <td>2209</td>
-      <td>109</td>
-      <td>85</td>
-      <td>5250</td>
-      <td>27</td>
-      <td>34</td>
-      <td>3.19</td>
-      <td>3.40</td>
+      <th>101</th>
+      <td>0</td>
+      <td>128</td>
+      <td>100.40</td>
+      <td>181.70</td>
+      <td>66.50</td>
+      <td>55.10</td>
+      <td>3095</td>
+      <td>181</td>
+      <td>152</td>
+      <td>5200</td>
+      <td>17</td>
+      <td>22</td>
+      <td>3.43</td>
+      <td>3.27</td>
       <td>9.00</td>
     </tr>
   </tbody>
@@ -558,83 +558,83 @@ car_data[categorical_feature_names]
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>engine-location</th>
       <th>fuel-system</th>
+      <th>num-doors</th>
       <th>aspiration</th>
       <th>fuel-type</th>
-      <th>engine-type</th>
       <th>drive-wheels</th>
-      <th>num-cylinders</th>
-      <th>make</th>
       <th>body-style</th>
-      <th>num-doors</th>
+      <th>engine-type</th>
+      <th>num-cylinders</th>
+      <th>engine-location</th>
+      <th>make</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>155</th>
-      <td>front</td>
-      <td>2bbl</td>
-      <td>std</td>
-      <td>gas</td>
-      <td>ohc</td>
-      <td>4wd</td>
-      <td>four</td>
-      <td>toyota</td>
-      <td>wagon</td>
-      <td>four</td>
-    </tr>
-    <tr>
-      <th>86</th>
-      <td>front</td>
-      <td>2bbl</td>
-      <td>std</td>
-      <td>gas</td>
-      <td>ohc</td>
-      <td>fwd</td>
-      <td>four</td>
-      <td>mitsubishi</td>
-      <td>sedan</td>
-      <td>four</td>
-    </tr>
-    <tr>
-      <th>50</th>
-      <td>front</td>
-      <td>2bbl</td>
-      <td>std</td>
-      <td>gas</td>
-      <td>ohc</td>
-      <td>fwd</td>
-      <td>four</td>
-      <td>mazda</td>
-      <td>hatchback</td>
-      <td>two</td>
-    </tr>
-    <tr>
-      <th>185</th>
-      <td>front</td>
+      <th>183</th>
       <td>mpfi</td>
+      <td>two</td>
       <td>std</td>
       <td>gas</td>
-      <td>ohc</td>
       <td>fwd</td>
-      <td>four</td>
-      <td>volkswagen</td>
       <td>sedan</td>
+      <td>ohc</td>
       <td>four</td>
+      <td>front</td>
+      <td>volkswagen</td>
     </tr>
     <tr>
-      <th>59</th>
-      <td>front</td>
-      <td>2bbl</td>
+      <th>31</th>
+      <td>1bbl</td>
+      <td>two</td>
       <td>std</td>
       <td>gas</td>
-      <td>ohc</td>
       <td>fwd</td>
-      <td>four</td>
-      <td>mazda</td>
       <td>hatchback</td>
+      <td>ohc</td>
+      <td>four</td>
+      <td>front</td>
+      <td>honda</td>
+    </tr>
+    <tr>
+      <th>99</th>
+      <td>2bbl</td>
+      <td>four</td>
+      <td>std</td>
+      <td>gas</td>
+      <td>fwd</td>
+      <td>hatchback</td>
+      <td>ohc</td>
+      <td>four</td>
+      <td>front</td>
+      <td>nissan</td>
+    </tr>
+    <tr>
+      <th>77</th>
+      <td>2bbl</td>
       <td>two</td>
+      <td>std</td>
+      <td>gas</td>
+      <td>fwd</td>
+      <td>hatchback</td>
+      <td>ohc</td>
+      <td>four</td>
+      <td>front</td>
+      <td>mitsubishi</td>
+    </tr>
+    <tr>
+      <th>109</th>
+      <td>mpfi</td>
+      <td>four</td>
+      <td>std</td>
+      <td>gas</td>
+      <td>rwd</td>
+      <td>wagon</td>
+      <td>l</td>
+      <td>four</td>
+      <td>front</td>
+      <td>peugot</td>
     </tr>
     <tr>
       <th>...</th>
@@ -650,69 +650,69 @@ car_data[categorical_feature_names]
       <td>...</td>
     </tr>
     <tr>
-      <th>158</th>
-      <td>front</td>
-      <td>idi</td>
-      <td>std</td>
-      <td>diesel</td>
-      <td>ohc</td>
-      <td>fwd</td>
+      <th>202</th>
+      <td>mpfi</td>
       <td>four</td>
-      <td>toyota</td>
-      <td>sedan</td>
-      <td>four</td>
-    </tr>
-    <tr>
-      <th>24</th>
-      <td>front</td>
-      <td>2bbl</td>
       <td>std</td>
       <td>gas</td>
+      <td>rwd</td>
+      <td>sedan</td>
+      <td>ohcv</td>
+      <td>six</td>
+      <td>front</td>
+      <td>volvo</td>
+    </tr>
+    <tr>
+      <th>163</th>
+      <td>2bbl</td>
+      <td>two</td>
+      <td>std</td>
+      <td>gas</td>
+      <td>rwd</td>
+      <td>sedan</td>
       <td>ohc</td>
+      <td>four</td>
+      <td>front</td>
+      <td>toyota</td>
+    </tr>
+    <tr>
+      <th>193</th>
+      <td>mpfi</td>
+      <td>four</td>
+      <td>std</td>
+      <td>gas</td>
       <td>fwd</td>
+      <td>wagon</td>
+      <td>ohc</td>
       <td>four</td>
-      <td>dodge</td>
-      <td>hatchback</td>
-      <td>four</td>
+      <td>front</td>
+      <td>volkswagen</td>
     </tr>
     <tr>
       <th>146</th>
-      <td>front</td>
       <td>2bbl</td>
+      <td>four</td>
       <td>std</td>
       <td>gas</td>
-      <td>ohcf</td>
       <td>fwd</td>
-      <td>four</td>
-      <td>subaru</td>
       <td>wagon</td>
+      <td>ohcf</td>
       <td>four</td>
+      <td>front</td>
+      <td>subaru</td>
     </tr>
     <tr>
-      <th>42</th>
-      <td>front</td>
-      <td>2bbl</td>
-      <td>std</td>
-      <td>gas</td>
-      <td>ohc</td>
-      <td>fwd</td>
-      <td>four</td>
-      <td>honda</td>
-      <td>sedan</td>
-      <td>two</td>
-    </tr>
-    <tr>
-      <th>183</th>
-      <td>front</td>
+      <th>101</th>
       <td>mpfi</td>
+      <td>four</td>
       <td>std</td>
       <td>gas</td>
-      <td>ohc</td>
       <td>fwd</td>
-      <td>four</td>
-      <td>volkswagen</td>
       <td>sedan</td>
-      <td>two</td>
+      <td>ohcv</td>
+      <td>six</td>
+      <td>front</td>
+      <td>nissan</td>
     </tr>
   </tbody>
 </table>
@@ -835,12 +835,12 @@ for _ in range(num_print_statements):
     ['symboling', 'normalized-losses', 'wheel-base', 'length', 'width', 'height', 'weight', 'engine-size', 'horsepower', 'peak-rpm', 'city-mpg', 'highway-mpg', 'bore', 'stroke', 'compression-ratio']
     WARNING:tensorflow:From /opt/anaconda3/envs/py310_env/lib/python3.10/site-packages/tensorflow/python/util/lazy_loader.py:59: The name tf.estimator.inputs is deprecated. Please use tf.compat.v1.estimator.inputs instead.
     
-    WARNING:tensorflow:From /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/ipykernel_46070/741504662.py:29: The name tf.estimator.inputs.pandas_input_fn is deprecated. Please use tf.compat.v1.estimator.inputs.pandas_input_fn instead.
+    WARNING:tensorflow:From /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/ipykernel_44079/741504662.py:29: The name tf.estimator.inputs.pandas_input_fn is deprecated. Please use tf.compat.v1.estimator.inputs.pandas_input_fn instead.
     
     model_feature_columns [NumericColumn(key='symboling', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=None), NumericColumn(key='normalized-losses', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=None), NumericColumn(key='wheel-base', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=None), NumericColumn(key='length', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=None), NumericColumn(key='width', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=None), NumericColumn(key='height', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=None), NumericColumn(key='weight', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=None), NumericColumn(key='engine-size', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=None), NumericColumn(key='horsepower', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=None), NumericColumn(key='peak-rpm', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=None), NumericColumn(key='city-mpg', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=None), NumericColumn(key='highway-mpg', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=None), NumericColumn(key='bore', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=None), NumericColumn(key='stroke', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=None), NumericColumn(key='compression-ratio', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=None)]
     INFO:tensorflow:Using default config.
-    WARNING:tensorflow:Using temporary folder as model directory: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmprmxa1_vf
-    INFO:tensorflow:Using config: {'_model_dir': '/var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmprmxa1_vf', '_tf_random_seed': None, '_save_summary_steps': 100, '_save_checkpoints_steps': None, '_save_checkpoints_secs': 600, '_session_config': allow_soft_placement: true
+    WARNING:tensorflow:Using temporary folder as model directory: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvedsjn6r
+    INFO:tensorflow:Using config: {'_model_dir': '/var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvedsjn6r', '_tf_random_seed': None, '_save_summary_steps': 100, '_save_checkpoints_steps': None, '_save_checkpoints_secs': 600, '_session_config': allow_soft_placement: true
     graph_options {
       rewrite_options {
         meta_optimizer_iterations: ONE
@@ -862,11 +862,6 @@ for _ in range(num_print_statements):
     Call initializer instance with the dtype argument instead of passing it to the constructor
     INFO:tensorflow:Done calling model_fn.
     INFO:tensorflow:Create CheckpointSaverHook.
-    Metal device set to: Apple M3
-    
-    systemMemory: 8.00 GB
-    maxCacheSize: 2.67 GB
-    
     INFO:tensorflow:Graph was finalized.
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
@@ -875,889 +870,461 @@ for _ in range(num_print_statements):
     To construct input pipelines, use the `tf.data` module.
 
 
-    2026-03-25 08:47:17.002204: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:306] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
-    2026-03-25 08:47:17.002321: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:272] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
-    2026-03-25 08:47:17.019081: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:306] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
-    2026-03-25 08:47:17.019098: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:272] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
-    2026-03-25 08:47:17.023108: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:357] MLIR V1 optimization pass is not enabled
-    2026-03-25 08:47:17.029280: W tensorflow/tsl/platform/profile_utils/cpu_utils.cc:128] Failed to get CPU frequency: 0 Hz
-    2026-03-25 08:47:17.035291: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:17.071268: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:17.079063: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:17.082037: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:17.088933: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:17.093427: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
+    2026-04-01 13:23:00.891017: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:357] MLIR V1 optimization pass is not enabled
+    2026-04-01 13:23:00.896427: W tensorflow/tsl/platform/profile_utils/cpu_utils.cc:128] Failed to get CPU frequency: 0 Hz
 
 
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 0...
-    INFO:tensorflow:Saving checkpoints for 0 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmprmxa1_vf/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 0 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvedsjn6r/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 0...
-
-
-    2026-03-25 08:47:17.567693: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:17.750730: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
-    INFO:tensorflow:loss = 2410854000.0, step = 1
-
-
-    2026-03-25 08:47:17.910041: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
-    INFO:tensorflow:global_step/sec: 227.318
-    INFO:tensorflow:loss = 234009600.0, step = 101 (0.440 sec)
-    INFO:tensorflow:global_step/sec: 260.68
-    INFO:tensorflow:loss = 1255246100.0, step = 201 (0.384 sec)
-    INFO:tensorflow:global_step/sec: 275.258
-    INFO:tensorflow:loss = 339427200.0, step = 301 (0.363 sec)
-    INFO:tensorflow:global_step/sec: 249.373
-    INFO:tensorflow:loss = 685035700.0, step = 401 (0.403 sec)
-    INFO:tensorflow:global_step/sec: 260.951
-    INFO:tensorflow:loss = 512756700.0, step = 501 (0.382 sec)
-    INFO:tensorflow:global_step/sec: 270.62
-    INFO:tensorflow:loss = 1542246000.0, step = 601 (0.369 sec)
-    INFO:tensorflow:global_step/sec: 199.525
-    INFO:tensorflow:loss = 725255740.0, step = 701 (0.501 sec)
-    INFO:tensorflow:global_step/sec: 246.807
-    INFO:tensorflow:loss = 504033730.0, step = 801 (0.407 sec)
-    INFO:tensorflow:global_step/sec: 182.961
-    INFO:tensorflow:loss = 233271570.0, step = 901 (0.545 sec)
+    INFO:tensorflow:loss = 3885835000.0, step = 1
+    INFO:tensorflow:global_step/sec: 819.53
+    INFO:tensorflow:loss = 1143798100.0, step = 101 (0.124 sec)
+    INFO:tensorflow:global_step/sec: 1751.96
+    INFO:tensorflow:loss = 1501741800.0, step = 201 (0.057 sec)
+    INFO:tensorflow:global_step/sec: 1829.86
+    INFO:tensorflow:loss = 1129293800.0, step = 301 (0.054 sec)
+    INFO:tensorflow:global_step/sec: 2068.82
+    INFO:tensorflow:loss = 1499851800.0, step = 401 (0.047 sec)
+    INFO:tensorflow:global_step/sec: 2096.69
+    INFO:tensorflow:loss = 584564160.0, step = 501 (0.048 sec)
+    INFO:tensorflow:global_step/sec: 1755.68
+    INFO:tensorflow:loss = 556243200.0, step = 601 (0.057 sec)
+    INFO:tensorflow:global_step/sec: 1732.23
+    INFO:tensorflow:loss = 1072797950.0, step = 701 (0.058 sec)
+    INFO:tensorflow:global_step/sec: 1746.72
+    INFO:tensorflow:loss = 354733540.0, step = 801 (0.058 sec)
+    INFO:tensorflow:global_step/sec: 1488.87
+    INFO:tensorflow:loss = 1192780300.0, step = 901 (0.067 sec)
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 1000...
-    INFO:tensorflow:Saving checkpoints for 1000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmprmxa1_vf/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 1000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvedsjn6r/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 1000...
-    INFO:tensorflow:Loss for final step: 691079200.0.
+    INFO:tensorflow:Loss for final step: 725806100.0.
     INFO:tensorflow:Calling model_fn.
-
-
-    2026-03-25 08:47:22.443849: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:22.486023: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
     INFO:tensorflow:Done calling model_fn.
-    INFO:tensorflow:Starting evaluation at 2026-03-25T08:47:22
+    INFO:tensorflow:Starting evaluation at 2026-04-01T13:23:02
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmprmxa1_vf/model.ckpt-1000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvedsjn6r/model.ckpt-1000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
-
-
-    2026-03-25 08:47:22.680346: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:306] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
-    2026-03-25 08:47:22.680361: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:272] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
-    2026-03-25 08:47:22.686594: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:22.693554: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:22.698890: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:22.704471: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:22.711762: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:22.715271: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:22.746057: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
-    INFO:tensorflow:Inference Time : 0.33007s
-    INFO:tensorflow:Finished evaluation at 2026-03-25-08:47:22
-    INFO:tensorflow:Saving dict for global step 1000: average_loss = 40438024.0, global_step = 1000, label/mean = 13207.129, loss = 625234050.0, prediction/mean = 13137.515
-
-
-    2026-03-25 08:47:22.925912: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
-    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 1000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmprmxa1_vf/model.ckpt-1000
-    scores {'average_loss': 40438024.0, 'label/mean': 13207.129, 'loss': 625234050.0, 'prediction/mean': 13137.515, 'global_step': 1000}
+    INFO:tensorflow:Inference Time : 0.12160s
+    INFO:tensorflow:Finished evaluation at 2026-04-01-13:23:02
+    INFO:tensorflow:Saving dict for global step 1000: average_loss = 38075496.0, global_step = 1000, label/mean = 13207.129, loss = 588705700.0, prediction/mean = 13524.03
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 1000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvedsjn6r/model.ckpt-1000
+    scores {'average_loss': 38075496.0, 'label/mean': 13207.129, 'loss': 588705700.0, 'prediction/mean': 13524.03, 'global_step': 1000}
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
     INFO:tensorflow:Create CheckpointSaverHook.
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmprmxa1_vf/model.ckpt-1000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvedsjn6r/model.ckpt-1000
     WARNING:tensorflow:From /opt/anaconda3/envs/py310_env/lib/python3.10/site-packages/tensorflow/python/training/saver.py:1173: get_checkpoint_mtimes (from tensorflow.python.checkpoint.checkpoint_management) is deprecated and will be removed in a future version.
     Instructions for updating:
     Use standard file utilities to get mtimes.
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
-
-
-    2026-03-25 08:47:23.359723: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:306] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
-    2026-03-25 08:47:23.359737: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:272] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
-    2026-03-25 08:47:23.364991: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:23.371187: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:23.376820: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:23.379220: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:23.385141: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:23.388437: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 1000...
-    INFO:tensorflow:Saving checkpoints for 1000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmprmxa1_vf/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 1000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvedsjn6r/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 1000...
-    INFO:tensorflow:loss = 1785007600.0, step = 1001
-
-
-    2026-03-25 08:47:23.705686: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:23.804534: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:23.897507: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
-    INFO:tensorflow:global_step/sec: 230.743
-    INFO:tensorflow:loss = 769561860.0, step = 1101 (0.434 sec)
-    INFO:tensorflow:global_step/sec: 267.38
-    INFO:tensorflow:loss = 734286400.0, step = 1201 (0.374 sec)
-    INFO:tensorflow:global_step/sec: 269.633
-    INFO:tensorflow:loss = 494939070.0, step = 1301 (0.371 sec)
-    INFO:tensorflow:global_step/sec: 259.194
-    INFO:tensorflow:loss = 830969400.0, step = 1401 (0.386 sec)
-    INFO:tensorflow:global_step/sec: 238.61
-    INFO:tensorflow:loss = 696387300.0, step = 1501 (0.419 sec)
-    INFO:tensorflow:global_step/sec: 207.505
-    INFO:tensorflow:loss = 385715840.0, step = 1601 (0.483 sec)
-    INFO:tensorflow:global_step/sec: 265.914
-    INFO:tensorflow:loss = 701218000.0, step = 1701 (0.376 sec)
-    INFO:tensorflow:global_step/sec: 269.863
-    INFO:tensorflow:loss = 571304600.0, step = 1801 (0.370 sec)
-    INFO:tensorflow:global_step/sec: 244.079
-    INFO:tensorflow:loss = 184310560.0, step = 1901 (0.410 sec)
+    INFO:tensorflow:loss = 478316160.0, step = 1001
+    INFO:tensorflow:global_step/sec: 1199.8
+    INFO:tensorflow:loss = 179050430.0, step = 1101 (0.084 sec)
+    INFO:tensorflow:global_step/sec: 865.876
+    INFO:tensorflow:loss = 264254540.0, step = 1201 (0.116 sec)
+    INFO:tensorflow:global_step/sec: 1379.71
+    INFO:tensorflow:loss = 400856580.0, step = 1301 (0.074 sec)
+    INFO:tensorflow:global_step/sec: 1260.83
+    INFO:tensorflow:loss = 354506100.0, step = 1401 (0.079 sec)
+    INFO:tensorflow:global_step/sec: 1236.26
+    INFO:tensorflow:loss = 136109420.0, step = 1501 (0.081 sec)
+    INFO:tensorflow:global_step/sec: 1140.34
+    INFO:tensorflow:loss = 124282370.0, step = 1601 (0.088 sec)
+    INFO:tensorflow:global_step/sec: 1339.17
+    INFO:tensorflow:loss = 563144800.0, step = 1701 (0.073 sec)
+    INFO:tensorflow:global_step/sec: 1986.32
+    INFO:tensorflow:loss = 829425660.0, step = 1801 (0.050 sec)
+    INFO:tensorflow:global_step/sec: 2225.11
+    INFO:tensorflow:loss = 458895170.0, step = 1901 (0.046 sec)
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 2000...
-    INFO:tensorflow:Saving checkpoints for 2000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmprmxa1_vf/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 2000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvedsjn6r/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 2000...
-    INFO:tensorflow:Loss for final step: 174806930.0.
+    INFO:tensorflow:Loss for final step: 157893120.0.
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
-    INFO:tensorflow:Starting evaluation at 2026-03-25T08:47:28
+    INFO:tensorflow:Starting evaluation at 2026-04-01T13:23:04
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmprmxa1_vf/model.ckpt-2000
-
-
-    2026-03-25 08:47:28.055339: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:28.063245: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:28.250831: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:306] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
-    2026-03-25 08:47:28.250845: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:272] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
-
-
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvedsjn6r/model.ckpt-2000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
-
-
-    2026-03-25 08:47:28.256472: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:28.261809: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:28.267406: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:28.273467: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:28.280839: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:28.284597: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:28.313724: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
-    INFO:tensorflow:Inference Time : 0.26907s
-    INFO:tensorflow:Finished evaluation at 2026-03-25-08:47:28
-    INFO:tensorflow:Saving dict for global step 2000: average_loss = 30568870.0, global_step = 2000, label/mean = 13207.129, loss = 472641760.0, prediction/mean = 13447.633
-    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 2000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmprmxa1_vf/model.ckpt-2000
-    scores {'average_loss': 30568870.0, 'label/mean': 13207.129, 'loss': 472641760.0, 'prediction/mean': 13447.633, 'global_step': 2000}
+    INFO:tensorflow:Inference Time : 0.09857s
+    INFO:tensorflow:Finished evaluation at 2026-04-01-13:23:04
+    INFO:tensorflow:Saving dict for global step 2000: average_loss = 29043730.0, global_step = 2000, label/mean = 13207.129, loss = 449060740.0, prediction/mean = 13494.51
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 2000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvedsjn6r/model.ckpt-2000
+    scores {'average_loss': 29043730.0, 'label/mean': 13207.129, 'loss': 449060740.0, 'prediction/mean': 13494.51, 'global_step': 2000}
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
     INFO:tensorflow:Create CheckpointSaverHook.
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmprmxa1_vf/model.ckpt-2000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvedsjn6r/model.ckpt-2000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
-
-
-    2026-03-25 08:47:28.457891: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:28.613062: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:306] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
-    2026-03-25 08:47:28.613076: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:272] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
-    2026-03-25 08:47:28.618512: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:28.624380: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:28.629927: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:28.632352: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:28.638258: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:28.641802: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 2000...
-    INFO:tensorflow:Saving checkpoints for 2000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmprmxa1_vf/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 2000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvedsjn6r/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 2000...
-
-
-    2026-03-25 08:47:28.961400: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:29.060228: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
-    INFO:tensorflow:loss = 956131400.0, step = 2001
-
-
-    2026-03-25 08:47:29.168122: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
-    INFO:tensorflow:global_step/sec: 220.444
-    INFO:tensorflow:loss = 226467840.0, step = 2101 (0.454 sec)
-    INFO:tensorflow:global_step/sec: 222.507
-    INFO:tensorflow:loss = 800679300.0, step = 2201 (0.450 sec)
-    INFO:tensorflow:global_step/sec: 261.868
-    INFO:tensorflow:loss = 472692600.0, step = 2301 (0.382 sec)
-    INFO:tensorflow:global_step/sec: 274.743
-    INFO:tensorflow:loss = 928718300.0, step = 2401 (0.364 sec)
-    INFO:tensorflow:global_step/sec: 278.161
-    INFO:tensorflow:loss = 1202778400.0, step = 2501 (0.359 sec)
-    INFO:tensorflow:global_step/sec: 260.282
-    INFO:tensorflow:loss = 199580880.0, step = 2601 (0.384 sec)
-    INFO:tensorflow:global_step/sec: 262.87
-    INFO:tensorflow:loss = 661393500.0, step = 2701 (0.381 sec)
-    INFO:tensorflow:global_step/sec: 216.371
-    INFO:tensorflow:loss = 158321490.0, step = 2801 (0.462 sec)
-    INFO:tensorflow:global_step/sec: 186.458
-    INFO:tensorflow:loss = 239453020.0, step = 2901 (0.541 sec)
+    INFO:tensorflow:loss = 275169020.0, step = 2001
+    INFO:tensorflow:global_step/sec: 1591.29
+    INFO:tensorflow:loss = 262362940.0, step = 2101 (0.063 sec)
+    INFO:tensorflow:global_step/sec: 2354.33
+    INFO:tensorflow:loss = 253668000.0, step = 2201 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2243.81
+    INFO:tensorflow:loss = 119933840.0, step = 2301 (0.045 sec)
+    INFO:tensorflow:global_step/sec: 2273.05
+    INFO:tensorflow:loss = 285805000.0, step = 2401 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 2229.9
+    INFO:tensorflow:loss = 365405250.0, step = 2501 (0.045 sec)
+    INFO:tensorflow:global_step/sec: 2102.66
+    INFO:tensorflow:loss = 450121400.0, step = 2601 (0.047 sec)
+    INFO:tensorflow:global_step/sec: 2445.87
+    INFO:tensorflow:loss = 398586050.0, step = 2701 (0.042 sec)
+    INFO:tensorflow:global_step/sec: 2333.72
+    INFO:tensorflow:loss = 187154690.0, step = 2801 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2232.94
+    INFO:tensorflow:loss = 583096300.0, step = 2901 (0.045 sec)
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 3000...
-    INFO:tensorflow:Saving checkpoints for 3000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmprmxa1_vf/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 3000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvedsjn6r/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 3000...
-    INFO:tensorflow:Loss for final step: 620132860.0.
+    INFO:tensorflow:Loss for final step: 497730980.0.
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
-    INFO:tensorflow:Starting evaluation at 2026-03-25T08:47:33
+    INFO:tensorflow:Starting evaluation at 2026-04-01T13:23:05
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmprmxa1_vf/model.ckpt-3000
-
-
-    2026-03-25 08:47:33.712692: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:33.722646: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:33.910582: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:306] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
-    2026-03-25 08:47:33.910597: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:272] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
-
-
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvedsjn6r/model.ckpt-3000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
-
-
-    2026-03-25 08:47:33.916824: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:33.921845: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:33.927385: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:33.932837: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:33.939442: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:33.943497: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:33.971826: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
-    INFO:tensorflow:Inference Time : 0.31546s
-    INFO:tensorflow:Finished evaluation at 2026-03-25-08:47:34
-    INFO:tensorflow:Saving dict for global step 3000: average_loss = 25131182.0, global_step = 3000, label/mean = 13207.129, loss = 388566720.0, prediction/mean = 13261.1875
-    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 3000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmprmxa1_vf/model.ckpt-3000
-    scores {'average_loss': 25131182.0, 'label/mean': 13207.129, 'loss': 388566720.0, 'prediction/mean': 13261.1875, 'global_step': 3000}
-    INFO:tensorflow:Calling model_fn.
-    INFO:tensorflow:Done calling model_fn.
-    INFO:tensorflow:Create CheckpointSaverHook.
-
-
-    2026-03-25 08:47:34.153984: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
-    INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmprmxa1_vf/model.ckpt-3000
-    INFO:tensorflow:Running local_init_op.
-    INFO:tensorflow:Done running local_init_op.
-
-
-    2026-03-25 08:47:34.357214: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:306] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
-    2026-03-25 08:47:34.357229: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:272] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
-    2026-03-25 08:47:34.363148: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:34.369699: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:34.375759: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:34.378603: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:34.385874: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:34.390239: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
-    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 3000...
-    INFO:tensorflow:Saving checkpoints for 3000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmprmxa1_vf/model.ckpt.
-    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 3000...
-
-
-    2026-03-25 08:47:34.706654: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:34.806558: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
-    INFO:tensorflow:loss = 375481280.0, step = 3001
-
-
-    2026-03-25 08:47:34.935436: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
-    INFO:tensorflow:global_step/sec: 177.961
-    INFO:tensorflow:loss = 276110660.0, step = 3101 (0.558 sec)
-    INFO:tensorflow:global_step/sec: 265.051
-    INFO:tensorflow:loss = 449660300.0, step = 3201 (0.377 sec)
-    INFO:tensorflow:global_step/sec: 284.291
-    INFO:tensorflow:loss = 216178900.0, step = 3301 (0.353 sec)
-    INFO:tensorflow:global_step/sec: 272.499
-    INFO:tensorflow:loss = 479072580.0, step = 3401 (0.367 sec)
-    INFO:tensorflow:global_step/sec: 278.055
-    INFO:tensorflow:loss = 179985650.0, step = 3501 (0.359 sec)
-    INFO:tensorflow:global_step/sec: 274.18
-    INFO:tensorflow:loss = 570207100.0, step = 3601 (0.366 sec)
-    INFO:tensorflow:global_step/sec: 240.845
-    INFO:tensorflow:loss = 262005120.0, step = 3701 (0.415 sec)
-    INFO:tensorflow:global_step/sec: 246.002
-    INFO:tensorflow:loss = 167749620.0, step = 3801 (0.406 sec)
-    INFO:tensorflow:global_step/sec: 261.574
-    INFO:tensorflow:loss = 221773660.0, step = 3901 (0.382 sec)
-    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 4000...
-    INFO:tensorflow:Saving checkpoints for 4000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmprmxa1_vf/model.ckpt.
-    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 4000...
-    INFO:tensorflow:Loss for final step: 386885150.0.
-    INFO:tensorflow:Calling model_fn.
-    INFO:tensorflow:Done calling model_fn.
-    INFO:tensorflow:Starting evaluation at 2026-03-25T08:47:39
-    INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmprmxa1_vf/model.ckpt-4000
-    INFO:tensorflow:Running local_init_op.
-    INFO:tensorflow:Done running local_init_op.
-
-
-    2026-03-25 08:47:39.046813: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:39.053562: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:39.207800: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:306] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
-    2026-03-25 08:47:39.207814: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:272] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
-    2026-03-25 08:47:39.213390: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:39.218658: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:39.224479: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:39.230346: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:39.237147: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:39.240745: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:39.269895: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:39.450656: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
-    INFO:tensorflow:Inference Time : 0.30222s
-    INFO:tensorflow:Finished evaluation at 2026-03-25-08:47:39
-    INFO:tensorflow:Saving dict for global step 4000: average_loss = 22415182.0, global_step = 4000, label/mean = 13207.129, loss = 346573200.0, prediction/mean = 13618.454
-    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 4000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmprmxa1_vf/model.ckpt-4000
-    scores {'average_loss': 22415182.0, 'label/mean': 13207.129, 'loss': 346573200.0, 'prediction/mean': 13618.454, 'global_step': 4000}
+    INFO:tensorflow:Inference Time : 0.09475s
+    INFO:tensorflow:Finished evaluation at 2026-04-01-13:23:06
+    INFO:tensorflow:Saving dict for global step 3000: average_loss = 24343046.0, global_step = 3000, label/mean = 13207.129, loss = 376380930.0, prediction/mean = 13399.774
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 3000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvedsjn6r/model.ckpt-3000
+    scores {'average_loss': 24343046.0, 'label/mean': 13207.129, 'loss': 376380930.0, 'prediction/mean': 13399.774, 'global_step': 3000}
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
     INFO:tensorflow:Create CheckpointSaverHook.
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmprmxa1_vf/model.ckpt-4000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvedsjn6r/model.ckpt-3000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
-
-
-    2026-03-25 08:47:39.605821: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:306] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
-    2026-03-25 08:47:39.605835: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:272] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
-    2026-03-25 08:47:39.611365: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:39.617285: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:39.623160: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:39.625878: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:39.632038: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:39.635423: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 3000...
+    INFO:tensorflow:Saving checkpoints for 3000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvedsjn6r/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 3000...
+    INFO:tensorflow:loss = 272208580.0, step = 3001
+    INFO:tensorflow:global_step/sec: 1688.34
+    INFO:tensorflow:loss = 747832600.0, step = 3101 (0.061 sec)
+    INFO:tensorflow:global_step/sec: 2200.79
+    INFO:tensorflow:loss = 153971970.0, step = 3201 (0.045 sec)
+    INFO:tensorflow:global_step/sec: 2332.05
+    INFO:tensorflow:loss = 776122500.0, step = 3301 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2239.69
+    INFO:tensorflow:loss = 142076220.0, step = 3401 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 2180.46
+    INFO:tensorflow:loss = 927377340.0, step = 3501 (0.046 sec)
+    INFO:tensorflow:global_step/sec: 2273.91
+    INFO:tensorflow:loss = 328134100.0, step = 3601 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 2326.23
+    INFO:tensorflow:loss = 272141400.0, step = 3701 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2261.95
+    INFO:tensorflow:loss = 136560270.0, step = 3801 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 2370.72
+    INFO:tensorflow:loss = 206087470.0, step = 3901 (0.042 sec)
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 4000...
-    INFO:tensorflow:Saving checkpoints for 4000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmprmxa1_vf/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 4000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvedsjn6r/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 4000...
-
-
-    2026-03-25 08:47:39.967797: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:40.149601: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
-    INFO:tensorflow:loss = 195464830.0, step = 4001
-
-
-    2026-03-25 08:47:40.255055: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
-    INFO:tensorflow:global_step/sec: 194.416
-    INFO:tensorflow:loss = 134057416.0, step = 4101 (0.514 sec)
-    INFO:tensorflow:global_step/sec: 256.376
-    INFO:tensorflow:loss = 515779840.0, step = 4201 (0.390 sec)
-    INFO:tensorflow:global_step/sec: 257.264
-    INFO:tensorflow:loss = 630633100.0, step = 4301 (0.388 sec)
-    INFO:tensorflow:global_step/sec: 265.323
-    INFO:tensorflow:loss = 87844370.0, step = 4401 (0.377 sec)
-    INFO:tensorflow:global_step/sec: 250.668
-    INFO:tensorflow:loss = 664344400.0, step = 4501 (0.400 sec)
-    INFO:tensorflow:global_step/sec: 220.192
-    INFO:tensorflow:loss = 224811410.0, step = 4601 (0.453 sec)
-    INFO:tensorflow:global_step/sec: 240.227
-    INFO:tensorflow:loss = 784634500.0, step = 4701 (0.417 sec)
-    INFO:tensorflow:global_step/sec: 253.259
-    INFO:tensorflow:loss = 166524320.0, step = 4801 (0.394 sec)
-    INFO:tensorflow:global_step/sec: 171.494
-    INFO:tensorflow:loss = 291860830.0, step = 4901 (0.583 sec)
+    INFO:tensorflow:Loss for final step: 146029860.0.
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Starting evaluation at 2026-04-01T13:23:07
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvedsjn6r/model.ckpt-4000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Inference Time : 0.09246s
+    INFO:tensorflow:Finished evaluation at 2026-04-01-13:23:07
+    INFO:tensorflow:Saving dict for global step 4000: average_loss = 22011448.0, global_step = 4000, label/mean = 13207.129, loss = 340330850.0, prediction/mean = 13288.352
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 4000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvedsjn6r/model.ckpt-4000
+    scores {'average_loss': 22011448.0, 'label/mean': 13207.129, 'loss': 340330850.0, 'prediction/mean': 13288.352, 'global_step': 4000}
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Create CheckpointSaverHook.
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvedsjn6r/model.ckpt-4000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 4000...
+    INFO:tensorflow:Saving checkpoints for 4000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvedsjn6r/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 4000...
+    INFO:tensorflow:loss = 72139970.0, step = 4001
+    INFO:tensorflow:global_step/sec: 1504.35
+    INFO:tensorflow:loss = 923327300.0, step = 4101 (0.067 sec)
+    INFO:tensorflow:global_step/sec: 2400.67
+    INFO:tensorflow:loss = 96992810.0, step = 4201 (0.042 sec)
+    INFO:tensorflow:global_step/sec: 2299.55
+    INFO:tensorflow:loss = 566480500.0, step = 4301 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2244.11
+    INFO:tensorflow:loss = 65247100.0, step = 4401 (0.045 sec)
+    INFO:tensorflow:global_step/sec: 2318.58
+    INFO:tensorflow:loss = 405201820.0, step = 4501 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2071.33
+    INFO:tensorflow:loss = 537208200.0, step = 4601 (0.048 sec)
+    INFO:tensorflow:global_step/sec: 2328.23
+    INFO:tensorflow:loss = 174278260.0, step = 4701 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2318.9
+    INFO:tensorflow:loss = 215895260.0, step = 4801 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2262.34
+    INFO:tensorflow:loss = 73575470.0, step = 4901 (0.044 sec)
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 5000...
-    INFO:tensorflow:Saving checkpoints for 5000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmprmxa1_vf/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 5000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvedsjn6r/model.ckpt.
     WARNING:tensorflow:From /opt/anaconda3/envs/py310_env/lib/python3.10/site-packages/tensorflow/python/training/saver.py:1064: remove_checkpoint (from tensorflow.python.checkpoint.checkpoint_management) is deprecated and will be removed in a future version.
     Instructions for updating:
     Use standard file APIs to delete files with this prefix.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 5000...
-    INFO:tensorflow:Loss for final step: 167070190.0.
+    INFO:tensorflow:Loss for final step: 151839420.0.
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
-    INFO:tensorflow:Starting evaluation at 2026-03-25T08:47:44
+    INFO:tensorflow:Starting evaluation at 2026-04-01T13:23:08
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmprmxa1_vf/model.ckpt-5000
-
-
-    2026-03-25 08:47:44.653063: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:44.688713: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:44.852497: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:306] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
-    2026-03-25 08:47:44.852513: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:272] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
-
-
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvedsjn6r/model.ckpt-5000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
-
-
-    2026-03-25 08:47:44.858322: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:44.863364: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:44.868691: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:44.874372: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:44.881175: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:44.884742: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:44.912938: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
-    INFO:tensorflow:Inference Time : 0.26834s
-    INFO:tensorflow:Finished evaluation at 2026-03-25-08:47:45
-    INFO:tensorflow:Saving dict for global step 5000: average_loss = 20978816.0, global_step = 5000, label/mean = 13207.129, loss = 324364770.0, prediction/mean = 13381.143
-    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 5000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmprmxa1_vf/model.ckpt-5000
-    scores {'average_loss': 20978816.0, 'label/mean': 13207.129, 'loss': 324364770.0, 'prediction/mean': 13381.143, 'global_step': 5000}
+    INFO:tensorflow:Inference Time : 0.09296s
+    INFO:tensorflow:Finished evaluation at 2026-04-01-13:23:08
+    INFO:tensorflow:Saving dict for global step 5000: average_loss = 20849308.0, global_step = 5000, label/mean = 13207.129, loss = 322362370.0, prediction/mean = 13279.468
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 5000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvedsjn6r/model.ckpt-5000
+    scores {'average_loss': 20849308.0, 'label/mean': 13207.129, 'loss': 322362370.0, 'prediction/mean': 13279.468, 'global_step': 5000}
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
     INFO:tensorflow:Create CheckpointSaverHook.
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmprmxa1_vf/model.ckpt-5000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvedsjn6r/model.ckpt-5000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
-
-
-    2026-03-25 08:47:45.060117: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:45.217287: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:306] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
-    2026-03-25 08:47:45.217302: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:272] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
-    2026-03-25 08:47:45.222870: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:45.228880: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:45.235043: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:45.237759: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:45.244168: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:45.247863: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 5000...
-    INFO:tensorflow:Saving checkpoints for 5000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmprmxa1_vf/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 5000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvedsjn6r/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 5000...
-
-
-    2026-03-25 08:47:45.649801: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:45.753858: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
-    INFO:tensorflow:loss = 666112830.0, step = 5001
-
-
-    2026-03-25 08:47:45.851908: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
-    INFO:tensorflow:global_step/sec: 234.943
-    INFO:tensorflow:loss = 414432740.0, step = 5101 (0.426 sec)
-    INFO:tensorflow:global_step/sec: 251.822
-    INFO:tensorflow:loss = 227168860.0, step = 5201 (0.397 sec)
-    INFO:tensorflow:global_step/sec: 239.327
-    INFO:tensorflow:loss = 238660450.0, step = 5301 (0.418 sec)
-    INFO:tensorflow:global_step/sec: 121.634
-    INFO:tensorflow:loss = 478436930.0, step = 5401 (0.824 sec)
-    INFO:tensorflow:global_step/sec: 244.634
-    INFO:tensorflow:loss = 329021470.0, step = 5501 (0.407 sec)
-    INFO:tensorflow:global_step/sec: 222.528
-    INFO:tensorflow:loss = 206765000.0, step = 5601 (0.449 sec)
-    INFO:tensorflow:global_step/sec: 292.483
-    INFO:tensorflow:loss = 165280960.0, step = 5701 (0.342 sec)
-    INFO:tensorflow:global_step/sec: 207.705
-    INFO:tensorflow:loss = 108869840.0, step = 5801 (0.483 sec)
-    INFO:tensorflow:global_step/sec: 255.925
-    INFO:tensorflow:loss = 208249020.0, step = 5901 (0.390 sec)
+    INFO:tensorflow:loss = 799319200.0, step = 5001
+    INFO:tensorflow:global_step/sec: 1562.45
+    INFO:tensorflow:loss = 416251100.0, step = 5101 (0.065 sec)
+    INFO:tensorflow:global_step/sec: 2066.84
+    INFO:tensorflow:loss = 732295300.0, step = 5201 (0.048 sec)
+    INFO:tensorflow:global_step/sec: 1935.77
+    INFO:tensorflow:loss = 106798780.0, step = 5301 (0.052 sec)
+    INFO:tensorflow:global_step/sec: 1991.29
+    INFO:tensorflow:loss = 161793170.0, step = 5401 (0.050 sec)
+    INFO:tensorflow:global_step/sec: 1866.37
+    INFO:tensorflow:loss = 134408480.0, step = 5501 (0.054 sec)
+    INFO:tensorflow:global_step/sec: 2008.28
+    INFO:tensorflow:loss = 638589800.0, step = 5601 (0.050 sec)
+    INFO:tensorflow:global_step/sec: 2278.57
+    INFO:tensorflow:loss = 192108640.0, step = 5701 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2114.79
+    INFO:tensorflow:loss = 63535676.0, step = 5801 (0.047 sec)
+    INFO:tensorflow:global_step/sec: 2034.8
+    INFO:tensorflow:loss = 554605000.0, step = 5901 (0.050 sec)
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 6000...
-    INFO:tensorflow:Saving checkpoints for 6000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmprmxa1_vf/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 6000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvedsjn6r/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 6000...
-    INFO:tensorflow:Loss for final step: 80804984.0.
+    INFO:tensorflow:Loss for final step: 124220300.0.
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
-    INFO:tensorflow:Starting evaluation at 2026-03-25T08:47:50
+    INFO:tensorflow:Starting evaluation at 2026-04-01T13:23:10
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmprmxa1_vf/model.ckpt-6000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvedsjn6r/model.ckpt-6000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
-
-
-    2026-03-25 08:47:50.576038: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:50.584007: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:50.741368: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:306] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
-    2026-03-25 08:47:50.741384: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:272] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
-    2026-03-25 08:47:50.747447: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:50.752601: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:50.758022: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:50.764037: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:50.772787: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:50.776532: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:50.814211: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
-    INFO:tensorflow:Inference Time : 0.31212s
-    INFO:tensorflow:Finished evaluation at 2026-03-25-08:47:51
-    INFO:tensorflow:Saving dict for global step 6000: average_loss = 20251720.0, global_step = 6000, label/mean = 13207.129, loss = 313122750.0, prediction/mean = 13391.231
-    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 6000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmprmxa1_vf/model.ckpt-6000
-    scores {'average_loss': 20251720.0, 'label/mean': 13207.129, 'loss': 313122750.0, 'prediction/mean': 13391.231, 'global_step': 6000}
+    INFO:tensorflow:Inference Time : 0.10615s
+    INFO:tensorflow:Finished evaluation at 2026-04-01-13:23:10
+    INFO:tensorflow:Saving dict for global step 6000: average_loss = 20216736.0, global_step = 6000, label/mean = 13207.129, loss = 312581860.0, prediction/mean = 13240.401
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 6000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvedsjn6r/model.ckpt-6000
+    scores {'average_loss': 20216736.0, 'label/mean': 13207.129, 'loss': 312581860.0, 'prediction/mean': 13240.401, 'global_step': 6000}
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
     INFO:tensorflow:Create CheckpointSaverHook.
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmprmxa1_vf/model.ckpt-6000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvedsjn6r/model.ckpt-6000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
-
-
-    2026-03-25 08:47:50.991178: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:51.148880: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:306] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
-    2026-03-25 08:47:51.148896: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:272] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
-    2026-03-25 08:47:51.154516: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:51.160458: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:51.166502: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:51.169181: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:51.175315: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:51.178808: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 6000...
-    INFO:tensorflow:Saving checkpoints for 6000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmprmxa1_vf/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 6000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvedsjn6r/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 6000...
-
-
-    2026-03-25 08:47:51.509558: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:51.613092: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
-    INFO:tensorflow:loss = 412036260.0, step = 6001
-
-
-    2026-03-25 08:47:51.742105: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
-    INFO:tensorflow:global_step/sec: 235.304
-    INFO:tensorflow:loss = 512610560.0, step = 6101 (0.425 sec)
-    INFO:tensorflow:global_step/sec: 271.543
-    INFO:tensorflow:loss = 217503470.0, step = 6201 (0.369 sec)
-    INFO:tensorflow:global_step/sec: 267.962
-    INFO:tensorflow:loss = 1031329800.0, step = 6301 (0.372 sec)
-    INFO:tensorflow:global_step/sec: 260.871
-    INFO:tensorflow:loss = 661009300.0, step = 6401 (0.383 sec)
-    INFO:tensorflow:global_step/sec: 265.339
-    INFO:tensorflow:loss = 532477100.0, step = 6501 (0.378 sec)
-    INFO:tensorflow:global_step/sec: 215.337
-    INFO:tensorflow:loss = 113493940.0, step = 6601 (0.465 sec)
-    INFO:tensorflow:global_step/sec: 136.479
-    INFO:tensorflow:loss = 464054800.0, step = 6701 (0.733 sec)
-    INFO:tensorflow:global_step/sec: 153.093
-    INFO:tensorflow:loss = 125123930.0, step = 6801 (0.653 sec)
-    INFO:tensorflow:global_step/sec: 228.2
-    INFO:tensorflow:loss = 97571140.0, step = 6901 (0.437 sec)
+    INFO:tensorflow:loss = 167391760.0, step = 6001
+    INFO:tensorflow:global_step/sec: 1529.96
+    INFO:tensorflow:loss = 759310200.0, step = 6101 (0.066 sec)
+    INFO:tensorflow:global_step/sec: 2312.62
+    INFO:tensorflow:loss = 138318660.0, step = 6201 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 2232.15
+    INFO:tensorflow:loss = 476048670.0, step = 6301 (0.046 sec)
+    INFO:tensorflow:global_step/sec: 1864.69
+    INFO:tensorflow:loss = 1002156160.0, step = 6401 (0.053 sec)
+    INFO:tensorflow:global_step/sec: 1654.26
+    INFO:tensorflow:loss = 124484850.0, step = 6501 (0.061 sec)
+    INFO:tensorflow:global_step/sec: 1762.84
+    INFO:tensorflow:loss = 112647840.0, step = 6601 (0.056 sec)
+    WARNING:tensorflow:It seems that global step (tf.train.get_global_step) has not been increased. Current value (could be stable): 6601 vs previous value: 6601. You could increase the global step by passing tf.train.get_global_step() to Optimizer.apply_gradients or Optimizer.minimize.
+    INFO:tensorflow:global_step/sec: 1796.88
+    INFO:tensorflow:loss = 210125470.0, step = 6701 (0.055 sec)
+    INFO:tensorflow:global_step/sec: 1758.06
+    INFO:tensorflow:loss = 411197900.0, step = 6801 (0.056 sec)
+    INFO:tensorflow:global_step/sec: 1894.58
+    INFO:tensorflow:loss = 281294400.0, step = 6901 (0.053 sec)
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 7000...
-    INFO:tensorflow:Saving checkpoints for 7000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmprmxa1_vf/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 7000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvedsjn6r/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 7000...
-    INFO:tensorflow:Loss for final step: 176839740.0.
+    INFO:tensorflow:Loss for final step: 370015460.0.
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
-    INFO:tensorflow:Starting evaluation at 2026-03-25T08:47:56
+    INFO:tensorflow:Starting evaluation at 2026-04-01T13:23:12
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmprmxa1_vf/model.ckpt-7000
-
-
-    2026-03-25 08:47:56.786588: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:56.794594: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:56.981342: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:306] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
-    2026-03-25 08:47:56.981370: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:272] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
-
-
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvedsjn6r/model.ckpt-7000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
-
-
-    2026-03-25 08:47:56.988123: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:56.993525: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:56.999193: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:57.005114: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:57.012470: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:57.016830: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:57.046232: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
-    INFO:tensorflow:Inference Time : 0.28541s
-    INFO:tensorflow:Finished evaluation at 2026-03-25-08:47:57
-    INFO:tensorflow:Saving dict for global step 7000: average_loss = 19809998.0, global_step = 7000, label/mean = 13207.129, loss = 306293060.0, prediction/mean = 13305.212
-    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 7000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmprmxa1_vf/model.ckpt-7000
-    scores {'average_loss': 19809998.0, 'label/mean': 13207.129, 'loss': 306293060.0, 'prediction/mean': 13305.212, 'global_step': 7000}
+    INFO:tensorflow:Inference Time : 0.09512s
+    INFO:tensorflow:Finished evaluation at 2026-04-01-13:23:12
+    INFO:tensorflow:Saving dict for global step 7000: average_loss = 19793346.0, global_step = 7000, label/mean = 13207.129, loss = 306035600.0, prediction/mean = 13380.607
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 7000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvedsjn6r/model.ckpt-7000
+    scores {'average_loss': 19793346.0, 'label/mean': 13207.129, 'loss': 306035600.0, 'prediction/mean': 13380.607, 'global_step': 7000}
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
     INFO:tensorflow:Create CheckpointSaverHook.
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmprmxa1_vf/model.ckpt-7000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvedsjn6r/model.ckpt-7000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
-
-
-    2026-03-25 08:47:57.202761: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:57.362817: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:306] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
-    2026-03-25 08:47:57.362831: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:272] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
-    2026-03-25 08:47:57.368824: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:57.376064: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:57.382708: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:57.385511: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:57.392734: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:57.398813: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 7000...
-    INFO:tensorflow:Saving checkpoints for 7000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmprmxa1_vf/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 7000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvedsjn6r/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 7000...
-
-
-    2026-03-25 08:47:57.753134: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:47:57.855190: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
-    INFO:tensorflow:loss = 722761700.0, step = 7001
-
-
-    2026-03-25 08:47:57.955777: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
-    INFO:tensorflow:global_step/sec: 199.645
-    INFO:tensorflow:loss = 278853730.0, step = 7101 (0.501 sec)
-    INFO:tensorflow:global_step/sec: 259.364
-    INFO:tensorflow:loss = 206579120.0, step = 7201 (0.386 sec)
-    INFO:tensorflow:global_step/sec: 149.868
-    INFO:tensorflow:loss = 133728880.0, step = 7301 (0.672 sec)
-    INFO:tensorflow:global_step/sec: 111.905
-    INFO:tensorflow:loss = 292073470.0, step = 7401 (0.899 sec)
-    INFO:tensorflow:global_step/sec: 227.481
-    INFO:tensorflow:loss = 147415550.0, step = 7501 (0.429 sec)
-    INFO:tensorflow:global_step/sec: 267.743
-    INFO:tensorflow:loss = 173656380.0, step = 7601 (0.373 sec)
-    INFO:tensorflow:global_step/sec: 254.588
-    INFO:tensorflow:loss = 338654370.0, step = 7701 (0.393 sec)
-    INFO:tensorflow:global_step/sec: 244.898
-    INFO:tensorflow:loss = 73967220.0, step = 7801 (0.410 sec)
-    INFO:tensorflow:global_step/sec: 245.795
-    INFO:tensorflow:loss = 73481030.0, step = 7901 (0.406 sec)
+    INFO:tensorflow:loss = 321875100.0, step = 7001
+    INFO:tensorflow:global_step/sec: 1516.23
+    INFO:tensorflow:loss = 483923900.0, step = 7101 (0.067 sec)
+    INFO:tensorflow:global_step/sec: 2314.49
+    INFO:tensorflow:loss = 143231700.0, step = 7201 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2201.57
+    INFO:tensorflow:loss = 484216700.0, step = 7301 (0.046 sec)
+    INFO:tensorflow:global_step/sec: 2251.3
+    INFO:tensorflow:loss = 154017310.0, step = 7401 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 2195.19
+    INFO:tensorflow:loss = 113470990.0, step = 7501 (0.046 sec)
+    INFO:tensorflow:global_step/sec: 2116.95
+    INFO:tensorflow:loss = 79243540.0, step = 7601 (0.046 sec)
+    INFO:tensorflow:global_step/sec: 2309.58
+    INFO:tensorflow:loss = 616130560.0, step = 7701 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 2236.44
+    INFO:tensorflow:loss = 83793650.0, step = 7801 (0.045 sec)
+    INFO:tensorflow:global_step/sec: 2312.78
+    INFO:tensorflow:loss = 651642200.0, step = 7901 (0.043 sec)
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 8000...
-    INFO:tensorflow:Saving checkpoints for 8000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmprmxa1_vf/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 8000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvedsjn6r/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 8000...
-    INFO:tensorflow:Loss for final step: 262308380.0.
+    INFO:tensorflow:Loss for final step: 127675990.0.
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
-    INFO:tensorflow:Starting evaluation at 2026-03-25T08:48:03
-
-
-    2026-03-25 08:48:03.098318: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:48:03.126814: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
+    INFO:tensorflow:Starting evaluation at 2026-04-01T13:23:13
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmprmxa1_vf/model.ckpt-8000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvedsjn6r/model.ckpt-8000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
-
-
-    2026-03-25 08:48:03.302331: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:306] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
-    2026-03-25 08:48:03.302346: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:272] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
-    2026-03-25 08:48:03.308349: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:48:03.313875: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:48:03.319303: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:48:03.325255: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:48:03.332701: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:48:03.336318: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:48:03.367067: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
-    INFO:tensorflow:Inference Time : 0.37115s
-    INFO:tensorflow:Finished evaluation at 2026-03-25-08:48:03
-    INFO:tensorflow:Saving dict for global step 8000: average_loss = 19489510.0, global_step = 8000, label/mean = 13207.129, loss = 301337820.0, prediction/mean = 13402.268
-    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 8000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmprmxa1_vf/model.ckpt-8000
-    scores {'average_loss': 19489510.0, 'label/mean': 13207.129, 'loss': 301337820.0, 'prediction/mean': 13402.268, 'global_step': 8000}
+    INFO:tensorflow:Inference Time : 0.08894s
+    INFO:tensorflow:Finished evaluation at 2026-04-01-13:23:13
+    INFO:tensorflow:Saving dict for global step 8000: average_loss = 19526042.0, global_step = 8000, label/mean = 13207.129, loss = 301902660.0, prediction/mean = 13174.017
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 8000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvedsjn6r/model.ckpt-8000
+    scores {'average_loss': 19526042.0, 'label/mean': 13207.129, 'loss': 301902660.0, 'prediction/mean': 13174.017, 'global_step': 8000}
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
     INFO:tensorflow:Create CheckpointSaverHook.
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmprmxa1_vf/model.ckpt-8000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvedsjn6r/model.ckpt-8000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
-
-
-    2026-03-25 08:48:03.613106: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:48:03.775689: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:306] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
-    2026-03-25 08:48:03.775704: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:272] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
-    2026-03-25 08:48:03.781944: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:48:03.788255: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:48:03.794664: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:48:03.797426: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:48:03.803472: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:48:03.807032: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 8000...
-    INFO:tensorflow:Saving checkpoints for 8000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmprmxa1_vf/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 8000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvedsjn6r/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 8000...
-
-
-    2026-03-25 08:48:04.166161: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:48:04.352831: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
-    INFO:tensorflow:loss = 829637900.0, step = 8001
-
-
-    2026-03-25 08:48:04.457714: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
-    INFO:tensorflow:global_step/sec: 228.331
-    INFO:tensorflow:loss = 134427840.0, step = 8101 (0.438 sec)
-    INFO:tensorflow:global_step/sec: 248.884
-    INFO:tensorflow:loss = 97132776.0, step = 8201 (0.402 sec)
-    INFO:tensorflow:global_step/sec: 270.565
-    INFO:tensorflow:loss = 125679120.0, step = 8301 (0.370 sec)
-    INFO:tensorflow:global_step/sec: 198.902
-    INFO:tensorflow:loss = 332643260.0, step = 8401 (0.503 sec)
-    INFO:tensorflow:global_step/sec: 278.409
-    INFO:tensorflow:loss = 894057860.0, step = 8501 (0.359 sec)
-    INFO:tensorflow:global_step/sec: 119.948
-    INFO:tensorflow:loss = 148510200.0, step = 8601 (0.843 sec)
-    INFO:tensorflow:global_step/sec: 186.815
-    INFO:tensorflow:loss = 125338930.0, step = 8701 (0.526 sec)
-    INFO:tensorflow:global_step/sec: 264.339
-    INFO:tensorflow:loss = 144344180.0, step = 8801 (0.378 sec)
-    INFO:tensorflow:global_step/sec: 263.488
-    INFO:tensorflow:loss = 186957760.0, step = 8901 (0.379 sec)
+    INFO:tensorflow:loss = 157730610.0, step = 8001
+    INFO:tensorflow:global_step/sec: 1559.14
+    INFO:tensorflow:loss = 862561400.0, step = 8101 (0.066 sec)
+    INFO:tensorflow:global_step/sec: 2261.42
+    INFO:tensorflow:loss = 642486800.0, step = 8201 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 2351.95
+    INFO:tensorflow:loss = 189749570.0, step = 8301 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2219.41
+    INFO:tensorflow:loss = 220401220.0, step = 8401 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 2332.35
+    INFO:tensorflow:loss = 486119550.0, step = 8501 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2280.98
+    INFO:tensorflow:loss = 445559500.0, step = 8601 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2262.9
+    INFO:tensorflow:loss = 552427200.0, step = 8701 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 2157.46
+    INFO:tensorflow:loss = 342998530.0, step = 8801 (0.046 sec)
+    INFO:tensorflow:global_step/sec: 1299.29
+    INFO:tensorflow:loss = 288974000.0, step = 8901 (0.078 sec)
+    WARNING:tensorflow:It seems that global step (tf.train.get_global_step) has not been increased. Current value (could be stable): 8901 vs previous value: 8901. You could increase the global step by passing tf.train.get_global_step() to Optimizer.apply_gradients or Optimizer.minimize.
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 9000...
-    INFO:tensorflow:Saving checkpoints for 9000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmprmxa1_vf/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 9000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvedsjn6r/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 9000...
-    INFO:tensorflow:Loss for final step: 158082660.0.
+    INFO:tensorflow:Loss for final step: 182674600.0.
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
-    INFO:tensorflow:Starting evaluation at 2026-03-25T08:48:09
-
-
-    2026-03-25 08:48:09.125176: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:48:09.156433: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
+    INFO:tensorflow:Starting evaluation at 2026-04-01T13:23:15
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmprmxa1_vf/model.ckpt-9000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvedsjn6r/model.ckpt-9000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
-
-
-    2026-03-25 08:48:09.331648: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:306] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
-    2026-03-25 08:48:09.331662: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:272] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
-    2026-03-25 08:48:09.337905: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:48:09.343357: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:48:09.349234: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:48:09.355141: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:48:09.362415: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:48:09.366003: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:48:09.394328: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
-    INFO:tensorflow:Inference Time : 0.34725s
-    INFO:tensorflow:Finished evaluation at 2026-03-25-08:48:09
-    INFO:tensorflow:Saving dict for global step 9000: average_loss = 19230030.0, global_step = 9000, label/mean = 13207.129, loss = 297325860.0, prediction/mean = 13327.571
-    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 9000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmprmxa1_vf/model.ckpt-9000
-    scores {'average_loss': 19230030.0, 'label/mean': 13207.129, 'loss': 297325860.0, 'prediction/mean': 13327.571, 'global_step': 9000}
+    INFO:tensorflow:Inference Time : 0.09112s
+    INFO:tensorflow:Finished evaluation at 2026-04-01-13:23:15
+    INFO:tensorflow:Saving dict for global step 9000: average_loss = 19219576.0, global_step = 9000, label/mean = 13207.129, loss = 297164220.0, prediction/mean = 13320.511
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 9000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvedsjn6r/model.ckpt-9000
+    scores {'average_loss': 19219576.0, 'label/mean': 13207.129, 'loss': 297164220.0, 'prediction/mean': 13320.511, 'global_step': 9000}
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
     INFO:tensorflow:Create CheckpointSaverHook.
-
-
-    2026-03-25 08:48:09.619269: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmprmxa1_vf/model.ckpt-9000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvedsjn6r/model.ckpt-9000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
-
-
-    2026-03-25 08:48:09.824657: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:306] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
-    2026-03-25 08:48:09.824673: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:272] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
-    2026-03-25 08:48:09.830458: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:48:09.837687: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:48:09.844127: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:48:09.847276: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:48:09.853823: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:48:09.857618: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 9000...
-    INFO:tensorflow:Saving checkpoints for 9000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmprmxa1_vf/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 9000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvedsjn6r/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 9000...
-
-
-    2026-03-25 08:48:10.309254: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:48:10.432556: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
-    INFO:tensorflow:loss = 192953180.0, step = 9001
-
-
-    2026-03-25 08:48:10.546457: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
-    INFO:tensorflow:global_step/sec: 226.748
-    INFO:tensorflow:loss = 142971550.0, step = 9101 (0.439 sec)
-    INFO:tensorflow:global_step/sec: 257.841
-    INFO:tensorflow:loss = 676183400.0, step = 9201 (0.388 sec)
-    INFO:tensorflow:global_step/sec: 239.343
-    INFO:tensorflow:loss = 232348200.0, step = 9301 (0.422 sec)
-    INFO:tensorflow:global_step/sec: 146.184
-    INFO:tensorflow:loss = 482902700.0, step = 9401 (0.680 sec)
-    INFO:tensorflow:global_step/sec: 263.184
-    INFO:tensorflow:loss = 343714180.0, step = 9501 (0.380 sec)
-    INFO:tensorflow:global_step/sec: 187.918
-    INFO:tensorflow:loss = 295162940.0, step = 9601 (0.533 sec)
-    INFO:tensorflow:global_step/sec: 149.777
-    INFO:tensorflow:loss = 119039790.0, step = 9701 (0.669 sec)
-    INFO:tensorflow:global_step/sec: 223.28
-    INFO:tensorflow:loss = 116382560.0, step = 9801 (0.448 sec)
-    INFO:tensorflow:global_step/sec: 105.555
-    INFO:tensorflow:loss = 542135940.0, step = 9901 (0.950 sec)
+    INFO:tensorflow:loss = 401267650.0, step = 9001
+    INFO:tensorflow:global_step/sec: 1676.53
+    INFO:tensorflow:loss = 110793820.0, step = 9101 (0.061 sec)
+    INFO:tensorflow:global_step/sec: 2336.07
+    INFO:tensorflow:loss = 655494140.0, step = 9201 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2287.37
+    INFO:tensorflow:loss = 120413810.0, step = 9301 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 2081.9
+    INFO:tensorflow:loss = 577290940.0, step = 9401 (0.047 sec)
+    INFO:tensorflow:global_step/sec: 2016.1
+    INFO:tensorflow:loss = 335637570.0, step = 9501 (0.050 sec)
+    INFO:tensorflow:global_step/sec: 1992.82
+    INFO:tensorflow:loss = 87814700.0, step = 9601 (0.050 sec)
+    INFO:tensorflow:global_step/sec: 1965.48
+    INFO:tensorflow:loss = 285650780.0, step = 9701 (0.050 sec)
+    INFO:tensorflow:global_step/sec: 2134.79
+    INFO:tensorflow:loss = 431437000.0, step = 9801 (0.047 sec)
+    INFO:tensorflow:global_step/sec: 1897.32
+    INFO:tensorflow:loss = 466680400.0, step = 9901 (0.053 sec)
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 10000...
-    INFO:tensorflow:Saving checkpoints for 10000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmprmxa1_vf/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 10000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvedsjn6r/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 10000...
-    INFO:tensorflow:Loss for final step: 407506620.0.
+    INFO:tensorflow:Loss for final step: 482921920.0.
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
-    INFO:tensorflow:Starting evaluation at 2026-03-25T08:48:16
-
-
-    2026-03-25 08:48:16.101207: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:48:16.112749: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
+    INFO:tensorflow:Starting evaluation at 2026-04-01T13:23:16
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmprmxa1_vf/model.ckpt-10000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvedsjn6r/model.ckpt-10000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
-
-
-    2026-03-25 08:48:16.314571: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:306] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
-    2026-03-25 08:48:16.314586: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:272] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
-    2026-03-25 08:48:16.325592: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:48:16.333088: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:48:16.344496: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:48:16.352119: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:48:16.359901: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:48:16.364540: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:48:16.394760: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
-    INFO:tensorflow:Inference Time : 0.32215s
-    INFO:tensorflow:Finished evaluation at 2026-03-25-08:48:16
-    INFO:tensorflow:Saving dict for global step 10000: average_loss = 18976718.0, global_step = 10000, label/mean = 13207.129, loss = 293409250.0, prediction/mean = 13349.256
-    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 10000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmprmxa1_vf/model.ckpt-10000
-    scores {'average_loss': 18976718.0, 'label/mean': 13207.129, 'loss': 293409250.0, 'prediction/mean': 13349.256, 'global_step': 10000}
-
-
-    2026-03-25 08:48:16.571759: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
+    INFO:tensorflow:Inference Time : 0.11109s
+    INFO:tensorflow:Finished evaluation at 2026-04-01-13:23:16
+    INFO:tensorflow:Saving dict for global step 10000: average_loss = 18981960.0, global_step = 10000, label/mean = 13207.129, loss = 293490300.0, prediction/mean = 13385.718
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 10000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvedsjn6r/model.ckpt-10000
+    scores {'average_loss': 18981960.0, 'label/mean': 13207.129, 'loss': 293490300.0, 'prediction/mean': 13385.718, 'global_step': 10000}
 
 
 #### Visualize model's predictions
@@ -1824,25 +1391,14 @@ scatter_plot_inference_grid(est, x_df, numeric_feature_names)
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmprmxa1_vf/model.ckpt-10000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvedsjn6r/model.ckpt-10000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
 
 
-    2026-03-25 08:48:16.990399: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:306] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
-    2026-03-25 08:48:16.990413: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:272] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
-    2026-03-25 08:48:16.994410: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:48:16.999132: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:48:17.004111: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:48:17.006179: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:48:17.010967: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:48:17.013806: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:48:17.029998: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
 
     
-![png](car_data_ML_pipeline_files/car_data_ML_pipeline_16_2.png)
+![png](car_data_ML_pipeline_files/car_data_ML_pipeline_16_1.png)
     
 
 
@@ -1851,13 +1407,7 @@ scatter_plot_inference_grid(est, x_df, numeric_feature_names)
 #### Adding normalization to best numeric model from earlier
 
 - Decide what type of normalization to add, and for which features
-- Use the `normalizer_fn` arg on [`numeric_column`](https://g3doc.corp.google.com/learning/brain/public/g3doc/api_docs/python/tf/feature_column/numeric_column.md?cl=head)
-    - An example of a silly normalizer_fn that shifts inputs down by 1, and then negates the value:
-    
-         normalizer_fn = lambda x: tf.neg(tf.subtract(x, 1))
-- You may find these pandas functions helpful:
-    - dataframe.mean()['your_feature_name']
-    - dataframe.std()['your_feature_name']
+- Use the `normalizer_fn` arg on [`numeric_column`]
 - You will need to retune the hyperparameters from earlier.
 
 
@@ -1876,6 +1426,7 @@ for feature_name in numeric_feature_names:
 
 ```python
 ## [Change #7]: Added this section to outline the next steps for Task 2.
+# epsilon is used in the normalizer_fn to prevent division by zero in case of zero std deviation or zero range.
 epsilon = 0.000001
 
 # Task 2.1 config (batch=16, hidden=[64], lr=0.01, Adagrad) + Z-score →baseline comparison
@@ -1914,13 +1465,13 @@ est_minmax = tf.estimator.DNNRegressor(
 num_print_statements = 10
 num_training_steps = 10000
 
-# Training loop for task 2.1 - Z-score normalization
+# Task 2.1 - Z-score normalization
 for _ in range(num_print_statements):
   est_zscore.train(train_input_fn, steps=num_training_steps // num_print_statements)
   scores_zscore = est_zscore.evaluate(eval_input_fn)
   print('scores_zscore', scores_zscore)
 
-# Training loop for task 2.2 - Min-max normalization
+# Task 2.2 - Min-max normalization
 for _ in range(num_print_statements):
   est_minmax.train(train_input_fn, steps=num_training_steps // num_print_statements)
   scores_minmax = est_minmax.evaluate(eval_input_fn)
@@ -1928,32 +1479,34 @@ for _ in range(num_print_statements):
 
 # → pick the winner of 2.1 vs 2.2 based on final avg_loss and RMSE
 
-# Task 2.3 try GradientDescentOptimizer with the same config → answers the lab's embedded question
-# Task 2.3: GradientDescentOptimizer + Z-score normalization
+# Task 2.3: GradientDescentOptimizer + Z-score normalization to answers the lab's embedded question
 # Hypothesis: with balanced gradients (Z-score), plain GD may now converge.
 # lr=0.01 is too small for GD — using 0.5 to compensate for smaller gradient magnitudes post-normalisation.
 
-# Task 2.4 try PCA to explore dimensionality reduction as an alternative 
+# Task 2.4: Feature Engineering with PCA to explore dimensionality reduction as an alternative 
 # to normalization for handling scale variance and improving convergence.
 '''
 cell blocks below has details for Task 2.3 and Task 2.4
 '''
+
+# Task 2.5 Standardization
+# TODO: think about regressors.. how many are we using?
 ```
 
-    model_feature_columns_zscore [NumericColumn(key='symboling', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=<function <listcomp>.<lambda> at 0x33d028ee0>), NumericColumn(key='normalized-losses', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=<function <listcomp>.<lambda> at 0x33d028d30>), NumericColumn(key='wheel-base', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=<function <listcomp>.<lambda> at 0x33d028ca0>), NumericColumn(key='length', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=<function <listcomp>.<lambda> at 0x33d028c10>), NumericColumn(key='width', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=<function <listcomp>.<lambda> at 0x33d028b80>), NumericColumn(key='height', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=<function <listcomp>.<lambda> at 0x33d028af0>), NumericColumn(key='weight', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=<function <listcomp>.<lambda> at 0x33d0297e0>), NumericColumn(key='engine-size', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=<function <listcomp>.<lambda> at 0x300940940>), NumericColumn(key='horsepower', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=<function <listcomp>.<lambda> at 0x31a5489d0>), NumericColumn(key='peak-rpm', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=<function <listcomp>.<lambda> at 0x31a548a60>), NumericColumn(key='city-mpg', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=<function <listcomp>.<lambda> at 0x31a548af0>), NumericColumn(key='highway-mpg', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=<function <listcomp>.<lambda> at 0x31a548b80>), NumericColumn(key='bore', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=<function <listcomp>.<lambda> at 0x31a548c10>), NumericColumn(key='stroke', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=<function <listcomp>.<lambda> at 0x31a548ca0>), NumericColumn(key='compression-ratio', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=<function <listcomp>.<lambda> at 0x31a548d30>)]
+    model_feature_columns_zscore [NumericColumn(key='symboling', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=<function <listcomp>.<lambda> at 0x10c6cda20>), NumericColumn(key='normalized-losses', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=<function <listcomp>.<lambda> at 0x10c67e290>), NumericColumn(key='wheel-base', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=<function <listcomp>.<lambda> at 0x10c59fbe0>), NumericColumn(key='length', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=<function <listcomp>.<lambda> at 0x10c57c4c0>), NumericColumn(key='width', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=<function <listcomp>.<lambda> at 0x10c558d30>), NumericColumn(key='height', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=<function <listcomp>.<lambda> at 0x10c5355a0>), NumericColumn(key='weight', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=<function <listcomp>.<lambda> at 0x10c515e10>), NumericColumn(key='engine-size', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=<function <listcomp>.<lambda> at 0x10c4fa680>), NumericColumn(key='horsepower', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=<function <listcomp>.<lambda> at 0x10ccf8e50>), NumericColumn(key='peak-rpm', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=<function <listcomp>.<lambda> at 0x10ccf8af0>), NumericColumn(key='city-mpg', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=<function <listcomp>.<lambda> at 0x10ccf9000>), NumericColumn(key='highway-mpg', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=<function <listcomp>.<lambda> at 0x10ccf8ee0>), NumericColumn(key='bore', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=<function <listcomp>.<lambda> at 0x10ccf8c10>), NumericColumn(key='stroke', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=<function <listcomp>.<lambda> at 0x10ccf8ca0>), NumericColumn(key='compression-ratio', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=<function <listcomp>.<lambda> at 0x10ccf8f70>)]
     INFO:tensorflow:Using default config.
-    WARNING:tensorflow:Using temporary folder as model directory: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpoz81x_b8
-    INFO:tensorflow:Using config: {'_model_dir': '/var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpoz81x_b8', '_tf_random_seed': None, '_save_summary_steps': 100, '_save_checkpoints_steps': None, '_save_checkpoints_secs': 600, '_session_config': allow_soft_placement: true
+    WARNING:tensorflow:Using temporary folder as model directory: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfvtwejtl
+    INFO:tensorflow:Using config: {'_model_dir': '/var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfvtwejtl', '_tf_random_seed': None, '_save_summary_steps': 100, '_save_checkpoints_steps': None, '_save_checkpoints_secs': 600, '_session_config': allow_soft_placement: true
     graph_options {
       rewrite_options {
         meta_optimizer_iterations: ONE
       }
     }
     , '_keep_checkpoint_max': 5, '_keep_checkpoint_every_n_hours': 10000, '_log_step_count_steps': 100, '_train_distribute': None, '_device_fn': None, '_protocol': None, '_eval_distribute': None, '_experimental_distribute': None, '_experimental_max_worker_delay_secs': None, '_session_creation_timeout_secs': 7200, '_checkpoint_save_graph_def': True, '_service': None, '_cluster_spec': ClusterSpec({}), '_task_type': 'worker', '_task_id': 0, '_global_id_in_cluster': 0, '_master': '', '_evaluation_master': '', '_is_chief': True, '_num_ps_replicas': 0, '_num_worker_replicas': 1}
-    model_feature_columns_minmax [NumericColumn(key='symboling', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=<function <listcomp>.<lambda> at 0x31a548dc0>), NumericColumn(key='normalized-losses', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=<function <listcomp>.<lambda> at 0x31a548f70>), NumericColumn(key='wheel-base', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=<function <listcomp>.<lambda> at 0x31a548ee0>), NumericColumn(key='length', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=<function <listcomp>.<lambda> at 0x31a549000>), NumericColumn(key='width', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=<function <listcomp>.<lambda> at 0x31a549090>), NumericColumn(key='height', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=<function <listcomp>.<lambda> at 0x31a549120>), NumericColumn(key='weight', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=<function <listcomp>.<lambda> at 0x31a5491b0>), NumericColumn(key='engine-size', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=<function <listcomp>.<lambda> at 0x31a549240>), NumericColumn(key='horsepower', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=<function <listcomp>.<lambda> at 0x31a5492d0>), NumericColumn(key='peak-rpm', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=<function <listcomp>.<lambda> at 0x31a549360>), NumericColumn(key='city-mpg', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=<function <listcomp>.<lambda> at 0x31a5493f0>), NumericColumn(key='highway-mpg', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=<function <listcomp>.<lambda> at 0x31a549480>), NumericColumn(key='bore', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=<function <listcomp>.<lambda> at 0x31a549510>), NumericColumn(key='stroke', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=<function <listcomp>.<lambda> at 0x31a5495a0>), NumericColumn(key='compression-ratio', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=<function <listcomp>.<lambda> at 0x31a549630>)]
+    model_feature_columns_minmax [NumericColumn(key='symboling', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=<function <listcomp>.<lambda> at 0x10ccf8b80>), NumericColumn(key='normalized-losses', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=<function <listcomp>.<lambda> at 0x10ccf89d0>), NumericColumn(key='wheel-base', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=<function <listcomp>.<lambda> at 0x10ccf8dc0>), NumericColumn(key='length', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=<function <listcomp>.<lambda> at 0x10ccf9090>), NumericColumn(key='width', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=<function <listcomp>.<lambda> at 0x10ccf9120>), NumericColumn(key='height', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=<function <listcomp>.<lambda> at 0x10ccf91b0>), NumericColumn(key='weight', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=<function <listcomp>.<lambda> at 0x10ccf9240>), NumericColumn(key='engine-size', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=<function <listcomp>.<lambda> at 0x10ccf8940>), NumericColumn(key='horsepower', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=<function <listcomp>.<lambda> at 0x10ccf8a60>), NumericColumn(key='peak-rpm', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=<function <listcomp>.<lambda> at 0x10ccf92d0>), NumericColumn(key='city-mpg', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=<function <listcomp>.<lambda> at 0x10ccf9360>), NumericColumn(key='highway-mpg', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=<function <listcomp>.<lambda> at 0x10ccf93f0>), NumericColumn(key='bore', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=<function <listcomp>.<lambda> at 0x10ccf9480>), NumericColumn(key='stroke', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=<function <listcomp>.<lambda> at 0x10ccf9510>), NumericColumn(key='compression-ratio', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=<function <listcomp>.<lambda> at 0x10ccf95a0>)]
     INFO:tensorflow:Using default config.
-    WARNING:tensorflow:Using temporary folder as model directory: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpiz6bux0d
-    INFO:tensorflow:Using config: {'_model_dir': '/var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpiz6bux0d', '_tf_random_seed': None, '_save_summary_steps': 100, '_save_checkpoints_steps': None, '_save_checkpoints_secs': 600, '_session_config': allow_soft_placement: true
+    WARNING:tensorflow:Using temporary folder as model directory: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpyydtlfdw
+    INFO:tensorflow:Using config: {'_model_dir': '/var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpyydtlfdw', '_tf_random_seed': None, '_save_summary_steps': 100, '_save_checkpoints_steps': None, '_save_checkpoints_secs': 600, '_session_config': allow_soft_placement: true
     graph_options {
       rewrite_options {
         meta_optimizer_iterations: ONE
@@ -1966,854 +1519,910 @@ cell blocks below has details for Task 2.3 and Task 2.4
     INFO:tensorflow:Graph was finalized.
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
-
-
-    2026-03-25 08:49:27.471652: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:306] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
-    2026-03-25 08:49:27.471705: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:272] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
-    2026-03-25 08:49:27.508305: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:49:27.608862: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:49:27.622017: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:49:27.625661: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:49:27.633621: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:49:27.643152: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 0...
-    INFO:tensorflow:Saving checkpoints for 0 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpoz81x_b8/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 0 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfvtwejtl/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 0...
-
-
-    2026-03-25 08:49:28.368164: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:49:28.542859: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
-    INFO:tensorflow:loss = 2703831600.0, step = 1
-
-
-    2026-03-25 08:49:28.779464: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
-    INFO:tensorflow:global_step/sec: 158.658
-    INFO:tensorflow:loss = 3441020400.0, step = 101 (0.633 sec)
-    INFO:tensorflow:global_step/sec: 132.576
-    INFO:tensorflow:loss = 2183020500.0, step = 201 (0.751 sec)
-    INFO:tensorflow:global_step/sec: 276.462
-    INFO:tensorflow:loss = 5252879400.0, step = 301 (0.361 sec)
-    INFO:tensorflow:global_step/sec: 279.505
-    INFO:tensorflow:loss = 5549051000.0, step = 401 (0.358 sec)
-    INFO:tensorflow:global_step/sec: 167.718
-    INFO:tensorflow:loss = 4430748000.0, step = 501 (0.596 sec)
-    INFO:tensorflow:global_step/sec: 203.975
-    INFO:tensorflow:loss = 4517037000.0, step = 601 (0.490 sec)
-    INFO:tensorflow:global_step/sec: 303.762
-    INFO:tensorflow:loss = 2215752400.0, step = 701 (0.329 sec)
-    INFO:tensorflow:global_step/sec: 295.674
-    INFO:tensorflow:loss = 2532620800.0, step = 801 (0.338 sec)
-    INFO:tensorflow:global_step/sec: 284.413
-    INFO:tensorflow:loss = 3862636300.0, step = 901 (0.352 sec)
+    INFO:tensorflow:loss = 3736645600.0, step = 1
+    INFO:tensorflow:global_step/sec: 1507.16
+    INFO:tensorflow:loss = 2914847700.0, step = 101 (0.068 sec)
+    INFO:tensorflow:global_step/sec: 2308.56
+    INFO:tensorflow:loss = 4105419000.0, step = 201 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2147.31
+    INFO:tensorflow:loss = 5143377400.0, step = 301 (0.046 sec)
+    INFO:tensorflow:global_step/sec: 2354.09
+    INFO:tensorflow:loss = 3314118000.0, step = 401 (0.042 sec)
+    INFO:tensorflow:global_step/sec: 2299.07
+    INFO:tensorflow:loss = 3067733000.0, step = 501 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 2255.15
+    INFO:tensorflow:loss = 1854778100.0, step = 601 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 2284.68
+    INFO:tensorflow:loss = 4485523500.0, step = 701 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2310.69
+    INFO:tensorflow:loss = 5365138400.0, step = 801 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 2274.95
+    INFO:tensorflow:loss = 4123201300.0, step = 901 (0.044 sec)
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 1000...
-    INFO:tensorflow:Saving checkpoints for 1000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpoz81x_b8/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 1000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfvtwejtl/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 1000...
-    INFO:tensorflow:Loss for final step: 3371098000.0.
+    INFO:tensorflow:Loss for final step: 3962473700.0.
     INFO:tensorflow:Calling model_fn.
-
-
-    2026-03-25 08:49:33.624771: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:49:33.638420: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
     INFO:tensorflow:Done calling model_fn.
-    INFO:tensorflow:Starting evaluation at 2026-03-25T08:49:33
+    INFO:tensorflow:Starting evaluation at 2026-04-01T13:23:20
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpoz81x_b8/model.ckpt-1000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfvtwejtl/model.ckpt-1000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
-
-
-    2026-03-25 08:49:33.863779: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:306] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
-    2026-03-25 08:49:33.863794: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:272] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
-    2026-03-25 08:49:33.874199: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:49:33.883327: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:49:33.890892: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:49:33.896998: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:49:33.904420: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:49:33.909016: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:49:33.946026: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
-    INFO:tensorflow:Inference Time : 0.30678s
-    INFO:tensorflow:Finished evaluation at 2026-03-25-08:49:34
-    INFO:tensorflow:Saving dict for global step 1000: average_loss = 232010270.0, global_step = 1000, label/mean = 13207.129, loss = 3587235800.0, prediction/mean = 136.59427
-
-
-    2026-03-25 08:49:34.076341: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
-    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 1000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpoz81x_b8/model.ckpt-1000
-    scores_zscore {'average_loss': 232010270.0, 'label/mean': 13207.129, 'loss': 3587235800.0, 'prediction/mean': 136.59427, 'global_step': 1000}
+    INFO:tensorflow:Inference Time : 0.09937s
+    INFO:tensorflow:Finished evaluation at 2026-04-01-13:23:20
+    INFO:tensorflow:Saving dict for global step 1000: average_loss = 233017740.0, global_step = 1000, label/mean = 13207.129, loss = 3602813000.0, prediction/mean = 112.368935
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 1000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfvtwejtl/model.ckpt-1000
+    scores_zscore {'average_loss': 233017740.0, 'label/mean': 13207.129, 'loss': 3602813000.0, 'prediction/mean': 112.368935, 'global_step': 1000}
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
     INFO:tensorflow:Create CheckpointSaverHook.
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpoz81x_b8/model.ckpt-1000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfvtwejtl/model.ckpt-1000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
-
-
-    2026-03-25 08:49:34.584206: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:306] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
-    2026-03-25 08:49:34.584222: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:272] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
-    2026-03-25 08:49:34.590248: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:49:34.596473: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:49:34.603352: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:49:34.606438: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:49:34.613196: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:49:34.617657: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 1000...
-    INFO:tensorflow:Saving checkpoints for 1000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpoz81x_b8/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 1000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfvtwejtl/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 1000...
-
-
-    2026-03-25 08:49:34.998191: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:49:35.116683: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
-    INFO:tensorflow:loss = 4357034000.0, step = 1001
-
-
-    2026-03-25 08:49:35.216979: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
-    INFO:tensorflow:global_step/sec: 163.999
-    INFO:tensorflow:loss = 4505171500.0, step = 1101 (0.610 sec)
-    INFO:tensorflow:global_step/sec: 287.016
-    INFO:tensorflow:loss = 4606261000.0, step = 1201 (0.348 sec)
-    INFO:tensorflow:global_step/sec: 284.728
-    INFO:tensorflow:loss = 5596901400.0, step = 1301 (0.351 sec)
-    INFO:tensorflow:global_step/sec: 288.948
-    INFO:tensorflow:loss = 5236906000.0, step = 1401 (0.346 sec)
-    INFO:tensorflow:global_step/sec: 291.549
-    INFO:tensorflow:loss = 3388610600.0, step = 1501 (0.343 sec)
-    INFO:tensorflow:global_step/sec: 256.231
-    INFO:tensorflow:loss = 1774627300.0, step = 1601 (0.390 sec)
-    INFO:tensorflow:global_step/sec: 192.263
-    INFO:tensorflow:loss = 3575206400.0, step = 1701 (0.520 sec)
-    INFO:tensorflow:global_step/sec: 300.727
-    INFO:tensorflow:loss = 4234334000.0, step = 1801 (0.333 sec)
-    INFO:tensorflow:global_step/sec: 204.592
-    INFO:tensorflow:loss = 1762663700.0, step = 1901 (0.489 sec)
+    INFO:tensorflow:loss = 3645291800.0, step = 1001
+    INFO:tensorflow:global_step/sec: 1394.23
+    INFO:tensorflow:loss = 4375423000.0, step = 1101 (0.072 sec)
+    INFO:tensorflow:global_step/sec: 2161.5
+    INFO:tensorflow:loss = 4337558500.0, step = 1201 (0.047 sec)
+    INFO:tensorflow:global_step/sec: 2337.49
+    INFO:tensorflow:loss = 3778668500.0, step = 1301 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2268.23
+    INFO:tensorflow:loss = 5224184000.0, step = 1401 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2317.13
+    INFO:tensorflow:loss = 2840604000.0, step = 1501 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2435.99
+    INFO:tensorflow:loss = 3769899300.0, step = 1601 (0.042 sec)
+    INFO:tensorflow:global_step/sec: 2284.47
+    INFO:tensorflow:loss = 4752061400.0, step = 1701 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2259.12
+    INFO:tensorflow:loss = 1722978800.0, step = 1801 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 2140.05
+    INFO:tensorflow:loss = 4974948400.0, step = 1901 (0.046 sec)
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 2000...
-    INFO:tensorflow:Saving checkpoints for 2000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpoz81x_b8/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 2000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfvtwejtl/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 2000...
-    INFO:tensorflow:Loss for final step: 3237426000.0.
+    INFO:tensorflow:Loss for final step: 3613509000.0.
     INFO:tensorflow:Calling model_fn.
-
-
-    2026-03-25 08:49:39.496613: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:49:39.538164: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
     INFO:tensorflow:Done calling model_fn.
-    INFO:tensorflow:Starting evaluation at 2026-03-25T08:49:39
+    INFO:tensorflow:Starting evaluation at 2026-04-01T13:23:22
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpoz81x_b8/model.ckpt-2000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfvtwejtl/model.ckpt-2000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
-
-
-    2026-03-25 08:49:39.878585: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:306] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
-    2026-03-25 08:49:39.878602: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:272] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
-    2026-03-25 08:49:39.886027: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:49:39.897805: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:49:39.904688: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:49:39.912063: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:49:39.919763: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:49:39.923928: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:49:39.960744: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
-    INFO:tensorflow:Inference Time : 0.29607s
-    INFO:tensorflow:Finished evaluation at 2026-03-25-08:49:40
-    INFO:tensorflow:Saving dict for global step 2000: average_loss = 226335570.0, global_step = 2000, label/mean = 13207.129, loss = 3499496000.0, prediction/mean = 284.56757
-    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 2000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpoz81x_b8/model.ckpt-2000
-    scores_zscore {'average_loss': 226335570.0, 'label/mean': 13207.129, 'loss': 3499496000.0, 'prediction/mean': 284.56757, 'global_step': 2000}
+    INFO:tensorflow:Inference Time : 0.11050s
+    INFO:tensorflow:Finished evaluation at 2026-04-01-13:23:22
+    INFO:tensorflow:Saving dict for global step 2000: average_loss = 228414580.0, global_step = 2000, label/mean = 13207.129, loss = 3531640800.0, prediction/mean = 240.39438
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 2000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfvtwejtl/model.ckpt-2000
+    scores_zscore {'average_loss': 228414580.0, 'label/mean': 13207.129, 'loss': 3531640800.0, 'prediction/mean': 240.39438, 'global_step': 2000}
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
     INFO:tensorflow:Create CheckpointSaverHook.
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpoz81x_b8/model.ckpt-2000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfvtwejtl/model.ckpt-2000
     INFO:tensorflow:Running local_init_op.
-
-
-    2026-03-25 08:49:40.092202: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:49:40.272002: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:306] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
-    2026-03-25 08:49:40.272017: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:272] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
-    2026-03-25 08:49:40.278174: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:49:40.284533: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:49:40.291386: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
     INFO:tensorflow:Done running local_init_op.
-
-
-    2026-03-25 08:49:40.294101: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:49:40.300448: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:49:40.304458: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 2000...
-    INFO:tensorflow:Saving checkpoints for 2000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpoz81x_b8/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 2000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfvtwejtl/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 2000...
-
-
-    2026-03-25 08:49:40.758870: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:49:40.890891: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
-    INFO:tensorflow:loss = 2106966000.0, step = 2001
-
-
-    2026-03-25 08:49:41.017491: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
-    INFO:tensorflow:global_step/sec: 147.88
-    INFO:tensorflow:loss = 3546580700.0, step = 2101 (0.677 sec)
-    INFO:tensorflow:global_step/sec: 217.464
-    INFO:tensorflow:loss = 4239756500.0, step = 2201 (0.463 sec)
-    INFO:tensorflow:global_step/sec: 239.743
-    INFO:tensorflow:loss = 3177113000.0, step = 2301 (0.413 sec)
-    INFO:tensorflow:global_step/sec: 278.578
-    INFO:tensorflow:loss = 1733953800.0, step = 2401 (0.359 sec)
-    INFO:tensorflow:global_step/sec: 252.495
-    INFO:tensorflow:loss = 3249148400.0, step = 2501 (0.396 sec)
-    INFO:tensorflow:global_step/sec: 274.561
-    INFO:tensorflow:loss = 3217189400.0, step = 2601 (0.364 sec)
-    INFO:tensorflow:global_step/sec: 238.712
-    INFO:tensorflow:loss = 2319728600.0, step = 2701 (0.419 sec)
-    INFO:tensorflow:global_step/sec: 261.767
-    INFO:tensorflow:loss = 3825121300.0, step = 2801 (0.382 sec)
-    INFO:tensorflow:global_step/sec: 265.53
-    INFO:tensorflow:loss = 7909309000.0, step = 2901 (0.377 sec)
+    INFO:tensorflow:loss = 2769139200.0, step = 2001
+    INFO:tensorflow:global_step/sec: 1343.76
+    INFO:tensorflow:loss = 5504401400.0, step = 2101 (0.075 sec)
+    INFO:tensorflow:global_step/sec: 2347.42
+    INFO:tensorflow:loss = 2845118000.0, step = 2201 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2169.45
+    INFO:tensorflow:loss = 2970227000.0, step = 2301 (0.046 sec)
+    INFO:tensorflow:global_step/sec: 2226.87
+    INFO:tensorflow:loss = 2355455500.0, step = 2401 (0.045 sec)
+    INFO:tensorflow:global_step/sec: 2363
+    INFO:tensorflow:loss = 2643744800.0, step = 2501 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2196.4
+    INFO:tensorflow:loss = 2022740500.0, step = 2601 (0.045 sec)
+    INFO:tensorflow:global_step/sec: 2322.99
+    INFO:tensorflow:loss = 2762666000.0, step = 2701 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2325.63
+    INFO:tensorflow:loss = 3686574600.0, step = 2801 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2198.34
+    INFO:tensorflow:loss = 3194790000.0, step = 2901 (0.045 sec)
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 3000...
-    INFO:tensorflow:Saving checkpoints for 3000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpoz81x_b8/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 3000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfvtwejtl/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 3000...
-    INFO:tensorflow:Loss for final step: 4838910000.0.
+    INFO:tensorflow:Loss for final step: 2975100400.0.
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
-    INFO:tensorflow:Starting evaluation at 2026-03-25T08:49:45
-
-
-    2026-03-25 08:49:45.330464: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:49:45.364259: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
+    INFO:tensorflow:Starting evaluation at 2026-04-01T13:23:23
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpoz81x_b8/model.ckpt-3000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfvtwejtl/model.ckpt-3000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
-
-
-    2026-03-25 08:49:45.553505: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:306] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
-    2026-03-25 08:49:45.553521: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:272] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
-    2026-03-25 08:49:45.561428: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:49:45.567455: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:49:45.575331: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:49:45.582583: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:49:45.591126: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:49:45.595281: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:49:45.630410: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
-    INFO:tensorflow:Inference Time : 0.27872s
-    INFO:tensorflow:Finished evaluation at 2026-03-25-08:49:45
-    INFO:tensorflow:Saving dict for global step 3000: average_loss = 220560380.0, global_step = 3000, label/mean = 13207.129, loss = 3410203000.0, prediction/mean = 435.927
-    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 3000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpoz81x_b8/model.ckpt-3000
-    scores_zscore {'average_loss': 220560380.0, 'label/mean': 13207.129, 'loss': 3410203000.0, 'prediction/mean': 435.927, 'global_step': 3000}
+    INFO:tensorflow:Inference Time : 0.09914s
+    INFO:tensorflow:Finished evaluation at 2026-04-01-13:23:24
+    INFO:tensorflow:Saving dict for global step 3000: average_loss = 223792980.0, global_step = 3000, label/mean = 13207.129, loss = 3460183600.0, prediction/mean = 372.62466
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 3000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfvtwejtl/model.ckpt-3000
+    scores_zscore {'average_loss': 223792980.0, 'label/mean': 13207.129, 'loss': 3460183600.0, 'prediction/mean': 372.62466, 'global_step': 3000}
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
     INFO:tensorflow:Create CheckpointSaverHook.
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpoz81x_b8/model.ckpt-3000
-
-
-    2026-03-25 08:49:45.763851: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:49:45.951605: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:306] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
-    2026-03-25 08:49:45.951620: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:272] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
-    2026-03-25 08:49:45.958137: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:49:45.964752: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfvtwejtl/model.ckpt-3000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
-
-
-    2026-03-25 08:49:45.971435: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:49:45.974793: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:49:45.983437: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:49:45.987718: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 3000...
-    INFO:tensorflow:Saving checkpoints for 3000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpoz81x_b8/model.ckpt.
-
-
-    2026-03-25 08:49:46.411348: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
+    INFO:tensorflow:Saving checkpoints for 3000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfvtwejtl/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 3000...
-
-
-    2026-03-25 08:49:46.625700: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
-    INFO:tensorflow:loss = 1986662400.0, step = 3001
-
-
-    2026-03-25 08:49:46.896433: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
-    INFO:tensorflow:global_step/sec: 179.816
-    INFO:tensorflow:loss = 3005432800.0, step = 3101 (0.546 sec)
-    INFO:tensorflow:global_step/sec: 171.838
-    INFO:tensorflow:loss = 2932922400.0, step = 3201 (0.583 sec)
-    INFO:tensorflow:global_step/sec: 108.775
-    INFO:tensorflow:loss = 4353791500.0, step = 3301 (0.921 sec)
-    INFO:tensorflow:global_step/sec: 89.8588
-    INFO:tensorflow:loss = 3169898000.0, step = 3401 (1.162 sec)
-    INFO:tensorflow:global_step/sec: 120.634
-    INFO:tensorflow:loss = 1636995600.0, step = 3501 (0.779 sec)
-    INFO:tensorflow:global_step/sec: 166.37
-    INFO:tensorflow:loss = 2413145300.0, step = 3601 (0.601 sec)
-    INFO:tensorflow:global_step/sec: 246.923
-    INFO:tensorflow:loss = 3729774300.0, step = 3701 (0.404 sec)
-    INFO:tensorflow:global_step/sec: 162.008
-    INFO:tensorflow:loss = 2152848000.0, step = 3801 (0.619 sec)
-    INFO:tensorflow:global_step/sec: 166.271
-    INFO:tensorflow:loss = 4784595000.0, step = 3901 (0.601 sec)
+    INFO:tensorflow:loss = 2146639500.0, step = 3001
+    INFO:tensorflow:global_step/sec: 1483.82
+    INFO:tensorflow:loss = 1921078800.0, step = 3101 (0.068 sec)
+    INFO:tensorflow:global_step/sec: 2298.58
+    INFO:tensorflow:loss = 5243973600.0, step = 3201 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 2276.88
+    INFO:tensorflow:loss = 3603560400.0, step = 3301 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 2100.4
+    INFO:tensorflow:loss = 4337103400.0, step = 3401 (0.047 sec)
+    INFO:tensorflow:global_step/sec: 1939.64
+    INFO:tensorflow:loss = 5401293300.0, step = 3501 (0.051 sec)
+    INFO:tensorflow:global_step/sec: 1940.76
+    INFO:tensorflow:loss = 4076060400.0, step = 3601 (0.052 sec)
+    INFO:tensorflow:global_step/sec: 2216.42
+    INFO:tensorflow:loss = 4951699500.0, step = 3701 (0.045 sec)
+    INFO:tensorflow:global_step/sec: 2197.33
+    INFO:tensorflow:loss = 2859347700.0, step = 3801 (0.046 sec)
+    INFO:tensorflow:global_step/sec: 2265.35
+    INFO:tensorflow:loss = 5816179700.0, step = 3901 (0.044 sec)
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 4000...
-    INFO:tensorflow:Saving checkpoints for 4000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpoz81x_b8/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 4000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfvtwejtl/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 4000...
-    INFO:tensorflow:Loss for final step: 4918385000.0.
+    INFO:tensorflow:Loss for final step: 3166631000.0.
     INFO:tensorflow:Calling model_fn.
-
-
-    2026-03-25 08:49:53.810524: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:49:53.892881: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
     INFO:tensorflow:Done calling model_fn.
-    INFO:tensorflow:Starting evaluation at 2026-03-25T08:49:54
+    INFO:tensorflow:Starting evaluation at 2026-04-01T13:23:25
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpoz81x_b8/model.ckpt-4000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfvtwejtl/model.ckpt-4000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
-
-
-    2026-03-25 08:49:54.214295: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:306] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
-    2026-03-25 08:49:54.214314: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:272] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
-    2026-03-25 08:49:54.225957: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:49:54.240917: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:49:54.251613: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:49:54.259823: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:49:54.269145: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:49:54.274235: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:49:54.320663: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
-    INFO:tensorflow:Inference Time : 0.40123s
-    INFO:tensorflow:Finished evaluation at 2026-03-25-08:49:54
-    INFO:tensorflow:Saving dict for global step 4000: average_loss = 214844940.0, global_step = 4000, label/mean = 13207.129, loss = 3321833200.0, prediction/mean = 587.6216
-    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 4000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpoz81x_b8/model.ckpt-4000
-    scores_zscore {'average_loss': 214844940.0, 'label/mean': 13207.129, 'loss': 3321833200.0, 'prediction/mean': 587.6216, 'global_step': 4000}
+    INFO:tensorflow:Inference Time : 0.09953s
+    INFO:tensorflow:Finished evaluation at 2026-04-01-13:23:25
+    INFO:tensorflow:Saving dict for global step 4000: average_loss = 219254700.0, global_step = 4000, label/mean = 13207.129, loss = 3390015000.0, prediction/mean = 503.42017
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 4000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfvtwejtl/model.ckpt-4000
+    scores_zscore {'average_loss': 219254700.0, 'label/mean': 13207.129, 'loss': 3390015000.0, 'prediction/mean': 503.42017, 'global_step': 4000}
     INFO:tensorflow:Calling model_fn.
-
-
-    2026-03-25 08:49:54.512561: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
     INFO:tensorflow:Done calling model_fn.
     INFO:tensorflow:Create CheckpointSaverHook.
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpoz81x_b8/model.ckpt-4000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfvtwejtl/model.ckpt-4000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
-
-
-    2026-03-25 08:49:54.761306: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:306] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
-    2026-03-25 08:49:54.761323: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:272] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
-    2026-03-25 08:49:54.768873: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:49:54.778509: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:49:54.787210: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:49:54.790774: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:49:54.801401: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:49:54.806904: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 4000...
-    INFO:tensorflow:Saving checkpoints for 4000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpoz81x_b8/model.ckpt.
-
-
-    2026-03-25 08:49:55.447043: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
+    INFO:tensorflow:Saving checkpoints for 4000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfvtwejtl/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 4000...
-
-
-    2026-03-25 08:49:55.810649: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
-    INFO:tensorflow:loss = 3931484700.0, step = 4001
-
-
-    2026-03-25 08:49:56.056100: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
-    INFO:tensorflow:global_step/sec: 103.624
-    INFO:tensorflow:loss = 3160464400.0, step = 4101 (0.973 sec)
-    INFO:tensorflow:global_step/sec: 121.235
-    INFO:tensorflow:loss = 1690692900.0, step = 4201 (0.814 sec)
-    INFO:tensorflow:global_step/sec: 272.875
-    INFO:tensorflow:loss = 2615530000.0, step = 4301 (0.367 sec)
-    INFO:tensorflow:global_step/sec: 294.791
-    INFO:tensorflow:loss = 2568972300.0, step = 4401 (0.338 sec)
-    INFO:tensorflow:global_step/sec: 298.225
-    INFO:tensorflow:loss = 1693962200.0, step = 4501 (0.335 sec)
-    INFO:tensorflow:global_step/sec: 284.791
-    INFO:tensorflow:loss = 1655920500.0, step = 4601 (0.351 sec)
-    INFO:tensorflow:global_step/sec: 162.489
-    INFO:tensorflow:loss = 4199228200.0, step = 4701 (0.615 sec)
-    INFO:tensorflow:global_step/sec: 257.358
-    INFO:tensorflow:loss = 3834107000.0, step = 4801 (0.390 sec)
-    INFO:tensorflow:global_step/sec: 276.474
-    INFO:tensorflow:loss = 7594466300.0, step = 4901 (0.360 sec)
+    INFO:tensorflow:loss = 2791255000.0, step = 4001
+    INFO:tensorflow:global_step/sec: 1106.89
+    INFO:tensorflow:loss = 4176985900.0, step = 4101 (0.091 sec)
+    INFO:tensorflow:global_step/sec: 1718.86
+    INFO:tensorflow:loss = 3478637000.0, step = 4201 (0.059 sec)
+    INFO:tensorflow:global_step/sec: 1751.5
+    INFO:tensorflow:loss = 3008696300.0, step = 4301 (0.056 sec)
+    INFO:tensorflow:global_step/sec: 2108.9
+    INFO:tensorflow:loss = 4200434000.0, step = 4401 (0.048 sec)
+    INFO:tensorflow:global_step/sec: 2063.99
+    INFO:tensorflow:loss = 6390350300.0, step = 4501 (0.048 sec)
+    INFO:tensorflow:global_step/sec: 2239.73
+    INFO:tensorflow:loss = 3080050400.0, step = 4601 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 2248
+    INFO:tensorflow:loss = 3711047400.0, step = 4701 (0.045 sec)
+    INFO:tensorflow:global_step/sec: 1993.54
+    INFO:tensorflow:loss = 3032810000.0, step = 4801 (0.050 sec)
+    INFO:tensorflow:global_step/sec: 2049.9
+    INFO:tensorflow:loss = 3169007000.0, step = 4901 (0.048 sec)
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 5000...
-    INFO:tensorflow:Saving checkpoints for 5000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpoz81x_b8/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 5000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfvtwejtl/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 5000...
-    INFO:tensorflow:Loss for final step: 3260832300.0.
+    INFO:tensorflow:Loss for final step: 3984228900.0.
     INFO:tensorflow:Calling model_fn.
-
-
-    2026-03-25 08:50:01.154573: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:50:01.220613: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
     INFO:tensorflow:Done calling model_fn.
-    INFO:tensorflow:Starting evaluation at 2026-03-25T08:50:01
+    INFO:tensorflow:Starting evaluation at 2026-04-01T13:23:27
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpoz81x_b8/model.ckpt-5000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfvtwejtl/model.ckpt-5000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
-
-
-    2026-03-25 08:50:01.519683: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:306] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
-    2026-03-25 08:50:01.519698: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:272] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
-    2026-03-25 08:50:01.529234: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:50:01.536653: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:50:01.543458: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:50:01.549917: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:50:01.557157: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:50:01.561052: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:50:01.597094: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
-    INFO:tensorflow:Inference Time : 0.30761s
-    INFO:tensorflow:Finished evaluation at 2026-03-25-08:50:01
-    INFO:tensorflow:Saving dict for global step 5000: average_loss = 209242720.0, global_step = 5000, label/mean = 13207.129, loss = 3235214300.0, prediction/mean = 738.382
-    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 5000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpoz81x_b8/model.ckpt-5000
-    scores_zscore {'average_loss': 209242720.0, 'label/mean': 13207.129, 'loss': 3235214300.0, 'prediction/mean': 738.382, 'global_step': 5000}
+    INFO:tensorflow:Inference Time : 0.12715s
+    INFO:tensorflow:Finished evaluation at 2026-04-01-13:23:27
+    INFO:tensorflow:Saving dict for global step 5000: average_loss = 214792450.0, global_step = 5000, label/mean = 13207.129, loss = 3321021700.0, prediction/mean = 633.0871
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 5000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfvtwejtl/model.ckpt-5000
+    scores_zscore {'average_loss': 214792450.0, 'label/mean': 13207.129, 'loss': 3321021700.0, 'prediction/mean': 633.0871, 'global_step': 5000}
     INFO:tensorflow:Calling model_fn.
-
-
-    2026-03-25 08:50:01.734807: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
     INFO:tensorflow:Done calling model_fn.
     INFO:tensorflow:Create CheckpointSaverHook.
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpoz81x_b8/model.ckpt-5000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfvtwejtl/model.ckpt-5000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
-
-
-    2026-03-25 08:50:01.971363: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:306] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
-    2026-03-25 08:50:01.971377: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:272] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
-    2026-03-25 08:50:01.977315: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:50:01.983420: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:50:01.989673: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:50:01.992318: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:50:01.998651: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:50:02.002291: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 5000...
-    INFO:tensorflow:Saving checkpoints for 5000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpoz81x_b8/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 5000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfvtwejtl/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 5000...
-
-
-    2026-03-25 08:50:02.465250: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:50:02.577641: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
-    INFO:tensorflow:loss = 2646477300.0, step = 5001
-
-
-    2026-03-25 08:50:02.680265: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
-    INFO:tensorflow:global_step/sec: 229.766
-    INFO:tensorflow:loss = 4284608000.0, step = 5101 (0.436 sec)
-    INFO:tensorflow:global_step/sec: 201.808
-    INFO:tensorflow:loss = 3077374000.0, step = 5201 (0.496 sec)
-    INFO:tensorflow:global_step/sec: 283.228
-    INFO:tensorflow:loss = 3317009200.0, step = 5301 (0.352 sec)
-    INFO:tensorflow:global_step/sec: 219.403
-    INFO:tensorflow:loss = 4732129300.0, step = 5401 (0.459 sec)
-    INFO:tensorflow:global_step/sec: 245.668
-    INFO:tensorflow:loss = 3271278600.0, step = 5501 (0.404 sec)
-    INFO:tensorflow:global_step/sec: 225.77
-    INFO:tensorflow:loss = 3314002000.0, step = 5601 (0.442 sec)
-    INFO:tensorflow:global_step/sec: 292.307
-    INFO:tensorflow:loss = 2360761300.0, step = 5701 (0.342 sec)
-    INFO:tensorflow:global_step/sec: 290.293
-    INFO:tensorflow:loss = 3543361000.0, step = 5801 (0.344 sec)
-    INFO:tensorflow:global_step/sec: 283.453
-    INFO:tensorflow:loss = 3310237200.0, step = 5901 (0.353 sec)
+    INFO:tensorflow:loss = 3468276200.0, step = 5001
+    INFO:tensorflow:global_step/sec: 1436.26
+    INFO:tensorflow:loss = 2785485800.0, step = 5101 (0.070 sec)
+    INFO:tensorflow:global_step/sec: 2310.21
+    INFO:tensorflow:loss = 2708610000.0, step = 5201 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 2329.26
+    INFO:tensorflow:loss = 2165551000.0, step = 5301 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2038.91
+    INFO:tensorflow:loss = 2415681000.0, step = 5401 (0.049 sec)
+    INFO:tensorflow:global_step/sec: 1261.49
+    INFO:tensorflow:loss = 2464331300.0, step = 5501 (0.081 sec)
+    INFO:tensorflow:global_step/sec: 1519.39
+    INFO:tensorflow:loss = 3570419000.0, step = 5601 (0.064 sec)
+    INFO:tensorflow:global_step/sec: 2295.36
+    INFO:tensorflow:loss = 2782646000.0, step = 5701 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2140.01
+    INFO:tensorflow:loss = 4093645600.0, step = 5801 (0.046 sec)
+    INFO:tensorflow:global_step/sec: 1995.09
+    INFO:tensorflow:loss = 2665553200.0, step = 5901 (0.050 sec)
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 6000...
-    INFO:tensorflow:Saving checkpoints for 6000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpoz81x_b8/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 6000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfvtwejtl/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 6000...
-    INFO:tensorflow:Loss for final step: 5017698300.0.
+    INFO:tensorflow:Loss for final step: 2402160000.0.
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
-    INFO:tensorflow:Starting evaluation at 2026-03-25T08:50:07
+    INFO:tensorflow:Starting evaluation at 2026-04-01T13:23:29
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpoz81x_b8/model.ckpt-6000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfvtwejtl/model.ckpt-6000
     INFO:tensorflow:Running local_init_op.
-
-
-    2026-03-25 08:50:06.916682: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:50:06.924777: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:50:07.098564: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:306] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
-    2026-03-25 08:50:07.098580: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:272] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
-    2026-03-25 08:50:07.106004: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:50:07.111533: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
     INFO:tensorflow:Done running local_init_op.
-
-
-    2026-03-25 08:50:07.117298: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:50:07.123501: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:50:07.130603: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:50:07.134180: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:50:07.176716: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:50:07.313732: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
-    INFO:tensorflow:Inference Time : 0.27543s
-    INFO:tensorflow:Finished evaluation at 2026-03-25-08:50:07
-    INFO:tensorflow:Saving dict for global step 6000: average_loss = 203775730.0, global_step = 6000, label/mean = 13207.129, loss = 3150686500.0, prediction/mean = 887.8102
-    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 6000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpoz81x_b8/model.ckpt-6000
-    scores_zscore {'average_loss': 203775730.0, 'label/mean': 13207.129, 'loss': 3150686500.0, 'prediction/mean': 887.8102, 'global_step': 6000}
+    INFO:tensorflow:Inference Time : 0.10797s
+    INFO:tensorflow:Finished evaluation at 2026-04-01-13:23:29
+    INFO:tensorflow:Saving dict for global step 6000: average_loss = 210410200.0, global_step = 6000, label/mean = 13207.129, loss = 3253265700.0, prediction/mean = 761.6684
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 6000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfvtwejtl/model.ckpt-6000
+    scores_zscore {'average_loss': 210410200.0, 'label/mean': 13207.129, 'loss': 3253265700.0, 'prediction/mean': 761.6684, 'global_step': 6000}
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
     INFO:tensorflow:Create CheckpointSaverHook.
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpoz81x_b8/model.ckpt-6000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfvtwejtl/model.ckpt-6000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
-
-
-    2026-03-25 08:50:07.488405: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:306] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
-    2026-03-25 08:50:07.488421: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:272] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
-    2026-03-25 08:50:07.494818: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:50:07.500792: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:50:07.506809: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:50:07.509462: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:50:07.516582: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:50:07.520486: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 6000...
-    INFO:tensorflow:Saving checkpoints for 6000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpoz81x_b8/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 6000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfvtwejtl/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 6000...
-
-
-    2026-03-25 08:50:07.944407: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:50:08.055840: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
-    INFO:tensorflow:loss = 3603491300.0, step = 6001
-
-
-    2026-03-25 08:50:08.177149: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
-    INFO:tensorflow:global_step/sec: 213.407
-    INFO:tensorflow:loss = 1454033200.0, step = 6101 (0.469 sec)
-    INFO:tensorflow:global_step/sec: 263.764
-    INFO:tensorflow:loss = 3210459000.0, step = 6201 (0.378 sec)
-    INFO:tensorflow:global_step/sec: 272.926
-    INFO:tensorflow:loss = 3760255000.0, step = 6301 (0.366 sec)
-    INFO:tensorflow:global_step/sec: 270.752
-    INFO:tensorflow:loss = 1389368000.0, step = 6401 (0.369 sec)
-    INFO:tensorflow:global_step/sec: 281.915
-    INFO:tensorflow:loss = 1844463200.0, step = 6501 (0.355 sec)
-    INFO:tensorflow:global_step/sec: 220.252
-    INFO:tensorflow:loss = 5172850700.0, step = 6601 (0.454 sec)
-    INFO:tensorflow:global_step/sec: 272.743
-    INFO:tensorflow:loss = 2151711700.0, step = 6701 (0.367 sec)
-    INFO:tensorflow:global_step/sec: 276.342
-    INFO:tensorflow:loss = 1934275800.0, step = 6801 (0.362 sec)
-    INFO:tensorflow:global_step/sec: 147.792
-    INFO:tensorflow:loss = 3306747400.0, step = 6901 (0.687 sec)
+    INFO:tensorflow:loss = 1692129800.0, step = 6001
+    INFO:tensorflow:global_step/sec: 1563.01
+    INFO:tensorflow:loss = 2148994300.0, step = 6101 (0.065 sec)
+    INFO:tensorflow:global_step/sec: 2386.92
+    INFO:tensorflow:loss = 1985144600.0, step = 6201 (0.041 sec)
+    INFO:tensorflow:global_step/sec: 2302.02
+    INFO:tensorflow:loss = 2657899500.0, step = 6301 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 2399.42
+    INFO:tensorflow:loss = 2724574700.0, step = 6401 (0.042 sec)
+    INFO:tensorflow:global_step/sec: 2272.36
+    INFO:tensorflow:loss = 3362461000.0, step = 6501 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2257.14
+    INFO:tensorflow:loss = 4915149300.0, step = 6601 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 2336.61
+    INFO:tensorflow:loss = 2032264100.0, step = 6701 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2417.2
+    INFO:tensorflow:loss = 4186199600.0, step = 6801 (0.042 sec)
+    INFO:tensorflow:global_step/sec: 2106.28
+    INFO:tensorflow:loss = 4312424000.0, step = 6901 (0.047 sec)
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 7000...
-    INFO:tensorflow:Saving checkpoints for 7000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpoz81x_b8/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 7000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfvtwejtl/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 7000...
-    INFO:tensorflow:Loss for final step: 1989383200.0.
+    INFO:tensorflow:Loss for final step: 3117228300.0.
     INFO:tensorflow:Calling model_fn.
-
-
-    2026-03-25 08:50:12.773172: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:50:12.833253: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
     INFO:tensorflow:Done calling model_fn.
-    INFO:tensorflow:Starting evaluation at 2026-03-25T08:50:13
+    INFO:tensorflow:Starting evaluation at 2026-04-01T13:23:30
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpoz81x_b8/model.ckpt-7000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfvtwejtl/model.ckpt-7000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
-
-
-    2026-03-25 08:50:13.366190: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:306] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
-    2026-03-25 08:50:13.366217: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:272] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
-    2026-03-25 08:50:13.375555: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:50:13.390236: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:50:13.400578: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:50:13.409848: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:50:13.424470: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:50:13.431563: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:50:13.531050: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
-    INFO:tensorflow:Inference Time : 0.37079s
-    INFO:tensorflow:Finished evaluation at 2026-03-25-08:50:13
-    INFO:tensorflow:Saving dict for global step 7000: average_loss = 198445090.0, global_step = 7000, label/mean = 13207.129, loss = 3068266200.0, prediction/mean = 1036.474
-    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 7000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpoz81x_b8/model.ckpt-7000
-    scores_zscore {'average_loss': 198445090.0, 'label/mean': 13207.129, 'loss': 3068266200.0, 'prediction/mean': 1036.474, 'global_step': 7000}
+    INFO:tensorflow:Inference Time : 0.09568s
+    INFO:tensorflow:Finished evaluation at 2026-04-01-13:23:30
+    INFO:tensorflow:Saving dict for global step 7000: average_loss = 206094720.0, global_step = 7000, label/mean = 13207.129, loss = 3186541600.0, prediction/mean = 889.6801
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 7000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfvtwejtl/model.ckpt-7000
+    scores_zscore {'average_loss': 206094720.0, 'label/mean': 13207.129, 'loss': 3186541600.0, 'prediction/mean': 889.6801, 'global_step': 7000}
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
     INFO:tensorflow:Create CheckpointSaverHook.
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpoz81x_b8/model.ckpt-7000
-
-
-    2026-03-25 08:50:13.671689: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:50:13.856652: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:306] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
-    2026-03-25 08:50:13.856667: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:272] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
-    2026-03-25 08:50:13.862651: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:50:13.869029: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfvtwejtl/model.ckpt-7000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
-
-
-    2026-03-25 08:50:13.875397: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:50:13.878454: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:50:13.884835: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:50:13.888794: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 7000...
-    INFO:tensorflow:Saving checkpoints for 7000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpoz81x_b8/model.ckpt.
-
-
-    2026-03-25 08:50:14.162359: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
+    INFO:tensorflow:Saving checkpoints for 7000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfvtwejtl/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 7000...
-    INFO:tensorflow:loss = 1882300400.0, step = 7001
-
-
-    2026-03-25 08:50:14.384759: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:50:14.492079: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
-    INFO:tensorflow:global_step/sec: 248.17
-    INFO:tensorflow:loss = 4120292400.0, step = 7101 (0.403 sec)
-    INFO:tensorflow:global_step/sec: 262.075
-    INFO:tensorflow:loss = 1889781000.0, step = 7201 (0.381 sec)
-    INFO:tensorflow:global_step/sec: 293.391
-    INFO:tensorflow:loss = 3098143500.0, step = 7301 (0.341 sec)
-    INFO:tensorflow:global_step/sec: 280.481
-    INFO:tensorflow:loss = 5121974300.0, step = 7401 (0.357 sec)
-    INFO:tensorflow:global_step/sec: 264.952
-    INFO:tensorflow:loss = 4380130300.0, step = 7501 (0.377 sec)
-    INFO:tensorflow:global_step/sec: 280.779
-    INFO:tensorflow:loss = 2564111400.0, step = 7601 (0.356 sec)
-    INFO:tensorflow:global_step/sec: 282.471
-    INFO:tensorflow:loss = 3289488600.0, step = 7701 (0.354 sec)
-    INFO:tensorflow:global_step/sec: 282.325
-    INFO:tensorflow:loss = 2929448700.0, step = 7801 (0.354 sec)
-    INFO:tensorflow:global_step/sec: 276.303
-    INFO:tensorflow:loss = 6628274700.0, step = 7901 (0.362 sec)
+    INFO:tensorflow:loss = 3195613700.0, step = 7001
+    INFO:tensorflow:global_step/sec: 1442.56
+    INFO:tensorflow:loss = 2880956000.0, step = 7101 (0.071 sec)
+    INFO:tensorflow:global_step/sec: 2118.69
+    INFO:tensorflow:loss = 2929414700.0, step = 7201 (0.047 sec)
+    INFO:tensorflow:global_step/sec: 2178.46
+    INFO:tensorflow:loss = 2128804100.0, step = 7301 (0.046 sec)
+    INFO:tensorflow:global_step/sec: 2150.44
+    INFO:tensorflow:loss = 3833934800.0, step = 7401 (0.047 sec)
+    INFO:tensorflow:global_step/sec: 2245.99
+    INFO:tensorflow:loss = 2819897600.0, step = 7501 (0.045 sec)
+    INFO:tensorflow:global_step/sec: 1955.91
+    INFO:tensorflow:loss = 3026925600.0, step = 7601 (0.050 sec)
+    INFO:tensorflow:global_step/sec: 2413.25
+    INFO:tensorflow:loss = 5368183000.0, step = 7701 (0.042 sec)
+    INFO:tensorflow:global_step/sec: 1366.04
+    INFO:tensorflow:loss = 2377517000.0, step = 7801 (0.073 sec)
+    INFO:tensorflow:global_step/sec: 2058.63
+    INFO:tensorflow:loss = 2858501600.0, step = 7901 (0.048 sec)
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 8000...
-    INFO:tensorflow:Saving checkpoints for 8000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpoz81x_b8/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 8000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfvtwejtl/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 8000...
-    INFO:tensorflow:Loss for final step: 4517939700.0.
+    INFO:tensorflow:Loss for final step: 2209378300.0.
     INFO:tensorflow:Calling model_fn.
-
-
-    2026-03-25 08:50:18.629659: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:50:18.677880: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
     INFO:tensorflow:Done calling model_fn.
-    INFO:tensorflow:Starting evaluation at 2026-03-25T08:50:18
+    INFO:tensorflow:Starting evaluation at 2026-04-01T13:23:32
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpoz81x_b8/model.ckpt-8000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfvtwejtl/model.ckpt-8000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
-
-
-    2026-03-25 08:50:18.961994: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:306] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
-    2026-03-25 08:50:18.962008: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:272] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
-    2026-03-25 08:50:18.969072: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:50:18.975072: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:50:18.982818: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:50:18.989926: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:50:18.998398: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:50:19.002879: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:50:19.039607: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
-    INFO:tensorflow:Inference Time : 0.30708s
-    INFO:tensorflow:Finished evaluation at 2026-03-25-08:50:19
-    INFO:tensorflow:Saving dict for global step 8000: average_loss = 193175900.0, global_step = 8000, label/mean = 13207.129, loss = 2986796500.0, prediction/mean = 1186.957
-    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 8000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpoz81x_b8/model.ckpt-8000
-    scores_zscore {'average_loss': 193175900.0, 'label/mean': 13207.129, 'loss': 2986796500.0, 'prediction/mean': 1186.957, 'global_step': 8000}
+    INFO:tensorflow:Inference Time : 0.09639s
+    INFO:tensorflow:Finished evaluation at 2026-04-01-13:23:32
+    INFO:tensorflow:Saving dict for global step 8000: average_loss = 201860780.0, global_step = 8000, label/mean = 13207.129, loss = 3121078300.0, prediction/mean = 1016.73914
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 8000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfvtwejtl/model.ckpt-8000
+    scores_zscore {'average_loss': 201860780.0, 'label/mean': 13207.129, 'loss': 3121078300.0, 'prediction/mean': 1016.73914, 'global_step': 8000}
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
     INFO:tensorflow:Create CheckpointSaverHook.
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpoz81x_b8/model.ckpt-8000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfvtwejtl/model.ckpt-8000
     INFO:tensorflow:Running local_init_op.
-
-
-    2026-03-25 08:50:19.195083: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:50:19.376254: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:306] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
-    2026-03-25 08:50:19.376270: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:272] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
-    2026-03-25 08:50:19.382450: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:50:19.389537: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
     INFO:tensorflow:Done running local_init_op.
-
-
-    2026-03-25 08:50:19.396415: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:50:19.400095: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:50:19.407363: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:50:19.413532: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 8000...
-    INFO:tensorflow:Saving checkpoints for 8000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpoz81x_b8/model.ckpt.
-
-
-    2026-03-25 08:50:19.898529: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
+    INFO:tensorflow:Saving checkpoints for 8000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfvtwejtl/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 8000...
-    INFO:tensorflow:loss = 4083445200.0, step = 8001
-
-
-    2026-03-25 08:50:20.222755: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:50:20.322120: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
-    INFO:tensorflow:global_step/sec: 248.91
-    INFO:tensorflow:loss = 2486308900.0, step = 8101 (0.402 sec)
-    INFO:tensorflow:global_step/sec: 273.391
-    INFO:tensorflow:loss = 2614432300.0, step = 8201 (0.366 sec)
-    INFO:tensorflow:global_step/sec: 112.79
-    INFO:tensorflow:loss = 2949862100.0, step = 8301 (0.895 sec)
-    INFO:tensorflow:global_step/sec: 229.242
-    INFO:tensorflow:loss = 1998830300.0, step = 8401 (0.428 sec)
-    INFO:tensorflow:global_step/sec: 257.328
-    INFO:tensorflow:loss = 2866318800.0, step = 8501 (0.388 sec)
-    INFO:tensorflow:global_step/sec: 287.73
-    INFO:tensorflow:loss = 2358667800.0, step = 8601 (0.348 sec)
-    INFO:tensorflow:global_step/sec: 242.572
-    INFO:tensorflow:loss = 1606827800.0, step = 8701 (0.413 sec)
-    INFO:tensorflow:global_step/sec: 259.528
-    INFO:tensorflow:loss = 3220313600.0, step = 8801 (0.385 sec)
-    INFO:tensorflow:global_step/sec: 238.367
-    INFO:tensorflow:loss = 2401312800.0, step = 8901 (0.420 sec)
+    INFO:tensorflow:loss = 4369464000.0, step = 8001
+    INFO:tensorflow:global_step/sec: 1353.2
+    INFO:tensorflow:loss = 2047950500.0, step = 8101 (0.074 sec)
+    INFO:tensorflow:global_step/sec: 2188.37
+    INFO:tensorflow:loss = 3945629200.0, step = 8201 (0.046 sec)
+    INFO:tensorflow:global_step/sec: 2353.94
+    INFO:tensorflow:loss = 1820891600.0, step = 8301 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 1898.32
+    INFO:tensorflow:loss = 3470608400.0, step = 8401 (0.052 sec)
+    INFO:tensorflow:global_step/sec: 2217.85
+    INFO:tensorflow:loss = 1896636400.0, step = 8501 (0.045 sec)
+    INFO:tensorflow:global_step/sec: 2261.25
+    INFO:tensorflow:loss = 2219535400.0, step = 8601 (0.045 sec)
+    INFO:tensorflow:global_step/sec: 2298.75
+    INFO:tensorflow:loss = 1581093800.0, step = 8701 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 2200.28
+    INFO:tensorflow:loss = 2467502600.0, step = 8801 (0.045 sec)
+    INFO:tensorflow:global_step/sec: 2333.38
+    INFO:tensorflow:loss = 3045367800.0, step = 8901 (0.043 sec)
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 9000...
-    INFO:tensorflow:Saving checkpoints for 9000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpoz81x_b8/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 9000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfvtwejtl/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 9000...
-    INFO:tensorflow:Loss for final step: 3661232600.0.
+    INFO:tensorflow:Loss for final step: 2921651000.0.
     INFO:tensorflow:Calling model_fn.
-
-
-    2026-03-25 08:50:24.966659: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:50:24.999301: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
     INFO:tensorflow:Done calling model_fn.
-    INFO:tensorflow:Starting evaluation at 2026-03-25T08:50:25
+    INFO:tensorflow:Starting evaluation at 2026-04-01T13:23:34
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpoz81x_b8/model.ckpt-9000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfvtwejtl/model.ckpt-9000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
-
-
-    2026-03-25 08:50:25.236297: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:306] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
-    2026-03-25 08:50:25.236313: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:272] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
-    2026-03-25 08:50:25.243539: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:50:25.249527: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:50:25.256233: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:50:25.263818: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:50:25.271956: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:50:25.276625: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:50:25.313097: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-
-
-    INFO:tensorflow:Inference Time : 0.28510s
-    INFO:tensorflow:Finished evaluation at 2026-03-25-08:50:25
-    INFO:tensorflow:Saving dict for global step 9000: average_loss = 188037380.0, global_step = 9000, label/mean = 13207.129, loss = 2907347200.0, prediction/mean = 1336.1647
-    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 9000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpoz81x_b8/model.ckpt-9000
-    scores_zscore {'average_loss': 188037380.0, 'label/mean': 13207.129, 'loss': 2907347200.0, 'prediction/mean': 1336.1647, 'global_step': 9000}
+    INFO:tensorflow:Inference Time : 0.09614s
+    INFO:tensorflow:Finished evaluation at 2026-04-01-13:23:34
+    INFO:tensorflow:Saving dict for global step 9000: average_loss = 197683380.0, global_step = 9000, label/mean = 13207.129, loss = 3056489000.0, prediction/mean = 1143.281
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 9000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfvtwejtl/model.ckpt-9000
+    scores_zscore {'average_loss': 197683380.0, 'label/mean': 13207.129, 'loss': 3056489000.0, 'prediction/mean': 1143.281, 'global_step': 9000}
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
     INFO:tensorflow:Create CheckpointSaverHook.
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpoz81x_b8/model.ckpt-9000
-
-
-    2026-03-25 08:50:25.447624: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:50:25.644123: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:306] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
-    2026-03-25 08:50:25.644139: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:272] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
-
-
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfvtwejtl/model.ckpt-9000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 9000...
+    INFO:tensorflow:Saving checkpoints for 9000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfvtwejtl/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 9000...
+    INFO:tensorflow:loss = 4246730800.0, step = 9001
+    INFO:tensorflow:global_step/sec: 1397.95
+    INFO:tensorflow:loss = 3306273800.0, step = 9101 (0.072 sec)
+    INFO:tensorflow:global_step/sec: 2379.31
+    INFO:tensorflow:loss = 4954135000.0, step = 9201 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2085.59
+    INFO:tensorflow:loss = 2637065200.0, step = 9301 (0.048 sec)
+    INFO:tensorflow:global_step/sec: 2262.65
+    INFO:tensorflow:loss = 3351370500.0, step = 9401 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 2385.62
+    INFO:tensorflow:loss = 3987865300.0, step = 9501 (0.042 sec)
+    INFO:tensorflow:global_step/sec: 2290.15
+    INFO:tensorflow:loss = 2489160000.0, step = 9601 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2335.09
+    INFO:tensorflow:loss = 2870013400.0, step = 9701 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2052.29
+    INFO:tensorflow:loss = 3000328200.0, step = 9801 (0.049 sec)
+    INFO:tensorflow:global_step/sec: 2343.24
+    INFO:tensorflow:loss = 1919985200.0, step = 9901 (0.043 sec)
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 10000...
+    INFO:tensorflow:Saving checkpoints for 10000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfvtwejtl/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 10000...
+    INFO:tensorflow:Loss for final step: 3314891000.0.
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Starting evaluation at 2026-04-01T13:23:35
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfvtwejtl/model.ckpt-10000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Inference Time : 0.09521s
+    INFO:tensorflow:Finished evaluation at 2026-04-01-13:23:35
+    INFO:tensorflow:Saving dict for global step 10000: average_loss = 193529680.0, global_step = 10000, label/mean = 13207.129, loss = 2992266800.0, prediction/mean = 1270.2664
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 10000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfvtwejtl/model.ckpt-10000
+    scores_zscore {'average_loss': 193529680.0, 'label/mean': 13207.129, 'loss': 2992266800.0, 'prediction/mean': 1270.2664, 'global_step': 10000}
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Create CheckpointSaverHook.
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 0...
+    INFO:tensorflow:Saving checkpoints for 0 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpyydtlfdw/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 0...
+    INFO:tensorflow:loss = 3389668600.0, step = 1
+    INFO:tensorflow:global_step/sec: 1514.4
+    INFO:tensorflow:loss = 3464490500.0, step = 101 (0.067 sec)
+    INFO:tensorflow:global_step/sec: 2301.07
+    INFO:tensorflow:loss = 5167428000.0, step = 201 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2248.66
+    INFO:tensorflow:loss = 3262564600.0, step = 301 (0.045 sec)
+    INFO:tensorflow:global_step/sec: 2239.48
+    INFO:tensorflow:loss = 2664319700.0, step = 401 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 2472.07
+    INFO:tensorflow:loss = 3457207300.0, step = 501 (0.041 sec)
+    INFO:tensorflow:global_step/sec: 2306.27
+    INFO:tensorflow:loss = 2097327500.0, step = 601 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2118.78
+    INFO:tensorflow:loss = 3445272300.0, step = 701 (0.047 sec)
+    INFO:tensorflow:global_step/sec: 2436.75
+    INFO:tensorflow:loss = 2237972000.0, step = 801 (0.041 sec)
+    INFO:tensorflow:global_step/sec: 2415.6
+    INFO:tensorflow:loss = 2460882400.0, step = 901 (0.042 sec)
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 1000...
+    INFO:tensorflow:Saving checkpoints for 1000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpyydtlfdw/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 1000...
+    INFO:tensorflow:Loss for final step: 5776439300.0.
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Starting evaluation at 2026-04-01T13:23:37
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpyydtlfdw/model.ckpt-1000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Inference Time : 0.09528s
+    INFO:tensorflow:Finished evaluation at 2026-04-01-13:23:37
+    INFO:tensorflow:Saving dict for global step 1000: average_loss = 232542600.0, global_step = 1000, label/mean = 13207.129, loss = 3595466200.0, prediction/mean = 170.23247
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 1000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpyydtlfdw/model.ckpt-1000
+    scores_minmax {'average_loss': 232542600.0, 'label/mean': 13207.129, 'loss': 3595466200.0, 'prediction/mean': 170.23247, 'global_step': 1000}
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Create CheckpointSaverHook.
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpyydtlfdw/model.ckpt-1000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 1000...
+    INFO:tensorflow:Saving checkpoints for 1000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpyydtlfdw/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 1000...
+    INFO:tensorflow:loss = 2737832200.0, step = 1001
+    INFO:tensorflow:global_step/sec: 1528.82
+    INFO:tensorflow:loss = 3717232000.0, step = 1101 (0.066 sec)
+    INFO:tensorflow:global_step/sec: 2431.68
+    INFO:tensorflow:loss = 6795015700.0, step = 1201 (0.042 sec)
+    INFO:tensorflow:global_step/sec: 2180.17
+    INFO:tensorflow:loss = 5597327400.0, step = 1301 (0.045 sec)
+    INFO:tensorflow:global_step/sec: 2402.51
+    INFO:tensorflow:loss = 3828832300.0, step = 1401 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2059.61
+    INFO:tensorflow:loss = 3052074800.0, step = 1501 (0.048 sec)
+    INFO:tensorflow:global_step/sec: 2313.37
+    INFO:tensorflow:loss = 4426054700.0, step = 1601 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2375.58
+    INFO:tensorflow:loss = 2180206000.0, step = 1701 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2347.13
+    INFO:tensorflow:loss = 4449070600.0, step = 1801 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2231.65
+    INFO:tensorflow:loss = 3448220400.0, step = 1901 (0.044 sec)
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 2000...
+    INFO:tensorflow:Saving checkpoints for 2000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpyydtlfdw/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 2000...
+    INFO:tensorflow:Loss for final step: 4927481000.0.
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Starting evaluation at 2026-04-01T13:23:39
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpyydtlfdw/model.ckpt-2000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Inference Time : 0.09358s
+    INFO:tensorflow:Finished evaluation at 2026-04-01-13:23:39
+    INFO:tensorflow:Saving dict for global step 2000: average_loss = 227919330.0, global_step = 2000, label/mean = 13207.129, loss = 3523983600.0, prediction/mean = 338.76306
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 2000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpyydtlfdw/model.ckpt-2000
+    scores_minmax {'average_loss': 227919330.0, 'label/mean': 13207.129, 'loss': 3523983600.0, 'prediction/mean': 338.76306, 'global_step': 2000}
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Create CheckpointSaverHook.
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpyydtlfdw/model.ckpt-2000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 2000...
+    INFO:tensorflow:Saving checkpoints for 2000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpyydtlfdw/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 2000...
+    INFO:tensorflow:loss = 3382553600.0, step = 2001
+    INFO:tensorflow:global_step/sec: 1442.1
+    INFO:tensorflow:loss = 4445450000.0, step = 2101 (0.070 sec)
+    INFO:tensorflow:global_step/sec: 2387.84
+    INFO:tensorflow:loss = 4253312000.0, step = 2201 (0.042 sec)
+    INFO:tensorflow:global_step/sec: 2289.68
+    INFO:tensorflow:loss = 3502338000.0, step = 2301 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 2239.04
+    INFO:tensorflow:loss = 4138429000.0, step = 2401 (0.045 sec)
+    INFO:tensorflow:global_step/sec: 2370.13
+    INFO:tensorflow:loss = 3587597800.0, step = 2501 (0.042 sec)
+    INFO:tensorflow:global_step/sec: 2308.28
+    INFO:tensorflow:loss = 3778683000.0, step = 2601 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2125.9
+    INFO:tensorflow:loss = 2480242700.0, step = 2701 (0.047 sec)
+    INFO:tensorflow:global_step/sec: 2350.22
+    INFO:tensorflow:loss = 3924548400.0, step = 2801 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 1964.41
+    INFO:tensorflow:loss = 4807563000.0, step = 2901 (0.050 sec)
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 3000...
+    INFO:tensorflow:Saving checkpoints for 3000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpyydtlfdw/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 3000...
+    INFO:tensorflow:Loss for final step: 3902784000.0.
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Starting evaluation at 2026-04-01T13:23:40
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpyydtlfdw/model.ckpt-3000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Inference Time : 0.09566s
+    INFO:tensorflow:Finished evaluation at 2026-04-01-13:23:40
+    INFO:tensorflow:Saving dict for global step 3000: average_loss = 223395680.0, global_step = 3000, label/mean = 13207.129, loss = 3454040800.0, prediction/mean = 505.72018
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 3000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpyydtlfdw/model.ckpt-3000
+    scores_minmax {'average_loss': 223395680.0, 'label/mean': 13207.129, 'loss': 3454040800.0, 'prediction/mean': 505.72018, 'global_step': 3000}
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Create CheckpointSaverHook.
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpyydtlfdw/model.ckpt-3000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 3000...
+    INFO:tensorflow:Saving checkpoints for 3000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpyydtlfdw/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 3000...
+    INFO:tensorflow:loss = 5804743700.0, step = 3001
+    INFO:tensorflow:global_step/sec: 1566.1
+    INFO:tensorflow:loss = 3560574500.0, step = 3101 (0.065 sec)
+    INFO:tensorflow:global_step/sec: 2409.16
+    INFO:tensorflow:loss = 2153217800.0, step = 3201 (0.041 sec)
+    INFO:tensorflow:global_step/sec: 2367.6
+    INFO:tensorflow:loss = 4023597000.0, step = 3301 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2301.24
+    INFO:tensorflow:loss = 2975093200.0, step = 3401 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2433.43
+    INFO:tensorflow:loss = 1932520300.0, step = 3501 (0.041 sec)
+    INFO:tensorflow:global_step/sec: 2462.82
+    INFO:tensorflow:loss = 2616863200.0, step = 3601 (0.041 sec)
+    INFO:tensorflow:global_step/sec: 2157.59
+    INFO:tensorflow:loss = 1539329300.0, step = 3701 (0.046 sec)
+    INFO:tensorflow:global_step/sec: 2291.84
+    INFO:tensorflow:loss = 1433042200.0, step = 3801 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 2169.39
+    INFO:tensorflow:loss = 2144099600.0, step = 3901 (0.045 sec)
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 4000...
+    INFO:tensorflow:Saving checkpoints for 4000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpyydtlfdw/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 4000...
+    INFO:tensorflow:Loss for final step: 6449872000.0.
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Starting evaluation at 2026-04-01T13:23:42
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpyydtlfdw/model.ckpt-4000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Inference Time : 0.09736s
+    INFO:tensorflow:Finished evaluation at 2026-04-01-13:23:42
+    INFO:tensorflow:Saving dict for global step 4000: average_loss = 218963000.0, global_step = 4000, label/mean = 13207.129, loss = 3385505000.0, prediction/mean = 671.37946
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 4000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpyydtlfdw/model.ckpt-4000
+    scores_minmax {'average_loss': 218963000.0, 'label/mean': 13207.129, 'loss': 3385505000.0, 'prediction/mean': 671.37946, 'global_step': 4000}
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Create CheckpointSaverHook.
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpyydtlfdw/model.ckpt-4000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 4000...
+    INFO:tensorflow:Saving checkpoints for 4000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpyydtlfdw/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 4000...
+    INFO:tensorflow:loss = 1852432500.0, step = 4001
+    INFO:tensorflow:global_step/sec: 1474.2
+    INFO:tensorflow:loss = 4452410400.0, step = 4101 (0.069 sec)
+    INFO:tensorflow:global_step/sec: 2391.14
+    INFO:tensorflow:loss = 3551087600.0, step = 4201 (0.042 sec)
+    INFO:tensorflow:global_step/sec: 1898.47
+    INFO:tensorflow:loss = 2200396500.0, step = 4301 (0.052 sec)
+    INFO:tensorflow:global_step/sec: 2379.42
+    INFO:tensorflow:loss = 2818145800.0, step = 4401 (0.042 sec)
+    INFO:tensorflow:global_step/sec: 2174.48
+    INFO:tensorflow:loss = 4636538000.0, step = 4501 (0.046 sec)
+    INFO:tensorflow:global_step/sec: 2438.62
+    INFO:tensorflow:loss = 3095313200.0, step = 4601 (0.041 sec)
+    INFO:tensorflow:global_step/sec: 2296.31
+    INFO:tensorflow:loss = 6884931600.0, step = 4701 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 2405.65
+    INFO:tensorflow:loss = 2505297400.0, step = 4801 (0.041 sec)
+    INFO:tensorflow:global_step/sec: 2354.1
+    INFO:tensorflow:loss = 3779248600.0, step = 4901 (0.043 sec)
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 5000...
+    INFO:tensorflow:Saving checkpoints for 5000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpyydtlfdw/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 5000...
+    INFO:tensorflow:Loss for final step: 3046099000.0.
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Starting evaluation at 2026-04-01T13:23:43
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpyydtlfdw/model.ckpt-5000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Inference Time : 0.09571s
+    INFO:tensorflow:Finished evaluation at 2026-04-01-13:23:43
+    INFO:tensorflow:Saving dict for global step 5000: average_loss = 214631380.0, global_step = 5000, label/mean = 13207.129, loss = 3318531300.0, prediction/mean = 835.3144
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 5000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpyydtlfdw/model.ckpt-5000
+    scores_minmax {'average_loss': 214631380.0, 'label/mean': 13207.129, 'loss': 3318531300.0, 'prediction/mean': 835.3144, 'global_step': 5000}
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Create CheckpointSaverHook.
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpyydtlfdw/model.ckpt-5000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 5000...
+    INFO:tensorflow:Saving checkpoints for 5000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpyydtlfdw/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 5000...
+    INFO:tensorflow:loss = 2439218700.0, step = 5001
+    INFO:tensorflow:global_step/sec: 1509.87
+    INFO:tensorflow:loss = 2375851000.0, step = 5101 (0.067 sec)
+    INFO:tensorflow:global_step/sec: 2432.2
+    INFO:tensorflow:loss = 2412302300.0, step = 5201 (0.042 sec)
+    INFO:tensorflow:global_step/sec: 2054.62
+    INFO:tensorflow:loss = 2500778800.0, step = 5301 (0.048 sec)
+    INFO:tensorflow:global_step/sec: 2263.36
+    INFO:tensorflow:loss = 3649456400.0, step = 5401 (0.045 sec)
+    INFO:tensorflow:global_step/sec: 2297.1
+    INFO:tensorflow:loss = 5548715000.0, step = 5501 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 2442
+    INFO:tensorflow:loss = 3903906800.0, step = 5601 (0.041 sec)
+    INFO:tensorflow:global_step/sec: 2283.68
+    INFO:tensorflow:loss = 2608113700.0, step = 5701 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2150.25
+    INFO:tensorflow:loss = 2747434000.0, step = 5801 (0.046 sec)
+    INFO:tensorflow:global_step/sec: 2276.67
+    INFO:tensorflow:loss = 2986380300.0, step = 5901 (0.044 sec)
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 6000...
+    INFO:tensorflow:Saving checkpoints for 6000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpyydtlfdw/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 6000...
+    INFO:tensorflow:Loss for final step: 1825018400.0.
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Starting evaluation at 2026-04-01T13:23:45
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpyydtlfdw/model.ckpt-6000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Inference Time : 0.09489s
+    INFO:tensorflow:Finished evaluation at 2026-04-01-13:23:45
+    INFO:tensorflow:Saving dict for global step 6000: average_loss = 210385540.0, global_step = 6000, label/mean = 13207.129, loss = 3252884000.0, prediction/mean = 998.04126
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 6000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpyydtlfdw/model.ckpt-6000
+    scores_minmax {'average_loss': 210385540.0, 'label/mean': 13207.129, 'loss': 3252884000.0, 'prediction/mean': 998.04126, 'global_step': 6000}
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Create CheckpointSaverHook.
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpyydtlfdw/model.ckpt-6000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 6000...
+    INFO:tensorflow:Saving checkpoints for 6000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpyydtlfdw/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 6000...
+    INFO:tensorflow:loss = 3153027300.0, step = 6001
+    INFO:tensorflow:global_step/sec: 1398
+    INFO:tensorflow:loss = 5424498000.0, step = 6101 (0.072 sec)
+    INFO:tensorflow:global_step/sec: 2058.29
+    INFO:tensorflow:loss = 2303350800.0, step = 6201 (0.049 sec)
+    INFO:tensorflow:global_step/sec: 2086.15
+    INFO:tensorflow:loss = 3306717200.0, step = 6301 (0.047 sec)
+    INFO:tensorflow:global_step/sec: 2129.38
+    INFO:tensorflow:loss = 4059978800.0, step = 6401 (0.047 sec)
+    INFO:tensorflow:global_step/sec: 2335.92
+    INFO:tensorflow:loss = 1913771800.0, step = 6501 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2387.71
+    INFO:tensorflow:loss = 2385219600.0, step = 6601 (0.042 sec)
+    INFO:tensorflow:global_step/sec: 1994.3
+    INFO:tensorflow:loss = 4408709600.0, step = 6701 (0.049 sec)
+    INFO:tensorflow:global_step/sec: 2066.28
+    INFO:tensorflow:loss = 4389825500.0, step = 6801 (0.048 sec)
+    INFO:tensorflow:global_step/sec: 2444.45
+    INFO:tensorflow:loss = 2315456500.0, step = 6901 (0.042 sec)
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 7000...
+    INFO:tensorflow:Saving checkpoints for 7000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpyydtlfdw/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 7000...
+    INFO:tensorflow:Loss for final step: 2106170100.0.
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Starting evaluation at 2026-04-01T13:23:46
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpyydtlfdw/model.ckpt-7000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Inference Time : 0.11804s
+    INFO:tensorflow:Finished evaluation at 2026-04-01-13:23:46
+    INFO:tensorflow:Saving dict for global step 7000: average_loss = 206219760.0, global_step = 7000, label/mean = 13207.129, loss = 3188475000.0, prediction/mean = 1159.7297
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 7000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpyydtlfdw/model.ckpt-7000
+    scores_minmax {'average_loss': 206219760.0, 'label/mean': 13207.129, 'loss': 3188475000.0, 'prediction/mean': 1159.7297, 'global_step': 7000}
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Create CheckpointSaverHook.
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpyydtlfdw/model.ckpt-7000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 7000...
+    INFO:tensorflow:Saving checkpoints for 7000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpyydtlfdw/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 7000...
+    INFO:tensorflow:loss = 7002078000.0, step = 7001
+    INFO:tensorflow:global_step/sec: 1532.1
+    INFO:tensorflow:loss = 989777540.0, step = 7101 (0.067 sec)
+    INFO:tensorflow:global_step/sec: 2160.44
+    INFO:tensorflow:loss = 4280801800.0, step = 7201 (0.046 sec)
+    INFO:tensorflow:global_step/sec: 2142.47
+    INFO:tensorflow:loss = 3399239700.0, step = 7301 (0.046 sec)
+    INFO:tensorflow:global_step/sec: 2423.01
+    INFO:tensorflow:loss = 1541617400.0, step = 7401 (0.042 sec)
+    INFO:tensorflow:global_step/sec: 2263.15
+    INFO:tensorflow:loss = 5130751500.0, step = 7501 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2075.6
+    INFO:tensorflow:loss = 3592200700.0, step = 7601 (0.048 sec)
+    INFO:tensorflow:global_step/sec: 2385.27
+    INFO:tensorflow:loss = 2197716000.0, step = 7701 (0.042 sec)
+    INFO:tensorflow:global_step/sec: 2211.26
+    INFO:tensorflow:loss = 3931728600.0, step = 7801 (0.046 sec)
+    INFO:tensorflow:global_step/sec: 2354.54
+    INFO:tensorflow:loss = 2494183700.0, step = 7901 (0.042 sec)
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 8000...
+    INFO:tensorflow:Saving checkpoints for 8000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpyydtlfdw/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 8000...
+    INFO:tensorflow:Loss for final step: 1622494500.0.
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Starting evaluation at 2026-04-01T13:23:48
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpyydtlfdw/model.ckpt-8000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Inference Time : 0.09497s
+    INFO:tensorflow:Finished evaluation at 2026-04-01-13:23:48
+    INFO:tensorflow:Saving dict for global step 8000: average_loss = 202135620.0, global_step = 8000, label/mean = 13207.129, loss = 3125327600.0, prediction/mean = 1320.2864
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 8000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpyydtlfdw/model.ckpt-8000
+    scores_minmax {'average_loss': 202135620.0, 'label/mean': 13207.129, 'loss': 3125327600.0, 'prediction/mean': 1320.2864, 'global_step': 8000}
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Create CheckpointSaverHook.
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpyydtlfdw/model.ckpt-8000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 8000...
+    INFO:tensorflow:Saving checkpoints for 8000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpyydtlfdw/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 8000...
+    INFO:tensorflow:loss = 2324705000.0, step = 8001
+    INFO:tensorflow:global_step/sec: 1548.75
+    INFO:tensorflow:loss = 4412857300.0, step = 8101 (0.065 sec)
+    INFO:tensorflow:global_step/sec: 2280.55
+    INFO:tensorflow:loss = 2776822800.0, step = 8201 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 2428.71
+    INFO:tensorflow:loss = 5579166700.0, step = 8301 (0.041 sec)
+    INFO:tensorflow:global_step/sec: 2252.66
+    INFO:tensorflow:loss = 4771541000.0, step = 8401 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 2031.24
+    INFO:tensorflow:loss = 2622544400.0, step = 8501 (0.049 sec)
+    INFO:tensorflow:global_step/sec: 1586.6
+    INFO:tensorflow:loss = 2983721000.0, step = 8601 (0.063 sec)
+    INFO:tensorflow:global_step/sec: 2341.37
+    INFO:tensorflow:loss = 3839786500.0, step = 8701 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2259.12
+    INFO:tensorflow:loss = 2794496300.0, step = 8801 (0.045 sec)
+    INFO:tensorflow:global_step/sec: 2187.95
+    INFO:tensorflow:loss = 3199307800.0, step = 8901 (0.045 sec)
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 9000...
+    INFO:tensorflow:Saving checkpoints for 9000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpyydtlfdw/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 9000...
+    INFO:tensorflow:Loss for final step: 2784969200.0.
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Starting evaluation at 2026-04-01T13:23:49
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpyydtlfdw/model.ckpt-9000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Inference Time : 0.09568s
+    INFO:tensorflow:Finished evaluation at 2026-04-01-13:23:49
+    INFO:tensorflow:Saving dict for global step 9000: average_loss = 198142430.0, global_step = 9000, label/mean = 13207.129, loss = 3063586800.0, prediction/mean = 1479.3008
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 9000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpyydtlfdw/model.ckpt-9000
+    scores_minmax {'average_loss': 198142430.0, 'label/mean': 13207.129, 'loss': 3063586800.0, 'prediction/mean': 1479.3008, 'global_step': 9000}
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Create CheckpointSaverHook.
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpyydtlfdw/model.ckpt-9000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 9000...
+    INFO:tensorflow:Saving checkpoints for 9000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpyydtlfdw/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 9000...
+    INFO:tensorflow:loss = 4190922800.0, step = 9001
+    INFO:tensorflow:global_step/sec: 1095.11
+    INFO:tensorflow:loss = 4348644400.0, step = 9101 (0.092 sec)
+    INFO:tensorflow:global_step/sec: 2358.17
+    INFO:tensorflow:loss = 2753370000.0, step = 9201 (0.042 sec)
+    INFO:tensorflow:global_step/sec: 2461.89
+    INFO:tensorflow:loss = 2047054800.0, step = 9301 (0.042 sec)
+    INFO:tensorflow:global_step/sec: 2330.25
+    INFO:tensorflow:loss = 3630494700.0, step = 9401 (0.042 sec)
+    INFO:tensorflow:global_step/sec: 2308.02
+    INFO:tensorflow:loss = 3642808000.0, step = 9501 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2204.4
+    INFO:tensorflow:loss = 6788960000.0, step = 9601 (0.045 sec)
+    INFO:tensorflow:global_step/sec: 2259.02
+    INFO:tensorflow:loss = 2859459600.0, step = 9701 (0.045 sec)
+    INFO:tensorflow:global_step/sec: 1904.04
+    INFO:tensorflow:loss = 3205723600.0, step = 9801 (0.052 sec)
+    INFO:tensorflow:global_step/sec: 2456.63
+    INFO:tensorflow:loss = 7779707400.0, step = 9901 (0.041 sec)
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 10000...
+    INFO:tensorflow:Saving checkpoints for 10000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpyydtlfdw/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 10000...
+    INFO:tensorflow:Loss for final step: 2408236000.0.
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Starting evaluation at 2026-04-01T13:23:51
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpyydtlfdw/model.ckpt-10000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Inference Time : 0.09517s
+    INFO:tensorflow:Finished evaluation at 2026-04-01-13:23:51
+    INFO:tensorflow:Saving dict for global step 10000: average_loss = 194220340.0, global_step = 10000, label/mean = 13207.129, loss = 3002945300.0, prediction/mean = 1637.4926
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 10000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpyydtlfdw/model.ckpt-10000
+    scores_minmax {'average_loss': 194220340.0, 'label/mean': 13207.129, 'loss': 3002945300.0, 'prediction/mean': 1637.4926, 'global_step': 10000}
 
 
-    2026-03-25 08:50:25.651016: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:50:25.657700: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:50:25.665689: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:50:25.670672: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:50:25.677919: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-    2026-03-25 08:50:25.684777: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
+
+
+
+    '\ncell blocks below has details for Task 2.3 and Task 2.4\n'
+
 
 
 
 ```python
 # Task 2.3: GradientDescentOptimizer + Z-score normalization
-
 est_gd = tf.estimator.DNNRegressor(                                           
     feature_columns=model_feature_columns_zscore,  # ← normalized, not raw    
     hidden_units=hidden_units_parameter,
@@ -2826,47 +2435,15 @@ for _ in range(num_print_statements):
     scores_gd = est_gd.evaluate(eval_input_fn)
     print('scores_gd', scores_gd)
 
-# Problems:
+# Problem with Task 2.3: GradientDescentOptimizer + Z-score normalization
 '''
-INFO:tensorflow:Using default config.
-WARNING:tensorflow:Using temporary folder as model directory: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpq0x4wm70
-INFO:tensorflow:Using config: {'_model_dir': '/var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpq0x4wm70', '_tf_random_seed': None, '_save_summary_steps': 100, '_save_checkpoints_steps': None, '_save_checkpoints_secs': 600, '_session_config': allow_soft_placement: true
-graph_options {
-  rewrite_options {
-    meta_optimizer_iterations: ONE
-  }
-}
-, '_keep_checkpoint_max': 5, '_keep_checkpoint_every_n_hours': 10000, '_log_step_count_steps': 100, '_train_distribute': None, '_device_fn': None, '_protocol': None, '_eval_distribute': None, '_experimental_distribute': None, '_experimental_max_worker_delay_secs': None, '_session_creation_timeout_secs': 7200, '_checkpoint_save_graph_def': True, '_service': None, '_cluster_spec': ClusterSpec({}), '_task_type': 'worker', '_task_id': 0, '_global_id_in_cluster': 0, '_master': '', '_evaluation_master': '', '_is_chief': True, '_num_ps_replicas': 0, '_num_worker_replicas': 1}
-INFO:tensorflow:Calling model_fn.
-INFO:tensorflow:Done calling model_fn.
-INFO:tensorflow:Create CheckpointSaverHook.
-INFO:tensorflow:Graph was finalized.
-INFO:tensorflow:Running local_init_op.
-INFO:tensorflow:Done running local_init_op.
-2026-03-24 19:34:23.927537: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:306] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
-2026-03-24 19:34:23.927555: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:272] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
-2026-03-24 19:34:23.934181: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-24 19:34:23.945405: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-24 19:34:23.952080: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-24 19:34:23.955222: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-24 19:34:23.960736: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-24 19:34:23.964980: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 0...
-INFO:tensorflow:Saving checkpoints for 0 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpq0x4wm70/model.ckpt.
-2026-03-24 19:34:24.329553: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 0...
-INFO:tensorflow:loss = 3667000000.0, step = 1
-2026-03-24 19:34:24.597086: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-24 19:34:24.725839: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
 ERROR:tensorflow:Model diverged with loss = NaN.
-2026-03-24 19:34:24.806420: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-24 19:34:24.823401: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
 '''
 ```
 
 
 ```python
-# [Change #8]: # Task 2.4: PCA + Adagrad
+# [Change #8]: # Task 2.4: Feature Engineering with PCA + Adagrad
 
 # The 15 numeric features are heavily correlated:
 # engine-size, horsepower, weight, length -> all move together. 
@@ -2922,698 +2499,470 @@ for _ in range(num_print_statements):
 num_print_statements)
     scores_pca = est_pca.evaluate(eval_input_fn_pca)     
     print('scores_pca', scores_pca)
-'''
-model_feature_columns_pca [NumericColumn(key='PC1', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=None), NumericColumn(key='PC2', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=None), NumericColumn(key='PC3', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=None), NumericColumn(key='PC4', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=None), NumericColumn(key='PC5', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=None), NumericColumn(key='PC6', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=None), NumericColumn(key='PC7', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=None), NumericColumn(key='PC8', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=None), NumericColumn(key='PC9', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=None)]
-INFO:tensorflow:Using default config.
-WARNING:tensorflow:Using temporary folder as model directory: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpe18ds6yw
-INFO:tensorflow:Using config: {'_model_dir': '/var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpe18ds6yw', '_tf_random_seed': None, '_save_summary_steps': 100, '_save_checkpoints_steps': None, '_save_checkpoints_secs': 600, '_session_config': allow_soft_placement: true
-graph_options {
-  rewrite_options {
-    meta_optimizer_iterations: ONE
-  }
-}
-, '_keep_checkpoint_max': 5, '_keep_checkpoint_every_n_hours': 10000, '_log_step_count_steps': 100, '_train_distribute': None, '_device_fn': None, '_protocol': None, '_eval_distribute': None, '_experimental_distribute': None, '_experimental_max_worker_delay_secs': None, '_session_creation_timeout_secs': 7200, '_checkpoint_save_graph_def': True, '_service': None, '_cluster_spec': ClusterSpec({}), '_task_type': 'worker', '_task_id': 0, '_global_id_in_cluster': 0, '_master': '', '_evaluation_master': '', '_is_chief': True, '_num_ps_replicas': 0, '_num_worker_replicas': 1}
-INFO:tensorflow:Calling model_fn.
-INFO:tensorflow:Done calling model_fn.
-INFO:tensorflow:Create CheckpointSaverHook.
-INFO:tensorflow:Graph was finalized.
-INFO:tensorflow:Running local_init_op.
-INFO:tensorflow:Done running local_init_op.
-2026-03-25 08:51:46.481689: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:306] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
-2026-03-25 08:51:46.481708: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:272] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
-2026-03-25 08:51:46.487462: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:51:46.494577: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:51:46.513193: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:51:46.518380: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:51:46.527131: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:51:46.532882: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 0...
-INFO:tensorflow:Saving checkpoints for 0 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpe18ds6yw/model.ckpt.
-INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 0...
-2026-03-25 08:51:47.177448: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:51:47.294704: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-INFO:tensorflow:loss = 1693591200.0, step = 1
-2026-03-25 08:51:47.475056: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-INFO:tensorflow:global_step/sec: 193.38
-INFO:tensorflow:loss = 3004683800.0, step = 101 (0.515 sec)
-INFO:tensorflow:global_step/sec: 330.138
-INFO:tensorflow:loss = 4712327000.0, step = 201 (0.303 sec)
-INFO:tensorflow:global_step/sec: 340.847
-INFO:tensorflow:loss = 8281215500.0, step = 301 (0.293 sec)
-INFO:tensorflow:global_step/sec: 340.541
-INFO:tensorflow:loss = 5409115000.0, step = 401 (0.294 sec)
-INFO:tensorflow:global_step/sec: 346.76
-INFO:tensorflow:loss = 4037581300.0, step = 501 (0.288 sec)
-INFO:tensorflow:global_step/sec: 342.609
-INFO:tensorflow:loss = 2843140900.0, step = 601 (0.292 sec)
-INFO:tensorflow:global_step/sec: 347.951
-INFO:tensorflow:loss = 2655443200.0, step = 701 (0.287 sec)
-INFO:tensorflow:global_step/sec: 343.45
-INFO:tensorflow:loss = 1535879800.0, step = 801 (0.291 sec)
-INFO:tensorflow:global_step/sec: 343.361
-INFO:tensorflow:loss = 3149246000.0, step = 901 (0.291 sec)
-INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 1000...
-INFO:tensorflow:Saving checkpoints for 1000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpe18ds6yw/model.ckpt.
-INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 1000...
-INFO:tensorflow:Loss for final step: 3940059400.0.
-INFO:tensorflow:Calling model_fn.
-INFO:tensorflow:Done calling model_fn.
-INFO:tensorflow:Starting evaluation at 2026-03-25T08:51:50
-2026-03-25 08:51:50.707147: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:51:50.739823: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-INFO:tensorflow:Graph was finalized.
-INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpe18ds6yw/model.ckpt-1000
-INFO:tensorflow:Running local_init_op.
-INFO:tensorflow:Done running local_init_op.
-2026-03-25 08:51:50.911263: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:306] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
-2026-03-25 08:51:50.911279: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:272] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
-2026-03-25 08:51:50.916898: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:51:50.923218: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:51:50.928665: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:51:50.935756: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:51:50.943976: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:51:50.947626: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:51:50.972807: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:51:51.089480: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-INFO:tensorflow:Inference Time : 0.23931s
-INFO:tensorflow:Finished evaluation at 2026-03-25-08:51:51
-INFO:tensorflow:Saving dict for global step 1000: average_loss = 235170930.0, global_step = 1000, label/mean = 13207.129, loss = 3636104200.0, prediction/mean = 59.900124
-INFO:tensorflow:Saving 'checkpoint_path' summary for global step 1000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpe18ds6yw/model.ckpt-1000
-scores_pca {'average_loss': 235170930.0, 'label/mean': 13207.129, 'loss': 3636104200.0, 'prediction/mean': 59.900124, 'global_step': 1000}
-INFO:tensorflow:Calling model_fn.
-INFO:tensorflow:Done calling model_fn.
-INFO:tensorflow:Create CheckpointSaverHook.
-INFO:tensorflow:Graph was finalized.
-INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpe18ds6yw/model.ckpt-1000
-INFO:tensorflow:Running local_init_op.
-INFO:tensorflow:Done running local_init_op.
-2026-03-25 08:51:51.548723: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:306] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
-2026-03-25 08:51:51.548740: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:272] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
-2026-03-25 08:51:51.553982: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:51:51.559887: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:51:51.565759: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:51:51.568783: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:51:51.574995: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:51:51.578217: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 1000...
-INFO:tensorflow:Saving checkpoints for 1000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpe18ds6yw/model.ckpt.
-2026-03-25 08:51:51.789633: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 1000...
-INFO:tensorflow:loss = 3391310000.0, step = 1001
-2026-03-25 08:51:52.019580: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:51:52.112012: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-INFO:tensorflow:global_step/sec: 308.432
-INFO:tensorflow:loss = 2326131200.0, step = 1101 (0.325 sec)
-INFO:tensorflow:global_step/sec: 351.128
-INFO:tensorflow:loss = 3549499400.0, step = 1201 (0.285 sec)
-INFO:tensorflow:global_step/sec: 352.396
-INFO:tensorflow:loss = 3436810200.0, step = 1301 (0.284 sec)
-INFO:tensorflow:global_step/sec: 349.951
-INFO:tensorflow:loss = 3984403200.0, step = 1401 (0.286 sec)
-INFO:tensorflow:global_step/sec: 351.429
-INFO:tensorflow:loss = 4400571400.0, step = 1501 (0.284 sec)
-INFO:tensorflow:global_step/sec: 354.808
-INFO:tensorflow:loss = 2211620000.0, step = 1601 (0.282 sec)
-INFO:tensorflow:global_step/sec: 350.265
-INFO:tensorflow:loss = 2900972300.0, step = 1701 (0.285 sec)
-INFO:tensorflow:global_step/sec: 356.508
-INFO:tensorflow:loss = 3520660200.0, step = 1801 (0.281 sec)
-INFO:tensorflow:global_step/sec: 354.543
-INFO:tensorflow:loss = 2693598200.0, step = 1901 (0.282 sec)
-INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 2000...
-INFO:tensorflow:Saving checkpoints for 2000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpe18ds6yw/model.ckpt.
-INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 2000...
-INFO:tensorflow:Loss for final step: 3081627600.0.
-INFO:tensorflow:Calling model_fn.
-INFO:tensorflow:Done calling model_fn.
-INFO:tensorflow:Starting evaluation at 2026-03-25T08:51:55
-INFO:tensorflow:Graph was finalized.
-INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpe18ds6yw/model.ckpt-2000
-INFO:tensorflow:Running local_init_op.
-INFO:tensorflow:Done running local_init_op.
-2026-03-25 08:51:55.065142: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:51:55.071372: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:51:55.213145: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:306] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
-2026-03-25 08:51:55.213183: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:272] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
-2026-03-25 08:51:55.218308: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:51:55.223099: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:51:55.228366: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:51:55.234425: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:51:55.241982: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:51:55.245170: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-INFO:tensorflow:Inference Time : 0.23581s
-INFO:tensorflow:Finished evaluation at 2026-03-25-08:51:55
-INFO:tensorflow:Saving dict for global step 2000: average_loss = 232974130.0, global_step = 2000, label/mean = 13207.129, loss = 3602138400.0, prediction/mean = 120.58655
-INFO:tensorflow:Saving 'checkpoint_path' summary for global step 2000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpe18ds6yw/model.ckpt-2000
-scores_pca {'average_loss': 232974130.0, 'label/mean': 13207.129, 'loss': 3602138400.0, 'prediction/mean': 120.58655, 'global_step': 2000}
-INFO:tensorflow:Calling model_fn.
-2026-03-25 08:51:55.270515: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:51:55.392106: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-INFO:tensorflow:Done calling model_fn.
-INFO:tensorflow:Create CheckpointSaverHook.
-INFO:tensorflow:Graph was finalized.
-INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpe18ds6yw/model.ckpt-2000
-INFO:tensorflow:Running local_init_op.
-INFO:tensorflow:Done running local_init_op.
-2026-03-25 08:51:55.538518: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:306] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
-2026-03-25 08:51:55.538532: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:272] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
-2026-03-25 08:51:55.544485: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:51:55.550226: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:51:55.555805: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:51:55.558617: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:51:55.564614: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:51:55.568007: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 2000...
-INFO:tensorflow:Saving checkpoints for 2000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpe18ds6yw/model.ckpt.
-2026-03-25 08:51:55.782313: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 2000...
-INFO:tensorflow:loss = 4486459400.0, step = 2001
-2026-03-25 08:51:56.003726: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:51:56.086862: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-INFO:tensorflow:global_step/sec: 263.816
-INFO:tensorflow:loss = 3898317600.0, step = 2101 (0.380 sec)
-INFO:tensorflow:global_step/sec: 356.887
-INFO:tensorflow:loss = 2002719100.0, step = 2201 (0.280 sec)
-INFO:tensorflow:global_step/sec: 350.532
-INFO:tensorflow:loss = 2535827000.0, step = 2301 (0.285 sec)
-INFO:tensorflow:global_step/sec: 346.897
-INFO:tensorflow:loss = 6716141600.0, step = 2401 (0.288 sec)
-INFO:tensorflow:global_step/sec: 349.317
-INFO:tensorflow:loss = 2691210800.0, step = 2501 (0.286 sec)
-INFO:tensorflow:global_step/sec: 347.567
-INFO:tensorflow:loss = 5333090300.0, step = 2601 (0.288 sec)
-INFO:tensorflow:global_step/sec: 359.46
-INFO:tensorflow:loss = 4423546000.0, step = 2701 (0.278 sec)
-INFO:tensorflow:global_step/sec: 365.484
-INFO:tensorflow:loss = 5078761500.0, step = 2801 (0.274 sec)
-INFO:tensorflow:global_step/sec: 360.655
-INFO:tensorflow:loss = 3472384500.0, step = 2901 (0.277 sec)
-INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 3000...
-INFO:tensorflow:Saving checkpoints for 3000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpe18ds6yw/model.ckpt.
-INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 3000...
-INFO:tensorflow:Loss for final step: 2802656800.0.
-INFO:tensorflow:Calling model_fn.
-INFO:tensorflow:Done calling model_fn.
-INFO:tensorflow:Starting evaluation at 2026-03-25T08:51:59
-INFO:tensorflow:Graph was finalized.
-INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpe18ds6yw/model.ckpt-3000
-INFO:tensorflow:Running local_init_op.
-INFO:tensorflow:Done running local_init_op.
-2026-03-25 08:51:59.074587: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:51:59.081397: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:51:59.226649: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:306] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
-2026-03-25 08:51:59.226665: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:272] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
-2026-03-25 08:51:59.231738: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:51:59.236484: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:51:59.242046: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:51:59.247540: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:51:59.254940: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:51:59.258513: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-INFO:tensorflow:Inference Time : 0.23740s
-INFO:tensorflow:Finished evaluation at 2026-03-25-08:51:59
-INFO:tensorflow:Saving dict for global step 3000: average_loss = 230710560.0, global_step = 3000, label/mean = 13207.129, loss = 3567140400.0, prediction/mean = 182.55902
-INFO:tensorflow:Saving 'checkpoint_path' summary for global step 3000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpe18ds6yw/model.ckpt-3000
-scores_pca {'average_loss': 230710560.0, 'label/mean': 13207.129, 'loss': 3567140400.0, 'prediction/mean': 182.55902, 'global_step': 3000}
-INFO:tensorflow:Calling model_fn.
-2026-03-25 08:51:59.283674: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:51:59.402934: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-INFO:tensorflow:Done calling model_fn.
-INFO:tensorflow:Create CheckpointSaverHook.
-INFO:tensorflow:Graph was finalized.
-INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpe18ds6yw/model.ckpt-3000
-INFO:tensorflow:Running local_init_op.
-INFO:tensorflow:Done running local_init_op.
-2026-03-25 08:51:59.544257: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:306] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
-2026-03-25 08:51:59.544272: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:272] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
-2026-03-25 08:51:59.549690: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:51:59.555397: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:51:59.561613: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:51:59.564043: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:51:59.570288: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:51:59.573561: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 3000...
-INFO:tensorflow:Saving checkpoints for 3000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpe18ds6yw/model.ckpt.
-2026-03-25 08:51:59.786083: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 3000...
-INFO:tensorflow:loss = 5568259000.0, step = 3001
-2026-03-25 08:52:00.009469: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:00.104753: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-INFO:tensorflow:global_step/sec: 288.208
-INFO:tensorflow:loss = 2657609700.0, step = 3101 (0.347 sec)
-INFO:tensorflow:global_step/sec: 363.524
-INFO:tensorflow:loss = 2960504300.0, step = 3201 (0.275 sec)
-INFO:tensorflow:global_step/sec: 330.237
-INFO:tensorflow:loss = 2480222700.0, step = 3301 (0.303 sec)
-INFO:tensorflow:global_step/sec: 365.754
-INFO:tensorflow:loss = 3576817700.0, step = 3401 (0.273 sec)
-INFO:tensorflow:global_step/sec: 359.895
-INFO:tensorflow:loss = 3334047000.0, step = 3501 (0.278 sec)
-INFO:tensorflow:global_step/sec: 361.868
-INFO:tensorflow:loss = 2383469000.0, step = 3601 (0.277 sec)
-INFO:tensorflow:global_step/sec: 360.942
-INFO:tensorflow:loss = 3146690300.0, step = 3701 (0.277 sec)
-INFO:tensorflow:global_step/sec: 364.857
-INFO:tensorflow:loss = 3484867300.0, step = 3801 (0.274 sec)
-INFO:tensorflow:global_step/sec: 365.145
-INFO:tensorflow:loss = 3740801500.0, step = 3901 (0.274 sec)
-INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 4000...
-INFO:tensorflow:Saving checkpoints for 4000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpe18ds6yw/model.ckpt.
-INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 4000...
-INFO:tensorflow:Loss for final step: 2773127700.0.
-INFO:tensorflow:Calling model_fn.
-INFO:tensorflow:Done calling model_fn.
-INFO:tensorflow:Starting evaluation at 2026-03-25T08:52:03
-INFO:tensorflow:Graph was finalized.
-INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpe18ds6yw/model.ckpt-4000
-INFO:tensorflow:Running local_init_op.
-INFO:tensorflow:Done running local_init_op.
-2026-03-25 08:52:03.030783: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:03.039854: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:03.186258: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:306] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
-2026-03-25 08:52:03.186273: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:272] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
-2026-03-25 08:52:03.191958: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:03.196869: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:03.202349: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:03.208122: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:03.214849: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-INFO:tensorflow:Inference Time : 0.22921s
-INFO:tensorflow:Finished evaluation at 2026-03-25-08:52:03
-INFO:tensorflow:Saving dict for global step 4000: average_loss = 228449630.0, global_step = 4000, label/mean = 13207.129, loss = 3532182800.0, prediction/mean = 244.41115
-INFO:tensorflow:Saving 'checkpoint_path' summary for global step 4000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpe18ds6yw/model.ckpt-4000
-scores_pca {'average_loss': 228449630.0, 'label/mean': 13207.129, 'loss': 3532182800.0, 'prediction/mean': 244.41115, 'global_step': 4000}
-INFO:tensorflow:Calling model_fn.
-2026-03-25 08:52:03.237091: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:03.245474: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:03.357515: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-INFO:tensorflow:Done calling model_fn.
-INFO:tensorflow:Create CheckpointSaverHook.
-INFO:tensorflow:Graph was finalized.
-INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpe18ds6yw/model.ckpt-4000
-INFO:tensorflow:Running local_init_op.
-INFO:tensorflow:Done running local_init_op.
-2026-03-25 08:52:03.505334: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:306] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
-2026-03-25 08:52:03.505350: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:272] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
-2026-03-25 08:52:03.510358: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:03.516042: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:03.521901: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:03.524525: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:03.530867: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:03.533954: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 4000...
-INFO:tensorflow:Saving checkpoints for 4000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpe18ds6yw/model.ckpt.
-2026-03-25 08:52:03.749654: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 4000...
-INFO:tensorflow:loss = 3113526800.0, step = 4001
-2026-03-25 08:52:03.976450: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:04.059136: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-INFO:tensorflow:global_step/sec: 280.778
-INFO:tensorflow:loss = 2530833700.0, step = 4101 (0.357 sec)
-INFO:tensorflow:global_step/sec: 343.384
-INFO:tensorflow:loss = 3083841000.0, step = 4201 (0.291 sec)
-INFO:tensorflow:global_step/sec: 360.727
-INFO:tensorflow:loss = 2940479500.0, step = 4301 (0.277 sec)
-INFO:tensorflow:global_step/sec: 360.906
-INFO:tensorflow:loss = 3296260900.0, step = 4401 (0.277 sec)
-INFO:tensorflow:global_step/sec: 358.37
-INFO:tensorflow:loss = 3889569000.0, step = 4501 (0.279 sec)
-INFO:tensorflow:global_step/sec: 360.149
-INFO:tensorflow:loss = 1740139300.0, step = 4601 (0.278 sec)
-INFO:tensorflow:global_step/sec: 357.1
-INFO:tensorflow:loss = 4450991600.0, step = 4701 (0.280 sec)
-INFO:tensorflow:global_step/sec: 356.063
-INFO:tensorflow:loss = 5171094500.0, step = 4801 (0.281 sec)
-INFO:tensorflow:global_step/sec: 358.805
-INFO:tensorflow:loss = 4111746300.0, step = 4901 (0.279 sec)
-INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 5000...
-INFO:tensorflow:Saving checkpoints for 5000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpe18ds6yw/model.ckpt.
-INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 5000...
-INFO:tensorflow:Loss for final step: 3743067100.0.
-INFO:tensorflow:Calling model_fn.
-INFO:tensorflow:Done calling model_fn.
-INFO:tensorflow:Starting evaluation at 2026-03-25T08:52:07
-INFO:tensorflow:Graph was finalized.
-INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpe18ds6yw/model.ckpt-5000
-INFO:tensorflow:Running local_init_op.
-INFO:tensorflow:Done running local_init_op.
-2026-03-25 08:52:07.011014: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:07.017288: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:07.162108: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:306] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
-2026-03-25 08:52:07.162123: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:272] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
-2026-03-25 08:52:07.169554: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:07.174640: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:07.179611: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:07.186092: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:07.193435: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:07.196593: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-INFO:tensorflow:Inference Time : 0.23643s
-INFO:tensorflow:Finished evaluation at 2026-03-25-08:52:07
-INFO:tensorflow:Saving dict for global step 5000: average_loss = 226191630.0, global_step = 5000, label/mean = 13207.129, loss = 3497270800.0, prediction/mean = 306.14865
-INFO:tensorflow:Saving 'checkpoint_path' summary for global step 5000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpe18ds6yw/model.ckpt-5000
-scores_pca {'average_loss': 226191630.0, 'label/mean': 13207.129, 'loss': 3497270800.0, 'prediction/mean': 306.14865, 'global_step': 5000}
-INFO:tensorflow:Calling model_fn.
-2026-03-25 08:52:07.227105: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:07.342640: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-INFO:tensorflow:Done calling model_fn.
-INFO:tensorflow:Create CheckpointSaverHook.
-INFO:tensorflow:Graph was finalized.
-INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpe18ds6yw/model.ckpt-5000
-INFO:tensorflow:Running local_init_op.
-INFO:tensorflow:Done running local_init_op.
-2026-03-25 08:52:07.488062: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:306] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
-2026-03-25 08:52:07.488077: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:272] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
-2026-03-25 08:52:07.493717: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:07.499465: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:07.505181: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:07.507812: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:07.513576: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:07.517212: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 5000...
-INFO:tensorflow:Saving checkpoints for 5000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpe18ds6yw/model.ckpt.
-2026-03-25 08:52:07.730862: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 5000...
-INFO:tensorflow:loss = 1847405300.0, step = 5001
-2026-03-25 08:52:07.956539: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:08.042130: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-INFO:tensorflow:global_step/sec: 308.106
-INFO:tensorflow:loss = 2561151000.0, step = 5101 (0.325 sec)
-INFO:tensorflow:global_step/sec: 358.831
-INFO:tensorflow:loss = 3405713000.0, step = 5201 (0.279 sec)
-INFO:tensorflow:global_step/sec: 360.317
-INFO:tensorflow:loss = 3890040300.0, step = 5301 (0.278 sec)
-INFO:tensorflow:global_step/sec: 358.21
-INFO:tensorflow:loss = 3786860300.0, step = 5401 (0.279 sec)
-INFO:tensorflow:global_step/sec: 345.817
-INFO:tensorflow:loss = 2344774100.0, step = 5501 (0.289 sec)
-INFO:tensorflow:global_step/sec: 360.366
-INFO:tensorflow:loss = 4290479600.0, step = 5601 (0.278 sec)
-INFO:tensorflow:global_step/sec: 360.566
-INFO:tensorflow:loss = 3059039500.0, step = 5701 (0.277 sec)
-INFO:tensorflow:global_step/sec: 362.185
-INFO:tensorflow:loss = 3488011000.0, step = 5801 (0.276 sec)
-INFO:tensorflow:global_step/sec: 364.551
-INFO:tensorflow:loss = 3387624700.0, step = 5901 (0.274 sec)
-INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 6000...
-INFO:tensorflow:Saving checkpoints for 6000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpe18ds6yw/model.ckpt.
-INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 6000...
-INFO:tensorflow:Loss for final step: 4146583600.0.
-INFO:tensorflow:Calling model_fn.
-INFO:tensorflow:Done calling model_fn.
-INFO:tensorflow:Starting evaluation at 2026-03-25T08:52:11
-INFO:tensorflow:Graph was finalized.
-INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpe18ds6yw/model.ckpt-6000
-INFO:tensorflow:Running local_init_op.
-INFO:tensorflow:Done running local_init_op.
-2026-03-25 08:52:10.950893: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:10.964473: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:11.108961: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:306] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
-2026-03-25 08:52:11.108977: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:272] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
-2026-03-25 08:52:11.114161: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:11.119447: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:11.125029: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:11.130676: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:11.138176: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:11.141579: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-INFO:tensorflow:Inference Time : 0.22692s
-INFO:tensorflow:Finished evaluation at 2026-03-25-08:52:11
-INFO:tensorflow:Saving dict for global step 6000: average_loss = 223955460.0, global_step = 6000, label/mean = 13207.129, loss = 3462696000.0, prediction/mean = 367.53073
-INFO:tensorflow:Saving 'checkpoint_path' summary for global step 6000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpe18ds6yw/model.ckpt-6000
-scores_pca {'average_loss': 223955460.0, 'label/mean': 13207.129, 'loss': 3462696000.0, 'prediction/mean': 367.53073, 'global_step': 6000}
-INFO:tensorflow:Calling model_fn.
-2026-03-25 08:52:11.167072: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:11.280211: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-INFO:tensorflow:Done calling model_fn.
-INFO:tensorflow:Create CheckpointSaverHook.
-INFO:tensorflow:Graph was finalized.
-INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpe18ds6yw/model.ckpt-6000
-INFO:tensorflow:Running local_init_op.
-INFO:tensorflow:Done running local_init_op.
-2026-03-25 08:52:11.481750: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:306] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
-2026-03-25 08:52:11.481766: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:272] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
-2026-03-25 08:52:11.486563: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:11.492345: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:11.498157: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:11.501311: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:11.507546: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:11.510772: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 6000...
-INFO:tensorflow:Saving checkpoints for 6000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpe18ds6yw/model.ckpt.
-2026-03-25 08:52:11.725305: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 6000...
-INFO:tensorflow:loss = 2075737300.0, step = 6001
-2026-03-25 08:52:11.976217: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:12.072067: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-INFO:tensorflow:global_step/sec: 308.318
-INFO:tensorflow:loss = 3829544400.0, step = 6101 (0.325 sec)
-INFO:tensorflow:global_step/sec: 358.875
-INFO:tensorflow:loss = 2505177000.0, step = 6201 (0.279 sec)
-INFO:tensorflow:global_step/sec: 352.55
-INFO:tensorflow:loss = 2158346800.0, step = 6301 (0.284 sec)
-INFO:tensorflow:global_step/sec: 355.394
-INFO:tensorflow:loss = 4479153700.0, step = 6401 (0.281 sec)
-INFO:tensorflow:global_step/sec: 356.53
-INFO:tensorflow:loss = 5098366500.0, step = 6501 (0.280 sec)
-INFO:tensorflow:global_step/sec: 336.973
-INFO:tensorflow:loss = 3648151600.0, step = 6601 (0.297 sec)
-INFO:tensorflow:global_step/sec: 364.151
-INFO:tensorflow:loss = 4922632000.0, step = 6701 (0.275 sec)
-INFO:tensorflow:global_step/sec: 364.627
-INFO:tensorflow:loss = 2585335600.0, step = 6801 (0.274 sec)
-INFO:tensorflow:global_step/sec: 361.195
-INFO:tensorflow:loss = 2642967600.0, step = 6901 (0.277 sec)
-INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 7000...
-INFO:tensorflow:Saving checkpoints for 7000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpe18ds6yw/model.ckpt.
-INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 7000...
-INFO:tensorflow:Loss for final step: 3983103200.0.
-INFO:tensorflow:Calling model_fn.
-INFO:tensorflow:Done calling model_fn.
-INFO:tensorflow:Starting evaluation at 2026-03-25T08:52:15
-INFO:tensorflow:Graph was finalized.
-INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpe18ds6yw/model.ckpt-7000
-2026-03-25 08:52:15.129164: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:15.161631: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:15.323357: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:306] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
-2026-03-25 08:52:15.323373: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:272] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
-INFO:tensorflow:Running local_init_op.
-INFO:tensorflow:Done running local_init_op.
-INFO:tensorflow:Inference Time : 0.22676s
-INFO:tensorflow:Finished evaluation at 2026-03-25-08:52:15
-INFO:tensorflow:Saving dict for global step 7000: average_loss = 221735540.0, global_step = 7000, label/mean = 13207.129, loss = 3428372500.0, prediction/mean = 428.69946
-INFO:tensorflow:Saving 'checkpoint_path' summary for global step 7000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpe18ds6yw/model.ckpt-7000
-2026-03-25 08:52:15.329826: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:15.334986: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:15.343018: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:15.349450: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:15.356974: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:15.360681: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:15.385122: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:15.492096: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-scores_pca {'average_loss': 221735540.0, 'label/mean': 13207.129, 'loss': 3428372500.0, 'prediction/mean': 428.69946, 'global_step': 7000}
-INFO:tensorflow:Calling model_fn.
-INFO:tensorflow:Done calling model_fn.
-INFO:tensorflow:Create CheckpointSaverHook.
-INFO:tensorflow:Graph was finalized.
-INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpe18ds6yw/model.ckpt-7000
-INFO:tensorflow:Running local_init_op.
-INFO:tensorflow:Done running local_init_op.
-2026-03-25 08:52:15.640316: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:306] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
-2026-03-25 08:52:15.640332: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:272] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
-2026-03-25 08:52:15.645195: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:15.650932: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:15.656676: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:15.659725: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:15.665532: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:15.668641: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 7000...
-INFO:tensorflow:Saving checkpoints for 7000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpe18ds6yw/model.ckpt.
-2026-03-25 08:52:15.885706: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 7000...
-INFO:tensorflow:loss = 2629463600.0, step = 7001
-2026-03-25 08:52:16.182521: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:16.261941: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-INFO:tensorflow:global_step/sec: 267.888
-INFO:tensorflow:loss = 2163977200.0, step = 7101 (0.374 sec)
-INFO:tensorflow:global_step/sec: 361.594
-INFO:tensorflow:loss = 1644896500.0, step = 7201 (0.276 sec)
-INFO:tensorflow:global_step/sec: 353.34
-INFO:tensorflow:loss = 3462255000.0, step = 7301 (0.283 sec)
-INFO:tensorflow:global_step/sec: 366
-INFO:tensorflow:loss = 2045560300.0, step = 7401 (0.273 sec)
-INFO:tensorflow:global_step/sec: 364.385
-INFO:tensorflow:loss = 1818657400.0, step = 7501 (0.275 sec)
-INFO:tensorflow:global_step/sec: 280.255
-INFO:tensorflow:loss = 3233012200.0, step = 7601 (0.357 sec)
-INFO:tensorflow:global_step/sec: 313.153
-INFO:tensorflow:loss = 4024751900.0, step = 7701 (0.319 sec)
-INFO:tensorflow:global_step/sec: 254.093
-INFO:tensorflow:loss = 3453770800.0, step = 7801 (0.393 sec)
-INFO:tensorflow:global_step/sec: 260.717
-INFO:tensorflow:loss = 3583072000.0, step = 7901 (0.384 sec)
-INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 8000...
-INFO:tensorflow:Saving checkpoints for 8000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpe18ds6yw/model.ckpt.
-INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 8000...
-INFO:tensorflow:Loss for final step: 2795315200.0.
-INFO:tensorflow:Calling model_fn.
-INFO:tensorflow:Done calling model_fn.
-INFO:tensorflow:Starting evaluation at 2026-03-25T08:52:19
-2026-03-25 08:52:19.664477: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:19.691334: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-INFO:tensorflow:Graph was finalized.
-INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpe18ds6yw/model.ckpt-8000
-INFO:tensorflow:Running local_init_op.
-INFO:tensorflow:Done running local_init_op.
-2026-03-25 08:52:19.893519: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:306] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
-2026-03-25 08:52:19.893535: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:272] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
-2026-03-25 08:52:19.899583: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:19.904509: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:19.911693: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:19.918239: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:19.926104: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:19.929227: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:19.955614: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:20.087548: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-INFO:tensorflow:Inference Time : 0.26323s
-INFO:tensorflow:Finished evaluation at 2026-03-25-08:52:20
-INFO:tensorflow:Saving dict for global step 8000: average_loss = 219522670.0, global_step = 8000, label/mean = 13207.129, loss = 3394158300.0, prediction/mean = 489.83163
-INFO:tensorflow:Saving 'checkpoint_path' summary for global step 8000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpe18ds6yw/model.ckpt-8000
-scores_pca {'average_loss': 219522670.0, 'label/mean': 13207.129, 'loss': 3394158300.0, 'prediction/mean': 489.83163, 'global_step': 8000}
-INFO:tensorflow:Calling model_fn.
-INFO:tensorflow:Done calling model_fn.
-INFO:tensorflow:Create CheckpointSaverHook.
-INFO:tensorflow:Graph was finalized.
-INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpe18ds6yw/model.ckpt-8000
-INFO:tensorflow:Running local_init_op.
-INFO:tensorflow:Done running local_init_op.
-2026-03-25 08:52:20.247288: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:306] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
-2026-03-25 08:52:20.247305: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:272] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
-2026-03-25 08:52:20.252660: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:20.259099: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:20.266191: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:20.269778: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:20.276559: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:20.279868: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 8000...
-INFO:tensorflow:Saving checkpoints for 8000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpe18ds6yw/model.ckpt.
-2026-03-25 08:52:20.557630: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 8000...
-INFO:tensorflow:loss = 4510650400.0, step = 8001
-2026-03-25 08:52:20.949683: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:21.060578: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-INFO:tensorflow:global_step/sec: 302.9
-INFO:tensorflow:loss = 4622812000.0, step = 8101 (0.330 sec)
-INFO:tensorflow:global_step/sec: 375.099
-INFO:tensorflow:loss = 4961518600.0, step = 8201 (0.267 sec)
-INFO:tensorflow:global_step/sec: 376.501
-INFO:tensorflow:loss = 1894230300.0, step = 8301 (0.266 sec)
-INFO:tensorflow:global_step/sec: 371.789
-INFO:tensorflow:loss = 2071780700.0, step = 8401 (0.269 sec)
-INFO:tensorflow:global_step/sec: 303.535
-INFO:tensorflow:loss = 5827272000.0, step = 8501 (0.331 sec)
-INFO:tensorflow:global_step/sec: 304.064
-INFO:tensorflow:loss = 2608309800.0, step = 8601 (0.328 sec)
-INFO:tensorflow:global_step/sec: 304.707
-INFO:tensorflow:loss = 3162104300.0, step = 8701 (0.328 sec)
-INFO:tensorflow:global_step/sec: 251.589
-INFO:tensorflow:loss = 3034514400.0, step = 8801 (0.399 sec)
-INFO:tensorflow:global_step/sec: 275.431
-INFO:tensorflow:loss = 2491714800.0, step = 8901 (0.362 sec)
-INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 9000...
-INFO:tensorflow:Saving checkpoints for 9000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpe18ds6yw/model.ckpt.
-INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 9000...
-INFO:tensorflow:Loss for final step: 3870081300.0.
-INFO:tensorflow:Calling model_fn.
-INFO:tensorflow:Done calling model_fn.
-INFO:tensorflow:Starting evaluation at 2026-03-25T08:52:24
-2026-03-25 08:52:24.341531: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:24.370119: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-INFO:tensorflow:Graph was finalized.
-INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpe18ds6yw/model.ckpt-9000
-INFO:tensorflow:Running local_init_op.
-INFO:tensorflow:Done running local_init_op.
-2026-03-25 08:52:24.546037: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:306] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
-2026-03-25 08:52:24.546051: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:272] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
-2026-03-25 08:52:24.552266: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:24.560012: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:24.567717: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:24.574960: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:24.582365: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:24.585660: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:24.610252: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:24.733026: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-INFO:tensorflow:Inference Time : 0.25250s
-INFO:tensorflow:Finished evaluation at 2026-03-25-08:52:24
-INFO:tensorflow:Saving dict for global step 9000: average_loss = 217329600.0, global_step = 9000, label/mean = 13207.129, loss = 3360250000.0, prediction/mean = 550.6421
-INFO:tensorflow:Saving 'checkpoint_path' summary for global step 9000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpe18ds6yw/model.ckpt-9000
-scores_pca {'average_loss': 217329600.0, 'label/mean': 13207.129, 'loss': 3360250000.0, 'prediction/mean': 550.6421, 'global_step': 9000}
-INFO:tensorflow:Calling model_fn.
-INFO:tensorflow:Done calling model_fn.
-INFO:tensorflow:Create CheckpointSaverHook.
-INFO:tensorflow:Graph was finalized.
-INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpe18ds6yw/model.ckpt-9000
-INFO:tensorflow:Running local_init_op.
-INFO:tensorflow:Done running local_init_op.
-2026-03-25 08:52:24.889014: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:306] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
-2026-03-25 08:52:24.889030: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:272] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
-2026-03-25 08:52:24.894306: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:24.900102: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:24.905622: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:24.908277: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:24.914062: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:24.917893: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 9000...
-INFO:tensorflow:Saving checkpoints for 9000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpe18ds6yw/model.ckpt.
-INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 9000...
-INFO:tensorflow:loss = 7368299000.0, step = 9001
-2026-03-25 08:52:25.341301: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:25.438447: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:25.515474: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-INFO:tensorflow:global_step/sec: 316.717
-INFO:tensorflow:loss = 4305154000.0, step = 9101 (0.316 sec)
-INFO:tensorflow:global_step/sec: 364.759
-INFO:tensorflow:loss = 1948509000.0, step = 9201 (0.275 sec)
-INFO:tensorflow:global_step/sec: 357.919
-INFO:tensorflow:loss = 2436993000.0, step = 9301 (0.279 sec)
-INFO:tensorflow:global_step/sec: 356.767
-INFO:tensorflow:loss = 2793172000.0, step = 9401 (0.280 sec)
-INFO:tensorflow:global_step/sec: 366.199
-INFO:tensorflow:loss = 4266612200.0, step = 9501 (0.273 sec)
-INFO:tensorflow:global_step/sec: 361.914
-INFO:tensorflow:loss = 3998146600.0, step = 9601 (0.276 sec)
-INFO:tensorflow:global_step/sec: 368.638
-INFO:tensorflow:loss = 3401011700.0, step = 9701 (0.271 sec)
-INFO:tensorflow:global_step/sec: 370.269
-INFO:tensorflow:loss = 3072115200.0, step = 9801 (0.270 sec)
-INFO:tensorflow:global_step/sec: 371.122
-INFO:tensorflow:loss = 4841378000.0, step = 9901 (0.269 sec)
-INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 10000...
-INFO:tensorflow:Saving checkpoints for 10000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpe18ds6yw/model.ckpt.
-INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 10000...
-INFO:tensorflow:Loss for final step: 4222898200.0.
-INFO:tensorflow:Calling model_fn.
-INFO:tensorflow:Done calling model_fn.
-INFO:tensorflow:Starting evaluation at 2026-03-25T08:52:28
-INFO:tensorflow:Graph was finalized.
-INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpe18ds6yw/model.ckpt-10000
-INFO:tensorflow:Running local_init_op.
-INFO:tensorflow:Done running local_init_op.
-2026-03-25 08:52:28.374326: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:28.380763: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:28.519290: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:306] Could not identify NUMA node of platform GPU ID 0, defaulting to 0. Your kernel may not have been built with NUMA support.
-2026-03-25 08:52:28.519304: I tensorflow/core/common_runtime/pluggable_device/pluggable_device_factory.cc:272] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 0 MB memory) -> physical PluggableDevice (device: 0, name: METAL, pci bus id: <undefined>)
-2026-03-25 08:52:28.524502: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:28.529224: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:28.534775: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:28.540287: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:28.547766: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:28.551380: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-INFO:tensorflow:Inference Time : 0.21718s
-INFO:tensorflow:Finished evaluation at 2026-03-25-08:52:28
-INFO:tensorflow:Saving dict for global step 10000: average_loss = 215141230.0, global_step = 10000, label/mean = 13207.129, loss = 3326414600.0, prediction/mean = 611.4599
-INFO:tensorflow:Saving 'checkpoint_path' summary for global step 10000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpe18ds6yw/model.ckpt-10000
-scores_pca {'average_loss': 215141230.0, 'label/mean': 13207.129, 'loss': 3326414600.0, 'prediction/mean': 611.4599, 'global_step': 10000}
-2026-03-25 08:52:28.576262: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-2026-03-25 08:52:28.681926: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:114] Plugin optimizer for device_type GPU is enabled.
-'''
 ```
+
+    model_feature_columns_pca [NumericColumn(key='PC1', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=None), NumericColumn(key='PC2', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=None), NumericColumn(key='PC3', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=None), NumericColumn(key='PC4', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=None), NumericColumn(key='PC5', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=None), NumericColumn(key='PC6', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=None), NumericColumn(key='PC7', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=None), NumericColumn(key='PC8', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=None), NumericColumn(key='PC9', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=None)]
+    INFO:tensorflow:Using default config.
+    WARNING:tensorflow:Using temporary folder as model directory: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0if74k76
+    INFO:tensorflow:Using config: {'_model_dir': '/var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0if74k76', '_tf_random_seed': None, '_save_summary_steps': 100, '_save_checkpoints_steps': None, '_save_checkpoints_secs': 600, '_session_config': allow_soft_placement: true
+    graph_options {
+      rewrite_options {
+        meta_optimizer_iterations: ONE
+      }
+    }
+    , '_keep_checkpoint_max': 5, '_keep_checkpoint_every_n_hours': 10000, '_log_step_count_steps': 100, '_train_distribute': None, '_device_fn': None, '_protocol': None, '_eval_distribute': None, '_experimental_distribute': None, '_experimental_max_worker_delay_secs': None, '_session_creation_timeout_secs': 7200, '_checkpoint_save_graph_def': True, '_service': None, '_cluster_spec': ClusterSpec({}), '_task_type': 'worker', '_task_id': 0, '_global_id_in_cluster': 0, '_master': '', '_evaluation_master': '', '_is_chief': True, '_num_ps_replicas': 0, '_num_worker_replicas': 1}
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Create CheckpointSaverHook.
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 0...
+    INFO:tensorflow:Saving checkpoints for 0 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0if74k76/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 0...
+    INFO:tensorflow:loss = 2822984700.0, step = 1
+    INFO:tensorflow:global_step/sec: 1858.32
+    INFO:tensorflow:loss = 3446496300.0, step = 101 (0.055 sec)
+    INFO:tensorflow:global_step/sec: 2508.53
+    INFO:tensorflow:loss = 5168191500.0, step = 201 (0.039 sec)
+    INFO:tensorflow:global_step/sec: 2941.35
+    INFO:tensorflow:loss = 3568298000.0, step = 301 (0.035 sec)
+    INFO:tensorflow:global_step/sec: 2857
+    INFO:tensorflow:loss = 5711933000.0, step = 401 (0.035 sec)
+    INFO:tensorflow:global_step/sec: 2728.13
+    INFO:tensorflow:loss = 2506798800.0, step = 501 (0.037 sec)
+    INFO:tensorflow:global_step/sec: 2675.74
+    INFO:tensorflow:loss = 4649361400.0, step = 601 (0.037 sec)
+    INFO:tensorflow:global_step/sec: 2697.35
+    INFO:tensorflow:loss = 4182385200.0, step = 701 (0.037 sec)
+    INFO:tensorflow:global_step/sec: 2791.68
+    INFO:tensorflow:loss = 3222525000.0, step = 801 (0.036 sec)
+    INFO:tensorflow:global_step/sec: 2969.99
+    INFO:tensorflow:loss = 3872244700.0, step = 901 (0.034 sec)
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 1000...
+    INFO:tensorflow:Saving checkpoints for 1000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0if74k76/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 1000...
+    INFO:tensorflow:Loss for final step: 4871383600.0.
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Starting evaluation at 2026-04-01T13:24:20
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0if74k76/model.ckpt-1000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Inference Time : 0.09619s
+    INFO:tensorflow:Finished evaluation at 2026-04-01-13:24:20
+    INFO:tensorflow:Saving dict for global step 1000: average_loss = 235318190.0, global_step = 1000, label/mean = 13207.129, loss = 3638381300.0, prediction/mean = 55.707584
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 1000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0if74k76/model.ckpt-1000
+    scores_pca {'average_loss': 235318190.0, 'label/mean': 13207.129, 'loss': 3638381300.0, 'prediction/mean': 55.707584, 'global_step': 1000}
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Create CheckpointSaverHook.
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0if74k76/model.ckpt-1000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 1000...
+    INFO:tensorflow:Saving checkpoints for 1000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0if74k76/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 1000...
+    INFO:tensorflow:loss = 3542584600.0, step = 1001
+    INFO:tensorflow:global_step/sec: 1954.85
+    INFO:tensorflow:loss = 2918047200.0, step = 1101 (0.052 sec)
+    INFO:tensorflow:global_step/sec: 2703.21
+    INFO:tensorflow:loss = 2335144400.0, step = 1201 (0.037 sec)
+    INFO:tensorflow:global_step/sec: 2867.06
+    INFO:tensorflow:loss = 2341849000.0, step = 1301 (0.035 sec)
+    INFO:tensorflow:global_step/sec: 2862.95
+    INFO:tensorflow:loss = 3775243800.0, step = 1401 (0.035 sec)
+    INFO:tensorflow:global_step/sec: 2567.25
+    INFO:tensorflow:loss = 3246102500.0, step = 1501 (0.038 sec)
+    INFO:tensorflow:global_step/sec: 2935.05
+    INFO:tensorflow:loss = 3701038000.0, step = 1601 (0.034 sec)
+    INFO:tensorflow:global_step/sec: 2604.59
+    INFO:tensorflow:loss = 4955000000.0, step = 1701 (0.038 sec)
+    INFO:tensorflow:global_step/sec: 2506.44
+    INFO:tensorflow:loss = 5462490000.0, step = 1801 (0.041 sec)
+    INFO:tensorflow:global_step/sec: 2208.97
+    INFO:tensorflow:loss = 4576856000.0, step = 1901 (0.045 sec)
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 2000...
+    INFO:tensorflow:Saving checkpoints for 2000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0if74k76/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 2000...
+    INFO:tensorflow:Loss for final step: 2632832500.0.
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Starting evaluation at 2026-04-01T13:24:22
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0if74k76/model.ckpt-2000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Inference Time : 0.16857s
+    INFO:tensorflow:Finished evaluation at 2026-04-01-13:24:22
+    INFO:tensorflow:Saving dict for global step 2000: average_loss = 233123090.0, global_step = 2000, label/mean = 13207.129, loss = 3604441600.0, prediction/mean = 117.108376
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 2000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0if74k76/model.ckpt-2000
+    scores_pca {'average_loss': 233123090.0, 'label/mean': 13207.129, 'loss': 3604441600.0, 'prediction/mean': 117.108376, 'global_step': 2000}
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Create CheckpointSaverHook.
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0if74k76/model.ckpt-2000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 2000...
+    INFO:tensorflow:Saving checkpoints for 2000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0if74k76/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 2000...
+    INFO:tensorflow:loss = 3190963500.0, step = 2001
+    INFO:tensorflow:global_step/sec: 1868.8
+    INFO:tensorflow:loss = 4577575000.0, step = 2101 (0.054 sec)
+    INFO:tensorflow:global_step/sec: 2754.83
+    INFO:tensorflow:loss = 3512246800.0, step = 2201 (0.037 sec)
+    INFO:tensorflow:global_step/sec: 2879.77
+    INFO:tensorflow:loss = 4501397000.0, step = 2301 (0.035 sec)
+    INFO:tensorflow:global_step/sec: 2899.48
+    INFO:tensorflow:loss = 3650058200.0, step = 2401 (0.034 sec)
+    INFO:tensorflow:global_step/sec: 2957
+    INFO:tensorflow:loss = 4882476000.0, step = 2501 (0.034 sec)
+    INFO:tensorflow:global_step/sec: 2894.1
+    INFO:tensorflow:loss = 7033726000.0, step = 2601 (0.035 sec)
+    INFO:tensorflow:global_step/sec: 2843.75
+    INFO:tensorflow:loss = 2867456000.0, step = 2701 (0.035 sec)
+    INFO:tensorflow:global_step/sec: 2884.8
+    INFO:tensorflow:loss = 4618662000.0, step = 2801 (0.034 sec)
+    INFO:tensorflow:global_step/sec: 2824.56
+    INFO:tensorflow:loss = 3029607700.0, step = 2901 (0.035 sec)
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 3000...
+    INFO:tensorflow:Saving checkpoints for 3000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0if74k76/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 3000...
+    INFO:tensorflow:Loss for final step: 5722501000.0.
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Starting evaluation at 2026-04-01T13:24:23
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0if74k76/model.ckpt-3000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Inference Time : 0.08723s
+    INFO:tensorflow:Finished evaluation at 2026-04-01-13:24:23
+    INFO:tensorflow:Saving dict for global step 3000: average_loss = 230906140.0, global_step = 3000, label/mean = 13207.129, loss = 3570164200.0, prediction/mean = 178.76662
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 3000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0if74k76/model.ckpt-3000
+    scores_pca {'average_loss': 230906140.0, 'label/mean': 13207.129, 'loss': 3570164200.0, 'prediction/mean': 178.76662, 'global_step': 3000}
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Create CheckpointSaverHook.
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0if74k76/model.ckpt-3000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 3000...
+    INFO:tensorflow:Saving checkpoints for 3000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0if74k76/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 3000...
+    INFO:tensorflow:loss = 3286167600.0, step = 3001
+    INFO:tensorflow:global_step/sec: 1960.79
+    INFO:tensorflow:loss = 4962417000.0, step = 3101 (0.051 sec)
+    INFO:tensorflow:global_step/sec: 3001.29
+    INFO:tensorflow:loss = 4254056400.0, step = 3201 (0.034 sec)
+    INFO:tensorflow:global_step/sec: 2674.51
+    INFO:tensorflow:loss = 1697162800.0, step = 3301 (0.037 sec)
+    INFO:tensorflow:global_step/sec: 2948.81
+    INFO:tensorflow:loss = 2500264400.0, step = 3401 (0.034 sec)
+    INFO:tensorflow:global_step/sec: 2801.26
+    INFO:tensorflow:loss = 2726297600.0, step = 3501 (0.036 sec)
+    INFO:tensorflow:global_step/sec: 2938.61
+    INFO:tensorflow:loss = 3362808800.0, step = 3601 (0.034 sec)
+    INFO:tensorflow:global_step/sec: 2805.67
+    INFO:tensorflow:loss = 3443250700.0, step = 3701 (0.036 sec)
+    INFO:tensorflow:global_step/sec: 2865.9
+    INFO:tensorflow:loss = 3853674500.0, step = 3801 (0.035 sec)
+    INFO:tensorflow:global_step/sec: 2881.02
+    INFO:tensorflow:loss = 2123613300.0, step = 3901 (0.035 sec)
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 4000...
+    INFO:tensorflow:Saving checkpoints for 4000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0if74k76/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 4000...
+    INFO:tensorflow:Loss for final step: 2474248700.0.
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Starting evaluation at 2026-04-01T13:24:25
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0if74k76/model.ckpt-4000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Inference Time : 0.08830s
+    INFO:tensorflow:Finished evaluation at 2026-04-01-13:24:25
+    INFO:tensorflow:Saving dict for global step 4000: average_loss = 228675940.0, global_step = 4000, label/mean = 13207.129, loss = 3535681800.0, prediction/mean = 240.41096
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 4000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0if74k76/model.ckpt-4000
+    scores_pca {'average_loss': 228675940.0, 'label/mean': 13207.129, 'loss': 3535681800.0, 'prediction/mean': 240.41096, 'global_step': 4000}
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Create CheckpointSaverHook.
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0if74k76/model.ckpt-4000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 4000...
+    INFO:tensorflow:Saving checkpoints for 4000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0if74k76/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 4000...
+    INFO:tensorflow:loss = 4290235400.0, step = 4001
+    INFO:tensorflow:global_step/sec: 1905.85
+    INFO:tensorflow:loss = 3949850600.0, step = 4101 (0.053 sec)
+    INFO:tensorflow:global_step/sec: 2934.37
+    INFO:tensorflow:loss = 3960533800.0, step = 4201 (0.035 sec)
+    INFO:tensorflow:global_step/sec: 2889.26
+    INFO:tensorflow:loss = 3940558800.0, step = 4301 (0.035 sec)
+    INFO:tensorflow:global_step/sec: 2870.67
+    INFO:tensorflow:loss = 2473121800.0, step = 4401 (0.035 sec)
+    INFO:tensorflow:global_step/sec: 2719.39
+    INFO:tensorflow:loss = 3562566000.0, step = 4501 (0.037 sec)
+    INFO:tensorflow:global_step/sec: 2750.74
+    INFO:tensorflow:loss = 4058944500.0, step = 4601 (0.037 sec)
+    INFO:tensorflow:global_step/sec: 2863.44
+    INFO:tensorflow:loss = 4328343600.0, step = 4701 (0.035 sec)
+    INFO:tensorflow:global_step/sec: 2838.88
+    INFO:tensorflow:loss = 4308092000.0, step = 4801 (0.036 sec)
+    INFO:tensorflow:global_step/sec: 2826.14
+    INFO:tensorflow:loss = 1514110500.0, step = 4901 (0.036 sec)
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 5000...
+    INFO:tensorflow:Saving checkpoints for 5000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0if74k76/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 5000...
+    INFO:tensorflow:Loss for final step: 6677186600.0.
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Starting evaluation at 2026-04-01T13:24:26
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0if74k76/model.ckpt-5000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Inference Time : 0.16375s
+    INFO:tensorflow:Finished evaluation at 2026-04-01-13:24:26
+    INFO:tensorflow:Saving dict for global step 5000: average_loss = 226445970.0, global_step = 5000, label/mean = 13207.129, loss = 3501203200.0, prediction/mean = 302.0357
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 5000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0if74k76/model.ckpt-5000
+    scores_pca {'average_loss': 226445970.0, 'label/mean': 13207.129, 'loss': 3501203200.0, 'prediction/mean': 302.0357, 'global_step': 5000}
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Create CheckpointSaverHook.
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0if74k76/model.ckpt-5000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 5000...
+    INFO:tensorflow:Saving checkpoints for 5000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0if74k76/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 5000...
+    INFO:tensorflow:loss = 4111745000.0, step = 5001
+    WARNING:tensorflow:It seems that global step (tf.train.get_global_step) has not been increased. Current value (could be stable): 5012 vs previous value: 5012. You could increase the global step by passing tf.train.get_global_step() to Optimizer.apply_gradients or Optimizer.minimize.
+    WARNING:tensorflow:It seems that global step (tf.train.get_global_step) has not been increased. Current value (could be stable): 5083 vs previous value: 5083. You could increase the global step by passing tf.train.get_global_step() to Optimizer.apply_gradients or Optimizer.minimize.
+    INFO:tensorflow:global_step/sec: 1426.07
+    INFO:tensorflow:loss = 2802896400.0, step = 5101 (0.071 sec)
+    INFO:tensorflow:global_step/sec: 2140.58
+    INFO:tensorflow:loss = 2675186700.0, step = 5201 (0.047 sec)
+    INFO:tensorflow:global_step/sec: 2458.95
+    INFO:tensorflow:loss = 3142436900.0, step = 5301 (0.041 sec)
+    INFO:tensorflow:global_step/sec: 2531.51
+    INFO:tensorflow:loss = 5738563600.0, step = 5401 (0.040 sec)
+    INFO:tensorflow:global_step/sec: 2789.8
+    INFO:tensorflow:loss = 1983788700.0, step = 5501 (0.036 sec)
+    INFO:tensorflow:global_step/sec: 2797.1
+    INFO:tensorflow:loss = 2956128500.0, step = 5601 (0.036 sec)
+    INFO:tensorflow:global_step/sec: 2858.54
+    INFO:tensorflow:loss = 3311237400.0, step = 5701 (0.035 sec)
+    INFO:tensorflow:global_step/sec: 2823.29
+    INFO:tensorflow:loss = 1864028200.0, step = 5801 (0.035 sec)
+    INFO:tensorflow:global_step/sec: 2281.21
+    INFO:tensorflow:loss = 6347672600.0, step = 5901 (0.044 sec)
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 6000...
+    INFO:tensorflow:Saving checkpoints for 6000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0if74k76/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 6000...
+    INFO:tensorflow:Loss for final step: 2225233400.0.
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Starting evaluation at 2026-04-01T13:24:28
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0if74k76/model.ckpt-6000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Inference Time : 0.08644s
+    INFO:tensorflow:Finished evaluation at 2026-04-01-13:24:28
+    INFO:tensorflow:Saving dict for global step 6000: average_loss = 224221170.0, global_step = 6000, label/mean = 13207.129, loss = 3466804200.0, prediction/mean = 363.59833
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 6000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0if74k76/model.ckpt-6000
+    scores_pca {'average_loss': 224221170.0, 'label/mean': 13207.129, 'loss': 3466804200.0, 'prediction/mean': 363.59833, 'global_step': 6000}
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Create CheckpointSaverHook.
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0if74k76/model.ckpt-6000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 6000...
+    INFO:tensorflow:Saving checkpoints for 6000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0if74k76/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 6000...
+    INFO:tensorflow:loss = 5175226000.0, step = 6001
+    INFO:tensorflow:global_step/sec: 1950.31
+    INFO:tensorflow:loss = 2143427300.0, step = 6101 (0.052 sec)
+    INFO:tensorflow:global_step/sec: 2929.45
+    INFO:tensorflow:loss = 4431459300.0, step = 6201 (0.034 sec)
+    INFO:tensorflow:global_step/sec: 2974.87
+    INFO:tensorflow:loss = 4248520200.0, step = 6301 (0.034 sec)
+    INFO:tensorflow:global_step/sec: 2830.85
+    INFO:tensorflow:loss = 2744656400.0, step = 6401 (0.035 sec)
+    INFO:tensorflow:global_step/sec: 2994.46
+    INFO:tensorflow:loss = 2755443700.0, step = 6501 (0.034 sec)
+    INFO:tensorflow:global_step/sec: 2851.6
+    INFO:tensorflow:loss = 2882191000.0, step = 6601 (0.035 sec)
+    INFO:tensorflow:global_step/sec: 2891.33
+    INFO:tensorflow:loss = 5305789000.0, step = 6701 (0.034 sec)
+    INFO:tensorflow:global_step/sec: 3004.28
+    INFO:tensorflow:loss = 3256545800.0, step = 6801 (0.034 sec)
+    INFO:tensorflow:global_step/sec: 2809.22
+    INFO:tensorflow:loss = 1988833800.0, step = 6901 (0.035 sec)
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 7000...
+    INFO:tensorflow:Saving checkpoints for 7000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0if74k76/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 7000...
+    INFO:tensorflow:Loss for final step: 2661295600.0.
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Starting evaluation at 2026-04-01T13:24:29
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0if74k76/model.ckpt-7000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Inference Time : 0.08631s
+    INFO:tensorflow:Finished evaluation at 2026-04-01-13:24:29
+    INFO:tensorflow:Saving dict for global step 7000: average_loss = 222003740.0, global_step = 7000, label/mean = 13207.129, loss = 3432519400.0, prediction/mean = 425.0341
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 7000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0if74k76/model.ckpt-7000
+    scores_pca {'average_loss': 222003740.0, 'label/mean': 13207.129, 'loss': 3432519400.0, 'prediction/mean': 425.0341, 'global_step': 7000}
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Create CheckpointSaverHook.
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0if74k76/model.ckpt-7000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 7000...
+    INFO:tensorflow:Saving checkpoints for 7000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0if74k76/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 7000...
+    INFO:tensorflow:loss = 2160324900.0, step = 7001
+    INFO:tensorflow:global_step/sec: 1603.73
+    INFO:tensorflow:loss = 8125150000.0, step = 7101 (0.063 sec)
+    INFO:tensorflow:global_step/sec: 2184.59
+    INFO:tensorflow:loss = 3857738800.0, step = 7201 (0.047 sec)
+    INFO:tensorflow:global_step/sec: 2183.99
+    INFO:tensorflow:loss = 3664234000.0, step = 7301 (0.045 sec)
+    INFO:tensorflow:global_step/sec: 2430.48
+    INFO:tensorflow:loss = 2796925000.0, step = 7401 (0.042 sec)
+    INFO:tensorflow:global_step/sec: 2826.14
+    INFO:tensorflow:loss = 4558593500.0, step = 7501 (0.035 sec)
+    INFO:tensorflow:global_step/sec: 2964.63
+    INFO:tensorflow:loss = 5313566000.0, step = 7601 (0.034 sec)
+    INFO:tensorflow:global_step/sec: 2826.92
+    INFO:tensorflow:loss = 1635471400.0, step = 7701 (0.036 sec)
+    INFO:tensorflow:global_step/sec: 2840.11
+    INFO:tensorflow:loss = 6258047000.0, step = 7801 (0.035 sec)
+    INFO:tensorflow:global_step/sec: 2944.38
+    INFO:tensorflow:loss = 2544512500.0, step = 7901 (0.034 sec)
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 8000...
+    INFO:tensorflow:Saving checkpoints for 8000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0if74k76/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 8000...
+    INFO:tensorflow:Loss for final step: 3792712200.0.
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Starting evaluation at 2026-04-01T13:24:30
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0if74k76/model.ckpt-8000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Inference Time : 0.08788s
+    INFO:tensorflow:Finished evaluation at 2026-04-01-13:24:30
+    INFO:tensorflow:Saving dict for global step 8000: average_loss = 219799630.0, global_step = 8000, label/mean = 13207.129, loss = 3398440400.0, prediction/mean = 486.30286
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 8000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0if74k76/model.ckpt-8000
+    scores_pca {'average_loss': 219799630.0, 'label/mean': 13207.129, 'loss': 3398440400.0, 'prediction/mean': 486.30286, 'global_step': 8000}
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Create CheckpointSaverHook.
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0if74k76/model.ckpt-8000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 8000...
+    INFO:tensorflow:Saving checkpoints for 8000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0if74k76/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 8000...
+    INFO:tensorflow:loss = 1636901600.0, step = 8001
+    INFO:tensorflow:global_step/sec: 1699.43
+    INFO:tensorflow:loss = 2682674000.0, step = 8101 (0.059 sec)
+    INFO:tensorflow:global_step/sec: 2872.34
+    INFO:tensorflow:loss = 2079450800.0, step = 8201 (0.035 sec)
+    INFO:tensorflow:global_step/sec: 2863.85
+    INFO:tensorflow:loss = 2591231200.0, step = 8301 (0.035 sec)
+    INFO:tensorflow:global_step/sec: 2822.87
+    INFO:tensorflow:loss = 4420414000.0, step = 8401 (0.036 sec)
+    INFO:tensorflow:global_step/sec: 2896.78
+    INFO:tensorflow:loss = 2780532500.0, step = 8501 (0.034 sec)
+    INFO:tensorflow:global_step/sec: 2912.41
+    INFO:tensorflow:loss = 4138756000.0, step = 8601 (0.035 sec)
+    INFO:tensorflow:global_step/sec: 2839.13
+    INFO:tensorflow:loss = 1663251200.0, step = 8701 (0.035 sec)
+    INFO:tensorflow:global_step/sec: 2920.82
+    INFO:tensorflow:loss = 3994781200.0, step = 8801 (0.034 sec)
+    INFO:tensorflow:global_step/sec: 2865.8
+    INFO:tensorflow:loss = 2423991600.0, step = 8901 (0.034 sec)
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 9000...
+    INFO:tensorflow:Saving checkpoints for 9000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0if74k76/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 9000...
+    INFO:tensorflow:Loss for final step: 3513745700.0.
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Starting evaluation at 2026-04-01T13:24:32
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0if74k76/model.ckpt-9000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Inference Time : 0.08647s
+    INFO:tensorflow:Finished evaluation at 2026-04-01-13:24:32
+    INFO:tensorflow:Saving dict for global step 9000: average_loss = 217605150.0, global_step = 9000, label/mean = 13207.129, loss = 3364510500.0, prediction/mean = 547.5032
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 9000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0if74k76/model.ckpt-9000
+    scores_pca {'average_loss': 217605150.0, 'label/mean': 13207.129, 'loss': 3364510500.0, 'prediction/mean': 547.5032, 'global_step': 9000}
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Create CheckpointSaverHook.
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0if74k76/model.ckpt-9000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 9000...
+    INFO:tensorflow:Saving checkpoints for 9000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0if74k76/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 9000...
+    INFO:tensorflow:loss = 5095286000.0, step = 9001
+    INFO:tensorflow:global_step/sec: 2052.03
+    INFO:tensorflow:loss = 2295491000.0, step = 9101 (0.050 sec)
+    INFO:tensorflow:global_step/sec: 2783.9
+    INFO:tensorflow:loss = 3365401600.0, step = 9201 (0.035 sec)
+    INFO:tensorflow:global_step/sec: 2932.38
+    INFO:tensorflow:loss = 2455677700.0, step = 9301 (0.034 sec)
+    INFO:tensorflow:global_step/sec: 2776.32
+    INFO:tensorflow:loss = 2200908000.0, step = 9401 (0.036 sec)
+    INFO:tensorflow:global_step/sec: 2334.32
+    INFO:tensorflow:loss = 4280295000.0, step = 9501 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2296.52
+    INFO:tensorflow:loss = 3186238700.0, step = 9601 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2104.63
+    INFO:tensorflow:loss = 6098979000.0, step = 9701 (0.048 sec)
+    INFO:tensorflow:global_step/sec: 2391.09
+    INFO:tensorflow:loss = 2908279800.0, step = 9801 (0.042 sec)
+    INFO:tensorflow:global_step/sec: 2187.22
+    INFO:tensorflow:loss = 6138582000.0, step = 9901 (0.046 sec)
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 10000...
+    INFO:tensorflow:Saving checkpoints for 10000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0if74k76/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 10000...
+    INFO:tensorflow:Loss for final step: 3192895500.0.
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Starting evaluation at 2026-04-01T13:24:33
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0if74k76/model.ckpt-10000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Inference Time : 0.08726s
+    INFO:tensorflow:Finished evaluation at 2026-04-01-13:24:33
+    INFO:tensorflow:Saving dict for global step 10000: average_loss = 215430560.0, global_step = 10000, label/mean = 13207.129, loss = 3330888000.0, prediction/mean = 608.41113
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 10000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0if74k76/model.ckpt-10000
+    scores_pca {'average_loss': 215430560.0, 'label/mean': 13207.129, 'loss': 3330888000.0, 'prediction/mean': 608.41113, 'global_step': 10000}
+
 
 ### Task 3: Make your best model using only categorical features
 
@@ -3630,12 +2979,23 @@ car_data[feature_name].unique()
 
 
 
-    array([21.  ,  9.6 ,  8.1 ,  9.2 ,  9.4 ,  8.8 , 21.9 ,  7.5 ,  7.  ,
-            8.5 , 23.  , 10.1 ,  8.7 ,  9.3 ,  8.4 ,  7.6 ,  9.  ,  8.3 ,
-            9.5 ,  8.6 ,  8.  ,  9.41, 21.5 , 22.5 ,  7.7 ,  7.8 , 11.5 ,
-            9.1 , 10.  , 22.7 , 22.  ,  9.31])
+    array([ 9.  ,  9.2 ,  8.5 ,  9.4 ,  8.4 ,  9.5 ,  8.  ,  8.1 , 11.5 ,
+            7.5 ,  7.  ,  9.3 ,  7.6 ,  8.3 ,  8.7 ,  8.6 , 23.  , 22.7 ,
+           21.5 , 22.  , 22.5 , 10.  ,  9.6 ,  7.7 , 21.  ,  8.8 ,  9.1 ,
+            9.41, 21.9 ,  9.31,  7.8 , 10.1 ])
 
 
+
+
+```python
+# LabelEncoder is used to convert categorical string features into numeric labels.
+label_encoder = preprocessing.LabelEncoder()
+for feature_name in categorical_feature_names:
+  car_data[feature_name] = label_encoder.fit_transform(car_data[feature_name])
+
+#TODO
+# # Normalization / Standardization only for those ten columns of data
+```
 
 
 ```python
@@ -3698,6 +3058,467 @@ for _ in range(num_print_statements):
 
 ```
 
+    model_feature_columns [IndicatorColumn(categorical_column=VocabularyListCategoricalColumn(key='fuel-system', vocabulary_list=('mpfi', '1bbl', '2bbl', 'spdi', 'mfi', 'idi', 'spfi', '4bbl'), dtype=tf.string, default_value=-1, num_oov_buckets=0)), IndicatorColumn(categorical_column=VocabularyListCategoricalColumn(key='num-doors', vocabulary_list=('two', 'four', '?'), dtype=tf.string, default_value=-1, num_oov_buckets=0)), IndicatorColumn(categorical_column=VocabularyListCategoricalColumn(key='aspiration', vocabulary_list=('std', 'turbo'), dtype=tf.string, default_value=-1, num_oov_buckets=0)), IndicatorColumn(categorical_column=VocabularyListCategoricalColumn(key='fuel-type', vocabulary_list=('gas', 'diesel'), dtype=tf.string, default_value=-1, num_oov_buckets=0)), IndicatorColumn(categorical_column=VocabularyListCategoricalColumn(key='drive-wheels', vocabulary_list=('fwd', 'rwd', '4wd'), dtype=tf.string, default_value=-1, num_oov_buckets=0)), IndicatorColumn(categorical_column=VocabularyListCategoricalColumn(key='body-style', vocabulary_list=('sedan', 'hatchback', 'wagon', 'hardtop', 'convertible'), dtype=tf.string, default_value=-1, num_oov_buckets=0)), IndicatorColumn(categorical_column=VocabularyListCategoricalColumn(key='engine-type', vocabulary_list=('ohc', 'l', 'dohc', 'ohcv', 'ohcf', 'rotor'), dtype=tf.string, default_value=-1, num_oov_buckets=0)), IndicatorColumn(categorical_column=VocabularyListCategoricalColumn(key='num-cylinders', vocabulary_list=('four', 'six', 'five', 'twelve', 'eight', 'three', 'two'), dtype=tf.string, default_value=-1, num_oov_buckets=0)), IndicatorColumn(categorical_column=VocabularyListCategoricalColumn(key='engine-location', vocabulary_list=('front', 'rear'), dtype=tf.string, default_value=-1, num_oov_buckets=0)), IndicatorColumn(categorical_column=VocabularyListCategoricalColumn(key='make', vocabulary_list=('volkswagen', 'honda', 'nissan', 'mitsubishi', 'peugot', 'volvo', 'toyota', 'audi', 'jaguar', 'mazda', 'dodge', 'porsche', 'renault', 'bmw', 'plymouth', 'subaru', 'saab', 'mercedes-benz', 'isuzu', 'chevrolet', 'alfa-romero', 'mercury'), dtype=tf.string, default_value=-1, num_oov_buckets=0))]
+    INFO:tensorflow:Using default config.
+    WARNING:tensorflow:Using temporary folder as model directory: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxwej544u
+    INFO:tensorflow:Using config: {'_model_dir': '/var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxwej544u', '_tf_random_seed': None, '_save_summary_steps': 100, '_save_checkpoints_steps': None, '_save_checkpoints_secs': 600, '_session_config': allow_soft_placement: true
+    graph_options {
+      rewrite_options {
+        meta_optimizer_iterations: ONE
+      }
+    }
+    , '_keep_checkpoint_max': 5, '_keep_checkpoint_every_n_hours': 10000, '_log_step_count_steps': 100, '_train_distribute': None, '_device_fn': None, '_protocol': None, '_eval_distribute': None, '_experimental_distribute': None, '_experimental_max_worker_delay_secs': None, '_session_creation_timeout_secs': 7200, '_checkpoint_save_graph_def': True, '_service': None, '_cluster_spec': ClusterSpec({}), '_task_type': 'worker', '_task_id': 0, '_global_id_in_cluster': 0, '_master': '', '_evaluation_master': '', '_is_chief': True, '_num_ps_replicas': 0, '_num_worker_replicas': 1}
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Create CheckpointSaverHook.
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 0...
+    INFO:tensorflow:Saving checkpoints for 0 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxwej544u/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 0...
+    INFO:tensorflow:loss = 4813285400.0, step = 1
+    INFO:tensorflow:global_step/sec: 1377.81
+    INFO:tensorflow:loss = 6040973300.0, step = 101 (0.073 sec)
+    INFO:tensorflow:global_step/sec: 2426.95
+    INFO:tensorflow:loss = 2720525000.0, step = 201 (0.041 sec)
+    INFO:tensorflow:global_step/sec: 2663.07
+    INFO:tensorflow:loss = 3741218800.0, step = 301 (0.038 sec)
+    INFO:tensorflow:global_step/sec: 2430.66
+    INFO:tensorflow:loss = 2622611500.0, step = 401 (0.041 sec)
+    INFO:tensorflow:global_step/sec: 2354.88
+    INFO:tensorflow:loss = 3141782000.0, step = 501 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2516.28
+    INFO:tensorflow:loss = 3798938600.0, step = 601 (0.040 sec)
+    INFO:tensorflow:global_step/sec: 2448.59
+    INFO:tensorflow:loss = 6190495000.0, step = 701 (0.041 sec)
+    INFO:tensorflow:global_step/sec: 2316.32
+    INFO:tensorflow:loss = 1495821600.0, step = 801 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2753.23
+    INFO:tensorflow:loss = 5157670000.0, step = 901 (0.036 sec)
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 1000...
+    INFO:tensorflow:Saving checkpoints for 1000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxwej544u/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 1000...
+    INFO:tensorflow:Loss for final step: 3072327700.0.
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Starting evaluation at 2026-04-01T13:24:54
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxwej544u/model.ckpt-1000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Inference Time : 0.36037s
+    INFO:tensorflow:Finished evaluation at 2026-04-01-13:24:55
+    INFO:tensorflow:Saving dict for global step 1000: average_loss = 230707890.0, global_step = 1000, label/mean = 13207.129, loss = 3567099000.0, prediction/mean = 254.6194
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 1000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxwej544u/model.ckpt-1000
+    scores {'average_loss': 230707890.0, 'label/mean': 13207.129, 'loss': 3567099000.0, 'prediction/mean': 254.6194, 'global_step': 1000}
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Create CheckpointSaverHook.
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxwej544u/model.ckpt-1000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 1000...
+    INFO:tensorflow:Saving checkpoints for 1000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxwej544u/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 1000...
+    INFO:tensorflow:loss = 1984580100.0, step = 1001
+    INFO:tensorflow:global_step/sec: 1509.69
+    INFO:tensorflow:loss = 4698823700.0, step = 1101 (0.067 sec)
+    INFO:tensorflow:global_step/sec: 2273.35
+    INFO:tensorflow:loss = 2309706200.0, step = 1201 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2506.28
+    INFO:tensorflow:loss = 4839858000.0, step = 1301 (0.040 sec)
+    INFO:tensorflow:global_step/sec: 2157.4
+    INFO:tensorflow:loss = 1658192600.0, step = 1401 (0.046 sec)
+    INFO:tensorflow:global_step/sec: 2278.16
+    INFO:tensorflow:loss = 2328341000.0, step = 1501 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 2586.38
+    INFO:tensorflow:loss = 3750448600.0, step = 1601 (0.039 sec)
+    INFO:tensorflow:global_step/sec: 2557.22
+    INFO:tensorflow:loss = 6815361000.0, step = 1701 (0.039 sec)
+    INFO:tensorflow:global_step/sec: 2447.2
+    INFO:tensorflow:loss = 3032665000.0, step = 1801 (0.041 sec)
+    INFO:tensorflow:global_step/sec: 2704.33
+    INFO:tensorflow:loss = 4140358400.0, step = 1901 (0.037 sec)
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 2000...
+    INFO:tensorflow:Saving checkpoints for 2000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxwej544u/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 2000...
+    INFO:tensorflow:Loss for final step: 4202013700.0.
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Starting evaluation at 2026-04-01T13:24:56
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxwej544u/model.ckpt-2000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Inference Time : 0.11353s
+    INFO:tensorflow:Finished evaluation at 2026-04-01-13:24:57
+    INFO:tensorflow:Saving dict for global step 2000: average_loss = 224470400.0, global_step = 2000, label/mean = 13207.129, loss = 3470657800.0, prediction/mean = 501.12558
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 2000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxwej544u/model.ckpt-2000
+    scores {'average_loss': 224470400.0, 'label/mean': 13207.129, 'loss': 3470657800.0, 'prediction/mean': 501.12558, 'global_step': 2000}
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Create CheckpointSaverHook.
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxwej544u/model.ckpt-2000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 2000...
+    INFO:tensorflow:Saving checkpoints for 2000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxwej544u/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 2000...
+    INFO:tensorflow:loss = 5992153000.0, step = 2001
+    INFO:tensorflow:global_step/sec: 1348.83
+    INFO:tensorflow:loss = 1866832000.0, step = 2101 (0.075 sec)
+    INFO:tensorflow:global_step/sec: 2492.35
+    INFO:tensorflow:loss = 6127624700.0, step = 2201 (0.040 sec)
+    INFO:tensorflow:global_step/sec: 2706.86
+    INFO:tensorflow:loss = 9004777000.0, step = 2301 (0.037 sec)
+    INFO:tensorflow:global_step/sec: 2659.3
+    INFO:tensorflow:loss = 2378246100.0, step = 2401 (0.038 sec)
+    INFO:tensorflow:global_step/sec: 2087.67
+    INFO:tensorflow:loss = 2671217000.0, step = 2501 (0.048 sec)
+    INFO:tensorflow:global_step/sec: 2142.48
+    INFO:tensorflow:loss = 2232184800.0, step = 2601 (0.047 sec)
+    INFO:tensorflow:global_step/sec: 2484.91
+    INFO:tensorflow:loss = 3659158000.0, step = 2701 (0.040 sec)
+    INFO:tensorflow:global_step/sec: 2637.69
+    INFO:tensorflow:loss = 3394299400.0, step = 2801 (0.038 sec)
+    INFO:tensorflow:global_step/sec: 2538.45
+    INFO:tensorflow:loss = 4110985500.0, step = 2901 (0.039 sec)
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 3000...
+    INFO:tensorflow:Saving checkpoints for 3000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxwej544u/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 3000...
+    INFO:tensorflow:Loss for final step: 6573448000.0.
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Starting evaluation at 2026-04-01T13:24:58
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxwej544u/model.ckpt-3000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Inference Time : 0.10841s
+    INFO:tensorflow:Finished evaluation at 2026-04-01-13:24:58
+    INFO:tensorflow:Saving dict for global step 3000: average_loss = 218446850.0, global_step = 3000, label/mean = 13207.129, loss = 3377524500.0, prediction/mean = 743.75806
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 3000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxwej544u/model.ckpt-3000
+    scores {'average_loss': 218446850.0, 'label/mean': 13207.129, 'loss': 3377524500.0, 'prediction/mean': 743.75806, 'global_step': 3000}
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Create CheckpointSaverHook.
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxwej544u/model.ckpt-3000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 3000...
+    INFO:tensorflow:Saving checkpoints for 3000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxwej544u/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 3000...
+    INFO:tensorflow:loss = 1520061400.0, step = 3001
+    INFO:tensorflow:global_step/sec: 1325.29
+    INFO:tensorflow:loss = 4773121000.0, step = 3101 (0.076 sec)
+    INFO:tensorflow:global_step/sec: 2555.2
+    INFO:tensorflow:loss = 2168720000.0, step = 3201 (0.039 sec)
+    INFO:tensorflow:global_step/sec: 2219.65
+    INFO:tensorflow:loss = 3020885500.0, step = 3301 (0.045 sec)
+    INFO:tensorflow:global_step/sec: 2227.27
+    INFO:tensorflow:loss = 3067054000.0, step = 3401 (0.045 sec)
+    INFO:tensorflow:global_step/sec: 2234.19
+    INFO:tensorflow:loss = 2520741000.0, step = 3501 (0.045 sec)
+    INFO:tensorflow:global_step/sec: 2765.65
+    INFO:tensorflow:loss = 6114738000.0, step = 3601 (0.036 sec)
+    INFO:tensorflow:global_step/sec: 2576.39
+    INFO:tensorflow:loss = 4136173300.0, step = 3701 (0.039 sec)
+    INFO:tensorflow:global_step/sec: 2203.08
+    INFO:tensorflow:loss = 2106347900.0, step = 3801 (0.045 sec)
+    INFO:tensorflow:global_step/sec: 2290.69
+    INFO:tensorflow:loss = 2934808600.0, step = 3901 (0.044 sec)
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 4000...
+    INFO:tensorflow:Saving checkpoints for 4000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxwej544u/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 4000...
+    INFO:tensorflow:Loss for final step: 4549290500.0.
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Starting evaluation at 2026-04-01T13:25:00
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxwej544u/model.ckpt-4000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Inference Time : 0.11514s
+    INFO:tensorflow:Finished evaluation at 2026-04-01-13:25:00
+    INFO:tensorflow:Saving dict for global step 4000: average_loss = 212613360.0, global_step = 4000, label/mean = 13207.129, loss = 3287329500.0, prediction/mean = 983.3075
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 4000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxwej544u/model.ckpt-4000
+    scores {'average_loss': 212613360.0, 'label/mean': 13207.129, 'loss': 3287329500.0, 'prediction/mean': 983.3075, 'global_step': 4000}
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Create CheckpointSaverHook.
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxwej544u/model.ckpt-4000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 4000...
+    INFO:tensorflow:Saving checkpoints for 4000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxwej544u/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 4000...
+    INFO:tensorflow:loss = 3314372900.0, step = 4001
+    INFO:tensorflow:global_step/sec: 1386.31
+    INFO:tensorflow:loss = 3655617300.0, step = 4101 (0.072 sec)
+    INFO:tensorflow:global_step/sec: 2560.17
+    INFO:tensorflow:loss = 2043214100.0, step = 4201 (0.039 sec)
+    INFO:tensorflow:global_step/sec: 2749.5
+    INFO:tensorflow:loss = 3024963600.0, step = 4301 (0.036 sec)
+    INFO:tensorflow:global_step/sec: 2567.99
+    INFO:tensorflow:loss = 2359365000.0, step = 4401 (0.039 sec)
+    INFO:tensorflow:global_step/sec: 2574.66
+    INFO:tensorflow:loss = 2380664800.0, step = 4501 (0.039 sec)
+    INFO:tensorflow:global_step/sec: 2599.72
+    INFO:tensorflow:loss = 2774961200.0, step = 4601 (0.038 sec)
+    INFO:tensorflow:global_step/sec: 2536.33
+    INFO:tensorflow:loss = 2506297900.0, step = 4701 (0.039 sec)
+    INFO:tensorflow:global_step/sec: 2771.68
+    INFO:tensorflow:loss = 1613503600.0, step = 4801 (0.036 sec)
+    INFO:tensorflow:global_step/sec: 2188.52
+    INFO:tensorflow:loss = 2024513400.0, step = 4901 (0.045 sec)
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 5000...
+    INFO:tensorflow:Saving checkpoints for 5000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxwej544u/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 5000...
+    INFO:tensorflow:Loss for final step: 2841360000.0.
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Starting evaluation at 2026-04-01T13:25:02
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxwej544u/model.ckpt-5000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Inference Time : 0.10679s
+    INFO:tensorflow:Finished evaluation at 2026-04-01-13:25:02
+    INFO:tensorflow:Saving dict for global step 5000: average_loss = 206951280.0, global_step = 5000, label/mean = 13207.129, loss = 3199785200.0, prediction/mean = 1220.2997
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 5000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxwej544u/model.ckpt-5000
+    scores {'average_loss': 206951280.0, 'label/mean': 13207.129, 'loss': 3199785200.0, 'prediction/mean': 1220.2997, 'global_step': 5000}
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Create CheckpointSaverHook.
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxwej544u/model.ckpt-5000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 5000...
+    INFO:tensorflow:Saving checkpoints for 5000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxwej544u/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 5000...
+    INFO:tensorflow:loss = 4038269400.0, step = 5001
+    INFO:tensorflow:global_step/sec: 1604.46
+    INFO:tensorflow:loss = 2725118000.0, step = 5101 (0.063 sec)
+    INFO:tensorflow:global_step/sec: 2655.13
+    INFO:tensorflow:loss = 4097829400.0, step = 5201 (0.038 sec)
+    INFO:tensorflow:global_step/sec: 1487.08
+    INFO:tensorflow:loss = 1471696600.0, step = 5301 (0.068 sec)
+    INFO:tensorflow:global_step/sec: 1880.3
+    INFO:tensorflow:loss = 2940752000.0, step = 5401 (0.053 sec)
+    INFO:tensorflow:global_step/sec: 2254.27
+    INFO:tensorflow:loss = 4121250000.0, step = 5501 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 2232.25
+    INFO:tensorflow:loss = 1602989700.0, step = 5601 (0.045 sec)
+    INFO:tensorflow:global_step/sec: 2540.59
+    INFO:tensorflow:loss = 2907113000.0, step = 5701 (0.039 sec)
+    INFO:tensorflow:global_step/sec: 2322.56
+    INFO:tensorflow:loss = 2961684200.0, step = 5801 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2224.99
+    INFO:tensorflow:loss = 1521886000.0, step = 5901 (0.045 sec)
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 6000...
+    INFO:tensorflow:Saving checkpoints for 6000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxwej544u/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 6000...
+    INFO:tensorflow:Loss for final step: 2953522200.0.
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Starting evaluation at 2026-04-01T13:25:03
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxwej544u/model.ckpt-6000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Inference Time : 0.13375s
+    INFO:tensorflow:Finished evaluation at 2026-04-01-13:25:03
+    INFO:tensorflow:Saving dict for global step 6000: average_loss = 201475700.0, global_step = 6000, label/mean = 13207.129, loss = 3115124200.0, prediction/mean = 1454.0922
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 6000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxwej544u/model.ckpt-6000
+    scores {'average_loss': 201475700.0, 'label/mean': 13207.129, 'loss': 3115124200.0, 'prediction/mean': 1454.0922, 'global_step': 6000}
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Create CheckpointSaverHook.
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxwej544u/model.ckpt-6000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 6000...
+    INFO:tensorflow:Saving checkpoints for 6000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxwej544u/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 6000...
+    INFO:tensorflow:loss = 1152493200.0, step = 6001
+    INFO:tensorflow:global_step/sec: 1388.6
+    INFO:tensorflow:loss = 4658452500.0, step = 6101 (0.072 sec)
+    INFO:tensorflow:global_step/sec: 2411.43
+    INFO:tensorflow:loss = 3289183700.0, step = 6201 (0.041 sec)
+    INFO:tensorflow:global_step/sec: 2659.02
+    INFO:tensorflow:loss = 5682495500.0, step = 6301 (0.038 sec)
+    INFO:tensorflow:global_step/sec: 2745.21
+    INFO:tensorflow:loss = 2981850400.0, step = 6401 (0.036 sec)
+    INFO:tensorflow:global_step/sec: 2195.96
+    INFO:tensorflow:loss = 4821574700.0, step = 6501 (0.046 sec)
+    INFO:tensorflow:global_step/sec: 2637.28
+    INFO:tensorflow:loss = 1373690900.0, step = 6601 (0.038 sec)
+    INFO:tensorflow:global_step/sec: 2627.78
+    INFO:tensorflow:loss = 2252151600.0, step = 6701 (0.038 sec)
+    INFO:tensorflow:global_step/sec: 2665.1
+    INFO:tensorflow:loss = 1484919000.0, step = 6801 (0.037 sec)
+    INFO:tensorflow:global_step/sec: 2297.69
+    INFO:tensorflow:loss = 4822449000.0, step = 6901 (0.044 sec)
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 7000...
+    INFO:tensorflow:Saving checkpoints for 7000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxwej544u/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 7000...
+    INFO:tensorflow:Loss for final step: 1370179200.0.
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Starting evaluation at 2026-04-01T13:25:05
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxwej544u/model.ckpt-7000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Inference Time : 0.10802s
+    INFO:tensorflow:Finished evaluation at 2026-04-01-13:25:05
+    INFO:tensorflow:Saving dict for global step 7000: average_loss = 196175820.0, global_step = 7000, label/mean = 13207.129, loss = 3033180000.0, prediction/mean = 1684.8597
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 7000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxwej544u/model.ckpt-7000
+    scores {'average_loss': 196175820.0, 'label/mean': 13207.129, 'loss': 3033180000.0, 'prediction/mean': 1684.8597, 'global_step': 7000}
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Create CheckpointSaverHook.
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxwej544u/model.ckpt-7000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 7000...
+    INFO:tensorflow:Saving checkpoints for 7000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxwej544u/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 7000...
+    INFO:tensorflow:loss = 4592964000.0, step = 7001
+    INFO:tensorflow:global_step/sec: 1369.26
+    INFO:tensorflow:loss = 4627575000.0, step = 7101 (0.073 sec)
+    INFO:tensorflow:global_step/sec: 2702.71
+    INFO:tensorflow:loss = 3946114000.0, step = 7201 (0.037 sec)
+    INFO:tensorflow:global_step/sec: 2395.09
+    INFO:tensorflow:loss = 2351654100.0, step = 7301 (0.042 sec)
+    INFO:tensorflow:global_step/sec: 2659.77
+    INFO:tensorflow:loss = 2495986200.0, step = 7401 (0.038 sec)
+    INFO:tensorflow:global_step/sec: 2205.9
+    INFO:tensorflow:loss = 2277291500.0, step = 7501 (0.045 sec)
+    INFO:tensorflow:global_step/sec: 2242.72
+    INFO:tensorflow:loss = 4614482000.0, step = 7601 (0.045 sec)
+    INFO:tensorflow:global_step/sec: 2229.9
+    INFO:tensorflow:loss = 4868116000.0, step = 7701 (0.045 sec)
+    INFO:tensorflow:global_step/sec: 2789.08
+    INFO:tensorflow:loss = 1474170400.0, step = 7801 (0.036 sec)
+    INFO:tensorflow:global_step/sec: 2204.82
+    INFO:tensorflow:loss = 2780770000.0, step = 7901 (0.045 sec)
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 8000...
+    INFO:tensorflow:Saving checkpoints for 8000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxwej544u/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 8000...
+    INFO:tensorflow:Loss for final step: 2915105000.0.
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Starting evaluation at 2026-04-01T13:25:06
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxwej544u/model.ckpt-8000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Inference Time : 0.14051s
+    INFO:tensorflow:Finished evaluation at 2026-04-01-13:25:07
+    INFO:tensorflow:Saving dict for global step 8000: average_loss = 191030800.0, global_step = 8000, label/mean = 13207.129, loss = 2953630000.0, prediction/mean = 1913.3024
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 8000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxwej544u/model.ckpt-8000
+    scores {'average_loss': 191030800.0, 'label/mean': 13207.129, 'loss': 2953630000.0, 'prediction/mean': 1913.3024, 'global_step': 8000}
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Create CheckpointSaverHook.
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxwej544u/model.ckpt-8000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 8000...
+    INFO:tensorflow:Saving checkpoints for 8000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxwej544u/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 8000...
+    INFO:tensorflow:loss = 2261327400.0, step = 8001
+    INFO:tensorflow:global_step/sec: 1327.51
+    INFO:tensorflow:loss = 2081886800.0, step = 8101 (0.076 sec)
+    INFO:tensorflow:global_step/sec: 794.104
+    INFO:tensorflow:loss = 2141028600.0, step = 8201 (0.129 sec)
+    INFO:tensorflow:global_step/sec: 1011.48
+    INFO:tensorflow:loss = 4425421300.0, step = 8301 (0.100 sec)
+    INFO:tensorflow:global_step/sec: 1136.72
+    INFO:tensorflow:loss = 5216067600.0, step = 8401 (0.084 sec)
+    INFO:tensorflow:global_step/sec: 2497.19
+    INFO:tensorflow:loss = 4126176500.0, step = 8501 (0.040 sec)
+    INFO:tensorflow:global_step/sec: 2718.42
+    INFO:tensorflow:loss = 611853630.0, step = 8601 (0.037 sec)
+    INFO:tensorflow:global_step/sec: 2484.48
+    INFO:tensorflow:loss = 1388747000.0, step = 8701 (0.040 sec)
+    INFO:tensorflow:global_step/sec: 2705.85
+    INFO:tensorflow:loss = 2782794800.0, step = 8801 (0.037 sec)
+    INFO:tensorflow:global_step/sec: 2525.46
+    INFO:tensorflow:loss = 1148323600.0, step = 8901 (0.040 sec)
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 9000...
+    INFO:tensorflow:Saving checkpoints for 9000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxwej544u/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 9000...
+    INFO:tensorflow:Loss for final step: 1561123200.0.
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Starting evaluation at 2026-04-01T13:25:08
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxwej544u/model.ckpt-9000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Inference Time : 0.10733s
+    INFO:tensorflow:Finished evaluation at 2026-04-01-13:25:09
+    INFO:tensorflow:Saving dict for global step 9000: average_loss = 186057730.0, global_step = 9000, label/mean = 13207.129, loss = 2876738600.0, prediction/mean = 2138.5754
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 9000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxwej544u/model.ckpt-9000
+    scores {'average_loss': 186057730.0, 'label/mean': 13207.129, 'loss': 2876738600.0, 'prediction/mean': 2138.5754, 'global_step': 9000}
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Create CheckpointSaverHook.
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxwej544u/model.ckpt-9000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 9000...
+    INFO:tensorflow:Saving checkpoints for 9000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxwej544u/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 9000...
+    INFO:tensorflow:loss = 2810859800.0, step = 9001
+    INFO:tensorflow:global_step/sec: 1144.9
+    INFO:tensorflow:loss = 2521520000.0, step = 9101 (0.088 sec)
+    INFO:tensorflow:global_step/sec: 2099.3
+    INFO:tensorflow:loss = 3020571400.0, step = 9201 (0.048 sec)
+    INFO:tensorflow:global_step/sec: 2188.57
+    INFO:tensorflow:loss = 3211394600.0, step = 9301 (0.046 sec)
+    INFO:tensorflow:global_step/sec: 1941.18
+    INFO:tensorflow:loss = 1653686800.0, step = 9401 (0.052 sec)
+    INFO:tensorflow:global_step/sec: 2143.53
+    INFO:tensorflow:loss = 4341704000.0, step = 9501 (0.046 sec)
+    INFO:tensorflow:global_step/sec: 1997.09
+    INFO:tensorflow:loss = 2310191900.0, step = 9601 (0.051 sec)
+    INFO:tensorflow:global_step/sec: 2154.8
+    INFO:tensorflow:loss = 3602088000.0, step = 9701 (0.046 sec)
+    INFO:tensorflow:global_step/sec: 2092.53
+    INFO:tensorflow:loss = 2738602500.0, step = 9801 (0.047 sec)
+    INFO:tensorflow:global_step/sec: 2062.66
+    INFO:tensorflow:loss = 2127286000.0, step = 9901 (0.050 sec)
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 10000...
+    INFO:tensorflow:Saving checkpoints for 10000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxwej544u/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 10000...
+    INFO:tensorflow:Loss for final step: 2365253000.0.
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Starting evaluation at 2026-04-01T13:25:10
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxwej544u/model.ckpt-10000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Inference Time : 0.11850s
+    INFO:tensorflow:Finished evaluation at 2026-04-01-13:25:10
+    INFO:tensorflow:Saving dict for global step 10000: average_loss = 181233200.0, global_step = 10000, label/mean = 13207.129, loss = 2802144300.0, prediction/mean = 2361.4622
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 10000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxwej544u/model.ckpt-10000
+    scores {'average_loss': 181233200.0, 'label/mean': 13207.129, 'loss': 2802144300.0, 'prediction/mean': 2361.4622, 'global_step': 10000}
+
+
 ### Task 4: Using all the features, make the best model that you can make
 
 With all the features combined, your model should perform better than your earlier models using numerical and categorical models alone. Tune your model until that is the case.
@@ -3705,6 +3526,9 @@ With all the features combined, your model should perform better than your earli
 
 ```python
 ## Your code goes here
+
+# Combine all data (take care to use normalized data)
+# Run code again, to check...
 ```
 
 
