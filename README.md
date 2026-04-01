@@ -53,16 +53,14 @@ Term | Subject | Status | Lecturer | Directory | Credit Points
 | T2 | Secure By Design (***Core***) 2025 | ✅ | Dr. Tanvir Rahman | [SBD402](./2025-T2/T2-SBD/) | 10
 | T3 | Intelligent Systems (***Core***) 2026 | 🔥 | Dr. Nandini Sidnal | [ISY503](./2026-T1/ISY/) | 10
 | T3 | Cloud Computing Fundamentals (***Elective***) 2026 | 🔥 | Dr. Divya Leekha | [CCF501](./2026-T1/CCF/) | 10
+| T4 | Machine Learning (***Core***) 2026 | 🕐 | TBD | TBD | 10
+| T4 | Deep Learning (***Core***) 2026 | 🕐 | TBD | TBD | 10
+| T4 | Big Data and Analytics (***Elective***) 2026 | 🕐 | TBD | TBD | 10
+
 
 ***Backlog - T2-26 onwards:***
-- 2x Core (***mandatory***): 
-    - Machine Learning (MLN601 - 10CP)
-    - Deep Learning (DLE602 - 10CP)
-    - Technology - Work Integrated Learning I (TWL604 - 20CP)
-    - Advanced Technology - Work Integrated Learning (ATW606 - 30CP)
-
-- 1x Elective (***defined...***):
-    - Big Data and Analytics (BDA601 - 10CP)
+- Technology - Work Integrated Learning I (TWL604 - 20CP) (***Core***)
+- Advanced Technology - Work Integrated Learning (ATW606 - 30CP) (***Core***)
 
 #### Goals
 - [🔥] Complete course materials for all subjects

@@ -1,3 +1,10 @@
+---
+name: assessment-checker
+description: Run an automated pre-submission check on an academic assessment report. Verifies structural compliance with the brief, checks citation consistency, and spot-checks references via web search.
+argument-hint: "<SUBJECT_CODE> <ASSESSMENT_NUMBER>"
+disable-model-invocation: true
+---
+
 # Skill: assessment-checker
 
 ## Invocation

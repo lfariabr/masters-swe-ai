@@ -16,7 +16,7 @@ Cloud computing has fundamentally reshaped how organisations across every sector
 
 This report analyses three real-world case studies drawn from distinct sectors — government law enforcement (Victoria Police), artificial intelligence and software startup (ChatAndBuild), and industrial manufacturing (Voith) — each provided by the subject facilitator and representing a different combination of cloud service model, deployment model, and provider ecosystem. By examining how cloud was applied in each context, this report aims to: describe the essential cloud elements that enabled business automation in each case (SLO a); distinguish cloud adoption from traditional IT infrastructure approaches (SLO b); and identify the key cloud service offerings that made each outcome possible (SLO c).
 
-The three cases collectively illustrate how cloud computing is not a single, monolithic technology but a spectrum of services and deployment strategies calibrated to organisational context, risk appetite, and automation goals. Victoria Police leveraged Microsoft Power Platform (PaaS) within a hybrid multi-environment model to democratise application development across a law enforcement agency — transforming previously invisible, ungoverned Microsoft Access databases into a governed, scalable innovation ecosystem (Microsoft, 2026). ChatAndBuild, an AI-native startup based in Singapore, migrated to Google Cloud Platform to eliminate the manual infrastructure burden that was impeding real-time AI agent creation, achieving a 45% reduction in infrastructure overhead and a 30–70% improvement in generation latency (Google Cloud, n.d.). Voith, a 150-year-old manufacturing company operating across 60 countries, selected AWS following a competitive provider assessment to consolidate 3,500 servers distributed across 146 global locations into six AWS regions — projecting 30% cost savings compared to the legacy setup (Amazon Web Services, 2026).
+The three cases collectively illustrate how cloud computing is not a single, monolithic technology but a spectrum of services and deployment strategies calibrated to organisational context, risk appetite, and automation goals. Victoria Police leveraged Microsoft Power Platform (PaaS) within a hybrid multi-environment model to democratise application development across a law enforcement agency — transforming previously invisible, ungoverned Microsoft Access databases into a governed, scalable innovation ecosystem (Microsoft, 2026). ChatAndBuild, an AI-native startup based in Singapore, migrated to Google Cloud Platform to eliminate the manual infrastructure burden that was impeding real-time AI agent creation, achieving a 45% reduction in infrastructure overhead and a 30–70% improvement in generation latency (Google Cloud, n.d.). Voith, a 150-year-old manufacturing company operating across 60 countries, selected AWS following a competitive provider assessment to consolidate 3,500 servers distributed across 146 global locations into six AWS regions — projecting 30% cost savings compared to the legacy setup (Amazon Web Services, n.d.).
 
 The following sections examine each case in turn — analysing service and deployment model choices, mapping specific cloud services to their automation outcomes, and reflecting on the contrast with traditional IT approaches — before synthesising the findings in a concluding analysis.
 
@@ -185,14 +185,14 @@ ChatAndBuild's migration exemplifies NIST's **rapid elasticity** and **on-demand
 
 ### 4.1 Case Overview (~100 words)
 
-Voith is a 150-year-old family-owned manufacturing company with over 22,000 employees across 60 countries, producing machinery for the hydroelectric, papermaking, and transportation industries (Amazon Web Services, 2026). Its legacy IT footprint was vast and fragmented: 3,500 servers across 146 global locations managing applications that were difficult and expensive to maintain. Seeking to lower costs, improve productivity, and access modern cloud capabilities, Voith conducted a competitive provider assessment — presenting providers with near-unsolvable test scenarios before selecting AWS based on its solution maturity and collaborative approach (Amazon Web Services, 2026). The migration proceeds in four structured waves: rehosting, consolidation, modernisation, and retirement of legacy applications, supported by AWS Professional Services and Slalom as the AWS Implementation Partner.
+Voith is a 150-year-old family-owned manufacturing company with over 22,000 employees across 60 countries, producing machinery for the hydroelectric, papermaking, and transportation industries (Amazon Web Services, n.d.). Its legacy IT footprint was vast and fragmented: 3,500 servers across 146 global locations managing applications that were difficult and expensive to maintain. Seeking to lower costs, improve productivity, and access modern cloud capabilities, Voith conducted a competitive provider assessment — presenting providers with near-unsolvable test scenarios before selecting AWS based on its solution maturity and collaborative approach (Amazon Web Services, n.d.). The migration proceeds in four structured waves: rehosting, consolidation, modernisation, and retirement of legacy applications, supported by AWS Professional Services and Slalom as the AWS Implementation Partner.
 
 ### 4.2 Service Model Analysis (~150 words)
 
 <!-- RUBRIC: 40% — Identify and justify the service model; analyse how provider services addressed the business challenge -->
 <!-- SLO c: key service offerings -->
 
-Voith's migration spans **IaaS and PaaS** service models, reflecting the phased, multi-wave approach to cloud adoption. In the initial rehosting wave, legacy applications are lifted and shifted to AWS virtual machine infrastructure (IaaS) — maintaining the existing operating model while immediately achieving data centre consolidation. As the migration progresses into modernisation waves, Voith transitions workloads to managed PaaS services — such as Amazon Athena for serverless analytics — reducing the operational effort of running systems and eliminating the need for dedicated database administration staff (Amazon Web Services, 2026).
+Voith's migration spans **IaaS and PaaS** service models, reflecting the phased, multi-wave approach to cloud adoption. In the initial rehosting wave, legacy applications are lifted and shifted to AWS virtual machine infrastructure (IaaS) — maintaining the existing operating model while immediately achieving data centre consolidation. As the migration progresses into modernisation waves, Voith transitions workloads to managed PaaS services — such as Amazon Athena for serverless analytics — reducing the operational effort of running systems and eliminating the need for dedicated database administration staff (Amazon Web Services, n.d.).
 
 | Service Model | Characteristic | Fit for Voith |
 |---|---|---|
@@ -200,7 +200,7 @@ Voith's migration spans **IaaS and PaaS** service models, reflecting the phased,
 | **PaaS** | Managed services; provider handles platform operations | ✅ Modernisation wave — Amazon Athena, managed databases, DevOps tooling |
 | SaaS | Fully managed software | Partial — AWS GameDays (training); future SaaS productivity tooling |
 
-*Table 7: Service model analysis for Voith (Amazon Web Services, 2026).*
+*Table 7: Service model analysis for Voith (Amazon Web Services, n.d.).*
 
 ### 4.3 Deployment Model Comparison (~150 words)
 
@@ -222,7 +222,7 @@ Voith migrated to a **public cloud** model deployed across **six AWS regions**, 
 
 <!-- RUBRIC: 40% — Map services to automation outcomes; SLO a and SLO c -->
 
-Voith's AWS engagement combines migration services, managed analytics, DevOps tooling, skills development infrastructure, and FinOps practices to deliver both immediate consolidation benefits and long-term operational modernisation (Amazon Web Services, 2026):
+Voith's AWS engagement combines migration services, managed analytics, DevOps tooling, skills development infrastructure, and FinOps practices to deliver both immediate consolidation benefits and long-term operational modernisation (Amazon Web Services, n.d.):
 
 | Service | Purpose | Business Outcome |
 |---|---|---|
@@ -232,7 +232,7 @@ Voith's AWS engagement combines migration services, managed analytics, DevOps to
 | Operational Standardisation (Centralised DevOps + Security Management) | Scattered business unit operations moved to shared DevOps model; unified security governance | Standardised pipelines and single security posture replace 146 fragmented site policies |
 | FinOps Practices | Continuous cost governance — identify, optimise, and attribute cloud spend | Tracks and validates 30% savings target; informs rightsizing decisions |
 
-*Table 9: AWS services utilised by Voith and their business outcomes (Amazon Web Services, 2026).*
+*Table 9: AWS services utilised by Voith and their business outcomes (Amazon Web Services, n.d.).*
 
 ```mermaid
 graph TD
@@ -249,13 +249,13 @@ graph TD
     G -->|"AWS GameDays + upskilling"| J["Skilled Workforce<br>(22,000+ employees, 4 migration waves)"]
 ```
 
-*Figure 3: Voith AWS migration architecture — four-wave migration from 146 on-premises sites to 6 standardised AWS regions (Amazon Web Services, 2026).*
+*Figure 3: Voith AWS migration architecture — four-wave migration from 146 on-premises sites to 6 standardised AWS regions (Amazon Web Services, n.d.).*
 
 ### 4.5 Reflection (~150 words)
 
 <!-- RUBRIC: 20% SLO a — NIST characteristics; 20% SLO b — cloud vs traditional IT -->
 
-Voith's case illustrates NIST's **resource pooling** and **measured service** characteristics at enterprise scale (Mell & Grance, 2011). Consolidating 3,500 servers across 146 locations into six AWS regions replaces fragmented hardware with shared, logically isolated cloud infrastructure — resource pooling at an organisational level. The projected 30% cost savings reflects measured service: Voith pays for consumption, with FinOps practices providing visibility to optimise spend continuously (Amazon Web Services, 2026). The contrast with traditional IT is structural: each of 146 sites previously maintained its own servers and security policies, producing inconsistent governance across 60 countries. Cloud consolidation resolves this with a single IaC configuration enforcing standards globally and centralised security replacing fragmented site policies (McHaney, 2021). A residual risk is operational technology integration — manufacturing SCADA systems may require on-premises infrastructure long-term, creating a hybrid architecture requirement outside the current migration scope.
+Voith's case illustrates NIST's **resource pooling** and **measured service** characteristics at enterprise scale (Mell & Grance, 2011). Consolidating 3,500 servers across 146 locations into six AWS regions replaces fragmented hardware with shared, logically isolated cloud infrastructure — resource pooling at an organisational level. The projected 30% cost savings reflects measured service: Voith pays for consumption, with FinOps practices providing visibility to optimise spend continuously (Amazon Web Services, n.d.). The contrast with traditional IT is structural: each of 146 sites previously maintained its own servers and security policies, producing inconsistent governance across 60 countries. Cloud consolidation resolves this with a single IaC configuration enforcing standards globally and centralised security replacing fragmented site policies (McHaney, 2021). A residual risk is operational technology integration — manufacturing SCADA systems may require on-premises infrastructure long-term, creating a hybrid architecture requirement outside the current migration scope.
 
 ---
 
@@ -299,11 +299,11 @@ Key areas warranting further investigation across these cases include cloud cost
 
 | NIST Characteristic | Victoria Police | ChatAndBuild | Voith |
 |---|---|---|---|
-| **On-demand self-service** | ✅ Primary — police personnel provision their own Power Platform environments and build applications without central IT intervention (Microsoft, 2026) | ✅ Autoscaling policies provision and terminate Compute Engine instances automatically without engineer intervention (Google Cloud, n.d.) | ✅ IaC enables automated, consistent provisioning of infrastructure across 6 regions without manual configuration per site (Amazon Web Services, 2026) |
-| **Broad network access** | ✅ Officers across all stations access Global Whereabouts and Bail Reporting from any device via Microsoft 365 (Microsoft, 2026) | ✅ 140,000+ users globally access the platform via browser; Cloud Load Balancing routes to the nearest region for sub-second response (Google Cloud, n.d.) | ✅ 22,000+ employees across 60 countries access centralised systems via 6 standardised AWS regions (Amazon Web Services, 2026) |
-| **Resource pooling** | ✅ Multiple business units share Power Platform infrastructure; Dataverse pools structured data storage across all fusion applications (Microsoft, 2026) | ✅ GKE clusters pool compute across thousands of concurrent agent graphs and user sessions (Google Cloud, n.d.) | ✅ **Primary driver** — 3,500 servers across 146 sites pooled into 6 shared, logically isolated AWS regions (Amazon Web Services, 2026) |
+| **On-demand self-service** | ✅ Primary — police personnel provision their own Power Platform environments and build applications without central IT intervention (Microsoft, 2026) | ✅ Autoscaling policies provision and terminate Compute Engine instances automatically without engineer intervention (Google Cloud, n.d.) | ✅ IaC enables automated, consistent provisioning of infrastructure across 6 regions without manual configuration per site (Amazon Web Services, n.d.) |
+| **Broad network access** | ✅ Officers across all stations access Global Whereabouts and Bail Reporting from any device via Microsoft 365 (Microsoft, 2026) | ✅ 140,000+ users globally access the platform via browser; Cloud Load Balancing routes to the nearest region for sub-second response (Google Cloud, n.d.) | ✅ 22,000+ employees across 60 countries access centralised systems via 6 standardised AWS regions (Amazon Web Services, n.d.) |
+| **Resource pooling** | ✅ Multiple business units share Power Platform infrastructure; Dataverse pools structured data storage across all fusion applications (Microsoft, 2026) | ✅ GKE clusters pool compute across thousands of concurrent agent graphs and user sessions (Google Cloud, n.d.) | ✅ **Primary driver** — 3,500 servers across 146 sites pooled into 6 shared, logically isolated AWS regions (Amazon Web Services, n.d.) |
 | **Rapid elasticity** | ⚠️ Limited — Power Platform environments scale within Microsoft's managed bounds; not the primary driver for this case | ✅ **Primary driver** — worker fleet scales from 10 → 100+ Compute Engine instances within minutes during global hackathon events with zero downtime (Google Cloud, n.d.) | ⚠️ Wave-based migration progressively expands the cloud footprint; real-time elasticity is not the primary driver for this manufacturing workload |
-| **Measured service** | ✅ Tiered governance tracks app usage and adoption; Power Platform visibility surfaces which apps reach 300+ users and warrant promotion (Microsoft, 2026) | ✅ 45% infrastructure overhead reduction reflects consumption-based billing replacing fixed legacy infrastructure costs (Google Cloud, n.d.) | ✅ **Primary driver** — FinOps practices provide continuous cost visibility and track progress toward 30% savings target; OPEX model replaces CAPEX-heavy 146-site estate (Amazon Web Services, 2026) |
+| **Measured service** | ✅ Tiered governance tracks app usage and adoption; Power Platform visibility surfaces which apps reach 300+ users and warrant promotion (Microsoft, 2026) | ✅ 45% infrastructure overhead reduction reflects consumption-based billing replacing fixed legacy infrastructure costs (Google Cloud, n.d.) | ✅ **Primary driver** — FinOps practices provide continuous cost visibility and track progress toward 30% savings target; OPEX model replaces CAPEX-heavy 146-site estate (Amazon Web Services, n.d.) |
 
 *Legend: ✅ Present and significant &nbsp;|&nbsp; ⚠️ Partial / limited &nbsp;|&nbsp; ❌ Not applicable*
 
@@ -313,17 +313,15 @@ Key areas warranting further investigation across these cases include cloud cost
 <!-- RUBRIC: Citations 10% — in-text citations must appear throughout; min 10 resources; meticulous APA with no errors -->
 <!-- NOTE: URLs for the three case study PDFs must be retrieved from the source documents before final submission -->
 
-Amazon Web Services. (2026). *Voith saves 30% by improving operations and consolidating workloads on AWS* [Case study]. Amazon Web Services. [\[URL — retrieve from source PDF\]](https://aws.amazon.com/solutions/case-studies/voith-case-study/)
-
-Bittok, A. C. (2021). Cloud service adoption challenges in public sector: A case study in Kenyan Counties. *Journal of the International Association for Computer Information Systems*, *22*(1), 52–62.
+Amazon Web Services. (n.d.). *Voith saves 30% by improving operations and consolidating workloads on AWS* [Case study]. Amazon Web Services. [\[URL — retrieve from source PDF\]](https://aws.amazon.com/solutions/case-studies/voith-case-study/)
 
 Google Cloud. (n.d.). *ChatAndBuild: Building the future of ownable, evolving AI agents* [Case study]. Google Cloud. https://cloud.google.com/customers/chatandbuild
 
-IBM. (n.d.-a). *SaaS, PaaS, IaaS explained*. IBM. https://www.ibm.com/think/topics/iaas-paas-saas
+IBM. (n.d.-a). *IaaS, PaaS, SaaS: What's the difference?*. IBM. https://www.ibm.com/think/topics/iaas-paas-saas
 
 IBM. (n.d.-b). *What is a public cloud?* IBM. https://www.ibm.com/think/topics/public-cloud
 
-Linthicum, D. (2021, May 25). *Learning cloud computing: Core concepts* [Video]. LinkedIn Learning. https://www.linkedin.com/learning/learning-cloud-computing-core-concepts-13710481/
+Linthicum, D. (2021, May 25). *Learning cloud computing: Core concepts* [Video]. LinkedIn Learning. https://www.linkedin.com/learning/learning-cloud-computing-core-concepts-13966302/
 
 Manvi, S., & Shyam, G. K. (2021). *Cloud computing: Concepts and technologies* (Chapter 4). CRC Press. https://learning-oreilly-com.torrens.idm.oclc.org/library/view/cloud-computing/9781000338058/
 
@@ -332,7 +330,3 @@ McHaney, R. (2021). *Cloud technologies: An overview of cloud computing technolo
 Mell, P., & Grance, T. (2011). *The NIST definition of cloud computing* (Special Publication 800-145). National Institute of Standards and Technology. https://doi.org/10.6028/NIST.SP.800-145
 
 Microsoft. (2026, February 18). *How Victoria Police created a fusion framework to scale PowerApps innovation* [Case study]. Microsoft. https://www.microsoft.com/en/customers/story/26103-victoria-police-microsoft-power-platform
-
-Nishimura, H. (2022, August 30). *Introduction to AWS for non-engineers: 1 cloud concepts* [Video]. LinkedIn Learning. https://www.linkedin.com/learning/introduction-to-aws-for-non-engineers-1-cloud-concepts-2/
-
-Rahman, M. A., & Raza, N. (2022). Cloud computing migration challenges, benefits and framework. *International Journal of Computer Science and Information Technology*, *14*(1), 65–78. https://doi.org/10.5121/ijcsit.2022.14105
