@@ -41,8 +41,11 @@ flowchart TD
 
     T2 --> T3
 
-    subgraph T3["Task 3 — Categorical Features Only 🕐"]
-        T3A["indicator_column + vocabulary_list<br>for 10 categorical features"]
+    subgraph T3["Task 3 — Categorical Features Only ✅"]
+        T3A["indicator_column + vocabulary_list<br>for 10 string categorical features"]
+        T3B["est_lr1: lr=0.01 → avg_loss 172M · RMSE ~$13,147 ⚠️<br>Same Adagrad+sparse gradient issue as T2"]
+        T3C["est_lr2: lr=0.5 → avg_loss 4.9M · RMSE ~$2,221 ✅<br>Converged at step 1000 already"]
+        T3A --> T3B & T3C
     end
 
     T3 --> T4
@@ -54,6 +57,8 @@ flowchart TD
     style T1B fill:#1a3a1a,color:#7fff7f
     style T2C fill:#3a1a1a,color:#ff7f7f
     style T2E fill:#2a2a1a,color:#ffff7f
+    style T3B fill:#2a2a1a,color:#ffff7f
+    style T3C fill:#1a3a1a,color:#7fff7f
 ```
 
 ---
@@ -67,6 +72,7 @@ flowchart TD
 - Task 2: 4 experiments — Z-score (187M), Min-Max (192M), GD/NaN, PCA/9-components (215M) — all worse than T1 due to Adagrad+normalization interaction
 - Task 2.3: GradientDescentOptimizer diverges (NaN) at all tested lr — feature normalization alone insufficient without label normalization
 - Task 2.4: PCA (9 components, 95% variance) — same slowness pattern, no improvement over Z-score
+- Task 3: lr=0.01 → 172M (underfitting, same Adagrad+sparse gradient cause as T2); lr=0.5 → **4.9M / RMSE ~$2,221** — converged at step 1,000
 
 ---
 
@@ -258,11 +264,40 @@ Same root cause as T2.1/T2.2: PCA components are standardized inputs → same Ad
 
 **Winner: T2.1 Z-score.** All are worse than T1 (18.7M) — the Adagrad+normalization interaction is the bottleneck across all variants.
 
+---
+
+## Task 3 — Categorical Features Only
+
+**Config baseline:** `indicator_column` + `categorical_column_with_vocabulary_list` (TF-native one-hot encoding), 10 string features, batch=16, hidden=[64].
+
+Two models compared to test the lr hypothesis from T2:
+
+| Model | lr | avg_loss (10k) | RMSE | prediction/mean |
+|-------|-----|----------------|------|-----------------|
+| est_lr1 | 0.01 | 172,696,000 | ~$13,147 | $2,765 ⚠️ |
+| est_lr2 | 0.5 | **4,935,784** | **~$2,221** | $13,129 ✅ |
+
+### Key observation
+
+`est_lr2` (lr=0.5) was already converged at **step 1,000** — `prediction/mean = $13,093` vs `label/mean = $13,207`. The remaining 9k steps were refinement, not convergence. This is much faster than any T2 model.
+
+### Root cause — same pattern as T2
+
+One-hot encoding produces very sparse gradients: for each example, only a handful of indicator neurons fire (e.g. 1 out of 8 fuel-system neurons). Sparse inputs → small gradient magnitudes → Adagrad accumulates denominator → effective lr shrinks. lr=0.01 stalls; lr=0.5 compensates.
+
+**Throughline from T2 → T3:** The same Adagrad + small gradient interaction. T2 triggered it via feature scale compression (normalization); T3 triggers it via feature sparsity (one-hot). Higher lr fixes both.
+
+### Note on loss vs T1
+
+avg_loss 4.9M is lower than T1's ~18.7M. However, without a train/val split this reflects memorisation more than generalisation — especially `make` (22 car brands) which acts as an almost direct price lookup. Categorical features alone can shortcut the problem in a way numeric features cannot.
+
+---
+
 ### Task progression
 1. ✅ Task 0: data cleaned — 201 rows, 0 NaNs, mean imputation
 2. ✅ Task 1: AdagradOptimizer — avg_loss 18,720,354 (~$4,327 RMSE)
 3. ✅ Task 2: Z-score best (187M), GD failure documented, PCA attempted (215M)
-4. 🕐 Task 3: categorical features only
+4. ✅ Task 3: lr=0.5 + Adagrad — avg_loss 4,935,784 (~$2,221 RMSE)
 5. 🕐 Task 4: all features combined
 
 ---
