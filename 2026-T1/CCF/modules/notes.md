@@ -814,6 +814,7 @@ Read the case study “Vitaldent Is Smiling With Better Customer Insights, Quali
 
 Post your response of no more than 250 words in the Module 8 discussion forum.
 
+> *Status: ✅ Done — see [module08_notes.md](module_08_deployment-case-studies/module08_notes.md)*
 
 #### Activity 2: Hands-On Lab — Setting Up and Deploying Amazon EC2 Linux Instances
 
@@ -838,9 +839,12 @@ Your next task is to launch an EC2 instance. Step-by-step direction is provided 
 2. Connect to your EC2 instance.
 3. Clean up your instance.
 
+> *Status: ✅ Done — see [module08_notes.md](module_08_deployment-case-studies/module08_notes.md)*
 
 #### Activity 3: Lab Reflections—Discussion Forum
 From Learning Activity 2, summarize the Amazon EC2 configuration steps and your working experience in a 200-word reflection. Post your reflection in the Module 8 discussion forum.
+
+> *Status: ✅ Done — see [module08_notes.md](module_08_deployment-case-studies/module08_notes.md)*
 
 ---
 
