@@ -105,14 +105,13 @@
 
 #### 8. Abstraction Stack in Computer Vision
 
-```
-Novel applications (smart TV, tutoring systems, gesture UIs)
-        ↑
-Interpretation algorithms (emotion, gesture meaning)
-        ↑
-CV algorithms (face detection, landmark tracking)
-        ↑
-Camera hardware (sensor fidelity, resolution)
+```mermaid
+flowchart BT
+    A["Camera hardware<br/>(sensor fidelity, resolution)"]
+    B["CV algorithms<br/>(face detection, landmark tracking)"]
+    C["Interpretation algorithms<br/>(emotion, gesture meaning)"]
+    D["Novel applications<br/>(smart TV, tutoring systems, gesture UIs)"]
+    A --> B --> C --> D
 ```
 
 Each layer is an active research area; breakthroughs at any level improve the whole stack.
@@ -288,9 +287,9 @@ feature_points_1, _, _ = cv2.calcOpticalFlowPyrLK(
 #### 2. How It Works (CNN Example)
 
 1. Start with a large pre-trained CNN (e.g., trained on ImageNet)
-2. **Delete the loss output layer** (the final prediction layer)
-3. **Replace** with a new loss output layer tuned for the new task (e.g., horse identification)
-4. Fine-tune on the **smaller target dataset** — train the full network, last few layers only, or just the new layer
+2. **Delete the final classification/output layer (head)** — the task-specific prediction layer; note: the *loss* is a training objective, not a layer
+3. **Replace** with a new final classification/output layer (head) tuned for the new task (e.g., horse identification)
+4. Fine-tune on the **smaller target dataset** — train the full network, last few layers only, or just the new head
 
 #### 3. When to Use Transfer Learning
 
