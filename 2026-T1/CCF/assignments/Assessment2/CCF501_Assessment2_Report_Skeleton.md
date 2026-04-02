@@ -12,7 +12,7 @@
 <!-- RUBRIC: Content, audience and purpose 10% — Set the scene: what is cloud computing, why does it matter across sectors, preview all three case studies -->
 <!-- SLO a, b, c — introduce NIST characteristics, name the three cases, state report purpose -->
 
-Cloud computing has fundamentally reshaped how organisations across every sector deliver services, manage infrastructure, and drive automation. Rather than owning and operating physical data centres, enterprises now consume compute, storage, networking, and intelligence on demand — scaling elastically, paying only for what they use, and offloading infrastructure management to specialist providers (Mell & Grance, 2011). Following the NIST framework, cloud computing provides on-demand access to shared, rapidly provisioned computing resources (Mell & Grance, 2011). The shift from Capital Expenditure (CAPEX)-heavy on-premises environments to Operational Expenditure (OPEX)-driven cloud models is no longer a trend exclusive to technology companies — it is a cross-industry imperative that spans government agencies, AI-native startups, and century-old industrial manufacturers alike (Linthicum, 2021; McHaney, 2021).
+Cloud computing has fundamentally reshaped how organisations across every sector deliver services, manage infrastructure, and drive automation. Rather than owning and operating physical data centres, enterprises now consume compute, storage, networking, and intelligence on demand — scaling elastically, paying only for what they use, and offloading infrastructure management to specialist providers (Mell & Grance, 2011). The shift from Capital Expenditure (CAPEX)-heavy on-premises environments to Operational Expenditure (OPEX)-driven cloud models is no longer a trend exclusive to technology companies — it is a cross-industry imperative that spans government agencies, AI-native startups, and century-old industrial manufacturers alike (Linthicum, 2021; McHaney, 2021).
 
 This report analyses three real-world case studies drawn from distinct sectors — government law enforcement (Victoria Police), artificial intelligence and software startup (ChatAndBuild), and industrial manufacturing (Voith) — each provided by the subject facilitator and representing a different combination of cloud service model, deployment model, and provider ecosystem. By examining how cloud was applied in each context, this report aims to: describe the essential cloud elements that enabled business automation in each case (SLO a); distinguish cloud adoption from traditional IT infrastructure approaches (SLO b); and identify the key cloud service offerings that made each outcome possible (SLO c).
 
@@ -127,7 +127,7 @@ ChatAndBuild's architecture spans **IaaS and PaaS** layers. Google Compute Engin
 <!-- RUBRIC: 40% — Compare deployment models; justify the recommended model with evidence -->
 <!-- SLO b: cloud vs traditional IT -->
 
-ChatAndBuild operates on **public cloud** across multiple Google Cloud regions. Cloud Load Balancing routes each request to the nearest available region, ensuring sub-second response times globally. The multi-region model was the only viable option for a startup serving over 140,000 users across time zones, where hackathon spikes require instantly elastic capacity and prior on-premises approaches demanded days of manual server provisioning (Google Cloud, n.d.).
+ChatAndBuild operates on **public cloud** across multiple Google Cloud regions — a model in which cloud infrastructure is owned and managed by a third-party provider and delivered over the internet on a consumption basis (IBM, n.d.-b). Cloud Load Balancing routes each request to the nearest available region, ensuring sub-second response times globally. The multi-region model was the only viable option for a startup serving over 140,000 users across time zones, where hackathon spikes require instantly elastic capacity and prior on-premises approaches demanded days of manual server provisioning (Google Cloud, n.d.).
 
 | Deployment Model | Elasticity | Global Reach | Latency | Fit for ChatAndBuild |
 |---|---|---|---|---|
@@ -185,7 +185,7 @@ ChatAndBuild's migration exemplifies NIST's **rapid elasticity** and **on-demand
 
 ### 4.1 Case Overview (~100 words)
 
-Voith is a 150-year-old family-owned manufacturing company with over 22,000 employees across 60 countries, producing machinery for the hydroelectric, papermaking, and transportation industries (Amazon Web Services, n.d.). Its legacy IT footprint was vast and fragmented: 3,500 servers across 146 global locations managing applications that were difficult and expensive to maintain. Seeking to lower costs, improve productivity, and access modern cloud capabilities, Voith conducted a competitive provider assessment — presenting providers with near-unsolvable test scenarios before selecting AWS based on its solution maturity and collaborative approach (Amazon Web Services, n.d.). The migration proceeds in four structured waves: rehosting, consolidation, modernisation, and retirement of legacy applications, supported by AWS Professional Services and Slalom as the AWS Implementation Partner.
+Voith is a 150-year-old family-owned manufacturing company with over 22,000 employees across 60 countries, producing machinery for the hydroelectric, papermaking, and transportation industries (Amazon Web Services, n.d.). Its legacy IT footprint was vast and fragmented: 3,500 servers across 146 global locations managing applications that were difficult and expensive to maintain. Seeking to lower costs, improve productivity, and access modern cloud capabilities, Voith conducted a competitive provider assessment — evaluating providers against criteria including service portfolio depth, global regional availability, and partner support capability (Kuijpers, 2022) — before selecting AWS based on its solution maturity and collaborative approach (Amazon Web Services, n.d.). The migration proceeds in four structured waves — rehosting (migrating workloads as-is), consolidation, modernisation, and retirement of legacy applications (Linthicum, 2023) — supported by AWS Professional Services and Slalom as the AWS Implementation Partner.
 
 ### 4.2 Service Model Analysis (~150 words)
 
@@ -207,7 +207,7 @@ Voith's migration spans **IaaS and PaaS** service models, reflecting the phased,
 <!-- RUBRIC: 40% — Compare deployment models; justify chosen model with evidence -->
 <!-- SLO b: cloud vs traditional IT -->
 
-Voith migrated to a **public cloud** model deployed across **six AWS regions**, replacing 146 globally dispersed on-premises locations. The choice of public cloud was driven by the need for global standardisation, centralised security management, and access to modern managed services — objectives that a private or hybrid model could not deliver at the required global scale (Amazon Web Services, 2026; McHaney, 2021). Infrastructure as Code (IaC) enforces consistent configuration standards across all regions, eliminating the policy fragmentation inherent in managing 146 independent sites.
+Voith migrated to a **public cloud** model deployed across **six AWS regions**, replacing 146 globally dispersed on-premises locations. The choice of public cloud was driven by the need for global standardisation, centralised security management, and access to modern managed services — objectives that a private or hybrid model could not deliver at the required global scale (Amazon Web Services, n.d.; McHaney, 2021). Infrastructure as Code (IaC) enforces consistent configuration standards across all regions, eliminating the policy fragmentation inherent in managing 146 independent sites.
 
 | Deployment Model | Cost | Standardisation | Global Reach | Fit for Voith |
 |---|---|---|---|---|
@@ -216,7 +216,7 @@ Voith migrated to a **public cloud** model deployed across **six AWS regions**, 
 | **Public Cloud (6 AWS regions)** | OPEX — 30% projected savings | High — IaC enforces standards globally | ✅ 6 regions cover global operations | ✅ **Adopted** — consolidation + savings |
 | Hybrid Cloud | Medium — dual infrastructure | Medium | High | ⚠️ May be needed for OT/SCADA |
 
-*Table 8: Deployment model comparison for Voith (Amazon Web Services, 2026; McHaney, 2021).*
+*Table 8: Deployment model comparison for Voith (Amazon Web Services, n.d.; McHaney, 2021).*
 
 ### 4.4 Cloud Services Analysis (~200 words)
 
@@ -228,7 +228,7 @@ Voith's AWS engagement combines migration services, managed analytics, DevOps to
 |---|---|---|
 | Migration Execution Support (AWS Professional Services + Slalom) | Expert-led migration planning, execution, and on-the-ground upskilling across four waves | Structured migration with increasing velocity; embedded partner expertise reduces time-to-cloud |
 | Amazon Athena | Serverless analytics — queries data in S3 without provisioning servers | Eliminates database administration overhead; pay-per-query cost model |
-| Infrastructure as Code (IaC) | Automated, version-controlled infrastructure provisioning across 6 regions | Central quality standards enforced globally; eliminates configuration drift from 146 sites to 6 |
+| Infrastructure as Code (IaC) | Automated, version-controlled infrastructure provisioning through reusable scripts rather than manual configuration (Chapple, 2022) | Central quality standards enforced globally; eliminates configuration drift from 146 sites to 6 |
 | Operational Standardisation (Centralised DevOps + Security Management) | Scattered business unit operations moved to shared DevOps model; unified security governance | Standardised pipelines and single security posture replace 146 fragmented site policies |
 | FinOps Practices | Continuous cost governance — identify, optimise, and attribute cloud spend | Tracks and validates 30% savings target; informs rightsizing decisions |
 
@@ -313,7 +313,9 @@ Key areas warranting further investigation across these cases include cloud cost
 <!-- RUBRIC: Citations 10% — in-text citations must appear throughout; min 10 resources; meticulous APA with no errors -->
 <!-- NOTE: URLs for the three case study PDFs must be retrieved from the source documents before final submission -->
 
-Amazon Web Services. (n.d.). *Voith saves 30% by improving operations and consolidating workloads on AWS* [Case study]. Amazon Web Services. [\[URL — retrieve from source PDF\]](https://aws.amazon.com/solutions/case-studies/voith-case-study/)
+Amazon Web Services. (n.d.). *Voith saves 30% by improving operations and consolidating workloads on AWS* [Case study]. Amazon Web Services. https://aws.amazon.com/solutions/case-studies/voith-case-study/
+
+Chapple, M. (2022). Cloud orchestration [Video]. In *CCSP Cert Prep: 1 Cloud concepts, architecture, and design*. LinkedIn Learning. https://www.linkedin.com/learning/ccsp-cert-prep-1-cloud-concepts-architecture-and-design
 
 Google Cloud. (n.d.). *ChatAndBuild: Building the future of ownable, evolving AI agents* [Case study]. Google Cloud. https://cloud.google.com/customers/chatandbuild
 
@@ -321,7 +323,11 @@ IBM. (n.d.-a). *IaaS, PaaS, SaaS: What's the difference?*. IBM. https://www.ibm.
 
 IBM. (n.d.-b). *What is a public cloud?* IBM. https://www.ibm.com/think/topics/public-cloud
 
+Kuijpers, M. (2022, January 7). AWS vs Azure vs Google Cloud: How to choose the right cloud platform. Touchtribe. https://www.touchtribe.nl/en/blog/aws-vs-azure-vs-google-cloud
+
 Linthicum, D. (2021, May 25). *Learning cloud computing: Core concepts* [Video]. LinkedIn Learning. https://www.linkedin.com/learning/learning-cloud-computing-core-concepts-13966302/
+
+Linthicum, D. (2023). *An insider's guide to cloud computing*. Addison-Wesley Professional. https://learning-oreilly-com.torrens.idm.oclc.org/library/view/an-insiders-guide/9780137935819/
 
 Manvi, S., & Shyam, G. K. (2021). *Cloud computing: Concepts and technologies* (Chapter 4). CRC Press. https://learning-oreilly-com.torrens.idm.oclc.org/library/view/cloud-computing/9781000338058/
 
