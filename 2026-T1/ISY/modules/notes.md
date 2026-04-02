@@ -720,6 +720,76 @@ Using the visualisation techniques you have learned thus far, create a visualisa
 
 ---
 
+## Module 8 - Computer Vision
+
+### TLDR
+
+### Introduction
+As we move into the applications of machine learning models, you will learn that there are wide-ranging: from face detection to entertainment to scenery detection and drone navigation.
+
+One such important application is recognition of objects in images in an influential field called Computer Vision. Images consist of pixels. A black-and-white image is a matrix of pixels and each pixel has a value of 0 to 255 that shows how black or white it is. A colourful image consists of three matrices for the colours red, green and blue. Pixels of each matrix represent the intensity of that colour in its matrix. You will learn how many popular computer vision libraries like the popular OpenCV can be used to help differentiate between pixels as it helps perform image processing and classification.
+
+In this Module, you will also be taking a practical approach to become familiar with using the OpenCV library to tackle computer vision problems like face recognition through techniques like You Only Look Once (YOLO), the AdaBoost technique and Haar-Cascades. At the end of this module, you’ll have enough the breadth and depth of knowledge to develop your own computer vision applications.
+
+### Resources
+
+#### 1. Computer Vision – a crash course
+- Crash Course. (2017, 15 November). How computer vision works [Video file]. Retrieved from https://www.youtube.com/watch?v=-4E2-0sxVUM
+
+*Resource Overview:*
+
+    Watch the following video, which provides an overview of computer vision. Take note of the following concepts discussed:
+    - What can be done by computer vision;
+    - CNN applications in computer vision; and
+    - How CNN models break down images and videos to identify objects and classifying them.
+    As you watch the video, take note of the mentioned topics and track them in the video. There are many other computer vision problems; however, the most challenging topics in computer vision are discussed here. It is strongly recommended that you explore the topics discussed in the video further. Try to read articles about the challenge that was introduced. Now that you have an overview of computer vision, let’s engage in some hands-on practice with a computer vision library called OpenCV in Python.
+
+> *Status: 🕐 To-Do*
+
+#### 2. Introduction to OpenCV
+- Fernandes, J. (2019, 17 June). Introduction to Deep Learning with OpenCV [Video file]. Retrieved from https://www.linkedin.com/learning/introduction-to-deep-learning-with-opencv/generate-insights-from-digital-images-and-video-with-opencv?u=56744473
+
+*Resource Overview:*
+
+    In these sections of the LinkedIn Learning course, you will be introduced to a very popular library used in computer vision applications – OpenCV. You will be taken through what the OpenCV framework is comprised of, what languages and other libraries it will work with and how it helps solve computer vision problems. Start with “What is Open CV” under chapter 1 “Deep Learning with OpenCV” and then continue through the videos. You will be taken through a practical exercise of opening OpenCV and manipulating some images using the OpenCV library’s functions in a native environment. You will need to download the “Exercise files” listed at the top of the course to allow you to follow along with the narrator. It is highly recommended you do this to enable you to understand the practical usage of the OpenCV library as well as to understand the role it can play within Computer Vision applications. Follow the narrator as he then shows you how to open video files and represent them using blobs using OpenCV’s DNN module. Finally, in chapter 4, you will be taken through the process of classifying an image and a video and predicting the possibilities of the different types of objects they contain.
+
+> *Status: 🕐 To-Do*
+
+#### 3. Performing face detection using Python and Keras
+- Brownlee, J. (2019, 3 June). How to perform face detection using deep learning. Retrieved from https://machinelearningmastery.com/how-to-perform-face-detection-with-classical-and-deep-learning-methods-in-python-with-keras/
+
+*Resource Overview:*
+
+    In this practical resource, you will about the challenges faced by models tasked with performing facial recognition. Building on the knowledge you gained about OpenCV in the last resource and the TensforFlow and Keras libraries you were introduced to in the previous modules, this step-by-step tutorial allows you to see the impact of various classifier techniques used to solve the problem of face detection including the AdaBoost algorithm, Haar-cascades and Multi-Task Cascaded Convolutional Neural Network (MTCNN). Work along with the writer by downloading the sample code and understanding the differences between the different techniques.
+
+> *Status: 🕐 To-Do*
+
+#### 4. Object Tracking
+- Howse, J., Joshi, P. & Beyeler, M. (2016). Opencv: Computer vision projects with python: Get savvy with opencv and actualize cool computer vision applications: A course in three modules. Birmingham, England: Packt. Retrieved from https://search.ebscohost.com/login.aspx?direct=true&AuthType=shib&db=nlebk&AN=1403105&site=ehost-live&custid=ns251549&ebv=EB&ppid=pp_237
+
+*Resource Overview:*
+
+    So far, you have seen how to detect an object in a single image. Now the next question is—how do you detect an object in a video? The simplest answer would be to conduct object detection for each frame. However, this is very heavy from a computational perspective. Further, how could you be certain that the object you detected in each frame is the same object? Read Chapter 8 of the following resource to understand the actual procedure. The technique involves detecting transitions using differentials between frames. Pay attention to colour-, space- and feature-based tracking techniques.
+
+> *Status: 🕐 To-Do*
+
+### Learning Activities
+
+#### Activity 1: Image Processing Practices
+
+Image processing is the very first step of computer vision. You need to be comfortable working with pixels so you can feed them to machine learning models, after which your machine can detect features and understand the images based on the output of the models. In your Jupyter Notebook, turn to the task on processing the image of the attached scene and find the pixels representing the sky. You need to find all the whitish and bluish pixels and colour them as the sky. Finally, note the percentage of sky pixels compared to the total pixels and then post your answer to the discussion forum. Remember, if you have any questions about this, post them to the Discussion Forum. Your peers are often more than willing to help you out!
+
+> *Status: 🕐 To-Do*
+
+#### Activity 2: Transfer Learning
+- Moltzau, A. (2019, 5 September), What is transfer learning? [Blog post]. Retrieved from: https://medium.com/@alexmoltzau/what-is-transfer-learning-6ebb03be77ee
+
+Transfer learning is an emerging research problem in machine learning whereby a fully trained model is used as a basis to train another model for a different application. Under the transfer learning approach, knowledge is transferred from one model to another model, just like a teacher transfers knowledge to students. Read the following article including any following through to any links within it to gain an understanding of the concept behind transfer learning. Submit a short summary of at least 100 words about the transfer learning technique. Upload your summary to the Transfer Learning discussion forum.
+
+> *Status: 🕐 To-Do*
+
+---
+
 ```bash
 --- PLACEHOLDER:
 ## Module X - ...
