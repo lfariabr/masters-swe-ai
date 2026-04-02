@@ -10,7 +10,7 @@ The notebook (`intro_to_modeling_Luis.ipynb`) runs in Google Colab without any e
 
 Open the notebook and select **Runtime → Run all** (Colab) or **Kernel → Restart & Run All** (Jupyter). Cells must run top-to-bottom — each task depends on the feature columns and normalisation helpers defined earlier.
 
-Expected final `average_loss` values: Task 1 — 18,720,354 (RMSE ~$4,327), Task 2 best — 187,324,060 (Z-score variant, RMSE ~$13,686), Task 3 — 4,935,784 (RMSE ~$2,221), Task 4 — pending run.
+Expected final `average_loss` values: Task 1 — 18,720,354 (RMSE ~$4,327), Task 2 best — 187,324,060 (Z-score variant, RMSE ~$13,686), Task 3 — 4,935,784 (RMSE ~$2,221), Task 4 best — 835,841 (RMSE ~$914).
 
 ---
 
@@ -20,14 +20,14 @@ Expected final `average_loss` values: Task 1 — 18,720,354 (RMSE ~$4,327), Task
 flowchart LR
     T1["Task 1<br>Numeric · no norm<br>Adagrad lr=0.01<br>18.7M ✅"] --> T2["Task 2<br>Normalisation<br>experiments<br>187M–215M ⚠️"]
     T2 --> T3["Task 3<br>Categorical only<br>lr=0.5<br>4.9M ✅"]
-    T3 --> T4["Task 4<br>All features<br>lr=0.5<br>🕐 pending"]
+    T3 --> T4["Task 4<br>All features<br>lr=0.5<br>835,841 ✅"]
     T2 --> ROOT["Root cause<br>Adagrad + small gradients<br>= effective lr → 0"]
     ROOT --> T3
 ```
 
 *Figure 1. Experimental progression across Tasks 1–4. Arrows show the discovery path: Task 2's underperformance led to identifying the Adagrad–normalisation interaction (centre node), which directly informed the lr=0.5 fix applied in Task 3.*
 
-All tasks use `DNNRegressor` with `hidden_units=[64]` — a single hidden layer expressive enough to pick up non-linear relationships without being overkill for 201 training examples (Krogh, 2008).
+All tasks use `DNNRegressor` with `hidden_units=[64]` — a single hidden layer expressive enough to pick up non-linear relationships without being overkill for 201 training examples (Krogh, 2008). To confirm this choice, `LinearRegressor` (avg_loss 56M, RMSE ~$7,483) and deeper architectures — DNN [64, 32] (15.5M) and DNN [128, 64] (13.6M) — were also trained; all underperformed the single-layer [64] (10.8M), consistent with the dataset being too small to benefit from additional parameters.
 
 The default `GradientDescentOptimizer` caused immediate divergence: with unscaled features spanning several orders of magnitude (e.g. `weight` 2,000–4,000 vs. `bore` 2.5–4.0), gradients exploded and the model settled for predicting the dataset mean (~$13k) every step — RMSE ~$7,930. Switching to `AdagradOptimizer` fixed this by adapting the learning rate per parameter, reducing loss by ~83% down to avg_loss 18,720,354 (LeCun et al., 2015).
 
@@ -52,20 +52,20 @@ Task 4 combines all 15 normalised numerics with 10 categorical indicators — th
 ```mermaid
 xychart-beta
     title "avg_loss by model variant (lower = better)"
-    x-axis ["T1 Adagrad", "T2.1 Z-score", "T2.2 Min-Max", "T2.4 PCA", "T3 lr=0.01", "T3 lr=0.5"]
+    x-axis ["T1 Adagrad", "T2.1 Z-score", "T2.2 Min-Max", "T2.4 PCA", "T3 lr=0.01", "T3 lr=0.5", "T4.2 lr=0.5"]
     y-axis "avg_loss (millions)" 0 --> 220
-    bar [18.7, 187.3, 192.9, 215.1, 172.7, 4.9]
+    bar [18.7, 187.3, 192.9, 215.1, 172.7, 4.9, 0.836]
 ```
 
-*Figure 2. avg_loss (millions) across all model variants — lower is better. All four Task 2 experiments underperform the un-normalised Task 1 baseline (18.7M), despite normalisation being generally recommended practice. Task 3 at lr=0.5 (4.9M) achieves the best result, confirming that learning rate recalibration — not normalisation itself — was the missing piece.*
+*Figure 2. avg_loss (millions) across all model variants — lower is better. All four Task 2 experiments underperform the un-normalised Task 1 baseline (18.7M), despite normalisation being generally recommended practice. Task 3 at lr=0.5 (4.9M) confirmed that learning rate recalibration was the missing piece; Task 4 at lr=0.5 (0.836M) achieves the best result overall by combining all 25 features.*
 
 The most counterintuitive result: **normalisation made Task 2 worse than Task 1.** Z-score (187M), Min-Max (193M), PCA with 9 components (215M), and GradientDescentOptimizer (NaN at all learning rates tested) all performed significantly worse than the un-normalised baseline (18.7M).
 
 The root cause is an Adagrad + normalisation interaction: normalised inputs compress feature values to roughly ±3, producing smaller gradient magnitudes. But Adagrad's denominator keeps accumulating regardless — effective learning rate shrinks toward zero, and the model crawls toward the dataset mean instead of learning real patterns. The experiments confirm this is not a data problem; it's a hyperparameter calibration problem. Fixing it requires a higher learning rate to compensate for the smaller gradient magnitudes — something Task 3 proved empirically.
 
-Task 3 (categorical-only, lr=0.5) achieved avg_loss 4,935,784 (RMSE ~$2,221) — the best result so far, and already converged at step 1,000. The `make` column (22 car brands) effectively acts as a price lookup table, which explains why categorical features alone beat normalised numerics here.
+Task 3 (categorical-only, lr=0.5) achieved avg_loss 4,935,784 (RMSE ~$2,221), already converged at step 1,000. The `make` column (22 car brands) effectively acts as a price lookup table, which explains why categorical features alone beat normalised numerics here.
 
-Task 4 (all features, lr=0.5) is the recommended model — expected to achieve the lowest loss by combining numeric precision with categorical lookup power (Sarker, 2021).
+Task 4 (all 25 features, lr=0.5) achieves avg_loss 835,841 (RMSE ~$914) — the best result across all experiments. Combining 15 Z-score normalised numerics with 10 categorical indicator columns lets the model leverage both numeric precision (engine-size, weight) and categorical lookup power (make, body-style). T4 at lr=0.01 (141M) exhibits the same Adagrad stall documented in Tasks 2–3; lr=0.5 resolves it, reducing loss to ~17% of T3's value. Task 4 is the recommended model (Sarker, 2021).
 
 ---
 
@@ -83,9 +83,9 @@ Task 3's plots showed tighter clustering than expected for a categorical-only mo
 
 ### Appendix A — Full Experiment Log
 
-Complete record of all model variants run across Tasks 1–3, with configurations and final avg_loss at step 10,000.
+Complete record of all model variants run across Tasks 1–4, with configurations and final avg_loss at step 10,000.
 
-*Table 1. Summary of all model variants across Tasks 1–3, showing the impact of normalisation and learning rate adjustments on performance.*
+*Table 1. Summary of all model variants across Tasks 1–4, showing the impact of normalisation and learning rate adjustments on performance.*
 | Task | Variant | Optimizer | lr | Normalisation | avg_loss | RMSE |
 |------|---------|-----------|-----|--------------|----------|------|
 | 1 | Numeric baseline | Adagrad | 0.01 | None | 18,720,354 | ~$4,327 |
@@ -95,7 +95,8 @@ Complete record of all model variants run across Tasks 1–3, with configuration
 | 2.4 | PCA (9 components) | Adagrad | 0.01 | PCA | 215,141,230 | ~$14,668 |
 | 3a | Categorical low lr | Adagrad | 0.01 | One-hot | 172,696,000 | ~$13,147 |
 | 3b | Categorical high lr | Adagrad | 0.5 | One-hot | 4,935,784 | ~$2,221 |
-| 4 | All features | Adagrad | 0.5 | Z-score + One-hot | pending | — |
+| 4.1 | All features low lr | Adagrad | 0.01 | Z-score + One-hot | 141,106,200 | ~$11,884 |
+| 4.2 | All features high lr | Adagrad | 0.5 | Z-score + One-hot | 835,841 | ~$914 |
 
 ---
 

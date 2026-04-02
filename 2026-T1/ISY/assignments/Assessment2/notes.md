@@ -24,7 +24,7 @@ flowchart TD
 
     subgraph T1["Task 1 — Numeric Features, No Normalization"]
         T1A["DNNRegressor · hidden=[64] · batch=16<br>AdagradOptimizer lr=0.01"]
-        T1B["avg_loss 18,720,354 · RMSE ~$4,327 ✅<br>Best result across all tasks"]
+        T1B["avg_loss 18,720,354 · RMSE ~$4,327 ✅<br>Best numeric-only result"]
         T1A --> T1B
     end
 
@@ -50,8 +50,11 @@ flowchart TD
 
     T3 --> T4
 
-    subgraph T4["Task 4 — All Features Combined 🕐"]
-        T4A["Numeric Z-score + Categorical indicator<br>25 features total · expected best result"]
+    subgraph T4["Task 4 — All Features Combined ✅"]
+        T4A["Numeric Z-score + Categorical indicator<br>25 features total · pre-computed means/stds fix"]
+        T4B["est_t4_lr1: lr=0.01 → avg_loss 141M · RMSE ~$11,884 ⚠️<br>Same Adagrad+normalized inputs issue"]
+        T4C["est_t4_lr2: lr=0.5 → avg_loss 835,841 · RMSE ~$914 ✅<br>Best result across ALL tasks"]
+        T4A --> T4B & T4C
     end
 
     style T1B fill:#1a3a1a,color:#7fff7f
@@ -59,6 +62,8 @@ flowchart TD
     style T2E fill:#2a2a1a,color:#ffff7f
     style T3B fill:#2a2a1a,color:#ffff7f
     style T3C fill:#1a3a1a,color:#7fff7f
+    style T4B fill:#2a2a1a,color:#ffff7f
+    style T4C fill:#1a3a1a,color:#7fff7f
 ```
 
 ---
@@ -73,6 +78,8 @@ flowchart TD
 - Task 2.3: GradientDescentOptimizer diverges (NaN) at all tested lr — feature normalization alone insufficient without label normalization
 - Task 2.4: PCA (9 components, 95% variance) — same slowness pattern, no improvement over Z-score
 - Task 3: lr=0.01 → 172M (underfitting, same Adagrad+sparse gradient cause as T2); lr=0.5 → **4.9M / RMSE ~$2,221** — converged at step 1,000
+- Task 4: lr=0.01 → 141M (same Adagrad+normalized inputs issue); lr=0.5 → **835,841 / RMSE ~$914** — best result overall ✅
+- Regressor coverage: LinearRegressor 56M (~$7,483 RMSE) confirms non-linear model needed; DNN [64,32] 15.5M; DNN [128,64] 13.6M — single-layer [64] still best numeric-only (dataset too small to benefit from depth)
 
 ---
 
@@ -295,10 +302,56 @@ avg_loss 4.9M is lower than T1's ~18.7M. However, without a train/val split this
 
 ### Task progression
 1. ✅ Task 0: data cleaned — 201 rows, 0 NaNs, mean imputation
-2. ✅ Task 1: AdagradOptimizer — avg_loss 18,720,354 (~$4,327 RMSE)
+2. ✅ Task 1: AdagradOptimizer — avg_loss 18,720,354 (~$4,327 RMSE) · LinearReg/DNN [64,32]/DNN [128,64] explored
 3. ✅ Task 2: Z-score best (187M), GD failure documented, PCA attempted (215M)
 4. ✅ Task 3: lr=0.5 + Adagrad — avg_loss 4,935,784 (~$2,221 RMSE)
-5. 🕐 Task 4: all features combined
+5. ✅ Task 4: lr=0.5 — avg_loss 835,841 (~$914 RMSE) · best result overall
+
+---
+
+## Task 4 — All Features Combined
+
+**Config:** Z-score normalization on 15 numeric features + `indicator_column` on 10 categorical features. Bug fix required: pre-compute `numeric_means`/`numeric_stds` from `car_data[numeric_feature_names]` only — calling `.mean()` on the mixed-type DataFrame (numeric + strings) raises `TypeError`.
+
+| Model | lr | avg_loss (10k) | RMSE | prediction/mean |
+|-------|-----|----------------|------|-----------------|
+| est_t4_lr1 | 0.01 | 141,106,200 | ~$11,884 | $3,327 ⚠️ |
+| est_t4_lr2 | 0.5 | **835,841** | **~$914** | $13,242 ✅ |
+
+**Best result in the entire notebook.** lr=0.5 shows combining all 25 features gives the model enough signal to predict price accurately.
+
+### Why lr=0.01 still fails
+
+Same Adagrad + small gradient pattern: Z-score compresses numeric features → small gradients → effective lr → 0. Confirmed: the fix is lr=0.5, consistent with T2 and T3 findings.
+
+### T4 vs previous tasks
+
+| Task | Model | avg_loss | RMSE |
+|------|-------|----------|------|
+| T1 | Numeric [64], lr=0.01 | 10,822,464 | ~$3,290 |
+| T3 | Categorical, lr=0.5 | 4,935,784 | ~$2,221 |
+| **T4** | **All features, lr=0.5** | **835,841** | **~$914** |
+
+T4 beats T3 by 5.9× on RMSE — adding normalized numeric features on top of categorical gives substantial additional signal.
+
+---
+
+## Regressor Coverage (Task 1 Extension)
+
+Three additional estimators trained on Task 1's numeric features (no normalization), same 10k steps, Adagrad lr=0.01:
+
+| Model | hidden_units | avg_loss (10k) | RMSE | prediction/mean |
+|-------|-------------|----------------|------|-----------------|
+| LinearRegressor | — | 56,000,984 | ~$7,483 | $11,564 |
+| DNN [64] (T1 best) | [64] | 10,822,464 | ~$3,290 | converged |
+| DNN [64, 32] | [64, 32] | 15,550,921 | ~$3,944 | $13,104 ✅ |
+| DNN [128, 64] | [128, 64] | 13,630,101 | ~$3,692 | $13,559 ✅ |
+
+### Key observations
+
+- **LinearRegressor (56M)** clearly underperforms all DNNs — confirms car pricing is a non-linear problem. Linear model can't capture the interaction between features like engine-size × body-style.
+- **Deeper DNNs [64,32] and [128,64]** are worse than the single-layer [64] — the dataset (201 rows) is too small to benefit from extra parameters. More capacity → more overfitting or slower convergence on this data size.
+- **Single [64]** is the sweet spot for numeric-only features on this dataset.
 
 ---
 
