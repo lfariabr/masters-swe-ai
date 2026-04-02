@@ -166,9 +166,9 @@ bboxes = classifier.detectMultiScale(pixels)  # returns list of (x, y, w, h)
 
 #### 3. Deep Learning Approach — MTCNN
 
-- **MTCNN** = Multi-Task Cascaded Convolutional Neural Network
-- State-of-the-art on benchmark face detection datasets
-- Detects faces **and** facial keypoints (eyes, nose, mouth corners)
+- **MTCNN** = Multi-Task Cascaded Convolutional Neural Network (Zhang et al., 2016)
+- Historically strong on several benchmark face detection datasets (Zhang, K., Zhang, Z., Li, Z., & Qiao, Y. (2016). Joint face detection and alignment using multitask cascaded convolutional networks. *IEEE Signal Processing Letters*, 23(10), 1499–1503. https://doi.org/10.1109/LSP.2016.2603342)
+- Detects faces **and** facial keypoints (eyes, nose, mouth corners) in a single forward pass
 - Python library: `mtcnn`
 
 **MTCNN usage:**
@@ -218,6 +218,9 @@ diff2 = cv2.absdiff(cur_frame, prev_frame)
 motion = cv2.bitwise_and(diff1, diff2)
 ```
 
+> **How to run:** `python frame_diff.py` — requires Python + OpenCV, and three consecutive grayscale frames (`prev_frame`, `cur_frame`, `next_frame`) captured from a webcam or video file.
+> **Expected output:** A binary-like mask image (`motion`) where bright regions show pixels that moved between frames; pass to `cv2.imshow('Motion', motion)` to visualise.
+
 #### 2. Colorspace-Based Tracking
 
 - Convert frame to **HSV colorspace** (more perceptually meaningful than RGB)
@@ -245,10 +248,13 @@ feature_points_1, _, _ = cv2.calcOpticalFlowPyrLK(
 )
 ```
 
+> **How to run:** `python optical_flow.py` — requires Python + OpenCV; `feature_points_0` is a float32 array of keypoints (e.g., from `cv2.goodFeaturesToTrack()`), and `tracking_params` sets `winSize`, `maxLevel`, and termination criteria.
+> **Expected output:** `feature_points_1` contains the updated keypoint positions in `current_img`; draw lines between `feature_points_0` and `feature_points_1` with `cv2.polylines()` to visualise motion vectors.
+
 #### 5. Background Subtraction (MOG)
 
 - Build an **adaptive background model** (not just frame diff)
-- `cv2.BackgroundSubtractorMOG()` — Mixture of Gaussians
+- Use `cv2.createBackgroundSubtractorMOG2()` (built into standard `opencv-python`); the older `cv2.bgsegm.createBackgroundSubtractorMOG()` requires `opencv-contrib-python`
 - `learningRate` controls how fast the model adapts; static objects eventually absorbed into background
 - **Advantage over frame diff:** handles gradual lighting changes, detects any moving foreground object
 
@@ -260,7 +266,7 @@ feature_points_1, _, _ = cv2.calcOpticalFlowPyrLK(
 | Colorspace tracking | HSV thresholding | Tracks specific colors | Needs known color |
 | CAMShift | Histogram backprojection + adaptive mean | Handles size & orientation | Needs user init |
 | Optical flow (Lucas-Kanade) | Feature point patch matching | Tracks individual features | Computationally heavier |
-| Background subtraction (MOG) | Adaptive background model | Works in static scenes | Fails with moving cameras |
+| Background subtraction (MOG2) | Adaptive background model | Works in static scenes | Fails with moving cameras |
 
 #### Key Takeaways for ISY503
 1. Object tracking is fundamentally about **temporal consistency** — connecting detections across frames, not just detecting per frame
