@@ -6,7 +6,7 @@
 
 | **#** | Task | Status |
 |---|------|--------|
-| **1** | Read & summarise Amazon Web Services (2022) — eHealth NSW cloud migration | ✅ |
+| 1 | Read & summarise Amazon Web Services (2022) — eHealth NSW cloud migration | ✅ |
 | **2** | Read & summarise Phalip & Niemitz (2020) — Twitter ad analytics on Google Cloud | ✅ |
 | **3** | Read & summarise Amazon Web Services (2021) — City of Charles Sturt on AWS | ✅ |
 | **4** | Watch & summarise IBM (n.d.) — Innocens BV predictive AI for neonatal care | ✅ |
