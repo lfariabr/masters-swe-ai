@@ -90,29 +90,33 @@
 flowchart LR
     subgraph OnPrem["On-Premises (unchanged)"]
         HDFS["HDFS\n(LZO Thrift files)"]
-        Scalding["Scalding\nBatch Pipelines"]
-        Eventbus["Eventbus → Heron\n(streaming)"]
-        Nighthawk["Nighthawk\n(sharded Redis)"]
+        Scalding["Scalding\nBatch Pipelines\n(aggregation logic)"]
     end
 
-    subgraph GCloud["Google Cloud (NEW)"]
+    subgraph GCloud["Google Cloud (NEW — storage only)"]
         CS["Cloud Storage\n(Avro, 4-hr batches)"]
         BQ["BigQuery\n(ad-hoc queries)"]
         DF["Dataflow\n(light transforms)"]
-        BT["Cloud Bigtable\n(low-latency serving)"]
-        GKE["Query Service\non GKE"]
+        BT["Cloud Bigtable\n(aggregated results)"]
+        GKE["Query Service on GKE\n(co-located with Bigtable)"]
     end
 
-    Clients["Advertisers\n& APIs"]
+    Advertisers["🧑‍💼 Advertisers & APIs\nP99: ~300ms ✅"]
 
-    HDFS --> Scalding --> CS --> BQ --> DF --> BT
-    Eventbus --> Nighthawk
-    GKE --> BT
-    Clients --> GKE
-    Clients -. "legacy path\nP99 > 2s" .-> Nighthawk
+    HDFS --> Scalding
+    Scalding -- "transcode to Avro\n→ stage in batches" --> CS
+    CS --> BQ
+    BQ --> DF
+    DF -- "write results" --> BT
+    GKE -- "fetch aggregations" --> BT
+    Advertisers -- "query" --> GKE
+
+    note["Key insight: aggregation logic\nstayed on-prem — only\nstorage + serving moved to cloud"]
 
     style GCloud fill:#e8f5e9,stroke:#43a047
     style OnPrem fill:#fff3e0,stroke:#fb8c00
+    style Advertisers fill:#e3f2fd,stroke:#1e88e5,color:#000
+    style note fill:#fffde7,stroke:#f9a825,color:#555
 ```
 
 | Component | Before | After |
@@ -123,8 +127,10 @@ flowchart LR
 | Query service | Expensive legacy system | New service on **GKE**, co-located with Bigtable |
 | Serving P99 latency | 2+ seconds | **300 ms** |
 
-- De-risked migration by separating storage migration from business logic migration
-- Reliability improved significantly — on-call pages for serving system "rarely, if ever" triggered
+- **What moved**: only storage and serving — Scalding aggregation logic stayed on-prem entirely untouched
+- **What advertisers felt**: immediate, zero-ambiguity improvement — P99 latency dropped from 2+ seconds to ~300ms thanks to Bigtable's linear scalability and the GKE query service co-located with it
+- **Why it worked**: Bigtable + GKE is purpose-built for low-latency key lookups at scale; the old Manhattan serving layer simply couldn't compete
+- De-risked the overall migration — by validating the serving layer first, the team could tackle the aggregation logic rewrite with confidence in iteration 2
 
 #### 3. Second Iteration (2019) — Full Pipeline Migration to Apache Beam / Dataflow
 
