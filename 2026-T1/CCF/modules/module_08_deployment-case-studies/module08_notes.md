@@ -86,6 +86,35 @@
 
 #### 2. First Iteration (2017) — Storage Migration
 
+```mermaid
+flowchart LR
+    subgraph OnPrem["On-Premises (unchanged)"]
+        HDFS["HDFS\n(LZO Thrift files)"]
+        Scalding["Scalding\nBatch Pipelines"]
+        Eventbus["Eventbus → Heron\n(streaming)"]
+        Nighthawk["Nighthawk\n(sharded Redis)"]
+    end
+
+    subgraph GCloud["Google Cloud (NEW)"]
+        CS["Cloud Storage\n(Avro, 4-hr batches)"]
+        BQ["BigQuery\n(ad-hoc queries)"]
+        DF["Dataflow\n(light transforms)"]
+        BT["Cloud Bigtable\n(low-latency serving)"]
+        GKE["Query Service\non GKE"]
+    end
+
+    Clients["Advertisers\n& APIs"]
+
+    HDFS --> Scalding --> CS --> BQ --> DF --> BT
+    Eventbus --> Nighthawk
+    GKE --> BT
+    Clients --> GKE
+    Clients -. "legacy path\nP99 > 2s" .-> Nighthawk
+
+    style GCloud fill:#e8f5e9,stroke:#43a047
+    style OnPrem fill:#fff3e0,stroke:#fb8c00
+```
+
 | Component | Before | After |
 |-----------|--------|-------|
 | Aggregation | Scalding (on-prem, unchanged) | Scalding (on-prem, unchanged) |
@@ -104,6 +133,53 @@
 - **Unified batch + streaming** model — one job codebase handles both inputs (Cloud Storage) and streaming inputs (Pub/Sub)
 - Deep integration with BigQuery, Bigtable, and Pub/Sub
 - Deployable on **Dataflow** (fully managed)
+
+```mermaid
+flowchart TB
+    subgraph OnPrem["On-Premises"]
+        HDFS["HDFS\n(batch source)"]
+        SvcPush["On-Prem Service\n(Avro stream push)"]
+    end
+
+    subgraph Streaming["Streaming Layer — Google Cloud"]
+        direction LR
+        PS_Critical["Pub/Sub\nCritical Stream\n200K msg/s — 2 topics"]
+        PS_Volume["Pub/Sub\nHigh-Volume Stream\n80K msg/s — 6 topics"]
+        J3["Dataflow J3\n400K agg/s"]
+        J0["Dataflow J0"]
+        J1["Dataflow J1"]
+        J2["Dataflow J2"]
+    end
+
+    subgraph Batch["Batch Layer — Google Cloud"]
+        CS["Cloud Storage\n(staged from HDFS)"]
+        DFBatch["Dataflow\nBatch Job"]
+    end
+
+    subgraph Storage["Storage & Serving"]
+        BT["Cloud Bigtable\n(online serving\nP99 < 300ms)"]
+        BQ["BigQuery\n(ad-hoc analysis)"]
+    end
+
+    Clients["Advertisers\n& APIs"]
+
+    HDFS --> CS --> DFBatch
+    SvcPush --> PS_Critical --> J3
+    SvcPush --> PS_Volume --> J0 & J1 & J2
+
+    J3 --> BT
+    J0 & J1 & J2 --> BT
+    DFBatch --> BT
+    DFBatch --> BQ
+
+    Clients --> BT
+    Clients --> BQ
+
+    style Streaming fill:#e3f2fd,stroke:#1e88e5
+    style Batch fill:#fff3e0,stroke:#fb8c00
+    style Storage fill:#e8f5e9,stroke:#43a047
+    style OnPrem fill:#fce4ec,stroke:#e53935
+```
 
 **New Architecture:**
 
