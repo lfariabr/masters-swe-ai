@@ -29,7 +29,7 @@ flowchart LR
 
 All tasks use `DNNRegressor` with `hidden_units=[64]` — a single hidden layer expressive enough to pick up non-linear relationships without being overkill for 201 training examples (Krogh, 2008). To confirm this choice, `LinearRegressor` (avg_loss 56M, RMSE ~$7,483) and deeper architectures — DNN [64, 32] (15.5M) and DNN [128, 64] (13.6M) — were also trained; all underperformed the single-layer [64] (10.8M), consistent with the dataset being too small to benefit from additional parameters.
 
-The default `GradientDescentOptimizer` caused immediate divergence: with unscaled features spanning several orders of magnitude (e.g. `weight` 2,000–4,000 vs. `bore` 2.5–4.0), gradients exploded and the model settled for predicting the dataset mean (~$13k) every step — RMSE ~$7,930. Switching to `AdagradOptimizer` fixed this by adapting the learning rate per parameter, reducing loss by ~83% down to avg_loss 18,720,354 (LeCun et al., 2015).
+The default `GradientDescentOptimizer` caused immediate divergence: with unscaled features spanning several orders of magnitude (e.g. `weight` 2,000–4,000 vs. `bore` 2.5–4.0), gradients exploded and the model settled for predicting the dataset mean (~$13k) every step — RMSE ~$7,930. Switching to `AdagradOptimizer` fixed this by adapting the learning rate per parameter, reducing loss by ~83% down to avg_loss 18,720,354 (LeCun et al., 2015). `AdamOptimizer` (lr=0.001) was also tested: it converged faster in early steps (33.7M at step 1,000) but finished at 12,662,486 — behind tuned Adagrad at 10,000 steps, confirming that lr=0.01 Adagrad is the stronger choice for this dataset.
 
 One important discovery from Task 3: for sparse or normalised inputs, lr=0.01 is too conservative for Adagrad — the categorical model only converged properly at lr=0.5 (Feurer & Hutter, 2019). This informed the hyperparameter choice for Task 4.
 
@@ -52,12 +52,22 @@ Task 4 combines all 15 normalised numerics with 10 categorical indicators — th
 ```mermaid
 xychart-beta
     title "avg_loss by model variant (lower = better)"
-    x-axis ["T1 Adagrad", "T2.1 Z-score", "T2.2 Min-Max", "T2.4 PCA", "T3 lr=0.01", "T3 lr=0.5", "T4.2 lr=0.5"]
+    x-axis ["T1 Adagrad", "T1 Adam", "T2.1 Z-score", "T2.2 Min-Max", "T2.4 PCA", "T3 lr=0.01", "T3 lr=0.5", "T4.2 lr=0.5"]
     y-axis "avg_loss (millions)" 0 --> 220
-    bar [18.7, 187.3, 192.9, 215.1, 172.7, 4.9, 0.836]
+    bar [18.7, 12.7, 187.3, 192.9, 215.1, 172.7, 4.9, 0.836]
 ```
 
-*Figure 2. avg_loss (millions) across all model variants — lower is better. All four Task 2 experiments underperform the un-normalised Task 1 baseline (18.7M), despite normalisation being generally recommended practice. Task 3 at lr=0.5 (4.9M) confirmed that learning rate recalibration was the missing piece; Task 4 at lr=0.5 (0.836M) achieves the best result overall by combining all 25 features.*
+*Figure 2. avg_loss (millions) — lower bars = better performance. T1 Adam (12.7M) beats T1 Adagrad (18.7M) in early convergence but falls behind at 10,000 steps with its default lr. All four Task 2 experiments underperform the Task 1 baseline despite normalisation. Task 3 at lr=0.5 (4.9M) confirmed learning rate recalibration was the missing piece; Task 4 at lr=0.5 (0.836M) achieves the best result overall.*
+
+```mermaid
+xychart-beta
+    title "Model efficiency score (higher = better)"
+    x-axis ["T1 Adagrad", "T1 Adam", "T2.1 Z-score", "T2.2 Min-Max", "T2.4 PCA", "T3 lr=0.01", "T3 lr=0.5", "T4.2 lr=0.5"]
+    y-axis "efficiency score (0–100)" 0 --> 100
+    bar [75, 81, 7, 6, 0, 11, 91, 100]
+```
+
+*Figure 3. Normalised efficiency score — higher bars = better models. Score = 100 × (worst\_RMSE − model\_RMSE) / (worst\_RMSE − best\_RMSE), where worst = T2.4 (~\$14,668) and best = T4.2 (~\$914). Task 2 variants cluster near zero; T3 and T4 at lr=0.5 dominate.*
 
 The most counterintuitive result: **normalisation made Task 2 worse than Task 1.** Z-score (187M), Min-Max (193M), PCA with 9 components (215M), and GradientDescentOptimizer (NaN at all learning rates tested) all performed significantly worse than the un-normalised baseline (18.7M).
 
@@ -88,7 +98,11 @@ Complete record of all model variants run across Tasks 1–4, with configuration
 *Table 1. Summary of all model variants across Tasks 1–4, showing the impact of normalisation and learning rate adjustments on performance.*
 | Task | Variant | Optimizer | lr | Normalisation | avg_loss | RMSE |
 |------|---------|-----------|-----|--------------|----------|------|
-| 1 | Numeric baseline | Adagrad | 0.01 | None | 18,720,354 | ~$4,327 |
+| 1 | Numeric baseline DNN [64] | Adagrad | 0.01 | None | 18,720,354 | ~$4,327 |
+| 1 ext | LinearRegressor | Adagrad | 0.01 | None | 56,000,984 | ~$7,483 |
+| 1 ext | DNN [64, 32] | Adagrad | 0.01 | None | 15,550,921 | ~$3,944 |
+| 1 ext | DNN [128, 64] | Adagrad | 0.01 | None | 13,630,101 | ~$3,692 |
+| 1 ext | DNN [64] Adam | Adam | 0.001 | None | 12,662,486 | ~$3,558 |
 | 2.1 | Z-score | Adagrad | 0.01 | Z-score | 187,324,060 | ~$13,686 |
 | 2.2 | Min-Max | Adagrad | 0.01 | Min-Max | 192,884,350 | ~$13,888 |
 | 2.3 | GD + Z-score | GradientDescent | 0.01 / 0.5 / 0.0001 | Z-score | NaN | — |

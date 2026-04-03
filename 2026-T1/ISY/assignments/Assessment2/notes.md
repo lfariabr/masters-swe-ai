@@ -25,7 +25,9 @@ flowchart TD
     subgraph T1["Task 1 — Numeric Features, No Normalization"]
         T1A["DNNRegressor · hidden=[64] · batch=16<br>AdagradOptimizer lr=0.01"]
         T1B["avg_loss 18,720,354 · RMSE ~$4,327 ✅<br>Best numeric-only result"]
+        T1EXT["Regressor exploration:<br>LinearReg → 56M ❌ non-linear problem confirmed<br>DNN[64,32] → 15.5M · DNN[128,64] → 13.6M<br>Adam lr=0.001 → 12.6M ⚠️ faster early, slower final"]
         T1A --> T1B
+        T1A --> T1EXT
     end
 
     T1 --> T2
@@ -58,6 +60,7 @@ flowchart TD
     end
 
     style T1B fill:#1a3a1a,color:#7fff7f
+    style T1EXT fill:#1a2a3a,color:#7fbfff
     style T2C fill:#3a1a1a,color:#ff7f7f
     style T2E fill:#2a2a1a,color:#ffff7f
     style T3B fill:#2a2a1a,color:#ffff7f
@@ -79,7 +82,7 @@ flowchart TD
 - Task 2.4: PCA (9 components, 95% variance) — same slowness pattern, no improvement over Z-score
 - Task 3: lr=0.01 → 172M (underfitting, same Adagrad+sparse gradient cause as T2); lr=0.5 → **4.9M / RMSE ~$2,221** — converged at step 1,000
 - Task 4: lr=0.01 → 141M (same Adagrad+normalized inputs issue); lr=0.5 → **835,841 / RMSE ~$914** — best result overall ✅
-- Regressor coverage: LinearRegressor 56M (~$7,483 RMSE) confirms non-linear model needed; DNN [64,32] 15.5M; DNN [128,64] 13.6M — single-layer [64] still best numeric-only (dataset too small to benefit from depth)
+- Regressor coverage: LinearRegressor 56M (~$7,483 RMSE) confirms non-linear model needed; Adam lr=0.001 → 12.6M (~$3,558) — faster early convergence but loses to tuned Adagrad at 10k; DNN [64,32] 15.5M; DNN [128,64] 13.6M — single-layer [64] + Adagrad still best numeric-only
 
 ---
 
@@ -343,15 +346,17 @@ Three additional estimators trained on Task 1's numeric features (no normalizati
 | Model | hidden_units | avg_loss (10k) | RMSE | prediction/mean |
 |-------|-------------|----------------|------|-----------------|
 | LinearRegressor | — | 56,000,984 | ~$7,483 | $11,564 |
-| DNN [64] (T1 best) | [64] | 10,822,464 | ~$3,290 | converged |
-| DNN [64, 32] | [64, 32] | 15,550,921 | ~$3,944 | $13,104 ✅ |
-| DNN [128, 64] | [128, 64] | 13,630,101 | ~$3,692 | $13,559 ✅ |
+| DNN [64] Adagrad | [64] | 10,822,464 | ~$3,290 | converged ✅ |
+| DNN [64] Adam lr=0.001 | [64] | 12,662,486 | ~$3,558 | $12,852 |
+| DNN [64, 32] | [64, 32] | 15,550,921 | ~$3,944 | $13,104 |
+| DNN [128, 64] | [128, 64] | 13,630,101 | ~$3,692 | $13,559 |
 
 ### Key observations
 
 - **LinearRegressor (56M)** clearly underperforms all DNNs — confirms car pricing is a non-linear problem. Linear model can't capture the interaction between features like engine-size × body-style.
-- **Deeper DNNs [64,32] and [128,64]** are worse than the single-layer [64] — the dataset (201 rows) is too small to benefit from extra parameters. More capacity → more overfitting or slower convergence on this data size.
-- **Single [64]** is the sweet spot for numeric-only features on this dataset.
+- **Adam (12.6M)** converges faster early (33.7M at step 1k) but finishes behind tuned Adagrad (10.8M) at 10k. Adam with lr=0.001 (default) is the conservative choice; tuned Adagrad at lr=0.01 edges it out here.
+- **Deeper DNNs [64,32] and [128,64]** are worse than the single-layer [64] — the dataset (201 rows) is too small to benefit from extra parameters.
+- **Single [64] + Adagrad lr=0.01** is the sweet spot for numeric-only features on this dataset.
 
 ---
 
