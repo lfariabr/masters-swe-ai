@@ -138,50 +138,55 @@ flowchart LR
 - Deployable on **Dataflow** (fully managed)
 
 ```mermaid
-flowchart TB
+flowchart LR
     subgraph OnPrem["On-Premises"]
         HDFS["HDFS\n(batch source)"]
-        SvcPush["On-Prem Service\n(Avro stream push)"]
+        SvcPush["On-Prem Service\n(pushes 2 Avro streams)"]
     end
 
-    subgraph Streaming["Streaming Layer — Google Cloud"]
-        direction LR
-        PS_Critical["Pub/Sub\nCritical Stream\n200K msg/s — 2 topics"]
-        PS_Volume["Pub/Sub\nHigh-Volume Stream\n80K msg/s — 6 topics"]
-        J3["Dataflow J3\n400K agg/s"]
-        J0["Dataflow J0"]
-        J1["Dataflow J1"]
-        J2["Dataflow J2"]
+    subgraph Ingest["Pub/Sub — 2 Avro Streams"]
+        PS_C["Stream A · Critical\n200K msg/s · 2 topics"]
+        PS_V["Stream B · High-Volume\n80K msg/s · 6 topics"]
     end
 
-    subgraph Batch["Batch Layer — Google Cloud"]
+    subgraph Jobs["Apache Beam on Dataflow — 4 Jobs"]
+        J3["J3 — Critical stream\n400K agg/s"]
+        J0["J0 — 2 topics"]
+        J1["J1 — 2 topics"]
+        J2["J2 — 2 topics"]
+        note2["J0+J1+J2 share high-volume stream\n~2M+ agg/s combined"]
+    end
+
+    subgraph Batch["Batch Layer"]
         CS["Cloud Storage\n(staged from HDFS)"]
-        DFBatch["Dataflow\nBatch Job"]
+        DFBatch["Dataflow Batch Job\n(Beam · replaces Scalding)"]
     end
 
     subgraph Storage["Storage & Serving"]
-        BT["Cloud Bigtable\n(online serving\nP99 < 300ms)"]
+        BT["Cloud Bigtable\n(online serving · P99 < 300ms)"]
         BQ["BigQuery\n(ad-hoc analysis)"]
     end
 
-    Clients["Advertisers\n& APIs"]
+    Advertisers["Advertisers & APIs"]
 
     HDFS --> CS --> DFBatch
-    SvcPush --> PS_Critical --> J3
-    SvcPush --> PS_Volume --> J0 & J1 & J2
+    SvcPush --> PS_C --> J3
+    SvcPush --> PS_V --> J0 & J1 & J2
 
     J3 --> BT
     J0 & J1 & J2 --> BT
     DFBatch --> BT
     DFBatch --> BQ
 
-    Clients --> BT
-    Clients --> BQ
+    Advertisers --> BT
+    Advertisers --> BQ
 
-    style Streaming fill:#e3f2fd,stroke:#1e88e5
+    style Ingest fill:#e3f2fd,stroke:#1e88e5
+    style Jobs fill:#ede7f6,stroke:#7b1fa2
     style Batch fill:#fff3e0,stroke:#fb8c00
     style Storage fill:#e8f5e9,stroke:#43a047
     style OnPrem fill:#fce4ec,stroke:#e53935
+    style note2 fill:#ede7f6,stroke:#9c27b0,color:#555
 ```
 
 **New Architecture:**
