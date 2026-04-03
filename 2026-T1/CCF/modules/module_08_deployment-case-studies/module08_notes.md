@@ -91,6 +91,8 @@ flowchart LR
     subgraph OnPrem["On-Premises (unchanged)"]
         HDFS["HDFS\n(LZO Thrift files)"]
         Scalding["Scalding\nBatch Pipelines\n(aggregation logic)"]
+        Eventbus["Eventbus → Heron\n(streaming)"]
+        Nighthawk["Nighthawk\n(sharded Redis)"]
     end
 
     subgraph GCloud["Google Cloud (NEW — storage only)"]
@@ -101,22 +103,17 @@ flowchart LR
         GKE["Query Service on GKE\n(co-located with Bigtable)"]
     end
 
-    Advertisers["🧑‍💼 Advertisers & APIs\nP99: ~300ms ✅"]
+    Advertisers["Advertisers & APIs"]
 
-    HDFS --> Scalding
-    Scalding -- "transcode to Avro\n→ stage in batches" --> CS
-    CS --> BQ
-    BQ --> DF
-    DF -- "write results" --> BT
+    HDFS --> Scalding -- "transcode to Avro\n→ stage in batches" --> CS --> BQ --> DF --> BT
+    Eventbus --> Nighthawk
     GKE -- "fetch aggregations" --> BT
-    Advertisers -- "query" --> GKE
-
-    note["Key insight: aggregation logic\nstayed on-prem — only\nstorage + serving moved to cloud"]
+    Advertisers -- "new path\nP99 ~300ms ✅" --> GKE
+    Advertisers -. "legacy path\nP99 > 2s ❌" .-> Nighthawk
 
     style GCloud fill:#e8f5e9,stroke:#43a047
     style OnPrem fill:#fff3e0,stroke:#fb8c00
-    style Advertisers fill:#e3f2fd,stroke:#1e88e5,color:#000
-    style note fill:#fffde7,stroke:#f9a825,color:#555
+    style Advertisers fill:#e3f2fd,stroke:#1e88e5
 ```
 
 | Component | Before | After |
