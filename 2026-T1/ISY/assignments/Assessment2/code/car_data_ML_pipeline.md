@@ -149,30 +149,6 @@ car_data[4:7]
   </thead>
   <tbody>
     <tr>
-      <th>139</th>
-      <td>2</td>
-      <td>83</td>
-      <td>subaru</td>
-      <td>gas</td>
-      <td>std</td>
-      <td>two</td>
-      <td>hatchback</td>
-      <td>fwd</td>
-      <td>front</td>
-      <td>93.70</td>
-      <td>...</td>
-      <td>108</td>
-      <td>2bbl</td>
-      <td>3.62</td>
-      <td>2.64</td>
-      <td>8.70</td>
-      <td>73</td>
-      <td>4400</td>
-      <td>26</td>
-      <td>31</td>
-      <td>7053</td>
-    </tr>
-    <tr>
       <th>185</th>
       <td>2</td>
       <td>94</td>
@@ -197,28 +173,52 @@ car_data[4:7]
       <td>8195</td>
     </tr>
     <tr>
-      <th>148</th>
+      <th>22</th>
+      <td>1</td>
+      <td>118</td>
+      <td>dodge</td>
+      <td>gas</td>
+      <td>std</td>
+      <td>two</td>
+      <td>hatchback</td>
+      <td>fwd</td>
+      <td>front</td>
+      <td>93.70</td>
+      <td>...</td>
+      <td>90</td>
+      <td>2bbl</td>
+      <td>2.97</td>
+      <td>3.23</td>
+      <td>9.40</td>
+      <td>68</td>
+      <td>5500</td>
+      <td>31</td>
+      <td>38</td>
+      <td>6377</td>
+    </tr>
+    <tr>
+      <th>157</th>
       <td>0</td>
-      <td>85</td>
-      <td>subaru</td>
+      <td>91</td>
+      <td>toyota</td>
       <td>gas</td>
       <td>std</td>
       <td>four</td>
-      <td>wagon</td>
-      <td>4wd</td>
+      <td>hatchback</td>
+      <td>fwd</td>
       <td>front</td>
-      <td>96.90</td>
+      <td>95.70</td>
       <td>...</td>
-      <td>108</td>
+      <td>98</td>
       <td>2bbl</td>
-      <td>3.62</td>
-      <td>2.64</td>
+      <td>3.19</td>
+      <td>3.03</td>
       <td>9.00</td>
-      <td>82</td>
+      <td>70</td>
       <td>4800</td>
-      <td>23</td>
-      <td>29</td>
-      <td>8013</td>
+      <td>30</td>
+      <td>37</td>
+      <td>7198</td>
     </tr>
   </tbody>
 </table>
@@ -235,7 +235,7 @@ car_data.info()
 ```
 
     <class 'pandas.core.frame.DataFrame'>
-    Index: 205 entries, 64 to 113
+    Index: 205 entries, 4 to 142
     Data columns (total 26 columns):
      #   Column             Non-Null Count  Dtype  
     ---  ------             --------------  -----  
@@ -342,94 +342,94 @@ car_data[numeric_feature_names]
   </thead>
   <tbody>
     <tr>
-      <th>64</th>
-      <td>0</td>
-      <td>115</td>
-      <td>98.80</td>
-      <td>177.80</td>
-      <td>66.50</td>
-      <td>55.50</td>
-      <td>2425</td>
-      <td>122</td>
-      <td>84</td>
-      <td>4800</td>
-      <td>26</td>
-      <td>32</td>
-      <td>3.39</td>
-      <td>3.39</td>
-      <td>8.60</td>
-    </tr>
-    <tr>
-      <th>150</th>
-      <td>1</td>
-      <td>87</td>
-      <td>95.70</td>
-      <td>158.70</td>
-      <td>63.60</td>
-      <td>54.50</td>
-      <td>1985</td>
-      <td>92</td>
-      <td>62</td>
-      <td>4800</td>
-      <td>35</td>
-      <td>39</td>
-      <td>3.05</td>
-      <td>3.03</td>
-      <td>9.00</td>
-    </tr>
-    <tr>
-      <th>182</th>
+      <th>4</th>
       <td>2</td>
+      <td>164</td>
+      <td>99.40</td>
+      <td>176.60</td>
+      <td>66.40</td>
+      <td>54.30</td>
+      <td>2824</td>
+      <td>136</td>
+      <td>115</td>
+      <td>5500</td>
+      <td>18</td>
+      <td>22</td>
+      <td>3.19</td>
+      <td>3.40</td>
+      <td>8.00</td>
+    </tr>
+    <tr>
+      <th>86</th>
+      <td>1</td>
+      <td>125</td>
+      <td>96.30</td>
+      <td>172.40</td>
+      <td>65.40</td>
+      <td>51.60</td>
+      <td>2405</td>
       <td>122</td>
+      <td>88</td>
+      <td>5000</td>
+      <td>25</td>
+      <td>32</td>
+      <td>3.35</td>
+      <td>3.46</td>
+      <td>8.50</td>
+    </tr>
+    <tr>
+      <th>122</th>
+      <td>1</td>
+      <td>154</td>
+      <td>93.70</td>
+      <td>167.30</td>
+      <td>63.80</td>
+      <td>50.80</td>
+      <td>2191</td>
+      <td>98</td>
+      <td>68</td>
+      <td>5500</td>
+      <td>31</td>
+      <td>38</td>
+      <td>2.97</td>
+      <td>3.23</td>
+      <td>9.40</td>
+    </tr>
+    <tr>
+      <th>85</th>
+      <td>1</td>
+      <td>125</td>
+      <td>96.30</td>
+      <td>172.40</td>
+      <td>65.40</td>
+      <td>51.60</td>
+      <td>2365</td>
+      <td>122</td>
+      <td>88</td>
+      <td>5000</td>
+      <td>25</td>
+      <td>32</td>
+      <td>3.35</td>
+      <td>3.46</td>
+      <td>8.50</td>
+    </tr>
+    <tr>
+      <th>185</th>
+      <td>2</td>
+      <td>94</td>
       <td>97.30</td>
       <td>171.70</td>
       <td>65.50</td>
       <td>55.70</td>
-      <td>2261</td>
-      <td>97</td>
-      <td>52</td>
-      <td>4800</td>
-      <td>37</td>
-      <td>46</td>
-      <td>3.01</td>
+      <td>2212</td>
+      <td>109</td>
+      <td>85</td>
+      <td>5250</td>
+      <td>27</td>
+      <td>34</td>
+      <td>3.19</td>
       <td>3.40</td>
-      <td>23.00</td>
-    </tr>
-    <tr>
-      <th>75</th>
-      <td>1</td>
-      <td>?</td>
-      <td>102.70</td>
-      <td>178.40</td>
-      <td>68.00</td>
-      <td>54.80</td>
-      <td>2910</td>
-      <td>140</td>
-      <td>175</td>
-      <td>5000</td>
-      <td>19</td>
-      <td>24</td>
-      <td>3.78</td>
-      <td>3.12</td>
-      <td>8.00</td>
-    </tr>
-    <tr>
-      <th>139</th>
-      <td>2</td>
-      <td>83</td>
-      <td>93.70</td>
-      <td>157.90</td>
-      <td>63.60</td>
-      <td>53.70</td>
-      <td>2120</td>
-      <td>108</td>
-      <td>73</td>
-      <td>4400</td>
-      <td>26</td>
-      <td>31</td>
-      <td>3.62</td>
-      <td>2.64</td>
-      <td>8.70</td>
+      <td>9.00</td>
     </tr>
     <tr>
       <th>...</th>
@@ -450,94 +450,94 @@ car_data[numeric_feature_names]
       <td>...</td>
     </tr>
     <tr>
-      <th>0</th>
-      <td>3</td>
-      <td>?</td>
-      <td>88.60</td>
-      <td>168.80</td>
-      <td>64.10</td>
-      <td>48.80</td>
-      <td>2548</td>
-      <td>130</td>
-      <td>111</td>
-      <td>5000</td>
-      <td>21</td>
-      <td>27</td>
-      <td>3.47</td>
-      <td>2.68</td>
-      <td>9.00</td>
-    </tr>
-    <tr>
-      <th>68</th>
-      <td>-1</td>
-      <td>93</td>
-      <td>110.00</td>
-      <td>190.90</td>
-      <td>70.30</td>
-      <td>58.70</td>
-      <td>3750</td>
-      <td>183</td>
-      <td>123</td>
-      <td>4350</td>
-      <td>22</td>
-      <td>25</td>
-      <td>3.58</td>
-      <td>3.64</td>
-      <td>21.50</td>
-    </tr>
-    <tr>
-      <th>95</th>
-      <td>1</td>
-      <td>128</td>
-      <td>94.50</td>
-      <td>165.60</td>
-      <td>63.80</td>
-      <td>53.30</td>
-      <td>2028</td>
-      <td>97</td>
-      <td>69</td>
-      <td>5200</td>
+      <th>78</th>
+      <td>2</td>
+      <td>161</td>
+      <td>93.70</td>
+      <td>157.30</td>
+      <td>64.40</td>
+      <td>50.80</td>
+      <td>2004</td>
+      <td>92</td>
+      <td>68</td>
+      <td>5500</td>
       <td>31</td>
-      <td>37</td>
-      <td>3.15</td>
-      <td>3.29</td>
+      <td>38</td>
+      <td>2.97</td>
+      <td>3.23</td>
       <td>9.40</td>
     </tr>
     <tr>
-      <th>201</th>
-      <td>-1</td>
-      <td>95</td>
-      <td>109.10</td>
-      <td>188.80</td>
-      <td>68.80</td>
-      <td>55.50</td>
-      <td>3049</td>
-      <td>141</td>
-      <td>160</td>
-      <td>5300</td>
-      <td>19</td>
-      <td>25</td>
-      <td>3.78</td>
-      <td>3.15</td>
-      <td>8.70</td>
+      <th>26</th>
+      <td>1</td>
+      <td>148</td>
+      <td>93.70</td>
+      <td>157.30</td>
+      <td>63.80</td>
+      <td>50.60</td>
+      <td>1989</td>
+      <td>90</td>
+      <td>68</td>
+      <td>5500</td>
+      <td>31</td>
+      <td>38</td>
+      <td>2.97</td>
+      <td>3.23</td>
+      <td>9.40</td>
     </tr>
     <tr>
-      <th>113</th>
+      <th>77</th>
+      <td>2</td>
+      <td>161</td>
+      <td>93.70</td>
+      <td>157.30</td>
+      <td>64.40</td>
+      <td>50.80</td>
+      <td>1944</td>
+      <td>92</td>
+      <td>68</td>
+      <td>5500</td>
+      <td>31</td>
+      <td>38</td>
+      <td>2.97</td>
+      <td>3.23</td>
+      <td>9.40</td>
+    </tr>
+    <tr>
+      <th>36</th>
       <td>0</td>
-      <td>?</td>
-      <td>114.20</td>
-      <td>198.90</td>
-      <td>68.40</td>
-      <td>56.70</td>
-      <td>3285</td>
-      <td>120</td>
-      <td>95</td>
-      <td>5000</td>
-      <td>19</td>
-      <td>24</td>
-      <td>3.46</td>
-      <td>2.19</td>
-      <td>8.40</td>
+      <td>78</td>
+      <td>96.50</td>
+      <td>157.10</td>
+      <td>63.90</td>
+      <td>58.30</td>
+      <td>2024</td>
+      <td>92</td>
+      <td>76</td>
+      <td>6000</td>
+      <td>30</td>
+      <td>34</td>
+      <td>2.92</td>
+      <td>3.41</td>
+      <td>9.20</td>
+    </tr>
+    <tr>
+      <th>142</th>
+      <td>0</td>
+      <td>102</td>
+      <td>97.20</td>
+      <td>172.00</td>
+      <td>65.40</td>
+      <td>52.50</td>
+      <td>2190</td>
+      <td>108</td>
+      <td>82</td>
+      <td>4400</td>
+      <td>28</td>
+      <td>33</td>
+      <td>3.62</td>
+      <td>2.64</td>
+      <td>9.50</td>
     </tr>
   </tbody>
 </table>
@@ -573,83 +573,83 @@ car_data[categorical_feature_names]
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>drive-wheels</th>
-      <th>make</th>
-      <th>engine-type</th>
       <th>aspiration</th>
-      <th>num-doors</th>
       <th>fuel-system</th>
-      <th>engine-location</th>
+      <th>make</th>
       <th>num-cylinders</th>
+      <th>drive-wheels</th>
+      <th>num-doors</th>
       <th>body-style</th>
+      <th>engine-type</th>
       <th>fuel-type</th>
+      <th>engine-location</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>64</th>
-      <td>fwd</td>
-      <td>mazda</td>
-      <td>ohc</td>
+      <th>4</th>
       <td>std</td>
-      <td>four</td>
-      <td>2bbl</td>
-      <td>front</td>
-      <td>four</td>
-      <td>hatchback</td>
-      <td>gas</td>
-    </tr>
-    <tr>
-      <th>150</th>
-      <td>fwd</td>
-      <td>toyota</td>
-      <td>ohc</td>
-      <td>std</td>
-      <td>two</td>
-      <td>2bbl</td>
-      <td>front</td>
-      <td>four</td>
-      <td>hatchback</td>
-      <td>gas</td>
-    </tr>
-    <tr>
-      <th>182</th>
-      <td>fwd</td>
-      <td>volkswagen</td>
-      <td>ohc</td>
-      <td>std</td>
-      <td>two</td>
-      <td>idi</td>
-      <td>front</td>
+      <td>mpfi</td>
+      <td>audi</td>
+      <td>five</td>
+      <td>4wd</td>
       <td>four</td>
       <td>sedan</td>
-      <td>diesel</td>
-    </tr>
-    <tr>
-      <th>75</th>
-      <td>rwd</td>
-      <td>mercury</td>
       <td>ohc</td>
-      <td>turbo</td>
-      <td>two</td>
-      <td>mpfi</td>
-      <td>front</td>
-      <td>four</td>
-      <td>hatchback</td>
       <td>gas</td>
+      <td>front</td>
     </tr>
     <tr>
-      <th>139</th>
-      <td>fwd</td>
-      <td>subaru</td>
-      <td>ohcf</td>
+      <th>86</th>
       <td>std</td>
-      <td>two</td>
       <td>2bbl</td>
-      <td>front</td>
+      <td>mitsubishi</td>
       <td>four</td>
-      <td>hatchback</td>
+      <td>fwd</td>
+      <td>four</td>
+      <td>sedan</td>
+      <td>ohc</td>
       <td>gas</td>
+      <td>front</td>
+    </tr>
+    <tr>
+      <th>122</th>
+      <td>std</td>
+      <td>2bbl</td>
+      <td>plymouth</td>
+      <td>four</td>
+      <td>fwd</td>
+      <td>four</td>
+      <td>sedan</td>
+      <td>ohc</td>
+      <td>gas</td>
+      <td>front</td>
+    </tr>
+    <tr>
+      <th>85</th>
+      <td>std</td>
+      <td>2bbl</td>
+      <td>mitsubishi</td>
+      <td>four</td>
+      <td>fwd</td>
+      <td>four</td>
+      <td>sedan</td>
+      <td>ohc</td>
+      <td>gas</td>
+      <td>front</td>
+    </tr>
+    <tr>
+      <th>185</th>
+      <td>std</td>
+      <td>mpfi</td>
+      <td>volkswagen</td>
+      <td>four</td>
+      <td>fwd</td>
+      <td>four</td>
+      <td>sedan</td>
+      <td>ohc</td>
+      <td>gas</td>
+      <td>front</td>
     </tr>
     <tr>
       <th>...</th>
@@ -665,69 +665,69 @@ car_data[categorical_feature_names]
       <td>...</td>
     </tr>
     <tr>
-      <th>0</th>
-      <td>rwd</td>
-      <td>alfa-romero</td>
-      <td>dohc</td>
+      <th>78</th>
       <td>std</td>
-      <td>two</td>
-      <td>mpfi</td>
-      <td>front</td>
-      <td>four</td>
-      <td>convertible</td>
-      <td>gas</td>
-    </tr>
-    <tr>
-      <th>68</th>
-      <td>rwd</td>
-      <td>mercedes-benz</td>
-      <td>ohc</td>
-      <td>turbo</td>
-      <td>four</td>
-      <td>idi</td>
-      <td>front</td>
-      <td>five</td>
-      <td>wagon</td>
-      <td>diesel</td>
-    </tr>
-    <tr>
-      <th>95</th>
-      <td>fwd</td>
-      <td>nissan</td>
-      <td>ohc</td>
-      <td>std</td>
-      <td>two</td>
       <td>2bbl</td>
-      <td>front</td>
+      <td>mitsubishi</td>
       <td>four</td>
+      <td>fwd</td>
+      <td>two</td>
       <td>hatchback</td>
+      <td>ohc</td>
       <td>gas</td>
+      <td>front</td>
     </tr>
     <tr>
-      <th>201</th>
-      <td>rwd</td>
-      <td>volvo</td>
-      <td>ohc</td>
-      <td>turbo</td>
+      <th>26</th>
+      <td>std</td>
+      <td>2bbl</td>
+      <td>dodge</td>
       <td>four</td>
-      <td>mpfi</td>
-      <td>front</td>
+      <td>fwd</td>
       <td>four</td>
       <td>sedan</td>
+      <td>ohc</td>
       <td>gas</td>
+      <td>front</td>
     </tr>
     <tr>
-      <th>113</th>
-      <td>rwd</td>
-      <td>peugot</td>
-      <td>l</td>
+      <th>77</th>
       <td>std</td>
+      <td>2bbl</td>
+      <td>mitsubishi</td>
       <td>four</td>
-      <td>mpfi</td>
+      <td>fwd</td>
+      <td>two</td>
+      <td>hatchback</td>
+      <td>ohc</td>
+      <td>gas</td>
       <td>front</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>std</td>
+      <td>1bbl</td>
+      <td>honda</td>
+      <td>four</td>
+      <td>fwd</td>
       <td>four</td>
       <td>wagon</td>
+      <td>ohc</td>
       <td>gas</td>
+      <td>front</td>
+    </tr>
+    <tr>
+      <th>142</th>
+      <td>std</td>
+      <td>2bbl</td>
+      <td>subaru</td>
+      <td>four</td>
+      <td>fwd</td>
+      <td>four</td>
+      <td>sedan</td>
+      <td>ohcf</td>
+      <td>gas</td>
+      <td>front</td>
     </tr>
   </tbody>
 </table>
@@ -848,465 +848,496 @@ for _ in range(num_print_statements):
 ```
 
     ['symboling', 'normalized-losses', 'wheel-base', 'length', 'width', 'height', 'weight', 'engine-size', 'horsepower', 'peak-rpm', 'city-mpg', 'highway-mpg', 'bore', 'stroke', 'compression-ratio']
+    WARNING:tensorflow:From /opt/anaconda3/envs/py310_env/lib/python3.10/site-packages/tensorflow/python/util/lazy_loader.py:59: The name tf.estimator.inputs is deprecated. Please use tf.compat.v1.estimator.inputs instead.
+    
+    WARNING:tensorflow:From /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/ipykernel_83872/741504662.py:29: The name tf.estimator.inputs.pandas_input_fn is deprecated. Please use tf.compat.v1.estimator.inputs.pandas_input_fn instead.
+    
     model_feature_columns [NumericColumn(key='symboling', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=None), NumericColumn(key='normalized-losses', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=None), NumericColumn(key='wheel-base', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=None), NumericColumn(key='length', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=None), NumericColumn(key='width', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=None), NumericColumn(key='height', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=None), NumericColumn(key='weight', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=None), NumericColumn(key='engine-size', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=None), NumericColumn(key='horsepower', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=None), NumericColumn(key='peak-rpm', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=None), NumericColumn(key='city-mpg', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=None), NumericColumn(key='highway-mpg', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=None), NumericColumn(key='bore', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=None), NumericColumn(key='stroke', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=None), NumericColumn(key='compression-ratio', shape=(1,), default_value=None, dtype=tf.float32, normalizer_fn=None)]
     INFO:tensorflow:Using default config.
-    WARNING:tensorflow:Using temporary folder as model directory: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0pnox_6q
-    INFO:tensorflow:Using config: {'_model_dir': '/var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0pnox_6q', '_tf_random_seed': None, '_save_summary_steps': 100, '_save_checkpoints_steps': None, '_save_checkpoints_secs': 600, '_session_config': allow_soft_placement: true
+    WARNING:tensorflow:Using temporary folder as model directory: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpjb1ml488
+    INFO:tensorflow:Using config: {'_model_dir': '/var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpjb1ml488', '_tf_random_seed': None, '_save_summary_steps': 100, '_save_checkpoints_steps': None, '_save_checkpoints_secs': 600, '_session_config': allow_soft_placement: true
     graph_options {
       rewrite_options {
         meta_optimizer_iterations: ONE
       }
     }
     , '_keep_checkpoint_max': 5, '_keep_checkpoint_every_n_hours': 10000, '_log_step_count_steps': 100, '_train_distribute': None, '_device_fn': None, '_protocol': None, '_eval_distribute': None, '_experimental_distribute': None, '_experimental_max_worker_delay_secs': None, '_session_creation_timeout_secs': 7200, '_checkpoint_save_graph_def': True, '_service': None, '_cluster_spec': ClusterSpec({}), '_task_type': 'worker', '_task_id': 0, '_global_id_in_cluster': 0, '_master': '', '_evaluation_master': '', '_is_chief': True, '_num_ps_replicas': 0, '_num_worker_replicas': 1}
+    WARNING:tensorflow:From /opt/anaconda3/envs/py310_env/lib/python3.10/site-packages/tensorflow/python/training/training_util.py:396: Variable.initialized_value (from tensorflow.python.ops.variables) is deprecated and will be removed in a future version.
+    Instructions for updating:
+    Use Variable.read_value. Variables in 2.X are initialized automatically both in eager and graph (inside tf.defun) contexts.
+    WARNING:tensorflow:From /opt/anaconda3/envs/py310_env/lib/python3.10/site-packages/tensorflow_estimator/python/estimator/inputs/queues/feeding_queue_runner.py:60: QueueRunner.__init__ (from tensorflow.python.training.queue_runner_impl) is deprecated and will be removed in a future version.
+    Instructions for updating:
+    To construct input pipelines, use the `tf.data` module.
+    WARNING:tensorflow:From /opt/anaconda3/envs/py310_env/lib/python3.10/site-packages/tensorflow_estimator/python/estimator/inputs/queues/feeding_functions.py:491: add_queue_runner (from tensorflow.python.training.queue_runner_impl) is deprecated and will be removed in a future version.
+    Instructions for updating:
+    To construct input pipelines, use the `tf.data` module.
     INFO:tensorflow:Calling model_fn.
+    WARNING:tensorflow:From /opt/anaconda3/envs/py310_env/lib/python3.10/site-packages/tensorflow/python/training/adagrad.py:138: calling Constant.__init__ (from tensorflow.python.ops.init_ops) with dtype is deprecated and will be removed in a future version.
+    Instructions for updating:
+    Call initializer instance with the dtype argument instead of passing it to the constructor
     INFO:tensorflow:Done calling model_fn.
     INFO:tensorflow:Create CheckpointSaverHook.
     INFO:tensorflow:Graph was finalized.
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
+    WARNING:tensorflow:From /opt/anaconda3/envs/py310_env/lib/python3.10/site-packages/tensorflow/python/training/monitored_session.py:910: start_queue_runners (from tensorflow.python.training.queue_runner_impl) is deprecated and will be removed in a future version.
+    Instructions for updating:
+    To construct input pipelines, use the `tf.data` module.
+
+
+    2026-04-03 17:05:53.988083: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:357] MLIR V1 optimization pass is not enabled
+    2026-04-03 17:05:53.995398: W tensorflow/tsl/platform/profile_utils/cpu_utils.cc:128] Failed to get CPU frequency: 0 Hz
+
+
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 0...
-    INFO:tensorflow:Saving checkpoints for 0 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0pnox_6q/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 0 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpjb1ml488/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 0...
-    INFO:tensorflow:loss = 2683744800.0, step = 1
-    INFO:tensorflow:global_step/sec: 908.613
-    INFO:tensorflow:loss = 1608193900.0, step = 101 (0.112 sec)
-    INFO:tensorflow:global_step/sec: 1422.05
-    INFO:tensorflow:loss = 808220100.0, step = 201 (0.069 sec)
-    INFO:tensorflow:global_step/sec: 1812.51
-    INFO:tensorflow:loss = 910584060.0, step = 301 (0.056 sec)
-    INFO:tensorflow:global_step/sec: 1706.92
-    INFO:tensorflow:loss = 245552560.0, step = 401 (0.059 sec)
-    INFO:tensorflow:global_step/sec: 1595.74
-    INFO:tensorflow:loss = 602299600.0, step = 501 (0.064 sec)
-    INFO:tensorflow:global_step/sec: 1675.26
-    INFO:tensorflow:loss = 1388651300.0, step = 601 (0.058 sec)
-    INFO:tensorflow:global_step/sec: 2205.07
-    INFO:tensorflow:loss = 829629950.0, step = 701 (0.044 sec)
-    INFO:tensorflow:global_step/sec: 2169.86
-    INFO:tensorflow:loss = 356135300.0, step = 801 (0.046 sec)
-    INFO:tensorflow:global_step/sec: 2015.44
-    INFO:tensorflow:loss = 326542600.0, step = 901 (0.050 sec)
+    INFO:tensorflow:loss = 1491789800.0, step = 1
+    INFO:tensorflow:global_step/sec: 1159.78
+    INFO:tensorflow:loss = 946620400.0, step = 101 (0.088 sec)
+    INFO:tensorflow:global_step/sec: 966.755
+    INFO:tensorflow:loss = 418638750.0, step = 201 (0.104 sec)
+    INFO:tensorflow:global_step/sec: 1927.08
+    INFO:tensorflow:loss = 251833120.0, step = 301 (0.052 sec)
+    INFO:tensorflow:global_step/sec: 1816.57
+    INFO:tensorflow:loss = 462638200.0, step = 401 (0.054 sec)
+    INFO:tensorflow:global_step/sec: 2011.27
+    INFO:tensorflow:loss = 389854080.0, step = 501 (0.049 sec)
+    INFO:tensorflow:global_step/sec: 2055.45
+    INFO:tensorflow:loss = 315524400.0, step = 601 (0.049 sec)
+    INFO:tensorflow:global_step/sec: 1909.57
+    INFO:tensorflow:loss = 324723620.0, step = 701 (0.052 sec)
+    INFO:tensorflow:global_step/sec: 2286.76
+    INFO:tensorflow:loss = 394393470.0, step = 801 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 2233.64
+    INFO:tensorflow:loss = 559090200.0, step = 901 (0.044 sec)
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 1000...
-    INFO:tensorflow:Saving checkpoints for 1000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0pnox_6q/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 1000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpjb1ml488/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 1000...
-    INFO:tensorflow:Loss for final step: 561874940.0.
+    INFO:tensorflow:Loss for final step: 171457500.0.
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
-    INFO:tensorflow:Starting evaluation at 2026-04-03T07:53:13
+    INFO:tensorflow:Starting evaluation at 2026-04-03T17:05:55
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0pnox_6q/model.ckpt-1000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpjb1ml488/model.ckpt-1000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
-    INFO:tensorflow:Inference Time : 0.10913s
-    INFO:tensorflow:Finished evaluation at 2026-04-03-07:53:13
-    INFO:tensorflow:Saving dict for global step 1000: average_loss = 38934700.0, global_step = 1000, label/mean = 13207.129, loss = 601990340.0, prediction/mean = 13477.882
-    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 1000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0pnox_6q/model.ckpt-1000
-    scores {'average_loss': 38934700.0, 'label/mean': 13207.129, 'loss': 601990340.0, 'prediction/mean': 13477.882, 'global_step': 1000}
+    INFO:tensorflow:Inference Time : 0.09905s
+    INFO:tensorflow:Finished evaluation at 2026-04-03-17:05:55
+    INFO:tensorflow:Saving dict for global step 1000: average_loss = 42476050.0, global_step = 1000, label/mean = 13207.129, loss = 656745000.0, prediction/mean = 13535.442
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 1000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpjb1ml488/model.ckpt-1000
+    scores {'average_loss': 42476050.0, 'label/mean': 13207.129, 'loss': 656745000.0, 'prediction/mean': 13535.442, 'global_step': 1000}
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
     INFO:tensorflow:Create CheckpointSaverHook.
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0pnox_6q/model.ckpt-1000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpjb1ml488/model.ckpt-1000
+    WARNING:tensorflow:From /opt/anaconda3/envs/py310_env/lib/python3.10/site-packages/tensorflow/python/training/saver.py:1173: get_checkpoint_mtimes (from tensorflow.python.checkpoint.checkpoint_management) is deprecated and will be removed in a future version.
+    Instructions for updating:
+    Use standard file utilities to get mtimes.
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 1000...
-    INFO:tensorflow:Saving checkpoints for 1000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0pnox_6q/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 1000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpjb1ml488/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 1000...
-    INFO:tensorflow:loss = 979804160.0, step = 1001
-    INFO:tensorflow:global_step/sec: 1275.56
-    INFO:tensorflow:loss = 663549000.0, step = 1101 (0.080 sec)
-    INFO:tensorflow:global_step/sec: 1755.25
-    INFO:tensorflow:loss = 195552460.0, step = 1201 (0.057 sec)
-    INFO:tensorflow:global_step/sec: 1624.72
-    INFO:tensorflow:loss = 816520900.0, step = 1301 (0.063 sec)
-    INFO:tensorflow:global_step/sec: 1646.99
-    INFO:tensorflow:loss = 716267970.0, step = 1401 (0.059 sec)
-    INFO:tensorflow:global_step/sec: 1760.03
-    INFO:tensorflow:loss = 634948500.0, step = 1501 (0.058 sec)
-    INFO:tensorflow:global_step/sec: 1702.54
-    INFO:tensorflow:loss = 157038850.0, step = 1601 (0.058 sec)
-    INFO:tensorflow:global_step/sec: 1732.5
-    INFO:tensorflow:loss = 160920380.0, step = 1701 (0.059 sec)
-    INFO:tensorflow:global_step/sec: 1686.57
-    INFO:tensorflow:loss = 196231170.0, step = 1801 (0.060 sec)
-    INFO:tensorflow:global_step/sec: 1673.52
-    INFO:tensorflow:loss = 539571600.0, step = 1901 (0.058 sec)
+    INFO:tensorflow:loss = 328676480.0, step = 1001
+    INFO:tensorflow:global_step/sec: 1552.12
+    INFO:tensorflow:loss = 339973630.0, step = 1101 (0.065 sec)
+    INFO:tensorflow:global_step/sec: 2298.8
+    INFO:tensorflow:loss = 292686300.0, step = 1201 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 2353.65
+    INFO:tensorflow:loss = 707129700.0, step = 1301 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 2275.52
+    INFO:tensorflow:loss = 441305800.0, step = 1401 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2264.66
+    INFO:tensorflow:loss = 585287040.0, step = 1501 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 2298.79
+    INFO:tensorflow:loss = 755556000.0, step = 1601 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2344.78
+    INFO:tensorflow:loss = 871869000.0, step = 1701 (0.042 sec)
+    INFO:tensorflow:global_step/sec: 2372.02
+    INFO:tensorflow:loss = 276781220.0, step = 1801 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2227.38
+    INFO:tensorflow:loss = 773229700.0, step = 1901 (0.045 sec)
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 2000...
-    INFO:tensorflow:Saving checkpoints for 2000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0pnox_6q/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 2000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpjb1ml488/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 2000...
-    INFO:tensorflow:Loss for final step: 524006200.0.
+    INFO:tensorflow:Loss for final step: 371737340.0.
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
-    INFO:tensorflow:Starting evaluation at 2026-04-03T07:53:15
+    INFO:tensorflow:Starting evaluation at 2026-04-03T17:05:57
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0pnox_6q/model.ckpt-2000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpjb1ml488/model.ckpt-2000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
-    INFO:tensorflow:Inference Time : 0.12006s
-    INFO:tensorflow:Finished evaluation at 2026-04-03-07:53:15
-    INFO:tensorflow:Saving dict for global step 2000: average_loss = 29671004.0, global_step = 2000, label/mean = 13207.129, loss = 458759360.0, prediction/mean = 13241.659
-    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 2000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0pnox_6q/model.ckpt-2000
-    scores {'average_loss': 29671004.0, 'label/mean': 13207.129, 'loss': 458759360.0, 'prediction/mean': 13241.659, 'global_step': 2000}
+    INFO:tensorflow:Inference Time : 0.08939s
+    INFO:tensorflow:Finished evaluation at 2026-04-03-17:05:57
+    INFO:tensorflow:Saving dict for global step 2000: average_loss = 33550836.0, global_step = 2000, label/mean = 13207.129, loss = 518747520.0, prediction/mean = 13383.915
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 2000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpjb1ml488/model.ckpt-2000
+    scores {'average_loss': 33550836.0, 'label/mean': 13207.129, 'loss': 518747520.0, 'prediction/mean': 13383.915, 'global_step': 2000}
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
     INFO:tensorflow:Create CheckpointSaverHook.
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0pnox_6q/model.ckpt-2000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpjb1ml488/model.ckpt-2000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 2000...
-    INFO:tensorflow:Saving checkpoints for 2000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0pnox_6q/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 2000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpjb1ml488/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 2000...
-    INFO:tensorflow:loss = 376189400.0, step = 2001
-    INFO:tensorflow:global_step/sec: 1410.54
-    INFO:tensorflow:loss = 222577980.0, step = 2101 (0.072 sec)
-    INFO:tensorflow:global_step/sec: 2209.11
-    INFO:tensorflow:loss = 426248160.0, step = 2201 (0.046 sec)
-    INFO:tensorflow:global_step/sec: 1817.49
-    INFO:tensorflow:loss = 846161300.0, step = 2301 (0.054 sec)
-    INFO:tensorflow:global_step/sec: 2185.6
-    INFO:tensorflow:loss = 685697100.0, step = 2401 (0.047 sec)
-    INFO:tensorflow:global_step/sec: 2150.68
-    INFO:tensorflow:loss = 184259800.0, step = 2501 (0.046 sec)
-    INFO:tensorflow:global_step/sec: 2159.73
-    INFO:tensorflow:loss = 137326930.0, step = 2601 (0.047 sec)
-    INFO:tensorflow:global_step/sec: 2059.74
-    INFO:tensorflow:loss = 385074200.0, step = 2701 (0.048 sec)
-    INFO:tensorflow:global_step/sec: 2180.93
-    INFO:tensorflow:loss = 425278430.0, step = 2801 (0.046 sec)
-    INFO:tensorflow:global_step/sec: 2102.25
-    INFO:tensorflow:loss = 444073500.0, step = 2901 (0.048 sec)
+    INFO:tensorflow:loss = 777318600.0, step = 2001
+    INFO:tensorflow:global_step/sec: 1658.3
+    INFO:tensorflow:loss = 686294850.0, step = 2101 (0.061 sec)
+    INFO:tensorflow:global_step/sec: 2446.3
+    INFO:tensorflow:loss = 1180038000.0, step = 2201 (0.042 sec)
+    INFO:tensorflow:global_step/sec: 2306.74
+    INFO:tensorflow:loss = 667893500.0, step = 2301 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2326.68
+    INFO:tensorflow:loss = 545661000.0, step = 2401 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2370.79
+    INFO:tensorflow:loss = 467756830.0, step = 2501 (0.042 sec)
+    INFO:tensorflow:global_step/sec: 2182.07
+    INFO:tensorflow:loss = 183197010.0, step = 2601 (0.046 sec)
+    INFO:tensorflow:global_step/sec: 2377.51
+    INFO:tensorflow:loss = 245723040.0, step = 2701 (0.042 sec)
+    INFO:tensorflow:global_step/sec: 2414.7
+    INFO:tensorflow:loss = 252077230.0, step = 2801 (0.042 sec)
+    INFO:tensorflow:global_step/sec: 2010.25
+    INFO:tensorflow:loss = 861587200.0, step = 2901 (0.050 sec)
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 3000...
-    INFO:tensorflow:Saving checkpoints for 3000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0pnox_6q/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 3000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpjb1ml488/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 3000...
-    INFO:tensorflow:Loss for final step: 460447900.0.
+    INFO:tensorflow:Loss for final step: 241465400.0.
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
-    INFO:tensorflow:Starting evaluation at 2026-04-03T07:53:17
+    INFO:tensorflow:Starting evaluation at 2026-04-03T17:05:58
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0pnox_6q/model.ckpt-3000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpjb1ml488/model.ckpt-3000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
-    INFO:tensorflow:Inference Time : 0.10309s
-    INFO:tensorflow:Finished evaluation at 2026-04-03-07:53:17
-    INFO:tensorflow:Saving dict for global step 3000: average_loss = 24628786.0, global_step = 3000, label/mean = 13207.129, loss = 380798940.0, prediction/mean = 13432.14
-    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 3000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0pnox_6q/model.ckpt-3000
-    scores {'average_loss': 24628786.0, 'label/mean': 13207.129, 'loss': 380798940.0, 'prediction/mean': 13432.14, 'global_step': 3000}
+    INFO:tensorflow:Inference Time : 0.08969s
+    INFO:tensorflow:Finished evaluation at 2026-04-03-17:05:58
+    INFO:tensorflow:Saving dict for global step 3000: average_loss = 27460392.0, global_step = 3000, label/mean = 13207.129, loss = 424579900.0, prediction/mean = 13465.35
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 3000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpjb1ml488/model.ckpt-3000
+    scores {'average_loss': 27460392.0, 'label/mean': 13207.129, 'loss': 424579900.0, 'prediction/mean': 13465.35, 'global_step': 3000}
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
     INFO:tensorflow:Create CheckpointSaverHook.
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0pnox_6q/model.ckpt-3000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpjb1ml488/model.ckpt-3000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 3000...
-    INFO:tensorflow:Saving checkpoints for 3000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0pnox_6q/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 3000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpjb1ml488/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 3000...
-    INFO:tensorflow:loss = 345174430.0, step = 3001
-    INFO:tensorflow:global_step/sec: 1686.23
-    INFO:tensorflow:loss = 71279150.0, step = 3101 (0.060 sec)
-    INFO:tensorflow:global_step/sec: 2260.7
-    INFO:tensorflow:loss = 117162620.0, step = 3201 (0.044 sec)
-    INFO:tensorflow:global_step/sec: 2292.63
-    INFO:tensorflow:loss = 231343400.0, step = 3301 (0.043 sec)
-    INFO:tensorflow:global_step/sec: 2437.71
-    INFO:tensorflow:loss = 624931000.0, step = 3401 (0.042 sec)
-    INFO:tensorflow:global_step/sec: 2093.98
-    INFO:tensorflow:loss = 121158700.0, step = 3501 (0.048 sec)
-    INFO:tensorflow:global_step/sec: 2486.94
-    INFO:tensorflow:loss = 515527230.0, step = 3601 (0.040 sec)
-    INFO:tensorflow:global_step/sec: 2322.23
-    INFO:tensorflow:loss = 325747970.0, step = 3701 (0.043 sec)
-    INFO:tensorflow:global_step/sec: 2156.01
-    INFO:tensorflow:loss = 155374820.0, step = 3801 (0.046 sec)
-    INFO:tensorflow:global_step/sec: 2419.25
-    INFO:tensorflow:loss = 88384670.0, step = 3901 (0.041 sec)
+    INFO:tensorflow:loss = 197814750.0, step = 3001
+    INFO:tensorflow:global_step/sec: 1620.9
+    INFO:tensorflow:loss = 199488860.0, step = 3101 (0.063 sec)
+    INFO:tensorflow:global_step/sec: 2372.53
+    INFO:tensorflow:loss = 232379580.0, step = 3201 (0.042 sec)
+    INFO:tensorflow:global_step/sec: 2333.4
+    INFO:tensorflow:loss = 1098135300.0, step = 3301 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2212.38
+    INFO:tensorflow:loss = 107763520.0, step = 3401 (0.045 sec)
+    INFO:tensorflow:global_step/sec: 2147.21
+    INFO:tensorflow:loss = 687318900.0, step = 3501 (0.047 sec)
+    INFO:tensorflow:global_step/sec: 2390.87
+    INFO:tensorflow:loss = 614972800.0, step = 3601 (0.042 sec)
+    INFO:tensorflow:global_step/sec: 2259.16
+    INFO:tensorflow:loss = 114842260.0, step = 3701 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 2334.11
+    INFO:tensorflow:loss = 335761600.0, step = 3801 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 2335.63
+    INFO:tensorflow:loss = 353039870.0, step = 3901 (0.042 sec)
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 4000...
-    INFO:tensorflow:Saving checkpoints for 4000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0pnox_6q/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 4000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpjb1ml488/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 4000...
-    INFO:tensorflow:Loss for final step: 633188100.0.
+    INFO:tensorflow:Loss for final step: 467248670.0.
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
-    INFO:tensorflow:Starting evaluation at 2026-04-03T07:53:18
+    INFO:tensorflow:Starting evaluation at 2026-04-03T17:06:00
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0pnox_6q/model.ckpt-4000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpjb1ml488/model.ckpt-4000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
-    INFO:tensorflow:Inference Time : 0.09017s
-    INFO:tensorflow:Finished evaluation at 2026-04-03-07:53:18
-    INFO:tensorflow:Saving dict for global step 4000: average_loss = 22146436.0, global_step = 4000, label/mean = 13207.129, loss = 342417950.0, prediction/mean = 13240.519
-    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 4000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0pnox_6q/model.ckpt-4000
-    scores {'average_loss': 22146436.0, 'label/mean': 13207.129, 'loss': 342417950.0, 'prediction/mean': 13240.519, 'global_step': 4000}
+    INFO:tensorflow:Inference Time : 0.08896s
+    INFO:tensorflow:Finished evaluation at 2026-04-03-17:06:00
+    INFO:tensorflow:Saving dict for global step 4000: average_loss = 23918460.0, global_step = 4000, label/mean = 13207.129, loss = 369816200.0, prediction/mean = 13366.906
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 4000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpjb1ml488/model.ckpt-4000
+    scores {'average_loss': 23918460.0, 'label/mean': 13207.129, 'loss': 369816200.0, 'prediction/mean': 13366.906, 'global_step': 4000}
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
     INFO:tensorflow:Create CheckpointSaverHook.
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0pnox_6q/model.ckpt-4000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpjb1ml488/model.ckpt-4000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 4000...
-    INFO:tensorflow:Saving checkpoints for 4000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0pnox_6q/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 4000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpjb1ml488/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 4000...
-    INFO:tensorflow:loss = 230181600.0, step = 4001
-    INFO:tensorflow:global_step/sec: 1658.16
-    INFO:tensorflow:loss = 217689500.0, step = 4101 (0.061 sec)
-    INFO:tensorflow:global_step/sec: 2247.28
-    INFO:tensorflow:loss = 317836300.0, step = 4201 (0.044 sec)
-    INFO:tensorflow:global_step/sec: 2110.64
-    INFO:tensorflow:loss = 165064000.0, step = 4301 (0.047 sec)
-    INFO:tensorflow:global_step/sec: 2381.12
-    INFO:tensorflow:loss = 504334530.0, step = 4401 (0.042 sec)
-    INFO:tensorflow:global_step/sec: 2357.32
-    INFO:tensorflow:loss = 185536200.0, step = 4501 (0.042 sec)
-    INFO:tensorflow:global_step/sec: 2290.07
-    INFO:tensorflow:loss = 80590320.0, step = 4601 (0.044 sec)
+    INFO:tensorflow:loss = 108436450.0, step = 4001
+    INFO:tensorflow:global_step/sec: 1630.55
+    INFO:tensorflow:loss = 180359840.0, step = 4101 (0.062 sec)
+    INFO:tensorflow:global_step/sec: 2309.36
+    INFO:tensorflow:loss = 163573180.0, step = 4201 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 2314.7
+    INFO:tensorflow:loss = 827838850.0, step = 4301 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2361.44
+    INFO:tensorflow:loss = 1023360800.0, step = 4401 (0.042 sec)
+    INFO:tensorflow:global_step/sec: 2330.4
+    INFO:tensorflow:loss = 564897600.0, step = 4501 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2281.71
+    INFO:tensorflow:loss = 147350480.0, step = 4601 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2258.3
+    INFO:tensorflow:loss = 154311710.0, step = 4701 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 2352.23
+    INFO:tensorflow:loss = 283512830.0, step = 4801 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2240.94
+    INFO:tensorflow:loss = 108446056.0, step = 4901 (0.044 sec)
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 5000...
+    INFO:tensorflow:Saving checkpoints for 5000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpjb1ml488/model.ckpt.
+    WARNING:tensorflow:From /opt/anaconda3/envs/py310_env/lib/python3.10/site-packages/tensorflow/python/training/saver.py:1064: remove_checkpoint (from tensorflow.python.checkpoint.checkpoint_management) is deprecated and will be removed in a future version.
+    Instructions for updating:
+    Use standard file APIs to delete files with this prefix.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 5000...
+    INFO:tensorflow:Loss for final step: 104588690.0.
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Starting evaluation at 2026-04-03T17:06:01
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpjb1ml488/model.ckpt-5000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Inference Time : 0.09053s
+    INFO:tensorflow:Finished evaluation at 2026-04-03-17:06:01
+    INFO:tensorflow:Saving dict for global step 5000: average_loss = 21976566.0, global_step = 5000, label/mean = 13207.129, loss = 339791520.0, prediction/mean = 13462.928
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 5000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpjb1ml488/model.ckpt-5000
+    scores {'average_loss': 21976566.0, 'label/mean': 13207.129, 'loss': 339791520.0, 'prediction/mean': 13462.928, 'global_step': 5000}
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Create CheckpointSaverHook.
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpjb1ml488/model.ckpt-5000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 5000...
+    INFO:tensorflow:Saving checkpoints for 5000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpjb1ml488/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 5000...
+    INFO:tensorflow:loss = 127493380.0, step = 5001
+    INFO:tensorflow:global_step/sec: 1676.64
+    INFO:tensorflow:loss = 293340220.0, step = 5101 (0.061 sec)
+    INFO:tensorflow:global_step/sec: 2268.65
+    INFO:tensorflow:loss = 766369200.0, step = 5201 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2054.36
+    INFO:tensorflow:loss = 528954300.0, step = 5301 (0.049 sec)
+    INFO:tensorflow:global_step/sec: 1990.33
+    INFO:tensorflow:loss = 354338430.0, step = 5401 (0.050 sec)
+    INFO:tensorflow:global_step/sec: 2410.45
+    INFO:tensorflow:loss = 653068100.0, step = 5501 (0.042 sec)
+    INFO:tensorflow:global_step/sec: 2328.84
+    INFO:tensorflow:loss = 66789204.0, step = 5601 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2351.05
+    INFO:tensorflow:loss = 188194160.0, step = 5701 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2312.84
+    INFO:tensorflow:loss = 144234420.0, step = 5801 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 2194.47
+    INFO:tensorflow:loss = 554253060.0, step = 5901 (0.045 sec)
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 6000...
+    INFO:tensorflow:Saving checkpoints for 6000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpjb1ml488/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 6000...
+    INFO:tensorflow:Loss for final step: 437569600.0.
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Starting evaluation at 2026-04-03T17:06:02
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpjb1ml488/model.ckpt-6000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Inference Time : 0.08848s
+    INFO:tensorflow:Finished evaluation at 2026-04-03-17:06:03
+    INFO:tensorflow:Saving dict for global step 6000: average_loss = 20946808.0, global_step = 6000, label/mean = 13207.129, loss = 323869900.0, prediction/mean = 13260.156
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 6000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpjb1ml488/model.ckpt-6000
+    scores {'average_loss': 20946808.0, 'label/mean': 13207.129, 'loss': 323869900.0, 'prediction/mean': 13260.156, 'global_step': 6000}
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Create CheckpointSaverHook.
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpjb1ml488/model.ckpt-6000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 6000...
+    INFO:tensorflow:Saving checkpoints for 6000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpjb1ml488/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 6000...
+    INFO:tensorflow:loss = 83132750.0, step = 6001
+    INFO:tensorflow:global_step/sec: 1580.33
+    INFO:tensorflow:loss = 359557380.0, step = 6101 (0.064 sec)
+    INFO:tensorflow:global_step/sec: 2058.72
+    INFO:tensorflow:loss = 624929000.0, step = 6201 (0.049 sec)
+    INFO:tensorflow:global_step/sec: 2367.03
+    INFO:tensorflow:loss = 128453670.0, step = 6301 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2352.49
+    INFO:tensorflow:loss = 554366500.0, step = 6401 (0.042 sec)
+    INFO:tensorflow:global_step/sec: 2465.5
+    INFO:tensorflow:loss = 111942850.0, step = 6501 (0.041 sec)
+    INFO:tensorflow:global_step/sec: 2348.74
+    INFO:tensorflow:loss = 167232670.0, step = 6601 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2268.2
+    INFO:tensorflow:loss = 360182800.0, step = 6701 (0.043 sec)
     INFO:tensorflow:global_step/sec: 2297.15
-    INFO:tensorflow:loss = 104539790.0, step = 4701 (0.043 sec)
-    INFO:tensorflow:global_step/sec: 2374.8
-    INFO:tensorflow:loss = 179469150.0, step = 4801 (0.042 sec)
-    INFO:tensorflow:global_step/sec: 2316.53
-    INFO:tensorflow:loss = 143315760.0, step = 4901 (0.044 sec)
-    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 5000...
-    INFO:tensorflow:Saving checkpoints for 5000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0pnox_6q/model.ckpt.
-    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 5000...
-    INFO:tensorflow:Loss for final step: 113057780.0.
-    INFO:tensorflow:Calling model_fn.
-    INFO:tensorflow:Done calling model_fn.
-    INFO:tensorflow:Starting evaluation at 2026-04-03T07:53:20
-    INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0pnox_6q/model.ckpt-5000
-    INFO:tensorflow:Running local_init_op.
-    INFO:tensorflow:Done running local_init_op.
-    INFO:tensorflow:Inference Time : 0.09147s
-    INFO:tensorflow:Finished evaluation at 2026-04-03-07:53:20
-    INFO:tensorflow:Saving dict for global step 5000: average_loss = 20903502.0, global_step = 5000, label/mean = 13207.129, loss = 323200320.0, prediction/mean = 13304.489
-    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 5000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0pnox_6q/model.ckpt-5000
-    scores {'average_loss': 20903502.0, 'label/mean': 13207.129, 'loss': 323200320.0, 'prediction/mean': 13304.489, 'global_step': 5000}
-    INFO:tensorflow:Calling model_fn.
-    INFO:tensorflow:Done calling model_fn.
-    INFO:tensorflow:Create CheckpointSaverHook.
-    INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0pnox_6q/model.ckpt-5000
-    INFO:tensorflow:Running local_init_op.
-    INFO:tensorflow:Done running local_init_op.
-    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 5000...
-    INFO:tensorflow:Saving checkpoints for 5000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0pnox_6q/model.ckpt.
-    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 5000...
-    INFO:tensorflow:loss = 372088450.0, step = 5001
-    INFO:tensorflow:global_step/sec: 1571.54
-    INFO:tensorflow:loss = 307784450.0, step = 5101 (0.065 sec)
-    INFO:tensorflow:global_step/sec: 2390.86
-    INFO:tensorflow:loss = 242583940.0, step = 5201 (0.042 sec)
-    INFO:tensorflow:global_step/sec: 2375.69
-    INFO:tensorflow:loss = 170484740.0, step = 5301 (0.042 sec)
-    INFO:tensorflow:global_step/sec: 2369.74
-    INFO:tensorflow:loss = 355566080.0, step = 5401 (0.042 sec)
-    INFO:tensorflow:global_step/sec: 2383.05
-    INFO:tensorflow:loss = 555284600.0, step = 5501 (0.041 sec)
-    INFO:tensorflow:global_step/sec: 2360.54
-    INFO:tensorflow:loss = 114021390.0, step = 5601 (0.043 sec)
-    INFO:tensorflow:global_step/sec: 2311.19
-    INFO:tensorflow:loss = 124586344.0, step = 5701 (0.044 sec)
-    INFO:tensorflow:global_step/sec: 2360.21
-    INFO:tensorflow:loss = 168132900.0, step = 5801 (0.042 sec)
-    INFO:tensorflow:global_step/sec: 2238.49
-    INFO:tensorflow:loss = 954641800.0, step = 5901 (0.044 sec)
-    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 6000...
-    INFO:tensorflow:Saving checkpoints for 6000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0pnox_6q/model.ckpt.
-    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 6000...
-    INFO:tensorflow:Loss for final step: 117135890.0.
-    INFO:tensorflow:Calling model_fn.
-    INFO:tensorflow:Done calling model_fn.
-    INFO:tensorflow:Starting evaluation at 2026-04-03T07:53:21
-    INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0pnox_6q/model.ckpt-6000
-    INFO:tensorflow:Running local_init_op.
-    INFO:tensorflow:Done running local_init_op.
-    INFO:tensorflow:Inference Time : 0.09178s
-    INFO:tensorflow:Finished evaluation at 2026-04-03-07:53:21
-    INFO:tensorflow:Saving dict for global step 6000: average_loss = 20251696.0, global_step = 6000, label/mean = 13207.129, loss = 313122370.0, prediction/mean = 13281.765
-    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 6000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0pnox_6q/model.ckpt-6000
-    scores {'average_loss': 20251696.0, 'label/mean': 13207.129, 'loss': 313122370.0, 'prediction/mean': 13281.765, 'global_step': 6000}
-    INFO:tensorflow:Calling model_fn.
-    INFO:tensorflow:Done calling model_fn.
-    INFO:tensorflow:Create CheckpointSaverHook.
-    INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0pnox_6q/model.ckpt-6000
-    INFO:tensorflow:Running local_init_op.
-    INFO:tensorflow:Done running local_init_op.
-    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 6000...
-    INFO:tensorflow:Saving checkpoints for 6000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0pnox_6q/model.ckpt.
-    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 6000...
-    INFO:tensorflow:loss = 346727500.0, step = 6001
-    INFO:tensorflow:global_step/sec: 1477.76
-    INFO:tensorflow:loss = 515288480.0, step = 6101 (0.068 sec)
-    INFO:tensorflow:global_step/sec: 2335.68
-    INFO:tensorflow:loss = 131984360.0, step = 6201 (0.044 sec)
-    INFO:tensorflow:global_step/sec: 2319.59
-    INFO:tensorflow:loss = 563595650.0, step = 6301 (0.043 sec)
-    INFO:tensorflow:global_step/sec: 2242.86
-    INFO:tensorflow:loss = 442270980.0, step = 6401 (0.044 sec)
-    INFO:tensorflow:global_step/sec: 2353.44
-    INFO:tensorflow:loss = 142877390.0, step = 6501 (0.043 sec)
-    INFO:tensorflow:global_step/sec: 2268.7
-    INFO:tensorflow:loss = 450617400.0, step = 6601 (0.044 sec)
-    INFO:tensorflow:global_step/sec: 2276.36
-    INFO:tensorflow:loss = 505737500.0, step = 6701 (0.044 sec)
-    INFO:tensorflow:global_step/sec: 2120.53
-    INFO:tensorflow:loss = 94614610.0, step = 6801 (0.048 sec)
-    INFO:tensorflow:global_step/sec: 2387.02
-    INFO:tensorflow:loss = 965002300.0, step = 6901 (0.042 sec)
+    INFO:tensorflow:loss = 621974340.0, step = 6801 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 2258
+    INFO:tensorflow:loss = 100938650.0, step = 6901 (0.044 sec)
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 7000...
-    INFO:tensorflow:Saving checkpoints for 7000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0pnox_6q/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 7000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpjb1ml488/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 7000...
-    INFO:tensorflow:Loss for final step: 100102904.0.
+    INFO:tensorflow:Loss for final step: 414461440.0.
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
-    INFO:tensorflow:Starting evaluation at 2026-04-03T07:53:23
+    INFO:tensorflow:Starting evaluation at 2026-04-03T17:06:04
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0pnox_6q/model.ckpt-7000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpjb1ml488/model.ckpt-7000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
-    INFO:tensorflow:Inference Time : 0.09393s
-    INFO:tensorflow:Finished evaluation at 2026-04-03-07:53:23
-    INFO:tensorflow:Saving dict for global step 7000: average_loss = 19847886.0, global_step = 7000, label/mean = 13207.129, loss = 306878850.0, prediction/mean = 13358.44
-    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 7000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0pnox_6q/model.ckpt-7000
-    scores {'average_loss': 19847886.0, 'label/mean': 13207.129, 'loss': 306878850.0, 'prediction/mean': 13358.44, 'global_step': 7000}
+    INFO:tensorflow:Inference Time : 0.08954s
+    INFO:tensorflow:Finished evaluation at 2026-04-03-17:06:04
+    INFO:tensorflow:Saving dict for global step 7000: average_loss = 20312712.0, global_step = 7000, label/mean = 13207.129, loss = 314065800.0, prediction/mean = 13314.888
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 7000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpjb1ml488/model.ckpt-7000
+    scores {'average_loss': 20312712.0, 'label/mean': 13207.129, 'loss': 314065800.0, 'prediction/mean': 13314.888, 'global_step': 7000}
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
     INFO:tensorflow:Create CheckpointSaverHook.
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0pnox_6q/model.ckpt-7000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpjb1ml488/model.ckpt-7000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 7000...
-    INFO:tensorflow:Saving checkpoints for 7000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0pnox_6q/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 7000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpjb1ml488/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 7000...
-    INFO:tensorflow:loss = 148010140.0, step = 7001
-    INFO:tensorflow:global_step/sec: 1443.35
-    INFO:tensorflow:loss = 161751400.0, step = 7101 (0.070 sec)
-    INFO:tensorflow:global_step/sec: 2240.44
-    INFO:tensorflow:loss = 252326180.0, step = 7201 (0.045 sec)
-    INFO:tensorflow:global_step/sec: 2429.31
-    INFO:tensorflow:loss = 387825570.0, step = 7301 (0.041 sec)
-    INFO:tensorflow:global_step/sec: 2326.67
-    INFO:tensorflow:loss = 353272800.0, step = 7401 (0.043 sec)
-    INFO:tensorflow:global_step/sec: 2334.32
-    INFO:tensorflow:loss = 172351820.0, step = 7501 (0.043 sec)
-    INFO:tensorflow:global_step/sec: 2232.35
-    INFO:tensorflow:loss = 221288980.0, step = 7601 (0.044 sec)
-    INFO:tensorflow:global_step/sec: 2221.37
-    INFO:tensorflow:loss = 122021310.0, step = 7701 (0.045 sec)
-    INFO:tensorflow:global_step/sec: 2144.22
-    INFO:tensorflow:loss = 169587970.0, step = 7801 (0.046 sec)
-    INFO:tensorflow:global_step/sec: 2192.46
-    INFO:tensorflow:loss = 147654660.0, step = 7901 (0.046 sec)
+    INFO:tensorflow:loss = 503046100.0, step = 7001
+    INFO:tensorflow:global_step/sec: 1210.78
+    INFO:tensorflow:loss = 129420560.0, step = 7101 (0.089 sec)
+    INFO:tensorflow:global_step/sec: 1338.01
+    INFO:tensorflow:loss = 1018421900.0, step = 7201 (0.070 sec)
+    INFO:tensorflow:global_step/sec: 1200.38
+    INFO:tensorflow:loss = 622424060.0, step = 7301 (0.084 sec)
+    INFO:tensorflow:global_step/sec: 1650.68
+    INFO:tensorflow:loss = 168925060.0, step = 7401 (0.061 sec)
+    INFO:tensorflow:global_step/sec: 1810.25
+    INFO:tensorflow:loss = 157746980.0, step = 7501 (0.055 sec)
+    INFO:tensorflow:global_step/sec: 1758
+    INFO:tensorflow:loss = 390494140.0, step = 7601 (0.056 sec)
+    INFO:tensorflow:global_step/sec: 1346.8
+    INFO:tensorflow:loss = 531666560.0, step = 7701 (0.074 sec)
+    INFO:tensorflow:global_step/sec: 1890.47
+    INFO:tensorflow:loss = 260011260.0, step = 7801 (0.053 sec)
+    INFO:tensorflow:global_step/sec: 1778.28
+    INFO:tensorflow:loss = 242618800.0, step = 7901 (0.056 sec)
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 8000...
-    INFO:tensorflow:Saving checkpoints for 8000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0pnox_6q/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 8000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpjb1ml488/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 8000...
-    INFO:tensorflow:Loss for final step: 268281660.0.
+    INFO:tensorflow:Loss for final step: 566995400.0.
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
-    INFO:tensorflow:Starting evaluation at 2026-04-03T07:53:24
+    INFO:tensorflow:Starting evaluation at 2026-04-03T17:06:06
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0pnox_6q/model.ckpt-8000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpjb1ml488/model.ckpt-8000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
-    INFO:tensorflow:Inference Time : 0.09165s
-    INFO:tensorflow:Finished evaluation at 2026-04-03-07:53:24
-    INFO:tensorflow:Saving dict for global step 8000: average_loss = 19566914.0, global_step = 8000, label/mean = 13207.129, loss = 302534600.0, prediction/mean = 13375.5
-    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 8000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0pnox_6q/model.ckpt-8000
-    scores {'average_loss': 19566914.0, 'label/mean': 13207.129, 'loss': 302534600.0, 'prediction/mean': 13375.5, 'global_step': 8000}
+    INFO:tensorflow:Inference Time : 0.12933s
+    INFO:tensorflow:Finished evaluation at 2026-04-03-17:06:06
+    INFO:tensorflow:Saving dict for global step 8000: average_loss = 19902674.0, global_step = 8000, label/mean = 13207.129, loss = 307725950.0, prediction/mean = 13344.985
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 8000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpjb1ml488/model.ckpt-8000
+    scores {'average_loss': 19902674.0, 'label/mean': 13207.129, 'loss': 307725950.0, 'prediction/mean': 13344.985, 'global_step': 8000}
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
     INFO:tensorflow:Create CheckpointSaverHook.
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0pnox_6q/model.ckpt-8000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpjb1ml488/model.ckpt-8000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 8000...
-    INFO:tensorflow:Saving checkpoints for 8000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0pnox_6q/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 8000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpjb1ml488/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 8000...
-    INFO:tensorflow:loss = 493395520.0, step = 8001
-    INFO:tensorflow:global_step/sec: 1574.15
-    INFO:tensorflow:loss = 104999960.0, step = 8101 (0.065 sec)
-    INFO:tensorflow:global_step/sec: 2206.54
-    INFO:tensorflow:loss = 120283550.0, step = 8201 (0.045 sec)
-    INFO:tensorflow:global_step/sec: 2325.43
-    INFO:tensorflow:loss = 294127230.0, step = 8301 (0.044 sec)
-    INFO:tensorflow:global_step/sec: 2314.6
-    INFO:tensorflow:loss = 421182370.0, step = 8401 (0.043 sec)
-    INFO:tensorflow:global_step/sec: 2293.26
-    INFO:tensorflow:loss = 79477540.0, step = 8501 (0.043 sec)
-    INFO:tensorflow:global_step/sec: 2047
-    INFO:tensorflow:loss = 549163600.0, step = 8601 (0.049 sec)
-    INFO:tensorflow:global_step/sec: 1990.84
-    INFO:tensorflow:loss = 181359020.0, step = 8701 (0.052 sec)
-    INFO:tensorflow:global_step/sec: 1973.4
-    INFO:tensorflow:loss = 458956160.0, step = 8801 (0.049 sec)
-    INFO:tensorflow:global_step/sec: 2192.31
-    INFO:tensorflow:loss = 485898240.0, step = 8901 (0.046 sec)
+    INFO:tensorflow:loss = 596311400.0, step = 8001
+    INFO:tensorflow:global_step/sec: 1526.18
+    INFO:tensorflow:loss = 86831210.0, step = 8101 (0.067 sec)
+    INFO:tensorflow:global_step/sec: 1923.78
+    INFO:tensorflow:loss = 244620220.0, step = 8201 (0.051 sec)
+    INFO:tensorflow:global_step/sec: 1945.07
+    INFO:tensorflow:loss = 127609460.0, step = 8301 (0.053 sec)
+    INFO:tensorflow:global_step/sec: 1938.96
+    INFO:tensorflow:loss = 501255520.0, step = 8401 (0.051 sec)
+    INFO:tensorflow:global_step/sec: 1835.9
+    INFO:tensorflow:loss = 440882050.0, step = 8501 (0.054 sec)
+    INFO:tensorflow:global_step/sec: 1925.34
+    INFO:tensorflow:loss = 535798400.0, step = 8601 (0.051 sec)
+    INFO:tensorflow:global_step/sec: 1966.02
+    INFO:tensorflow:loss = 903512800.0, step = 8701 (0.052 sec)
+    INFO:tensorflow:global_step/sec: 1942.62
+    INFO:tensorflow:loss = 515851140.0, step = 8801 (0.052 sec)
+    INFO:tensorflow:global_step/sec: 2037.66
+    INFO:tensorflow:loss = 638670400.0, step = 8901 (0.048 sec)
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 9000...
-    INFO:tensorflow:Saving checkpoints for 9000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0pnox_6q/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 9000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpjb1ml488/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 9000...
-    INFO:tensorflow:Loss for final step: 371862270.0.
+    INFO:tensorflow:Loss for final step: 101181630.0.
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
-    INFO:tensorflow:Starting evaluation at 2026-04-03T07:53:26
+    INFO:tensorflow:Starting evaluation at 2026-04-03T17:06:08
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0pnox_6q/model.ckpt-9000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpjb1ml488/model.ckpt-9000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
-    INFO:tensorflow:Inference Time : 0.09746s
-    INFO:tensorflow:Finished evaluation at 2026-04-03-07:53:26
-    INFO:tensorflow:Saving dict for global step 9000: average_loss = 19350564.0, global_step = 9000, label/mean = 13207.129, loss = 299189470.0, prediction/mean = 13371.006
-    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 9000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0pnox_6q/model.ckpt-9000
-    scores {'average_loss': 19350564.0, 'label/mean': 13207.129, 'loss': 299189470.0, 'prediction/mean': 13371.006, 'global_step': 9000}
+    INFO:tensorflow:Inference Time : 0.11533s
+    INFO:tensorflow:Finished evaluation at 2026-04-03-17:06:08
+    INFO:tensorflow:Saving dict for global step 9000: average_loss = 19613454.0, global_step = 9000, label/mean = 13207.129, loss = 303254180.0, prediction/mean = 13248.078
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 9000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpjb1ml488/model.ckpt-9000
+    scores {'average_loss': 19613454.0, 'label/mean': 13207.129, 'loss': 303254180.0, 'prediction/mean': 13248.078, 'global_step': 9000}
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
     INFO:tensorflow:Create CheckpointSaverHook.
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0pnox_6q/model.ckpt-9000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpjb1ml488/model.ckpt-9000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 9000...
-    INFO:tensorflow:Saving checkpoints for 9000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0pnox_6q/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 9000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpjb1ml488/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 9000...
-    INFO:tensorflow:loss = 351274940.0, step = 9001
-    INFO:tensorflow:global_step/sec: 1604.68
-    INFO:tensorflow:loss = 181943000.0, step = 9101 (0.063 sec)
-    INFO:tensorflow:global_step/sec: 2404.77
-    INFO:tensorflow:loss = 587083650.0, step = 9201 (0.042 sec)
-    INFO:tensorflow:global_step/sec: 2372.08
-    INFO:tensorflow:loss = 177011300.0, step = 9301 (0.042 sec)
-    INFO:tensorflow:global_step/sec: 2149.9
-    INFO:tensorflow:loss = 88526320.0, step = 9401 (0.047 sec)
-    INFO:tensorflow:global_step/sec: 2329.26
-    INFO:tensorflow:loss = 390149630.0, step = 9501 (0.043 sec)
-    INFO:tensorflow:global_step/sec: 2307.22
-    INFO:tensorflow:loss = 160592600.0, step = 9601 (0.043 sec)
-    INFO:tensorflow:global_step/sec: 2488.26
-    INFO:tensorflow:loss = 430866620.0, step = 9701 (0.041 sec)
-    INFO:tensorflow:global_step/sec: 2307.49
-    INFO:tensorflow:loss = 120488216.0, step = 9801 (0.043 sec)
-    INFO:tensorflow:global_step/sec: 2240.64
-    INFO:tensorflow:loss = 559439550.0, step = 9901 (0.044 sec)
+    INFO:tensorflow:loss = 125537620.0, step = 9001
+    INFO:tensorflow:global_step/sec: 1483.96
+    INFO:tensorflow:loss = 524195330.0, step = 9101 (0.068 sec)
+    INFO:tensorflow:global_step/sec: 2264.44
+    INFO:tensorflow:loss = 198264690.0, step = 9201 (0.045 sec)
+    INFO:tensorflow:global_step/sec: 2288.86
+    INFO:tensorflow:loss = 574075260.0, step = 9301 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 2287.46
+    INFO:tensorflow:loss = 204862240.0, step = 9401 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 2293.84
+    INFO:tensorflow:loss = 692801400.0, step = 9501 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 2398.25
+    INFO:tensorflow:loss = 107144740.0, step = 9601 (0.042 sec)
+    INFO:tensorflow:global_step/sec: 2367.54
+    INFO:tensorflow:loss = 89429010.0, step = 9701 (0.042 sec)
+    INFO:tensorflow:global_step/sec: 2344.5
+    INFO:tensorflow:loss = 184545840.0, step = 9801 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2397.46
+    INFO:tensorflow:loss = 152185740.0, step = 9901 (0.042 sec)
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 10000...
-    INFO:tensorflow:Saving checkpoints for 10000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0pnox_6q/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 10000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpjb1ml488/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 10000...
-    INFO:tensorflow:Loss for final step: 271030270.0.
+    INFO:tensorflow:Loss for final step: 230778990.0.
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
-    INFO:tensorflow:Starting evaluation at 2026-04-03T07:53:28
+    INFO:tensorflow:Starting evaluation at 2026-04-03T17:06:09
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0pnox_6q/model.ckpt-10000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpjb1ml488/model.ckpt-10000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
-    INFO:tensorflow:Inference Time : 0.09065s
-    INFO:tensorflow:Finished evaluation at 2026-04-03-07:53:28
-    INFO:tensorflow:Saving dict for global step 10000: average_loss = 19165298.0, global_step = 10000, label/mean = 13207.129, loss = 296325000.0, prediction/mean = 13365.35
-    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 10000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0pnox_6q/model.ckpt-10000
-    scores {'average_loss': 19165298.0, 'label/mean': 13207.129, 'loss': 296325000.0, 'prediction/mean': 13365.35, 'global_step': 10000}
+    INFO:tensorflow:Inference Time : 0.10234s
+    INFO:tensorflow:Finished evaluation at 2026-04-03-17:06:09
+    INFO:tensorflow:Saving dict for global step 10000: average_loss = 19334088.0, global_step = 10000, label/mean = 13207.129, loss = 298934750.0, prediction/mean = 13344.923
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 10000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpjb1ml488/model.ckpt-10000
+    scores {'average_loss': 19334088.0, 'label/mean': 13207.129, 'loss': 298934750.0, 'prediction/mean': 13344.923, 'global_step': 10000}
 
 
 #### Visualize model's predictions
@@ -1367,22 +1398,8 @@ def scatter_plot_inference_grid(est, x_df, feature_names):
     scatter_plot_inference(axis, feature_name, 'price', predictions)
   plt.show()
 
-scatter_plot_inference_grid(est, x_df, numeric_feature_names)
+# scatter_plot_inference_grid(est, x_df, numeric_feature_names)
 ```
-
-    INFO:tensorflow:Calling model_fn.
-    INFO:tensorflow:Done calling model_fn.
-    INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp0pnox_6q/model.ckpt-10000
-    INFO:tensorflow:Running local_init_op.
-    INFO:tensorflow:Done running local_init_op.
-
-
-
-    
-![png](car_data_ML_pipeline_files/car_data_ML_pipeline_17_1.png)
-    
-
 
 
 ```python
@@ -1429,8 +1446,8 @@ for _ in range(num_print_statements):
 ```
 
     INFO:tensorflow:Using default config.
-    WARNING:tensorflow:Using temporary folder as model directory: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxvfv6b7z
-    INFO:tensorflow:Using config: {'_model_dir': '/var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxvfv6b7z', '_tf_random_seed': None, '_save_summary_steps': 100, '_save_checkpoints_steps': None, '_save_checkpoints_secs': 600, '_session_config': allow_soft_placement: true
+    WARNING:tensorflow:Using temporary folder as model directory: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpf6j6fkog
+    INFO:tensorflow:Using config: {'_model_dir': '/var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpf6j6fkog', '_tf_random_seed': None, '_save_summary_steps': 100, '_save_checkpoints_steps': None, '_save_checkpoints_secs': 600, '_session_config': allow_soft_placement: true
     graph_options {
       rewrite_options {
         meta_optimizer_iterations: ONE
@@ -1444,451 +1461,451 @@ for _ in range(num_print_statements):
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 0...
-    INFO:tensorflow:Saving checkpoints for 0 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxvfv6b7z/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 0 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpf6j6fkog/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 0...
-    INFO:tensorflow:loss = 2139477000.0, step = 1
-    INFO:tensorflow:global_step/sec: 1223.27
-    INFO:tensorflow:loss = 2049243100.0, step = 101 (0.083 sec)
-    INFO:tensorflow:global_step/sec: 2064.33
-    INFO:tensorflow:loss = 2087917600.0, step = 201 (0.048 sec)
-    INFO:tensorflow:global_step/sec: 2168.39
-    INFO:tensorflow:loss = 3542548000.0, step = 301 (0.046 sec)
-    INFO:tensorflow:global_step/sec: 2159.03
-    INFO:tensorflow:loss = 1002773570.0, step = 401 (0.046 sec)
-    INFO:tensorflow:global_step/sec: 1907.42
-    INFO:tensorflow:loss = 1483467400.0, step = 501 (0.054 sec)
-    INFO:tensorflow:global_step/sec: 2017.27
-    INFO:tensorflow:loss = 3409040000.0, step = 601 (0.048 sec)
-    INFO:tensorflow:global_step/sec: 2122.73
-    INFO:tensorflow:loss = 1287051500.0, step = 701 (0.047 sec)
-    INFO:tensorflow:global_step/sec: 2071.52
-    INFO:tensorflow:loss = 2550597000.0, step = 801 (0.048 sec)
-    INFO:tensorflow:global_step/sec: 2143.44
-    INFO:tensorflow:loss = 3483670000.0, step = 901 (0.047 sec)
+    INFO:tensorflow:loss = 4867740700.0, step = 1
+    INFO:tensorflow:global_step/sec: 1403.51
+    INFO:tensorflow:loss = 2462930400.0, step = 101 (0.072 sec)
+    INFO:tensorflow:global_step/sec: 2365.19
+    INFO:tensorflow:loss = 4487678000.0, step = 201 (0.042 sec)
+    INFO:tensorflow:global_step/sec: 2445.94
+    INFO:tensorflow:loss = 4838490000.0, step = 301 (0.042 sec)
+    INFO:tensorflow:global_step/sec: 1993.85
+    INFO:tensorflow:loss = 1508902900.0, step = 401 (0.049 sec)
+    INFO:tensorflow:global_step/sec: 2014.56
+    INFO:tensorflow:loss = 2217576700.0, step = 501 (0.050 sec)
+    INFO:tensorflow:global_step/sec: 2281.34
+    INFO:tensorflow:loss = 1773181700.0, step = 601 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 2102.11
+    INFO:tensorflow:loss = 1160468900.0, step = 701 (0.047 sec)
+    INFO:tensorflow:global_step/sec: 1979.3
+    INFO:tensorflow:loss = 1261087400.0, step = 801 (0.051 sec)
+    INFO:tensorflow:global_step/sec: 2375.97
+    INFO:tensorflow:loss = 2584458200.0, step = 901 (0.042 sec)
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 1000...
-    INFO:tensorflow:Saving checkpoints for 1000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxvfv6b7z/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 1000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpf6j6fkog/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 1000...
-    INFO:tensorflow:Loss for final step: 1513500200.0.
+    INFO:tensorflow:Loss for final step: 2544060200.0.
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
-    INFO:tensorflow:Starting evaluation at 2026-04-03T07:53:32
+    INFO:tensorflow:Starting evaluation at 2026-04-03T17:06:13
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxvfv6b7z/model.ckpt-1000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpf6j6fkog/model.ckpt-1000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
-    INFO:tensorflow:Inference Time : 0.13631s
-    INFO:tensorflow:Finished evaluation at 2026-04-03-07:53:32
-    INFO:tensorflow:Saving dict for global step 1000: average_loss = 129784080.0, global_step = 1000, label/mean = 13207.129, loss = 2006661600.0, prediction/mean = 4787.659
-    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 1000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxvfv6b7z/model.ckpt-1000
-    scores_linear {'average_loss': 129784080.0, 'label/mean': 13207.129, 'loss': 2006661600.0, 'prediction/mean': 4787.659, 'global_step': 1000}
+    INFO:tensorflow:Inference Time : 0.12484s
+    INFO:tensorflow:Finished evaluation at 2026-04-03-17:06:13
+    INFO:tensorflow:Saving dict for global step 1000: average_loss = 130147570.0, global_step = 1000, label/mean = 13207.129, loss = 2012281600.0, prediction/mean = 4766.975
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 1000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpf6j6fkog/model.ckpt-1000
+    scores_linear {'average_loss': 130147570.0, 'label/mean': 13207.129, 'loss': 2012281600.0, 'prediction/mean': 4766.975, 'global_step': 1000}
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
     INFO:tensorflow:Create CheckpointSaverHook.
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxvfv6b7z/model.ckpt-1000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpf6j6fkog/model.ckpt-1000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 1000...
-    INFO:tensorflow:Saving checkpoints for 1000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxvfv6b7z/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 1000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpf6j6fkog/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 1000...
-    INFO:tensorflow:loss = 2340602600.0, step = 1001
-    INFO:tensorflow:global_step/sec: 1228.71
-    INFO:tensorflow:loss = 1365747500.0, step = 1101 (0.082 sec)
-    INFO:tensorflow:global_step/sec: 2074.35
-    INFO:tensorflow:loss = 2313588500.0, step = 1201 (0.049 sec)
-    INFO:tensorflow:global_step/sec: 2111.13
-    INFO:tensorflow:loss = 2129403900.0, step = 1301 (0.048 sec)
-    INFO:tensorflow:global_step/sec: 2010.94
-    INFO:tensorflow:loss = 4935521300.0, step = 1401 (0.049 sec)
-    INFO:tensorflow:global_step/sec: 1988.66
-    INFO:tensorflow:loss = 1431081500.0, step = 1501 (0.050 sec)
-    INFO:tensorflow:global_step/sec: 1901.43
-    INFO:tensorflow:loss = 2711934000.0, step = 1601 (0.053 sec)
-    INFO:tensorflow:global_step/sec: 2337.81
-    INFO:tensorflow:loss = 2744200400.0, step = 1701 (0.042 sec)
-    INFO:tensorflow:global_step/sec: 2354.93
-    INFO:tensorflow:loss = 1272464300.0, step = 1801 (0.043 sec)
-    INFO:tensorflow:global_step/sec: 2242.36
-    INFO:tensorflow:loss = 1507735300.0, step = 1901 (0.045 sec)
+    INFO:tensorflow:loss = 2011251100.0, step = 1001
+    INFO:tensorflow:global_step/sec: 1406.21
+    INFO:tensorflow:loss = 1999123000.0, step = 1101 (0.072 sec)
+    INFO:tensorflow:global_step/sec: 1845.16
+    INFO:tensorflow:loss = 874496260.0, step = 1201 (0.053 sec)
+    INFO:tensorflow:global_step/sec: 2216.27
+    INFO:tensorflow:loss = 974589700.0, step = 1301 (0.045 sec)
+    INFO:tensorflow:global_step/sec: 2027.94
+    INFO:tensorflow:loss = 1310732300.0, step = 1401 (0.049 sec)
+    INFO:tensorflow:global_step/sec: 2097.76
+    INFO:tensorflow:loss = 1201009700.0, step = 1501 (0.048 sec)
+    INFO:tensorflow:global_step/sec: 2323.62
+    INFO:tensorflow:loss = 3520565800.0, step = 1601 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2444.87
+    INFO:tensorflow:loss = 2546770200.0, step = 1701 (0.041 sec)
+    INFO:tensorflow:global_step/sec: 2348.7
+    INFO:tensorflow:loss = 2203506700.0, step = 1801 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2177.98
+    INFO:tensorflow:loss = 697168300.0, step = 1901 (0.046 sec)
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 2000...
-    INFO:tensorflow:Saving checkpoints for 2000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxvfv6b7z/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 2000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpf6j6fkog/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 2000...
-    INFO:tensorflow:Loss for final step: 1373323000.0.
+    INFO:tensorflow:Loss for final step: 1495942300.0.
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
-    INFO:tensorflow:Starting evaluation at 2026-04-03T07:53:35
+    INFO:tensorflow:Starting evaluation at 2026-04-03T17:06:16
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxvfv6b7z/model.ckpt-2000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpf6j6fkog/model.ckpt-2000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
-    INFO:tensorflow:Inference Time : 0.13042s
-    INFO:tensorflow:Finished evaluation at 2026-04-03-07:53:36
-    INFO:tensorflow:Saving dict for global step 2000: average_loss = 102134800.0, global_step = 2000, label/mean = 13207.129, loss = 1579161100.0, prediction/mean = 6526.664
-    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 2000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxvfv6b7z/model.ckpt-2000
-    scores_linear {'average_loss': 102134800.0, 'label/mean': 13207.129, 'loss': 1579161100.0, 'prediction/mean': 6526.664, 'global_step': 2000}
+    INFO:tensorflow:Inference Time : 0.15221s
+    INFO:tensorflow:Finished evaluation at 2026-04-03-17:06:16
+    INFO:tensorflow:Saving dict for global step 2000: average_loss = 102318744.0, global_step = 2000, label/mean = 13207.129, loss = 1582005100.0, prediction/mean = 6513.459
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 2000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpf6j6fkog/model.ckpt-2000
+    scores_linear {'average_loss': 102318744.0, 'label/mean': 13207.129, 'loss': 1582005100.0, 'prediction/mean': 6513.459, 'global_step': 2000}
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
     INFO:tensorflow:Create CheckpointSaverHook.
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxvfv6b7z/model.ckpt-2000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpf6j6fkog/model.ckpt-2000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 2000...
-    INFO:tensorflow:Saving checkpoints for 2000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxvfv6b7z/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 2000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpf6j6fkog/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 2000...
-    INFO:tensorflow:loss = 2254702800.0, step = 2001
-    INFO:tensorflow:global_step/sec: 1181.63
-    INFO:tensorflow:loss = 1981132200.0, step = 2101 (0.085 sec)
-    INFO:tensorflow:global_step/sec: 2072.92
-    INFO:tensorflow:loss = 1920595500.0, step = 2201 (0.048 sec)
-    INFO:tensorflow:global_step/sec: 2359.65
-    INFO:tensorflow:loss = 2643449600.0, step = 2301 (0.042 sec)
-    INFO:tensorflow:global_step/sec: 2148.51
-    INFO:tensorflow:loss = 1731789200.0, step = 2401 (0.047 sec)
-    INFO:tensorflow:global_step/sec: 2323.74
-    INFO:tensorflow:loss = 977857340.0, step = 2501 (0.042 sec)
-    INFO:tensorflow:global_step/sec: 2101.64
-    INFO:tensorflow:loss = 882146240.0, step = 2601 (0.048 sec)
-    INFO:tensorflow:global_step/sec: 2175.81
-    INFO:tensorflow:loss = 2386037500.0, step = 2701 (0.046 sec)
-    INFO:tensorflow:global_step/sec: 2231.55
-    INFO:tensorflow:loss = 397436800.0, step = 2801 (0.045 sec)
-    INFO:tensorflow:global_step/sec: 2283.05
-    INFO:tensorflow:loss = 358555520.0, step = 2901 (0.043 sec)
+    INFO:tensorflow:loss = 2555903200.0, step = 2001
+    INFO:tensorflow:global_step/sec: 1228.91
+    INFO:tensorflow:loss = 388899460.0, step = 2101 (0.082 sec)
+    INFO:tensorflow:global_step/sec: 1918.2
+    INFO:tensorflow:loss = 633065000.0, step = 2201 (0.052 sec)
+    INFO:tensorflow:global_step/sec: 1921.2
+    INFO:tensorflow:loss = 701675700.0, step = 2301 (0.052 sec)
+    INFO:tensorflow:global_step/sec: 1920.64
+    INFO:tensorflow:loss = 2986471400.0, step = 2401 (0.052 sec)
+    INFO:tensorflow:global_step/sec: 2316.74
+    INFO:tensorflow:loss = 4176973800.0, step = 2501 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2385.27
+    INFO:tensorflow:loss = 3838492200.0, step = 2601 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2284.35
+    INFO:tensorflow:loss = 375816640.0, step = 2701 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 1939.34
+    INFO:tensorflow:loss = 1087795300.0, step = 2801 (0.052 sec)
+    INFO:tensorflow:global_step/sec: 2209.37
+    INFO:tensorflow:loss = 1349377900.0, step = 2901 (0.045 sec)
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 3000...
-    INFO:tensorflow:Saving checkpoints for 3000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxvfv6b7z/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 3000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpf6j6fkog/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 3000...
-    INFO:tensorflow:Loss for final step: 623402200.0.
+    INFO:tensorflow:Loss for final step: 295584220.0.
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
-    INFO:tensorflow:Starting evaluation at 2026-04-03T07:53:38
+    INFO:tensorflow:Starting evaluation at 2026-04-03T17:06:19
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxvfv6b7z/model.ckpt-3000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpf6j6fkog/model.ckpt-3000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
-    INFO:tensorflow:Inference Time : 0.13108s
-    INFO:tensorflow:Finished evaluation at 2026-04-03-07:53:38
-    INFO:tensorflow:Saving dict for global step 3000: average_loss = 86537560.0, global_step = 3000, label/mean = 13207.129, loss = 1338003700.0, prediction/mean = 7730.776
-    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 3000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxvfv6b7z/model.ckpt-3000
-    scores_linear {'average_loss': 86537560.0, 'label/mean': 13207.129, 'loss': 1338003700.0, 'prediction/mean': 7730.776, 'global_step': 3000}
+    INFO:tensorflow:Inference Time : 0.12465s
+    INFO:tensorflow:Finished evaluation at 2026-04-03-17:06:19
+    INFO:tensorflow:Saving dict for global step 3000: average_loss = 86679416.0, global_step = 3000, label/mean = 13207.129, loss = 1340197100.0, prediction/mean = 7718.372
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 3000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpf6j6fkog/model.ckpt-3000
+    scores_linear {'average_loss': 86679416.0, 'label/mean': 13207.129, 'loss': 1340197100.0, 'prediction/mean': 7718.372, 'global_step': 3000}
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
     INFO:tensorflow:Create CheckpointSaverHook.
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxvfv6b7z/model.ckpt-3000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpf6j6fkog/model.ckpt-3000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 3000...
-    INFO:tensorflow:Saving checkpoints for 3000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxvfv6b7z/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 3000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpf6j6fkog/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 3000...
-    INFO:tensorflow:loss = 339580200.0, step = 3001
-    INFO:tensorflow:global_step/sec: 1233.56
-    INFO:tensorflow:loss = 514398660.0, step = 3101 (0.082 sec)
-    INFO:tensorflow:global_step/sec: 1932.52
-    INFO:tensorflow:loss = 1253222300.0, step = 3201 (0.052 sec)
-    INFO:tensorflow:global_step/sec: 2117.78
-    INFO:tensorflow:loss = 1584177700.0, step = 3301 (0.047 sec)
-    INFO:tensorflow:global_step/sec: 2097.84
-    INFO:tensorflow:loss = 1494459500.0, step = 3401 (0.048 sec)
-    INFO:tensorflow:global_step/sec: 2345.23
-    INFO:tensorflow:loss = 2043011600.0, step = 3501 (0.044 sec)
-    INFO:tensorflow:global_step/sec: 2007.51
-    INFO:tensorflow:loss = 2134417900.0, step = 3601 (0.049 sec)
-    INFO:tensorflow:global_step/sec: 2008.59
-    INFO:tensorflow:loss = 255395330.0, step = 3701 (0.049 sec)
-    INFO:tensorflow:global_step/sec: 2288.91
-    INFO:tensorflow:loss = 1978069800.0, step = 3801 (0.045 sec)
-    INFO:tensorflow:global_step/sec: 2097.62
-    INFO:tensorflow:loss = 1311422100.0, step = 3901 (0.048 sec)
+    INFO:tensorflow:loss = 2323441200.0, step = 3001
+    INFO:tensorflow:global_step/sec: 1228.97
+    INFO:tensorflow:loss = 1959166000.0, step = 3101 (0.082 sec)
+    INFO:tensorflow:global_step/sec: 2176.56
+    INFO:tensorflow:loss = 1128292400.0, step = 3201 (0.046 sec)
+    INFO:tensorflow:global_step/sec: 2122.82
+    INFO:tensorflow:loss = 2100156700.0, step = 3301 (0.047 sec)
+    INFO:tensorflow:global_step/sec: 2219.02
+    INFO:tensorflow:loss = 305110900.0, step = 3401 (0.045 sec)
+    INFO:tensorflow:global_step/sec: 2206.92
+    INFO:tensorflow:loss = 4663068700.0, step = 3501 (0.045 sec)
+    INFO:tensorflow:global_step/sec: 2219.65
+    INFO:tensorflow:loss = 998739200.0, step = 3601 (0.045 sec)
+    INFO:tensorflow:global_step/sec: 2254.29
+    INFO:tensorflow:loss = 2450433300.0, step = 3701 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 2256.92
+    INFO:tensorflow:loss = 219034600.0, step = 3801 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 2152.17
+    INFO:tensorflow:loss = 473759100.0, step = 3901 (0.047 sec)
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 4000...
-    INFO:tensorflow:Saving checkpoints for 4000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxvfv6b7z/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 4000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpf6j6fkog/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 4000...
-    INFO:tensorflow:Loss for final step: 1338926500.0.
+    INFO:tensorflow:Loss for final step: 984912260.0.
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
-    INFO:tensorflow:Starting evaluation at 2026-04-03T07:53:41
+    INFO:tensorflow:Starting evaluation at 2026-04-03T17:06:21
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxvfv6b7z/model.ckpt-4000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpf6j6fkog/model.ckpt-4000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
-    INFO:tensorflow:Inference Time : 0.13468s
-    INFO:tensorflow:Finished evaluation at 2026-04-03-07:53:41
-    INFO:tensorflow:Saving dict for global step 4000: average_loss = 76597180.0, global_step = 4000, label/mean = 13207.129, loss = 1184310400.0, prediction/mean = 8648.016
-    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 4000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxvfv6b7z/model.ckpt-4000
-    scores_linear {'average_loss': 76597180.0, 'label/mean': 13207.129, 'loss': 1184310400.0, 'prediction/mean': 8648.016, 'global_step': 4000}
+    INFO:tensorflow:Inference Time : 0.12860s
+    INFO:tensorflow:Finished evaluation at 2026-04-03-17:06:22
+    INFO:tensorflow:Saving dict for global step 4000: average_loss = 76653870.0, global_step = 4000, label/mean = 13207.129, loss = 1185186800.0, prediction/mean = 8641.864
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 4000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpf6j6fkog/model.ckpt-4000
+    scores_linear {'average_loss': 76653870.0, 'label/mean': 13207.129, 'loss': 1185186800.0, 'prediction/mean': 8641.864, 'global_step': 4000}
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
     INFO:tensorflow:Create CheckpointSaverHook.
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxvfv6b7z/model.ckpt-4000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpf6j6fkog/model.ckpt-4000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 4000...
-    INFO:tensorflow:Saving checkpoints for 4000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxvfv6b7z/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 4000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpf6j6fkog/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 4000...
-    INFO:tensorflow:loss = 2289450000.0, step = 4001
-    INFO:tensorflow:global_step/sec: 1181.88
-    INFO:tensorflow:loss = 1797860700.0, step = 4101 (0.085 sec)
-    INFO:tensorflow:global_step/sec: 2265.92
-    INFO:tensorflow:loss = 1085499600.0, step = 4201 (0.045 sec)
-    INFO:tensorflow:global_step/sec: 1958.14
-    INFO:tensorflow:loss = 2012519400.0, step = 4301 (0.051 sec)
-    INFO:tensorflow:global_step/sec: 2155.17
-    INFO:tensorflow:loss = 2329737200.0, step = 4401 (0.046 sec)
-    INFO:tensorflow:global_step/sec: 1851.89
-    INFO:tensorflow:loss = 1473403600.0, step = 4501 (0.054 sec)
-    INFO:tensorflow:global_step/sec: 2345.34
-    INFO:tensorflow:loss = 840848260.0, step = 4601 (0.043 sec)
-    INFO:tensorflow:global_step/sec: 2206.87
-    INFO:tensorflow:loss = 1631024500.0, step = 4701 (0.045 sec)
-    INFO:tensorflow:global_step/sec: 2355.7
-    INFO:tensorflow:loss = 1800270300.0, step = 4801 (0.043 sec)
-    INFO:tensorflow:global_step/sec: 2194.34
-    INFO:tensorflow:loss = 1191163900.0, step = 4901 (0.046 sec)
+    INFO:tensorflow:loss = 1019200800.0, step = 4001
+    INFO:tensorflow:global_step/sec: 1269.02
+    INFO:tensorflow:loss = 2076785500.0, step = 4101 (0.080 sec)
+    INFO:tensorflow:global_step/sec: 2348.57
+    INFO:tensorflow:loss = 1433766500.0, step = 4201 (0.042 sec)
+    INFO:tensorflow:global_step/sec: 2197.04
+    INFO:tensorflow:loss = 602866200.0, step = 4301 (0.045 sec)
+    INFO:tensorflow:global_step/sec: 2169.1
+    INFO:tensorflow:loss = 1599833500.0, step = 4401 (0.046 sec)
+    INFO:tensorflow:global_step/sec: 2007.09
+    INFO:tensorflow:loss = 348100350.0, step = 4501 (0.050 sec)
+    INFO:tensorflow:global_step/sec: 1920.94
+    INFO:tensorflow:loss = 226985150.0, step = 4601 (0.052 sec)
+    INFO:tensorflow:global_step/sec: 2155.49
+    INFO:tensorflow:loss = 212518660.0, step = 4701 (0.046 sec)
+    INFO:tensorflow:global_step/sec: 2431.2
+    INFO:tensorflow:loss = 155481600.0, step = 4801 (0.042 sec)
+    INFO:tensorflow:global_step/sec: 2283.06
+    INFO:tensorflow:loss = 1027534600.0, step = 4901 (0.043 sec)
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 5000...
-    INFO:tensorflow:Saving checkpoints for 5000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxvfv6b7z/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 5000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpf6j6fkog/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 5000...
-    INFO:tensorflow:Loss for final step: 590316400.0.
+    INFO:tensorflow:Loss for final step: 889470850.0.
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
-    INFO:tensorflow:Starting evaluation at 2026-04-03T07:53:44
+    INFO:tensorflow:Starting evaluation at 2026-04-03T17:06:24
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxvfv6b7z/model.ckpt-5000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpf6j6fkog/model.ckpt-5000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
-    INFO:tensorflow:Inference Time : 0.13511s
-    INFO:tensorflow:Finished evaluation at 2026-04-03-07:53:44
-    INFO:tensorflow:Saving dict for global step 5000: average_loss = 69842690.0, global_step = 5000, label/mean = 13207.129, loss = 1079875500.0, prediction/mean = 9382.48
-    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 5000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxvfv6b7z/model.ckpt-5000
-    scores_linear {'average_loss': 69842690.0, 'label/mean': 13207.129, 'loss': 1079875500.0, 'prediction/mean': 9382.48, 'global_step': 5000}
+    INFO:tensorflow:Inference Time : 0.12428s
+    INFO:tensorflow:Finished evaluation at 2026-04-03-17:06:24
+    INFO:tensorflow:Saving dict for global step 5000: average_loss = 69892240.0, global_step = 5000, label/mean = 13207.129, loss = 1080641700.0, prediction/mean = 9376.069
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 5000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpf6j6fkog/model.ckpt-5000
+    scores_linear {'average_loss': 69892240.0, 'label/mean': 13207.129, 'loss': 1080641700.0, 'prediction/mean': 9376.069, 'global_step': 5000}
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
     INFO:tensorflow:Create CheckpointSaverHook.
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxvfv6b7z/model.ckpt-5000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpf6j6fkog/model.ckpt-5000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 5000...
-    INFO:tensorflow:Saving checkpoints for 5000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxvfv6b7z/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 5000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpf6j6fkog/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 5000...
-    INFO:tensorflow:loss = 540136800.0, step = 5001
-    INFO:tensorflow:global_step/sec: 1243.52
-    INFO:tensorflow:loss = 806872450.0, step = 5101 (0.081 sec)
-    INFO:tensorflow:global_step/sec: 1753.03
-    INFO:tensorflow:loss = 2694703400.0, step = 5201 (0.059 sec)
-    INFO:tensorflow:global_step/sec: 863.036
-    INFO:tensorflow:loss = 975851800.0, step = 5301 (0.116 sec)
-    INFO:tensorflow:global_step/sec: 1786.54
-    INFO:tensorflow:loss = 244510270.0, step = 5401 (0.056 sec)
-    INFO:tensorflow:global_step/sec: 1946.7
-    INFO:tensorflow:loss = 848225400.0, step = 5501 (0.051 sec)
-    INFO:tensorflow:global_step/sec: 2046.03
-    INFO:tensorflow:loss = 694293570.0, step = 5601 (0.048 sec)
-    INFO:tensorflow:global_step/sec: 2162.49
-    INFO:tensorflow:loss = 1156722200.0, step = 5701 (0.046 sec)
-    INFO:tensorflow:global_step/sec: 2248.1
-    INFO:tensorflow:loss = 1427430900.0, step = 5801 (0.045 sec)
-    INFO:tensorflow:global_step/sec: 1075.96
-    INFO:tensorflow:loss = 1121539100.0, step = 5901 (0.092 sec)
-    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 6000...
-    INFO:tensorflow:Saving checkpoints for 6000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxvfv6b7z/model.ckpt.
-    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 6000...
-    INFO:tensorflow:Loss for final step: 305907550.0.
-    INFO:tensorflow:Calling model_fn.
-    INFO:tensorflow:Done calling model_fn.
-    INFO:tensorflow:Starting evaluation at 2026-04-03T07:53:47
-    INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxvfv6b7z/model.ckpt-6000
-    INFO:tensorflow:Running local_init_op.
-    INFO:tensorflow:Done running local_init_op.
-    INFO:tensorflow:Inference Time : 0.13559s
-    INFO:tensorflow:Finished evaluation at 2026-04-03-07:53:47
-    INFO:tensorflow:Saving dict for global step 6000: average_loss = 65111748.0, global_step = 6000, label/mean = 13207.129, loss = 1006727800.0, prediction/mean = 9982.972
-    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 6000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxvfv6b7z/model.ckpt-6000
-    scores_linear {'average_loss': 65111748.0, 'label/mean': 13207.129, 'loss': 1006727800.0, 'prediction/mean': 9982.972, 'global_step': 6000}
-    INFO:tensorflow:Calling model_fn.
-    INFO:tensorflow:Done calling model_fn.
-    INFO:tensorflow:Create CheckpointSaverHook.
-    INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxvfv6b7z/model.ckpt-6000
-    INFO:tensorflow:Running local_init_op.
-    INFO:tensorflow:Done running local_init_op.
-    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 6000...
-    INFO:tensorflow:Saving checkpoints for 6000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxvfv6b7z/model.ckpt.
-    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 6000...
-    INFO:tensorflow:loss = 1722243100.0, step = 6001
-    INFO:tensorflow:global_step/sec: 1258.99
-    INFO:tensorflow:loss = 2085966600.0, step = 6101 (0.081 sec)
-    INFO:tensorflow:global_step/sec: 1640.98
-    INFO:tensorflow:loss = 995593300.0, step = 6201 (0.060 sec)
-    INFO:tensorflow:global_step/sec: 2128.06
-    INFO:tensorflow:loss = 978467840.0, step = 6301 (0.048 sec)
-    INFO:tensorflow:global_step/sec: 2233.73
-    INFO:tensorflow:loss = 220459410.0, step = 6401 (0.044 sec)
-    INFO:tensorflow:global_step/sec: 2144.96
-    INFO:tensorflow:loss = 776236540.0, step = 6501 (0.047 sec)
-    INFO:tensorflow:global_step/sec: 2094.85
-    INFO:tensorflow:loss = 379665000.0, step = 6601 (0.048 sec)
-    INFO:tensorflow:global_step/sec: 2115.47
-    INFO:tensorflow:loss = 1051244700.0, step = 6701 (0.047 sec)
-    INFO:tensorflow:global_step/sec: 1882.31
-    INFO:tensorflow:loss = 90795990.0, step = 6801 (0.053 sec)
-    INFO:tensorflow:global_step/sec: 2256.71
-    INFO:tensorflow:loss = 860675500.0, step = 6901 (0.045 sec)
-    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 7000...
-    INFO:tensorflow:Saving checkpoints for 7000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxvfv6b7z/model.ckpt.
-    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 7000...
-    INFO:tensorflow:Loss for final step: 644235650.0.
-    INFO:tensorflow:Calling model_fn.
-    INFO:tensorflow:Done calling model_fn.
-    INFO:tensorflow:Starting evaluation at 2026-04-03T07:53:50
-    INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxvfv6b7z/model.ckpt-7000
-    INFO:tensorflow:Running local_init_op.
-    INFO:tensorflow:Done running local_init_op.
-    INFO:tensorflow:Inference Time : 0.13251s
-    INFO:tensorflow:Finished evaluation at 2026-04-03-07:53:50
-    INFO:tensorflow:Saving dict for global step 7000: average_loss = 61713420.0, global_step = 7000, label/mean = 13207.129, loss = 954184400.0, prediction/mean = 10482.632
-    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 7000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxvfv6b7z/model.ckpt-7000
-    scores_linear {'average_loss': 61713420.0, 'label/mean': 13207.129, 'loss': 954184400.0, 'prediction/mean': 10482.632, 'global_step': 7000}
-    INFO:tensorflow:Calling model_fn.
-    INFO:tensorflow:Done calling model_fn.
-    INFO:tensorflow:Create CheckpointSaverHook.
-    INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxvfv6b7z/model.ckpt-7000
-    INFO:tensorflow:Running local_init_op.
-    INFO:tensorflow:Done running local_init_op.
-    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 7000...
-    INFO:tensorflow:Saving checkpoints for 7000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxvfv6b7z/model.ckpt.
-    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 7000...
-    INFO:tensorflow:loss = 1006831900.0, step = 7001
-    INFO:tensorflow:global_step/sec: 1244.68
-    INFO:tensorflow:loss = 225653020.0, step = 7101 (0.081 sec)
-    INFO:tensorflow:global_step/sec: 2078.52
-    INFO:tensorflow:loss = 344184060.0, step = 7201 (0.048 sec)
-    INFO:tensorflow:global_step/sec: 1999.53
-    INFO:tensorflow:loss = 817732300.0, step = 7301 (0.050 sec)
-    INFO:tensorflow:global_step/sec: 2319.1
-    INFO:tensorflow:loss = 230077020.0, step = 7401 (0.043 sec)
-    INFO:tensorflow:global_step/sec: 2006.1
-    INFO:tensorflow:loss = 184038770.0, step = 7501 (0.050 sec)
-    INFO:tensorflow:global_step/sec: 2304.2
-    INFO:tensorflow:loss = 931952000.0, step = 7601 (0.043 sec)
-    INFO:tensorflow:global_step/sec: 2304.89
-    INFO:tensorflow:loss = 2721901600.0, step = 7701 (0.043 sec)
-    INFO:tensorflow:global_step/sec: 2206.62
-    INFO:tensorflow:loss = 688116000.0, step = 7801 (0.045 sec)
+    INFO:tensorflow:loss = 177022380.0, step = 5001
+    INFO:tensorflow:global_step/sec: 1370.56
+    INFO:tensorflow:loss = 1220348400.0, step = 5101 (0.074 sec)
+    INFO:tensorflow:global_step/sec: 2347.47
+    INFO:tensorflow:loss = 1485530600.0, step = 5201 (0.043 sec)
     INFO:tensorflow:global_step/sec: 2369.84
-    INFO:tensorflow:loss = 1778857200.0, step = 7901 (0.042 sec)
-    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 8000...
-    INFO:tensorflow:Saving checkpoints for 8000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxvfv6b7z/model.ckpt.
-    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 8000...
-    INFO:tensorflow:Loss for final step: 1239210600.0.
+    INFO:tensorflow:loss = 1017375360.0, step = 5301 (0.042 sec)
+    INFO:tensorflow:global_step/sec: 2255.71
+    INFO:tensorflow:loss = 550475200.0, step = 5401 (0.045 sec)
+    INFO:tensorflow:global_step/sec: 2344.01
+    INFO:tensorflow:loss = 1281211300.0, step = 5501 (0.042 sec)
+    INFO:tensorflow:global_step/sec: 2328.19
+    INFO:tensorflow:loss = 926133500.0, step = 5601 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2242.5
+    INFO:tensorflow:loss = 1054400260.0, step = 5701 (0.045 sec)
+    INFO:tensorflow:global_step/sec: 2191.06
+    INFO:tensorflow:loss = 1074718700.0, step = 5801 (0.046 sec)
+    INFO:tensorflow:global_step/sec: 2195.38
+    INFO:tensorflow:loss = 3254703600.0, step = 5901 (0.046 sec)
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 6000...
+    INFO:tensorflow:Saving checkpoints for 6000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpf6j6fkog/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 6000...
+    INFO:tensorflow:Loss for final step: 922770900.0.
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
-    INFO:tensorflow:Starting evaluation at 2026-04-03T07:53:53
+    INFO:tensorflow:Starting evaluation at 2026-04-03T17:06:27
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxvfv6b7z/model.ckpt-8000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpf6j6fkog/model.ckpt-6000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
-    INFO:tensorflow:Inference Time : 0.14166s
-    INFO:tensorflow:Finished evaluation at 2026-04-03-07:53:53
-    INFO:tensorflow:Saving dict for global step 8000: average_loss = 59221028.0, global_step = 8000, label/mean = 13207.129, loss = 915648200.0, prediction/mean = 10904.403
-    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 8000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxvfv6b7z/model.ckpt-8000
-    scores_linear {'average_loss': 59221028.0, 'label/mean': 13207.129, 'loss': 915648200.0, 'prediction/mean': 10904.403, 'global_step': 8000}
-    INFO:tensorflow:Calling model_fn.
-    INFO:tensorflow:Done calling model_fn.
-    INFO:tensorflow:Create CheckpointSaverHook.
-    INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxvfv6b7z/model.ckpt-8000
-    INFO:tensorflow:Running local_init_op.
-    INFO:tensorflow:Done running local_init_op.
-    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 8000...
-    INFO:tensorflow:Saving checkpoints for 8000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxvfv6b7z/model.ckpt.
-    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 8000...
-    INFO:tensorflow:loss = 1955029200.0, step = 8001
-    INFO:tensorflow:global_step/sec: 1262.55
-    INFO:tensorflow:loss = 1149271900.0, step = 8101 (0.080 sec)
-    INFO:tensorflow:global_step/sec: 2246.08
-    INFO:tensorflow:loss = 740691300.0, step = 8201 (0.045 sec)
-    INFO:tensorflow:global_step/sec: 2229.86
-    INFO:tensorflow:loss = 1426219600.0, step = 8301 (0.044 sec)
-    INFO:tensorflow:global_step/sec: 2219.26
-    INFO:tensorflow:loss = 995547650.0, step = 8401 (0.045 sec)
-    INFO:tensorflow:global_step/sec: 2252.16
-    INFO:tensorflow:loss = 2254413600.0, step = 8501 (0.044 sec)
-    INFO:tensorflow:global_step/sec: 2420.31
-    INFO:tensorflow:loss = 445296400.0, step = 8601 (0.042 sec)
-    INFO:tensorflow:global_step/sec: 2283.88
-    INFO:tensorflow:loss = 213555060.0, step = 8701 (0.044 sec)
-    INFO:tensorflow:global_step/sec: 2164.23
-    INFO:tensorflow:loss = 1055745200.0, step = 8801 (0.046 sec)
-    INFO:tensorflow:global_step/sec: 2008.92
-    INFO:tensorflow:loss = 1431708900.0, step = 8901 (0.049 sec)
-    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 9000...
-    INFO:tensorflow:Saving checkpoints for 9000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxvfv6b7z/model.ckpt.
-    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 9000...
-    INFO:tensorflow:Loss for final step: 1587805600.0.
-    INFO:tensorflow:Calling model_fn.
-    INFO:tensorflow:Done calling model_fn.
-    INFO:tensorflow:Starting evaluation at 2026-04-03T07:53:56
-    INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxvfv6b7z/model.ckpt-9000
-    INFO:tensorflow:Running local_init_op.
-    INFO:tensorflow:Done running local_init_op.
-    INFO:tensorflow:Inference Time : 0.13895s
-    INFO:tensorflow:Finished evaluation at 2026-04-03-07:53:56
-    INFO:tensorflow:Saving dict for global step 9000: average_loss = 57377044.0, global_step = 9000, label/mean = 13207.129, loss = 887137340.0, prediction/mean = 11261.47
-    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 9000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxvfv6b7z/model.ckpt-9000
-    scores_linear {'average_loss': 57377044.0, 'label/mean': 13207.129, 'loss': 887137340.0, 'prediction/mean': 11261.47, 'global_step': 9000}
+    INFO:tensorflow:Inference Time : 0.12846s
+    INFO:tensorflow:Finished evaluation at 2026-04-03-17:06:27
+    INFO:tensorflow:Saving dict for global step 6000: average_loss = 65132268.0, global_step = 6000, label/mean = 13207.129, loss = 1007045060.0, prediction/mean = 9979.491
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 6000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpf6j6fkog/model.ckpt-6000
+    scores_linear {'average_loss': 65132268.0, 'label/mean': 13207.129, 'loss': 1007045060.0, 'prediction/mean': 9979.491, 'global_step': 6000}
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
     INFO:tensorflow:Create CheckpointSaverHook.
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxvfv6b7z/model.ckpt-9000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpf6j6fkog/model.ckpt-6000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 6000...
+    INFO:tensorflow:Saving checkpoints for 6000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpf6j6fkog/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 6000...
+    INFO:tensorflow:loss = 1315003400.0, step = 6001
+    INFO:tensorflow:global_step/sec: 1332.56
+    INFO:tensorflow:loss = 1103857800.0, step = 6101 (0.075 sec)
+    INFO:tensorflow:global_step/sec: 2130.32
+    INFO:tensorflow:loss = 110427870.0, step = 6201 (0.047 sec)
+    INFO:tensorflow:global_step/sec: 2301.45
+    INFO:tensorflow:loss = 301240320.0, step = 6301 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2359.98
+    INFO:tensorflow:loss = 525034000.0, step = 6401 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2279.05
+    INFO:tensorflow:loss = 981180700.0, step = 6501 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2377.44
+    INFO:tensorflow:loss = 2565706500.0, step = 6601 (0.042 sec)
+    INFO:tensorflow:global_step/sec: 2254.13
+    INFO:tensorflow:loss = 1343937700.0, step = 6701 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 2036.62
+    INFO:tensorflow:loss = 1156109200.0, step = 6801 (0.049 sec)
+    INFO:tensorflow:global_step/sec: 2092.88
+    INFO:tensorflow:loss = 771091400.0, step = 6901 (0.048 sec)
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 7000...
+    INFO:tensorflow:Saving checkpoints for 7000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpf6j6fkog/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 7000...
+    INFO:tensorflow:Loss for final step: 277450100.0.
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Starting evaluation at 2026-04-03T17:06:29
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpf6j6fkog/model.ckpt-7000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Inference Time : 0.12404s
+    INFO:tensorflow:Finished evaluation at 2026-04-03-17:06:29
+    INFO:tensorflow:Saving dict for global step 7000: average_loss = 61726720.0, global_step = 7000, label/mean = 13207.129, loss = 954390100.0, prediction/mean = 10479.733
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 7000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpf6j6fkog/model.ckpt-7000
+    scores_linear {'average_loss': 61726720.0, 'label/mean': 13207.129, 'loss': 954390100.0, 'prediction/mean': 10479.733, 'global_step': 7000}
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Create CheckpointSaverHook.
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpf6j6fkog/model.ckpt-7000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 7000...
+    INFO:tensorflow:Saving checkpoints for 7000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpf6j6fkog/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 7000...
+    INFO:tensorflow:loss = 797220600.0, step = 7001
+    INFO:tensorflow:global_step/sec: 1262.28
+    INFO:tensorflow:loss = 435482700.0, step = 7101 (0.080 sec)
+    INFO:tensorflow:global_step/sec: 2320.78
+    INFO:tensorflow:loss = 445783840.0, step = 7201 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2104.33
+    INFO:tensorflow:loss = 1136186600.0, step = 7301 (0.047 sec)
+    INFO:tensorflow:global_step/sec: 1288.43
+    INFO:tensorflow:loss = 2984645600.0, step = 7401 (0.078 sec)
+    INFO:tensorflow:global_step/sec: 2309.49
+    INFO:tensorflow:loss = 1268283300.0, step = 7501 (0.042 sec)
+    INFO:tensorflow:global_step/sec: 2194.57
+    INFO:tensorflow:loss = 492404400.0, step = 7601 (0.046 sec)
+    INFO:tensorflow:global_step/sec: 2400.15
+    INFO:tensorflow:loss = 425123000.0, step = 7701 (0.042 sec)
+    INFO:tensorflow:global_step/sec: 2298.59
+    INFO:tensorflow:loss = 1213094500.0, step = 7801 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2301.22
+    INFO:tensorflow:loss = 1101849100.0, step = 7901 (0.044 sec)
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 8000...
+    INFO:tensorflow:Saving checkpoints for 8000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpf6j6fkog/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 8000...
+    INFO:tensorflow:Loss for final step: 144669280.0.
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Starting evaluation at 2026-04-03T17:06:32
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpf6j6fkog/model.ckpt-8000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Inference Time : 0.12651s
+    INFO:tensorflow:Finished evaluation at 2026-04-03-17:06:32
+    INFO:tensorflow:Saving dict for global step 8000: average_loss = 59219856.0, global_step = 8000, label/mean = 13207.129, loss = 915630100.0, prediction/mean = 10903.753
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 8000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpf6j6fkog/model.ckpt-8000
+    scores_linear {'average_loss': 59219856.0, 'label/mean': 13207.129, 'loss': 915630100.0, 'prediction/mean': 10903.753, 'global_step': 8000}
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Create CheckpointSaverHook.
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpf6j6fkog/model.ckpt-8000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 8000...
+    INFO:tensorflow:Saving checkpoints for 8000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpf6j6fkog/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 8000...
+    INFO:tensorflow:loss = 1010302500.0, step = 8001
+    INFO:tensorflow:global_step/sec: 1268.46
+    INFO:tensorflow:loss = 799578600.0, step = 8101 (0.079 sec)
+    INFO:tensorflow:global_step/sec: 2032.53
+    INFO:tensorflow:loss = 849397400.0, step = 8201 (0.050 sec)
+    INFO:tensorflow:global_step/sec: 2303.61
+    INFO:tensorflow:loss = 1278341400.0, step = 8301 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 1912.01
+    INFO:tensorflow:loss = 1253259800.0, step = 8401 (0.052 sec)
+    INFO:tensorflow:global_step/sec: 2180.26
+    INFO:tensorflow:loss = 988554200.0, step = 8501 (0.046 sec)
+    INFO:tensorflow:global_step/sec: 2314.92
+    INFO:tensorflow:loss = 561580900.0, step = 8601 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 2018.33
+    INFO:tensorflow:loss = 145239860.0, step = 8701 (0.049 sec)
+    INFO:tensorflow:global_step/sec: 2341.49
+    INFO:tensorflow:loss = 282267700.0, step = 8801 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2287.33
+    INFO:tensorflow:loss = 837667800.0, step = 8901 (0.044 sec)
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 9000...
+    INFO:tensorflow:Saving checkpoints for 9000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpf6j6fkog/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 9000...
+    INFO:tensorflow:Loss for final step: 308580350.0.
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Starting evaluation at 2026-04-03T17:06:34
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpf6j6fkog/model.ckpt-9000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Inference Time : 0.13621s
+    INFO:tensorflow:Finished evaluation at 2026-04-03-17:06:34
+    INFO:tensorflow:Saving dict for global step 9000: average_loss = 57377044.0, global_step = 9000, label/mean = 13207.129, loss = 887137340.0, prediction/mean = 11260.364
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 9000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpf6j6fkog/model.ckpt-9000
+    scores_linear {'average_loss': 57377044.0, 'label/mean': 13207.129, 'loss': 887137340.0, 'prediction/mean': 11260.364, 'global_step': 9000}
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Create CheckpointSaverHook.
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpf6j6fkog/model.ckpt-9000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 9000...
-    INFO:tensorflow:Saving checkpoints for 9000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxvfv6b7z/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 9000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpf6j6fkog/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 9000...
-    INFO:tensorflow:loss = 1172118900.0, step = 9001
-    INFO:tensorflow:global_step/sec: 1285.63
-    INFO:tensorflow:loss = 976788540.0, step = 9101 (0.079 sec)
-    INFO:tensorflow:global_step/sec: 1991.31
-    INFO:tensorflow:loss = 1883804000.0, step = 9201 (0.050 sec)
-    INFO:tensorflow:global_step/sec: 2180.55
-    INFO:tensorflow:loss = 1479442400.0, step = 9301 (0.046 sec)
-    INFO:tensorflow:global_step/sec: 2325.38
-    INFO:tensorflow:loss = 1436438000.0, step = 9401 (0.044 sec)
-    INFO:tensorflow:global_step/sec: 2250.94
-    INFO:tensorflow:loss = 395236450.0, step = 9501 (0.044 sec)
-    INFO:tensorflow:global_step/sec: 2273.96
-    INFO:tensorflow:loss = 229429060.0, step = 9601 (0.044 sec)
-    INFO:tensorflow:global_step/sec: 2151.7
-    INFO:tensorflow:loss = 1061701500.0, step = 9701 (0.047 sec)
-    INFO:tensorflow:global_step/sec: 2075.2
-    INFO:tensorflow:loss = 784401500.0, step = 9801 (0.048 sec)
-    INFO:tensorflow:global_step/sec: 2289.43
-    INFO:tensorflow:loss = 1034847200.0, step = 9901 (0.044 sec)
+    INFO:tensorflow:loss = 507526660.0, step = 9001
+    INFO:tensorflow:global_step/sec: 1248.72
+    INFO:tensorflow:loss = 651741950.0, step = 9101 (0.081 sec)
+    INFO:tensorflow:global_step/sec: 1941.83
+    INFO:tensorflow:loss = 1829479300.0, step = 9201 (0.051 sec)
+    INFO:tensorflow:global_step/sec: 2330.89
+    INFO:tensorflow:loss = 971676700.0, step = 9301 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2067.47
+    INFO:tensorflow:loss = 1317478800.0, step = 9401 (0.049 sec)
+    INFO:tensorflow:global_step/sec: 2046.87
+    INFO:tensorflow:loss = 1063828900.0, step = 9501 (0.048 sec)
+    INFO:tensorflow:global_step/sec: 2262.76
+    INFO:tensorflow:loss = 1514280600.0, step = 9601 (0.045 sec)
+    INFO:tensorflow:global_step/sec: 1958.87
+    INFO:tensorflow:loss = 553413000.0, step = 9701 (0.051 sec)
+    INFO:tensorflow:global_step/sec: 2374.65
+    INFO:tensorflow:loss = 612639600.0, step = 9801 (0.042 sec)
+    INFO:tensorflow:global_step/sec: 2333.34
+    INFO:tensorflow:loss = 95845620.0, step = 9901 (0.043 sec)
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 10000...
-    INFO:tensorflow:Saving checkpoints for 10000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxvfv6b7z/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 10000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpf6j6fkog/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 10000...
-    INFO:tensorflow:Loss for final step: 1859827700.0.
+    INFO:tensorflow:Loss for final step: 1436008700.0.
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
-    INFO:tensorflow:Starting evaluation at 2026-04-03T07:53:59
+    INFO:tensorflow:Starting evaluation at 2026-04-03T17:06:37
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxvfv6b7z/model.ckpt-10000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpf6j6fkog/model.ckpt-10000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
-    INFO:tensorflow:Inference Time : 0.13439s
-    INFO:tensorflow:Finished evaluation at 2026-04-03-07:53:59
-    INFO:tensorflow:Saving dict for global step 10000: average_loss = 56000984.0, global_step = 10000, label/mean = 13207.129, loss = 865861400.0, prediction/mean = 11563.974
-    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 10000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpxvfv6b7z/model.ckpt-10000
-    scores_linear {'average_loss': 56000984.0, 'label/mean': 13207.129, 'loss': 865861400.0, 'prediction/mean': 11563.974, 'global_step': 10000}
+    INFO:tensorflow:Inference Time : 0.12659s
+    INFO:tensorflow:Finished evaluation at 2026-04-03-17:06:37
+    INFO:tensorflow:Saving dict for global step 10000: average_loss = 56007930.0, global_step = 10000, label/mean = 13207.129, loss = 865968800.0, prediction/mean = 11560.951
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 10000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpf6j6fkog/model.ckpt-10000
+    scores_linear {'average_loss': 56007930.0, 'label/mean': 13207.129, 'loss': 865968800.0, 'prediction/mean': 11560.951, 'global_step': 10000}
     INFO:tensorflow:Using default config.
-    WARNING:tensorflow:Using temporary folder as model directory: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6q9dd63k
-    INFO:tensorflow:Using config: {'_model_dir': '/var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6q9dd63k', '_tf_random_seed': None, '_save_summary_steps': 100, '_save_checkpoints_steps': None, '_save_checkpoints_secs': 600, '_session_config': allow_soft_placement: true
+    WARNING:tensorflow:Using temporary folder as model directory: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvce3jk6d
+    INFO:tensorflow:Using config: {'_model_dir': '/var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvce3jk6d', '_tf_random_seed': None, '_save_summary_steps': 100, '_save_checkpoints_steps': None, '_save_checkpoints_secs': 600, '_session_config': allow_soft_placement: true
     graph_options {
       rewrite_options {
         meta_optimizer_iterations: ONE
@@ -1902,451 +1919,451 @@ for _ in range(num_print_statements):
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 0...
-    INFO:tensorflow:Saving checkpoints for 0 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6q9dd63k/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 0 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvce3jk6d/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 0...
-    INFO:tensorflow:loss = 2467032000.0, step = 1
-    INFO:tensorflow:global_step/sec: 1454.3
-    INFO:tensorflow:loss = 1161604500.0, step = 101 (0.070 sec)
-    INFO:tensorflow:global_step/sec: 2226.96
-    INFO:tensorflow:loss = 423581980.0, step = 201 (0.045 sec)
-    INFO:tensorflow:global_step/sec: 2226.48
-    INFO:tensorflow:loss = 575665500.0, step = 301 (0.045 sec)
-    INFO:tensorflow:global_step/sec: 2202.69
-    INFO:tensorflow:loss = 119254750.0, step = 401 (0.045 sec)
-    INFO:tensorflow:global_step/sec: 2400.27
-    INFO:tensorflow:loss = 387506880.0, step = 501 (0.042 sec)
+    INFO:tensorflow:loss = 5749579000.0, step = 1
+    INFO:tensorflow:global_step/sec: 1535.32
+    INFO:tensorflow:loss = 145904510.0, step = 101 (0.066 sec)
+    INFO:tensorflow:global_step/sec: 2249.26
+    INFO:tensorflow:loss = 247216700.0, step = 201 (0.045 sec)
+    INFO:tensorflow:global_step/sec: 2331.54
+    INFO:tensorflow:loss = 838908800.0, step = 301 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2381.12
+    INFO:tensorflow:loss = 232710700.0, step = 401 (0.042 sec)
+    INFO:tensorflow:global_step/sec: 2395.21
+    INFO:tensorflow:loss = 629222100.0, step = 501 (0.042 sec)
+    INFO:tensorflow:global_step/sec: 2187.85
+    INFO:tensorflow:loss = 855592450.0, step = 601 (0.045 sec)
+    INFO:tensorflow:global_step/sec: 2346.98
+    INFO:tensorflow:loss = 486011550.0, step = 701 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2291.53
+    INFO:tensorflow:loss = 560987800.0, step = 801 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 2268.23
+    INFO:tensorflow:loss = 596382850.0, step = 901 (0.044 sec)
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 1000...
+    INFO:tensorflow:Saving checkpoints for 1000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvce3jk6d/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 1000...
+    INFO:tensorflow:Loss for final step: 806050900.0.
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Starting evaluation at 2026-04-03T17:06:39
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvce3jk6d/model.ckpt-1000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Inference Time : 0.09420s
+    INFO:tensorflow:Finished evaluation at 2026-04-03-17:06:39
+    INFO:tensorflow:Saving dict for global step 1000: average_loss = 36403304.0, global_step = 1000, label/mean = 13207.129, loss = 562851100.0, prediction/mean = 13711.541
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 1000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvce3jk6d/model.ckpt-1000
+    scores_deep1 {'average_loss': 36403304.0, 'label/mean': 13207.129, 'loss': 562851100.0, 'prediction/mean': 13711.541, 'global_step': 1000}
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Create CheckpointSaverHook.
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvce3jk6d/model.ckpt-1000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 1000...
+    INFO:tensorflow:Saving checkpoints for 1000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvce3jk6d/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 1000...
+    INFO:tensorflow:loss = 460966530.0, step = 1001
+    INFO:tensorflow:global_step/sec: 1478.11
+    INFO:tensorflow:loss = 225279040.0, step = 1101 (0.068 sec)
+    INFO:tensorflow:global_step/sec: 2425.13
+    INFO:tensorflow:loss = 309892220.0, step = 1201 (0.042 sec)
+    INFO:tensorflow:global_step/sec: 2392.47
+    INFO:tensorflow:loss = 461337200.0, step = 1301 (0.042 sec)
+    INFO:tensorflow:global_step/sec: 2402.98
+    INFO:tensorflow:loss = 220898300.0, step = 1401 (0.041 sec)
+    INFO:tensorflow:global_step/sec: 2234.84
+    INFO:tensorflow:loss = 135669820.0, step = 1501 (0.045 sec)
+    INFO:tensorflow:global_step/sec: 2130.65
+    INFO:tensorflow:loss = 261351550.0, step = 1601 (0.046 sec)
+    INFO:tensorflow:global_step/sec: 2221.58
+    INFO:tensorflow:loss = 212965140.0, step = 1701 (0.045 sec)
+    INFO:tensorflow:global_step/sec: 2327.91
+    INFO:tensorflow:loss = 428566560.0, step = 1801 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 2160.34
+    INFO:tensorflow:loss = 592152700.0, step = 1901 (0.046 sec)
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 2000...
+    INFO:tensorflow:Saving checkpoints for 2000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvce3jk6d/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 2000...
+    INFO:tensorflow:Loss for final step: 1050385600.0.
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Starting evaluation at 2026-04-03T17:06:41
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvce3jk6d/model.ckpt-2000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Inference Time : 0.09378s
+    INFO:tensorflow:Finished evaluation at 2026-04-03-17:06:41
+    INFO:tensorflow:Saving dict for global step 2000: average_loss = 22663206.0, global_step = 2000, label/mean = 13207.129, loss = 350408030.0, prediction/mean = 13389.901
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 2000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvce3jk6d/model.ckpt-2000
+    scores_deep1 {'average_loss': 22663206.0, 'label/mean': 13207.129, 'loss': 350408030.0, 'prediction/mean': 13389.901, 'global_step': 2000}
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Create CheckpointSaverHook.
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvce3jk6d/model.ckpt-2000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 2000...
+    INFO:tensorflow:Saving checkpoints for 2000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvce3jk6d/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 2000...
+    INFO:tensorflow:loss = 120495310.0, step = 2001
+    INFO:tensorflow:global_step/sec: 1612.39
+    INFO:tensorflow:loss = 130401500.0, step = 2101 (0.063 sec)
+    INFO:tensorflow:global_step/sec: 2152.61
+    INFO:tensorflow:loss = 196812290.0, step = 2201 (0.046 sec)
+    INFO:tensorflow:global_step/sec: 2307.17
+    INFO:tensorflow:loss = 360414340.0, step = 2301 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2137.17
+    INFO:tensorflow:loss = 567704900.0, step = 2401 (0.047 sec)
+    INFO:tensorflow:global_step/sec: 2367.26
+    INFO:tensorflow:loss = 178948860.0, step = 2501 (0.042 sec)
+    INFO:tensorflow:global_step/sec: 2258.77
+    INFO:tensorflow:loss = 283485950.0, step = 2601 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 2460.51
+    INFO:tensorflow:loss = 190818000.0, step = 2701 (0.042 sec)
+    INFO:tensorflow:global_step/sec: 2414.81
+    INFO:tensorflow:loss = 447824540.0, step = 2801 (0.041 sec)
+    INFO:tensorflow:global_step/sec: 2361.5
+    INFO:tensorflow:loss = 149744930.0, step = 2901 (0.043 sec)
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 3000...
+    INFO:tensorflow:Saving checkpoints for 3000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvce3jk6d/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 3000...
+    INFO:tensorflow:Loss for final step: 115663340.0.
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Starting evaluation at 2026-04-03T17:06:42
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvce3jk6d/model.ckpt-3000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Inference Time : 0.09317s
+    INFO:tensorflow:Finished evaluation at 2026-04-03-17:06:42
+    INFO:tensorflow:Saving dict for global step 3000: average_loss = 20120238.0, global_step = 3000, label/mean = 13207.129, loss = 311089820.0, prediction/mean = 13308.1
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 3000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvce3jk6d/model.ckpt-3000
+    scores_deep1 {'average_loss': 20120238.0, 'label/mean': 13207.129, 'loss': 311089820.0, 'prediction/mean': 13308.1, 'global_step': 3000}
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Create CheckpointSaverHook.
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvce3jk6d/model.ckpt-3000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 3000...
+    INFO:tensorflow:Saving checkpoints for 3000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvce3jk6d/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 3000...
+    INFO:tensorflow:loss = 526639100.0, step = 3001
+    INFO:tensorflow:global_step/sec: 1494.25
+    INFO:tensorflow:loss = 188010770.0, step = 3101 (0.068 sec)
+    INFO:tensorflow:global_step/sec: 2192.84
+    INFO:tensorflow:loss = 242768430.0, step = 3201 (0.045 sec)
+    INFO:tensorflow:global_step/sec: 2451.83
+    INFO:tensorflow:loss = 793790340.0, step = 3301 (0.041 sec)
+    INFO:tensorflow:global_step/sec: 2365.57
+    INFO:tensorflow:loss = 801659000.0, step = 3401 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2288.22
+    INFO:tensorflow:loss = 91498850.0, step = 3501 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 2151.19
+    INFO:tensorflow:loss = 312219100.0, step = 3601 (0.047 sec)
+    INFO:tensorflow:global_step/sec: 2342.26
+    INFO:tensorflow:loss = 166905500.0, step = 3701 (0.042 sec)
+    INFO:tensorflow:global_step/sec: 2238.54
+    INFO:tensorflow:loss = 89431980.0, step = 3801 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 2103.94
+    INFO:tensorflow:loss = 712388500.0, step = 3901 (0.048 sec)
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 4000...
+    INFO:tensorflow:Saving checkpoints for 4000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvce3jk6d/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 4000...
+    INFO:tensorflow:Loss for final step: 206623310.0.
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Starting evaluation at 2026-04-03T17:06:44
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvce3jk6d/model.ckpt-4000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Inference Time : 0.09386s
+    INFO:tensorflow:Finished evaluation at 2026-04-03-17:06:44
+    INFO:tensorflow:Saving dict for global step 4000: average_loss = 19272752.0, global_step = 4000, label/mean = 13207.129, loss = 297986370.0, prediction/mean = 13306.852
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 4000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvce3jk6d/model.ckpt-4000
+    scores_deep1 {'average_loss': 19272752.0, 'label/mean': 13207.129, 'loss': 297986370.0, 'prediction/mean': 13306.852, 'global_step': 4000}
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Create CheckpointSaverHook.
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvce3jk6d/model.ckpt-4000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 4000...
+    INFO:tensorflow:Saving checkpoints for 4000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvce3jk6d/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 4000...
+    INFO:tensorflow:loss = 527391040.0, step = 4001
+    INFO:tensorflow:global_step/sec: 1607.07
+    INFO:tensorflow:loss = 277287170.0, step = 4101 (0.063 sec)
+    INFO:tensorflow:global_step/sec: 2387.37
+    INFO:tensorflow:loss = 517912260.0, step = 4201 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2278
+    INFO:tensorflow:loss = 451657380.0, step = 4301 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 2371.81
+    INFO:tensorflow:loss = 156720720.0, step = 4401 (0.042 sec)
+    INFO:tensorflow:global_step/sec: 2262.45
+    INFO:tensorflow:loss = 118525250.0, step = 4501 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 2118.11
+    INFO:tensorflow:loss = 164619580.0, step = 4601 (0.047 sec)
+    INFO:tensorflow:global_step/sec: 2015.18
+    INFO:tensorflow:loss = 183757440.0, step = 4701 (0.049 sec)
+    INFO:tensorflow:global_step/sec: 2172.27
+    INFO:tensorflow:loss = 183372370.0, step = 4801 (0.047 sec)
+    INFO:tensorflow:global_step/sec: 2359.77
+    INFO:tensorflow:loss = 813203700.0, step = 4901 (0.042 sec)
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 5000...
+    INFO:tensorflow:Saving checkpoints for 5000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvce3jk6d/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 5000...
+    INFO:tensorflow:Loss for final step: 146241900.0.
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Starting evaluation at 2026-04-03T17:06:45
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvce3jk6d/model.ckpt-5000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Inference Time : 0.09411s
+    INFO:tensorflow:Finished evaluation at 2026-04-03-17:06:46
+    INFO:tensorflow:Saving dict for global step 5000: average_loss = 18656756.0, global_step = 5000, label/mean = 13207.129, loss = 288462140.0, prediction/mean = 13345.35
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 5000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvce3jk6d/model.ckpt-5000
+    scores_deep1 {'average_loss': 18656756.0, 'label/mean': 13207.129, 'loss': 288462140.0, 'prediction/mean': 13345.35, 'global_step': 5000}
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Create CheckpointSaverHook.
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvce3jk6d/model.ckpt-5000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 5000...
+    INFO:tensorflow:Saving checkpoints for 5000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvce3jk6d/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 5000...
+    INFO:tensorflow:loss = 84264800.0, step = 5001
+    INFO:tensorflow:global_step/sec: 1407.82
+    INFO:tensorflow:loss = 335361540.0, step = 5101 (0.071 sec)
+    INFO:tensorflow:global_step/sec: 2175.62
+    INFO:tensorflow:loss = 406984160.0, step = 5201 (0.046 sec)
+    INFO:tensorflow:global_step/sec: 1997.36
+    INFO:tensorflow:loss = 152681950.0, step = 5301 (0.050 sec)
+    INFO:tensorflow:global_step/sec: 2439.73
+    INFO:tensorflow:loss = 143690100.0, step = 5401 (0.041 sec)
+    INFO:tensorflow:global_step/sec: 2219.07
+    INFO:tensorflow:loss = 72230210.0, step = 5501 (0.045 sec)
+    INFO:tensorflow:global_step/sec: 2319.38
+    INFO:tensorflow:loss = 271471260.0, step = 5601 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2082.55
+    INFO:tensorflow:loss = 112824300.0, step = 5701 (0.048 sec)
+    INFO:tensorflow:global_step/sec: 2378.86
+    INFO:tensorflow:loss = 108195384.0, step = 5801 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2299.11
+    INFO:tensorflow:loss = 173838220.0, step = 5901 (0.043 sec)
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 6000...
+    INFO:tensorflow:Saving checkpoints for 6000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvce3jk6d/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 6000...
+    INFO:tensorflow:Loss for final step: 157877870.0.
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Starting evaluation at 2026-04-03T17:06:47
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvce3jk6d/model.ckpt-6000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Inference Time : 0.09447s
+    INFO:tensorflow:Finished evaluation at 2026-04-03-17:06:47
+    INFO:tensorflow:Saving dict for global step 6000: average_loss = 18168266.0, global_step = 6000, label/mean = 13207.129, loss = 280909340.0, prediction/mean = 13410.453
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 6000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvce3jk6d/model.ckpt-6000
+    scores_deep1 {'average_loss': 18168266.0, 'label/mean': 13207.129, 'loss': 280909340.0, 'prediction/mean': 13410.453, 'global_step': 6000}
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Create CheckpointSaverHook.
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvce3jk6d/model.ckpt-6000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 6000...
+    INFO:tensorflow:Saving checkpoints for 6000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvce3jk6d/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 6000...
+    INFO:tensorflow:loss = 653003260.0, step = 6001
+    INFO:tensorflow:global_step/sec: 1380.37
+    INFO:tensorflow:loss = 135441260.0, step = 6101 (0.073 sec)
+    INFO:tensorflow:global_step/sec: 2313.96
+    INFO:tensorflow:loss = 100800740.0, step = 6201 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2285.4
+    INFO:tensorflow:loss = 114250290.0, step = 6301 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2348.79
+    INFO:tensorflow:loss = 201802430.0, step = 6401 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2296.96
+    INFO:tensorflow:loss = 184064480.0, step = 6501 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 2131.74
+    INFO:tensorflow:loss = 185403740.0, step = 6601 (0.046 sec)
+    INFO:tensorflow:global_step/sec: 2046.15
+    INFO:tensorflow:loss = 64761930.0, step = 6701 (0.049 sec)
+    INFO:tensorflow:global_step/sec: 2422.07
+    INFO:tensorflow:loss = 270815740.0, step = 6801 (0.042 sec)
+    INFO:tensorflow:global_step/sec: 2361.33
+    INFO:tensorflow:loss = 669277440.0, step = 6901 (0.042 sec)
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 7000...
+    INFO:tensorflow:Saving checkpoints for 7000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvce3jk6d/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 7000...
+    INFO:tensorflow:Loss for final step: 566816900.0.
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Starting evaluation at 2026-04-03T17:06:49
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvce3jk6d/model.ckpt-7000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Inference Time : 0.09520s
+    INFO:tensorflow:Finished evaluation at 2026-04-03-17:06:49
+    INFO:tensorflow:Saving dict for global step 7000: average_loss = 17811292.0, global_step = 7000, label/mean = 13207.129, loss = 275389980.0, prediction/mean = 13538.767
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 7000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvce3jk6d/model.ckpt-7000
+    scores_deep1 {'average_loss': 17811292.0, 'label/mean': 13207.129, 'loss': 275389980.0, 'prediction/mean': 13538.767, 'global_step': 7000}
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Create CheckpointSaverHook.
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvce3jk6d/model.ckpt-7000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 7000...
+    INFO:tensorflow:Saving checkpoints for 7000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvce3jk6d/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 7000...
+    INFO:tensorflow:loss = 182582780.0, step = 7001
+    INFO:tensorflow:global_step/sec: 1520.31
+    INFO:tensorflow:loss = 280962850.0, step = 7101 (0.066 sec)
+    INFO:tensorflow:global_step/sec: 2348.8
+    INFO:tensorflow:loss = 136304140.0, step = 7201 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2421.65
+    INFO:tensorflow:loss = 148291420.0, step = 7301 (0.042 sec)
+    INFO:tensorflow:global_step/sec: 2340
+    INFO:tensorflow:loss = 333131970.0, step = 7401 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2392.68
+    INFO:tensorflow:loss = 257716140.0, step = 7501 (0.042 sec)
+    INFO:tensorflow:global_step/sec: 2121.75
+    INFO:tensorflow:loss = 511072300.0, step = 7601 (0.047 sec)
+    INFO:tensorflow:global_step/sec: 2113.4
+    INFO:tensorflow:loss = 247650750.0, step = 7701 (0.047 sec)
+    INFO:tensorflow:global_step/sec: 2210.33
+    INFO:tensorflow:loss = 81975200.0, step = 7801 (0.045 sec)
+    INFO:tensorflow:global_step/sec: 2468.22
+    INFO:tensorflow:loss = 58268630.0, step = 7901 (0.041 sec)
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 8000...
+    INFO:tensorflow:Saving checkpoints for 8000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvce3jk6d/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 8000...
+    INFO:tensorflow:Loss for final step: 146527150.0.
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Starting evaluation at 2026-04-03T17:06:50
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvce3jk6d/model.ckpt-8000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Inference Time : 0.09379s
+    INFO:tensorflow:Finished evaluation at 2026-04-03-17:06:50
+    INFO:tensorflow:Saving dict for global step 8000: average_loss = 17423056.0, global_step = 8000, label/mean = 13207.129, loss = 269387260.0, prediction/mean = 13305.626
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 8000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvce3jk6d/model.ckpt-8000
+    scores_deep1 {'average_loss': 17423056.0, 'label/mean': 13207.129, 'loss': 269387260.0, 'prediction/mean': 13305.626, 'global_step': 8000}
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Create CheckpointSaverHook.
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvce3jk6d/model.ckpt-8000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 8000...
+    INFO:tensorflow:Saving checkpoints for 8000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvce3jk6d/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 8000...
+    INFO:tensorflow:loss = 481584100.0, step = 8001
+    INFO:tensorflow:global_step/sec: 1454.74
+    INFO:tensorflow:loss = 208849840.0, step = 8101 (0.069 sec)
     INFO:tensorflow:global_step/sec: 2258.56
-    INFO:tensorflow:loss = 498654200.0, step = 601 (0.044 sec)
-    INFO:tensorflow:global_step/sec: 2153.09
-    INFO:tensorflow:loss = 519130530.0, step = 701 (0.046 sec)
-    INFO:tensorflow:global_step/sec: 2150.45
-    INFO:tensorflow:loss = 1043298900.0, step = 801 (0.047 sec)
-    INFO:tensorflow:global_step/sec: 1978.35
-    INFO:tensorflow:loss = 612714900.0, step = 901 (0.051 sec)
-    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 1000...
-    INFO:tensorflow:Saving checkpoints for 1000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6q9dd63k/model.ckpt.
-    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 1000...
-    INFO:tensorflow:Loss for final step: 206928930.0.
-    INFO:tensorflow:Calling model_fn.
-    INFO:tensorflow:Done calling model_fn.
-    INFO:tensorflow:Starting evaluation at 2026-04-03T07:54:01
-    INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6q9dd63k/model.ckpt-1000
-    INFO:tensorflow:Running local_init_op.
-    INFO:tensorflow:Done running local_init_op.
-    INFO:tensorflow:Inference Time : 0.10710s
-    INFO:tensorflow:Finished evaluation at 2026-04-03-07:54:01
-    INFO:tensorflow:Saving dict for global step 1000: average_loss = 21052016.0, global_step = 1000, label/mean = 13207.129, loss = 325496540.0, prediction/mean = 13538.33
-    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 1000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6q9dd63k/model.ckpt-1000
-    scores_deep1 {'average_loss': 21052016.0, 'label/mean': 13207.129, 'loss': 325496540.0, 'prediction/mean': 13538.33, 'global_step': 1000}
-    INFO:tensorflow:Calling model_fn.
-    INFO:tensorflow:Done calling model_fn.
-    INFO:tensorflow:Create CheckpointSaverHook.
-    INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6q9dd63k/model.ckpt-1000
-    INFO:tensorflow:Running local_init_op.
-    INFO:tensorflow:Done running local_init_op.
-    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 1000...
-    INFO:tensorflow:Saving checkpoints for 1000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6q9dd63k/model.ckpt.
-    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 1000...
-    INFO:tensorflow:loss = 103756080.0, step = 1001
-    INFO:tensorflow:global_step/sec: 1385.5
-    INFO:tensorflow:loss = 133600450.0, step = 1101 (0.073 sec)
-    INFO:tensorflow:global_step/sec: 2240.31
-    INFO:tensorflow:loss = 127584840.0, step = 1201 (0.045 sec)
-    INFO:tensorflow:global_step/sec: 2181.35
-    INFO:tensorflow:loss = 414518800.0, step = 1301 (0.046 sec)
-    INFO:tensorflow:global_step/sec: 2336.88
-    INFO:tensorflow:loss = 614542100.0, step = 1401 (0.043 sec)
-    INFO:tensorflow:global_step/sec: 2372.16
-    INFO:tensorflow:loss = 134483120.0, step = 1501 (0.043 sec)
-    INFO:tensorflow:global_step/sec: 2286.63
-    INFO:tensorflow:loss = 512957250.0, step = 1601 (0.043 sec)
-    INFO:tensorflow:global_step/sec: 2153.32
-    INFO:tensorflow:loss = 111074180.0, step = 1701 (0.046 sec)
-    INFO:tensorflow:global_step/sec: 2154.15
-    INFO:tensorflow:loss = 311944130.0, step = 1801 (0.046 sec)
-    INFO:tensorflow:global_step/sec: 2307.09
-    INFO:tensorflow:loss = 166222910.0, step = 1901 (0.044 sec)
-    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 2000...
-    INFO:tensorflow:Saving checkpoints for 2000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6q9dd63k/model.ckpt.
-    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 2000...
-    INFO:tensorflow:Loss for final step: 590253100.0.
-    INFO:tensorflow:Calling model_fn.
-    INFO:tensorflow:Done calling model_fn.
-    INFO:tensorflow:Starting evaluation at 2026-04-03T07:54:03
-    INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6q9dd63k/model.ckpt-2000
-    INFO:tensorflow:Running local_init_op.
-    INFO:tensorflow:Done running local_init_op.
-    INFO:tensorflow:Inference Time : 0.10578s
-    INFO:tensorflow:Finished evaluation at 2026-04-03-07:54:03
-    INFO:tensorflow:Saving dict for global step 2000: average_loss = 19734788.0, global_step = 2000, label/mean = 13207.129, loss = 305130180.0, prediction/mean = 13705.297
-    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 2000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6q9dd63k/model.ckpt-2000
-    scores_deep1 {'average_loss': 19734788.0, 'label/mean': 13207.129, 'loss': 305130180.0, 'prediction/mean': 13705.297, 'global_step': 2000}
-    INFO:tensorflow:Calling model_fn.
-    INFO:tensorflow:Done calling model_fn.
-    INFO:tensorflow:Create CheckpointSaverHook.
-    INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6q9dd63k/model.ckpt-2000
-    INFO:tensorflow:Running local_init_op.
-    INFO:tensorflow:Done running local_init_op.
-    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 2000...
-    INFO:tensorflow:Saving checkpoints for 2000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6q9dd63k/model.ckpt.
-    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 2000...
-    INFO:tensorflow:loss = 595501440.0, step = 2001
-    INFO:tensorflow:global_step/sec: 1595.56
-    INFO:tensorflow:loss = 105547240.0, step = 2101 (0.064 sec)
-    INFO:tensorflow:global_step/sec: 2138.07
-    INFO:tensorflow:loss = 544919600.0, step = 2201 (0.046 sec)
-    INFO:tensorflow:global_step/sec: 2051.49
-    INFO:tensorflow:loss = 481209730.0, step = 2301 (0.049 sec)
-    INFO:tensorflow:global_step/sec: 1838.41
-    INFO:tensorflow:loss = 138826370.0, step = 2401 (0.055 sec)
-    INFO:tensorflow:global_step/sec: 2279.19
-    INFO:tensorflow:loss = 310613220.0, step = 2501 (0.043 sec)
-    INFO:tensorflow:global_step/sec: 2281.03
-    INFO:tensorflow:loss = 128392480.0, step = 2601 (0.044 sec)
-    INFO:tensorflow:global_step/sec: 2292.47
-    INFO:tensorflow:loss = 150050880.0, step = 2701 (0.043 sec)
-    INFO:tensorflow:global_step/sec: 2206.3
-    INFO:tensorflow:loss = 757504100.0, step = 2801 (0.046 sec)
-    INFO:tensorflow:global_step/sec: 2216.9
-    INFO:tensorflow:loss = 146174460.0, step = 2901 (0.045 sec)
-    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 3000...
-    INFO:tensorflow:Saving checkpoints for 3000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6q9dd63k/model.ckpt.
-    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 3000...
-    INFO:tensorflow:Loss for final step: 198019420.0.
-    INFO:tensorflow:Calling model_fn.
-    INFO:tensorflow:Done calling model_fn.
-    INFO:tensorflow:Starting evaluation at 2026-04-03T07:54:05
-    INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6q9dd63k/model.ckpt-3000
-    INFO:tensorflow:Running local_init_op.
-    INFO:tensorflow:Done running local_init_op.
-    INFO:tensorflow:Inference Time : 0.10404s
-    INFO:tensorflow:Finished evaluation at 2026-04-03-07:54:05
-    INFO:tensorflow:Saving dict for global step 3000: average_loss = 18846004.0, global_step = 3000, label/mean = 13207.129, loss = 291388220.0, prediction/mean = 13408.321
-    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 3000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6q9dd63k/model.ckpt-3000
-    scores_deep1 {'average_loss': 18846004.0, 'label/mean': 13207.129, 'loss': 291388220.0, 'prediction/mean': 13408.321, 'global_step': 3000}
-    INFO:tensorflow:Calling model_fn.
-    INFO:tensorflow:Done calling model_fn.
-    INFO:tensorflow:Create CheckpointSaverHook.
-    INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6q9dd63k/model.ckpt-3000
-    INFO:tensorflow:Running local_init_op.
-    INFO:tensorflow:Done running local_init_op.
-    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 3000...
-    INFO:tensorflow:Saving checkpoints for 3000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6q9dd63k/model.ckpt.
-    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 3000...
-    INFO:tensorflow:loss = 468349220.0, step = 3001
-    INFO:tensorflow:global_step/sec: 1548.98
-    INFO:tensorflow:loss = 351864000.0, step = 3101 (0.065 sec)
-    INFO:tensorflow:global_step/sec: 2070.21
-    INFO:tensorflow:loss = 202236820.0, step = 3201 (0.049 sec)
-    INFO:tensorflow:global_step/sec: 2397.46
-    INFO:tensorflow:loss = 146379710.0, step = 3301 (0.042 sec)
-    INFO:tensorflow:global_step/sec: 2310.22
-    INFO:tensorflow:loss = 546976700.0, step = 3401 (0.043 sec)
-    INFO:tensorflow:global_step/sec: 2290.25
-    INFO:tensorflow:loss = 132846960.0, step = 3501 (0.043 sec)
-    INFO:tensorflow:global_step/sec: 2448.59
-    INFO:tensorflow:loss = 100249390.0, step = 3601 (0.041 sec)
-    INFO:tensorflow:global_step/sec: 2327.85
-    INFO:tensorflow:loss = 213512220.0, step = 3701 (0.043 sec)
-    INFO:tensorflow:global_step/sec: 2242.91
-    INFO:tensorflow:loss = 104185670.0, step = 3801 (0.044 sec)
-    INFO:tensorflow:global_step/sec: 2128.44
-    INFO:tensorflow:loss = 485668670.0, step = 3901 (0.047 sec)
-    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 4000...
-    INFO:tensorflow:Saving checkpoints for 4000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6q9dd63k/model.ckpt.
-    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 4000...
-    INFO:tensorflow:Loss for final step: 526900160.0.
-    INFO:tensorflow:Calling model_fn.
-    INFO:tensorflow:Done calling model_fn.
-    INFO:tensorflow:Starting evaluation at 2026-04-03T07:54:06
-    INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6q9dd63k/model.ckpt-4000
-    INFO:tensorflow:Running local_init_op.
-    INFO:tensorflow:Done running local_init_op.
-    INFO:tensorflow:Inference Time : 0.11140s
-    INFO:tensorflow:Finished evaluation at 2026-04-03-07:54:06
-    INFO:tensorflow:Saving dict for global step 4000: average_loss = 18131056.0, global_step = 4000, label/mean = 13207.129, loss = 280334000.0, prediction/mean = 13377.374
-    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 4000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6q9dd63k/model.ckpt-4000
-    scores_deep1 {'average_loss': 18131056.0, 'label/mean': 13207.129, 'loss': 280334000.0, 'prediction/mean': 13377.374, 'global_step': 4000}
-    INFO:tensorflow:Calling model_fn.
-    INFO:tensorflow:Done calling model_fn.
-    INFO:tensorflow:Create CheckpointSaverHook.
-    INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6q9dd63k/model.ckpt-4000
-    INFO:tensorflow:Running local_init_op.
-    INFO:tensorflow:Done running local_init_op.
-    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 4000...
-    INFO:tensorflow:Saving checkpoints for 4000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6q9dd63k/model.ckpt.
-    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 4000...
-    INFO:tensorflow:loss = 166215000.0, step = 4001
-    INFO:tensorflow:global_step/sec: 1391.65
-    INFO:tensorflow:loss = 347814750.0, step = 4101 (0.072 sec)
-    INFO:tensorflow:global_step/sec: 2064.24
-    INFO:tensorflow:loss = 486034430.0, step = 4201 (0.049 sec)
-    INFO:tensorflow:global_step/sec: 1582.03
-    INFO:tensorflow:loss = 46578170.0, step = 4301 (0.064 sec)
-    INFO:tensorflow:global_step/sec: 894.518
-    INFO:tensorflow:loss = 275726850.0, step = 4401 (0.112 sec)
-    INFO:tensorflow:global_step/sec: 2211.75
-    INFO:tensorflow:loss = 328531970.0, step = 4501 (0.044 sec)
-    INFO:tensorflow:global_step/sec: 1826.15
-    INFO:tensorflow:loss = 368183230.0, step = 4601 (0.054 sec)
-    INFO:tensorflow:global_step/sec: 1950.04
-    INFO:tensorflow:loss = 211891400.0, step = 4701 (0.052 sec)
-    INFO:tensorflow:global_step/sec: 2227.38
-    INFO:tensorflow:loss = 61621916.0, step = 4801 (0.045 sec)
-    INFO:tensorflow:global_step/sec: 1707.24
-    INFO:tensorflow:loss = 79422160.0, step = 4901 (0.058 sec)
-    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 5000...
-    INFO:tensorflow:Saving checkpoints for 5000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6q9dd63k/model.ckpt.
-    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 5000...
-    INFO:tensorflow:Loss for final step: 283150050.0.
-    INFO:tensorflow:Calling model_fn.
-    INFO:tensorflow:Done calling model_fn.
-    INFO:tensorflow:Starting evaluation at 2026-04-03T07:54:09
-    INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6q9dd63k/model.ckpt-5000
-    INFO:tensorflow:Running local_init_op.
-    INFO:tensorflow:Done running local_init_op.
-    INFO:tensorflow:Inference Time : 0.10714s
-    INFO:tensorflow:Finished evaluation at 2026-04-03-07:54:09
-    INFO:tensorflow:Saving dict for global step 5000: average_loss = 17585602.0, global_step = 5000, label/mean = 13207.129, loss = 271900450.0, prediction/mean = 13306.168
-    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 5000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6q9dd63k/model.ckpt-5000
-    scores_deep1 {'average_loss': 17585602.0, 'label/mean': 13207.129, 'loss': 271900450.0, 'prediction/mean': 13306.168, 'global_step': 5000}
-    INFO:tensorflow:Calling model_fn.
-    INFO:tensorflow:Done calling model_fn.
-    INFO:tensorflow:Create CheckpointSaverHook.
-    INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6q9dd63k/model.ckpt-5000
-    INFO:tensorflow:Running local_init_op.
-    INFO:tensorflow:Done running local_init_op.
-    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 5000...
-    INFO:tensorflow:Saving checkpoints for 5000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6q9dd63k/model.ckpt.
-    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 5000...
-    INFO:tensorflow:loss = 86373880.0, step = 5001
-    INFO:tensorflow:global_step/sec: 1423.83
-    INFO:tensorflow:loss = 66133780.0, step = 5101 (0.071 sec)
-    INFO:tensorflow:global_step/sec: 2161.18
-    INFO:tensorflow:loss = 175919890.0, step = 5201 (0.047 sec)
-    INFO:tensorflow:global_step/sec: 2256.31
-    INFO:tensorflow:loss = 765091400.0, step = 5301 (0.044 sec)
-    INFO:tensorflow:global_step/sec: 2352.61
-    INFO:tensorflow:loss = 84705850.0, step = 5401 (0.043 sec)
-    INFO:tensorflow:global_step/sec: 2346.1
-    INFO:tensorflow:loss = 73382770.0, step = 5501 (0.043 sec)
-    INFO:tensorflow:global_step/sec: 2290.59
-    INFO:tensorflow:loss = 1040372350.0, step = 5601 (0.044 sec)
-    INFO:tensorflow:global_step/sec: 2214.84
-    INFO:tensorflow:loss = 102065530.0, step = 5701 (0.044 sec)
-    INFO:tensorflow:global_step/sec: 2364.52
-    INFO:tensorflow:loss = 619421060.0, step = 5801 (0.042 sec)
-    INFO:tensorflow:global_step/sec: 2278.21
-    INFO:tensorflow:loss = 165285730.0, step = 5901 (0.044 sec)
-    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 6000...
-    INFO:tensorflow:Saving checkpoints for 6000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6q9dd63k/model.ckpt.
-    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 6000...
-    INFO:tensorflow:Loss for final step: 265935060.0.
-    INFO:tensorflow:Calling model_fn.
-    INFO:tensorflow:Done calling model_fn.
-    INFO:tensorflow:Starting evaluation at 2026-04-03T07:54:10
-    INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6q9dd63k/model.ckpt-6000
-    INFO:tensorflow:Running local_init_op.
-    INFO:tensorflow:Done running local_init_op.
-    INFO:tensorflow:Inference Time : 0.10044s
-    INFO:tensorflow:Finished evaluation at 2026-04-03-07:54:11
-    INFO:tensorflow:Saving dict for global step 6000: average_loss = 17146658.0, global_step = 6000, label/mean = 13207.129, loss = 265113710.0, prediction/mean = 13126.133
-    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 6000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6q9dd63k/model.ckpt-6000
-    scores_deep1 {'average_loss': 17146658.0, 'label/mean': 13207.129, 'loss': 265113710.0, 'prediction/mean': 13126.133, 'global_step': 6000}
-    INFO:tensorflow:Calling model_fn.
-    INFO:tensorflow:Done calling model_fn.
-    INFO:tensorflow:Create CheckpointSaverHook.
-    INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6q9dd63k/model.ckpt-6000
-    INFO:tensorflow:Running local_init_op.
-    INFO:tensorflow:Done running local_init_op.
-    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 6000...
-    INFO:tensorflow:Saving checkpoints for 6000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6q9dd63k/model.ckpt.
-    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 6000...
-    INFO:tensorflow:loss = 54016900.0, step = 6001
-    INFO:tensorflow:global_step/sec: 1519.36
-    INFO:tensorflow:loss = 363555680.0, step = 6101 (0.066 sec)
-    INFO:tensorflow:global_step/sec: 2409.65
-    INFO:tensorflow:loss = 197730370.0, step = 6201 (0.043 sec)
-    INFO:tensorflow:global_step/sec: 2216.16
-    INFO:tensorflow:loss = 506679740.0, step = 6301 (0.044 sec)
-    INFO:tensorflow:global_step/sec: 2377.67
-    INFO:tensorflow:loss = 118086590.0, step = 6401 (0.042 sec)
-    INFO:tensorflow:global_step/sec: 2239.48
-    INFO:tensorflow:loss = 255245700.0, step = 6501 (0.044 sec)
-    INFO:tensorflow:global_step/sec: 2415.7
-    INFO:tensorflow:loss = 120379840.0, step = 6601 (0.042 sec)
-    INFO:tensorflow:global_step/sec: 2210.04
-    INFO:tensorflow:loss = 147466420.0, step = 6701 (0.045 sec)
-    INFO:tensorflow:global_step/sec: 2124.05
-    INFO:tensorflow:loss = 177476300.0, step = 6801 (0.047 sec)
-    INFO:tensorflow:global_step/sec: 2139.59
-    INFO:tensorflow:loss = 173672900.0, step = 6901 (0.046 sec)
-    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 7000...
-    INFO:tensorflow:Saving checkpoints for 7000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6q9dd63k/model.ckpt.
-    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 7000...
-    INFO:tensorflow:Loss for final step: 302655780.0.
-    INFO:tensorflow:Calling model_fn.
-    INFO:tensorflow:Done calling model_fn.
-    INFO:tensorflow:Starting evaluation at 2026-04-03T07:54:12
-    INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6q9dd63k/model.ckpt-7000
-    INFO:tensorflow:Running local_init_op.
-    INFO:tensorflow:Done running local_init_op.
-    INFO:tensorflow:Inference Time : 0.10134s
-    INFO:tensorflow:Finished evaluation at 2026-04-03-07:54:12
-    INFO:tensorflow:Saving dict for global step 7000: average_loss = 16827864.0, global_step = 7000, label/mean = 13207.129, loss = 260184670.0, prediction/mean = 12933.074
-    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 7000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6q9dd63k/model.ckpt-7000
-    scores_deep1 {'average_loss': 16827864.0, 'label/mean': 13207.129, 'loss': 260184670.0, 'prediction/mean': 12933.074, 'global_step': 7000}
-    INFO:tensorflow:Calling model_fn.
-    INFO:tensorflow:Done calling model_fn.
-    INFO:tensorflow:Create CheckpointSaverHook.
-    INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6q9dd63k/model.ckpt-7000
-    INFO:tensorflow:Running local_init_op.
-    INFO:tensorflow:Done running local_init_op.
-    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 7000...
-    INFO:tensorflow:Saving checkpoints for 7000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6q9dd63k/model.ckpt.
-    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 7000...
-    INFO:tensorflow:loss = 657111360.0, step = 7001
-    INFO:tensorflow:global_step/sec: 1426.51
-    INFO:tensorflow:loss = 132562580.0, step = 7101 (0.071 sec)
-    INFO:tensorflow:global_step/sec: 2314.02
-    INFO:tensorflow:loss = 240212930.0, step = 7201 (0.044 sec)
-    INFO:tensorflow:global_step/sec: 2164.87
-    INFO:tensorflow:loss = 714335800.0, step = 7301 (0.046 sec)
-    INFO:tensorflow:global_step/sec: 2339.36
-    INFO:tensorflow:loss = 252367840.0, step = 7401 (0.043 sec)
-    INFO:tensorflow:global_step/sec: 2294.94
-    INFO:tensorflow:loss = 417660500.0, step = 7501 (0.043 sec)
-    INFO:tensorflow:global_step/sec: 959.426
-    INFO:tensorflow:loss = 50100336.0, step = 7601 (0.104 sec)
-    INFO:tensorflow:global_step/sec: 2206.63
-    INFO:tensorflow:loss = 549256000.0, step = 7701 (0.046 sec)
-    INFO:tensorflow:global_step/sec: 2206.58
-    INFO:tensorflow:loss = 349709500.0, step = 7801 (0.044 sec)
-    INFO:tensorflow:global_step/sec: 2238.39
-    INFO:tensorflow:loss = 677010100.0, step = 7901 (0.045 sec)
-    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 8000...
-    INFO:tensorflow:Saving checkpoints for 8000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6q9dd63k/model.ckpt.
-    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 8000...
-    INFO:tensorflow:Loss for final step: 86886050.0.
-    INFO:tensorflow:Calling model_fn.
-    INFO:tensorflow:Done calling model_fn.
-    INFO:tensorflow:Starting evaluation at 2026-04-03T07:54:14
-    INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6q9dd63k/model.ckpt-8000
-    INFO:tensorflow:Running local_init_op.
-    INFO:tensorflow:Done running local_init_op.
-    INFO:tensorflow:Inference Time : 0.10121s
-    INFO:tensorflow:Finished evaluation at 2026-04-03-07:54:14
-    INFO:tensorflow:Saving dict for global step 8000: average_loss = 16282630.0, global_step = 8000, label/mean = 13207.129, loss = 251754510.0, prediction/mean = 13431.881
-    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 8000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6q9dd63k/model.ckpt-8000
-    scores_deep1 {'average_loss': 16282630.0, 'label/mean': 13207.129, 'loss': 251754510.0, 'prediction/mean': 13431.881, 'global_step': 8000}
-    INFO:tensorflow:Calling model_fn.
-    INFO:tensorflow:Done calling model_fn.
-    INFO:tensorflow:Create CheckpointSaverHook.
-    INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6q9dd63k/model.ckpt-8000
-    INFO:tensorflow:Running local_init_op.
-    INFO:tensorflow:Done running local_init_op.
-    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 8000...
-    INFO:tensorflow:Saving checkpoints for 8000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6q9dd63k/model.ckpt.
-    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 8000...
-    INFO:tensorflow:loss = 271140600.0, step = 8001
-    INFO:tensorflow:global_step/sec: 1475.78
-    INFO:tensorflow:loss = 329669380.0, step = 8101 (0.069 sec)
-    INFO:tensorflow:global_step/sec: 2196.44
-    INFO:tensorflow:loss = 104540090.0, step = 8201 (0.045 sec)
-    INFO:tensorflow:global_step/sec: 2299.48
-    INFO:tensorflow:loss = 186230480.0, step = 8301 (0.044 sec)
-    INFO:tensorflow:global_step/sec: 2377.62
-    INFO:tensorflow:loss = 330282240.0, step = 8401 (0.042 sec)
-    INFO:tensorflow:global_step/sec: 2238.19
-    INFO:tensorflow:loss = 137631840.0, step = 8501 (0.044 sec)
-    INFO:tensorflow:global_step/sec: 2371.46
-    INFO:tensorflow:loss = 121190020.0, step = 8601 (0.042 sec)
-    INFO:tensorflow:global_step/sec: 2159.64
-    INFO:tensorflow:loss = 370604160.0, step = 8701 (0.046 sec)
-    INFO:tensorflow:global_step/sec: 2405.18
-    INFO:tensorflow:loss = 463395780.0, step = 8801 (0.042 sec)
-    INFO:tensorflow:global_step/sec: 2268.6
-    INFO:tensorflow:loss = 390031360.0, step = 8901 (0.044 sec)
+    INFO:tensorflow:loss = 595580700.0, step = 8201 (0.045 sec)
+    INFO:tensorflow:global_step/sec: 2404.48
+    INFO:tensorflow:loss = 315154940.0, step = 8301 (0.042 sec)
+    INFO:tensorflow:global_step/sec: 2367.03
+    INFO:tensorflow:loss = 342508900.0, step = 8401 (0.042 sec)
+    INFO:tensorflow:global_step/sec: 2021.59
+    INFO:tensorflow:loss = 56060730.0, step = 8501 (0.048 sec)
+    INFO:tensorflow:global_step/sec: 2417.02
+    INFO:tensorflow:loss = 64468564.0, step = 8601 (0.042 sec)
+    INFO:tensorflow:global_step/sec: 2298.17
+    INFO:tensorflow:loss = 77104980.0, step = 8701 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2331.22
+    INFO:tensorflow:loss = 159009060.0, step = 8801 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2263.88
+    INFO:tensorflow:loss = 175239940.0, step = 8901 (0.044 sec)
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 9000...
-    INFO:tensorflow:Saving checkpoints for 9000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6q9dd63k/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 9000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvce3jk6d/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 9000...
-    INFO:tensorflow:Loss for final step: 297190140.0.
+    INFO:tensorflow:Loss for final step: 177209170.0.
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
-    INFO:tensorflow:Starting evaluation at 2026-04-03T07:54:16
+    INFO:tensorflow:Starting evaluation at 2026-04-03T17:06:52
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6q9dd63k/model.ckpt-9000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvce3jk6d/model.ckpt-9000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
-    INFO:tensorflow:Inference Time : 0.10211s
-    INFO:tensorflow:Finished evaluation at 2026-04-03-07:54:16
-    INFO:tensorflow:Saving dict for global step 9000: average_loss = 15890450.0, global_step = 9000, label/mean = 13207.129, loss = 245690800.0, prediction/mean = 13351.85
-    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 9000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6q9dd63k/model.ckpt-9000
-    scores_deep1 {'average_loss': 15890450.0, 'label/mean': 13207.129, 'loss': 245690800.0, 'prediction/mean': 13351.85, 'global_step': 9000}
+    INFO:tensorflow:Inference Time : 0.09426s
+    INFO:tensorflow:Finished evaluation at 2026-04-03-17:06:52
+    INFO:tensorflow:Saving dict for global step 9000: average_loss = 17124800.0, global_step = 9000, label/mean = 13207.129, loss = 264775760.0, prediction/mean = 13360.295
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 9000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvce3jk6d/model.ckpt-9000
+    scores_deep1 {'average_loss': 17124800.0, 'label/mean': 13207.129, 'loss': 264775760.0, 'prediction/mean': 13360.295, 'global_step': 9000}
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
     INFO:tensorflow:Create CheckpointSaverHook.
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6q9dd63k/model.ckpt-9000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvce3jk6d/model.ckpt-9000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 9000...
-    INFO:tensorflow:Saving checkpoints for 9000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6q9dd63k/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 9000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvce3jk6d/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 9000...
-    INFO:tensorflow:loss = 446065150.0, step = 9001
-    INFO:tensorflow:global_step/sec: 1581.57
-    INFO:tensorflow:loss = 120916210.0, step = 9101 (0.064 sec)
-    INFO:tensorflow:global_step/sec: 2452.55
-    INFO:tensorflow:loss = 91249870.0, step = 9201 (0.041 sec)
-    INFO:tensorflow:global_step/sec: 2269.65
-    INFO:tensorflow:loss = 206293740.0, step = 9301 (0.043 sec)
-    INFO:tensorflow:global_step/sec: 2380.67
-    INFO:tensorflow:loss = 255055250.0, step = 9401 (0.042 sec)
-    INFO:tensorflow:global_step/sec: 2157.18
-    INFO:tensorflow:loss = 347573440.0, step = 9501 (0.046 sec)
-    INFO:tensorflow:global_step/sec: 2272.25
-    INFO:tensorflow:loss = 93762430.0, step = 9601 (0.044 sec)
-    INFO:tensorflow:global_step/sec: 2370.24
-    INFO:tensorflow:loss = 312234900.0, step = 9701 (0.042 sec)
-    INFO:tensorflow:global_step/sec: 2269.22
-    INFO:tensorflow:loss = 177086140.0, step = 9801 (0.044 sec)
-    INFO:tensorflow:global_step/sec: 2386.8
-    INFO:tensorflow:loss = 95166820.0, step = 9901 (0.042 sec)
+    INFO:tensorflow:loss = 85342640.0, step = 9001
+    INFO:tensorflow:global_step/sec: 1512.49
+    INFO:tensorflow:loss = 122623096.0, step = 9101 (0.067 sec)
+    INFO:tensorflow:global_step/sec: 2357.44
+    INFO:tensorflow:loss = 357866620.0, step = 9201 (0.042 sec)
+    INFO:tensorflow:global_step/sec: 2419.78
+    INFO:tensorflow:loss = 218582690.0, step = 9301 (0.042 sec)
+    INFO:tensorflow:global_step/sec: 2418.72
+    INFO:tensorflow:loss = 68170024.0, step = 9401 (0.042 sec)
+    INFO:tensorflow:global_step/sec: 2257.39
+    INFO:tensorflow:loss = 138000220.0, step = 9501 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 2274.38
+    INFO:tensorflow:loss = 232552030.0, step = 9601 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 2150.81
+    INFO:tensorflow:loss = 313161100.0, step = 9701 (0.047 sec)
+    INFO:tensorflow:global_step/sec: 2398.76
+    INFO:tensorflow:loss = 536184400.0, step = 9801 (0.042 sec)
+    INFO:tensorflow:global_step/sec: 2308.2
+    INFO:tensorflow:loss = 232178600.0, step = 9901 (0.043 sec)
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 10000...
-    INFO:tensorflow:Saving checkpoints for 10000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6q9dd63k/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 10000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvce3jk6d/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 10000...
-    INFO:tensorflow:Loss for final step: 178611250.0.
+    INFO:tensorflow:Loss for final step: 115960270.0.
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
-    INFO:tensorflow:Starting evaluation at 2026-04-03T07:54:17
+    INFO:tensorflow:Starting evaluation at 2026-04-03T17:06:53
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6q9dd63k/model.ckpt-10000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvce3jk6d/model.ckpt-10000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
-    INFO:tensorflow:Inference Time : 0.09897s
-    INFO:tensorflow:Finished evaluation at 2026-04-03-07:54:17
-    INFO:tensorflow:Saving dict for global step 10000: average_loss = 15550921.0, global_step = 10000, label/mean = 13207.129, loss = 240441170.0, prediction/mean = 13103.763
-    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 10000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6q9dd63k/model.ckpt-10000
-    scores_deep1 {'average_loss': 15550921.0, 'label/mean': 13207.129, 'loss': 240441170.0, 'prediction/mean': 13103.763, 'global_step': 10000}
+    INFO:tensorflow:Inference Time : 0.09454s
+    INFO:tensorflow:Finished evaluation at 2026-04-03-17:06:53
+    INFO:tensorflow:Saving dict for global step 10000: average_loss = 16951908.0, global_step = 10000, label/mean = 13207.129, loss = 262102600.0, prediction/mean = 13054.23
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 10000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpvce3jk6d/model.ckpt-10000
+    scores_deep1 {'average_loss': 16951908.0, 'label/mean': 13207.129, 'loss': 262102600.0, 'prediction/mean': 13054.23, 'global_step': 10000}
     INFO:tensorflow:Using default config.
-    WARNING:tensorflow:Using temporary folder as model directory: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6en_szry
-    INFO:tensorflow:Using config: {'_model_dir': '/var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6en_szry', '_tf_random_seed': None, '_save_summary_steps': 100, '_save_checkpoints_steps': None, '_save_checkpoints_secs': 600, '_session_config': allow_soft_placement: true
+    WARNING:tensorflow:Using temporary folder as model directory: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfurtv48l
+    INFO:tensorflow:Using config: {'_model_dir': '/var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfurtv48l', '_tf_random_seed': None, '_save_summary_steps': 100, '_save_checkpoints_steps': None, '_save_checkpoints_secs': 600, '_session_config': allow_soft_placement: true
     graph_options {
       rewrite_options {
         meta_optimizer_iterations: ONE
@@ -2360,448 +2377,940 @@ for _ in range(num_print_statements):
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 0...
-    INFO:tensorflow:Saving checkpoints for 0 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6en_szry/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 0 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfurtv48l/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 0...
-    INFO:tensorflow:loss = 2233707500.0, step = 1
-    INFO:tensorflow:global_step/sec: 1334.81
-    INFO:tensorflow:loss = 273347740.0, step = 101 (0.075 sec)
-    INFO:tensorflow:global_step/sec: 2322.4
-    INFO:tensorflow:loss = 201083980.0, step = 201 (0.043 sec)
-    INFO:tensorflow:global_step/sec: 1907.7
-    INFO:tensorflow:loss = 381364540.0, step = 301 (0.052 sec)
-    INFO:tensorflow:global_step/sec: 2051.59
-    INFO:tensorflow:loss = 146460880.0, step = 401 (0.049 sec)
-    INFO:tensorflow:global_step/sec: 1920.08
-    INFO:tensorflow:loss = 574731400.0, step = 501 (0.052 sec)
-    INFO:tensorflow:global_step/sec: 1885.97
-    INFO:tensorflow:loss = 625480770.0, step = 601 (0.053 sec)
-    INFO:tensorflow:global_step/sec: 1895.82
-    INFO:tensorflow:loss = 157873920.0, step = 701 (0.053 sec)
-    INFO:tensorflow:global_step/sec: 2237.07
-    INFO:tensorflow:loss = 109730280.0, step = 801 (0.045 sec)
-    INFO:tensorflow:global_step/sec: 1277.61
-    INFO:tensorflow:loss = 206145760.0, step = 901 (0.078 sec)
+    INFO:tensorflow:loss = 7090094000.0, step = 1
+    INFO:tensorflow:global_step/sec: 1500.31
+    INFO:tensorflow:loss = 494838140.0, step = 101 (0.068 sec)
+    INFO:tensorflow:global_step/sec: 2001.92
+    INFO:tensorflow:loss = 251981280.0, step = 201 (0.050 sec)
+    INFO:tensorflow:global_step/sec: 2363.61
+    INFO:tensorflow:loss = 521555070.0, step = 301 (0.042 sec)
+    INFO:tensorflow:global_step/sec: 1317.11
+    INFO:tensorflow:loss = 223981460.0, step = 401 (0.077 sec)
+    INFO:tensorflow:global_step/sec: 2269.37
+    INFO:tensorflow:loss = 193330850.0, step = 501 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2093.06
+    INFO:tensorflow:loss = 169140100.0, step = 601 (0.048 sec)
+    INFO:tensorflow:global_step/sec: 1951.45
+    INFO:tensorflow:loss = 475062080.0, step = 701 (0.051 sec)
+    INFO:tensorflow:global_step/sec: 2030.66
+    INFO:tensorflow:loss = 192199550.0, step = 801 (0.050 sec)
+    INFO:tensorflow:global_step/sec: 1948.72
+    INFO:tensorflow:loss = 144885650.0, step = 901 (0.051 sec)
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 1000...
-    INFO:tensorflow:Saving checkpoints for 1000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6en_szry/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 1000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfurtv48l/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 1000...
-    INFO:tensorflow:Loss for final step: 187487170.0.
+    INFO:tensorflow:Loss for final step: 211257000.0.
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
-    INFO:tensorflow:Starting evaluation at 2026-04-03T07:54:19
+    INFO:tensorflow:Starting evaluation at 2026-04-03T17:06:55
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6en_szry/model.ckpt-1000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfurtv48l/model.ckpt-1000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
-    INFO:tensorflow:Inference Time : 0.09887s
-    INFO:tensorflow:Finished evaluation at 2026-04-03-07:54:19
-    INFO:tensorflow:Saving dict for global step 1000: average_loss = 19760806.0, global_step = 1000, label/mean = 13207.129, loss = 305532450.0, prediction/mean = 13255.73
-    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 1000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6en_szry/model.ckpt-1000
-    scores_deep2 {'average_loss': 19760806.0, 'label/mean': 13207.129, 'loss': 305532450.0, 'prediction/mean': 13255.73, 'global_step': 1000}
+    INFO:tensorflow:Inference Time : 0.09325s
+    INFO:tensorflow:Finished evaluation at 2026-04-03-17:06:55
+    INFO:tensorflow:Saving dict for global step 1000: average_loss = 20036336.0, global_step = 1000, label/mean = 13207.129, loss = 309792580.0, prediction/mean = 13192.678
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 1000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfurtv48l/model.ckpt-1000
+    scores_deep2 {'average_loss': 20036336.0, 'label/mean': 13207.129, 'loss': 309792580.0, 'prediction/mean': 13192.678, 'global_step': 1000}
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
     INFO:tensorflow:Create CheckpointSaverHook.
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6en_szry/model.ckpt-1000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfurtv48l/model.ckpt-1000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 1000...
-    INFO:tensorflow:Saving checkpoints for 1000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6en_szry/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 1000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfurtv48l/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 1000...
-    INFO:tensorflow:loss = 226230690.0, step = 1001
-    INFO:tensorflow:global_step/sec: 1482.25
-    INFO:tensorflow:loss = 290426240.0, step = 1101 (0.068 sec)
-    INFO:tensorflow:global_step/sec: 1956.56
-    INFO:tensorflow:loss = 249182990.0, step = 1201 (0.051 sec)
-    INFO:tensorflow:global_step/sec: 2107.74
-    INFO:tensorflow:loss = 852752300.0, step = 1301 (0.047 sec)
-    INFO:tensorflow:global_step/sec: 2114.49
-    INFO:tensorflow:loss = 344914880.0, step = 1401 (0.047 sec)
-    INFO:tensorflow:global_step/sec: 2312.99
-    INFO:tensorflow:loss = 289774820.0, step = 1501 (0.043 sec)
-    INFO:tensorflow:global_step/sec: 2280.31
-    INFO:tensorflow:loss = 159657390.0, step = 1601 (0.044 sec)
-    INFO:tensorflow:global_step/sec: 1911.64
-    INFO:tensorflow:loss = 165854200.0, step = 1701 (0.052 sec)
-    INFO:tensorflow:global_step/sec: 1948.64
-    INFO:tensorflow:loss = 372916300.0, step = 1801 (0.051 sec)
-    INFO:tensorflow:global_step/sec: 1895.01
-    INFO:tensorflow:loss = 238566910.0, step = 1901 (0.053 sec)
+    INFO:tensorflow:loss = 158378180.0, step = 1001
+    INFO:tensorflow:global_step/sec: 1390.34
+    INFO:tensorflow:loss = 285026560.0, step = 1101 (0.072 sec)
+    INFO:tensorflow:global_step/sec: 2033.79
+    INFO:tensorflow:loss = 814318460.0, step = 1201 (0.049 sec)
+    INFO:tensorflow:global_step/sec: 2193.86
+    INFO:tensorflow:loss = 105827030.0, step = 1301 (0.046 sec)
+    INFO:tensorflow:global_step/sec: 2262.8
+    INFO:tensorflow:loss = 323191870.0, step = 1401 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 2415
+    INFO:tensorflow:loss = 489346600.0, step = 1501 (0.042 sec)
+    INFO:tensorflow:global_step/sec: 2190.72
+    INFO:tensorflow:loss = 273105100.0, step = 1601 (0.045 sec)
+    INFO:tensorflow:global_step/sec: 2293.42
+    INFO:tensorflow:loss = 261561580.0, step = 1701 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 1955.37
+    INFO:tensorflow:loss = 280401380.0, step = 1801 (0.050 sec)
+    INFO:tensorflow:global_step/sec: 2100.5
+    INFO:tensorflow:loss = 615960800.0, step = 1901 (0.048 sec)
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 2000...
-    INFO:tensorflow:Saving checkpoints for 2000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6en_szry/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 2000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfurtv48l/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 2000...
-    INFO:tensorflow:Loss for final step: 410787460.0.
+    INFO:tensorflow:Loss for final step: 458250000.0.
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
-    INFO:tensorflow:Starting evaluation at 2026-04-03T07:54:21
+    INFO:tensorflow:Starting evaluation at 2026-04-03T17:06:57
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6en_szry/model.ckpt-2000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfurtv48l/model.ckpt-2000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
-    INFO:tensorflow:Inference Time : 0.10172s
-    INFO:tensorflow:Finished evaluation at 2026-04-03-07:54:21
-    INFO:tensorflow:Saving dict for global step 2000: average_loss = 18217070.0, global_step = 2000, label/mean = 13207.129, loss = 281663940.0, prediction/mean = 13410.753
-    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 2000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6en_szry/model.ckpt-2000
-    scores_deep2 {'average_loss': 18217070.0, 'label/mean': 13207.129, 'loss': 281663940.0, 'prediction/mean': 13410.753, 'global_step': 2000}
+    INFO:tensorflow:Inference Time : 0.09382s
+    INFO:tensorflow:Finished evaluation at 2026-04-03-17:06:57
+    INFO:tensorflow:Saving dict for global step 2000: average_loss = 18391582.0, global_step = 2000, label/mean = 13207.129, loss = 284362140.0, prediction/mean = 13444.444
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 2000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfurtv48l/model.ckpt-2000
+    scores_deep2 {'average_loss': 18391582.0, 'label/mean': 13207.129, 'loss': 284362140.0, 'prediction/mean': 13444.444, 'global_step': 2000}
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
     INFO:tensorflow:Create CheckpointSaverHook.
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6en_szry/model.ckpt-2000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfurtv48l/model.ckpt-2000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 2000...
-    INFO:tensorflow:Saving checkpoints for 2000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6en_szry/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 2000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfurtv48l/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 2000...
-    INFO:tensorflow:loss = 204419000.0, step = 2001
-    INFO:tensorflow:global_step/sec: 1401.66
-    INFO:tensorflow:loss = 85987880.0, step = 2101 (0.072 sec)
-    INFO:tensorflow:global_step/sec: 1953.24
-    INFO:tensorflow:loss = 203427280.0, step = 2201 (0.051 sec)
-    INFO:tensorflow:global_step/sec: 1947.53
-    INFO:tensorflow:loss = 128132880.0, step = 2301 (0.051 sec)
-    INFO:tensorflow:global_step/sec: 1960.51
-    INFO:tensorflow:loss = 154870620.0, step = 2401 (0.051 sec)
-    INFO:tensorflow:global_step/sec: 1946.96
-    INFO:tensorflow:loss = 222921900.0, step = 2501 (0.051 sec)
-    INFO:tensorflow:global_step/sec: 2192.41
-    INFO:tensorflow:loss = 225939000.0, step = 2601 (0.046 sec)
-    INFO:tensorflow:global_step/sec: 2354.66
-    INFO:tensorflow:loss = 128673460.0, step = 2701 (0.043 sec)
-    INFO:tensorflow:global_step/sec: 2211.51
-    INFO:tensorflow:loss = 59520324.0, step = 2801 (0.045 sec)
-    INFO:tensorflow:global_step/sec: 2353.44
-    INFO:tensorflow:loss = 236603330.0, step = 2901 (0.043 sec)
+    INFO:tensorflow:loss = 369519600.0, step = 2001
+    INFO:tensorflow:global_step/sec: 1400.29
+    INFO:tensorflow:loss = 210607070.0, step = 2101 (0.072 sec)
+    INFO:tensorflow:global_step/sec: 2368.27
+    INFO:tensorflow:loss = 986795800.0, step = 2201 (0.042 sec)
+    INFO:tensorflow:global_step/sec: 2044.33
+    INFO:tensorflow:loss = 169948380.0, step = 2301 (0.049 sec)
+    INFO:tensorflow:global_step/sec: 1959.97
+    INFO:tensorflow:loss = 330961470.0, step = 2401 (0.051 sec)
+    INFO:tensorflow:global_step/sec: 2125.85
+    INFO:tensorflow:loss = 636489860.0, step = 2501 (0.047 sec)
+    INFO:tensorflow:global_step/sec: 1943.97
+    INFO:tensorflow:loss = 598409600.0, step = 2601 (0.051 sec)
+    INFO:tensorflow:global_step/sec: 2237.19
+    INFO:tensorflow:loss = 117569850.0, step = 2701 (0.045 sec)
+    INFO:tensorflow:global_step/sec: 2391.25
+    INFO:tensorflow:loss = 82521620.0, step = 2801 (0.042 sec)
+    INFO:tensorflow:global_step/sec: 1924.08
+    INFO:tensorflow:loss = 125826776.0, step = 2901 (0.053 sec)
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 3000...
-    INFO:tensorflow:Saving checkpoints for 3000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6en_szry/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 3000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfurtv48l/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 3000...
-    INFO:tensorflow:Loss for final step: 246721090.0.
+    INFO:tensorflow:Loss for final step: 58145690.0.
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
-    INFO:tensorflow:Starting evaluation at 2026-04-03T07:54:22
+    INFO:tensorflow:Starting evaluation at 2026-04-03T17:06:58
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6en_szry/model.ckpt-3000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfurtv48l/model.ckpt-3000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
-    INFO:tensorflow:Inference Time : 0.09892s
-    INFO:tensorflow:Finished evaluation at 2026-04-03-07:54:22
-    INFO:tensorflow:Saving dict for global step 3000: average_loss = 17298174.0, global_step = 3000, label/mean = 13207.129, loss = 267456400.0, prediction/mean = 13300.078
-    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 3000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6en_szry/model.ckpt-3000
-    scores_deep2 {'average_loss': 17298174.0, 'label/mean': 13207.129, 'loss': 267456400.0, 'prediction/mean': 13300.078, 'global_step': 3000}
+    INFO:tensorflow:Inference Time : 0.09594s
+    INFO:tensorflow:Finished evaluation at 2026-04-03-17:06:59
+    INFO:tensorflow:Saving dict for global step 3000: average_loss = 17465512.0, global_step = 3000, label/mean = 13207.129, loss = 270043680.0, prediction/mean = 13595.98
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 3000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfurtv48l/model.ckpt-3000
+    scores_deep2 {'average_loss': 17465512.0, 'label/mean': 13207.129, 'loss': 270043680.0, 'prediction/mean': 13595.98, 'global_step': 3000}
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
     INFO:tensorflow:Create CheckpointSaverHook.
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6en_szry/model.ckpt-3000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfurtv48l/model.ckpt-3000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 3000...
-    INFO:tensorflow:Saving checkpoints for 3000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6en_szry/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 3000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfurtv48l/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 3000...
-    INFO:tensorflow:loss = 139829020.0, step = 3001
-    INFO:tensorflow:global_step/sec: 1432.35
-    INFO:tensorflow:loss = 63427750.0, step = 3101 (0.070 sec)
-    INFO:tensorflow:global_step/sec: 2261.21
-    INFO:tensorflow:loss = 112193850.0, step = 3201 (0.045 sec)
-    INFO:tensorflow:global_step/sec: 1933.64
-    INFO:tensorflow:loss = 111916504.0, step = 3301 (0.052 sec)
-    INFO:tensorflow:global_step/sec: 2003.77
-    INFO:tensorflow:loss = 565978900.0, step = 3401 (0.050 sec)
-    INFO:tensorflow:global_step/sec: 1202.06
-    INFO:tensorflow:loss = 172205890.0, step = 3501 (0.084 sec)
-    INFO:tensorflow:global_step/sec: 1988.87
-    INFO:tensorflow:loss = 137545580.0, step = 3601 (0.050 sec)
-    INFO:tensorflow:global_step/sec: 2318.64
-    INFO:tensorflow:loss = 326558620.0, step = 3701 (0.043 sec)
-    INFO:tensorflow:global_step/sec: 1277.28
-    INFO:tensorflow:loss = 70362690.0, step = 3801 (0.078 sec)
-    INFO:tensorflow:global_step/sec: 2315.68
-    INFO:tensorflow:loss = 154133600.0, step = 3901 (0.043 sec)
+    INFO:tensorflow:loss = 185604770.0, step = 3001
+    INFO:tensorflow:global_step/sec: 1403.04
+    INFO:tensorflow:loss = 69055060.0, step = 3101 (0.072 sec)
+    INFO:tensorflow:global_step/sec: 2057.91
+    INFO:tensorflow:loss = 318494340.0, step = 3201 (0.049 sec)
+    INFO:tensorflow:global_step/sec: 2337.39
+    INFO:tensorflow:loss = 319532860.0, step = 3301 (0.042 sec)
+    INFO:tensorflow:global_step/sec: 2198.27
+    INFO:tensorflow:loss = 385518430.0, step = 3401 (0.045 sec)
+    INFO:tensorflow:global_step/sec: 2079.61
+    INFO:tensorflow:loss = 404738300.0, step = 3501 (0.048 sec)
+    INFO:tensorflow:global_step/sec: 2278.88
+    INFO:tensorflow:loss = 146065140.0, step = 3601 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 2146.53
+    INFO:tensorflow:loss = 485424580.0, step = 3701 (0.047 sec)
+    INFO:tensorflow:global_step/sec: 2372.93
+    INFO:tensorflow:loss = 347286050.0, step = 3801 (0.042 sec)
+    INFO:tensorflow:global_step/sec: 1955.37
+    INFO:tensorflow:loss = 654655940.0, step = 3901 (0.051 sec)
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 4000...
-    INFO:tensorflow:Saving checkpoints for 4000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6en_szry/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 4000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfurtv48l/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 4000...
-    INFO:tensorflow:Loss for final step: 176912200.0.
+    INFO:tensorflow:Loss for final step: 96449600.0.
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
-    INFO:tensorflow:Starting evaluation at 2026-04-03T07:54:24
+    INFO:tensorflow:Starting evaluation at 2026-04-03T17:07:00
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6en_szry/model.ckpt-4000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfurtv48l/model.ckpt-4000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
-    INFO:tensorflow:Inference Time : 0.10065s
-    INFO:tensorflow:Finished evaluation at 2026-04-03-07:54:24
-    INFO:tensorflow:Saving dict for global step 4000: average_loss = 16513648.0, global_step = 4000, label/mean = 13207.129, loss = 255326400.0, prediction/mean = 13477.992
-    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 4000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6en_szry/model.ckpt-4000
-    scores_deep2 {'average_loss': 16513648.0, 'label/mean': 13207.129, 'loss': 255326400.0, 'prediction/mean': 13477.992, 'global_step': 4000}
+    INFO:tensorflow:Inference Time : 0.09384s
+    INFO:tensorflow:Finished evaluation at 2026-04-03-17:07:00
+    INFO:tensorflow:Saving dict for global step 4000: average_loss = 16631732.0, global_step = 4000, label/mean = 13207.129, loss = 257152160.0, prediction/mean = 13260.665
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 4000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfurtv48l/model.ckpt-4000
+    scores_deep2 {'average_loss': 16631732.0, 'label/mean': 13207.129, 'loss': 257152160.0, 'prediction/mean': 13260.665, 'global_step': 4000}
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
     INFO:tensorflow:Create CheckpointSaverHook.
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6en_szry/model.ckpt-4000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfurtv48l/model.ckpt-4000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 4000...
-    INFO:tensorflow:Saving checkpoints for 4000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6en_szry/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 4000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfurtv48l/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 4000...
-    INFO:tensorflow:loss = 178515740.0, step = 4001
-    INFO:tensorflow:global_step/sec: 1365.3
-    INFO:tensorflow:loss = 68926570.0, step = 4101 (0.074 sec)
-    INFO:tensorflow:global_step/sec: 2300.13
-    INFO:tensorflow:loss = 133221890.0, step = 4201 (0.043 sec)
-    INFO:tensorflow:global_step/sec: 1996.32
-    INFO:tensorflow:loss = 106645016.0, step = 4301 (0.051 sec)
-    INFO:tensorflow:global_step/sec: 2038.16
-    INFO:tensorflow:loss = 126887690.0, step = 4401 (0.049 sec)
-    INFO:tensorflow:global_step/sec: 1951.17
-    INFO:tensorflow:loss = 484529500.0, step = 4501 (0.051 sec)
-    INFO:tensorflow:global_step/sec: 1840.13
-    INFO:tensorflow:loss = 143361340.0, step = 4601 (0.054 sec)
-    INFO:tensorflow:global_step/sec: 1882.81
-    INFO:tensorflow:loss = 366941440.0, step = 4701 (0.053 sec)
-    INFO:tensorflow:global_step/sec: 2031.29
-    INFO:tensorflow:loss = 351432100.0, step = 4801 (0.049 sec)
-    INFO:tensorflow:global_step/sec: 1888.58
-    INFO:tensorflow:loss = 506225570.0, step = 4901 (0.053 sec)
+    INFO:tensorflow:loss = 206837900.0, step = 4001
+    INFO:tensorflow:global_step/sec: 1393.34
+    INFO:tensorflow:loss = 64174560.0, step = 4101 (0.072 sec)
+    INFO:tensorflow:global_step/sec: 2110.25
+    INFO:tensorflow:loss = 217092590.0, step = 4201 (0.047 sec)
+    INFO:tensorflow:global_step/sec: 1957.21
+    INFO:tensorflow:loss = 193442660.0, step = 4301 (0.051 sec)
+    INFO:tensorflow:global_step/sec: 1957.94
+    INFO:tensorflow:loss = 54793830.0, step = 4401 (0.051 sec)
+    INFO:tensorflow:global_step/sec: 1906.94
+    INFO:tensorflow:loss = 102015380.0, step = 4501 (0.052 sec)
+    INFO:tensorflow:global_step/sec: 1958.02
+    INFO:tensorflow:loss = 107960680.0, step = 4601 (0.051 sec)
+    INFO:tensorflow:global_step/sec: 1960.28
+    INFO:tensorflow:loss = 199376140.0, step = 4701 (0.051 sec)
+    INFO:tensorflow:global_step/sec: 2331.81
+    INFO:tensorflow:loss = 85131810.0, step = 4801 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 1958.98
+    INFO:tensorflow:loss = 459461340.0, step = 4901 (0.051 sec)
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 5000...
-    INFO:tensorflow:Saving checkpoints for 5000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6en_szry/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 5000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfurtv48l/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 5000...
-    INFO:tensorflow:Loss for final step: 773837300.0.
+    INFO:tensorflow:Loss for final step: 673267300.0.
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
-    INFO:tensorflow:Starting evaluation at 2026-04-03T07:54:26
+    INFO:tensorflow:Starting evaluation at 2026-04-03T17:07:02
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6en_szry/model.ckpt-5000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfurtv48l/model.ckpt-5000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
-    INFO:tensorflow:Inference Time : 0.10104s
-    INFO:tensorflow:Finished evaluation at 2026-04-03-07:54:26
-    INFO:tensorflow:Saving dict for global step 5000: average_loss = 16183076.0, global_step = 5000, label/mean = 13207.129, loss = 250215250.0, prediction/mean = 13894.145
-    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 5000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6en_szry/model.ckpt-5000
-    scores_deep2 {'average_loss': 16183076.0, 'label/mean': 13207.129, 'loss': 250215250.0, 'prediction/mean': 13894.145, 'global_step': 5000}
+    INFO:tensorflow:Inference Time : 0.09367s
+    INFO:tensorflow:Finished evaluation at 2026-04-03-17:07:02
+    INFO:tensorflow:Saving dict for global step 5000: average_loss = 16055291.0, global_step = 5000, label/mean = 13207.129, loss = 248239500.0, prediction/mean = 13622.427
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 5000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfurtv48l/model.ckpt-5000
+    scores_deep2 {'average_loss': 16055291.0, 'label/mean': 13207.129, 'loss': 248239500.0, 'prediction/mean': 13622.427, 'global_step': 5000}
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
     INFO:tensorflow:Create CheckpointSaverHook.
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6en_szry/model.ckpt-5000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfurtv48l/model.ckpt-5000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 5000...
-    INFO:tensorflow:Saving checkpoints for 5000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6en_szry/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 5000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfurtv48l/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 5000...
-    INFO:tensorflow:loss = 102099140.0, step = 5001
-    INFO:tensorflow:global_step/sec: 1355.71
-    INFO:tensorflow:loss = 325492830.0, step = 5101 (0.074 sec)
-    INFO:tensorflow:global_step/sec: 1941.79
-    INFO:tensorflow:loss = 280912800.0, step = 5201 (0.051 sec)
-    INFO:tensorflow:global_step/sec: 2038.82
-    INFO:tensorflow:loss = 165558140.0, step = 5301 (0.049 sec)
-    INFO:tensorflow:global_step/sec: 2068.93
-    INFO:tensorflow:loss = 111636050.0, step = 5401 (0.048 sec)
-    INFO:tensorflow:global_step/sec: 2220.78
-    INFO:tensorflow:loss = 522527400.0, step = 5501 (0.045 sec)
-    INFO:tensorflow:global_step/sec: 1932.49
-    INFO:tensorflow:loss = 57173910.0, step = 5601 (0.052 sec)
-    INFO:tensorflow:global_step/sec: 2227.36
-    INFO:tensorflow:loss = 98164190.0, step = 5701 (0.045 sec)
-    INFO:tensorflow:global_step/sec: 2223.66
-    INFO:tensorflow:loss = 168421680.0, step = 5801 (0.045 sec)
-    INFO:tensorflow:global_step/sec: 2133.88
-    INFO:tensorflow:loss = 78390460.0, step = 5901 (0.047 sec)
+    INFO:tensorflow:loss = 390073280.0, step = 5001
+    INFO:tensorflow:global_step/sec: 1561.01
+    INFO:tensorflow:loss = 142354510.0, step = 5101 (0.065 sec)
+    INFO:tensorflow:global_step/sec: 2202.64
+    INFO:tensorflow:loss = 305289500.0, step = 5201 (0.045 sec)
+    INFO:tensorflow:global_step/sec: 2351.95
+    INFO:tensorflow:loss = 414740930.0, step = 5301 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2309.47
+    INFO:tensorflow:loss = 468163170.0, step = 5401 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 1927.45
+    INFO:tensorflow:loss = 118194370.0, step = 5501 (0.052 sec)
+    INFO:tensorflow:global_step/sec: 2302.5
+    INFO:tensorflow:loss = 142504020.0, step = 5601 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 2026.02
+    INFO:tensorflow:loss = 50566724.0, step = 5701 (0.049 sec)
+    INFO:tensorflow:global_step/sec: 1957.7
+    INFO:tensorflow:loss = 31335892.0, step = 5801 (0.051 sec)
+    INFO:tensorflow:global_step/sec: 2389.55
+    INFO:tensorflow:loss = 339214430.0, step = 5901 (0.042 sec)
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 6000...
-    INFO:tensorflow:Saving checkpoints for 6000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6en_szry/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 6000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfurtv48l/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 6000...
-    INFO:tensorflow:Loss for final step: 447636320.0.
+    INFO:tensorflow:Loss for final step: 171567550.0.
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
-    INFO:tensorflow:Starting evaluation at 2026-04-03T07:54:28
+    INFO:tensorflow:Starting evaluation at 2026-04-03T17:07:03
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6en_szry/model.ckpt-6000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfurtv48l/model.ckpt-6000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
-    INFO:tensorflow:Inference Time : 0.10083s
-    INFO:tensorflow:Finished evaluation at 2026-04-03-07:54:28
-    INFO:tensorflow:Saving dict for global step 6000: average_loss = 15485738.0, global_step = 6000, label/mean = 13207.129, loss = 239433330.0, prediction/mean = 13764.386
-    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 6000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6en_szry/model.ckpt-6000
-    scores_deep2 {'average_loss': 15485738.0, 'label/mean': 13207.129, 'loss': 239433330.0, 'prediction/mean': 13764.386, 'global_step': 6000}
+    INFO:tensorflow:Inference Time : 0.09391s
+    INFO:tensorflow:Finished evaluation at 2026-04-03-17:07:03
+    INFO:tensorflow:Saving dict for global step 6000: average_loss = 15419202.0, global_step = 6000, label/mean = 13207.129, loss = 238404590.0, prediction/mean = 13126.41
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 6000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfurtv48l/model.ckpt-6000
+    scores_deep2 {'average_loss': 15419202.0, 'label/mean': 13207.129, 'loss': 238404590.0, 'prediction/mean': 13126.41, 'global_step': 6000}
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
     INFO:tensorflow:Create CheckpointSaverHook.
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6en_szry/model.ckpt-6000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfurtv48l/model.ckpt-6000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 6000...
-    INFO:tensorflow:Saving checkpoints for 6000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6en_szry/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 6000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfurtv48l/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 6000...
-    INFO:tensorflow:loss = 254371820.0, step = 6001
-    INFO:tensorflow:global_step/sec: 1327.88
-    INFO:tensorflow:loss = 110471880.0, step = 6101 (0.076 sec)
-    INFO:tensorflow:global_step/sec: 2330.79
-    INFO:tensorflow:loss = 100293096.0, step = 6201 (0.043 sec)
-    INFO:tensorflow:global_step/sec: 1929.16
-    INFO:tensorflow:loss = 222997420.0, step = 6301 (0.052 sec)
-    INFO:tensorflow:global_step/sec: 1961.51
-    INFO:tensorflow:loss = 738128000.0, step = 6401 (0.051 sec)
-    INFO:tensorflow:global_step/sec: 2065.18
-    INFO:tensorflow:loss = 309771680.0, step = 6501 (0.048 sec)
-    INFO:tensorflow:global_step/sec: 1925.95
-    INFO:tensorflow:loss = 293383460.0, step = 6601 (0.052 sec)
-    INFO:tensorflow:global_step/sec: 1961.21
-    INFO:tensorflow:loss = 176939230.0, step = 6701 (0.051 sec)
-    INFO:tensorflow:global_step/sec: 1726.83
-    INFO:tensorflow:loss = 235199400.0, step = 6801 (0.058 sec)
-    INFO:tensorflow:global_step/sec: 2116.49
-    INFO:tensorflow:loss = 146874400.0, step = 6901 (0.047 sec)
+    INFO:tensorflow:loss = 207683970.0, step = 6001
+    INFO:tensorflow:global_step/sec: 1437.73
+    INFO:tensorflow:loss = 64899224.0, step = 6101 (0.070 sec)
+    INFO:tensorflow:global_step/sec: 2427.96
+    INFO:tensorflow:loss = 125496024.0, step = 6201 (0.042 sec)
+    INFO:tensorflow:global_step/sec: 2044.33
+    INFO:tensorflow:loss = 121526790.0, step = 6301 (0.048 sec)
+    INFO:tensorflow:global_step/sec: 1958.87
+    INFO:tensorflow:loss = 222593460.0, step = 6401 (0.051 sec)
+    INFO:tensorflow:global_step/sec: 2283.25
+    INFO:tensorflow:loss = 158059180.0, step = 6501 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 2043.44
+    INFO:tensorflow:loss = 116175680.0, step = 6601 (0.049 sec)
+    INFO:tensorflow:global_step/sec: 2032.77
+    INFO:tensorflow:loss = 155935780.0, step = 6701 (0.049 sec)
+    INFO:tensorflow:global_step/sec: 1964.59
+    INFO:tensorflow:loss = 106733250.0, step = 6801 (0.051 sec)
+    INFO:tensorflow:global_step/sec: 1957.14
+    INFO:tensorflow:loss = 410581700.0, step = 6901 (0.051 sec)
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 7000...
-    INFO:tensorflow:Saving checkpoints for 7000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6en_szry/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 7000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfurtv48l/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 7000...
-    INFO:tensorflow:Loss for final step: 133233650.0.
+    INFO:tensorflow:Loss for final step: 71845980.0.
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
-    INFO:tensorflow:Starting evaluation at 2026-04-03T07:54:29
+    INFO:tensorflow:Starting evaluation at 2026-04-03T17:07:05
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6en_szry/model.ckpt-7000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfurtv48l/model.ckpt-7000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
-    INFO:tensorflow:Inference Time : 0.09902s
-    INFO:tensorflow:Finished evaluation at 2026-04-03-07:54:30
-    INFO:tensorflow:Saving dict for global step 7000: average_loss = 14890837.0, global_step = 7000, label/mean = 13207.129, loss = 230235250.0, prediction/mean = 12961.622
-    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 7000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6en_szry/model.ckpt-7000
-    scores_deep2 {'average_loss': 14890837.0, 'label/mean': 13207.129, 'loss': 230235250.0, 'prediction/mean': 12961.622, 'global_step': 7000}
+    INFO:tensorflow:Inference Time : 0.09383s
+    INFO:tensorflow:Finished evaluation at 2026-04-03-17:07:05
+    INFO:tensorflow:Saving dict for global step 7000: average_loss = 14837309.0, global_step = 7000, label/mean = 13207.129, loss = 229407630.0, prediction/mean = 13325.296
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 7000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfurtv48l/model.ckpt-7000
+    scores_deep2 {'average_loss': 14837309.0, 'label/mean': 13207.129, 'loss': 229407630.0, 'prediction/mean': 13325.296, 'global_step': 7000}
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
     INFO:tensorflow:Create CheckpointSaverHook.
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6en_szry/model.ckpt-7000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfurtv48l/model.ckpt-7000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 7000...
-    INFO:tensorflow:Saving checkpoints for 7000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6en_szry/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 7000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfurtv48l/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 7000...
-    INFO:tensorflow:loss = 142667620.0, step = 7001
-    INFO:tensorflow:global_step/sec: 1469.83
-    INFO:tensorflow:loss = 153585900.0, step = 7101 (0.068 sec)
-    INFO:tensorflow:global_step/sec: 2038.42
-    INFO:tensorflow:loss = 157123680.0, step = 7201 (0.049 sec)
-    INFO:tensorflow:global_step/sec: 2085.41
-    INFO:tensorflow:loss = 423232060.0, step = 7301 (0.048 sec)
-    INFO:tensorflow:global_step/sec: 2038.12
-    INFO:tensorflow:loss = 99181320.0, step = 7401 (0.049 sec)
-    INFO:tensorflow:global_step/sec: 1947.58
-    INFO:tensorflow:loss = 174856380.0, step = 7501 (0.051 sec)
-    INFO:tensorflow:global_step/sec: 1945.59
-    INFO:tensorflow:loss = 160071710.0, step = 7601 (0.051 sec)
-    INFO:tensorflow:global_step/sec: 1780.76
-    INFO:tensorflow:loss = 149907620.0, step = 7701 (0.056 sec)
-    INFO:tensorflow:global_step/sec: 2014.38
-    INFO:tensorflow:loss = 480295000.0, step = 7801 (0.050 sec)
-    INFO:tensorflow:global_step/sec: 1840.37
-    INFO:tensorflow:loss = 98230870.0, step = 7901 (0.054 sec)
+    INFO:tensorflow:loss = 97635100.0, step = 7001
+    INFO:tensorflow:global_step/sec: 1376.33
+    INFO:tensorflow:loss = 146274110.0, step = 7101 (0.073 sec)
+    INFO:tensorflow:global_step/sec: 2003.16
+    INFO:tensorflow:loss = 135112140.0, step = 7201 (0.051 sec)
+    INFO:tensorflow:global_step/sec: 1981.29
+    INFO:tensorflow:loss = 164062420.0, step = 7301 (0.050 sec)
+    INFO:tensorflow:global_step/sec: 1930.65
+    INFO:tensorflow:loss = 78941290.0, step = 7401 (0.051 sec)
+    INFO:tensorflow:global_step/sec: 1932.51
+    INFO:tensorflow:loss = 222898720.0, step = 7501 (0.052 sec)
+    INFO:tensorflow:global_step/sec: 2117.08
+    INFO:tensorflow:loss = 330950140.0, step = 7601 (0.047 sec)
+    INFO:tensorflow:global_step/sec: 2340.55
+    INFO:tensorflow:loss = 166120000.0, step = 7701 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2391.61
+    INFO:tensorflow:loss = 72070610.0, step = 7801 (0.042 sec)
+    INFO:tensorflow:global_step/sec: 1947.19
+    INFO:tensorflow:loss = 313267140.0, step = 7901 (0.051 sec)
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 8000...
-    INFO:tensorflow:Saving checkpoints for 8000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6en_szry/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 8000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfurtv48l/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 8000...
-    INFO:tensorflow:Loss for final step: 100202530.0.
+    INFO:tensorflow:Loss for final step: 126197810.0.
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
-    INFO:tensorflow:Starting evaluation at 2026-04-03T07:54:31
+    INFO:tensorflow:Starting evaluation at 2026-04-03T17:07:06
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6en_szry/model.ckpt-8000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfurtv48l/model.ckpt-8000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
-    INFO:tensorflow:Inference Time : 0.11115s
-    INFO:tensorflow:Finished evaluation at 2026-04-03-07:54:32
-    INFO:tensorflow:Saving dict for global step 8000: average_loss = 14320235.0, global_step = 8000, label/mean = 13207.129, loss = 221412860.0, prediction/mean = 13338.817
-    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 8000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6en_szry/model.ckpt-8000
-    scores_deep2 {'average_loss': 14320235.0, 'label/mean': 13207.129, 'loss': 221412860.0, 'prediction/mean': 13338.817, 'global_step': 8000}
+    INFO:tensorflow:Inference Time : 0.09394s
+    INFO:tensorflow:Finished evaluation at 2026-04-03-17:07:07
+    INFO:tensorflow:Saving dict for global step 8000: average_loss = 14377571.0, global_step = 8000, label/mean = 13207.129, loss = 222299380.0, prediction/mean = 13348.768
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 8000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfurtv48l/model.ckpt-8000
+    scores_deep2 {'average_loss': 14377571.0, 'label/mean': 13207.129, 'loss': 222299380.0, 'prediction/mean': 13348.768, 'global_step': 8000}
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
     INFO:tensorflow:Create CheckpointSaverHook.
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6en_szry/model.ckpt-8000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfurtv48l/model.ckpt-8000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 8000...
-    INFO:tensorflow:Saving checkpoints for 8000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6en_szry/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 8000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfurtv48l/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 8000...
-    INFO:tensorflow:loss = 160295300.0, step = 8001
-    INFO:tensorflow:global_step/sec: 1417.75
-    INFO:tensorflow:loss = 126813780.0, step = 8101 (0.071 sec)
-    INFO:tensorflow:global_step/sec: 1976.68
-    INFO:tensorflow:loss = 260082860.0, step = 8201 (0.051 sec)
-    INFO:tensorflow:global_step/sec: 2237.74
-    INFO:tensorflow:loss = 432664500.0, step = 8301 (0.045 sec)
-    INFO:tensorflow:global_step/sec: 2012.52
-    INFO:tensorflow:loss = 204981310.0, step = 8401 (0.050 sec)
-    INFO:tensorflow:global_step/sec: 2270.66
-    INFO:tensorflow:loss = 143698340.0, step = 8501 (0.044 sec)
-    INFO:tensorflow:global_step/sec: 2151.74
-    INFO:tensorflow:loss = 102999870.0, step = 8601 (0.046 sec)
-    INFO:tensorflow:global_step/sec: 2106.06
-    INFO:tensorflow:loss = 118175630.0, step = 8701 (0.047 sec)
-    INFO:tensorflow:global_step/sec: 2215.08
-    INFO:tensorflow:loss = 195762530.0, step = 8801 (0.045 sec)
-    INFO:tensorflow:global_step/sec: 1947.04
-    INFO:tensorflow:loss = 380820500.0, step = 8901 (0.051 sec)
+    INFO:tensorflow:loss = 114838400.0, step = 8001
+    INFO:tensorflow:global_step/sec: 1559.16
+    INFO:tensorflow:loss = 203397360.0, step = 8101 (0.064 sec)
+    INFO:tensorflow:global_step/sec: 1989.69
+    INFO:tensorflow:loss = 171066980.0, step = 8201 (0.051 sec)
+    INFO:tensorflow:global_step/sec: 1920.28
+    INFO:tensorflow:loss = 66454900.0, step = 8301 (0.052 sec)
+    INFO:tensorflow:global_step/sec: 1952.7
+    INFO:tensorflow:loss = 436118400.0, step = 8401 (0.051 sec)
+    INFO:tensorflow:global_step/sec: 1949.54
+    INFO:tensorflow:loss = 323209730.0, step = 8501 (0.051 sec)
+    INFO:tensorflow:global_step/sec: 1981.11
+    INFO:tensorflow:loss = 109288910.0, step = 8601 (0.051 sec)
+    INFO:tensorflow:global_step/sec: 2042.48
+    INFO:tensorflow:loss = 65633024.0, step = 8701 (0.049 sec)
+    INFO:tensorflow:global_step/sec: 2081.67
+    INFO:tensorflow:loss = 286014080.0, step = 8801 (0.048 sec)
+    INFO:tensorflow:global_step/sec: 2233.06
+    INFO:tensorflow:loss = 121147464.0, step = 8901 (0.045 sec)
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 9000...
-    INFO:tensorflow:Saving checkpoints for 9000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6en_szry/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 9000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfurtv48l/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 9000...
-    INFO:tensorflow:Loss for final step: 274832770.0.
+    INFO:tensorflow:Loss for final step: 368934270.0.
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
-    INFO:tensorflow:Starting evaluation at 2026-04-03T07:54:33
+    INFO:tensorflow:Starting evaluation at 2026-04-03T17:07:08
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6en_szry/model.ckpt-9000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfurtv48l/model.ckpt-9000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
-    INFO:tensorflow:Inference Time : 0.10083s
-    INFO:tensorflow:Finished evaluation at 2026-04-03-07:54:33
-    INFO:tensorflow:Saving dict for global step 9000: average_loss = 13949626.0, global_step = 9000, label/mean = 13207.129, loss = 215682670.0, prediction/mean = 13471.669
-    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 9000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6en_szry/model.ckpt-9000
-    scores_deep2 {'average_loss': 13949626.0, 'label/mean': 13207.129, 'loss': 215682670.0, 'prediction/mean': 13471.669, 'global_step': 9000}
+    INFO:tensorflow:Inference Time : 0.11643s
+    INFO:tensorflow:Finished evaluation at 2026-04-03-17:07:08
+    INFO:tensorflow:Saving dict for global step 9000: average_loss = 14009647.0, global_step = 9000, label/mean = 13207.129, loss = 216610700.0, prediction/mean = 13115.373
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 9000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfurtv48l/model.ckpt-9000
+    scores_deep2 {'average_loss': 14009647.0, 'label/mean': 13207.129, 'loss': 216610700.0, 'prediction/mean': 13115.373, 'global_step': 9000}
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
     INFO:tensorflow:Create CheckpointSaverHook.
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6en_szry/model.ckpt-9000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfurtv48l/model.ckpt-9000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 9000...
-    INFO:tensorflow:Saving checkpoints for 9000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6en_szry/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 9000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfurtv48l/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 9000...
-    INFO:tensorflow:loss = 349870200.0, step = 9001
-    INFO:tensorflow:global_step/sec: 1346.44
-    INFO:tensorflow:loss = 373093200.0, step = 9101 (0.075 sec)
-    INFO:tensorflow:global_step/sec: 2348.18
-    INFO:tensorflow:loss = 426716740.0, step = 9201 (0.043 sec)
-    INFO:tensorflow:global_step/sec: 2330.64
-    INFO:tensorflow:loss = 76371130.0, step = 9301 (0.043 sec)
-    INFO:tensorflow:global_step/sec: 2180.46
-    INFO:tensorflow:loss = 174832480.0, step = 9401 (0.046 sec)
-    INFO:tensorflow:global_step/sec: 2329.25
-    INFO:tensorflow:loss = 339041300.0, step = 9501 (0.043 sec)
-    INFO:tensorflow:global_step/sec: 1979.22
-    INFO:tensorflow:loss = 204591090.0, step = 9601 (0.050 sec)
-    INFO:tensorflow:global_step/sec: 2294.26
-    INFO:tensorflow:loss = 117317470.0, step = 9701 (0.044 sec)
-    INFO:tensorflow:global_step/sec: 1984.29
-    INFO:tensorflow:loss = 163313710.0, step = 9801 (0.050 sec)
-    INFO:tensorflow:global_step/sec: 2131.93
-    INFO:tensorflow:loss = 265508100.0, step = 9901 (0.047 sec)
+    INFO:tensorflow:loss = 130184940.0, step = 9001
+    INFO:tensorflow:global_step/sec: 1430.9
+    INFO:tensorflow:loss = 148468640.0, step = 9101 (0.070 sec)
+    INFO:tensorflow:global_step/sec: 2357.6
+    INFO:tensorflow:loss = 107799630.0, step = 9201 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 1940.16
+    INFO:tensorflow:loss = 225478190.0, step = 9301 (0.051 sec)
+    INFO:tensorflow:global_step/sec: 2232.45
+    INFO:tensorflow:loss = 436617860.0, step = 9401 (0.045 sec)
+    INFO:tensorflow:global_step/sec: 1604.41
+    INFO:tensorflow:loss = 364440930.0, step = 9501 (0.063 sec)
+    INFO:tensorflow:global_step/sec: 1939.52
+    INFO:tensorflow:loss = 66790256.0, step = 9601 (0.051 sec)
+    INFO:tensorflow:global_step/sec: 2118.24
+    INFO:tensorflow:loss = 111009576.0, step = 9701 (0.047 sec)
+    INFO:tensorflow:global_step/sec: 2069.63
+    INFO:tensorflow:loss = 284546900.0, step = 9801 (0.048 sec)
+    INFO:tensorflow:global_step/sec: 1988.91
+    INFO:tensorflow:loss = 134926480.0, step = 9901 (0.050 sec)
     INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 10000...
-    INFO:tensorflow:Saving checkpoints for 10000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6en_szry/model.ckpt.
+    INFO:tensorflow:Saving checkpoints for 10000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfurtv48l/model.ckpt.
     INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 10000...
-    INFO:tensorflow:Loss for final step: 109091500.0.
+    INFO:tensorflow:Loss for final step: 113909900.0.
     INFO:tensorflow:Calling model_fn.
     INFO:tensorflow:Done calling model_fn.
-    INFO:tensorflow:Starting evaluation at 2026-04-03T07:54:35
+    INFO:tensorflow:Starting evaluation at 2026-04-03T17:07:10
     INFO:tensorflow:Graph was finalized.
-    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6en_szry/model.ckpt-10000
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfurtv48l/model.ckpt-10000
     INFO:tensorflow:Running local_init_op.
     INFO:tensorflow:Done running local_init_op.
-    INFO:tensorflow:Inference Time : 0.10084s
-    INFO:tensorflow:Finished evaluation at 2026-04-03-07:54:35
-    INFO:tensorflow:Saving dict for global step 10000: average_loss = 13630101.0, global_step = 10000, label/mean = 13207.129, loss = 210742340.0, prediction/mean = 13558.857
-    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 10000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp6en_szry/model.ckpt-10000
-    scores_deep2 {'average_loss': 13630101.0, 'label/mean': 13207.129, 'loss': 210742340.0, 'prediction/mean': 13558.857, 'global_step': 10000}
+    INFO:tensorflow:Inference Time : 0.09613s
+    INFO:tensorflow:Finished evaluation at 2026-04-03-17:07:10
+    INFO:tensorflow:Saving dict for global step 10000: average_loss = 13641751.0, global_step = 10000, label/mean = 13207.129, loss = 210922460.0, prediction/mean = 13237.663
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 10000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmpfurtv48l/model.ckpt-10000
+    scores_deep2 {'average_loss': 13641751.0, 'label/mean': 13207.129, 'loss': 210922460.0, 'prediction/mean': 13237.663, 'global_step': 10000}
+
+
+
+```python
+# [Change #13]: Optimizer exploration — AdamOptimizer vs Adagrad on numeric features (no normalization)
+# Reuses model_feature_columns, train_input_fn, eval_input_fn from Task 1.
+#
+# Why Adam?
+#   Adagrad accumulates squared gradients forever — effective lr shrinks monotonically.
+#   Adam uses exponential moving averages of both the gradient (1st moment) and its
+#   square (2nd moment), so the denominator can decay, allowing recovery from early
+#   large gradients. On small datasets (201 rows) this typically improves convergence
+#   speed vs Adagrad (Kingma & Ba, 2015).
+#
+# lr=0.001 is Adam's standard default — no tuning needed for a first comparison.
+
+# T1.8 — AdamOptimizer (lr=0.001)
+est_adam = tf.estimator.DNNRegressor(
+    feature_columns=model_feature_columns,
+    hidden_units=[64],
+    optimizer=tf.train.AdamOptimizer(learning_rate=0.001),
+)
+for _ in range(num_print_statements):
+    est_adam.train(train_input_fn, steps=num_training_steps // num_print_statements)
+    scores_adam = est_adam.evaluate(eval_input_fn)
+    print("scores_adam", scores_adam)
+
+# Results (fill in after running):
+# Model    │ Optimizer │  lr   │ avg_loss   │  RMSE
+# DNN [64] │ Adagrad   │ 0.01  │ 10,822,464 │ ~$3,290  ← T1 best (reference)
+# DNN [64] │ Adam      │ 0.001 │            │
+
+```
+
+    INFO:tensorflow:Using default config.
+    WARNING:tensorflow:Using temporary folder as model directory: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp5q6ugfhj
+    INFO:tensorflow:Using config: {'_model_dir': '/var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp5q6ugfhj', '_tf_random_seed': None, '_save_summary_steps': 100, '_save_checkpoints_steps': None, '_save_checkpoints_secs': 600, '_session_config': allow_soft_placement: true
+    graph_options {
+      rewrite_options {
+        meta_optimizer_iterations: ONE
+      }
+    }
+    , '_keep_checkpoint_max': 5, '_keep_checkpoint_every_n_hours': 10000, '_log_step_count_steps': 100, '_train_distribute': None, '_device_fn': None, '_protocol': None, '_eval_distribute': None, '_experimental_distribute': None, '_experimental_max_worker_delay_secs': None, '_session_creation_timeout_secs': 7200, '_checkpoint_save_graph_def': True, '_service': None, '_cluster_spec': ClusterSpec({}), '_task_type': 'worker', '_task_id': 0, '_global_id_in_cluster': 0, '_master': '', '_evaluation_master': '', '_is_chief': True, '_num_ps_replicas': 0, '_num_worker_replicas': 1}
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Create CheckpointSaverHook.
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 0...
+    INFO:tensorflow:Saving checkpoints for 0 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp5q6ugfhj/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 0...
+    INFO:tensorflow:loss = 4131636200.0, step = 1
+    INFO:tensorflow:global_step/sec: 1448.31
+    INFO:tensorflow:loss = 1197342500.0, step = 101 (0.070 sec)
+    INFO:tensorflow:global_step/sec: 2223.16
+    INFO:tensorflow:loss = 332461120.0, step = 201 (0.045 sec)
+    INFO:tensorflow:global_step/sec: 2208.87
+    INFO:tensorflow:loss = 577664500.0, step = 301 (0.045 sec)
+    INFO:tensorflow:global_step/sec: 1864.35
+    INFO:tensorflow:loss = 1239014800.0, step = 401 (0.054 sec)
+    INFO:tensorflow:global_step/sec: 1990.4
+    INFO:tensorflow:loss = 659270460.0, step = 501 (0.050 sec)
+    INFO:tensorflow:global_step/sec: 2131.15
+    INFO:tensorflow:loss = 1029418200.0, step = 601 (0.048 sec)
+    INFO:tensorflow:global_step/sec: 2114.8
+    INFO:tensorflow:loss = 1279462100.0, step = 701 (0.047 sec)
+    INFO:tensorflow:global_step/sec: 2142.56
+    INFO:tensorflow:loss = 493016860.0, step = 801 (0.047 sec)
+    INFO:tensorflow:global_step/sec: 2274.32
+    INFO:tensorflow:loss = 1077107700.0, step = 901 (0.044 sec)
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 1000...
+    INFO:tensorflow:Saving checkpoints for 1000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp5q6ugfhj/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 1000...
+    INFO:tensorflow:Loss for final step: 415172740.0.
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Starting evaluation at 2026-04-03T17:07:12
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp5q6ugfhj/model.ckpt-1000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Inference Time : 0.11990s
+    INFO:tensorflow:Finished evaluation at 2026-04-03-17:07:12
+    INFO:tensorflow:Saving dict for global step 1000: average_loss = 33747096.0, global_step = 1000, label/mean = 13207.129, loss = 521782050.0, prediction/mean = 13300.732
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 1000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp5q6ugfhj/model.ckpt-1000
+    scores_adam {'average_loss': 33747096.0, 'label/mean': 13207.129, 'loss': 521782050.0, 'prediction/mean': 13300.732, 'global_step': 1000}
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Create CheckpointSaverHook.
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp5q6ugfhj/model.ckpt-1000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 1000...
+    INFO:tensorflow:Saving checkpoints for 1000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp5q6ugfhj/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 1000...
+    INFO:tensorflow:loss = 325937440.0, step = 1001
+    INFO:tensorflow:global_step/sec: 892.244
+    INFO:tensorflow:loss = 792764700.0, step = 1101 (0.113 sec)
+    INFO:tensorflow:global_step/sec: 1940.43
+    INFO:tensorflow:loss = 588110850.0, step = 1201 (0.051 sec)
+    INFO:tensorflow:global_step/sec: 2006.02
+    INFO:tensorflow:loss = 619334300.0, step = 1301 (0.051 sec)
+    INFO:tensorflow:global_step/sec: 1858.46
+    INFO:tensorflow:loss = 165961300.0, step = 1401 (0.053 sec)
+    INFO:tensorflow:global_step/sec: 1880.51
+    INFO:tensorflow:loss = 195856030.0, step = 1501 (0.053 sec)
+    INFO:tensorflow:global_step/sec: 1947.42
+    INFO:tensorflow:loss = 258622450.0, step = 1601 (0.052 sec)
+    INFO:tensorflow:global_step/sec: 1860.08
+    INFO:tensorflow:loss = 172338780.0, step = 1701 (0.053 sec)
+    INFO:tensorflow:global_step/sec: 2003.85
+    INFO:tensorflow:loss = 133271030.0, step = 1801 (0.050 sec)
+    INFO:tensorflow:global_step/sec: 1636.37
+    INFO:tensorflow:loss = 290063870.0, step = 1901 (0.062 sec)
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 2000...
+    INFO:tensorflow:Saving checkpoints for 2000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp5q6ugfhj/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 2000...
+    INFO:tensorflow:Loss for final step: 350297860.0.
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Starting evaluation at 2026-04-03T17:07:14
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp5q6ugfhj/model.ckpt-2000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Inference Time : 0.09465s
+    INFO:tensorflow:Finished evaluation at 2026-04-03-17:07:14
+    INFO:tensorflow:Saving dict for global step 2000: average_loss = 20104114.0, global_step = 2000, label/mean = 13207.129, loss = 310840500.0, prediction/mean = 13184.521
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 2000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp5q6ugfhj/model.ckpt-2000
+    scores_adam {'average_loss': 20104114.0, 'label/mean': 13207.129, 'loss': 310840500.0, 'prediction/mean': 13184.521, 'global_step': 2000}
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Create CheckpointSaverHook.
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp5q6ugfhj/model.ckpt-2000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 2000...
+    INFO:tensorflow:Saving checkpoints for 2000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp5q6ugfhj/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 2000...
+    INFO:tensorflow:loss = 458645100.0, step = 2001
+    INFO:tensorflow:global_step/sec: 1378.72
+    INFO:tensorflow:loss = 438977600.0, step = 2101 (0.073 sec)
+    INFO:tensorflow:global_step/sec: 2137.53
+    INFO:tensorflow:loss = 169205200.0, step = 2201 (0.046 sec)
+    INFO:tensorflow:global_step/sec: 2039.15
+    INFO:tensorflow:loss = 175523420.0, step = 2301 (0.049 sec)
+    INFO:tensorflow:global_step/sec: 2115.42
+    INFO:tensorflow:loss = 105852160.0, step = 2401 (0.047 sec)
+    INFO:tensorflow:global_step/sec: 2264.9
+    INFO:tensorflow:loss = 469860480.0, step = 2501 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 2314.92
+    INFO:tensorflow:loss = 175653070.0, step = 2601 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 2191.45
+    INFO:tensorflow:loss = 185148780.0, step = 2701 (0.046 sec)
+    INFO:tensorflow:global_step/sec: 2243.36
+    INFO:tensorflow:loss = 378245630.0, step = 2801 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 2091.65
+    INFO:tensorflow:loss = 111531390.0, step = 2901 (0.048 sec)
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 3000...
+    INFO:tensorflow:Saving checkpoints for 3000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp5q6ugfhj/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 3000...
+    INFO:tensorflow:Loss for final step: 527597500.0.
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Starting evaluation at 2026-04-03T17:07:16
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp5q6ugfhj/model.ckpt-3000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Inference Time : 0.09480s
+    INFO:tensorflow:Finished evaluation at 2026-04-03-17:07:16
+    INFO:tensorflow:Saving dict for global step 3000: average_loss = 18457720.0, global_step = 3000, label/mean = 13207.129, loss = 285384770.0, prediction/mean = 13302.213
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 3000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp5q6ugfhj/model.ckpt-3000
+    scores_adam {'average_loss': 18457720.0, 'label/mean': 13207.129, 'loss': 285384770.0, 'prediction/mean': 13302.213, 'global_step': 3000}
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Create CheckpointSaverHook.
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp5q6ugfhj/model.ckpt-3000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 3000...
+    INFO:tensorflow:Saving checkpoints for 3000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp5q6ugfhj/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 3000...
+    INFO:tensorflow:loss = 425865600.0, step = 3001
+    INFO:tensorflow:global_step/sec: 1356.95
+    INFO:tensorflow:loss = 126298870.0, step = 3101 (0.074 sec)
+    INFO:tensorflow:global_step/sec: 2341.71
+    INFO:tensorflow:loss = 500095900.0, step = 3201 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 1993.7
+    INFO:tensorflow:loss = 637732000.0, step = 3301 (0.050 sec)
+    INFO:tensorflow:global_step/sec: 1919.94
+    INFO:tensorflow:loss = 130200220.0, step = 3401 (0.052 sec)
+    INFO:tensorflow:global_step/sec: 1989.41
+    INFO:tensorflow:loss = 167917860.0, step = 3501 (0.050 sec)
+    INFO:tensorflow:global_step/sec: 2265.57
+    INFO:tensorflow:loss = 108880820.0, step = 3601 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 2207.9
+    INFO:tensorflow:loss = 59902860.0, step = 3701 (0.046 sec)
+    INFO:tensorflow:global_step/sec: 2013.86
+    INFO:tensorflow:loss = 138183840.0, step = 3801 (0.049 sec)
+    INFO:tensorflow:global_step/sec: 2081.12
+    INFO:tensorflow:loss = 554153600.0, step = 3901 (0.048 sec)
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 4000...
+    INFO:tensorflow:Saving checkpoints for 4000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp5q6ugfhj/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 4000...
+    INFO:tensorflow:Loss for final step: 347883070.0.
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Starting evaluation at 2026-04-03T17:07:17
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp5q6ugfhj/model.ckpt-4000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Inference Time : 0.09671s
+    INFO:tensorflow:Finished evaluation at 2026-04-03-17:07:17
+    INFO:tensorflow:Saving dict for global step 4000: average_loss = 17417744.0, global_step = 4000, label/mean = 13207.129, loss = 269305120.0, prediction/mean = 12901.45
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 4000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp5q6ugfhj/model.ckpt-4000
+    scores_adam {'average_loss': 17417744.0, 'label/mean': 13207.129, 'loss': 269305120.0, 'prediction/mean': 12901.45, 'global_step': 4000}
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Create CheckpointSaverHook.
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp5q6ugfhj/model.ckpt-4000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 4000...
+    INFO:tensorflow:Saving checkpoints for 4000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp5q6ugfhj/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 4000...
+    INFO:tensorflow:loss = 70808330.0, step = 4001
+    INFO:tensorflow:global_step/sec: 1371.52
+    INFO:tensorflow:loss = 128870940.0, step = 4101 (0.073 sec)
+    INFO:tensorflow:global_step/sec: 1860.74
+    INFO:tensorflow:loss = 178418600.0, step = 4201 (0.054 sec)
+    INFO:tensorflow:global_step/sec: 2002.51
+    INFO:tensorflow:loss = 830214400.0, step = 4301 (0.050 sec)
+    INFO:tensorflow:global_step/sec: 2212.5
+    INFO:tensorflow:loss = 418443260.0, step = 4401 (0.046 sec)
+    INFO:tensorflow:global_step/sec: 2282.17
+    INFO:tensorflow:loss = 199525180.0, step = 4501 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 2316.14
+    INFO:tensorflow:loss = 56447884.0, step = 4601 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2359.21
+    INFO:tensorflow:loss = 539735400.0, step = 4701 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 1994.74
+    INFO:tensorflow:loss = 382063300.0, step = 4801 (0.050 sec)
+    INFO:tensorflow:global_step/sec: 2289.2
+    INFO:tensorflow:loss = 150327540.0, step = 4901 (0.043 sec)
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 5000...
+    INFO:tensorflow:Saving checkpoints for 5000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp5q6ugfhj/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 5000...
+    INFO:tensorflow:Loss for final step: 445760670.0.
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Starting evaluation at 2026-04-03T17:07:19
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp5q6ugfhj/model.ckpt-5000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Inference Time : 0.09285s
+    INFO:tensorflow:Finished evaluation at 2026-04-03-17:07:19
+    INFO:tensorflow:Saving dict for global step 5000: average_loss = 16133445.0, global_step = 5000, label/mean = 13207.129, loss = 249447870.0, prediction/mean = 13062.104
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 5000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp5q6ugfhj/model.ckpt-5000
+    scores_adam {'average_loss': 16133445.0, 'label/mean': 13207.129, 'loss': 249447870.0, 'prediction/mean': 13062.104, 'global_step': 5000}
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Create CheckpointSaverHook.
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp5q6ugfhj/model.ckpt-5000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 5000...
+    INFO:tensorflow:Saving checkpoints for 5000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp5q6ugfhj/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 5000...
+    INFO:tensorflow:loss = 839731840.0, step = 5001
+    INFO:tensorflow:global_step/sec: 1403.21
+    INFO:tensorflow:loss = 518776830.0, step = 5101 (0.072 sec)
+    INFO:tensorflow:global_step/sec: 1887.97
+    INFO:tensorflow:loss = 504403140.0, step = 5201 (0.053 sec)
+    INFO:tensorflow:global_step/sec: 1899.11
+    INFO:tensorflow:loss = 187802340.0, step = 5301 (0.052 sec)
+    INFO:tensorflow:global_step/sec: 2178.56
+    INFO:tensorflow:loss = 199855730.0, step = 5401 (0.047 sec)
+    INFO:tensorflow:global_step/sec: 1921.6
+    INFO:tensorflow:loss = 483387330.0, step = 5501 (0.051 sec)
+    INFO:tensorflow:global_step/sec: 2229.1
+    INFO:tensorflow:loss = 324984860.0, step = 5601 (0.046 sec)
+    INFO:tensorflow:global_step/sec: 1407.94
+    INFO:tensorflow:loss = 146104580.0, step = 5701 (0.071 sec)
+    INFO:tensorflow:global_step/sec: 2339.67
+    INFO:tensorflow:loss = 100313144.0, step = 5801 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 1836.21
+    INFO:tensorflow:loss = 210297700.0, step = 5901 (0.054 sec)
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 6000...
+    INFO:tensorflow:Saving checkpoints for 6000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp5q6ugfhj/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 6000...
+    INFO:tensorflow:Loss for final step: 153900540.0.
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Starting evaluation at 2026-04-03T17:07:20
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp5q6ugfhj/model.ckpt-6000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Inference Time : 0.09349s
+    INFO:tensorflow:Finished evaluation at 2026-04-03-17:07:21
+    INFO:tensorflow:Saving dict for global step 6000: average_loss = 15024997.0, global_step = 6000, label/mean = 13207.129, loss = 232309570.0, prediction/mean = 13422.854
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 6000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp5q6ugfhj/model.ckpt-6000
+    scores_adam {'average_loss': 15024997.0, 'label/mean': 13207.129, 'loss': 232309570.0, 'prediction/mean': 13422.854, 'global_step': 6000}
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Create CheckpointSaverHook.
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp5q6ugfhj/model.ckpt-6000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 6000...
+    INFO:tensorflow:Saving checkpoints for 6000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp5q6ugfhj/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 6000...
+    INFO:tensorflow:loss = 524337730.0, step = 6001
+    INFO:tensorflow:global_step/sec: 1357.85
+    INFO:tensorflow:loss = 263423230.0, step = 6101 (0.074 sec)
+    INFO:tensorflow:global_step/sec: 2288.91
+    INFO:tensorflow:loss = 275285400.0, step = 6201 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 1873.89
+    INFO:tensorflow:loss = 131535890.0, step = 6301 (0.053 sec)
+    INFO:tensorflow:global_step/sec: 2001.92
+    INFO:tensorflow:loss = 77408410.0, step = 6401 (0.050 sec)
+    INFO:tensorflow:global_step/sec: 1945.29
+    INFO:tensorflow:loss = 115446480.0, step = 6501 (0.053 sec)
+    INFO:tensorflow:global_step/sec: 1913.73
+    INFO:tensorflow:loss = 112488420.0, step = 6601 (0.053 sec)
+    INFO:tensorflow:global_step/sec: 1983.54
+    INFO:tensorflow:loss = 176045150.0, step = 6701 (0.050 sec)
+    INFO:tensorflow:global_step/sec: 1778.02
+    INFO:tensorflow:loss = 480570800.0, step = 6801 (0.055 sec)
+    INFO:tensorflow:global_step/sec: 1872.98
+    INFO:tensorflow:loss = 484541540.0, step = 6901 (0.053 sec)
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 7000...
+    INFO:tensorflow:Saving checkpoints for 7000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp5q6ugfhj/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 7000...
+    INFO:tensorflow:Loss for final step: 116738880.0.
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Starting evaluation at 2026-04-03T17:07:22
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp5q6ugfhj/model.ckpt-7000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Inference Time : 0.11107s
+    INFO:tensorflow:Finished evaluation at 2026-04-03-17:07:22
+    INFO:tensorflow:Saving dict for global step 7000: average_loss = 14115017.0, global_step = 7000, label/mean = 13207.129, loss = 218239890.0, prediction/mean = 13256.011
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 7000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp5q6ugfhj/model.ckpt-7000
+    scores_adam {'average_loss': 14115017.0, 'label/mean': 13207.129, 'loss': 218239890.0, 'prediction/mean': 13256.011, 'global_step': 7000}
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Create CheckpointSaverHook.
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp5q6ugfhj/model.ckpt-7000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 7000...
+    INFO:tensorflow:Saving checkpoints for 7000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp5q6ugfhj/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 7000...
+    INFO:tensorflow:loss = 373379740.0, step = 7001
+    INFO:tensorflow:global_step/sec: 1292.21
+    INFO:tensorflow:loss = 189768020.0, step = 7101 (0.078 sec)
+    INFO:tensorflow:global_step/sec: 2035
+    INFO:tensorflow:loss = 94848824.0, step = 7201 (0.050 sec)
+    INFO:tensorflow:global_step/sec: 1373.27
+    INFO:tensorflow:loss = 190982880.0, step = 7301 (0.072 sec)
+    INFO:tensorflow:global_step/sec: 1933.6
+    INFO:tensorflow:loss = 268110940.0, step = 7401 (0.053 sec)
+    INFO:tensorflow:global_step/sec: 1905.96
+    INFO:tensorflow:loss = 192702080.0, step = 7501 (0.051 sec)
+    INFO:tensorflow:global_step/sec: 1956.96
+    INFO:tensorflow:loss = 157975180.0, step = 7601 (0.051 sec)
+    INFO:tensorflow:global_step/sec: 1902.87
+    INFO:tensorflow:loss = 130984420.0, step = 7701 (0.053 sec)
+    INFO:tensorflow:global_step/sec: 1729.51
+    INFO:tensorflow:loss = 151031000.0, step = 7801 (0.057 sec)
+    INFO:tensorflow:global_step/sec: 1970.63
+    INFO:tensorflow:loss = 247960380.0, step = 7901 (0.051 sec)
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 8000...
+    INFO:tensorflow:Saving checkpoints for 8000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp5q6ugfhj/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 8000...
+    INFO:tensorflow:Loss for final step: 191344900.0.
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Starting evaluation at 2026-04-03T17:07:24
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp5q6ugfhj/model.ckpt-8000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Inference Time : 0.10452s
+    INFO:tensorflow:Finished evaluation at 2026-04-03-17:07:24
+    INFO:tensorflow:Saving dict for global step 8000: average_loss = 13542818.0, global_step = 8000, label/mean = 13207.129, loss = 209392800.0, prediction/mean = 12881.844
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 8000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp5q6ugfhj/model.ckpt-8000
+    scores_adam {'average_loss': 13542818.0, 'label/mean': 13207.129, 'loss': 209392800.0, 'prediction/mean': 12881.844, 'global_step': 8000}
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Create CheckpointSaverHook.
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp5q6ugfhj/model.ckpt-8000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 8000...
+    INFO:tensorflow:Saving checkpoints for 8000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp5q6ugfhj/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 8000...
+    INFO:tensorflow:loss = 122365200.0, step = 8001
+    INFO:tensorflow:global_step/sec: 1456.48
+    INFO:tensorflow:loss = 94836260.0, step = 8101 (0.069 sec)
+    INFO:tensorflow:global_step/sec: 2306.86
+    INFO:tensorflow:loss = 243301330.0, step = 8201 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 2153.08
+    INFO:tensorflow:loss = 158738220.0, step = 8301 (0.046 sec)
+    INFO:tensorflow:global_step/sec: 2308.79
+    INFO:tensorflow:loss = 159017180.0, step = 8401 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 2128.84
+    INFO:tensorflow:loss = 144881760.0, step = 8501 (0.047 sec)
+    INFO:tensorflow:global_step/sec: 2116.75
+    INFO:tensorflow:loss = 176955180.0, step = 8601 (0.047 sec)
+    INFO:tensorflow:global_step/sec: 2344.89
+    INFO:tensorflow:loss = 125791770.0, step = 8701 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 2250.94
+    INFO:tensorflow:loss = 225316380.0, step = 8801 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 2242.09
+    INFO:tensorflow:loss = 53728104.0, step = 8901 (0.045 sec)
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 9000...
+    INFO:tensorflow:Saving checkpoints for 9000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp5q6ugfhj/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 9000...
+    INFO:tensorflow:Loss for final step: 212062300.0.
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Starting evaluation at 2026-04-03T17:07:25
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp5q6ugfhj/model.ckpt-9000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Inference Time : 0.09406s
+    INFO:tensorflow:Finished evaluation at 2026-04-03-17:07:25
+    INFO:tensorflow:Saving dict for global step 9000: average_loss = 12877006.0, global_step = 9000, label/mean = 13207.129, loss = 199098340.0, prediction/mean = 13200.527
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 9000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp5q6ugfhj/model.ckpt-9000
+    scores_adam {'average_loss': 12877006.0, 'label/mean': 13207.129, 'loss': 199098340.0, 'prediction/mean': 13200.527, 'global_step': 9000}
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Create CheckpointSaverHook.
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp5q6ugfhj/model.ckpt-9000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 9000...
+    INFO:tensorflow:Saving checkpoints for 9000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp5q6ugfhj/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 9000...
+    INFO:tensorflow:loss = 280211650.0, step = 9001
+    INFO:tensorflow:global_step/sec: 1437.94
+    INFO:tensorflow:loss = 146115230.0, step = 9101 (0.070 sec)
+    INFO:tensorflow:global_step/sec: 2028.93
+    INFO:tensorflow:loss = 140009000.0, step = 9201 (0.050 sec)
+    INFO:tensorflow:global_step/sec: 2285.24
+    INFO:tensorflow:loss = 297612350.0, step = 9301 (0.044 sec)
+    INFO:tensorflow:global_step/sec: 2201.01
+    INFO:tensorflow:loss = 264165380.0, step = 9401 (0.045 sec)
+    INFO:tensorflow:global_step/sec: 2178.3
+    INFO:tensorflow:loss = 147677000.0, step = 9501 (0.046 sec)
+    INFO:tensorflow:global_step/sec: 2360.45
+    INFO:tensorflow:loss = 267116460.0, step = 9601 (0.043 sec)
+    INFO:tensorflow:global_step/sec: 1908.72
+    INFO:tensorflow:loss = 70730696.0, step = 9701 (0.051 sec)
+    INFO:tensorflow:global_step/sec: 2226.73
+    INFO:tensorflow:loss = 352974000.0, step = 9801 (0.045 sec)
+    INFO:tensorflow:global_step/sec: 1930.28
+    INFO:tensorflow:loss = 162785890.0, step = 9901 (0.051 sec)
+    INFO:tensorflow:Calling checkpoint listeners before saving checkpoint 10000...
+    INFO:tensorflow:Saving checkpoints for 10000 into /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp5q6ugfhj/model.ckpt.
+    INFO:tensorflow:Calling checkpoint listeners after saving checkpoint 10000...
+    INFO:tensorflow:Loss for final step: 115021290.0.
+    INFO:tensorflow:Calling model_fn.
+    INFO:tensorflow:Done calling model_fn.
+    INFO:tensorflow:Starting evaluation at 2026-04-03T17:07:27
+    INFO:tensorflow:Graph was finalized.
+    INFO:tensorflow:Restoring parameters from /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp5q6ugfhj/model.ckpt-10000
+    INFO:tensorflow:Running local_init_op.
+    INFO:tensorflow:Done running local_init_op.
+    INFO:tensorflow:Inference Time : 0.09502s
+    INFO:tensorflow:Finished evaluation at 2026-04-03-17:07:27
+    INFO:tensorflow:Saving dict for global step 10000: average_loss = 12662486.0, global_step = 10000, label/mean = 13207.129, loss = 195781520.0, prediction/mean = 12851.8125
+    INFO:tensorflow:Saving 'checkpoint_path' summary for global step 10000: /var/folders/c4/t_n58l316yl308hxjf5jlwsh0000gn/T/tmp5q6ugfhj/model.ckpt-10000
+    scores_adam {'average_loss': 12662486.0, 'label/mean': 13207.129, 'loss': 195781520.0, 'prediction/mean': 12851.8125, 'global_step': 10000}
 
 
 ### Task 2: Take best numeric model from earlier. Add normalization.
@@ -2814,104 +3323,6 @@ for _ in range(num_print_statements):
 
 
 **Does normalization improve model quality on this dataset? Why or why not?**
-
-
-```python
-# This 1D visualization of each numeric feature might inform your normalization
-# decisions.
-for feature_name in numeric_feature_names:
-  car_data.hist(column=feature_name)
-```
-
-
-    
-![png](car_data_ML_pipeline_files/car_data_ML_pipeline_20_0.png)
-    
-
-
-
-    
-![png](car_data_ML_pipeline_files/car_data_ML_pipeline_20_1.png)
-    
-
-
-
-    
-![png](car_data_ML_pipeline_files/car_data_ML_pipeline_20_2.png)
-    
-
-
-
-    
-![png](car_data_ML_pipeline_files/car_data_ML_pipeline_20_3.png)
-    
-
-
-
-    
-![png](car_data_ML_pipeline_files/car_data_ML_pipeline_20_4.png)
-    
-
-
-
-    
-![png](car_data_ML_pipeline_files/car_data_ML_pipeline_20_5.png)
-    
-
-
-
-    
-![png](car_data_ML_pipeline_files/car_data_ML_pipeline_20_6.png)
-    
-
-
-
-    
-![png](car_data_ML_pipeline_files/car_data_ML_pipeline_20_7.png)
-    
-
-
-
-    
-![png](car_data_ML_pipeline_files/car_data_ML_pipeline_20_8.png)
-    
-
-
-
-    
-![png](car_data_ML_pipeline_files/car_data_ML_pipeline_20_9.png)
-    
-
-
-
-    
-![png](car_data_ML_pipeline_files/car_data_ML_pipeline_20_10.png)
-    
-
-
-
-    
-![png](car_data_ML_pipeline_files/car_data_ML_pipeline_20_11.png)
-    
-
-
-
-    
-![png](car_data_ML_pipeline_files/car_data_ML_pipeline_20_12.png)
-    
-
-
-
-    
-![png](car_data_ML_pipeline_files/car_data_ML_pipeline_20_13.png)
-    
-
-
-
-    
-![png](car_data_ML_pipeline_files/car_data_ML_pipeline_20_14.png)
-    
-
 
 #### Training model with numeric features + normalization
 
@@ -6496,16 +6907,6 @@ for _ in range(num_print_statements):
 
 
 ```python
-# Finally...
-# 
-# # Coverage gaps:
-#  1. No LinearRegressor baseline — this is the standard comparison: "does a linear model suffice, or does
-#  the DNN add value?" Teacher likely expects this.
-#  2. No multi-layer DNN tested (e.g., [64, 32], [128, 64]) — all 4 runs are single hidden layer
-#  3. No optimizer exploration beyond Adagrad vs GradientDescent (notes mention Adam as "not yet tried")
-
-#  Recommendation: Add a LinearRegressor run in Task 1 (before the DNN). It's 5 lines of code and provides
-#  the cleanest argument for why a DNN is needed. Without it, the regressor exploration is thin.
-
-
+# codex resume ISY-assessment2
+# claude --resume "ISY-assessment2"
 ```
