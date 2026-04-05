@@ -759,7 +759,7 @@ In this Module, you will also be taking a practical approach to become familiar 
 
     In these sections of the LinkedIn Learning course, you will be introduced to a very popular library used in computer vision applications – OpenCV. You will be taken through what the OpenCV framework is comprised of, what languages and other libraries it will work with and how it helps solve computer vision problems. Start with “What is Open CV” under chapter 1 “Deep Learning with OpenCV” and then continue through the videos. You will be taken through a practical exercise of opening OpenCV and manipulating some images using the OpenCV library’s functions in a native environment. You will need to download the “Exercise files” listed at the top of the course to allow you to follow along with the narrator. It is highly recommended you do this to enable you to understand the practical usage of the OpenCV library as well as to understand the role it can play within Computer Vision applications. Follow the narrator as he then shows you how to open video files and represent them using blobs using OpenCV’s DNN module. Finally, in chapter 4, you will be taken through the process of classifying an image and a video and predicting the possibilities of the different types of objects they contain.
 
-> *Status: 🔥 WIP — needs manual access (LinkedIn Learning requires authentication)*
+> *Status: ✅ Watched + Reviewed — see [module08_notes.md](module_08_computer-vision/module08_notes.md)*
 
 #### 3. Performing face detection using Python and Keras
 - Brownlee, J. (2019, 3 June). How to perform face detection using deep learning. Retrieved from https://machinelearningmastery.com/how-to-perform-face-detection-with-classical-and-deep-learning-methods-in-python-with-keras/

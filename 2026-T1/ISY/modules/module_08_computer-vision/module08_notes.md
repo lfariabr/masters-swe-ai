@@ -16,7 +16,7 @@
 | # | Resource / Activity | Type | Status |
 |---|---------------------|------|--------|
 | **1** | **Watch & summarise Crash Course (2017) — How computer vision works** | **Video** | **✅** |
-| 2 | Watch & summarise Fernandes (2019) — Intro to Deep Learning with OpenCV | Video | 🔥 WIP — needs manual access |
+| **2** | Watch & summarise Fernandes (2019) — Intro to Deep Learning with OpenCV | Video | **✅** |
 | **3** | **Read & summarise Brownlee (2019) — Face detection with deep learning** | **Article** | **✅** |
 | **4** | **Read & summarise Howse et al. (2016) — Chapter 8: Object Tracking** | **Book chapter** | **✅** |
 | 5 | Activity 1: Image Processing Practices (sky pixel detection) | Jupyter | 🕐 |
