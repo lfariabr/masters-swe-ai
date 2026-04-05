@@ -16,7 +16,7 @@
 | # | Resource / Activity | Type | Status |
 |---|---------------------|------|--------|
 | **1** | **Watch & summarise Crash Course (2017) — How computer vision works** | **Video** | **✅** |
-| **2** | Watch & summarise Fernandes (2019) — Intro to Deep Learning with OpenCV | Video | **✅** |
+| **2** | **Watch & summarise Fernandes (2019) — Intro to Deep Learning with OpenCV** | **Video** | **✅** |
 | **3** | **Read & summarise Brownlee (2019) — Face detection with deep learning** | **Article** | **✅** |
 | **4** | **Read & summarise Howse et al. (2016) — Chapter 8: Object Tracking** | **Book chapter** | **✅** |
 | 5 | Activity 1: Image Processing Practices (sky pixel detection) | Jupyter | 🕐 |
@@ -129,7 +129,9 @@ Each layer is an active research area; breakthroughs at any level improve the wh
 
 **Purpose:** Hands-on walkthrough of the OpenCV library — setup, image manipulation, blob representation with the DNN module, and image/video classification.
 
-> *Status: 🔥 WIP — needs manual access (LinkedIn Learning requires authentication).*
+> Just finished the course *“Introduction to Deep Learning with OpenCV”* by Jonathan Fernandes! Check it out: https://www.linkedin.com/learning/certificates/721c1676592777c2ce9581abcaf812070e6e29f5966922efc1db49d7b2e77335?trk=share_certificate #machinelearning #artificialintelligence #deeplearning #opencv.
+
+> *Status: ✅ Done*
 
 ---
 
