@@ -97,19 +97,19 @@ While this is primarily a personal repository, I welcome discussions and feedbac
 #### Version control
 | Version | Modules      | Timeline | Status |
 |---------|---------------------|---|---|
-| 1.0.0   | T2-2025 Launch SDM+SEP subjects     | 06-2025 | ✅ |
-| 1.2.0   | T2-2025 Completed (SDM+SEP)         | 08-2025 | ✅ |
-| 2.0.0   | T3-2025 Launch (HCD+MFA+REM+SBD)    | 09-2025 | ✅ |
-| 2.4.0   | T3-2025 Completed (HCD+MFA+REM+SBD) | 12-2025 | ✅ |
-| 3.0.0   | T1-2026 Launch (ISY503+CCF501)      | 02-2026 | ✅ |
-| 3.2.0   | T1-2026 Completed (ISY503+CCF501)   | 05-2026 | 🔥 |
-| 4.0.0   | T2-2026 Launch (MLN601+DLE602)      | 06-2026 | 🕐 |
-| 4.2.0   | T2-2026 Completed (MLN601+DLE602)   | 08-2026 | 🕐 |
-| 5.0.0   | T3-2026 Launch (TWL604+DOT503)      | 09-2026 | 🕐 |
-| 5.2.0   | T3-2026 Completed (TWL604+DOT503)   | 12-2026 | 🕐 |
-| 6.0.0   | T1-2027 Launch (ATW606)             | 01-2027 | 🕐 |
-| 6.2.0   | T1-2027 Completed (ATW606)          | 04-2027 | 🕐 |
-| 7.0.0   | Masters Degree Completed            | 06-2027 | 🕐 |
+| 1.0.0   | T2-2025 Launch SDM+SEP subjects         | 06-2025 | ✅ |
+| 1.2.0   | T2-2025 Complete (SDM+SEP)              | 08-2025 | ✅ |
+| 2.0.0   | T3-2025 Launch (HCD+MFA+REM+SBD)        | 09-2025 | ✅ |
+| 2.4.0   | T3-2025 Complete (HCD+MFA+REM+SBD)      | 12-2025 | ✅ |
+| 3.0.0   | T1-2026 Launch (ISY503+CCF501)          | 02-2026 | ✅ |
+| 3.2.0   | T1-2026 Complete (ISY503+CCF501)        | 05-2026 | 🔥 |
+| 4.0.0   | T2-2026 Launch (MLN601+DLE602+BDA601)   | 06-2026 | 🕐 |
+| 4.2.0   | T2-2026 Complete (MLN601+DLE602+BDA601) | 08-2026 | 🕐 |
+| 5.0.0   | T3-2026 Launch (TWL604+DOT503)          | 09-2026 | 🕐 |
+| 5.2.0   | T3-2026 Complete (TWL604+DOT503)        | 12-2026 | 🕐 |
+| 6.0.0   | T1-2027 Launch (ATW606)                 | 01-2027 | 🕐 |
+| 6.2.0   | T1-2027 Complete (ATW606)               | 04-2027 | 🕐 |
+| 7.0.0   | Masters Degree Completed                | 06-2027 | 🕐 |
 
 ---
 
