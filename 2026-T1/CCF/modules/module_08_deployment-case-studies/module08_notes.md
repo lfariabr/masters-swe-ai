@@ -10,7 +10,7 @@
 | 2 | Read & summarise Phalip & Niemitz (2020) — Twitter ad analytics on Google Cloud | ✅ |
 | 3 | Read & summarise Amazon Web Services (2021) — City of Charles Sturt on AWS | ✅ |
 | **4** | Watch & summarise IBM (n.d.) — Innocens BV predictive AI for neonatal care | ✅ |
-| **5** | Activity 1: A Cloud Deployment Success Story — Vitaldent discussion forum | ✅ |
+| 5 | Activity 1: A Cloud Deployment Success Story — Vitaldent discussion forum | ✅ |
 | **6** | Activity 2: Hands-On Lab — Set up and deploy Amazon EC2 Linux instances | ✅ |
 | **7** | Activity 3: Lab Reflections — EC2 configuration reflection post | ✅ |
 
@@ -383,6 +383,26 @@ The solution was adopted immediately — non-technical staff described it as eas
 2. The two-phase approach (ERP first → CRM second) mirrors the phased migration strategy seen in Twitter and eHealth NSW — a pattern for managing risk in cloud adoption
 3. 70% reduction in campaign development time is a concrete productivity metric — useful for framing the ROI argument in cloud strategy assessments
 4. Data unification through cloud (Customer Insights) is a direct demonstration of Module 6's cloud agility value: previously siloed operations became responsive and connected
+
+#### Forum Discussion:
+- List the challenges mentioned in the case study for the Microsoft Dynamic 365 migration.
+- How were the challenges solved?
+- List the applications of the different services used in the case study.
+Post your response of no more than 250 words in the Module 8 discussion forum.
+
+The challenges mentioned in the case study vary from fragmented patient data, poor clinic-patient communication, scaling internationally, slow marketing campaigns, and implementation complexity. The solutions to these challenges was the implementation of Microsoft Dynamics 365 features to pinpoint the issues and provide an unified platform for the company, examples below:
+
+Customer insights unified data from disparate sources into a single platform, Customer Voice enabled automated, personalised questionnaires and real-time feedback collection, Dynamics 365's multi-language, multi-region capabilities provided a growth-ready foundation, Customer Insights fed directly into Dynamics 365 Marketing, cutting campaign development time by 70%, and Prodware (Microsoft Gold Partner) delivered the patient management system built on Dynamics 365, integrating clinical data and treatment workflows.
+
+Finally, the applications of the different services used in the case study are:
+- Microsoft Dynamics 365 Finance for financial management
+- Microsoft Dynamics 365 Supply Chain Management for back-office process productivity
+- Prodware Item Lifecycle Management accelerator for integrated accelerator for clinical supply workflows
+- Dynamics 365 Customer Insights for unified patient data platform
+- Dynamics 365 Customer Voice for patient satisfaction surveys and real-time feedback collection
+- Dynamics 365 Marketing for targeted campaigns driven by Customer Insights data
+- Custom patient management system (via Prodware) to handle complexity of multi-stage dental treatment management and patient histories.
+
 
 ---
 
