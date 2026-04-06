@@ -51,5 +51,5 @@ Dr. Nandini Sidnal
 
 ## Assignments
 - [X] Assessment 1 - deadline 22/03/2026 ✅, **Case Study** on *Application of an Intelligent System (NLP or Computer Vision)*
-- [ ] Assessment 2 - deadline 12/04/2026 🔥, **Programming Task** on *Implementation of a Machine Learning Model (Linear Regression)*
+- [X] Assessment 2 - deadline 12/04/2026 ✅, **Programming Task** on *Implementation of a Machine Learning Model (Linear Regression)*
 - [ ] Assessment 3 - deadline 06/05/2026 🕐, **Final Project** on *Applying the foundational principles of AI (NLP or Computer Vision)*
