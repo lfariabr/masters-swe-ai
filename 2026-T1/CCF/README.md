@@ -42,7 +42,7 @@ Dr. Divya Leekha
 - [X] Module 5 ✅ - Major Public Cloud Providers and their comparison
 - [X] Module 6 ✅ - Advanced cloud models and concepts
 - [X] Module 7 ✅ - Public, Private and Hybrid Deployment Models, key considerations
-- [ ] Module 8 🔥 - Deployment case studies
+- [X] Module 8 ✅ - Deployment case studies
 - [ ] Module 9 - Governance / Legal obligations of Cloud Providers and Consumers
 - [ ] Module 10 - Security Threats while in cloud - Mitigation and Identification
 - [ ] Module 11 - Security Policy – Planning and management
