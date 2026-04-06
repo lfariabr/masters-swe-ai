@@ -12,7 +12,7 @@
 | **4** | Watch & summarise IBM (n.d.) — Innocens BV predictive AI for neonatal care | ✅ |
 | 5 | Activity 1: A Cloud Deployment Success Story — Vitaldent discussion forum | ✅ |
 | 6 | Activity 2: Hands-On Lab — Set up and deploy Amazon EC2 Linux instances | ✅ |
-| **7** | Activity 3: Lab Reflections — EC2 configuration reflection post | ✅ |
+| 7 | Activity 3: Lab Reflections — EC2 configuration reflection post | ✅ |
 
 ---
 
@@ -503,10 +503,10 @@ ssh -i key-pair-name.pem ec2-user@<public-dns-name>
 
 ---
 
-Setting up my first Amazon EC2 Linux instance was a practical, hands-on introduction to what cloud infrastructure actually means beyond the theory. The pre-launch setup — creating a key pair and configuring a security group — made the concept of identity and access control tangible. Downloading the `.pem` file and understanding that it cannot be retrieved again was a genuine reminder that security decisions in the cloud are permanent.
+Setting up my Amazon EC2 Linux instance was a practical, hands-on intro to what cloud infrastructure means beyond the theory. The pre-launch setup (creating a key pair and configuring a security group) made the concept of identity and access control tangible. Downloading the `.pem` file and understanding that it cannot be retrieved again was a genuine reminder that security decisions in the cloud are permanent.
 
-Launching the instance itself was straightforward: selecting a Free Tier-eligible AMI, choosing `t2.micro`, and configuring the VPC defaults took under five minutes. The state transition from `pending` to `running`, followed by status checks passing, gave me a clear mental model of the EC2 instance lifecycle.
+Launching the instance itself was super straightforward: selecting a Free Tier-eligible AMI, choosing `t2.micro`, and configuring the VPC defaults took less than 5 minutes. The state transition from `pending` to `running`, followed by status checks passing, gave me a clear mental model of the EC2 instance lifecycle.
 
-Connecting via SSH reinforced the key pair mechanism — without the `.pem` file, there is no access, which maps directly to the least-privilege principle covered in earlier modules. Terminating the instance felt more deliberate once I understood the consequences: data on instance store is gone, and any EBS volumes configured to delete on termination are permanently removed.
+Connecting via SSH reinforced the key pair mechanism, as without the `.pem` file, there is no access, which maps directly to the least-privilege principle covered in earlier modules. Terminating the instance felt more deliberate once I understood the consequences: data on instance store is gone, and any EBS volumes configured to delete on termination are permanently removed.
 
-The exercise made the elastic, on-demand nature of cloud computing concrete. What used to take weeks of hardware provisioning was done in minutes — exactly the agility argument that runs through every case study in this module.
+The exercise made the elastic, on-demand nature of cloud computing concrete. What used to take weeks of hardware provisioning was done in minutes, exactly the agility argument that runs through every case study in this module.
