@@ -1,0 +1,8 @@
+# Assessment 1 - Case Study on *Application of an Intelligent System (NLP or Computer Vision)* - 87.7/100 pts
+
+| Criteria | Grade | Rating | Feedback |
+| --- | --- | --- | --- |
+| Evaluation of information selected to support the case study | 33.6 / 40 pts | 33.6 to >29.6 pts Distinction(Advanced) | The report demonstrates strong structure, with a clear and well-developed case study overview. The significance of the case study is explained effectively. You have effectively highlighted the feature engineering strategies, demonstrating a good understanding of their role in the analysis. Including a two-set pipeline architecture is good and demonstrates understanding of the workflow. To improve, you could reference the figure directly in the text so that readers can easily follow and relate to the explanation. | 
+| Ethical Considerations Ethical issues have been identified and considered in the context of AI and its rapid development | 18 / 20 pts | 20 to >16.8 pts High Distinction(Exceptional) | The ethical risk quadrant and the practical recommendations are highly effective; they provide a clear and insightful visualization of the key ethical considerations discussed in the case study. |
+| Effective Communication (Written) | 25 / 25 pts | 25 to >21 pts High Distinction(Exceptional) | N/A |
+| Correct citation of key resources and evidence | 11.1 / 15 pts | 11.1 to >9.6 pts Credit(Proficient) | Thorough use of in-text citations and 12 resources have been included | 

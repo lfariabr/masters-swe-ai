@@ -1,4 +1,4 @@
-Assessment 1 - Technology Report and Presentation on *The Key Contributions of Cloud Computing to Business Automation* - 81/100 pts
+# Assessment 1 - Technology Report and Presentation on *The Key Contributions of Cloud Computing to Business Automation* - 81/100 pts
 
 | Criteria | Grade | Rating | Feedback |
 | --- | --- | --- | --- |
