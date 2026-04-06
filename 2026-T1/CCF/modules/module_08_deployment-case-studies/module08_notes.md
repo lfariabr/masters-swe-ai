@@ -11,7 +11,7 @@
 | 3 | Read & summarise Amazon Web Services (2021) — City of Charles Sturt on AWS | ✅ |
 | **4** | Watch & summarise IBM (n.d.) — Innocens BV predictive AI for neonatal care | ✅ |
 | 5 | Activity 1: A Cloud Deployment Success Story — Vitaldent discussion forum | ✅ |
-| **6** | Activity 2: Hands-On Lab — Set up and deploy Amazon EC2 Linux instances | ✅ |
+| 6 | Activity 2: Hands-On Lab — Set up and deploy Amazon EC2 Linux instances | ✅ |
 | **7** | Activity 3: Lab Reflections — EC2 configuration reflection post | ✅ |
 
 ---
