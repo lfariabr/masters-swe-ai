@@ -290,13 +290,13 @@ feature_points_1, _, _ = cv2.calcOpticalFlowPyrLK(
 
 ```mermaid
 flowchart LR
-    A["Load image<br/>(BGR array)"] --> B["Convert to HSV"]
-    B --> C["Blue sky mask<br/>H 90–130, S 50–255"]
-    B --> D["White cloud mask<br/>S 0–40, V 200–255"]
-    C --> E["Combine masks<br/>bitwise_or"]
+    A["Step 1 — Load image<br/>cv2.imread → BGR array"] --> B["Step 2 — Convert to HSV<br/>cv2.cvtColor BGR→HSV"]
+    B --> C["Step 3a — Blue sky mask<br/>H 90–130, S 50–255"]
+    B --> D["Step 3b — White cloud mask<br/>S 0–40, V 200–255"]
+    C --> E["Step 3c — Combine<br/>bitwise_or"]
     D --> E
-    E --> F["Count sky pixels<br/>countNonZero"]
-    F --> G["Recolour & visualise<br/>img[mask==255] = green"]
+    E --> F["Step 4 — Count pixels<br/>countNonZero → sky %"]
+    F --> G["Step 5 — Recolour & show<br/>img[mask==255] = green"]
 ```
 
 #### Step-by-Step Breakdown
@@ -304,11 +304,10 @@ flowchart LR
 | Step | Concept taught | What the code does |
 |---|---|---|
 | 1 | Images as 3D NumPy arrays; BGR pixel indexing | `cv2.imread()` → `(H, W, 3)` array; inspect `img[0,0]` |
-| 2 | Why BGR fails for colour thresholding | Explains how lighting collapses blue sky and white clouds into indistinguishable BGR values |
-| 3 | HSV colourspace; `cv2.cvtColor` | Converts image; prints same pixel in both spaces to show H/S/V separates colour from brightness |
-| 4 | `cv2.inRange` masks + `bitwise_or` | Builds blue-sky mask (H 90–130) + white-cloud mask (S 0–40, V 200–255), combines them |
-| 5 | `cv2.countNonZero`; percentage calculation | Counts white pixels in combined mask → sky % |
-| 6 | NumPy boolean indexing to recolour pixels | `result[sky_mask == 255] = [0, 255, 0]` paints sky green; 3-panel matplotlib figure |
+| 2 | Why BGR fails; HSV colourspace; `cv2.cvtColor` | Explains H/S/V; converts image; prints same pixel in both spaces side-by-side |
+| 3 | `cv2.inRange` masks + `bitwise_or` | Builds blue-sky mask (H 90–130) + white-cloud mask (S 0–40, V 200–255), combines them |
+| 4 | `cv2.countNonZero`; percentage calculation | Counts white pixels in combined mask → sky % |
+| 5 | NumPy boolean indexing to recolour pixels | `result[sky_mask == 255] = [0, 255, 0]` paints sky green; 3-panel matplotlib figure |
 
 #### Key Concepts Learned
 
