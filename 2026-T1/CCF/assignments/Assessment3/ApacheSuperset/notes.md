@@ -1,4 +1,6 @@
 # CCF501 Assessment 3 — Apache Superset on Azure
+> copilot --resume=5964f668-562e-4c32-8ae2-40f1b0d4343f
+> claude --resume "ccf-assessment3"
 
 ## Status
 - 🕐 Provider account setup (Azure free tier)
