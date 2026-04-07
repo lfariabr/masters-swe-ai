@@ -1,0 +1,235 @@
+# Deploying Apache Superset on Microsoft Azure: A Cloud Application Deployment Report
+*CCF501 Cloud Computing Fundamentals — Assessment 3 Report*
+
+<!-- WORD COUNT TARGET: ~1,500 words (±10%), excluding references and appendices -->
+<!-- STRUCTURE: Introduction (~100w) + Background (~200w) + Body 2a–2e (~1,000w) + Conclusion (~200w) -->
+<!-- RUBRIC WEIGHTS: Cloud concepts 20% | Practical skills 40% | Cloud services 10% | Security/governance 20% | References 10% -->
+
+---
+
+## 1. Introduction (~100 words)
+
+<!-- RUBRIC: Content, audience, purpose — state what is being deployed and why Azure was selected -->
+<!-- SLO c, d: provider selection rationale; deployment overview -->
+<!-- NOTE: No tables, diagrams, or dot points in this section -->
+
+This report documents the deployment of Apache Superset — an open-source data exploration and visualisation platform — on Microsoft Azure. Superset was selected for its direct relevance to data engineering workflows and its Python-native architecture, which aligns with the author's professional background and academic trajectory. Azure was chosen as the cloud provider to build familiarity ahead of the AZ-900 and DP-900 certification pathway, as recommended during academic advising in March 2026. The deployment covers the provisioning of a virtual machine, virtual network, firewall security policy, and a fully operational Superset instance accessible via public URL.
+
+---
+
+## 1.2 Background (~200 words)
+
+<!-- RUBRIC: 20% — Describe cloud computing essentials; distinguish from traditional IT -->
+<!-- SLO a, b: NIST characteristics; cloud vs on-premises -->
+<!-- NOTE: Complete sentences and paragraphs only — no tables, diagrams, or dot points -->
+
+Cloud computing has fundamentally changed how organisations provision and manage infrastructure. Rather than purchasing and maintaining physical servers, organisations now consume compute, storage, and networking as on-demand services over the internet — paying only for what they use (Mell & Grance, 2011). The National Institute of Standards and Technology (NIST) defines five essential characteristics of cloud computing: on-demand self-service, broad network access, resource pooling, rapid elasticity, and measured service (Mell & Grance, 2011). These characteristics make cloud infrastructure more adaptable and cost-effective than traditional on-premises deployments, which require significant capital expenditure, fixed capacity, and dedicated operational staff (McHaney, 2021).
+
+This deployment uses an **Infrastructure as a Service (IaaS)** model — a virtual machine provisioned on Microsoft Azure, with the operating system, runtime, and application managed by the author. The deployment model is **public cloud**: infrastructure is hosted on Microsoft's shared global network, accessible via the public internet through controlled network security policies. In contrast to a traditional on-premises setup — where a dedicated server, networking equipment, and physical access controls would be required — Azure delivers the same outcome in minutes, at a fraction of the cost, with no physical infrastructure commitment (IBM, n.d.-a).
+
+---
+
+## 2. Body (~1,000 words)
+
+### 2a. Service Provider Selection Rationale (~150 words)
+
+<!-- RUBRIC: 10% — Identify key cloud services; compare providers; justify selection -->
+<!-- SLO c: key service offerings and comparison -->
+
+Microsoft Azure was selected as the cloud provider for this deployment for three reasons. First, Azure offers a comprehensive set of data and analytics services — including Azure SQL, Azure Synapse Analytics, and Azure Data Factory — that directly complement Apache Superset's role as a query and visualisation layer. This architectural alignment is relevant to both current data engineering work and the upcoming Big Data and Analytics subject (BDA601). Second, Azure is the target platform for the author's certification roadmap (AZ-900 → DP-900), making hands-on deployment a practical study activity. Third, Azure's free-tier virtual machine (B1s: 1 vCPU, 1 GB RAM) and student credit allocation lower the barrier to entry for academic projects.
+
+| Criterion | AWS | Microsoft Azure | GCP |
+|---|---|---|---|
+| Free tier VM | EC2 t2.micro (750h/mo) | B1s (750h/mo) | e2-micro (always free) |
+| Data/ML integration | RDS, Redshift, SageMaker | Azure SQL, Synapse, Azure ML | BigQuery, Vertex AI |
+| Cert alignment (this enrolment) | ❌ | ✅ AZ-900 / DP-900 | ❌ |
+| Superset community support | Good | Good | Good |
+
+*Table 1: Cloud provider comparison for Apache Superset deployment.*
+
+---
+
+### 2b. Deployment Model and Architecture Diagram (~150 words)
+
+<!-- RUBRIC: 40% practical skills — block diagram required; describe deployment model -->
+<!-- SLO d: implement cloud services -->
+
+The deployment follows a **public cloud IaaS** model. All resources are provisioned within a single Azure Resource Group, logically isolated by a Virtual Network (VNet) with a dedicated application subnet. A Network Security Group (NSG) enforces inbound traffic rules, restricting access to SSH (port 22, source IP restricted), HTTP (port 80), and the Superset web interface (port 8088). Apache Superset runs inside a Docker Compose stack on an Ubuntu 22.04 virtual machine, with PostgreSQL as the metadata database and Redis as the caching and Celery task broker.
+
+```mermaid
+graph TD
+    A["Internet / Browser"] -->|"HTTPS port 8088"| B["NSG\n(Inbound Rules)"]
+    B -->|"Allow: 22, 80, 8088\nDeny: all else"| C["Azure VNet\nsnet-app subnet"]
+    C --> D["Ubuntu 22.04 VM\n(Standard B2s)"]
+    D --> E["Docker Compose Stack"]
+    E --> F["Apache Superset\n(port 8088)"]
+    E --> G["PostgreSQL\n(metadata DB)"]
+    E --> H["Redis\n(cache + Celery broker)"]
+    F -->|"Query"| I["Data Sources\n(PostgreSQL / CSV upload)"]
+```
+
+*Figure 1: Azure deployment architecture — resource group, VNet, NSG, VM, and Superset Docker Compose stack.*
+
+---
+
+### 2c. Deployment Procedure (~400 words)
+
+<!-- RUBRIC: 40% — Document all four tasks with screenshots; clear flow of steps and arguments -->
+<!-- SLO d: implement cloud services via major cloud providers -->
+
+The deployment followed four tasks as specified in the assessment brief.
+
+**Task a — Create a resource group**
+
+A resource group (`rg-superset-ccf501`) was created in the Azure portal under the Australia East region. Resource groups in Azure serve as logical containers for all related cloud resources, enabling unified billing, access control, and lifecycle management (Microsoft, n.d.-a). Selecting Australia East minimises latency for local access and ensures data residency within Australian boundaries.
+
+![Screenshot: Azure resource group creation — rg-superset-ccf501 in Australia East](images/01_resource_group.png)
+*Figure 2: Azure resource group rg-superset-ccf501 created in Australia East.*
+
+**Task b — Add a virtual network**
+
+A Virtual Network (`vnet-superset`, address space `10.0.0.0/16`) was created within the resource group, with a dedicated application subnet (`snet-app`, `10.0.1.0/24`). VNets in Azure provide network isolation — resources within the VNet communicate privately without traversing the public internet (Microsoft, n.d.-b). This mirrors the NIST resource pooling characteristic: shared physical infrastructure is logically partitioned to create isolated network boundaries (Mell & Grance, 2011).
+
+![Screenshot: Azure VNet configuration — vnet-superset with snet-app subnet](images/02_vnet.png)
+*Figure 3: Virtual Network vnet-superset with application subnet snet-app.*
+
+**Task c — Protect the network with a firewall / security policy**
+
+A Network Security Group (`nsg-superset`) was created and attached to the `snet-app` subnet. Inbound rules were configured to allow only SSH (port 22, restricted to the author's public IP), HTTP (port 80), and the Superset application port (8088). All other inbound traffic is denied by the default DenyAllInbound rule. This implements the principle of least privilege — only the minimum required ports are open, reducing the attack surface (Shore, 2020).
+
+![Screenshot: NSG inbound rules panel showing port 22, 80, 8088 allow rules](images/03_nsg_rules.png)
+*Figure 4: NSG inbound security rules — explicit allow on 22/80/8088, implicit deny all.*
+
+**Task d — Deploy Apache Superset**
+
+An Ubuntu 22.04 VM (Standard B2s: 2 vCPU, 4 GB RAM) was provisioned within `snet-app`. Docker and Docker Compose were installed via SSH. The official Apache Superset Docker Compose configuration was cloned from the project repository and launched with `docker compose up -d`. After initialisation, Superset was accessible at `http://[PUBLIC_IP]:8088`. An admin account was created and a sample PostgreSQL data source was connected to verify end-to-end functionality.
+
+![Screenshot: Superset login screen at public IP in browser](images/04_superset_login.png)
+*Figure 5: Apache Superset login screen accessible at public IP on port 8088.*
+
+![Screenshot: Superset dashboard view with connected data source](images/05_superset_dashboard.png)
+*Figure 6: Superset dashboard with connected PostgreSQL data source.*
+
+---
+
+### 2d. Cloud Services Security Policies (~150 words)
+
+<!-- RUBRIC: 20% — Appraise IT governance; identify threats; draft and implement security policy -->
+<!-- SLO e: appraise IT governance requirements to safeguard cloud-driven business solutions -->
+
+Security for the deployment was addressed at three layers. At the **network layer**, the NSG enforces least-privilege access — port 22 (SSH) is restricted to a single authorised IP, and no unnecessary ports are exposed. At the **application layer**, Apache Superset implements Role-Based Access Control (RBAC) with three built-in roles: Admin (full access), Alpha (can create charts and dashboards, cannot manage users), and Gamma (read-only, restricted to explicitly shared datasets). At the **credential layer**, the Superset secret key and database connection strings are passed via environment variables in the Docker Compose configuration — never hardcoded in source files.
+
+| Security Layer | Control | Threat Mitigated |
+|---|---|---|
+| Network (NSG) | Port allowlist + IP restriction on SSH | Unauthorised access, port scanning |
+| Application (RBAC) | Admin / Alpha / Gamma roles | Privilege escalation, data exfiltration |
+| Credentials | Environment variables (`.env` file) | Credential exposure in source control |
+| OS | SSH key-based auth only (password disabled) | Brute-force attacks |
+
+*Table 2: Security controls applied across network, application, credential, and OS layers.*
+
+![Screenshot: Superset RBAC settings — role list showing Admin, Alpha, Gamma](images/06_superset_rbac.png)
+*Figure 7: Apache Superset RBAC role configuration.*
+
+---
+
+### 2e. Application Analysis and Robustness (~150 words)
+
+<!-- RUBRIC: 40% practical skills — analyse application; propose improvements -->
+<!-- SLO c, d: identify cloud services; implement improvements -->
+
+The current deployment is functional but represents a minimal viable configuration. The primary limitation is a **single point of failure**: one VM hosts the entire stack — if the VM becomes unavailable, the service is offline. A production-grade architecture would introduce the following improvements.
+
+**HTTPS / TLS termination:** An Azure Application Gateway or Let's Encrypt certificate via nginx would encrypt traffic in transit. Currently, credentials are sent over HTTP.
+
+**Managed PostgreSQL:** Replacing the Docker-hosted PostgreSQL instance with Azure Database for PostgreSQL provides automated backups, point-in-time restore, and high availability — eliminating the metadata loss risk if the VM disk fails.
+
+**Celery workers for async queries:** A production Superset deployment separates the web server from Celery workers (backed by Redis) for long-running queries. This mirrors the architecture used in Konquista (Django + Celery + Redis), where async task processing prevented UI blocking under load.
+
+**Azure Monitor + alerts:** Attaching Azure Monitor to the VM provides CPU, memory, and disk metrics — enabling proactive alerting before resource exhaustion causes downtime.
+
+| Improvement | Azure Service | Benefit |
+|---|---|---|
+| HTTPS | Application Gateway / Let's Encrypt | Encrypts traffic in transit |
+| Managed DB | Azure Database for PostgreSQL | Automated backups, HA |
+| Async queries | Celery + Redis (existing in Docker Compose) | Prevents UI blocking on long queries |
+| Monitoring | Azure Monitor + Alerts | Proactive resource and availability alerting |
+| Auto-scaling | Azure VM Scale Sets | Handles traffic spikes without manual intervention |
+
+*Table 3: Proposed production improvements for the Superset deployment.*
+
+---
+
+## 3. Conclusion (~200 words)
+
+<!-- RUBRIC: Content, purpose — summary only; no new info; no tables, diagrams, or dot points -->
+<!-- SLO a, b, c, d, e — synthesise deployment outcomes -->
+<!-- NOTE: Complete sentences and paragraphs only -->
+
+This report documented the deployment of Apache Superset, an open-source data exploration and visualisation platform, on Microsoft Azure. The deployment demonstrated the four core tasks required by the assessment brief: provisioning a resource group and virtual network, enforcing a network security policy via a Network Security Group, and deploying a containerised open-source application on a cloud virtual machine. Each task was supported by screenshots and aligned with NIST's essential cloud characteristics — on-demand self-service in the provisioning process, resource pooling in Azure's shared infrastructure model, and measured service through consumption-based billing (Mell & Grance, 2011).
+
+Microsoft Azure was selected for its data and analytics service ecosystem and its alignment with the author's AZ-900 and DP-900 certification pathway. The deployment reinforces the distinction between cloud and traditional IT infrastructure: resources that would require physical procurement and installation in an on-premises environment were provisioned, configured, secured, and running within [X] hours, at effectively zero capital cost. Areas identified for further investigation include TLS certificate automation, managed database integration for metadata persistence, and the separation of Celery workers for production-scale async query execution — improvements that would bring this deployment in line with enterprise-grade analytics infrastructure.
+
+---
+
+## References
+
+<!-- APA 7th edition — minimum 10–12 references, alphabetical by first author surname -->
+<!-- RUBRIC: 10% — meticulous APA, min 10 resources, in-text citations throughout -->
+
+Amazon Web Services. (n.d.). *AWS free tier*. Amazon Web Services. https://aws.amazon.com/free/
+
+Apache Software Foundation. (n.d.). *Apache Superset documentation*. Apache Superset. https://superset.apache.org/docs/intro
+
+Google Cloud. (n.d.). *Google Cloud free program*. Google Cloud. https://cloud.google.com/free
+
+IBM. (n.d.-a). *SaaS, PaaS, IaaS explained*. IBM. https://www.ibm.com/think/topics/iaas-paas-saas
+
+IBM. (n.d.-b). *What is a virtual network?* IBM. https://www.ibm.com/think/topics/virtual-network
+
+Linthicum, D. (2021, May 25). *Learning cloud computing: Core concepts* [Video]. LinkedIn Learning. https://www.linkedin.com/learning/learning-cloud-computing-core-concepts-13710481/
+
+Manvi, S., & Shyam, G. K. (2021). *Cloud computing: Concepts and technologies* (Chapter 4). CRC Press. https://learning-oreilly-com.torrens.idm.oclc.org/library/view/cloud-computing/9781000338058/
+
+McHaney, R. (2021). *Cloud technologies: An overview of cloud computing technologies for managers*. Wiley. https://ieeexplore-ieee-org.torrens.idm.oclc.org/servlet/opac?bknumber=9820907
+
+Mell, P., & Grance, T. (2011). *The NIST definition of cloud computing* (Special Publication 800-145). National Institute of Standards and Technology. https://doi.org/10.6028/NIST.SP.800-145
+
+Microsoft. (n.d.-a). *What is Azure Resource Manager?* Microsoft Learn. https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/overview
+
+Microsoft. (n.d.-b). *Azure Virtual Network documentation*. Microsoft Learn. https://learn.microsoft.com/en-us/azure/virtual-network/
+
+Microsoft. (n.d.-c). *Network security groups*. Microsoft Learn. https://learn.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview
+
+Nishimura, H. (2022, August 30). *Introduction to AWS for non-engineers: 1 cloud concepts* [Video]. LinkedIn Learning. https://www.linkedin.com/learning/introduction-to-aws-for-non-engineers-1-cloud-concepts-2/
+
+Shore, M. (2020). *Cybersecurity with cloud computing: Service models* [Video]. LinkedIn Learning. https://www.linkedin.com/learning/cybersecurity-with-cloud-computing-2/
+
+---
+
+## Appendices
+
+### Appendix A — Deployment Task Checklist
+
+| Task | Description | Status | Screenshot |
+|---|---|---|---|
+| a | Create resource group (`rg-superset-ccf501`) | 🕐 | Figure 2 |
+| b | Add virtual network (`vnet-superset` + `snet-app`) | 🕐 | Figure 3 |
+| c | Apply NSG inbound rules (22/80/8088) | 🕐 | Figure 4 |
+| d | Deploy Apache Superset via Docker Compose | 🕐 | Figures 5–6 |
+
+### Appendix B — Glossary
+
+| Term | Meaning |
+|---|---|
+| IaaS | Infrastructure as a Service |
+| NSG | Network Security Group |
+| VNet | Virtual Network |
+| RBAC | Role-Based Access Control |
+| Docker Compose | Tool for defining and running multi-container Docker applications |
+| Celery | Distributed task queue for Python applications |
+| TLS | Transport Layer Security — encrypts data in transit |
+| NIST | National Institute of Standards and Technology |
+| AZ-900 | Microsoft Azure Fundamentals certification |
+| DP-900 | Microsoft Azure Data Fundamentals certification |
+| SPOF | Single Point of Failure |
