@@ -19,7 +19,7 @@
 | 2 | **Watch & summarise Fernandes (2019) — Intro to Deep Learning with OpenCV** | **Video** | **✅** |
 | 3 | **Read & summarise Brownlee (2019) — Face detection with deep learning** | **Article** | **✅** |
 | **4** | **Read & summarise Howse et al. (2016) — Chapter 8: Object Tracking** | **Book chapter** | **✅** |
-| 5 | Activity 1: Image Processing Practices (sky pixel detection) | Jupyter | 🕐 |
+| **5** | **Activity 1: Image Processing Practices (sky pixel detection)** | **Jupyter** | **✅** |
 | **6** | **Read & summarise Moltzau (2019) — What is transfer learning?** | **Article** | **✅** |
 | 7 | Activity 2: Write 100-word transfer learning summary (Discussion Forum) | Written | 🕐 |
 
@@ -274,6 +274,49 @@ feature_points_1, _, _ = cv2.calcOpticalFlowPyrLK(
 1. Object tracking is fundamentally about **temporal consistency** — connecting detections across frames, not just detecting per frame
 2. CAMShift and optical flow are still widely used baselines in real-time applications due to their low compute footprint
 3. Background subtraction underpins many **video surveillance** systems — directly mentioned in the resource overview's application list
+
+---
+
+### Activity 1 — Image Processing Practices (sky pixel detection)
+
+**Purpose:** Hands-on practice with pixel-level image processing — using OpenCV to identify sky pixels in an image based on HSV colour thresholds.
+
+**Image used:** Desert landscape with clear sky.
+**Result:** 169,465 sky pixels out of 363,750 total → **46.6% sky**.
+
+---
+
+#### Pipeline Overview
+
+```mermaid
+flowchart LR
+    A["Load image<br/>(BGR array)"] --> B["Convert to HSV"]
+    B --> C["Blue sky mask<br/>H 90–130, S 50–255"]
+    B --> D["White cloud mask<br/>S 0–40, V 200–255"]
+    C --> E["Combine masks<br/>bitwise_or"]
+    D --> E
+    E --> F["Count sky pixels<br/>countNonZero"]
+    F --> G["Recolour & visualise<br/>img[mask==255] = green"]
+```
+
+#### Step-by-Step Breakdown
+
+| Step | Concept taught | What the code does |
+|---|---|---|
+| 1 | Images as 3D NumPy arrays; BGR pixel indexing | `cv2.imread()` → `(H, W, 3)` array; inspect `img[0,0]` |
+| 2 | Why BGR fails for colour thresholding | Explains how lighting collapses blue sky and white clouds into indistinguishable BGR values |
+| 3 | HSV colourspace; `cv2.cvtColor` | Converts image; prints same pixel in both spaces to show H/S/V separates colour from brightness |
+| 4 | `cv2.inRange` masks + `bitwise_or` | Builds blue-sky mask (H 90–130) + white-cloud mask (S 0–40, V 200–255), combines them |
+| 5 | `cv2.countNonZero`; percentage calculation | Counts white pixels in combined mask → sky % |
+| 6 | NumPy boolean indexing to recolour pixels | `result[sky_mask == 255] = [0, 255, 0]` paints sky green; 3-panel matplotlib figure |
+
+#### Key Concepts Learned
+
+- **Images are just numbers.** Every pixel is a `[B, G, R]` triplet. Pixel-level operations are NumPy array operations — fast, vectorised, no loops needed.
+- **Colour space choice matters.** BGR thresholding breaks under different lighting. HSV isolates *what colour* (H) from *how vivid* (S) and *how bright* (V), making rules like "find blue sky" robust across lighting conditions.
+- **Masks are binary images.** `cv2.inRange()` produces a 2D array of 0s and 255s. Combining masks with `bitwise_or` is equivalent to a logical OR across pixel conditions.
+- **Boolean indexing = instant pixel surgery.** `img[mask == 255] = value` selects and rewrites pixels in one line — no loops, no coordinates. This pattern is the foundation of image segmentation.
+- **Desert result sanity check:** 46.6% sky on a desert landscape is plausible — desert photos typically have large open skies above flat terrain. A dense forest or cityscape would produce a much lower percentage.
 
 ---
 
