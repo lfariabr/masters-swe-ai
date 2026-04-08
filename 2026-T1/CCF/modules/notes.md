@@ -848,6 +848,121 @@ From Learning Activity 2, summarize the Amazon EC2 configuration steps and your 
 
 ---
 
+## Module 9 - Governance / Legal obligations of Cloud Providers and Consumers
+
+### TLDR
+
+### Introduction
+The growing reach of the litigation movement is not lost on cloud computing. Multi-tiered regulations — starting from company policies to cloud service provider policy to jurisdictional and industry-wide policy on the storage, manipulation and transfer of data stored and moved on the cloud — have come to the fore in recent times. The requirements from Europe’s General Data Protection Regulation (GDPR) has had a major impact on the benefits both new and existing businesses can reap from the cloud. In Australia, privacy laws and the continued expansion of data centres that the major cloud providers have on-shore has changed the way many businesses approach legal and contractual issues when moving to the cloud.
+
+In this module, we will discover the underlying legal challenges from both the service provider and customer, including exploring the best practices and recommendations in the current environment.
+
+### Resources
+
+#### 1. Legal Obligations of Cloud Providers and Consumers (Animation)
+- Torrens University Australia. (2022). Legal obligations of cloud providers and consumers [Video]. Kaltura Media.
+
+*Resource Overview:*
+
+    Discover the Australian laws that protect your data (Privacy Act 1988 and Australian Consumer Law) and the security and privacy risks involved. Learn about the contract you will make with your cloud service provider and the important questions to ask, like where your data will be stored. Be a smart and informed cloud user!
+
+> *Status: 🕐 To-Do*  
+
+#### 2. Cloud Security From a Business Perspective
+- Linthicum, D. (2021). Business case for cloud security [Video]. In Learning cloud computing: Cloud security. LinkedIn Learning. https://www.linkedin.com/learning/learning-cloud-computing-cloud-security-14366063/business-case-for-cloud-security?autoplay=true&resume=false&u=72036930
+
+*Resource Overview:*
+
+    Cloud security can be broadly categorised into three different categories, namely infrastructure, application and data level security. It is important to know about customer and provider obligations in the domain of cloud security. Watch the following sections (approximately 10 minutes) from this resource to learn about the fundamentals of cloud security from a business perspective.
+    1 – Business Case for Cloud Security
+    3 – Infrastructure-Level Cloud Security
+    4 – Application-Level Cloud Security
+    5 – Data-Level Cloud Security
+
+> *Status: 🕐 To-Do*
+
+#### 3. Legal Issues in Cloud Computing
+- Saini, J. S., Saini D.K., Gupta P., Lamba C. S., & Rao, G. M. (2022). Cloud computing: Legal issues and provision. Security and Communication Networks, 2022, Article 2288961. https://doi.org/10.1155/2022/2288961Links to an external site., https://www.proquest.com/docview/2701957781/fulltextPDF/E9ABE6195E624E3FPQ/1?accountid=176901
+
+*Resource Overview:*
+
+    Sections 5 and 6 of this research paper highlight the legal challenges, laws (domestic and international) applicable in a cloud context, respectively. As a cloud service provider and as a client, both parties need to ensure that these legal obligations are met. As you read about these topics from the research paper, note the terminologies such as Compliance, Copyright, Data Protection and how they contribute to the legal issues in cloud computing both in international and domestic settings.
+
+    Note: This article has been retracted by Hindawi following an investigation undertaken by the publisher [1]. This investigation has uncovered evidence of one or more of the following indicators of systematic manipulation of the publication process:
+
+    (1) Discrepancies in scope
+    (2) Discrepancies in the description of the research reported
+    (3) Discrepancies between the availability of data and the research described
+    (4) Inappropriate citations
+    (5) Incoherent, meaningless and/or irrelevant content included in the article
+    (6) Peer-review manipulation
+
+    The presence of these indicators undermines our confidence in the integrity of the article’s content and we cannot, therefore, vouch for its reliability. Please note that this notice is intended solely to alert readers that the content of this article is unreliable. We have not investigated whether authors were aware of or involved in the systematic manipulation of the publication process.
+
+    Wiley and Hindawi regrets that the usual quality checks did not identify these issues before publication and have since put additional measures in place to safeguard research integrity.
+
+    We wish to credit our own Research Integrity and Research Publishing teams and anonymous and named external researchers and research integrity experts for contributing to this investigation.
+
+    The corresponding author, as the representative of all authors, has been given the opportunity to register their agreement or disagreement to this retraction. We have kept a record of any response received.
+
+> *Status: 🕐 To-Do*  
+
+#### 4. The FlexBooker Data Breach
+- Greig, J. (2022, February 11). Amazon steps in to close exposed FlexBooker bucket after December data breach. ZDNET. https://www.zdnet.com/article/amazon-steps-in-to-close-exposed-flexbooker-bucket-after-december-data-breach
+
+*Resource Overview:*
+
+    Sections 5 and 6 of this research paper highlight the legal challenges, laws (domestic and international) applicable in a cloud context, respectively. As a cloud service provider and as a client, both parties need to ensure that these legal obligations are met. As you read about these topics from the research paper, note the terminologies such as Compliance, Copyright, Data Protection and how they contribute to the legal issues in cloud computing both in international and domestic settings.
+
+    Note: This article has been retracted by Hindawi following an investigation undertaken by the publisher [1]. This investigation has uncovered evidence of one or more of the following indicators of systematic manipulation of the publication process:
+    
+    (1) Discrepancies in scope
+    (2) Discrepancies in the description of the research reported
+    (3) Discrepancies between the availability of data and the research described
+    (4) Inappropriate citations
+    (5) Incoherent, meaningless and/or irrelevant content included in the article
+    (6) Peer-review manipulation
+
+    The presence of these indicators undermines our confidence in the integrity of the article’s content and we cannot, therefore, vouch for its reliability. Please note that this notice is intended solely to alert readers that the content of this article is unreliable. We have not investigated whether authors were aware of or involved in the systematic manipulation of the publication process.
+
+    Wiley and Hindawi regrets that the usual quality checks did not identify these issues before publication and have since put additional measures in place to safeguard research integrity.
+
+    We wish to credit our own Research Integrity and Research Publishing teams and anonymous and named external researchers and research integrity experts for contributing to this investigation.
+
+    The corresponding author, as the representative of all authors, has been given the opportunity to register their agreement or disagreement to this retraction. We have kept a record of any response received.
+
+> *Status: 🕐 To-Do*  
+
+### Learning Activities
+
+#### Activity 1: Legal Considerations When Moving to the Cloud—Discussion Forum
+- Australian Signals Directorate, Cloud Computing Security Considerations. Accessed November 27, 2022. ACSC. https://www.cyber.gov.au/acsc/view-all-content/publications/cloud-computing-security-considerations
+
+Read the article titled "Cloud Computing Security Considerations". Think about the legal obligations that you will be required to meet, specifically in terms of privacy, with an Australian company moving to the cloud. Write a 200-word response relating to three of the following seven factors that a business needs to address and seek legal advice on:
+- jurisdictional law
+- data transfer procedures
+- data protection measures
+- data retention and destruction
+- privacy policy
+- privacy breaches
+- data sharing.
+
+Post your response in the Module 9 Discussion Forum.
+
+> *Status: 🕐 To-Do*
+
+#### Activity 2: Critical thinking: Cloud Law—Discussion Forum
+- Australian Government Australian Cyber Security Centre. (n.d.). Cloud computing security considerations. https://www.cyber.gov.au/acsc/view-all-content/publications/cloud-computing-security-considerations
+- National Archives of Australia. (n.d.). Cloud computing and information management. https://www.naa.gov.au/information-management/storing-and-preserving-information/storing-information/cloud-computing-and-information-management
+
+Imagine that after finishing the resources in this module that you have developed an interest for cyber law. In this critical thinking exercise, you are required to identify and explain the fields of knowledge for a cyber-lawyer in the context of cloud computing. You can start on this learning activity by going through the following resources:
+- Cloud computing and information management
+- Cloud computing security considerations factsheet
+
+You can continue your research on the internet and compare the different areas a cloud legal professional should be knowledgeable about. For instance, privacy and intellectual property protection on the cloud or you may refer to the list from Learning Activity 1.. Write a response in no more than 200 words and post it in the Module 9 Discussion Forum.
+
+---
+
 ```bash
 --- PLACEHOLDER:
 ## Module X - ...
