@@ -852,6 +852,13 @@ From Learning Activity 2, summarize the Amazon EC2 configuration steps and your 
 
 ### TLDR
 
+- Cloud computing creates **multi-tiered legal obligations**: from company policies up to jurisdictional and international law, both for providers and consumers
+- Six core legal challenges for CSPs and clients: **Liability, Compliance, Copyright, Applicable Law, Data Protection, Data Portability** — each spanning multiple countries' laws simultaneously
+- In Australia, the **Privacy Act 1988**, **Archives Act 1983**, and **FOI Act 1982** govern cloud-stored data regardless of where that data physically sits — moving to the cloud doesn't transfer legal responsibility
+- The **ASD recommends** keeping sensitive data within Australian borders; foreign-owned CSPs (even if operating locally) can be subject to foreign laws like the **US CLOUD Act**
+- The **FlexBooker breach** (Dec 2021–Jan 2022) is a landmark case study: two simultaneous failures (credential compromise + misconfigured S3 bucket) demonstrated that the **shared responsibility model** places application and data security squarely on the client, not AWS
+- Addressing cross-border legal conflicts requires instruments like **MLATs, bilateral treaties, the CLOUD Act,** and potentially an international cloud governance body
+
 ### Introduction
 The growing reach of the litigation movement is not lost on cloud computing. Multi-tiered regulations — starting from company policies to cloud service provider policy to jurisdictional and industry-wide policy on the storage, manipulation and transfer of data stored and moved on the cloud — have come to the fore in recent times. The requirements from Europe’s General Data Protection Regulation (GDPR) has had a major impact on the benefits both new and existing businesses can reap from the cloud. In Australia, privacy laws and the continued expansion of data centres that the major cloud providers have on-shore has changed the way many businesses approach legal and contractual issues when moving to the cloud.
 
@@ -866,7 +873,7 @@ In this module, we will discover the underlying legal challenges from both the s
 
     Discover the Australian laws that protect your data (Privacy Act 1988 and Australian Consumer Law) and the security and privacy risks involved. Learn about the contract you will make with your cloud service provider and the important questions to ask, like where your data will be stored. Be a smart and informed cloud user!
 
-> *Status: 🕐 To-Do*  
+> *Status: 🔥 WIP — needs manual access (internal Kaltura LMS — see [module09_notes.md](module_09_governance-and-legal/module09_notes.md))*
 
 #### 2. Cloud Security From a Business Perspective
 - Linthicum, D. (2021). Business case for cloud security [Video]. In Learning cloud computing: Cloud security. LinkedIn Learning. https://www.linkedin.com/learning/learning-cloud-computing-cloud-security-14366063/business-case-for-cloud-security?autoplay=true&resume=false&u=72036930
@@ -879,7 +886,7 @@ In this module, we will discover the underlying legal challenges from both the s
     4 – Application-Level Cloud Security
     5 – Data-Level Cloud Security
 
-> *Status: 🕐 To-Do*
+> *Status: 🔥 WIP — needs manual access (LinkedIn Learning auth — see [module09_notes.md](module_09_governance-and-legal/module09_notes.md))*
 
 #### 3. Legal Issues in Cloud Computing
 - Saini, J. S., Saini D.K., Gupta P., Lamba C. S., & Rao, G. M. (2022). Cloud computing: Legal issues and provision. Security and Communication Networks, 2022, Article 2288961. https://doi.org/10.1155/2022/2288961Links to an external site., https://www.proquest.com/docview/2701957781/fulltextPDF/E9ABE6195E624E3FPQ/1?accountid=176901
@@ -905,7 +912,7 @@ In this module, we will discover the underlying legal challenges from both the s
 
     The corresponding author, as the representative of all authors, has been given the opportunity to register their agreement or disagreement to this retraction. We have kept a record of any response received.
 
-> *Status: 🕐 To-Do*  
+> *Status: ✅ Read + Reviewed — see [module09_notes.md](module_09_governance-and-legal/module09_notes.md)*
 
 #### 4. The FlexBooker Data Breach
 - Greig, J. (2022, February 11). Amazon steps in to close exposed FlexBooker bucket after December data breach. ZDNET. https://www.zdnet.com/article/amazon-steps-in-to-close-exposed-flexbooker-bucket-after-december-data-breach
@@ -931,7 +938,7 @@ In this module, we will discover the underlying legal challenges from both the s
 
     The corresponding author, as the representative of all authors, has been given the opportunity to register their agreement or disagreement to this retraction. We have kept a record of any response received.
 
-> *Status: 🕐 To-Do*  
+> *Status: ✅ Read + Reviewed — see [module09_notes.md](module_09_governance-and-legal/module09_notes.md)*
 
 ### Learning Activities
 
