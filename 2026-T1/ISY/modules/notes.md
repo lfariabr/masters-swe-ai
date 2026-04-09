@@ -824,7 +824,7 @@ Natural language processing (NLP) is a multidisciplinary field focused on enabli
     - Deep learning in NLP.
     As you watch the video, take note of the mentioned topics and track them in the video. NLP has two main subsections: Natural Language Understanding (NLU) and Natural Language Generating (NLG). The applications of NLP in customer service and chatbots are discussed from minutes 5 to 6 as well as further examples such as transcription. The video also delves into some of the mechanics behind how computers recognise spoken language – including terminology you may or may not have heard before – spectrograms and Fourier transforms. It will be useful for you to brush up your knowledge on these techniques and keep them in mind as you complete the rest of this module and prepare to build on it in the next module on Speech Recognition.
 
-> *Status: 🔥 WIP — needs manual watch — see [module09_notes.md](module_09_nlp/module09_notes.md)*
+> *Status: ✅ Watched + Reviewed — see [module09_notes.md](module_09_nlp/module09_notes.md)*
 
 #### 2. Introduction to NLTK
 - Navlani, A. (2019). Text Analytics for Beginners using NLTK. Retrieved from https://www.datacamp.com/community/tutorials/text-analytics-beginners-nltk

@@ -5,7 +5,7 @@
 
 | # | Task | Status |
 |---|------|--------|
-| 1 | Watch & summarise CrashCourse (2017) — NLP overview video | 🔥 WIP |
+| **1** | **Watch & summarise CrashCourse (2017) — NLP overview video** | **✅** |
 | **2** | **Read & summarise Ali (2023) — NLTK sentiment analysis tutorial** | **✅** |
 | **3** | **Read & summarise Hardeniya (2016) — text classification Ch.6** | **✅** |
 | **4** | **Read & summarise Thanaki (2017) — deep learning for NLU/NLG Ch.9** | **✅** |
@@ -21,9 +21,84 @@
 
 **Citation:** CrashCourse. (2017, 22 November). Natural language processing: Crash course computer science #36 [Video file]. Retrieved from https://www.youtube.com/watch?v=fOvTtapxa9c
 
-**Purpose:** Introductory video overview of NLP — covers why NLP matters, its history, sentence structure, deep learning applications, and NLU vs NLG.
+**Purpose:** Introductory overview of NLP — from sentence parsing and chatbots to the physics of speech recognition (spectrograms, phonemes) and speech synthesis. Bridges linguistics and computer science in ~12 minutes.
 
-> *Status: 🔥 WIP — needs manual watch. Transcript not publicly available via fetch.*
+---
+
+#### 1. Why NLP Is Hard
+- Programming languages are small, rigid, error-intolerant — natural languages are the opposite
+- Natural languages have: large diverse vocabularies, ambiguous words, multiple meanings, accents, slurring, implicit context
+- NLP = interdisciplinary field combining **computer science + linguistics**
+
+#### 2. Sentence Deconstruction — Parts of Speech & Parse Trees
+- **9 parts of speech:** noun, pronoun, article, verb, adjective, adverb, preposition, conjunction, interjection
+- Problem: many words have multiple roles — "rose" and "leaves" can be noun or verb
+- Solution: **phrase structure rules** — encode grammar formally, e.g.:
+  - Sentence → Noun Phrase + Verb Phrase
+  - Noun Phrase → Article + Noun | Adjective + Noun
+- **Parse tree:** applies those rules to a sentence → tags every word + reveals sentence structure
+- Enables voice search decomposition: "where's the nearest pizza?" → question type: WHERE, noun: pizza, dimension: nearest
+
+#### 3. Natural Language Generation
+- Phrase structure rules work **both ways** — parsing input AND generating output text
+- **Knowledge Graph** (Google, 2016): ~70 billion facts + relationships between entities → used to craft informational sentences
+- Example output: *"Thriller was released in 1983 and sung by Michael Jackson"*
+
+#### 4. Chatbots — Rule-Based → ML-Based
+
+| Era | Approach | Example | Limitation |
+|-----|----------|---------|------------|
+| 1960s | Rule-based (hundreds of hand-coded rules) | ELIZA (MIT, therapist bot) | Brittle, unwieldy to maintain |
+| Modern | ML-trained on gigabytes of real human chat | Customer service bots | Still fails on complex/ambiguous intent |
+
+- Facebook experiment: chatbots negotiating with each other developed a **simplified protocol** (not "evil" — just efficient compression of communication)
+
+#### 5. Speech Recognition — How It Works
+
+**Historical milestones:**
+
+| Year | System | Capability |
+|------|--------|-----------|
+| 1952 | Audrey (Bell Labs) | 10 digits, spoken slowly |
+| 1962 | IBM Shoebox | 16 words |
+| 1971–76 | Harpy (Carnegie Mellon, DARPA-funded) | 1,000+ words |
+| 1980s–90s | ML-based systems | Real-time continuous speech |
+| Today | Deep neural networks | State-of-the-art accuracy |
+
+**Signal processing pipeline:**
+
+```
+Microphone → Waveform (amplitude vs time)
+           → Spectrogram (frequency vs time, via Fast Fourier Transform)
+           → Identify formants (resonance peaks)
+           → Match phonemes (~44 in English)
+           → Separate words + sentences
+           → Text output
+```
+
+- **Waveform:** raw audio — amplitude of diaphragm displacement over time
+- **Spectrogram:** converts waveform to frequency-domain view; brightness = loudness of that frequency
+- **Fast Fourier Transform (FFT):** algorithm that converts waveform → spectrum (like an EQ visualiser)
+- **Formants:** resonance peaks in the spectrum; each vowel has a distinctive formant pattern
+- **Phonemes:** ~44 sound pieces that make up English words; speech recognition = pattern-matching phonemes in spectrograms
+
+#### 6. Language Models Improve Accuracy
+- People say words differently (accents, mispronunciations) → ambiguity in phoneme matching
+- **Language model:** stores statistics about word sequences
+  - "she was" is most likely followed by an adjective → if recogniser is unsure between "happy" vs "harpy", it picks "happy"
+- Combining acoustic signal analysis + language model statistics = significantly higher accuracy
+
+#### 7. Speech Synthesis (Text-to-Speech)
+- Reverse of recognition: text → break into phonemes → play sounds in sequence
+- 1937 Bell Labs: audible but robotic phoneme chaining
+- 1980s: improved but still discontinuous/awkward
+- Today (Siri, Cortana, Alexa): much better — but not quite human yet
+- **Positive feedback loop:** more voice usage → more training data → better accuracy → more usage
+
+#### Key Takeaways for ISY503
+1. Parse trees and phrase structure rules are the foundation of voice assistants — every "hey Siri" query runs through this pipeline
+2. Spectrograms + FFT + phoneme matching explain *why* accents affect accuracy — the formant patterns shift
+3. The ML shift in chatbots (rule-based → data-driven) mirrors the same evolution seen in computer vision (Module 8) and classification (Module 3)
 
 ---
 
