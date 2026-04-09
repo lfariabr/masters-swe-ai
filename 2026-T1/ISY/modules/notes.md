@@ -785,14 +785,93 @@ In this Module, you will also be taking a practical approach to become familiar 
 
 Image processing is the very first step of computer vision. You need to be comfortable working with pixels so you can feed them to machine learning models, after which your machine can detect features and understand the images based on the output of the models. In your Jupyter Notebook, turn to the task on processing the image of the attached scene and find the pixels representing the sky. You need to find all the whitish and bluish pixels and colour them as the sky. Finally, note the percentage of sky pixels compared to the total pixels and then post your answer to the discussion forum. Remember, if you have any questions about this, post them to the Discussion Forum. Your peers are often more than willing to help you out!
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Done*
 
 #### Activity 2: Transfer Learning
 - Moltzau, A. (2019, 5 September), What is transfer learning? [Blog post]. Retrieved from: https://medium.com/@alexmoltzau/what-is-transfer-learning-6ebb03be77ee
 
 Transfer learning is an emerging research problem in machine learning whereby a fully trained model is used as a basis to train another model for a different application. Under the transfer learning approach, knowledge is transferred from one model to another model, just like a teacher transfers knowledge to students. Read the following article including any following through to any links within it to gain an understanding of the concept behind transfer learning. Submit a short summary of at least 100 words about the transfer learning technique. Upload your summary to the Transfer Learning discussion forum.
 
-> *Status: ✅ Read + Reviewed — see [module08_notes.md](module_08_computer-vision/module08_notes.md)*
+> *Status: 🕐 To-Do*
+
+---
+
+## Module 9 - Natural Language Processing
+
+### TLDR
+
+### Introduction
+Natural language processing (NLP) is a multidisciplinary field focused on enabling computers to communicate with human beings in human-like conversation patterns. According to Wikipedia, “The history of machine translation dates back to the seventeenth century, when philosophers such as Leibniz and Descartes put forward proposals for codes which would relate words between languages. All of these proposals remained theoretical, and none resulted in the development of an actual machine. The first patents for ‘translating machines’ were applied for in the mid-1930s”. It wasn’t until the 1950s however, when computer scientist Alan Turing developed the “Turing Test” that was used to understand whether a computer program can impersonate a human being while engaging in real-time conversation, that a flurry of work was embarked up on this area. Many of the early works in the area used statistical models of weighting aspects of the input data in determining what they could mean. In recent times, ML algorithms have come to the scene and many big corporations like Microsoft, Google and Amazon have been involved in the development of important libraries or powerful applications that use NLP for applications as wide-ranging as a chatbot you converse with on a website to sentiment analysis of reviews on products to text generation use cases. In this module, you will learn about the mechanics underneath NLP, the various techniques algorithms and concepts that power this ability of computers to come close to understanding or generating human-like conversation.
+
+### Resources
+
+#### 1. Natural Language Processing Overview
+- CrashCourse. (2017, 22 November). Natural language processing: Crash course computer science #36 [Video file]. Retrieved from https://www.youtube.com/watch?v=fOvTtapxa9c
+
+*Resource Overview:*
+
+    Watch the following video, which provides an overview of NLP. Take note of the following concepts discussed:
+    - Why NLP is important;
+    - The history of NLP;
+    - Sentence structures and its implication for NLP;
+    - Applications of NLP;
+    - Statistics about sequence of words;
+    - Deep learning in NLP.
+    As you watch the video, take note of the mentioned topics and track them in the video. NLP has two main subsections: Natural Language Understanding (NLU) and Natural Language Generating (NLG). The applications of NLP in customer service and chatbots are discussed from minutes 5 to 6 as well as further examples such as transcription. The video also delves into some of the mechanics behind how computers recognise spoken language – including terminology you may or may not have heard before – spectrograms and Fourier transforms. It will be useful for you to brush up your knowledge on these techniques and keep them in mind as you complete the rest of this module and prepare to build on it in the next module on Speech Recognition.
+
+> *Status: 🕐 To-Do*
+
+#### 2. Introduction to NLTK
+- Navlani, A. (2019). Text Analytics for Beginners using NLTK. Retrieved from https://www.datacamp.com/community/tutorials/text-analytics-beginners-nltk
+
+*Resource Overview:*
+
+    According to Techopedia.com “The Natural Language Toolkit (NLTK) is a platform used for building Python programs that work with human language data for applying in statistical natural language processing (NLP).” In this practical resource, you will learn how to install the library and use it for a number of basic and applied NLP challenges – from frequency distribution of words to sentiment analysis. It is recommended that you attempt as many of these tutorial exercises listed here as possible to gain an understanding of the important text analysis operations possible through NLTK. Note that the last exercise on Sentiment Analysis will give you good practical knowledge on how to develop sentiment analysis applications – an important component of Assessment 3.
+
+> *Status: 🕐 To-Do*
+
+#### 3. Using Machine Learning algorithms for NLP applications
+- Hardeniya, N. (2016). Natural language processing: Python and NLTK: Learning path: Learn to build expert NLP and machine learning projects using NLTK and other Python libraries. Birmingham, England: Packt. Retrieved from https://search.ebscohost.com/login.aspx?direct=true&AuthType=shib&db=nlebk&AN=1426890&site=ehost-live&custid=ns251549&ebv=EB&ppid=pp_75
+
+*Resource Overview:*
+
+    Read chapter 6 (of Module 1) of the following resource to become familiar with the types of ML algorithms that play a powerful role in the world of NLP. You will be introduced to both supervised and unsupervised algorithms and provided with a run-through of some of the algorithms (like K-means clustering) you were asked to research back in Module 3. It is recommended you attempt the step-by-step process the author takes you on in an effort to demonstrate the various parts of preparing data for NLP as well as the recommended and effective ML algorithms in the field across various applications/use cases.
+
+> *Status: 🕐 To-Do*
+
+#### 4. Deep Learning in Natural Language Processing
+- Thanaki, J. (2017). Python Natural Language Processing, Advances in Neural Information Processing. Birmingham, England: Packt, Retrieved from: https://search.ebscohost.com/login.aspx?direct=true&AuthType=shib&db=nlebk&AN=1566414&site=ehost-live&custid=ns251549&ebv=EB&ppid=pp_360
+
+*Resource Overview:*
+
+    Chapter 9 of this resource delves into the difference between NLU and NLG as well as introducing you to some common deep learning models used to solve problems in this domain. Deep Learning techniques and NLU and Deep Learning techniques and NLG are the focus of this learning resource and it is recommended you work through both of them. In the sub-section about NLU, you can follow along the practical parts of this chapter by using TensforFlow and downloading the recommending data sets to develop your own LSTM to create your own language translator. The sub-section about NLG takes you through a very interesting practical run-through of building a text summarisation algorithm. After completing this learning resource, you will gain a comprehensive understanding of how deep learning can be used for NLP applications.
+
+> *Status: 🕐 To-Do*
+
+#### 5. Solving a major problem in NLP – shortage of training data – with Google’s help from Bidirectional Encoder Representations from Transformers (BERT)
+- Devlin, J., Chang, M. W. (2018). Open Sourcing BERT: State-of-the-Art Pre-training for Natural Language Processing. Retrieved from https://ai.googleblog.com/2018/11/open-sourcing-bert-state-of-art-pre.htmlLinks to an external site.
+
+*Resource Overview:*
+
+    As we have seen time and time again through the resources in previous modules, training ML models tend to be only as good as the data they are trained on, i.e. “Garbage in, Garbage out”. Fortunately for those that need to work with NLP applications, Google recognised this shortcoming and crated a new open-source NLP pre-training model. I.e. it specifically targets “context” of a word in two directions – before and after it is used in a sentence. For further details and some practical learning opportunities where you can train your own NLP models in about 30 minutes, consult Google’s blog post about BERT below.
+
+> *Status: 🕐 To-Do*
+
+### Learning Activities
+
+#### Activity 1: Bias in NLP trained applications
+- Metz, C. (2019). We Teach A.I. Systems Everything, Including Our Biases. Retrieved from https://www.proquest.com/newspapers/we-teach-i-systems-everything-including-our/docview/2314131571/se-2?accountid=176901
+
+A significant factor in the effectiveness and unpartial operation of NLP applications lies in the integrity of the training data on which it has been trained on. Imagine that we asked you to train a simple ML model where you were asked to categorise fruits into two groups – "delicious" or "sour". If you are a fan of sour-tasting fruits – say a raw mango, you might lean towards categorising these under the "delicious" category. As you may have realised by now, this is what is called unconscious bias – and it has seeped into your ML model. This is not an uncommon occurrence and many applications have become a victim of it. In this learning activity, you will read the following newspaper article, understand the limitations of one of the algorithms you've been introduced – BERT and use that context to perform your own search on the internet to write a report on some examples of bias that has seeped into the training and usage of NLP models. Your report of (at least 100 words) should be about the bias limitations of algorithms other than BERT and can focus on the implications it has had on the use case it is used in.
+
+> *Status: 🕐 To-Do*
+
+#### Activity 2: Question answering
+- Ben Abacha, A. & Zweigenbaum, P. (2015). Means: A medical question-answering system combining NLP techniques and semantic web technologies. Information Processing and Management, 51(5), 570–594. Retrieved from https://go.openathens.net/redirector/torrens.edu.au?url=https://www.sciencedirect.com/science/article/pii/S0306457315000515
+
+One of the main objectives of NLP is to allow machines have complete and meaningful conversations with humans. To achieve this goal, machines need to understand humans – including the context. Question answering is a field of study in NLP that is trying to teach machines to show relevant information based on their perception of the question. Read the following article to gain an understanding of the mechanism of question answering in NLP. You can then exchange ideas with your peers (in your face-to-face lesson with the facilitator) on what you have learnt and address another important issues raised by the subject of this resource – ethical challenges posed when a NLP model gets the answers to questions wrong in a medical context.
+
+> *Status: 🕐 To-Do*
 
 ---
 

@@ -20,7 +20,7 @@
 | 3 | **Read & summarise Brownlee (2019) — Face detection with deep learning** | **Article** | **✅** |
 | **4** | **Read & summarise Howse et al. (2016) — Chapter 8: Object Tracking** | **Book chapter** | **✅** |
 | 5 | **Activity 1: Image Processing Practices (sky pixel detection)** | **Jupyter** | **✅** |
-| **6** | **Read & summarise Moltzau (2019) — What is transfer learning?** | **Article** | **✅** |
+| 6 | **Read & summarise Moltzau (2019) — What is transfer learning?** | **Article** | **✅** |
 | 7 | Activity 2: Write 100-word transfer learning summary (Discussion Forum) | Written | 🕐 |
 
 ---
