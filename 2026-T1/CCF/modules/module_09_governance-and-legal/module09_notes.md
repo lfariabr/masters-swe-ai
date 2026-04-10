@@ -376,6 +376,11 @@ Business information in the cloud must be:
 >
 > Collectively, these obligations require Australian businesses to treat cloud contracts as legal instruments, not merely technical agreements.
 
+Law: servers location
+Protection: encryption standards, multi-tenancy segregation
+Privacy: breach notification obligations, forensic assistance
+* Note on IAM? Backups? Logs? Backups?
+
 ---
 
 ### Activity 2 — Critical Thinking: Cloud Law (200 words, Discussion Forum)
