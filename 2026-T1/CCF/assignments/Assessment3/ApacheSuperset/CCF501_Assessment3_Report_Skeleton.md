@@ -23,11 +23,11 @@ This report documents the deployment of Apache Superset — an open-source data 
 <!-- SLO a, b: NIST characteristics; cloud vs on-premises -->
 <!-- NOTE: Complete sentences and paragraphs only — no tables, diagrams, or dot points -->
 
-In a traditional IT environment, standing up a data visualisation platform like Apache Superset would require procuring physical server hardware, configuring a local network, applying firewall rules at the rack level, and committing ongoing operational resources to maintain that infrastructure indefinitely. For an individual developer or small team, that overhead alone makes self-hosted analytics tooling impractical outside of enterprise settings.
+In a traditional IT environment, standing up a data visualisation platform would require procuring physical server hardware, configuring a local network, applying firewall rules at the rack level, and maintaining that infrastructure indefinitely. For an individual developer or small team, that overhead makes self-hosted analytics tooling impractical outside enterprise settings.
 
-Cloud computing removes that barrier. The National Institute of Standards and Technology (NIST) defines cloud computing as a model enabling on-demand network access to a shared pool of configurable computing resources, characterised by five essential properties: on-demand self-service, broad network access, resource pooling, rapid elasticity, and measured service (Mell & Grance, 2011). These properties shift infrastructure from a capital expenditure to an operational one — organisations consume resources as needed and pay only for what they use, without procuring fixed capacity or managing physical hardware (McHaney, 2021).
+Cloud computing removes that barrier. The National Institute of Standards and Technology (NIST) defines cloud computing as on-demand network access to a shared pool of configurable computing resources, characterised by five essential properties: on-demand self-service, broad network access, resource pooling, rapid elasticity, and measured service (Mell & Grance, 2011). These properties shift infrastructure from a capital expenditure to an operational one — organisations pay only for what they use, without fixed-capacity procurement or physical hardware management (McHaney, 2021).
 
-This deployment uses an **Infrastructure as a Service (IaaS)** model: Microsoft Azure provides the virtual machine, virtual network, and underlying compute layer; the operating system, container runtime, and application stack are configured and managed directly by the author. The deployment model is **public cloud** — hosted on Azure's shared global infrastructure, accessible via the public internet, and secured through network-level access policies. Where a traditional server setup would require weeks of hardware procurement and physical installation, the same outcome here was achieved through a browser-based portal at effectively zero capital cost (IBM, n.d.-a).
+This deployment uses an **Infrastructure as a Service (IaaS)** model: Azure provides the virtual machine, virtual network, and compute layer; the operating system, container runtime, and application stack are managed by the author. The deployment model is **public cloud** — hosted on Azure's shared global infrastructure and secured through network-level access policies. Where a traditional server setup requires weeks of procurement and physical installation, the same outcome here was achieved through a browser-based portal at effectively zero capital cost (IBM, n.d.-a).
 
 ---
 
@@ -38,7 +38,7 @@ This deployment uses an **Infrastructure as a Service (IaaS)** model: Microsoft 
 <!-- RUBRIC: 10% — Identify key cloud services; compare providers; justify selection -->
 <!-- SLO c: key service offerings and comparison -->
 
-Microsoft Azure was selected as the cloud provider for this deployment for three reasons. First, Azure offers a comprehensive set of data and analytics services — including Azure SQL, Azure Synapse Analytics, and Azure Data Factory — that directly complement Apache Superset's role as a query and visualisation layer. This architectural alignment is relevant to both current data engineering work and the upcoming Big Data and Analytics subject (BDA601). Second, Azure is the target platform for the author's certification roadmap (AZ-900 → DP-900), making hands-on deployment a practical study activity. Third, Azure's free-tier virtual machine (B1s: 1 vCPU, 1 GB RAM) and student credit allocation lower the barrier to entry for academic projects.
+Microsoft Azure was selected for three reasons. First, its data and analytics ecosystem — Azure SQL, Synapse Analytics, and Data Factory — directly complements Superset's role as a query and visualisation layer, relevant to current data engineering work and the BDA601 subject ahead. Second, Azure is the target certification platform (AZ-900 → DP-900), making hands-on deployment a practical study activity. Third, the free-tier VM (B1s: 1 vCPU, 1 GB RAM) and student credits lower the barrier for academic projects.
 
 | Criterion | AWS | Microsoft Azure | GCP |
 |---|---|---|---|
@@ -85,41 +85,41 @@ The deployment followed the account setup and four tasks specified in the assess
 
 **Account registration and Azure portal setup**
 
-An Azure account was activated at portal.azure.com using the student email associated with this enrolment. Microsoft Azure offers a free account including USD $200 in credits for 30 days and a set of always-free services, which covers the compute and networking requirements for this project (Microsoft, n.d.-d). After authentication, the Azure portal home page confirmed an active subscription and displayed the available resource quota for the Australia East region — the starting point for all subsequent resource provisioning.
+An Azure account was activated at portal.azure.com using the student enrolment email. Azure's free account provides USD $200 in credits for 30 days alongside always-free services, covering the compute and networking requirements for this project (Microsoft, n.d.-d). The portal confirmed an active subscription in Australia East, providing the foundation for all subsequent resource provisioning.
 
 ![Screenshot: Azure portal home page showing active subscription and region](images/00_azure_portal_home.png)
-*Figure 2: Azure portal home confirming active subscription in Australia East.*
+*Figure 2: Azure portal — active subscription confirmed in Australia East.*
 
 **Task a — Create a resource group**
 
-A resource group (`rg-superset-ccf501`) was created in the Azure portal under the Australia East region. Resource groups in Azure serve as logical containers for all related cloud resources, enabling unified billing, access control, and lifecycle management (Microsoft, n.d.-a). Selecting Australia East minimises latency for local access and ensures data residency within Australian boundaries.
+A resource group (`rg-superset-ccf501`) was created in the Azure portal under Australia East. Resource groups are logical containers for cloud resources, enabling unified billing, access control, and lifecycle management (Microsoft, n.d.-a). Australia East was selected to minimise latency and maintain local data residency.
 
 ![Screenshot: Azure resource group creation — rg-superset-ccf501 in Australia East](images/01_resource_group.png)
-*Figure 3: Azure resource group rg-superset-ccf501 created in Australia East.*
+*Figure 3: Resource group rg-superset-ccf501 in Australia East.*
 
 **Task b — Add a virtual network**
 
-A Virtual Network (`vnet-superset`, address space `10.0.0.0/16`) was created within the resource group, with a dedicated application subnet (`snet-app`, `10.0.1.0/24`). VNets in Azure provide network isolation — resources within the VNet communicate privately without traversing the public internet (Microsoft, n.d.-b). This mirrors the NIST resource pooling characteristic: shared physical infrastructure is logically partitioned to create isolated network boundaries (Mell & Grance, 2011).
+A Virtual Network (`vnet-superset`, `10.0.0.0/16`) was created with a dedicated application subnet (`snet-app`, `10.0.1.0/24`). VNets provide private network isolation — resources communicate internally without traversing the public internet (Microsoft, n.d.-b). This reflects NIST's resource pooling characteristic: shared physical infrastructure partitioned into isolated, private network boundaries (Mell & Grance, 2011).
 
 ![Screenshot: Azure VNet configuration — vnet-superset with snet-app subnet](images/02_vnet.png)
-*Figure 4: Virtual Network vnet-superset with application subnet snet-app.*
+*Figure 4: VNet vnet-superset with subnet snet-app.*
 
 **Task c — Protect the network with a firewall / security policy**
 
-A Network Security Group (`nsg-superset`) was created and attached to the `snet-app` subnet. Inbound rules were configured to allow only SSH (port 22, restricted to the author's public IP), HTTP (port 80), and the Superset application port (8088). All other inbound traffic is denied by the default DenyAllInbound rule. This implements the principle of least privilege — only the minimum required ports are open, reducing the attack surface (Shore, 2020).
+A Network Security Group (`nsg-superset`) was attached to the `snet-app` subnet. Inbound rules allow SSH (port 22, restricted to the author's IP), HTTP (port 80), and the Superset port (8088); all other inbound traffic is denied by default. This implements the principle of least privilege — only the minimum required ports are exposed (Shore, 2020).
 
 ![Screenshot: NSG inbound rules panel showing port 22, 80, 8088 allow rules](images/03_nsg_rules.png)
-*Figure 5: NSG inbound security rules — explicit allow on 22/80/8088, implicit deny all.*
+*Figure 5: NSG inbound rules — allow 22/80/8088, deny all else.*
 
 **Task d — Deploy Apache Superset**
 
-An Ubuntu 22.04 VM (Standard B2s: 2 vCPU, 4 GB RAM) was provisioned within `snet-app`. Docker and Docker Compose were installed via SSH. The official Apache Superset Docker Compose configuration was cloned from the project repository and launched with `docker compose up -d`. After initialisation, Superset was accessible at `http://[PUBLIC_IP]:8088`. An admin account was created and a sample PostgreSQL data source was connected to verify end-to-end functionality.
+An Ubuntu 22.04 VM (Standard B2s: 2 vCPU, 4 GB RAM) was provisioned within `snet-app`. Docker and Docker Compose were installed via SSH, and the Superset Docker Compose stack was launched with `docker compose up -d`. Superset was then accessible at `http://[PUBLIC_IP]:8088`; an admin account was created and a PostgreSQL data source connected to confirm end-to-end functionality.
 
 ![Screenshot: Superset login screen at public IP in browser](images/04_superset_login.png)
-*Figure 6: Apache Superset login screen accessible at public IP on port 8088.*
+*Figure 6: Superset login screen at public IP, port 8088.*
 
 ![Screenshot: Superset dashboard view with connected data source](images/05_superset_dashboard.png)
-*Figure 7: Superset dashboard with connected PostgreSQL data source.*
+*Figure 7: Superset dashboard with connected data source.*
 
 ---
 
@@ -155,7 +155,7 @@ The current deployment is functional but represents a minimal viable configurati
 
 **Managed PostgreSQL:** Replacing the Docker-hosted PostgreSQL instance with Azure Database for PostgreSQL provides automated backups, point-in-time restore, and high availability — eliminating the metadata loss risk if the VM disk fails.
 
-**Celery workers for async queries:** A production Superset deployment separates the web server from Celery workers (backed by Redis) for long-running queries. This mirrors the architecture used in Konquista (Django + Celery + Redis), where async task processing prevented UI blocking under load.
+**Async query workers:** Production Superset separates the web server from Celery workers for long-running queries, reusing the Redis broker already present in the Docker Compose stack. This pattern was previously applied by the author in Konquista — a WhatsApp automation platform built in Django + Celery + Redis that handled 1,000+ daily messages — where separating async workers from the web process eliminated UI blocking under load.
 
 **Azure Monitor + alerts:** Attaching Azure Monitor to the VM provides CPU, memory, and disk metrics — enabling proactive alerting before resource exhaustion causes downtime.
 
