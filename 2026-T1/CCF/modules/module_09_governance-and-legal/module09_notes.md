@@ -4,10 +4,10 @@
 
 | # | Task | Status |
 |---|------|--------|
-| 1 | Watch & summarise Torrens University (2022) — Legal obligations animation | 🔥 WIP — needs manual access (internal Kaltura LMS) |
+| **1** | **Watch & summarise Torrens University (2022) — Legal obligations animation** | **✅** |
 | 2 | Watch & summarise Linthicum (2021) — Cloud security from business perspective | 🔥 WIP — needs manual access (LinkedIn Learning auth) |
 | **3** | **Read & summarise Saini et al. (2022) — Cloud computing: Legal issues and provision** | **✅** |
-| **4** | **Read & summarise Greig (2022) — FlexBooker data breach (ZDNet)** | **✅** |
+| 4 | **Read & summarise Greig (2022) — FlexBooker data breach (ZDNet)** | **✅** |
 | **5** | **Read & summarise ASD (2021) — Cloud Computing Security Considerations (Activity 1 resource)** | **✅** |
 | **6** | **Read & summarise NAA (n.d.) — Cloud computing and information management (Activity 2 resource)** | **✅** |
 | 7 | Activity 1: Legal Considerations When Moving to the Cloud — Discussion Forum | 🔥 WIP — draft scaffolded below |
@@ -15,7 +15,48 @@
 
 ---
 
+### TLDR
+
+- Cloud computing creates **multi-tiered legal obligations**: from company policies up to jurisdictional and international law, both for providers and consumers
+- Six core legal challenges for CSPs and clients: **Liability, Compliance, Copyright, Applicable Law, Data Protection, Data Portability** — each spanning multiple countries' laws simultaneously
+- In Australia, the **Privacy Act 1988**, **Archives Act 1983**, and **FOI Act 1982** govern cloud-stored data regardless of where that data physically sits — moving to the cloud doesn't transfer legal responsibility
+- The **ASD recommends** keeping sensitive data within Australian borders; foreign-owned CSPs (even if operating locally) can be subject to foreign laws like the **US CLOUD Act**
+- The **FlexBooker breach** (Dec 2021–Jan 2022) is a landmark case study: two simultaneous failures (credential compromise + misconfigured S3 bucket) demonstrated that the **shared responsibility model** places application and data security squarely on the client, not AWS
+- Addressing cross-border legal conflicts requires instruments like **MLATs, bilateral treaties, the CLOUD Act,** and potentially an international cloud governance body
+
+---
+
 ## Key Highlights
+
+### 1. Torrens University Australia. (2022). Legal obligations of cloud providers and consumers.
+
+**Citation:** Torrens University Australia. (2022). Legal obligations of cloud providers and consumers [Video]. Kaltura Media.
+
+**Purpose:** 4-question checklist for consumers and small businesses entering a cloud contract, grounded in Australian law (Privacy Act 1988 + ACL).
+
+---
+
+#### The Two Governing Laws
+
+- **Privacy Act 1988** — protects personal data; CSP must meet its obligations or face breach of the Act
+- **Australian Consumer Law (ACL)** — if a CSP promises to protect your data and fails, it may be in breach of consumer protection law
+
+#### The Four Questions to Ask Your CSP
+
+| # | Question | What to listen for |
+|---|---|---|
+| **1** | Where will my data be stored? | Exact physical location — onshore vs offshore matters because other countries' laws (e.g. US CLOUD Act) may allow third-party access |
+| **2** | Are personalised encryption services offered? | Customised, secure access interfaces; direct real-time management of your own data |
+| **3** | Do you backup my data? | Backups = recovery after ransomware or outage; critical if you hold third-party data |
+| **4** | Under what circumstances will data be disclosed to third parties? | Check contract terms — if disclosure doesn't require your express consent, find a different provider |
+
+#### Key Takeaways for CCF501
+
+1. The ACL + Privacy Act 1988 form a legal floor — even a bad contract can't override them
+2. These four questions map directly onto Activity 1's seven factors (jurisdictional law → Q1, data protection → Q2, retention → Q3, privacy policy/breaches → Q4)
+3. Offshore storage is the single biggest legal risk for Australian SMBs — it's not just a preference, it changes which laws govern your data
+
+---
 
 ### 3. Saini, J. S., Saini, D. K., Gupta, P., Lamba, C. S., & Rao, G. M. (2022). Cloud computing: Legal issues and provision.
 

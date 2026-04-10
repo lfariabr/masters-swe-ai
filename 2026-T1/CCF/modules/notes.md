@@ -873,7 +873,7 @@ In this module, we will discover the underlying legal challenges from both the s
 
     Discover the Australian laws that protect your data (Privacy Act 1988 and Australian Consumer Law) and the security and privacy risks involved. Learn about the contract you will make with your cloud service provider and the important questions to ask, like where your data will be stored. Be a smart and informed cloud user!
 
-> *Status: 🔥 WIP — needs manual access (internal Kaltura LMS — see [module09_notes.md](module_09_governance-and-legal/module09_notes.md))*
+> *Status: ✅ Watched + Reviewed — see [module09_notes.md](module_09_governance-and-legal/module09_notes.md)*
 
 #### 2. Cloud Security From a Business Perspective
 - Linthicum, D. (2021). Business case for cloud security [Video]. In Learning cloud computing: Cloud security. LinkedIn Learning. https://www.linkedin.com/learning/learning-cloud-computing-cloud-security-14366063/business-case-for-cloud-security?autoplay=true&resume=false&u=72036930
