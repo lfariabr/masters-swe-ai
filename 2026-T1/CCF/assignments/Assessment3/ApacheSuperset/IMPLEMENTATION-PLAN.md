@@ -146,6 +146,8 @@ AND NOT EXISTS (
 ## Next Steps
 
 1. Read `TECHNICAL-ARTIFACTS.md` for docker-compose config and commands
-2. Start Phase 1 tasks (can begin immediately)
-3. Take screenshots at every step
-4. Update todo status in SQL as you progress
+2. Use `FIGURES.md` as the capture checklist for screenshots and captions
+3. Use `SCREENCAST.md` to record the marker-friendly walkthrough
+4. Start Phase 1 tasks (can begin immediately)
+5. Take screenshots at every step
+6. Update todo status in SQL as you progress
