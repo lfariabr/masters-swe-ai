@@ -23,9 +23,11 @@ This report documents the deployment of Apache Superset — an open-source data 
 <!-- SLO a, b: NIST characteristics; cloud vs on-premises -->
 <!-- NOTE: Complete sentences and paragraphs only — no tables, diagrams, or dot points -->
 
-Cloud computing has fundamentally changed how organisations provision and manage infrastructure. Rather than purchasing and maintaining physical servers, organisations now consume compute, storage, and networking as on-demand services over the internet — paying only for what they use (Mell & Grance, 2011). The National Institute of Standards and Technology (NIST) defines five essential characteristics of cloud computing: on-demand self-service, broad network access, resource pooling, rapid elasticity, and measured service (Mell & Grance, 2011). These characteristics make cloud infrastructure more adaptable and cost-effective than traditional on-premises deployments, which require significant capital expenditure, fixed capacity, and dedicated operational staff (McHaney, 2021).
+In a traditional IT environment, standing up a data visualisation platform like Apache Superset would require procuring physical server hardware, configuring a local network, applying firewall rules at the rack level, and committing ongoing operational resources to maintain that infrastructure indefinitely. For an individual developer or small team, that overhead alone makes self-hosted analytics tooling impractical outside of enterprise settings.
 
-This deployment uses an **Infrastructure as a Service (IaaS)** model — a virtual machine provisioned on Microsoft Azure, with the operating system, runtime, and application managed by the author. The deployment model is **public cloud**: infrastructure is hosted on Microsoft's shared global network, accessible via the public internet through controlled network security policies. In contrast to a traditional on-premises setup — where a dedicated server, networking equipment, and physical access controls would be required — Azure delivers the same outcome in minutes, at a fraction of the cost, with no physical infrastructure commitment (IBM, n.d.-a).
+Cloud computing removes that barrier. The National Institute of Standards and Technology (NIST) defines cloud computing as a model enabling on-demand network access to a shared pool of configurable computing resources, characterised by five essential properties: on-demand self-service, broad network access, resource pooling, rapid elasticity, and measured service (Mell & Grance, 2011). These properties shift infrastructure from a capital expenditure to an operational one — organisations consume resources as needed and pay only for what they use, without procuring fixed capacity or managing physical hardware (McHaney, 2021).
+
+This deployment uses an **Infrastructure as a Service (IaaS)** model: Microsoft Azure provides the virtual machine, virtual network, and underlying compute layer; the operating system, container runtime, and application stack are configured and managed directly by the author. The deployment model is **public cloud** — hosted on Azure's shared global infrastructure, accessible via the public internet, and secured through network-level access policies. Where a traditional server setup would require weeks of hardware procurement and physical installation, the same outcome here was achieved through a browser-based portal at effectively zero capital cost (IBM, n.d.-a).
 
 ---
 
@@ -41,6 +43,8 @@ Microsoft Azure was selected as the cloud provider for this deployment for three
 | Criterion | AWS | Microsoft Azure | GCP |
 |---|---|---|---|
 | Free tier VM | EC2 t2.micro (750h/mo) | B1s (750h/mo) | e2-micro (always free) |
+| Cost model | Pay-as-you-go; Reserved (up to 75% off); Spot | Pay-as-you-go; Reserved (up to 72% off); Spot | Pay-as-you-go; Committed use (up to 70% off); Spot |
+| Resource elasticity | Auto Scaling Groups + Elastic Load Balancer | VM Scale Sets + Azure Load Balancer | Managed Instance Groups + Cloud Load Balancing |
 | Data/ML integration | RDS, Redshift, SageMaker | Azure SQL, Synapse, Azure ML | BigQuery, Vertex AI |
 | Cert alignment (this enrolment) | ❌ | ✅ AZ-900 / DP-900 | ❌ |
 | Superset community support | Good | Good | Good |
@@ -77,38 +81,45 @@ graph TD
 <!-- RUBRIC: 40% — Document all four tasks with screenshots; clear flow of steps and arguments -->
 <!-- SLO d: implement cloud services via major cloud providers -->
 
-The deployment followed four tasks as specified in the assessment brief.
+The deployment followed the account setup and four tasks specified in the assessment brief.
+
+**Account registration and Azure portal setup**
+
+An Azure account was activated at portal.azure.com using the student email associated with this enrolment. Microsoft Azure offers a free account including USD $200 in credits for 30 days and a set of always-free services, which covers the compute and networking requirements for this project (Microsoft, n.d.-d). After authentication, the Azure portal home page confirmed an active subscription and displayed the available resource quota for the Australia East region — the starting point for all subsequent resource provisioning.
+
+![Screenshot: Azure portal home page showing active subscription and region](images/00_azure_portal_home.png)
+*Figure 2: Azure portal home confirming active subscription in Australia East.*
 
 **Task a — Create a resource group**
 
 A resource group (`rg-superset-ccf501`) was created in the Azure portal under the Australia East region. Resource groups in Azure serve as logical containers for all related cloud resources, enabling unified billing, access control, and lifecycle management (Microsoft, n.d.-a). Selecting Australia East minimises latency for local access and ensures data residency within Australian boundaries.
 
 ![Screenshot: Azure resource group creation — rg-superset-ccf501 in Australia East](images/01_resource_group.png)
-*Figure 2: Azure resource group rg-superset-ccf501 created in Australia East.*
+*Figure 3: Azure resource group rg-superset-ccf501 created in Australia East.*
 
 **Task b — Add a virtual network**
 
 A Virtual Network (`vnet-superset`, address space `10.0.0.0/16`) was created within the resource group, with a dedicated application subnet (`snet-app`, `10.0.1.0/24`). VNets in Azure provide network isolation — resources within the VNet communicate privately without traversing the public internet (Microsoft, n.d.-b). This mirrors the NIST resource pooling characteristic: shared physical infrastructure is logically partitioned to create isolated network boundaries (Mell & Grance, 2011).
 
 ![Screenshot: Azure VNet configuration — vnet-superset with snet-app subnet](images/02_vnet.png)
-*Figure 3: Virtual Network vnet-superset with application subnet snet-app.*
+*Figure 4: Virtual Network vnet-superset with application subnet snet-app.*
 
 **Task c — Protect the network with a firewall / security policy**
 
 A Network Security Group (`nsg-superset`) was created and attached to the `snet-app` subnet. Inbound rules were configured to allow only SSH (port 22, restricted to the author's public IP), HTTP (port 80), and the Superset application port (8088). All other inbound traffic is denied by the default DenyAllInbound rule. This implements the principle of least privilege — only the minimum required ports are open, reducing the attack surface (Shore, 2020).
 
 ![Screenshot: NSG inbound rules panel showing port 22, 80, 8088 allow rules](images/03_nsg_rules.png)
-*Figure 4: NSG inbound security rules — explicit allow on 22/80/8088, implicit deny all.*
+*Figure 5: NSG inbound security rules — explicit allow on 22/80/8088, implicit deny all.*
 
 **Task d — Deploy Apache Superset**
 
 An Ubuntu 22.04 VM (Standard B2s: 2 vCPU, 4 GB RAM) was provisioned within `snet-app`. Docker and Docker Compose were installed via SSH. The official Apache Superset Docker Compose configuration was cloned from the project repository and launched with `docker compose up -d`. After initialisation, Superset was accessible at `http://[PUBLIC_IP]:8088`. An admin account was created and a sample PostgreSQL data source was connected to verify end-to-end functionality.
 
 ![Screenshot: Superset login screen at public IP in browser](images/04_superset_login.png)
-*Figure 5: Apache Superset login screen accessible at public IP on port 8088.*
+*Figure 6: Apache Superset login screen accessible at public IP on port 8088.*
 
 ![Screenshot: Superset dashboard view with connected data source](images/05_superset_dashboard.png)
-*Figure 6: Superset dashboard with connected PostgreSQL data source.*
+*Figure 7: Superset dashboard with connected PostgreSQL data source.*
 
 ---
 
@@ -129,7 +140,7 @@ Security for the deployment was addressed at three layers. At the **network laye
 *Table 2: Security controls applied across network, application, credential, and OS layers.*
 
 ![Screenshot: Superset RBAC settings — role list showing Admin, Alpha, Gamma](images/06_superset_rbac.png)
-*Figure 7: Apache Superset RBAC role configuration.*
+*Figure 8: Apache Superset RBAC role configuration.*
 
 ---
 
@@ -201,6 +212,8 @@ Microsoft. (n.d.-b). *Azure Virtual Network documentation*. Microsoft Learn. htt
 
 Microsoft. (n.d.-c). *Network security groups*. Microsoft Learn. https://learn.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview
 
+Microsoft. (n.d.-d). *Create your Azure free account today*. Microsoft Azure. https://azure.microsoft.com/en-au/free/
+
 Nishimura, H. (2022, August 30). *Introduction to AWS for non-engineers: 1 cloud concepts* [Video]. LinkedIn Learning. https://www.linkedin.com/learning/introduction-to-aws-for-non-engineers-1-cloud-concepts-2/
 
 Shore, M. (2020). *Cybersecurity with cloud computing: Service models* [Video]. LinkedIn Learning. https://www.linkedin.com/learning/cybersecurity-with-cloud-computing-2/
@@ -213,10 +226,11 @@ Shore, M. (2020). *Cybersecurity with cloud computing: Service models* [Video]. 
 
 | Task | Description | Status | Screenshot |
 |---|---|---|---|
-| a | Create resource group (`rg-superset-ccf501`) | 🕐 | Figure 2 |
-| b | Add virtual network (`vnet-superset` + `snet-app`) | 🕐 | Figure 3 |
-| c | Apply NSG inbound rules (22/80/8088) | 🕐 | Figure 4 |
-| d | Deploy Apache Superset via Docker Compose | 🕐 | Figures 5–6 |
+| 0 | Register Azure account / verify active subscription | 🕐 | Figure 2 |
+| a | Create resource group (`rg-superset-ccf501`) | 🕐 | Figure 3 |
+| b | Add virtual network (`vnet-superset` + `snet-app`) | 🕐 | Figure 4 |
+| c | Apply NSG inbound rules (22/80/8088) | 🕐 | Figure 5 |
+| d | Deploy Apache Superset via Docker Compose | 🕐 | Figures 6–7 |
 
 ### Appendix B — Glossary
 
