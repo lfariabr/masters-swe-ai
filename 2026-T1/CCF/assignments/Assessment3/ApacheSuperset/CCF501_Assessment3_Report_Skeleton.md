@@ -232,6 +232,8 @@ Shore, M. (2020). *Cybersecurity with cloud computing: Service models* [Video]. 
 | c | Apply NSG inbound rules (22/80/8088) | 🕐 | Figure 5 |
 | d | Deploy Apache Superset via Docker Compose | 🕐 | Figures 6–7 |
 
+>*Table A1: Deployment task checklist with status and corresponding screenshots.*
+
 ### Appendix B — Glossary
 
 | Term | Meaning |
@@ -247,3 +249,5 @@ Shore, M. (2020). *Cybersecurity with cloud computing: Service models* [Video]. 
 | AZ-900 | Microsoft Azure Fundamentals certification |
 | DP-900 | Microsoft Azure Data Fundamentals certification |
 | SPOF | Single Point of Failure |
+
+> *Table B1: Glossary of technical terms used in the report.*
