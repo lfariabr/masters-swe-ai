@@ -886,7 +886,7 @@ In this module, we will discover the underlying legal challenges from both the s
     4 – Application-Level Cloud Security
     5 – Data-Level Cloud Security
 
-> *Status: 🔥 WIP — needs manual access (LinkedIn Learning auth — see [module09_notes.md](module_09_governance-and-legal/module09_notes.md))*
+> *Status: ✅ Watched + Reviewed — see [module09_notes.md](module_09_governance-and-legal/module09_notes.md)*
 
 #### 3. Legal Issues in Cloud Computing
 - Saini, J. S., Saini D.K., Gupta P., Lamba C. S., & Rao, G. M. (2022). Cloud computing: Legal issues and provision. Security and Communication Networks, 2022, Article 2288961. https://doi.org/10.1155/2022/2288961Links to an external site., https://www.proquest.com/docview/2701957781/fulltextPDF/E9ABE6195E624E3FPQ/1?accountid=176901

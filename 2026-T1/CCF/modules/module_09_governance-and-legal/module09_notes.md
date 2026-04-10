@@ -5,7 +5,7 @@
 | # | Task | Status |
 |---|------|--------|
 | **1** | **Watch & summarise Torrens University (2022) — Legal obligations animation** | **✅** |
-| 2 | Watch & summarise Linthicum (2021) — Cloud security from business perspective | 🔥 WIP — needs manual access (LinkedIn Learning auth) |
+| **2** | **Watch & summarise Linthicum (2021) — Cloud security from business perspective** | **✅** |
 | **3** | **Read & summarise Saini et al. (2022) — Cloud computing: Legal issues and provision** | **✅** |
 | 4 | **Read & summarise Greig (2022) — FlexBooker data breach (ZDNet)** | **✅** |
 | **5** | **Read & summarise ASD (2021) — Cloud Computing Security Considerations (Activity 1 resource)** | **✅** |
@@ -55,6 +55,34 @@
 1. The ACL + Privacy Act 1988 form a legal floor — even a bad contract can't override them
 2. These four questions map directly onto Activity 1's seven factors (jurisdictional law → Q1, data protection → Q2, retention → Q3, privacy policy/breaches → Q4)
 3. Offshore storage is the single biggest legal risk for Australian SMBs — it's not just a preference, it changes which laws govern your data
+
+---
+
+### 2. Linthicum, D. (2021). Business case for cloud security.
+
+**Citation:** Linthicum, D. (2021). Business case for cloud security [Video]. In *Learning cloud computing: Cloud security*. LinkedIn Learning. https://www.linkedin.com/learning/learning-cloud-computing-cloud-security-14366063
+
+**Purpose:** Four short sections covering why cloud security is a business priority and how it operates across three layers — infrastructure, application, and data.
+
+---
+
+| Layer | What's being secured | Key mechanism |
+|---|---|---|
+| **Business case** | Revenue, trust, legal compliance | Security can't hurt performance; backup + recovery essential |
+| **Infrastructure** | Networking, storage, databases, compute | **IAM** — only authorised users reach specific resources |
+| **Application** | Apps + the data they touch | Encryption (at rest + in flight), credential validation, threat detection, **logs** |
+| **Data** | Databases, tables, records, raw storage | Control who accesses what; protect data moving *and* sitting still |
+
+**Two terms worth remembering:**
+- **In flight** — data moving between systems (encrypt it)
+- **At rest** — data sitting in storage (encrypt it too)
+- **IAM** (Identity Access Management) — the gatekeeper at the infrastructure layer
+
+#### Key Takeaways for CCF501
+
+1. Security runs in layers: you can't secure data if the infrastructure is exposed; you can't secure the infrastructure if IAM is weak
+2. Logs aren't optional — regulators (especially in finance) require them; they're also your only forensic trail after a breach (see FlexBooker)
+3. The business case framing matters for assessments: cloud security is a *risk management* decision, not just a technical one
 
 ---
 
