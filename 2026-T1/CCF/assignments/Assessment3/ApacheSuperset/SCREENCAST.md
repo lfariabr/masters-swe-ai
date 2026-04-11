@@ -66,7 +66,7 @@ Suggested phrase:
 Show:
 - inbound rules
 - `22` restricted to your IP
-- `80` and `8088`
+- `8088`
 - deny-all default
 
 Suggested phrase:

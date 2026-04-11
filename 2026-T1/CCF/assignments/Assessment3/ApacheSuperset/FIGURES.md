@@ -30,7 +30,7 @@ Use this file as the evidence checklist for the report and screencast. Every fig
 ### Figure 5 — NSG / Firewall Rules
 - Suggested file: `images/03_nsg_rules.png`
 - Purpose: Evidence for Task (c) protect the network with a firewall or security policy
-- Show: allow `22` from your IP, allow `80`, allow `8088`, deny-all default
+- Show: allow `22` from your IP (source IP restricted), allow `8088`, deny-all default
 - Caption: `Figure 5: Network Security Group inbound rules implementing least-privilege access for SSH and the Superset web interface.`
 
 ### Figure 6 — VM Overview

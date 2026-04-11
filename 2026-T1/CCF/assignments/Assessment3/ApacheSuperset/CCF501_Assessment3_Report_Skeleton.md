@@ -38,16 +38,15 @@ This deployment uses an **Infrastructure as a Service (IaaS)** model: Azure prov
 <!-- RUBRIC: 10% — Identify key cloud services; compare providers; justify selection -->
 <!-- SLO c: key service offerings and comparison -->
 
-Microsoft Azure was selected for three reasons. First, its data and analytics ecosystem — Azure SQL, Synapse Analytics, and Data Factory — directly complements Superset's role as a query and visualisation layer, relevant to current data engineering work and the BDA601 subject ahead. Second, Azure is the target certification platform (AZ-900 → DP-900), making hands-on deployment a practical study activity. Third, the free-tier VM (B1s: 1 vCPU, 1 GB RAM) and student credits lower the barrier for academic projects.
+Microsoft Azure was selected for three reasons. First, its data and analytics ecosystem — Azure SQL, Synapse Analytics, and Data Factory — directly complements Superset's role as a query and visualisation layer, relevant to current data engineering work and the BDA601 subject ahead. Second, Azure is the target certification platform (AZ-900 → DP-900), making hands-on deployment a practical study activity. Third, Azure's free-tier eligibility lowers the barrier; the deployment uses B2s (2 vCPU, 4 GB RAM) as Superset's Docker stack requires more RAM than the free B1s allows, covered by student credits.
 
 | Criterion | AWS | Microsoft Azure | GCP |
 |---|---|---|---|
-| Free tier VM | EC2 t2.micro (750h/mo) | B1s (750h/mo) | e2-micro (always free) |
-| Cost model | Pay-as-you-go; Reserved (up to 75% off); Spot | Pay-as-you-go; Reserved (up to 72% off); Spot | Pay-as-you-go; Committed use (up to 70% off); Spot |
-| Resource elasticity | Auto Scaling Groups + Elastic Load Balancer | VM Scale Sets + Azure Load Balancer | Managed Instance Groups + Cloud Load Balancing |
+| Free tier VM | t2.micro (750h/mo) | B1s (750h/mo) | e2-micro (always free) |
+| Cost model | PAYG / Reserved (75% off) / Spot | PAYG / Reserved (72% off) / Spot | PAYG / Committed use (70% off) / Spot |
+| Resource elasticity | Auto Scaling + ELB | VM Scale Sets + ALB | Managed Instance Groups + CLB |
 | Data/ML integration | RDS, Redshift, SageMaker | Azure SQL, Synapse, Azure ML | BigQuery, Vertex AI |
-| Cert alignment (this enrolment) | ❌ | ✅ AZ-900 / DP-900 | ❌ |
-| Superset community support | Good | Good | Good |
+| Cert alignment | ❌ | ✅ AZ-900 / DP-900 | ❌ |
 
 *Table 1: Cloud provider comparison for Apache Superset deployment.*
 
@@ -58,12 +57,12 @@ Microsoft Azure was selected for three reasons. First, its data and analytics ec
 <!-- RUBRIC: 40% practical skills — block diagram required; describe deployment model -->
 <!-- SLO d: implement cloud services -->
 
-The deployment follows a **public cloud IaaS** model. All resources are provisioned within a single Azure Resource Group, logically isolated by a Virtual Network (VNet) with a dedicated application subnet. A Network Security Group (NSG) enforces inbound traffic rules, restricting access to SSH (port 22, source IP restricted), HTTP (port 80), and the Superset web interface (port 8088). Apache Superset runs inside a Docker Compose stack on an Ubuntu 22.04 virtual machine, with PostgreSQL as the metadata database and Redis as the caching and Celery task broker.
+The deployment follows a **public cloud IaaS** model. All resources are provisioned within a single Azure Resource Group, logically isolated by a Virtual Network (VNet) with a dedicated application subnet. A Network Security Group (NSG) enforces inbound traffic rules, restricting access to SSH (port 22, source IP restricted) and the Superset web interface (port 8088). HTTP (port 80) and HTTPS (port 443) are intentionally excluded — Superset is accessed directly on port 8088, and TLS termination is identified as a future improvement in Section 2e. Apache Superset runs inside a Docker Compose stack on an Ubuntu 22.04 virtual machine, with PostgreSQL as the metadata database and Redis as the caching and Celery task broker.
 
 ```mermaid
 graph TD
-    A["Internet / Browser"] -->|"HTTPS port 8088"| B["NSG\n(Inbound Rules)"]
-    B -->|"Allow: 22, 80, 8088\nDeny: all else"| C["Azure VNet\nsnet-app subnet"]
+    A["Internet / Browser"] -->|"HTTP port 8088"| B["NSG\n(Inbound Rules)"]
+    B -->|"Allow: 22, 8088\nDeny: all else"| C["Azure VNet\nsnet-app subnet"]
     C --> D["Ubuntu 22.04 VM\n(Standard B2s)"]
     D --> E["Docker Compose Stack"]
     E --> F["Apache Superset\n(port 8088)"]
@@ -106,20 +105,23 @@ A Virtual Network (`vnet-superset`, `10.0.0.0/16`) was created with a dedicated 
 
 **Task c — Protect the network with a firewall / security policy**
 
-A Network Security Group (`nsg-superset`) was attached to the `snet-app` subnet. Inbound rules allow SSH (port 22, restricted to the author's IP), HTTP (port 80), and the Superset port (8088); all other inbound traffic is denied by default. This implements the principle of least privilege — only the minimum required ports are exposed (Shore, 2020).
+A Network Security Group (`nsg-superset`) was attached to the `snet-app` subnet. Inbound rules allow SSH (port 22, restricted to the author's IP) and the Superset port (8088); all other inbound traffic is denied by default. Ports 80 and 443 are intentionally excluded — this implements the principle of least privilege, exposing only the minimum required access (Shore, 2020).
 
-![Screenshot: NSG inbound rules panel showing port 22, 80, 8088 allow rules](images/03_nsg_rules.png)
-*Figure 5: NSG inbound rules — allow 22/80/8088, deny all else.*
+![Screenshot: NSG inbound rules panel showing port 22 and 8088 allow rules](images/03_nsg_rules.png)
+*Figure 5: NSG inbound rules — allow 22 (restricted to author IP) and 8088, deny all else.*
 
 **Task d — Deploy Apache Superset**
 
-An Ubuntu 22.04 VM (Standard B2s: 2 vCPU, 4 GB RAM) was provisioned within `snet-app`. Docker and Docker Compose were installed via SSH, and the Superset Docker Compose stack was launched with `docker compose up -d`. Superset was then accessible at `http://[PUBLIC_IP]:8088`; an admin account was created and a PostgreSQL data source connected to confirm end-to-end functionality.
+An Ubuntu 22.04 VM (Standard B2s: 2 vCPU, 4 GB RAM) was provisioned within `snet-app` and assigned a public IP. Docker and Docker Compose were installed via SSH, and the Superset Docker Compose stack was launched with `docker-compose up -d`. Superset was then accessible at `http://[PUBLIC_IP]:8088`; an admin account was created and a PostgreSQL data source connected to confirm end-to-end functionality.
 
-![Screenshot: Superset login screen at public IP in browser](images/04_superset_login.png)
-*Figure 6: Superset login screen at public IP, port 8088.*
+![Screenshot: Azure VM overview showing Ubuntu host, running state, and public IP](images/04_vm_overview.png)
+*Figure 6: Azure virtual machine overview showing Ubuntu host, running status, and public IP used for deployment access.*
 
-![Screenshot: Superset dashboard view with connected data source](images/05_superset_dashboard.png)
-*Figure 7: Superset dashboard with connected data source.*
+![Screenshot: Superset login screen at public IP in browser](images/05_superset_login.png)
+*Figure 7: Apache Superset login screen accessible at the Azure VM public IP on port 8088.*
+
+![Screenshot: Superset dashboard view with connected data source](images/06_superset_dashboard.png)
+*Figure 8: Apache Superset running successfully with a connected dataset and working analytics interface.*
 
 ---
 
@@ -128,7 +130,7 @@ An Ubuntu 22.04 VM (Standard B2s: 2 vCPU, 4 GB RAM) was provisioned within `snet
 <!-- RUBRIC: 20% — Appraise IT governance; identify threats; draft and implement security policy -->
 <!-- SLO e: appraise IT governance requirements to safeguard cloud-driven business solutions -->
 
-Security for the deployment was addressed at three layers. At the **network layer**, the NSG enforces least-privilege access — port 22 (SSH) is restricted to a single authorised IP, and no unnecessary ports are exposed. At the **application layer**, Apache Superset implements Role-Based Access Control (RBAC) with three built-in roles: Admin (full access), Alpha (can create charts and dashboards, cannot manage users), and Gamma (read-only, restricted to explicitly shared datasets). At the **credential layer**, the Superset secret key and database connection strings are passed via environment variables in the Docker Compose configuration — never hardcoded in source files.
+Security was addressed at three layers. At the **network layer**, the NSG enforces least-privilege access: port 22 is restricted to a single authorised IP, with all other inbound traffic blocked by default. At the **application layer**, Superset's RBAC provides three roles: Admin (full access), Alpha (create dashboards and run queries), and Gamma (view-only). At the **credential layer**, the secret key and database connection string are injected via environment variables — never hardcoded in source files.
 
 | Security Layer | Control | Threat Mitigated |
 |---|---|---|
@@ -139,8 +141,8 @@ Security for the deployment was addressed at three layers. At the **network laye
 
 *Table 2: Security controls applied across network, application, credential, and OS layers.*
 
-![Screenshot: Superset RBAC settings — role list showing Admin, Alpha, Gamma](images/06_superset_rbac.png)
-*Figure 8: Apache Superset RBAC role configuration.*
+![Screenshot: Superset RBAC settings — role list showing Admin, Alpha, Gamma](images/07_superset_rbac.png)
+*Figure 9: Apache Superset RBAC role configuration.*
 
 ---
 
@@ -229,8 +231,8 @@ Shore, M. (2020). *Cybersecurity with cloud computing: Service models* [Video]. 
 | 0 | Register Azure account / verify active subscription | 🕐 | Figure 2 |
 | a | Create resource group (`rg-superset-ccf501`) | 🕐 | Figure 3 |
 | b | Add virtual network (`vnet-superset` + `snet-app`) | 🕐 | Figure 4 |
-| c | Apply NSG inbound rules (22/80/8088) | 🕐 | Figure 5 |
-| d | Deploy Apache Superset via Docker Compose | 🕐 | Figures 6–7 |
+| c | Apply NSG inbound rules (22/8088) | 🕐 | Figure 5 |
+| d | Deploy Apache Superset via Docker Compose | 🕐 | Figures 6–8 |
 
 >*Table A1: Deployment task checklist with status and corresponding screenshots.*
 

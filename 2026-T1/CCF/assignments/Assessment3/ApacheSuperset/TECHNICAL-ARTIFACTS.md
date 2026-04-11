@@ -5,8 +5,6 @@
 Create `docker-compose.yml`:
 
 ```yaml
-version: '3.8'
-
 services:
   redis:
     image: redis:7-alpine
@@ -22,7 +20,7 @@ services:
     environment:
       POSTGRES_DB: superset
       POSTGRES_USER: superset
-      POSTGRES_PASSWORD: superset_db_password_change_me
+      POSTGRES_PASSWORD: <db-password>
     volumes:
       - postgres-data:/var/lib/postgresql/data
     networks:
@@ -35,13 +33,8 @@ services:
       - postgres
       - redis
     environment:
-      - SUPERSET_SECRET_KEY=your_secret_key_change_me_to_random_string
-      - DATABASE_DB=superset
-      - DATABASE_HOST=postgres
-      - DATABASE_PASSWORD=superset_db_password_change_me
-      - DATABASE_USER=superset
-      - DATABASE_PORT=5432
-      - DATABASE_DIALECT=postgresql
+      - SUPERSET_SECRET_KEY=<output-of-openssl-rand-base64-42>
+      - SUPERSET__SQLALCHEMY_DATABASE_URI=postgresql+psycopg2://superset:<db-password>@postgres:5432/superset
       - REDIS_HOST=redis
       - REDIS_PORT=6379
     ports:
@@ -50,7 +43,7 @@ services:
       - ./superset_home:/app/superset_home
     networks:
       - superset-network
-    command: ["sh", "-c", "superset db upgrade && superset fab create-admin --username admin --firstname Admin --lastname User --email admin@superset.com --password admin || true && superset init && superset run -h 0.0.0.0 -p 8088 --with-threads --reload"]
+    command: ["sh", "-c", "superset db upgrade && superset fab create-admin --username admin --firstname Admin --lastname User --email admin@superset.com --password <secure-admin-password> || true && superset init && superset run -h 0.0.0.0 -p 8088 --with-threads"]
 
 volumes:
   redis-data:
@@ -63,7 +56,7 @@ networks:
 
 **Generate secret key:**
 ```bash
-python3 -c "import secrets; print(secrets.token_urlsafe(42))"
+openssl rand --base64 42
 ```
 Replace `SUPERSET_SECRET_KEY` in the yaml above.
 
@@ -74,12 +67,11 @@ Replace `SUPERSET_SECRET_KEY` in the yaml above.
 | Priority | Name | Port | Protocol | Source | Action |
 |----------|------|------|----------|--------|--------|
 | 100 | Allow-SSH | 22 | TCP | Your-IP/32 | Allow |
-| 110 | Allow-HTTP | 80 | TCP | * | Allow |
-| 120 | Allow-HTTPS | 443 | TCP | * | Allow |
-| 130 | Allow-Superset | 8088 | TCP | * | Allow |
+| 110 | Allow-Superset | 8088 | TCP | * | Allow |
 | 65000 | DenyAllInbound | * | * | * | Deny |
 
 **Security rationale:** Deny-by-default with explicit allows. SSH restricted to your IP only.
+Port 80 (HTTP) and 443 (HTTPS) are omitted — no reverse proxy or TLS is configured in this deployment. Superset is accessed directly on port 8088. Adding Nginx + TLS via Let's Encrypt or Azure Application Gateway is noted as a robustness improvement in section 2e.
 
 ---
 
@@ -124,13 +116,13 @@ curl ifconfig.me
 # Default login: admin / admin (change immediately)
 
 # 8. Create additional users (optional)
-docker exec -it superset_superset_1 superset fab create-user \
+docker-compose exec superset superset fab create-user \
   --username analyst --firstname Data --lastname Analyst \
-  --email analyst@example.com --password analyst123 --role Alpha
+  --email analyst@example.com --password <secure-analyst-password> --role Alpha
 
-docker exec -it superset_superset_1 superset fab create-user \
+docker-compose exec superset superset fab create-user \
   --username viewer --firstname View --lastname Only \
-  --email viewer@example.com --password viewer123 --role Gamma
+  --email viewer@example.com --password <secure-viewer-password> --role Gamma
 ```
 
 ---
@@ -219,8 +211,8 @@ graph TB
     subgraph Azure["Azure Cloud (Public)"]
         subgraph RG["Resource Group: rg-superset-ccf501"]
             subgraph VNet["Virtual Network: vnet-superset<br/>10.0.0.0/16"]
-                subgraph Subnet["Subnet: subnet-superset<br/>10.0.1.0/24"]
-                    NSG["Network Security Group<br/>Port 22, 80, 443, 8088<br/>Deny All Other"]
+                subgraph Subnet["Subnet: snet-app<br/>10.0.1.0/24"]
+                    NSG["Network Security Group<br/>Port 22, 8088<br/>Deny All Other"]
                     VM["Ubuntu VM<br/>Standard_B2s<br/>Public IP: X.X.X.X"]
                     NSG --> VM
                 end
@@ -288,7 +280,7 @@ curl http://localhost:8088
 docker ps | grep postgres
 
 # Test connection
-docker exec -it superset_postgres_1 psql -U superset -d superset
+docker-compose exec postgres psql -U superset -d superset
 ```
 
 ---

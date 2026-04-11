@@ -3,7 +3,7 @@
 > codex resume 019d7165-5cb5-7f20-b4da-f456276aa3ec
 
 ## Status
-- 🕐 Provider account setup (Azure free tier) — access pending, teacher said next week
+- ✅ Provider account setup — Azure account active, free credits available
 - 🕐 Resource group created
 - 🕐 VNet + subnet configured
 - 🕐 NSG / firewall rules applied
@@ -32,15 +32,14 @@ Superset over Metabase/MLflow because:
 - [ ] Task a: Create resource group (`rg-superset-ccf501`) → screenshot Figure 3
 - [ ] Task b: Add virtual network (`vnet-superset`, subnet `snet-app`) → screenshot Figure 4
 - [ ] Task c: NSG with rules (see security section below) → screenshot Figure 5
-- [ ] Task d: Deploy Apache Superset via Docker Compose → screenshots Figures 6–7
-- [ ] RBAC roles configured (Admin/Alpha/Gamma) → screenshot Figure 8
+- [ ] Task d: Deploy Apache Superset via Docker Compose → screenshots Figures 6–8
+- [ ] RBAC roles configured (Admin/Alpha/Gamma) → screenshot Figure 9
 
 ## NSG Rules Plan
 | Priority | Name | Port | Protocol | Source | Destination | Action |
 |---|---|---|---|---|---|---|
 | 100 | Allow-SSH | 22 | TCP | My IP only | VNet | Allow |
-| 110 | Allow-HTTP | 80 | TCP | Any | VNet | Allow |
-| 120 | Allow-Superset | 8088 | TCP | Any | VNet | Allow |
+| 110 | Allow-Superset | 8088 | TCP | Any | VNet | Allow |
 | 65000 | DenyAllInbound | Any | Any | Any | Any | Deny |
 
 ## Report Skeleton — What Was Updated (2026-04-10)

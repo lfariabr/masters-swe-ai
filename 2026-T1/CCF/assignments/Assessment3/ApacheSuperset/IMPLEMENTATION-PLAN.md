@@ -38,7 +38,7 @@ Based on your priorities (portfolio differentiation + career narrative) and 10+ 
 
 7. **Create resource group** → `rg-superset-ccf501` (Australia East)
 8. **Add VNet** → `vnet-superset` (10.0.0.0/16) + subnet (10.0.1.0/24)
-9. **Configure NSG** → Allow 22, 80, 443, 8088 / Deny all else
+9. **Configure NSG** → Allow 22 (your IP only), 8088 / Deny all else
 10. **Launch VM** → Ubuntu 22.04 LTS, Standard_B2s
 
 📸 **Screenshot each step** (these are 40% of your grade!)
