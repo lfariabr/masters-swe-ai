@@ -1,6 +1,4 @@
 # Assessment 3 - NLP Sentiment Analysis: Implementation Plan
-> codex resume 019d7f44-8706-7ba2-ac81-5d3281016979
-> claude --resume "isy-assessment-3"
 
 ## Portfolio Direction
 
@@ -54,6 +52,7 @@ Assessment3/
     references.md
     ethics-notes.md
     demo-test-cases.md
+    diagrams.md
     submission-checklist.md
 ```
 
@@ -126,6 +125,7 @@ Assessment3/
 ### 10. Documentation and assessment artifacts
 - `docs/demo-test-cases.md`: positive, negative, ambiguous, domain-shifted, and outside-training examples with observed outputs.
 - `docs/presentation-outline.md`: 10-15 minute structure with speaker allocation, rationale, architecture, metrics, demo, ethics, limitations, and future work.
+- `docs/diagrams.md`: Mermaid diagrams for inference flow, training pipeline, module architecture, BiLSTM, submission coverage, team ownership, and model comparison.
 - `docs/individual-report-template.md`: 250-word individual report scaffold with contribution percentages and ethics note.
 - `docs/contribution-log.md` and `docs/team-contribution-table.md`: ownership, commits/branches, team member IDs, and percentage contribution evidence.
 - `docs/references.md` and `docs/ethics-notes.md`: APA references and ethical considerations.

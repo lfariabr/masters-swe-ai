@@ -18,14 +18,14 @@ Target duration: 10-15 minutes total.
 1. Title and team members
 2. Problem statement and project choice rationale
 3. Dataset overview: four domains, 8,000 labelled reviews
-4. Data pipeline: parse, clean, audit labels, split, encode
-5. Baseline model: TF-IDF + Logistic Regression
-6. Neural model: learned embeddings + BiLSTM
+4. Data pipeline: parse, clean, audit labels, split, encode (`diagrams.md` section 2)
+5. Baseline model: TF-IDF + Logistic Regression (`diagrams.md` section 7)
+6. Neural model: learned embeddings + BiLSTM (`diagrams.md` section 4)
 7. Evaluation results: accuracy, precision, recall, F1
 8. Error analysis: false positives/false negatives and what they reveal
-9. Live demo: positive, negative, ambiguous, and domain-shifted examples
+9. Live demo: positive, negative, ambiguous, and domain-shifted examples (`diagrams.md` section 1)
 10. Ethical considerations and limitations
-11. Individual contributions and GitHub workflow
+11. Individual contributions and GitHub workflow (`diagrams.md` sections 5-6)
 12. Conclusion and future improvements
 
 ## Must Cover From Brief
