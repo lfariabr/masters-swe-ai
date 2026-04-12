@@ -1,92 +1,171 @@
-# Assessment 3 — NLP Sentiment Analysis: Implementation Plan
+# Assessment 3 - NLP Sentiment Analysis: Implementation Plan
+> codex resume 019d7f44-8706-7ba2-ac81-5d3281016979
+> claude --resume "isy-assessment-3"
+
+## Portfolio Direction
+
+Build the NLP option as a reproducible **multi-domain product review sentiment classifier**. The portfolio signal is ML engineering: raw dataset parsing, auditable preprocessing, baseline comparison, neural model training, evaluation/error analysis, and a simple deployed inference UI.
+
+The local dataset contains 8,000 labelled Amazon reviews across four domains:
+- books
+- dvd
+- electronics
+- kitchen_&_housewares
+
+Each domain has 1,000 positive and 1,000 negative labelled reviews.
 
 ## Project Structure
 
-```
+```text
 Assessment3/
-  app.py                  ← Streamlit inference UI
+  README.md
+  app.py                         # Streamlit inference UI
   requirements.txt
   src/
     __init__.py
-    parser.py             ← pseudo-XML parser → DataFrame
-    preprocess.py         ← cleaning, labeling, outlier removal, split
-    dataset.py            ← vocab, GloVe loader, PyTorch Dataset + DataLoader
-    baseline.py           ← TF-IDF + LogisticRegression pipeline
-    model.py              ← BiLSTMSentiment nn.Module
-    train.py              ← training loop + checkpointing
-    inference.py          ← predict() shared by app.py
-  data/                   ← already populated (books, dvd, electronics, kitchen)
-  outputs/                ← saved models land here (.gitkeep)
-  embeddings/             ← GloVe files go here (.gitkeep, ~800MB, not committed)
+    parser.py                    # pseudo-XML parser -> DataFrame
+    preprocess.py                # label audit, cleaning, outlier removal, splits
+    features.py                  # EDA helpers and feature summaries
+    dataset.py                   # vocab, optional GloVe, PyTorch Dataset/DataLoader
+    baseline.py                  # TF-IDF + LogisticRegression pipeline
+    model.py                     # BiLSTMSentiment nn.Module
+    train.py                     # BiLSTM training loop + checkpointing
+    inference.py                 # predict_sentiment() shared by app/evaluation
+    evaluate.py                  # metrics, confusion matrix, error analysis
+  tests/
+    test_parser.py
+    test_preprocess.py
+    test_dataset.py
+    test_baseline.py
+    test_model.py
+    test_inference.py
+  notebooks/
+    EDA.ipynb
+    distilbert.ipynb             # optional stretch only
+  data/                          # already populated review files
+  outputs/                       # generated artifacts; ignored except .gitkeep
+  embeddings/                    # optional GloVe files; ignored except .gitkeep
+  docs/
+    github-issue-list.md
+    presentation-outline.md
+    individual-report-template.md
+    contribution-log.md
+    team-contribution-table.md
+    references.md
+    ethics-notes.md
+    demo-test-cases.md
+    submission-checklist.md
 ```
 
----
+## Implementation Steps
 
-## Steps
+### 1. Project setup and reproducibility
+- Add package structure, `requirements.txt`, `.gitignore`, and `README.md`.
+- Define a fixed random seed and split configuration used by preprocessing, training, and evaluation.
+- Keep generated model files, plots, and embeddings out of Git unless intentionally small.
 
-### 1. Download GloVe embeddings
-Download `glove.6B.zip` from Stanford NLP and place `glove.6B.100d.txt` in `embeddings/`.
-This is a hard dependency for `dataset.py`.
+### 2. `src/parser.py` - Load local review data
+- Parse `.review` files with BeautifulSoup using `html.parser`.
+- Extract at minimum `review_text`, `rating`, `domain`, `source_file`, and `label`.
+- Use the filename as the primary sentiment label:
+  - `positive.review` -> `1`
+  - `negative.review` -> `0`
+- Retain `rating` for auditing, ethics, and error analysis.
+- Return a DataFrame with columns: `text`, `rating`, `label`, `domain`, `source_file`.
 
-### 2. `src/parser.py` — Load data
-- Use BeautifulSoup (`html.parser`) to parse pseudo-XML `.review` files.
-- Extract `<review_text>` and `<rating>` from each `<review>` block.
-- Iterate all 4 domain directories (books, dvd, electronics, kitchen_&_housewares).
-- Return a flat `pd.DataFrame` with columns: `text`, `rating`, `label`, `domain`.
+### 3. `src/preprocess.py` - Audit, clean, and split
+- Implement `audit_labels()` to flag ambiguous or contradictory rows:
+  - 3-star reviews
+  - positive-file reviews with low ratings
+  - negative-file reviews with high ratings
+- Decide from EDA whether flagged rows are dropped or retained with a documented limitation.
+- Clean text: lowercase, strip HTML artifacts, normalize punctuation/whitespace, and preserve enough negation signal for sentiment.
+- Remove outliers using configurable word-count thresholds after inspecting length distribution.
+- Create stratified 70/15/15 train/validation/test splits with a fixed seed.
 
-### 3. `src/preprocess.py` — Clean and prepare
-- **Drop 3-star reviews** — genuinely ambiguous; justification goes in the ethics section of the report.
-- Assign binary labels: 1–2 stars → 0 (negative), 4–5 stars → 1 (positive).
-- Clean text: lowercase, strip HTML artifacts, remove punctuation, collapse whitespace.
-- `inspect_length_distribution()` — plot word count histogram → saved to `outputs/length_distribution.png`. Validate thresholds before committing to them.
-- `remove_outliers()` — drop reviews < 10 words or > 500 words (heuristic, tune after EDA).
-- Stratified 70 / 15 / 15 train/val/test split.
+### 4. `src/features.py` and `notebooks/EDA.ipynb` - EDA
+- Compute class balance, domain balance, rating distribution, review length distribution, and label-audit counts.
+- Save charts to `outputs/length_distribution.png` and `outputs/domain_balance.png`.
+- Use EDA findings in the presentation, ethics notes, and report.
 
-### 4. `src/dataset.py` — PyTorch pipeline
-- `build_vocab()` — built from **training set only** (no data leakage into val/test).
-- `load_glove()` — map vocab → 100-dimensional GloVe vectors; random init for OOV words.
-- `tokenize_and_pad()` — convert text → fixed-length token ID tensors (max_len=256).
-- `ReviewDataset` — standard `torch.utils.data.Dataset`.
-- `make_dataloaders()` — wraps train/val/test into `DataLoader` with batching + shuffling.
+### 5. `src/dataset.py` - PyTorch input pipeline
+- Build vocabulary from training text only to avoid data leakage.
+- Implement tokenization, integer encoding, padding/truncation (`max_len=256`), `ReviewDataset`, and DataLoaders.
+- Default to learned embeddings so training works without large external downloads.
+- Add optional GloVe loading: if `embeddings/glove.6B.100d.txt` exists, initialize embedding weights from it; otherwise continue with learned embeddings.
 
-### 5. `src/baseline.py` — TF-IDF + Logistic Regression
-- `sklearn.pipeline.Pipeline`: `TfidfVectorizer(max_features=30_000, ngram_range=(1,2))` + `LogisticRegression`.
-- Train, print classification report (~85–88% expected), save to `outputs/baseline.joblib`.
-- Used as the comparison point in the presentation.
+### 6. `src/baseline.py` - Classical benchmark
+- Train `TfidfVectorizer(max_features=30_000, ngram_range=(1,2)) + LogisticRegression`.
+- Evaluate on validation and test splits.
+- Save `outputs/baseline.joblib`.
+- Use baseline results as the comparison point in the presentation.
 
-### 6. `src/model.py` — BiLSTM
-- `BiLSTMSentiment`: `Embedding → Dropout → BiLSTM (2 layers, bidirectional) → concat final fwd+bwd hidden → Linear(hidden*2, 1)`.
-- Accepts optional pretrained GloVe embedding matrix.
-- Output: raw logit (sigmoid applied at loss/inference time).
+### 7. `src/model.py` and `src/train.py` - BiLSTM neural model
+- Implement `BiLSTMSentiment`: `Embedding -> Dropout -> bidirectional LSTM -> Linear`.
+- Train with Adam, `BCEWithLogitsLoss`, gradient clipping, and validation tracking.
+- Log loss, accuracy, and F1 per epoch.
+- Save best validation checkpoint to `outputs/bilstm.pt`.
 
-### 7. `src/train.py` — Training loop
-- Adam optimizer, `BCEWithLogitsLoss`, gradient clipping (`clip_grad_norm_`, max=1.0).
-- Saves best val-accuracy checkpoint to `outputs/bilstm.pt`.
-- Prints per-epoch: loss, train acc, val acc.
+### 8. `src/evaluate.py` - Metrics and error analysis
+- Evaluate baseline and BiLSTM on the same held-out test split.
+- Report accuracy, precision, recall, F1, and confusion matrix.
+- Save `outputs/confusion_matrix.png` and `outputs/error_examples.csv`.
+- Include representative false positives/false negatives for the presentation and ethics discussion.
 
-### 8. `src/inference.py` — Single-string prediction
-- `predict(text, model, vocab)` → `{"label": "positive"|"negative", "confidence": float}`.
-- Reused by `app.py` and any evaluation scripts.
+### 9. `src/inference.py` and `app.py` - Required demo
+- Implement `predict_sentiment(text, model_name)` returning:
+  - `Positive review`
+  - `Negative review`
+- Build a Streamlit app with:
+  - review text area
+  - explicit classify button
+  - model selector for baseline/BiLSTM
+  - visible prediction output and confidence
+- Ensure the facilitator can enter new positive or negative statements and receive the required output on the page.
 
-### 9. `app.py` — Streamlit UI
-- Text area for review input.
-- Sidebar model selector: BiLSTM (GloVe) or Baseline (TF-IDF).
-- Calls `predict()`, displays label + confidence.
-- `st.cache_resource` for model/vocab loading (so it doesn't reload on every interaction).
+### 10. Documentation and assessment artifacts
+- `docs/demo-test-cases.md`: positive, negative, ambiguous, domain-shifted, and outside-training examples with observed outputs.
+- `docs/presentation-outline.md`: 10-15 minute structure with speaker allocation, rationale, architecture, metrics, demo, ethics, limitations, and future work.
+- `docs/individual-report-template.md`: 250-word individual report scaffold with contribution percentages and ethics note.
+- `docs/contribution-log.md` and `docs/team-contribution-table.md`: ownership, commits/branches, team member IDs, and percentage contribution evidence.
+- `docs/references.md` and `docs/ethics-notes.md`: APA references and ethical considerations.
+- `docs/submission-checklist.md`: final group code, GitHub link, presentation/video, individual report, and backup-copy checklist.
 
----
+## Optional Enhancements
 
-## Ethical Considerations (report section)
-- **3-star ambiguity**: the dataset owner assigned labels by star rating, but 3-star reviews don't carry a clear sentiment signal — including them would pollute both classes. We explicitly drop them and document this decision.
-- **Domain bias**: the dataset skews toward certain product categories. A model trained here may not generalise to all sentiment contexts.
-- **Label noise**: even 1-star or 5-star reviews can contain mixed sentiment; the model may misclassify edge cases.
+- **GloVe embeddings**: optional initialization for the BiLSTM, not required to run the project.
+- **DistilBERT**: optional stretch comparison after the core BiLSTM path works. Keep transformer code/notebook separate from the assessed critical path.
 
----
+## Ethical Considerations
 
-## Verification checkpoints
+- **Label ambiguity**: filename labels may hide mixed reviews, rating mismatches, or 3-star ambiguity.
+- **Domain bias**: training data covers only four Amazon product domains, so predictions may not generalize to services, social media, healthcare, finance, or informal speech.
+- **Binary simplification**: real sentiment can be neutral, mixed, sarcastic, or context-dependent; forcing every input into positive/negative can misrepresent user intent.
+- **Fairness and reliability**: the model should not be presented as universally accurate; report observed failure modes and confidence limitations.
+
+## Verification Checkpoints
+
 | Check | Command | Expected |
 |---|---|---|
-| Data loads | `python -c "from src.parser import load_all_domains; df = load_all_domains(); print(df.shape)"` | `(~8000+, 4)` |
-| Baseline trains | `python src/baseline.py` | Classification report, ~85–88% val acc |
-| BiLSTM trains | `python src/train.py` | Per-epoch log, checkpoint saved |
-| App runs | `streamlit run app.py` | UI opens on localhost |
+| Parser loads data | `python -c "from src.parser import load_all_domains; print(load_all_domains().shape)"` | 8,000 rows with text/rating/label/domain/source_file |
+| Tests pass | `pytest` | Parser, preprocessing, dataset, model, and inference tests pass |
+| Baseline trains | `python src/baseline.py` | Classification report and `outputs/baseline.joblib` |
+| BiLSTM trains | `python src/train.py` | Per-epoch logs and `outputs/bilstm.pt` |
+| Evaluation runs | `python src/evaluate.py` | Metrics, confusion matrix, and error examples |
+| App runs | `streamlit run app.py` | Local UI accepts text and returns sentiment |
+| Demo cases pass | Manual run through `docs/demo-test-cases.md` | Clear positive/negative examples classify plausibly |
+
+## Assessment Submission Coverage
+
+| Brief requirement | Planned artifact |
+|---|---|
+| Group code | `src/`, `tests/`, `app.py`, `README.md`, model/evaluation artifacts |
+| Simple website or executable | `app.py` Streamlit interface |
+| Train/test neural network | `dataset.py`, `model.py`, `train.py`, `evaluate.py` |
+| Inference on positive and negative inputs | `inference.py`, `app.py`, `docs/demo-test-cases.md` |
+| Ethical considerations | `docs/ethics-notes.md`, `docs/references.md`, presentation ethics section |
+| Git/version control evidence | GitHub repo link, contribution log, branch/commit evidence |
+| Group presentation | `docs/presentation-outline.md` and final video/slides |
+| Individual 250-word report | `docs/individual-report-template.md`, `docs/team-contribution-table.md` |
+| Team contribution percentages and IDs | `docs/team-contribution-table.md` |
+| Final submission checklist | `docs/submission-checklist.md` |
