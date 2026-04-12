@@ -956,7 +956,7 @@ Read the article titled "Cloud Computing Security Considerations". Think about t
 
 Post your response in the Module 9 Discussion Forum.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Done*
 
 #### Activity 2: Critical thinking: Cloud Law—Discussion Forum
 - Australian Government Australian Cyber Security Centre. (n.d.). Cloud computing security considerations. https://www.cyber.gov.au/acsc/view-all-content/publications/cloud-computing-security-considerations
@@ -967,6 +967,8 @@ Imagine that after finishing the resources in this module that you have develope
 - Cloud computing security considerations factsheet
 
 You can continue your research on the internet and compare the different areas a cloud legal professional should be knowledgeable about. For instance, privacy and intellectual property protection on the cloud or you may refer to the list from Learning Activity 1.. Write a response in no more than 200 words and post it in the Module 9 Discussion Forum.
+
+> *Status: ✅ Done*
 
 ---
 
