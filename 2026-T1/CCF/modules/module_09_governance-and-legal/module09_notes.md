@@ -7,11 +7,11 @@
 | **1** | **Watch & summarise Torrens University (2022) — Legal obligations animation** | **✅** |
 | **2** | **Watch & summarise Linthicum (2021) — Cloud security from business perspective** | **✅** |
 | **3** | **Read & summarise Saini et al. (2022) — Cloud computing: Legal issues and provision** | **✅** |
-| 4 | **Read & summarise Greig (2022) — FlexBooker data breach (ZDNet)** | **✅** |
+| **4** | **Read & summarise Greig (2022) — FlexBooker data breach (ZDNet)** | **✅** |
 | **5** | **Read & summarise ASD (2021) — Cloud Computing Security Considerations (Activity 1 resource)** | **✅** |
 | **6** | **Read & summarise NAA (n.d.) — Cloud computing and information management (Activity 2 resource)** | **✅** |
-| 7 | Activity 1: Legal Considerations When Moving to the Cloud — Discussion Forum | 🔥 WIP — draft scaffolded below |
-| 8 | Activity 2: Critical Thinking: Cloud Law — Discussion Forum | 🔥 WIP — draft scaffolded below |
+| **7** | Activity 1: Legal Considerations When Moving to the Cloud — Discussion Forum | ✅ |
+| **8** | Activity 2: Critical Thinking: Cloud Law — Discussion Forum | ✅ |
 
 ---
 
