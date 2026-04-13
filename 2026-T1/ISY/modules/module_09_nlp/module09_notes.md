@@ -8,7 +8,7 @@
 | 1 | **Watch & summarise CrashCourse (2017) — NLP overview video** | **✅** |
 | 2 | **Read & summarise Ali (2023) — NLTK sentiment analysis tutorial** | **✅** |
 | 3 | **Read & summarise Hardeniya (2016) — text classification Ch.6** | **✅** |
-| **4** | **Read & summarise Thanaki (2017) — deep learning for NLU/NLG Ch.9** | **✅** |
+| 4 | **Read & summarise Thanaki (2017) — deep learning for NLU/NLG Ch.9** | **✅** |
 | **5** | **Read & summarise Devlin & Chang (2018) — Open Sourcing BERT** | **✅** |
 | 6 | Activity 1: Read Metz (2019) bias article + write 100-word report | 🕐 |
 | 7 | Activity 2: Read Ben Abacha & Zweigenbaum (2015) MEANS + peer discussion | 🕐 |
