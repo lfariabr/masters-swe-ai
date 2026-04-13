@@ -1,15 +1,18 @@
 # CCF501 Assessment 3 — Apache Superset on Azure
 > claude --resume "ccf-assessment3"
-> codex resume 019d7165-5cb5-7f20-b4da-f456276aa3ec
+> codex resume ccf-assesment-3
+
+- each screenshot needs to be done twice: before & after
+- 2-3 minute video screencast showing Azure Portal + Superset in action (link to the recorded video in the report)
 
 ## Status
 - ✅ Provider account setup — Azure account active, free credits available
-- 🕐 Resource group created
-- 🕐 VNet + subnet configured
-- 🕐 NSG / firewall rules applied
+- ✅ Resource group created
+- ✅ VNet + subnet configured
+- ✅ NSG / firewall rules applied
 - 🕐 Superset deployed (Docker Compose on VM)
-- 🔥 Report skeleton — structure, prose, references complete; screenshots pending
-- 🕐 Screenshots captured (8 required: Figures 2–8 + RBAC)
+- ✅ Report skeleton — structure, prose, references complete; screenshots pending
+- 🔥 Screenshots captured (before/after evidence started: Figures 2–5 complete; VM/Superset/RBAC pending)
 - 🕐 Screencast recorded
 - 🕐 Submission
 
@@ -28,10 +31,10 @@ Superset over Metabase/MLflow because:
   → Spin up B2s for deployment, screenshot, then scale down / deallocate to save credits
 
 ## Deployment Checklist (Brief: account registration → 4 tasks)
-- [ ] Task 0: Register / confirm Azure account at portal.azure.com → screenshot Figure 2
-- [ ] Task a: Create resource group (`rg-superset-ccf501`) → screenshot Figure 3
-- [ ] Task b: Add virtual network (`vnet-superset`, subnet `snet-app`) → screenshot Figure 4
-- [ ] Task c: NSG with rules (see security section below) → screenshot Figure 5
+- [x] Task 0: Register / confirm Azure account at portal.azure.com → screenshot Figure 2
+- [x] Task a: Create resource group (`rg-superset-ccf501`) → screenshots Figures 3A-3B
+- [x] Task b: Add virtual network (`vnet-superset`, subnet `snet-app`) → screenshots Figures 4A-4B
+- [x] Task c: NSG with rules (see security section below) → screenshots Figures 5A-5C
 - [ ] Task d: Deploy Apache Superset via Docker Compose → screenshots Figures 6–8
 - [ ] RBAC roles configured (Admin/Alpha/Gamma) → screenshot Figure 9
 
@@ -50,6 +53,7 @@ Superset over Metabase/MLflow because:
 - New reference added: Microsoft (n.d.-d) — Azure free account page
 
 ## Screencast Requirements
+- Target length: 2-3 minutes
 - Show Azure Portal dashboard (resource group, VM, NSG)
 - Show Superset login screen with public IP in browser
 - Show at least one dashboard or SQL Lab query running

@@ -5,33 +5,33 @@ Use this file as the evidence checklist for the report and screencast. Every fig
 ## Required Figures
 
 ### Figure 1 — Deployment Architecture Diagram
-- File: `images/fig1-deployment-architecture.png`
+- File: `images/fig1-deploym-diagram.png`
 - Purpose: Prove the deployment model/block diagram requirement in Part 2(b)
 - Caption: `Figure 1: Azure deployment architecture showing the public cloud IaaS model, network boundary, virtual machine, and Apache Superset Docker stack.`
 
 ### Figure 2 — Azure Account / Subscription Confirmation
-- Suggested file: `images/00_azure_portal_home.png`
+- File: `images/fig2-portal-dashboard.webp`
 - Purpose: Cover the brief requirement to discuss the procedure from cloud account registration onward
 - Show: signed-in Azure portal, active subscription or student credit, region context if visible
 - Caption: `Figure 2: Azure portal home page confirming active account access and subscription availability before resource provisioning.`
 
-### Figure 3 — Resource Group Creation
-- Suggested file: `images/01_resource_group.png`
+### Figures 3A-3B — Resource Group Creation
+- Files: `images/fig3-azure-resource-group-A.webp`, `images/fig3-azure-resource-group-B.webp`
 - Purpose: Evidence for Task (a) create a resource group
-- Show: `rg-superset-ccf501`, region, status
-- Caption: `Figure 3: Resource group rg-superset-ccf501 created in Australia East to contain all deployment resources.`
+- Show: before state with no resource groups, then after state with `rg-superset-ccf501`, region, and subscription
+- Captions: `Figure 3A: Resource Groups page before creating the assessment resource group.` / `Figure 3B: Resource group rg-superset-ccf501 created in Australia East.`
 
-### Figure 4 — Virtual Network and Subnet
-- Suggested file: `images/02_vnet.png`
+### Figures 4A-4B — Virtual Network and Subnet
+- Files: `images/fig4-azure-virtual-network-A.webp`, `images/fig4-azure-virtual-network-B.webp`
 - Purpose: Evidence for Task (b) add a virtual network
-- Show: `vnet-superset`, `snet-app`, address space details
-- Caption: `Figure 4: Virtual network vnet-superset with dedicated application subnet snet-app for logical network isolation.`
+- Show: before state with no virtual networks, then after state with `vnet-superset` in `rg-superset-ccf501`
+- Captions: `Figure 4A: Virtual Networks page before creating the assessment network.` / `Figure 4B: VNet vnet-superset created in rg-superset-ccf501.`
 
-### Figure 5 — NSG / Firewall Rules
-- Suggested file: `images/03_nsg_rules.png`
+### Figures 5A-5C — NSG / Firewall Rules
+- Files: `images/fig5-azure-nsg-A.webp`, `images/fig5-azure-nsg-B.webp`, `images/fig5-azure-nsg-C.webp`
 - Purpose: Evidence for Task (c) protect the network with a firewall or security policy
-- Show: allow `22` from your IP (source IP restricted), allow `8088`, deny-all default
-- Caption: `Figure 5: Network Security Group inbound rules implementing least-privilege access for SSH and the Superset web interface.`
+- Show: before state with no NSGs, after state with `nsg-superset`, then inbound rules allowing `22` from your IP and `8088`
+- Captions: `Figure 5A: Network Security Groups page before creating the assessment security policy.` / `Figure 5B: Network Security Group nsg-superset created in rg-superset-ccf501.` / `Figure 5C: NSG inbound rules — allow 22 restricted to author IP and 8088, deny all else.`
 
 ### Figure 6 — VM Overview
 - Suggested file: `images/04_vm_overview.png`

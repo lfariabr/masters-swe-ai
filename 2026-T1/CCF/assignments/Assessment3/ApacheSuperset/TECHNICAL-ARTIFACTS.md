@@ -131,16 +131,14 @@ docker-compose exec superset superset fab create-user \
 
 ### Required (Rubric: 40% practical skills)
 
-- [ ] **Screenshot 1:** Azure resource group creation
-- [ ] **Screenshot 2:** VNet + subnet configuration
-- [ ] **Screenshot 3:** NSG inbound rules table
-- [ ] **Screenshot 4:** Azure VM creation summary
-- [ ] **Screenshot 5:** Superset login screen
-- [ ] **Screenshot 6:** Superset dashboard (Admin logged in)
-- [ ] **Screenshot 7:** User management (Admin/Alpha/Gamma roles)
-- [ ] **Screenshot 8:** SQL Lab query execution
-- [ ] **Screenshot 9:** Chart creation interface
-- [ ] **Screenshot 10:** Published dashboard with charts
+- [x] **Figure 2:** Azure portal dashboard / account access
+- [x] **Figures 3A-3B:** Resource groups before and after creation
+- [x] **Figures 4A-4B:** Virtual networks before and after creation
+- [x] **Figures 5A-5C:** NSG before, NSG created, and inbound security rules
+- [ ] **Figure 6:** Azure VM overview
+- [ ] **Figure 7:** Superset login screen
+- [ ] **Figure 8:** Superset dashboard or SQL Lab
+- [ ] **Figure 9:** User management / RBAC roles
 
 ### Optional (Enhance to HD)
 

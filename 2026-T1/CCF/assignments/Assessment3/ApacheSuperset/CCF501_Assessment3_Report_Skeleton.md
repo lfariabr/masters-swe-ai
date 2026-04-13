@@ -86,29 +86,33 @@ The deployment followed the account setup and four tasks specified in the assess
 
 An Azure account was activated at portal.azure.com using the student enrolment email. Azure's free account provides USD $200 in credits for 30 days alongside always-free services, covering the compute and networking requirements for this project (Microsoft, n.d.-d). The portal confirmed an active subscription in Australia East, providing the foundation for all subsequent resource provisioning.
 
-![Screenshot: Azure portal home page showing active subscription and region](images/00_azure_portal_home.png)
+![Screenshot: Azure portal dashboard showing active account access](images/fig2-portal-dashboard.webp)
 *Figure 2: Azure portal — active subscription confirmed in Australia East.*
 
 **Task a — Create a resource group**
 
 A resource group (`rg-superset-ccf501`) was created in the Azure portal under Australia East. Resource groups are logical containers for cloud resources, enabling unified billing, access control, and lifecycle management (Microsoft, n.d.-a). Australia East was selected to minimise latency and maintain local data residency.
 
-![Screenshot: Azure resource group creation — rg-superset-ccf501 in Australia East](images/01_resource_group.png)
-*Figure 3: Resource group rg-superset-ccf501 in Australia East.*
+![Screenshot: Azure Resource Groups page before creation](images/fig3-azure-resource-group-A.webp)
+![Screenshot: Azure Resource Groups page after creating rg-superset-ccf501](images/fig3-azure-resource-group-B.webp)
+*Figure 3A/3B: Before-and-after Resource group rg-superset-ccf501 created in Australia East.*
 
 **Task b — Add a virtual network**
 
 A Virtual Network (`vnet-superset`, `10.0.0.0/16`) was created with a dedicated application subnet (`snet-app`, `10.0.1.0/24`). VNets provide private network isolation — resources communicate internally without traversing the public internet (Microsoft, n.d.-b). This reflects NIST's resource pooling characteristic: shared physical infrastructure partitioned into isolated, private network boundaries (Mell & Grance, 2011).
 
-![Screenshot: Azure VNet configuration — vnet-superset with snet-app subnet](images/02_vnet.png)
-*Figure 4: VNet vnet-superset with subnet snet-app.*
+![Screenshot: Azure Virtual Networks page before creation](images/fig4-azure-virtual-network-A.webp)
+![Screenshot: Azure Virtual Networks page after creating vnet-superset](images/fig4-azure-virtual-network-B.webp)
+*Figure 4A/4B: Before-and-after VNet vnet-superset created in rg-superset-ccf501.*
 
 **Task c — Protect the network with a firewall / security policy**
 
 A Network Security Group (`nsg-superset`) was attached to the `snet-app` subnet. Inbound rules allow SSH (port 22, restricted to the author's IP) and the Superset port (8088); all other inbound traffic is denied by default. Ports 80 and 443 are intentionally excluded — this implements the principle of least privilege, exposing only the minimum required access (Shore, 2020).
 
-![Screenshot: NSG inbound rules panel showing port 22 and 8088 allow rules](images/03_nsg_rules.png)
-*Figure 5: NSG inbound rules — allow 22 (restricted to author IP) and 8088, deny all else.*
+![Screenshot: Azure Network Security Groups page before creation](images/fig5-azure-nsg-A.webp)
+![Screenshot: Azure Network Security Groups page after creating nsg-superset](images/fig5-azure-nsg-B.webp)
+![Screenshot: NSG inbound rules panel showing port 22 and 8088 allow rules](images/fig5-azure-nsg-C.webp)
+*Figure 5A/5B/5C: Before-and-after NSG inbound rules — allow 22 (restricted to author IP) and 8088, deny all else.*
 
 **Task d — Deploy Apache Superset**
 
@@ -228,10 +232,10 @@ Shore, M. (2020). *Cybersecurity with cloud computing: Service models* [Video]. 
 
 | Task | Description | Status | Screenshot |
 |---|---|---|---|
-| 0 | Register Azure account / verify active subscription | 🕐 | Figure 2 |
-| a | Create resource group (`rg-superset-ccf501`) | 🕐 | Figure 3 |
-| b | Add virtual network (`vnet-superset` + `snet-app`) | 🕐 | Figure 4 |
-| c | Apply NSG inbound rules (22/8088) | 🕐 | Figure 5 |
+| 0 | Register Azure account / verify active subscription | ✅ | Figure 2 |
+| a | Create resource group (`rg-superset-ccf501`) | ✅ | Figures 3A-3B |
+| b | Add virtual network (`vnet-superset` + `snet-app`) | ✅ | Figures 4A-4B |
+| c | Apply NSG inbound rules (22/8088) | ✅ | Figures 5A-5C |
 | d | Deploy Apache Superset via Docker Compose | 🕐 | Figures 6–8 |
 
 >*Table A1: Deployment task checklist with status and corresponding screenshots.*

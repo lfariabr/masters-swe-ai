@@ -4,8 +4,8 @@ This screencast is evidence for the practical-skills criterion. Keep it clear, b
 
 ## Target Length
 
-- Recommended: `3-5 minutes`
-- Maximum practical target: `6 minutes`
+- Recommended: `2-3 minutes`
+- Maximum practical target: `3 minutes`
 
 ## Goal
 
@@ -29,12 +29,12 @@ Show, in order:
 
 ## Recommended Flow
 
-### 0:00-0:20 — Opening
+### 0:00-0:12 — Opening
 Suggested phrase:
 
-`This video demonstrates my CCF501 Assessment 3 deployment of Apache Superset on Microsoft Azure. I will show the Azure account access, the deployed infrastructure, the security controls, and the running application.`
+`This video demonstrates my CCF501 Assessment 3 deployment of Apache Superset on Microsoft Azure. I will show the cloud resources, security policy, public IP, and the running application.`
 
-### 0:20-0:45 — Azure account / subscription
+### 0:12-0:30 — Azure account / subscription
 Show:
 - Azure portal home
 - active subscription, student credit, or account context
@@ -43,7 +43,7 @@ Suggested phrase:
 
 `I am starting in the Azure portal, which confirms active account access and the subscription used for this deployment. This is the starting point required before creating any cloud resources.`
 
-### 0:45-1:10 — Resource group
+### 0:30-0:48 — Resource group
 Show:
 - `rg-superset-ccf501`
 - Australia East
@@ -52,7 +52,7 @@ Suggested phrase:
 
 `Here is the resource group created for the project, named rg-superset-ccf501 in Australia East. It acts as the logical container for all resources used in the deployment.`
 
-### 1:10-1:35 — Virtual network and subnet
+### 0:48-1:06 — Virtual network and subnet
 Show:
 - `vnet-superset`
 - `snet-app`
@@ -62,7 +62,7 @@ Suggested phrase:
 
 `This is the virtual network and application subnet. They provide logical isolation for the deployment and satisfy the assessment requirement to add a virtual network.`
 
-### 1:35-2:05 — NSG / firewall security policy
+### 1:06-1:30 — NSG / firewall security policy
 Show:
 - inbound rules
 - `22` restricted to your IP
@@ -73,7 +73,7 @@ Suggested phrase:
 
 `This Network Security Group is the main network security policy for the environment. SSH on port 22 is restricted to my IP address, the application port is explicitly allowed, and all other inbound traffic is denied by default.`
 
-### 2:05-2:30 — Virtual machine overview
+### 1:30-1:50 — Virtual machine overview
 Show:
 - Ubuntu VM
 - running state
@@ -83,7 +83,7 @@ Suggested phrase:
 
 `This is the Ubuntu virtual machine hosting the deployment. It is currently running and exposes the public IP used to access Apache Superset in the browser.`
 
-### 2:30-3:10 — Running application
+### 1:50-2:25 — Running application
 Show:
 - browser hitting `http://<public-ip>:8088`
 - login page
@@ -97,7 +97,7 @@ If logging in:
 
 `After authentication, the application loads successfully and the dashboard confirms the platform is operational.`
 
-### 3:10-3:40 — Governance / RBAC
+### 2:25-2:45 — Governance / RBAC
 Show:
 - role list or user management
 - `Admin`, `Alpha`, `Gamma`
@@ -106,7 +106,7 @@ Suggested phrase:
 
 `At the application layer, Superset uses role-based access control. Here I am showing the defined roles, which support the governance requirement by separating administration, analyst activity, and read-only access.`
 
-### 3:40-4:00 — Closing
+### 2:45-3:00 — Closing
 Suggested phrase:
 
 `This demonstration covered account access, the resource group, virtual network, security policy, virtual machine, and the deployed Apache Superset application with governance controls, satisfying the core practical requirements of the assessment.`
