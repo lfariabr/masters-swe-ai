@@ -274,24 +274,50 @@ Deep learning advantage: no hand-crafted features; the network learns relevant r
 
 #### 5. Machine Translation — LSTM Encoder-Decoder
 
-Architecture progression:
-1. **Dictionary-based** (1954): word-for-word mapping; no syntax awareness
-2. **Statistical MT (SMT)**: probabilistic alignment of bilingual corpus (IBM, Google Translate original)
-3. **Neural MT (NMT)**: sequence-to-sequence LSTM
+**Full evolution arc:**
+
+```
+Dictionary-based → SMT → Vanilla NMT → + Attention → + Bidirectional → Transformer (BERT)
+```
+
+Each step solves a specific failure mode of the previous one.
+
+**1. Dictionary-based (1954):** word-for-word mapping — no syntax, grammar, or word-order awareness. Breaks immediately on languages where verb comes last (e.g., German).
+
+**2. Statistical MT (SMT):** aligns a large bilingual corpus probabilistically (IBM, original Google Translate). Better, but still fragile on long or complex sentences.
+
+**3. Vanilla Neural MT (NMT) — Encoder-Decoder:**
 
 ```
 Source sentence → [Encoder LSTM] → hidden state S → [Decoder LSTM] → target sentence (word by word)
 ```
 
-**Limitation of vanilla LSTM:** fixed-size hidden state `S` becomes lossy for long sentences.
+Hidden state `S` = a fixed-size vector (e.g., 512 numbers) summarising the entire source sentence.
 
-**Attention mechanism** (solution): stores all encoder outputs; decoder queries each one for relevance using softmax scoring → extracts a **context vector** = weighted sum of encoder outputs.
+**Limitation:** `S` is always the same size regardless of sentence length. Short sentences compress fine; long sentences lose information at the bottleneck — the decoder "forgets" the beginning by the time it reaches the end.
+
+**4. Attention mechanism** (solution to the bottleneck): instead of one compressed `S`, the encoder saves all intermediate outputs — one vector per source word. At each decoder step, it asks *"which source words matter most right now?"*, scores them via softmax, and builds a dynamic **context vector**:
 
 ```
 Context vector = Σ (relevance_score_i × encoder_output_i)
 ```
 
-**Bidirectional RNN:** two RNNs per layer (forward + backward) → each word has context from both directions. Google NMT: 1 bidirectional encoder layer + 7 unidirectional encoder layers + 8 unidirectional decoder layers.
+Example: when generating "love", attention scores heavily on "liebe"; when generating "coffee", it shifts to "Kaffee". The decoder dynamically re-reads the relevant part of the source at each step — just like a human translator glancing back.
+
+> **Note on speed:** attention does not meaningfully slow things down — it adds a softmax scoring step per decoder output, but the gain in accuracy on long sentences far outweighs this. The real speed trade-off comes with bidirectional layers (see below).
+
+**5. Bidirectional RNN** (solution to left-only context): a standard LSTM reads left → right, so when processing word N, it hasn't seen words N+1, N+2... A bidirectional RNN runs **two simultaneous, independent passes** over the same sentence:
+
+```
+Forward pass:   Ich → liebe → Kaffee    (left to right)
+Backward pass:  Kaffee → liebe → Ich    (right to left)
+```
+
+The outputs are **concatenated** into a single richer vector per word — each word now has context from both directions simultaneously. This is not two sequential reads; it is two parallel reads whose results are merged.
+
+> **Speed trade-off:** bidirectional layers *cannot* be fully parallelised across layers — the backward pass must complete before the next layer can start. This is why Google NMT uses only **1 bidirectional encoder layer** (for full context) + **7 unidirectional encoder layers** + **8 unidirectional decoder layers** (for speed).
+
+**Why this matters for BERT:** BERT abandons LSTMs entirely and achieves bidirectionality via the **Transformer self-attention** mechanism — every token attends to every other token simultaneously, with no sequential constraint. This is faster to train and captures richer context than even bidirectional LSTMs.
 
 #### 6. Abstractive Summarisation (NLG Application)
 - Uses LSTM to read a short article and generate a **one-line summary** — not extracting sentences but generating new text
