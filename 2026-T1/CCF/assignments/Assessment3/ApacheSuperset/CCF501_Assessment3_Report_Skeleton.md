@@ -38,7 +38,7 @@ This deployment uses an **Infrastructure as a Service (IaaS)** model: Azure prov
 <!-- RUBRIC: 10% — Identify key cloud services; compare providers; justify selection -->
 <!-- SLO c: key service offerings and comparison -->
 
-Microsoft Azure was selected for three reasons. First, its data and analytics ecosystem — Azure SQL, Synapse Analytics, and Data Factory — directly complements Superset's role as a query and visualisation layer, relevant to current data engineering work and the BDA601 subject ahead. Second, Azure is the target certification platform (AZ-900 → DP-900), making hands-on deployment a practical study activity. Third, Azure's free-tier eligibility lowers the barrier; the deployment uses B2s (2 vCPU, 4 GB RAM) as Superset's Docker stack requires more RAM than the free B1s allows, covered by student credits.
+Microsoft Azure was selected for three reasons. First, its data and analytics ecosystem — Azure SQL, Synapse Analytics, and Data Factory — directly complements Superset's role as a query and visualisation layer, relevant to current data engineering work and the BDA601 subject ahead. Second, Azure is the target certification platform (AZ-900 → DP-900), making hands-on deployment a practical study activity. Third, Azure's free-tier eligibility lowers the barrier; the deployment uses Standard_B2als_v2 because Superset's Docker stack requires more RAM than the free B1s allows, covered by student credits.
 
 | Criterion | AWS | Microsoft Azure | GCP |
 |---|---|---|---|
@@ -63,7 +63,7 @@ The deployment follows a **public cloud IaaS** model. All resources are provisio
 graph TD
     A["Internet / Browser"] -->|"HTTP port 8088"| B["NSG\n(Inbound Rules)"]
     B -->|"Allow: 22, 8088\nDeny: all else"| C["Azure VNet\nsnet-app subnet"]
-    C --> D["Ubuntu 22.04 VM\n(Standard B2s)"]
+    C --> D["Ubuntu 22.04 VM\n(Standard_B2als_v2)"]
     D --> E["Docker Compose Stack"]
     E --> F["Apache Superset\n(port 8088)"]
     E --> G["PostgreSQL\n(metadata DB)"]
@@ -116,16 +116,17 @@ A Network Security Group (`nsg-superset`) was attached to the `snet-app` subnet.
 
 **Task d — Deploy Apache Superset**
 
-An Ubuntu 22.04 VM (Standard B2s: 2 vCPU, 4 GB RAM) was provisioned within `snet-app` and assigned a public IP. Docker and Docker Compose were installed via SSH, and the Superset Docker Compose stack was launched with `docker-compose up -d`. Superset was then accessible at `http://[PUBLIC_IP]:8088`; an admin account was created and a PostgreSQL data source connected to confirm end-to-end functionality.
+An Ubuntu 22.04 VM (`Standard_B2als_v2`) was provisioned within `snet-app` and assigned a public IP. Docker and Docker Compose were installed via SSH, and the Superset Docker Compose stack was launched with `docker-compose up -d`. Superset was then accessible at `http://20.11.66.254:8088`; an admin account was created and the application returned a successful HTTP redirect to confirm end-to-end functionality.
 
-![Screenshot: Azure VM overview showing Ubuntu host, running state, and public IP](images/04_vm_overview.png)
-*Figure 6: Azure virtual machine overview showing Ubuntu host, running status, and public IP used for deployment access.*
+![Screenshot: Azure VM overview before deployment](images/fig6-azure-vm-A.webp)
+![Screenshot: Azure VM overview showing Ubuntu host and public IP after deployment](images/fig6-azure-vm-B.webp)
+*Figure 6A/6B: Before-and-after Azure virtual machine overview showing the Ubuntu host and public IP used for deployment access.*
 
-![Screenshot: Superset login screen at public IP in browser](images/05_superset_login.png)
+![Screenshot: Superset login screen at public IP in browser](images/fig7-apache-login.webp)
 *Figure 7: Apache Superset login screen accessible at the Azure VM public IP on port 8088.*
 
-![Screenshot: Superset dashboard view with connected data source](images/06_superset_dashboard.png)
-*Figure 8: Apache Superset running successfully with a connected dataset and working analytics interface.*
+![Screenshot: Superset running after successful login](images/fig8-apache-running.webp)
+*Figure 8: Apache Superset running successfully after login.*
 
 ---
 
@@ -145,8 +146,9 @@ Security was addressed at three layers. At the **network layer**, the NSG enforc
 
 *Table 2: Security controls applied across network, application, credential, and OS layers.*
 
-![Screenshot: Superset RBAC settings — role list showing Admin, Alpha, Gamma](images/07_superset_rbac.png)
-*Figure 9: Apache Superset RBAC role configuration.*
+![Screenshot: Superset RBAC users page](images/fig9-apache-rbac-A.webp)
+![Screenshot: Superset RBAC roles page showing Admin, Alpha, Gamma](images/fig9-apache-rbac-B.webp)
+*Figure 9A/9B: Apache Superset RBAC user and role configuration.*
 
 ---
 
@@ -185,7 +187,7 @@ The current deployment is functional but represents a minimal viable configurati
 
 This report documented the deployment of Apache Superset, an open-source data exploration and visualisation platform, on Microsoft Azure. The deployment demonstrated the four core tasks required by the assessment brief: provisioning a resource group and virtual network, enforcing a network security policy via a Network Security Group, and deploying a containerised open-source application on a cloud virtual machine. Each task was supported by screenshots and aligned with NIST's essential cloud characteristics — on-demand self-service in the provisioning process, resource pooling in Azure's shared infrastructure model, and measured service through consumption-based billing (Mell & Grance, 2011).
 
-Microsoft Azure was selected for its data and analytics service ecosystem and its alignment with the author's AZ-900 and DP-900 certification pathway. The deployment reinforces the distinction between cloud and traditional IT infrastructure: resources that would require physical procurement and installation in an on-premises environment were provisioned, configured, secured, and running within [X] hours, at effectively zero capital cost. Areas identified for further investigation include TLS certificate automation, managed database integration for metadata persistence, and the separation of Celery workers for production-scale async query execution — improvements that would bring this deployment in line with enterprise-grade analytics infrastructure.
+Microsoft Azure was selected for its data and analytics service ecosystem and its alignment with the author's AZ-900 and DP-900 certification pathway. The deployment reinforces the distinction between cloud and traditional IT infrastructure: resources that would require physical procurement and installation in an on-premises environment were provisioned, configured, secured, and running within 4 hours, at effectively zero capital cost. Areas identified for further investigation include TLS certificate automation, managed database integration for metadata persistence, and the separation of Celery workers for production-scale async query execution — improvements that would bring this deployment in line with enterprise-grade analytics infrastructure.
 
 ---
 
@@ -236,7 +238,7 @@ Shore, M. (2020). *Cybersecurity with cloud computing: Service models* [Video]. 
 | a | Create resource group (`rg-superset-ccf501`) | ✅ | Figures 3A-3B |
 | b | Add virtual network (`vnet-superset` + `snet-app`) | ✅ | Figures 4A-4B |
 | c | Apply NSG inbound rules (22/8088) | ✅ | Figures 5A-5C |
-| d | Deploy Apache Superset via Docker Compose | 🕐 | Figures 6–8 |
+| d | Deploy Apache Superset via Docker Compose | ✅ | Figures 6–8 |
 
 >*Table A1: Deployment task checklist with status and corresponding screenshots.*
 

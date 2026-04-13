@@ -167,3 +167,7 @@ T2-REM/assignments/Assessment2/sales/
 2026-T1/T1-Extra/officeJob
 
 /docs/refs
+
+# CCF Apache Superset creds
+2026-T1/CCF/assignments/Assessment3/ApacheSuperset/config.py
+2026-T1/CCF/assignments/Assessment3/ApacheSuperset/docker-compose.yml
