@@ -432,6 +432,19 @@ BERT's pre-trained weights are the starting point; a task-specific output layer 
 2. The Activity 1 task asks you to research bias in NLP models *other than BERT* — use this article as a frame but investigate ELMO, GPT-2, or commercial APIs
 3. Bias is not a bug — it is an emergent property of learning from human-generated data; mitigation requires intentional debiasing techniques and diverse training corpora
 
+**Forum Discussion Text:**
+Algorithms in **Natural Language Processing (NLP)**, other than BERT, frequently inherit and amplify societal biases from training data and design choices. These biases include data bias (skewed historical corpora), representation bias (stereotypical associations), and emergent bias (prejudices amplified through downstream applications). Classical and early deep learning models such as **Word2Vec/GloVe** embeddings, **ELMo**, **GPT-2**, and **LSTM**-based architectures demonstrate these limitations, affecting downstream applications such as sentiment analysis, text classification, machine translation, and NLG.
+
+**Word2Vec** and **GloVe** encode gender stereotypes through co-occurrence statistics. Famous analogies show “man is to programmer as woman is to homemaker,” linking male terms to high-status jobs (doctor, CEO) and female terms to domestic roles (nurse). These embeddings cause biased resume screening, lowering scores for female and minority candidates and reducing hiring diversity.
+
+**ELMo** (bidirectional LSTMs) still propagates stronger male gender associations in coreference resolution tasks — for example, misattributing pronouns when a sentence involves a “nurse” or “engineer” — carrying these errors downstream into text analytics pipelines.
+
+**GPT-2** generates text with strong occupational gender bias, defaulting senior roles to male pronouns and “nurse” to female, normalising stereotypes in chatbots and content creation.
+
+**LSTM**-based neural machine translation systems trained on imbalanced corpora produce gendered outputs — Google Translate famously defaulted “she is a doctor” to “he” in several languages — risking mistranslation in high-stakes professional and medical communication.
+
+Unlike rule-based chatbots (e.g., ELIZA), data-driven NLP rapidly scales prejudices across millions of users. Mitigation requires diverse datasets, debiasing techniques, and algorithmic audits. Intentional design and interdisciplinary oversight are essential to build trustworthy systems that promote equity.
+
 ---
 
 ### Activity 2: Ben Abacha, A. & Zweigenbaum, P. (2015). MEANS: A Medical Question-Answering System
