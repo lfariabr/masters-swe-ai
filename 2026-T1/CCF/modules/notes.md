@@ -972,6 +972,98 @@ You can continue your research on the internet and compare the different areas a
 
 ---
 
+## Module 10 - Security Threats while in cloud - Mitigation and Identification
+
+### TLDR
+
+### Introduction
+In this module, you will explore the details for identifying and mitigating security threats in the cloud and learn about the latest theories and concepts that help keep your data and applications safe. By the end of this module, you will gain a comprehensive understanding of the security landscape in the cloud as well as the knowledge and skills needed to keep data and applications secure. By the end of this module, you should be able to answers these questions:
+- What do hackers want?
+- What avenues can hackers take to target an organisation’s cloud-based business?
+- How do you identify, protect and mitigate common threats?
+
+### Resources
+
+#### 1. Cloud Security
+- University Australia. (2022). Cloud security [Short course]. https://torrens.blackboard.com/bbcswebdav/institution/Design Faculty/AI & CC Creative Tech Suite/CCF501 Cloud Computing Fundamentals/3. Resources/Module 10/Module 10 Cloud Security Short Course/index.html#/
+
+*Resource Overview:*
+
+    Cloud computing is an emerging technology which allows storing, managing and processing data remotely using servers in a network as opposed to the traditional way of using local servers. Due to the use of remote servers; however, there are a wide range of security concerns that did not previously exist. Some of these security concerns include data breaches, insecure APIs, data loss, cloud services abuse and malware injection. As we move towards cloud computing becoming a part of everyday life, an understanding of cloud security is essential. This short course covers different areas of cloud security and their best practices.
+
+> *Status: 🕐 To-Do*
+
+#### 2. Cloud Computing Fundamentals (Animation)
+- Media Design School. (2022). Cloud computing fundamentals [Video]. Kaltura Media. https://www.kaltura.com/index.php/extwidget/preview/partner_id/1282131/uiconf_id/46265942/entry_id/1_yy0q8f49/embed/iframe?
+
+*Resource Overview:*
+
+    You have taken in a lot of information over the past few modules. To help you revise the most important concepts covered (and maybe point out a few you might have missed), watch this short animation on Cloud Computing Fundamentals.
+
+> *Status: 🕐 To-Do*
+
+#### 3. Cloud Security Threats
+- Mello, J. P., Jr. (2022, July 4). 11 top cloud security threats. CSO Australia. https://www.csoonline.com/article/3043030/top-cloud-security-threats.html
+
+*Resource Overview:*
+
+    This resource outlines the most probable ways in which cloud security can be compromised at businesses regardless of which service provider they choose. As a cloud professional, it is important to know about these common cloud security threats so that cloud applications and cloud services can be protected against them. You are required to read this article in order to identify the cloud security threats and mitigation strategies.
+
+> *Status: 🕐 To-Do*
+
+#### 4. Secure Cloud Computing: 7 ways I’d hack you on AWS
+- Ablett, J. (2022, April 4). Secure cloud computing: 7 ways I’d hack you on AWS. Adelia Risk. https://adeliarisk.com/secure-cloud-computing-7-ways-id-hack-aws/
+
+*Resource Overview:*
+
+    This resource lists and discusses the seven most likely ways an attacker can compromise AWS cloud deployments. Note that these concepts can be applicable to any cloud service provider’s deployments. While you read about the mechanism of these hacks, you may want to analyse how these attacks can be carried out against other service providers as well. For example, the phishing attack discussed in the “Hack 1” is applicable to almost any cloud service provider as the attackers are targeting the cloud subscribers.
+
+> *Status: 🕐 To-Do*
+
+#### 5. Understanding Common Security Threats to Cloud Services
+- Estrin, E. (2022). Cloud security handbook: Find out how to effectively secure cloud environments using AWS, Azure, and GCP. Packt. https://learning-oreilly-com.torrens.idm.oclc.org/library/view/cloud-security-handbook/9781800569195/B16552_08_Final_JM_ePub.xhtml#_idParaDest-171
+
+*Resource Overview:*
+
+    There are various security frameworks available for cloud services. Both the MITRE ATT&CK framework, the Open Web Application Security Project® (OWASP®) Cloud Top 10 are the most popular frameworks which allow cloud security professionals to understand how attacks can be carried out against cloud servers. Please read the following sections in “Chapter 8: Understanding Common Security Threats to Cloud Services” to learn about cloud threat detections and mitigations:
+    - The MITRE ATT&CK Framework
+    - Detecting and Mitigating Data Breaches in Cloud Services
+    - Detecting and Mitigating Misconfigurations in Cloud Services
+    - Detecting and Mitigating Account Hijacking in Cloud Services
+
+> *Status: 🕐 To-Do*
+
+### Learning Activities
+
+#### Activity 1: Components of Cloud Data Security—Discussion Forum
+- Thompson, G. (2020). CCSK Certificate of cloud security knowledge all-in-one exam guide. McGraw Hill. https://learning-oreilly-com.torrens.idm.oclc.org/library/view/ccsk-certificate-of/9781260460094/ch11.xhtml#subhead_51
+
+Data security is very important in cloud settings as businesses host their data in cloud database servers instead of on-premise data centres. The following resource discusses data security for cloud. Please read the following sections from “Chapter 11: Data Security and Encryption”.
+
+1 – Data Security ControlsLinks to an external site.
+3 – Managing Data Migrations to the CloudLinks to an external site.
+4 – Securing Data in the CloudLinks to an external site.
+These sections outline the fundamentals of cloud data security. After reading these sections, answer the following questions:
+
+List the three main components of cloud data security controls.
+Briefly discuss the tools and technologies used for monitoring cloud data transfers.
+Cloud data access controls are adopted by cloud service providers to maintain data confidentiality. List and discuss in which areas cloud data access control can be implemented.
+Post your answers (in no more than 250 words in total) in the Module 10 Discussion Forum.
+
+> *Status: 🕐 To-Do*
+
+#### Activity 2: Major Cloud Security Threats—Discussion Forum
+- Check Point. (2021). Main cloud security issues and threats in 2021. https://www.checkpoint.com/cyber-hub/cloud-security/what-is-cloud-security/top-cloud-security-issues-threats-and-concerns/
+
+Read the following article which summarises the major cloud security threats. Select and discuss three cloud security threats. You may also want to investigate and briefly outline the potential mitigation strategies in order to avoid those security risks.
+
+Post your response (in no more than 250 words) in the Module 10 Discussion Forum.
+
+> *Status: 🕐 To-Do*
+
+---
+
+
 ```bash
 --- PLACEHOLDER:
 ## Module X - ...
