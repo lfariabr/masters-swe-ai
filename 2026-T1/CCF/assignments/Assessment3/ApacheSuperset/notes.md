@@ -15,6 +15,7 @@
 - ✅ VM stopped/deallocated after evidence capture to avoid compute charges
 - ✅ Report skeleton — structure, prose, references complete; final screenshot embedding pending
 - ✅ Screenshots captured (Figures 2–9 complete; optional Fig X evidence captured)
+- 🕐 Appendix A checklist marks Task c as including port 80, but text states ports 80 and 443 were "intentionally excluded" for security. Ensure these 2 statements do not confuse the marker
 - 🕐 Screencast recorded
 - 🕐 Submission
 

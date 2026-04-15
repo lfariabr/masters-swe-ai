@@ -257,5 +257,6 @@ Shore, M. (2020). *Cybersecurity with cloud computing: Service models* [Video]. 
 | AZ-900 | Microsoft Azure Fundamentals certification |
 | DP-900 | Microsoft Azure Data Fundamentals certification |
 | SPOF | Single Point of Failure |
+| Apache Superset | Open-source data exploration and visualisation platform |
 
 > *Table B1: Glossary of technical terms used in the report.*
