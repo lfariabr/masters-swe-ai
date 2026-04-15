@@ -889,7 +889,7 @@ In this module, we will discover the underlying legal challenges from both the s
 > *Status: ✅ Watched + Reviewed — see [module09_notes.md](module_09_governance-and-legal/module09_notes.md)*
 
 #### 3. Legal Issues in Cloud Computing
-- Saini, J. S., Saini D.K., Gupta P., Lamba C. S., & Rao, G. M. (2022). Cloud computing: Legal issues and provision. Security and Communication Networks, 2022, Article 2288961. https://doi.org/10.1155/2022/2288961Links to an external site., https://www.proquest.com/docview/2701957781/fulltextPDF/E9ABE6195E624E3FPQ/1?accountid=176901
+- Saini, J. S., Saini D.K., Gupta P., Lamba C. S., & Rao, G. M. (2022). Cloud computing: Legal issues and provision. Security and Communication Networks, 2022, Article 2288961. https://doi.org/10.1155/2022/2288961, https://www.proquest.com/docview/2701957781/fulltextPDF/E9ABE6195E624E3FPQ/1?accountid=176901
 
 *Resource Overview:*
 
@@ -1040,9 +1040,9 @@ In this module, you will explore the details for identifying and mitigating secu
 
 Data security is very important in cloud settings as businesses host their data in cloud database servers instead of on-premise data centres. The following resource discusses data security for cloud. Please read the following sections from “Chapter 11: Data Security and Encryption”.
 
-1 – Data Security ControlsLinks to an external site.
-3 – Managing Data Migrations to the CloudLinks to an external site.
-4 – Securing Data in the CloudLinks to an external site.
+1 – Data Security Controls
+3 – Managing Data Migrations to the Cloud
+4 – Securing Data in the Cloud
 These sections outline the fundamentals of cloud data security. After reading these sections, answer the following questions:
 
 List the three main components of cloud data security controls.
