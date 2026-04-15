@@ -976,6 +976,13 @@ You can continue your research on the internet and compare the different areas a
 
 ### TLDR
 
+- **Cloud security is shared responsibility** — the provider secures the infrastructure; the customer secures their data, IAM, and application layer
+- **Top threats:** data breaches, credentials theft, misconfigurations, account hijacking, DDoS, data exfiltration, human error
+- **MITRE ATT&CK** maps the attack kill chain (initial access → exfiltration → impact) — use it to design defence at every stage
+- **Misconfigurations are the most preventable risk** — CSPM tools and infrastructure-as-code eliminate most human-error defaults
+- **Credentials + access keys** are the #1 attack surface — enforce MFA, rotate keys, never embed in code, never use root for ops
+- **Denial of Wallet** is a cloud-unique risk — attackers hijack accounts to spin up expensive resources on your bill
+
 ### Introduction
 In this module, you will explore the details for identifying and mitigating security threats in the cloud and learn about the latest theories and concepts that help keep your data and applications safe. By the end of this module, you will gain a comprehensive understanding of the security landscape in the cloud as well as the knowledge and skills needed to keep data and applications secure. By the end of this module, you should be able to answers these questions:
 - What do hackers want?
@@ -991,7 +998,7 @@ In this module, you will explore the details for identifying and mitigating secu
 
     Cloud computing is an emerging technology which allows storing, managing and processing data remotely using servers in a network as opposed to the traditional way of using local servers. Due to the use of remote servers; however, there are a wide range of security concerns that did not previously exist. Some of these security concerns include data breaches, insecure APIs, data loss, cloud services abuse and malware injection. As we move towards cloud computing becoming a part of everyday life, an understanding of cloud security is essential. This short course covers different areas of cloud security and their best practices.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module10_notes.md](module_10_security-threats/module10_notes.md)*
 
 #### 2. Cloud Computing Fundamentals (Animation)
 - Media Design School. (2022). Cloud computing fundamentals [Video]. Kaltura Media. https://www.kaltura.com/index.php/extwidget/preview/partner_id/1282131/uiconf_id/46265942/entry_id/1_yy0q8f49/embed/iframe?
@@ -1000,7 +1007,7 @@ In this module, you will explore the details for identifying and mitigating secu
 
     You have taken in a lot of information over the past few modules. To help you revise the most important concepts covered (and maybe point out a few you might have missed), watch this short animation on Cloud Computing Fundamentals.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module10_notes.md](module_10_security-threats/module10_notes.md)*
 
 #### 3. Cloud Security Threats
 - Mello, J. P., Jr. (2022, July 4). 11 top cloud security threats. CSO Australia. https://www.csoonline.com/article/3043030/top-cloud-security-threats.html
@@ -1009,7 +1016,7 @@ In this module, you will explore the details for identifying and mitigating secu
 
     This resource outlines the most probable ways in which cloud security can be compromised at businesses regardless of which service provider they choose. As a cloud professional, it is important to know about these common cloud security threats so that cloud applications and cloud services can be protected against them. You are required to read this article in order to identify the cloud security threats and mitigation strategies.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module10_notes.md](module_10_security-threats/module10_notes.md)*
 
 #### 4. Secure Cloud Computing: 7 ways I’d hack you on AWS
 - Ablett, J. (2022, April 4). Secure cloud computing: 7 ways I’d hack you on AWS. Adelia Risk. https://adeliarisk.com/secure-cloud-computing-7-ways-id-hack-aws/
@@ -1018,7 +1025,7 @@ In this module, you will explore the details for identifying and mitigating secu
 
     This resource lists and discusses the seven most likely ways an attacker can compromise AWS cloud deployments. Note that these concepts can be applicable to any cloud service provider’s deployments. While you read about the mechanism of these hacks, you may want to analyse how these attacks can be carried out against other service providers as well. For example, the phishing attack discussed in the “Hack 1” is applicable to almost any cloud service provider as the attackers are targeting the cloud subscribers.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module10_notes.md](module_10_security-threats/module10_notes.md)*
 
 #### 5. Understanding Common Security Threats to Cloud Services
 - Estrin, E. (2022). Cloud security handbook: Find out how to effectively secure cloud environments using AWS, Azure, and GCP. Packt. https://learning-oreilly-com.torrens.idm.oclc.org/library/view/cloud-security-handbook/9781800569195/B16552_08_Final_JM_ePub.xhtml#_idParaDest-171
@@ -1031,7 +1038,7 @@ In this module, you will explore the details for identifying and mitigating secu
     - Detecting and Mitigating Misconfigurations in Cloud Services
     - Detecting and Mitigating Account Hijacking in Cloud Services
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module10_notes.md](module_10_security-threats/module10_notes.md)*
 
 ### Learning Activities
 
