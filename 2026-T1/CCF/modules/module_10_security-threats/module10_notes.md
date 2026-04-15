@@ -9,8 +9,8 @@
 | **3** | **Read & summarise Mello (2022/2024) — 7 top cloud security threats, CSO Online** | **✅** |
 | **4** | **Read & summarise Ablett (2022) — 7 ways I'd hack you on AWS** | **✅** |
 | **5** | **Read & summarise Estrin (2022) — Cloud Security Handbook, Chapter 8** | **✅** |
-| 6 | Activity 1: Components of Cloud Data Security — Discussion Forum | 🕐 |
-| 7 | Activity 2: Major Cloud Security Threats — Discussion Forum | 🕐 |
+| **6** | **Activity 1: Components of Cloud Data Security — Discussion Forum** | **✅** |
+| **7** | **Activity 2: Major Cloud Security Threats — Discussion Forum** | **✅** |
 
 ---
 
@@ -342,22 +342,42 @@ Layer 7: Backups (EBS, S3, Glacier — restore to clean servers if APT)
 
 ---
 
-## Activity Reference Notes
+## Discussion Forum Posts
 
 ### Activity 1: Components of Cloud Data Security
 *Source: Thompson, G. (2020). CCSK Certificate of Cloud Security Knowledge. Chapter 11.*
+*Word count target: ≤250 words*
 
-Key areas to address in the Discussion Forum response:
-- **Three main components of cloud data security controls** (from the reading): likely encryption, access control, and data classification/monitoring
-- **Tools for monitoring cloud data transfers:** audit logs, VPC flow logs, SIEM systems
-- **Cloud data access controls:** IAM policies, role-based access control (RBAC), network-level controls
+---
+
+Cloud data security relies on three main controls: **data discovery and classification**, **encryption**, and **access control** (Thompson, 2020).
+
+**Data discovery and classification** is the foundation. Organisations must first know what data exists and how sensitive it is—public, internal, or confidential—before any meaningful protection can be applied. Without this step, controls are applied inconsistently or not at all.
+
+**Encryption** protects data confidentiality at rest and in transit. Encryption at rest (e.g., AES-256 for stored objects) and in transit (TLS) ensures data remains unreadable if intercepted or improperly accessed. Effective key management—centralised storage (AWS KMS, Azure Key Vault), regular rotation, and segregation of duties—is integral to encryption outcomes.
+
+**Access control** governs which identities interact with which data. Role-based access control (RBAC) and attribute-based access control (ABAC) enforced through IAM policies operationalise the principle of least privilege.
+
+For monitoring cloud data transfers, organisations typically use: **Data Loss Prevention (DLP)** tools to detect sensitive data leaving authorised boundaries; **Cloud Access Security Brokers (CASBs)** to enforce policy between users and cloud services; and native audit services (AWS CloudTrail, Azure Monitor, GCP Cloud Logging) integrated into a **SIEM** for real-time anomaly detection (Thompson, 2020).
+
+Cloud data access controls can be implemented across four layers:
+- **Network**: VPC rules and security groups restrict traffic to authorised sources
+- **Identity**: MFA, IAM roles, and federated identity control authentication
+- **Application**: API gateways and authorisation logic enforce per-request permissions
+- **Data**: Object storage policies, column-level encryption, and row-level filters restrict what each identity can read
+
+---
 
 ### Activity 2: Major Cloud Security Threats
 *Source: Check Point. (2021). Main cloud security issues and threats in 2021.*
+*Word count target: ≤250 words*
 
-Suggested three threats for discussion (strongest for 250-word response):
-1. **Data breaches** — most widespread, regulatory implications, cross-provider relevance
-2. **Account hijacking** — practical severity, includes Denial of Wallet (cloud-unique)
-3. **Misconfigurations** — most preventable, human error root cause, CSPM solution
+---
 
-Each should include: what the threat is → how it manifests → mitigation strategy
+Three of the most significant cloud security threats are **misconfiguration**, **account hijacking**, and **data loss/leakage**.
+
+**Misconfiguration** is the leading cause of cloud data breaches (Check Point, 2021). Cloud infrastructure is designed for accessibility and easy sharing, which makes it simple for teams to accidentally expose resources—an S3 bucket open to the public, overly broad IAM roles, or databases accessible without a VPN. The problem compounds in multi-cloud environments where each provider has different security settings. Mitigation: deploy Cloud Security Posture Management (CSPM) tools for continuous configuration auditing, enforce infrastructure-as-code to standardise deployments, and train teams on cloud-specific defaults.
+
+**Account hijacking** occurs when attackers obtain valid credentials through phishing or data from prior breaches and use them to access cloud services undetected (Check Point, 2021). Cloud organisations often lack the visibility to catch this quickly. Worse, hijacked accounts can trigger a "denial of wallet"—attackers spinning up expensive compute resources (e.g., for Bitcoin mining) on the victim's bill. Mitigation: enforce multi-factor authentication (MFA), apply least-privilege access policies, and monitor login behaviour with a SIEM.
+
+**Data loss and leakage** is cited by 69% of organisations as their greatest cloud security concern (Check Point, 2021). Cloud platforms make sharing trivial—public links can be forwarded or discovered by automated scanners. A single misshared repository can expose sensitive customer or IP data globally. Mitigation: restrict link-based sharing in favour of explicit invitations, apply DLP policies, and audit external access permissions regularly.

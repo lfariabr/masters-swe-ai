@@ -1057,7 +1057,7 @@ Briefly discuss the tools and technologies used for monitoring cloud data transf
 Cloud data access controls are adopted by cloud service providers to maintain data confidentiality. List and discuss in which areas cloud data access control can be implemented.
 Post your answers (in no more than 250 words in total) in the Module 10 Discussion Forum.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Done — see [module10_notes.md](module_10_security-threats/module10_notes.md)*
 
 #### Activity 2: Major Cloud Security Threats—Discussion Forum
 - Check Point. (2021). Main cloud security issues and threats in 2021. https://www.checkpoint.com/cyber-hub/cloud-security/what-is-cloud-security/top-cloud-security-issues-threats-and-concerns/
@@ -1066,7 +1066,7 @@ Read the following article which summarises the major cloud security threats. Se
 
 Post your response (in no more than 250 words) in the Module 10 Discussion Forum.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Done — see [module10_notes.md](module_10_security-threats/module10_notes.md)*
 
 ---
 
