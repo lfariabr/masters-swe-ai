@@ -884,6 +884,13 @@ One of the main objectives of NLP is to allow machines have complete and meaning
 
 ### TLDR
 
+- **ASR (Automatic Speech Recognition)** translates spoken audio into text via a pipeline: acoustic analysis → acoustic model → pronunciation dictionary → language model → decoder
+- **MFCC features** capture spectral content of 25 ms speech frames; the primary input to classical models
+- **HMMs** model temporal variability in speech; one HMM per word class; replaced by **DNNs** for ~30% WER improvement
+- **Deep learning** (RNNs, LSTMs, CTC) removes the need for aligned training data and simplifies the pipeline toward **end-to-end models**
+- **Noise** degrades ASR accuracy significantly; mitigated by `adjust_for_ambient_noise()`, signal filtering, or generating multiple candidate transcriptions
+- **Privacy risk:** always-on listening creates legal and ethical exposure — cloud storage of voice data weakens 4th Amendment protection and enables hacking
+
 ### Introduction
 Speech recognition systems are ubiquitous in today’s modern world – from Apple’s Siri to Google’s Alexa, Microsoft’s Cortana and many other proprietary voice-based assistants are performing many hidden calculations and transformations from when a human utters the sounds of speech into intelligent cognition of the words spoken. In this module, you will uncover the theoretical underpinning of speech recognition systems including having the ability to try hands-on your own model.
 
@@ -900,7 +907,7 @@ You will also be introduced to some drawbacks and limitations of speech recognit
 
     (Side note – if you would like to play this on your smart TV, you may get that real-life experience of being in a classroom!)
 
-> *Status: 🕐 To-Do* 
+> *Status: ✅ Watched + Reviewed — see [module10_notes.md](module_10_speech-recognition/module10_notes.md)*
 
 #### 2. A practical introduction to speech recognition
 - Joshi, P. (2016). Python Machine Learning Cookbook, Birmingham, England: Packt, Retrieved from: https://search.ebscohost.com/login.aspx?direct=true&AuthType=shib&db=nlebk&AN=1285067&site=ehost-live&custid=ns251549&ebv=EB&ppid=pp_155
@@ -909,7 +916,7 @@ You will also be introduced to some drawbacks and limitations of speech recognit
 
     As human speech contains many more elements than just spoken words – the tone of voice, accent, language, emotion or even background noise, it is surprisingly hard to train machines to recognise and understand human conversation. In Chapter 7 of this resource, you will be introduced (and provided the opportunity to get your hands dirty!) the challenges ML models face in detecting these elements, the effective techniques involved in recognising these elements and an introduction to using Hidden Markov Models (information about this statistical model provided within the chapter) as an option to model speech. It is recommended that you follow the practical steps the author has taken to demonstrate speech recognition in action to make the most of your ability to understand the various concepts of speech recognition we will explore in greater depth.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module10_notes.md](module_10_speech-recognition/module10_notes.md)*
 
 #### 3. Deep Learning in Speech Recognition
 - Zocca, V., Spacagna, G., Slater, D., Roelants, P. (2016). Python Deep Learning. Retrieved from: https://search.ebscohost.com/login.aspx?direct=true&AuthType=shib&db=nlebk&AN=1513367&site=ehost-live&custid=ns251549&ebv=EB&ppid=pp_193
@@ -918,7 +925,7 @@ You will also be introduced to some drawbacks and limitations of speech recognit
 
     Deep Learning has been a boon to Speech Recognition systems in that they make some pre-processing steps redundant as well as reducing the complexity of the structure of an ASR system. Read the “Speech Recognition” section of Chapter 6 of this resource to learn how the common pre—processing steps (some of which has been covered in the resources above) are handled with a Deep Learning Network (DNN).
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module10_notes.md](module_10_speech-recognition/module10_notes.md)*
 
 #### 4. Privacy in Speech Recognition
 - Vlahos, J. (2019, 26 March). Smart talking: Are our devices threatening our privacy? The Guardian. Retrieved from https://www.theguardian.com/technology/2019/mar/26/smart-talking-are-our-devices-threatening-our-privacy
@@ -927,7 +934,7 @@ You will also be introduced to some drawbacks and limitations of speech recognit
 
     Unfortunately, in the wrong hands, Speech Recognition applications can be very scary. Whenever you ask Google to call one of your contacts, you say, ‘Okay Google’ and an assistant pops up to help you. However, how can it be guaranteed that your phone was not listening to the rest of the conversation before you said ‘Ok Google’? If your phone is always listening to you and can understand you, then it might know some private information that you did not want known. Read the following article on privacy in Speech Recognition, the various stories of privacy breaches against well known brands, insights from experts, future predictions and the surprising way in which these devices constantly being on can potentially help us.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module10_notes.md](module_10_speech-recognition/module10_notes.md)*
 
 ### Learning Activities
 
