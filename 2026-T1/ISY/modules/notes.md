@@ -854,7 +854,7 @@ Natural language processing (NLP) is a multidisciplinary field focused on enabli
 > *Status: ✅ Read + Reviewed — see [module09_notes.md](module_09_nlp/module09_notes.md)*
 
 #### 5. Solving a major problem in NLP – shortage of training data – with Google’s help from Bidirectional Encoder Representations from Transformers (BERT)
-- Devlin, J., Chang, M. W. (2018). Open Sourcing BERT: State-of-the-Art Pre-training for Natural Language Processing. Retrieved from https://ai.googleblog.com/2018/11/open-sourcing-bert-state-of-art-pre.htmlLinks to an external site.
+- Devlin, J., Chang, M. W. (2018). Open Sourcing BERT: State-of-the-Art Pre-training for Natural Language Processing. Retrieved from https://ai.googleblog.com/2018/11/open-sourcing-bert-state-of-art-pre.html
 
 *Resource Overview:*
 
@@ -880,6 +880,65 @@ One of the main objectives of NLP is to allow machines have complete and meaning
 
 ---
 
+## Module 10 - Speech Recognition
+
+### TLDR
+
+### Introduction
+Speech recognition systems are ubiquitous in today’s modern world – from Apple’s Siri to Google’s Alexa, Microsoft’s Cortana and many other proprietary voice-based assistants are performing many hidden calculations and transformations from when a human utters the sounds of speech into intelligent cognition of the words spoken. In this module, you will uncover the theoretical underpinning of speech recognition systems including having the ability to try hands-on your own model.
+
+You will also be introduced to some drawbacks and limitations of speech recognition systems – particularly the problem of noise that permeates many a speech recognition application as well as the important issue of addressing privacy when those ubiquitous devices always have an ear on what you are saying…
+
+### Resources
+
+#### 1. Automatic Speech Recognition (ASR) Overview
+- Microsoft Research. (2017, 7 June). Automatic Speech Recognition – An Overview [Video file]. Retrieved from https://www.microsoft.com/en-us/research/video/automatic-speech-recognition-overview/
+
+*Resource Overview:*
+
+    In this Microsoft-supported research resource, you will feel like you’re actually sitting in a live lecture within a physical classroom! Watch the video where - IIT Bombay’s (Microsoft’s research affiliate organisation) researcher Preethi Jyothi takes you through the basics of speech recognition, the applications of ASR, the common techniques employed in developing ASR applications with a good balance between the theoretical concepts you need to know when implementing ASR systems and how they are applied in practice! Watch from the beginning until 7.45 and then fast forward to 22:38. You will then settle into a longer talk until 1:07:57 where the speaker covers these concepts clearly yet succinctly.
+
+    (Side note – if you would like to play this on your smart TV, you may get that real-life experience of being in a classroom!)
+
+> *Status: 🕐 To-Do* 
+
+#### 2. A practical introduction to speech recognition
+- Joshi, P. (2016). Python Machine Learning Cookbook, Birmingham, England: Packt, Retrieved from: https://search.ebscohost.com/login.aspx?direct=true&AuthType=shib&db=nlebk&AN=1285067&site=ehost-live&custid=ns251549&ebv=EB&ppid=pp_155
+
+*Resource Overview:*
+
+    As human speech contains many more elements than just spoken words – the tone of voice, accent, language, emotion or even background noise, it is surprisingly hard to train machines to recognise and understand human conversation. In Chapter 7 of this resource, you will be introduced (and provided the opportunity to get your hands dirty!) the challenges ML models face in detecting these elements, the effective techniques involved in recognising these elements and an introduction to using Hidden Markov Models (information about this statistical model provided within the chapter) as an option to model speech. It is recommended that you follow the practical steps the author has taken to demonstrate speech recognition in action to make the most of your ability to understand the various concepts of speech recognition we will explore in greater depth.
+
+> *Status: 🕐 To-Do*
+
+#### 3. Deep Learning in Speech Recognition
+- Zocca, V., Spacagna, G., Slater, D., Roelants, P. (2016). Python Deep Learning. Retrieved from: https://search.ebscohost.com/login.aspx?direct=true&AuthType=shib&db=nlebk&AN=1513367&site=ehost-live&custid=ns251549&ebv=EB&ppid=pp_193
+
+*Resource Overview:*
+
+    Deep Learning has been a boon to Speech Recognition systems in that they make some pre-processing steps redundant as well as reducing the complexity of the structure of an ASR system. Read the “Speech Recognition” section of Chapter 6 of this resource to learn how the common pre—processing steps (some of which has been covered in the resources above) are handled with a Deep Learning Network (DNN).
+
+> *Status: 🕐 To-Do*
+
+#### 4. Privacy in Speech Recognition
+- Vlahos, J. (2019, 26 March). Smart talking: Are our devices threatening our privacy? The Guardian. Retrieved from https://www.theguardian.com/technology/2019/mar/26/smart-talking-are-our-devices-threatening-our-privacy
+
+*Resource Overview:*
+
+    Unfortunately, in the wrong hands, Speech Recognition applications can be very scary. Whenever you ask Google to call one of your contacts, you say, ‘Okay Google’ and an assistant pops up to help you. However, how can it be guaranteed that your phone was not listening to the rest of the conversation before you said ‘Ok Google’? If your phone is always listening to you and can understand you, then it might know some private information that you did not want known. Read the following article on privacy in Speech Recognition, the various stories of privacy breaches against well known brands, insights from experts, future predictions and the surprising way in which these devices constantly being on can potentially help us.
+
+> *Status: 🕐 To-Do*
+
+### Learning Activities
+
+#### Activity 1: Noise Reduction
+- The AI University. (2019, 30 October). Automatic Speech Recognition – An Overview [Video file]. Retrieved from https://www.youtube.com/watch?v=tuqkqrgbWiE
+
+Watch the video (from minute 1.20) in the resource below and outline in approximately 250 words the problem facing speech recognition algorithms and some solutions that could be utilised to reduce the impact this has on speech recognition systems. It is sufficient to explain your understanding of the topics taught in this audio in bullet form format.
+
+> *Status: 🕐 To-Do*
+
+---
 ```bash
 --- PLACEHOLDER:
 ## Module X - ...
