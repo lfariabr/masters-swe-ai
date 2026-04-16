@@ -30,6 +30,7 @@
 **Purpose:** A comprehensive academic lecture by IIT Bombay researcher Preethi Jyothi covering the history, architecture, and challenges of ASR systems — from early frequency detectors to modern DNN-based systems.
 
 ---
+<!-- 17m34s -->
 
 #### 1. What is ASR and Why Does It Matter?
 - **Definition:** ASR accurately translates spoken utterances into text (words, syllables, sub-word units, characters)
