@@ -1,6 +1,12 @@
 # Module 10 — Speech Recognition
 ## ISY503 Intelligent Systems
 
+## TL;DR
+- **ASR** converts speech to text via a pipeline: acoustic analysis → acoustic model → lexicon → language model → decoder
+- Classical approach uses **MFCC features** + **HMM** per word class; modern systems replace GMMs with **DNNs** (~30% WER improvement)
+- **RNNs/LSTMs + CTC** remove the need for aligned training data, enabling end-to-end models
+- **Noise** and **privacy** are first-class real-world concerns; mitigated by ambient noise adjustment and careful data governance
+
 ## Task List
 
 | # | Task | Status |
@@ -51,12 +57,22 @@
 | 2006+ | Deep Neural Networks | State-of-the-art; ~30% improvement in recognition rate |
 
 #### 4. ASR System Pipeline
-1. **Acoustic Analysis:** Raw speech → discrete frames (10–25 ms) → feature vectors
-2. **MFCC (Mel-Frequency Cepstral Coefficients):** Biologically motivated features; mimic how human ears filter sound
-3. **Acoustic Model:** Maps feature vectors → phoneme sequence (using HMMs or DNNs)
-4. **Pronunciation Dictionary:** Maps phonemes → words (e.g., CMUdict with ~150,000 English words)
-5. **Language Model:** Probability distribution over word sequences (n-grams or neural LM)
-6. **Decoder:** Combines all components to find the most likely word sequence
+
+```mermaid
+flowchart LR
+  A[Audio Signal] --> B[Acoustic Analysis\nMFCC / Filter Banks]
+  B --> C[Acoustic Model\nHMM or DNN]
+  C --> D[Pronunciation Dictionary\ne.g. CMUdict]
+  D --> E[Language Model\nn-gram or neural]
+  E --> F[Decoder\nViterbi / Beam Search]
+  F --> G[Transcript]
+```
+
+- **Acoustic Analysis:** Raw speech → discrete frames (10–25 ms) → MFCC feature vectors
+- **Acoustic Model:** Maps feature vectors → phoneme sequence (HMMs or DNNs)
+- **Pronunciation Dictionary:** Maps phonemes → words (~150,000 entries in CMUdict)
+- **Language Model:** Probability distribution over word sequences (n-grams or neural LM)
+- **Decoder:** Combines all components to find the most likely word sequence
 
 #### 5. Phonemes
 - **Phoneme:** Basic unit of speech sound (e.g., "bat" = /b/ /ae/ /t/); ~44 phonemes in English
@@ -186,8 +202,14 @@ score = model.score(test_features)  # log-likelihood
 
 #### 4. Deep Learning Speech Recognition Pipeline
 
-```
-Audio signal → Preprocessing (MFCC/Filter Banks) → Acoustic Model → Pronunciation Dictionary → Language Model → Decoder → Transcript
+```mermaid
+flowchart LR
+  A[Audio Signal] --> B[Preprocessing\nMFCC / Filter Banks]
+  B --> C[Acoustic Model\nDNN-HMM or LSTM-CTC]
+  C --> D[Pronunciation Dictionary]
+  D --> E[Language Model\nRNN / LSTM]
+  E --> F[Decoder\nBeam Search]
+  F --> G[Transcript]
 ```
 
 | Component | Classical | Deep Learning |
