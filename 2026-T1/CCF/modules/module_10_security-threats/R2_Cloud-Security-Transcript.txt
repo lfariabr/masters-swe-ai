@@ -1,1 +1,102 @@
-Welcome to Cloud Computing Fundamentals. By now you know that cloud computing is growing in popularity and complexity. Various service and deployment models exist, including a variety of providers who can host your data and functions on the cloud. All options promise to offer some level of service. But not all of them are equal when it comes to security. Moreover, in the space of security, the responsibility is shared between providers and businesses. In this video, you will see what threats exist in terms of cloud security, how they affect your data and what organisations can do to protect their most valuable assets and in some cases, their entire business. What’s different about data security when hosted on traditional IT services or infrastructure vs. on the cloud? Obligations and delegations for incident monitoring and response, including those related to security are spread between the cloud provider and the business. Exercising due diligence and talking about it upfront before signing up to cloud service providers therefore makes sense. It’s often tempting to do a free trial or choose the lower priced service provider however care needs to be taken when decision makers sit down to make choices. A holistic cloud strategy as part of your business planning is a wise move. Both budget and premium cloud providers can be subject to various security related threats. These include email spam, Distributed Denial of Service Attacks (DDOS), API-based attacks, phishing campaigns and data leaks. We will explore some of them in this video. Obviously having your customers’ details out there in the public domain for spammers to bombard them or set up phishing campaigns is not a good look. Data leaks can also compromise the business’s IP, meaning they can be at a competitive disadvantage. Data breaches can be punishable by law in several countries in the world. Europe’s General Data Protection Regulation is one such example where non-compliance can result in severe penalties. While cloud providers are now taking great care to avoid security attacks, provisioning more services, satiating the growing need for more computing power and on-demand scalability increases the opportunities through which attacks can be launched. How? With more services, come more APIs. APIs are the keys to accessing underlying services of the cloud computing platform. API-based attacks can mean hackers can inject malicious bugs or even attempt to take over control of systems. APIs enable integration but can become problematic when the hooks they provide are harnessed in unexpected or untested ways. Unauthorised ways of extracting information that haven’t been anticipated could affect data security. Internal data structures can be manipulated, compromising integrity. Inadequate authentication mechanisms for the various functionalities involved may mean intrusion and data privacy breaches. One solution cloud providers have come with to help keep up with the demand for more cloud-based computing power is multi-tenancy. As you’ve seen in previous modules, multi-tenancy can help ease the demand on resources by providing shared access to infrastructure and memory. This may offer savings to the end user, but it can also significantly increase their risk of data breaches or system attacks. deliberate or unintentional interference in between tenants, snooping using bandwidth-monitoring techniques, and identity-agnostic access policies, are some common problems that can arise in a multi-tenanted environment. Another example of a cloud-based security threat is a Distributed Denial of Service (DDoS) attack. Such issues can render your service, website or application useless when repeated requests from an unauthorised source pound network infrastructure, computational resources like memory, or consume excessive bandwidth and don’t allow legitimate traffic to flow through. Let’s now talk about specific mitigation strategies. While compliance with regulations is a good first step, deliberate planning including multi-layer threat detection and mitigation steps will help detract hackers from spending more time trying to infiltrate your systems. Automatically applying group security policies for newly created Virtual Machines and enforcing role-based and multi-step authentication procedures are some examples. The type of deployment model employed also needs to be taken into consideration when implementing a cohesive and functioning security policy. As mentioned before, APIs are an entryway into the cloud provider’s services. Comprehensive testing, assigning specific monitoring duties to the security team, as well as automated services, are necessary. API gateways with cyber-security technologies and Identity Access Management are some best practices through which the industry is combating these problems. In the case of DDoS attacks, transport layer specific IP blocks and blacklisting tools are some strategies to address this problem. As security threats for cloud-based services continue to evolve, organisations and providers need to work together. Multiple layers of defence and treatment may often be necessary to ensure the benefits cloud services provide far outweigh the risks they pose.
+Welcome to Cloud Computing Fundamentals.
+By now you know that cloud computing is growing in popularity and complexity.
+Various service and deployment models exist,
+including a variety of providers
+who can host your data and functions on the cloud.
+All options promise to offer some level of service.
+But not all of them are equal when it comes to security.
+Moreover, in the space of security,
+the responsibility is shared between providers and businesses.
+In this video, you will see what threats exist in terms of cloud security,
+how they affect your data
+and what organisations can do to protect their most valuable assets
+and in some cases, their entire business.
+What’s different about data security when hosted on traditional IT services or infrastructure
+vs. on the cloud?
+Obligations and delegations for incident monitoring and response,
+including those related to security
+are spread between the cloud provider and the business.
+Exercising due diligence and talking about it upfront
+before signing up to cloud service providers therefore makes sense.
+It’s often tempting to do a free trial
+or choose the lower priced service provider
+however care needs to be taken when decision makers sit down to make choices.
+A holistic cloud strategy as part of your business planning is a wise move.
+Both budget and premium cloud providers
+can be subject to various security related threats.
+These include email spam,
+Distributed Denial of Service Attacks (DDOS),
+API-based attacks,
+phishing campaigns
+and data leaks.
+We will explore some of them in this video.
+Obviously having your customers’ details out there in the public domain
+for spammers to bombard them
+or set up phishing campaigns is not a good look.
+Data leaks can also compromise the business’s IP,
+meaning they can be at a competitive disadvantage.
+Data breaches can be punishable by law in several countries in the world.
+Europe’s General Data Protection Regulation is one such example
+where non-compliance can result in severe penalties.
+While cloud providers are now taking great care to avoid security attacks,
+provisioning more services,
+satiating the growing need for more computing power and on-demand scalability
+increases the opportunities through which attacks can be launched.
+How?
+With more services, come more APIs.
+APIs are the keys to accessing underlying services
+of the cloud computing platform.
+API-based attacks can mean hackers can inject malicious bugs
+or even attempt to take over control of systems.
+APIs enable integration but can become problematic
+when the hooks they provide are harnessed in unexpected or untested ways.
+Unauthorised ways of extracting information that haven’t been anticipated
+could affect data security.
+Internal data structures can be manipulated,
+compromising integrity.
+Inadequate authentication mechanisms
+for the various functionalities involved
+may mean intrusion and data privacy breaches.
+One solution cloud providers have come with
+to help keep up with the demand for more cloud-based computing power
+is multi-tenancy.
+As you’ve seen in previous modules,
+multi-tenancy can help ease the demand on resources
+by providing shared access to infrastructure and memory.
+This may offer savings to the end user,
+but it can also significantly increase their risk of data breaches or system attacks.
+deliberate or unintentional interference in between tenants,
+snooping using bandwidth-monitoring techniques,
+and identity-agnostic access policies,
+are some common problems that can arise in a multi-tenanted environment.
+Another example of a cloud-based security threat
+is a Distributed Denial of Service (DDoS) attack.
+Such issues can render your service, website or application useless
+when repeated requests from an unauthorised source pound network infrastructure,
+computational resources like memory,
+or consume excessive bandwidth
+and don’t allow legitimate traffic to flow through.
+Let’s now talk about specific mitigation strategies.
+While compliance with regulations is a good first step,
+deliberate planning including multi-layer threat detection and mitigation steps
+will help detract hackers from spending more time trying to infiltrate your systems.
+Automatically applying group security policies for newly created Virtual Machines
+and enforcing role-based and multi-step authentication procedures
+are some examples.
+The type of deployment model employed also needs to be taken into consideration
+when implementing a cohesive and functioning security policy.
+As mentioned before, APIs are an entryway into the cloud provider’s services.
+Comprehensive testing,
+assigning specific monitoring duties to the security team,
+as well as automated services, are necessary.
+API gateways with cyber-security technologies and Identity Access Management
+are some best practices through which the industry is combating these problems.
+In the case of DDoS attacks,
+transport layer specific IP blocks
+and blacklisting tools
+are some strategies to address this problem.
+As security threats for cloud-based services continue to evolve,
+organisations and providers need to work together.
+Multiple layers of defence and treatment may often be necessary
+to ensure the benefits cloud services provide
+far outweigh the risks they pose.
