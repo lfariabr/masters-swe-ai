@@ -242,7 +242,22 @@ Shore, M. (2020). *Cybersecurity with cloud computing: Service models* [Video]. 
 
 >*Table A1: Deployment task checklist with status and corresponding screenshots.*
 
-### Appendix B — Glossary
+### Appendix B — Superset Dashboard Evidence
+
+To verify that the deployed application was usable, three sample CSV files were uploaded into Superset and used to create a working dashboard. The dashboard combines cloud cost monitoring, application usage, and security governance views, demonstrating that the Azure-hosted Superset instance could ingest data, create datasets, and render charts through the browser.
+
+![Screenshot: Superset dashboard with three sample charts](images/fig10-apache-dashboard.jpeg)
+*Figure 10: Working Apache Superset dashboard created from uploaded CSV sample data.*
+
+| Dataset | Purpose | Chart Produced |
+|---|---|---|
+| `cloud_costs_demo.csv` | Demonstrates Azure service cost monitoring | Azure Cost by Service |
+| `superset_usage_demo.csv` | Shows application usage by role | Superset Usage by Role |
+| `security_events_demo.csv` | Supports governance and security analysis | Security Events by Control Layer |
+
+>*Table B1: Uploaded CSV datasets and dashboard charts used to validate the deployed Superset application.*
+
+### Appendix C — Glossary
 
 | Term | Meaning |
 |---|---|
@@ -259,4 +274,4 @@ Shore, M. (2020). *Cybersecurity with cloud computing: Service models* [Video]. 
 | SPOF | Single Point of Failure |
 | Apache Superset | Open-source data exploration and visualisation platform |
 
-> *Table B1: Glossary of technical terms used in the report.*
+> *Table C1: Glossary of technical terms used in the report.*

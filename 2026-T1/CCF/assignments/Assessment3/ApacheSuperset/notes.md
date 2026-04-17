@@ -13,9 +13,10 @@
 - ✅ Superset deployed (Docker Compose on VM)
 - ✅ Public access validated on `http://20.11.66.254:8088`
 - ✅ VM stopped/deallocated after evidence capture to avoid compute charges
+- ✅ Sample CSV datasets uploaded to Superset
+- ✅ Working Superset dashboard created with 3 sample charts
 - ✅ Report skeleton — structure, prose, references complete; final screenshot embedding pending
 - ✅ Screenshots captured (Figures 2–9 complete; optional Fig X evidence captured)
-- 🕐 Appendix A checklist marks Task c as including port 80, but text states ports 80 and 443 were "intentionally excluded" for security. Ensure these 2 statements do not confuse the marker
 - 🕐 Screencast recorded
 - 🕐 Submission
 
@@ -53,6 +54,16 @@ Superset over Metabase/MLflow because:
 - Validation command: `curl -I http://20.11.66.254:8088`
 - Validation result: `HTTP/1.1 302 FOUND` redirecting to `/superset/welcome/`
 - Post-demo cost control: VM status confirmed as `Stopped (deallocated)`
+
+## Superset Dashboard Evidence (2026-04-18)
+- Dashboard created with uploaded CSV sample data.
+- Dataset 1: `cloud_costs_demo.csv` — Azure cost by service / environment.
+- Dataset 2: `superset_usage_demo.csv` — Superset activity by user role.
+- Dataset 3: `security_events_demo.csv` — governance/security events by control layer.
+- Chart 1: Azure Cost by Service — bar chart using `SUM(cost_aud)` by `service`, grouped by `environment`.
+- Chart 2: Superset Usage by Role — line chart using `SUM(event_count)` by `date`, grouped by `user_role`.
+- Chart 3: Security Events by Control Layer — stacked bar chart using event count by `control_layer`, grouped by `status`.
+- Screencast angle: show uploaded datasets, working dashboard, and RBAC roles to demonstrate both deployment and application-level use.
 
 ## Screenshot Inventory
 - Figure 1: `images/fig1-deploym-diagram.png` — deployment architecture

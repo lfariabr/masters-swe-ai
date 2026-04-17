@@ -1,0 +1,11 @@
+timestamp,control_layer,event_type,severity,status
+2026-04-11 09:10:00,Network,ssh_allowed_from_author_ip,low,allowed
+2026-04-11 09:12:00,Network,port_8088_allowed_for_demo,medium,allowed
+2026-04-11 09:18:00,Network,unspecified_inbound_blocked,high,blocked
+2026-04-12 10:05:00,Application,admin_login_success,low,allowed
+2026-04-12 10:15:00,Application,alpha_query_execution,low,allowed
+2026-04-12 10:22:00,Application,gamma_dashboard_view,low,allowed
+2026-04-13 13:40:00,Credential,secret_key_environment_variable,medium,protected
+2026-04-13 13:45:00,Credential,database_uri_environment_variable,medium,protected
+2026-04-13 14:00:00,Operating System,ssh_key_authentication,medium,protected
+2026-04-13 14:20:00,Cost Governance,vm_deallocated_after_demo,low,completed

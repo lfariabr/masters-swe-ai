@@ -1,0 +1,13 @@
+date,user_role,activity,event_count,avg_response_ms
+2026-04-11,Admin,login,4,420
+2026-04-11,Admin,database_connection,2,760
+2026-04-11,Alpha,sql_query,8,980
+2026-04-11,Gamma,dashboard_view,12,610
+2026-04-12,Admin,role_review,3,390
+2026-04-12,Alpha,chart_creation,5,1120
+2026-04-12,Alpha,sql_query,11,940
+2026-04-12,Gamma,dashboard_view,18,580
+2026-04-13,Admin,deployment_validation,6,450
+2026-04-13,Alpha,dataset_upload,3,870
+2026-04-13,Alpha,chart_creation,7,1080
+2026-04-13,Gamma,dashboard_view,25,560
