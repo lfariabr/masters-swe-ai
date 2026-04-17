@@ -4,7 +4,7 @@
 
 | # | Task | Status |
 |---|------|--------|
-| **1** | **Read & summarise University Australia (2022) — Cloud Security short course** | **✅** |
+| 1 | **Read & summarise University Australia (2022) — Cloud Security short course** | **✅** |
 | **2** | **Watch & summarise Media Design School (2022) — Cloud Computing Fundamentals (video transcript)** | **✅** |
 | **3** | **Read & summarise Mello (2022/2024) — 7 top cloud security threats, CSO Online** | **✅** |
 | **4** | **Read & summarise Ablett (2022) — 7 ways I'd hack you on AWS** | **✅** |
@@ -48,6 +48,8 @@
 1. The **Shared Responsibility Model** is the conceptual backbone for all cloud security decisions — every threat in this module maps back to "whose job is it to fix this?"
 2. The short course frames the threats broadly; Resources 2–5 drill into specifics (attack types, frameworks, real attack vectors)
 3. Connects directly to Activity 1 (data security controls) and Activity 2 (selecting and discussing major threats)
+
+> Course done, 100% complete
 
 ---
 
