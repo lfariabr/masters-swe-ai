@@ -27,8 +27,11 @@ The team divided responsibilities as follows: [summarise each member's contribut
 
 An important ethical consideration in this project is that sentiment labels can contain noise and ambiguity. Although the dataset is split into positive and negative review files, star ratings and review text may not always align. Some reviews may be mixed, sarcastic, or domain-specific, and binary classification can oversimplify real user sentiment. We addressed this by auditing labels, documenting ambiguous cases, and reporting model limitations rather than presenting the system as universally accurate.
 
+## Apendices
+<!-- TODO -->
+
 ## APA References To Include
 
-- Dataset source: Blitzer, M. Dredze, and Pereira (2007)
+- Dataset source: Blitzer, J., Dredze, M., & Pereira, F. (2007). Biographies, Bollywood, Boom-boxes and Blenders: Domain Adaptation for Sentiment Classification. In Proceedings of the 45th Annual Meeting of the Association for Computational Linguistics (pp. 440–447). Association for Computational Linguistics. https://aclanthology.org/P07-1056/
 - NLP/sentiment method reference
 - AI ethics or bias reference
