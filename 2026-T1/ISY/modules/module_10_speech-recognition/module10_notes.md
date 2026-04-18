@@ -39,7 +39,7 @@
 
 | # | Task | Status |
 |---|------|--------|
-| **1** | **Watch & summarise Microsoft Research (2017) — ASR Overview** | ✅ |
+| 1 | **Watch & summarise Microsoft Research (2017) — ASR Overview** | ✅ |
 | **2** | **Read & summarise Joshi (2016) — Chapter 7: Speech Recognition (Python ML Cookbook)** | ✅ |
 | **3** | **Read & summarise Zocca et al. (2016) — Deep Learning in Speech Recognition** | ✅ |
 | **4** | **Read & summarise Vlahos (2019) — Privacy in Speech Recognition** | ✅ |
@@ -58,7 +58,6 @@
 **Purpose:** A comprehensive academic lecture by IIT Bombay researcher Preethi Jyothi covering the history, architecture, and challenges of ASR systems — from early frequency detectors to modern DNN-based systems.
 
 ---
-<!-- 17m34s -->
 
 #### 1. What is ASR and Why Does It Matter?
 - **Definition:** ASR accurately translates spoken utterances into text (words, syllables, sub-word units, characters)
