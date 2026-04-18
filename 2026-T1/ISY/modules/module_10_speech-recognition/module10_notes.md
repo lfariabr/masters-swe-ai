@@ -7,6 +7,34 @@
 - **RNNs/LSTMs + CTC** remove the need for aligned training data, enabling end-to-end models
 - **Noise** and **privacy** are first-class real-world concerns; mitigated by ambient noise adjustment and careful data governance
 
+## Glossary
+
+| Term | Full Name | One-liner |
+|------|-----------|-----------|
+| **ASR** | Automatic Speech Recognition | System that translates spoken audio into text |
+| **WER** | Word Error Rate | Key ASR metric: (substitutions + insertions + deletions) / total words |
+| **Phoneme** | — | Smallest unit of sound that distinguishes meaning (English has ~44); e.g. "bat" = /b/ /æ/ /t/ |
+| **MFCC** | Mel-Frequency Cepstral Coefficients | Compact feature vector per 25 ms speech frame, inspired by how the human ear filters frequencies |
+| **Filter Bank** | — | Collection of frequency-band filters; spectral representation before MFCC compression |
+| **HMM** | Hidden Markov Model | Probabilistic model of time-series sequences; models speech as hidden states with observable acoustic emissions |
+| **GMM** | Gaussian Mixture Model | Probability distribution used inside HMM states to model acoustic feature vectors |
+| **GMM-HMM** | — | Classical ASR acoustic model: GMMs estimate emission probabilities for each HMM state |
+| **DNN** | Deep Neural Network | Multi-layer network; replaces GMMs in acoustic modelling, delivering ~30% WER improvement |
+| **DNN-HMM** | — | Hybrid model: DNN estimates HMM state posteriors instead of GMMs |
+| **RNN** | Recurrent Neural Network | Neural network with feedback loop over sequences; state `Sₜ = f(Sₜ₋₁, Xₜ)` carries memory |
+| **LSTM** | Long Short-Term Memory | RNN variant with gating mechanism (forget / input / output gates) that prevents vanishing gradients |
+| **BPTT** | Backpropagation Through Time | Training algorithm for RNNs — unfolds the network through time steps, then applies backprop |
+| **CTC** | Connectionist Temporal Classification | Loss function that maximises correct labelling over all possible alignments; introduces blank symbol (Ø), removing need for pre-aligned data |
+| **DBN** | Deep Belief Network | Generatively pre-trained deep network; used to initialise DNN weights in DNN-HMM hybrids |
+| **LM** | Language Model | Assigns probabilities to word sequences; from n-grams to neural / LSTM-based models |
+| **N-gram** | — | Sequence of n consecutive words; used to estimate `P(wᵢ | wᵢ₋ₙ₊₁…wᵢ₋₁)` |
+| **Word Embedding** | — | Dense vector representation of a word in a continuous space; semantically similar words cluster together |
+| **Beam Search** | — | Heuristic decoder that keeps the top-n candidate sequences at each step; practical for large-vocabulary ASR |
+| **Viterbi** | — | Dynamic programming decoder that finds the most probable HMM state sequence; intractable at scale |
+| **Coarticulation** | — | Phonetic phenomenon where adjacent sounds merge; makes continuous speech harder to segment than isolated words |
+| **pyaudio** | — | Python library for microphone access; required for real-time speech capture |
+| **SpeechRecognition** | — | Python package wrapping cloud ASR APIs (Google, etc.); `adjust_for_ambient_noise()` reduces noise impact |
+
 ## Task List
 
 | # | Task | Status |
