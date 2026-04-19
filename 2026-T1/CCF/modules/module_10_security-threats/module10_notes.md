@@ -7,7 +7,7 @@
 | 1 | **Read & summarise University Australia (2022) — Cloud Security short course** | **✅** |
 | 2 | **Watch & summarise Media Design School (2022) — Cloud Computing Fundamentals (video transcript)** | **✅** |
 | 3 | **Read & summarise Mello (2022/2024) — 7 top cloud security threats, CSO Online** | **✅** |
-| **4** | **Read & summarise Ablett (2022) — 7 ways I'd hack you on AWS** | **✅** |
+| 4 | **Read & summarise Ablett (2022) — 7 ways I'd hack you on AWS** | **✅** |
 | **5** | **Read & summarise Estrin (2022) — Cloud Security Handbook, Chapter 8** | **✅** |
 | **6** | **Activity 1: Components of Cloud Data Security — Discussion Forum** | **✅** |
 | **7** | **Activity 2: Major Cloud Security Threats — Discussion Forum** | **✅** |
