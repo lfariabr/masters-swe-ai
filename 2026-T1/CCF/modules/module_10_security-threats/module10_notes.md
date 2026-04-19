@@ -419,24 +419,24 @@ Warning: include_once(): Failed opening '../../common_new.php' for inclusion
 
 ### Attack Chain (MITRE ATT&CK)
 
-```
-Discovery
-  └── PHP warning exposes /home/gentle/service/ directory structure
+```mermaid
+flowchart TD
+    A["🔍 DISCOVERY\nSearch engine snippet exposes PHP warning\n/home/gentle/service/_common_new.php\ninclude_path: /usr/local/php/lib/php"]
+    B["🚪 INITIAL ACCESS\nAttacker probes adjacent endpoints\n/service/admin.php\n/service/config.php\n/service/db.php"]
+    C{"Endpoint accepts\nuser input in\ninclude() / require()?"}
+    D["⚙️ EXECUTION\nLocal File Inclusion (LFI)\n?page=../../etc/passwd\n?page=../../config/db.php"]
+    E["🔑 CREDENTIAL ACCESS\nExtract from config files:\n• DB credentials\n• AWS access keys\n• API secrets"]
+    F["💸 IMPACT: DENIAL OF WALLET\nAWS keys used to spin up\nEC2 instances for crypto mining\n(140 servers — real incident)"]
+    G["🗄️ IMPACT: DATA BREACH\nDB credentials → customer PII\nIntellectual property exposed"]
+    H["🛡️ MITIGATED\ndisplay_errors = Off\nlog_errors = On\nResponsible disclosure sent ✅"]
 
-Initial Access
-  └── Attacker probes adjacent endpoints: /service/admin.php, /service/config.php
-
-Execution
-  └── If any endpoint passes user input into include() or require()
-      → Local File Inclusion (LFI) becomes viable
-      e.g. ?page=../../etc/passwd
-
-Credential Access
-  └── /etc/passwd, config files, database credentials or cloud API keys extracted
-
-Impact
-  └── Data breach, DB compromise, or Denial of Wallet
-      (AWS keys in config → attacker spins up compute for crypto mining)
+    A --> B
+    B --> C
+    C -- Yes --> D
+    C -- No --> H
+    D --> E
+    E --> F
+    E --> G
 ```
 
 ### Risk Assessment
