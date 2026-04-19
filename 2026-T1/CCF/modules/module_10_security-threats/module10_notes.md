@@ -383,3 +383,82 @@ Three of the most significant cloud security threats are **misconfiguration**, *
 **Account hijacking** occurs when attackers obtain valid credentials through phishing or data from prior breaches and use them to access cloud services undetected (Check Point, 2021). Cloud organisations often lack the visibility to catch this quickly. Worse, hijacked accounts can trigger a "denial of wallet"—attackers spinning up expensive compute resources (e.g., for Bitcoin mining) on the victim's bill. Mitigation: enforce multi-factor authentication (MFA), apply least-privilege access policies, and monitor login behaviour with a SIEM.
 
 **Data loss and leakage** is cited by 69% of organisations as their greatest cloud security concern (Check Point, 2021). Cloud platforms make sharing trivial—public links can be forwarded or discovered by automated scanners. A single misshared repository can expose sensitive customer or IP data globally. Mitigation: restrict link-based sharing in favour of explicit invitations, apply DLP policies, and audit external access permissions regularly.
+
+---
+
+## Real-World Case Study: Gentle Monster — PHP Error Disclosure (April 2025)
+
+*Discovered passively during module study. Responsible disclosure email sent to cs.us@gentlemonster.com on 20 April 2025.*
+
+### What Was Found
+
+While browsing [gentlemonster.com](https://www.gentlemonster.com), the following URL returned raw PHP warning messages in the HTTP response:
+
+```
+https://www.gentlemonster.com/service/search_new.php
+```
+
+Response body:
+```
+Warning: include_once(../../common_new.php): failed to open stream:
+No such file or directory in /home/gentle/service/_common_new.php on line 2
+
+Warning: include_once(): Failed opening '../../common_new.php' for inclusion
+(include_path='.:/usr/local/php/lib/php') in /home/gentle/service/_common_new.php on line 2
+```
+
+### Module 10 Mapping
+
+| Finding | Module 10 Concept | Source |
+|---------|------------------|--------|
+| `display_errors=On` in production | **Misconfiguration** — leading cause of cloud data breaches | Check Point (2021), Activity 2 |
+| Exposed server path `/home/gentle/service/` | **Information disclosure** → MITRE ATT&CK: Discovery stage | Estrin (2022), Resource 5 |
+| Broken `include_once` → potential LFI | MITRE ATT&CK: Initial Access → Execution | Estrin (2022), Resource 5 |
+| Legacy PHP config files → possible exposed AWS keys | **Denial of Wallet** risk (crypto mining on victim's account) | Estrin (2022) + Ablett (2022) |
+| OWASP Top 10 exposure (SQLi, XSS) on legacy PHP layer | Web application attack surface | Ablett (2022), Resource 4 |
+
+### Attack Chain (MITRE ATT&CK)
+
+```
+Discovery
+  └── PHP warning exposes /home/gentle/service/ directory structure
+
+Initial Access
+  └── Attacker probes adjacent endpoints: /service/admin.php, /service/config.php
+
+Execution
+  └── If any endpoint passes user input into include() or require()
+      → Local File Inclusion (LFI) becomes viable
+      e.g. ?page=../../etc/passwd
+
+Credential Access
+  └── /etc/passwd, config files, database credentials or cloud API keys extracted
+
+Impact
+  └── Data breach, DB compromise, or Denial of Wallet
+      (AWS keys in config → attacker spins up compute for crypto mining)
+```
+
+### Risk Assessment
+
+| Factor | Detail |
+|--------|--------|
+| **Severity** | Low–Medium (information disclosure alone; not directly exploitable) |
+| **Exploitability** | Medium if LFI or SQLi exists elsewhere on the same PHP layer |
+| **Discovery method** | Passive — appeared in a public search engine snippet |
+| **Infrastructure** | AWS-hosted (ASN: AMAZON-02), PHP legacy backend + React SPA frontend |
+
+### Fix Applied (Recommended to Gentle Monster)
+
+```ini
+; php.ini — production
+display_errors = Off
+log_errors = On
+error_log = /var/log/php_errors.log
+```
+
+### Connection to Module Themes
+
+This case study illustrates the **shared responsibility model** in practice. The cloud provider (AWS) secured the infrastructure — the misconfiguration lived entirely in the customer's application layer (`php.ini`), which is the customer's responsibility under IaaS/PaaS models (Estrin, 2022). A CSPM tool scanning application configuration would have caught this before deployment.
+
+It also demonstrates that **passive reconnaissance** (no probing required) can surface exploitable information — the Discovery phase of MITRE ATT&CK doesn't always require active scanning. Search engine caching is sufficient.
