@@ -328,3 +328,10 @@ flowchart LR
 - Solution 2: `SciPy` filters for audio pre-processing; professional audio editing software
 - Solution 3: `show_all=True` in `recognize_google()` — returns multiple candidate transcriptions with confidence scores, letting user pick the best match
 - Real-time microphone input: `Microphone` class + `recognizer.listen(mc)` method; requires `pyaudio` (Python ≤ 3.6)
+
+---
+
+## Extra notes
+
+Recurrent Neural Networks (RNNs), Clearly Explained! - https://www.youtube.com/watch?v=AsNTP8Kwu80
+What is LSTM (Long Short Term Memory)? - https://www.youtube.com/watch?v=b61DPVFX03I
