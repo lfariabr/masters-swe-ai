@@ -273,7 +273,40 @@ Two terminal screenshots confirm deployment at the OS and container level, suppl
 
 ---
 
-### Appendix E — Glossary
+### Appendix E — AWS Parallel Deployment
+
+To demonstrate portability across major cloud providers, a parallel deployment of Apache Superset was completed on Amazon Web Services (AWS) following submission of the primary Azure deployment. The AWS deployment replicated the same architecture and security principles using equivalent AWS primitives: an EC2 instance replaced the Azure VM, a Security Group replaced the Network Security Group, and the VPC subnet provided the same network isolation as the Azure VNet.
+
+The host OS differed: AWS free tier defaults to **Amazon Linux 2023** (RPM-based), which requires `dnf` instead of `apt` and a manually installed Docker Compose binary, as the `docker-compose-plugin` package is not available in the AL2023 repository. The Superset Docker Compose stack and `config.py` configuration approach were otherwise identical to the Azure deployment.
+
+| Aspect | Azure (primary) | AWS (parallel) |
+|---|---|---|
+| VM / Instance | Standard_B2als_v2 (Ubuntu 22.04) | t2.micro (Amazon Linux 2023) |
+| Network isolation | VNet + snet-app subnet | VPC + subnet |
+| Firewall | Network Security Group (NSG) | Security Group |
+| Package manager | apt | dnf |
+| Docker Compose | bundled plugin | standalone binary (curl install) |
+| Region | Australia East | US East (us-east-1) |
+
+*Table E1: Azure vs AWS deployment comparison.*
+
+The deployment procedure and screenshot evidence for the AWS deployment are documented in `IMPLEMENTATION-PLAN-AWS.md` in the project repository.
+
+*Figure E1: AWS Management Console — active account and subscription confirmed in US East (us-east-1).*
+
+*Figure E2: EC2 Instances page – instance “luis-superset-ccf501” created and running.*
+
+*Figure E3: Security Groups page – “sec-group-superset” created with inbound rules applied.*
+
+*Figure E4: Security Group inbound rules panel – port 22 restricted to author’s IP, port 8088 open to any.*
+
+*Figure E5: EC2 instance overview – stopped state vs running state with public IP visible.*
+
+*Figure E6: Apache Superset login screen accessible via SSH tunnel (“-L 8088:localhost:8088”) on port 8088.*
+
+*Figure E7: Apache Superset running after login – platform operational on AWS.*
+
+### Appendix F — Glossary
 
 | Term | Meaning |
 |---|---|
@@ -290,4 +323,4 @@ Two terminal screenshots confirm deployment at the OS and container level, suppl
 | SPOF | Single Point of Failure |
 | Apache Superset | Open-source data exploration and visualisation platform |
 
-> *Table E1: Glossary of technical terms used in the report.*
+> *Table F1: Glossary of technical terms used in the report.*
