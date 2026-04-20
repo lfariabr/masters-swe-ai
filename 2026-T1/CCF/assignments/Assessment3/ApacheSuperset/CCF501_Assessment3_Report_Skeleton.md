@@ -257,7 +257,23 @@ To verify that the deployed application was usable, three sample CSV files were 
 
 >*Table B1: Uploaded CSV datasets and dashboard charts used to validate the deployed Superset application.*
 
-### Appendix C — Glossary
+### Appendix C - Assessment Screencast Recording
+
+The screencast recording (`CCF501_Faria_L_Assessment_3-Screencast.mp4`) demonstrates the deployed cloud environment in operation, covering the Azure Portal subscription, resource group, virtual network, NSG inbound rules, virtual machine, and the running Apache Superset application with RBAC configuration.
+
+### Appendix D — Terminal Implementation Evidence
+
+Two terminal screenshots confirm deployment at the OS and container level, supplementing the Azure Portal evidence in the main report.
+
+![Screenshot: SSH session connected to the Azure VM](images/figx-azure-ssh-connection.webp)
+*Figure D1: SSH session connected to `supersetluisccf501` (20.11.66.254) using key-based authentication, confirming OS-level access and the key-auth-only policy described in Section 2d.*
+
+![Screenshot: docker ps output showing running containers](images/figx-azure-dockerps.webp)
+*Figure D2: `docker ps` output confirming all three containers in the Docker Compose stack are running — Apache Superset, PostgreSQL 15 (metadata database), and Redis 7 (cache/task broker).*
+
+---
+
+### Appendix E — Glossary
 
 | Term | Meaning |
 |---|---|
@@ -274,4 +290,4 @@ To verify that the deployed application was usable, three sample CSV files were 
 | SPOF | Single Point of Failure |
 | Apache Superset | Open-source data exploration and visualisation platform |
 
-> *Table C1: Glossary of technical terms used in the report.*
+> *Table E1: Glossary of technical terms used in the report.*
