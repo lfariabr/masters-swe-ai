@@ -41,7 +41,7 @@
 |---|------|--------|
 | 1 | **Watch & summarise Microsoft Research (2017) — ASR Overview** | ✅ |
 | 2 | **Read & summarise Joshi (2016) — Chapter 7: Speech Recognition (Python ML Cookbook)** | ✅ |
-| **3** | **Read & summarise Zocca et al. (2016) — Deep Learning in Speech Recognition** | ✅ |
+| 3 | **Read & summarise Zocca et al. (2016) — Deep Learning in Speech Recognition** | ✅ |
 | **4** | **Read & summarise Vlahos (2019) — Privacy in Speech Recognition** | ✅ |
 | 5 | Activity 1: Noise Reduction (250-word outline) | 🕐 |
 
