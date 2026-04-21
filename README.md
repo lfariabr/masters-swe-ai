@@ -17,8 +17,8 @@ Whether you’re a student, developer, or just curious about this journey, I hop
 ## 📑 Table of Contents
 - [Progress](#progress-tracking-and-goals)
 - [Projects](#projects)
-- [Tech Stack](#tech-stack)
-- [Contributing](#contributing)
+- [Tech Stack](#tech-stack--tools)
+- [Version Control](#version-control)
 
 ---
 
@@ -73,7 +73,7 @@ Take a deep dive into how I'm approaching projects and the progress I'm making.
 
 | Project | Description | Status | Repository | URL |
 |---------|---------------------|----------------|----------------|----------------|
-| **Review Pulse** | Multi-domain Amazon product review sentiment classifier. Trained on 8,000 labelled reviews across Books, DVDs, Electronics, and Kitchen & Housewares. | 🔥 | [Repo](https://github.com/lfariabr/review-pulse/) | TBD |
+| **Review Pulse** | Multi-domain Amazon product review sentiment classifier. Trained on 8,000 labelled reviews across Books, DVDs, Electronics, and Kitchen & Housewares. | 🔥 | [Repo](https://github.com/lfariabr/review-pulse/) | [App](https://review-pulse.streamlit.app/) |
 | **STC Datalab** | SQL Server database project for a school with SSIS packages, SSRS reports, and data validation. | ✅ | [Repo](https://github.com/lfariabr/stc-datalab) | [Article](https://dev.to/lfariaus/learning-sql-server-the-hard-way-16-days-of-real-world-database-work-5hla) |
 | **Intelligent Rate Limiter** | Human-centered governance middleware for Agentic AI. Carbon real-time grid awareness, explanations + audit logs. Node.js, TypeScript, GraphQL, Redis. | ✅ | [Repo](https://github.com/lfariabr/intelligent-rate-limiter) | [Article](https://dev.to/lfariaus/building-irl-from-a-50k-aws-horror-story-to-human-centered-ai-governance-1jdg) |
 | **Research Proposal** | Empirical analysis of NPS correlation with revenue in healthcare clinics using Python, Pandas, Numpy, Jupyter, and SciPy. | ✅ | [Repo](https://github.com/lfariabr/research-proposal-nps) | [Article](https://dev.to/lfariaus/does-nps-really-predict-revenue-in-healthcare-clinics-i-spent-12-weeks-finding-out-4nmj) |
@@ -103,8 +103,8 @@ While this is primarily a personal repository, I welcome discussions and feedbac
 | 3.2.0   | T1-2026 Complete (ISY503+CCF501)        | 05-2026 | 🔥 |
 | 4.0.0   | T2-2026 Launch (MLN601+DLE602+BDA601)   | 06-2026 | 🕐 |
 | 4.2.0   | T2-2026 Complete (MLN601+DLE602+BDA601) | 08-2026 | 🕐 |
-| 5.0.0   | T3-2026 Launch (TWL604+DOT503)          | 09-2026 | 🕐 |
-| 5.2.0   | T3-2026 Complete (TWL604+DOT503)        | 12-2026 | 🕐 |
+| 5.0.0   | T3-2026 Launch (TWL604)                 | 09-2026 | 🕐 |
+| 5.2.0   | T3-2026 Complete (TWL604)               | 12-2026 | 🕐 |
 | 6.0.0   | T1-2027 Launch (ATW606)                 | 01-2027 | 🕐 |
 | 6.2.0   | T1-2027 Complete (ATW606)               | 04-2027 | 🕐 |
 | 7.0.0   | Masters Degree Completed                | 06-2027 | 🕐 |
