@@ -1,3 +1,5 @@
+claude --resume "isy-assessment-3"
+
 # GitHub Issue List - ISY503 Assessment 3: NLP Sentiment Analysis
 
 | # | Issue Name | Description |
@@ -15,9 +17,9 @@
 | 11 ✅ | Evaluation & error analysis (`evaluate.py`) | Load baseline and BiLSTM artifacts, run both on the same test split, and output accuracy, precision, recall, F1, confusion matrix, and misclassified examples. Save `outputs/confusion_matrix.png` and `outputs/error_examples.csv`. |
 | 12 ✅ | Inference module (`inference.py`) | Implement `predict_sentiment(text, model_name)` returning `{"label": "Positive review"|"Negative review", "confidence": float}`. Handle raw-string cleaning internally and support both baseline and BiLSTM artifacts. |
 | 13 ✅ | Streamlit app (`app.py`) | Build the required web interface: text area, explicit classify button, model selector, and output text exactly in the form `Positive review` or `Negative review`. Use `st.cache_resource` for loading artifacts and show confidence without making it required for marking. |
-| 14 | Unit tests (`tests/`) | Write pytest tests for parser extraction, missing-field handling, label audit, text cleaning, outlier removal, split reproducibility, vocabulary no-leakage, padding length, model forward-pass shape, and inference response shape. |
-| 15 | Demo acceptance test cases (`docs/demo-test-cases.md`) | Create facilitator-style test inputs covering clear positive, clear negative, short ambiguous, domain-shifted, and outside-training examples. Record expected behavior and final observed model outputs for the presentation/demo. |
-| 16 | Presentation pack (`docs/presentation-outline.md`) | Create a 10-15 minute group presentation outline with speaker allocation, rationale, dataset overview, architecture diagram, training pipeline, model comparison, demo flow, accuracy results, error analysis, ethics, limitations, and future work. |
+| 14 ✅ | Unit tests (`tests/`) | Write pytest tests for parser extraction, missing-field handling, label audit, text cleaning, outlier removal, split reproducibility, vocabulary no-leakage, padding length, model forward-pass shape, and inference response shape. |
+| 15 ✅ | Demo acceptance test cases (`docs/demo-test-cases.md`) | Create facilitator-style test inputs covering clear positive, clear negative, short ambiguous, domain-shifted, and outside-training examples. Record expected behavior and final observed model outputs for the presentation/demo. |
+| 16 ✅ | Presentation pack (`docs/presentation-outline.md`) | Create a 10-15 minute group presentation outline with speaker allocation, rationale, dataset overview, architecture diagram, training pipeline, model comparison, demo flow, accuracy results, error analysis, ethics, limitations, and future work. |
 | 17 | Individual contribution report scaffold (`docs/individual-report-template.md`) | Create a 250-word template with placeholders for student name, student ID, team member names/IDs, contribution percentages summing to 100%, personal contribution summary, team contribution summary, and APA-cited NLP ethics note. |
 | 18 | Contribution log & team table (`docs/contribution-log.md`, `docs/team-contribution-table.md`) | Track who owns parser, preprocessing, model training, evaluation, app, presentation, and report artifacts. Include evidence fields for branches, commits, PRs, meetings, and final percentage contribution. |
 | 19 | References & ethics notes (`docs/references.md`, `docs/ethics-notes.md`) | Collect APA references for dataset source, sentiment/NLP methods, bias/label noise, and AI ethics. Cover filename/rating label noise, 3-star ambiguity, domain bias, review sarcasm/mixed sentiment, and limits of binary sentiment classification. |
