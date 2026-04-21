@@ -43,7 +43,7 @@
 | 2 | **Read & summarise Joshi (2016) — Chapter 7: Speech Recognition (Python ML Cookbook)** | ✅ |
 | 3 | **Read & summarise Zocca et al. (2016) — Deep Learning in Speech Recognition** | ✅ |
 | **4** | **Read & summarise Vlahos (2019) — Privacy in Speech Recognition** | ✅ |
-| 5 | Activity 1: Noise Reduction (250-word outline) | 🕐 |
+| 5 | **Activity 1: Noise Reduction (250-word outline)** | ✅ |
 
 ---
 
@@ -328,6 +328,19 @@ flowchart LR
 - Solution 2: `SciPy` filters for audio pre-processing; professional audio editing software
 - Solution 3: `show_all=True` in `recognize_google()` — returns multiple candidate transcriptions with confidence scores, letting user pick the best match
 - Real-time microphone input: `Microphone` class + `recognizer.listen(mc)` method; requires `pyaudio` (Python ≤ 3.6)
+
+**Forum Post**
+The outlined problem on the video is that noise can cause ASR systems to produce incorrect transcriptions. For example, the phrase "he is going to bed" might be misheard as "he is going to tip" due to background noise. To mitigate this issue, the video suggests three solutions:
+
+1. Ambient noise adjustment: using the `recognizer.adjust_for_ambient_noise()` method allows the ASR system to calibrate its noise threshold before listening, improving accuracy in noisy environments.
+2. Audio pre-processing: applying filters from libraries like `SciPy` can help clean the audio signal before it is processed by the ASR system. Professional audio editing software can also be used to reduce noise in recordings.
+3. Multiple candidate transcriptions: using the `show_all=True` argument in the `recognize_google()` method returns multiple transcription candidates along with confidence scores, allowing the user to select the most accurate transcription.
+
+Additionally, for real-time microphone input, the `Microphone` class can be used in conjunction with the `recognizer.listen(mc)` method. However, this requires the `pyaudio` library, which is only compatible with Python versions up to 3.6.
+
+If anyone's interested, on the attached jupyter notebook, I implemented a simple ASR system using the `SpeechRecognition` library. It captures audio from the microphone, applies ambient noise adjustment, and prints out the transcribed text. 
+
+Feel free to check it out and let me know if you have any questions or suggestions for improvement!
 
 ---
 
