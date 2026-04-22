@@ -552,6 +552,45 @@ Best practices:
 
 ---
 
+## Activity 1 — Interactive Knowledge Check (quiz)
+
+1. Insider threats can be initiated by:
+a. An outsider
+*b.* Cloud provider’s employees
+*c.* Company’s employees
+
+2. Security Policies that need to meet privacy regulations should:
+a. Be approved by the local government body
+b. Include identification, treatment and monitoring plans
+*c.* Be written by a qualified Cloud Security professional 
+
+3. The GDPR does NOT apply to data:
+*a.* Stored outside the EU and does not sell to or collect data from EU individuals
+b. Stored physically in the EU
+c. Stored outside the EU but contains data about individuals in the EU
+
+4. Which of the following questions relate to addressing cloud security governance?
+a. How are we dealing with the attacks facing our organisation?
+b. Are employees made aware of the security risks of the cloud?
+*c.* All answers are correct
+d. What are the risks facing the business today?
+
+5. A shared responsibility model requires:
+a. Negotiable responsibilities to be split between the cloud provider and customer.
+b. Neither answer is correct.
+*c.* Clear responsibilities to be split between the cloud provider and customer.
+
+6. A security policy is most like a:
+a. Terms and conditions
+*b.* Legal contract
+c. Requirements document
+
+7. Cloud security-as-a-service helps businesses by:
+*a.* All answers are correct
+b. Providing threat specific security solutions 
+c. Offering automated detection and remediation processes
+d. Offering cloud-provider specific security solutions 
+
 ## Activity 2 — GDPR vs Australian Privacy Principles (reading notes)
 
 **Source article (A2 PDF):** Yogarajah, A. (2025, January 11). *What do Australian businesses need to know about the GDPR?* Sprint Law.
