@@ -1,37 +1,42 @@
-# Presentation Outline - ISY503 Assessment 3
+# Presentation Outline — ISY503 Assessment 3
 
-Target duration: 10-15 minutes total.
+Target duration: 10–15 minutes total.
+
+---
 
 ## Speaker Allocation
 
-| Segment | Owner | Duration | Purpose |
+| Slides | Presenter | Duration | Content |
 |---|---|---:|---|
-| Project rationale | TBD | 1-2 min | Explain why the team selected NLP sentiment analysis |
-| Dataset and preprocessing | TBD | 2 min | Explain Amazon review data, labels, cleaning, outlier handling |
-| Model architecture | TBD | 2-3 min | Explain baseline and BiLSTM neural network |
-| Results and error analysis | TBD | 2-3 min | Compare metrics and show confusion matrix/errors |
-| Live demo | TBD | 2 min | Demonstrate text input and sentiment output |
-| Ethics, limitations, future work | TBD | 2-3 min | Cover label noise, domain bias, binary sentiment limits |
+| 1, 4, 5, 6, 7, 12 | **Luis** | ~6.25 min | Title · Preprocessing · Architecture · Training · Results · Summary |
+| 3, 8, 10 | **Victor** | ~3.5 min | Dataset · Error Analysis · Ethics & Limitations |
+| 2, 9, 11 | **Samiran** | ~3.75 min | Problem Statement · Live Demo · Future Work |
+
+For slide-by-slide speaker notes and suggested wording, see `review-pulse/docs/presentation-outline.md`.
+
+---
 
 ## Slide Structure
 
-1. Title and team members
-2. Problem statement and project choice rationale
-3. Dataset overview: four domains, 8,000 labelled reviews
-4. Data pipeline: parse, clean, audit labels, split, encode (`diagrams.md` section 2)
-5. Baseline model: TF-IDF + Logistic Regression (`diagrams.md` section 7)
-6. Neural model: learned embeddings + BiLSTM (`diagrams.md` section 4)
-7. Evaluation results: accuracy, precision, recall, F1
-8. Error analysis: false positives/false negatives and what they reveal
-9. Live demo: positive, negative, ambiguous, and domain-shifted examples (`diagrams.md` section 1)
-10. Ethical considerations and limitations
-11. Individual contributions and GitHub workflow (`diagrams.md` sections 5-6)
-12. Conclusion and future improvements
+1. **Title and team** *(Luis)* — ReviewPulse · team members + IDs · one-line pitch
+2. **Problem statement** *(Samiran)* — why sentiment analysis matters commercially · why reviews are hard to classify
+3. **Dataset overview** *(Victor)* — Blitzer et al. 2007 · 8,000 reviews · 4 domains · 50/50 balance · label audit
+4. **Data pipeline** *(Luis)* — parse → clean → audit → outlier removal → stratified split · negation expansion decision
+5. **Model architecture** *(Luis)* — TF-IDF + LogReg baseline · BiLSTM + GloVe · pack_padded_sequence
+6. **Training** *(Luis)* — Adam · BCEWithLogitsLoss · gradient clipping · F1 checkpoint · epoch 9 best
+7. **Evaluation results** *(Luis)* — test set: TF-IDF 81.9% F1 vs BiLSTM 80.3% · honest finding
+8. **Error analysis** *(Victor)* — 220 misclassified · negation / sarcasm / out-of-distribution failure modes
+9. **Live demo** *(Samiran)* — Streamlit app · positive / negative / negation trap / sarcasm / Generate button
+10. **Ethical considerations** *(Victor)* — label noise · domain bias · uncalibrated confidence · dataset age · deployment risk
+11. **Future work** *(Samiran)* — DistilBERT/RoBERTa · Platt scaling · more domains · LIME explainability
+12. **Summary & questions** *(Luis)* — full pipeline recap · honest result · GitHub link · Q&A
+
+---
 
 ## Must Cover From Brief
 
-- Rationale behind project choice
-- Ethical considerations made during implementation
-- Accuracy of observed outputs
-- Brief explanation of implementation
-- Evidence of teamwork and version control
+- Rationale behind project choice *(Samiran — Slide 2)*
+- Ethical considerations made during implementation *(Victor — Slide 10)*
+- Accuracy of observed outputs *(Luis — Slide 7)*
+- Brief explanation of implementation *(Luis — Slides 4, 5, 6)*
+- Evidence of teamwork and version control *(GitHub commit history — github.com/lfariabr/review-pulse)*
