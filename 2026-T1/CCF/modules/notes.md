@@ -1074,6 +1074,14 @@ Post your response (in no more than 250 words) in the Module 10 Discussion Forum
 
 ### TLDR
 
+- **Security policy is proactive**, not reactive — it starts with planning requirements, steps, and governance frameworks before threats arrive.
+- **Cloud governance** connects business priorities to technical controls via continuous discovery, continuous improvement, and policy-driven automation (Azure Policy, AWS Config, GCP SCC).
+- **Compliance frameworks** (ISO 27001/17/18, SOC 2 Type 2, CSA STAR, PCI DSS, GDPR, HIPAA) give organisations a structured way to prove security maturity to auditors, customers, and regulators.
+- **GDPR has triggered a global arms race** on data privacy law — Australia's Privacy Act review is part of this wave; cloud architects must design for data residency, minimisation, and encryption to meet these obligations.
+- **Shared responsibility** defines who owns compliance at each layer — customers must contractually demand SOC 2 Type 2 reports and ISO certifications from cloud providers.
+
+*Sources: Microsoft Azure Cloud Adoption Framework — Security Governance (https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/secure/security-governance); Estrin, E. (2022). Cloud security handbook. Packt; Page, R. (2022). How GDPR has inspired a global arms race. CSO Australia; ISO/IEC 27001 (https://www.iso.org/isoiec-27001-information-security.html); CSA STAR Program (https://cloudsecurityalliance.org/star/).*
+
 ### Introduction
 In the previous module, you had learnt about some common security threats and how to mitigate them. But why be reactive when you can be proactive? It all starts with a plan and a series of policies to anticipate threats, understand the organisation’s own vulnerabilities and plan action items on how to prevent and manage them. We will explore a range of ideas and policies including concepts that will help with planning and managing the organisation’s cloud security. Think about the learning activity about the Components of Cloud Data Security you attempted in Module 10 as you read or watch the resources in this module and see whether you can now think of more advantages or disadvantages for outsourcing the organisation’s security policy.
 
@@ -1095,7 +1103,7 @@ In the previous module, you had learnt about some common security threats and ho
 
     Governance is one of the key concepts to consider when building a cloud security policy for a business organisation. It explains what steps a business should adopt in order to strengthen its cloud security posture, what steps should be taken in the eve of a security breach and so on. The following Microsoft documentation outlines why a business needs to have a policy for security governance and what the goals are while protecting their cloud asset and a few other considerations. Read the documentation and watch the embedded video regarding security governance and think about the multi-faceted nature of a security policy document.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module11_notes.md](module_11_security-policy/module11_notes.md)*
 
 #### 3. Data Privacy Regulations and Australia’s Standpoint
 - Page, R. (2022, April 7). How GDPR has inspired a global arms race on privacy regulations. CSO Australia. https://www.csoonline.com/article/3655969/how-gdpr-has-inspired-a-global-arms-race-on-privacy-regulations.html
@@ -1104,7 +1112,7 @@ In the previous module, you had learnt about some common security threats and ho
 
     Although the General Data Protection Regulation (GDPR) is targeted towards improving the privacy of European citizens, countries around the world are considering GDPR-style privacy laws and Australia is one of them. Read the following article which will introduce you to Australia’s position in enacting GDPR-style data privacy laws. It also provides an overview on data protection and privacy efforts beyond GDPR as well as the shortcomings of such regulations.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module11_notes.md](module_11_security-policy/module11_notes.md)*
 
 #### 4. Examples of Cloud Computing Security Policy
 - Thompson, G. (2020). CCSK Certificate of cloud security knowledge all-in-one exam guide. McGraw Hill. https://learning-oreilly-com.torrens.idm.oclc.org/library/view/ccsk-certificate-of/9781260460094/appendixa.xhtml#sub_214
@@ -1113,7 +1121,7 @@ In the previous module, you had learnt about some common security threats and ho
 
     Read this resource to learn about two different examples of cloud security policies. Please study both the centralised and classification-based cloud security policy provided by this resource. Once you have done that, perform a quick internet search to find out the Microsoft Azure or AWS security policy to compare them with the example.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module11_notes.md](module_11_security-policy/module11_notes.md)*
 
 #### 5. Introduction to Cloud Governance and Governance Tools
 - Linthicum, D. (2019). 1. Introduction to cloud governance [Videos]. In Learning cloud computing: Cloud governance. LinkedIn Learning. https://www.linkedin.com/learning/learning-cloud-computing-cloud-governance-2/cloud-governance-tools?u=56744473
@@ -1134,7 +1142,7 @@ In the previous module, you had learnt about some common security threats and ho
 
     As a cloud professional, it is important to know how to handle compliance and regulations while deploying services in cloud. It is important to know what the industry best practices are, whether you are required to follow any particular cloud standard and if there are any technical requirements to meet. Please read “Chapter 9: Handling Compliance and Regulation” which answers all these questions.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module11_notes.md](module_11_security-policy/module11_notes.md)*
 
 ### Learning Activities
 
