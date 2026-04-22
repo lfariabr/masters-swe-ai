@@ -1070,6 +1070,95 @@ Post your response (in no more than 250 words) in the Module 10 Discussion Forum
 
 ---
 
+## Module 11 - Security Policy – Planning and management
+
+### TLDR
+
+### Introduction
+In the previous module, you had learnt about some common security threats and how to mitigate them. But why be reactive when you can be proactive? It all starts with a plan and a series of policies to anticipate threats, understand the organisation’s own vulnerabilities and plan action items on how to prevent and manage them. We will explore a range of ideas and policies including concepts that will help with planning and managing the organisation’s cloud security. Think about the learning activity about the Components of Cloud Data Security you attempted in Module 10 as you read or watch the resources in this module and see whether you can now think of more advantages or disadvantages for outsourcing the organisation’s security policy.
+
+### Resources
+
+#### 1. Planning Cloud Security
+- inthicum, D. (2021). 4. Planning cloud security [Videos]. In Learning cloud computing: Cloud security. LinkedIn Learning. https://www.linkedin.com/learning/learning-cloud-computing-cloud-security-14366063/understanding-your-security-requirements?autoplay=true&resume=false&u=72036930
+
+*Resource Overview:*
+
+    As mentioned in the introduction, planning to anticipate and manage cloud-based security threats is key to having a functional and effective defence mechanism against security threats. In “Unit 4: Planning Cloud Security” of the LinkedIn resource (approximately 9 minutes), our Deloitte cloud computing expert, David Linthicum, takes you through what is important to consider when planning cloud security. In other words, what are the requirements? What steps do you undertake? What are some best practices?
+
+> *Status: 🕐 To-Do*
+
+#### 2. Cloud Security Governance
+- Microsoft. (2022, February 12). Security governance. https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/secure/security-governance
+
+*Resource Overview:*
+
+    Governance is one of the key concepts to consider when building a cloud security policy for a business organisation. It explains what steps a business should adopt in order to strengthen its cloud security posture, what steps should be taken in the eve of a security breach and so on. The following Microsoft documentation outlines why a business needs to have a policy for security governance and what the goals are while protecting their cloud asset and a few other considerations. Read the documentation and watch the embedded video regarding security governance and think about the multi-faceted nature of a security policy document.
+
+> *Status: 🕐 To-Do*
+
+#### 3. Data Privacy Regulations and Australia’s Standpoint
+- Page, R. (2022, April 7). How GDPR has inspired a global arms race on privacy regulations. CSO Australia. https://www.csoonline.com/article/3655969/how-gdpr-has-inspired-a-global-arms-race-on-privacy-regulations.html
+
+*Resource Overview:*
+
+    Although the General Data Protection Regulation (GDPR) is targeted towards improving the privacy of European citizens, countries around the world are considering GDPR-style privacy laws and Australia is one of them. Read the following article which will introduce you to Australia’s position in enacting GDPR-style data privacy laws. It also provides an overview on data protection and privacy efforts beyond GDPR as well as the shortcomings of such regulations.
+
+> *Status: 🕐 To-Do*
+
+#### 4. Examples of Cloud Computing Security Policy
+- Thompson, G. (2020). CCSK Certificate of cloud security knowledge all-in-one exam guide. McGraw Hill. https://learning-oreilly-com.torrens.idm.oclc.org/library/view/ccsk-certificate-of/9781260460094/appendixa.xhtml#sub_214
+
+*Resource Overview:*
+
+    Read this resource to learn about two different examples of cloud security policies. Please study both the centralised and classification-based cloud security policy provided by this resource. Once you have done that, perform a quick internet search to find out the Microsoft Azure or AWS security policy to compare them with the example.
+
+> *Status: 🕐 To-Do*
+
+#### 5. Introduction to Cloud Governance and Governance Tools
+- Linthicum, D. (2019). 1. Introduction to cloud governance [Videos]. In Learning cloud computing: Cloud governance. LinkedIn Learning. https://www.linkedin.com/learning/learning-cloud-computing-cloud-governance-2/cloud-governance-tools?u=56744473
+
+*Resource Overview:*
+
+    Governance is one of the key concepts to consider when building a company cloud security policy. These LinkedIn course modules will take you through the areas that a business needs to consider when building a policy that aims to monitor, protect and treat any cloud security threats and do so in way that makes it clear as to who (or what) is accountable. Please watch the videos in the following units of the course:
+    - 1: Introduction to Cloud Governance (approximately 24 minutes)
+    - 3: Governance Tool Demo (approximately 7 minutes).
+    Then, think about the security policy documents, including leveraging on what you have learnt in the previous modules (e.g., in terms of thinking about legal issues).
+
+> *Status: 🕐 To-Do*
+
+#### 6. Handling Compliance And Regulation in Cloud Computing
+- Estrin, E. (2022). Cloud security handbook: Find out how to effectively secure cloud environments using AWS, Azure, and GCP. Packt. https://learning.oreilly.com/library/view/cloud-security-handbook/9781800569195/B16552_09_Final_JM_ePub.xhtml#_idParaDest-205
+
+*Resource Overview:*
+
+    As a cloud professional, it is important to know how to handle compliance and regulations while deploying services in cloud. It is important to know what the industry best practices are, whether you are required to follow any particular cloud standard and if there are any technical requirements to meet. Please read “Chapter 9: Handling Compliance and Regulation” which answers all these questions.
+
+> *Status: 🕐 To-Do*
+
+### Learning Activities
+
+#### Activity 1: Interactive Knowledge Check
+Attempt this quick quiz that will help you solidify your understanding of the topic of implementing and managing security policies. You can attempt the quiz as many times as you like.
+
+https://a19788-8990118.cluster228.canvas-user-content.com/courses/19788~22101/files/19788~8990118/course%20files/htmlResources/content/index.html?download=1&inline=1&sf_verifier=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJ1c2VyX2lkIjoiMTk3ODgwMDAwMDAwMDg2Mjg3IiwiYXR0YWNobWVudF9pZCI6IjE5Nzg4MDAwMDAwODk5MDExOCIsInBlcm1pc3Npb24iOlsicmVhZCIsImRvd25sb2FkIl0sInJvb3RfYWNjb3VudF9pZCI6IjE5Nzg4MDAwMDAwMDAwMDAwMSIsIm9hdXRoX2hvc3QiOiJteWxlYXJuLnRvcnJlbnMuZWR1LmF1IiwicmV0dXJuX3VybCI6bnVsbCwiZmFsbGJhY2tfdXJsIjoiaHR0cHM6Ly9teWxlYXJuLnRvcnJlbnMuZWR1LmF1L2NvdXJzZXMvMjIxMDEvZmlsZXMvODk5MDExOC9wcmV2aWV3P2ZhbGxiYWNrX3RzPTE3NzY4ODEzODAiLCJqdGkiOiJlOGNmNWM1NS1mYTI2LTQxNDktODczNi05ZjY5OTQ5NzIzZGYiLCJleHAiOjE3NzY4ODE2ODB9.v199az-B7Fwb1XoJ40WRyito0ykzN5J8jS91Z31uQ7IjabGfTqBIfBD1DiYP7LL9uoiTmhmnZ1ARVD_CciLDGA#/
+
+> *Status: 🕐 To-Do*
+
+#### Activity 2: GDPR vs Australian Privacy Principles
+
+- Yogarajah, A. (2020, March 17). What do Australian businesses need to know about the GDPR? Sprint Law. https://sprintlaw.com.au/articles/what-you-need-to-know-about-gdpr/
+
+Australian Privacy Principles (APP) defines data privacy, data security and data handling regarding personal information and it is applicable for cybersecurity, cloud security and data centres (i.e., for all entities that deals with personal information in Australia). In recent times, there has been a debate regarding the necessity of GDPR-style data privacy laws in Australia. In this learning activity, you will be studying the following resource which provides an overview of GDPR and outlines where APP differs from GDPR. After reading the resource, answer the following questions:
+
+1. How does APP differ from GDPR?
+2. Do you think Australia needs a GDPR-style data privacy law? Justify your answer in the context of cloud data handling.
+
+Post your answers (in no more than 200 words in total) in the Module 11 Discussion Forum.
+
+> *Status: 🕐 To-Do*
+
+---
 
 ```bash
 --- PLACEHOLDER:

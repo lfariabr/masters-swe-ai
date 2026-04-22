@@ -45,7 +45,7 @@ Dr. Divya Leekha
 - [X] Module 8 ✅ - Deployment case studies
 - [X] Module 9 ✅ - Governance / Legal obligations of Cloud Providers and Consumers
 - [X] Module 10 ✅ - Security Threats while in cloud - Mitigation and Identification
-- [ ] Module 11 - Security Policy – Planning and management
+- [ ] Module 11 🔥- Security Policy – Planning and management
 - [ ] Module 12 - Implementation of Security Policy at various providers
 
 ## Assignments
