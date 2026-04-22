@@ -1080,6 +1080,8 @@ Post your response (in no more than 250 words) in the Module 10 Discussion Forum
 - **GDPR has triggered a global arms race** on data privacy law — Australia's Privacy Act review is part of this wave; cloud architects must design for data residency, minimisation, and encryption to meet these obligations.
 - **Shared responsibility** defines who owns compliance at each layer — customers must contractually demand SOC 2 Type 2 reports and ISO certifications from cloud providers.
 
+*Sources: Microsoft Azure Cloud Adoption Framework — Security Governance (https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/secure/security-governance); Estrin, E. (2022). Cloud security handbook. Packt; Page, R. (2022). How GDPR has inspired a global arms race. CSO Australia; ISO/IEC 27001 (https://www.iso.org/isoiec-27001-information-security.html); CSA STAR Program (https://cloudsecurityalliance.org/star/).*
+
 ### Introduction
 In the previous module, you had learnt about some common security threats and how to mitigate them. But why be reactive when you can be proactive? It all starts with a plan and a series of policies to anticipate threats, understand the organisation’s own vulnerabilities and plan action items on how to prevent and manage them. We will explore a range of ideas and policies including concepts that will help with planning and managing the organisation’s cloud security. Think about the learning activity about the Components of Cloud Data Security you attempted in Module 10 as you read or watch the resources in this module and see whether you can now think of more advantages or disadvantages for outsourcing the organisation’s security policy.
 

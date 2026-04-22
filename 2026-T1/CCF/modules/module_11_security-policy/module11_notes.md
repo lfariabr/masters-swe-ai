@@ -1,5 +1,21 @@
 # Module 11 — Security Policy – Planning and Management
 
+## TL;DR
+
+Cloud security is built on policy before it is built on tools. This module shifts the mindset from reactive threat response (Module 10) to proactive security planning — defining requirements, governance frameworks, and compliance obligations *before* threats arrive.
+
+**Key concepts:**
+- **Two policy archetypes**: centralized (uniform baseline for all data) vs. classification-based (controls scaled to sensitivity tier — the enterprise standard)
+- **Governance tooling**: Azure Policy, AWS Config, and GCP Security Command Center implement policy-as-code across cloud estates
+- **Compliance frameworks**: ISO 27001/17/18, SOC 2 Type 2, CSA STAR, PCI DSS, GDPR, HIPAA — each maps to a specific data type, industry, or regulatory jurisdiction
+
+**Practical applications:**
+- When drafting a cloud security policy, start with a data classification taxonomy, then map controls per tier — don't apply the same rules to a public marketing blog and a PII database
+- When evaluating a cloud provider, request their SOC 2 Type 2 report (not just Type 1) — it proves effectiveness of controls, not just design intent
+- GDPR obligations trigger the moment you serve or track EU/UK users — cloud deployments must account for data residency, encryption key management, and 72-hour breach notification by design
+
+---
+
 ## Task List
 
 | # | Task | Status |
@@ -213,7 +229,7 @@ A **centralized security policy** applies a single, uniform baseline of security
 
 **Typical structure:**
 
-```
+```text
 Purpose and scope
 ↓
 Roles and responsibilities (RACI)
@@ -337,8 +353,10 @@ Any cloud security policy — centralized or classification-based — should inc
 | **Multi-provider** | Replicate across different CSPs | Most complex/costly; containers help portability but network/storage/security models differ |
 
 **OVHcloud case study**: Fire in Strasbourg (March 2021) — SGB2 destroyed, SGB1 partially damaged; customers using SGB3/4 had downtime only; those in SGB2 lost everything. Key lesson: even "backups" were stored in the same datacenter despite contract stating otherwise. **Risk-based planning must precede a disaster.**
+*(Source: Pinguet, V. (2021, March 10). OVHcloud Strasbourg fire — what happened and lessons learned. OVHcloud Blog. https://blog.ovhcloud.com/ovhcloud-strasbourg-fire-what-happened-and-lessons-learned/)*
 
 **UniSuper case study**: Google accidentally deleted all data (AUD $135B pension fund). Multi-provider resiliency saved the organisation — recovered in ~2 weeks.
+*(Source: UniSuper. (2024, May). A message to our members about the Google Cloud incident. https://www.unisuper.com.au/about-us/media-centre/2024/a-joint-statement-from-unisuper-and-google-cloud)*
 
 ---
 
@@ -392,6 +410,23 @@ Any cloud security policy — centralized or classification-based — should inc
 ---
 
 #### 1. Compliance and the Shared Responsibility Model
+
+The diagram below shows how compliance obligations are distributed across service models (see diagram):
+
+```mermaid
+flowchart LR
+  A[Shared Responsibility Model] --> B[IaaS]
+  A --> C[PaaS]
+  A --> D[SaaS]
+  B --> E[CSP: Physical infra\nHardware · Storage · Network · Virtualisation]
+  B --> F[Customer: Data · Apps · OS · Config]
+  C --> E
+  C --> F
+  D --> G[CSP: Infra + Application layer]
+  D --> H[Customer: Access control · Data governance]
+  F --> I[Compliance controls\nISO 27001/17/18 · SOC 2 · PCI DSS · GDPR · HIPAA]
+  H --> I
+```
 
 - **IaaS/PaaS**: CSP responsible for physical aspects (datacenters, hardware, storage, networking, virtualisation); customer responsible for data, apps, OS configuration
 - **SaaS**: provider also owns application layer; customers expect both compliance *and* high security standards
@@ -545,7 +580,7 @@ Best practices:
 > 2. Do you think Australia needs a GDPR-style data privacy law? Justify in the context of cloud data handling.
 
 *How does APP differ from GDPR?*
-Australia's Privacy Principles (APP) and the EU's General Data Protection ▎ Regulation (GDPR) share a foundation — transparency, purpose limitation, and ▎  data security — but GDPR goes further in several areas. GDPR requires ▎ organisations to map each data processing activity to a specific lawful ▎ basis (consent, contract, legitimate interest), whereas the APP is less ▎ prescriptive. GDPR also grants individuals stronger rights: data ▎ portability, the right to erasure, and broader objection rights are not ▎ matched by the APP. Breach notification timelines also differ — GDPR ▎ mandates regulator notification within 72 hours, while Australia's ▎ Notifiable Data Breaches scheme has more flexibility. Finally, GDPR imposes ▎ specific international transfer mechanisms (Standard Contractual Clauses) ▎ for data leaving the EU/UK — a directly relevant constraint for cloud ▎ deployments.
+Australia's Privacy Principles (APP) and the EU's General Data Protection Regulation (GDPR) share a foundation — transparency, purpose limitation, and data security — but GDPR goes further in several areas. GDPR requires organisations to map each data processing activity to a specific lawful basis (consent, contract, legitimate interest), whereas the APP is less prescriptive. GDPR also grants individuals stronger rights: data portability, the right to erasure, and broader objection rights are not matched by the APP. Breach notification timelines also differ — GDPR mandates regulator notification within 72 hours, while Australia's Notifiable Data Breaches scheme has more flexibility. Finally, GDPR imposes specific international transfer mechanisms (Standard Contractual Clauses) for data leaving the EU/UK — a directly relevant constraint for cloud deployments.
 
 *Does Australia need a GDPR-style data privacy law?*
-Yes. Cloud platforms transfer data across borders by default, and Australian ▎  organisations using AWS, Azure, or GCP routinely process data from EU ▎ customers — triggering GDPR obligations anyway. A GDPR-aligned Privacy Act ▎ reform would create a single, higher standard rather than forcing ▎ organisations to navigate two divergent frameworks. It would also drive ▎ better cloud security hygiene: mandatory lawful bases would force data ▎ minimisation, stronger consent rules would reduce over-collection, and ▎ tighter breach notification would incentivise proactive incident response. ▎ The cost of alignment is low; the cost of a breach under fragmented rules is ▎  not.
+Yes. Cloud platforms transfer data across borders by default, and Australian organisations using AWS, Azure, or GCP routinely process data from EU customers — triggering GDPR obligations anyway. A GDPR-aligned Privacy Act reform would create a single, higher standard rather than forcing organisations to navigate two divergent frameworks. It would also drive better cloud security hygiene: mandatory lawful bases would force data minimisation, stronger consent rules would reduce over-collection, and tighter breach notification would incentivise proactive incident response. The cost of alignment is low; the cost of a breach under fragmented rules is not.
