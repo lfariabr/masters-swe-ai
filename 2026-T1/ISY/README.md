@@ -45,7 +45,7 @@ Dr. Nandini Sidnal
 - [X] Module 7 ✅ - Deep Learning in Practice
 - [X] Module 8 ✅ - Computer Vision
 - [X] Module 9 ✅ - Natural Language Processing
-- [ ] Module 10 🔥 - Speech Recognition
+- [X] Module 10 ✅ - Speech Recognition
 - [ ] Module 11 🕐 - Emotional Intelligence when working with Intelligent Systems
 - [ ] Module 12 🕐 - Deploying Intelligent Systems
 
