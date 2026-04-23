@@ -63,6 +63,25 @@
 | **Executive team** | AI adoption signal to market | Conflate consumer-AI (low-stakes) with enterprise-AI (high-stakes); need patient education on AI's development cycle |
 | **Data science team** | Using the latest, coolest technology | Over-index on novelty; need reminding the end user never touches the ML model directly |
 
+*Stakeholder alignment and expectation flow:*
+
+```mermaid
+flowchart TD
+    DS[Data Science Team\nBuilds the model] -->|"delivers output"| Product[End Product\nUser never touches ML directly]
+    CF[Customer-facing Team\nFluid expectations] -->|"validates against"| Product
+    EX[Executive Team\nAI adoption signal] -->|"sets timeline\n& success criteria"| Product
+    DS -->|"needs air cover from"| EX
+    DS -->|"educates on\nnon-determinism"| CF
+    EX -->|"must distinguish"| Risk{Consumer-AI\nvs\nEnterprise-AI}
+    Risk -->|"low stakes"| CA[Recommendation engine\nforgiving of errors]
+    Risk -->|"high stakes"| EA[Criminal justice / medical\nmultimillion $ liability]
+
+    style DS fill:#d4edda,stroke:#28a745
+    style CF fill:#cce5ff,stroke:#004085
+    style EX fill:#fff3cd,stroke:#856404
+    style Risk fill:#f8d7da,stroke:#721c24
+```
+
 #### 3. Managing Customer Expectations: "Illusion of 100% Accuracy"
 - Data-driven products are **non-deterministic** — same input can produce different outputs across training runs or data distributions.
 - This is a fundamental shift from deterministic software (clicking a button always opens the same page).
@@ -310,5 +329,5 @@ Tay was a Twitter chatbot designed by Microsoft to learn from interactions with 
 > **3. Staged deployment with human oversight gates:** Rather than a full public launch, a phased rollout with human-in-the-loop review of Tay's outputs would have caught drift early. CSIRO's Contestability and Accountability principles require identifiable humans to be responsible for algorithmic outputs — a monitoring gate embeds this.
 >
 > The core lesson: data governance for learning systems must be *continuous*, not just a pre-training step, because the data distribution can be poisoned at runtime.
-
+>
 > *Status: 🕐 To-Do — draft above, needs finalisation for submission*

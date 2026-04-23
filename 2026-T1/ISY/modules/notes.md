@@ -952,11 +952,11 @@ Watch the video (from minute 1.20) in the resource below and outline in approxim
 ### TLDR
 
 - Building intelligent systems is only half the job — stakeholder alignment, critical thinking, communication, and ethics complete the picture.
-- **Three stakeholder groups** (customer-facing, executive, data science) each have orthogonal expectations; managing those gaps is as important as model accuracy.
-- **Intelligent behaviour ≠ actual intelligence**: today's ML is "computational statistics," not common-sense reasoning — fear of superintelligence distracts from real automation harms.
-- **Top 3 critical thinking skills** (Berebichez): healthy scepticism about data, don't fool yourself, connect code to the real world.
-- Ethical AI design rests on eight CSIRO principles: net-benefits, do no harm, legal compliance, **privacy**, **fairness**, **transparency**, **contestability**, accountability.
-- The **Tay chatbot** is a canonical bias-in-data failure — lack of input data governance policies caused reputational disaster for Microsoft within 24 hours.
+- **Three stakeholder groups** (customer-facing, executive, data science) each have orthogonal expectations; managing those gaps is as important as model accuracy (Deshmukh, 2019).
+- **Intelligent behaviour ≠ actual intelligence**: today's ML is "computational statistics," not common-sense reasoning — fear of superintelligence distracts from real automation harms (Bergstein, 2018).
+- **Top 3 critical thinking skills**: healthy scepticism about data, don't fool yourself, connect code to the real world (Berebichez in Sheehy, 2019).
+- Ethical AI design rests on eight CSIRO principles: net-benefits, do no harm, legal compliance, **privacy**, **fairness**, **transparency**, **contestability**, accountability (Dawson et al., 2019).
+- The **Tay chatbot** is a canonical bias-in-data failure — lack of input data governance policies caused reputational disaster for Microsoft within 24 hours (Dawson et al., 2019).
 
 ### Introduction
 Intelligent systems are not just about the technical development of a tool, there are some other aspects to intelligent systems that will help make your knowledge about them whole. We are talking about ethics/emotional intelligence required when dealing with intelligent systems. Questions, like: Are people willing to include intelligent systems as part of their daily life? Have you thought about the purpose of intelligent systems? Can you encourage people to use a developed intelligent system? Is it ethical? Have you considered the security aspects?
