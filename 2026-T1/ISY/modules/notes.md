@@ -951,6 +951,13 @@ Watch the video (from minute 1.20) in the resource below and outline in approxim
 
 ### TLDR
 
+- Building intelligent systems is only half the job — stakeholder alignment, critical thinking, communication, and ethics complete the picture.
+- **Three stakeholder groups** (customer-facing, executive, data science) each have orthogonal expectations; managing those gaps is as important as model accuracy (Deshmukh, 2019).
+- **Intelligent behaviour ≠ actual intelligence**: today's ML is "computational statistics," not common-sense reasoning — fear of superintelligence distracts from real automation harms (Bergstein, 2018).
+- **Top 3 critical thinking skills**: healthy scepticism about data, don't fool yourself, connect code to the real world (Berebichez in Sheehy, 2019).
+- Ethical AI design rests on eight CSIRO principles: net-benefits, do no harm, legal compliance, **privacy**, **fairness**, **transparency**, **contestability**, accountability (Dawson et al., 2019).
+- The **Tay chatbot** is a canonical bias-in-data failure — lack of input data governance policies caused reputational disaster for Microsoft within 24 hours (Dawson et al., 2019).
+
 ### Introduction
 Intelligent systems are not just about the technical development of a tool, there are some other aspects to intelligent systems that will help make your knowledge about them whole. We are talking about ethics/emotional intelligence required when dealing with intelligent systems. Questions, like: Are people willing to include intelligent systems as part of their daily life? Have you thought about the purpose of intelligent systems? Can you encourage people to use a developed intelligent system? Is it ethical? Have you considered the security aspects?
 
@@ -965,7 +972,7 @@ This Module will address these questions by discussing how to engage with stakeh
 
     To understand how to communicate or what the needs of the people you need to communicate with are, you first need to understand WHO you need to work with while embarking on ML and AI based systems. While it is a given that different stakeholders you work with will have different expectations, how these differ or add new challenges when working with intelligent systems is the focus of this learning resource. Read the insights shared by a leading practitioner in the field of AI and ML take you through the important stakeholders you will work with and what their expectations from you are.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module11_notes.md](module_11_emotional-intelligence/module11_notes.md)*
 
 #### 2. Intelligent Systems Paradox
 - Burgstein, B. (2018, 15 December). The Great AI Paradox. Retrieved from https://www.technologyreview.com/2017/12/15/146836/the-great-ai-paradox/
@@ -974,7 +981,7 @@ This Module will address these questions by discussing how to engage with stakeh
 
     The fear that AI systems bring in some groups of people is very real – they feel that intelligent systems could soon take over many jobs or worse yet, develop super intelligence that will render humans useless. Although industry heavyweights like Elon Musk and Stephen Hawking put fuel to this fire, the challenges us human AI developers must still overcome means that such a scenario may be a while away yet. In this MIT Technology Review resource, you will learn about shortfalls of AI and the length we must still cover before fear such scenarios. You will be introduced to terms like “reductionism” and the difference between “intelligent behaviour” vs “actually intelligent” – concepts that you no doubt think about as you being working with intelligent systems.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module11_notes.md](module_11_emotional-intelligence/module11_notes.md)*
 
 #### 3. Critical Thinking in Data Science
 - Sheehy, R. (Presenter). (2019, 26 March). Critical Thinking in Data Science [Audio podcast]. Data Framed. Retrieved from https://www.datacamp.com/community/blog/critical-thinking-in-data-science
@@ -983,7 +990,7 @@ This Module will address these questions by discussing how to engage with stakeh
 
     As this module is discussing important skillsets for practitioners of AI and ML other than programming skills, another important one to consider and be mindful of as you practice in this field is your ability to think critically. When presented with a use case for applications that require AI or ML, experts in the field encourage you to exercise healthy scepticism when it comes to analysing the datasets you work with as well as being keenly aware of what attitudes you may bring in with your own prior experience. Listen to an extract of this podcast with American data scientist Debbie Berebichez as she takes you through her top three critical thinking skills to learn when working with AI and ML applications. Start at 33:55 in the podcast and listen until 39:35, then again from 45:00 to 46:35. These snippets are the most relevant to the learning intention for this resource, but you are welcome to listen to the rest of the podcast where Debbie takes you through how she applies these skills in her own job.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module11_notes.md](module_11_emotional-intelligence/module11_notes.md)*
 
 #### 4. Advanced Communication Techniques
 *Resource Overview:*
@@ -994,7 +1001,7 @@ This Module will address these questions by discussing how to engage with stakeh
 
     Click [here](https://a19788-9075286.cluster228.canvas-user-content.com/courses/19788~22449/files/19788~9075286/course%20files/scormContent/xid-40831718_1/index.html?download=1&inline=1&sf_verifier=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJ1c2VyX2lkIjoiMTk3ODgwMDAwMDAwMDg2Mjg3IiwiYXR0YWNobWVudF9pZCI6IjE5Nzg4MDAwMDAwOTA3NTI4NiIsInBlcm1pc3Npb24iOlsicmVhZCIsImRvd25sb2FkIl0sInJvb3RfYWNjb3VudF9pZCI6IjE5Nzg4MDAwMDAwMDAwMDAwMSIsIm9hdXRoX2hvc3QiOiJteWxlYXJuLnRvcnJlbnMuZWR1LmF1IiwicmV0dXJuX3VybCI6bnVsbCwiZmFsbGJhY2tfdXJsIjoiaHR0cHM6Ly9teWxlYXJuLnRvcnJlbnMuZWR1LmF1L2NvdXJzZXMvMjI0NDkvZmlsZXMvOTA3NTI4Ni9wcmV2aWV3P2ZhbGxiYWNrX3RzPTE3NzY5Njc2MDQiLCJqdGkiOiJjNzY2ODMyYi01MDZjLTRmNTgtYjExZC01YTdkNmE4MjgxNTMiLCJleHAiOjE3NzY5Njc5MDR9.xoUPKzZqM5yXm-Ouzq42W6O0vLri90xWWrDbv7yQ9vmq1uX9E60SmzjiZAJC6fKp8wg1o6-LTfzCjK8K1T_cUQ#/) to access the Short Course.
 
-> *Status: 🕐 To-Do*
+> *Status: 🔥 WIP — LMS-gated; summarised from course overview — see [module11_notes.md](module_11_emotional-intelligence/module11_notes.md)*
 
 #### 5. Ethical Design for Intelligent Systems
 *Resource Overview:*
@@ -1003,7 +1010,7 @@ This Module will address these questions by discussing how to engage with stakeh
     
     Click [here](https://a19788-9075294.cluster228.canvas-user-content.com/courses/19788~22449/files/19788~9075294/course%20files/scormContent/xid-40819302_1/index.html?download=1&inline=1&sf_verifier=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJ1c2VyX2lkIjoiMTk3ODgwMDAwMDAwMDg2Mjg3IiwiYXR0YWNobWVudF9pZCI6IjE5Nzg4MDAwMDAwOTA3NTI5NCIsInBlcm1pc3Npb24iOlsicmVhZCIsImRvd25sb2FkIl0sInJvb3RfYWNjb3VudF9pZCI6IjE5Nzg4MDAwMDAwMDAwMDAwMSIsIm9hdXRoX2hvc3QiOiJteWxlYXJuLnRvcnJlbnMuZWR1LmF1IiwicmV0dXJuX3VybCI6bnVsbCwiZmFsbGJhY2tfdXJsIjoiaHR0cHM6Ly9teWxlYXJuLnRvcnJlbnMuZWR1LmF1L2NvdXJzZXMvMjI0NDkvZmlsZXMvOTA3NTI5NC9wcmV2aWV3P2ZhbGxiYWNrX3RzPTE3NzY5Njc3MDgiLCJqdGkiOiI3ODUwNzIwMi01ZDIzLTRhYWEtOTk1NC1kMzJlMTNiOWM2ZTkiLCJleHAiOjE3NzY5NjgwMDh9.ROUH1UrnUWQaQ_-P1jSBDsj5FkL6xJJKFY3yhZqTiuP02pgLk8wDJeA2hTjiBR_s4VHY6p8GvGfeQtaz3dvCrg#/) to access the Short Course.
 
-> *Status: 🕐 To-Do*
+> *Status: 🔥 WIP — LMS-gated; summarised from course overview — see [module11_notes.md](module_11_emotional-intelligence/module11_notes.md)*
 
 ##### 6. Motivation to continue developing Intelligent Systems
 - TEDx Talks. (2018, 19 July). Our future with intelligent systems (it’s better than you think) | Bart Paulhamus | TEDxMidAtlantic [Video file]. https://www.youtube.com/watch?v=aep1v2pZ44Y
@@ -1012,7 +1019,7 @@ This Module will address these questions by discussing how to engage with stakeh
 
     There are many concerns about whether intelligent systems are ethical, will take over jobs or invade privacy; however, the power of this field is undeniable. The following TedTalk video provides a magnificent example of how intelligent systems can increase fairness by helping a disabled person. This video may motivate you to pursue a career in this amazing field and to continue developing more advanced intelligent systems that will be helpful in the future.
 
-> *Status: 🕐 To-Do*    
+> *Status: ✅ Watched + Reviewed — see [module11_notes.md](module_11_emotional-intelligence/module11_notes.md)*
 
 ### Learning Activities
 
