@@ -31,7 +31,7 @@
 
 My primary contribution to ReviewPulse was the full technical implementation of the ML pipeline — nine source modules, the Streamlit web app, 117 unit tests, and all project documentation.
 
-On the data side, I built the pseudo-XML parser (`parser.py`), the preprocessing pipeline with negation expansion (`preprocess.py`), and the vocabulary builder and PyTorch DataLoaders (`dataset.py`). I then implemented both models: the TF-IDF + Logistic Regression baseline (`baseline.py`) and the bidirectional LSTM (Hochreiter & Schmidhuber, 1997) initialised with GloVe 100-dimensional embeddings (`model.py`). The training loop (`train.py`) uses Adam with gradient clipping, F1-based checkpointing, and Apple MPS device support. I implemented evaluation with confusion matrix and error analysis (`evaluate.py`), a unified inference API (`inference.py`), and the Streamlit web app with model selector and sample review generator (`app.py`). I also produced the presentation outline, 10 acceptance test cases with real model outputs, and this document.
+On the data side, I built the pseudo-XML parser (`src/parser.py`), the preprocessing pipeline with negation expansion (`src/preprocess.py`), and the vocabulary builder and PyTorch DataLoaders (`src/dataset.py`). I then implemented both models: the TF-IDF + Logistic Regression baseline (`src/baseline.py`) and the bidirectional LSTM (Hochreiter & Schmidhuber, 1997) initialised with GloVe 100-dimensional embeddings (`src/model.py`). The training loop (`src/train.py`) uses Adam with gradient clipping, F1-based checkpointing, and Apple MPS device support. I implemented evaluation with confusion matrix and error analysis (`src/evaluate.py`), a unified inference API (`src/inference.py`), and the Streamlit web app with model selector and sample review generator (`app.py`). I also produced the presentation outline, 10 acceptance test cases with real model outputs, and this document.
 
 An important ethical consideration is that the Blitzer et al. (2007) dataset uses filename-derived labels rather than human raters. Because the dataset uses filename-derived labels rather than direct human annotation, we audited for possible rating/text conflicts and ambiguous boundary cases. In this dataset, we found zero ambiguous rows, but the risk remains relevant in broader sentiment classification settings. BiLSTM confidence values are also uncalibrated — 98% confidence does not imply 98% accuracy — and the model generalises poorly to out-of-distribution text such as logistics reviews (Bender et al., 2021). Any production deployment requires human oversight and periodic label audits.
 
@@ -59,7 +59,7 @@ Ten acceptance test cases run against both trained models (baseline checkpoint `
 | Sarcasm | "Oh great, stopped working after a week…" | Negative 52.5% ⚠️ | Negative 64.6% ⚠️ |
 | Domain-shifted (books) | "One of the best thrillers I have read…" | Positive 69.4% ✅ | Positive 86.2% ✅ |
 
-Full results: `docs/demo-test-cases.md`
+Full results: https://github.com/lfariabr/review-pulse/blob/main/docs/demo-test-cases.md
 
 **A4 — Future Work**
 
