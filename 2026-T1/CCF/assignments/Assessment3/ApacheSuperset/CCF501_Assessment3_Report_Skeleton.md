@@ -13,7 +13,7 @@
 <!-- SLO c, d: provider selection rationale; deployment overview -->
 <!-- NOTE: No tables, diagrams, or dot points in this section -->
 
-This report documents the deployment of Apache Superset — an open-source data exploration and visualisation platform — on Microsoft Azure. Superset was selected for its direct relevance to data engineering workflows and its Python-native architecture, which aligns with the author's professional background and academic trajectory. Azure was chosen as the cloud provider to build familiarity ahead of the AZ-900 and DP-900 certification pathway, as recommended during academic advising in March 2026. The deployment covers the provisioning of a virtual machine, virtual network, firewall security policy, and a fully operational Superset instance accessible via public URL.
+This report documents the deployment of Apache Superset — an open-source data exploration and visualisation platform (Apache Software Foundation, n.d.) — on Microsoft Azure. Superset was selected for its direct relevance to data engineering workflows and its Python-native architecture, which aligns with the author's professional background and academic trajectory. Azure was chosen as the cloud provider to build familiarity ahead of the AZ-900 and DP-900 certification pathway, as recommended during academic advising in March 2026. The deployment covers the provisioning of a virtual machine, virtual network, firewall security policy, and a fully operational Superset instance accessible via public URL.
 
 ---
 
@@ -23,7 +23,7 @@ This report documents the deployment of Apache Superset — an open-source data 
 <!-- SLO a, b: NIST characteristics; cloud vs on-premises -->
 <!-- NOTE: Complete sentences and paragraphs only — no tables, diagrams, or dot points -->
 
-In a traditional IT environment, standing up a data visualisation platform would require procuring physical server hardware, configuring a local network, applying firewall rules at the rack level, and maintaining that infrastructure indefinitely. For an individual developer or small team, that overhead makes self-hosted analytics tooling impractical outside enterprise settings.
+In a traditional IT environment, standing up a data visualisation platform would require procuring physical server hardware, configuring a local network, applying firewall rules at the rack level, and maintaining that infrastructure indefinitely (Manvi & Shyam, 2021). For an individual developer or small team, that overhead makes self-hosted analytics tooling impractical outside enterprise settings (Linthicum, 2021).
 
 Cloud computing removes that barrier. The National Institute of Standards and Technology (NIST) defines cloud computing as on-demand network access to a shared pool of configurable computing resources, characterised by five essential properties: on-demand self-service, broad network access, resource pooling, rapid elasticity, and measured service (Mell & Grance, 2011). These properties shift infrastructure from a capital expenditure to an operational one — organisations pay only for what they use, without fixed-capacity procurement or physical hardware management (McHaney, 2021).
 
@@ -38,7 +38,7 @@ This deployment uses an **Infrastructure as a Service (IaaS)** model: Azure prov
 <!-- RUBRIC: 10% — Identify key cloud services; compare providers; justify selection -->
 <!-- SLO c: key service offerings and comparison -->
 
-Microsoft Azure was selected for three reasons. First, its data and analytics ecosystem — Azure SQL, Synapse Analytics, and Data Factory — directly complements Superset's role as a query and visualisation layer, relevant to current data engineering work and the BDA601 subject ahead. Second, Azure is the target certification platform (AZ-900 → DP-900), making hands-on deployment a practical study activity. Third, Azure's free-tier eligibility lowers the barrier; the deployment uses Standard_B2als_v2 because Superset's Docker stack requires more RAM than the free B1s allows, covered by student credits.
+Microsoft Azure was selected for three reasons. First, its data and analytics ecosystem — Azure SQL, Synapse Analytics, and Data Factory — directly complements Superset's role as a query and visualisation layer, relevant to current data engineering work and the BDA601 subject ahead. Second, Azure is the target certification platform (AZ-900 → DP-900), making hands-on deployment a practical study activity. Third, Azure's free-tier eligibility lowers the barrier; the deployment uses Standard_B2als_v2 because Superset's Docker stack requires more RAM than the free B1s allows, covered by student credits (Microsoft, n.d.-d).
 
 | Criterion | AWS | Microsoft Azure | GCP |
 |---|---|---|---|
@@ -48,7 +48,7 @@ Microsoft Azure was selected for three reasons. First, its data and analytics ec
 | Data/ML integration | RDS, Redshift, SageMaker | Azure SQL, Synapse, Azure ML | BigQuery, Vertex AI |
 | Cert alignment | ❌ | ✅ AZ-900 / DP-900 | ❌ |
 
-*Table 1: Cloud provider comparison for Apache Superset deployment.*
+*Table 1: Cloud provider comparison for Apache Superset deployment (Amazon Web Services, n.d.; Google Cloud, n.d.; Microsoft, n.d.-d; Nishimura, 2022).*
 
 ---
 
@@ -57,7 +57,7 @@ Microsoft Azure was selected for three reasons. First, its data and analytics ec
 <!-- RUBRIC: 40% practical skills — block diagram required; describe deployment model -->
 <!-- SLO d: implement cloud services -->
 
-The deployment follows a **public cloud IaaS** model. All resources are provisioned within a single Azure Resource Group, logically isolated by a Virtual Network (VNet) with a dedicated application subnet. A Network Security Group (NSG) enforces inbound traffic rules, restricting access to SSH (port 22, source IP restricted) and the Superset web interface (port 8088). HTTP (port 80) and HTTPS (port 443) are intentionally excluded — Superset is accessed directly on port 8088, and TLS termination is identified as a future improvement in Section 2e. Apache Superset runs inside a Docker Compose stack on an Ubuntu 22.04 virtual machine, with PostgreSQL as the metadata database and Redis as the caching and Celery task broker.
+The deployment follows a **public cloud IaaS** model (Mell & Grance, 2011; IBM, n.d.-a). All resources are provisioned within a single Azure Resource Group, logically isolated by a Virtual Network (VNet) with a dedicated application subnet. A Network Security Group (NSG) enforces inbound traffic rules, restricting access to SSH (port 22, source IP restricted) and the Superset web interface (port 8088). HTTP (port 80) and HTTPS (port 443) are intentionally excluded — Superset is accessed directly on port 8088, and TLS termination is identified as a future improvement in Section 2e. Apache Superset runs inside a Docker Compose stack on an Ubuntu 22.04 virtual machine, with PostgreSQL as the metadata database and Redis as the caching and Celery task broker.
 
 ```mermaid
 graph TD
@@ -99,7 +99,7 @@ A resource group (`rg-superset-ccf501`) was created in the Azure portal under Au
 
 **Task b — Add a virtual network**
 
-A Virtual Network (`vnet-superset`, `10.0.0.0/16`) was created with a dedicated application subnet (`snet-app`, `10.0.1.0/24`). VNets provide private network isolation — resources communicate internally without traversing the public internet (Microsoft, n.d.-b). This reflects NIST's resource pooling characteristic: shared physical infrastructure partitioned into isolated, private network boundaries (Mell & Grance, 2011).
+A Virtual Network (`vnet-superset`, `10.0.0.0/16`) was created with a dedicated application subnet (`snet-app`, `10.0.1.0/24`). VNets provide private network isolation — resources communicate internally without traversing the public internet (IBM, n.d.-b; Microsoft, n.d.-b). This reflects NIST's resource pooling characteristic: shared physical infrastructure partitioned into isolated, private network boundaries (Mell & Grance, 2011).
 
 ![Screenshot: Azure Virtual Networks page before creation](images/fig4-azure-virtual-network-A.webp)
 ![Screenshot: Azure Virtual Networks page after creating vnet-superset](images/fig4-azure-virtual-network-B.webp)

@@ -45,10 +45,10 @@ Dr. Divya Leekha
 - [X] Module 8 ✅ - Deployment case studies
 - [X] Module 9 ✅ - Governance / Legal obligations of Cloud Providers and Consumers
 - [X] Module 10 ✅ - Security Threats while in cloud - Mitigation and Identification
-- [ ] Module 11 🔥- Security Policy – Planning and management
+- [ ] Module 11 🔥 - Security Policy – Planning and management
 - [ ] Module 12 - Implementation of Security Policy at various providers
 
 ## Assignments
 - [X] Assessment 1 - deadline 15/03/2026 ✅, **Technology Report and Presentation** on *The Key Contributions of Cloud Computing to Business Automation*, 81/100 pts
 - [X] Assessment 2 - deadline 12/04/2026 ✅, **Case Study** on *Analysis of Cloud Services and Deployment Models*, ??/100 pts
-- [ ] Assessment 3 - deadline 06/05/2026 🕐, **Case Study** on *Cloud Application Deployment*
+- [ ] Assessment 3 - deadline 06/05/2026 🔥, **Case Study** on *Cloud Application Deployment*
