@@ -959,7 +959,7 @@ This Module will address these questions by discussing how to engage with stakeh
 ### Resources
 
 #### 1. Engaging with Stakeholders
-- Deshmukh, O. (2019, 1 August). A Data Science Leader’s Guide to Managing Stakeholders. Retrieved from https://www.analyticsvidhya.com/blog/2019/08/ data-science-leader-guide-managing-stakeholders/
+- Deshmukh, O. (2019, 1 August). A Data Science Leader’s Guide to Managing Stakeholders. Retrieved from https://www.analyticsvidhya.com/blog/2019/08/data-science-leader-guide-managing-stakeholders/
 
 *Resource Overview:*
 
@@ -1020,6 +1020,8 @@ This Module will address these questions by discussing how to engage with stakeh
 - Dawson, D., Schleiger, E., Horton, J., McLaughlin, J., Robinson, C., Quezada. G., Scowcroft, J. and Hajkowicz, S. (2019). Artificial Intelligence: Australia's Ethics Framework. Data61 CSIRO, Australia. Retrieved from https://www.csiro.au/-/media/D61/Reports/Artificial-Intelligence-ethics-framework.pdf
 
 The CSIRO’s Data61 team put out this discussion paper for the public to comment on in 2019. It is a fascinating read that you may want to work through in its entirety, but for the purposes of this learning activity, you will read Section 3 on Data Governance. After reading through this section, you are to take up one case study mentioned within this section and outline in 200 words or less what data governance policies you think would have helped prevent the issues outlined in that particular case study. You may even do your own research and outline your ideas on how to tackle such situations in the future. This resource was a discussion paper aimed at the public after all – even you can make a contribution, albeit a delayed one.
+
+<!-- TODO: Pick the Tay Microsoft Twitter case study -->
 
 > *Status: 🕐 To-Do*
 
