@@ -46,10 +46,10 @@ Dr. Nandini Sidnal
 - [X] Module 8 ✅ - Computer Vision
 - [X] Module 9 ✅ - Natural Language Processing
 - [X] Module 10 ✅ - Speech Recognition
-- [ ] Module 11 🕐 - Emotional Intelligence when working with Intelligent Systems
+- [ ] Module 11 🔥 - Emotional Intelligence when working with Intelligent Systems
 - [ ] Module 12 🕐 - Deploying Intelligent Systems
 
 ## Assignments
 - [X] Assessment 1 - deadline 22/03/2026 ✅, **Case Study** on *Application of an Intelligent System (NLP or Computer Vision)*, 87.7/100 pts
 - [X] Assessment 2 - deadline 12/04/2026 ✅, **Programming Task** on *Implementation of a Machine Learning Model (Linear Regression)*
-- [ ] Assessment 3 - deadline 06/05/2026 🕐, **Final Project** on *Applying the foundational principles of AI (NLP or Computer Vision)*
+- [ ] Assessment 3 - deadline 06/05/2026 🔥, **Final Project** on *Applying the foundational principles of AI (NLP or Computer Vision)*
