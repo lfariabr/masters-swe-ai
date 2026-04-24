@@ -22,9 +22,9 @@
 
 | Team Member | Student ID | Main Contribution | % |
 |---|---|---|---:|
-| Luis Faria | A00187785 | Full technical implementation, app, tests, docs | 65% |
-| Victor Meneses | A00179705 | Dataset, error analysis, ethics presentation | 17.5% |
-| Samiran Shrestha | A00106473 | Problem framing, live demo, future work | 17.5% |
+| Luis Faria | A00187785 | Full technical implementation, app, tests, docs | 60% |
+| Victor Meneses | A00179705 | Dataset, error analysis, ethics presentation | 20% |
+| Samiran Shrestha | A00106473 | Problem framing, live demo, future work | 20% |
 | **Total** | | | **100%** |
 
 ### 3. Draft Report (~250 words)
@@ -35,7 +35,7 @@ On the data side, I built the pseudo-XML parser (`src/parser.py`), the preproces
 
 An important ethical consideration is that the Blitzer et al. (2007) dataset uses filename-derived labels rather than human raters. Because the dataset uses filename-derived labels rather than direct human annotation, we audited for possible rating/text conflicts and ambiguous boundary cases. In this dataset, we found zero ambiguous rows, but the risk remains relevant in broader sentiment classification settings. BiLSTM confidence values are also uncalibrated — 98% confidence does not imply 98% accuracy — and the model generalises poorly to out-of-distribution text such as logistics reviews (Bender et al., 2021). Any production deployment requires human oversight and periodic label audits.
 
-I estimate my contribution at 65% as the primary technical implementer. Victor contributed 17.5% covering dataset analysis, error analysis, and ethics. Samiran contributed 17.5% covering the problem framing, live demo delivery, and future work.
+I estimate my contribution at 60% as the primary technical implementer. Victor contributed 20% covering dataset analysis, error analysis, and ethics. Samiran contributed 20% covering the problem framing, live demo delivery, and future work.
 
 ### 4. Appendices
 
@@ -51,6 +51,8 @@ https://review-pulse.streamlit.app/
 
 Ten acceptance test cases run against both trained models (baseline checkpoint `outputs/baseline.joblib`, BiLSTM checkpoint `outputs/bilstm.pt` epoch 9):
 
+> *Table A3. Sample Test Cases Output.*
+
 | Case | Input (excerpt) | Baseline | BiLSTM |
 |---|---|---|---|
 | Clear positive | "This blender is absolutely incredible…" | Positive 73.8% ✅ | Positive 97.9% ✅ |
@@ -62,6 +64,8 @@ Ten acceptance test cases run against both trained models (baseline checkpoint `
 Full results: https://github.com/lfariabr/review-pulse/blob/main/docs/demo-test-cases.md
 
 **A4 — Future Work**
+
+> *Table A4. Future Work possibilities and opportunities.*
 
 | Priority | Extension | Rationale |
 |---|---|---|
