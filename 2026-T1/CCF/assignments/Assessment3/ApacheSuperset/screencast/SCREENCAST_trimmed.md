@@ -7,11 +7,11 @@
 
 ## Pre-recording checklist (do before hitting record)
 
-- [ ] Azure portal open and logged in
-- [ ] Superset already open in a second tab, logged in as admin
-- [ ] RBAC / List Roles page already open in a third tab
-- [ ] Public IP visible in the VM overview tab
-- [ ] Close all unrelated tabs and notifications
+- [X] Azure portal open and logged in
+- [X] Superset already open in a second tab, logged in as admin
+- [X] RBAC / List Roles page already open in a third tab
+- [X] Public IP visible in the VM overview tab
+- [X] Close all unrelated tabs and notifications
 
 > **Why pre-login matters:** Your current recording lost ~45s to "let me sign out first so I can show you". Pre-loading all tabs means you just switch — no live login, no fumbling.
 

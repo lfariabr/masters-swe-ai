@@ -107,7 +107,7 @@ A Virtual Network (`vnet-superset`, `10.0.0.0/16`) was created with a dedicated 
 
 **Task c — Protect the network with a firewall / security policy**
 
-A Network Security Group (`nsg-superset`) was attached to the `snet-app` subnet. Inbound rules allow SSH (port 22, restricted to the author's IP) and the Superset port (8088); all other inbound traffic is denied by default. Ports 80 and 443 are intentionally excluded — this implements the principle of least privilege, exposing only the minimum required access (Shore, 2020).
+A Network Security Group (`nsg-superset`) was attached to the `snet-app` subnet. Inbound rules allow SSH (port 22, restricted to the author's IP) and the Superset port (8088); all other inbound traffic is denied by default (Microsoft, n.d.-c). Ports 80 and 443 are intentionally excluded — this implements the principle of least privilege, exposing only the minimum required access (Shore, 2020).
 
 ![Screenshot: Azure Network Security Groups page before creation](images/fig5-azure-nsg-A.webp)
 ![Screenshot: Azure Network Security Groups page after creating nsg-superset](images/fig5-azure-nsg-B.webp)
@@ -206,7 +206,7 @@ IBM. (n.d.-a). *SaaS, PaaS, IaaS explained*. IBM. https://www.ibm.com/think/topi
 
 IBM. (n.d.-b). *What is a virtual network?* IBM. https://www.ibm.com/think/topics/virtual-network
 
-Linthicum, D. (2021, May 25). *Learning cloud computing: Core concepts* [Video]. LinkedIn Learning. https://www.linkedin.com/learning/learning-cloud-computing-core-concepts-13710481/
+Linthicum, D. (2021, May 25). *Learning cloud computing: Core concepts* [Video]. LinkedIn Learning. https://www.linkedin.com/learning/learning-cloud-computing-core-concepts-13966302/
 
 Manvi, S., & Shyam, G. K. (2021). *Cloud computing: Concepts and technologies* (Chapter 4). CRC Press. https://learning-oreilly-com.torrens.idm.oclc.org/library/view/cloud-computing/9781000338058/
 
@@ -224,7 +224,7 @@ Microsoft. (n.d.-d). *Create your Azure free account today*. Microsoft Azure. ht
 
 Nishimura, H. (2022, August 30). *Introduction to AWS for non-engineers: 1 cloud concepts* [Video]. LinkedIn Learning. https://www.linkedin.com/learning/introduction-to-aws-for-non-engineers-1-cloud-concepts-2/
 
-Shore, M. (2020). *Cybersecurity with cloud computing: Service models* [Video]. LinkedIn Learning. https://www.linkedin.com/learning/cybersecurity-with-cloud-computing-2/
+Shore, M. (2020). *Cybersecurity with cloud computing* [Video]. LinkedIn Learning. https://www.linkedin.com/learning/cybersecurity-with-cloud-computing-2/
 
 ---
 
