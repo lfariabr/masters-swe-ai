@@ -27,7 +27,7 @@ services:
       - superset-network
 
   superset:
-    image: apache/superset:latest
+    image: apache/superset:6.0.0
     restart: unless-stopped
     depends_on:
       - postgres
@@ -90,7 +90,7 @@ Port 80 (HTTP) and 443 (HTTPS) are omitted — no reverse proxy or TLS is config
 ```bash
 # 1. Update system and install Docker
 sudo apt update && sudo apt upgrade -y
-sudo apt install docker.io docker-compose git -y
+sudo apt install -y docker.io docker-compose-plugin git
 sudo usermod -aG docker $USER
 newgrp docker
 
@@ -102,10 +102,10 @@ nano docker-compose.yml
 # Paste the configuration above, save and exit
 
 # 4. Start Superset stack
-docker-compose up -d
+docker compose up -d
 
 # 5. Wait for initialization (60-90 seconds)
-docker-compose logs -f superset
+docker compose logs -f superset
 # Press Ctrl+C when you see "Listening at: http://0.0.0.0:8088"
 
 # 6. Get VM public IP
@@ -116,11 +116,11 @@ curl ifconfig.me
 # Default login: admin / admin (change immediately)
 
 # 8. Create additional users (optional)
-docker-compose exec superset superset fab create-user \
+docker compose exec superset superset fab create-user \
   --username analyst --firstname Data --lastname Analyst \
   --email analyst@example.com --password <secure-analyst-password> --role Alpha
 
-docker-compose exec superset superset fab create-user \
+docker compose exec superset superset fab create-user \
   --username viewer --firstname View --lastname Only \
   --email viewer@example.com --password <secure-viewer-password> --role Gamma
 ```
@@ -251,11 +251,11 @@ graph TB
 
 ```bash
 # Check logs
-docker-compose logs superset
+docker compose logs superset
 
 # Common fix: Delete volumes and restart
-docker-compose down -v
-docker-compose up -d
+docker compose down -v
+docker compose up -d
 ```
 
 ### Issue: Can't connect from browser
@@ -278,7 +278,7 @@ curl http://localhost:8088
 docker ps | grep postgres
 
 # Test connection
-docker-compose exec postgres psql -U superset -d superset
+docker compose exec postgres psql -U superset -d superset
 ```
 
 ---

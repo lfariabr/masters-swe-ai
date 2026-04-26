@@ -12,11 +12,11 @@ Use ISY503 only as supporting course context: intelligent systems and analytics 
 
 ## Output File
 
-Ask Claude to create:
-
 ```text
-/Users/luisfaria/Desktop/sEngineer/masters_SWEAI/docs/refs/devToRefs/ApacheSuperset.md
+2026-T1/CCF/assignments/Assessment3/ApacheSuperset/DEVTO-ARTICLE-DRAFT.MD
 ```
+
+> Note: original target was `docs/refs/devToRefs/ApacheSuperset.md`, but `/docs/refs` is in `.gitignore`, so the tracked draft lives alongside the deployment artefacts under `Assessment3/ApacheSuperset/` instead.
 
 ## Recommended Article Shape
 

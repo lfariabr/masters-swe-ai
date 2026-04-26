@@ -237,9 +237,9 @@ Three things bit me on AWS that did not bite on Azure:
    ```
    Then `http://localhost:8088` in the browser. Port 22 carries it.
 
-That third one was an hour of debugging that produced one of the most useful "huh, the network *does* think for itself" lessons of the term.
+That third one cost an hour of debugging — and produced one of the term's most useful lessons.
 
-This isn't a dual-cloud article. Azure is the main story. The AWS variant exists to prove the deployment is portable and to capture the pitfalls for next time. Both implementations live in the repo.
+This isn't a dual-cloud article — Azure is the main story. The AWS variant proves portability and logs the pitfalls. Both implementations live in the repo.
 
 ![Docker ps output showing Superset, PostgreSQL, and Redis containers running](UPLOAD_IMAGE_HERE)
 
@@ -253,7 +253,7 @@ This article — and a meaningful chunk of the deployment plan — leaned on AI 
 - **Claude** read the source files (deployment notes, technical artifacts, AWS pitfalls, the assessment brief) and produced this draft.
 - **I** made every architecture decision, ran every command, captured every screenshot, fixed the `IsADirectoryError` from a bind-mount that didn't exist yet, debugged the port-8088 ISP problem, and reviewed every word before this article went public.
 
-AI is a planning and drafting accelerator. It is not a replacement for understanding what you deployed or why. Anyone who can't defend their own architecture verbally has skipped the part of the process that actually matters.
+AI is a planning and drafting accelerator, not a replacement for understanding what you deployed or why. Anyone who can't defend their architecture verbally has skipped the part that matters.
 
 ---
 
