@@ -61,7 +61,7 @@ Suggested structure:
    - Network Security Group: `nsg-superset`.
    - VM: Ubuntu 22.04, `Standard_B2als_v2`.
    - Runtime stack: Docker Compose with Apache Superset, PostgreSQL 15, Redis 7.
-   - Public validation URL during capture: `http://20.11.66.254:8088`.
+   - Public validation URL during capture: `http://<public-ip>:8088`.
    - Note: the VM was stopped/deallocated after evidence capture to avoid compute charges.
 
 6. **From-Scratch Deployment Story**

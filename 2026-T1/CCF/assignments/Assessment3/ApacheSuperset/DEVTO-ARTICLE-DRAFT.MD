@@ -10,7 +10,7 @@ Tags: #cloudcomputing #azure #apache #superset #dataengineering
 
 ## The Jump From Diagrams to Reality
 
-Six weeks ago I wrote my CCF501 Assessment 1 — a 1,500-word architecture proposal for a fictional startup, full of NIST characteristics and Mermaid diagrams (write-up [here](https://github.com/lfariabr/masters-swe-ai/blob/master/docs/refs/devToRefs/CCFAssessment1.md)). The grade was 81/100. The grade did not deploy anything.
+Six weeks ago I wrote my CCF501 Assessment 1 — a 1,500-word architecture proposal for a fictional startup, full of NIST characteristics and Mermaid diagrams (read: [CCF501 Assessment 1 write-up](https://github.com/lfariabr/masters-swe-ai/blob/master/docs/refs/devToRefs/CCFAssessment1.md)). The grade was 81/100. The grade did not deploy anything.
 
 Assessment 3 was different. The brief gave me four tasks — resource group, virtual network, firewall, application — and asked me to actually do them on a real cloud, with real screenshots, on a public IP. No more reasoning about Auto Scaling. Provision the VM. Open the port. Make the application return a 200.
 
@@ -110,7 +110,7 @@ In the Azure portal:
 
 ```bash
 sudo apt update && sudo apt upgrade -y
-sudo apt install -y docker.io docker-compose-v2 git
+sudo apt install -y docker.io docker-compose-plugin git
 sudo usermod -aG docker $USER
 newgrp docker
 ```
@@ -163,8 +163,8 @@ The `config.py` mount wires Superset to use Redis as the cache backend and reads
 ### 4. Bring it up and validate
 
 ```bash
-docker-compose up -d
-docker-compose logs -f superset       # wait for "Listening at: http://0.0.0.0:8088"
+docker compose up -d
+docker compose logs -f superset       # wait for "Listening at: http://0.0.0.0:8088"
 curl -I http://localhost:8088          # expect: HTTP/1.1 302 FOUND
 ```
 
