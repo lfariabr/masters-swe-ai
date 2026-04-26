@@ -29,8 +29,8 @@
 | # | Task | Status |
 |---|------|--------|
 | 1 | **Read & summarise Deshmukh (2019) — Stakeholder management in DS** | ✅ |
-| **2** | **Read & summarise Bergstein (2018) — The Great AI Paradox** | ✅ |
-| **3** | **Listen & summarise Berebichez (2019) — Critical Thinking in Data Science** | ✅ |
+| 2 | **Read & summarise Bergstein (2018) — The Great AI Paradox** | ✅ |
+| 3 | **Listen & summarise Berebichez (2019) — Critical Thinking in Data Science** | ✅ |
 | 4 | Read & summarise Advanced Communication Techniques short course | 🔥 WIP |
 | 5 | Read & summarise Ethical Design for Intelligent Systems short course | 🔥 WIP |
 | **6** | **Watch & summarise Paulhamus (2018) — Our Future with Intelligent Systems (TEDx)** | ✅ |
@@ -331,3 +331,8 @@ Tay was a Twitter chatbot designed by Microsoft to learn from interactions with 
 > The core lesson: data governance for learning systems must be *continuous*, not just a pre-training step, because the data distribution can be poisoned at runtime.
 >
 > *Status: 🕐 To-Do — draft above, needs finalisation for submission*
+
+---
+
+### Extra: Visualizing transformers and attention | Talk for TNG Big Tech Day '24
+- https://www.youtube.com/watch?v=KJtZARuO3JY
