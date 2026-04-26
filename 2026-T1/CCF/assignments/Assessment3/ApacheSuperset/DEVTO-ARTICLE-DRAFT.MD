@@ -136,7 +136,7 @@ services:
     networks: [superset-network]
 
   superset:
-    image: apache/superset:latest
+    image: apache/superset:6.0.0
     depends_on: [postgres, redis]
     environment:
       SUPERSET_SECRET_KEY: <openssl-rand-base64-42>
@@ -223,11 +223,13 @@ After the Azure deployment was finished, I ran the same stack on **AWS EC2 / Ama
 Three things bit me on AWS that did not bite on Azure:
 
 1. **Amazon Linux 2023 is RPM-based**, not Debian. `apt update` fails. Switch to `dnf`.
-2. **The Docker Compose plugin isn't bundled** in the default `docker` package on AL2023. `docker compose up` returns "command not found." Install the standalone binary manually:
+2. **The Docker Compose plugin isn't bundled** in the default `docker` package on AL2023, and there's no `docker-compose-plugin` in the AL2023 repo either. `docker compose up` returns "command not found." Install the official plugin into Docker's CLI plugins directory:
    ```bash
-   sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-linux-x86_64" \
-     -o /usr/local/bin/docker-compose
-   sudo chmod +x /usr/local/bin/docker-compose
+   sudo mkdir -p /usr/libexec/docker/cli-plugins
+   sudo curl -SL "https://github.com/docker/compose/releases/latest/download/docker-compose-linux-x86_64" \
+     -o /usr/libexec/docker/cli-plugins/docker-compose
+   sudo chmod +x /usr/libexec/docker/cli-plugins/docker-compose
+   docker compose version
    ```
 3. **My ISP silently blocks outbound port 8088.** The Security Group was open. Curl on the VM returned 302. The browser timed out. Fix: an SSH tunnel through port 22, which every network allows:
    ```bash
