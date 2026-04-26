@@ -28,7 +28,7 @@
 
 | # | Task | Status |
 |---|------|--------|
-| **1** | **Read & summarise Deshmukh (2019) — Stakeholder management in DS** | ✅ |
+| 1 | **Read & summarise Deshmukh (2019) — Stakeholder management in DS** | ✅ |
 | **2** | **Read & summarise Bergstein (2018) — The Great AI Paradox** | ✅ |
 | **3** | **Listen & summarise Berebichez (2019) — Critical Thinking in Data Science** | ✅ |
 | 4 | Read & summarise Advanced Communication Techniques short course | 🔥 WIP |
