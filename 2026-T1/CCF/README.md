@@ -50,5 +50,5 @@ Dr. Divya Leekha
 
 ## Assignments
 - [X] Assessment 1 - deadline 15/03/2026 ✅, **Technology Report and Presentation** on *The Key Contributions of Cloud Computing to Business Automation*, 81/100 pts
-- [X] Assessment 2 - deadline 12/04/2026 ✅, **Case Study** on *Analysis of Cloud Services and Deployment Models*, ??/100 pts
+- [X] Assessment 2 - deadline 12/04/2026 ✅, **Case Study** on *Analysis of Cloud Services and Deployment Models*, 85/100 pts
 - [X] Assessment 3 - deadline 06/05/2026 ✅, **Case Study** on *Cloud Application Deployment*, ??/100 pts
