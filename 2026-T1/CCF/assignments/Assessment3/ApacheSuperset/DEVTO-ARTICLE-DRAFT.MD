@@ -4,13 +4,13 @@ Tags: #cloudcomputing #azure #apache #superset #dataengineering
 
 ---
 
-**Assessment 1 taught me how to *reason* about cloud architecture. Assessment 3 forced me to *put one on the wire* — and prove it works.**
+**Assessment 1 taught me how to *reason* about cloud architecture. Assessment 3 forced me to *put one on the wire* - and prove it works.**
 
 ---
 
 ## The Jump From Diagrams to Reality
 
-Six weeks ago I wrote my CCF501 Assessment 1 — a 1,500-word architecture proposal for a fictional startup, full of NIST characteristics and Mermaid diagrams (read: [CCF501 Assessment 1 write-up](https://github.com/lfariabr/masters-swe-ai/tree/master/docs/refs/devToRefs/CCFAssessment1.md)).
+A couple of weeks ago I wrote my CCF501 Assessment 1, a 1,500-word architecture proposal for a fictional startup, full of NIST characteristics and Mermaid diagrams (read: [CCF501 Assessment 1 write-up](https://dev.to/lfariaus/designing-a-cloud-architecture-from-scratch-my-ccf501-assessment-1-4c25)).
 
 Assessment 3 was different: The brief gave me four tasks: resource group, virtual network, firewall, application - and asked me to actually do them on a real cloud, with real screenshots, on a public IP. No more reasoning about Auto Scaling: Provision the VM, open the port and make the application return a 200.
 
@@ -22,7 +22,7 @@ This article is the deployment story documenting what I built, why I picked an o
 
 ## Course Context: CCF501 in 12 Weeks
 
-I'm doing my Master's in Software Engineering & AI ([open-sourced repo with +900 commits in ~1 year of work](https://github.com/lfariabr/masters-swe-ai)) at Torrens University Australia. **CCF501 Cloud Computing Fundamentals** is one of the two subjects in my current term (T1-2026). The 12-week ride covers ground in this order:
+I'm doing my Master's in Software Engineering & AI ([open-sourced repo with +900 commits in ~1 year of work](https://github.com/lfariabr/masters-swe-ai)) at Torrens University Australia. **[CCF501 Cloud Computing Fundamentals](https://github.com/lfariabr/masters-swe-ai/tree/master/2026-T1/CCF/)** is one of the two subjects in my current term (T1-2026). The 12-week ride covers ground in this order:
 
 1. Traditional vs modern computing
 2. Cloud essentials (NIST 5)
@@ -39,7 +39,7 @@ I'm doing my Master's in Software Engineering & AI ([open-sourced repo with +900
 
 The assessments mirror that arc. Assessment 1 (week 4): a technology report on cloud's contribution to business automation; Assessment 2 (week 8): a case study comparing deployment models; Assessment 3 (week 12): build something. The whole subject converges on one question: *can you actually deploy and secure a real application?*
 
-In parallel, I'm taking **ISY503 Intelligent Systems**, and the more I sit with that coursework, the more obvious it gets: an Machine Learning model on a laptop helps nobody. Deployment is the work and CCF501 makes that real.
+In parallel, I'm taking [**ISY503 Intelligent Systems**](https://github.com/lfariabr/masters-swe-ai/tree/master/2026-T1/ISY), and the more I sit with that coursework, the more obvious it gets: a ML model on a laptop helps nobody. Deployment is the work and CCF501 makes that real.
 
 ---
 
@@ -56,7 +56,7 @@ I picked [**Apache Superset**](https://superset.apache.org/) - an open-source da
 3. **Career fit.** I work as a Data Analyst at a school in Sydney, building SQL pipelines and reports. Superset is the cloud-deployed version of that exact work, and it feeds directly into my T4 subject **BDA601 Big Data & Analytics** in T1-2027. The deployment becomes infrastructure for the next subject, not a throwaway.
 4. **Differentiation.** Nobody else in the cohort is deploying Superset. Off-list choice → harder to defend → deeper learning → stronger portfolio piece.
 
-I considered Metabase (simpler, faster) and MLflow (better long-term MLOps story). Both are legit. Superset won because the trade - slightly higher complexity for a richer governance story and a Python-aligned platform — was the one I wanted to make. See my [brainstorm notes here](https://github.com/lfariabr/masters-swe-ai/tree/master/2026-T1/CCF/assignments/Assessment3/brainstorm.md)
+I considered Metabase (simpler, faster) and MLflow (better long-term MLOps story). Both are legit. Superset won because the trade: slightly higher complexity for a richer governance story and a Python-aligned platform, was the one I wanted to make. See my [*brainstorm notes here*](https://github.com/lfariabr/masters-swe-ai/tree/master/2026-T1/CCF/assignments/Assessment3/brainstorm.md)
 
 ---
 
@@ -122,7 +122,7 @@ newgrp docker
 
 ### 3. Drop in the Docker Compose stack
 
-A trimmed version of the working `docker-compose.yml` (real secrets pulled — replace with environment variables before you ever push this anywhere):
+A trimmed version of the working `docker-compose.yml` (real secrets pulled, replace with environment variables before you ever push this anywhere):
 
 ```yaml
 services:
@@ -194,7 +194,7 @@ docker compose logs -f superset   # wait for "Listening at: http://0.0.0.0:8088"
 curl -I http://localhost:8088     # expect: HTTP/1.1 302 FOUND
 ```
 
-Then in a browser, the Azure VM's public IP on port 8088 — `http://<public-ip>:8088` - and the Superset login screen renders.
+Then in a browser, the Azure VM's public IP on port 8088 - `http://<public-ip>:8088` - and the Superset login screen renders.
 
 ![Apache Superset login screen running on Azure port 8088](UPLOAD_IMAGE_HERE)
 
@@ -204,7 +204,7 @@ Then in a browser, the Azure VM's public IP on port 8088 — `http://<public-ip>
 
 This is the step that turns "the server responded" into "the application works": upload three CSVs, build a real dashboard, and configure the three RBAC roles.
 
-The datasets I used ([data here](https://github.com/lfariabr/masters-swe-ai/tree/master/2026-T1/CCF/assignments/Assessment3/ApacheSuperset/sample-data)):
+The sample datasets I used ([data here](https://github.com/lfariabr/masters-swe-ai/tree/master/2026-T1/CCF/assignments/Assessment3/ApacheSuperset/sample-data)):
 
 - `cloud_costs_demo.csv` — Azure cost by service / environment.
 - `superset_usage_demo.csv` — Superset activity by user role.
@@ -222,11 +222,13 @@ Three charts: a bar chart of Azure cost by service, a line chart of Superset usa
 
 Cloud security is a stack of decisions, each one narrowing the attack surface a little more.
 
-**Network layer (NSG):** Deny-all default inbound. Two explicit allows: SSH on port 22 (source-restricted to my IP only) and Superset on port 8088. No port 80, no port 443, TLS is intentionally out of scope for v1, called out as an improvement (more below). The point is that *every open port must have a reason*.
+#### **Network layer (NSG):** 
+Deny-all default inbound. Two explicit allows: SSH on port 22 (source-restricted to my IP only) and Superset on port 8088. No port 80, no port 443, TLS is intentionally out of scope for v1, called out as an improvement (more below). The point is that *every open port must have a reason*.
 
-**OS layer:** SSH key-based authentication only. Password auth disabled in `/etc/ssh/sshd_config`. The IP allowlist on port 22 already limits exposure; key-only auth means even an exposed port won't fall to a brute-force.
+#### **OS layer:** 
+SSH key-based authentication only. Password auth disabled in `/etc/ssh/sshd_config`. The IP allowlist on port 22 already limits exposure; key-only auth means even an exposed port won't fall to a brute-force.
 
-**Application layer (Superset RBAC):**
+#### **Application layer (Superset RBAC):**
 
 | Role | What they can do | Who gets it |
 |---|---|---|
@@ -236,19 +238,21 @@ Cloud security is a stack of decisions, each one narrowing the attack surface a 
 
 This is where Superset earns its keep over a simpler tool. The 20% governance criterion stops being theoretical when you can show three actual users, three actual permission sets, and three different views of the same dashboard.
 
-**Credential layer:** the Superset secret key, the Postgres password, and the admin password all live in environment variables, never hardcoded, never committed to the repo. The version of `docker-compose.yml` checked into the project uses placeholders.
+#### **Credential layer:** 
+the Superset secret key, the Postgres password, and the admin password all live in environment variables, never hardcoded, never committed to the repo. The version of `docker-compose.yml` checked into the project uses placeholders.
 
 ![Apache Superset RBAC roles showing Admin, Alpha, and Gamma](UPLOAD_IMAGE_HERE)
 
-**The honest gap:** no TLS in v1. Credentials travel in plaintext over HTTP. For a marked deployment that lives two days then gets deallocated, the risk is contained. For anything real, the next step is Azure Application Gateway or an nginx reverse proxy with Let's Encrypt, which has been called out explicitly in the report's robustness section.
+#### **The honest gap:** 
+no TLS in v1. Credentials travel in plaintext over HTTP. For a marked deployment that lives two days then gets deallocated, the risk is contained. For anything real, the next step is Azure Application Gateway or an nginx reverse proxy with Let's Encrypt, which has been called out explicitly in the report's robustness section.
 
-Other production improvements queued up: Azure Database for PostgreSQL instead of a containerised Postgres (automated backups, HA), Celery workers off the Redis broker for long async queries (the Konquista pattern I built before with Django + Celery + Redis), Azure Monitor for alerts before the VM falls over.
+Other production improvements queued up: Azure Database for PostgreSQL instead of a containerised Postgres (automated backups, HA), Celery workers off the Redis broker for long async queries (the [*Konquista*](https://dev.to/lfariaus/from-google-sheets-to-a-scalable-saas-building-konquista-with-python-and-django-46mh) pattern I built before with Django + Celery + Redis), Azure Monitor for alerts before the VM falls over.
 
 ---
 
 ## AWS Portability Note
 
-After the Azure deployment was finished, I ran the same stack on **AWS EC2 / Amazon Linux 2023** to test how portable the architecture really was. Same VPC + Security Group + EC2 + Docker Compose pattern with the same three-container stack and the same RBAC.
+After the Azure deployment was finished, I ran the same stack on **AWS ([*Amazon Web Services*](https://aws.amazon.com/)) EC2 / Amazon Linux 2023** to test how portable the architecture really was. Same VPC + Security Group + EC2 + Docker Compose pattern with the same three-container stack and the same RBAC.
 
 Three things bit me on AWS that did not bite on Azure:
 
@@ -308,9 +312,9 @@ Studying for a Master's while working a 9-5 job means assignments stop being abs
 
 - 📋 [Assessment Brief - CCF501 Assessment 3](https://github.com/lfariabr/masters-swe-ai/tree/master/2026-T1/CCF/assignments/Assessment3/CCF501_Assessment3.md)
 - 🛠️ [Deployment notes + technical artifacts](https://github.com/lfariabr/masters-swe-ai/tree/master/2026-T1/CCF/assignments/Assessment3/ApacheSuperset)
-- 🐧 [AWS variant - pitfall log included](https://github.com/lfariabr/masters-swe-ai/tree/master/2026-T1/CCF/assignments/Assessment3/ApacheSuperset/IMPLEMENTATION-PLAN-AWS.md)
-- 📄 [My CCF501 Assessment 1 article](https://dev.to/lfariaus/designing-a-cloud-architecture-from-scratch-my-ccf501-assessment-1-4c25) — the architecture-design predecessor to this one
-- My [Submitted Report](https://github.com/lfariabr/masters-swe-ai/tree/master/2026-T1/CCF/assignments/Assessment3/CCF501_Faria_L_Assessment_3.pdf) covering the case in granular detail.
+- 🔀 [AWS variant - pitfall log included](https://github.com/lfariabr/masters-swe-ai/tree/master/2026-T1/CCF/assignments/Assessment3/ApacheSuperset/IMPLEMENTATION-PLAN-AWS.md)
+- 📄 [My CCF501 Assessment 1 article](https://dev.to/lfariaus/designing-a-cloud-architecture-from-scratch-my-ccf501-assessment-1-4c25) - the architecture-design predecessor to this one
+- ✔️ [My Cloud Application Report submitted](https://github.com/lfariabr/masters-swe-ai/tree/master/2026-T1/CCF/assignments/Assessment3/CCF501_Faria_L_Assessment_3.pdf) covering the case in granular detail.
 
 If you're deploying something open-source on a cloud provider for the first time, what surprised you most: the infrastructure, the security choices, or the network getting in your way?
 
