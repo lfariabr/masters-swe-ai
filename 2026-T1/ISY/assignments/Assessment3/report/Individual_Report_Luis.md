@@ -22,9 +22,9 @@
 
 | Team Member | Student ID | Main Contribution | % |
 |---|---|---|---:|
-| Luis Faria | A00187785 | Full technical implementation, app, tests, docs | 60% |
-| Victor Meneses | A00179705 | Dataset, error analysis, ethics presentation | 20% |
-| Samiran Shrestha | A00106473 | Problem framing, live demo, future work | 20% |
+| Luis Faria | A00187785 | Full v1.0.0 technical implementation, app, tests, docs, PR hardening | 60% |
+| Victor Meneses | A00179705 | DistilBERT implementation (v2.0.0), dataset analysis, error analysis, ethics presentation | 25% |
+| Samiran Shrestha | A00106473 | Problem framing, live demo, future work | 15% |
 | **Total** | | | **100%** |
 
 ### 3. Draft Report (~250 words)
@@ -35,7 +35,7 @@ On the data side, I built the pseudo-XML parser (`src/parser.py`), the preproces
 
 An important ethical consideration is that the Blitzer et al. (2007) dataset uses filename-derived labels rather than human raters. Because the dataset uses filename-derived labels rather than direct human annotation, we audited for possible rating/text conflicts and ambiguous boundary cases. In this dataset, we found zero ambiguous rows, but the risk remains relevant in broader sentiment classification settings. BiLSTM confidence values are also uncalibrated — 98% confidence does not imply 98% accuracy — and the model generalises poorly to out-of-distribution text such as logistics reviews (Bender et al., 2021). Any production deployment requires human oversight and periodic label audits.
 
-I estimate my contribution at 60% as the primary technical implementer. Victor contributed 20% covering dataset analysis, error analysis, and ethics. Samiran contributed 20% covering the problem framing, live demo delivery, and future work.
+I estimate my contribution at 60% as the primary v1.0.0 technical implementer. Victor contributed 25% covering the DistilBERT implementation (v2.0.0), dataset analysis, error analysis, and ethics. Samiran contributed 15% covering the problem framing, live demo delivery, and future work.
 
 ### 4. Appendices
 
@@ -69,9 +69,10 @@ Full results: https://github.com/lfariabr/review-pulse/blob/main/docs/demo-test-
 
 | Priority | Extension | Rationale |
 |---|---|---|
-| High | DistilBERT / RoBERTa | Contextual embeddings handle negation and sarcasm through attention — the shared failure mode in both current models |
-| High | Confidence calibration (Platt scaling) | BiLSTM logits are uncalibrated; 98% confidence ≠ 98% accuracy |
-| Medium | Additional training domains | Current model is trained on 4 product categories only; broader domains would validate generalisation |
+| Shipped | DistilBERT (v2.0.0) | Victor implemented Hugging Face `distilbert-base-uncased`; test F1 88.6%, live in app |
+| High | RoBERTa | Larger pretrained transformer; expected to push F1 beyond 90% |
+| High | Confidence calibration (Platt scaling) | DistilBERT and BiLSTM logits are uncalibrated; high confidence ≠ high accuracy |
+| Medium | Additional training domains | Current models trained on 4 product categories only; broader domains would validate generalisation |
 | Medium | LIME / attention visualisation | Makes predictions auditable — necessary for any production or high-stakes deployment |
 | Low | FastAPI backend | Decouple inference from Streamlit for easier integration with external systems |
 

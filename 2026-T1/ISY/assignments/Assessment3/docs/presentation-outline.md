@@ -24,11 +24,11 @@ For slide-by-slide speaker notes and suggested wording, see `review-pulse/docs/p
 4. **Data pipeline** *(Luis)* — parse → clean → audit → outlier removal → stratified split · negation expansion decision
 5. **Model architecture** *(Luis)* — TF-IDF + LogReg baseline · BiLSTM + GloVe · pack_padded_sequence
 6. **Training** *(Luis)* — Adam · BCEWithLogitsLoss · gradient clipping · F1 checkpoint · epoch 9 best
-7. **Evaluation results** *(Luis)* — test set: TF-IDF 81.9% F1 vs BiLSTM 80.3% · honest finding
-8. **Error analysis** *(Victor)* — 220 misclassified · negation / sarcasm / out-of-distribution failure modes
-9. **Live demo** *(Samiran)* — Streamlit app · positive / negative / negation trap / sarcasm / Generate button
+7. **Evaluation results** *(Luis)* — test set: TF-IDF 81.9% F1 · BiLSTM 80.3% · DistilBERT 88.6% · honest v1 finding + v2 leap
+8. **Error analysis** *(Victor)* — 220 misclassified (v1) · negation / sarcasm / out-of-distribution failure modes
+9. **Live demo** *(Samiran)* — Streamlit app · all three models · negation comparison across v1/v2 · Generate button
 10. **Ethical considerations** *(Victor)* — label noise · domain bias · uncalibrated confidence · dataset age · deployment risk
-11. **Future work** *(Samiran)* — DistilBERT/RoBERTa · Platt scaling · more domains · LIME explainability
+11. **Future work** *(Samiran)* — DistilBERT shipped (v2.0.0) · RoBERTa next · Platt scaling · more domains · LIME explainability
 12. **Summary & questions** *(Luis)* — full pipeline recap · honest result · GitHub link · Q&A
 
 ---
