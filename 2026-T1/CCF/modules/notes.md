@@ -1172,6 +1172,14 @@ Post your answers (in no more than 200 words in total) in the Module 11 Discussi
 
 ### TLDR
 
+- **Cloud security policy** combines DDoS defence, application-layer firewalls, SIEM platforms, and formalised risk frameworks — each major provider has its own toolset.
+- **AWS Shield** (Standard/Advanced) auto-mitigates L3/L4 attacks; **AWS WAF** handles L7 HTTP threats via web ACLs, rules, and managed rule groups.
+- **Microsoft Sentinel** is Azure's cloud-native SIEM/SOAR — ML-driven, low false-positive rate; MSSPs wrap it into affordable managed-security products (e.g., Quorum's Cyber One).
+- **NIST RMF** (SP 800-37) provides a vendor-neutral 6-step cycle — Categorise → Select → Implement → Assess → Authorise → Monitor — applicable to both providers and consumers.
+- Security policy effectiveness depends equally on governance, compliance (PCI-DSS, HIPAA, GDPR), and continuous monitoring — not technology alone.
+
+*Sources: [AWS Shield/WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/) · [Microsoft Sentinel docs](https://learn.microsoft.com/en-us/azure/sentinel/) · NIST SP 800-37 (RMF) · PCI-DSS v4.0 · HIPAA Security Rule · GDPR Art. 32*
+
 ### Introduction
 Module 12 focuses on ensuring the safe use of cloud-based solutions in industries. This module will introduce you to the overarching themes of IT governance and the importance of implementing security policies to protect sensitive information. Through this module, you will explore various topics including cloud security, data privacy and the implementation of security policies at various providers. You will gain a comprehensive understanding of these concepts as well as practical skills for implementing and managing security policies. Furthermore, you will gain new insights into the importance of IT governance and the role it plays in safeguarding industry solutions.
 
@@ -1186,7 +1194,7 @@ So, how do the major cloud providers differ in what they offer to businesses in 
     
     Although AWS has many solutions at its disposal to provide cloud security, this use case demonstrates the specific cloud security application that the company OutSystems (a low-code platform offering tools for companies to build, launch and oversee cross-channel business apps) chose to use in order to achieve scalable security solution. Read the sections in the case study titled “Opportunity”, “Solution” and “Outcome” to learn about AWS Shield Advanced, which is a security application to filter out Distributed Denial-of-Service (DDoS) traffic to protect the vendor OutSystems’ cloud web applications hosted in AWS.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module12_notes.md](module_12_security-policy/module12_notes.md)*
 
 #### 2. Deploying Cloud Security Application in AWS
 - Carpenter, T. (2020). Web application firewall [Video]. In AWS Certified Solutions Architect – Associate (SAA-C02) Cert Prep: 7 Application deployment. LinkedIn Learning. https://www.linkedin.com/learning/aws-certified-solutions-architect-associate-saa-c02-cert-prep-7-application-deployment/web-application-firewall-waf?u=56744473
@@ -1217,16 +1225,16 @@ So, how do the major cloud providers differ in what they offer to businesses in 
     
     In this case study, you will read how an Australian cloud-security company, Quorum Systems, provide cloud-based IT solutions using Microsoft Cloud Solutions. Quorum Systems uses Microsoft’s Sentinel cloud application to provide cybersecurity for its customers. Once again, follow through the links within the case study to learn about the features of Microsoft Sentinel utilised by Quorum Systems to deliver an integrated cyber security platform called “Cyber One.”
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module12_notes.md](module_12_security-policy/module12_notes.md)*
 
 #### 5. NIST's Recommendations for Cloud Security Policy
 - RSI Security. (2022, May 3). Understanding cloud security policy: NIST's recommendati ons. RSI. https://blog.rsisecurity.com/understanding-cloud-security-policy-nists-recommendations/
 
 *Resource Overview:*
     
-    National Institute of Standards and Technology (NIST) has developed a framework for managing risk called “Managing Risk in the Cloud” for organisations. Note that risk management depends on the organisation’s policy which states which risks are to be managed and which risks are to be mitigated. Read this resource to learn about NIST's risk management framework for cloud which helps business organisations to create an effective policy on cloud risk management. Effective policies allow organisations to devise optimum mitigation strategies while ensuring optimum availability in the cloud.
+    National Institute of Standards and Technology (NIST) has developed a framework for managing risk called “Managing Risk in the Cloud” for organisations. Note that risk management depends on the organisation’s policy which states which risks are to be managed and which risks are to be mitigated. Read this resource to learn about NIST’s risk management framework for cloud which helps business organisations to create an effective policy on cloud risk management. Effective policies allow organisations to devise optimum mitigation strategies while ensuring optimum availability in the cloud.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module12_notes.md](module_12_security-policy/module12_notes.md)*
 
 #### 6. Creating Firewall Policies for Web Application Deployment in the Azure
 - Kaushal, S. (2022). Create Azure firewall policies [Video]. In Securing cloud resources with Microsoft Defender for cloud. LinkedIn Learning. https://www.linkedin.com/learning/securing-cloud-resources-with-microsoft-defender-for-cloud/create-azure-firewall-policies?autoplay=true&resume=false&u=72036930
