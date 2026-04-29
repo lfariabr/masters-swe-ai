@@ -1178,6 +1178,8 @@ Post your answers (in no more than 200 words in total) in the Module 11 Discussi
 - **NIST RMF** (SP 800-37) provides a vendor-neutral 6-step cycle — Categorise → Select → Implement → Assess → Authorise → Monitor — applicable to both providers and consumers.
 - Security policy effectiveness depends equally on governance, compliance (PCI-DSS, HIPAA, GDPR), and continuous monitoring — not technology alone.
 
+*Sources: [AWS Shield/WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/) · [Microsoft Sentinel docs](https://learn.microsoft.com/en-us/azure/sentinel/) · NIST SP 800-37 (RMF) · PCI-DSS v4.0 · HIPAA Security Rule · GDPR Art. 32*
+
 ### Introduction
 Module 12 focuses on ensuring the safe use of cloud-based solutions in industries. This module will introduce you to the overarching themes of IT governance and the importance of implementing security policies to protect sensitive information. Through this module, you will explore various topics including cloud security, data privacy and the implementation of security policies at various providers. You will gain a comprehensive understanding of these concepts as well as practical skills for implementing and managing security policies. Furthermore, you will gain new insights into the importance of IT governance and the role it plays in safeguarding industry solutions.
 

@@ -34,7 +34,7 @@
 
 **Citation:** Amazon Web Services. (2022). Cost and time savings achieved, security posture strengthened using AWS Shield Advanced with OutSystems. https://aws.amazon.com/solutions/case-studies/outsystems-case-study/
 
-**Purpose:** Demonstrates how OutSystems — a low-code platform — deployed AWS Shield Advanced to achieve a scalable, managed DDoS defence for their cloud web applications on AWS. *(Note: the original case study URL redirects; the highlights below synthesise the resource overview with supplementary AWS technical material.)*
+**Purpose:** Demonstrates how OutSystems — a low-code platform — deployed AWS Shield Advanced to achieve a scalable, managed DDoS defence for their cloud web applications on AWS. *(Note: the original case study URL redirects; the highlights below synthesise the resource overview with technical content from the AWS Shield/WAF Developer Guide (AWS, 2023) and the AWS video "Defending Against DDoS: Comprehensive Protection with AWS Shield and WAF" (AWS, 2024, https://aws.amazon.com/video/watch/9a7d7de112e/).)*
 
 ---
 
@@ -136,7 +136,7 @@
 
 #### Key Takeaways for CCF501
 
-1. Microsoft Sentinel is the Azure-native equivalent of AWS Security Hub + WAF threat intelligence — cloud providers converge on ML-powered, centralised security operations.
+1. **Microsoft Sentinel** is an Azure-native SIEM/SOAR for centralised security operations — it ingests, correlates, and responds to threats across the estate. AWS Security Hub is a complementary (not equivalent) service: it aggregates and correlates security findings from AWS services, but lacks Sentinel's full SOAR automation. AWS WAF is a separate L7 HTTP protection layer that can feed findings into a SIEM; the two are complementary, not interchangeable. Both ecosystems converge on the same goal: ML-powered, centralised security operations.
 2. This case study is a direct comparison point for Activity 1: a cloud-native accounting firm (CountPlus, post-digital era) uses cloud-native security tools; a pre-digital firm would likely have legacy on-prem SIEM integration challenges.
 3. MSSPs like Quorum demonstrate how cloud security policy is *operationalised* in practice — not just configured once but continuously monitored, scored, and improved.
 
@@ -232,7 +232,7 @@ The SDLC phases align to RMF to ensure security is continuous:
 
 **Q1: What are the main components of AWS WAF?**
 
-- **Web ACL (Access Control List)**: An ordered list of rules applied to incoming HTTP/S requests. The first matching rule determines the action taken; subsequent rules are not evaluated.
+- **Web ACL (Access Control List)**: An ordered list of rules applied to incoming HTTP/S requests. Rules are evaluated in order; **terminating actions** (Allow, Block, CAPTCHA, Challenge) stop further evaluation when matched. **Non-terminating actions** (Count) do not stop evaluation — subsequent rules continue to be checked. If no terminating rule matches, the Web ACL's default action applies.
 - **Rules**: Evaluate request attributes (URI, headers, query strings, body, source IP, geolocation, request size) using string matches, regex patterns, or size conditions. Rules can combine AND/OR/NOT logic.
 - **Rule Groups**: Reusable sets of rules that can be shared across multiple web ACLs.
 - **Amazon Managed Rules (AMRs)**: Pre-built rule sets maintained by AWS covering general threats, OS-specific threats, application-specific threats (e.g., WordPress), bot/fraud detection, and Amazon threat intelligence (e.g., known DDoS source IPs).
