@@ -278,18 +278,6 @@ That third one cost an extra hour of debugging, and produced one of the term's m
 
 ---
 
-## The AI-Assisted Workflow (Being honest about it)
-
-This article, and a meaningful chunk of the deployment plan, leaned on AI assistants. I'm going to call that out plainly because it has become the workflow itself, and it is part of how I work.
-
-- **Codex** built the dev.to article plan: structure, length target, tag suggestions, source-file inventory.
-- **Claude** read the source files (deployment notes, technical artifacts, AWS pitfalls, the assessment brief) and produced this draft.
-- **I** made every architecture decision, ran every command, captured every screenshot, fixed the `IsADirectoryError` from a bind-mount that didn't exist yet, debugged the port-8088 ISP problem, and reviewed every word before this article went public.
-
-AI is a planning and drafting accelerator, not a replacement for understanding what you and me deployed or why. Anyone who can't defend their architecture verbally has skipped the part that matters.
-
----
-
 ## What This Term Taught Me
 
 Three things I'm taking forward:
@@ -313,8 +301,10 @@ Studying for a Master's while working a 9-5 job means assignments stop being abs
 - 📋 [Assessment Brief - CCF501 Assessment 3](https://github.com/lfariabr/masters-swe-ai/tree/master/2026-T1/CCF/assignments/Assessment3/CCF501_Assessment3.md)
 - 🛠️ [Deployment notes + technical artifacts](https://github.com/lfariabr/masters-swe-ai/tree/master/2026-T1/CCF/assignments/Assessment3/ApacheSuperset)
 - 🔀 [AWS variant - pitfall log included](https://github.com/lfariabr/masters-swe-ai/tree/master/2026-T1/CCF/assignments/Assessment3/ApacheSuperset/IMPLEMENTATION-PLAN-AWS.md)
-- 📄 [My CCF501 Assessment 1 article](https://dev.to/lfariaus/designing-a-cloud-architecture-from-scratch-my-ccf501-assessment-1-4c25) - the architecture-design predecessor to this one
-- ✔️ [My Cloud Application Report submitted](https://github.com/lfariabr/masters-swe-ai/tree/master/2026-T1/CCF/assignments/Assessment3/CCF501_Faria_L_Assessment_3.pdf) covering the case in granular detail.
+- 📄 [CCF501 Assessment 1 article](https://dev.to/lfariaus/designing-a-cloud-architecture-from-scratch-my-ccf501-assessment-1-4c25) - the architecture-design predecessor to this one
+- [Assessment 1 submission](https://github.com/lfariabr/masters-swe-ai/blob/master/2026-T1/CCF/assignments/Assessment1/drafts/report/vf_CCF501_Faria_L_Assessment_1.pdf)
+- [Assessment 2 submission](https://github.com/lfariabr/masters-swe-ai/blob/master/2026-T1/CCF/assignments/Assessment2/drafts/vf_CCF501_Faria_L_Assessment_2.pdf)
+- [Assessment 3 submission](https://github.com/lfariabr/masters-swe-ai/tree/master/2026-T1/CCF/assignments/Assessment3/CCF501_Faria_L_Assessment_3.pdf) covering the case in granular detail.
 
 If you're deploying something open-source on a cloud provider for the first time, what surprised you most: the infrastructure, the security choices, or the network getting in your way?
 
