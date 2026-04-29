@@ -46,7 +46,7 @@ Dr. Divya Leekha
 - [X] Module 9 ✅ - Governance / Legal obligations of Cloud Providers and Consumers
 - [X] Module 10 ✅ - Security Threats while in cloud - Mitigation and Identification
 - [ ] Module 11 🔥 - Security Policy – Planning and management
-- [ ] Module 12 - Implementation of Security Policy at various providers
+- [ ] Module 12 🔥 - Implementation of Security Policy at various providers
 
 ## Assignments
 - [X] Assessment 1 - deadline 15/03/2026 ✅, **Technology Report and Presentation** on *The Key Contributions of Cloud Computing to Business Automation*, 81/100 pts

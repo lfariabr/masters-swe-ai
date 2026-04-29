@@ -1168,6 +1168,103 @@ Post your answers (in no more than 200 words in total) in the Module 11 Discussi
 
 ---
 
+## Module 12 - Implementation of Security Policy
+
+### TLDR
+
+### Introduction
+Module 12 focuses on ensuring the safe use of cloud-based solutions in industries. This module will introduce you to the overarching themes of IT governance and the importance of implementing security policies to protect sensitive information. Through this module, you will explore various topics including cloud security, data privacy and the implementation of security policies at various providers. You will gain a comprehensive understanding of these concepts as well as practical skills for implementing and managing security policies. Furthermore, you will gain new insights into the importance of IT governance and the role it plays in safeguarding industry solutions.
+
+So, how do the major cloud providers differ in what they offer to businesses in terms of security? As they compete to achieve more market share, you would expect them to be quite neck-and-neck in terms of offerings and efficacy of the services they provide. Is this really the case? Keep an eye out as you read through the resources and see if you can spot any differences.
+
+### Resources
+
+#### 1. Improving Security Posture Utilising AWS Shield
+- Amazon Web Services. (2022). Cost and time savings achieved, security posture strengthened using AWS Shield Advanced with OutSystems. https://aws.amazon.com/solutions/case-studies/outsystems-case-study/?did=cr_card&trk=cr_card
+
+*Resource Overview:*
+    
+    Although AWS has many solutions at its disposal to provide cloud security, this use case demonstrates the specific cloud security application that the company OutSystems (a low-code platform offering tools for companies to build, launch and oversee cross-channel business apps) chose to use in order to achieve scalable security solution. Read the sections in the case study titled “Opportunity”, “Solution” and “Outcome” to learn about AWS Shield Advanced, which is a security application to filter out Distributed Denial-of-Service (DDoS) traffic to protect the vendor OutSystems’ cloud web applications hosted in AWS.
+
+> *Status: 🕐 To-Do*
+
+#### 2. Deploying Cloud Security Application in AWS
+- Carpenter, T. (2020). Web application firewall [Video]. In AWS Certified Solutions Architect – Associate (SAA-C02) Cert Prep: 7 Application deployment. LinkedIn Learning. https://www.linkedin.com/learning/aws-certified-solutions-architect-associate-saa-c02-cert-prep-7-application-deployment/web-application-firewall-waf?u=56744473
+
+*Resource Overview:*
+    
+    The previous resource had introduced you to AWS Shield Advanced, a key security solution offered by AWS. Now, you will be introduced to AWS web application firewall (WAF). Note that the AWS Shield Advanced and the AWS WAF provides comprehensive cloud security solutions by combining with the AWS firewall manager. The main purpose of AWS WAF is to monitor incoming traffic to web applications and control unauthorised access of user accounts. Watch section 2.2 (approximately 9 minutes) of this resource titled “Web Application Firewall (WAF)” to learn about AWS WAF and how you can configure access control list (ACL) and so on.
+
+> *Status: 🕐 To-Do*
+
+#### 3. Deploying Cloud Security Application in Azure
+- Lachance, D. (2020). Deploying cloud firewall solutions [Video]. In Ethical hacking: Cloud computing. https://www.linkedin.com/learning/ethical-hacking-cloud-computing/deploying-cloud-firewall-solutions?autoplay=true&resume=false&u=72036930
+
+*Resource Overview:*
+
+    In the cloud providers’ market, Microsoft is no stranger to the threats posed to businesses adopting the cloud. In this case, this resource provides an overview of cloud firewall deployment to filter suspicious traffic out of the web applications deployed in Microsoft Azure. Watch the following sections in this resource to learn about security solutions offered by Azure:
+
+    3.3 – Deploying Cloud Firewall Solutions (approximately 5 minutes)
+    4.3 – Encryption and the Cloud (approximately 3 minutes)
+    4.4 – Force HTTPS for Cloud-Hosted Web Applications (approximately 7 minutes)
+
+> *Status: 🕐 To-Do*
+
+#### 4. Cybersecurity Solution Using Microsoft Sentinel in Azure Cloud (Case Study)
+- Microsoft. (2021) . Quorum bases its Cyber One solution on Microsoft Sentinel, easing and lifting security for customers like CountPlus. https://customers.microsoft.com/en-us/story/1435310687711059601-countplus-professional-services-security
+
+*Resource Overview:*
+    
+    In this case study, you will read how an Australian cloud-security company, Quorum Systems, provide cloud-based IT solutions using Microsoft Cloud Solutions. Quorum Systems uses Microsoft’s Sentinel cloud application to provide cybersecurity for its customers. Once again, follow through the links within the case study to learn about the features of Microsoft Sentinel utilised by Quorum Systems to deliver an integrated cyber security platform called “Cyber One.”
+
+> *Status: 🕐 To-Do*
+
+#### 5. NIST's Recommendations for Cloud Security Policy
+- RSI Security. (2022, May 3). Understanding cloud security policy: NIST's recommendati ons. RSI. https://blog.rsisecurity.com/understanding-cloud-security-policy-nists-recommendations/
+
+*Resource Overview:*
+    
+    National Institute of Standards and Technology (NIST) has developed a framework for managing risk called “Managing Risk in the Cloud” for organisations. Note that risk management depends on the organisation’s policy which states which risks are to be managed and which risks are to be mitigated. Read this resource to learn about NIST's risk management framework for cloud which helps business organisations to create an effective policy on cloud risk management. Effective policies allow organisations to devise optimum mitigation strategies while ensuring optimum availability in the cloud.
+
+> *Status: 🕐 To-Do*
+
+#### 6. Creating Firewall Policies for Web Application Deployment in the Azure
+- Kaushal, S. (2022). Create Azure firewall policies [Video]. In Securing cloud resources with Microsoft Defender for cloud. LinkedIn Learning. https://www.linkedin.com/learning/securing-cloud-resources-with-microsoft-defender-for-cloud/create-azure-firewall-policies?autoplay=true&resume=false&u=72036930
+
+*Resource Overview:*
+
+    Previously, we had discussed firewall deployment in Microsoft Azure. Now, you will learn about creating firewall policies. A firewall acts as a filter for incoming traffic aiming to communicate or access web applications. Creating firewall policies are therefore extremely important in the context of security. Watch section 4.2 “Create Azure Firewall Policies” (approximately 12 minutes) of this resource to learn about creating Azure firewall policies.
+
+> *Status: 🕐 To-Do*
+
+### Learning Activities
+
+#### Activity 1: Established vs Newbie – What is Important in a Cloud Provider’s Security Offerings?
+
+Now that you have completed all the modules of this subject, your ‘cloud expert’ status is really rising to new heights! As you have previously ‘provided’ advice to a friend creating a start-up, now it is time to think about how organisations at various stages of their journey may differ in terms of what they look for in a security offering from a cloud provider.
+
+Write a post of about 250 words or less discussing what you believe two separate established organisations may look for from a cloud provider when it comes to a security policy. Choose one that started in the pre-digital era and one that started in the post-digital era.
+
+Post your response in the Module 12 Discussion Forum.
+
+#### Activity 2: Amazon WAF
+- Amazon Web Services. (2023). AWS WAF, AWS Firewall Manager, and AWS Shield Advanced: Developer guide. https://docs.aws.amazon.com/pdfs/waf/latest/developerguide/waf-dg.pdf#what-is-aws-waf
+
+In Read about Amazon WAF in this guide. The topics are:
+- How AWS WAF works (pp. 6–7)
+- Web access control lists (web ACLs) (pp. 11–12)
+- Rule groups (p. 26)
+
+These topics discuss the two main components, namely ACL and rule groups, used to secure web applications in AWS. After reading the topics, answer the following questions:
+
+1. What are the main components of AWS WAF?
+2. List the resources which can be protected using AWS WAF.
+3. Differentiate between rule groups and web ACLs.
+
+Post your answers (in no more than 200 words in total) in the Module 12 Discussion Forum. You should read at least two other students’ posts and provide your comments and feedback to their posts.
+
+---
+
 ```bash
 --- PLACEHOLDER:
 ## Module X - ...
