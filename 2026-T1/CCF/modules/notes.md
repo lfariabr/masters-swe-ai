@@ -1263,6 +1263,22 @@ These topics discuss the two main components, namely ACL and rule groups, used t
 
 Post your answers (in no more than 200 words in total) in the Module 12 Discussion Forum. You should read at least two other students’ posts and provide your comments and feedback to their posts.
 
+#### Activity 3: Activity 3: Amazon Shield Advanced
+- Amazon Web Services. (2023). AWS WAF, AWS Firewall Manager, and AWS Shield Advanced: Developer guide.https://docs.aws.amazon.com/pdfs/waf/latest/developerguide/waf-dg.pdf#what-is-aws-waf
+
+Read the following topics about Amazon Shield Advanced from this resource:
+
+- How Shield Works (p. 369)
+- How AWS Shield detects events (page 374)
+- How AWS Shield mitigates events (p. 377)
+- Mitigation features (p. 378)
+These topics discuss how AWS Shield detects DDoS attacks and how it mitigates them to provide security for hosted web applications in AWS. After reading the topics, answer the following questions:
+
+- List the Open System Interconnection (OSI) layers that AWS Shield provides protection against.
+- How does AWS Shield detect and protect against incoming DDoS attacks?
+
+Post your answers (in no more than 200 words in total) in the Module 12 Discussion Forum . You should again read at least two other students’ posts and provide your comments and feedback to their posts.
+
 ---
 
 ```bash
