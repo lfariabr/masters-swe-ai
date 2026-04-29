@@ -46,7 +46,7 @@ Dr. Nandini Sidnal
 - [X] Module 8 ✅ - Computer Vision
 - [X] Module 9 ✅ - Natural Language Processing
 - [X] Module 10 ✅ - Speech Recognition
-- [ ] Module 11 🔥 - Emotional Intelligence when working with Intelligent Systems
+- [X] Module 11 ✅ - Emotional Intelligence when working with Intelligent Systems
 - [ ] Module 12 🕐 - Deploying Intelligent Systems
 
 ## Assignments
