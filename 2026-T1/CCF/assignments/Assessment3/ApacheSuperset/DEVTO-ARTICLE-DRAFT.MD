@@ -10,9 +10,9 @@ Tags: #cloudcomputing #azure #apache #superset #dataengineering
 
 ## The Jump From Diagrams to Reality
 
-A couple of weeks ago I wrote my CCF501 Assessment 1, a 1,500-word architecture proposal for a fictional startup, full of NIST characteristics and Mermaid diagrams (read: [CCF501 Assessment 1 write-up](https://dev.to/lfariaus/designing-a-cloud-architecture-from-scratch-my-ccf501-assessment-1-4c25)).
+A couple of weeks ago I wrote my Cloud Computing Fundamentals (CCF501) Assessment 1, a 1,500-word architecture proposal for a fictional startup, full of NIST characteristics and Mermaid diagrams (read: [CCF501 Assessment 1 write-up](https://dev.to/lfariaus/designing-a-cloud-architecture-from-scratch-my-ccf501-assessment-1-4c25)).
 
-Assessment 3 was different: The brief gave me four tasks: resource group, virtual network, firewall, application - and asked me to actually do them on a real cloud, with real screenshots, on a public IP. No more reasoning about Auto Scaling: Provision the VM, open the port and make the application return a 200.
+Assessment 3 was different: The brief gave me four tasks: resource group, virtual network, firewall, application - and asked me to actually do them on a real cloud, with real screenshots, on a public IP. No more reasoning about Auto Scaling: provision the VM, open the port and make the application return a 200.
 
 This article is the deployment story documenting what I built, why I picked an open-source tool nobody else in my cohort was deploying, and the security and governance choices I had to defend with evidence instead of paragraphs.
 
@@ -22,7 +22,7 @@ This article is the deployment story documenting what I built, why I picked an o
 
 ## Course Context: CCF501 in 12 Weeks
 
-I'm doing my Master's in Software Engineering & AI ([open-sourced repo with +900 commits in ~1 year of work](https://github.com/lfariabr/masters-swe-ai)) at Torrens University Australia. **[CCF501 Cloud Computing Fundamentals](https://github.com/lfariabr/masters-swe-ai/tree/master/2026-T1/CCF/)** is one of the two subjects in my current term (T1-2026). The 12-week ride covers ground in this order:
+I'm doing my Master's in Software Engineering & AI ([open-sourced repo with +1000 commits in ~1 year of work](https://github.com/lfariabr/masters-swe-ai)) at Torrens University Australia. **[CCF501 - Cloud Computing Fundamentals](https://github.com/lfariabr/masters-swe-ai/tree/master/2026-T1/CCF/)** is one of the two subjects in my current term (T1-2026). The 12-week ride covers ground in this order:
 
 1. Traditional vs modern computing
 2. Cloud essentials (NIST 5)
@@ -39,7 +39,7 @@ I'm doing my Master's in Software Engineering & AI ([open-sourced repo with +900
 
 The assessments mirror that arc. Assessment 1 (week 4): a technology report on cloud's contribution to business automation; Assessment 2 (week 8): a case study comparing deployment models; Assessment 3 (week 12): build something. The whole subject converges on one question: *can you actually deploy and secure a real application?*
 
-In parallel, I'm taking [**ISY503 Intelligent Systems**](https://github.com/lfariabr/masters-swe-ai/tree/master/2026-T1/ISY), and the more I sit with that coursework, the more obvious it gets: a ML model on a laptop helps nobody. Deployment is the work and CCF501 makes that real.
+In parallel, I'm taking [**ISY503 Intelligent Systems**](https://github.com/lfariabr/masters-swe-ai/tree/master/2026-T1/ISY), and the more I sit with that coursework, the more obvious it gets: a ML model on a laptop helps nobody: deployment is the work and CCF501 makes that real.
 
 ---
 
@@ -52,8 +52,8 @@ I picked [**Apache Superset**](https://superset.apache.org/) - an open-source da
 4 reasons it was the right call for me:
 
 1. **Python-native.** Python is my primary stack. Reading the source, debugging containers, extending it later, all roads stay on familiar ground.
-2. **RBAC depth.** Superset ships with three meaningful roles out of the box (Admin / Alpha / Gamma). The assessment rubric weights security and governance at 20%, and rich RBAC writes that section for you instead of forcing it.
-3. **Career fit.** I work as a Data Analyst at a school in Sydney, building SQL pipelines and reports. Superset is the cloud-deployed version of that exact work, and it feeds directly into my T4 subject **BDA601 Big Data & Analytics** in T1-2027. The deployment becomes infrastructure for the next subject, not a throwaway.
+2. **RBAC depth.** Superset ships with 3 meaningful roles out of the box (Admin / Alpha / Gamma). The assessment rubric weights security and governance at 20%, and rich RBAC writes that section for you instead of forcing it.
+3. **Career fit.** I work as a Data Analyst at a school in Sydney, building SQL pipelines and reports. Superset is the cloud-deployed version of that exact work, and it feeds directly into my T4 subject **BDA601 Big Data & Analytics** in T2-2026. The deployment becomes infrastructure for the next subject, not a throwaway.
 4. **Differentiation.** Nobody else in the cohort is deploying Superset. Off-list choice → harder to defend → deeper learning → stronger portfolio piece.
 
 I considered Metabase (simpler, faster) and MLflow (better long-term MLOps story). Both are legit. Superset won because the trade: slightly higher complexity for a richer governance story and a Python-aligned platform, was the one I wanted to make. See my [*brainstorm notes here*](https://github.com/lfariabr/masters-swe-ai/tree/master/2026-T1/CCF/assignments/Assessment3/brainstorm.md)
@@ -78,7 +78,7 @@ graph TD
     G -->|"Cache"| I
 ```
 
-The whole thing lives in a single Azure Resource Group (`rg-superset-ccf501`) in **Australia East**. One VNet, one subnet, one NSG, one VM. Superset, PostgreSQL 15, and Redis 7 run as three containers via Docker Compose on the VM.
+The whole thing lives in a single Azure Resource Group (`rg-superset-ccf501`) in **Australia East**. One VNet, one subnet, one NSG, one VM. Superset, PostgreSQL 15, and Redis 7 run as 3 containers via Docker Compose on the VM.
 
 VM size landed on `Standard_B2als_v2`, the free-tier B1s (1 vCPU, 1 GB RAM) doesn't have enough memory to start the Superset stack reliably. Spin it up, capture evidence, then **stop and deallocate** to stop burning credits.
 
