@@ -1036,6 +1036,12 @@ The CSIRO’s Data61 team put out this discussion paper for the public to commen
 
 ### TLDR
 
+- **MLOps ≠ DevOps**: ML systems are data-driven, not rule-driven — training data, model artifacts, and concept drift create a fundamentally different deployment lifecycle.
+- **Three maturity levels**: Manual (Level 0) → automated ML pipeline with Continuous Training (Level 1) → full CI/CD pipeline automation (Level 2).
+- **Four deployment dimensions**: Data, Technology, Organisation, and Environment — each carries distinct risks especially in public-sector AI projects.
+- **Bias is non-negotiable**: CCS auditing and algorithmic fairness must be built in from design, not bolted on post-deployment.
+- **AIOps closes the loop**: full-stack observability (user → app → infrastructure → network) via AI-driven pattern recognition replaces agent-based monitoring in microservices environments.
+
 ### Introduction
 In this Module, you will learn about the practices and processes applied in deploying intelligent systems into production systems. You may have heard of DevOps – that refers to a set of processes applied to deploy traditional software systems. You will be made aware of how these processes differ or are similar in the case of intelligent systems. You will also learn about the best practices to follow in deploying AI or ML applications as well as insights from real-world applications.
 
@@ -1048,7 +1054,7 @@ In this Module, you will learn about the practices and processes applied in depl
     
     DevOps is defined as several processes within software development teams that cover aspects of building, testing and deploying traditional software applications so that various stages within the process occur efficiently. Artificial Intelligence (AI) for IT operations (AIOps) and machine learning (ML) for IT operations (MLOps) are DevOps processes designed for AI and ML applications. As intelligent systems are based on AI and ML, it is important to understand how deployments occur in systems and applications that use these concepts. In the following article, you will be taken through the differences between traditional DevOps processes and AIOps/MLOps.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module12_notes.md](module_12_deploying/module12_notes.md)*
 
 
 #### 2. Continuous Integration/Continuous Delivery (CI/CD) for ML systems
@@ -1058,7 +1064,7 @@ In this Module, you will learn about the practices and processes applied in depl
     
     Once an ML system is in operation, how are updates and new functionality to be added to a system in production? In the traditional DevOps environment, we have the concept of CI/CD, is the case of applying the same principles for ML systems? In this Google-developed resource, you will read about the similarities and differences between a traditional software system and one based on ML. You will be introduced to a step-by-step approach to ensure your CI/CD efforts run smoothly based on the organisation’s level of maturity in applying deployment processes.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module12_notes.md](module_12_deploying/module12_notes.md)*
 
 #### 3. Design, Development and Deployment Challenges for Intelligent Systems
 - Desouza, K., Dawson, G. & Chenok, D. (2020). Designing, developing and deploying artificial intelligence systems: Lessons from and for the public sector. Business Horizons, 63(2), 205–213. Retrieved from https://go.openathens.net/redirector/torrens.edu.au?url=https://www.sciencedirect.com/science/article/pii/S0007681319301582
@@ -1067,7 +1073,7 @@ In this Module, you will learn about the practices and processes applied in depl
     
     There is nothing like hearing about the real-life successes and problems faced by organisations as they designed, developed and deployed intelligent systems. In this paper, you will get a first-hand account from the authors regarding their reflections and insights as they worked on AI projects in the public sector. While the first two sections of the paper will cover ground you’ve already tread, it will give you important context on the challenges inherent in AI/ML applications that manifest themselves when things are not thought out properly. Section three onwards will give you a deeper insight into the problems, potential solutions as well as non-technology related issues we need to be aware of when deploying intelligent systems. One such major consideration being bias – as you read Section 4, 5 and 6 you will be made aware of this extra factor that can influence strategies organisations choose for deploying intelligent systems.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module12_notes.md](module_12_deploying/module12_notes.md)*
 
 #### 4. Deploying Intelligent Systems in Python
 - Dash Documentation & User Guide | Plotly. (n.d.). Retrieved from https://dash.plotly.com/
@@ -1085,7 +1091,7 @@ In this Module, you will learn about the practices and processes applied in depl
 
     Please watch the following video, as it shows the FullStack AIOps application development. It also provides an overview of a modern application development and specific details about each section. This will help you to understand how an intelligent system can be orchestrated from input to output. Please examine how each separate section is connected to each other section.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Watched + Reviewed — see [module12_notes.md](module_12_deploying/module12_notes.md)*
 
 ### Learning Activities
 
