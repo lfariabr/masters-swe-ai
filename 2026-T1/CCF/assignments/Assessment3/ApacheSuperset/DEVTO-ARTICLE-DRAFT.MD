@@ -12,7 +12,7 @@ Tags: #cloudcomputing #azure #apache #superset #dataengineering
 
 A couple of weeks ago I wrote my Cloud Computing Fundamentals (CCF501) Assessment 1, a 1,500-word architecture proposal for a fictional startup, full of NIST characteristics and Mermaid diagrams (read: [CCF501 Assessment 1 write-up](https://dev.to/lfariaus/designing-a-cloud-architecture-from-scratch-my-ccf501-assessment-1-4c25)).
 
-Assessment 3 was different: The brief gave me four tasks: resource group, virtual network, firewall, application - and asked me to actually do them on a real cloud, with real screenshots, on a public IP. No more reasoning about Auto Scaling: provision the VM, open the port and make the application return a 200.
+Assessment 3 was different. The brief gave me four tasks: resource group, virtual network, firewall, application - and asked me to actually do them on a real cloud, with real screenshots, on a public IP. No more reasoning about Auto Scaling: provision the VM, open the port and make the application return a 200.
 
 This article is the deployment story documenting what I built, why I picked an open-source tool nobody else in my cohort was deploying, and the security and governance choices I had to defend with evidence instead of paragraphs.
 
@@ -39,7 +39,7 @@ I'm doing my Master's in Software Engineering & AI ([open-sourced repo with +100
 
 The assessments mirror that arc. Assessment 1 (week 4): a technology report on cloud's contribution to business automation; Assessment 2 (week 8): a case study comparing deployment models; Assessment 3 (week 12): build something. The whole subject converges on one question: *can you actually deploy and secure a real application?*
 
-In parallel, I'm taking [**ISY503 Intelligent Systems**](https://github.com/lfariabr/masters-swe-ai/tree/master/2026-T1/ISY), and the more I sit with that coursework, the more obvious it gets: a ML model on a laptop helps nobody: deployment is the work and CCF501 makes that real.
+In parallel, I'm taking [**ISY503 Intelligent Systems**](https://github.com/lfariabr/masters-swe-ai/tree/master/2026-T1/ISY), and the more I sit with that coursework, the more obvious it gets: an ML model on a laptop helps nobody: deployment is the work and CCF501 makes that real.
 
 ---
 
@@ -56,7 +56,7 @@ I picked [**Apache Superset**](https://superset.apache.org/) - an open-source da
 3. **Career fit.** I work as a Data Analyst at a school in Sydney, building SQL pipelines and reports. Superset is the cloud-deployed version of that exact work, and it feeds directly into my T4 subject **BDA601 Big Data & Analytics** in T2-2026. The deployment becomes infrastructure for the next subject, not a throwaway.
 4. **Differentiation.** Nobody else in the cohort is deploying Superset. Off-list choice → harder to defend → deeper learning → stronger portfolio piece.
 
-I considered Metabase (simpler, faster) and MLflow (better long-term MLOps story). Both are legit. Superset won because the trade: slightly higher complexity for a richer governance story and a Python-aligned platform, was the one I wanted to make. See my [*brainstorm notes here*](https://github.com/lfariabr/masters-swe-ai/tree/master/2026-T1/CCF/assignments/Assessment3/brainstorm.md)
+I considered Metabase (simpler, faster) and MLflow (better long-term MLOps story). Both are legit. Superset won because the trade: slightly higher complexity for a richer governance story and a Python-aligned platform, was the one I wanted to make. See my [*brainstorm notes here*](https://github.com/lfariabr/masters-swe-ai/tree/master/2026-T1/CCF/assignments/Assessment3/brainstorm.md).
 
 ---
 
@@ -80,7 +80,7 @@ graph TD
 
 The whole thing lives in a single Azure Resource Group (`rg-superset-ccf501`) in **Australia East**. One VNet, one subnet, one NSG, one VM. Superset, PostgreSQL 15, and Redis 7 run as 3 containers via Docker Compose on the VM.
 
-VM size landed on `Standard_B2als_v2`, the free-tier B1s (1 vCPU, 1 GB RAM) doesn't have enough memory to start the Superset stack reliably. Spin it up, capture evidence, then **stop and deallocate** to stop burning credits.
+VM size landed on `Standard_B2als_v2` — the free-tier B1s (1 vCPU, 1 GB RAM) doesn't have enough memory to start the Superset stack reliably. Spin it up, capture evidence, then **stop and deallocate** to avoid burning credits.
 
 ![Azure portal showing the Superset VM and public IP evidence](UPLOAD_IMAGE_HERE)
 
@@ -272,7 +272,7 @@ Three things bit me on AWS that did not bite on Azure:
    ```
    Then `http://localhost:8088` in the browser. Port 22 carries it.
 
-That third one cost an extra hour of debugging, and produced one of the term's most useful lessons. Amazing that this feels as if Azure is the main story and the AWS variant proves portability and logs the pitfalls: both implementations live in the repo.
+That third one cost an extra hour of debugging, and produced one of the term's most useful lessons. Azure is the main story. The AWS variant proves portability and logs the pitfalls — both implementations live in the repo.
 
 ![Docker ps output showing Superset, PostgreSQL, and Redis containers running](UPLOAD_IMAGE_HERE)
 
@@ -286,7 +286,7 @@ Three things I'm taking forward:
 
 > Tip: I used this amazing open-source tool for the diagrams: [Mermaid Live Editor](https://mermaid.live/). It supports flowcharts, sequence diagrams, class diagrams, and more. The syntax is straightforward, and it generates clean visuals that can be embedded in Markdown.
 
-2. **Cloud security is layered, not bolted on.** Network, OS, application, credentials — each one is a decision. Skip any layer and the attack surface widens. The exercise of *justifying* every open port has been more useful than memorizing the OWASP Top 10.
+2. **Cloud security is layered, not bolted on.** Network, OS, application, credentials — each one is a decision. Skip any layer and the attack surface widens. The exercise of *justifying* every open port has been more useful than memorising the OWASP Top 10.
 
 3. **Open-source analytics tools are excellent portfolio projects.** They sit at the intersection of infrastructure (deployment), data (connections, datasets), security (RBAC), and usability (dashboards that real people read). One project, four learning surfaces.
 
