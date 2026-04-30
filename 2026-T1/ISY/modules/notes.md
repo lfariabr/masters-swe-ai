@@ -1032,6 +1032,70 @@ The CSIRO’s Data61 team put out this discussion paper for the public to commen
 
 > *Status: 🕐 To-Do*
 
+## Module 12 - Deploying Intelligent Systems
+
+### TLDR
+
+### Introduction
+In this Module, you will learn about the practices and processes applied in deploying intelligent systems into production systems. You may have heard of DevOps – that refers to a set of processes applied to deploy traditional software systems. You will be made aware of how these processes differ or are similar in the case of intelligent systems. You will also learn about the best practices to follow in deploying AI or ML applications as well as insights from real-world applications.
+
+### Resources
+
+#### 1. What is the difference between DevOps and AIOps/MLOps?
+- Dawson, R. (2020, 17 January). Why is DevOps for machine learning so different? Retrieved from https://hackernoon.com/why-is-devops-for-machine-learning-so-different-384z32f1
+
+*Resource Overview:*
+    
+    DevOps is defined as several processes within software development teams that cover aspects of building, testing and deploying traditional software applications so that various stages within the process occur efficiently. Artificial Intelligence (AI) for IT operations (AIOps) and machine learning (ML) for IT operations (MLOps) are DevOps processes designed for AI and ML applications. As intelligent systems are based on AI and ML, it is important to understand how deployments occur in systems and applications that use these concepts. In the following article, you will be taken through the differences between traditional DevOps processes and AIOps/MLOps.
+
+> *Status: 🕐 To-Do*
+
+
+#### 2. Continuous Integration/Continuous Delivery (CI/CD) for ML systems
+- Google Cloud. (April 4, 2020). MLOps: Continuous delivery and automation pipelines in machine learning. Retrieved from https://cloud.google.com/solutions/machine-learning/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning
+
+*Resource Overview:*
+    
+    Once an ML system is in operation, how are updates and new functionality to be added to a system in production? In the traditional DevOps environment, we have the concept of CI/CD, is the case of applying the same principles for ML systems? In this Google-developed resource, you will read about the similarities and differences between a traditional software system and one based on ML. You will be introduced to a step-by-step approach to ensure your CI/CD efforts run smoothly based on the organisation’s level of maturity in applying deployment processes.
+
+> *Status: 🕐 To-Do*
+
+#### 3. Design, Development and Deployment Challenges for Intelligent Systems
+- Desouza, K., Dawson, G. & Chenok, D. (2020). Designing, developing and deploying artificial intelligence systems: Lessons from and for the public sector. Business Horizons, 63(2), 205–213. Retrieved from https://go.openathens.net/redirector/torrens.edu.au?url=https://www.sciencedirect.com/science/article/pii/S0007681319301582
+
+*Resource Overview:*
+    
+    There is nothing like hearing about the real-life successes and problems faced by organisations as they designed, developed and deployed intelligent systems. In this paper, you will get a first-hand account from the authors regarding their reflections and insights as they worked on AI projects in the public sector. While the first two sections of the paper will cover ground you’ve already tread, it will give you important context on the challenges inherent in AI/ML applications that manifest themselves when things are not thought out properly. Section three onwards will give you a deeper insight into the problems, potential solutions as well as non-technology related issues we need to be aware of when deploying intelligent systems. One such major consideration being bias – as you read Section 4, 5 and 6 you will be made aware of this extra factor that can influence strategies organisations choose for deploying intelligent systems.
+
+> *Status: 🕐 To-Do*
+
+#### 4. Deploying Intelligent Systems in Python
+- Dash Documentation & User Guide | Plotly. (n.d.). Retrieved from https://dash.plotly.com/
+
+*Resource Overview:*
+    
+    Please refer to your Jupyter Notebook for this section. You can use the link below as a reference. Your notebook provides detailed steps on how to setup your intelligent system in Heroku and deploy it as a website. Follow the steps carefully, which use the Dash library. Dash is a sub-package build by Plotly that uses Flask, which is a Python framework for web development. However, Dash makes it easier to deploy a mixture of elements not just a simple website.
+
+> *Status: 🕐 To-Do*
+
+#### 5. FullStack AIOps
+- CA Technologies. (2020, 5 February). Lightboard edition: AIOps full-stack observability [Video file]. Retrieved from: https://www.youtube.com/watch?v=-9I4zvcxn4o
+
+*Resource Overview:*
+
+    Please watch the following video, as it shows the FullStack AIOps application development. It also provides an overview of a modern application development and specific details about each section. This will help you to understand how an intelligent system can be orchestrated from input to output. Please examine how each separate section is connected to each other section.
+
+> *Status: 🕐 To-Do*
+
+### Learning Activities
+
+#### Activity 1: AIOps Discussion Forum Post
+- Kampakis, S. (2019, 26 March). Artificial intelligence in operations (AIOps) [Video file]. Retrieved from https://www.youtube.com/watch?v=GSS_rTXkpFU
+
+Watch the below video on the popularity, implementation, use cases and challenges inherent in AIOps. The video takes you through the advantages AIOps brings to an organisation as well as best practices suggested. In this learning activity, you will keep in mind these factors mentioned to choose ONE use case of AiOps (outlined at minute 6) and write a post of about 100 words describing what advice you might provide on tackling this use case within an organisation using AIOps. You may write your post in bullet points.
+
+> *Status: 🕐 To-Do*
+
 ---
 ```bash
 --- PLACEHOLDER:

@@ -47,7 +47,7 @@ Dr. Nandini Sidnal
 - [X] Module 9 ✅ - Natural Language Processing
 - [X] Module 10 ✅ - Speech Recognition
 - [X] Module 11 ✅ - Emotional Intelligence when working with Intelligent Systems
-- [ ] Module 12 🕐 - Deploying Intelligent Systems
+- [ ] Module 12 🔥 - Deploying Intelligent Systems
 
 ## Assignments
 - [X] Assessment 1 - deadline 22/03/2026 ✅, **Case Study** on *Application of an Intelligent System (NLP or Computer Vision)*, 87.7/100 pts
