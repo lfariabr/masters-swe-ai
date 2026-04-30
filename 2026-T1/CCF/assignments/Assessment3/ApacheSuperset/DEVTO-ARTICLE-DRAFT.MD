@@ -16,7 +16,8 @@ Assessment 3 was different. The brief gave me four tasks: resource group, virtua
 
 This article is the deployment story documenting what I built, why I picked an open-source tool nobody else in my cohort was deploying, and the security and governance choices I had to defend with evidence instead of paragraphs.
 
-![Azure deployment architecture showing Resource Group, VNet, NSG, VM, Docker, Superset, PostgreSQL, and Redis](UPLOAD_IMAGE_HERE)
+![Azure deployment architecture showing Resource Group, VNet, NSG, VM, Docker, Superset, PostgreSQL, and Redis](images/fig1-deploym-diagram.png)
+*Deployment architecture — single Azure Resource Group containing the VNet, NSG, VM, and the Superset / Postgres / Redis Docker stack.*
 
 ---
 
@@ -80,16 +81,45 @@ graph TD
 
 The whole thing lives in a single Azure Resource Group (`rg-superset-ccf501`) in **Australia East**. One VNet, one subnet, one NSG, one VM. Superset, PostgreSQL 15, and Redis 7 run as 3 containers via Docker Compose on the VM.
 
-VM size landed on `Standard_B2als_v2` — the free-tier B1s (1 vCPU, 1 GB RAM) doesn't have enough memory to start the Superset stack reliably. Spin it up, capture evidence, then **stop and deallocate** to avoid burning credits.
 
-![Azure portal showing the Superset VM and public IP evidence](UPLOAD_IMAGE_HERE)
+VM size landed on `Standard_B2als_v2` — the always-free B1s tier (1 vCPU, 1 GiB RAM) does not have enough memory to reliably run the full Superset + PostgreSQL + Redis stack. 
+
+I spun up the VM only when capturing evidence, then immediately stopped and deallocated it. According to the Azure Retail Prices API (checked 30 April 2026), the `Standard_B2als_v2` in Australia East costs roughly **US$0.0475 per hour** (compute only).
+
+| Window | Rough compute cost |
+|------------|---|
+| 4 hours (one capture session) | ~US$0.19 |
+| 48 hours (two-day evidence window) | ~US$2.28 |
+| 730 hours (left running for a full month) | ~US$34.68 |
+
+This reinforced a key practical lesson: cloud resources are cheap when deliberately managed, and surprisingly expensive when forgotten.
+
+![Azure portal showing the Superset VM with running status and public IP](images/fig6-azure-vm-B.webp)
+*Azure VM `supersetluisccf501` — Ubuntu 22.04, `Standard_B2als_v2`, public IP attached, running state visible in the portal.*
+
+---
+
+## Why IaaS, Not PaaS?
+
+I could have used [Azure Container Instances](https://learn.microsoft.com/en-us/azure/container-instances/), [App Service for Containers](https://learn.microsoft.com/en-us/azure/app-service/configure-custom-container), or [AKS](https://learn.microsoft.com/en-us/azure/aks/). I chose IaaS because the assessment was explicitly about provisioning a VM, VNet, firewall policy, and application stack. The trade-off was more operational responsibility, but more visibility into the cloud fundamentals the subject was assessing.
+
+| Option | Service model | What's managed for you | Why I didn't pick it (this assessment) |
+|---|---|---|---|
+| **Azure Container Instances** | Serverless containers | Hosts, OS, scaling | Hides the VNet/NSG/VM layer the rubric was testing |
+| **App Service for Containers** | PaaS (managed runtime) | OS, runtime, TLS, autoscaling | Geared at single-container web apps; awkward for a 3-container Superset/Postgres/Redis stack |
+| **AKS** | Managed Kubernetes | Control plane, node patching | Operational overkill for one short-lived demo |
+| **VM + Docker Compose** *(chosen)* | IaaS | Hardware only | Forces every NIST and security decision into view |
+
+PaaS would have hidden the things CCF501 was teaching me to see. For real production work — long-running, multi-tenant, money on the line — App Service for Containers or AKS would be the better answer.
 
 ---
 
 ## From-Scratch Deployment
 
+I deployed **Apache Superset 6.0.0** (the latest stable version at the start of the assessment in April 2026). The stack was pinned to this version for stability during evidence capture.
+
 The 5 steps to get Superset running on [Azure](https://azure.microsoft.com/), with the security and governance layers in place:
-> *Tip: as of April 2026, Azure is offering a free tier with limited resources.*
+> **Tip:** As of April 2026, Azure is still offering a free tier with limited resources — enough for an evaluation VM, not enough to host the full Superset stack on the always-free B1s.
 
 ### 1. Provision Azure infrastructure
 
@@ -105,9 +135,11 @@ In the Azure portal:
 | 110 | Allow-Superset | 8088 | Any | Allow |
 | 65000 | DenyAllInbound | * | * | Deny |
 
+> **Important note:** In a production environment, never expose port 8088 to `Any` (0.0.0.0/0). For a real deployment I'd restrict this rule to a specific IP range, or — better — place an Azure Application Gateway or Front Door with WAF in front of the VM and remove the public IP from the Superset container entirely. This broad allow rule was used only because the deployment was extremely short-lived (demo data only, deallocated immediately after screenshots).
+
 - Launch a Linux VM (`Standard_B2als_v2`, Ubuntu 22.04 LTS) inside `snet-app` and attach a public IP.
 
-> *Tip: the NSG rules are the first line of defense. The deny-all default means every open port has a reason, in this case, SSH for management and 8088 for Superset. No port 80, no port 443, TLS is an improvement for v2.*
+> **Tip:** The NSG rules are the first line of defence. Deny-all by default means every open port has to earn its place — SSH on 22 (locked to my single IP) and 8088 for Superset. Opening 8088 to `Any` on a public IP is **not** something I'd do for real data: it exposes the Superset login screen to the internet, and without TLS the credentials cross the wire in plaintext. This was only acceptable here because the VM was short-lived and served demo CSVs only. No port 80, no port 443; TLS is queued up for v2.
 
 ### 2. SSH in and install Docker
 
@@ -118,7 +150,7 @@ sudo usermod -aG docker $USER
 newgrp docker
 ```
 
-> *Tip: the advantage of using Docker is that it encapsulates the application and its dependencies, making deployment more consistent and reproducible.*
+> **Tip:** Docker encapsulates the application and its dependencies, so the same `docker compose up` works on Ubuntu, Amazon Linux, or a colleague's laptop. Reproducibility is the whole point.
 
 ### 3. Drop in the Docker Compose stack
 
@@ -184,7 +216,7 @@ DATA_CACHE_CONFIG = CACHE_CONFIG
 
 The `config.py` mount wires Superset to use Redis as the cache backend and reads the Postgres URI from the environment. Generate the secret with `openssl rand --base64 42` — never commit the real value.
 
-> *Tip: the `depends_on` ensures the Superset container waits for Postgres and Redis to start first. The `ports` mapping exposes Superset on port 8088 of the VM's public IP.*
+> **Tip:** `depends_on` makes the Superset container wait for Postgres and Redis. The `ports` line publishes 8088 from the container to the VM's public IP — the NSG rule from step 1 is what makes it actually reachable from a browser.
 
 ### 4. Bring it up and validate
 
@@ -196,9 +228,10 @@ curl -I http://localhost:8088     # expect: HTTP/1.1 302 FOUND
 
 Then in a browser, the Azure VM's public IP on port 8088 - `http://<public-ip>:8088` - and the Superset login screen renders.
 
-![Apache Superset login screen running on Azure port 8088](UPLOAD_IMAGE_HERE)
+![Apache Superset login screen served from the Azure VM public IP on port 8088](images/fig7-apache-login.webp)
+*Apache Superset login page rendered through `http://<public-ip>:8088` — proof the application is reachable end-to-end.*
 
-> *Tip: the curl command checks that the application is responding. The 302 FOUND is expected because Superset redirects to the login page.*
+> **Tip:** `curl -I` is the cheapest health check there is. A `302 FOUND` is the right answer — Superset redirects unauthenticated requests to its login page.
 
 ### 5. Use the application
 
@@ -212,13 +245,14 @@ The sample datasets I used ([data here](https://github.com/lfariabr/masters-swe-
 
 Three charts: a bar chart of Azure cost by service, a line chart of Superset usage by role over time, and a stacked bar of security events by control layer. Then create three users: `admin` (Admin), `analyst` (Alpha), `viewer` (Gamma), and confirm each one sees only what their role allows.
 
-![Apache Superset dashboard created from uploaded CSV datasets](UPLOAD_IMAGE_HERE)
+![Apache Superset dashboard built from the three uploaded CSV datasets](images/fig10-apache-dashboard.jpeg)
+*Working dashboard combining Azure cost by service, Superset usage by role, and security events by control layer — proof the app ingests data and renders charts, not just that the server returned 200.*
 
-> *Tip: this is where the RBAC shines. The Admin can see everything, the Analyst can create and edit their own dashboards but not manage users, and the Viewer can only see published dashboards.*
+> **Tip:** This is where Superset's RBAC earns its keep. Admin sees everything. Alpha (analyst) creates and edits dashboards but can't manage users. Gamma (viewer) only sees what's been published.
 
 ---
 
-## Security and Governance: Defense in Layers
+## Security and Governance: Defence in Layers
 
 Cloud security is a stack of decisions, each one narrowing the attack surface a little more.
 
@@ -241,10 +275,13 @@ This is where Superset earns its keep over a simpler tool. The 20% governance cr
 #### **Credential layer:** 
 the Superset secret key, the Postgres password, and the admin password all live in environment variables, never hardcoded, never committed to the repo. The version of `docker-compose.yml` checked into the project uses placeholders.
 
-![Apache Superset RBAC roles showing Admin, Alpha, and Gamma](UPLOAD_IMAGE_HERE)
+![Apache Superset role list showing Admin, Alpha, and Gamma roles configured](images/fig9-apache-rbac-A.webp)
+*Superset RBAC users page — three accounts (`admin`, `analyst`, `viewer`) bound to the three out-of-the-box roles, evidencing the governance layer.*
 
-#### **The honest gap:** 
-no TLS in v1. Credentials travel in plaintext over HTTP. For a marked deployment that lives two days then gets deallocated, the risk is contained. For anything real, the next step is Azure Application Gateway or an nginx reverse proxy with Let's Encrypt, which has been called out explicitly in the report's robustness section.
+#### **The honest gap — and only acceptable for this context:** 
+No TLS in v1. Opening 8088 to `Any` on a public IP is not something I would do for real data. It exposes the Superset login screen to the internet, and without TLS the login flow travels over plaintext HTTP. Superset can become a gateway to queryable datasets, so this was only acceptable here because the VM was short-lived, used demo CSVs, and was deallocated after evidence capture.
+
+For anything touching real business or school data, the production-grade next step is mandatory: Azure Application Gateway or an nginx reverse proxy with Let's Encrypt for TLS, the public IP pulled in behind Front Door or a WAF, and the Superset container itself moved off a public-internet-exposed port — already called out explicitly in the report's robustness section.
 
 Other production improvements queued up: Azure Database for PostgreSQL instead of a containerised Postgres (automated backups, HA), Celery workers off the Redis broker for long async queries (the [*Konquista*](https://dev.to/lfariaus/from-google-sheets-to-a-scalable-saas-building-konquista-with-python-and-django-46mh) pattern I built before with Django + Celery + Redis), Azure Monitor for alerts before the VM falls over.
 
@@ -274,7 +311,8 @@ Three things bit me on AWS that did not bite on Azure:
 
 That third one cost an extra hour of debugging, and produced one of the term's most useful lessons. Azure is the main story. The AWS variant proves portability and logs the pitfalls — both implementations live in the repo.
 
-![Docker ps output showing Superset, PostgreSQL, and Redis containers running](UPLOAD_IMAGE_HERE)
+![docker ps output on the Azure VM showing Superset, PostgreSQL, and Redis containers running](images/figx-azure-dockerps.webp)
+*`docker ps` on the Azure VM — Apache Superset, PostgreSQL 15, and Redis 7 all in `Up` state, the container-level proof that the Compose stack is healthy.*
 
 ---
 
@@ -284,7 +322,7 @@ Three things I'm taking forward:
 
 1. **Architecture diagrams are useful, but deployment is honest.** Cloud theory let me draw a clean architecture in Mermaid. Deployment exposed the trade-offs that don't show up in a diagram, VM RAM ceilings, Compose plugin differences across distros, ISPs that filter non-standard ports, the gap between "the server is up" and "the application is usable."
 
-> Tip: I used this amazing open-source tool for the diagrams: [Mermaid Live Editor](https://mermaid.live/). It supports flowcharts, sequence diagrams, class diagrams, and more. The syntax is straightforward, and it generates clean visuals that can be embedded in Markdown.
+> **Tip:** [Mermaid Live Editor](https://mermaid.live/) is the open-source tool I used for every diagram in this article — flowcharts, sequence diagrams, the lot. The syntax is plain text, and the output drops straight into Markdown.
 
 2. **Cloud security is layered, not bolted on.** Network, OS, application, credentials — each one is a decision. Skip any layer and the attack surface widens. The exercise of *justifying* every open port has been more useful than memorising the OWASP Top 10.
 
