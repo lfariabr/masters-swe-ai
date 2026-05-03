@@ -13,29 +13,28 @@
 | A00106473 | Samiran Shrestha | Samiran.Shrestha@Student.Torrens.edu.au |
 | A00179705 | Victor Javier Dorantes Meneses | Victor.Meneses@Student.Torrens.edu.au |
 
-> - Source code: https://github.com/lfariabr/review-pulse
-> - Presentation: http://
-> - Video recording: http://
-> - Live Demo: https://review-pulse.streamlit.app/
+> - [GitHub](https://github.com/lfariabr/review-pulse)
+> - [Presentation](https://github.com/lfariabr/masters-swe-ai/blob/master/2026-T1/ISY/assignments/Assessment3/presentation/v6_ISY503_Faria_L_Assessment_3.pdf)
+> - [Live Demo](https://review-pulse.streamlit.app/)
 
 ### 2. Team Contribution Table
 
 | Team Member | Student ID | Main Contribution | % |
 |---|---|---|---:|
-| Luis Faria | A00187785 | Full v1.0.0 technical implementation, app, tests, docs, PR hardening | 60% |
-| Victor Meneses | A00179705 | DistilBERT implementation (v2.0.0), dataset analysis, error analysis, ethics presentation | 25% |
+| Luis Faria | A00187785 | Primary technical implementation, modular refactor, app, tests, docs, PR hardening | 60% |
+| Victor Meneses | A00179705 | DistilBERT implementation, dataset analysis, error analysis, ethics presentation | 25% |
 | Samiran Shrestha | A00106473 | Problem framing, live demo, future work | 15% |
 | **Total** | | | **100%** |
 
 ### 3. Draft Report (~250 words)
 
-My primary contribution to ReviewPulse was the full technical implementation of the ML pipeline — nine source modules, the Streamlit web app, 117 unit tests, and all project documentation.
+My primary contribution to ReviewPulse was the full technical implementation and hardening of the ML pipeline — the modular Python package structure, the Streamlit web app, the automated test suite, and the project documentation.
 
-On the data side, I built the pseudo-XML parser (`src/parser.py`), the preprocessing pipeline with negation expansion (`src/preprocess.py`), and the vocabulary builder and PyTorch DataLoaders (`src/dataset.py`). I then implemented both models: the TF-IDF + Logistic Regression baseline (`src/baseline.py`) and the bidirectional LSTM (Hochreiter & Schmidhuber, 1997) initialised with GloVe 100-dimensional embeddings (`src/model.py`). The training loop (`src/train.py`) uses Adam with gradient clipping, F1-based checkpointing, and Apple MPS device support. I implemented evaluation with confusion matrix and error analysis (`src/evaluate.py`), a unified inference API (`src/inference.py`), and the Streamlit web app with model selector and sample review generator (`app.py`). I also produced the presentation outline, 10 acceptance test cases with real model outputs, and this document.
+On the data side, I built the pseudo-XML parser (`src/data/parser.py`), the preprocessing pipeline with negation expansion (`src/data/preprocess.py`), and the vocabulary and PyTorch DataLoader helpers (`src/tokenization/`). I then implemented the TF-IDF + Logistic Regression baseline (`src/training/baseline.py`) and the bidirectional LSTM (Hochreiter & Schmidhuber, 1997) initialised with GloVe 100-dimensional embeddings (`src/models/bilstm.py`). The BiLSTM training loop (`src/training/bilstm.py`) uses Adam with gradient clipping, F1-based checkpointing, and Apple MPS device support. I also hardened the final modular architecture: app services in `src/app/service.py`, inference split across `src/inference/`, and evaluation split across `src/evaluation/`. I produced the presentation outline, 10 acceptance test cases with real model outputs, the submission checklist, and this document.
 
 An important ethical consideration is that the Blitzer et al. (2007) dataset uses filename-derived labels rather than human raters. Because the dataset uses filename-derived labels rather than direct human annotation, we audited for possible rating/text conflicts and ambiguous boundary cases. In this dataset, we found zero ambiguous rows, but the risk remains relevant in broader sentiment classification settings. BiLSTM confidence values are also uncalibrated — 98% confidence does not imply 98% accuracy — and the model generalises poorly to out-of-distribution text such as logistics reviews (Bender et al., 2021). Any production deployment requires human oversight and periodic label audits.
 
-I estimate my contribution at 60% as the primary v1.0.0 technical implementer. Victor contributed 25% covering the DistilBERT implementation (v2.0.0), dataset analysis, error analysis, and ethics. Samiran contributed 15% covering the problem framing, live demo delivery, and future work.
+I estimate my contribution at 60% as the primary technical implementer and final refactor lead. Victor contributed 25% covering the DistilBERT implementation, dataset analysis, error analysis, and ethics. Samiran contributed 15% covering the problem framing, live demo delivery, and future work.
 
 ### 4. Appendices
 
@@ -49,7 +48,7 @@ https://review-pulse.streamlit.app/
 
 **A3 — Sample Test Cases Output**
 
-Ten acceptance test cases run against both trained models (baseline checkpoint `outputs/baseline.joblib`, BiLSTM checkpoint `outputs/bilstm.pt` epoch 9):
+Ten acceptance test cases run against the baseline and BiLSTM checkpoints (baseline checkpoint `outputs/baseline.joblib`, BiLSTM checkpoint `outputs/bilstm.pt` epoch 9). DistilBERT is integrated into the app as the third selectable model using `outputs/distilbert.pt`.
 
 > *Table A3. Sample Test Cases Output.*
 
@@ -61,7 +60,7 @@ Ten acceptance test cases run against both trained models (baseline checkpoint `
 | Sarcasm | "Oh great, stopped working after a week…" | Negative 52.5% ⚠️ | Negative 64.6% ⚠️ |
 | Domain-shifted (books) | "One of the best thrillers I have read…" | Positive 69.4% ✅ | Positive 86.2% ✅ |
 
-Full results: https://github.com/lfariabr/review-pulse/blob/main/docs/demo-test-cases.md
+Full results: https://github.com/lfariabr/review-pulse/blob/main/docs/assessment-files/demo-test-cases.md
 
 **A4 — Future Work**
 
@@ -69,7 +68,7 @@ Full results: https://github.com/lfariabr/review-pulse/blob/main/docs/demo-test-
 
 | Priority | Extension | Rationale |
 |---|---|---|
-| Shipped | DistilBERT (v2.0.0) | Victor implemented Hugging Face `distilbert-base-uncased`; test F1 88.6%, live in app |
+| Shipped | DistilBERT | Victor implemented Hugging Face `distilbert-base-uncased`; test F1 88.6%, live in app |
 | High | RoBERTa | Larger pretrained transformer; expected to push F1 beyond 90% |
 | High | Confidence calibration (Platt scaling) | DistilBERT and BiLSTM logits are uncalibrated; high confidence ≠ high accuracy |
 | Medium | Additional training domains | Current models trained on 4 product categories only; broader domains would validate generalisation |
