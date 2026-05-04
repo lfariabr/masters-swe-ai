@@ -27,8 +27,8 @@ Cloud security is built on policy before it is built on tools. This module shift
 | 4b | Read & summarise Infrastructure and Networking chapter (CCSK-style, R4 PDF) | ✅ |
 | 5 | Watch & summarise Linthicum (2019) — Introduction to Cloud Governance (LinkedIn Learning) | 🔥 WIP — needs manual watch |
 | **6** | Read & summarise Estrin (2022) — Ch9: Handling Compliance and Regulation | ✅ |
-| 7 | Activity 1: Interactive Knowledge Check (quiz) | 🕐 |
-| 8 | Activity 2: GDPR vs Australian Privacy Principles (read article + answer questions) | 🕐 |
+| 7 | Activity 1: Interactive Knowledge Check (quiz) | ✅ |
+| 8 | Activity 2: GDPR vs Australian Privacy Principles (read article + answer questions) | ✅ |
 
 ---
 
