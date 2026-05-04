@@ -24,8 +24,8 @@ claude --resume "isy-assessment-3"
 | 18 | Contribution log & team table (`docs/contribution-log.md`, `docs/team-contribution-table.md`) | Track who owns parser, preprocessing, model training, evaluation, app, presentation, and report artifacts. Include evidence fields for branches, commits, PRs, meetings, and final percentage contribution. |
 | 19 | References & ethics notes (`docs/references.md`, `docs/ethics-notes.md`) | Collect APA references for dataset source, sentiment/NLP methods, bias/label noise, and AI ethics. Cover filename/rating label noise, 3-star ambiguity, domain bias, review sarcasm/mixed sentiment, and limits of binary sentiment classification. |
 | 20 | Submission package & GitHub evidence (`docs/submission-checklist.md`) | Create final checklist for group code, GitHub repository link, README instructions, model artifacts, presentation/video owner, individual report, team IDs, academic integrity declaration, and retained backup copy. Include Git workflow evidence. |
-| 21 | Optional DistilBERT stretch (`notebooks/distilbert.ipynb` or `src/transformer_model.py`) | Only after the core pipeline works, optionally fine-tune DistilBERT on the same train/validation/test split for comparison. Keep this separate from the required BiLSTM path and label results as stretch work. |
+| 21 ✅ | DistilBERT integration (`outputs/distilbert.pt`) | DistilBERT is now integrated as the third selectable app model. Treat follow-up work as post-integration improvement only: RoBERTa comparison, confidence calibration, broader domains, and explainability. |
 
 ## Critical Path
 
-Complete issues 1-16 and 20 for a complete group submission. Complete issues 17-19 for the individual contribution/report requirement. Issue 7 is optional at runtime because the BiLSTM must work without GloVe. Issue 21 is stretch work only.
+Complete issues 1-16 and 20 for a complete group submission. Complete issues 17-19 for the individual contribution/report requirement. Issue 7 is optional at runtime because the BiLSTM must work without GloVe. Issue 21 has shipped as the integrated DistilBERT app option.

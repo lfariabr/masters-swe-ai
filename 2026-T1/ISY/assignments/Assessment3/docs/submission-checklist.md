@@ -25,8 +25,9 @@
 - [ ] 250-word report is complete.
 - [ ] Student name and ID are included.
 - [ ] Team member names and IDs are included.
-- [ ] Contribution percentages add to 100%.
+- [ ] Contribution percentages add to 100%: Luis 50%, Victor 25%, Samiran 25%.
 - [ ] Personal contribution is specific and evidence-based.
+- [ ] Samiran's contribution is described as problem framing, live demonstration support, and future improvement planning, without claiming technical leadership.
 - [ ] Ethical considerations are included.
 - [ ] APA references are included.
 

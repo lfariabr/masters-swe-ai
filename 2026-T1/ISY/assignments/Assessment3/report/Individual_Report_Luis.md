@@ -21,9 +21,9 @@
 
 | Team Member | Student ID | Main Contribution | % |
 |---|---|---|---:|
-| Luis Faria | A00187785 | Primary technical implementation, modular refactor, app, tests, docs, PR hardening | 60% |
-| Victor Meneses | A00179705 | DistilBERT implementation, dataset analysis, error analysis, ethics presentation | 25% |
-| Samiran Shrestha | A00106473 | Problem framing, live demo, future work | 15% |
+| Luis Faria | A00187785 | Technical architecture, implementation, integration, testing, documentation, release management, and coordination | 50% |
+| Victor Meneses | A00179705 | DistilBERT/model experimentation and integration support, dataset analysis, error analysis, ethics presentation | 25% |
+| Samiran Shrestha | A00106473 | Problem framing, live demonstration support, and future improvement planning | 25% |
 | **Total** | | | **100%** |
 
 ### 3. Draft Report (~250 words)
@@ -34,7 +34,7 @@ On the data side, I built the pseudo-XML parser (`src/data/parser.py`), the prep
 
 An important ethical consideration is that the Blitzer et al. (2007) dataset uses filename-derived labels rather than human raters. Because the dataset uses filename-derived labels rather than direct human annotation, we audited for possible rating/text conflicts and ambiguous boundary cases. In this dataset, we found zero ambiguous rows, but the risk remains relevant in broader sentiment classification settings. BiLSTM confidence values are also uncalibrated — 98% confidence does not imply 98% accuracy — and the model generalises poorly to out-of-distribution text such as logistics reviews (Bender et al., 2021). Any production deployment requires human oversight and periodic label audits.
 
-I estimate my contribution at 60% as the primary technical implementer and final refactor lead. Victor contributed 25% covering the DistilBERT implementation, dataset analysis, error analysis, and ethics. Samiran contributed 15% covering the problem framing, live demo delivery, and future work.
+I estimate my contribution at 50% as the primary technical implementer and final refactor lead. Victor contributed 25% covering DistilBERT/model experimentation, integration support, dataset analysis, error analysis, and ethics. Samiran contributed 25% through supported problem framing, live demonstration support, and future improvement planning, including review-classification challenges such as negation, sarcasm, review length, and domain differences.
 
 ### 4. Appendices
 

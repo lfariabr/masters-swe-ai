@@ -27,9 +27,9 @@
 
 | Team Member | Student ID | Main Contribution | % |
 |---|---|---|---:|
-| Luis Faria | A00187785 | Full v1.0.0 technical implementation, app, tests, docs, PR hardening | 60% |
-| Victor Meneses | A00179705 | DistilBERT implementation (v2.0.0), dataset analysis, error analysis, ethics presentation | 25% |
-| Samiran Shrestha | A00106473 | Problem framing, live demo, future work | 15% |
+| Luis Faria | A00187785 | Technical architecture, implementation, integration, testing, documentation, release management, and coordination | 50% |
+| Victor Meneses | A00179705 | DistilBERT/model experimentation and integration support, dataset analysis, error analysis, ethics presentation | 25% |
+| Samiran Shrestha | A00106473 | Problem framing, live demonstration support, and future improvement planning | 25% |
 | **Total** | | | **100%** |
 
 ### Draft Report (~250 words)
@@ -40,7 +40,7 @@ On the data side, I built the pseudo-XML parser (`src/parser.py`), the preproces
 
 An important ethical consideration is that the Blitzer et al. (2007) dataset uses filename-derived labels rather than human raters. We audited for possible rating/text conflicts and ambiguous boundary cases and found zero ambiguous rows, but the risk remains relevant in broader sentiment classification settings. BiLSTM and DistilBERT confidence values are uncalibrated — high confidence does not imply high accuracy — and both models generalise poorly to out-of-distribution text such as logistics reviews (Bender et al., 2021). Any production deployment requires human oversight and periodic label audits.
 
-I estimate my contribution at 60% as the primary v1.0.0 technical implementer. Victor contributed 25% covering the DistilBERT implementation, dataset analysis, error analysis, and ethics. Samiran contributed 15% covering the problem framing, live demo delivery, and future work.
+I estimate my contribution at 50% as the primary technical implementer and final refactor lead. Victor contributed 25% covering DistilBERT/model experimentation, integration support, dataset analysis, error analysis, and ethics. Samiran contributed 25% through supported problem framing, live demonstration support, and future improvement planning, including review-classification challenges such as negation, sarcasm, review length, and domain differences.
 
 ### APA References
 
@@ -63,9 +63,9 @@ I estimate my contribution at 60% as the primary v1.0.0 technical implementer. V
 
 | Team Member | Student ID | Main Contribution | % |
 |---|---|---|---:|
-| Luis Faria | A00187785 | Full v1.0.0 technical implementation, app, tests, docs, PR hardening | 60% |
-| Victor Meneses | A00179705 | DistilBERT implementation (v2.0.0), dataset analysis, error analysis, ethics presentation | 25% |
-| Samiran Shrestha | A00106473 | Problem framing, live demo, future work | 15% |
+| Luis Faria | A00187785 | Technical architecture, implementation, integration, testing, documentation, release management, and coordination | 50% |
+| Victor Meneses | A00179705 | DistilBERT/model experimentation and integration support, dataset analysis, error analysis, ethics presentation | 25% |
+| Samiran Shrestha | A00106473 | Problem framing, live demonstration support, and future improvement planning | 25% |
 | **Total** | | | **100%** |
 
 ### Draft Report (~250 words) — suggested content
@@ -78,7 +78,7 @@ I presented slides 3, 8, and 10. Slide 3 covers the Blitzer et al. (2007) datase
 
 An important ethical consideration I want to highlight is that DistilBERT confidence values remain uncalibrated — the model can output 95% confidence on incorrect predictions. Platt scaling is the recommended next step before any production use.
 
-I estimate my contribution at 25%. Luis contributed 60% as the primary v1.0.0 implementer and PR hardening. Samiran contributed 15% covering problem framing, live demo delivery, and future work.
+I estimate my contribution at 25%. Luis contributed 50% as the primary technical implementer, integration lead, and release coordinator. Samiran contributed 25% through supported problem framing, live demonstration support, and future improvement planning.
 
 ### APA References
 
@@ -100,14 +100,14 @@ I estimate my contribution at 25%. Luis contributed 60% as the primary v1.0.0 im
 
 | Team Member | Student ID | Main Contribution | % |
 |---|---|---|---:|
-| Luis Faria | A00187785 | Full v1.0.0 technical implementation, app, tests, docs, PR hardening | 60% |
-| Victor Meneses | A00179705 | DistilBERT implementation (v2.0.0), dataset analysis, error analysis, ethics presentation | 25% |
-| Samiran Shrestha | A00106473 | Problem framing, live demo, future work | 15% |
+| Luis Faria | A00187785 | Technical architecture, implementation, integration, testing, documentation, release management, and coordination | 50% |
+| Victor Meneses | A00179705 | DistilBERT/model experimentation and integration support, dataset analysis, error analysis, ethics presentation | 25% |
+| Samiran Shrestha | A00106473 | Problem framing, live demonstration support, and future improvement planning | 25% |
 | **Total** | | | **100%** |
 
 ### Draft Report (~250 words) — suggested content
 
-My primary contribution to ReviewPulse was framing the problem for the audience, running the live demo, and presenting the future work roadmap, as well as contributing to [any additional work: research, documentation, team coordination].
+My contribution to ReviewPulse focused on supported problem framing, live demonstration support, and future improvement planning. As this was my first trimester in the MIT program, my role was to contribute to the explanation and presentation of the system rather than lead the technical implementation.
 
 I presented slides 2, 9, and 11. Slide 2 establishes the commercial motivation for sentiment analysis — product feedback loops, brand monitoring, recommendation systems — and articulates the core challenge: real reviews are messy. They vary in length from two words to over 800, span multiple domains, use negation ("not bad at all"), and employ sarcasm ("oh great, another broken product"). I framed our goal as building two systems and letting the data decide which one wins.
 
@@ -117,7 +117,7 @@ Slide 11 presents the next steps after DistilBERT (v2.0.0): RoBERTa for further 
 
 An important ethical consideration is that binary sentiment classification is reductive. Real reviews express nuanced opinions — mixed, hedged, or ironic — that a positive/negative label cannot capture. Deploying a binary classifier in high-stakes contexts risks suppressing legitimate nuance.
 
-I estimate my contribution at 15% covering the problem framing, live demo delivery, and future work. Luis contributed 60% as the primary v1.0.0 implementer. Victor contributed 25% covering the DistilBERT implementation, dataset analysis, error analysis, and ethics.
+I estimate my contribution at 25% covering problem framing, live demonstration support, and future work planning around RoBERTa, confidence calibration, broader domains, and explainability methods such as LIME or attention visualisation. Luis contributed 50% as the primary technical implementer, integration lead, and release coordinator. Victor contributed 25% covering DistilBERT/model experimentation, integration support, dataset analysis, error analysis, and ethics.
 
 ### APA References
 
@@ -129,7 +129,7 @@ I estimate my contribution at 15% covering the problem framing, live demo delive
 ## Notes for all team members
 
 - **Word count:** 250 words ±10% (225–275). The draft sections above are calibrated to this target — trim or expand as needed.
-- **Percentage split:** 60% Luis / 25% Victor / 15% Samiran — agreed and fixed for v2.0.0.
+- **Percentage split:** 50% Luis / 25% Victor / 25% Samiran — updated after Samiran's repository contribution and agreed for final submission.
 - **Ethics paragraph:** Each report includes a distinct ethical angle — do not duplicate across reports.
 - **Speaker notes:** Work from `review-pulse/docs/presentation-outline.md` for slide-specific wording.
-- **GitHub evidence:** Luis's commit history + Victor's PR #22 are the primary evidence records.
+- **GitHub evidence:** Luis's commit history, Victor's PR #22, and Samiran's repository contribution are the primary evidence records.
