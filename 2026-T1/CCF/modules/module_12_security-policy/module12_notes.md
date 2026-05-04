@@ -20,7 +20,7 @@
 | **4** | **Read & summarise Microsoft (2021) — Quorum / Microsoft Sentinel case study** | ✅ |
 | **5** | **Read & summarise RSI Security (2022) — NIST cloud security policy recommendations** | ✅ |
 | 6 | Watch & summarise Kaushal, S. (2022) — Azure Firewall Policies LinkedIn Learning video | 🔥 WIP — needs manual watch |
-| 7 | Activity 1: Established vs Newbie — cloud provider security offerings post | 🕐 |
+| **7** | **Activity 1: Established vs Newbie — cloud provider security offerings post** | ✅ |
 | 8 | Activity 2: AWS WAF components, protected resources, ACL vs rule groups | 🕐 |
 | 9 | Activity 3: AWS Shield Advanced — OSI layers, detection & mitigation | 🕐 |
 
@@ -223,6 +223,27 @@ The SDLC phases align to RMF to ensure security is continuous:
 2. For Activity 1 (established vs. newbie organisations): a pre-digital firm inherits legacy compliance obligations and on-prem integrations; a post-digital firm can adopt native cloud security from day one — their RMF starting points are very different.
 3. The Monitor step (Step 6) maps directly to tools like Microsoft Sentinel and AWS Shield event dashboards — technology operationalises the framework.
 4. Cloud consumers must negotiate security requirements in **service agreements** — the RMF's consumer 9-step process is the academic backing for due-diligence checklists in procurement.
+
+---
+
+## Activity 1 — Established vs Newbie: What is Important in a Cloud Provider's Security Offerings?
+
+**Organisations chosen:** Commonwealth Bank (pre-digital, est. 1911) vs. Canva (post-digital, est. 2013)
+
+| | Commonwealth Bank (pre-digital) | Canva (post-digital) |
+|---|---|---|
+| Top concern | Regulatory compliance — APRA CPS 234, PCI-DSS, data sovereignty | API & application-layer protection — WAF, bot mitigation, DDoS at scale |
+| Integration need | Hybrid connectivity: cloud + legacy on-prem SIEM and firewall stacks | Native DevSecOps integration — security that doesn't slow CI/CD pipelines |
+| Governance focus | Formal audit trails, shared responsibility model clearly defined, SRT-style escalation paths | RBAC granularity, automated compliance tooling, Secure Score dashboards |
+| Pricing model | Predictable, flat-rate subscription (cost certainty for board reporting) | Pay-per-use scaling — security costs should flex with traffic spikes |
+
+**Draft post (~250 words):**
+
+A pre-digital firm like Commonwealth Bank approaches cloud security with decades of regulatory muscle memory. Their first question isn't "does this work?" — it's "can we prove it to APRA?" They need formal compliance certifications (SOC 2, ISO 27001), a transparent shared responsibility model, and DDoS/firewall tools that integrate with existing on-prem SIEM infrastructure. Hybrid is the reality; security offerings that assume cloud-only are a dealbreaker. Cost predictability also matters — risk committees need stable numbers, not variable usage bills.
+
+A post-digital organisation like Canva starts from a completely different baseline. Security isn't retrofitted; it's designed in. Their priority is managed protection that scales without friction — AWS WAF managed rule groups, Shield Advanced auto-mitigation, and SIEM/SOAR tools that plug into automated pipelines. For a product team shipping daily, a security offering that creates deployment gates is a competitive liability. They also need granular RBAC across a globally distributed engineering team, and bot/CAPTCHA controls to protect user-facing APIs at hundreds of millions of requests per day.
+
+The NIST RMF helps frame the difference: both organisations eventually land on the same six-step cycle, but their starting categorisation (Step 1) looks completely different. CommBank categorises assets against decades of compliance obligations; Canva categorises against velocity and global scale. The cloud provider's security offering has to meet both — which is why mature providers like AWS and Azure have built tiered, modular security stacks rather than a single one-size-fits-all policy.
 
 ---
 
