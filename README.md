@@ -36,7 +36,7 @@ Whether you’re a student, developer, or just curious about this journey, I hop
 **Backend:** Node.js, Express, FastAPI, GraphQL  
 **AI/ML:** scikit-learn, PyTorch, transformers, BERTopic  
 **Databases:** MongoDB, PostgreSQL, Supabase, Redis  
-**Cloud & DevOps:** AWS, Docker, GitHub Actions
+**Cloud & DevOps:** Azure, AWS, Docker, Docker Compose, NGINX, GitHub Actions
 
 ---
 
@@ -51,8 +51,8 @@ Term | Subject | Status | Lecturer | Directory | Credit Points
 | T2 | Mathematical Foundations of AI (***Core***) 2025 | ✅ | Dr. James Vakilian | [MFA501](./2025-T2/T2-MFA/) | 10
 | T2 | Research Methodologies (***Core***) 2025 | ✅ | Dr. Bushra Naeem | [REM502](./2025-T2/T2-REM/) | 10
 | T2 | Secure By Design (***Core***) 2025 | ✅ | Dr. Tanvir Rahman | [SBD402](./2025-T2/T2-SBD/) | 10
-| T3 | Intelligent Systems (***Core***) 2026 | 🔥 | Dr. Nandini Sidnal | [ISY503](./2026-T1/ISY/) | 10
-| T3 | Cloud Computing Fundamentals (***Elective***) 2026 | 🔥 | Dr. Divya Leekha | [CCF501](./2026-T1/CCF/) | 10
+| T3 | Intelligent Systems (***Core***) 2026 | ✅ | Dr. Nandini Sidnal | [ISY503](./2026-T1/ISY/) | 10
+| T3 | Cloud Computing Fundamentals (***Elective***) 2026 | ✅ | Dr. Divya Leekha | [CCF501](./2026-T1/CCF/) | 10
 | T4 | Machine Learning (***Core***) 2026 | 🕐 | Dr. Kamran Shaukat | TBD | 10
 | T4 | Deep Learning (***Core***) 2026 | 🕐 | Dr. Robin Cyriac | TBD | 10
 | T4 | Big Data and Analytics (***Elective***) 2026 | 🕐 | TBD | TBD | 10
@@ -73,7 +73,8 @@ Take a deep dive into how I'm approaching projects and the progress I'm making.
 
 | Project | Description | Status | Repository | URL |
 |---------|---------------------|----------------|----------------|----------------|
-| **Review Pulse** | Multi-domain Amazon product review sentiment classifier. Trained on 8,000 labelled reviews across Books, DVDs, Electronics, and Kitchen & Housewares. | 🔥 | [Repo](https://github.com/lfariabr/review-pulse/) | [App](https://review-pulse.streamlit.app/) |
+| **Review Pulse** | Multi-domain Amazon product review sentiment classifier. Trained on 8,000 labelled reviews across Books, DVDs, Electronics, and Kitchen & Housewares. | ✅ | [Repo](https://github.com/lfariabr/review-pulse/) | [App](https://review-pulse.streamlit.app/) |
+| **Apache Superset Cloud Deployment** | Azure IaaS deployment of Apache Superset with Docker Compose, PostgreSQL 15, Redis 7, NSG firewall rules, RBAC, and AWS EC2 portability notes. | ✅ | [Repo](./2026-T1/CCF/assignments/Assessment3/ApacheSuperset/) | [Article](https://luisfaria.dev/articles/deploying-apache-superset-on-azure-from-scratch-my-ccf501-assessment-3) |
 | **STC Datalab** | SQL Server database project for a school with SSIS packages, SSRS reports, and data validation. | ✅ | [Repo](https://github.com/lfariabr/stc-datalab) | [Article](https://dev.to/lfariaus/learning-sql-server-the-hard-way-16-days-of-real-world-database-work-5hla) |
 | **Intelligent Rate Limiter** | Human-centered governance middleware for Agentic AI. Carbon real-time grid awareness, explanations + audit logs. Node.js, TypeScript, GraphQL, Redis. | ✅ | [Repo](https://github.com/lfariabr/intelligent-rate-limiter) | [Article](https://dev.to/lfariaus/building-irl-from-a-50k-aws-horror-story-to-human-centered-ai-governance-1jdg) |
 | **Research Proposal** | Empirical analysis of NPS correlation with revenue in healthcare clinics using Python, Pandas, Numpy, Jupyter, and SciPy. | ✅ | [Repo](https://github.com/lfariabr/research-proposal-nps) | [Article](https://dev.to/lfariaus/does-nps-really-predict-revenue-in-healthcare-clinics-i-spent-12-weeks-finding-out-4nmj) |
@@ -100,7 +101,7 @@ While this is primarily a personal repository, I welcome discussions and feedbac
 | 2.0.0   | T3-2025 Launch (HCD+MFA+REM+SBD)        | 09-2025 | ✅ |
 | 2.4.0   | T3-2025 Complete (HCD+MFA+REM+SBD)      | 12-2025 | ✅ |
 | 3.0.0   | T1-2026 Launch (ISY503+CCF501)          | 02-2026 | ✅ |
-| 3.2.0   | T1-2026 Complete (ISY503+CCF501)        | 05-2026 | 🔥 |
+| 3.2.0   | T1-2026 Complete (ISY503+CCF501)        | 05-2026 | ✅ |
 | 4.0.0   | T2-2026 Launch (MLN601+DLE602+BDA601)   | 06-2026 | 🕐 |
 | 4.2.0   | T2-2026 Complete (MLN601+DLE602+BDA601) | 08-2026 | 🕐 |
 | 5.0.0   | T3-2026 Launch (TWL604)                 | 09-2026 | 🕐 |
