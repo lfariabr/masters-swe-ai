@@ -55,7 +55,7 @@ Term | Subject | Status | Lecturer | Directory | Credit Points
 | T3 | Cloud Computing Fundamentals (***Elective***) 2026 | ✅ | Dr. Divya Leekha | [CCF501](./2026-T1/CCF/) | 10
 | T4 | Machine Learning (***Core***) 2026 | 🕐 | Dr. Kamran Shaukat | TBD | 10
 | T4 | Deep Learning (***Core***) 2026 | 🕐 | Dr. Robin Cyriac | TBD | 10
-| T4 | Big Data and Analytics (***Elective***) 2026 | 🕐 | TBD | TBD | 10
+| T4 | Big Data and Analytics (***Elective***) 2026 | 🔥 | Dr. Rubina Sarki | [BDA601](./2026-T2/BDA/) | 10
 | T5 | Technology - Work Integrated Learning I (***Core***) 2026 | 🕐 | TBD | TBD | 20
 | T6 | Advanced Technology - Work Integrated Learning (***Core***) 2027 | 🕐 | TBD | TBD | 30
 
