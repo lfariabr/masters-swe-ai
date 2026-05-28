@@ -40,7 +40,7 @@ Dr. Robin Cyriac
 ## Modules
 > Tip: ✅ = Done, 🔥 = WIP, 🕐 = Not started, 🔌 = Discontinued
 
-- [ ] Module 1 🕐 - Introduction to Deep Learning & Neural Network
+- [ ] Module 1 🔥 - Introduction to Deep Learning & Neural Network
 - [ ] Module 2 🕐 - Deep Learning: Feedforward Neural Network and Backpropagation
 - [ ] Module 3 🕐 - Deep Learning Application: Natural Language Processing, Speech Recognition and Computer Vision
 - [ ] Module 4 🕐 - Regularization
@@ -54,7 +54,7 @@ Dr. Robin Cyriac
 - [ ] Module 12 🕐 - Practical Methodologies and the Future of Deep Learning
 
 ## Assignments
-- [ ] Assessment 1 - deadline 28/06/2026 🕐, **Programming Problems**: source code + 500-word report +/- 10%, individual, 30%, SLOs `a)`, `b)`, XX/100 pts
+- [ ] Assessment 1 - deadline 28/06/2026 🔥, **Programming Problems**: source code + 500-word report +/- 10%, individual, 30%, SLOs `a)`, `b)`, XX/100 pts
 - [ ] Assessment 2 - deadline 26/07/2026 🕐, **Deep Learning Project Proposal Presentation**: 1000-word report +/- 10% + 5-7 minute presentation, group, 30%, SLOs `b)`, `c)`, `d)`, `e)`, XX/100 pts
 - [ ] Assessment 3 - deadline 19/08/2026 🕐, **Deep Learning Final Project**: source code + 1500-word report +/- 10%, group, 40%, SLOs `c)`, `d)`, `e)`, XX/100 pts
 
