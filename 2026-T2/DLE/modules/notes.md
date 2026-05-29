@@ -6,6 +6,10 @@
 <!-- todo... -->
 
 ### TLDR
+- **Deep learning** is machine learning that learns layered representations from data instead of relying only on hand-built features.
+- **Representation quality** strongly affects model performance; deep networks build higher-level concepts from simpler ones.
+- **N-gram language models** estimate word sequence probabilities using local context, usually unigram, bigram, or trigram histories.
+- **Assessment 1 link:** the N-gram reading is the technical foundation for the Twitter sentiment analysis classifier.
 
 ### Introduction
 Welcome to the world of deep learning.
@@ -27,7 +31,7 @@ Read on to discover the basics of deep learning and how deep learning will meet 
 
     Please read Chapter 1 for this Module. Pay special attention to the ‘Introduction’ and Section 1.2. These sections will help you ease into the world of deep learning and will introduce you to neural networks with examples and explanations.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module01_notes.md](module-01-intro-to-dl/module01_notes.md)*
 
 #### 2. Speech and Language Processing
 - Jurafsky, D. & Martin, J. H. (2008) Speech and language processing. Boston, MA: Pearson. Retrieved from: https://web.stanford.edu/~jurafsky/slp3/
@@ -38,7 +42,7 @@ Read on to discover the basics of deep learning and how deep learning will meet 
 
     Please read Chapter 3 for this Module. Pay special attention to the ‘Introduction;’, Section 3.1 and Section 3.2. You may choose to read the rest of the chapter if you like. These sections will introduce you to the N-Gram language model. It is one of the most prominent language processing models in both ML and deep learning. Note: You need to have a good understanding of this model for Assessment 1.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module01_notes.md](module-01-intro-to-dl/module01_notes.md)*
 
 #### 3. Introduction to Deep Learning with Examples
 - Kelleher, J. D. (2019). Deep learning. Cambridge, MA: MIT Press. Retrieved from https://ebookcentral-proquest-com.torrens.idm.oclc.org/lib/think/detail.action?docID=5855529
@@ -49,7 +53,7 @@ Read on to discover the basics of deep learning and how deep learning will meet 
 
     Please read Chapter 1 for this Module. Pay special attention to the applications that are discussed as examples in the first chapter.
 
-> *Status: 🕐 To-Do*
+> *Status: 🔥 WIP — needs manual access to ProQuest eBook*
 
 #### 4. Applied Machine Learning: Foundations for Deep Learning
 - Jedamski, D. (2019). Applied machine learning: Foundations [Video file]. Retrieved from https://www.linkedin.com/learning/applied-machine-learning-foundations/leveraging-machine-learning
@@ -60,7 +64,7 @@ Read on to discover the basics of deep learning and how deep learning will meet 
 
     However, for this Module, you can simply listen to the ‘Introduction’ and ‘1. Machine Learning Basic’ sections. These sections will help you ease into the world of deep learning and will give you another point of view about the relationship between AI, ML and deep learning.
 
-> *Status: 🕐 To-Do*
+> *Status: 🔥 WIP — needs manual listen/authenticated LinkedIn access*
 
 ### Learning Activities
 
