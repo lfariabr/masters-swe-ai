@@ -1,0 +1,1834 @@
+[00:00:01] so yeah uh welcome everyone uh glad that
+[00:00:03] you made it here I mean it's uh yeah
+[00:00:05] more people than I expected really and I
+[00:00:08] hope you are all new to psychic learn
+[00:00:10] will make it more interesting I hope
+[00:00:12] it's an introductory tutorial and I will
+[00:00:14] tell you today a little bit about
+[00:00:16] psychic learn give you some examples for
+[00:00:18] how you do predictive modeling and yeah
+[00:00:21] uh I think not everyone has a notebook
+[00:00:24] or laptop with them or her and I have a
+[00:00:27] Jupiter notebook uh you don't have to
+[00:00:29] really exed in parall while I'm talking
+[00:00:31] we will walk through it together and um
+[00:00:35] yeah we will just see how it goes and uh
+[00:00:38] yeah just to quickly introduce myself uh
+[00:00:39] my name is Sebastian I'm originally from
+[00:00:42] Germany but yeah yesterday I just came
+[00:00:43] from Michigan which was almost
+[00:00:45] convenient I've been at Michigan State
+[00:00:47] for yeah almost 5 years now I would say
+[00:00:50] yeah and uh was a three or 4our drive
+[00:00:52] but I'm happy that I made it here
+[00:00:54] yesterday night at some point okay so
+[00:00:56] then me let's uh start so just uh few
+[00:01:00] infos here so I have the GitHub material
+[00:01:03] uh of the material on GitHub if you want
+[00:01:05] to check it out later on maybe as a
+[00:01:07] reference or something like that and if
+[00:01:09] you like to contact me my email address
+[00:01:11] website Twitter GitHub account and yeah
+[00:01:13] what have you and um I think because
+[00:01:16] it's an introductory tutorial I thought
+[00:01:18] it would be cool if we can maybe ask a
+[00:01:20] few questions and have a little bit of a
+[00:01:23] back and forth maybe not too much but I
+[00:01:25] think because I mean I don't want to
+[00:01:26] give a lecture here it's really more
+[00:01:28] like a tutorial I hope so if you have
+[00:01:30] questions then please raise your hand
+[00:01:32] and um we will maybe hopefully discuss
+[00:01:34] this a little bit and um yeah I'm not
+[00:01:37] sure how many of you have used machine
+[00:01:39] learning or psychic learn yet oh too
+[00:01:43] many so I hope it will not be too
+[00:01:45] introductory but um for the ones who uh
+[00:01:48] didn't raise their hands um what what
+[00:01:50] can machine learning uh do for us so I
+[00:01:53] plan to inser uh many more pictures here
+[00:01:55] but it's always a little bit tricky with
+[00:01:56] the copyright and yeah public domain
+[00:01:59] stuff so
+[00:02:00] what can machine learning do for us
+[00:02:01] machine learning I think is everywhere
+[00:02:03] nowadays we have it U I think it started
+[00:02:06] maybe with a spam filter in our email
+[00:02:08] clients and we have Netflix where we can
+[00:02:12] uh search for movies it learns by our
+[00:02:14] tastes what movies we like makes
+[00:02:17] hopefully good predictions or
+[00:02:19] recommendations then the automated uh
+[00:02:21] ATMs where you uh have some sort of uh
+[00:02:25] text recognition or image recognition
+[00:02:28] and also now the self-driving card I
+[00:02:30] found this little older cute one from
+[00:02:32] Google where yeah hopefully it's maybe
+[00:02:34] the Pinnacle of the technology right now
+[00:02:36] in machine learning that we have
+[00:02:37] self-driving cards which are more or
+[00:02:39] less yeah hopefully reliable we will see
+[00:02:41] in a few years so that will play out and
+[00:02:45] so that is basically just these are just
+[00:02:47] a few examples what machine learning can
+[00:02:50] be used for and but what is machine
+[00:02:53] learning really and machine learning is
+[00:02:55] just um automating yeah tasks that we
+[00:02:58] usually did by hand for for example we
+[00:03:00] had a programmer he looked at or she
+[00:03:02] looked at a lot of data came up with
+[00:03:04] some rules and implemented these rules
+[00:03:08] for example uh in email spam
+[00:03:10] classification a person looked at what
+[00:03:12] are words that are commonly in spam
+[00:03:14] occurring in spam email what words are
+[00:03:18] occurring not in spam email usually and
+[00:03:20] then he derived rules and experimented
+[00:03:22] with it and things like that and
+[00:03:24] nowadays um we can we have powerful
+[00:03:26] learning algorithms so we just give our
+[00:03:28] algorithm a set of of labeled data we
+[00:03:31] give it maybe 10,000 or 100,000 emails
+[00:03:34] that are spam emails and maybe 1 million
+[00:03:36] non-spam emails and then it will
+[00:03:38] automatically uh learn rules to classify
+[00:03:40] them and um yeah there are three big
+[00:03:43] types of machine learning we have a
+[00:03:45] supervised unsupervised in uh
+[00:03:47] reinforcement learning and uh supervised
+[00:03:50] learning is just for example this email
+[00:03:52] example we have labeled data we have we
+[00:03:55] know the output already so we have
+[00:03:57] emails we know that it's a spam email or
+[00:03:59] not and in unsupervised learning we want
+[00:04:01] to discover a pattern for example
+[00:04:03] clustering analysis we want to we don't
+[00:04:05] know anything about our data but we want
+[00:04:07] to find a hidden structure in that and
+[00:04:09] also maybe we want to compress our data
+[00:04:11] if we see some structures in it we can
+[00:04:13] maybe break it down into a smaller
+[00:04:15] dimensional Subspace to uh maybe uh
+[00:04:18] increase the learning speed or accuracy
+[00:04:20] also the storage space and yeah
+[00:04:22] reinforcement learning would be for
+[00:04:24] example the self-driving car a chess
+[00:04:26] computer or maybe the uh go engine that
+[00:04:28] was pretty popular in the last couple of
+[00:04:30] months uh it's basically learning by
+[00:04:32] doing so there's a reward in the
+[00:04:34] environment and system learns
+[00:04:36] incrementally by taking actions and then
+[00:04:39] getting a certain reward over a certain
+[00:04:42] number of steps I think today we will
+[00:04:45] focus more on supervised learning
+[00:04:46] because yeah we only have uh 120 minutes
+[00:04:49] I think so we will um to yeah have a
+[00:04:53] reasonable coverage of at least one of
+[00:04:55] these areas we will talk about mostly
+[00:04:57] supervised learning and when we break
+[00:05:00] down supervised learning we can
+[00:05:01] basically say the big two big categories
+[00:05:04] are regression analysis and pacification
+[00:05:07] in regression analysis we have a
+[00:05:09] continuous output variable so we uh have
+[00:05:12] a continuous input or a binary input and
+[00:05:14] then we um want to predict uh continuous
+[00:05:18] output variable and in classification we
+[00:05:20] have hard labels we have there's uh you
+[00:05:23] can think of it as
+[00:05:25] categorial labels that are nominal
+[00:05:27] there's no order in the labels we have
+[00:05:29] for example class one class two class
+[00:05:31] three but unless it's a ranking
+[00:05:33] algorithm there is no um can't say class
+[00:05:36] two is greater than one it's a basically
+[00:05:38] like categories you can also think of it
+[00:05:40] as names or something like that and in
+[00:05:43] unsupervised learning like I said before
+[00:05:45] we have a clustering analysis and U yeah
+[00:05:48] compression dimensionality reduction and
+[00:05:50] in clustering we want to find groups of
+[00:05:53] similar items or similar samples and in
+[00:05:56] compression we want to find a structure
+[00:05:57] so that we can break it down into to
+[00:06:00] smaller parts or and smaller subspaces
+[00:06:03] in this example I just took this
+[00:06:06] uh lower right it's an example of a
+[00:06:09] concentric Circle data set there a
+[00:06:11] synthetic data set and here I used
+[00:06:13] Dimension reduction algorithm I think I
+[00:06:15] use Cal PCA to reduce it onto a
+[00:06:18] onedimensional subsrate I mean the I
+[00:06:21] didn't label the y- axis here to
+[00:06:23] indicate that it's a just a one
+[00:06:25] dimension here and as you can see it
+[00:06:28] nicely separat
+[00:06:30] um similar items from each other so that
+[00:06:32] we could use a a linear classifier to
+[00:06:35] separate let's say blue from
+[00:06:38] red and um yeah we will look into this
+[00:06:41] in more detail later
+[00:06:44] and I think we should maybe start with a
+[00:06:47] linear regression example a simple
+[00:06:48] linear regression because it's maybe the
+[00:06:51] yeah simplest introduction I would say
+[00:06:53] the smoothest introduction so you
+[00:06:56] probably uh all of you used a linear
+[00:06:58] regression so what it is all about we
+[00:07:00] want to model the relationship between
+[00:07:03] two variables we have a explanatory
+[00:07:06] variable and a dependent variable and um
+[00:07:10] what we basic or response variable and
+[00:07:12] what we basically want to do is we want
+[00:07:14] to find
+[00:07:16] a um linear fit that can uh capture
+[00:07:19] basically the maybe a trend in the data
+[00:07:21] so that we have an X variable an input
+[00:07:24] variable we want to predict the output
+[00:07:26] variable and we want to learn uh basic
+[00:07:29] this dotted line there we want to uh
+[00:07:32] derive this from from the data and how
+[00:07:34] we do this is by minimizing the vertical
+[00:07:36] offset so we want to find the line that
+[00:07:39] minimizes the distance from the line to
+[00:07:41] the points the vertical distance and
+[00:07:44] there are different approaches to this
+[00:07:45] through this so in statistics we can use
+[00:07:47] there a closed form solution where you
+[00:07:50] have a matrix inversion but in machine
+[00:07:53] learning usually you use some
+[00:07:54] optimization algorithm it's more meant
+[00:07:56] for yeah working with big uh data sets
+[00:07:59] where you maybe can't really invert a
+[00:08:01] matrix because it's computation too
+[00:08:04] expensive for memory or not um
+[00:08:07] feasible and um so that is basically
+[00:08:11] just a simple example of what we can do
+[00:08:14] with machine learning and how we
+[00:08:16] represent our data also in psychic learn
+[00:08:18] uh later which uh will be uh relevant is
+[00:08:22] that we have an X usually an X array we
+[00:08:24] use usually numpy arrays because we can
+[00:08:27] store uh nump array stores
+[00:08:31] items in a continuous memory which is
+[00:08:33] more efficient we can make use of our
+[00:08:35] memories the caches the L1 and L2 cache
+[00:08:39] and it's just faster to buffer and if
+[00:08:40] you have an contigous memory rather than
+[00:08:44] accessing uh or items or items in the
+[00:08:48] list randomly like in a python list I
+[00:08:51] mean the memory access Is Random
+[00:08:54] so and we have a lot of powerful linear
+[00:08:57] algebra functions implemented in our I
+[00:08:59] could learn or in napai which also makes
+[00:09:01] use of the blast uh unit of our computer
+[00:09:04] makes everything a little bit more
+[00:09:05] efficient that's maybe why we use mostly
+[00:09:08] NPI for linear algebra and machine
+[00:09:09] learning rather than python objects like
+[00:09:13] lists and yeah in the data
+[00:09:16] representation when we have our xarray
+[00:09:17] that is basically our data we have
+[00:09:20] multiple samples and we represent them
+[00:09:22] as rows and our features are the columns
+[00:09:25] in this uh data array so it's usually a
+[00:09:27] two dimensional array and we also have
+[00:09:30] in supervised learning a y array in the
+[00:09:32] Y array we store the class labels of in
+[00:09:35] regression example we store the
+[00:09:37] continuous Target uh variable and each
+[00:09:41] uh for example each index here 0 1 2 3
+[00:09:45] they corespond to the samples in the X
+[00:09:47] array so 0 1 two and three and the
+[00:09:50] columns again are the different features
+[00:09:52] for example later we will also work with
+[00:09:54] the iris data flower set where we have
+[00:09:56] different flower measurements for
+[00:09:58] example petal with P length and these
+[00:10:01] would be
+[00:10:02] features and uh so the basic workflow of
+[00:10:06] machine learning um How We Do supervised
+[00:10:10] learning it's a little bit small here so
+[00:10:13] we uh at point one we uh I just
+[00:10:16] indicated we have a data set with
+[00:10:18] samples and labels here on the on the
+[00:10:22] left and uh what we want to do is we
+[00:10:25] want to split our data set first this we
+[00:10:27] want to do a random uh subsampling or
+[00:10:30] resampling here so we split our data set
+[00:10:32] into two parts a training set and the
+[00:10:34] test data set usually it's maybe two uh
+[00:10:38] to three split like or 70% training data
+[00:10:41] 30 uh% test data but it really depends
+[00:10:44] on how big our data set is and the test
+[00:10:47] data that is the important part that we
+[00:10:49] don't touch it during training this is
+[00:10:51] just for evaluating the model later on
+[00:10:53] so we don't want to have our algorithm
+[00:10:56] look at this data because then it will
+[00:10:58] become biased in optimistic if it
+[00:11:00] already has seen this so we want to keep
+[00:11:02] it secret from our algorithm it's just
+[00:11:04] for the
+[00:11:06] evaluation and um in the Second Step so
+[00:11:09] we take the training data we use a
+[00:11:11] machine learning algorithm and learn a
+[00:11:13] Model A predictive model for instance
+[00:11:16] and I indicated here hyper parameter
+[00:11:18] values and we will talk about that later
+[00:11:20] hyper parameter hyper parameters are
+[00:11:22] hyper parameters of the algorithm for
+[00:11:26] example the number of iterations our
+[00:11:28] algorithm goes the data and uh later on
+[00:11:31] we will also see for example um I'm not
+[00:11:34] sure what uh I included it but let's say
+[00:11:38] regularization to introduce a bias by us
+[00:11:41] to prevent overfitting but hper values
+[00:11:44] are basically the values of our
+[00:11:45] algorithm and not the model parameters
+[00:11:48] model parameters uh would be weight
+[00:11:51] coefficients or The Intercept these
+[00:11:53] would be model parameters for example
+[00:11:55] here on the y axis this intercept term
+[00:11:57] that would be a model parameter that we
+[00:11:58] learned learn from the data and also how
+[00:12:01] steep the curve is that's uh the
+[00:12:03] coefficient or weight um parameter this
+[00:12:06] is something the learning algorithm
+[00:12:09] learns from the data and Hyper operators
+[00:12:11] are is something that we as a programmer
+[00:12:13] or data scientist have to set manually
+[00:12:19] and we will also see later uh that there
+[00:12:21] are different methods that we can do for
+[00:12:24] example a grid search and automate this
+[00:12:26] uh looking for these uh or for good
+[00:12:28] values but it's not learned by the
+[00:12:30] algorithm itself um so in the third step
+[00:12:35] here uh we basically use our test data
+[00:12:37] then so we have fitted a model in step
+[00:12:40] two and we take our model in green we
+[00:12:42] have the test data and we make
+[00:12:45] predictions on the test data without
+[00:12:47] knowing the labels yet or the algorithm
+[00:12:48] doesn't know the labels so we predict
+[00:12:50] the labels and then we compare these
+[00:12:52] labels to each other and see how how it
+[00:12:55] performs so we compare the labels to the
+[00:12:57] true labels the predicted labels to the
+[00:12:59] ones that we withheld before and then we
+[00:13:02] can compare how many mistakes um did the
+[00:13:04] model make and based on that we can
+[00:13:07] comput a certain performance there
+[00:13:08] different performance metrics we will
+[00:13:10] talk about this later I
+[00:13:12] think and in step four after we
+[00:13:15] evaluated our model there is actually no
+[00:13:18] good reason why we should not also show
+[00:13:20] the test data to the algorithm because
+[00:13:23] the test data the purpose is to really
+[00:13:25] compute the performance or estimate how
+[00:13:27] well it would do in um in the future on
+[00:13:29] unknown um new data that has been
+[00:13:32] sampled from the same uh probability
+[00:13:34] distribution as our training data but
+[00:13:37] once our
+[00:13:38] algorithm or once we evaluated our
+[00:13:41] algorithm there's no point in
+[00:13:42] withholding it because usually the more
+[00:13:44] data the algorithm has the better it
+[00:13:47] performs we will later also look at
+[00:13:48] learning curves which is an indicator
+[00:13:50] that algorithm May benefit or not
+[00:13:53] benefit from additional data so now we
+[00:13:55] can in step four after evaluation we can
+[00:13:57] take our whole data set
+[00:13:59] and uh use the same learning algorithm
+[00:14:02] that we evaluated before and learn the
+[00:14:04] final model so that's we use the same
+[00:14:07] settings as before but here we use more
+[00:14:09] data which is usually resulting in a
+[00:14:11] more robust
+[00:14:12] model and then yeah
+[00:14:23] one yeah we will talk about about that
+[00:14:25] later so the question was if uh we do
+[00:14:28] this basically in one step or if there
+[00:14:30] are multiple iterations that we learn
+[00:14:32] different models and if we like
+[00:14:34] different models yeah that's a good
+[00:14:36] point and we will get to this at the or
+[00:14:38] later when we look at how we can
+[00:14:41] optimize our hyper peror settings but if
+[00:14:44] we um only have a training and test
+[00:14:47] split I wouldn't recommend this uh
+[00:14:49] because you can easily do overfitting if
+[00:14:51] you would reuse your training set and or
+[00:14:55] for example if you would change the
+[00:14:56] hyper in step two and EV um the
+[00:14:59] performance again and then you would
+[00:15:01] change it again and evaluate the
+[00:15:02] performance again then you would
+[00:15:04] basically incorporate your test data in
+[00:15:07] the training procedure so you would
+[00:15:09] optimize your model also kind of towards
+[00:15:12] the making good predictions on test data
+[00:15:14] and this is kind of yeah uh cheating I
+[00:15:16] would say so your estimate here it would
+[00:15:18] not be that unbiased anymore so you
+[00:15:20] would introduce a bias it would look
+[00:15:23] better than it really is
+[00:15:24] basically but we will uh talk about
+[00:15:26] Alternatives later so this is basically
+[00:15:28] the
+[00:15:29] the simplest workflow when you already
+[00:15:32] when you for example in Cy learn use the
+[00:15:34] default parameters and you just know
+[00:15:36] what algorithm you want to use you don't
+[00:15:38] want to compare algorithms that's the
+[00:15:40] simplest workflow where you provide a
+[00:15:42] known algorithm a hyper value setting
+[00:15:45] and just irate the
+[00:15:47] model and yeah I've prepared some code
+[00:15:49] examples uh because yeah it's an I hope
+[00:15:53] a secondy learn tutorial uh not only
+[00:15:56] just about machine learning Concepts so
+[00:16:00] I hope it is I can make it bigger I
+[00:16:05] think so hopefully it works
+[00:16:16] here so we'll also use matb lip and
+[00:16:19] pandas a little bit as uh they are
+[00:16:21] convenient uh libraries that can help us
+[00:16:23] with visualizing our results and panners
+[00:16:26] I like it a lot for um working with or
+[00:16:28] pre-processing data if you collect data
+[00:16:30] from different sources and you want to
+[00:16:32] combine columns or merge data sets it's
+[00:16:35] uh or cleaning up a data set find panas
+[00:16:38] very convenient for that but for the
+[00:16:40] main uh machine learning uh data input
+[00:16:43] for psych learn we usually use
+[00:16:50] numpy so first uh we will work with a
+[00:16:53] linear regression example and I don't I
+[00:16:56] don't know I didn't want to use the
+[00:16:57] Boston data set
+[00:16:59] again I think it's a very popular data
+[00:17:01] set but it's kind of boring already so I
+[00:17:03] just did a search online what kind of
+[00:17:06] data sets are available for a simple
+[00:17:09] regression example I found this data set
+[00:17:11] that compares the relation of the brain
+[00:17:14] um the size of the brain to the size of
+[00:17:16] the head so is there a relationship
+[00:17:18] between U head size and brain size which
+[00:17:21] is uh yeah kind of
+[00:17:23] interesting so how this data set looks
+[00:17:25] like is we have two classes um oh no
+[00:17:28] it's regression example sorry so let me
+[00:17:31] see how it looks like so these are the
+[00:17:34] last five rows of the data set we have
+[00:17:36] uh
+[00:17:38] 237 samples uh 36 I think
+[00:17:43] and we have the head size it's a
+[00:17:45] continuous variable and in yeah cubic
+[00:17:49] centimet and we have the brain weight in
+[00:17:52] uh grams which is also a continuous
+[00:17:54] variable and we want to use for example
+[00:17:57] that can we use the head size to predict
+[00:18:00] um the brain weight would be for example
+[00:18:02] one question we could ask could we build
+[00:18:04] a model that can predict the brain
+[00:18:06] weight based on the head size and how
+[00:18:09] this data set looks like if we just put
+[00:18:11] a scale plot I think ah the
+[00:18:13] question oh yeah
+[00:18:17] sure
+[00:18:19] think all right so uh I always find it
+[00:18:23] helpful to first uh visualize a data set
+[00:18:26] to just um it's not always so easy
+[00:18:28] because usually we are working with high
+[00:18:30] dimensional data sets but if we have a
+[00:18:32] 2d data set or maybe a 3D data set we
+[00:18:34] can easily do a scatter plot and if it's
+[00:18:37] um more than 3D we can maybe do multiple
+[00:18:40] histograms to just get a quick idea of
+[00:18:42] how the data set looks like if it's even
+[00:18:46] if it even makes sense to build a model
+[00:18:48] on that if for example the data is
+[00:18:50] completely random there's we don't see
+[00:18:53] any correlation I mean that's probably
+[00:18:54] not a good idea to build a model because
+[00:18:57] it probably won't work with can still
+[00:18:59] try but it gives us at least some idea
+[00:19:02] what we are working with and in this
+[00:19:04] case it looks like this so we have on
+[00:19:07] the xaxis the experiment variable the
+[00:19:09] head size in cubic centimeters and the
+[00:19:11] Brain weight is what we want to predict
+[00:19:12] in grams and this is our data set that
+[00:19:15] we will use to build a simple linear
+[00:19:17] regression model and I don't know but I
+[00:19:19] I think there's a pretty nice um
+[00:19:21] correlation here I haven't Quantified it
+[00:19:24] here in terms of r or R square but it
+[00:19:27] looks to me very um correlated or not
+[00:19:31] cor yeah
+[00:19:32] correlated and to prepare the data set
+[00:19:35] so usually I said we are using NPI for
+[00:19:38] Cy learn we use maybe pandas because
+[00:19:42] it's convenient to read a CSF CSV file
+[00:19:45] in here or in this case it's a text file
+[00:19:48] where the columns are separated by a
+[00:19:49] certain number of white
+[00:19:51] spaces um but I think it is uh yeah so
+[00:19:55] more commen to use panas for that numai
+[00:19:57] is CCV reader can can be sometimes a
+[00:19:59] little bit tricky but for secondy learn
+[00:20:02] we want to convert it now into number
+[00:20:03] array so via the values attribute of
+[00:20:05] pandas we can access or numi an
+[00:20:08] underlying numpy array you can think of
+[00:20:10] pandas we built on top of numi with a
+[00:20:12] few uh top of panders with a few extra
+[00:20:16] convenient convenience functions so
+[00:20:19] first we will um access the yeah the 2
+[00:20:24] 37 class label um continuous outputs
+[00:20:28] this is now number array can
+[00:20:38] maybe and um then we do the same thing
+[00:20:42] for the head size and one uh important
+[00:20:45] thing when we work with uh psychic learn
+[00:20:48] so when we
+[00:20:49] do when we just uh convert the or get
+[00:20:53] the N array from our head size column it
+[00:20:57] will be
+[00:21:06] will be a one-dimensional um array so
+[00:21:09] there's U only a number of rows we don't
+[00:21:11] have a second axis here and for psychic
+[00:21:13] learn it's important love uh bux arise
+[00:21:17] if we uh don't pay attention to this so
+[00:21:19] numai expects a two- dimensional array
+[00:21:21] so we have to in this case because we
+[00:21:23] only have one column we have to use for
+[00:21:25] example we can use none here or n new
+[00:21:27] AIS to add a second exis to uh our num
+[00:21:31] array so that we have um the 237 rows
+[00:21:36] and one column so that it's a l array of
+[00:21:40] two
+[00:21:40] AES that's uh important to for
+[00:21:43] compatibility with the
+[00:21:49] psychic just take this
+[00:21:56] chance so any uh questions so far
+[00:22:13] yeah think
+[00:22:15] officially May
+[00:22:20] problem think not much hle to just use
+[00:22:24] this uh values attribute to get the
+[00:22:26] number array I would recommend it's not
+[00:22:29] always necessary but you can get I think
+[00:22:31] I've seen some cases where it led to
+[00:22:33] bugs when you use the penas array
+[00:22:47] directly H in N you mean
+[00:22:57] um
+[00:23:01] mhm so you mean for example um the X
+[00:23:03] array only has the The Columns but not
+[00:23:07] the names of the columns so only the
+[00:23:22] index so usually um you have to maybe
+[00:23:25] keep you can make a dictionary maybe if
+[00:23:27] you want to know the names later but you
+[00:23:29] have for example The Columns U attribute
+[00:23:32] and if you use all of the columns you
+[00:23:34] could also just use the index for
+[00:23:37] example in this case you can use uh for
+[00:23:40] the brain rate index later on yeah
+[00:23:42] usually just keep track of it when you
+[00:23:45] do the conversion you have a table
+[00:23:47] and we can later uh maybe make an uh do
+[00:23:51] an example where we compute feature
+[00:23:53] importance and then map it back to the
+[00:23:55] actual labels where we only have Co
+[00:23:57] indexes IND and then we can maybe get
+[00:23:59] the labels from back from the panas
+[00:24:02] array can at the end maybe make an
+[00:24:04] example that would be a nice
+[00:24:08] one um okay so now we have our numi
+[00:24:12] arrays uh continuous uh variable in y uh
+[00:24:16] that we want to predict and one uh
+[00:24:18] continuous variable in the X array one
+[00:24:22] column and yeah in the first step we
+[00:24:24] want to split our data set into two sub
+[00:24:27] data sets a training data set and a test
+[00:24:29] data set so there is a convenient
+[00:24:31] function uh the test uh train test split
+[00:24:35] uh function in pyic learn and here we
+[00:24:37] can uh either set um the train size
+[00:24:40] attribute uh parameter 2.3 which will
+[00:24:43] then uh put 70% of the data into the X
+[00:24:48] train data set and 30% of the data into
+[00:24:51] the training data set and here I used
+[00:24:54] the random State I think for like
+[00:24:56] scientific um experiments it's thing
+[00:24:59] recommended so you can reproduce your
+[00:25:01] results so if I uh do the split it will
+[00:25:04] always result in the same split if I use
+[00:25:06] the same random
+[00:25:08] State and um maybe I can just show you
+[00:25:12] it's
+[00:25:13] um smaller array now
+[00:25:19] sorry we have 237 samples to start with
+[00:25:23] after the splitting we have um 70% 165
+[00:25:27] samples and how this looks like is like
+[00:25:31] this we have the blue ones are the
+[00:25:34] training samples and the red red ones
+[00:25:36] are the test samples the squares and
+[00:25:39] what I wanted to show you I think here
+[00:25:41] is that it's a random split so what
+[00:25:43] happens it's also shuffling it which is
+[00:25:45] also important that we for example not
+[00:25:47] only take this lower part as training
+[00:25:50] set and the upper part is tested so it
+[00:25:53] does a shuffling for us
+[00:25:57] already yeah and then we can fit a model
+[00:25:59] so in uh the linear model subm module of
+[00:26:02] psyit learn we have several linear
+[00:26:05] models for classification and linear
+[00:26:07] regression we'll only use the simple
+[00:26:09] linear regression one without any
+[00:26:12] regularization and how this works is we
+[00:26:14] uh initialize a object a linear
+[00:26:17] regression uh model that we or object
+[00:26:20] that we will fit to get our predictive
+[00:26:23] model and uh in supervised uh estimators
+[00:26:27] like uh lineary regression we provide
+[00:26:29] both the X train or and Y train the
+[00:26:32] labels and
+[00:26:34] the
+[00:26:36] variables and then we can make a
+[00:26:37] prediction bya the uh predict method and
+[00:26:41] that's U the basic workflow for
+[00:26:43] classification and regression and pyic
+[00:26:44] learn uh it's a very uh nice API you
+[00:26:47] have a fit method to learn the model
+[00:26:49] parameters and then you use these model
+[00:26:51] parameters to make predictions on the
+[00:26:53] test
+[00:26:54] set
+[00:26:57] and
+[00:27:02] yeah so we will I think uh look at it in
+[00:27:05] a second but or you can maybe you can do
+[00:27:08] it like this ah sorry the question was
+[00:27:12] if we call the fit method it uh will it
+[00:27:14] modify our LR uh
+[00:27:17] model so what's the question right so
+[00:27:21] yeah so this is basically here a blank
+[00:27:24] um blank object with a certain
+[00:27:28] attributes that not are not assigned yet
+[00:27:30] and if we call fit it will get certain
+[00:27:32] attributes like The Intercept term or
+[00:27:34] coefficient so for example it should
+[00:27:37] have I think this one now this is our
+[00:27:40] slope of the linear regression model and
+[00:27:44] in Cy learn by this underscore the
+[00:27:46] trailing underscore it IND it basically
+[00:27:48] indicates these are attributes that are
+[00:27:50] available after model fitting I think so
+[00:27:53] for example if I
+[00:27:56] would do it like this
+[00:28:04] there won't be any uh coefficient
+[00:28:07] attribute I
+[00:28:08] think yeah so has no object coefficient
+[00:28:12] so this will only become available after
+[00:28:21] fitting yeah and to evaluate our model
+[00:28:24] here how well does it fit our
+[00:28:26] data um pyed learn you for classifiers
+[00:28:30] and regression estimators they have a
+[00:28:33] score function and for classifiers we'll
+[00:28:36] see later the score uh fun or the score
+[00:28:39] method is using accuracy as a metric and
+[00:28:43] for regression models it will use the uh
+[00:28:45] determinant of coefficient
+[00:28:48] of the coefficient of determination so
+[00:28:51] the R square score and uh here I just
+[00:28:55] computed it manually just to check that
+[00:28:57] we get the some results as a yeah
+[00:29:00] illustration so the linear regression
+[00:29:04] estimators all of them in C learn when
+[00:29:06] you call score it will compute the R2
+[00:29:10] score which is here um computed based on
+[00:29:13] the X test and Y test label the Y test
+[00:29:16] labels it tells us um there's U pretty
+[00:29:20] decent uh variance explained by the
+[00:29:23] model it's of course not perfect the
+[00:29:25] score ranges from 0o to one but I would
+[00:29:27] say it's a pretty okay depends on your
+[00:29:30] expectation of course but um yeah and
+[00:29:34] here what I showed above the two terms
+[00:29:37] that are now available the slope of the
+[00:29:41] regression line and the y-axis intercept
+[00:29:44] and here just to illustrate how our
+[00:29:46] linear regression fit looks like so I
+[00:29:49] just took
+[00:29:51] um the so this is one second so the
+[00:29:56] prediction is basically done by let's
+[00:30:00] say where C is our y AIS intercept and
+[00:30:05] let's say a is our input data and these
+[00:30:07] are coefficient and by this equation we
+[00:30:09] can compute um or make a prediction on
+[00:30:13] new samples
+[00:30:15] and yeah I just use the Min value of our
+[00:30:18] training set or max value to draw a line
+[00:30:20] between those two points to illustrate
+[00:30:22] how our regression fit looks
+[00:30:26] like and yeah of course it's a linear
+[00:30:28] regression we have some uh deviations
+[00:30:30] here from the linear regression line but
+[00:30:33] I think it's a pretty decent uh fit in
+[00:30:36] this case there may be some outliers
+[00:30:39] here this one maybe that may drag the
+[00:30:42] line in a certain way a little bit up
+[00:30:44] and things like that but overall yeah
+[00:30:46] this is just an example how to use
+[00:30:48] psychic learn more over I mean using the
+[00:30:51] fit method the predict method and the
+[00:30:53] score method toate or model
+[00:30:56] just
+[00:30:58] so before we go to the next section are
+[00:31:01] there any
+[00:31:04] questions I hope it I thought it was an
+[00:31:06] introductory tutorial so I hope it's not
+[00:31:08] too easy here
+[00:31:15] yeah um yes so I just uh yeah I just
+[00:31:19] showed you
+[00:31:21] the ah sorry so the question was um if I
+[00:31:24] could explain a little bit more about
+[00:31:25] the scoring functions available in p
+[00:31:28] learn so in this case I only showed you
+[00:31:31] the default the do score method and in
+[00:31:35] Cy learn we have um multiple uh scoring
+[00:31:39] metrics we have Wi-Fi here by the way um
+[00:31:43] also one second I
+[00:31:56] have
+[00:32:05] so iny learn there's a metric uh module
+[00:32:08] I think and they list uh several
+[00:32:10] different performance metrics that you
+[00:32:12] could use
+[00:32:17] alternatively when we do
+[00:32:19] the hyper tuning example later I also
+[00:32:23] will show you how to use this in um
+[00:32:26] during the uh during the
+[00:32:28] model
+[00:32:30] selection
+[00:32:34] um
+[00:32:54] think so uh you would have to I think I
+[00:32:57] don't have internet here but um I'm not
+[00:33:00] sure how to get a list of all these uh
+[00:33:03] performance metrics in the metric module
+[00:33:06] but for example the rcore is also
+[00:33:08] available through the metrix module so
+[00:33:10] if and there are other ones for example
+[00:33:13] I think um should be a mean squ error
+[00:33:24] one maybe it's spelled a little bit
+[00:33:26] differently but they have uh for
+[00:33:28] regression also different U different
+[00:33:31] scoring functions here in the metrix
+[00:33:33] module you can excuse me
+[00:33:41] yeah a cross validation yeah will get to
+[00:33:44] that um towards the end of the section I
+[00:33:46] just want to give you a brief overview
+[00:33:48] of how the estimator Works in Dr with
+[00:33:50] the fit method the predict and the score
+[00:33:54] and then later we will talk about cross
+[00:33:55] validation which is I think very
+[00:33:57] important
+[00:34:03] uh then let's maybe get back
+[00:34:05] [Music]
+[00:34:14] to so that was just a quick overview to
+[00:34:17] show you the general API of psyched
+[00:34:20] learn uh yeah because it's a psych learn
+[00:34:22] tutorial I thought I was focusing I
+[00:34:24] should focus a little bit about the API
+[00:34:26] itself rather than um yeah machine
+[00:34:28] learning because we only have yeah so
+[00:34:30] many minutes um so just as a reminder
+[00:34:35] these are three functions are the most
+[00:34:36] essential ones in uh the supervised
+[00:34:39] estimators in the unsupervised methods
+[00:34:42] or estimators we will see later it's a
+[00:34:43] little bit different but only slightly
+[00:34:46] and that's all
+[00:34:47] you need to get started but uh later
+[00:34:50] we'll also see how we can tune these
+[00:34:51] hyper parameters and set different hyper
+[00:34:54] parer
+[00:34:55] values and yeah a classic example I mean
+[00:34:57] it's maybe uh known to most of you but I
+[00:35:00] think it's still for an introductory
+[00:35:02] tutorial a nice data set because of its
+[00:35:04] properties we can visualize this data
+[00:35:06] set and um also the scaling of the
+[00:35:09] variables uh is uh convenient to explain
+[00:35:13] uh yeah so we have a iris data set it's
+[00:35:16] uh probably most of you heard of it but
+[00:35:18] I will just still uh talk about it
+[00:35:20] briefly so there are three different
+[00:35:22] flower species Iris satoa Iris vinica
+[00:35:26] still lab wrong um Iris vinica and
+[00:35:31] um
+[00:35:40] just should be like this okay so three
+[00:35:44] different flower species and um what we
+[00:35:47] want to do is we want to use the flower
+[00:35:50] uh measurements for example the width
+[00:35:52] and height of these uh leaves to prick
+[00:35:55] whether it's a satoa versical or V
+[00:35:58] flower and we have 150 flowers in this
+[00:36:00] data set 50 flowers from each
+[00:36:04] species and again we represent our data
+[00:36:07] set um as the features as columns the
+[00:36:11] measurements of these uh Pils and seils
+[00:36:15] and each sample is one row in our data
+[00:36:17] set and in our y array we have the
+[00:36:21] labels and um so when we use the train
+[00:36:27] test split function in the previous
+[00:36:28] section about regression we uh just
+[00:36:31] randomly split our data set and we can
+[00:36:33] also do it here we have uh 50 species
+[00:36:36] from uh we have 50 samples from each
+[00:36:39] species but one problem is that we uh
+[00:36:41] slightly shift the distribution of class
+[00:36:43] labels so for example here we have a 33%
+[00:36:47] U proportion of each species represented
+[00:36:49] in the whole data set and if we use the
+[00:36:52] train test split function uh we
+[00:36:54] will slightly alter this uh depending on
+[00:36:58] random split but it won't be 33% anymore
+[00:37:01] which I Illustrated
+[00:37:02] here so what I mean by that is uh we
+[00:37:06] change the frequency of how often each
+[00:37:09] class table occurs in the two subsets
+[00:37:11] test and training set so here I uh used
+[00:37:13] a certain random seat doesn't matter
+[00:37:15] which one but in this case I got for
+[00:37:17] example 38 satoa 28 veric color and 34
+[00:37:21] beginin C flowers so it's not all even
+[00:37:24] it's um before we had 50 5050 and now
+[00:37:27] now we have a slightly different
+[00:37:28] distribution and in the training set if
+[00:37:30] we just use a random SE and the same for
+[00:37:33] the test set it will be basically uh
+[00:37:35] changing in the opposite direction so we
+[00:37:38] will also then uh in the notebook in a
+[00:37:40] few minutes see how we can stratify uh
+[00:37:43] the split that means that we can
+[00:37:45] maintain the class proportions and I
+[00:37:47] think I think that's a a relatively new
+[00:37:50] feature in psychic learn I think it was
+[00:37:52] added in version 70.1 I
+[00:37:55] think or 17
+[00:37:58] .0 um and just a quick recap about the
+[00:38:02] linear regression that we just did so
+[00:38:04] what happened was we had
+[00:38:06] um uh we had only a simple linear
+[00:38:09] regression example where we only had one
+[00:38:12] weight and one intercept so we can
+[00:38:15] picture it as we had one input variable
+[00:38:18] and then one intercept term and one
+[00:38:21] weight and we put it through a that
+[00:38:24] input function so we summed up or we
+[00:38:27] only had uh we only had
+[00:38:30] one uh we only had one input that we
+[00:38:33] multiplied by our weight and got then
+[00:38:36] basically U if we would have multiple
+[00:38:38] ones we would get a linear uh
+[00:38:40] combination of these and uh for the
+[00:38:43] classification we use uh in the
+[00:38:46] following example just a logistic
+[00:38:47] regression classifier the name is maybe
+[00:38:49] a little bit confusing it's called
+[00:38:51] logistic regression but it's a
+[00:38:53] classifier and how it is different from
+[00:38:55] this linear regression is that we now um
+[00:39:00] substitute this U linear input function
+[00:39:04] or linear activation function by a
+[00:39:06] sigmoidal shape one in this case it's a
+[00:39:09] logistic function it's u 1/ 1 + e to the
+[00:39:14] minus Z which is uh so the exact
+[00:39:17] equation doesn't matter but what I want
+[00:39:18] to say is it's a nonlinear function here
+[00:39:21] and overall this is a generalized linear
+[00:39:24] model because um there's still a linear
+[00:39:26] dependence between input features and
+[00:39:28] weights and at the end uh so we can use
+[00:39:32] this one to make a prediction about the
+[00:39:34] probability How likely is it that a
+[00:39:36] sample has a certain class but we can
+[00:39:38] also add in a logistic regression
+[00:39:40] classifier this unit step function which
+[00:39:43] will basically just say if our output of
+[00:39:46] the sigmoid is larger than
+[00:39:49] 0.5 then it will be let's say class one
+[00:39:51] if it's smaller than .5 it will be class
+[00:39:54] zero and it's
+[00:39:58] similar to the linear regression here in
+[00:40:00] that we compute the net
+[00:40:02] input but we substitute the linear
+[00:40:04] function by sigmoid function and we add
+[00:40:06] a unit step function to
+[00:40:14] it
+[00:40:15] um yeah but you could also use a linear
+[00:40:18] function for this uh five split if I
+[00:40:20] draw it like here if you if you think of
+[00:40:23] the Cross As an X and Y and this as The
+[00:40:26] Intercept you could also Al say if the
+[00:40:27] input is greater than zero it's class
+[00:40:30] one if it's smaller than zero it's um
+[00:40:32] class zero and that would be an adaline
+[00:40:34] classifier an Adaptive linear neuron it
+[00:40:37] has been uh invented or people came up
+[00:40:40] with it in I think uh 1950s but the
+[00:40:43] logistic regression is a little bit more
+[00:40:45] robust because let's say you have
+[00:40:48] outliers you
+[00:40:50] you can basically show that it's a pro
+[00:40:53] uh posterior probability so with this
+[00:40:56] one it will just shoot straight up if
+[00:40:58] you minimize this the minimization it's
+[00:41:01] a little bit trickier with outl you have
+[00:41:03] um not such a nice minimiz it's also a
+[00:41:05] convex function but it's uh here
+[00:41:08] directly related to probabilities so
+[00:41:10] which is a nice property of
+[00:41:13] this and yeah but you could also use a
+[00:41:15] linear function here which would be then
+[00:41:17] adaptive linear neuron but this is not
+[00:41:19] implemented in psychic Lear it's not
+[00:41:20] used in practice anymore it has been
+[00:41:21] used think um after the perceptron in
+[00:41:24] the
+[00:41:25] 1950s but you still use a linear
+[00:41:27] activation functions in certain neuron
+[00:41:29] networks
+[00:41:31] nowadays um okay so that was a logistic
+[00:41:35] regression it's basically also you can
+[00:41:37] use it with uh you can learn it with um
+[00:41:39] optimization algorithms where you
+[00:41:41] optimize the weights incrementally while
+[00:41:43] you go over the training set multiple
+[00:41:45] times and another uh classifier we will
+[00:41:49] talk about is uh K nearest neighbors and
+[00:41:52] this one is different from uh logistic
+[00:41:54] regression and that in logistic
+[00:41:56] regression we give it a data set it will
+[00:41:58] iterate over the data set multiple times
+[00:42:01] and we will learn certain weight
+[00:42:03] coefficients and we just have to keep
+[00:42:06] these weight coefficients if we have new
+[00:42:07] data what we do is we put in for example
+[00:42:11] if we have a three dimensions this X1 X2
+[00:42:14] and XM we would uh provide these uh
+[00:42:17] inputs we have then three weights and
+[00:42:19] The Intercept compute the net input
+[00:42:22] compute the sigmoid and blah blah but
+[00:42:24] the point is we don't have to
+[00:42:27] um memorize the or we have don't have to
+[00:42:29] keep the data set so we just learn our
+[00:42:31] coefficients and then we can throw our
+[00:42:33] training set away and we can make new
+[00:42:35] predictions and K nearest neighbor is uh
+[00:42:38] different so it's also why it's called a
+[00:42:40] lazy learner so there's no fitting or
+[00:42:43] learning step really so all it does is
+[00:42:45] uh at prediction time it will look up
+[00:42:47] which samples are in the neighborhood of
+[00:42:50] our sample we are interested in so for
+[00:42:53] instance um if we have this point this
+[00:42:56] question mark point here we have to keep
+[00:42:58] the training set and what kest NE will
+[00:43:01] do is it uses a distance metric to see
+[00:43:04] okay which are the points that are
+[00:43:06] closest to our point in question and in
+[00:43:09] this case we have uh five nearest
+[00:43:11] neighbors so we are looking for the five
+[00:43:14] closest points and then we make just a
+[00:43:16] majority vote so in this case I have um
+[00:43:19] three three triangles one square and one
+[00:43:22] cross so the triangle is the majority in
+[00:43:25] this case I would Al then also predict
+[00:43:27] this question mark as a triangle class
+[00:43:30] in this distance matric I think the
+[00:43:32] classic one is um the ukian distance
+[00:43:34] here I think it's more the generalized
+[00:43:36] form the kovsky distance so if you
+[00:43:40] substitute two here instead of the P you
+[00:43:43] will get the ukian distance and um here
+[00:43:46] it's also important I
+[00:43:48] think uh tree based methods are the only
+[00:43:52] ones that are not scale uh that are
+[00:43:55] scale invar but here in uh I mean also
+[00:43:57] in logistic regression depending on your
+[00:43:59] optimization algorithm and in uh K
+[00:44:01] nearest neighbors depending on your
+[00:44:02] distance metric you want to make sure
+[00:44:04] that your features are all on the same
+[00:44:07] scale so in Iris it's simple we don't
+[00:44:09] have to do much because it's all in
+[00:44:12] centimeters but let's say we measured
+[00:44:14] one in inches or we measured one in
+[00:44:16] miles so the number would be much
+[00:44:19] smaller and it would appear much closer
+[00:44:21] to the K nearest neighbor uh ukan
+[00:44:24] distance metric so if we have a
+[00:44:26] different scale we want to make sure
+[00:44:28] it's all measured on the same scale and
+[00:44:30] we will also talk in the notebook about
+[00:44:32] methods to normalize
+[00:44:35] data so let's see okay I think we will
+[00:44:39] go to the notebook now to look at a few
+[00:44:49] examples so again we use uh penas to
+[00:44:51] read in our data set this case it's a
+[00:44:54] CSV file it's labeled as txt but it's
+[00:44:57] CCV file with comma separated values and
+[00:45:00] um this is how it looks like in pandas
+[00:45:02] and we have here I uh use this text file
+[00:45:07] here because we have names in the class
+[00:45:09] column which uh makes it more
+[00:45:12] interesting I will show you in a second
+[00:45:13] how we can deal with this because
+[00:45:15] psychic learn expects uh integers or as
+[00:45:20] um y array variables um or
+[00:45:25] values so we have three different class
+[00:45:29] labels for feature
+[00:45:31] columns and the problem now is we can't
+[00:45:35] really fit it directly into um or we can
+[00:45:38] can't directly fit a model here um we
+[00:45:42] use a label incoder first so we want to
+[00:45:45] convert the task is now to convert this
+[00:45:47] into integers that we can use in our
+[00:45:49] classifier or to fit our model and uh
+[00:45:52] there's one uh convenient class it's
+[00:45:54] called label encoder and here we can um
+[00:45:58] like in all estimators we have a fit
+[00:46:00] method and the fit method will get the
+[00:46:03] labels from unique labels from a data
+[00:46:05] set and store it on the class
+[00:46:13] attributes
+[00:46:15] um zeros and
+[00:46:25] ones
+[00:46:40] mhm you mean true and false or yeah I
+[00:46:43] think maybe uh this would be a Overkill
+[00:46:47] to use the label Ena maybe could also
+[00:46:49] use napai uh where or you could use
+[00:46:53] um let's
+[00:46:55] say
+[00:47:06] you mean something like that
+[00:47:09] or what happens if I use
+[00:47:25] uh
+[00:47:40] okay yeah something like that but also
+[00:47:42] for um text variables you could also if
+[00:47:44] there are only two of them if I think if
+[00:47:46] it's
+[00:47:48] like this or something or if you have
+[00:47:51] let's
+[00:47:52] say fs
+[00:47:55] and some other values Point
+[00:48:00] 2.5 for whatever reason as class I think
+[00:48:02] you can also use
+[00:48:13] the something like that
+[00:48:21] right and um I don't know I think the um
+[00:48:25] label encoder is more useful if you you
+[00:48:26] have multiple strings if you already
+[00:48:29] have number numbers or only two of them
+[00:48:32] I would maybe use a simpler way to do it
+[00:48:35] one advantage I think is that you can
+[00:48:37] just store this information and uh do a
+[00:48:40] inverse but you can also set up a DI so
+[00:48:44] also you could just uh set up a
+[00:48:45] dictionary and use a map function in
+[00:48:55] numai so the inverse transform would be
+[00:48:58] maybe handy if you do the prediction and
+[00:49:00] you want to look up what variable it is
+[00:49:03] later on you can use the inverse
+[00:49:06] transform maybe that is also something
+[00:49:08] you could use for your columns in the
+[00:49:10] panas array that you talked about
+[00:49:11] earlier where you said U how do I know
+[00:49:15] what indices refer back to the columns
+[00:49:17] in the penas array think that may be
+[00:49:19] also one U application that you can feed
+[00:49:22] the columns here and then you can um get
+[00:49:25] indices and then you can inverse
+[00:49:27] transform the indices back to columns
+[00:49:29] and get the
+[00:49:33] names yeah I showed you um this example
+[00:49:37] to illustrate okay how do we convert um
+[00:49:41] string variables to integ but there's
+[00:49:44] also uh there are also a couple of
+[00:49:46] inbuilt data sets in Cy learn for
+[00:49:49] testing if you I mean these are not
+[00:49:51] exciting data sets but they are uh data
+[00:49:55] sets that are useful for let's say the
+[00:49:56] in or testing certain things or
+[00:49:59] benchmarking and uh the psy learn data
+[00:50:02] sets module has several of these data
+[00:50:04] sets in this case we can also load the
+[00:50:07] iris data set directly
+[00:50:10] and here uh it will be loaded and then
+[00:50:13] we have it's you can think of it as a
+[00:50:15] dictionary so it has then certain
+[00:50:18] attributes the DCR will give you a
+[00:50:21] description of the data set for
+[00:50:25] example
+[00:50:33] there are several uh different yeah
+[00:50:35] attributes for example the target is our
+[00:50:38] class label array the data our features
+[00:50:42] and we have also the target names and
+[00:50:45] feature names if we are interested in
+[00:50:48] these um okay so to make this um
+[00:50:52] probably a little bit more challenging
+[00:50:53] for the algorithm and maybe also for
+[00:50:54] visual purposes
+[00:50:57] uh I only choose uh two features for our
+[00:51:00] next example in this case it will be the
+[00:51:03] first and second one it would be the SLE
+[00:51:05] length and the SLE width and
+[00:51:09] um here we have three class labels still
+[00:51:13] and 50 uh samples from each flower
+[00:51:16] species zero is satoa one is veric Cola
+[00:51:20] and two is Rica and like I said before
+[00:51:23] um you maybe want to use a stratified
+[00:51:25] split so what happens if I just split it
+[00:51:28] um with this train test uh function like
+[00:51:30] we did before in the linear regression
+[00:51:32] example we get uh a different uh class
+[00:51:35] distribution in the training data set
+[00:51:37] for example same also for the test set
+[00:51:39] so they are not 33% per class anymore so
+[00:51:43] we can use uh this stratify parameter
+[00:51:46] and give it the Y array and then it will
+[00:51:49] stratify the split so that we maintain
+[00:51:51] the distribution in this case we have
+[00:51:54] then 35 flowers from each class
+[00:51:59] so the the whole point why we want to do
+[00:52:01] it is uh because we want to have a
+[00:52:03] representative data set assuming that
+[00:52:05] our Iris data set has been drawn from
+[00:52:07] some uh real world distribution in a
+[00:52:10] real world we have really 33% of each
+[00:52:13] species which may not be true but we
+[00:52:16] assuming this when we have our training
+[00:52:17] set it's one assumption that most
+[00:52:19] machine learning algorithms
+[00:52:23] make and we also want to have our test
+[00:52:25] set represent ative of the training set
+[00:52:27] of course we want to learn something
+[00:52:29] from trainer set training set that also
+[00:52:31] applies to new data and we expect this
+[00:52:33] new data to be similarly distributed as
+[00:52:36] our model uh the data or model learned
+[00:52:39] from and yeah now we will fit um
+[00:52:42] logistic regression uh classifier and I
+[00:52:45] think in a slide um maybe it was a
+[00:52:47] little bit misleading it is a b binary
+[00:52:49] classifier so I said if it's above a
+[00:52:52] certain value it will be class one and
+[00:52:54] below a certain value class zero but in
+[00:52:56] our data set we have three classes not
+[00:52:58] two so if you use the default settings
+[00:53:01] uh if you would remove for example this
+[00:53:03] part it would use um I think it's a one
+[00:53:07] versus one classifier so it will train
+[00:53:10] three uh logistic regression models one
+[00:53:14] for satoa versus Vin one for zosa versus
+[00:53:17] veral and one for versical versus vinica
+[00:53:21] and then it will um make the prediction
+[00:53:23] best based on the best uh score of these
+[00:53:27] but yeah here I just uh I don't know I
+[00:53:30] usually use um the multinomial one it's
+[00:53:32] a soft Max regression it's changing the
+[00:53:37] um equation a little bit so we don't we
+[00:53:38] have a don't have a sigmoid but the soft
+[00:53:42] Max function uh later on attached to it
+[00:53:45] so it generalizes to multiple classes
+[00:53:47] and gives us meaningful probabilities SP
+[00:53:49] but it's just a side note and um we also
+[00:53:52] have
+[00:53:55] yeah
+[00:54:02] um I think
+[00:54:03] maybe uh so the question is how did I
+[00:54:06] make this choice I think it's maybe just
+[00:54:08] a personal preference but if the uh
+[00:54:10] classes are independent um a softx
+[00:54:14] classification algorithm should give you
+[00:54:16] um meaningful probabilities I think the
+[00:54:19] one versus one classifier works in all
+[00:54:22] cases but I um just for theoretical
+[00:54:25] reasons I think it is reasonable use
+[00:54:28] soft Max here um yeah it's
+[00:54:34] a I think uh the I would always maybe
+[00:54:38] maybe that was uh shouldn't have done
+[00:54:39] this I think because the psychic learn
+[00:54:42] um parameters are reasonable so there
+[00:54:46] shouldn't be a reason unless U there is
+[00:54:49] a particular reason why you wouldn't use
+[00:54:51] the default settings they should work
+[00:54:54] well so if I just use IC
+[00:54:57] regression and look at the
+[00:55:06] parameters misspell
+[00:55:10] it um so there are different parameters
+[00:55:13] by set by default and I think they are
+[00:55:15] usually reasonable for example there's
+[00:55:17] um there a regularization parameter but
+[00:55:19] we want go into uh into much detail so
+[00:55:24] if you um set this higher basically you
+[00:55:27] will decrease U the regularization if
+[00:55:29] it's lower you will add a bias to it but
+[00:55:31] usually we don't have to worry about it
+[00:55:33] in a standard setting this is something
+[00:55:35] we do when we um do hyper tuning and
+[00:55:38] yeah you would have we have to talk
+[00:55:40] maybe more about it later when we have
+[00:55:42] introduced uh pfold cross validation um
+[00:55:45] sorry I said one versus one here it's
+[00:55:47] one versus rest uh classifier so what it
+[00:55:50] will do is it will uh by default Frain a
+[00:55:54] logistic regression classifier that
+[00:55:57] uh learns basically predicts zza versus
+[00:56:00] V Bala and Bin and um so one versus two
+[00:56:05] other classes or one versus rest
+[00:56:06] basically and we'll train three of these
+[00:56:08] classifiers and make them the final
+[00:56:10] prediction and there are different the
+[00:56:12] solvers are just the um optimization
+[00:56:15] algorithms so in this case lip linear is
+[00:56:18] a efficient I think C++ Library which
+[00:56:21] will um optimize U yeah linear model or
+[00:56:24] learn a linear model efficiently I just
+[00:56:27] use uh Newton CG I think because the lip
+[00:56:30] linear doesn't support multinomial which
+[00:56:33] I personally like for these cases but
+[00:56:35] yeah I
+[00:56:37] think but anyway so maybe we should
+[00:56:39] continue um I hope uh yeah we can talk
+[00:56:43] about it after the session more I will
+[00:56:44] I'm happy to talk more about soft
+[00:56:46] regression then
+[00:56:48] um okay so in this
+[00:56:51] case we get a test accuracy of 80% so
+[00:56:56] that that me uh basically means it
+[00:56:58] classified 80% of our flowers correctly
+[00:57:01] and we had 105 flowers the 70% of the
+[00:57:05] 150 uh sorry in the test that we had few
+[00:57:08] we had 45 flowers and again like in the
+[00:57:12] linear regression example we have a fit
+[00:57:14] method to learn the model coefficients
+[00:57:17] and we have the score method to make a
+[00:57:19] prediction and in a linear regression
+[00:57:21] example it was the R square and in a
+[00:57:24] classification estimator it's the
+[00:57:29] accuracy and yeah here I uh just import
+[00:57:31] a function from one of my my convenience
+[00:57:34] libraries just to visualize how our
+[00:57:37] classifier looks
+[00:57:38] like
+[00:57:44] and
+[00:57:47] okay I think I have an old version
+[00:57:49] installed
+[00:57:55] here
+[00:58:49] so yeah this is how our classification
+[00:58:51] uh looks like the results so we have um
+[00:58:55] three decision boundaries and uh red are
+[00:58:59] the satoa flowers uh green are the vgin
+[00:59:02] flowers and blue are the veral flowers
+[00:59:05] and yeah it makes a few mistakes as we
+[00:59:07] can see there's a overlap in we only use
+[00:59:11] um seal width and sep
+[00:59:14] length not sure why
+[00:59:24] label not sure why it's not showing up
+[00:59:26] here but it should be a sepal length and
+[00:59:30] um yeah in this case uh we make a few uh
+[00:59:33] mistakes in i Circle the test samples
+[00:59:36] here and this is how our linear
+[00:59:39] regression model looks like yeah
+[00:59:44] um MH
+[00:59:55] yeah I have so the question was um when
+[00:59:59] someone changes the random seat we will
+[01:00:02] get um really different results and this
+[01:00:05] is an effect because um the data set is
+[01:00:08] rather small and we have a large
+[01:00:11] variance so uh our we are basically our
+[01:00:16] estimate is sensitive on to how we split
+[01:00:18] our data so there are different methods
+[01:00:20] I think I have slides about that one
+[01:00:22] would be a repeated hold out so you
+[01:00:24] would repeat this maybe 50 times uh do
+[01:00:27] the splitting but each time you use a
+[01:00:28] different random seat and then you can
+[01:00:30] maybe average the 50 predictions would
+[01:00:33] be a a little bit more robust uh you
+[01:00:36] could use um boot strapping it's an for
+[01:00:40] estimating the uncertainty of your
+[01:00:41] estimate it's also resampling the data
+[01:00:44] and I think I have also slides on that
+[01:00:45] or you could use a kfold cross
+[01:00:47] validation instead of a training test
+[01:00:49] split you cre if you don't tune the
+[01:00:51] hyper you can also use let's say 10f
+[01:00:53] cross validation but I have slide slides
+[01:00:55] about that data to uh introduce this uh
+[01:00:58] with a few more images to make it more
+[01:01:00] um
+[01:01:02] clear um yeah and then we do the same
+[01:01:05] thing with the K nearest neighbor
+[01:01:08] classifier and as we can see the uh K
+[01:01:11] nearest neighbor classifier is we don't
+[01:01:13] have linear boundaries here and um we
+[01:01:16] have for example uh set one parameter
+[01:01:20] here the number of neighbors to four if
+[01:01:22] I change it it will also change of
+[01:01:24] course the decision boundary for example
+[01:01:26] if I set it to um let's say something
+[01:01:29] High it should be smoother and we will
+[01:01:32] talk later about how to do this properly
+[01:01:35] how to um choose good uh hyper parameter
+[01:01:40] values and yeah and one note about Tye
+[01:01:43] breaking so if I have something like
+[01:01:45] it's very rare in data sets but if I
+[01:01:48] have for example uh set it to four and
+[01:01:50] it happens that um there are
+[01:01:54] two and uh two and two classes for
+[01:01:57] example in the neighborhood so it can't
+[01:01:59] make a decision it would just I think
+[01:02:01] pick the first class from the data set
+[01:02:03] or it depends on how the data set is
+[01:02:05] ordered so I usually um I don't know but
+[01:02:07] I always pick uneven numbers so to not
+[01:02:10] have any Randomness and how something is
+[01:02:13] picked
+[01:02:16] um if there time we can also go through
+[01:02:19] the exercises uh later but uh yeah I
+[01:02:22] wanted to get maybe to the model
+[01:02:24] evaluation uh because it was a question
+[01:02:26] that came up multiple
+[01:02:34] times I think that is uh can maybe do
+[01:02:37] the fourth section and then go to the
+[01:02:39] sixth uh section to talk a little bit
+[01:02:41] about model
+[01:02:52] evaluation yeah also um what do we do do
+[01:02:56] when we work with categorical variables
+[01:02:58] so before we had an example where we had
+[01:03:02] um names in the class label column but
+[01:03:05] what do we do if we have for example non
+[01:03:08] Floats or non integers in the feature
+[01:03:11] columns uh this is a very trival example
+[01:03:14] but what I wanted to highlight here is
+[01:03:16] um there are two types of categorical
+[01:03:18] variables so we have ordinal and nominal
+[01:03:22] variables so the color here the color
+[01:03:25] column if this would be a feature this
+[01:03:27] would be
+[01:03:28] um a categorical variable which is
+[01:03:31] nominal so there's no order implied by
+[01:03:34] that I mean usually few exceptions but
+[01:03:37] usually you can't say red is greater
+[01:03:39] than blue or green is greater than red
+[01:03:42] or something like that you can't really
+[01:03:43] order it in this example uh if we talk
+[01:03:46] about t-shirts for example the size uh
+[01:03:50] if we order it it may make sense so we
+[01:03:52] can say a t T-shirt size um X L is great
+[01:03:56] or bigger than a t-sh T-shirt size L and
+[01:03:59] L is bigger than M so we have an ordinal
+[01:04:02] variable here we can order it and um
+[01:04:06] same for the price it's already a flaw
+[01:04:08] but it has some weird um character in
+[01:04:09] front but we also can convert it so we
+[01:04:13] have
+[01:04:14] a a nominal variable ordinal variable
+[01:04:18] and a continuous variable here and um
+[01:04:22] the class labels they look like they are
+[01:04:24] also maybe if we have have class levels
+[01:04:26] one two and three they look like they
+[01:04:28] are ordinal that we can order them but
+[01:04:29] um most classification algorithms unless
+[01:04:32] they are for ranking they don't assume
+[01:04:34] any order in the class
+[01:04:35] labels uh but the features there
+[01:04:38] algorithm would assume there's an order
+[01:04:40] so we can't use for example the label
+[01:04:42] encoder if we have a nominal variable if
+[01:04:45] we would use the naval encoder it would
+[01:04:47] maybe do something like 0 1 and two and
+[01:04:50] then it would imply that uh green is
+[01:04:53] bigger than blue but there are other
+[01:04:54] ways to deal with that and I will uh
+[01:04:56] talk about it in one second so one would
+[01:04:59] be uh one hot encoding it's U basically
+[01:05:03] converting um a nominal variable into
+[01:05:07] one hot encoding which means like
+[01:05:09] multiple binary
+[01:05:11] variables one second
+[01:05:16] sorry so here we take uh one input
+[01:05:19] variable that is a nominal and split it
+[01:05:22] into three variables and we binarize it
+[01:05:25] also so if there is a one here it means
+[01:05:30] that it's a red one so the sample is a
+[01:05:32] red the sample is blue and the sample is
+[01:05:35] one so we just binarize it we make
+[01:05:37] multiple variables out of one it's one
+[01:05:39] way to deal with it the most common
+[01:05:41] way and here we don't have to uh worry
+[01:05:44] about one hot encoding because we have
+[01:05:46] an order we can just use for example the
+[01:05:48] label encoder to assign numerical values
+[01:05:51] to it but then the trick is um we as a
+[01:05:53] human we have to know which one is
+[01:05:55] bigger than the the other one so I would
+[01:05:56] recommend uh looking at the data and
+[01:05:59] doing this manually with a let's say
+[01:06:00] setting up a dictionary mapping because
+[01:06:03] how does our label encoder know that XL
+[01:06:05] is bigger than l so it's something that
+[01:06:07] we as data scientists have to uh
+[01:06:10] manually maybe
+[01:06:13] verify um and then feature normalization
+[01:06:15] like I said before um most algorithms
+[01:06:18] are um sensitive to scale so especially
+[01:06:22] for example the K near sighar classifier
+[01:06:24] so there are two common ways two
+[01:06:25] normalized features one is M Max scaling
+[01:06:28] and one is zcore standardization um
+[01:06:31] there are other methods like L2 and L1
+[01:06:34] Norms but these are maybe the most
+[01:06:36] common ones so in next scaling we will
+[01:06:39] um let's imagine feature is our example
+[01:06:43] feature uh values from one to six and in
+[01:06:46] Max scaling we'll rescale these values
+[01:06:48] onto a scale from 0 to one and these Z
+[01:06:51] score standardization in contrast um it
+[01:06:54] will make basically give it the
+[01:06:56] properties of a standard normal
+[01:06:59] distribution that it's centered at zero
+[01:07:01] so the mean of the feature will be zero
+[01:07:04] and um it will basically you can
+[01:07:08] interpret it as minus 1.46 um standard
+[01:07:12] deviations from the mean these values
+[01:07:14] it's center around the mean which is
+[01:07:17] usually the typical way
+[01:07:20] to yeah um I think usually there's um no
+[01:07:24] reason why one should be preferred there
+[01:07:28] are certain exceptions I think in um
+[01:07:30] people work with images um MMX scaling
+[01:07:33] is more popular but for example for the
+[01:07:35] K neighbors I think it shouldn't make
+[01:07:38] such a difference but think zonation
+[01:07:41] would be more um yeah maintaining
+[01:07:44] knowledge about outliers here you would
+[01:07:46] kind of INX getting smoothing a little
+[01:07:49] bit out the magnitude if you have
+[01:07:52] extreme outliers we don't have them here
+[01:07:54] uh usually use standardization for
+[01:07:57] simple optimization algorithms such as
+[01:08:00] let's say gradient desent uh because you
+[01:08:03] updates update the weights more equally
+[01:08:05] it's usually also newer networks but you
+[01:08:07] there are also certain ones I think for
+[01:08:09] uh uh real units you use minmax scaling
+[01:08:14] it really depends uh it's sometimes in
+[01:08:17] new networks empirical they just try
+[01:08:19] different things another
+[01:08:24] question
+[01:08:27] uh no I think there's no good reason to
+[01:08:29] avoid
+[01:08:30] it um usually variables are very rarely
+[01:08:35] normal distributed but it's a you just
+[01:08:38] so the goal is basically just to bring
+[01:08:40] them onto the same scale so if you
+[01:08:43] have completely different magnitudes do
+[01:08:46] you want to have something that is
+[01:08:47] centered around zero and maybe in terms
+[01:08:50] of standard deviation something from the
+[01:08:51] me it also tells you something about
+[01:08:53] your variable and it's also useful for
+[01:08:55] for example if you standardize it and
+[01:08:56] you do a linear regression with multiple
+[01:08:58] weights you can kind of see or look at
+[01:09:01] the weights then if your input variables
+[01:09:03] are all on the same scale if you have a
+[01:09:06] linear model it should tell you how how
+[01:09:08] important a certain feature is or how
+[01:09:10] much role it plays in the final
+[01:09:12] prediction if it's a large value the
+[01:09:15] weight will be small and if it's a um
+[01:09:18] for example for instance so it really um
+[01:09:21] it's only helpful usual in applications
+[01:09:24] and yeah it has a nice property that
+[01:09:25] your data is centered around the mean
+[01:09:27] which is in certain applications also
+[01:09:29] for optimizations optimization
+[01:09:31] algorithms nice property and you have
+[01:09:34] positive and negative values so you can
+[01:09:36] update in both directions whereas in Max
+[01:09:39] scaling you only have positive
+[01:09:42] ones um yeah and there's also a uh class
+[01:09:46] in psychic learn that can do this for us
+[01:09:49] a convenience function we can do this
+[01:09:51] manually but there's a convenience
+[01:09:52] function to do this and when we talk
+[01:09:55] about this I just want to
+[01:09:58] introduce uh very quickly unsupervised
+[01:10:01] estimators so you can think of
+[01:10:03] standardization not really as an
+[01:10:05] unsupervised algorithm but it has the
+[01:10:07] same API so you have also fit method to
+[01:10:11] deduce uh in this case if you do
+[01:10:13] standardization you would deduce the u
+[01:10:15] mean and
+[01:10:17] the standard deviation from the data set
+[01:10:20] you will store this and use the
+[01:10:22] transform method to transform any new
+[01:10:24] data
+[01:10:26] um and then uh other unsupervised
+[01:10:29] estimators they have in addition also a
+[01:10:32] predict method if you use a clustering
+[01:10:33] algorithm but um think we won't go into
+[01:10:36] this into more detail unless we have
+[01:10:38] more time but we'll see how we do and
+[01:10:40] then maybe talk about it more
+[01:10:42] later and just to give you an idea of a
+[01:10:45] typical machine learning or psychic
+[01:10:47] learn pipeline um it is also the
+[01:10:50] pipeline in cycle learn is also a
+[01:10:51] convenience repper that allows us to put
+[01:10:54] multiple estimat into one kind of
+[01:10:56] workflow you can think of it as a
+[01:10:58] workflow so we we can we will see in the
+[01:11:00] notebook in a few seconds so we can put
+[01:11:03] um estimator for scaling into this
+[01:11:05] pipeline we can use something for
+[01:11:07] dimensionality reduction in this
+[01:11:09] pipeline we will talk about this maybe
+[01:11:10] later and our learning algorithm and
+[01:11:14] then we treat this pipeline as an
+[01:11:16] estimator so we also in the pipeline
+[01:11:19] itself is an object that also has a fit
+[01:11:21] fit and transform uh method so we call
+[01:11:24] fit on the pipeline and what it will do
+[01:11:27] uh behind the scenes this will fit the
+[01:11:30] um scaling uh estimator pass this data
+[01:11:35] to the next part in our pipeline pass it
+[01:11:37] to the next one and the last one uh it's
+[01:11:40] the last one should always be the
+[01:11:41] learning
+[01:11:42] algorithm uh which basically then only
+[01:11:45] has a fit method to learn the model and
+[01:11:48] then we can have a um it also has a
+[01:11:50] predict method like an estimator and if
+[01:11:52] it sees test data and we use a a predict
+[01:11:54] method will not fit anything again but
+[01:11:57] it will use the things that we learn
+[01:11:59] from the T data to pass this down the
+[01:12:02] pipelines apply these Transformations
+[01:12:04] and make the final prediction I think it
+[01:12:06] will be become more clear in the
+[01:12:08] notebook it's a little bit abstract here
+[01:12:11] so let us look at that
+[01:12:16] one so here just again an example how to
+[01:12:21] um deal with categorical variables
+[01:12:26] the example I showed you on the slides
+[01:12:28] so there's a dick vectorizer for
+[01:12:31] instance and here we uh it takes these
+[01:12:35] strings and converts it to this one hot
+[01:12:37] encoding here
+[01:12:40] um and it does the same with the size
+[01:12:43] which is maybe not what we want like we
+[01:12:45] talked before because there is an order
+[01:12:47] and uh also what you not here is that it
+[01:12:50] will kind of Shuffle the order a little
+[01:12:51] bit because it's a dictionary it will
+[01:12:56] um put for example this variable at the
+[01:12:59] end but that's not important what I
+[01:13:01] wanted to get it is in such cases where
+[01:13:03] we know that there's an order for
+[01:13:05] example as data scientist we know XL is
+[01:13:08] bigger than L and bigger than M you
+[01:13:10] maybe can set up a dictionary manual uh
+[01:13:13] manually and use a map function to uh do
+[01:13:17] the transformation like this that we can
+[01:13:19] convert the size to one two and three
+[01:13:22] and then we can vice versa also do the
+[01:13:24] same thing inverse if you later for
+[01:13:26] interpretation want to convert it back
+[01:13:29] can make an inverse mapping
+[01:13:33] dictionary so what I've done here is
+[01:13:36] basically I um did this step manually
+[01:13:39] and now everything should fine should
+[01:13:41] look fine and if we use the dick
+[01:13:44] vectorizer it will only um touch the
+[01:13:47] column that is a string variable or has
+[01:13:50] a string uh values in it which would be
+[01:13:52] color and it will do the right thing
+[01:13:54] then and do the one hot encoding on
+[01:13:56] these U right uh left three
+[01:14:01] columns um then briefly the
+[01:14:05] normalization or example data set from
+[01:14:07] the slides then we have um M Max Scala
+[01:14:12] and a standard scalar from Psychic learn
+[01:14:14] and it has a normal fit method here and
+[01:14:17] one convenience function it has a fit
+[01:14:20] transform method which is just U equal
+[01:14:23] to if we would do the
+[01:14:27] sorry would be equal to this it's just
+[01:14:30] more convenient uh just a
+[01:14:32] shortcut for
+[01:14:35] this okay now the pipelines I think
+[01:14:38] that's more interesting that's very
+[01:14:40] useful in practice so again we have our
+[01:14:43] simple Iris data set our linear
+[01:14:45] regression logistic regression
+[01:14:47] classifier and this is just a simple uh
+[01:14:50] pipeline because I haven't talked about
+[01:14:52] dimensionality reduction yet but here um
+[01:14:56] we can use the make pipeline function to
+[01:14:58] put two things into one pipeline we have
+[01:15:02] the standard Scala and we have the
+[01:15:03] listic regression we could do this
+[01:15:06] manually we could
+[01:15:08] um like before use this output we can uh
+[01:15:12] get a new output here and then let's
+[01:15:18] say can do an X um
+[01:15:22] scaled do this and then put our logistic
+[01:15:26] regression classifier in two
+[01:15:30] steps but uh I think the the advantage
+[01:15:33] will become more clear why this is
+[01:15:34] useful is when we do um cross validation
+[01:15:37] and when we do grid search to optimize
+[01:15:40] our hyper
+[01:15:41] parameters um because then it will be
+[01:15:43] applied to each uh split of the
+[01:15:46] data but you can think of it as a normal
+[01:15:50] estimator that has just a multiple
+[01:15:52] elements inside yeah one question
+[01:16:03] [Music]
+[01:16:07] yeah so one important point the question
+[01:16:09] was um I use the if I use the
+[01:16:13] standardization or if I use the
+[01:16:15] parameters from the training data set in
+[01:16:17] normalization uh when I normalize the
+[01:16:19] test data set and yeah this is a very
+[01:16:21] important point so we don't want to
+[01:16:22] refit our Scala on on the test data set
+[01:16:26] so if we have let's
+[01:16:31] say a data set that has values 100 200
+[01:16:36] and
+[01:16:37] 300 and we use the standard Scala or how
+[01:16:40] do I call
+[01:16:51] it I will get then um yeah also
+[01:16:56] hard to
+[01:16:58] see probably not enough values here but
+[01:17:01] uh we get the uh center around mean and
+[01:17:05] uh mean and then one point minus 1.2
+[01:17:07] standard deviations from the mean so
+[01:17:09] this is fine but um let's say we have a
+[01:17:13] test data that is now let's
+[01:17:22] say okay I think just a it's not really
+[01:17:25] an actual F call that I only have 10
+[01:17:27] minutes left um so one second so if we
+[01:17:31] have for
+[01:17:33] example let's say something like
+[01:17:37] this new data and this would be an
+[01:17:40] extreme
+[01:17:41] outlier so if we would uh use the fit
+[01:17:44] method again then we will kind of change
+[01:17:48] um what this zero means it won't be an
+[01:17:51] outlier anymore
+[01:17:53] so
+[01:18:03] so it uh won't be that much of an
+[01:18:05] outlier I mean here it's an extreme
+[01:18:08] outlier but here this information gets
+[01:18:10] kind of lost because um we fit it again
+[01:18:12] so what we want is really just uh
+[01:18:14] transform
+[01:18:15] it so as you can see then um it's in
+[01:18:19] relation to the others a much larger
+[01:18:21] value so it's always uh one point where
+[01:18:24] we want to be careful that we don't use
+[01:18:26] any test data to fit any parameters in
+[01:18:28] our
+[01:18:30] pipeline yeah and um if we want to use I
+[01:18:33] have to think go back a little
+[01:18:45] bit okay so here I uh just uh fit and
+[01:18:49] score the pipeline here it's the
+[01:18:50] accuracy score it's just like the
+[01:18:53] logistic regression but with a standard
+[01:18:55] scaler in
+[01:19:01] front and to access these um steps uh
+[01:19:05] one
+[01:19:18] question uh can you repeat this yeah I
+[01:19:21] didn't understand it completely um
+[01:19:40] yeah so the question was uh when I got
+[01:19:42] it correctly so what happens if the
+[01:19:43] training data is not representative of
+[01:19:45] the population and we do the
+[01:19:47] standardization and then the prediction
+[01:19:49] would be kind of wrong because you got
+[01:19:50] the wrong parameters yeah that is a
+[01:19:53] problem I mean uh I'm not sure how to
+[01:19:55] deal with it I mean like the algorithms
+[01:19:57] we use here they assume or they work
+[01:20:00] optimally only if our training set is a
+[01:20:02] representative of the distribution of
+[01:20:04] the population sorry so one thing is for
+[01:20:07] example this is also why we want to do
+[01:20:09] the stratification because if the
+[01:20:11] proportions if we have a very small data
+[01:20:13] set and the proportions in training and
+[01:20:14] test are completely different then yeah
+[01:20:16] it's not ideal so we want to it's a
+[01:20:19] parameter estimation problem so the
+[01:20:21] larger your data set is the usually the
+[01:20:24] um
+[01:20:25] the large law of large numbers the more
+[01:20:28] closely will your paral estimation be to
+[01:20:30] the real world population but this is
+[01:20:32] one assumption we have to make that our
+[01:20:34] training data set is really
+[01:20:35] representative of what we want to
+[01:20:36] predict if it's completely different
+[01:20:38] then yeah how how can we learn from that
+[01:20:41] right we have could have um sampled the
+[01:20:44] data set maybe differently we could have
+[01:20:45] dra smaller subsamples but if we don't
+[01:20:48] know the population parameters I think
+[01:20:50] there's no way to know how to resample
+[01:20:53] our data set
+[01:20:55] um yeah I'm sorry I think uh took a
+[01:20:58] little bit longer than I thought we only
+[01:21:00] have like five minutes left or a little
+[01:21:02] bit Yeah so H maybe we can't talk I mean
+[01:21:06] I will be here for the next two days if
+[01:21:08] you want to talk about model evaluation
+[01:21:10] I am probably not getting to this right
+[01:21:13] now uh yeah dimensionality reduction
+[01:21:18] there are also two ways you can select
+[01:21:20] features or you can extract
+[01:21:22] features but yeah um you can make look
+[01:21:24] at the Jupiter notebooks and uh if you
+[01:21:26] have questions I'm happy to answer
+[01:21:27] emails really because I'm sorry that I
+[01:21:30] um was a little bit slow here and didn't
+[01:21:32] get to
+[01:21:33] everything and I already removed a lot
+[01:21:36] of U topics 9 minutes is really tough
+[01:21:42] you um yeah this was one question that
+[01:21:45] came up that I maybe want to uh before I
+[01:21:47] answer your question I want to quickly
+[01:21:49] um get to there was one point uh where
+[01:21:52] someone said um he changed the random SE
+[01:21:55] did the splitting and got different uh
+[01:21:57] performance um estimates in his results
+[01:22:01] so in here I did exactly this exercise
+[01:22:03] so on the left I split the training data
+[01:22:06] of the iris set in 50/50 50% of iris is
+[01:22:10] training and 50% of iris is test data
+[01:22:13] and in this case um I repeated this 50
+[01:22:16] times and as you can see the difference
+[01:22:19] there's a difference sometimes I get a
+[01:22:20] 90% accuracy sometimes a 100% accuracy
+[01:22:24] so usually the smaller the data set the
+[01:22:26] more pronounced this effect is and
+[01:22:29] also the smaller your test set is the
+[01:22:33] more variance you have in your estimate
+[01:22:35] so for example when I change it here to
+[01:22:37] 9010 so 90% is training data and 10% is
+[01:22:41] test data this variance becomes larger
+[01:22:43] of the estimate and the reason is for
+[01:22:45] example it really depends then more on
+[01:22:47] which exact sample end up in the test
+[01:22:49] set and which sample ends up in the
+[01:22:51] training set and one one way a simple
+[01:22:53] way would be to just take the average of
+[01:22:55] this and there's cross validation k for
+[01:22:58] cross validation and uh loot strapping
+[01:23:00] uh maybe something you want to also look
+[01:23:03] up later on after the session which is
+[01:23:05] very useful in
+[01:23:07] practice and um for model selection
+[01:23:12] especially yeah I have a lot of um
+[01:23:14] points here but really didn't yeah
+[01:23:16] running out of time
+[01:23:18] here um yeah so maybe
+[01:23:22] um look at this uh I luckily put it in
+[01:23:25] here there's one document on a psychic
+[01:23:27] learn uh documentation where you can
+[01:23:30] also read about model evaluation but
+[01:23:32] yeah you can I'm happy to answer the
+[01:23:33] questions really and if you want to in
+[01:23:36] general look at further resources maybe
+[01:23:39] um the psych learn website would be a
+[01:23:41] good place there are really extensive
+[01:23:43] documentations about everything and
+[01:23:45] there's the mailing list I think people
+[01:23:47] will be happy if you join and ask
+[01:23:49] questions there are a lot of people um
+[01:23:51] helping people on the mailing list
+[01:23:53] answering questions
+[01:23:56] um also in practice I find Andreas M's
+[01:23:59] CH very useful um so it's a chat
+[01:24:05] that asked uh asked you simple question
+[01:24:08] and kind of as a beginner guides you
+[01:24:11] through what algorithm should I use on
+[01:24:13] what kind of data set maybe something
+[01:24:15] you want to check
+[01:24:16] out and um yeah Andreas Miller is also
+[01:24:20] still writing his book I think I think
+[01:24:22] he said last time it was finished in
+[01:24:24] July when I uh was with him at cpai but
+[01:24:27] I think it will be October 20th when I
+[01:24:29] uh got it correctly know and he will uh
+[01:24:32] I read the final draft and or the draft
+[01:24:35] the latest draft and it's a really great
+[01:24:37] book it's all about psychic learn so I
+[01:24:40] think it will be the definite resource
+[01:24:42] for psychic learn there are a lot of
+[01:24:44] books about psychic learn but I think
+[01:24:45] that is the most I would say accurate
+[01:24:48] one he's a Andreas also Psy learn core
+[01:24:51] developer will be out in yeah two months
+[01:24:55] um for the theory part uh these are my
+[01:24:58] two favorite books the left one elements
+[01:25:00] of statistical learning it's a free book
+[01:25:02] I recommend this this is also maybe my
+[01:25:04] favorite one because it was my first
+[01:25:06] machine learning patter classification
+[01:25:08] books years ago so it has a special
+[01:25:10] place in my heart but they are both
+[01:25:12] great uh they go about they talk about
+[01:25:14] the statistical underpinnings of the
+[01:25:16] algorithms and yeah if you interested I
+[01:25:18] also have a small book here has also
+[01:25:21] been it's I think the Japanese one or if
+[01:25:25] you like German and this is the original
+[01:25:28] English one but I haven't didn't write
+[01:25:29] these other people translated them so I
+[01:25:31] can't really vot for them uh I can't
+[01:25:33] even understand or I can't even read
+[01:25:35] this although the font looks pretty um
+[01:25:39] yeah so if um I have more resources on
+[01:25:42] the skub repository with code examples
+[01:25:44] and like I said I'm happy to answer uh
+[01:25:47] questions later on again then uh my
+[01:25:50] email address website Twitter account
+[01:25:53] GitHub account and the link to the
+[01:25:55] material if you want to get the slides
+[01:25:57] or something like that and yeah that's
+[01:26:00] about it I
+[01:26:02] think and um yeah I'm sorry that it's
+[01:26:06] only 90 minutes I could have talked
+[01:26:08] about it uh for maybe nine hours I was
+[01:26:10] at cpai with Andreas last month and we
+[01:26:13] had I think seven hours and we didn't
+[01:26:16] cover everything we wanted to cover it
+[01:26:18] was still not enough so 90 minutes was a
+[01:26:20] little bit challenging but I hope you
+[01:26:21] got some introduction at least to get
+[01:26:25] into psychic Le if you're interested or
+[01:26:27] maybe have some links to further
+[01:26:29] resources where you can find more
+[01:26:30] information and yeah ask me questions if
+[01:26:32] you
+[01:26:38] like

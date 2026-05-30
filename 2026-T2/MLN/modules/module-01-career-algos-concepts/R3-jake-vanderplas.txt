@@ -1,0 +1,2295 @@
+[00:00:00] if you uh if you follow this link that's
+[00:00:03] on here right now you'll find the course
+[00:00:05] material which is on my GitHub page and
+[00:00:09] um so all of this is is available for
+[00:00:11] you to download and modify and fork and
+[00:00:14] everything else you want you want to do
+[00:00:16] with the the material
+[00:00:20] um let
+[00:00:22] me really quickly before we before we
+[00:00:25] start I'll just kind of do an overview
+[00:00:27] of the of the kind of technical aspects
+[00:00:29] to the installation the the idea of this
+[00:00:32] tutorial is that you can follow along
+[00:00:33] and execute code and try things as we go
+[00:00:36] and in order to do that you'll need the
+[00:00:38] IPython notebook um hopefully you've in
+[00:00:41] installed Anaconda like the conference
+[00:00:44] uh organizers recommended and if so you
+[00:00:46] have you have the notebook and you can
+[00:00:48] download all this this um material for
+[00:00:50] this course here um if you don't want to
+[00:00:54] if you're unable to run the notebook
+[00:00:55] locally one way you can view all the
+[00:00:57] material is by clicking this link at the
+[00:00:59] bottom of the first read me page this
+[00:01:01] view the tutorial materials let me make
+[00:01:03] this a little bit bigger and if you
+[00:01:05] click there you get to something uh
+[00:01:07] called the NB viewer service and
+[00:01:10] essentially what this does is it gives
+[00:01:12] you um it gives you static
+[00:01:15] representations of all these notebooks
+[00:01:17] if you run the notebooks locally you'll
+[00:01:19] have dynamic dynamic representation
+[00:01:21] where you can actually you know execute
+[00:01:23] code and modify code and things like
+[00:01:25] this the static rep representation on NB
+[00:01:28] viewer is just something where it's read
+[00:01:29] only and you can see what's going on and
+[00:01:31] follow along that
+[00:01:32] way so um what I would recommend is that
+[00:01:36] you uh if you use git if you have a a
+[00:01:39] GitHub account you can um use the git
+[00:01:43] clone address here to clone everything
+[00:01:45] otherwise he can download a zip file
+[00:01:48] with everything inside it and go from
+[00:01:50] there so hopefully you've all had a
+[00:01:52] chance to to take a look at that and do
+[00:01:55] it if you're wondering what the address
+[00:01:57] is I'll put it back on the screen right
+[00:01:58] now github.com
+[00:02:00] jig VDP SK learncore Pata
+[00:02:05] 2015 so um I I'll leave that up there
+[00:02:08] just so people can find it so briefly
+[00:02:10] what I'm going to try to do in this next
+[00:02:12] two hours is we're we're going to talk
+[00:02:14] about we we have essentially two goals I
+[00:02:16] want to talk about the um the basics of
+[00:02:20] machine learning you know the like what
+[00:02:22] machine learning is and how you should
+[00:02:24] think about machine learning when you
+[00:02:26] when you approach some sort of problem
+[00:02:28] with data you know how to how to format
+[00:02:30] your data how to frame the questions and
+[00:02:32] how how to think about it in that case
+[00:02:35] the other piece of it is actually doing
+[00:02:37] machine learning in practice and we're
+[00:02:39] going to be looking at the pyit learn
+[00:02:41] Library so you can get an overview of
+[00:02:43] that if you look at
+[00:02:45] pyit
+[00:02:48] learn.org
+[00:02:50] scikit-learn dorg I think that's it or
+[00:02:53] is it
+[00:02:54] just oh yeah yeah yeah it's working my
+[00:02:57] connection is just slow if you go to
+[00:02:58] scikit-learn .org you you can see all
+[00:03:01] the information about this Library
+[00:03:03] there's pretty extensive documentation
+[00:03:05] tutorials and things like that and
+[00:03:07] essentially Whatsit learn is is it's a
+[00:03:09] it's a library that strives to have
+[00:03:12] really fast uh well documented
+[00:03:16] well-designed M implementations of of
+[00:03:19] standard machine learning tools so um
+[00:03:22] most of the common machine learning
+[00:03:24] things you'll find out there there are
+[00:03:25] implementations in pyit learn and that's
+[00:03:27] why it's a great library to start with
+[00:03:29] because you can just use you know if
+[00:03:31] someone tells you I want to do a
+[00:03:33] kernelized support Vector machine or
+[00:03:34] something like that you can go into pyit
+[00:03:36] learn and you can find that algorithm
+[00:03:38] and you can use it once you know the
+[00:03:39] syntax of how to use
+[00:03:42] it okay one other thing I should say
+[00:03:44] once you have this um this downloaded
+[00:03:47] let me uh open a new window basic and
+[00:03:51] make this bigger once you have this
+[00:03:53] downloaded um if you go into
+[00:03:56] the into the directory where this is
+[00:04:00] I'm hoping if you have if you have
+[00:04:02] Windows it might look a little bit
+[00:04:04] different if you're on on Linux and Mac
+[00:04:05] it'll look a bit like this and you run
+[00:04:08] IPython
+[00:04:10] notebook assuming you have IPython
+[00:04:12] installed
+[00:04:13] there um then what should pop up is this
+[00:04:17] this is the dynamic notebook version
+[00:04:19] that I was talking about you you pop up
+[00:04:21] this thing and you can click on
+[00:04:22] notebooks and you can go in and and see
+[00:04:25] the content and here's that nice URL
+[00:04:27] page that I was using so hope hopefully
+[00:04:30] uh hopefully you have that have this
+[00:04:32] material in front of you either in the
+[00:04:34] form of the dynamic notebook or in the
+[00:04:36] form of that that static View and we'll
+[00:04:39] jump in jump right in and take a look at
+[00:04:41] it oops I'm using a different notebook
+[00:04:44] version so let's start with the the
+[00:04:46] preliminaries like I said the the goals
+[00:04:48] of this tutorial I want to introduce the
+[00:04:50] basics of machine learning um and in
+[00:04:53] then introduce the syntax of pyit learn
+[00:04:55] and this is about the schedule that I'm
+[00:04:56] going to try to stick to this first 15
+[00:04:59] minutes
+[00:05:00] uh is preliminar setup introduction the
+[00:05:02] stuff that I've been talking about up
+[00:05:04] till now the next 45 minutes or so until
+[00:05:07] about 11:00 I want to talk about the
+[00:05:10] basic principles of machine learning um
+[00:05:13] Define some terms help you to think
+[00:05:15] about the vocabulary of what we're going
+[00:05:17] to use and also the basic scikit learn
+[00:05:19] interface so that's about 45 minutes
+[00:05:22] that we'll cover this then we'll take a
+[00:05:24] a short break you know five or 10
+[00:05:26] minutes so you can get up and stretch
+[00:05:27] and grab a beverage or something and
+[00:05:30] then um the last hour I want to go in
+[00:05:32] depth into two interesting uh supervised
+[00:05:36] techniques the support Vector machines
+[00:05:39] and then something called random
+[00:05:41] forests and then I should I should add
+[00:05:43] on top of that that if you
+[00:05:47] um if you look at the the index notebook
+[00:05:50] here that basically covers this Parts
+[00:05:52] one and two preliminaries and then the
+[00:05:54] introduction this is about I have about
+[00:05:57] 6 hours of uh tutorial content here and
+[00:06:00] all of this is I've included this in the
+[00:06:02] directory not because we're going to get
+[00:06:04] to it in these two hours but because if
+[00:06:06] you if you want to go back and and learn
+[00:06:08] a little bit more and read a little bit
+[00:06:10] more you can go read that on your own
+[00:06:12] afterwards and there's some videos
+[00:06:14] floating around online of me doing the
+[00:06:16] full three or four or six hour tutorial
+[00:06:18] you can search for that too if you if
+[00:06:20] you really like hearing me
+[00:06:21] talk um so all of that is there in that
+[00:06:25] in that
+[00:06:27] material so the prelim Aries there's um
+[00:06:31] these are the packages that are required
+[00:06:33] to run all the all the commands in here
+[00:06:37] python you can use either version two or
+[00:06:39] version three and I try to be inclusive
+[00:06:41] that way most and all the code in here
+[00:06:43] should run on version two and three and
+[00:06:46] then there's things like numpy scipi mat
+[00:06:48] pot Li for plotting psyit learn of
+[00:06:49] course IPython for the notebook and
+[00:06:52] Seaborn is this nice little library that
+[00:06:54] helps make your makes your P your mat
+[00:06:56] plot visualizations a little nicer so I
+[00:06:59] tend to use that to to make it nice and
+[00:07:02] if you have cond installed you can do
+[00:07:04] this by just running this line cond
+[00:07:06] install all these packages and once all
+[00:07:09] that is installed you should be able to
+[00:07:11] just run this code within your notebook
+[00:07:13] and um see all the versions of the
+[00:07:15] various packages that you have installed
+[00:07:17] here so IPython numpy scipi matplot Libs
+[00:07:20] kit learn and
+[00:07:22] caborn and finally down at the bottom I
+[00:07:24] just wanted to leave you with some
+[00:07:26] useful resources if you if you want to
+[00:07:27] learn a little bit more about this stuff
+[00:07:29] stuff I know I'm I'm kind of I'm kind of
+[00:07:32] starting this from the assumption that
+[00:07:34] you you're comfortable with python and
+[00:07:36] comfortable with a lot of the scientific
+[00:07:38] tools so some of it might be moving a
+[00:07:40] little bit fast if you haven't you know
+[00:07:42] if you haven't used numpy or haven't
+[00:07:43] used Matt plot liveb in the past uh but
+[00:07:45] you can look at some of these some of
+[00:07:47] the tutorials on these sites if you want
+[00:07:49] to come back to that
+[00:07:51] later so um any questions on just that
+[00:07:54] preliminary stuff before we jump into
+[00:07:56] the material
+[00:08:01] all right I think we're good to go now
+[00:08:03] you usually these tutorials I try to do
+[00:08:05] uh try to make them interactive and a
+[00:08:07] lot of question and answer it's harder
+[00:08:09] in a big room like this you know I'm
+[00:08:10] used to having more like 30 or 40 people
+[00:08:13] but feel free to raise your hand and
+[00:08:15] interrupt and we'll we'll do our best
+[00:08:16] with
+[00:08:17] that so let's go back to the I'm going
+[00:08:20] to leave this page go back to the index
+[00:08:22] and I'm going to open up this uh
+[00:08:26] 2.1 um notebook right here and let's
+[00:08:29] take a look at
+[00:08:31] this that notebook converted thing that
+[00:08:34] comes up is because I'm using a newer
+[00:08:35] version of IPython and the the notebooks
+[00:08:38] are an older version which which which
+[00:08:41] work with everything that you might have
+[00:08:45] installed so uh machine learning in
+[00:08:47] Python let I like I said the main goal
+[00:08:49] of this first section is going to be to
+[00:08:50] get a definition of machine learning to
+[00:08:53] learn about how to represent data for
+[00:08:55] pyit learn and to learn about how the
+[00:08:58] pyit learn API itself
+[00:09:00] works so um I went through a little bit
+[00:09:02] of this psyit learn is a is a python
+[00:09:05] package that's designed to to give you
+[00:09:08] access to well-known machine learning
+[00:09:10] algorithms and have a a clean wellth
+[00:09:13] thought out API that's the big part of
+[00:09:14] it so once you learn how to use one
+[00:09:16] algorithm in pyit learn you can
+[00:09:18] basically apply that knowledge to use
+[00:09:20] any of them it's a kind of a dropin
+[00:09:22] replacement for all the different
+[00:09:24] algorithms so the the the main question
+[00:09:28] though here is what is machine learning
+[00:09:30] and um you know machine learning is one
+[00:09:32] of these terms that gets thrown around a
+[00:09:34] lot and it has kind of this this this
+[00:09:37] magic connotations like oh how are we
+[00:09:39] going to how are we going to do this
+[00:09:40] thing in our software oh we'll just use
+[00:09:42] machine learning it'll be fine U and
+[00:09:44] machine learning uh essentially what it
+[00:09:46] is is it's a it's a set of models that
+[00:09:49] have tunable
+[00:09:50] parameters and you can tune those
+[00:09:53] parameters to adapt to previously seen
+[00:09:55] data so that then the models can
+[00:09:58] generalize and predictions about data
+[00:10:00] you haven't seen yet so machine learning
+[00:10:03] is just modeling it's it's about
+[00:10:05] building a model of your data that can
+[00:10:07] then tell you about what's happening um
+[00:10:10] with new data that comes out and we'll
+[00:10:11] see an example of this and two very
+[00:10:15] simple uh machine learning tasks are
+[00:10:18] classification and regression so let's
+[00:10:21] uh let's take a look at a classification
+[00:10:23] thing and I'm going to um I'm going to
+[00:10:25] start by clearing all the output just so
+[00:10:27] we have a clean slate here here first
+[00:10:30] thing I'm going to do is um import some
+[00:10:33] stuff that we need to make the figures
+[00:10:35] appear in the notebooks you can read
+[00:10:37] about this and in other
+[00:10:39] places and then I'm going to uh plot
+[00:10:42] this plot this little diagram right here
+[00:10:45] so this is an example a quick example of
+[00:10:47] a machine learning application so the
+[00:10:50] idea is that we have two clumps of data
+[00:10:52] we have one Clump that's labeled blue
+[00:10:54] and one Clump that's labeled red and we
+[00:10:56] want to train a model that will
+[00:10:58] distinguish between those right and the
+[00:11:01] model that we've trained is this line
+[00:11:03] that we draw down the center and that
+[00:11:05] line has a margin that kind of separates
+[00:11:07] the data and so now the idea is that if
+[00:11:09] we were to if we were to drop another
+[00:11:11] point on here that we don't know what it
+[00:11:13] is if it drops up here that model will
+[00:11:16] tell us that's yeah it's likely to be a
+[00:11:18] blue point and if it drops down here the
+[00:11:20] model will tell us that's likely to be a
+[00:11:21] red point
+[00:11:23] right and this uh this might seem
+[00:11:26] incredibly simple right simplistic even
+[00:11:29] like you could just you could just look
+[00:11:30] at this data and draw that line yourself
+[00:11:32] why would you need an algorithm to do it
+[00:11:34] where this becomes more powerful though
+[00:11:36] is um when you start looking in higher
+[00:11:38] Dimensions so this is two-dimensional
+[00:11:39] data but we might be looking at Thousand
+[00:11:42] dimensional data or 10,000 dimensional
+[00:11:44] data right and at that point it's very
+[00:11:46] difficult by eye to draw one of these
+[00:11:48] separating lines actually in a in a
+[00:11:51] thousand Dimensions you're not drawing a
+[00:11:53] separating line you're drawing a 999
+[00:11:55] dimensional hyperplane that's separating
+[00:11:57] your data right so I challenge you to do
+[00:11:59] that by eye or by hand that would be
+[00:12:01] hard but but the cool thing about the
+[00:12:03] machine learning algorithms is they work
+[00:12:05] in two Dimensions but they also scale up
+[00:12:07] to these these large number of
+[00:12:09] Dimensions so it means we can do things
+[00:12:11] like separate two clumps of data in a
+[00:12:14] thousand Dimensions if we want to and
+[00:12:16] it'll it'll do this
+[00:12:18] automatically so that's a classification
+[00:12:20] task and what distinguishes a
+[00:12:21] classification task is that there are
+[00:12:23] discrete labels we have red or blue we
+[00:12:26] don't have a continuous array of color
+[00:12:28] labels just one or the other so these
+[00:12:31] dis discrete label problems are
+[00:12:33] classification
+[00:12:35] tasks um and just to to prove to you
+[00:12:38] that this is actually a machine learning
+[00:12:40] task we can load the code that generates
+[00:12:42] that figure and you can see what I'm
+[00:12:44] doing is I'm generating some Blobs of
+[00:12:46] data I'm actually training this SGD
+[00:12:49] classifier which is a stochastic
+[00:12:51] gradient descent
+[00:12:52] classifier um and then I'm plotting the
+[00:12:55] results and I'm I'm doing a contour of
+[00:12:58] the classifier uh classifier levels here
+[00:13:02] so it's actually a machine learning
+[00:13:04] operation that generates this plot it's
+[00:13:05] not just you know I didn't just draw it
+[00:13:07] in Microsoft Paint or
+[00:13:09] whatever um okay so that's a
+[00:13:12] classification task the next task that
+[00:13:14] we might talk about is a regression task
+[00:13:16] and what dis distinguishes a regression
+[00:13:18] task is regression is when you have a
+[00:13:20] continuous label so this is a different
+[00:13:22] type of data we have um we have X data
+[00:13:25] and we have Y data and what we're saying
+[00:13:28] is this Y data on the vertical axis is
+[00:13:30] the continuous label of our data so to
+[00:13:33] be more more uh concrete this this
+[00:13:37] continuous label might be something like
+[00:13:39] you know my background is in astronomy
+[00:13:41] so it might be something like the
+[00:13:42] distance to a Galaxy if you're want
+[00:13:44] wanting to learn the distance to a
+[00:13:46] Galaxy based on some observations you
+[00:13:49] that distance is a continuous value and
+[00:13:52] again what machine learning does is it
+[00:13:53] generates a model Based on data that you
+[00:13:56] you've seen so that you can generalize
+[00:13:58] to that you haven't seen and here the
+[00:14:01] model that we're drawing is just a
+[00:14:03] straight line fit to the data what this
+[00:14:05] says is that given an XV value we can go
+[00:14:09] up and ask where the line hits and that
+[00:14:11] tells us the prediction of the Y value
+[00:14:13] right it's a really simple stuff you did
+[00:14:15] this in your whatever like first grade
+[00:14:17] statistics class fitting align to data
+[00:14:20] but fitting align to data really is a
+[00:14:22] machine learning application and again
+[00:14:25] um this might seem really simple right
+[00:14:27] you you know every every 's fidd line
+[00:14:29] todaya at some point why do we call it
+[00:14:31] machine learning but but where this this
+[00:14:34] sort of idea becomes uh more useful is
+[00:14:36] when you're looking at high Dimensions
+[00:14:38] so what if you have rather than one
+[00:14:40] observation One X value what if you have
+[00:14:42] 100 x values what if you have 100
+[00:14:45] observations of each of those galaxies
+[00:14:47] and you want to figure out some way to
+[00:14:49] turn those those observations into an
+[00:14:51] estimate of the distance to the Galaxy
+[00:14:54] and that's what regression can do for
+[00:14:56] you and again instead of drawing a line
+[00:14:58] through the data something like drawing
+[00:15:00] a hyperplane through the data right and
+[00:15:02] the Machine learning the algorithms
+[00:15:04] we'll talk about actually scale up to
+[00:15:07] that okay so that's that's
+[00:15:09] classification and regression and those
+[00:15:10] are the two essential things that we're
+[00:15:12] going to essential algorithms we're
+[00:15:14] going to talk about um classification
+[00:15:16] for discret labels and regression for
+[00:15:20] continuous
+[00:15:21] labels there a
+[00:15:25] question that's a good question so the
+[00:15:28] question is is regression always linear
+[00:15:30] and the answer is no we can do we can do
+[00:15:32] lots of nonlinear things and we'll
+[00:15:34] actually see a couple examples of those
+[00:15:36] later on so we're we're not always doing
+[00:15:38] something simple like fitting a line
+[00:15:40] data we're not always doing Simple
+[00:15:42] something simple like drawing a line
+[00:15:44] they can be more complex boundaries as
+[00:15:46] well
+[00:15:48] thanks any other questions before we
+[00:15:50] move
+[00:15:54] on all right so those that's the basic
+[00:15:58] basic stuff we're going to be covering
+[00:15:59] today and now I want to jump into more
+[00:16:01] detail about how you'll actually make
+[00:16:03] this
+[00:16:04] happen Okay so the first thing is to try
+[00:16:07] to figure out how to represent your data
+[00:16:09] in scikit learn so um you have some data
+[00:16:12] set you need to you need to to munge it
+[00:16:16] and transform it so that the psyit learn
+[00:16:18] algorithms can work on it and um
+[00:16:21] essentially in psyit learn all the data
+[00:16:23] that you're going to be using will be in
+[00:16:25] the form of a two-dimensional Matrix so
+[00:16:28] this Matrix will be the number of rows
+[00:16:31] will be the number of samples in your
+[00:16:33] data and by samples I mean distinct
+[00:16:36] objects that you're interested in um
+[00:16:38] learning about so in my example from
+[00:16:41] before the samples would be the galaxies
+[00:16:43] themselves so taking a look at the you
+[00:16:46] know the galaxies or you might be
+[00:16:48] looking at uh classifying images the
+[00:16:50] samples in that case are the individual
+[00:16:52] images that you're looking at and so
+[00:16:55] that's the number of rows in The Matrix
+[00:16:56] the number of columns in The Matrix is
+[00:16:59] the corresponds to the number of
+[00:17:01] features and what I mean by features are
+[00:17:04] each feature is an observation that you
+[00:17:06] have of every sample in the data set so
+[00:17:09] for the galaxies I might have an
+[00:17:11] observation of each Galaxy through a red
+[00:17:14] filter and I have might have an
+[00:17:15] observation of each Galaxy through a
+[00:17:16] blue filter and we have these numerical
+[00:17:19] quantities that we observe for every
+[00:17:20] object so what you end up with is a is a
+[00:17:23] matrix that's number of samples by
+[00:17:25] number of features and that's what gets
+[00:17:27] plugged into the algorithm
+[00:17:29] so sometimes um sometimes generating
+[00:17:32] that numerical Matrix is the difficult
+[00:17:34] part like for example if you're trying
+[00:17:35] to classify text documents um classify
+[00:17:39] articles you pull off online you have to
+[00:17:41] do some tricky things to to turn those
+[00:17:45] words into some sort of quantitative
+[00:17:47] numerical feature that you measure and
+[00:17:49] there are things you can do like uh
+[00:17:51] asking asking for how many how many
+[00:17:55] times a certain pair of words shows up
+[00:17:57] in the document and things like that
+[00:17:59] so but but as a very simple example
+[00:18:01] let's take a look at kind of this
+[00:18:03] classic data set for machine learning I
+[00:18:05] see a question right there yeah I might
+[00:18:07] jumping a little B ahead would you be
+[00:18:09] covering the different ways
+[00:18:13] ofing
+[00:18:15] sometimes yeah I'm not going to be going
+[00:18:17] into the question was am I going to be
+[00:18:19] covering uh transforming categorical or
+[00:18:22] text into numerical I'm not going to be
+[00:18:24] going into that but if you look on the
+[00:18:26] psyit learn website there's um some
+[00:18:28] information on that and some tutorials
+[00:18:30] on that so in particular there's a
+[00:18:32] pretty good uh uh machine learning on
+[00:18:35] text tutorial that you can
+[00:18:38] use um but the more the more simple data
+[00:18:41] set I'm going to look at is this classic
+[00:18:43] one in machine learning that for some
+[00:18:45] reason someone back in the 70s decided
+[00:18:47] to use and everyone's been using it
+[00:18:48] since then so who am I to you know break
+[00:18:50] the trend um this Iris data so the idea
+[00:18:54] is that we have three observations of
+[00:18:56] three different species of irises so
+[00:18:59] this is one species right here that's
+[00:19:01] what it looks like here's another
+[00:19:02] species right there it looks a little
+[00:19:04] bit different and here's another species
+[00:19:06] right here so these are three species of
+[00:19:08] irises and we want to train an automated
+[00:19:12] classifier that will
+[00:19:14] identify these irises based on these
+[00:19:17] observations so the a couple quick
+[00:19:20] questions here so
+[00:19:22] um we need an array of number of samples
+[00:19:25] by number of features so what does
+[00:19:26] number of samples refer to what are the
+[00:19:28] samples samples
+[00:19:30] here flowers flowers yeah so individual
+[00:19:34] flowers that we observe are the samples
+[00:19:36] so each row of the Matrix will
+[00:19:38] correspond to one flower right and what
+[00:19:41] about the features so the features are
+[00:19:43] data they're things that we observe
+[00:19:46] about each sample so what might some
+[00:19:48] features be that we could use with the
+[00:19:50] irises to identify
+[00:19:54] them number of petals yeah
+[00:19:58] color shape um yeah maybe length of
+[00:20:02] pedals or width of pedals things like
+[00:20:03] that so yeah so this is the idea when
+[00:20:06] whenever you're trying to classify or um
+[00:20:08] or do some machine learning on something
+[00:20:09] you have to figure out what are the most
+[00:20:11] useful features that you want to include
+[00:20:14] so this is the point when your your own
+[00:20:17] expertise in the problem comes in this
+[00:20:19] feature engineering so for me as as an
+[00:20:22] astronomer if I'm trying to use machine
+[00:20:23] learning on an astronomy data set I need
+[00:20:26] to think about what I know about
+[00:20:27] astronomy and think about what features
+[00:20:29] might be worth observing if you're doing
+[00:20:32] something like um you know trying to
+[00:20:35] maximize click rates on on some web page
+[00:20:38] based on uh features about a user you
+[00:20:41] probably have some intuition about what
+[00:20:43] sort of users are on your website and
+[00:20:45] what sort of features you'd want to plug
+[00:20:46] into these algorithms right so that's
+[00:20:48] this feature engineering thing is
+[00:20:50] something that every intro machine
+[00:20:52] learning tutorial will brush over
+[00:20:54] completely but it's actually the most
+[00:20:55] important part right and the reason we
+[00:20:57] brush it over completely is because
+[00:20:59] every one of you in this room has a
+[00:21:00] different area of expertise and a
+[00:21:03] different domain where you're going to
+[00:21:04] want to be applying this stuff so it's
+[00:21:06] it's hard for me to give General General
+[00:21:09] guides on choosing features because it's
+[00:21:11] more about it's more about you knowing
+[00:21:13] the field that you're using and and
+[00:21:14] choosing the data that you think is
+[00:21:16] going to be relevant yeah how might
+[00:21:25] compon yeah that's a good good question
+[00:21:28] so he you mentioned this uh algorithm
+[00:21:30] called principal component analysis and
+[00:21:32] asked how you might uh use that to
+[00:21:35] choose features so you can there are
+[00:21:38] algorithms like principal component
+[00:21:40] analysis and others that will let you
+[00:21:41] select among a group of features which
+[00:21:43] ones are most important in some sense
+[00:21:46] but you still have to give it a group of
+[00:21:47] features to start with right so you you
+[00:21:50] still have to use a little bit of your
+[00:21:51] own intuition to to figure out what
+[00:21:53] features to start with but good question
+[00:21:56] uh PCA principal component analysis is
+[00:21:58] one of the things we won't get to in
+[00:22:00] this 2hour tutorial but if you look at
+[00:22:02] the the extended version uh there's some
+[00:22:04] material on that in there so for this
+[00:22:08] this classic Iris set basically what uh
+[00:22:10] what has been done in the past or what
+[00:22:13] what data has been used is you have um
+[00:22:16] the length of the seil the width of the
+[00:22:18] seil the length of the petals and the
+[00:22:20] width of the petals so for each flower
+[00:22:22] you have these four observations and
+[00:22:24] these observations are because some
+[00:22:26] botanist went out in the field with a
+[00:22:27] with a ruler and started measuring these
+[00:22:29] flowers and got a couple hundred of them
+[00:22:32] and then what we want to predict we want
+[00:22:34] to predict labels and these labels are
+[00:22:36] the species of the iris so we have Iris
+[00:22:38] Sosa Iris versol and Iris virginica
+[00:22:41] which I um which I showed up here these
+[00:22:44] are the three different
+[00:22:46] species so um psyit learn includes a
+[00:22:49] bunch of data sets and one of the data
+[00:22:51] sets that it has for uh experimenting
+[00:22:53] with simple data is this Iris data set
+[00:22:57] so we can load it and we can look at
+[00:22:58] what keys are here we have the target
+[00:23:00] names the data the target
+[00:23:02] Etc and if we look at the the data
+[00:23:06] itself the data is 150 samples that's
+[00:23:10] this entry right here by four features
+[00:23:14] so we have 150 flowers we're looking at
+[00:23:16] these four measurements and if you look
+[00:23:19] at a single row of the Matrix here we're
+[00:23:21] looking at the first row of the Matrix
+[00:23:24] we find that this one has a sea length
+[00:23:27] of 5 cm of simple width of 3 cm and Etc
+[00:23:31] so this is kind of the fingerprint of
+[00:23:32] this Iris this is the data that we have
+[00:23:34] about this one
+[00:23:36] sample and the other thing we can look
+[00:23:38] at is we have you know here's the iris
+[00:23:40] data again 150 by4 the iris Target is
+[00:23:43] just a vector of length
+[00:23:45] 150 and this is a a numerical code that
+[00:23:48] tells us what species it is so we're
+[00:23:51] saying it's either a label zero label
+[00:23:53] one or label two and if we want to
+[00:23:56] convert those labels into names we see
+[00:23:59] that zero is satsa one is versol and two
+[00:24:03] is virginica right so essentially what I
+[00:24:06] want what I want you to see in this is
+[00:24:08] that when you're when you're taking your
+[00:24:09] data and turning it into something that
+[00:24:11] you're going to use in pyit learn you
+[00:24:13] want your data to be in this
+[00:24:14] two-dimensional array that's the number
+[00:24:16] of samples by the number of features and
+[00:24:18] you want your labels to be in a
+[00:24:20] one-dimensional array that is number of
+[00:24:22] samples so each sample has a
+[00:24:24] label right so that's that's the way to
+[00:24:27] to think about how to get your data into
+[00:24:29] these machine learning
+[00:24:32] algorithms so now um I'll really quickly
+[00:24:35] just here's some code here this is Mo
+[00:24:37] mostly matplot lib code that helps plot
+[00:24:40] things and here's a visualization of the
+[00:24:43] of two of the two of the um features
+[00:24:47] that we're looking at we're looking at
+[00:24:49] seil length here versus seal width here
+[00:24:52] and then the colors show you which Iris
+[00:24:54] species it is so we can see that there's
+[00:24:57] you know there's from this we we can see
+[00:25:00] that we should be able to draw some sort
+[00:25:01] of line or some sort of boundary that
+[00:25:04] here would distinguish the Sosa from the
+[00:25:06] others but the virginica and versical
+[00:25:08] are a little more mixed right and it
+[00:25:10] might be that you if you change the
+[00:25:12] index if you look at different pieces
+[00:25:15] different variables you might be able to
+[00:25:17] find uh better separations so right now
+[00:25:20] I want want you to take just a moment
+[00:25:22] and look between um the different
+[00:25:25] dimensions here this is 0 1 2 and three
+[00:25:28] you can plot these against each other
+[00:25:30] and kind of
+[00:25:31] see just just get a feel for whether you
+[00:25:35] whether you think an algorithm would be
+[00:25:36] able to separate
+[00:25:39] these and if you have your IPython
+[00:25:41] notebook up you should be able to to run
+[00:25:46] this take a couple couple minutes and
+[00:25:50] and look at that this is part of the
+[00:25:52] like data visualization and data
+[00:25:54] exploration part of machine learning
+[00:25:57] which you know to you really want to
+[00:25:59] before you just start blindly throwing
+[00:26:01] algorithms at your data you want you
+[00:26:02] want to visualize it and understand
+[00:26:04] what's there and maybe figure out if
+[00:26:07] there if there are
+[00:26:16] issues sometimes you find weird things
+[00:26:18] in data like I was doing some just for
+[00:26:20] fun looking at some census data about
+[00:26:22] birth rates versus age of mother and
+[00:26:25] father and and I did this aggregation
+[00:26:27] where I found the average mother age as
+[00:26:30] a function of month and average father
+[00:26:32] age is a function of month and the
+[00:26:34] average father age was like 20 years
+[00:26:36] older than the average mother age and
+[00:26:38] first I was like whoa this is crazy I
+[00:26:40] mean you know there's this there's this
+[00:26:42] weird age Gap and then you know when I
+[00:26:44] looked closer at the data I hadn't I
+[00:26:46] hadn't actually visualized the raw data
+[00:26:48] and when I looked closer I found that if
+[00:26:50] they don't know who the father is they
+[00:26:52] put in his age is 99 right
+[00:26:55] so yeah so it just means that there are
+[00:26:57] a lot of fathers that were unknown in
+[00:26:59] those months so anyway you got to you
+[00:27:01] got to visualize the data and you got to
+[00:27:02] figure out what's going on so did anyone
+[00:27:04] find a good combination that really
+[00:27:06] separates these pretty
+[00:27:08] well
+[00:27:09] yeah by what what are the index indices
+[00:27:13] on that sorry two three two and
+[00:27:18] three yeah oh cool yeah so you can see
+[00:27:20] here by if you look at pedal just the
+[00:27:23] width and length of the petals the satos
+[00:27:24] is completely different than the others
+[00:27:26] and then these two are even pretty well
+[00:27:27] dis uish so we would expect here that a
+[00:27:30] that an automated classification should
+[00:27:32] be able to do pretty well
+[00:27:34] right um and we'll we'll get to that in
+[00:27:37] just a second we'll take a look at doing
+[00:27:38] this automated classification but first
+[00:27:40] I want to show you that there there are
+[00:27:42] lots of other data sets here um so if
+[00:27:45] you if you import data sets from scikit
+[00:27:47] learn you can use this cool feature of
+[00:27:50] uh of IPython that's tab completion so
+[00:27:54] you press Tab and you can see there are
+[00:27:55] things like 20 news groups so this is
+[00:27:57] Text data
+[00:27:58] there are um lfw which is labeled faces
+[00:28:01] labeled pictures of faces there's
+[00:28:04] olivetti faces there's species
+[00:28:06] distributions and then um also there's
+[00:28:08] the load data um fetch data is actually
+[00:28:11] pulling things from the web load data is
+[00:28:13] stuff that's included with the package
+[00:28:15] so we have Iris we have um sample images
+[00:28:19] all all these other things so there
+[00:28:20] diabetes digits so there's some nice
+[00:28:22] data sets you can play with and we'll
+[00:28:23] see a few of
+[00:28:25] those
+[00:28:26] um and in in the the next section we'll
+[00:28:29] we'll take a look at um some of these
+[00:28:31] data sets and do kind of a a basic
+[00:28:34] machine learning thing on them so before
+[00:28:37] we move on to the next section um any
+[00:28:39] questions about this about the data
+[00:28:42] representation this number of samples by
+[00:28:44] number of features Matrix is kind of the
+[00:28:46] fundamental thing that I want you to get
+[00:28:48] out of there yeah a lot ofy
+[00:28:53] learn Diaries of arrays is that common
+[00:28:56] pattern or yeah yeah so the the the
+[00:29:00] question was the these data sets that
+[00:29:02] are in psychic learn seem to be
+[00:29:04] dictionaries of arrays and that's just
+[00:29:06] because it's a convenient way to store
+[00:29:07] them right because you need the you need
+[00:29:10] the data Matrix you need the labels
+[00:29:12] Matrix and then you need some metadata
+[00:29:14] so Psy learn just stores that in a
+[00:29:15] little dictionary um and if you're doing
+[00:29:18] your own data you don't need to
+[00:29:19] construct that dictionary you just need
+[00:29:20] to construct those arrays those that
+[00:29:23] Matrix and the label
+[00:29:26] array all right all right well let's
+[00:29:28] let's take a look at this this second
+[00:29:31] part of the of uh this first morning
+[00:29:35] session here I'm going to again toggle
+[00:29:37] the toolbar and toggle the
+[00:29:39] header and take a look at the basic
+[00:29:42] principles of machine learning all right
+[00:29:43] so we saw that um we saw that the
+[00:29:46] difference between classification and
+[00:29:48] regression right which is a those
+[00:29:51] learning examples we saw how to make our
+[00:29:53] data fit in pyit learn um
+[00:29:59] I'm gonna I need to clear all the all
+[00:30:01] the output again oh but I zoomed in too
+[00:30:04] much here we
+[00:30:06] go okay so in init learn when you want
+[00:30:10] to do some machine learning what you're
+[00:30:12] going to use is this estimator object
+[00:30:15] and if you're familiar with python
+[00:30:16] python is a is an object-oriented
+[00:30:18] programming language you can Define
+[00:30:20] classes and Whatsit learn does is that
+[00:30:23] each type of model each type of learning
+[00:30:25] model is its own class and um so for
+[00:30:30] example if we want to do a linear
+[00:30:31] regression like we saw earlier fitting
+[00:30:33] that line to data we can import from
+[00:30:36] psyit learn. linear model we import the
+[00:30:38] linear regression class and then our
+[00:30:41] model is a linear regression class with
+[00:30:44] some sort of hyperparameters so we're
+[00:30:45] going to say we want to we want to nor
+[00:30:48] normalize we want to normalize linear
+[00:30:51] regression and we get out this model
+[00:30:52] object that has an attribute attribute
+[00:30:55] normalized that's true right so if print
+[00:30:58] out the model we see all these
+[00:31:00] attributes so this is a linear
+[00:31:02] regression model it's going to copy the
+[00:31:03] data before modifying it it's going to
+[00:31:06] fit an intercept to the data and it's
+[00:31:07] going to normalize the
+[00:31:09] data so um a type of model is a class
+[00:31:13] and the model itself is an instantiation
+[00:31:16] of the class in Python so that's true
+[00:31:19] across the board in pit
+[00:31:21] learn now for example let's say we have
+[00:31:23] some data and the data looks like this
+[00:31:26] um
+[00:31:28] we get some X and Y values and we plot
+[00:31:30] them and you know we just have this
+[00:31:32] straight line and um now if we want to
+[00:31:37] if we want to actually fit the model to
+[00:31:38] this data what we need is uh we need our
+[00:31:42] Fe our our data Matrix which is number
+[00:31:45] of samples by number of features and we
+[00:31:47] need our label Matrix right so in this
+[00:31:49] case the the number of samples we have
+[00:31:52] is just these X values and the labels we
+[00:31:54] have are just the Y values right where
+[00:31:56] the labels are kind of the dependent
+[00:31:58] variable here so what we need to do is
+[00:32:01] we need to take our input data and
+[00:32:03] reshape it into this into this 10x one
+[00:32:08] array and then we have our labels it's
+[00:32:10] just a a length 10 array and this is
+[00:32:13] just a a numpy formalism to to reshape
+[00:32:17] an array like that to add a
+[00:32:19] dimension and once we have that that
+[00:32:21] data in the right format we can fit our
+[00:32:23] model to it by calling the fit function
+[00:32:26] the fit method and we see that the it
+[00:32:29] returns itself so now we have a model
+[00:32:31] that's fit to the
+[00:32:33] data and then um once we've fit the
+[00:32:36] model to the data there will be these
+[00:32:38] attributes that have an underscore after
+[00:32:40] them and in pyit learn any any attribute
+[00:32:43] that ends with an underscore is one that
+[00:32:45] depends on the data that was learned
+[00:32:47] from the data itself so we can see here
+[00:32:50] that our that our fit coefficients were
+[00:32:53] were two and our intercept is one and if
+[00:32:56] we go back to how this data was
+[00:32:57] generated we can see that we did y = 2x
+[00:33:00] + 1 right so we we put in simple linear
+[00:33:03] data and this model looked at the data
+[00:33:06] and pulled out the the slope and The
+[00:33:08] Intercept that we put in and there are
+[00:33:11] other things like you can look at the
+[00:33:12] residuals around the fit and here since
+[00:33:14] the model fits the data perfectly the
+[00:33:15] residuals are basically essentially zero
+[00:33:18] you know 10 10us 31 in uh in double
+[00:33:23] Precision is basically
+[00:33:25] zero so that that's how the model that's
+[00:33:28] how the pyit learn model looks again you
+[00:33:30] have you have the class name that you
+[00:33:33] that defines the type of model you want
+[00:33:35] to use you have the instantiation of the
+[00:33:38] class which is the actual model you're
+[00:33:40] going to fit to data and then this fit
+[00:33:43] method here which actually applies the
+[00:33:45] model to data and does some sort of
+[00:33:47] internal calculations to create these
+[00:33:50] these internal
+[00:33:52] variables
+[00:33:54] right so any questions about that that's
+[00:33:57] just the the first very basic pyit learn
+[00:33:59] estimator and every time you do a a pyit
+[00:34:02] learn problem it'll look like that it'll
+[00:34:04] be import a class instantiate the class
+[00:34:07] fit it to data and then do something
+[00:34:09] with the model after
+[00:34:12] that so we
+[00:34:14] um we briefly saw this before the
+[00:34:17] classification and and regression but
+[00:34:19] classification and regression are
+[00:34:21] examples of what's called supervised
+[00:34:23] learning and when I when I say
+[00:34:25] supervised learning I want you to think
+[00:34:26] about basically labeled data when
+[00:34:29] supervised learning means you have
+[00:34:31] labeled data and you want to predict the
+[00:34:32] labels for some other data so some
+[00:34:35] examples of supervised learning are
+[00:34:36] things like if you have a multicolor
+[00:34:38] image of an object you want to figure
+[00:34:41] out whether that object is a star or a
+[00:34:43] quar or Galaxy that's a supervised
+[00:34:46] problem uh given a photograph of a
+[00:34:48] person identify the person in the photo
+[00:34:50] right if you add enough data and you had
+[00:34:52] the right model you can do that sort of
+[00:34:54] thing um and then there are things like
+[00:34:57] um
+[00:34:58] recommender systems where you have a
+[00:35:00] list of movies someone looked at you
+[00:35:02] tell them what other movies that they
+[00:35:05] might like you know Netflix and Amazon
+[00:35:07] use things like
+[00:35:09] this um so we saw a quick classification
+[00:35:13] example earlier but now I want to
+[00:35:15] actually walk you through what's what
+[00:35:16] you do in scikit learn to do a
+[00:35:19] classification so we're going to go back
+[00:35:20] to this uh this Iris data set that we
+[00:35:23] were looking at and remember the x is
+[00:35:25] the 150 by4 mat of data the Y is the
+[00:35:29] labels so the first thing we're going to
+[00:35:31] do is we import here we're going to do a
+[00:35:34] k neighbors classification of Iris so we
+[00:35:37] import the neighbors uh module and then
+[00:35:40] we instantiate the model and tell it
+[00:35:43] that we want to look at the five nearest
+[00:35:44] neighbors of each object to figure out
+[00:35:46] what it is then we fit the model to data
+[00:35:51] fit call fit on X and Y and then what we
+[00:35:54] can do is we can call the predict method
+[00:35:57] and ask it well given this observation
+[00:36:00] with a 3x5 seil and a 4x2 pedal what's
+[00:36:04] the predicted Target name for that so we
+[00:36:06] do the call the predict method and um
+[00:36:09] what we get out is this result which is
+[00:36:12] an index into the target names and it
+[00:36:14] tells us that this iris is a versa
+[00:36:16] col right so again the the pattern that
+[00:36:19] I want to want to get into your mind is
+[00:36:22] that you're importing a model you're
+[00:36:24] instantiating the model you call fit to
+[00:36:26] the data and then here we call predict
+[00:36:29] on new data and it tells us what the
+[00:36:31] label is here the new data is
+[00:36:33] measurements of a flower but you know
+[00:36:35] your new data could be whatever it is in
+[00:36:36] your
+[00:36:37] application you can also do things like
+[00:36:39] probabilistic predictions so this this
+[00:36:42] predict probability says that it's a 0%
+[00:36:45] chance of being the first label an 80%
+[00:36:48] chance of the second label and a 20%
+[00:36:50] chance of the third label so these are
+[00:36:53] this predict and this predict pra are
+[00:36:55] some of the methods that you'll see in
+[00:36:57] in machine learning fairly
+[00:36:59] often and if we I just have this little
+[00:37:02] code that actually shows us on the on
+[00:37:05] the plane of SEO length versus SEO width
+[00:37:08] it essentially shows us what this
+[00:37:10] algorithm is doing it's looking at at if
+[00:37:13] you drop any point on here it's asking
+[00:37:16] what are the nearest five neighbors of
+[00:37:18] that point and it takes a majority vote
+[00:37:21] among those and then tell and then calls
+[00:37:23] it that color so you know right here
+[00:37:25] this point you look at the nearest five
+[00:37:27] neighbors of that and most of them are
+[00:37:29] green so it's going to call this green
+[00:37:31] that means it misclassifies that blue
+[00:37:33] point but that's the the nature of the
+[00:37:36] model so again I'm I'm repeating this
+[00:37:39] over and over but I want you to to get
+[00:37:40] this you import the model you
+[00:37:42] instantiate the model you call fit on
+[00:37:44] your data then you call predict or
+[00:37:46] predict probability on your unknown data
+[00:37:48] and you get out an
+[00:37:52] answer so now I want to I want to give
+[00:37:55] you a chance to try this out so there
+[00:37:56] are some other estimators and for
+[00:37:58] example there's one called sklearn.svm
+[00:38:02] SVC and SBC uh stands for support Vector
+[00:38:05] machine classification so I want you to
+[00:38:09] to take a take a a minute or so and just
+[00:38:14] create an SVC model and fit it to this
+[00:38:17] data and predict what that data point is
+[00:38:20] with the SVC model and see if it it
+[00:38:22] agrees with the K nearest neighbors just
+[00:38:25] to get some get some fingers on
+[00:38:27] keyboards this is this is pretty simple
+[00:38:29] but I want to get you get you used to
+[00:38:32] instantiating the class calling fit and
+[00:38:34] then calling predict
+[00:39:26] ch for
+[00:40:00] okay so it's I typed it up here it's
+[00:40:02] just a few lines of code right you
+[00:40:03] instantiate the model and in here if you
+[00:40:06] want to you can do uh you can set some
+[00:40:08] of the hyperparameters the c or the
+[00:40:10] kernel or the degree or things like that
+[00:40:13] we can get to that we'll get to that
+[00:40:14] later um you fit it to the data the X
+[00:40:17] and the Y and then you can predict on
+[00:40:18] anything here I just decided to predict
+[00:40:20] on the first five points of the data and
+[00:40:22] it says the first five points of the
+[00:40:24] data are zeros and just checking against
+[00:40:27] the actual labels we find that the first
+[00:40:29] five points are zeros right so we going
+[00:40:32] to do the first 50 points if if we want
+[00:40:35] and take a look first 50 points are
+[00:40:38] zeros let's do something more
+[00:40:39] interesting like every every 10th point
+[00:40:42] so we actually get some differences in
+[00:40:47] there yeah so it looks like the the
+[00:40:49] support Vector classifier is doing
+[00:40:52] pretty well on this data set this this
+[00:40:54] isn't a great way to check whether your
+[00:40:56] classifier is doing well well um you
+[00:40:58] should take a look at things like cross
+[00:41:00] validation if you actually want to do
+[00:41:02] that and again that's something we won't
+[00:41:04] get into into these two in these two
+[00:41:06] hours but in the in the extended
+[00:41:08] material it's it's out there but just
+[00:41:11] this is basically the syntax you're
+[00:41:12] you're fitting the data and then you're
+[00:41:14] predicting on some other data and you
+[00:41:15] get out a result you can
+[00:41:18] compare so similarly um we can take a
+[00:41:21] look at a regression example so that was
+[00:41:23] a classification where classification is
+[00:41:26] where you have discret labels right in a
+[00:41:29] regression example we might we have
+[00:41:31] continuous labels and here's some noisy
+[00:41:33] data where we have some X values and yv
+[00:41:36] values and we want to predict what we
+[00:41:38] want to predict given an x value what we
+[00:41:41] think the yvalue might be so let's do it
+[00:41:44] with a line of best fit this is really
+[00:41:46] simplistic but um you know it's a good
+[00:41:49] it's a good model to start with so we
+[00:41:51] start by we already imported linear
+[00:41:53] regression above we instantiate the
+[00:41:55] model we fit it to the data and then we
+[00:41:58] figure out some data that we want to
+[00:42:00] predict on and we predict on that data
+[00:42:02] with the predict method and then we can
+[00:42:05] plot the two and we see that this is our
+[00:42:08] this is our linear regression model to
+[00:42:09] the data right and again we it's the
+[00:42:12] same pattern is in classification we fit
+[00:42:14] the data we predict on unknown data and
+[00:42:17] then we do something with those
+[00:42:19] predictions to compare them so this is
+[00:42:21] our linear regression model not all that
+[00:42:24] great um we can also do more
+[00:42:26] sophisticated models and this gets to
+[00:42:27] the question that I heard earlier about
+[00:42:30] whether we can go beyond linear
+[00:42:31] regression so let's take a look at the
+[00:42:33] random forest model this is a really
+[00:42:35] flexible um non-parametric model um it's
+[00:42:40] uh this random Forest is actually one of
+[00:42:42] the two I think most important machine
+[00:42:44] learning models in practice right now if
+[00:42:47] you you ask people who are actually
+[00:42:49] doing machine learning for a living they
+[00:42:51] a lot of them will say random Forest is
+[00:42:53] really good and if you want um on Sunday
+[00:42:56] morning there's a key note or Sunday
+[00:42:57] afternoon there's a keynote from Josh
+[00:42:59] Bloom who's an astronomer at UC Berkeley
+[00:43:02] and he's uh kind of made his Mark in
+[00:43:04] astronomy by applying random forests to
+[00:43:07] astronomical problems and has done some
+[00:43:09] really really interesting work in that
+[00:43:10] so he'll probably talk about it a bit um
+[00:43:13] he actually spun off his astronomy work
+[00:43:15] into a startup that's all about doing
+[00:43:17] well they started out just doing random
+[00:43:19] Forest as a service essentially and then
+[00:43:22] uh you know spun off into diversifi it a
+[00:43:24] little bit but they have this
+[00:43:25] interesting startup called wise.
+[00:43:28] anyway so we
+[00:43:29] instantiate this is the cool thing about
+[00:43:31] psyit learn we've done the linear model
+[00:43:33] now all we have to do is basically
+[00:43:35] replace this linear regression with
+[00:43:38] random forest and everything works the
+[00:43:40] same so all I've done is I've used the
+[00:43:42] random forest model instead of the
+[00:43:43] linear regression model we fit it to the
+[00:43:46] X and Y we create our unknown data we
+[00:43:49] predict the data and then we um plot the
+[00:43:53] results and this is what our random
+[00:43:54] forest model does with this data so you
+[00:43:57] can see the random force is a lot more
+[00:43:58] flexible right it's uh it's basically
+[00:44:01] following these weird Contours in the
+[00:44:03] data set as they as they go up and um
+[00:44:06] you might the question would be is this
+[00:44:08] a a better model than the linear model
+[00:44:12] and the answer is a very definite it
+[00:44:14] depends right because you know if you if
+[00:44:17] you think your data is a linear model
+[00:44:19] with lots of noise then linear model
+[00:44:21] might be better if you're trying if if
+[00:44:23] you think that these deviations from the
+[00:44:25] line are actual like information in your
+[00:44:28] data and not just noise or or
+[00:44:30] uncertainty then you might want a more
+[00:44:32] flexible model like a random Forest
+[00:44:34] regression and again to to make that
+[00:44:37] choice more quantitative you can do
+[00:44:38] things like cross validation um model
+[00:44:41] selection is a big topic that we're not
+[00:44:43] going to get into today but um it's in
+[00:44:45] that extended in extended tutorial
+[00:44:48] information if you want to read about
+[00:44:50] it but the the point here is that all we
+[00:44:53] had to do was drop in this replacement
+[00:44:55] right if I take if I make this linear
+[00:44:57] regression we get back that data right
+[00:44:59] here and if I make this a random Forest
+[00:45:01] regressor we get that data so it's all
+[00:45:04] this is the strength of pyit learn you
+[00:45:06] you can drop in models you can replace
+[00:45:09] one model with another and use the same
+[00:45:11] code and kind of see how things how
+[00:45:13] things change and it makes it really
+[00:45:15] nice to compare lots of different models
+[00:45:18] Yeah question yeah you called the number
+[00:45:20] of models this
+[00:45:23] haven't models yeah yeah so another
+[00:45:27] thing there's this this hyperparameter
+[00:45:29] question so he was ask asking about
+[00:45:30] hyper parameters for models so you can
+[00:45:32] do things like um you can specify the
+[00:45:35] number of estimators you want in the
+[00:45:36] random forest and that'll change the
+[00:45:38] results right if I do a thousand
+[00:45:41] estimators then things are a little
+[00:45:43] different than if I have uh 10
+[00:45:46] estimators oh actually they look the
+[00:45:48] same don't they maybe I want to do
+[00:45:52] uh I should do I should do something
+[00:45:54] else that actually changes things right
+[00:45:57] max depth let's do max depth
+[00:45:59] equals equals 2 and then this is what it
+[00:46:03] looks like and if we do max max depth
+[00:46:05] equals 20 then this is what it looks
+[00:46:08] like it's a lot more so anyway that
+[00:46:10] that's all to say that there are these
+[00:46:12] there are these hyper parameters in
+[00:46:13] models that you have to set and this is
+[00:46:16] another piece that to to really
+[00:46:18] understand hyperparameters
+[00:46:19] quantitatively and decide how to set
+[00:46:21] those you need to do something like
+[00:46:22] cross validation and model selection and
+[00:46:25] in a way it's the same as choosing
+[00:46:27] random Forest versus a linear model it's
+[00:46:30] the same sort of procedure as choosing
+[00:46:31] random forest with max depth of 20
+[00:46:34] versus random forest with max depth of
+[00:46:36] one which just does something like this
+[00:46:39] right so um yeah so the unfortunately
+[00:46:43] I'm not going to have time to get into
+[00:46:44] the validation today but that's
+[00:46:45] something that's really important that
+[00:46:47] if you're going to use this in practice
+[00:46:48] you should should look into and learn
+[00:46:50] about a little
+[00:46:52] bit so
+[00:46:54] um actually this is what this exercises
+[00:46:57] I want you to uh take a look at this and
+[00:47:00] start looking into what these hyper
+[00:47:02] parameters are you can do this um you
+[00:47:04] can see all the hyper parameters if you
+[00:47:06] in in this IPython notebook if you do
+[00:47:08] random Forest regressor followed by a
+[00:47:10] question mark it'll pop up a uh
+[00:47:14] documentation form documentation thing
+[00:47:16] that shows you all these different
+[00:47:17] things that you can do and I just want
+[00:47:20] you to take a few minutes now and and
+[00:47:22] modify this code modify the
+[00:47:24] hyperparameters and see how it changes
+[00:47:26] you know see if you can make a more
+[00:47:28] complicated model or a more simple model
+[00:47:31] and we'll uh in the second half we'll
+[00:47:33] talk about more what these
+[00:47:35] hyperparameters mean but for right now I
+[00:47:37] just want you to you know try it out to
+[00:47:40] to to see what comes out and it's good
+[00:47:41] to experiment that way so go ahead
+[00:47:57] yeah another
+[00:48:02] question that's a good question that can
+[00:48:05] you change hyper parameters after the
+[00:48:06] model has been instantiated sometimes
+[00:48:08] you can but it's not a good idea because
+[00:48:10] it doesn't always uh
+[00:48:14] actually I take that back yeah you you
+[00:48:16] can you can change them pretty safely
+[00:48:18] after after they've been instantiated so
+[00:48:21] we could do um here we could do model.
+[00:48:24] max depth equals 20 after we instantiate
+[00:48:28] it and it should work
+[00:48:34] yeah another
+[00:48:36] question parameters the only means of
+[00:48:39] preventing overing or can introduce
+[00:48:43] some yeah that's a that's a good
+[00:48:45] question so he was asking about the the
+[00:48:47] idea of overfitting versus underfitting
+[00:48:49] and the hyperparameters as a way to to
+[00:48:51] tune that um yeah you hyper parameters
+[00:48:54] are the main way that you you do that
+[00:48:56] there's also you mentioned
+[00:48:58] regularization there's also regularized
+[00:49:00] models you can use like um if you look
+[00:49:04] at from
+[00:49:08] sklearn import linear
+[00:49:10] model and if we look at linear model.
+[00:49:13] linear
+[00:49:16] regression let's see what am I looking
+[00:49:18] for there's this linear model. rdge
+[00:49:20] regression and there's also a lasso
+[00:49:23] regression which is uh these are
+[00:49:25] different forms of of of regularized
+[00:49:27] linear models so if you if you know
+[00:49:31] about regularization that that's what
+[00:49:32] you can look
+[00:49:35] at regularization in a sentence is just
+[00:49:38] a way to make sure a model model isn't
+[00:49:42] overly complicated and doesn't fit the
+[00:49:44] noise in your
+[00:49:46] data yeah another
+[00:49:51] question yeah here in random Forest n
+[00:49:54] estimators is the number of number of
+[00:49:56] trees that you use so if you want to use
+[00:49:58] 100 trees in your Forest do n estimators
+[00:50:00] equals 100 you can do one and then you
+[00:50:04] you get weird stuff if I do n estimators
+[00:50:06] equals 1 and uh max depth equals one
+[00:50:11] we'll have a really really bad model oh
+[00:50:13] I guess that didn't even huh I thought
+[00:50:17] that would be even
+[00:50:19] worse what's
+[00:50:24] that yeah oh yeah that's the problem
+[00:50:28] thank
+[00:50:31] you yeah so that's that's a single tree
+[00:50:34] with a Max step of one it just splits
+[00:50:35] your data into two so we'll see how that
+[00:50:38] works so yeah so this is the idea when
+[00:50:41] when you're playing with these models
+[00:50:42] you should really think about um think
+[00:50:45] about hyperparameters and and how they
+[00:50:47] work and there's and the fact that each
+[00:50:50] each model that you're looking at when
+[00:50:51] you import say random Forest regressor
+[00:50:54] this is not a single model but this this
+[00:50:56] random Forest regressor here defines a
+[00:50:59] class of models and to pull a single
+[00:51:01] model out of that class of models you
+[00:51:03] instantiate it and you specify the
+[00:51:06] hyperparameters so uh just to to
+[00:51:09] reiterate a random forest or aggressor
+[00:51:11] with different hyperparameters can be as
+[00:51:14] different as say a linear regression and
+[00:51:16] a support Vector machine it can you can
+[00:51:18] just have vastly different models
+[00:51:20] depending on the hyperparameters so
+[00:51:22] remember that that these classes are
+[00:51:23] classes of models and the instances are
+[00:51:26] the ual models themselves that can be be
+[00:51:29] varied
+[00:51:40] yeah yeah so in in the second half we'll
+[00:51:43] go a little more in depth on random
+[00:51:44] forest and hopefully be able to address
+[00:51:46] that
+[00:51:47] question but right now we have we have a
+[00:51:49] couple minutes before the break um so
+[00:51:51] I'm going to um I have this section
+[00:51:54] introducing unsupervised learning so I
+[00:51:56] said supervised learning is where you
+[00:51:58] have labeled data unsupervised learning
+[00:52:00] is when you have unlabeled data like you
+[00:52:02] just have data out there and you want to
+[00:52:04] learn things about it like how clumpy is
+[00:52:07] it or um you know how many how many
+[00:52:10] intrinsic Dimensions does it have um I'm
+[00:52:12] not going to go through that right now
+[00:52:14] but it's a it's an interesting um it's
+[00:52:16] an interesting thing in itself and and
+[00:52:18] then the third thing that I'm not going
+[00:52:20] to go through right now but there's
+[00:52:21] details that you can read later is this
+[00:52:23] model validation and this is the
+[00:52:25] question of how how do you choose the
+[00:52:27] best set of hyperparameters or how do
+[00:52:29] you choose the best model and you have
+[00:52:31] to decide carefully on that to make sure
+[00:52:33] that you're not overfitting your data or
+[00:52:35] underfitting your data and there's
+[00:52:37] there's details about that um but I'm
+[00:52:40] going to skip about skip that right now
+[00:52:42] and then this last five minutes before
+[00:52:43] our Midway break I want to show you a
+[00:52:46] quick application of machine learning to
+[00:52:49] a a more interesting problem and this is
+[00:52:53] taking a look at um handwritten digits
+[00:52:57] so these this is one of the data sets
+[00:52:58] that's included in pyit learn you can
+[00:53:00] load the digits data set and here's some
+[00:53:02] code that will plot them and take a look
+[00:53:04] at what we're looking at so this digits
+[00:53:07] data is um there's about 1,800 samples
+[00:53:11] and each sample is an 8 by8 image that
+[00:53:14] looks kind of like this so each of these
+[00:53:16] is an 8 by8 pixel image that has a
+[00:53:19] handwritten digit and they're all
+[00:53:21] normalized and put on the same grid and
+[00:53:23] so you can look at these digits and this
+[00:53:25] this 8 by8 pixel image is essentially 64
+[00:53:29] observations of each digit right if you
+[00:53:32] stretch out those 8 by8 pixels you get a
+[00:53:35] a 64 length 64 Vector so you can think
+[00:53:37] of these as each of these is a is a
+[00:53:40] point in a 64 dimensional
+[00:53:43] space all right so this is a this is a
+[00:53:45] way that that's common to think about
+[00:53:47] data in in machine learning you think
+[00:53:49] about each sample is a point in a high
+[00:53:51] dimensional space and in this case our
+[00:53:53] points are intrinsically 64 dimensional
+[00:53:56] because there's 8 by8
+[00:53:58] pixels so
+[00:54:00] um here's here's what the data looks
+[00:54:02] like raw so here's the pixel image and
+[00:54:04] you can see that this is a zero right
+[00:54:06] because it has it has high numbers here
+[00:54:09] it has no ink in the middle and no ink
+[00:54:11] on the
+[00:54:13] outside and if we look at the data
+[00:54:15] itself the data is length 64 and it's
+[00:54:18] just a vector of 64 values and um the
+[00:54:22] target again is the is the values that
+[00:54:24] we're trying to predict so um 64
+[00:54:28] dimensional data is difficult to
+[00:54:30] visualize right I don't know of any
+[00:54:31] plotting package that easily does a 64
+[00:54:34] dimensional plot but you can do
+[00:54:36] two-dimensional plots right so one of
+[00:54:38] the first things we do is uh with an
+[00:54:39] unsupervised learning algorithm we can
+[00:54:41] take those 64 dimensions and ask what is
+[00:54:45] the most important combination of two
+[00:54:47] Dimensions so we're basically reducing
+[00:54:50] these Dimensions down from 64 to 2 and
+[00:54:53] here we'll use an algorithm called
+[00:54:54] isomap which you can read about but it
+[00:54:57] basically is able to do a nonlinear
+[00:54:59] projection of of however many dimensions
+[00:55:02] the input is to n components of two to
+[00:55:05] two Dimensions so now we see that we
+[00:55:08] have this projected data which is 1,00
+[00:55:10] by two and those two Dimensions somehow
+[00:55:12] encode all the information of the input
+[00:55:15] in some way and if we take a look at
+[00:55:18] these these projected Dimensions we see
+[00:55:20] something really cool and I I really
+[00:55:22] love this plot because you can look at
+[00:55:24] things like it it tells you that zeros
+[00:55:27] here in Black are very very different
+[00:55:29] than any other any other digit out there
+[00:55:32] and that makes sense right because
+[00:55:34] because zeros are basically like they
+[00:55:36] don't have any ink in the middle and
+[00:55:38] pretty much every other digit out there
+[00:55:40] will have ink in the middle so you would
+[00:55:42] you would decide you would expect that
+[00:55:44] zeros could be pretty well
+[00:55:46] distinguished but then um over here it
+[00:55:49] gets a little more difficult like for
+[00:55:50] example this this teal here is threes
+[00:55:53] and this red here is Eights and
+[00:55:57] uh if you think about eights versus 3es
+[00:56:00] they kind of have similar features right
+[00:56:03] so you can see how an algorithm might
+[00:56:05] might get confused between a three and
+[00:56:07] an eight and they actually overlap in
+[00:56:09] this projected space so this gives you
+[00:56:11] some intuition about whether a
+[00:56:13] classifier would be able to easily
+[00:56:16] separate out these digits you'd expect
+[00:56:18] that a classifier would probably be
+[00:56:20] pretty accurate at identifying zeros but
+[00:56:23] then the zeros overlap with the sixes a
+[00:56:25] little bit right cuz if if you if you
+[00:56:27] draw a six in a sloppy way it ends up
+[00:56:29] looking a little bit like a zero right
+[00:56:31] this is just a cool way to see what's
+[00:56:32] going on in the
+[00:56:33] data so now we can do a um a
+[00:56:36] classification and um what I'm going to
+[00:56:39] do is split the data into two pieces a
+[00:56:41] training set and a testing set and this
+[00:56:43] means this makes it so that we can test
+[00:56:47] the test the result on data that the
+[00:56:49] algorithm hasn't seen yet and I'm going
+[00:56:51] to use a logistic regression because
+[00:56:53] it's pretty simple we'll instantiate the
+[00:56:55] classifier fit it on the the training
+[00:56:56] data and then predict on the test
+[00:56:59] data and now we can use some of these
+[00:57:01] pyit learn metrics and say what's the
+[00:57:04] accuracy of our predicted predictions
+[00:57:07] and here we find that with just that
+[00:57:09] simple algorithm we get 95% accuracy and
+[00:57:11] identifying these handwritten
+[00:57:13] digits and we can go a little bit
+[00:57:15] further and ask like what what digits
+[00:57:18] did we get confused so here's the
+[00:57:20] predicted label versus the true label
+[00:57:23] and it shows the density of predictions
+[00:57:25] so here for example we confused threes
+[00:57:29] with sevens fairly often and we confused
+[00:57:32] ones with eights fairly often so this
+[00:57:34] gives you an idea of what's going on in
+[00:57:37] inside the algorithm
+[00:57:39] itself and then the other thing we can
+[00:57:41] do is we can actually plot up some of
+[00:57:43] the outputs along with their predicted
+[00:57:45] labels and and get more of an intuition
+[00:57:47] of where this algorithm is going wrong
+[00:57:50] so for example our algorithm looked at
+[00:57:52] this digit and called it an eight and
+[00:57:54] that was incorrect and it looked at this
+[00:57:57] digit right here and called it a one um
+[00:58:00] I'm not even sure what that one actually
+[00:58:03] is so I'm not going to fault our
+[00:58:06] algorithm for getting that one wrong
+[00:58:08] because I don't think a human would get
+[00:58:09] that right um so yeah so you can look
+[00:58:12] through and you can kind of see see get
+[00:58:14] a hint of where your algorithm is right
+[00:58:16] and where it's wrong and from this you
+[00:58:18] might be able to iterate and choose
+[00:58:20] something more uh more sophisticated
+[00:58:22] that would do a better job and again
+[00:58:24] this is just a simple the logis
+[00:58:26] regression is a really really simple
+[00:58:27] algorithm and if you do something more
+[00:58:29] sophisticated you can get better results
+[00:58:31] out of
+[00:58:32] here so hopefully that example gives you
+[00:58:35] an idea of something you know more
+[00:58:36] interesting you can do with these tools
+[00:58:38] and and kind of wets your appetite a
+[00:58:41] little bit so you can think about how
+[00:58:43] you could start applying this to data
+[00:58:44] that you're working with um right now
+[00:58:47] we're going to take about a let's say a
+[00:58:49] 10-minute break I just want to give
+[00:58:50] people a chance to to hit the bathroom
+[00:58:53] and get a drink of water and we'll come
+[00:58:54] back and what we're going to do in the
+[00:58:56] second hour is talk a little more in
+[00:58:58] depth about support Vector machines and
+[00:59:00] random forests and what's going on in in
+[00:59:03] those algorithms because they're two of
+[00:59:04] the more important supervised algorithms
+[00:59:07] so be back here at say uh
+[00:59:12] 1112 you're given a set of data you want
+[00:59:15] to figure out how to draw a line
+[00:59:18] essentially that separates these data so
+[00:59:21] support Vector machine is fundamentally
+[00:59:23] a way to draw a line or a hyperplane
+[00:59:26] um between sets of data in multiple
+[00:59:28] Dimensions so we can figure out whether
+[00:59:31] the data lies on one side or the other
+[00:59:33] so um this is the data we have and and
+[00:59:36] you might think you know if if uh you
+[00:59:41] know you might think well okay I'll just
+[00:59:42] draw a line and if if we do this by hand
+[00:59:45] we can see that there are a fair number
+[00:59:47] of lines that perfectly separate these
+[00:59:49] two data sets right now the problem is
+[00:59:53] that if you have a point that's right
+[00:59:54] here if you have a new point that's
+[00:59:56] right there and you want to ask should I
+[00:59:58] label it pink or should I label it
+[01:00:00] yellow that the label of this point will
+[01:00:03] depend on which of these three lines you
+[01:00:06] draw right
+[01:00:09] so just intuitively how how might you
+[01:00:12] address this if you were if you were
+[01:00:13] trying to do this just looking at this
+[01:00:15] yourself and not relying on any
+[01:00:17] algorithm how might how might you
+[01:00:19] quantitatively choose between one of
+[01:00:21] these three lines or any of the infinite
+[01:00:23] lines between them you have any
+[01:00:31] ideas yeah that's a question you could
+[01:00:33] you could get more data and that would
+[01:00:35] narrow it down but still you know even
+[01:00:36] if you fill in more data you're going to
+[01:00:38] have some like very small Infinity of
+[01:00:40] lines that you could choose right
+[01:00:45] Maxim yeah maximize the distance so you
+[01:00:48] could um yeah so you could actually take
+[01:00:50] the line itself and maximize the
+[01:00:52] distance between all the points that
+[01:00:54] would that would be an interesting way
+[01:00:55] to that and that's uh like I think
+[01:00:58] stochastic gradient descent does that um
+[01:01:02] any other ideas about how you might do
+[01:01:04] it
+[01:01:09] yeah yeah that's a good idea so you
+[01:01:11] could average the Clusters and then
+[01:01:12] actually draw a perpendicular line
+[01:01:14] that's uh so there are all these all
+[01:01:16] these different ideas and this is
+[01:01:17] actually like I I imagine I'm not a
+[01:01:20] machine learning researcher myself but I
+[01:01:22] imagine this is what machine learning
+[01:01:23] researchers that do they go oh we could
+[01:01:25] do it this way way let me publish a
+[01:01:26] paper and then you know 20 years later
+[01:01:28] everyone's using their method um what
+[01:01:30] what support Vector machines does is it
+[01:01:32] actually um looks at the the space
+[01:01:35] between the Clusters so for example um
+[01:01:39] instead of looking at the distance to
+[01:01:41] all the points like stochastic gradient
+[01:01:42] descent it looks at just the distance to
+[01:01:45] the closest point so this line is not
+[01:01:47] very good because it comes very close to
+[01:01:49] that pink point and very close to this
+[01:01:51] yellow point right and this other line
+[01:01:53] is not good because it comes close to
+[01:01:55] the pink point on on this side and close
+[01:01:56] to the yellow point on that side so
+[01:01:58] you'd say this middle one is a little
+[01:01:59] bit better because it kind of has a
+[01:02:01] bigger buffer between it and the data
+[01:02:04] sets
+[01:02:05] right so this is essentially what
+[01:02:08] support Vector machines does is it um it
+[01:02:11] takes a look at all the possible lines
+[01:02:13] that you can draw between the two sets
+[01:02:15] of data and maximizes for this this
+[01:02:19] buffer between the data so you can see
+[01:02:21] that this middle line here has a much
+[01:02:23] larger buffer than either of the other
+[01:02:25] two lines
+[01:02:26] and for that reason that's the one that
+[01:02:28] that support Vector machines will
+[01:02:30] produce and it's a little more involved
+[01:02:33] than that because sometimes the buffer
+[01:02:34] can actually ABS uh overlap the data but
+[01:02:37] at the very basic basic level what
+[01:02:40] support Vector machines are doing is
+[01:02:41] they're proposing a model that that
+[01:02:44] tries to intuitively do this that tries
+[01:02:46] to maximize some buffer between the
+[01:02:51] data
+[01:02:53] um and we can as we saw before we can
+[01:02:55] fit a support Vector Machine by
+[01:02:57] importing the model we instantiate it
+[01:03:00] with some sort of uh some sort of
+[01:03:02] hyperparameters we'll just choose a
+[01:03:04] linear kernel here we'll talk about that
+[01:03:05] later and then we fit it to the data and
+[01:03:09] then um just to help us visualize this I
+[01:03:11] have this function that says that plots
+[01:03:13] the decision boundary so this is the
+[01:03:16] this is the actual model that the
+[01:03:18] support Vector machine comes up with for
+[01:03:20] this data set it draws a a line down the
+[01:03:23] center and then it has these uh these
+[01:03:26] things at the edge um these these buffer
+[01:03:29] regions at the edge that it tries to
+[01:03:31] maximize the distance between and the
+[01:03:34] thing that's interesting about these is
+[01:03:35] that um support Vector machines and this
+[01:03:38] is actually one of the reasons that it's
+[01:03:39] so powerful it doesn't really care about
+[01:03:42] the data set as a whole it only really
+[01:03:45] cares about these interior points that
+[01:03:48] are right near the middle right and I
+[01:03:52] um and these interior points is is where
+[01:03:55] this this algorithm gets its name the
+[01:03:57] support Vector machines these interior
+[01:04:00] points are called support vectors
+[01:04:02] because they're like vectors in space
+[01:04:03] and they're the ones that actually
+[01:04:05] support the model so if you if you move
+[01:04:08] these points on the outside around and
+[01:04:10] move these points on the outside around
+[01:04:12] it essentially doesn't change the model
+[01:04:13] unless you cross the boundaries or
+[01:04:16] unless you move one of these points
+[01:04:17] that's circled so that's where the term
+[01:04:19] support vectors come from because you
+[01:04:21] have these very few vectors that are
+[01:04:23] supporting the entire model and we can
+[01:04:26] kind of see this in action um in an
+[01:04:28] interesting way if we
+[01:04:31] uh we have this uh in IPython we have
+[01:04:34] this this widget formalism so what I can
+[01:04:36] do is start adding points to the model
+[01:04:38] and you'll see that when you add points
+[01:04:40] on the outside it doesn't really change
+[01:04:43] anything but it's only when you add
+[01:04:44] points towards the middle that that
+[01:04:47] things change and I I told you that that
+[01:04:50] that notion of like an empty margin is a
+[01:04:52] little bit of an approximation so you
+[01:04:54] can actually have support vectors that
+[01:04:56] are within that margin under the under
+[01:04:58] the model because it's a little more
+[01:04:59] complicated than than the intuition I
+[01:05:02] gave but that's basically what it is you
+[01:05:04] have these these points towards the
+[01:05:05] middle these important points that
+[01:05:07] support the model these support vectors
+[01:05:10] and the points towards the outside don't
+[01:05:12] really matter anymore and for various
+[01:05:14] reasons this turns out to be one of the
+[01:05:17] one of the fundamental reasons that
+[01:05:19] support Vector machines are so powerful
+[01:05:21] um for for one like if you have a super
+[01:05:24] outlier like if if you have a a pink
+[01:05:26] point that you your your instrument goes
+[01:05:29] haywire and it gives you a value of 100
+[01:05:31] that outlier won't affect your fit at
+[01:05:33] all if you try doing something like a
+[01:05:35] linear regression that outlier is going
+[01:05:36] to hugely affect your fit right so
+[01:05:40] support Vector machines are nice in that
+[01:05:41] way but there there's a problem here
+[01:05:44] right the whole time I've been talking
+[01:05:45] about these nice linear fits to data um
+[01:05:50] and a lot of data doesn't have a nice
+[01:05:52] linear fit so EX for example let's say
+[01:05:54] our data set looks like this this is a
+[01:05:56] little bit contrived but it's kind of a
+[01:05:59] a an example of a type of case that
+[01:06:01] might come up and if you if you ask
+[01:06:03] support Vector machines to draw a line
+[01:06:05] that discriminates between yellow and
+[01:06:07] pink it'll happily do that but it'll
+[01:06:09] give you garbage right so this is the
+[01:06:11] line that support Vector machines uh use
+[01:06:14] for this this data
+[01:06:18] um so this is an issue right um we can't
+[01:06:22] we can't fit a simple support Vector
+[01:06:24] machine if we have a nonlinear boundary
+[01:06:28] like
+[01:06:29] this and
+[01:06:32] where where we can where we can move
+[01:06:34] forward on this is um something called a
+[01:06:36] kernel method so that if you hear about
+[01:06:39] kernelized support Vector machines this
+[01:06:42] is the the idea that we're going to
+[01:06:43] develop right now so kernel method would
+[01:06:46] say let's transform this data in some
+[01:06:49] way so that we can um actually use a
+[01:06:52] linear support Vector machine and create
+[01:06:55] this fit
+[01:06:57] right so one example of a model we could
+[01:07:01] use is is called a radial basis function
+[01:07:04] so we just look at the we do the
+[01:07:07] exponent of the distance of each point
+[01:07:10] from the origin right so this is a this
+[01:07:13] is a the point at the origin and if we
+[01:07:15] look at the distance from the origin of
+[01:07:17] each point right here that's like one
+[01:07:19] extra Dimension we can add that might uh
+[01:07:22] give us some interesting things to do so
+[01:07:25] for example here here's the 3D plot of
+[01:07:28] if if we take those initial Dimensions
+[01:07:30] so here's our
+[01:07:32] um here's our initial data right there
+[01:07:36] and we added uh a point that's the
+[01:07:38] radius of or we added a dimension that's
+[01:07:41] the radius of each point from the the
+[01:07:45] center and you can see that if we tilt
+[01:07:47] this all the way up right here oh I
+[01:07:49] tilted it too far let's tilt it right to
+[01:07:51] 0° that radius actually gives us a
+[01:07:55] perfect linearly separable data set
+[01:07:57] right so now in this 3D in this 3D space
+[01:08:00] we can draw a plane straight through
+[01:08:03] across that radius and we can separate
+[01:08:05] out the stuff in the middle from the
+[01:08:06] stuff on the
+[01:08:08] outside and so this is exactly what um
+[01:08:10] it's not exactly but it's it's the idea
+[01:08:12] behind kernelized methods and um here in
+[01:08:17] when you fit the support Vector machine
+[01:08:19] with kernel equals RBF which means
+[01:08:21] radial basis function what it does is
+[01:08:24] it's actually much more sophisticated
+[01:08:26] than what we did we added one dimension
+[01:08:29] we we we pushed our data from two
+[01:08:32] Dimensions to three dimensions by adding
+[01:08:34] this radius from the center right what
+[01:08:37] the SBC kernel does is it computes the
+[01:08:40] distance it uses every single point in
+[01:08:42] the data set as the origin and computes
+[01:08:45] the distance to every point from it so
+[01:08:47] if you have um if you have a th000
+[01:08:50] points in two Dimensions the the
+[01:08:52] kernelized representation of the data is
+[01:08:54] a th000 plus two Dimensions because you
+[01:08:57] have a a new dimension for each point in
+[01:08:59] the data set with the information about
+[01:09:01] the relationship between the other
+[01:09:03] points and that point and now you might
+[01:09:06] think to yourself like well this must be
+[01:09:08] really really slow right um You can
+[01:09:11] you're you're bumping your data up by a
+[01:09:14] thousand dimensions and it it is fairly
+[01:09:17] slow but it's not as slow as the most
+[01:09:19] naive uh implementation would be and
+[01:09:22] there's this thing if you ever want to
+[01:09:23] like dive into the math of this and
+[01:09:25] really be impressed look up the kernel
+[01:09:27] trick the the kernel trick is this very
+[01:09:30] cool thing that comes up in machine
+[01:09:31] learning very um all the time and
+[01:09:34] essentially it's a way to let you do
+[01:09:36] very high-dimensional calculations in a
+[01:09:39] low-dimensional projection so if you
+[01:09:42] know something about the mathematical
+[01:09:44] properties of this kernel you can do
+[01:09:46] this operation really really efficiently
+[01:09:48] and actually the coolest thing about the
+[01:09:50] kernel trick is that it allows you um
+[01:09:52] even to push the kernelized uh repres a
+[01:09:55] up to Infinity Dimensions so there's
+[01:09:58] some machine learning algorithms that
+[01:10:00] actually are equivalent to doing
+[01:10:01] computations in infinite dimensional
+[01:10:03] spaces but because of the kernel trick
+[01:10:05] you can do it in a finite amount of time
+[01:10:08] so read up about that if if you've heard
+[01:10:10] about gaussian process regression the
+[01:10:12] kernel trick is fundamental to that and
+[01:10:14] gussian process of regression is
+[01:10:16] basically an infinite dimensional
+[01:10:18] regression that you accomplish through
+[01:10:19] the kernel trick so that you know that's
+[01:10:21] that's totally aide but if you want to
+[01:10:23] read about that you should because it's
+[01:10:24] awesome so if you do this um kernel
+[01:10:26] equals RBF and you fit it to the data
+[01:10:29] all of a sudden magically we find an
+[01:10:32] spvm that fits this data set and it does
+[01:10:35] this by applying this kernel trick
+[01:10:37] transforming the de the data to a higher
+[01:10:39] Dimension um fitting uh a linear line in
+[01:10:43] that higher Dimension and then um
+[01:10:45] collapsing it back to the original
+[01:10:47] Dimension but in a way that's very very
+[01:10:49] efficient and doesn't actually compute
+[01:10:51] that higher dimensional
+[01:10:53] space so this is one of the reasons that
+[01:10:55] that spms are so powerful is because not
+[01:10:58] only are they um are they insensitive to
+[01:11:01] outliers because of this like closest
+[01:11:03] distance margin thing but they also have
+[01:11:05] a very efficient kernelized
+[01:11:08] representation that allows you to fit
+[01:11:10] really sophisticated models and really
+[01:11:13] really flexible models to your data so
+[01:11:16] um I'm not going to go much further into
+[01:11:19] spms than that but I just wanted to give
+[01:11:21] you an intuition into what they're doing
+[01:11:23] um why they're so powerful and then what
+[01:11:26] this whole kernel thing is and so now
+[01:11:28] when you when you find when you come
+[01:11:31] across something where someone says I'm
+[01:11:32] using a kernelized SPM My Hope Is that
+[01:11:34] you'll say ah yes kernelized svms I I
+[01:11:37] know all about those so any questions
+[01:11:40] about
+[01:11:41] svms that was our our our brief walkr of
+[01:11:45] uh of support Vector machines yeah
+[01:11:55] some form yeah kernal means um means
+[01:12:00] transforming uh essentially it means
+[01:12:02] transforming your data into a higher
+[01:12:04] dimension of some sort um and whether
+[01:12:08] whether that transformation explicitly
+[01:12:10] happens depends on the algorithm but
+[01:12:12] most of the time you don't actually have
+[01:12:13] to explicitly do
+[01:12:15] that
+[01:12:17] yeah yeah
+[01:12:30] yeah that's a good question so he ask if
+[01:12:32] there are overlaps in the clumps of data
+[01:12:34] is there a way to get a probabilistic
+[01:12:36] classification and there is in in
+[01:12:38] support Vector machines um you have to
+[01:12:41] actually you have to actually
+[01:12:43] instantiate it with probability equals
+[01:12:45] true um it it turns out that it's much
+[01:12:48] more computationally intense to get out
+[01:12:51] probabilities um so if you if you
+[01:12:54] instantiate it with probability equals
+[01:12:56] true then you can do the predict
+[01:12:57] probability predict proba to get out
+[01:12:59] probabilistic predictions but it it um I
+[01:13:03] I'm not sure exactly what's going on
+[01:13:05] under the hood but it's it's more
+[01:13:06] computationally
+[01:13:10] intensive quick question yeah you said
+[01:13:13] svm is not sensitive to outliers can you
+[01:13:16] explain again how oh yeah so uh let's
+[01:13:19] let's go back to this picture so the
+[01:13:21] question was SPM is not sensitive to
+[01:13:23] outliers and the intuition behind that
+[01:13:25] is that um basically it's only these
+[01:13:29] circled points right in the middle that
+[01:13:31] really matter for the model so if you
+[01:13:33] were to add another pink Point that's uh
+[01:13:36] above the screen out of the screen here
+[01:13:38] it wouldn't affect the model it's only
+[01:13:40] these points near the margins that are
+[01:13:42] uh supporting the model there's a yellow
+[01:13:45] ccle on the other yeah
+[01:13:48] that's that's true so I I I glossed over
+[01:13:51] that he mentioned if there's a yellow
+[01:13:52] circle that's on the wrong side then
+[01:13:55] there might be a problem right um and
+[01:13:59] yeah so in that case it is sensitive to
+[01:14:02] those outliers so it's not a it's not a
+[01:14:05] Magic Bullet none of these algorithms
+[01:14:07] are magic you actually have to you have
+[01:14:08] to think about what your data is saying
+[01:14:10] yeah
+[01:14:12] this
+[01:14:15] point is all
+[01:14:18] us
+[01:14:22] model are
+[01:14:37] yeah that's a good question so the the
+[01:14:39] question was uh are there Tools in pyit
+[01:14:42] learn to figure out whether we need a
+[01:14:43] linear model or uh or a kernelized model
+[01:14:46] and basically what the the tools there
+[01:14:49] are these things that I've mentioned
+[01:14:51] previously the cross validation so
+[01:14:53] that's a model selection question if you
+[01:14:55] want to say if you want to
+[01:14:56] quantitatively ask does a kernelized
+[01:14:58] model fit better than a linear model um
+[01:15:01] that's a model selection and a and a
+[01:15:03] cross validation question and if you go
+[01:15:06] to the the extended version of this
+[01:15:08] tutorial um there's some information on
+[01:15:10] that yeah one
+[01:15:15] more slack buil Mar um yeah so the the
+[01:15:20] question is is there a slack variable
+[01:15:21] built into the margin this this
+[01:15:23] implementation is actually built on a C
+[01:15:26] library called lib SPM that um a lot of
+[01:15:29] other lot other implementations use as
+[01:15:32] well so if
+[01:15:35] we I can honestly I can never remember
+[01:15:38] exactly what all these mean but this I
+[01:15:40] think the C value is the slack value
+[01:15:43] that you're talking about and there are
+[01:15:45] other you know other little adjustments
+[01:15:46] in there that you can read about in the
+[01:15:48] documentation if you're more familiar
+[01:15:49] with
+[01:15:51] spns so if you if you take a look at the
+[01:15:54] psych learn document ation hopefully
+[01:15:55] that'll answer your question
+[01:15:59] better all right let's uh we have about
+[01:16:01] 20 minutes left which is the perfect
+[01:16:03] amount of time to take a look at random
+[01:16:05] forests now so just just like we took a
+[01:16:08] a quick in-depth look into support
+[01:16:10] Vector machines I want to take a quick
+[01:16:12] in-depth look now into random forests
+[01:16:15] which as
+[01:16:16] uh as I said before I I feel like random
+[01:16:19] forests are one of the most useful
+[01:16:22] techniques um in machine learning number
+[01:16:25] one because they're extremely flexible
+[01:16:28] they can fit just about any model um if
+[01:16:30] you do it carefully and number two
+[01:16:33] they're extremely fast they're basically
+[01:16:35] the the training and the the training of
+[01:16:38] these and the um and the prediction of
+[01:16:42] these can be done in an embarrassingly
+[01:16:44] parallel way and actually under the hood
+[01:16:46] pyit learn uses some parallel
+[01:16:48] architecture and you can do things like
+[01:16:51] if you have a computer with 16 cores the
+[01:16:53] random Forest implementation will
+[01:16:55] actually use all those 16 cores if you
+[01:16:57] tell it to um I should mention this
+[01:17:00] random Force implementation is uh I
+[01:17:02] think it's pretty good um it was
+[01:17:04] actually completely redone about a year
+[01:17:06] a year and a half ago by a french guy
+[01:17:09] named gu Loop who was um just finishing
+[01:17:12] his PhD in random forests like he did
+[01:17:15] his PhD on extensions of random forests
+[01:17:18] and in the process as most PhD students
+[01:17:21] do he he decided to procrastinate and
+[01:17:23] completely rewrite the site pyit learn
+[01:17:25] random Forest implementation so it's
+[01:17:27] really slick and really fast
+[01:17:31] um and it's really interpretable too
+[01:17:34] which is which is pretty nice so let's
+[01:17:37] think about random Forest what random
+[01:17:39] forests are built on is this concept of
+[01:17:41] a decision tree and a decision tree um
+[01:17:44] is really really easy to wrap your mind
+[01:17:47] around it's just a bunch of binary
+[01:17:49] questions that you answer yes or no to
+[01:17:52] so for example if we want to classify an
+[01:17:54] animal you know we're out in the forest
+[01:17:56] and we see an animal and we want to know
+[01:17:57] what that animal is uh we might ask
+[01:18:00] ourselves a series of questions how big
+[01:18:01] is the animal is it greater than one
+[01:18:03] meter or less than one meter in size so
+[01:18:06] I'll say it's greater than one meter now
+[01:18:07] does the animal have horns yes or no
+[01:18:10] we'll say no the animal doesn't have
+[01:18:11] horns and number three is the animal
+[01:18:13] wearing a collar right and the the
+[01:18:15] answer is yes and you look at that and
+[01:18:17] you go down and all of a sudden with
+[01:18:19] just three simple yes or no questions
+[01:18:21] we're pretty sure that this is like a
+[01:18:23] big dog or something that's out in the
+[01:18:25] out in the woods right um and this is
+[01:18:28] the power of these decision trees you
+[01:18:30] know you're you're reducing your with a
+[01:18:32] single question you're reducing your set
+[01:18:34] of possibilities by a factor of two if
+[01:18:37] you build it right now the the real
+[01:18:39] question is for any application how do
+[01:18:42] you build a good decision tree like how
+[01:18:45] do you decide which question to ask
+[01:18:47] first and things like that and there's
+[01:18:49] this uh decision tree algorithm init
+[01:18:52] learn that actually does that does that
+[01:18:54] for you and asks these questions for you
+[01:18:57] so for this might be the data we're
+[01:18:59] looking at we have we have four
+[01:19:02] different classes of data with two
+[01:19:04] observations two dimensions of them and
+[01:19:07] we're going to start um building a
+[01:19:08] decision tree to classify to figure out
+[01:19:12] whether a point a new point is red or
+[01:19:14] yellow or purple
+[01:19:16] Etc so how do you decide which which
+[01:19:19] questions to
+[01:19:21] ask um and this is what the decision Tre
+[01:19:25] formalism does it basically says well
+[01:19:28] I'm going to I'm going to split on one
+[01:19:30] Axis or the or the other and I'm going
+[01:19:32] to figure out where at each step is the
+[01:19:35] best possible split so at the first step
+[01:19:38] you can you can make the most um sense
+[01:19:41] of the data by splitting along this
+[01:19:43] black line right here and the reason for
+[01:19:45] that is that all the points above it are
+[01:19:47] red and all the points below it are you
+[01:19:49] know not red they're they're other
+[01:19:51] colors and if you look at this data
+[01:19:53] that's kind of kind of intuitively it
+[01:19:55] makes sense that you know if you're
+[01:19:57] going to draw a single horizontal or
+[01:19:58] vertical line through these to try to
+[01:20:00] start learning about which is which uh
+[01:20:03] the the Red Data here is probably the
+[01:20:05] the easiest to split off with a single
+[01:20:07] line and under the hood um the the pyit
+[01:20:10] learn decision tree estimator is
+[01:20:12] actually doing a quantitative
+[01:20:14] calculation comparing all the possible
+[01:20:16] splits and figuring out which is best um
+[01:20:20] and it does that in a variety of ways
+[01:20:22] which you can read about in the
+[01:20:23] documentation
+[01:20:25] um so what the decision tree then does
+[01:20:27] next is that it looks at each of these
+[01:20:29] levels and applies the same logic and
+[01:20:32] says where should I split this and so
+[01:20:34] here it says uh the top the top level
+[01:20:37] everything's red so I don't need to
+[01:20:38] split it anymore I'm basically done the
+[01:20:40] bottom level well if I split right here
+[01:20:43] then everything over here for the most
+[01:20:44] part is yellow and everything over here
+[01:20:46] is not yellow and now you might be able
+[01:20:49] to guess where the point where the line
+[01:20:51] would go in this blue region on the in
+[01:20:52] the next level the line goes there and
+[01:20:55] splits the blue from the purple and here
+[01:20:57] it splits the yellow from the kind of
+[01:20:59] mix of stuff and then the next one it'll
+[01:21:02] split do further splits and so on and um
+[01:21:06] as you take these binary splits
+[01:21:07] eventually you kind of you kind of
+[01:21:09] partition the parameter space into this
+[01:21:13] uh area where you can you can ask what
+[01:21:16] the prediction
+[01:21:18] is right I think that's that's as deep
+[01:21:20] as this decision tree goes so that's how
+[01:21:22] a decision tree works on data you're
+[01:21:24] basically taking a series of yes or no
+[01:21:26] questions splitting the data along an
+[01:21:28] axis and because it's split along an
+[01:21:30] axis it's really really fast to uh
+[01:21:34] compute so does anyone see a problem
+[01:21:37] with this though or you see some areas
+[01:21:39] of the plot that are not very well you
+[01:21:42] know not not very good decisions the one
+[01:21:45] that always sticks out to me is down
+[01:21:46] here like because of this little point
+[01:21:48] right here and because of the way that
+[01:21:50] we split it it's going to call anything
+[01:21:52] in this little strip purple like even a
+[01:21:54] point down here at the bottom of the
+[01:21:56] plot it would call it purple because of
+[01:21:58] that little point right there so that's
+[01:22:00] an example of of overfitting the data
+[01:22:03] we've basically taken this this one data
+[01:22:06] representation and we've kind of overfit
+[01:22:07] it and we get some weird little things
+[01:22:10] that may not actually reflect what's
+[01:22:12] going
+[01:22:13] on so
+[01:22:16] um and and we can see that now if we um
+[01:22:20] we can see this overfitting if we try a
+[01:22:23] several different subsets of the data so
+[01:22:26] here's one subset of the data and this
+[01:22:28] is the classifier we come up with here's
+[01:22:31] another subset we get that purple stripe
+[01:22:33] back in there and if you compare the two
+[01:22:36] of these they're they're broadly the
+[01:22:38] same you know the the bottom right is
+[01:22:40] always teal in both of these but the
+[01:22:43] details at the intersections at the
+[01:22:45] boundaries are different right so you
+[01:22:48] this is an a classic overfitting thing
+[01:22:50] if you slightly change the data the
+[01:22:52] model changes like crazy
+[01:22:55] and so this is a problem with decision
+[01:22:56] trees uh you know you you end up with
+[01:22:59] these very uh very fragile models at the
+[01:23:02] boundaries of of sets so the question is
+[01:23:06] uh you know what do we do from here
+[01:23:07] decision trees are great because they're
+[01:23:09] intuitive they're really blazing fast
+[01:23:11] you're just asking a bunch of binary
+[01:23:13] questions about the data but you end up
+[01:23:16] in a situation where the model is really
+[01:23:18] fragile and really depends on the
+[01:23:21] inputs so this is where the idea of
+[01:23:24] Random Forest comes in so the idea is
+[01:23:26] instead of looking at a single decision
+[01:23:28] tree you look at an ensemble of decision
+[01:23:31] trees and you average out what they're
+[01:23:33] telling you so on average these two
+[01:23:35] decision trees would always tell you
+[01:23:37] that this bottom right corner is teal
+[01:23:40] but in the middle the the sort of noise
+[01:23:42] that you have would be averaged out
+[01:23:43] between
+[01:23:44] them so um to motivate this if we take
+[01:23:48] here and what I'm going to do is I I
+[01:23:51] made the data overlap a little bit more
+[01:23:53] to make this more interesting
+[01:23:55] and what I'm doing is taking a different
+[01:23:57] subset of the data each time and fitting
+[01:24:00] a decision tree classifier to it and you
+[01:24:03] can see um as we as we change the random
+[01:24:07] seed and take a different subset you can
+[01:24:10] sort of see by eye which areas are
+[01:24:12] essentially the same and which areas are
+[01:24:15] are changing from time to time
+[01:24:19] and the intuition here is that if we
+[01:24:22] automatically average over all these
+[01:24:24] different realizations will get out a
+[01:24:27] classifier that's better than any of the
+[01:24:30] inputs it's better than any of the
+[01:24:32] individual trees if we average them
+[01:24:34] together um and this idea of Ensemble
+[01:24:38] sampling or another way of putting it as
+[01:24:40] bagging is something that comes up a lot
+[01:24:42] in machine learning and actually if
+[01:24:44] you've heard of the Netflix prize it was
+[01:24:46] this very famous contest where Netflix B
+[01:24:50] basically put out all their data and
+[01:24:51] said hey we want um we want teams to
+[01:24:54] come and build a recommendation engine
+[01:24:56] so that we can recommend our users what
+[01:24:58] movie they'd want to watch next it
+[01:25:00] turned out that the uh I forget the
+[01:25:03] exact numbers but after a certain amount
+[01:25:04] of time there were these top eight or 10
+[01:25:07] algorithms that people had put and there
+[01:25:08] was like they this leaderboard things so
+[01:25:10] in real time you could see who was doing
+[01:25:12] better and someone got the idea of
+[01:25:15] taking the top 10 algorithms and
+[01:25:18] averaging them out right and it turned
+[01:25:21] out that the average of the top 10
+[01:25:23] algorithms was better than any of the
+[01:25:25] individual top 10 algorithms right so
+[01:25:27] this is really kind of a deep thing in
+[01:25:29] machine learning if you if you a lot of
+[01:25:32] times if you do it correctly if you're
+[01:25:33] averaging out these algorithms if you
+[01:25:35] bag them together and Ensemble sample
+[01:25:37] them you you end up with a better
+[01:25:40] estimator so that's where random Forest
+[01:25:42] comes
+[01:25:43] from so um you you probably see where
+[01:25:46] this is going the decision tree
+[01:25:48] classifier something init learn you
+[01:25:50] wouldn't want to have to make a thousand
+[01:25:52] decision trees by hand so that's why
+[01:25:54] psyit learn has this random forest
+[01:25:56] classifier and it looks just like
+[01:25:58] everything we've seen before you import
+[01:26:00] the classifier you instantiate it and
+[01:26:02] you tell it you know what what
+[01:26:04] hyperparameters you want and then we're
+[01:26:06] going to visualize the tree here and we
+[01:26:08] can see that this is the result for this
+[01:26:10] data set that the random Forest
+[01:26:11] classifier comes up with so basically it
+[01:26:15] um after it averages out all those
+[01:26:17] individual decision trees it comes up
+[01:26:19] with a decision boundary that's much
+[01:26:21] more much closer to what we would draw
+[01:26:24] by hand if we were just looking at this
+[01:26:25] two-dimensional data but of course like
+[01:26:28] I was saying before the strength is that
+[01:26:30] this generalizes up to thousands of
+[01:26:31] Dimensions so you you don't need to do
+[01:26:34] it by hand one
+[01:26:39] question you have L more Dimensions
+[01:26:46] someck di yeah so the question is can
+[01:26:49] you can you visualize this in more
+[01:26:51] Dimensions um it's it's it's hard to
+[01:26:54] visualize much Beyond two or three
+[01:26:56] dimensions and that's why when you start
+[01:26:58] getting into so I'm I'm doing a lot of
+[01:27:00] this visually because it's more
+[01:27:01] intuitive but when you start getting
+[01:27:03] into actual machine learning practice
+[01:27:05] you tend to do things like uh uh compute
+[01:27:08] cross validation scores to sort of get
+[01:27:11] get a sense of how well your model is
+[01:27:14] fitting the data because when you have
+[01:27:15] like you said when you have a thousand
+[01:27:17] Dimensions it's it's difficult to just
+[01:27:19] visualize
+[01:27:20] it I average is it actually likeable
+[01:27:24] what's that by saying
+[01:27:26] average is it actually voting like each
+[01:27:30] tree votes its own class yeah it's uh
+[01:27:33] that's basically what it is we take the
+[01:27:36] we take the the majority there are
+[01:27:38] different ways to combine it but the the
+[01:27:40] basic random Forest is you take the
+[01:27:42] majority vote at each place and you
+[01:27:44] could think about this too if you it
+[01:27:46] also gives you a way to get a
+[01:27:47] probabilistic prediction out because if
+[01:27:49] you know if 800 of the trees say it's
+[01:27:51] Class A and the other 200 trees say it's
+[01:27:54] Class B then you have kind of an 8020
+[01:27:56] chance in your prediction so it's really
+[01:28:00] like I said one of the the nice things
+[01:28:01] about random Forest is it's really
+[01:28:03] intuitive and you can kind of dig into
+[01:28:05] the model and see what's going on but
+[01:28:07] it's also very very flexible and it's
+[01:28:09] also very very fast which which makes it
+[01:28:12] nice so I was talking here about random
+[01:28:15] forest for classification but it turns
+[01:28:17] out you can actually use um random
+[01:28:19] forest for regression as
+[01:28:21] well and so one example this is an
+[01:28:25] example that I like I took from guile
+[01:28:26] varaku who's a a French Sid kit learning
+[01:28:30] contributor um if you have data that
+[01:28:32] looks like this and you want to and you
+[01:28:35] want to fit a trend to it without
+[01:28:37] knowing much about what's going on uh a
+[01:28:40] linear model right would just draw a
+[01:28:42] line straight through it and you could
+[01:28:44] move to like polinomial regression and
+[01:28:46] kind of get some better Trends but
+[01:28:48] random Forest actually gives you the
+[01:28:50] ability to to fit these really these
+[01:28:53] really um subtle Contours in the data so
+[01:28:57] if we apply a random Forest regressor to
+[01:28:59] this we see that this is the output the
+[01:29:01] the red model there is what the random
+[01:29:03] Forest fits the blue is the actual data
+[01:29:06] points and this gray model that you can
+[01:29:08] barely see is the generating model
+[01:29:10] underneath so you can see that random
+[01:29:12] forests are even flexible enough to pull
+[01:29:15] out this essentially dual frequency sine
+[01:29:18] wave right we have a a long-term Trend
+[01:29:21] and then an annual trends that you can
+[01:29:23] fit
+[01:29:24] um so it it just shows you the the
+[01:29:26] flexibility of random Forest even for a
+[01:29:28] regression task like
+[01:29:30] this
+[01:29:32] um and the other thing we were looking
+[01:29:34] at the digits classification earlier and
+[01:29:38] just to remind you what we were looking
+[01:29:39] at if we have the the these are the
+[01:29:42] digits that we were looking that we we
+[01:29:44] were seeing and last time we used a
+[01:29:46] logistic regression which was a very
+[01:29:48] basic model if we use a random Forest
+[01:29:52] regression we can see
+[01:29:54] that um we don't oh this is a decision
+[01:29:57] tree if we just use a decision tree
+[01:29:59] classifier we get uh an accuracy of
+[01:30:03] about
+[01:30:04] 84% but if we move to using a um random
+[01:30:08] Forest classifier we can do much much
+[01:30:10] better and actually this is kind of the
+[01:30:12] final exercise of the thing I I laid out
+[01:30:15] all the code here to to fit the decision
+[01:30:17] tree classifier to predict the results
+[01:30:20] to get the accuracy score and then to
+[01:30:22] visualize the um visualize the confusion
+[01:30:25] Matrix about what's getting confused
+[01:30:27] here and the question is if you instead
+[01:30:31] of using a single decision tree if you
+[01:30:33] use multiple decision trees in a random
+[01:30:35] Forest can you do better so I want you
+[01:30:38] to we have about five or 10 minutes left
+[01:30:40] before we're going to break for I think
+[01:30:42] lunch is next and in that time um see if
+[01:30:46] you can get started on this of trying to
+[01:30:48] apply a random Forest to this data and
+[01:30:51] see what level of accuracy you get with
+[01:30:54] your random Forest by tweaking those
+[01:30:56] hyper
+[01:31:22] parameters
+[01:31:52] for
+[01:32:22] for for
+[01:33:06] so I think this is a this is a really
+[01:33:08] striking example of this if you you know
+[01:33:10] you can just you can just copy and paste
+[01:33:12] this basically these four lines from up
+[01:33:14] here and take a look at this and if you
+[01:33:17] put number of estimators equals 1 you
+[01:33:19] get an accuracy of you 78% so that's a
+[01:33:22] single decision tree but now if you
+[01:33:24] average say a 100 decision trees you're
+[01:33:27] up to
+[01:33:29] 97.5% and if you average a th000
+[01:33:31] decision trees it's going to take a
+[01:33:33] little while longer that's about the
+[01:33:35] same
+[01:33:36] 97.7% so we can get with this random
+[01:33:39] Forest classifier we can get 98%
+[01:33:42] accuracy of uh classifying these digits
+[01:33:45] which um which is pretty cool I think
+[01:33:48] because it's so it's so intuitive it's
+[01:33:50] so fast and it really lets you see
+[01:33:52] what's going on under the hood and it's
+[01:33:54] embarrassingly parallel so if you have
+[01:33:56] 32 cores that you want to use you can
+[01:33:58] use all those cores for this
+[01:34:01] fitting um so I realized that this was a
+[01:34:04] this was a little bit of a um of a quick
+[01:34:07] Breeze through a lot of this stuff we've
+[01:34:09] we've spent almost two hours talking
+[01:34:11] about machine learning and going into
+[01:34:13] depth on some of these things um I'm
+[01:34:15] going to be around for the for the rest
+[01:34:17] of the weekend if you want to catch me
+[01:34:19] in the hallway and ask questions um but
+[01:34:22] I hope this was help
+[01:34:24] and uh thanks very much enjoy the lunch
+[01:34:26] and enjoy the rest of the conference
+[01:34:32] [Applause]
