@@ -13,8 +13,8 @@
 | **5** | Read & summarise Townes (2017) - ML as a career skill | ✅ |
 | **6** | Read & summarise Hill (2012) - Target pregnancy prediction case | ✅ |
 | **7** | Read & summarise Jiang et al. (2020) - COVID-19 severity prediction | ✅ |
-| 8 | Activity 1: Self-introduction and Machine Learning Jobs | 🕐 |
-| 9 | Activity 2: Machine Learning Applications forum post and replies | 🕐 |
+| **8** | Activity 1: Self-introduction and Machine Learning Jobs | ✅ |
+| **9** | Activity 2: Machine Learning Applications forum post and replies | ✅ |
 
 ---
 
