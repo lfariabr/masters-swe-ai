@@ -35,12 +35,12 @@ This subject teaches students techniques and best practices in collecting, stori
 | 12 | Big Data Privacy and Security | Hands-on activity; discussion forum | Assessment 3 due: Source code and presentation (40%) | `e)` |
 
 ## Learning Facilitator
-Dr. Rubina Sarki
+Dr. Chen Zhan
 
 ## Modules
 > Tip: ✅ = Done, 🔥 = WIP, 🕐 = Not started, 🔌 = Discontinued
 
-- [ ] Module 1 🔥 - Introduction to Big Data and Analytics
+- [X] Module 1 ✅ - Introduction to Big Data and Analytics
 - [ ] Module 2 🕐 - Data Sourcing and Ingestion
 - [ ] Module 3 🕐 - Big Data Integration and Storage
 - [ ] Module 4 🕐 - Analytics Engine for Big Data - Apache Spark

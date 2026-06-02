@@ -10,8 +10,8 @@
 | **2** | Watch & summarise Rutherford (2017) - What is big data? | ✅ |
 | **3** | Read & summarise EMC Education Services (2015) - Data Analytics Lifecycle | ✅ |
 | **4** | Read & summarise OmniSci/HEAVY.AI - Big data analytics introduction | ✅ |
-| 5 | Activity 1: Working with Jupyter Notebook | 🕐 |
-| 6 | Activity 2: Interactive Knowledge Check | 🕐 |
+| 5 | Activity 1: Working with Jupyter Notebook | ✅ |
+| 6 | Activity 2: Interactive Knowledge Check | ✅ |
 
 
 ---

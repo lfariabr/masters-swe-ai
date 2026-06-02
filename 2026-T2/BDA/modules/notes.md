@@ -75,7 +75,7 @@ Watch the video tutorial and perform the same activities using your Notebook. Th
 4. Discussion Forum Post
 Discuss any challenges you faced in installing and using the Notebook in the ‘Jupyter Notebook’ discussion forum. Read through other students’ posts and help them to resolve their issues.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Done*
 
 #### 2. Interactive Knowledge Check
 
@@ -84,7 +84,7 @@ You can attempt this as many times as you like.
 
 https://a19788-10605129.cluster228.canvas-user-content.com/courses/19788~26571/files/19788~10605129/course%20files/htmlResources/content/index.html?download=1&inline=1&sf_verifier=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJ1c2VyX2lkIjoiMTk3ODgwMDAwMDAwMDg2Mjg3IiwiYXR0YWNobWVudF9pZCI6IjE5Nzg4MDAwMDAxMDYwNTEyOSIsInBlcm1pc3Npb24iOlsicmVhZCIsImRvd25sb2FkIl0sInJvb3RfYWNjb3VudF9pZCI6IjE5Nzg4MDAwMDAwMDAwMDAwMSIsIm9hdXRoX2hvc3QiOiJteWxlYXJuLnRvcnJlbnMuZWR1LmF1IiwicmV0dXJuX3VybCI6bnVsbCwiZmFsbGJhY2tfdXJsIjoiaHR0cHM6Ly9teWxlYXJuLnRvcnJlbnMuZWR1LmF1L2NvdXJzZXMvMjY1NzEvZmlsZXMvMTA2MDUxMjkvcHJldmlldz9mYWxsYmFja190cz0xNzc5ODcxNjk5IiwianRpIjoiMzRjN2MzNzktMWMwYS00M2Q1LWEzMGYtNzE2YjJlMjhhN2MyIiwiZXhwIjoxNzc5ODcxOTk5fQ.koifHZ1nBp4IkXQGoj4_a4i5-jgQGaRbISNL5S3NG7PgM22cqcim1u9NDcsL3dJj-dl3EtTtIJMT3qY2GAoKhQ#/
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Done*
 
 ---
 
