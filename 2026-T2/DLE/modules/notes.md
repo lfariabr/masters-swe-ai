@@ -3,8 +3,6 @@
 
 ## Module 1 - Introduction to Deep Learning
 
-<!-- todo... -->
-
 ### TLDR
 - **Deep learning** is machine learning that learns layered representations from data instead of relying only on hand-built features.
 - **Representation quality** strongly affects model performance; deep networks build higher-level concepts from simpler ones.

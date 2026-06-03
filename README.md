@@ -54,7 +54,7 @@ Term | Subject | Status | Lecturer | Directory | Credit Points
 | T3 | Cloud Computing Fundamentals (***Elective***) 2026 | ✅ | Dr. Divya Leekha | [CCF501](./2026-T1/CCF/) | 10
 | T3 | Intelligent Systems (***Core***) 2026 | ✅ | Dr. Nandini Sidnal | [ISY503](./2026-T1/ISY/) | 10
 | T4 | Big Data and Analytics (***Elective***) 2026 | 🔥 | Dr. Chen Zhan | [BDA601](./2026-T2/BDA/) | 10
-| T4 | Deep Learning (***Core***) 2026 | 🔥 | Dr. Robin Cyriac | [DLE602](./2026-T2/DLE/) | 10
+| T4 | Deep Learning (***Core***) 2026 | 🔥 | Dr. Tayab Din Memon | [DLE602](./2026-T2/DLE/) | 10
 | T4 | Machine Learning (***Core***) 2026 | 🔥 | Dr. Kamran Shaukat | [MLN601](./2026-T2/MLN/) | 10
 | T5 | Technology - Work Integrated Learning I (***Core***) 2026 | 🕐 | TBD | TBD | 20
 | T6 | Advanced Technology - Work Integrated Learning (***Core***) 2027 | 🕐 | TBD | TBD | 30

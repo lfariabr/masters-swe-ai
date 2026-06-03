@@ -35,12 +35,12 @@ Deep learning is a subset of machine learning, and machine learning is a subset 
 | 12 | Practical Methodologies and the Future of Deep Learning | Discussion forum: Last Opinion; discussion forum: The Future is Here; discussion | Assessment 3 due: Deep Learning Final Project (40%) | `c)`, `e)` |
 
 ## Learning Facilitator
-Dr. Robin Cyriac
+Dr. Tayab Din Memon
 
 ## Modules
 > Tip: ✅ = Done, 🔥 = WIP, 🕐 = Not started, 🔌 = Discontinued
 
-- [ ] Module 1 🔥 - Introduction to Deep Learning & Neural Network
+- [X] Module 1 ✅ - Introduction to Deep Learning & Neural Network
 - [ ] Module 2 🕐 - Deep Learning: Feedforward Neural Network and Backpropagation
 - [ ] Module 3 🕐 - Deep Learning Application: Natural Language Processing, Speech Recognition and Computer Vision
 - [ ] Module 4 🕐 - Regularization
