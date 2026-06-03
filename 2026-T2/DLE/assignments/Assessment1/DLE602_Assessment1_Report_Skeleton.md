@@ -12,7 +12,7 @@
 | Weight | 30% |
 | Due | Sunday at end of Module 4; README currently records 28/06/2026 |
 | Learning outcomes | SLO a, SLO b |
-| Current status | v2: CLI implemented at `code/dle602_sentiment_ngram.py`, datasets downloaded and normalised, model executed end-to-end (bigram) on both datasets with real metrics, figures and a companion notebook; report prose still to finalise to 450-550 words |
+| Current status | v2: CLI implemented at `code/dle602_sentiment_ngram.py`, datasets downloaded and normalised, model executed end-to-end (bigram) on both datasets with real metrics, figures and a companion notebook; 500-word report written at `report/DLE602FariaLuisBrief1_Report.md` (532 words). Remaining: final APA pass + submission zip |
 
 ---
 
@@ -72,6 +72,8 @@ Assessment1/
     sts_gold.csv                             # 2034 tweets, 2 classes (committed)
   notebook/
     DLE602FariaLuisBrief1.ipynb              # executed portfolio companion
+  report/
+    DLE602FariaLuisBrief1_Report.md          # final 500-word report (532 words)
   outputs/
     comparison_summary.csv                   # side-by-side metrics
     sts_test_metrics.csv / sts_gold_metrics.csv
@@ -242,7 +244,7 @@ Overall, the experiment shows that N-Gram sentiment analysis can classify some T
 | Same behaviour across both datasets | Done (identical model/preprocessing/threshold) |
 | Exception handling for missing files/columns | Done (`load_dataset` validates columns/rows) |
 | Metrics generated for both datasets | Done (`outputs/comparison_summary.csv` + figures) |
-| 500-word report compares outcomes | Drafted with real numbers; trim to 450-550 words |
+| 500-word report compares outcomes | Done (`report/DLE602FariaLuisBrief1_Report.md`, 532 words) |
 | APA references checked | To do (final pass) |
 | Final zip prepared | To do |
 
@@ -263,7 +265,7 @@ Overall, the experiment shows that N-Gram sentiment analysis can classify some T
 3. ✅ Ran both datasets with identical settings (bigram, add-1, 0.25 threshold).
 4. ✅ Exported metrics, confusion matrices and figures into `outputs/`.
 5. ✅ Replaced all `TBD` placeholders in the report shell with real numbers.
-6. 🔥 Cut the body to 450-550 words and keep tables/appendices separate if allowed.
+6. ✅ Wrote the 500-word report (`report/DLE602FariaLuisBrief1_Report.md`, 532 words; table/refs kept separate).
 7. 🕐 Final APA reference pass and prepare the submission zip (source code, report, outputs, dataset links).
 
 ---
