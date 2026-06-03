@@ -1,0 +1,14 @@
+# STS-Test - sample misclassifications
+  true=positive pred=neutral  | @mikefish  Fair enough. But i have the Kindle2 and I think it's perfect  :)
+  true=positive pred=negative | @richardebaker no. it is too big. I'm quite happy with the Kindle2.
+  true=negative pred=positive | Fuck this economy. I hate aig and their non loan given asses.
+  true=positive pred=negative | how can you not love Obama? he makes jokes about himself.
+  true=neutral  pred=positive | Check this video out -- President Obama at the White House Correspondents' Dinner http://bit.ly/IMXUM
+
+# STS-Gold - sample misclassifications
+  true=negative pred=positive | So dissapointed Taylor Swift doesnt have a Twitter
+  true=negative pred=positive | Allergies sucks sometimes. Theres a super adorable 9 month old beagle named Sydney hanging out with my roomie and his friend. Can't pet.
+  true=negative pred=neutral  | Hayfever time  not good!
+  true=negative pred=positive | I wish diversity was like one of those musicians with loads of stuff on YouTube, but no  #bgt
+  true=negative pred=positive | worked on 5 bone marrow cases today! All + for cancer!
+

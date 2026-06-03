@@ -1,5 +1,5 @@
 # Twitter Sentiment Analysis Using an N-Gram Language Model
-*DLE602 Deep Learning - Assessment 1 Report Skeleton v1*
+*DLE602 Deep Learning - Assessment 1 Report Skeleton v2*
 
 ## Working Metadata
 
@@ -12,7 +12,7 @@
 | Weight | 30% |
 | Due | Sunday at end of Module 4; README currently records 28/06/2026 |
 | Learning outcomes | SLO a, SLO b |
-| Current status | v1 scaffold: brief analysis, implementation plan, report shell, rubric checklist, and source plan |
+| Current status | v2: CLI implemented at `code/dle602_sentiment_ngram.py`, datasets downloaded and normalised, model executed end-to-end (bigram) on both datasets with real metrics, figures and a companion notebook; report prose still to finalise to 450-550 words |
 
 ---
 
@@ -21,7 +21,7 @@
 | Required element | How this skeleton handles it | Evidence target |
 |---|---|---|
 | Read Zhao, Gui, and Zhang (2018) closely | Reference starter list and implementation assumptions keep the assignment aligned with the paper without reproducing the paper's deep CNN experiments | Cite the paper in the report and explain that this submission implements the required N-Gram model only |
-| Use any two of the five datasets from the paper | Dataset plan lists candidate paper datasets and asks for final source-link verification before coding | Include direct links in the submitted zip and in the code header |
+| Use any two of the five datasets from the paper | Final pair locked: **STS-Test** and **STS-Gold**, both among the paper's five datasets and both downloadable as full tweet text (no Twitter-API hydration). Bigram models are trained on a balanced 80k Sentiment140 sample | Direct download links and schema are in `dataset/README.md`; `dataset/download.py` reproduces the CSVs |
 | Implement Twitter sentiment analysis in Python | Code architecture section defines a small CLI-based Python program with preprocessing, train/test loading, N-Gram model, classification, evaluation, and export | Main file contains run instructions, comments, and no hidden manual configuration |
 | Use Bigram or Trigram consistently | v1 recommends Bigram first because it is easier to debug and less sparse than Trigram on small Twitter datasets | Same `n` value used for positive and negative language models, and for both datasets |
 | Classify positive, negative, or neutral | Decision rule section translates the "one fourth" threshold into a testable rule | Report the exact threshold interpretation in the report and code comments |
@@ -60,39 +60,47 @@ The submitted program implements a transparent Bigram N-Gram language model for 
 
 ```text
 Assessment1/
-  DLE602_Assessment1_Report_Skeleton.md
+  DLE602_Assessment1_Report_Skeleton.md      # this file (report draft + plan)
   code/
-    dle602_sentiment_ngram.py
+    dle602_sentiment_ngram.py                # CLI N-Gram classifier (stdlib core)
     requirements.txt
-  data/
-    README.md
-    dataset_a/
-    dataset_b/
+  dataset/
+    README.md                                # sources, licence, schema, download
+    download.py                              # fetch + normalise the datasets
+    sentiment140_train_sample.csv            # 80k balanced training sample (committed)
+    sts_test.csv                             # 498 tweets, 3 classes (committed)
+    sts_gold.csv                             # 2034 tweets, 2 classes (committed)
+  notebook/
+    DLE602FariaLuisBrief1.ipynb              # executed portfolio companion
   outputs/
-    dataset_a_metrics.csv
-    dataset_b_metrics.csv
-    comparison_summary.csv
-  report/
-    DLE602_Faria_L_Assessment_1_Report.md
+    comparison_summary.csv                   # side-by-side metrics
+    sts_test_metrics.csv / sts_gold_metrics.csv
+    error_examples.txt
+    figures/
+      sentiment_distribution.png
+      confusion_sts_test.png / confusion_sts_gold.png
 ```
 
-> Keep raw dataset files out of git if they are large or licence-restricted. The submitted zip can include permitted files or a dataset download/readme link, depending on licence terms.
+> The 81 MB Sentiment140 zip and the 1.6M-row raw CSV are kept out of git (`dataset/_raw/`, git-ignored). Only the small normalised CSVs and the 80k training sample are committed, so the project clones-and-runs without the large download.
 
-## 2. Dataset Source Plan
+## 2. Dataset Source Plan (locked)
 
-The assessment brief does not enumerate the five dataset names, only stating that two of the five datasets from Zhao, Gui, and Zhang (2018) must be used. Secondary summaries of the paper commonly list these candidate datasets; verify the final pair against the paper before locking the implementation.
+The brief requires two of the five datasets from Zhao, Gui, and Zhang (2018). Most of the paper's datasets (SemEval-2014, SS-Tweet) are distributed only as **tweet IDs** and need Twitter-API "hydration" (now paid/restricted), so they are not reproducible for a clean submission. The two chosen datasets are the ones that ship as **full tweet text** while still being among the paper's five:
 
-| Candidate dataset from paper | Why it may fit | v1 action |
-|---|---|---|
-| Stanford Twitter Sentiment Test dataset | Twitter-specific and commonly used for baseline sentiment experiments | Candidate A; verify accessible labelled format |
-| SE2014 / SemEval-2014 Twitter sentiment dataset | Public shared-task benchmark with positive, negative, and neutral labels | Strong candidate; official task site has test/gold files |
-| Stanford Twitter Sentiment Gold dataset (STS-Gold) | Gold-standard tweet/entity sentiment dataset | Candidate if labels and text are easy to access |
-| Sentiment Evaluation dataset | Mentioned in paper summaries, but name is ambiguous | Verify exact source before use |
-| Sentiment Strength Twitter dataset | Twitter-specific dataset linked to sentiment strength scoring | Candidate B; verify licence/access |
+| Role | Dataset (paper name) | File | Rows | Classes | Source (no login) |
+|---|---|---|---:|---|---|
+| Training corpus | Stanford Twitter Sentiment / Sentiment140 | `sentiment140_train_sample.csv` (80k balanced sample of the 1.6M corpus) | 80,000 | neg / pos | [cs.stanford.edu zip](https://cs.stanford.edu/people/alecmgo/trainingandtestdata.zip) |
+| **Dataset A** | **STS-Test** (Stanford Twitter Sentiment Test) | `sts_test.csv` | 498 | neg / **neutral** / pos | same Stanford zip (`testdata.manual.2009.06.14.csv`) |
+| **Dataset B** | **STS-Gold** (Stanford Twitter Sentiment Gold) | `sts_gold.csv` | 2,034 | neg / pos | [github.com/pollockj/world_mood](https://raw.githubusercontent.com/pollockj/world_mood/master/sts_gold_v03/sts_gold_tweet.csv) |
 
-**Preferred v1 pair:** SemEval-2014 Twitter sentiment dataset and Sentiment Strength Twitter dataset, because they are both Twitter-oriented and should expose useful contrast in sentiment distribution and text style.
+**Actual class distribution (from the executed run):**
 
-**Fallback pair:** SemEval-2014 Twitter sentiment dataset and Stanford Twitter Sentiment Gold dataset, if Sentiment Strength access is difficult.
+| Dataset | negative | neutral | positive |
+|---|---:|---:|---:|
+| STS-Test | 177 | 139 | 182 |
+| STS-Gold | 1,402 | 0 | 632 |
+
+**Why this is a good comparison pair:** STS-Test carries a neutral class, STS-Gold does not, which directly exposes how the same model handles a two-class vs three-class source - exactly the "compare outcomes from two data sources" requirement. `dataset/download.py` downloads both, maps the polarity codes (0=neg, 2=neutral, 4=pos), and writes tidy `label,text` CSVs.
 
 ## 3. Model Interpretation Decision
 
@@ -181,24 +189,32 @@ Twitter sentiment analysis classifies short social-media texts into positive, ne
 
 ## 2. Implementation Method
 
-The program used a [Bigram/Trigram] model with the same `n` value for positive and negative examples in both datasets. Tweets were normalised by lowercasing text, replacing URLs and usernames with placeholder tokens, preserving hashtag words, and retaining negation-sensitive tokens. Separate positive and negative N-Gram count models were trained with add-k smoothing. Each test tweet was converted into N-Grams and classified using the brief's 25 percent rule: [insert exact final denominator and tie-breaking rule].
+The program used a **bigram** model with the same `n = 2` for the positive and negative language models, applied identically to both datasets. Tweets were normalised by lowercasing, replacing URLs and usernames with `<url>`/`<user>` placeholders, stripping the `#` but keeping hashtag words, and retaining `!`/`?` and negation-sensitive tokens. Separate positive and negative bigram models were trained on a balanced 80k Sentiment140 sample with **add-1 (Laplace) smoothing** over a 49,038-token vocabulary. Each test tweet was converted into bigrams; a bigram counts as positive (negative) when its smoothed conditional log-probability is higher under the positive (negative) model. The brief's rule was applied with the **N-Gram count as the denominator**: classify positive if at least 25% of the tweet's bigrams are positive and outnumber the negative ones, negative by the mirror rule, otherwise neutral.
 
-> Add dataset names and code run command once finalised.
+Run command:
+
+```bash
+python dataset/download.py        # one-off: build the dataset CSVs
+python code/dle602_sentiment_ngram.py --ngram 2   # trains + evaluates both datasets
+```
 
 ## 3. Results and Comparison
 
-| Metric | Dataset A: [name] | Dataset B: [name] |
+| Metric | Dataset A: STS-Test | Dataset B: STS-Gold |
 |---|---:|---:|
-| Records evaluated | TBD | TBD |
-| Positive labels | TBD | TBD |
-| Negative labels | TBD | TBD |
-| Neutral labels | TBD | TBD |
-| Accuracy | TBD | TBD |
-| Predicted positive | TBD | TBD |
-| Predicted negative | TBD | TBD |
-| Predicted neutral | TBD | TBD |
+| Records evaluated | 498 | 2,034 |
+| Positive labels (true) | 182 | 632 |
+| Negative labels (true) | 177 | 1,402 |
+| Neutral labels (true) | 139 | 0 |
+| Accuracy | 0.452 | 0.719 |
+| Macro-F1 | 0.401 | 0.726 |
+| Predicted positive | 274 | 788 |
+| Predicted negative | 186 | 1,110 |
+| Predicted neutral | 38 | 136 |
 
-The outcomes were [similar/different] across the two sources. Dataset A produced [insert trend], while Dataset B produced [insert trend]. The strongest similarity was [insert evidence: e.g., both datasets had many neutral predictions because the 25 percent threshold is conservative]. The main difference was [insert evidence: e.g., one dataset had more informal spelling, hashtags, sarcasm, or topic-specific language], which affected the N-Gram model because unseen phrases receive smoothed probabilities rather than learned contextual meaning.
+> Bigram vs trigram (optional experiment, same settings): trigram accuracy drops to **0.420** (STS-Test) and **0.550** (STS-Gold), confirming that trigrams are too sparse on short tweets - so bigram is the submitted model.
+
+The outcomes were **clearly different** across the two sources. On STS-Gold the bigram model reached a solid baseline (0.72 accuracy, 0.73 macro-F1), helped by it being a two-class problem whose informal tweet style is close to the Sentiment140 training corpus. On STS-Test accuracy was much lower (0.45) because it is a harder three-class task and the model **rarely predicts neutral** (only 38 of 498): with add-1 smoothing almost every bigram leans slightly positive or negative, so the 25% threshold is easily crossed and the neutral class is under-produced. The shared behaviour across both sources is a **positive-leaning bias** (predicted positive exceeds true positive in both), driven by the emoticon-labelled training corpus. The main difference - one source needs a neutral decision the other never does - is exactly what makes the comparison informative, because the N-Gram model has no learned notion of "neutral"; it only emerges from the threshold.
 
 ## 4. Critical Reflection
 
@@ -216,18 +232,18 @@ Overall, the experiment shows that N-Gram sentiment analysis can classify some T
 
 | Checklist item | Status |
 |---|---|
-| Assessment brief read and summarised | Drafted |
-| Zhao et al. (2018) paper cited | Drafted; verify dataset list from paper |
-| Two valid paper datasets selected | To do |
-| Dataset links included | To do |
-| Code has run instructions at top of main file | To do |
-| Bigram/Trigram choice used consistently | Drafted |
-| Positive, negative, neutral outputs implemented | To do |
-| Same behaviour across both datasets | To do |
-| Exception handling for missing files/columns | To do |
-| Metrics generated for both datasets | To do |
-| 500-word report compares outcomes | Drafted shell |
-| APA references checked | To do |
+| Assessment brief read and summarised | Done |
+| Zhao et al. (2018) paper cited | Done |
+| Two valid paper datasets selected | Done (STS-Test + STS-Gold) |
+| Dataset links included | Done (`dataset/README.md` + skeleton table) |
+| Code has run instructions at top of main file | Done (module docstring) |
+| Bigram/Trigram choice used consistently | Done (bigram, `n=2` both datasets; trigram shown as optional) |
+| Positive, negative, neutral outputs implemented | Done |
+| Same behaviour across both datasets | Done (identical model/preprocessing/threshold) |
+| Exception handling for missing files/columns | Done (`load_dataset` validates columns/rows) |
+| Metrics generated for both datasets | Done (`outputs/comparison_summary.csv` + figures) |
+| 500-word report compares outcomes | Drafted with real numbers; trim to 450-550 words |
+| APA references checked | To do (final pass) |
 | Final zip prepared | To do |
 
 ## Appendix B - Risk Register
@@ -242,22 +258,25 @@ Overall, the experiment shows that N-Gram sentiment analysis can classify some T
 
 ## Appendix C - Next Draft Tasks
 
-1. Open Zhao, Gui, and Zhang (2018) and verify the exact five dataset names.
-2. Select two datasets and record download/source links in `data/README.md`.
-3. Implement `dle602_sentiment_ngram.py` as a small CLI.
-4. Run Dataset A and Dataset B with identical settings.
-5. Export metrics and confusion matrices into `outputs/`.
-6. Replace all `TBD` placeholders in the report shell.
-7. Cut the body to 450-550 words and keep tables/appendices separate if allowed.
-8. Prepare the final zip with source code, report, outputs, and dataset links.
+1. ✅ Selected two datasets (STS-Test + STS-Gold) and recorded source links in `dataset/README.md`.
+2. ✅ Implemented `code/dle602_sentiment_ngram.py` as a small CLI.
+3. ✅ Ran both datasets with identical settings (bigram, add-1, 0.25 threshold).
+4. ✅ Exported metrics, confusion matrices and figures into `outputs/`.
+5. ✅ Replaced all `TBD` placeholders in the report shell with real numbers.
+6. 🔥 Cut the body to 450-550 words and keep tables/appendices separate if allowed.
+7. 🕐 Final APA reference pass and prepare the submission zip (source code, report, outputs, dataset links).
 
 ---
 
 # Reference Starter List
 
+Go, A., Bhayani, R., & Huang, L. (2009). *Twitter sentiment classification using distant supervision* (CS224N Project Report, Stanford). https://cs.stanford.edu/people/alecmgo/papers/TwitterDistantSupervision09.pdf
+
 Jurafsky, D., & Martin, J. H. (2008). *Speech and language processing*. Pearson. https://web.stanford.edu/~jurafsky/slp3/3.pdf
 
 Rosenthal, S., Ritter, A., Nakov, P., & Stoyanov, V. (2014). SemEval-2014 Task 9: Sentiment Analysis in Twitter. *Proceedings of the 8th International Workshop on Semantic Evaluation*, 73-80. https://aclanthology.org/S14-2009/
+
+Saif, H., Fernández, M., He, Y., & Alani, H. (2013). Evaluation datasets for Twitter sentiment analysis: A survey and a new dataset, the STS-Gold. *Proceedings of the 1st International Workshop on Emotion and Sentiment in Social and Expressive Media (ESSEM)*. https://oro.open.ac.uk/40660/
 
 Torrens University Australia. (2024). *DLE602 Assessment 1 brief: Programming Problems*.
 

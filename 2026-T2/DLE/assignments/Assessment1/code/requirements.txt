@@ -1,0 +1,8 @@
+# DLE602 Assessment 1 - Twitter sentiment N-Gram model
+# The classifier core (dle602_sentiment_ngram.py) uses only the Python standard
+# library. These packages are needed for dataset download and the figures/notebook.
+pandas>=2.0        # dataset/download.py: read + sample the Sentiment140 corpus
+matplotlib>=3.7    # output figures (distribution + confusion matrices)
+# Optional, only to execute the companion notebook:
+# jupyter
+# nbconvert

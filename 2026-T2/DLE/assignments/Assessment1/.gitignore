@@ -1,0 +1,7 @@
+# Raw dataset downloads — large (~78 MB zip) and fully reproducible via
+# dataset/download.py. Only the small normalised CSVs are committed.
+dataset/_raw/
+
+# Python / notebook cruft
+__pycache__/
+.ipynb_checkpoints/

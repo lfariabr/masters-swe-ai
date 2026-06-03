@@ -1,0 +1,10 @@
+metric,STS-Test,STS-Gold
+records,498,2034
+accuracy,0.4518,0.7188
+macro_f1,0.4007,0.7262
+true_negative,177,1402
+true_neutral,139,0
+true_positive,182,632
+pred_negative,186,1110
+pred_neutral,38,136
+pred_positive,274,788
