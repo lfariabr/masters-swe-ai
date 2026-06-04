@@ -118,6 +118,14 @@ Post 2–3 sentences to the discussion forum explaining what you have learned in
 ## Module 2 - Managing Machine Learning Projects: CRISP-DM, Ethics by Design (Australasia), and Data Sets
 
 ### TLDR
+**CRISP-DM** (Cross-Industry Standard Process for Data Mining) is the de-facto standard for organising ML/analytics projects — **6 iterative phases** with backtracking:
+- **Business Understanding → Data Understanding → Data Preparation → Modeling → Evaluation → Deployment.**
+- It endures because it is **business-anchored** (starts *and* ends at business goals) and **domain-general** (Shearer, 2017).
+- **CRISP-ML(Q)** (Studer et al., 2020) modernises it for ML: merges Business + Data Understanding, adds a 6th **Monitoring & Maintenance** phase, and attaches **Quality Assurance** to every task — answering the fact that **75–85% of ML projects miss expectations**.
+- The same skeleton is reused as a practitioner **task checklist** (Tyagi, 2020), an **audit framework** (Clark, 2018 — bias by sampling), and an **ethics-by-design** lens (Cunningham, 2020 — one ethical question per phase).
+- Recurring disciplines: honest **train/validation/test split**, watch for **class imbalance** and **data leakage**, **interpretability** (LIME/SHAP), and **fairness/bias** auditing.
+
+> Full per-resource breakdown: [module02_notes.md](module-02-managing-ml-projects/module02_notes.md)
 
 ### Introduction
 How do we know we have achieved the successful completion of a machine learning (ML) project? How do we organise a ML project? What do we need to do to ensure that the ML project being undertaken is ethical? How do we get started on ML projects?
@@ -143,7 +151,7 @@ CRISP-DM is a proven approach to organising and ensuring successful completion o
 
     This video explains the timeless value of having a methodology for ML and predictive analytics projects.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Watched + Reviewed — see [module02_notes.md](module-02-managing-ml-projects/module02_notes.md#1-houston-analytics-2017-the-timeless-value-of-crisp-dm)*
 
 #### 2. A Visual Guide to CRISP-DM Methodology
 - Leaper, N. (2009, 13 March). A visual guide to CRISP-DM methodology. Retrieved from https://exde.wordpress.com/2009/03/13/a-visual-guide-to-crisp-dm-methodology/
@@ -152,7 +160,7 @@ CRISP-DM is a proven approach to organising and ensuring successful completion o
 
     This single-page visual guide sets out all the steps of the original CRISP-DM process.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module02_notes.md](module-02-managing-ml-projects/module02_notes.md#2-leaper-2009-a-visual-guide-to-crisp-dm-methodology)*
 
 #### 3. Task Cheat Sheet for Almost Every Machine Learning Project
 - Tyagi, H. (2020, 4 July). Task cheatsheet for almost every machine learning project. A checklist of tasks for building end-to-end ML projects. Retrieved from https://towardsdatascience.com/task-cheatsheet-for-almost-every-machine-learning-project-d0946861c6d0
@@ -161,7 +169,7 @@ CRISP-DM is a proven approach to organising and ensuring successful completion o
 
     This short article serves as a reminder of the importance of maintaining a task list for ML projects. The author never references CRISP-DM directly; however, he has clearly repurposed the CRISP-DM methodology as his own. You will maintain your own task list as part of your Jupyter notebook and ML developments.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module02_notes.md](module-02-managing-ml-projects/module02_notes.md#3-tyagi-2020-task-cheat-sheet-for-almost-every-ml-project)*
 
 #### 4. Towards CRISP-ML(Q): A Machine Learning Process Model with a Quality Assurance Methodology
 - Studer, S., Bui, T. B., Drescher, C., Hanuschkin, A., Winkler, L., Peters, S. & Mueller, R. (2020, 11 March). Towards CRISP-ML(Q): A machine learning process model with quality assurance methodology. Manuscript submitted for publication. Retrieved from https://arxiv.org/pdf/2003.05155.pdf
@@ -170,7 +178,7 @@ CRISP-DM is a proven approach to organising and ensuring successful completion o
 
     This article proposes a process model for the development of ML applications. The model expands on CRISP-DM and recognises the strong support for CRISP-DM in the industry. The article provides a good recap of the original methodology. However, the authors contend that CRISP-DM fails to address ML tasks. In conclusion, the authors state, ‘Our survey is indicative of the existence of specialist literature, but its contributions are not covered in machine learning textbooks and are not part of the academic curriculum. Hence, novices to industry practice often lack a profound state-of-the-art knowledge to ensure project success’. This commentary serves as a reminder of the importance of having a suitable approach or methodology in conducting ML projects. A complete reading of this paper will increase your understanding of the specific ML tasks that need to be undertaken to ensure the success of a project.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module02_notes.md](module-02-managing-ml-projects/module02_notes.md#4-studer-et-al-2020-towards-crisp-mlq)*
 
 #### 5. The Machine Learning Audit—CRISP-DM Framework
 - Reference: Clark, A. (2018, 6 January). The machine learning audit—CRISP-DM framework. ISACA Journal, 1, 1–6. Retrieved from https://www.isaca.org/-/media/files/isacadp/project/isaca/articles/journal/2018/volume-1/the-machine-learning-audit-crisp-dm-framework_joa_eng_0118.pdf
@@ -179,7 +187,7 @@ CRISP-DM is a proven approach to organising and ensuring successful completion o
 
     This paper describes the CRISP-DM model as ‘the industry standard for how machine learning is conducted by practitioners’. This paper describes how CRISP-DM has been used to instruct auditors undertaking a high-level ML audit. This useful article will help you to understand how ML models, with which you may not have previously worked, come together or not (as the case maybe). The ability to audit ML projects is likely to become a highly sought-after skill.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module02_notes.md](module-02-managing-ml-projects/module02_notes.md#5-clark-2018-the-machine-learning-audit-crisp-dm-framework)*
 
 #### 6. Ethical CRISP-DM: The Short Version
 - Reference: Cunningham, C. (2020, 11 April). Ethical CRISP-DM: The short version [Web log post]. Retrieved from https://blogs.ischool.berkeley.edu/w231/2020/04/15/ethical-crisp-dm-the-short-version/
@@ -188,9 +196,31 @@ CRISP-DM is a proven approach to organising and ensuring successful completion o
 
     This blog post appropriates the CRISP-DM framework and guides you through how ethical guardrails are built into the steps of a ML project. The key focus includes ensuring the externalities of the solution are understood, the biases in the data are known, the data are clean of biases and safety measures are implemented to ensure the model is free of outside influences. Read this relatively short post to gain an understanding of how ethics can be built into your ML projects.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module02_notes.md](module-02-managing-ml-projects/module02_notes.md#6-cunningham-2020-ethical-crisp-dm-the-short-version)*
 
 ### Learning Activities
+
+#### 1. Loading up the CRISP-DM Template—An Essential Step to Follow for Your Assessments
+A specially prepared template is available. Upload the template to your Google Colab notebook. Seek any clarifications by posting questions and engaging in discussion on the forum. This type of template will be provided for each of the assessments. Now is a good time to familiarise yourself with the stages of CRISP-DM and raise any questions that you may have.
+
+> *Status: ✅ Draft ready — see [module02_activities.md](module-02-managing-ml-projects/module02_activities.md#activity-1--loading-up-the-crisp-dm-template)*
+
+#### 2: Understanding CRISP-DM Using Video Game Sales Data—A Useful Exercise for Your Assessments
+- Reference: Mishra, B. (2019, 23 April). Understanding CRISP-DM using video game sales data. Retrieved from https://medium.com/@imBharatMishra/understanding-crisp-dm-using-video-game-sales-data-a2d55c7a2593
+
+This activity requires you to see how CRISP-DM will help you to follow the analysis of video games sales data that was conducted by someone else. You will have access to both the data used and the Jupyter notebook code.
+
+This activity requires you to:
+- Read the article (below) entitled ‘Understanding CRISP-DM using Video Game Sales Data’ (Mishra, 2019) and follow the steps set out therein. Note: We are going to replicate some of the analysis;
+- Download the data and code, which are available at the author’s GitHub page (https://github.com/bharat-dsdev/vgsales-analysis);
+- Upload the notebook file (available at https://github.com/bharat-dsdev/vgsales-analysis/blob/master/notebook/Visual_EDA_Video_Game_Console_Sales.ipynb) to your Jupyter notebook and upload the data set;
+- Ensure that you can execute the code step by step. Follow the code along with the outputs in the article; and
+
+When complete, share your complete output to the discussion forum along with a post in which you note any issues that you encountered, how you overcame those issues and comment on your overall experience.
+
+> *Status: 🔥 Draft ready (needs notebook run + post) — see [module02_activities.md](module-02-managing-ml-projects/module02_activities.md#activity-2--understanding-crisp-dm-using-video-game-sales-data-mishra-2019)*
+
+---
 
 ```bash
 --- PLACEHOLDER:
