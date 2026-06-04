@@ -97,7 +97,7 @@ References
 - Townes, F. (2017, 15 June ). Why ‘skilled in machine learning’ should be the new ‘proficient in Excel’ on your resume. Quartz. Retrieved from https://qz.com/1006379/the-best-resumes-will-soon-have-skilled-in-machine-learning-instead-of-proficient-in-excel
 - Zafarino, S. (2018, 27 July). The outlook for machine learning in Tech: ML and AI skills in high demand. CIO. Retrieved from. https://www.cio.com/article/3293019/the-outlook-for-machine-learning-in-tech-ml-and-ai-skills-in-high-demand.html
 
-> *Status: 🕐 To-Do — source notes ready in [module01_notes.md](module-01-career-algos-concepts/module01_notes.md#5-townes-2017-why-skilled-in-machine-learning-should-be-the-new-proficient-in-excel-on-your-resume)*
+> *Status: ✅ Done — source notes ready in [module01_notes.md](module-01-career-algos-concepts/module01_notes.md#5-townes-2017-why-skilled-in-machine-learning-should-be-the-new-proficient-in-excel-on-your-resume)*
 
 #### 2. Machine Learning Applications
 - Hill, K. (2012, 16 February). How Target figured out a teen girl was pregnant before her father did. Forbes. Retrieved from https://www.forbes.com/sites/kashmirhill/2012/02/16/how-target-figured-out-a-teen-girl-was-pregnant-before-her-father-did/#7dc209fb6668
@@ -111,9 +111,86 @@ Plenty of other examples can be found by searching the AI Index arXiv Monitor (h
 
 Post 2–3 sentences to the discussion forum explaining what you have learned in this Module and how you can see yourself applying it; and Reply to two of your peers’ posts.
 
-> *Status: 🕐 To-Do — source notes ready in [module01_notes.md](module-01-career-algos-concepts/module01_notes.md#6-hill-2012-how-target-figured-out-a-teen-girl-was-pregnant-before-her-father-did) and [module01_notes.md](module-01-career-algos-concepts/module01_notes.md#7-jiang-et-al-2020-towards-an-artificial-intelligence-framework-for-data-driven-prediction-of-coronavirus-clinical-severity)*
+> *Status: ✅ Done — source notes ready in [module01_notes.md](module-01-career-algos-concepts/module01_notes.md#6-hill-2012-how-target-figured-out-a-teen-girl-was-pregnant-before-her-father-did) and [module01_notes.md](module-01-career-algos-concepts/module01_notes.md#7-jiang-et-al-2020-towards-an-artificial-intelligence-framework-for-data-driven-prediction-of-coronavirus-clinical-severity)*
 
 ---
+
+## Module 2 - Managing Machine Learning Projects: CRISP-DM, Ethics by Design (Australasia), and Data Sets
+
+### TLDR
+
+### Introduction
+How do we know we have achieved the successful completion of a machine learning (ML) project? How do we organise a ML project? What do we need to do to ensure that the ML project being undertaken is ethical? How do we get started on ML projects?
+
+All of these questions have one thing in common: they require an approach to help organise the multiple steps that comprise ML projects.
+
+Notably, ML projects vary in terms of their duration and the skills they require. Thus, an approach, framework or methodology acts as an ordering mechanism for multi-step ML projects of varying durations. Additionally, a common approach allows projects to be replicated by any team member.
+
+CRISP-DM is the most widely used analytics process standards. Thus, it is the closest thing we have to a standard model for implementing predictive analytics and ML projects. The video (below) provides an overview of the CRISP-DM process and the importance of the framework in managing predictive or ML projects.
+
+McCormick, K. (2020, 25 February) . CRISP-DM: Established process of producing predictive models [Video file]. Retrieved from https://www.linkedin.com/learning/predictive-analytics-essential-training-for-executives/crisp-dm-established-process-of-producing-predictive-models?u=56744473
+
+In undertaking ML projects, it is important to ensure that they have flexibility and that the ethical implications in relation to the data set being used are considered. Additionally, data sets tend to require cleaning and any missing values need to be handled. This Module will enable you to gain an understanding of these two key areas beyond the planning stages of your ML project.
+
+### Resources
+
+CRISP-DM is a proven approach to organising and ensuring successful completion of a ML project. As part of the approach, you will be required to understand any ethical issues pertaining to the data set and algorithms. Another important aspect of the framework is checking for missing values within your data set.
+
+#### 1. The Timeless Value of CRISP-DM
+- Houston Analytics. (2017, 7 April). Colin Shrearer: CRISP DM [Video file]. Retrieved from https://www.youtube.com/watch?v=-K-GGW9827Q
+
+*Resource Overview:*
+
+    This video explains the timeless value of having a methodology for ML and predictive analytics projects.
+
+> *Status: 🕐 To-Do*
+
+#### 2. A Visual Guide to CRISP-DM Methodology
+- Leaper, N. (2009, 13 March). A visual guide to CRISP-DM methodology. Retrieved from https://exde.wordpress.com/2009/03/13/a-visual-guide-to-crisp-dm-methodology/
+
+*Resource Overview:*
+
+    This single-page visual guide sets out all the steps of the original CRISP-DM process.
+
+> *Status: 🕐 To-Do*
+
+#### 3. Task Cheat Sheet for Almost Every Machine Learning Project
+- Tyagi, H. (2020, 4 July). Task cheatsheet for almost every machine learning project. A checklist of tasks for building end-to-end ML projects. Retrieved from https://towardsdatascience.com/task-cheatsheet-for-almost-every-machine-learning-project-d0946861c6d0
+
+*Resource Overview:*
+
+    This short article serves as a reminder of the importance of maintaining a task list for ML projects. The author never references CRISP-DM directly; however, he has clearly repurposed the CRISP-DM methodology as his own. You will maintain your own task list as part of your Jupyter notebook and ML developments.
+
+> *Status: 🕐 To-Do*
+
+#### 4. Towards CRISP-ML(Q): A Machine Learning Process Model with a Quality Assurance Methodology
+- Studer, S., Bui, T. B., Drescher, C., Hanuschkin, A., Winkler, L., Peters, S. & Mueller, R. (2020, 11 March). Towards CRISP-ML(Q): A machine learning process model with quality assurance methodology. Manuscript submitted for publication. Retrieved from https://arxiv.org/pdf/2003.05155.pdf
+
+*Resource Overview:*
+
+    This article proposes a process model for the development of ML applications. The model expands on CRISP-DM and recognises the strong support for CRISP-DM in the industry. The article provides a good recap of the original methodology. However, the authors contend that CRISP-DM fails to address ML tasks. In conclusion, the authors state, ‘Our survey is indicative of the existence of specialist literature, but its contributions are not covered in machine learning textbooks and are not part of the academic curriculum. Hence, novices to industry practice often lack a profound state-of-the-art knowledge to ensure project success’. This commentary serves as a reminder of the importance of having a suitable approach or methodology in conducting ML projects. A complete reading of this paper will increase your understanding of the specific ML tasks that need to be undertaken to ensure the success of a project.
+
+> *Status: 🕐 To-Do*
+
+#### 5. The Machine Learning Audit—CRISP-DM Framework
+- Reference: Clark, A. (2018, 6 January). The machine learning audit—CRISP-DM framework. ISACA Journal, 1, 1–6. Retrieved from https://www.isaca.org/-/media/files/isacadp/project/isaca/articles/journal/2018/volume-1/the-machine-learning-audit-crisp-dm-framework_joa_eng_0118.pdf
+
+*Resource Overview:*
+
+    This paper describes the CRISP-DM model as ‘the industry standard for how machine learning is conducted by practitioners’. This paper describes how CRISP-DM has been used to instruct auditors undertaking a high-level ML audit. This useful article will help you to understand how ML models, with which you may not have previously worked, come together or not (as the case maybe). The ability to audit ML projects is likely to become a highly sought-after skill.
+
+> *Status: 🕐 To-Do*
+
+#### 6. Ethical CRISP-DM: The Short Version
+- Reference: Cunningham, C. (2020, 11 April). Ethical CRISP-DM: The short version [Web log post]. Retrieved from https://blogs.ischool.berkeley.edu/w231/2020/04/15/ethical-crisp-dm-the-short-version/
+
+*Resource Overview:*
+
+    This blog post appropriates the CRISP-DM framework and guides you through how ethical guardrails are built into the steps of a ML project. The key focus includes ensuring the externalities of the solution are understood, the biases in the data are known, the data are clean of biases and safety measures are implemented to ensure the model is free of outside influences. Read this relatively short post to gain an understanding of how ethics can be built into your ML projects.
+
+> *Status: 🕐 To-Do*
+
+### Learning Activities
 
 ```bash
 --- PLACEHOLDER:
