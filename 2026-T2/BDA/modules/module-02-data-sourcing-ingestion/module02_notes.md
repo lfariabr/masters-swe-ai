@@ -113,6 +113,32 @@
 - **When to adopt:** volumes/velocity beyond a DW; need to onboard new unprepared data fast; want to lower DW total cost; augment internal with external data; need lineage tracking; near-real-time analytics; **Data-as-a-Service (DaaS)** provisioning.
 
 #### 4. Architecture — 3 layers (vertical) + 3 tiers (horizontal flow)
+
+```mermaid
+graph TB
+    subgraph Layers["Cross-cutting Layers"]
+        L1[Data Governance and Security]
+        L2[Metadata Layer · heart of the lake]
+        L3[Information Lifecycle Management]
+    end
+    subgraph Intake["Intake Tier"]
+        I1[Source System] --> I2[Transient Landing] --> I3[Raw]
+    end
+    subgraph Management["Management Tier"]
+        M1[Integration] --> M2[Enrichment] --> M3[Data Hub]
+    end
+    subgraph Consumption["Consumption Tier"]
+        C1[Data Discovery]
+        C2[Data Provisioning]
+    end
+    I3 --> M1
+    M3 --> C1
+    M3 --> C2
+    L1 -.governs.-> Intake & Management & Consumption
+    L2 -.indexes.-> Intake & Management & Consumption
+    L3 -.lifecycle.-> Intake & Management & Consumption
+```
+
 - **Layers** (cut across all tiers):
   - **Data Governance & Security** — access control, authentication (Hadoop + **Kerberos**), data lineage.
   - **Metadata Layer** — *"the heart of the data lake"*; indexes data so users search metadata before accessing data; enables SSBI, DaaS, MLaaS.
@@ -139,6 +165,19 @@
 ---
 
 #### 1. The Intake Tier — three zones (sequential flow)
+
+```mermaid
+flowchart LR
+    SS[Source System Zone<br/>connectivity and extraction]
+    TL[Transient Landing Zone<br/>validation gate]
+    RZ[Raw Zone<br/>preserved raw data]
+    SS -->|pull/push · full/incremental| TL
+    TL -->|dedup · integrity · schema| RZ
+    RZ -->|watermark · metadata| MG[Management Tier]
+    style TL fill:#fff3b0,stroke:#333,stroke-width:2px
+    style RZ fill:#c7f0c2,stroke:#333,stroke-width:2px
+```
+
 1. **Source System Zone** → establishes connectivity, extracts data from external sources.
 2. **Transient Landing Zone** → intermediate store; basic validity checks before promotion.
 3. **Raw Zone** → validated raw data preserved (HDFS) for downstream processing.
