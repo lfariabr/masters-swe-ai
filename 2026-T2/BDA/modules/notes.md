@@ -64,7 +64,7 @@ In this subject, you will use Jupyter Notebook as your Integrated Development En
 1. Install Jupyter Notebook
 Following the instructions in the section entitled, ‘Installing Jupyter using Anaconda and conda’, install Jupyter Notebook on your PC.
 
-APA Reference: Jupyter. (2020). Install instructions—Jupyter documentation 4.1.1 Alpha documentation. Retrieved from https://jupyter.readthedocs.io/en/latest/install.html#installing-jupyter-using-anaconda-and-condaLinks to an external site.
+APA Reference: Jupyter. (2020). Install instructions—Jupyter documentation 4.1.1 Alpha documentation. Retrieved from https://jupyter.readthedocs.io/en/latest/install.html#installing-jupyter-using-anaconda-and-conda
 
 2. Start Jupyter Notebook
 After installation, if you are using Windows, open Anaconda Prompt from the Start Menu or if you are using Linux or macOS, open a terminal. In the Anaconda Prompt or Linux/macOS terminal, enter the command ‘jupyter notebook’ to start Jupyter Notebook. Jupyter Notebook will then open in your default Web browser.
@@ -83,6 +83,94 @@ Please click the link below to complete the Module 1 Knowledge Check.
 You can attempt this as many times as you like.
 
 https://a19788-10605129.cluster228.canvas-user-content.com/courses/19788~26571/files/19788~10605129/course%20files/htmlResources/content/index.html?download=1&inline=1&sf_verifier=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJ1c2VyX2lkIjoiMTk3ODgwMDAwMDAwMDg2Mjg3IiwiYXR0YWNobWVudF9pZCI6IjE5Nzg4MDAwMDAxMDYwNTEyOSIsInBlcm1pc3Npb24iOlsicmVhZCIsImRvd25sb2FkIl0sInJvb3RfYWNjb3VudF9pZCI6IjE5Nzg4MDAwMDAwMDAwMDAwMSIsIm9hdXRoX2hvc3QiOiJteWxlYXJuLnRvcnJlbnMuZWR1LmF1IiwicmV0dXJuX3VybCI6bnVsbCwiZmFsbGJhY2tfdXJsIjoiaHR0cHM6Ly9teWxlYXJuLnRvcnJlbnMuZWR1LmF1L2NvdXJzZXMvMjY1NzEvZmlsZXMvMTA2MDUxMjkvcHJldmlldz9mYWxsYmFja190cz0xNzc5ODcxNjk5IiwianRpIjoiMzRjN2MzNzktMWMwYS00M2Q1LWEzMGYtNzE2YjJlMjhhN2MyIiwiZXhwIjoxNzc5ODcxOTk5fQ.koifHZ1nBp4IkXQGoj4_a4i5-jgQGaRbISNL5S3NG7PgM22cqcim1u9NDcsL3dJj-dl3EtTtIJMT3qY2GAoKhQ#/
+
+> *Status: ✅ Done*
+
+---
+
+## Module 2 - Data Sourcing and Ingestion
+
+### TLDR
+
+### Introduction
+Data scientists can apply advanced machine learning (ML) algorithms to extract insight only when data are available. Thus, in a big data project, the essential first step is to identify the data sources and build the infrastructure to collect, process and store the data so that the data can be efficiently retrieved by the data scientists. In this Module, you will learn about:
+
+- Different sources of data;
+- The varying structures of data;
+- The ‘data lake’ concept and its importance in a data-driven organisation;
+- The principles and guidelines to follow when developing a data lake; and
+- The principles and techniques of data ingestion.
+
+### Resources
+
+#### 1. Sourcing and Collecting Data
+- Marr, B. (2021). Data strategy: How to profit from a world of big data, analytics and artificial intelligence. 2nd. ed. Kogan Page. https://ebookcentral.proquest.com/lib/think/detail.action?docID=6735740
+
+*Resource Overview*
+
+    Read ‘Chapter 6: Sourcing and Collecting’ (pp. 85–99). This chapter first defines different types of data based on their structure and also distinguishes between internal data and external data. It then enumerates various external sources from which useful data can be acquired to achieve an organisation’s big data goal. Finally, it highlights mechanisms to access internal data and external data.
+
+> *Status: 🕐 To-Do*
+
+#### 2. Overview of Data Lake
+- Pasupuleti, P. & Purra, B. S. (2015). Data lake development with big data. Birmingham, England: Packt. Retrieved from http://search.ebscohost.com.torrens.idm.oclc.org/login.aspx?direct=true&db=nlebk&AN=1104605&site=ehost-live&authtype=ip,sso&custid=ns251549&ebv=EB&ppid=pp_5
+
+*Resource Overview*
+
+    Once data sources have been identified, an organisation needs to build infrastructure for efficient ingestion, storage and retrieval of those data. Traditional systems of storage and retrieval are inadequate to address the challenges arising from the characteristics of big data. Thus, the concept of the ‘data lake’ has evolved to enable efficient data storage and retrieval for big data analytics.
+
+    Study ‘Chapter 1: The Need for Data Lake’ (pp. 5–13). This chapter describes how the requirements for big data analytics led to the emergence of data lakes. It also provides a definition of ‘data lake’ and outlines the key benefits of data lakes. This chapter also highlights the challenges in implementing a data lake. Finally, the author presents an overall architecture for a data lake.
+
+> *Status: 🕐 To-Do*
+
+#### 3. Data Lake—Data Intake
+- Pasupuleti, P. & Purra, B. S. (2015). Data lake development with big data. Birmingham, England: Packt. Retrieved from http://search.ebscohost.com.torrens.idm.oclc.org/login.aspx?direct=true&db=nlebk&AN=1104605&site=ehost-live&authtype=ip,sso&custid=ns251549&ebv=EB&ppid=pp_29
+
+*Resource Overview*
+
+    In the previous resource, you learned about an overall architecture for a data lake. In this reading, you will learn more about the first component of the architecture: data intake.
+
+    Study ‘Chapter 2: Data Intake’ (pp. 29–49). The intake tier consists of three zones: 1: the source system zone; 2: the transient zone; and 3: the raw zone. The chapter first describes the functions of each of the zones and how data flow from one zone to another. The chapter then presents a couple of practical data ingestion scenarios, followed by an architectural guideline on how to choose the right tools based on the case scenario. Finally, it provides an overview of the big data tools that can be used to ingest different kinds of data.
+
+> *Status: 🕐 To-Do*
+
+### Learning Activities
+
+#### 1. Hands-on Exercise—Working with MongoDB and PyMongo
+    In this Module, you learned about structured, semi-structured and unstructured data. You might be familiar with relational database management systems (RDMS), such as MySQL. For big data storage, one of the most important family of databases are the NoSQL database management systems. NoSQL databases compromise the transactional properties of RDMS (i.e., atomicity, consistency, isolation and durability for scalability). MongoDB is a widely used NoSQL database. MongoDB uses a document data model that is suitable for storing semi-structured data. In this activity, you will install MongoDB and learn how to access MongoDB databases from Jupyter Notebook using the PyMongo package.
+
+    1. Install the MongoDB Database
+    - Install MongoDB. (n.d.). Retrieved from https://docs.mongodb.com/manual/installation/
+
+    Follow the instructions in the ‘MongoDB Community Edition Installation Tutorials’ (see below) to download and install the MongoDB Community Edition.
+
+    2. Install PyMongo and PySpark
+
+    In the previous module, you installed Anaconda. In Windows, open Anaconda Prompt from the Start Menu. Alternately, in a Linux or macOS, open a terminal. In the Anaconda Prompt or Linux/macOS terminal, enter the command ‘pip install pymongo’ to install the PyMongo package’.
+
+    It is also a good time to install PySpark, which will be introduced in Module 4 and used throughout the subject to perform hands-on exercises. From the command prompt, enter the command ‘pip install pyspark’ to install the PySpark.
+
+    After installing PyMongo, open Jupyter Notebook using the command ‘jupyter notebook’.
+
+    3. Working with MongoDB and PyMongo
+    - Tutorial. (n.d.). Retrieved from https://api.mongodb.com/python/current/tutorial.html
+    - Examples. (n.d). Retrieved from https://api.mongodb.com/python/current/examples/index.html
+
+    Using the Notebook, complete the following tutorial that focuses on the basic operations of connecting with a MongoDB database and inserting and retrieving data from it using PyMongo APIs.
+
+    Following the above, try any three (3) examples of your choice from the examples in the link below. The examples in the link provide detailed overviews of how to accomplish specific tasks with MongoDB and PyMongo.
+
+    4. Discussion Forum Posts
+
+    Use the ‘MongoDB and PyMongo’ discussion forum to discuss any challenges you faced in installing and using MongoDB and PyMongo. Read through other students’ posts and help them to resolve any issues they encountered.
+
+> *Status: 🕐 To-Do*
+
+#### 2. Interactive Knowledge Check
+    Please click the link below to complete the Module 2 Knowledge Check.
+    You can attempt this as many times as you like.
+
+    https://a19788-10605213.cluster228.canvas-user-content.com/courses/19788~26571/files/19788~10605213/course%20files/htmlResources/Module%202%20Knowledge%20Check/content/index.html?download=1&inline=1&sf_verifier=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJ1c2VyX2lkIjoiMTk3ODgwMDAwMDAwMDg2Mjg3IiwiYXR0YWNobWVudF9pZCI6IjE5Nzg4MDAwMDAxMDYwNTIxMyIsInBlcm1pc3Npb24iOlsicmVhZCIsImRvd25sb2FkIl0sInJvb3RfYWNjb3VudF9pZCI6IjE5Nzg4MDAwMDAwMDAwMDAwMSIsIm9hdXRoX2hvc3QiOiJteWxlYXJuLnRvcnJlbnMuZWR1LmF1IiwicmV0dXJuX3VybCI6bnVsbCwiZmFsbGJhY2tfdXJsIjoiaHR0cHM6Ly9teWxlYXJuLnRvcnJlbnMuZWR1LmF1L2NvdXJzZXMvMjY1NzEvZmlsZXMvMTA2MDUyMTMvcHJldmlldz9mYWxsYmFja190cz0xNzgwNjgyODA3IiwianRpIjoiNGY3N2Q0MWQtNjBjNi00YjE2LWIxYWEtMDhhYTZiNjFhYzJiIiwiZXhwIjoxNzgwNjgzMTA3fQ.iBDPLC0dcgTUn1DGgr6B-H5k11c8SgatBfb82lUz9e-iJIzEY4b1Asul7l5eyjNV2yTC96-Vqb-dm102IERlYg
 
 > *Status: ✅ Done*
 
