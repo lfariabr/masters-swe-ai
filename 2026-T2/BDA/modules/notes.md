@@ -1,5 +1,5 @@
 # Big Data & Analytics (BDA601) Notes
-## Dr. Rubina Sarki
+## Dr. Chen Zhan
 
 ## Module 1 - Introduction to Big Data and Analytics
 
@@ -91,6 +91,7 @@ https://a19788-10605129.cluster228.canvas-user-content.com/courses/19788~26571/f
 ## Module 2 - Data Sourcing and Ingestion
 
 ### TLDR
+A big data project is only as good as the data it can reach, so Module 2 covers **sourcing** then **ingesting** data. **Source** by structure (**structured ~20% / semi / unstructured ~80%**) and by ownership (**internal vs external**) — the richest insight comes from blending them; create data (products, **synthetic/GANs**) when it doesn't exist. **Ingest and store** via a **data lake**: a *store-all, raw* repository using **schema-on-read** (not the warehouse's schema-on-write), built from 3 **layers** (Governance/Security, Metadata, ILM) and 3 **tiers** (Intake → Management → Consumption). The **Intake tier** flows through **Source System → Transient Landing → Raw** zones, enforcing **veracity** with dedup/integrity/schema checks, then choosing tools by use case (**Sqoop/WebHDFS** for structured, **Kafka/Flume/Kinesis/Storm** for streaming). This is the sourcing+ingestion backbone of **Assessment 1 (Design a Data Pipeline)** and **SLO b)**.
 
 ### Introduction
 Data scientists can apply advanced machine learning (ML) algorithms to extract insight only when data are available. Thus, in a big data project, the essential first step is to identify the data sources and build the infrastructure to collect, process and store the data so that the data can be efficiently retrieved by the data scientists. In this Module, you will learn about:
@@ -110,7 +111,7 @@ Data scientists can apply advanced machine learning (ML) algorithms to extract i
 
     Read ‘Chapter 6: Sourcing and Collecting’ (pp. 85–99). This chapter first defines different types of data based on their structure and also distinguishes between internal data and external data. It then enumerates various external sources from which useful data can be acquired to achieve an organisation’s big data goal. Finally, it highlights mechanisms to access internal data and external data.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module02_notes.md](module-02-data-sourcing-ingestion/module02_notes.md)*
 
 #### 2. Overview of Data Lake
 - Pasupuleti, P. & Purra, B. S. (2015). Data lake development with big data. Birmingham, England: Packt. Retrieved from http://search.ebscohost.com.torrens.idm.oclc.org/login.aspx?direct=true&db=nlebk&AN=1104605&site=ehost-live&authtype=ip,sso&custid=ns251549&ebv=EB&ppid=pp_5
@@ -121,7 +122,7 @@ Data scientists can apply advanced machine learning (ML) algorithms to extract i
 
     Study ‘Chapter 1: The Need for Data Lake’ (pp. 5–13). This chapter describes how the requirements for big data analytics led to the emergence of data lakes. It also provides a definition of ‘data lake’ and outlines the key benefits of data lakes. This chapter also highlights the challenges in implementing a data lake. Finally, the author presents an overall architecture for a data lake.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module02_notes.md](module-02-data-sourcing-ingestion/module02_notes.md)*
 
 #### 3. Data Lake—Data Intake
 - Pasupuleti, P. & Purra, B. S. (2015). Data lake development with big data. Birmingham, England: Packt. Retrieved from http://search.ebscohost.com.torrens.idm.oclc.org/login.aspx?direct=true&db=nlebk&AN=1104605&site=ehost-live&authtype=ip,sso&custid=ns251549&ebv=EB&ppid=pp_29
@@ -132,7 +133,7 @@ Data scientists can apply advanced machine learning (ML) algorithms to extract i
 
     Study ‘Chapter 2: Data Intake’ (pp. 29–49). The intake tier consists of three zones: 1: the source system zone; 2: the transient zone; and 3: the raw zone. The chapter first describes the functions of each of the zones and how data flow from one zone to another. The chapter then presents a couple of practical data ingestion scenarios, followed by an architectural guideline on how to choose the right tools based on the case scenario. Finally, it provides an overview of the big data tools that can be used to ingest different kinds of data.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module02_notes.md](module-02-data-sourcing-ingestion/module02_notes.md)*
 
 ### Learning Activities
 
