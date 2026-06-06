@@ -89,6 +89,11 @@ Please read other students’ posts and provide feedback on their ideas. Most im
 ## Module 2 - Deep Learning: Feedforward Neural Network and Backpropagation
 
 ### TLDR
+- **Feedforward neural networks** approximate functions by passing inputs forward through hidden layers to an output layer.
+- **Hidden layers and nonlinear activations** let MLPs learn representations that solve problems linear models cannot, such as XOR.
+- **Backpropagation** computes gradients by applying the chain rule backward through the computational graph; optimisation algorithms then use those gradients to update weights.
+- **Architecture choices** such as depth, width, activations, output units and loss functions affect capacity, trainability and generalisation.
+- **Key caution:** universal approximation means a network can represent broad function classes, not that it will learn the right function or generalise automatically.
 
 ### Introduction
 Neural networks form the base of deep learning. Neural networks take in data, train themselves to recognise the patterns in the input data and then predict the output using the patterns. Neural networks are modelled loosely after the human brain and are designed to recognise patterns.
@@ -118,7 +123,7 @@ One key takeaway from this Module is that feedforward networks can be seen as ef
 
     Please read Chapter 6 for this Module. This chapter is dedicated to deep feedforward networks. Pay special attention to the introduction and all the top-level sections to Section 6.5. You may choose to skim through the subsequent subsections; for example, Sub-section 6.2.2.1 or 6.3.3. The introductory sections will help you gain necessary knowledge about deep feedforward networks. Section 6.5 will explain another key concept for this Module: backpropagation.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module02_notes.md](module-02-feedforward-and-backpropagation/module02_notes.md)*
 
 #### 2. Introduction to Feedforward Neural Networks
 - Reed, R. D. & Marks, R. J. (1999). Neural smithing: Supervised learning in feedforward artificial neural networks. Cambridge, MA: MIT Press. Retrieved from http://search.ebscohost.com.torrens.idm.oclc.org/login.aspx?direct=true&db=nlebk&AN=9366&site=ehost-live&authtype=ip,sso&custid=ns251549&ebv=EB&ppid=pp_31
@@ -129,7 +134,7 @@ One key takeaway from this Module is that feedforward networks can be seen as ef
 
     Please read Chapter 4 for this Module. This chapter, entitled ‘MLP Representational Capabilities’, provides an easy-to-follow step-by-step guide for a basic neural network structure and also highlights some important points that are required to form a suitable neural network. It presents a practical overview of different aspects of the MLP methodology.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module02_notes.md](module-02-feedforward-and-backpropagation/module02_notes.md)*
 
 #### 3. Neural Networks and Convolutional Neural Networks Essential Training - Neurons and Artificial Neurons
 - Reference:Fernandes, J. (2018, 4 May). Neurons and artificial neurons. In Neural networks and convolutional neural networks essential training [Video file]. Retrieved from https://www.linkedin.com/learning/neural-networks-and-convolutional-neural-networks-essential-training/neurons-and-artificial-neurons?u=56744473
@@ -138,7 +143,7 @@ One key takeaway from this Module is that feedforward networks can be seen as ef
 
     Neural Networks and Convolutional Neural Networks Essential Training - Neurons and Artificial Neurons
 
-> *Status: 🕐 To-Do*
+> *Status: 🔥 WIP — needs manual listen/authenticated LinkedIn access*
 
 #### 4. A Beginner's Guide to Neural Networks and Deep Learning
 - Reference:Pathmind. (n.d.). A beginner’s guide to neural networks and deep learning. Retrieved from https://pathmind.com/wiki/neural-network.
@@ -148,7 +153,7 @@ One key takeaway from this Module is that feedforward networks can be seen as ef
     This is a great beginner’s guide to important topics in AI, machine learning (ML) and deep learning.
     It will introduce you to all the necessary basic concepts of the neural networks. You will also find some good examples along with related discussions.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module02_notes.md](module-02-feedforward-and-backpropagation/module02_notes.md)*
 
 ### Learning Activities
 
