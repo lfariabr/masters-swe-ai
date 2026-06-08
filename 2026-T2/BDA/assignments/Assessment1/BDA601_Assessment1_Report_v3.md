@@ -41,7 +41,7 @@ A data-driven strategy must start from the business problem, not the technology:
 - **Valence** - the value unlock: the recommender and product-association use cases depend on *connecting* customers to sessions, orders, products, and campaigns. Raising valence through identity resolution is where most analytical value is created.
 - **Value** - the anchor: every source and component below is justified only by its contribution to campaigns, recommendations, association rules, or conversion reporting.
 
-In short, Variety, Veracity, and Valence - not raw Volume - dominate Big Retail's design.
+In short, Variety, Veracity, and Valence - not raw Volume - dominate Big Retail's design. Appendix D maps each V to its design response.
 
 ## 3. Potential data sources
 
@@ -267,6 +267,19 @@ flowchart TB
     G4 --> R4["Management reporting"]
 ```
 
+## Appendix D - The six V's mapped to Big Retail
+
+This table cross-references the evaluation in §2: each V is mapped to its Big Retail interpretation, the concrete design response, and the severity that drives the design.
+
+| V | What it means for Big Retail | Design response | Severity here |
+|---|---|---|---|
+| Volume | 100,000+ monthly visitors plus transactions, emails, catalogue, and events | S3 object storage and distributed Spark processing | Moderate - not the binding constraint |
+| Velocity | Clickstream and cart events are continuous; sales, CRM, and catalogue are batch | Streaming (Kinesis/Kafka) for events plus batch/CDC for databases | Selective |
+| Variety | Relational, JSON, API, and free-text data must coexist | Lakehouse zones store structured, semi-structured, and unstructured data | Primary |
+| Veracity | Duplicate customers, guest-checkout gaps, and bot traffic | Data-quality rules, deduplication, identity resolution, and quarantine | Primary |
+| Valence | Customers link to sessions, orders, products, and campaigns | Identity graph plus customer and product master tables | Primary (value unlock) |
+| Value | Every component must serve a business outcome | Gold marts and serving features tied to campaigns, recommendations, association, and conversion | Anchor |
+
 ---
 
 # Statement of Acknowledgement
@@ -304,27 +317,27 @@ I confirm that the use of these tools has been in accordance with the Torrens Un
 | Six V's **evaluated** (SLO a) | - | ✅ §2 |
 | Security/privacy → OAIC APPs (SLO b) | - | ✅ §5.4 |
 | APA citations ↔ references reconciled | - | ✅ all 7 refs cited; AWS n.d. order fixed; Rutherford date corrected |
-| Body word count 1,350–1,650 | - | ✅ ~1,460 (prose; tables/figures/appendices/acknowledgement excluded) |
+| Body word count 1,350–1,650 | - | ✅ 1,478 (prose; tables/figures/appendices/acknowledgement excluded) |
 
 ## Word budget (body only; tables/figures/appendices/acknowledgement excluded)
 
 | Section | Target | Actual |
 |---|---:|---:|
-| §1 Executive summary | 150–180 | 142 |
-| §2 Six V's | 220–260 | 246 |
+| §1 Executive summary | 150–180 | 144 |
+| §2 Six V's | 220–270 | 255 |
 | §3 Data sources (prose) | 250–300 | 251 |
-| §4 Integration (prose) | 280–320 | 332 |
+| §4 Integration (prose) | 300–340 | 337 |
 | §5 Data lake (prose) | 300–340 | 320 |
-| §6 Assumptions & conclusion | 120–170 | 169 |
-| **Body total** | **≈ 1,460** | **~1,460** |
+| §6 Assumptions & conclusion | 120–180 | 171 |
+| **Body total** | **≈ 1,480** | **1,478** |
 
 > If the marker counts table text toward the limit, move Table 1 and Table 3 to
-> an appendix and reference them - the prose then stands on its own at ~1,460.
+> an appendix and reference them - the prose then stands on its own at ~1,480.
 
 ## Layout
 
 - **Body:** Figure 1 (the required schematic) sits in §4, where it is cited.
-- **Appendices:** A = Glossary; B = Figure B1 (integration workflow); C = Figure C1 (curated → business value). Each appendix is referenced from the body so none is orphaned.
+- **Appendices:** A = Glossary; B = Figure B1 (integration workflow); C = Figure C1 (curated → business value); D = the six V's mapped to Big Retail. Each appendix is referenced from the body so none is orphaned.
 - No standalone "Figures" section.
 
 ## Changes from v2 → v3
@@ -335,6 +348,7 @@ I confirm that the use of these tools has been in accordance with the Torrens Un
 4. Added **Statement of Acknowledgement** (Claude Opus 4.8 only) - excluded from word count.
 5. Restructured layout: Figure 1 moved into the body (§4); Figures 2-3 relocated to **Appendix B-C**; added **Appendix A glossary**; removed the standalone "Figures" section.
 6. Replaced em-dashes with hyphens throughout.
+7. Added **Appendix D** - the six V's mapped to Big Retail (cross-references §2).
 
 ## Final-submission tasks
 
