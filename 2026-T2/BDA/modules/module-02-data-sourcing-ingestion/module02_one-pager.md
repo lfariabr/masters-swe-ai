@@ -29,18 +29,36 @@
 
 - 🔴 **"Warehouse = schema-on-write · Lake = schema-on-read."** ← memorise verbatim.
 - 🔵 Lake **complements** the warehouse (≠ replaces, ≠ "just Hadoop"). No governance → lake becomes a **swamp**.
+- 🔵 **Why lakes exist (Traditional → Big Data shift):** monolithic→**distributed** · RDBMS→**NoSQL/MPP/CEP** · structured→**+unstructured** · regression→**deep learning/NLP** · reports→**heatmaps/viz**.
 
 ## 🖤 Zone 3 — Lake architecture (Pasupuleti & Purra)
-**3 cross-cutting LAYERS** · **3 sequential TIERS**
-- 🔵 Layers: **Governance/Security** · **Metadata = "the HEART"** (search metadata *before* data) · **ILM** (auto archive/down-tier/purge as value decays).
-- 🖤 Tiers + zones flow:
+**3 cross-cutting LAYERS** · **3 sequential TIERS** — sketch this flow:
+
+```mermaid
+flowchart LR
+    subgraph INTAKE["INTAKE tier"]
+        S[Source System] --> T["Transient<br/>validate = veracity gate"] --> R[Raw]
+    end
+    subgraph MGMT["MANAGEMENT tier"]
+        I[Integration] --> E[Enrichment] --> H[Data Hub]
+    end
+    subgraph CONS["CONSUMPTION tier"]
+        D[Data Discovery]
+        P[Data Provisioning]
+    end
+    R --> I
+    H --> D & P
+    LAYERS["Cross-cutting layers:<br/>Governance/Security · Metadata heart · ILM"]
+    LAYERS -.governs.-> INTAKE & MGMT & CONS
+    style T fill:#fff3b0,stroke:#333,stroke-width:2px
+    style R fill:#c7f0c2,stroke:#333,stroke-width:2px
+    style LAYERS fill:#e6e6fa,stroke:#333
 ```
-INTAKE                MANAGEMENT              CONSUMPTION
-Source → Transient → Raw  →  Integration → Enrichment → Data Hub  →  Discovery + Provisioning
-         (validate!)
-```
+
+- 🔵 Layers (cross-cut all tiers): **Governance/Security** (Kerberos, lineage) · **Metadata = "the HEART"** (search metadata *before* data) · **ILM** (auto archive/down-tier/purge as value decays).
+- 🔵 **Lake = NoSQL engines:** graph (**Neo4J**) · document (**MongoDB** ← Activity 1) · columnar (**HBase**) · key-value (**Riak**). Data Hub also keeps Oracle/MS SQL.
 - 🔴 **Medallion ↔ textbook map:** Bronze ≈ **Raw** · Silver ≈ **Management** · Gold/Serving ≈ **Consumption**.
-- 🔴 **Transient Landing Zone = the VERACITY gate** (the zone my A1 v2 skips → it validates *after* Bronze instead).
+- 🔴 **Transient = the VERACITY gate.** My A1 v2 trades the *synchronous* gate for **land-then-validate** (validate *after* Bronze) — legit for streaming, **not** a veracity hole (see Zone 5).
 
 ## 🖤 Zone 4 — Ingestion mechanics
 - 🔵 **PULL** (zone polls source) vs **PUSH** (source sends). **FULL load** (snapshot) vs **INCREMENTAL** (only changes).
@@ -58,7 +76,7 @@ Source → Transient → Raw  →  Integration → Enrichment → Data Hub  → 
 - 🔴 **"watermark" = TWO meanings:**
   - 📒 *Book (Raw zone):* per-record ID for **lineage/provenance**.
   - ⏱️ *Streaming (v2):* **event-time threshold** — "wait for stragglers up to X, then close the window" (handles late/out-of-order data).
-- 🔴 **Streaming forces land-then-validate (ELT):** can't pause a firehose at a Transient gate → land raw in Bronze, validate after. *That's why v2 validates post-Bronze and it's correct.*
+- 🔴 **Streaming forces land-then-validate (ELT):** can't pause a firehose at a Transient gate → land raw in Bronze, validate after. *Same trade-off as Zone 3: v2 swaps the synchronous gate for post-Bronze validation — correct for a firehose.*
 
 ## 🔴 Assessment 1 hooks (bottom red strip)
 > **A1 = Design a Data Pipeline** · 1500w · 30% · due **28/06/2026** · SLOs **a) b) e)**.
