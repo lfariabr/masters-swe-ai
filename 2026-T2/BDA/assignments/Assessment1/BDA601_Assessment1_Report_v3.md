@@ -6,7 +6,7 @@
 |---|---|
 | Subject | BDA601 - Big Data and Analytics |
 | Assessment | Assessment 1 - Design Data Pipeline (Big Retail case) |
-| Length | 1,500 words (±10%); tables, figures, and the AI-acknowledgement excluded from the count |
+| Length | 1,500 words (±10%); tables, figures, appendices, and the AI-acknowledgement excluded from the count |
 | Weight | 30% |
 | Due | 11.55 pm AEST, Sunday end of Module 4 - 28/06/2026 |
 | SLOs assessed | a) evaluate the V's · b) collection/storage + security & privacy · e) communicate findings |
@@ -28,7 +28,7 @@
 
 ## 1. Executive summary
 
-Big Retail, an Adelaide online retailer with more than 100,000 monthly website visitors, has lost sales and conversion despite holding a cost advantage (Torrens University Australia, 2024). The root cause is structural rather than commercial: a static website serves identical content to every visitor, while customer, sales, and marketing data sit in separate departmental databases that cannot be combined to personalise the experience. This report designs the data pipeline that must precede any analytics work. It identifies the internal and external data sources aligned to Big Retail's data-driven goals (targeted campaigns, a recommender system, and product association), articulates the integration challenges that must be resolved before storage, and specifies a governed lakehouse-style data lake on AWS - with open-source equivalents - that stores structured, semi-structured, and unstructured data and serves it efficiently to both managers and data scientists.
+Big Retail, an Adelaide online retailer with more than 100,000 monthly website visitors, has lost sales and conversion despite holding a cost advantage (Torrens University Australia, 2024). The root cause is structural rather than commercial: a static website serves identical content to every visitor, while customer, sales, and marketing data sit in separate departmental databases that cannot be combined to personalise the experience. This report designs the data pipeline that must precede any analytics work. It identifies the internal and external data sources aligned to Big Retail's data-driven goals (targeted campaigns, a recommender system, and product association), articulates the integration challenges that must be resolved before storage, and specifies a governed lakehouse-style data lake on AWS - with open-source equivalents - that stores structured, semi-structured, and unstructured data and serves it efficiently to both managers and data scientists. Key technical terms used throughout are defined in Appendix A.
 
 ## 2. Data strategy and the six V's for Big Retail
 
@@ -83,56 +83,7 @@ The hard problem is not storage; it is joining fragmented customer, product, cam
 
 The two challenges the rubric names deserve fuller treatment. **Schema alignment** fails silently rather than loudly: the sales DB may call a key `cust_id` while marketing calls it `customer_ref` and the catalogue keys products by an internal `item_code` that the promotions feed does not share. Resolving this means agreeing canonical entities (`customer`, `product`, `order`, `campaign`, `event`), publishing them in a versioned schema registry, and validating each incoming feed against a data contract so a renamed or retyped field is rejected at ingestion rather than corrupting a join downstream. **Duplicate customers** are the costlier problem because the case explicitly allows the same person to exist in both the sales and marketing databases and to move between guest checkout, a new account, and an existing login. Resolution is staged: a deterministic pass matches on hashed email or account ID first, and only unmatched records fall through to a cautious fuzzy pass on name, address, and phone, every match carrying a confidence score and full source lineage so a merge can be audited or reversed.
 
-Beyond those two, two resolutions carry real trade-offs worth stating. **Identity matching** must favour precision over recall: aggressive fuzzy matching merges distinct customers, corrupting both recommendations and privacy boundaries, so low-confidence matches are flagged rather than merged. **Batch-vs-streaming** is not a free choice either - streaming everything adds cost and operational complexity for data (sales, catalogue) that changes slowly, so streaming is reserved for clickstream where latency genuinely matters. The end-to-end flow is shown in **Figure 1**.
-
-## 5. Data lake design: storage, retrieval, security
-
-### 5.1 Architecture
-
-The recommended design is a **lakehouse on cloud object storage**, because a data lake can hold structured and unstructured data at scale and expose it for dashboards, batch processing, and machine learning (Amazon Web Services, n.d.-b). AWS is proposed as the primary stack - Big Retail's team already meets the CCF501 cloud prerequisite - with open-source equivalents listed so the design is portable and not locked in.
-
-**Table 3. Storage and retrieval stack**
-
-| Layer | AWS (primary) | Open-source equivalent | Role |
-|---|---|---|---|
-| Batch ingestion | Glue / DMS | Airbyte, Debezium | Import sales, CRM, catalogue |
-| Streaming ingestion | Kinesis | Apache Kafka | Clickstream, cart, checkout events |
-| Raw storage | Amazon S3 | MinIO / HDFS | Durable object storage, all raw files |
-| Processing | Glue / EMR Spark | Apache Spark | Clean, join, aggregate, feature build |
-| Table format | Iceberg / Delta | Iceberg / Delta | ACID tables, schema evolution, time travel |
-| Catalogue | Glue Data Catalog | Hive Metastore, OpenMetadata | Searchable schemas, ownership, lineage |
-| Governance | Lake Formation | Apache Ranger | Fine-grained access, audit |
-| Analytical query | Athena / Redshift Spectrum | Trino / Presto | SQL for dashboards and analysts |
-| Low-latency serving | DynamoDB / OpenSearch | Cassandra / Redis / OpenSearch | Fast recommendation & product lookup |
-
-The AWS-vs-open-source choice is a genuine trade-off: managed services cut operational burden and speed delivery but add cost and vendor lock-in, whereas the open-source stack lowers licensing cost at the price of in-house operations. Open table formats (Iceberg/Delta) and S3-compatible storage keep migration feasible either way.
-
-### 5.2 Lake zones
-
-Data moves through three governed zones plus a serving tier, which is what lets the lake hold every structure type while still serving fast queries:
-
-| Zone | Purpose | Examples | Format |
-|---|---|---|---|
-| Bronze (raw) | Immutable source data for audit/replay | DB extracts, raw clickstream JSON, review text | CSV, JSON, Avro, text |
-| Silver (cleansed) | Standardised, deduplicated, privacy-tagged | Master customer/product, cleaned orders, standardised events | Partitioned Parquet |
-| Gold (curated) | Business-ready marts and features | Customer 360, product-affinity matrix, campaign performance | Iceberg / Delta |
-| Serving | Fast retrieval for live use | Top-N recommendations, product search index | Key-value / search index |
-
-### 5.3 Retrieval
-
-Retrieval is split to satisfy both audiences and both rubric retrieval requirements. **Efficient search** for managers and data scientists uses SQL engines (Athena, Redshift Spectrum, or Trino) over Parquet/Iceberg tables partitioned by date, source, and category (Amazon Web Services, n.d.-a). **Low-latency retrieval** for the live site is served from precomputed gold outputs pushed into DynamoDB/Redis (e.g. `customer_id → top_product_ids`) and OpenSearch for product/review search - so the website never queries raw lake files during checkout, while the lake stays the governed source of truth.
-
-### 5.4 Security and privacy (SLO b)
-
-Because accounts, campaign data, and behavioural logs contain personal information, collection and storage follow data-protection best practice aligned to the **Australian Privacy Principles** (Office of the Australian Information Commissioner, n.d.): **minimise** to only the fields each use case needs; **encrypt** in transit and at rest; enforce **role-based access** (managers see aggregates, scientists see de-identified analytical sets, engineers administer pipelines); **hash/mask** direct identifiers and separate identity tables from behaviour tables; store **consent** state as first-class fields; and **catalogue** every dataset with owner, lineage, and retention period for auditability.
-
-## 6. Assumptions, limitations, and conclusion
-
-The design rests on assumptions to confirm with Big Retail: that the IT team can export or emit clickstream events; that guests can be linked via hashed email, device/session ID, or later sign-up; that sales and marketing share overlapping (if inconsistent) customer fields; and that external competitor/social data is collected only through lawful APIs or compliant providers. Its limitations are honest ones - identity resolution will never be perfect for guest traffic, external feeds carry variable veracity, and the lakehouse adds operational cost that only pays off once the recommender and campaign use cases are live. Subject to those caveats, the proposed pipeline ingests Big Retail's fragmented internal and external sources, resolves schema and duplicate-identity challenges before storage, and lands data in a governed lakehouse that stores structured, semi-structured, and unstructured data while serving both analytical and low-latency retrieval. Crucially, every component traces back to business value: targeted campaigns, personalised recommendations, product-association insight, and recovered conversion.
-
----
-
-# Figures
+Beyond those two, two resolutions carry real trade-offs worth stating. **Identity matching** must favour precision over recall: aggressive fuzzy matching merges distinct customers, corrupting both recommendations and privacy boundaries, so low-confidence matches are flagged rather than merged. **Batch-vs-streaming** is not a free choice either - streaming everything adds cost and operational complexity for data (sales, catalogue) that changes slowly, so streaming is reserved for clickstream where latency genuinely matters. The end-to-end flow is shown in **Figure 1**; Appendix B (Figure B1) expands the integration stage into its step-by-step validation and resolution sequence.
 
 **Figure 1. End-to-end Big Retail data pipeline and lakehouse (primary schematic).**
 
@@ -193,38 +144,50 @@ flowchart LR
     G --> U4
 ```
 
-**Figure 2. Integration workflow (source profiling → curated).**
+## 5. Data lake design: storage, retrieval, security
 
-```mermaid
-flowchart TD
-    A["Source profiling"] --> B["Canonical schema mapping"]
-    B --> C["Validation rules"]
-    C --> D{"Valid record?"}
-    D -- "No" --> E["Quarantine & issue log"]
-    D -- "Yes" --> F["Standardise formats"]
-    F --> G["Deduplicate entities"]
-    G --> H["Resolve customer & product identity"]
-    H --> I["Apply privacy tags & consent"]
-    I --> J["Write Silver tables"]
-    J --> K["Curate Gold datasets"]
-```
+### 5.1 Architecture
 
-**Figure 3. Curated outputs to business value.**
+The recommended design is a **lakehouse on cloud object storage**, because a data lake can hold structured and unstructured data at scale and expose it for dashboards, batch processing, and machine learning (Amazon Web Services, n.d.-b). AWS is proposed as the primary stack - Big Retail's team already meets the CCF501 cloud prerequisite - with open-source equivalents listed so the design is portable and not locked in.
 
-```mermaid
-flowchart TB
-    C["Silver: cleansed data"] --> G1["Gold: customer 360"]
-    C --> G2["Gold: product affinity"]
-    C --> G3["Gold: campaign performance"]
-    C --> G4["Gold: conversion funnel"]
-    G1 --> R1["Targeted campaigns"]
-    G2 --> R2["Recommender system"]
-    G2 --> R3["Association rules"]
-    G3 --> R1
-    G4 --> R4["Management reporting"]
-```
+**Table 3. Storage and retrieval stack**
 
-> Note: if submitting as DOCX/PDF, export the Mermaid diagrams to PNG/SVG.
+| Layer | AWS (primary) | Open-source equivalent | Role |
+|---|---|---|---|
+| Batch ingestion | Glue / DMS | Airbyte, Debezium | Import sales, CRM, catalogue |
+| Streaming ingestion | Kinesis | Apache Kafka | Clickstream, cart, checkout events |
+| Raw storage | Amazon S3 | MinIO / HDFS | Durable object storage, all raw files |
+| Processing | Glue / EMR Spark | Apache Spark | Clean, join, aggregate, feature build |
+| Table format | Iceberg / Delta | Iceberg / Delta | ACID tables, schema evolution, time travel |
+| Catalogue | Glue Data Catalog | Hive Metastore, OpenMetadata | Searchable schemas, ownership, lineage |
+| Governance | Lake Formation | Apache Ranger | Fine-grained access, audit |
+| Analytical query | Athena / Redshift Spectrum | Trino / Presto | SQL for dashboards and analysts |
+| Low-latency serving | DynamoDB / OpenSearch | Cassandra / Redis / OpenSearch | Fast recommendation & product lookup |
+
+The AWS-vs-open-source choice is a genuine trade-off: managed services cut operational burden and speed delivery but add cost and vendor lock-in, whereas the open-source stack lowers licensing cost at the price of in-house operations. Open table formats (Iceberg/Delta) and S3-compatible storage keep migration feasible either way.
+
+### 5.2 Lake zones
+
+Data moves through three governed zones plus a serving tier, which is what lets the lake hold every structure type while still serving fast queries:
+
+| Zone | Purpose | Examples | Format |
+|---|---|---|---|
+| Bronze (raw) | Immutable source data for audit/replay | DB extracts, raw clickstream JSON, review text | CSV, JSON, Avro, text |
+| Silver (cleansed) | Standardised, deduplicated, privacy-tagged | Master customer/product, cleaned orders, standardised events | Partitioned Parquet |
+| Gold (curated) | Business-ready marts and features | Customer 360, product-affinity matrix, campaign performance | Iceberg / Delta |
+| Serving | Fast retrieval for live use | Top-N recommendations, product search index | Key-value / search index |
+
+### 5.3 Retrieval
+
+Retrieval is split to satisfy both audiences and both rubric retrieval requirements. **Efficient search** for managers and data scientists uses SQL engines (Athena, Redshift Spectrum, or Trino) over Parquet/Iceberg tables partitioned by date, source, and category (Amazon Web Services, n.d.-a). **Low-latency retrieval** for the live site is served from precomputed gold outputs pushed into DynamoDB/Redis (e.g. `customer_id → top_product_ids`) and OpenSearch for product/review search - so the website never queries raw lake files during checkout, while the lake stays the governed source of truth.
+
+### 5.4 Security and privacy (SLO b)
+
+Because accounts, campaign data, and behavioural logs contain personal information, collection and storage follow data-protection best practice aligned to the **Australian Privacy Principles** (Office of the Australian Information Commissioner, n.d.): **minimise** to only the fields each use case needs; **encrypt** in transit and at rest; enforce **role-based access** (managers see aggregates, scientists see de-identified analytical sets, engineers administer pipelines); **hash/mask** direct identifiers and separate identity tables from behaviour tables; store **consent** state as first-class fields; and **catalogue** every dataset with owner, lineage, and retention period for auditability.
+
+## 6. Assumptions, limitations, and conclusion
+
+The design rests on assumptions to confirm with Big Retail: that the IT team can export or emit clickstream events; that guests can be linked via hashed email, device/session ID, or later sign-up; that sales and marketing share overlapping (if inconsistent) customer fields; and that external competitor/social data is collected only through lawful APIs or compliant providers. Its limitations are honest ones - identity resolution will never be perfect for guest traffic, external feeds carry variable veracity, and the lakehouse adds operational cost that only pays off once the recommender and campaign use cases are live. Subject to those caveats, the proposed pipeline ingests Big Retail's fragmented internal and external sources, resolves schema and duplicate-identity challenges before storage, and lands data in a governed lakehouse that stores structured, semi-structured, and unstructured data while serving both analytical and low-latency retrieval. Crucially, every component traces back to business value: targeted campaigns, personalised recommendations, product-association insight, and recovered conversion - Appendix C (Figure C1) maps each curated dataset to the business outcome it serves.
 
 ---
 
@@ -243,6 +206,66 @@ Office of the Australian Information Commissioner. (n.d.). *Australian Privacy P
 Rutherford, A. (2017, February 21). *What is big data?* [Video]. YouTube. https://www.youtube.com/watch?v=91tncL3gA6I
 
 Torrens University Australia. (2024). *BDA601 Assessment 1 brief: Design data pipeline*.
+
+---
+
+# Appendices
+
+## Appendix A - Glossary
+
+| Term | Definition |
+|---|---|
+| Data lake | A store-all repository that holds raw data of any structure until it is needed, applying structure on read. |
+| Lakehouse | An architecture that adds warehouse-style ACID tables and SQL querying on top of a data lake's low-cost object storage. |
+| Schema-on-read | Structure is applied when data is queried, not when it is stored (contrast schema-on-write in a warehouse). |
+| Medallion (Bronze / Silver / Gold) | Layered lake zones: raw landing (Bronze), cleansed and standardised (Silver), business-ready marts (Gold). |
+| ELT (land-then-validate) | Load raw data first, then transform and validate it inside the lake (contrast ETL). |
+| CDC (Change Data Capture) | Ingesting only the records that changed since the last load, instead of re-copying whole tables. |
+| Identity resolution | Linking records that refer to the same customer across sources, despite inconsistent or missing IDs. |
+| Event-time watermark | A threshold defining how late a streaming event may arrive before its processing window closes. |
+| PII | Personally identifiable information (names, emails, addresses) requiring privacy controls. |
+| OAIC APPs | The Australian Privacy Principles, the national baseline for handling personal information. |
+| Lineage | A record of where a dataset came from and how it was transformed, used for audit and trust. |
+| Parquet / Iceberg / Delta | Columnar file and ACID table formats used for efficient analytical storage in the lake. |
+
+## Appendix B - Integration workflow
+
+Figure B1 expands the "Integration & quality" stage of Figure 1 into its step-by-step validation and entity-resolution sequence, including the quarantine path for records that fail validation.
+
+**Figure B1. Integration workflow (source profiling → curated).**
+
+```mermaid
+flowchart TD
+    A["Source profiling"] --> B["Canonical schema mapping"]
+    B --> C["Validation rules"]
+    C --> D{"Valid record?"}
+    D -- "No" --> E["Quarantine & issue log"]
+    D -- "Yes" --> F["Standardise formats"]
+    F --> G["Deduplicate entities"]
+    G --> H["Resolve customer & product identity"]
+    H --> I["Apply privacy tags & consent"]
+    I --> J["Write Silver tables"]
+    J --> K["Curate Gold datasets"]
+```
+
+## Appendix C - Curated datasets and business value
+
+Figure C1 traces how curated (Gold) datasets map to Big Retail's target business outcomes, showing the line of sight from cleansed data to campaigns, recommendations, association rules, and management reporting.
+
+**Figure C1. Curated outputs to business value.**
+
+```mermaid
+flowchart TB
+    C["Silver: cleansed data"] --> G1["Gold: customer 360"]
+    C --> G2["Gold: product affinity"]
+    C --> G3["Gold: campaign performance"]
+    C --> G4["Gold: conversion funnel"]
+    G1 --> R1["Targeted campaigns"]
+    G2 --> R2["Recommender system"]
+    G2 --> R3["Association rules"]
+    G3 --> R1
+    G4 --> R4["Management reporting"]
+```
 
 ---
 
@@ -277,37 +300,44 @@ I confirm that the use of these tools has been in accordance with the Torrens Un
 | Lake stores semi/unstructured data | 30% | ✅ §5.1–5.2 |
 | Efficient search | 30% | ✅ §5.3 (Athena/Trino) |
 | Low-latency retrieval | 30% | ✅ §5.3 (DynamoDB/Redis/OpenSearch) |
-| Schematic: sources → integration → lake → interactions | 15% | ✅ Figure 1 |
+| Schematic: sources → integration → lake → interactions | 15% | ✅ Figure 1 (in §4 body) |
 | Six V's **evaluated** (SLO a) | - | ✅ §2 |
 | Security/privacy → OAIC APPs (SLO b) | - | ✅ §5.4 |
 | APA citations ↔ references reconciled | - | ✅ all 7 refs cited; AWS n.d. order fixed; Rutherford date corrected |
-| Body word count 1,350–1,650 | - | ✅ ~1,430 (prose; tables/figures/acknowledgement excluded) |
+| Body word count 1,350–1,650 | - | ✅ ~1,460 (prose; tables/figures/appendices/acknowledgement excluded) |
 
-## Word budget (body only; tables/figures/acknowledgement excluded)
+## Word budget (body only; tables/figures/appendices/acknowledgement excluded)
 
 | Section | Target | Actual |
 |---|---:|---:|
-| §1 Executive summary | 150–180 | 135 |
+| §1 Executive summary | 150–180 | 142 |
 | §2 Six V's | 220–260 | 246 |
 | §3 Data sources (prose) | 250–300 | 251 |
-| §4 Integration (prose) | 280–320 | 321 |
+| §4 Integration (prose) | 280–320 | 332 |
 | §5 Data lake (prose) | 300–340 | 320 |
-| §6 Assumptions & conclusion | 120–160 | 157 |
-| **Body total** | **≈ 1,430** | **~1,430** |
+| §6 Assumptions & conclusion | 120–170 | 169 |
+| **Body total** | **≈ 1,460** | **~1,460** |
 
 > If the marker counts table text toward the limit, move Table 1 and Table 3 to
-> an appendix and reference them - the prose then stands on its own at ~1,430.
+> an appendix and reference them - the prose then stands on its own at ~1,460.
+
+## Layout
+
+- **Body:** Figure 1 (the required schematic) sits in §4, where it is cited.
+- **Appendices:** A = Glossary; B = Figure B1 (integration workflow); C = Figure C1 (curated → business value). Each appendix is referenced from the body so none is orphaned.
+- No standalone "Figures" section.
 
 ## Changes from v2 → v3
 
 1. Rutherford (2017) reference: upload date corrected to **21 February 2017** (video verified - Alasdair Rutherford, Think Data network).
 2. AWS `n.d.` entries reordered alphabetically by title: *Amazon Athena documentation* = **n.d.-a**, *What is a data lake?* = **n.d.-b**; in-text cites in §5.1 and §5.3 updated to match.
-3. Word-count self-report corrected to **~1,430**.
-4. Added **Statement of Acknowledgement** (AI usage) - excluded from word count.
+3. Word-count self-report corrected.
+4. Added **Statement of Acknowledgement** (Claude Opus 4.8 only) - excluded from word count.
+5. Restructured layout: Figure 1 moved into the body (§4); Figures 2-3 relocated to **Appendix B-C**; added **Appendix A glossary**; removed the standalone "Figures" section.
+6. Replaced em-dashes with hyphens throughout.
 
 ## Final-submission tasks
 
 1. Confirm the four §6 assumptions with the lecturer/case facts.
-2. Confirm the AI-acknowledgement tool list/model matches what you actually used (add ChatGPT etc. if applicable).
-3. Export Mermaid figures to PNG/SVG if the LMS requires DOCX/PDF.
-4. Final APA + grammar pass; complete the academic-integrity declaration.
+2. Export Mermaid figures (Figure 1, B1, C1) to PNG/SVG if the LMS requires DOCX/PDF.
+3. Final APA + grammar pass; complete the academic-integrity declaration.
