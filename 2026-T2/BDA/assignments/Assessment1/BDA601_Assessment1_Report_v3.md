@@ -36,8 +36,8 @@ A data-driven strategy must start from the business problem, not the technology:
 
 - **Volume** - moderate but sufficient: 100,000+ monthly visitors plus transactions, emails, and catalogue data give enough behavioural signal for pattern detection. Volume justifies object storage and distributed (Spark) processing but is not the binding constraint.
 - **Velocity** - selectively important: only clickstream and cart events are continuous; sales, CRM, and catalogue data are batch. The design therefore needs streaming **and** batch ingestion, not streaming everywhere.
-- **Variety** - a primary challenge: relational transactions, JSON clickstream, API feeds, and free-text reviews must coexist, which is precisely what a data lake (not a warehouse) is built to hold.
-- **Veracity** - a primary challenge: duplicate customers across sales and marketing systems, guest-checkout gaps, and bot traffic threaten every downstream model, so data quality is treated as a first-class pipeline stage.
+- **Variety** - the defining challenge: relational transactions, JSON clickstream, API feeds, and free-text reviews must coexist, which is precisely what a data lake (not a warehouse) is built to hold.
+- **Veracity** - the costliest risk: duplicate customers across sales and marketing systems, guest-checkout gaps, and bot traffic threaten every downstream model, so data quality is treated as a first-class pipeline stage.
 - **Valence** - the value unlock: the recommender and product-association use cases depend on *connecting* customers to sessions, orders, products, and campaigns. Raising valence through identity resolution is where most analytical value is created.
 - **Value** - the anchor: every source and component below is justified only by its contribution to campaigns, recommendations, association rules, or conversion reporting.
 
@@ -168,7 +168,9 @@ The AWS-vs-open-source choice is a genuine trade-off: managed services cut opera
 
 ### 5.2 Lake zones
 
-Data moves through three governed zones plus a serving tier, which is what lets the lake hold every structure type while still serving fast queries:
+Data moves through three governed zones plus a serving tier, which is what lets the lake hold every structure type while still serving fast queries.
+
+**Table 4. Lakehouse zones (raw to curated, plus a serving tier).**
 
 | Zone | Purpose | Examples | Format |
 |---|---|---|---|
@@ -212,6 +214,8 @@ Torrens University Australia. (2024). *BDA601 Assessment 1 brief: Design data pi
 # Appendices
 
 ## Appendix A - Glossary
+
+**Table A1. Glossary of key terms.**
 
 | Term | Definition |
 |---|---|
@@ -270,6 +274,8 @@ flowchart TB
 ## Appendix D - The six V's mapped to Big Retail
 
 This table cross-references the evaluation in §2: each V is mapped to its Big Retail interpretation, the concrete design response, and the severity that drives the design.
+
+**Table D1. Mapping the six V's to Big Retail.**
 
 | V | What it means for Big Retail | Design response | Severity here |
 |---|---|---|---|
