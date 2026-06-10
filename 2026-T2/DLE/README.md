@@ -41,7 +41,7 @@ Dr. Tayab Din Memon
 > Tip: ✅ = Done, 🔥 = WIP, 🕐 = Not started, 🔌 = Discontinued
 
 - [X] Module 1 ✅ - Introduction to Deep Learning & Neural Network
-- [ ] Module 2 🔥 - Deep Learning: Feedforward Neural Network and Backpropagation
+- [X] Module 2 ✅ - Deep Learning: Feedforward Neural Network and Backpropagation
 - [ ] Module 3 🕐 - Deep Learning Application: Natural Language Processing, Speech Recognition and Computer Vision
 - [ ] Module 4 🕐 - Regularization
 - [ ] Module 5 🕐 - Convolutional Neural Networks
