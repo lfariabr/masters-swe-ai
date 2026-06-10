@@ -220,6 +220,115 @@ When complete, share your complete output to the discussion forum along with a p
 
 > *Status: 🔥 Draft ready (needs notebook run + post) — see [module02_activities.md](module-02-managing-ml-projects/module02_activities.md#activity-2--understanding-crisp-dm-using-video-game-sales-data-mishra-2019)*
 
+#### 3. CRISP-DM Implementation for Bank Marketing Campaign Data
+- Reference: Moro, S., Cortez, P. & Laureano, R. (2011). Using data mining for bank direct marketing: An application of the CRISP-DM methodology. Proceedings of the European Simulation and Modelling Conference. Retrieved from https://pdfs.semanticscholar.org/1999/417377ec21ecf7f7f55af62975065f785fb2.pdf
+
+The writer of this study uses marketing campaign data from a Portuguese bank. The data is available from the UCI Machine Learning Repository (at https://archive.ics.uci.edu/ml/datasets/Bank Marketing). The purpose of the campaign is to acquire new clients who wish to subscribe to the offered term deposit. The goals of this project are to: 1) determine the predictive model with the best performance; and 2) identify the relevant variables (features) that have a significant effect on the predictive model.
+
+To complete this learning activity:
+
+1. Load the notebook file (available at https://github.com/daeIy/CRISP-DM-for-Marketing-Campaign);
+2. Execute the code;
+3. Follow through all the CRISP-DM stages, checking that the output is error free and ends in client predictions;
+4. Try to understand what the code is trying to achieve and the modelling; and
+5. When complete, share your complete output to the discussion forum along with a post in which you note any issues that you encountered, how you overcame those issues and comment on your overall experience.
+
+> *Status: 🕐 To-Do* 
+
+#### 4. Ethics and Biases in Bank Marketing
+Australia has implemented an Artificial Intelligence (AI) Ethics Framework (https://www.industry.gov.au/data-and-publications/building-australias-artificial-intelligence-capability/ai-ethics-framework) while New Zealand has a draft algorithm charter (https://data.govt.nz/assets/data-ethics/algorithm/Algorithm-Charter-2020_Final-English-1.pdf). Both these frameworks can assist you to determine whether any biases exist in your data.
+
+Assume that the bank mentioned in the previous activity is based either in Australia or New Zealand. Determine if the manner in which the bank generated the data contains any unethical biases. Do you foresee any ethics or transparency issues in respect of the models being used? Post your views to the discussion forum.
+
+> *Status: 🕐 To-Do* 
+
+---
+
+## Module 3 - Supervised Learning and Linear Regression
+
+### TLDR
+
+### Introduction
+In Module 1, you learned that one of the main types of machine learning (ML) algorithms is the supervised learning algorithm.
+
+This Module focuses on linear regression, a widely used supervised learning technique. Notably, linear regression is a useful mathematical tool for investigating relationships between a set of variables and predicting responses (quantitative). Linear regression has been around since the 1800s and has been the subject of numerous books and articles.
+
+### Resources
+
+#### 1. Intuition Behind Linear Regression
+- Reference: IntuitiveML (2020, 1 August). Intuition behind linear regression [Video file]. Retrieved from https://www.youtube.com/watch?v=uAZMhpNBq8M
+
+*Resource Overview:*
+
+    This video explains the importance of linear regression, the method of least squares and the correlation between the data and the outcome. The video includes important examples.
+
+> *Status: 🕐 To-Do*
+
+#### 2. Giving Computers the Ability to Learn from Data
+- Raschka, S. & Mirjalili, V. (2019). Giving computers the ability to learn from data. In Python machine learning: Machine learning and deep learning with Python, Scikit-learn, and Tensorflow 2 (3 ed., pp. 1–17). Birmingham, England: Packt. Retrieved from https://ebookcentral-proquest-com.torrens.idm.oclc.org/lib/think/reader.action?docID=6005547&ppg=30
+
+*Resource Overview:*
+
+    Read ‘Chapter 1: Giving Computers the Ability to Learn from Data’. This chapter provides a good but simple overview of the field of ML and outlines some of the key terminologies. As this subject encourages the use of online Notebooks, such as Google Colab, you may choose to ignore the last few pages of this chapter, which are about the installation of Python.
+
+> *Status: 🕐 To-Do*
+
+#### 3. Linear Regression in Real Life
+- Bento, B. (2020, 8 May). Linear regression in real life real world problems solved with math. Retrieved from https://towardsdatascience.com/linear-regression-in-real-life-4a78d7159f16
+
+*Resource Overview:*
+
+    This article explains the linear regression model and supporting concepts through simple storytelling. The writer uses the everyday example of driving on a limited amount of petrol to explain the model and its usefulness in real life.
+
+> *Status: 🕐 To-Do*
+
+#### 4. Step-by-Step Linear Regression Using Python Scikit-Learn (SkLearn)
+- Reference: Fowers, R. (2019, 25 July). Linear regression Python Sklearn [From Scratch] [Video file]. Retrieved from https://www.youtube.com/watch?v=b0L47BeklTE
+
+*Resource Overview:*
+
+    This video provides step-by-step instructions on how to use Scikit-learn for linear regression. Follow the steps in this video to familiarise yourself with the Jupyter Notebook and Scikit-learn linear regression. Note the imports including pydataset and from Sklearn train,test split.
+
+> *Status: 🕐 To-Do*
+
+#### 5. Cheat Sheet—Choosing the Right Estimator for Scikit-learn
+- Reference: Choosing the right estimator. (n.d.). Retrieved from https://scikit-learn.org/stable/tutorial/machine_learning_map/index.html
+
+*Resource Overview:*
+
+    This cheat sheet provides a useful guide to the different types of ML algorithms and the problems they are best suited to solve. The cheat sheet is organised by the type of problem being solved (e.g., classification, regression, clustering) and the type of data being used (e.g., structured, unstructured). This resource will be useful for you to refer to as you progress through this subject and undertake your assessments.
+
+> *Status: 🕐 To-Do*
+
+### Learning Activities
+
+#### 1. SkLearn Linear Regression (Boston Housing Prices Example)—A Useful Exercise for Your Assessments
+- Reference: The Semicolon. (2017, 19 January). SkLearn linear regression (housing prices example) [Video file]. Retrieved from https://www.youtube.com/watch?v=JTj-WgWLKFM
+
+For this activity, you should follow along with your Jupyter Notebook (e.g., Google Colab). The data set is the famous Boston housing data set. This can be loaded directly into the Notebook if you follow the instructions. By the end of this 10-minute video, you should have implemented the model, trained the linear model on Boston housing data to make predictions on house prices and determined how well your predictions match the actual data.
+
+This activity requires you to:
+
+1. Upload the file Housing example.ipynb to your Notebook;
+2. Watch the video (The Semicolon, 2017; available at https://www.youtube.com/embed/JTj-WgWLKFM) and follow each step on your Notebook;
+3. Once complete, share your feedback to the discussion forum. Note the key steps that you used to acquire the data set, describe the data (e.g., the average age of house buyers) and how you implemented the model, trained the model for house prices and determined the errors in your model.
+
+> *Status: 🕐 To-Do*
+
+#### 2. Predicting House Prices with Linear Regression Model—A Useful Exercise for Your Assessments
+- Reference: Valkov, V. (2019, 2 April). Predicting house prices with linear regression | Machine learning from scratch (Part II). Retrieved from https://towardsdatascience.com/predicting-house-prices-with-linear-regression-machine-learning-from-scratch-part-ii-47a0238aeac1
+
+This activity requires you to build a linear regression model using Python, use your trained model to predict house sale prices and extend the model to multivariate linear regression. You will have access to both the data used and Jupyter/Google Colab notebook code.
+
+The activity requires you to:
+
+1. Read the article entitled ‘Predicting House Prices with Linear Regression | Machine Learning from Scratch (Part II)’ (Valkov, 2019; available at https://towardsdatascience.com/predicting-house-prices-with-linear-regression-machine-learning-from-scratch-part-ii-47a0238aeac1) and follow the steps in the article. You will be replicating the code and analysis;
+2. Load the complete source code onto your Notebook (Google Colaboratory) from the article (linear_regression.ipyb);
+3. Ensure that you can execute the code step by step; and
+4. Once complete, share your complete output to the discussion forum, noting any issues, how you overcame them and your overall experience.
+
+> *Status: 🕐 To-Do*
+
 ---
 
 ```bash
