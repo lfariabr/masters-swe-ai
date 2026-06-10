@@ -247,6 +247,13 @@ Assume that the bank mentioned in the previous activity is based either in Austr
 ## Module 3 - Supervised Learning and Linear Regression
 
 ### TLDR
+**Supervised learning** trains a model on **labelled** data (known outputs) to predict on unseen data, and it splits into **classification** (discrete labels) and **regression** (continuous values). This module is the **regression** branch (Raschka & Mirjalili, 2019).
+- **Linear regression** fits `ŷ = b₀ + b₁x` (intercept + slope) by the **method of least squares**: pick the line that minimises `Σ(yᵢ − ŷᵢ)²`, the sum of squared residuals.
+- **Parameters** (slope, intercept) are *learned from data*; **hyperparameters** (e.g. regularisation) are *set by you* and tuned via cross-validation. **No Free Lunch** -> always compare a few estimators.
+- **scikit-learn workflow:** `train_test_split(random_state=…)` -> `LinearRegression().fit()` -> `.predict()` -> evaluate with **R²/RMSE**. Fit preprocessing on **train only** to avoid leakage.
+- The **"Choosing the Right Estimator"** map routes a continuous-target, tabular problem to the regression branch: `LinearRegression` first, then `Ridge`/`Lasso`/`ElasticNet` if overfitting appears.
+
+> Full per-resource breakdown: [module03_notes.md](module-03-supervised-learning-and-linear-regression/module03_notes.md)
 
 ### Introduction
 In Module 1, you learned that one of the main types of machine learning (ML) algorithms is the supervised learning algorithm.
@@ -262,7 +269,7 @@ This Module focuses on linear regression, a widely used supervised learning tech
 
     This video explains the importance of linear regression, the method of least squares and the correlation between the data and the outcome. The video includes important examples.
 
-> *Status: 🕐 To-Do*
+> *Status: 🔥 Primer ready - needs manual watch - see [module03_notes.md](module-03-supervised-learning-and-linear-regression/module03_notes.md#1-intuitiveml-2020-intuition-behind-linear-regression-video)*
 
 #### 2. Giving Computers the Ability to Learn from Data
 - Raschka, S. & Mirjalili, V. (2019). Giving computers the ability to learn from data. In Python machine learning: Machine learning and deep learning with Python, Scikit-learn, and Tensorflow 2 (3 ed., pp. 1–17). Birmingham, England: Packt. Retrieved from https://ebookcentral-proquest-com.torrens.idm.oclc.org/lib/think/reader.action?docID=6005547&ppg=30
@@ -271,7 +278,7 @@ This Module focuses on linear regression, a widely used supervised learning tech
 
     Read ‘Chapter 1: Giving Computers the Ability to Learn from Data’. This chapter provides a good but simple overview of the field of ML and outlines some of the key terminologies. As this subject encourages the use of online Notebooks, such as Google Colab, you may choose to ignore the last few pages of this chapter, which are about the installation of Python.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed - see [module03_notes.md](module-03-supervised-learning-and-linear-regression/module03_notes.md#2-raschka-s--mirjalili-v-2019-giving-computers-the-ability-to-learn-from-data)*
 
 #### 3. Linear Regression in Real Life
 - Bento, B. (2020, 8 May). Linear regression in real life real world problems solved with math. Retrieved from https://towardsdatascience.com/linear-regression-in-real-life-4a78d7159f16
@@ -280,7 +287,7 @@ This Module focuses on linear regression, a widely used supervised learning tech
 
     This article explains the linear regression model and supporting concepts through simple storytelling. The writer uses the everyday example of driving on a limited amount of petrol to explain the model and its usefulness in real life.
 
-> *Status: 🕐 To-Do*
+> *Status: 🔥 Primer ready - needs manual read - see [module03_notes.md](module-03-supervised-learning-and-linear-regression/module03_notes.md#3-bento-b-2020-linear-regression-in-real-life-article)*
 
 #### 4. Step-by-Step Linear Regression Using Python Scikit-Learn (SkLearn)
 - Reference: Fowers, R. (2019, 25 July). Linear regression Python Sklearn [From Scratch] [Video file]. Retrieved from https://www.youtube.com/watch?v=b0L47BeklTE
@@ -289,7 +296,7 @@ This Module focuses on linear regression, a widely used supervised learning tech
 
     This video provides step-by-step instructions on how to use Scikit-learn for linear regression. Follow the steps in this video to familiarise yourself with the Jupyter Notebook and Scikit-learn linear regression. Note the imports including pydataset and from Sklearn train,test split.
 
-> *Status: 🕐 To-Do*
+> *Status: 🔥 Primer ready - needs manual watch - see [module03_notes.md](module-03-supervised-learning-and-linear-regression/module03_notes.md#4-fowers-r-2019-linear-regression-python-sklearn-from-scratch-video)*
 
 #### 5. Cheat Sheet—Choosing the Right Estimator for Scikit-learn
 - Reference: Choosing the right estimator. (n.d.). Retrieved from https://scikit-learn.org/stable/tutorial/machine_learning_map/index.html
@@ -298,7 +305,7 @@ This Module focuses on linear regression, a widely used supervised learning tech
 
     This cheat sheet provides a useful guide to the different types of ML algorithms and the problems they are best suited to solve. The cheat sheet is organised by the type of problem being solved (e.g., classification, regression, clustering) and the type of data being used (e.g., structured, unstructured). This resource will be useful for you to refer to as you progress through this subject and undertake your assessments.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed - see [module03_notes.md](module-03-supervised-learning-and-linear-regression/module03_notes.md#5-choosing-the-right-estimator-scikit-learn-ml-map)*
 
 ### Learning Activities
 
