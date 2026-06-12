@@ -12,7 +12,7 @@
 | **4** | Read & summarise AWS / Baker (2019) — Data Lake Storage: S3 + ADLS Gen2 | ✅ |
 | **5** | Read & summarise Siddiqa et al. (2017) — Big Data Storage Technologies: A Survey | ✅ |
 | 6 | Activity 1: Discussion Forum — Cost models of AWS S3 vs ADLS Gen2 | 🔥 draft ready — see [module03_activities.md](module03_activities.md) |
-| 7 | Activity 2: Interactive Knowledge Check | 🕐 |
+| 7 | Activity 2: Interactive Knowledge Check | 🔥 prep checklist ready — see [module03_activities.md](module03_activities.md) |
 
 ---
 

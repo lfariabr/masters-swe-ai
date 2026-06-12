@@ -261,7 +261,7 @@ You can attempt this as many times as you like.
 
 https://mylearn.torrens.edu.au/courses/26571/files/10605037/preview?
 
-> *Status: 🕐 To-Do*
+> *Status: 🔥 Prep checklist ready — see [module03_activities.md](module-03-bd-integration-and-storage/module03_activities.md) (take LMS knowledge check to complete)*
 
 ---
 
