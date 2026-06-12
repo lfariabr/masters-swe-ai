@@ -42,7 +42,7 @@ Dr. Chen Zhan
 
 - [X] Module 1 ✅ - Introduction to Big Data and Analytics
 - [X] Module 2 ✅ - Data Sourcing and Ingestion
-- [ ] Module 3 🕐 - Big Data Integration and Storage
+- [ ] Module 3 🔥 - Big Data Integration and Storage
 - [ ] Module 4 🕐 - Analytics Engine for Big Data - Apache Spark
 - [ ] Module 5 🕐 - Data Exploration and Cleaning
 - [ ] Module 6 🕐 - Classification

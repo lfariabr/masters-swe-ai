@@ -177,6 +177,93 @@ Data scientists can apply advanced machine learning (ML) algorithms to extract i
 
 ---
 
+## Module 3 - Big Data Integration and Storage
+
+### TLDR
+
+### Introduction
+In the previous module, you were introduced to the overall architecture of a data lake, which consists of three stages: 1) the intake tier; 2) the management tier; and 3) the consumption tier. You also learned about the first component of a data lake; that is, the data intake tier, which focuses on sourcing and ingesting data from different sources and of varying structures. The next logical step is to provide a unified view of the data by integrating, enriching and storing the data derived from various sources.
+
+This Module focuses on the next component of the data lake; that is, the data management tier, which essentially addresses the challenges related to the integration, enrichment and storage of big data.
+
+### Resources
+
+#### 1. Big Data Integration 101: The What, Why and How
+- Foote, K. (2019, 27 February). Big data integration 101: The what, why and how. Retrieved from https://www.dataversity.net/big-data-integration-101-the-what-why-and-how/
+
+*Resource Overview*
+
+    This excellent resource introduces the concept of big data integration and briefly answers three fundamental questions:
+    - What is big data integration;
+    - Why is big data integration important; and
+    - How is big data integration achieved?
+
+> *Status: 🕐 To-Do*
+
+#### 2. Challenges for Data Integration
+- Dong, X. L. & Srivastava, D. (2015). Big data integration. Synthesis Lectures on Data Management, 7(1), 1–198. Retrieved from https://www.morganclaypool.com/doi/suppl/10.2200/S00578ED1V01Y201404DTM040/suppl_file/dong_Ch1.pdf
+
+*Resource Overview*
+
+    Read ‘Section 1.1: Traditional Data Integration’ (pp. 2–11) of Chapter 1. Using airline data from various sources, this section demonstrates why data integration is a difficult problem even for traditional data. It then illustrates what the issues are that need to be resolved to unify the data derived from different sources.
+
+> *Status: 🕐 To-Do*
+
+#### 3. Data Integration, Quality and Enrichment
+- Pasupuleti, P. & Purra, B. S. (2015). Data lake development with big data. Birmingham, England: Packt. Retrieved from http://search.ebscohost.com.torrens.idm.oclc.org/login.aspx?direct=true&db=nlebk&AN=1104605&site=ehost-live&authtype=ip,sso&custid=ns251549&ebv=EB&ppid=pp_51
+
+*Resource Overview*
+
+    Data integration, cleaning and enrichment for big data analytics is significantly harder than its traditional counterpart.
+
+    Study ‘Chapter 3: Data Integration, Quality and Enrichment’ (pp. 51–77). This chapter describes the second component of the data lake; that is, the data management tier, which essentially handles the complex tasks of integration and enrichment. This chapter further divides the task of data management into smaller components and presents different approaches and techniques to address the issues related to those components. This chapter also describes the importance of data enrichment (i.e., augmenting data with newer attributes to facilitate data analytics at a later stage). Finally, this chapter provides a high-level overview of different tools that can be used to facilitate big data integration.
+
+> *Status: 🕐 To-Do*
+
+#### 4. Data Lake Storage
+- AWS. (n. d). Data lake storage on AWS. Retrieved from https://aws.amazon.com/products/storage/data-lake-storage/
+- Baker, J. (2019, 14 February). Under the hood: Performance, scale, security for cloud analytics with ADLS Gen2. Retrieved from https://azure.microsoft.com/en-us/blog/under-the-hood-performance-scale-security-for-cloud-analytics-with-adls-gen2/
+
+*Resource Overview*
+
+    Once data is integrated, cleaned and enriched, it needs to be stored. In the data lake management tier, the data hub component is responsible for data storage and retrieval. For big data analytics, the data lake storage needs to be performant, scalable, secure and cost effective. Amazon Simple Storage Service (S3) and Azure Data Lake Storage Gen2 are popular technologies for data lake storage. In the following two articles, you will learn about the key features of these two technologies.
+
+> *Status: 🕐 To-Do*
+
+#### 5. Big Data Storage Technologies: A Survey
+- Siddiqa, A., Karim, A. & Gani, A. (2017). Big data storage technologies: A survey. Frontiers of Information Technology and Electronic Engineering, 18(8), 1040–1070. Retrieved from https://link.springer.com/content/pdf/10.1631/FITEE.1500441.pdf
+
+*Resource Overview*
+
+    This is a survey paper on big data storage technologies. This is a long paper but a very smooth read and you are encouraged to read this in your spare time to follow stories about big data storage technologies.
+
+    The primary objective of this paper is to conduct a comprehensive investigation of the storage technologies available for big data. A well-defined taxonomy of big data storage technologies is presented to assist data scientists and researchers to understand and select a storage mechanism that better fits their needs.
+
+> *Status: 🕐 To-Do*
+
+### Learning Activities
+
+#### 1. Discussion Forum Post—Cost Models of AWS S3 and ADLS Gen2
+
+In this Module, you learned about some popular data lake storage technologies, including AWS S3 and ADLS Gen2. The cost models of the storage solutions are one of the key factors to consider when choosing storage solutions for data lake storage. In this activity, you will:
+
+Explore the web to find the cost models for AWS S3 and ADLS;
+Identify which of the platforms is more cost effective for big data storage in your opinion; and
+Note any other factors that should be considered.
+Post your answer with an explanation (of approximately 150 words) to the discussion forum entitled, ‘Cost models of AWS S3 and ADLS Gen2’. Read through other students’ posts and reply to at least one post, stating if you agree or disagree with their conclusion and why.
+
+> *Status: 🕐 To-Do*
+
+#### 2. Interactive Knowledge Check
+Please click the link below to complete the Module 3 Knowledge Check.
+You can attempt this as many times as you like.
+
+https://mylearn.torrens.edu.au/courses/26571/files/10605037/preview?
+
+> *Status: 🕐 To-Do*
+
+---
+
 ```bash
 --- PLACEHOLDER:
 ## Module X - ...
