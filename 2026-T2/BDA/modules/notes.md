@@ -180,6 +180,7 @@ Data scientists can apply advanced machine learning (ML) algorithms to extract i
 ## Module 3 - Big Data Integration and Storage
 
 ### TLDR
+Module 3 is the **management tier** of the data lake — what happens *after* intake (Module 2). It has two halves. **Integration** turns many autonomous, conflicting sources into one trustworthy view via a three-step pipeline: **schema alignment → record linkage → data fusion** (Dong & Srivastava), then **cleaning + enrichment** (Pasupuleti & Purra Ch. 3). Integration is the unglamorous step that **must happen before any analytics** (Foote), and **performance, governance and security** belong in the design from day one. **Storage** then lands the integrated result in a **data hub**: cloud lake storage (**Amazon S3 / Azure ADLS Gen2**) over a **NoSQL taxonomy** of four data models — **key-value · column-oriented · document · graph** (Siddiqa et al.) — chosen with **Brewer's CAP theorem**, where partition-resilience is mandatory so the real trade-off is **consistency (CP) vs availability (AP)**. This is the integration+storage backbone of **Assessment 1 (Design a Data Pipeline)** and **SLO b)**.
 
 ### Introduction
 In the previous module, you were introduced to the overall architecture of a data lake, which consists of three stages: 1) the intake tier; 2) the management tier; and 3) the consumption tier. You also learned about the first component of a data lake; that is, the data intake tier, which focuses on sourcing and ingesting data from different sources and of varying structures. The next logical step is to provide a unified view of the data by integrating, enriching and storing the data derived from various sources.
@@ -198,7 +199,7 @@ This Module focuses on the next component of the data lake; that is, the data ma
     - Why is big data integration important; and
     - How is big data integration achieved?
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module03_notes.md](module-03-bd-integration-and-storage/module03_notes.md)*
 
 #### 2. Challenges for Data Integration
 - Dong, X. L. & Srivastava, D. (2015). Big data integration. Synthesis Lectures on Data Management, 7(1), 1–198. Retrieved from https://www.morganclaypool.com/doi/suppl/10.2200/S00578ED1V01Y201404DTM040/suppl_file/dong_Ch1.pdf
@@ -207,7 +208,7 @@ This Module focuses on the next component of the data lake; that is, the data ma
 
     Read ‘Section 1.1: Traditional Data Integration’ (pp. 2–11) of Chapter 1. Using airline data from various sources, this section demonstrates why data integration is a difficult problem even for traditional data. It then illustrates what the issues are that need to be resolved to unify the data derived from different sources.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module03_notes.md](module-03-bd-integration-and-storage/module03_notes.md)*
 
 #### 3. Data Integration, Quality and Enrichment
 - Pasupuleti, P. & Purra, B. S. (2015). Data lake development with big data. Birmingham, England: Packt. Retrieved from http://search.ebscohost.com.torrens.idm.oclc.org/login.aspx?direct=true&db=nlebk&AN=1104605&site=ehost-live&authtype=ip,sso&custid=ns251549&ebv=EB&ppid=pp_51
@@ -218,7 +219,7 @@ This Module focuses on the next component of the data lake; that is, the data ma
 
     Study ‘Chapter 3: Data Integration, Quality and Enrichment’ (pp. 51–77). This chapter describes the second component of the data lake; that is, the data management tier, which essentially handles the complex tasks of integration and enrichment. This chapter further divides the task of data management into smaller components and presents different approaches and techniques to address the issues related to those components. This chapter also describes the importance of data enrichment (i.e., augmenting data with newer attributes to facilitate data analytics at a later stage). Finally, this chapter provides a high-level overview of different tools that can be used to facilitate big data integration.
 
-> *Status: 🕐 To-Do*
+> *Status: 🔥 WIP — needs manual ebook access (EBSCO). See stub in [module03_notes.md](module-03-bd-integration-and-storage/module03_notes.md)*
 
 #### 4. Data Lake Storage
 - AWS. (n. d). Data lake storage on AWS. Retrieved from https://aws.amazon.com/products/storage/data-lake-storage/
@@ -228,7 +229,7 @@ This Module focuses on the next component of the data lake; that is, the data ma
 
     Once data is integrated, cleaned and enriched, it needs to be stored. In the data lake management tier, the data hub component is responsible for data storage and retrieval. For big data analytics, the data lake storage needs to be performant, scalable, secure and cost effective. Amazon Simple Storage Service (S3) and Azure Data Lake Storage Gen2 are popular technologies for data lake storage. In the following two articles, you will learn about the key features of these two technologies.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module03_notes.md](module-03-bd-integration-and-storage/module03_notes.md)*
 
 #### 5. Big Data Storage Technologies: A Survey
 - Siddiqa, A., Karim, A. & Gani, A. (2017). Big data storage technologies: A survey. Frontiers of Information Technology and Electronic Engineering, 18(8), 1040–1070. Retrieved from https://link.springer.com/content/pdf/10.1631/FITEE.1500441.pdf
@@ -239,7 +240,7 @@ This Module focuses on the next component of the data lake; that is, the data ma
 
     The primary objective of this paper is to conduct a comprehensive investigation of the storage technologies available for big data. A well-defined taxonomy of big data storage technologies is presented to assist data scientists and researchers to understand and select a storage mechanism that better fits their needs.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module03_notes.md](module-03-bd-integration-and-storage/module03_notes.md)*
 
 ### Learning Activities
 
@@ -252,7 +253,7 @@ Identify which of the platforms is more cost effective for big data storage in y
 Note any other factors that should be considered.
 Post your answer with an explanation (of approximately 150 words) to the discussion forum entitled, ‘Cost models of AWS S3 and ADLS Gen2’. Read through other students’ posts and reply to at least one post, stating if you agree or disagree with their conclusion and why.
 
-> *Status: 🕐 To-Do*
+> *Status: 🔥 Draft ready — see [module03_activities.md](module-03-bd-integration-and-storage/module03_activities.md) (post to forum to complete)*
 
 #### 2. Interactive Knowledge Check
 Please click the link below to complete the Module 3 Knowledge Check.
