@@ -192,6 +192,11 @@ Respond to your peers by either agreeing or disagreeing and provide your rationa
 ## Module 3 - Deep Learning Application: Natural Language Processing, Speech Recognition and Computer Vision
 
 ### TLDR
+- **Deep learning powers three flagship application areas:** computer vision, speech recognition, and NLP - all built on the large-scale (GPU, distributed) infrastructure from Goodfellow Ch.12.
+- **NLP arc:** classical **n-grams** (the A1 baseline) suffer the curse of dimensionality; **word embeddings** and **attention** (encoder-decoder) are the deep-learning leap that generalises better.
+- **Zhao et al. (2018) is the Assessment 1 reference paper:** **GloVe-DCNN** fuses embeddings + n-grams + lexicon + Twitter features into a deep CNN, beating BoW baselines (up to 87.62% acc) on five datasets, including STS-Test and STS-Gold.
+- **Noda et al. (2015)** shows **multimodal** speech recognition: a denoising autoencoder (audio) + CNN lip-reading (visual) fused by a multi-stream HMM for noise robustness.
+- **Module pattern:** the right *architecture* is matched to each *sub-task* - CNN for vision, autoencoder for denoising, attention/embeddings for language.
 
 ### Introduction
 Artificial intelligence (AI), deep learning and high-performance computing are enabling a new industrial revolution, which is leading to an era of smart creation and streamlined decision making.
@@ -215,7 +220,7 @@ It is critical that early career professionals are able to envision and realise 
 
     Please read Chapter 12 for this Module, which discusses various deep learning applications. Section 12.1 provides you with a general overview of the building blocks of deep learning applications. Section 12.2 considers computer vision applications. Section 12.3 discusses speech recognition. While Section 12.4 describes applications for NLP.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module03_notes.md](module-03-nlp-speech-recog-computer-vision/module03_notes.md)*
 
 #### 2. Deep Convolution Neural Networks for Twitter Sentiment Analysis
 - Zhao, J., Gui, X. & Zhang, X. (2018). Deep convolution neural networks for Twitter sentiment analysis. IEEE Access, 6, 23253–23260. Retrieved from https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8244338
@@ -226,7 +231,7 @@ It is critical that early career professionals are able to envision and realise 
 
     You must refer to this paper for Assessment 1. It is important that you understand the deep learning practices in this paper independent of the dataset. It is essential that you are able to apply these deep learning practices to other datasets (e.g., Facebook or LinkedIn datasets) and obtain similar results.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module03_notes.md](module-03-nlp-speech-recog-computer-vision/module03_notes.md)*
 
 #### 3. Audio-Visual Speech Recognition using Deep Learning
 - Noda, K., Yamaguchi, Y., Nakadai, K., Okuno, H. G. & Ogata, T. (2015). Audio-visual speech recognition using deep learning. Applied Intelligence, 42(4), 722–737. Retrieved from https://search-proquest-com.torrens.idm.oclc.org/docview/1674443602?OpenUrlRefId=info:xri/sid:wcdiscovery&accountid=176901
@@ -235,7 +240,7 @@ It is critical that early career professionals are able to envision and realise 
 
     This research paper demonstrates how deep neural networks can be effectively used for speech recognition applications. It is a great example of research work for the speech recognition branch of deep learning. Perhaps the most interesting part of this paper is how the proposed model addresses the noise problem that arises in every speech recognition application.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module03_notes.md](module-03-nlp-speech-recog-computer-vision/module03_notes.md)*
 
 ### Learning Activities
 
