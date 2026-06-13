@@ -41,7 +41,28 @@ A data-driven strategy must start from the business problem, not the technology:
 - **Valence** - the value unlock: the recommender and product-association use cases depend on *connecting* customers to sessions, orders, products, and campaigns. Raising valence through identity resolution is where most analytical value is created.
 - **Value** - the anchor: every source and component below is justified only by its contribution to campaigns, recommendations, association rules, or conversion reporting.
 
-In short, Variety, Veracity, and Valence - not raw Volume - dominate Big Retail's design. Appendix D maps each V to its design response.
+**Figure 1. The six V's of Big Retail, ranked by how strongly each drives the design** (full mapping in Appendix D, Table D1).
+
+```mermaid
+flowchart TB
+    subgraph DOM["Dominant - these shape the design"]
+        VAR["Variety<br/>relational, JSON, free text<br/>needs a data lake, not a warehouse"]
+        VER["Veracity<br/>duplicate customers, bots, guest gaps<br/>needs a quality and dedupe stage"]
+        VAL["Valence<br/>link customer, session, order, campaign<br/>needs identity resolution"]
+    end
+    subgraph SEL["Selective"]
+        VEL["Velocity<br/>only clickstream is live<br/>needs streaming plus batch"]
+    end
+    subgraph CTX["Foundation and goal"]
+        VOL["Volume<br/>100,000+ visitors per month<br/>needs object storage and Spark"]
+        VLU["Value<br/>every component must pay off<br/>tied to business outcomes"]
+    end
+    DOM --> GOAL["Personalised experience<br/>targeted campaigns, recommender, product association<br/>conversion recovery"]
+    SEL --> GOAL
+    CTX --> GOAL
+```
+
+In short, Variety, Veracity, and Valence - not raw Volume - dominate Big Retail's design (Figure 1); Appendix D (Table D1) maps each V to its full design response.
 
 ## 3. Potential data sources
 
@@ -57,46 +78,41 @@ The hard problem is not storage; it is joining fragmented customer, product, cam
 
 The two challenges the rubric names deserve fuller treatment. **Schema alignment** fails silently rather than loudly: the sales DB may call a key `cust_id` while marketing calls it `customer_ref` and the catalogue keys products by an internal `item_code` that the promotions feed does not share. Resolving this means agreeing canonical entities (`customer`, `product`, `order`, `campaign`, `event`), publishing them in a versioned schema registry, and validating each incoming feed against a data contract so a renamed or retyped field is rejected at ingestion rather than corrupting a join downstream. **Duplicate customers** are the costlier problem because the case explicitly allows the same person to exist in both the sales and marketing databases and to move between guest checkout, a new account, and an existing login. Resolution is staged: a deterministic pass matches on hashed email or account ID first, and only unmatched records fall through to a cautious fuzzy pass on name, address, and phone, every match carrying a confidence score and full source lineage so a merge can be audited or reversed.
 
-Beyond those two, two resolutions carry real trade-offs worth stating. **Identity matching** must favour precision over recall: aggressive fuzzy matching merges distinct customers, corrupting both recommendations and privacy boundaries, so low-confidence matches are flagged rather than merged. **Batch-vs-streaming** is not a free choice either - streaming everything adds cost and operational complexity for data (sales, catalogue) that changes slowly, so streaming is reserved for clickstream where latency genuinely matters. The end-to-end flow is shown in **Figure 1**; Appendix B (Figure B1) expands the integration stage into its step-by-step validation and resolution sequence. Data quality (bot filtering, deduplication, malformed-field handling) and external-feed reliability are handled as further governed steps; the full challenge register, naming each issue with a resolution step and output artefact, is given in **Appendix G (Table G1)**.
+Beyond those two, two resolutions carry real trade-offs worth stating. **Identity matching** must favour precision over recall: aggressive fuzzy matching merges distinct customers, corrupting both recommendations and privacy boundaries, so low-confidence matches are flagged rather than merged. **Batch-vs-streaming** is not a free choice either - streaming everything adds cost and operational complexity for data (sales, catalogue) that changes slowly, so streaming is reserved for clickstream where latency genuinely matters. The end-to-end flow is shown in **Figure 2**; Appendix B (Figure B1) expands the integration stage into its step-by-step validation and resolution sequence. Data quality (bot filtering, deduplication, malformed-field handling) and external-feed reliability are handled as further governed steps; the full challenge register, naming each issue with a resolution step and output artefact, is given in **Appendix G (Table G1)**.
 
-**Figure 1. End-to-end Big Retail data pipeline and lakehouse (primary schematic).**
+**Figure 2. End-to-end Big Retail data pipeline and lakehouse (primary schematic).**
 
 ```mermaid
 flowchart LR
     subgraph SRC["Data sources"]
+        direction TB
         S1["Sales DB<br/>orders & line items"]
         S2["Customer accounts<br/>login & guest"]
         S3["Marketing CRM<br/>campaign events"]
         S4["Website events<br/>clickstream & search"]
         S5["Product catalogue<br/>SKU & promotions"]
         S6["Service & reviews<br/>tickets & text"]
-        S7["External context<br/>weather, calendar, demographics, competitor"]
+        S7["External context<br/>weather · calendar · demographics"]
     end
-
     subgraph ING["Ingestion"]
-        I1["Batch / CDC<br/>Glue or DMS"]
-        I2["Streaming<br/>Kinesis or Kafka"]
+        direction TB
+        I1["Batch / CDC<br/>Glue · DMS"]
+        I2["Streaming<br/>Kinesis · Kafka"]
         I3["API / file<br/>scheduled connectors"]
     end
-
-    subgraph INT["Integration & quality"]
-        Q1["Schema mapping"]
-        Q2["Data-quality rules"]
-        Q3["Deduplication"]
-        Q4["Identity resolution"]
-        Q5["Privacy tags & consent"]
-    end
-
     subgraph LAKE["Data lakehouse"]
-        B["Bronze raw"]
-        C["Silver cleansed"]
-        G["Gold curated marts"]
+        direction TB
+        B["Bronze<br/>raw"]
+        Q["Integration & quality<br/>schema → quality → dedup<br/>→ identity → privacy"]
+        C["Silver<br/>cleansed"]
+        G["Gold<br/>curated marts"]
+        B --> Q --> C --> G
     end
-
     subgraph USE["Consumption"]
-        U1["Management dashboards<br/>Athena / BI"]
-        U2["Data science<br/>Spark / SageMaker"]
-        U3["Recommendation serving<br/>DynamoDB / Redis"]
+        direction TB
+        U1["Management dashboards<br/>Athena · BI"]
+        U2["Data science<br/>Spark · SageMaker"]
+        U3["Recommendation serving<br/>DynamoDB · Redis"]
         U4["Product search<br/>OpenSearch"]
     end
 
@@ -107,15 +123,28 @@ flowchart LR
     S5 --> I1
     S6 --> I3
     S7 --> I3
-
     I1 --> B
     I2 --> B
     I3 --> B
-    B --> Q1 --> Q2 --> Q3 --> Q4 --> Q5 --> C --> G
     G --> U1
     G --> U2
     G --> U3
     G --> U4
+
+    classDef src fill:#E3F2FD,stroke:#1565C0,color:#1a1a1a
+    classDef ing fill:#EDE7F6,stroke:#4527A0,color:#1a1a1a
+    classDef int fill:#FFF3E0,stroke:#E65100,color:#1a1a1a
+    classDef bronze fill:#F0DEC8,stroke:#8B5A2B,stroke-width:2px,color:#1a1a1a
+    classDef silver fill:#E4E7EB,stroke:#5F6368,stroke-width:2px,color:#1a1a1a
+    classDef gold fill:#FBEFC2,stroke:#B8860B,stroke-width:2px,color:#1a1a1a
+    classDef use fill:#E8F5E9,stroke:#2E7D32,color:#1a1a1a
+    class S1,S2,S3,S4,S5,S6,S7 src
+    class I1,I2,I3 ing
+    class Q int
+    class B bronze
+    class C silver
+    class G gold
+class U1,U2,U3,U4 use
 ```
 
 ## 5. Data lake design: storage, retrieval, security
@@ -201,6 +230,17 @@ flowchart TD
     H --> I["Apply privacy tags & consent"]
     I --> J["Write Silver tables"]
     J --> K["Curate Gold datasets"]
+
+    classDef step fill:#E3F2FD,stroke:#1565C0,color:#1a1a1a
+    classDef decision fill:#FFF8E1,stroke:#F9A825,stroke-width:2px,color:#1a1a1a
+    classDef bad fill:#FFEBEE,stroke:#C62828,color:#1a1a1a
+    classDef silver fill:#E4E7EB,stroke:#5F6368,stroke-width:2px,color:#1a1a1a
+    classDef gold fill:#FBEFC2,stroke:#B8860B,stroke-width:2px,color:#1a1a1a
+    class A,B,C,F,G,H,I step
+    class D decision
+    class E bad
+    class J silver
+    class K gold
 ```
 
 ## Appendix C - Curated datasets and business value
@@ -211,15 +251,22 @@ Figure C1 traces how curated (Gold) datasets map to Big Retail's target business
 
 ```mermaid
 flowchart TB
-    C["Silver: cleansed data"] --> G1["Gold: customer 360"]
-    C --> G2["Gold: product affinity"]
-    C --> G3["Gold: campaign performance"]
-    C --> G4["Gold: conversion funnel"]
+    C["Silver<br/>cleansed data"] --> G1["Gold: Customer 360"]
+    C --> G2["Gold: Product affinity"]
+    C --> G3["Gold: Campaign performance"]
+    C --> G4["Gold: Conversion funnel"]
     G1 --> R1["Targeted campaigns"]
     G2 --> R2["Recommender system"]
     G2 --> R3["Association rules"]
     G3 --> R1
     G4 --> R4["Management reporting"]
+
+    classDef silver fill:#E4E7EB,stroke:#5F6368,stroke-width:2px,color:#1a1a1a
+    classDef gold fill:#FBEFC2,stroke:#B8860B,stroke-width:2px,color:#1a1a1a
+    classDef value fill:#E8F5E9,stroke:#2E7D32,stroke-width:2px,color:#1a1a1a
+    class C silver
+    class G1,G2,G3,G4 gold
+    class R1,R2,R3,R4 value
 ```
 
 ## Appendix D - The six V's mapped to Big Retail
@@ -335,8 +382,8 @@ I confirm that the use of these tools has been in accordance with the Torrens Un
 | Lake stores semi/unstructured data | 30% | ✅ §5.1–5.2 |
 | Efficient search | 30% | ✅ §5.3 (Athena/Trino) |
 | Low-latency retrieval | 30% | ✅ §5.3 (DynamoDB/Redis/OpenSearch) |
-| Schematic: sources → integration → lake → interactions | 15% | ✅ Figure 1 (in §4 body) |
-| Six V's **evaluated** (SLO a) | - | ✅ §2 |
+| Schematic: sources → integration → lake → interactions | 15% | ✅ Figure 2 (in §4 body) |
+| Six V's **evaluated** (SLO a) | - | ✅ §2 + Figure 1 (severity ranking) |
 | Security/privacy → OAIC APPs (SLO b) | - | ✅ §5.4 |
 | APA citations ↔ references reconciled | - | ✅ all 7 refs cited; AWS n.d. order fixed; Rutherford date corrected |
 | Body word count 1,350–1,650 | - | ✅ body is prose + Figure 1 only (zero tables); counted body ~1,620, prose ~1,559 - inside range under any reading |
@@ -361,7 +408,7 @@ I confirm that the use of these tools has been in accordance with the Torrens Un
 
 ## Layout
 
-- **Body:** prose plus Figure 1 (the required schematic) in §4 only; all detail tables live in the appendices and are cited from the relevant section.
+- **Body:** prose plus two figures - Figure 1 (six V's severity map, §2) and Figure 2 (the required pipeline schematic, §4); all detail tables live in the appendices and are cited from the relevant section.
 - **Appendices:** A = Glossary; B = Figure B1 (integration workflow); C = Figure C1 (curated → business value); D = the six V's mapped to Big Retail; E = Table E1 (data-source inventory, from §3); F = Table F1 (storage/retrieval stack, from §5.1); G = Table G1 (integration challenge register, from §4); H = Table H1 (lakehouse zones, from §5.2). Each appendix is referenced from the body so none is orphaned.
 - No standalone "Figures" section.
 
@@ -375,9 +422,10 @@ I confirm that the use of these tools has been in accordance with the Torrens Un
 6. Replaced em-dashes with hyphens throughout.
 7. Added **Appendix D** - the six V's mapped to Big Retail (cross-references §2).
 8. Word-count trim (bulletproof): moved **all four detail tables to appendices** - data-source inventory (E/Table E1), storage stack (F/Table F1), integration challenge register (G/Table G1), and lakehouse zones (H/Table H1). The body now carries prose plus the required schematic (Figure 1) only, with each table cited from the relevant section, and §4/§5.2 reworded so the integration challenges and lake zones are still named in body prose. Prose left intact; counted body well inside 1,350-1,650 even if a marker counts table text.
+9. Added **Figure 1** in §2 - a six V's severity map (Dominant / Selective / Foundation-and-goal) that complements Appendix D's table and reinforces SLO a (evaluation, not listing); renumbered the pipeline schematic in §4 to **Figure 2** and updated its in-text references.
 
 ## Final-submission tasks
 
 1. Confirm the four §6 assumptions with the lecturer/case facts.
-2. Export Mermaid figures (Figure 1, B1, C1) to PNG/SVG if the LMS requires DOCX/PDF.
+2. Export Mermaid figures (Figure 1, Figure 2, B1, C1) to PNG/SVG if the LMS requires DOCX/PDF.
 3. Final APA + grammar pass; complete the academic-integrity declaration.
