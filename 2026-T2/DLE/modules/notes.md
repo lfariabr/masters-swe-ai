@@ -189,6 +189,91 @@ Respond to your peers by either agreeing or disagreeing and provide your rationa
 
 ---
 
+## Module 3 - Deep Learning Application: Natural Language Processing, Speech Recognition and Computer Vision
+
+### TLDR
+
+### Introduction
+Artificial intelligence (AI), deep learning and high-performance computing are enabling a new industrial revolution, which is leading to an era of smart creation and streamlined decision making.
+
+Some examples of smart and intelligent applications include:
+- Natural language processing (NLP): A branch of AI that helps machines understand, interpret and manipulate human language;
+- Speech recognition: Technology employed by smart systems, such as Amazon’s Alexa or voice-recognition texting; and
+- Computer vision: An analytical solution that can achieve state-of-the-art results in image classification, object detection and face recognition.
+Additionally, AI and deep learning are redesigning healthcare by bringing in a new era of precision medicine, changing the eCommerce landscape to enable companies to better engage with their customers and improving manufacturing processes across the supply chain.
+
+It is critical that early career professionals are able to envision and realise the true potential of deep learning. Once these amazing possibilities are well understood, the complex theories of deep learning become even more evident.
+
+### Resources
+
+#### 1. Deep Learning Applications
+- Goodfellow, I., Bengio, Y. & Courville, A. (2016). Deep learning. Cambridge, MA: MIT Press. Retrieved from https://www.deeplearningbook.org/
+
+*Resource Overview:*
+
+    This book contains an introduction to a broad range of topics in deep learning. Specifically, it covers the mathematical and conceptual background to deep learning, the deep learning techniques used in industry and research perspectives. This book will be used throughout all the DLE602 modules.
+
+    Please read Chapter 12 for this Module, which discusses various deep learning applications. Section 12.1 provides you with a general overview of the building blocks of deep learning applications. Section 12.2 considers computer vision applications. Section 12.3 discusses speech recognition. While Section 12.4 describes applications for NLP.
+
+> *Status: 🕐 To-Do*
+
+#### 2. Deep Convolution Neural Networks for Twitter Sentiment Analysis
+- Zhao, J., Gui, X. & Zhang, X. (2018). Deep convolution neural networks for Twitter sentiment analysis. IEEE Access, 6, 23253–23260. Retrieved from https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8244338
+
+*Resource Overview:*
+
+    This research paper demonstrates how to use deep learning models to analyse a Twitter dataset to better understand the sentiments hidden among all the tweets. It is a great example of research work for NLP.
+
+    You must refer to this paper for Assessment 1. It is important that you understand the deep learning practices in this paper independent of the dataset. It is essential that you are able to apply these deep learning practices to other datasets (e.g., Facebook or LinkedIn datasets) and obtain similar results.
+
+> *Status: 🕐 To-Do*
+
+#### 3. Audio-Visual Speech Recognition using Deep Learning
+- Noda, K., Yamaguchi, Y., Nakadai, K., Okuno, H. G. & Ogata, T. (2015). Audio-visual speech recognition using deep learning. Applied Intelligence, 42(4), 722–737. Retrieved from https://search-proquest-com.torrens.idm.oclc.org/docview/1674443602?OpenUrlRefId=info:xri/sid:wcdiscovery&accountid=176901
+
+*Resource Overview:*
+
+    This research paper demonstrates how deep neural networks can be effectively used for speech recognition applications. It is a great example of research work for the speech recognition branch of deep learning. Perhaps the most interesting part of this paper is how the proposed model addresses the noise problem that arises in every speech recognition application.
+
+> *Status: 🕐 To-Do*
+
+### Learning Activities
+
+#### 1. Interactive Knowledge Sharing - Natural Language Processing
+Step 1: Think of an exciting NLP application that is important to you and that you believe that will have a wider impact on society.
+
+Step 2: Propose and discuss the deep learning algorithms, datasets, models and other factors that you may have to consider for this application with the class.
+
+Step 3: Put together a flowchart in a Word document on how all the considered elements in Step 2 will come together. Clearly show the input and output, all the critical decision points, the processes that will take place in the middle and any possible errors that may occur in the process flow.
+
+Post your flowchart to the Module 3 discussion forum.
+
+> *Status: 🕐 To-Do*
+
+#### 2. Interactive Knowledge Sharing - Speech Recognition
+Step 1: Think of an exciting speech recognition application that is important to you and that you believe that will have a wider impact on society.
+
+Step 2: Propose and discuss the deep learning algorithms, datasets, models and other factors that you may have to consider for this application with the class.
+
+Step 3: Put together a flowchart in a Word document on how all the considered elements in Step 2 will come together. Clearly show the input and output, all the critical decision points, the processes that will take place in the middle and any possible errors that may occur in the process flow.
+
+Post your flowchart to the Module 3 discussion forum.
+
+> *Status: 🕐 To-Do*
+
+#### 3. Interactive Knowledge Sharing - Computer Vision
+Step 1: Think of an exciting computer vision application that is important to you and that you believe that will have a wider impact on society.
+
+Step 2: Propose and discuss all the deep learning algorithms, datasets, models and other factors that you may have to consider for this application with the class.
+
+Step 3: Put together a flowchart in a Word document on how all the considered elements in Step 2 will come together. Clearly show the input and output, all the critical decision points, the processes that will take place in the middle and any possible errors that may occur in the process flow.
+
+Post your flowchart to the Module 3 discussion forum.
+
+> *Status: 🕐 To-Do*
+
+---
+
 ```bash
 --- PLACEHOLDER:
 ## Module X - ...

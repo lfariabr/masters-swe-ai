@@ -42,7 +42,7 @@ Dr. Tayab Din Memon
 
 - [X] Module 1 ✅ - Introduction to Deep Learning & Neural Network
 - [X] Module 2 ✅ - Deep Learning: Feedforward Neural Network and Backpropagation
-- [ ] Module 3 🕐 - Deep Learning Application: Natural Language Processing, Speech Recognition and Computer Vision
+- [ ] Module 3 🔥 - Deep Learning Application: Natural Language Processing, Speech Recognition and Computer Vision
 - [ ] Module 4 🕐 - Regularization
 - [ ] Module 5 🕐 - Convolutional Neural Networks
 - [ ] Module 6 🕐 - Linear Factor Models
