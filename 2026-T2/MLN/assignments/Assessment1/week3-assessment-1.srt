@@ -1,0 +1,1128 @@
+1
+00:00:00,000 --> 00:00:10,000
+ [BLANK_AUDIO]
+
+2
+00:00:30,000 --> 00:00:42,200
+ Sorry, good morning everyone, there are multiple agendas today we have to discuss our assessment
+
+3
+00:00:42,200 --> 00:00:48,100
+ and then briefly the contents from the previous week due to the makeup class as of the public
+
+4
+00:00:48,100 --> 00:00:51,680
+ holiday and then from this week content as well.
+
+5
+00:00:51,680 --> 00:00:59,500
+ So I will start this session to discuss your assessment one, what are the expectations
+
+6
+00:00:59,500 --> 00:01:06,480
+ and if there are any questions so I just give you two minutes to quickly open up your assessment
+
+7
+00:01:06,480 --> 00:01:11,260
+ one and have a look and if there are further questions you have you can ask and then I
+
+8
+00:01:11,260 --> 00:01:13,880
+ will start discussing about that one.
+
+9
+00:01:13,880 --> 00:01:17,280
+ So please open up your assessment one specification.
+
+10
+00:01:29,500 --> 00:01:38,500
+ [BLANK_AUDIO]
+
+11
+00:01:59,500 --> 00:02:06,460
+ Okay, starting from, am I the audible?
+
+12
+00:02:06,460 --> 00:02:08,460
+ Can you hear me clearly?
+
+13
+00:02:08,460 --> 00:02:13,460
+ [BLANK_AUDIO]
+
+14
+00:02:13,460 --> 00:02:15,460
+ >> Yes Steve, we can hear you well.
+
+15
+00:02:15,460 --> 00:02:17,460
+ >> Yeah, okay, thank you, Lois.
+
+16
+00:02:17,460 --> 00:02:28,880
+ Okay, so this is the first assessment specification and this is the template which you are going
+
+17
+00:02:28,880 --> 00:02:29,940
+ to use.
+
+18
+00:02:29,940 --> 00:02:36,660
+ So everybody must have to use this CRISP-DM architecture which I gotta explain in the
+
+19
+00:02:36,660 --> 00:02:40,100
+ start of lecture that would be the other discussion.
+
+20
+00:02:40,100 --> 00:02:44,780
+ But for the assessment you are going to download this one, of course not the PDF because you
+
+21
+00:02:44,780 --> 00:02:50,060
+ can't edit, you can download this IPY and be the Python file, Jupyter notebook file
+
+22
+00:02:50,060 --> 00:02:55,120
+ you can just download this one and then from here you can start working.
+
+23
+00:02:55,120 --> 00:03:00,500
+ And I will explain you each step of that one in our lecture because we have missed that
+
+24
+00:03:00,500 --> 00:03:02,820
+ when I uploaded the recording.
+
+25
+00:03:02,820 --> 00:03:07,520
+ Because now I'm joined so I just uploaded the recording from the previous term.
+
+26
+00:03:07,520 --> 00:03:11,140
+ But I will also explain you in the start of our today's lecture as well.
+
+27
+00:03:11,140 --> 00:03:17,580
+ So that is the first thing that you have to use is the CRISP-DM architecture which you
+
+28
+00:03:17,580 --> 00:03:22,420
+ have to use for all of your assessment, not just for the assessment one, for assessment
+
+29
+00:03:22,420 --> 00:03:25,460
+ two, for assessment three as well.
+
+30
+00:03:25,460 --> 00:03:48,340
+ And now come back to your assessment.
+
+31
+00:03:48,340 --> 00:03:53,140
+ So this is the individual assessment.
+
+32
+00:03:53,140 --> 00:03:58,900
+ Every assessment in your machine learning course is individual, there is no group assessment.
+
+33
+00:03:58,900 --> 00:04:04,860
+ This assessment is all about regression analysis which we will study today about linear regression
+
+34
+00:04:04,860 --> 00:04:06,340
+ and other stuff.
+
+35
+00:04:06,340 --> 00:04:14,200
+ It is due by the end of your week four which would be the next week and you don't have
+
+36
+00:04:14,200 --> 00:04:17,800
+ to worry about the number of words, right?
+
+37
+00:04:17,800 --> 00:04:21,500
+ And it carries 20% of the weightage.
+
+38
+00:04:21,500 --> 00:04:26,700
+ So in this assessment you're going to use the linear regression machine learning algorithm
+
+39
+00:04:26,700 --> 00:04:30,300
+ to analyze data and draw conclusion.
+
+40
+00:04:30,300 --> 00:04:36,860
+ We have already discussed in our previous weeks that regression is one type of your
+
+41
+00:04:36,860 --> 00:04:38,140
+ supervised learning.
+
+42
+00:04:38,140 --> 00:04:43,260
+ In supervised learning is where we know what we are going to do.
+
+43
+00:04:43,260 --> 00:04:50,060
+ So for example if you are predicting whether an email is a spam email or a ham email, whether
+
+44
+00:04:50,060 --> 00:04:56,220
+ the patient is a COVID patient or not a COVID patient or whether tomorrow would be sunny,
+
+45
+00:04:56,220 --> 00:05:01,620
+ windy or cloudy weather, so in all of these we know what we are going to do.
+
+46
+00:05:01,620 --> 00:05:07,980
+ But if the type of the attribute, if the type of the label is continuous in nature, is continuous
+
+47
+00:05:07,980 --> 00:05:12,860
+ in nature then we call it as a regression problem and if it is categorical then we call
+
+48
+00:05:12,860 --> 00:05:14,420
+ it as classification.
+
+49
+00:05:14,420 --> 00:05:21,880
+ For example email is spam or ham, just to like possibilities of that respective label,
+
+50
+00:05:21,880 --> 00:05:23,600
+ so it would be a classification.
+
+51
+00:05:23,600 --> 00:05:29,720
+ How the weather would be tomorrow, whether it would be cloudy, sunny, windy, rainy.
+
+52
+00:05:29,720 --> 00:05:35,620
+ So in all of these one you have only the predefined classes among which you have to do the prediction.
+
+53
+00:05:35,620 --> 00:05:40,800
+ So again that is a classification but if the type of the attribute or the value which you
+
+54
+00:05:40,800 --> 00:05:46,380
+ are going to predict is continuous in nature then the problem becomes your regression problem.
+
+55
+00:05:46,380 --> 00:05:53,920
+ For example what would be the temperature tomorrow or in next one hour, right?
+
+56
+00:05:53,920 --> 00:05:59,660
+ So make sure if you are predicting how the weather would be sunny, windy, cloudy, rainy
+
+57
+00:05:59,660 --> 00:06:01,360
+ this is classification.
+
+58
+00:06:01,360 --> 00:06:05,820
+ But if you are predicting the temperature value 7 degree, 8 degree, 10 degree it is
+
+59
+00:06:05,820 --> 00:06:10,120
+ a continuous in nature then it becomes your regression problem.
+
+60
+00:06:10,120 --> 00:06:15,860
+ Similarly based on several features if you are predicting the house price, so house price
+
+61
+00:06:15,860 --> 00:06:22,220
+ would again give you a continuous number and this would be another example of your regression.
+
+62
+00:06:22,220 --> 00:06:28,760
+ Similarly how many students came into Australia for example in a certain year for example
+
+63
+00:06:28,760 --> 00:06:36,700
+ again would be a continuous value, value about your sales for example for a particular year,
+
+64
+00:06:36,700 --> 00:06:41,660
+ for a particular month again that will give you a continuous number.
+
+65
+00:06:41,660 --> 00:06:46,460
+ One Australian dollar is equal to how many US dollar for example give you a continuous
+
+66
+00:06:46,460 --> 00:06:47,460
+ value.
+
+67
+00:06:47,460 --> 00:06:50,500
+ Again all of these are example of your regression.
+
+68
+00:06:50,500 --> 00:06:58,580
+ So you are doing regression analysis into your first assessment by using this Chris
+
+69
+00:06:58,580 --> 00:07:00,160
+ DM architecture.
+
+70
+00:07:00,160 --> 00:07:06,780
+ So briefly tell you CRISP-DM architecture is nothing just 6 steps which you have to
+
+71
+00:07:06,780 --> 00:07:11,220
+ follow like for example you have to do the business requirement which we will discuss
+
+72
+00:07:11,220 --> 00:07:18,360
+ shortly and CRISP-DM architecture is the necessary source which you have to use to do this assessment
+
+73
+00:07:18,360 --> 00:07:21,260
+ and you must have to consult this one.
+
+74
+00:07:21,260 --> 00:07:23,160
+ So what is the problem?
+
+75
+00:07:23,160 --> 00:07:29,000
+ Problem is your wine quality data sets which is available here.
+
+76
+00:07:29,000 --> 00:07:36,660
+ You can just download that data set and based on that data set you have to predict the wine
+
+77
+00:07:36,660 --> 00:07:37,780
+ quality.
+
+78
+00:07:37,780 --> 00:07:43,180
+ There is a certain range from 0 to 10 and out of that one you have to predict and there
+
+79
+00:07:43,180 --> 00:07:51,940
+ are different attributes, different characteristics or features say acidity, sugar value, alcohol
+
+80
+00:07:51,940 --> 00:07:59,660
+ concentration and so on and based on that one they are predicting the wine quality between
+
+81
+00:07:59,660 --> 00:08:07,020
+ 1 to 10 and you have to predict it using your regression models.
+
+82
+00:08:07,020 --> 00:08:13,300
+ So what is the task is these are the 6 steps of your CRISP-DM architecture which I will
+
+83
+00:08:13,300 --> 00:08:20,660
+ explain in another once I finish this recording of your assessment because I will record the
+
+84
+00:08:20,660 --> 00:08:24,260
+ separate sessions for your assessment.
+
+85
+00:08:24,260 --> 00:08:29,460
+ So later on for example in week 7 or week 8 you come and you want to do your assessment
+
+86
+00:08:29,460 --> 00:08:35,000
+ too you do not need to look at where Kamran has discussed about assessment 2.
+
+87
+00:08:35,000 --> 00:08:39,960
+ So there would be a separate video related to assessment 2 discussion you can just simply
+
+88
+00:08:39,960 --> 00:08:45,420
+ watch that one in order to understand what are the expectations and what are you supposed
+
+89
+00:08:45,420 --> 00:08:47,300
+ to do for your assessment 2.
+
+90
+00:08:47,300 --> 00:08:52,300
+ So in this one the first would be your business understanding that is given here.
+
+91
+00:08:52,300 --> 00:08:59,400
+ So in business understanding you will give your introduction, tell about the data sets,
+
+92
+00:08:59,400 --> 00:09:05,380
+ tell your current state, what resources do you have and all those things where you have
+
+93
+00:09:05,380 --> 00:09:11,460
+ got this data set you can provide the link, you can provide your expectation, your business
+
+94
+00:09:11,460 --> 00:09:18,220
+ requirements, what do you think, what value, what metric you are going to use to compare
+
+95
+00:09:18,220 --> 00:09:22,180
+ in order to see the performance of your model and up till what value.
+
+96
+00:09:22,180 --> 00:09:28,600
+ So for example not for regression, regression is where you use the RMSE or other metrics
+
+97
+00:09:28,600 --> 00:09:30,900
+ to see the error analysis.
+
+98
+00:09:30,900 --> 00:09:36,080
+ So say for classification you are doing accuracy and you are saying okay I am going to consider
+
+99
+00:09:36,080 --> 00:09:40,700
+ the accuracy as a metric that you will do for your assessment 2 but for your understanding
+
+100
+00:09:40,700 --> 00:09:46,240
+ I am telling you, you can say okay the best case is 80%.
+
+101
+00:09:46,240 --> 00:09:51,340
+ So it means you are implementing multiple models and if you will be able to achieve
+
+102
+00:09:51,340 --> 00:09:55,380
+ above 80% of the accuracy that would be all good right.
+
+103
+00:09:55,380 --> 00:10:01,580
+ So similarly for each of these tasks you have to mention what is your business criteria,
+
+104
+00:10:01,580 --> 00:10:06,020
+ what are your business thinking, what you want to achieve, how much you want to achieve
+
+105
+00:10:06,020 --> 00:10:11,400
+ and all those things right and that is what you need to mention in your first stage of
+
+106
+00:10:11,400 --> 00:10:17,380
+ your Christian architecture which is your business understanding and then the second
+
+107
+00:10:17,380 --> 00:10:19,620
+ stage would be your data understanding.
+
+108
+00:10:19,620 --> 00:10:28,180
+ This is very important and for this one you have to understand your data set very clearly.
+
+109
+00:10:28,180 --> 00:10:33,500
+ You have to convert that one into a CSV file which is comma separated file and afterwards
+
+110
+00:10:33,500 --> 00:10:42,140
+ you have to import it into your Jupyter notebook and afterwards you have to show and analyse
+
+111
+00:10:42,140 --> 00:10:47,820
+ what are the effects of those parameters, you have to understand the data quality, is
+
+112
+00:10:47,820 --> 00:10:53,060
+ there any outliers into your data set, is there any problem into your data set, is there
+
+113
+00:10:53,060 --> 00:10:59,020
+ any missing values into your data set and if there are any measures that you are taking
+
+114
+00:10:59,020 --> 00:11:04,980
+ in order to handle those problem you can analyse, you can visualise various parameters, you
+
+115
+00:11:04,980 --> 00:11:14,180
+ can see the relevance of or any relevance of one attribute to another attribute is there.
+
+116
+00:11:14,180 --> 00:11:20,020
+ So you have to do all of the data exploration related to whatever the features available
+
+117
+00:11:20,020 --> 00:11:25,980
+ in your data set and then you have to make a pair plot function as well using your seaborn
+
+118
+00:11:25,980 --> 00:11:29,780
+ library which is used for data visualisation.
+
+119
+00:11:29,780 --> 00:11:34,980
+ So this is very important, most of the students they miss the pair plot which has a marks
+
+120
+00:11:34,980 --> 00:11:41,420
+ into your second stage and the third becomes your data pre-patient stage where you will
+
+121
+00:11:41,420 --> 00:11:48,660
+ actually select your data as we have discussed in our first class when you have got that
+
+122
+00:11:48,660 --> 00:11:55,560
+ data set you basically divide your data set into training, validation and testing, training
+
+123
+00:11:55,560 --> 00:12:01,900
+ and validation data sets are used to train your model and basically training data set
+
+124
+00:12:01,900 --> 00:12:07,220
+ is used to train your model and during the training if you are using any part of your
+
+125
+00:12:07,220 --> 00:12:11,980
+ data set to validate whether your training is going okay that is your validation data
+
+126
+00:12:11,980 --> 00:12:12,980
+ set.
+
+127
+00:12:12,980 --> 00:12:19,460
+ So roughly we say the training and validation both part of your data sets are used to train
+
+128
+00:12:19,460 --> 00:12:25,100
+ your model and once your model is ready then actually gonna use the test data in order
+
+129
+00:12:25,100 --> 00:12:32,100
+ to test your model in order to see the performance of your model right and if there is any problem
+
+130
+00:12:32,100 --> 00:12:37,500
+ into your data set that you have to mention here data splitting should be mentioned here
+
+131
+00:12:37,500 --> 00:12:41,300
+ so that is what you need to do at your stage 3.
+
+132
+00:12:41,300 --> 00:12:47,220
+ Stage 4 would be your modelling stage, the modelling stage is where you gonna implement
+
+133
+00:12:47,220 --> 00:12:54,380
+ multiple models to do the regression analysis I will tell you not just to be stay with one
+
+134
+00:12:54,380 --> 00:12:58,740
+ model which is the linear regression model which is very simple you can do in two minutes
+
+135
+00:12:58,740 --> 00:13:06,520
+ right but if you have to score distinction or height distinction you don't have to rely
+
+136
+00:13:06,520 --> 00:13:13,020
+ just on one model you have to implement multiple models here right you don't need to do the
+
+137
+00:13:13,020 --> 00:13:19,100
+ minimum one in order to do your assessment and don't worry I gonna tell you the code
+
+138
+00:13:19,100 --> 00:13:24,820
+ where to locate the code right and you can easily locate it by yourself as well which
+
+139
+00:13:24,820 --> 00:13:30,660
+ will give you the idea if you just have to change one or two lines and you gonna implement
+
+140
+00:13:30,660 --> 00:13:35,560
+ a second model and you just have to change two lines again you gonna implement the third
+
+141
+00:13:35,560 --> 00:13:40,800
+ model right and at the end you can actually compare whole bunch of models whatever you
+
+142
+00:13:40,800 --> 00:13:47,140
+ have implemented but all of these things you have to do at this very important stage that
+
+143
+00:13:47,140 --> 00:13:53,420
+ is the stage 4 right and with this one you have to tell the hyper parameters as well
+
+144
+00:13:53,420 --> 00:14:00,140
+ so what parameters when we will discuss about the one of the models then you will understand
+
+145
+00:14:00,140 --> 00:14:04,740
+ that what are different parameters they have or if you have any background in the machine
+
+146
+00:14:04,740 --> 00:14:09,740
+ learning and artificial intelligence you would have known that there are multiple parameters
+
+147
+00:14:09,740 --> 00:14:16,100
+ which we normally give to any model and then the values if you change multiple values of
+
+148
+00:14:16,100 --> 00:14:21,140
+ those parameters actually there would be affect and there could be an affect on the overall
+
+149
+00:14:21,140 --> 00:14:25,620
+ performance of your model so that is what they have mentioned here that you have to
+
+150
+00:14:25,620 --> 00:14:31,020
+ record the parameter settings what are the parameters and what are the values you are
+
+151
+00:14:31,020 --> 00:14:38,260
+ taking and your rational to choose those values like why you have chosen these values in order
+
+152
+00:14:38,260 --> 00:14:45,940
+ to do the analysis right and then you have to revise the parameter settings for the subsequent
+
+153
+00:14:45,940 --> 00:14:52,580
+ model run so for example if you have to for example there are ABC3 parameters and you
+
+154
+00:14:52,580 --> 00:14:59,180
+ have taken value for example for A you have took the value 5 for the B parameters you
+
+155
+00:14:59,180 --> 00:15:08,060
+ have took the value for example 0.4 for example if it is ranges from 0 to 1 for example and
+
+156
+00:15:08,060 --> 00:15:13,220
+ you have run this one with this setting in the second run instead of for the variable
+
+157
+00:15:13,220 --> 00:15:20,800
+ A earlier you have set the value 5 you may set the value 2 for example and for the variable
+
+158
+00:15:20,800 --> 00:15:28,900
+ B which you have set the value for example 0.3 maybe you can try 0.4 0.5 0.8 for example
+
+159
+00:15:28,900 --> 00:15:36,480
+ so you have to rerun your model with revise parameters values right and that is what they
+
+160
+00:15:36,480 --> 00:15:42,700
+ have mentioned here revise any parameter setting for the subsequent model runs documents all
+
+161
+00:15:42,700 --> 00:15:48,780
+ the review until the best model is achieved so you have actually run your model for example
+
+162
+00:15:48,780 --> 00:15:57,140
+ a variable A parameter value is 5 and parameter B value is 0.3 and then you keep the parameter
+
+163
+00:15:57,140 --> 00:16:02,980
+ A value as 5 and you change the value for the parameter B for example so first you give
+
+164
+00:16:02,980 --> 00:16:10,940
+ 0.3 no you give 0.5 then you give 0.7 then you give 0.9 for example and now you change
+
+165
+00:16:10,940 --> 00:16:18,640
+ it the variable parameter value A so instead of 5 you may say set it to 2 and then again
+
+166
+00:16:18,640 --> 00:16:26,260
+ the variable parameter B value would be reset so with the value 2 for example for variable
+
+167
+00:16:26,260 --> 00:16:36,940
+ A again you try the parameter B value is 0.3 0.4 0.6 for example 0.8 0.9 for example and
+
+168
+00:16:36,940 --> 00:16:45,340
+ then you try 2 you try 5 maybe now for variable A parameter A you try for example 8 so for
+
+169
+00:16:45,340 --> 00:16:52,880
+ the 8 you try if the A parameter value is 8 for the parameter B it could be for example
+
+170
+00:16:52,880 --> 00:17:02,660
+ 0.2 0.4 0.6 0.8 and then with all of these runs then you come up okay the best result
+
+171
+00:17:02,660 --> 00:17:09,440
+ you have achieved best is like for example what you are actually looking for so say accuracy
+
+172
+00:17:09,440 --> 00:17:15,320
+ so accuracy is higher accuracy is good so you tried with the first run you got 80% now
+
+173
+00:17:15,320 --> 00:17:22,340
+ you got 83% with the other parameter setting you got 74% for the other parameter you got
+
+174
+00:17:22,340 --> 00:17:29,020
+ 85 for the other parameter setting you got 70% right so it means the parameter value
+
+175
+00:17:29,020 --> 00:17:34,180
+ which gave you the 85% of the accuracy are the best one and then you have to mention
+
+176
+00:17:34,180 --> 00:17:40,240
+ okay you have read on different parameters value in out of these one this parameter setting
+
+177
+00:17:40,240 --> 00:17:46,900
+ performed the best and you received actually the 85% accuracy and same for the regression
+
+178
+00:17:46,900 --> 00:17:54,800
+ model you are using RMSE or other metrics in order to compare so as much as the less
+
+179
+00:17:54,800 --> 00:18:00,000
+ error you will get is the best for you accuracy is high is good error less is good so you
+
+180
+00:18:00,000 --> 00:18:05,760
+ tried certain setting you got 0.8 for example and for the other one you got 0.5 for the
+
+181
+00:18:05,760 --> 00:18:11,440
+ other settings 0.2 so you would say 0.2 is the best because as much as the less error
+
+182
+00:18:11,440 --> 00:18:18,040
+ the less value you will get it means you have less error in your model performance right
+
+183
+00:18:18,040 --> 00:18:24,320
+ and that's what you need to do in your stage 4 so stage 4 or 5 somewhere are similar into
+
+184
+00:18:24,320 --> 00:18:30,240
+ your CRISP-DM architecture where you actually have to assess your machine learning model
+
+185
+00:18:30,240 --> 00:18:37,120
+ results you have to ensure you have to include a statement whether you have actually met
+
+186
+00:18:37,120 --> 00:18:44,500
+ your target or not whatever the criteria whatever the things you have mentioned in your business
+
+187
+00:18:44,500 --> 00:18:50,280
+ understanding stage here whether you have able to achieve those one or not and that's
+
+188
+00:18:50,280 --> 00:18:58,160
+ what you need to mention at your stage 5 for all of your assessment for assessment 1 2
+
+189
+00:18:58,160 --> 00:19:05,600
+ and 3 you are not going to implement this stage 6 deployment so instead of deploy it's
+
+190
+00:19:05,600 --> 00:19:09,840
+ not I'm saying that you are not supposed to mention of course you are going to mention
+
+191
+00:19:09,840 --> 00:19:15,960
+ stage 6 but instead of deployment what you are going to do you have to tell the lesson
+
+192
+00:19:15,960 --> 00:19:22,600
+ learns for example what went wrong what was the issue how did you fix it up like how your
+
+193
+00:19:22,600 --> 00:19:29,740
+ experiences and apart from your experiences you can also have to comment on the model
+
+194
+00:19:29,740 --> 00:19:35,680
+ and the data so for example if you could say oh I applied this model if I could apply this
+
+195
+00:19:35,680 --> 00:19:41,280
+ one might be the results are better or if I will try multiple reruns because which I
+
+196
+00:19:41,280 --> 00:19:47,080
+ can't do as I'm short of the time for example your accuracy or your error could be reduced
+
+197
+00:19:47,080 --> 00:19:52,400
+ your accuracy could be improved for example so you have to tell all of your lessons that
+
+198
+00:19:52,400 --> 00:19:58,600
+ you have learned you wish to share in relation to the things that went right and went wrong
+
+199
+00:19:58,600 --> 00:20:04,720
+ the areas that you think you did well and which you could actually improve so you have
+
+200
+00:20:04,720 --> 00:20:09,800
+ to detail any of your experiences in completing this assessment and that's what you need to
+
+201
+00:20:09,800 --> 00:20:21,040
+ mention at your stage 6 now this is very important what you are going to submit I'm not asking
+
+202
+00:20:21,040 --> 00:20:29,720
+ you to draft a separate document file no you don't need to do I don't want you to do any
+
+203
+00:20:29,720 --> 00:20:37,000
+ extra work whatever you want to write whatever you want to say right in this python file
+
+204
+00:20:37,000 --> 00:20:44,080
+ right and whatever this jupyter notebook you have this python file you have simply convert
+
+205
+00:20:44,080 --> 00:20:53,400
+ that one into a pdf this is very important markers mostly referring this pdf file and
+
+206
+00:20:53,400 --> 00:21:00,840
+ you have to ensure all of the contents are properly mapped so sometimes with the jupyter
+
+207
+00:21:00,840 --> 00:21:08,600
+ notebook when you convert into a pdf normally all of the contents at the bottom one are
+
+208
+00:21:08,600 --> 00:21:15,520
+ not actually mapped so you have to ensure that all of the contents all of your sections
+
+209
+00:21:15,520 --> 00:21:25,360
+ are properly mapped converted into this pdf right and the third one would be your txt
+
+210
+00:21:25,360 --> 00:21:31,680
+ file so there would be three submission files you don't need to zip you have to straight
+
+211
+00:21:31,680 --> 00:21:39,240
+ away submit the three files one would be the python file similarly convert that file into
+
+212
+00:21:39,240 --> 00:21:45,720
+ a pdf that would be the your second submission file and third would be when you go to this
+
+213
+00:21:45,720 --> 00:21:56,840
+ ipynb you have to download into a .py extension right and then that py will have only the
+
+214
+00:21:56,840 --> 00:22:03,320
+ code and then you can just copy paste that one into a note pad file and save it into
+
+215
+00:22:03,320 --> 00:22:11,440
+ a .txt extension or simply once you download this one as .py you change its extension to
+
+216
+00:22:11,440 --> 00:22:19,560
+ txt for example and submit it so those would be the three submissions files that you have
+
+217
+00:22:19,560 --> 00:22:24,960
+ to submit no other stuff you are supposed to submit whatever the efforts you want to
+
+218
+00:22:24,960 --> 00:22:32,480
+ put i want you to do on this jupyter notebook no presentation no ppt nothing else put every
+
+219
+00:22:32,480 --> 00:22:38,160
+ effort every bit of your time onto this python file in order to implement to improve the
+
+220
+00:22:38,160 --> 00:22:46,640
+ code now if you have any question from any of the section please let me know then i will
+
+221
+00:22:46,640 --> 00:22:53,160
+ tell you some other stuff related to this one so only red is required or red and white
+
+222
+00:22:53,160 --> 00:23:01,180
+ sorry only red wine is required or red and white you can use both of them because as
+
+223
+00:23:01,180 --> 00:23:06,880
+ much as the more values of the data set you will have you will get better results or you
+
+224
+00:23:06,880 --> 00:23:13,320
+ will get better analysis so what you can do is there is a red wine there is a white one
+
+225
+00:23:13,320 --> 00:23:20,280
+ you can just combine them into one csv file and use that one or even if you do one of
+
+226
+00:23:20,280 --> 00:23:28,160
+ the red wine or white one even it will fine for your assessment but as we know as much
+
+227
+00:23:28,160 --> 00:23:37,280
+ as the data you would have for your machine learning stuff would be good for your analysis
+
+228
+00:23:37,280 --> 00:23:50,540
+ thank you yes any any other question any other doubt you have i'll throw me a doctor camera
+
+229
+00:23:50,540 --> 00:23:59,640
+ all good yes so very simple very straightforward before going into the detail i tell you one
+
+230
+00:23:59,640 --> 00:24:11,640
+ thing which is very important which is are you aware of the google colab have somebody
+
+231
+00:24:11,640 --> 00:24:27,480
+ used the google co-act before okay so you simply have to
+
+232
+00:24:27,480 --> 00:24:55,360
+ where is that
+
+233
+00:24:55,360 --> 00:25:09,760
+ let me open that one up for you so you simply have to search google colab for example and
+
+234
+00:25:09,760 --> 00:25:18,760
+ you will get this one which you have to link with your any of your google account gmail
+
+235
+00:25:18,760 --> 00:25:28,520
+ account and once you will do this one here you will click on upload and in upload you
+
+236
+00:25:28,520 --> 00:25:40,960
+ will click on browse and then you can import your CRISP-DM architecture here right and
+
+237
+00:25:40,960 --> 00:25:59,640
+ so for example if i will do the recent one right so this is from one of the students
+
+238
+00:25:59,640 --> 00:26:18,100
+ for example and here when you click on file and you will click on download that is the
+
+239
+00:26:18,100 --> 00:26:35,960
+ second last you can download is ipynb right and the second one is .py so this .ipynb is
+
+240
+00:26:35,960 --> 00:26:45,580
+ what you are supposed to submit and you will convert that one into a pdf you can do simply
+
+241
+00:26:45,580 --> 00:26:53,600
+ ctrl p for example and then you can just have to scroll down to see whether all of the things
+
+242
+00:26:53,600 --> 00:27:02,200
+ are properly mapped and that's what you need to submit and the third file is you will again
+
+243
+00:27:02,200 --> 00:27:09,920
+ click on file and download when you click on download you will download it as .py and
+
+244
+00:27:09,920 --> 00:27:15,560
+ once you download that .py you can just simply submit it or you can just simply change it
+
+245
+00:27:15,560 --> 00:27:24,920
+ to extension to .txt or you can open .py ctrl a ctrl c copy everything and then ctrl v into
+
+246
+00:27:24,920 --> 00:27:31,080
+ your notepad file and save it with your name and submit it right that would be the three
+
+247
+00:27:31,080 --> 00:27:38,400
+ things you need to do so whatever you have to write here for example here you will simply
+
+248
+00:27:38,400 --> 00:27:46,360
+ need to write everything here for example right so you don't need to prepare any extra
+
+249
+00:27:46,360 --> 00:27:54,060
+ word file in order to explain your stuff you don't need to worry about the number of words
+
+250
+00:27:54,060 --> 00:28:03,980
+ just explain as much as you want okay and this is for you to to use jupyter notebook
+
+251
+00:28:03,980 --> 00:28:16,760
+ to do your coding and everything right so very much straightforward important thing
+
+252
+00:28:16,760 --> 00:28:28,880
+ is you are going to submit three files .itynb this pdf one and the txt one no zip no rare
+
+253
+00:28:28,880 --> 00:28:37,320
+ no compression and these instead of this last stage which is the deployment you have to
+
+254
+00:28:37,320 --> 00:28:44,960
+ tell your lesson learns and the rest things are very much clear and we discussed either
+
+255
+00:28:44,960 --> 00:28:52,160
+ you can use both of the data set red wine or white wines you can just combine them or
+
+256
+00:28:52,160 --> 00:29:00,140
+ you can use any of them that will still work and other important thing is it is most to
+
+257
+00:29:00,140 --> 00:29:16,160
+ use this crisp dm architecture okay and very important thing for those students who are
+
+258
+00:29:16,160 --> 00:29:23,720
+ recently giant may be their first term i think you are all senior and experienced now with
+
+259
+00:29:23,720 --> 00:29:33,740
+ torrance how things work here but if there is anything unusual going on any ad work circumstances
+
+260
+00:29:33,740 --> 00:29:40,280
+ you can apply for an extension and you will click on assessment then you will click on
+
+261
+00:29:40,280 --> 00:29:51,600
+ this extension submission this this link here the first one and you will click on this one
+
+262
+00:29:51,600 --> 00:29:58,840
+ this extension submission and you will simply scroll down and here you gonna mention assessment
+
+263
+00:29:58,840 --> 00:30:06,480
+ number original due date and how much you are asking for an extension select any of
+
+264
+00:30:06,480 --> 00:30:12,940
+ these options and you have to mention the reason here acknowledge and submit it right
+
+265
+00:30:12,940 --> 00:30:21,540
+ am 100% in support of you up till 7 days if you are going through any ad work circumstances
+
+266
+00:30:21,540 --> 00:30:28,080
+ you can apply for an extension without any proof you just have to state the reason why
+
+267
+00:30:28,080 --> 00:30:35,440
+ you are applying for an extension but if there is any major problem you can apply extension
+
+268
+00:30:35,440 --> 00:30:41,340
+ beyond one week but for that one you need to submit the proof for example any medical
+
+269
+00:30:41,340 --> 00:30:49,360
+ certificate or other issues but for my course i understand that most of your courses their
+
+270
+00:30:49,360 --> 00:30:56,680
+ first assessments and second and the follow up assessments their due date is same and
+
+271
+00:30:56,680 --> 00:31:03,760
+ you might not get enough time to all of the assessment or you put yourself maximum for
+
+272
+00:31:03,760 --> 00:31:08,800
+ any of the assessment please apply for an extension and just send me a message on the
+
+273
+00:31:08,800 --> 00:31:14,880
+ teams that you have applied and i will approve into the system so you would all know that
+
+274
+00:31:14,880 --> 00:31:23,460
+ your submission extension application has been approved right so please apply for my
+
+275
+00:31:23,460 --> 00:31:29,840
+ course because i want you to give 100% even for example you think you need 2 days you
+
+276
+00:31:29,840 --> 00:31:37,680
+ 3 days 4 days for example apply for an extension but give 100% for any of your assessment for
+
+277
+00:31:37,680 --> 00:31:44,680
+ machine learning course so am happy to approve i tell you in advance but you have to state
+
+278
+00:31:44,680 --> 00:31:55,000
+ the reasons there and i will definitely would be in support of you to approve it so yes
+
+279
+00:31:55,000 --> 00:32:18,360
+ any any questions so far oh good for me yes guys any questions okay okay good so i gonna
+
+280
+00:32:18,360 --> 00:32:26,360
+ stop the recording if there are no further questions related to assessment and so because
+
+281
+00:32:26,360 --> 00:32:33,640
+ anybody who have to watch the discussion related to assessment so they can watch it later on
+
+282
+00:32:33,640 --> 00:32:49,440
+ so let me stop the recording and then we will start another session for our course.
+

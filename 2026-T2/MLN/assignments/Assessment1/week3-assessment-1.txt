@@ -1,0 +1,281 @@
+ [BLANK_AUDIO]
+ Sorry, good morning everyone, there are multiple agendas today we have to discuss our assessment
+ and then briefly the contents from the previous week due to the makeup class as of the public
+ holiday and then from this week content as well.
+ So I will start this session to discuss your assessment one, what are the expectations
+ and if there are any questions so I just give you two minutes to quickly open up your assessment
+ one and have a look and if there are further questions you have you can ask and then I
+ will start discussing about that one.
+ So please open up your assessment one specification.
+ [BLANK_AUDIO]
+ Okay, starting from, am I the audible?
+ Can you hear me clearly?
+ [BLANK_AUDIO]
+ >> Yes Steve, we can hear you well.
+ >> Yeah, okay, thank you, Lois.
+ Okay, so this is the first assessment specification and this is the template which you are going
+ to use.
+ So everybody must have to use this CRISP-DM architecture which I gotta explain in the
+ start of lecture that would be the other discussion.
+ But for the assessment you are going to download this one, of course not the PDF because you
+ can't edit, you can download this IPY and be the Python file, Jupyter notebook file
+ you can just download this one and then from here you can start working.
+ And I will explain you each step of that one in our lecture because we have missed that
+ when I uploaded the recording.
+ Because now I'm joined so I just uploaded the recording from the previous term.
+ But I will also explain you in the start of our today's lecture as well.
+ So that is the first thing that you have to use is the CRISP-DM architecture which you
+ have to use for all of your assessment, not just for the assessment one, for assessment
+ two, for assessment three as well.
+ And now come back to your assessment.
+ So this is the individual assessment.
+ Every assessment in your machine learning course is individual, there is no group assessment.
+ This assessment is all about regression analysis which we will study today about linear regression
+ and other stuff.
+ It is due by the end of your week four which would be the next week and you don't have
+ to worry about the number of words, right?
+ And it carries 20% of the weightage.
+ So in this assessment you're going to use the linear regression machine learning algorithm
+ to analyze data and draw conclusion.
+ We have already discussed in our previous weeks that regression is one type of your
+ supervised learning.
+ In supervised learning is where we know what we are going to do.
+ So for example if you are predicting whether an email is a spam email or a ham email, whether
+ the patient is a COVID patient or not a COVID patient or whether tomorrow would be sunny,
+ windy or cloudy weather, so in all of these we know what we are going to do.
+ But if the type of the attribute, if the type of the label is continuous in nature, is continuous
+ in nature then we call it as a regression problem and if it is categorical then we call
+ it as classification.
+ For example email is spam or ham, just to like possibilities of that respective label,
+ so it would be a classification.
+ How the weather would be tomorrow, whether it would be cloudy, sunny, windy, rainy.
+ So in all of these one you have only the predefined classes among which you have to do the prediction.
+ So again that is a classification but if the type of the attribute or the value which you
+ are going to predict is continuous in nature then the problem becomes your regression problem.
+ For example what would be the temperature tomorrow or in next one hour, right?
+ So make sure if you are predicting how the weather would be sunny, windy, cloudy, rainy
+ this is classification.
+ But if you are predicting the temperature value 7 degree, 8 degree, 10 degree it is
+ a continuous in nature then it becomes your regression problem.
+ Similarly based on several features if you are predicting the house price, so house price
+ would again give you a continuous number and this would be another example of your regression.
+ Similarly how many students came into Australia for example in a certain year for example
+ again would be a continuous value, value about your sales for example for a particular year,
+ for a particular month again that will give you a continuous number.
+ One Australian dollar is equal to how many US dollar for example give you a continuous
+ value.
+ Again all of these are example of your regression.
+ So you are doing regression analysis into your first assessment by using this CRISP-DM architecture.
+ So briefly tell you CRISP-DM architecture is nothing just 6 steps which you have to
+ follow like for example you have to do the business requirement which we will discuss
+ shortly and CRISP-DM architecture is the necessary source which you have to use to do this assessment
+ and you must have to consult this one.
+ So what is the problem?
+ Problem is your wine quality data sets which is available here.
+ You can just download that data set and based on that data set you have to predict the wine
+ quality.
+ There is a certain range from 0 to 10 and out of that one you have to predict and there
+ are different attributes, different characteristics or features say acidity, sugar value, alcohol
+ concentration and so on and based on that one they are predicting the wine quality between
+ 1 to 10 and you have to predict it using your regression models.
+ So what is the task is these are the 6 steps of your CRISP-DM architecture which I will
+ explain in another once I finish this recording of your assessment because I will record the
+ separate sessions for your assessment.
+ So later on for example in week 7 or week 8 you come and you want to do your assessment
+ too you do not need to look at where Kamran has discussed about assessment 2.
+ So there would be a separate video related to assessment 2 discussion you can just simply
+ watch that one in order to understand what are the expectations and what are you supposed
+ to do for your assessment 2.
+ So in this one the first would be your business understanding that is given here.
+ So in business understanding you will give your introduction, tell about the data sets,
+ tell your current state, what resources do you have and all those things where you have
+ got this data set you can provide the link, you can provide your expectation, your business
+ requirements, what do you think, what value, what metric you are going to use to compare
+ in order to see the performance of your model and up till what value.
+ So for example not for regression, regression is where you use the RMSE or other metrics
+ to see the error analysis.
+ So say for classification you are doing accuracy and you are saying okay I am going to consider
+ the accuracy as a metric that you will do for your assessment 2 but for your understanding
+ I am telling you, you can say okay the best case is 80%.
+ So it means you are implementing multiple models and if you will be able to achieve
+ above 80% of the accuracy that would be all good right.
+ So similarly for each of these tasks you have to mention what is your business criteria,
+ what are your business thinking, what you want to achieve, how much you want to achieve
+ and all those things right and that is what you need to mention in your first stage of
+ your Crisp-DM architecture which is your business understanding and then the second
+ stage would be your data understanding.
+ This is very important and for this one you have to understand your data set very clearly.
+ You have to convert that one into a CSV file which is comma separated file and afterwards
+ you have to import it into your Jupyter notebook and afterwards you have to show and analyse
+ what are the effects of those parameters, you have to understand the data quality, is
+ there any outliers into your data set, is there any problem into your data set, is there
+ any missing values into your data set and if there are any measures that you are taking
+ in order to handle those problem you can analyse, you can visualise various parameters, you
+ can see the relevance of or any relevance of one attribute to another attribute is there.
+ So you have to do all of the data exploration related to whatever the features available
+ in your data set and then you have to make a pair plot function as well using your seaborn
+ library which is used for data visualisation.
+ So this is very important, most of the students they miss the pair plot which has a marks
+ into your second stage and the third becomes your data pre-patient stage where you will
+ actually select your data as we have discussed in our first class when you have got that
+ data set you basically divide your data set into training, validation and testing, training
+ and validation data sets are used to train your model and basically training data set
+ is used to train your model and during the training if you are using any part of your
+ data set to validate whether your training is going okay that is your validation data
+ set.
+ So roughly we say the training and validation both part of your data sets are used to train
+ your model and once your model is ready then actually gonna use the test data in order
+ to test your model in order to see the performance of your model right and if there is any problem
+ into your data set that you have to mention here data splitting should be mentioned here
+ so that is what you need to do at your stage 3.
+ Stage 4 would be your modelling stage, the modelling stage is where you gonna implement
+ multiple models to do the regression analysis I will tell you not just to be stay with one
+ model which is the linear regression model which is very simple you can do in two minutes
+ right but if you have to score distinction or height distinction you don't have to rely
+ just on one model you have to implement multiple models here right you don't need to do the
+ minimum one in order to do your assessment and don't worry I gonna tell you the code
+ where to locate the code right and you can easily locate it by yourself as well which
+ will give you the idea if you just have to change one or two lines and you gonna implement
+ a second model and you just have to change two lines again you gonna implement the third
+ model right and at the end you can actually compare whole bunch of models whatever you
+ have implemented but all of these things you have to do at this very important stage that
+ is the stage 4 right and with this one you have to tell the hyper parameters as well
+ so what parameters when we will discuss about the one of the models then you will understand
+ that what are different parameters they have or if you have any background in the machine
+ learning and artificial intelligence you would have known that there are multiple parameters
+ which we normally give to any model and then the values if you change multiple values of
+ those parameters actually there would be affect and there could be an affect on the overall
+ performance of your model so that is what they have mentioned here that you have to
+ record the parameter settings what are the parameters and what are the values you are
+ taking and your rational to choose those values like why you have chosen these values in order
+ to do the analysis right and then you have to revise the parameter settings for the subsequent
+ model run so for example if you have to for example there are ABC3 parameters and you
+ have taken value for example for A you have took the value 5 for the B parameters you
+ have took the value for example 0.4 for example if it is ranges from 0 to 1 for example and
+ you have run this one with this setting in the second run instead of for the variable
+ A earlier you have set the value 5 you may set the value 2 for example and for the variable
+ B which you have set the value for example 0.3 maybe you can try 0.4 0.5 0.8 for example
+ so you have to rerun your model with revise parameters values right and that is what they
+ have mentioned here revise any parameter setting for the subsequent model runs documents all
+ the review until the best model is achieved so you have actually run your model for example
+ a variable A parameter value is 5 and parameter B value is 0.3 and then you keep the parameter
+ A value as 5 and you change the value for the parameter B for example so first you give
+ 0.3 no you give 0.5 then you give 0.7 then you give 0.9 for example and now you change
+ it the variable parameter value A so instead of 5 you may say set it to 2 and then again
+ the variable parameter B value would be reset so with the value 2 for example for variable
+ A again you try the parameter B value is 0.3 0.4 0.6 for example 0.8 0.9 for example and
+ then you try 2 you try 5 maybe now for variable A parameter A you try for example 8 so for
+ the 8 you try if the A parameter value is 8 for the parameter B it could be for example
+ 0.2 0.4 0.6 0.8 and then with all of these runs then you come up okay the best result
+ you have achieved best is like for example what you are actually looking for so say accuracy
+ so accuracy is higher accuracy is good so you tried with the first run you got 80% now
+ you got 83% with the other parameter setting you got 74% for the other parameter you got
+ 85 for the other parameter setting you got 70% right so it means the parameter value
+ which gave you the 85% of the accuracy are the best one and then you have to mention
+ okay you have read on different parameters value in out of these one this parameter setting
+ performed the best and you received actually the 85% accuracy and same for the regression
+ model you are using RMSE or other metrics in order to compare so as much as the less
+ error you will get is the best for you accuracy is high is good error less is good so you
+ tried certain setting you got 0.8 for example and for the other one you got 0.5 for the
+ other settings 0.2 so you would say 0.2 is the best because as much as the less error
+ the less value you will get it means you have less error in your model performance right
+ and that's what you need to do in your stage 4 so stage 4 or 5 somewhere are similar into
+ your Crisp-DM architecture where you actually have to assess your machine learning model
+ results you have to ensure you have to include a statement whether you have actually met
+ your target or not whatever the criteria whatever the things you have mentioned in your business
+ understanding stage here whether you have able to achieve those one or not and that's
+ what you need to mention at your stage 5 for all of your assessment for assessment 1 2
+ and 3 you are not going to implement this stage 6 deployment so instead of deploy it's
+ not I'm saying that you are not supposed to mention of course you are going to mention
+ stage 6 but instead of deployment what you are going to do you have to tell the lesson
+ learns for example what went wrong what was the issue how did you fix it up like how your
+ experiences and apart from your experiences you can also have to comment on the model
+ and the data so for example if you could say oh I applied this model if I could apply this
+ one might be the results are better or if I will try multiple reruns because which I
+ can't do as I'm short of the time for example your accuracy or your error could be reduced
+ your accuracy could be improved for example so you have to tell all of your lessons that
+ you have learned you wish to share in relation to the things that went right and went wrong
+ the areas that you think you did well and which you could actually improve so you have
+ to detail any of your experiences in completing this assessment and that's what you need to
+ mention at your stage 6 now this is very important what you are going to submit I'm not asking
+ you to draft a separate document file no you don't need to do I don't want you to do any
+ extra work whatever you want to write whatever you want to say right in this python file
+ right and whatever this jupyter notebook you have this python file you have simply convert
+ that one into a pdf this is very important markers mostly referring this pdf file and
+ you have to ensure all of the contents are properly mapped so sometimes with the jupyter
+ notebook when you convert into a pdf normally all of the contents at the bottom one are
+ not actually mapped so you have to ensure that all of the contents all of your sections
+ are properly mapped converted into this pdf right and the third one would be your txt
+ file so there would be three submission files you don't need to zip you have to straight
+ away submit the three files one would be the python file similarly convert that file into
+ a pdf that would be the your second submission file and third would be when you go to this
+ ipynb you have to download into a .py extension right and then that py will have only the
+ code and then you can just copy paste that one into a note pad file and save it into
+ a .txt extension or simply once you download this one as .py you change its extension to
+ txt for example and submit it so those would be the three submissions files that you have
+ to submit no other stuff you are supposed to submit whatever the efforts you want to
+ put i want you to do on this jupyter notebook no presentation no ppt nothing else put every
+ effort every bit of your time onto this python file in order to implement to improve the
+ code now if you have any question from any of the section please let me know then i will
+ tell you some other stuff related to this one so only red is required or red and white
+ sorry only red wine is required or red and white you can use both of them because as
+ much as the more values of the data set you will have you will get better results or you
+ will get better analysis so what you can do is there is a red wine there is a white one
+ you can just combine them into one csv file and use that one or even if you do one of
+ the red wine or white one even it will fine for your assessment but as we know as much
+ as the data you would have for your machine learning stuff would be good for your analysis
+ thank you yes any any other question any other doubt you have i'll throw me a doctor camera
+ all good yes so very simple very straightforward before going into the detail i tell you one
+ thing which is very important which is are you aware of the google colab have somebody
+ used the google co-act before okay so you simply have to
+ where is that
+ let me open that one up for you so you simply have to search google colab for example and
+ you will get this one which you have to link with your any of your google account gmail
+ account and once you will do this one here you will click on upload and in upload you
+ will click on browse and then you can import your CRISP-DM architecture here right and
+ so for example if i will do the recent one right so this is from one of the students
+ for example and here when you click on file and you will click on download that is the
+ second last you can download is ipynb right and the second one is .py so this .ipynb is
+ what you are supposed to submit and you will convert that one into a pdf you can do simply
+ ctrl p for example and then you can just have to scroll down to see whether all of the things
+ are properly mapped and that's what you need to submit and the third file is you will again
+ click on file and download when you click on download you will download it as .py and
+ once you download that .py you can just simply submit it or you can just simply change it
+ to extension to .txt or you can open .py ctrl a ctrl c copy everything and then ctrl v into
+ your notepad file and save it with your name and submit it right that would be the three
+ things you need to do so whatever you have to write here for example here you will simply
+ need to write everything here for example right so you don't need to prepare any extra
+ word file in order to explain your stuff you don't need to worry about the number of words
+ just explain as much as you want okay and this is for you to to use jupyter notebook
+ to do your coding and everything right so very much straightforward important thing
+ is you are going to submit three files .itynb this pdf one and the txt one no zip no rare
+ no compression and these instead of this last stage which is the deployment you have to
+ tell your lesson learns and the rest things are very much clear and we discussed either
+ you can use both of the data set red wine or white wines you can just combine them or
+ you can use any of them that will still work and other important thing is it is most to
+ use this crisp dm architecture okay and very important thing for those students who are
+ recently giant may be their first term i think you are all senior and experienced now with
+ torrance how things work here but if there is anything unusual going on any ad work circumstances
+ you can apply for an extension and you will click on assessment then you will click on
+ this extension submission this this link here the first one and you will click on this one
+ this extension submission and you will simply scroll down and here you gonna mention assessment
+ number original due date and how much you are asking for an extension select any of
+ these options and you have to mention the reason here acknowledge and submit it right
+ am 100% in support of you up till 7 days if you are going through any ad work circumstances
+ you can apply for an extension without any proof you just have to state the reason why
+ you are applying for an extension but if there is any major problem you can apply extension
+ beyond one week but for that one you need to submit the proof for example any medical
+ certificate or other issues but for my course i understand that most of your courses their
+ first assessments and second and the follow up assessments their due date is same and
+ you might not get enough time to all of the assessment or you put yourself maximum for
+ any of the assessment please apply for an extension and just send me a message on the
+ teams that you have applied and i will approve into the system so you would all know that
+ your submission extension application has been approved right so please apply for my
+ course because i want you to give 100% even for example you think you need 2 days you
+ 3 days 4 days for example apply for an extension but give 100% for any of your assessment for
+ machine learning course so am happy to approve i tell you in advance but you have to state
+ the reasons there and i will definitely would be in support of you to approve it so yes
+ any any questions so far oh good for me yes guys any questions okay okay good so i gonna
+ stop the recording if there are no further questions related to assessment and so because
+ anybody who have to watch the discussion related to assessment so they can watch it later on
+ so let me stop the recording and then we will start another session for our course.

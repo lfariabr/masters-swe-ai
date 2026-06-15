@@ -1,0 +1,275 @@
+# ============================================================
+# MLN601 Machine Learning - Assessment 1 (v2)
+# Regression Analysis of UCI Wine Quality - multi-model comparison
+# Linear / Ridge / Lasso / ElasticNet / Random Forest, red+white combined
+# Student: Luis Faria
+# Source code extracted from MLN601FariaLuisBrief1v2.ipynb
+# ============================================================
+
+
+# ----- Code cell 1 -----
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+from sklearn.linear_model import LinearRegression, Ridge, Lasso, ElasticNet
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.preprocessing import StandardScaler
+from sklearn.pipeline import Pipeline
+from sklearn.model_selection import train_test_split, GridSearchCV
+from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
+
+sns.set_theme(style="whitegrid")
+RANDOM_STATE = 42
+
+
+# ----- Code cell 2 -----
+from pathlib import Path
+
+# Resolve project folders relative to the notebook location so the same
+# notebook runs locally and on Colab/Azure without editing paths.
+NB_DIR = Path.cwd()
+BASE_DIR = NB_DIR.parent if NB_DIR.name == "notebook" else NB_DIR
+OUTPUT_DIR = BASE_DIR / "outputs"
+FIG_DIR = OUTPUT_DIR / "figures"
+FIG_DIR.mkdir(parents=True, exist_ok=True)
+
+UCI_BASE = ("https://archive.ics.uci.edu/ml/machine-learning-databases/"
+            "wine-quality/")
+
+
+def load_wine(colour):
+    fname = f"winequality-{colour}.csv"
+    candidates = [BASE_DIR / "dataset" / fname,
+                  NB_DIR / "dataset" / fname,
+                  NB_DIR / fname]
+    local = next((p for p in candidates if p.exists()), None)
+    if local is not None:
+        print("Loading local:", local)
+        return pd.read_csv(local, sep=";")
+    print("Loading from UCI URL:", UCI_BASE + fname)
+    return pd.read_csv(UCI_BASE + fname, sep=";")
+
+
+red = load_wine("red")
+white = load_wine("white")
+red["wine_type"] = 1    # 1 = red
+white["wine_type"] = 0  # 0 = white
+df = pd.concat([red, white], ignore_index=True)
+
+print("Red:", red.shape, "| White:", white.shape, "| Combined:", df.shape)
+df.head()
+
+
+# ----- Code cell 3 -----
+df.info()
+
+
+# ----- Code cell 4 -----
+df.describe().T
+
+
+# ----- Code cell 5 -----
+print("Missing values per column:")
+print(df.isna().sum())
+print("\nDuplicate rows:", df.duplicated().sum())
+print("\nQuality value counts (combined):")
+print(df["quality"].value_counts().sort_index())
+print("\nQuality by wine type (1=red, 0=white):")
+print(df.groupby("wine_type")["quality"].agg(["count", "mean", "std"]).round(3))
+
+
+# ----- Code cell 6 -----
+plt.figure(figsize=(8, 4))
+sns.countplot(x="quality", hue="wine_type", data=df)
+plt.title("Wine quality distribution by type (0 = white, 1 = red)")
+plt.xlabel("Quality score")
+plt.ylabel("Count")
+plt.tight_layout()
+plt.savefig(FIG_DIR / "v2_quality_distribution.png", dpi=150)
+plt.show()
+
+
+# ----- Code cell 7 -----
+plt.figure(figsize=(11, 9))
+corr = df.corr()
+sns.heatmap(corr, annot=True, cmap="coolwarm", fmt=".2f", square=True,
+            cbar_kws={"shrink": 0.8}, annot_kws={"size": 7})
+plt.title("Correlation heatmap (combined red + white)")
+plt.tight_layout()
+plt.savefig(FIG_DIR / "v2_correlation_heatmap.png", dpi=150)
+plt.show()
+
+print("Correlation of each feature with quality (sorted):")
+print(corr["quality"].drop("quality").sort_values(ascending=False))
+
+
+# ----- Code cell 8 -----
+pair_cols = ["quality", "alcohol", "volatile acidity", "density", "chlorides"]
+pp = sns.pairplot(df, vars=pair_cols, hue="wine_type", corner=True,
+                  diag_kind="hist", plot_kws={"alpha": 0.25, "s": 10})
+pp.figure.suptitle("Pairplot of quality and key variables (red vs white)", y=1.02)
+pp.savefig(FIG_DIR / "v2_pairplot.png", dpi=110)
+plt.show()
+
+# Full pairplot (all variables) - kept optional because it is large:
+# sns.pairplot(df, corner=True, diag_kind="hist",
+#              plot_kws={"alpha": 0.15, "s": 6})
+# plt.show()
+
+
+# ----- Code cell 9 -----
+target_col = "quality"
+feature_cols = [c for c in df.columns if c != target_col]  # incl. wine_type
+
+X = df[feature_cols]
+y = df[target_col]
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.20, random_state=RANDOM_STATE
+)
+print("Train:", X_train.shape, "| Test:", X_test.shape)
+
+
+# ----- Code cell 10 -----
+def regression_metrics(y_true, y_pred):
+    return {
+        "MAE": mean_absolute_error(y_true, y_pred),
+        "RMSE": np.sqrt(mean_squared_error(y_true, y_pred)),
+        "R2": r2_score(y_true, y_pred),
+    }
+
+
+# Mean baseline: predict the training-set mean for every test row.
+baseline_pred = np.full(shape=y_test.shape, fill_value=y_train.mean())
+
+# Required model: ordinary least squares (no hyperparameters to tune).
+linreg = LinearRegression(fit_intercept=True).fit(X_train, y_train)
+
+# Competitors, each with a hyperparameter grid (5-fold CV = validation).
+# Regularised linear models are scaled; the tree model is not.
+searches = {
+    "Ridge": (
+        Pipeline([("sc", StandardScaler()), ("m", Ridge(random_state=RANDOM_STATE))]),
+        {"m__alpha": [0.01, 0.1, 1.0, 10.0, 100.0]},
+    ),
+    "Lasso": (
+        Pipeline([("sc", StandardScaler()),
+                  ("m", Lasso(random_state=RANDOM_STATE, max_iter=10000))]),
+        {"m__alpha": [0.001, 0.01, 0.1, 1.0]},
+    ),
+    "ElasticNet": (
+        Pipeline([("sc", StandardScaler()),
+                  ("m", ElasticNet(random_state=RANDOM_STATE, max_iter=10000))]),
+        {"m__alpha": [0.001, 0.01, 0.1, 1.0], "m__l1_ratio": [0.2, 0.5, 0.8]},
+    ),
+    "RandomForest": (
+        RandomForestRegressor(random_state=RANDOM_STATE, n_jobs=-1),
+        {"n_estimators": [200, 400], "max_depth": [None, 12, 20]},
+    ),
+}
+
+rows = [
+    {"model": "Mean baseline", "best_params": "-", "cv_RMSE": np.nan,
+     **regression_metrics(y_test, baseline_pred)},
+    {"model": "LinearRegression", "best_params": "fit_intercept=True",
+     "cv_RMSE": np.nan, **regression_metrics(y_test, linreg.predict(X_test))},
+]
+
+best_estimators = {"LinearRegression": linreg}
+for name, (estimator, grid) in searches.items():
+    gs = GridSearchCV(estimator, grid, scoring="neg_root_mean_squared_error",
+                      cv=5, n_jobs=-1)
+    gs.fit(X_train, y_train)
+    best_estimators[name] = gs.best_estimator_
+    rows.append({
+        "model": name,
+        "best_params": str(gs.best_params_),
+        "cv_RMSE": -gs.best_score_,
+        **regression_metrics(y_test, gs.best_estimator_.predict(X_test)),
+    })
+    print(f"{name:14s} best params: {gs.best_params_}  (CV RMSE {-gs.best_score_:.4f})")
+
+results = pd.DataFrame(rows)[["model", "best_params", "cv_RMSE", "MAE", "RMSE", "R2"]]
+results = results.sort_values("RMSE").reset_index(drop=True)
+results.round(4)
+
+
+# ----- Code cell 11 -----
+coef = (pd.DataFrame({"feature": feature_cols, "coefficient": linreg.coef_})
+        .sort_values("coefficient", ascending=False).reset_index(drop=True))
+print("LinearRegression intercept:", round(float(linreg.intercept_), 4))
+print(coef.round(4).to_string(index=False))
+
+rf = best_estimators["RandomForest"]
+imp = (pd.DataFrame({"feature": feature_cols, "importance": rf.feature_importances_})
+       .sort_values("importance", ascending=False).reset_index(drop=True))
+imp.round(4)
+
+
+# ----- Code cell 12 -----
+ranked = results[results["model"] != "Mean baseline"].sort_values("RMSE")
+best_name = ranked.iloc[0]["model"]
+best_model = best_estimators[best_name]
+print("Best model by test RMSE:", best_name)
+
+best_pred = best_model.predict(X_test)
+residuals = y_test - best_pred
+
+fig, axes = plt.subplots(1, 2, figsize=(13, 5))
+sns.scatterplot(x=best_pred, y=residuals, alpha=0.35, ax=axes[0])
+axes[0].axhline(0, color="black", linewidth=1)
+axes[0].set_xlabel("Predicted quality")
+axes[0].set_ylabel("Residual (actual - predicted)")
+axes[0].set_title(f"Residuals vs predicted ({best_name})")
+
+sns.scatterplot(x=y_test, y=best_pred, alpha=0.35, ax=axes[1])
+lims = [y_test.min() - 0.5, y_test.max() + 0.5]
+axes[1].plot(lims, lims, color="black", linewidth=1, linestyle="--")
+axes[1].set_xlabel("Actual quality")
+axes[1].set_ylabel("Predicted quality")
+axes[1].set_title(f"Actual vs predicted ({best_name})")
+
+plt.tight_layout()
+plt.savefig(FIG_DIR / "v2_residuals.png", dpi=150)
+plt.show()
+
+
+# ----- Code cell 13 -----
+def evaluate_on(data, label):
+    feats = [c for c in data.columns if c != target_col]
+    Xd, yd = data[feats], data[target_col]
+    Xtr, Xte, ytr, yte = train_test_split(
+        Xd, yd, test_size=0.20, random_state=RANDOM_STATE)
+    lr = LinearRegression().fit(Xtr, ytr)
+    rf = RandomForestRegressor(n_estimators=400, random_state=RANDOM_STATE,
+                               n_jobs=-1).fit(Xtr, ytr)
+    return [
+        {"dataset": label, "rows": len(data), "model": "LinearRegression",
+         **regression_metrics(yte, lr.predict(Xte))},
+        {"dataset": label, "rows": len(data), "model": "RandomForest",
+         **regression_metrics(yte, rf.predict(Xte))},
+    ]
+
+
+red_only = red.drop(columns=["wine_type"])
+white_only = white.drop(columns=["wine_type"])
+compare_rows = (evaluate_on(red_only, "red only")
+                + evaluate_on(white_only, "white only")
+                + evaluate_on(df, "combined"))
+compare = pd.DataFrame(compare_rows)[["dataset", "rows", "model", "MAE", "RMSE", "R2"]]
+compare.round(4)
+
+
+# ----- Code cell 14 -----
+results.to_csv(OUTPUT_DIR / "model_metrics_v2.csv", index=False)
+coef.to_csv(OUTPUT_DIR / "coefficients_v2.csv", index=False)
+imp.to_csv(OUTPUT_DIR / "feature_importance_v2.csv", index=False)
+compare.to_csv(OUTPUT_DIR / "dataset_comparison_v2.csv", index=False)
+print("Saved v2 artefacts:")
+for f in ["model_metrics_v2.csv", "coefficients_v2.csv",
+          "feature_importance_v2.csv", "dataset_comparison_v2.csv"]:
+    print(" -", OUTPUT_DIR / f)
+print(" - figures (v2_*.png) in", FIG_DIR)
+
