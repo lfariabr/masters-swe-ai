@@ -239,6 +239,39 @@ print(r2_score(y_test, y_pred))                   # evaluate
 
 ---
 
+## Bonus - Regression Metrics Deep-Dive (MAE · MSE · RMSE · R²)
+
+> Sparked by the wk3 lecture Q&A. These are the four numbers you use to judge a regression model. For every test row, **error (residual) = yᵢ − ŷᵢ** (actual − predicted), across `n` rows.
+
+| Metric | Formula | Units | One-liner |
+|---|---|---|---|
+| **MAE** (Mean Absolute Error) | `(1/n) Σ \|yᵢ−ŷᵢ\|` (abs value) | same as target | "on average I'm off by X" - most human-readable, all errors weighted equally, robust to outliers |
+| **MSE** (Mean Squared Error) | `(1/n) Σ(yᵢ − ŷᵢ)²` | target² | the **cost function OLS minimises**; squaring punishes big misses much harder; not human-readable (units²) |
+| **RMSE** (Root MSE) | `√MSE` | same as target | back in real units (the lecturer's "100 → 10" point); typical error but **tilted toward big misses** |
+| **R²** (Coefficient of Determination) | `1 − SSᵣₑₛ/SSₜₒₜ` | none (0→1) | **fraction of the target's variance the model explains** |
+
+**Why square at all?** Errors above and below the line cancel if you just add them (the lecturer's "floor" analogy: a student on floor 8 is −2 and one on floor 15 is +5; naive sum says they are 3 apart, but they are really 7 floors from target). Absolute value (MAE) or squaring (MSE) both kill the sign. Squaring is preferred for the *cost function* because it is smooth/differentiable (easy to optimise) and penalises large misses more.
+
+**MAE vs RMSE - the useful tell:**
+- `RMSE = MAE` → every error is the same size.
+- `RMSE > MAE` (it is always ≥) → errors vary; the bigger the gap, the more your model has occasional **large** misses.
+
+**R² in detail:** `R² = 1 − [Σ(yᵢ − ŷᵢ)² / Σ(yᵢ − ȳ)²]`
+- `SSᵣₑₛ` = your model's squared errors. `SSₜₒₜ` = squared errors of a dumb model that always predicts the mean ȳ.
+- **R² = 1** perfect · **0** no better than predicting the mean · **< 0** worse than the mean.
+- Unitless, so it is comparable across datasets (unlike RMSE, which is scale-dependent).
+- ⚠️ R² never decreases when you add features (even useless ones) → use **Adjusted R²** when comparing models with different feature counts.
+
+**Worked micro-example** (4 test wines, quality 0-10):
+- actual `y = [6, 5, 7, 8]`, predicted `ŷ = [6, 6, 7, 7]` → residuals `[0, −1, 0, 1]`
+- MAE = (0+1+0+1)/4 = **0.5** quality points
+- MSE = (0+1+0+1)/4 = **0.5** → RMSE = √0.5 ≈ **0.71** (note RMSE > MAE)
+- ȳ = 6.5 → SSₜₒₜ = 0.25+2.25+0.25+2.25 = 5; SSᵣₑₛ = 2 → **R² = 1 − 2/5 = 0.60** (explains 60% of the variance)
+
+**Which to report for A1:** lead with **RMSE** (error in quality points the marker can feel) + **R²** (proportion explained, 0-1). Use **MAE** if you want an outlier-robust read. **MSE** is mainly the quantity being minimised under the hood. Compare LinearRegression / Ridge / Lasso / ElasticNet on the *same* RMSE + R².
+
+---
+
 ## Module 3 Synthesis - From Intuition to Code
 
 | Lens | Resource | One-line role |

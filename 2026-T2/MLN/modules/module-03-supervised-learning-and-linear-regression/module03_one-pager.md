@@ -18,6 +18,7 @@
                        b₁ = slope (Δy per +1 x)
 ```
 🔵 Multivariate: `ŷ = b₀ + b₁x₁ + b₂x₂ + …` → a plane/surface, not a line.
+🔵 **Vocab (lecturer drilled it):** y = dependent = response = label · x = independent = explanatory = predictor · continuous predictor = **covariate** · categorical predictor = **factor** · the X matrix = **design matrix**.
 🔴 *b₀, b₁ are PARAMETERS = learned from data. Don't confuse with hyperparameters.*
 
 ## 🖤 How the line is chosen → Least Squares (the heart of it)
@@ -27,9 +28,24 @@ minimise  SSE = Σ(yᵢ − ŷᵢ)²   (sum of SQUARED residuals = OLS)
 ```
 🔵 Square the errors so +/− don't cancel **and** big misses hurt more.
 🔵 **Correlation (r)** is the intuition behind the slope: strong r → steep, confident line (−1 … +1).
-🔴 *r only sees the LINEAR part — a curve looks "weak" to r. And r ≠ causation.*
+🔴 *r only sees the LINEAR part - a curve looks "weak" to r. And r ≠ causation.*
 
-## 🖤 3 Types of Learning (Raschka Ch.1 — quick spine)
+## 🖤 Scoring the model → 4 metrics (← the ones you asked the teacher about)
+| Metric | What | Units | Read it as |
+|---|---|---|---|
+| **MAE** | mean of \|yᵢ−ŷᵢ\| | **target units** | avg miss; all errors weighted equally; outlier-robust |
+| **MSE** | mean of (yᵢ−ŷᵢ)² | units² | the cost OLS minimises; punishes big misses hard |
+| **RMSE** | √MSE | **target units** | typical miss, but tilted toward big errors |
+| **R²** | 1 − SSᵣₑₛ/SSₜₒₜ | 0→1 (unitless) | **% of variance the model explains** |
+
+🔵 **RMSE ≥ MAE always**; RMSE >> MAE = a few big misses. R²: 1 = perfect · 0 = no better than the mean · <0 = worse than the mean.
+🔴 *A1: report **RMSE + R²** together (magnitude + proportion explained). Don't report MSE alone - it's in units² (not human-readable).*
+
+## 🖤 3 flavours of regression (lecturer)
+- **Simple** = ONE independent var · **Multiple** = TWO+ independent vars.
+- 🔴 **Logistic "regression" = CLASSIFICATION, not regression** (binary / 2-class). The name is a trap the teacher flagged.
+
+## 🖤 3 Types of Learning (Raschka Ch.1 - quick spine)
 | Type | Labels? | Goal |
 |---|---|---|
 | **Supervised** ⭐ | ✅ yes | predict label/value |
@@ -56,6 +72,7 @@ evaluate:   r2_score / RMSE
 ```
 🔵 **Ridge** = shrink all coefs · **Lasso** = some coefs → 0 (feature select) · **ElasticNet** = both.
 🔵 "Try next" arrows = **No Free Lunch theorem** made practical → compare a handful.
+🔵 **A1 tip (lecturer):** all 4 share the SAME code - just swap the import (`LinearRegression` → `Ridge`/`Lasso`/`ElasticNet`), tweak the hyperparams, then say in your discussion which won.
 
 ## 🔴 Pitfalls (red box - these are marks-losers)
 - **Data leakage** → fit scaling/preprocessing on **TRAIN ONLY**, reapply to test. *"Test score looks too good" = suspect leakage* (Raschka says this outright).
@@ -71,6 +88,7 @@ evaluate:   r2_score / RMSE
 ## 🔴 Assessment Hook (bottom red strip)
 **A1 = Regression Analysis, due 28 Jun (20%).** Module 3 gives you the *actual algorithm*. Marks live in:
 1. Clean **target + features**  2. Honest **train/test split** (`random_state`)  3. `LinearRegression().fit()` → **predict**  4. Report **R²/RMSE** (not just charts)  5. Discuss **overfitting + Ridge/Lasso** and limits. 🔵 *Hang it on the CRISP-DM spine from Module 2.*
+🔵 *A1 data = red-wine **quality** (integer 0–10 target). Build on the 6 CRISP-DM headings; the Deployment heading = **Lessons Learned**. Compare LinearRegression / Ridge / Lasso / ElasticNet on RMSE + R².*
 
 ---
 
