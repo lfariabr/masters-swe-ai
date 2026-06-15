@@ -1,0 +1,7096 @@
+1
+00:00:00,000 --> 00:00:19,040
+ Good morning, everyone.
+
+2
+00:00:19,040 --> 00:00:25,400
+ Good morning.
+
+3
+00:00:25,400 --> 00:00:28,960
+ Good morning.
+
+4
+00:00:28,960 --> 00:00:32,240
+ I can see two Victor, OK?
+
+5
+00:00:32,240 --> 00:00:35,640
+ One Victor is with different surnames.
+
+6
+00:00:42,060 --> 00:00:43,120
+ Good morning.
+
+7
+00:00:43,120 --> 00:00:46,440
+ Good morning, Kannan.
+
+8
+00:00:46,440 --> 00:00:48,640
+ So I hope you guys are doing well.
+
+9
+00:00:48,640 --> 00:00:52,240
+ So let's start the today's lecture.
+
+10
+00:00:52,240 --> 00:00:55,080
+ Quickly have a recap of what we have
+
+11
+00:00:55,080 --> 00:00:57,600
+ discussed in our last class.
+
+12
+00:00:57,600 --> 00:01:02,160
+ Can anybody quickly tell me about what is machine learning?
+
+13
+00:01:26,360 --> 00:01:28,040
+ Yes?
+
+14
+00:01:28,040 --> 00:01:31,560
+ Hirani, Kannan, again, Victor?
+
+15
+00:01:38,320 --> 00:01:42,560
+ Machine learning is algorithm results.
+
+16
+00:01:48,360 --> 00:01:50,360
+ It is algorithm results, right?
+
+17
+00:01:50,360 --> 00:01:52,200
+ Correct?
+
+18
+00:01:52,200 --> 00:01:53,920
+ Yeah, machine learning--
+
+19
+00:01:53,920 --> 00:01:58,400
+ It's making predictions, predictions or decisions.
+
+20
+00:01:58,400 --> 00:01:58,900
+ Yeah.
+
+21
+00:02:01,840 --> 00:02:06,760
+ Yeah, with using different kinds of algorithms,
+
+22
+00:02:06,760 --> 00:02:09,000
+ machine learning making--
+
+23
+00:02:09,000 --> 00:02:11,120
+ machine learning-- our machine learning model
+
+24
+00:02:11,120 --> 00:02:14,880
+ giving us outcomes.
+
+25
+00:02:14,880 --> 00:02:16,520
+ OK, good.
+
+26
+00:02:16,520 --> 00:02:20,320
+ Yes, Victor, do you want to add anything?
+
+27
+00:02:20,320 --> 00:02:23,440
+ Yes, machine learning is an algorithm
+
+28
+00:02:23,440 --> 00:02:30,840
+ which is learned by data, unlike other algorithm
+
+29
+00:02:30,840 --> 00:02:34,400
+ with prepared instructions.
+
+30
+00:02:38,080 --> 00:02:39,640
+ OK.
+
+31
+00:02:39,640 --> 00:02:42,520
+ Yes, Hirani, again?
+
+32
+00:02:51,080 --> 00:02:54,920
+ So last time we discussed that machine learning
+
+33
+00:02:54,920 --> 00:02:57,480
+ is a branch of artificial intelligence which
+
+34
+00:02:57,480 --> 00:03:01,800
+ performs different actions, which includes prediction,
+
+35
+00:03:01,800 --> 00:03:05,320
+ association mining, regression, and so on,
+
+36
+00:03:05,320 --> 00:03:07,680
+ without explicitly being programmed.
+
+37
+00:03:07,680 --> 00:03:10,760
+ So normally, the machine learning algorithms
+
+38
+00:03:10,760 --> 00:03:15,480
+ trained on the data, and then it performs various tasks.
+
+39
+00:03:15,480 --> 00:03:19,800
+ Then we also discussed about the difference between machine
+
+40
+00:03:19,800 --> 00:03:23,240
+ learning algorithm and machine learning model.
+
+41
+00:03:23,240 --> 00:03:25,360
+ Can anybody quickly tell me the difference
+
+42
+00:03:25,360 --> 00:03:26,640
+ between these two terms?
+
+43
+00:03:30,440 --> 00:03:38,000
+ I remember that machine learning algorithm is--
+
+44
+00:03:38,000 --> 00:03:41,680
+ actually, algorithm-- machine learning result--
+
+45
+00:03:41,680 --> 00:03:44,680
+ machine learning outcome is result of machine learning
+
+46
+00:03:44,680 --> 00:03:46,600
+ algorithms.
+
+47
+00:03:46,600 --> 00:03:47,240
+ Say again?
+
+48
+00:03:47,240 --> 00:03:53,640
+ So with machine learnings, our models result is--
+
+49
+00:03:53,640 --> 00:03:56,240
+ Machine learning models are the results?
+
+50
+00:03:56,240 --> 00:03:57,280
+ OK.
+
+51
+00:03:57,280 --> 00:04:01,120
+ Yeah, results of the algorithms with different kinds
+
+52
+00:04:01,120 --> 00:04:03,080
+ of algorithms.
+
+53
+00:04:03,080 --> 00:04:08,120
+ Something like KNN could be-- or linear regression models
+
+54
+00:04:08,120 --> 00:04:09,760
+ algorithms.
+
+55
+00:04:09,760 --> 00:04:13,240
+ So these are helping to predict.
+
+56
+00:04:13,240 --> 00:04:16,240
+ And with using different kinds of algorithms,
+
+57
+00:04:16,240 --> 00:04:21,760
+ we can choose the best fit and keep going up.
+
+58
+00:04:21,760 --> 00:04:22,720
+ OK.
+
+59
+00:04:22,720 --> 00:04:27,840
+ Anybody else which can differentiate
+
+60
+00:04:27,840 --> 00:04:31,240
+ between machine learning algorithm and machine learning
+
+61
+00:04:31,240 --> 00:04:31,760
+ model?
+
+62
+00:04:36,160 --> 00:04:39,480
+ Yes, Victor, please go ahead.
+
+63
+00:04:39,480 --> 00:04:46,200
+ So machine learning algorithm is how we learn our model,
+
+64
+00:04:46,200 --> 00:04:51,480
+ but model is what we get after learning like that.
+
+65
+00:04:51,480 --> 00:04:54,520
+ OK, so machine learning algorithms
+
+66
+00:04:54,520 --> 00:04:58,640
+ are basically step-by-step instructions
+
+67
+00:04:58,640 --> 00:05:00,840
+ to perform any task.
+
+68
+00:05:00,840 --> 00:05:07,240
+ And once those algorithms are executed on a certain data,
+
+69
+00:05:07,240 --> 00:05:10,160
+ so it learns the patterns out of that data,
+
+70
+00:05:10,160 --> 00:05:13,680
+ and the output becomes your machine learning model.
+
+71
+00:05:13,680 --> 00:05:17,280
+ So you can say machine learning models are basically
+
+72
+00:05:17,280 --> 00:05:22,480
+ the machine learning algorithms already executed and learned
+
+73
+00:05:22,480 --> 00:05:24,440
+ on a specific data.
+
+74
+00:05:24,440 --> 00:05:25,840
+ Yeah, exactly.
+
+75
+00:05:25,840 --> 00:05:26,600
+ Yes.
+
+76
+00:05:26,600 --> 00:05:28,560
+ You just mentioned machine learning algorithm
+
+77
+00:05:28,560 --> 00:05:32,440
+ set of rules or procedures used for learning from data,
+
+78
+00:05:32,440 --> 00:05:34,600
+ whereas model is the output created
+
+79
+00:05:34,600 --> 00:05:37,840
+ by applying the algorithm to a specific data set.
+
+80
+00:05:37,840 --> 00:05:38,360
+ Perfect.
+
+81
+00:05:38,360 --> 00:05:39,040
+ Yes, correct.
+
+82
+00:05:39,040 --> 00:05:40,800
+ You again, thank you so much.
+
+83
+00:05:40,800 --> 00:05:46,800
+ So yeah, so then we discussed about two tasks which mostly
+
+84
+00:05:46,800 --> 00:05:48,880
+ the machine learning can do.
+
+85
+00:05:48,880 --> 00:05:51,960
+ One was the supervised learning, the other
+
+86
+00:05:51,960 --> 00:05:55,440
+ was the unsupervised learning.
+
+87
+00:05:55,440 --> 00:05:58,640
+ Anybody tell me difference between these two terms?
+
+88
+00:06:01,680 --> 00:06:08,920
+ In supervised learning, the algorithm is labeled.
+
+89
+00:06:08,920 --> 00:06:12,800
+ We are giving the example data.
+
+90
+00:06:12,800 --> 00:06:15,120
+ No, the machine learning algorithms
+
+91
+00:06:15,120 --> 00:06:17,000
+ are labeled or the data is labeled?
+
+92
+00:06:22,800 --> 00:06:26,680
+ The algorithm is labeled in supervised learning.
+
+93
+00:06:26,680 --> 00:06:28,800
+ What do you mean by algorithm is labeled?
+
+94
+00:06:28,800 --> 00:06:30,160
+ No.
+
+95
+00:06:30,160 --> 00:06:31,680
+ The data needs label.
+
+96
+00:06:35,320 --> 00:06:36,360
+ But you--
+
+97
+00:06:36,360 --> 00:06:45,320
+ What I remember is we have sample data.
+
+98
+00:06:45,320 --> 00:06:50,880
+ And in that data, the model already knows the result.
+
+99
+00:06:50,880 --> 00:06:58,520
+ And when we give new data, it is comparing with that data.
+
+100
+00:06:58,520 --> 00:07:02,240
+ Supervised learning, as I remembered at least,
+
+101
+00:07:02,240 --> 00:07:05,360
+ was like that.
+
+102
+00:07:05,360 --> 00:07:06,400
+ Did you understand that?
+
+103
+00:07:06,400 --> 00:07:09,280
+ Yeah, you can accept the example that you have given is correct.
+
+104
+00:07:09,280 --> 00:07:11,240
+ But the definition which you are telling
+
+105
+00:07:11,240 --> 00:07:16,840
+ about the supervised learning is not 100% correct.
+
+106
+00:07:16,840 --> 00:07:20,400
+ You mentioned machine learning algorithms are labeled.
+
+107
+00:07:20,400 --> 00:07:24,480
+ Like machine learning algorithms are a set of instructions.
+
+108
+00:07:24,480 --> 00:07:28,480
+ That doesn't need any labeling and so on.
+
+109
+00:07:28,480 --> 00:07:31,800
+ And another thing which I want to clarify with your point
+
+110
+00:07:31,800 --> 00:07:36,320
+ is when we say about label, label
+
+111
+00:07:36,320 --> 00:07:39,240
+ means the name of the feature.
+
+112
+00:07:39,240 --> 00:07:41,120
+ Or you can say name of the feature.
+
+113
+00:07:41,120 --> 00:07:45,480
+ So normally in machine learning, the word label
+
+114
+00:07:45,480 --> 00:07:50,160
+ is used for the resultant attribute.
+
+115
+00:07:50,160 --> 00:07:52,440
+ Resultant attributes, because all of those
+
+116
+00:07:52,440 --> 00:07:53,240
+ are the attribute.
+
+117
+00:07:53,240 --> 00:07:56,920
+ For example, if I talk about the medical data,
+
+118
+00:07:56,920 --> 00:08:00,040
+ and you will say, OK, how much is your blood pressure?
+
+119
+00:08:00,040 --> 00:08:01,960
+ How much is your blood sugar?
+
+120
+00:08:01,960 --> 00:08:03,320
+ Do you have any history?
+
+121
+00:08:03,320 --> 00:08:06,040
+ Do you have any cardiac problem?
+
+122
+00:08:06,040 --> 00:08:06,680
+ And so on.
+
+123
+00:08:06,680 --> 00:08:07,920
+ Do you have flu?
+
+124
+00:08:07,920 --> 00:08:09,760
+ Do you have any fever?
+
+125
+00:08:09,760 --> 00:08:10,880
+ How much fever?
+
+126
+00:08:10,880 --> 00:08:13,960
+ What is the value and so on?
+
+127
+00:08:13,960 --> 00:08:18,160
+ And then the final attribute is whether you have a COVID
+
+128
+00:08:18,160 --> 00:08:20,680
+ or you don't have a COVID.
+
+129
+00:08:20,680 --> 00:08:22,880
+ So all of these are the attribute,
+
+130
+00:08:22,880 --> 00:08:26,920
+ whether it is blood sugar, whether it is temperature
+
+131
+00:08:26,920 --> 00:08:29,720
+ value, whether it is any history, whether it
+
+132
+00:08:29,720 --> 00:08:32,800
+ is blood pressure, and so on.
+
+133
+00:08:32,800 --> 00:08:38,280
+ And also this particular attribute, the COVID result,
+
+134
+00:08:38,280 --> 00:08:41,880
+ whether it is yes or no, whether you have the COVID or not,
+
+135
+00:08:41,880 --> 00:08:44,080
+ is also an attribute.
+
+136
+00:08:44,080 --> 00:08:49,360
+ But that attribute, we call it as a label.
+
+137
+00:08:49,360 --> 00:08:53,200
+ So normally, in supervised learning,
+
+138
+00:08:53,200 --> 00:08:55,640
+ we do have that label.
+
+139
+00:08:55,640 --> 00:08:57,720
+ We do have that attribute.
+
+140
+00:08:57,720 --> 00:09:01,800
+ We know that attribute, what we are going to do.
+
+141
+00:09:01,800 --> 00:09:03,920
+ Of course, we know the task.
+
+142
+00:09:03,920 --> 00:09:07,040
+ OK, we are doing classification and regression.
+
+143
+00:09:07,040 --> 00:09:10,360
+ But other than that, we know that particular attribute
+
+144
+00:09:10,360 --> 00:09:14,720
+ which we have to do the prediction.
+
+145
+00:09:14,720 --> 00:09:16,400
+ So that is important.
+
+146
+00:09:16,400 --> 00:09:20,800
+ So label means that particular attribute.
+
+147
+00:09:20,800 --> 00:09:24,400
+ Another thing in some wording, in some definition,
+
+148
+00:09:24,400 --> 00:09:27,040
+ you will also find this label word.
+
+149
+00:09:27,040 --> 00:09:31,440
+ You will find, oh, the data should be label.
+
+150
+00:09:31,440 --> 00:09:32,560
+ What does that mean?
+
+151
+00:09:32,560 --> 00:09:37,280
+ It means the data or the features or the attributes,
+
+152
+00:09:37,280 --> 00:09:43,200
+ whatever your data has, should have features,
+
+153
+00:09:43,200 --> 00:09:45,560
+ should have name of the features.
+
+154
+00:09:45,560 --> 00:09:49,920
+ For example, if you give the image of a face, for example,
+
+155
+00:09:49,920 --> 00:09:52,440
+ it should have label.
+
+156
+00:09:52,440 --> 00:09:53,480
+ What does that mean?
+
+157
+00:09:53,480 --> 00:09:57,360
+ It means it has already identified that this is nose,
+
+158
+00:09:57,360 --> 00:10:00,360
+ this is forehead, these are the cheeks, these are the chin,
+
+159
+00:10:00,360 --> 00:10:02,640
+ these are the lips.
+
+160
+00:10:02,640 --> 00:10:04,720
+ And it means it has labels.
+
+161
+00:10:04,720 --> 00:10:07,040
+ All of the things within that data
+
+162
+00:10:07,040 --> 00:10:09,440
+ have attribute attached to it.
+
+163
+00:10:09,440 --> 00:10:13,280
+ Similarly, if you will see any image,
+
+164
+00:10:13,280 --> 00:10:15,920
+ any picture of your room, wherever
+
+165
+00:10:15,920 --> 00:10:18,960
+ you are sitting at the moment to take this class.
+
+166
+00:10:18,960 --> 00:10:22,200
+ So maybe it is already identified
+
+167
+00:10:22,200 --> 00:10:25,440
+ that this is your TV screen, this is your monitor,
+
+168
+00:10:25,440 --> 00:10:28,480
+ this is your laptop, this is your mouse,
+
+169
+00:10:28,480 --> 00:10:32,240
+ these are the walls, these are the bed, these are the sceneries,
+
+170
+00:10:32,240 --> 00:10:35,520
+ these are the fan, these are the birds, and so on.
+
+171
+00:10:35,520 --> 00:10:38,360
+ So all of these things are already labeled.
+
+172
+00:10:38,360 --> 00:10:40,560
+ It means it has the name of the attribute.
+
+173
+00:10:40,560 --> 00:10:44,080
+ Because later on, when you will grow in machine learning,
+
+174
+00:10:44,080 --> 00:10:46,840
+ you will find another technique which they call it
+
+175
+00:10:46,840 --> 00:10:49,200
+ as semi-supervised learning.
+
+176
+00:10:49,200 --> 00:10:53,760
+ It means there are certain labels available,
+
+177
+00:10:53,760 --> 00:10:57,080
+ but there are certain labels which are not available.
+
+178
+00:10:57,080 --> 00:11:01,120
+ Or you can understand semi-supervised learning
+
+179
+00:11:01,120 --> 00:11:05,200
+ in a way that there are certain faces which
+
+180
+00:11:05,200 --> 00:11:08,480
+ has the label data, means you have already
+
+181
+00:11:08,480 --> 00:11:12,920
+ identified what is nose, what is forehead, what is so on.
+
+182
+00:11:12,920 --> 00:11:16,680
+ But for some of the faces, you don't
+
+183
+00:11:16,680 --> 00:11:19,760
+ have that particular identification.
+
+184
+00:11:19,760 --> 00:11:24,080
+ In that case, you will use that knowledge that you already
+
+185
+00:11:24,080 --> 00:11:27,640
+ have, you will use those labels which you already
+
+186
+00:11:27,640 --> 00:11:30,000
+ have to learn that in the middle,
+
+187
+00:11:30,000 --> 00:11:32,920
+ you have a nose on the top of your eyes,
+
+188
+00:11:32,920 --> 00:11:37,480
+ you have a forehead on the other side of your nose,
+
+189
+00:11:37,480 --> 00:11:40,520
+ these are the cheeks at the bottom of your nose,
+
+190
+00:11:40,520 --> 00:11:43,880
+ you have lips, and then under the lips, you will have a chin.
+
+191
+00:11:43,880 --> 00:11:46,440
+ So you will use that knowledge in order
+
+192
+00:11:46,440 --> 00:11:52,480
+ to identify some features in other faces
+
+193
+00:11:52,480 --> 00:11:54,760
+ where don't have these labels.
+
+194
+00:11:54,760 --> 00:12:00,440
+ So in short, that kind of data which has certain labels
+
+195
+00:12:00,440 --> 00:12:03,600
+ or which doesn't have certain labels,
+
+196
+00:12:03,600 --> 00:12:05,640
+ the learning on that particular data
+
+197
+00:12:05,640 --> 00:12:08,440
+ is also called semi-supervised learning.
+
+198
+00:12:08,440 --> 00:12:12,960
+ So the point which I want to make is this label word.
+
+199
+00:12:12,960 --> 00:12:15,440
+ Label means the name of the feature.
+
+200
+00:12:15,440 --> 00:12:18,840
+ You can call it as feature, you can call it as attribute,
+
+201
+00:12:18,840 --> 00:12:21,040
+ you can call it as label.
+
+202
+00:12:21,040 --> 00:12:24,960
+ But you can't say that every attribute is label.
+
+203
+00:12:24,960 --> 00:12:29,240
+ Normally, you can say, but normally in machine learning,
+
+204
+00:12:29,240 --> 00:12:31,600
+ the final resultant attribute which
+
+205
+00:12:31,600 --> 00:12:34,520
+ you want to predict if you are doing the prediction
+
+206
+00:12:34,520 --> 00:12:36,560
+ or if you are doing the regression,
+
+207
+00:12:36,560 --> 00:12:40,040
+ that would be named as your label.
+
+208
+00:12:40,040 --> 00:12:42,000
+ So if you will have certain data,
+
+209
+00:12:42,000 --> 00:12:44,320
+ somebody can ask you, OK, what is the label?
+
+210
+00:12:44,320 --> 00:12:47,240
+ It means they are asking you the resultant attribute
+
+211
+00:12:47,240 --> 00:12:50,640
+ which you want to classify.
+
+212
+00:12:50,640 --> 00:12:54,720
+ I hope I have cleared this point, the labeling word.
+
+213
+00:12:54,720 --> 00:12:59,320
+ So Eugene mentioned that supervised learning prediction
+
+214
+00:12:59,320 --> 00:13:02,560
+ uses label data set, unsupervised learning,
+
+215
+00:13:02,560 --> 00:13:04,560
+ discovery, unlabeled data set.
+
+216
+00:13:08,320 --> 00:13:10,480
+ Yes, so here is the point.
+
+217
+00:13:10,480 --> 00:13:14,000
+ Normally, if you will read the literature on the internet,
+
+218
+00:13:14,000 --> 00:13:17,760
+ some of the websites, they will have this definition
+
+219
+00:13:17,760 --> 00:13:22,560
+ as Eugene mentioned, that unsupervised learning discovery,
+
+220
+00:13:22,560 --> 00:13:24,920
+ it is unlabeled data set.
+
+221
+00:13:24,920 --> 00:13:29,280
+ So now you have to clarify the concept or the thing
+
+222
+00:13:29,280 --> 00:13:32,480
+ which the Eugene mentioned is 100% correct,
+
+223
+00:13:32,480 --> 00:13:37,080
+ but you have to understand what unlabeled data set means here.
+
+224
+00:13:37,080 --> 00:13:40,880
+ So unlabeled means it doesn't have the final label.
+
+225
+00:13:40,880 --> 00:13:45,160
+ But if you are considering label as an attribute, so of course,
+
+226
+00:13:45,160 --> 00:13:48,920
+ even the unsupervised learning, you will have the labels.
+
+227
+00:13:48,920 --> 00:13:51,000
+ You know the name of the features.
+
+228
+00:13:51,000 --> 00:13:52,880
+ If you don't know the names of the feature,
+
+229
+00:13:52,880 --> 00:13:54,840
+ then how can you cluster them?
+
+230
+00:13:54,840 --> 00:13:59,800
+ How can you let them to be separated into various groups?
+
+231
+00:13:59,800 --> 00:14:04,160
+ If I don't have any information, whether you have a machine
+
+232
+00:14:04,160 --> 00:14:08,160
+ learning knowledge before or you do not have a machine learning
+
+233
+00:14:08,160 --> 00:14:11,440
+ knowledge before, or which country you come from,
+
+234
+00:14:11,440 --> 00:14:17,280
+ what is your gender, whether you have done any computer science
+
+235
+00:14:17,280 --> 00:14:22,600
+ or AI degree before, or I don't have your state information,
+
+236
+00:14:22,600 --> 00:14:26,920
+ I don't have your campus in which you are enrolled in,
+
+237
+00:14:26,920 --> 00:14:31,120
+ if I don't have those labels, then how can I cluster you?
+
+238
+00:14:31,120 --> 00:14:34,320
+ How can I let you to be separated into the groups?
+
+239
+00:14:34,320 --> 00:14:36,920
+ Oh, these are the students from Adelaide campus.
+
+240
+00:14:36,920 --> 00:14:38,440
+ These are the males.
+
+241
+00:14:38,440 --> 00:14:39,800
+ These are the females.
+
+242
+00:14:39,800 --> 00:14:42,120
+ These are offshore students.
+
+243
+00:14:42,120 --> 00:14:43,680
+ These are onshore students.
+
+244
+00:14:43,680 --> 00:14:45,360
+ These are international students.
+
+245
+00:14:45,360 --> 00:14:47,360
+ These are the domestic students.
+
+246
+00:14:47,360 --> 00:14:51,960
+ So in all of these one, I need to have the feature information.
+
+247
+00:14:51,960 --> 00:14:55,200
+ But mostly, the websites which are
+
+248
+00:14:55,200 --> 00:14:59,600
+ mentioning that unsupervised learning is unlabeled data set.
+
+249
+00:14:59,600 --> 00:15:05,480
+ It means it doesn't have the final resulting attribute.
+
+250
+00:15:05,480 --> 00:15:09,320
+ It doesn't know what label I have to predict,
+
+251
+00:15:09,320 --> 00:15:11,600
+ because it will just analyze your data.
+
+252
+00:15:11,600 --> 00:15:14,960
+ And based on that analysis, it will let it to be
+
+253
+00:15:14,960 --> 00:15:19,000
+ clusters into various groups.
+
+254
+00:15:19,000 --> 00:15:22,840
+ I hope everyone understood from this discussion.
+
+255
+00:15:22,840 --> 00:15:25,960
+ Yes, thank you.
+
+256
+00:15:25,960 --> 00:15:29,600
+ So as you can mention, and as you mentioned, Khan,
+
+257
+00:15:29,600 --> 00:15:35,720
+ as well, in supervised learning, we know the final attribute.
+
+258
+00:15:35,720 --> 00:15:39,480
+ And that is why, as I mentioned in my previous class as well,
+
+259
+00:15:39,480 --> 00:15:42,480
+ and what we are following in this class,
+
+260
+00:15:42,480 --> 00:15:46,000
+ that we will keep repeating these concepts,
+
+261
+00:15:46,000 --> 00:15:49,960
+ because these concepts are the gist of this machine learning
+
+262
+00:15:49,960 --> 00:15:50,800
+ course.
+
+263
+00:15:50,800 --> 00:15:54,720
+ If you will score an HD, and if somebody will ask you,
+
+264
+00:15:54,720 --> 00:15:57,760
+ OK, can you clearly differentiate between these two
+
+265
+00:15:57,760 --> 00:16:02,400
+ terms, and you don't use that right words to explain
+
+266
+00:16:02,400 --> 00:16:07,440
+ these concepts, or you don't have the right examples
+
+267
+00:16:07,440 --> 00:16:10,120
+ to clearly differentiate between these two terms,
+
+268
+00:16:10,120 --> 00:16:12,520
+ then there is no point to have an HD.
+
+269
+00:16:12,520 --> 00:16:15,160
+ So that is why I will keep asking.
+
+270
+00:16:15,160 --> 00:16:17,160
+ You will keep answering me.
+
+271
+00:16:17,160 --> 00:16:19,320
+ And then you will use different words,
+
+272
+00:16:19,320 --> 00:16:23,560
+ which we will use to further discuss and clarify
+
+273
+00:16:23,560 --> 00:16:27,120
+ why that word needs to be there, or why
+
+274
+00:16:27,120 --> 00:16:31,440
+ that word shouldn't be used while describing any concept.
+
+275
+00:16:31,440 --> 00:16:35,240
+ So supervised learning, we know the final attribute.
+
+276
+00:16:35,240 --> 00:16:38,680
+ We know the label for which we know the resulting attribute
+
+277
+00:16:38,680 --> 00:16:40,760
+ which we are going to classify.
+
+278
+00:16:40,760 --> 00:16:43,200
+ Whereas in unsupervised learning,
+
+279
+00:16:43,200 --> 00:16:47,320
+ we don't have any idea of the labeling attribute.
+
+280
+00:16:47,320 --> 00:16:51,600
+ Then in supervised learning, we further discussed two concepts.
+
+281
+00:16:51,600 --> 00:16:56,680
+ One was classification, and other was regression.
+
+282
+00:16:56,680 --> 00:16:58,960
+ Can anybody quickly tell me the difference
+
+283
+00:16:58,960 --> 00:17:00,320
+ between these two terms?
+
+284
+00:17:03,480 --> 00:17:04,760
+ Could you repeat, Professor?
+
+285
+00:17:04,760 --> 00:17:05,840
+ I couldn't catch you.
+
+286
+00:17:05,840 --> 00:17:09,840
+ The difference between classification and regression.
+
+287
+00:17:13,600 --> 00:17:18,800
+ Classification, can I explain by giving examples?
+
+288
+00:17:18,800 --> 00:17:21,880
+ Yeah, yeah, yeah, please go ahead.
+
+289
+00:17:21,880 --> 00:17:30,760
+ For example, if something is black or white or red,
+
+290
+00:17:30,760 --> 00:17:36,000
+ and if we are going to try to predict what it is,
+
+291
+00:17:36,000 --> 00:17:45,400
+ this is a classification.
+
+292
+00:17:45,400 --> 00:17:53,640
+ But if we are going to predict by using previous data,
+
+293
+00:17:53,640 --> 00:17:57,040
+ if we are going to predict tomorrow's weather degree,
+
+294
+00:17:57,040 --> 00:18:00,240
+ it will be regression.
+
+295
+00:18:00,240 --> 00:18:05,240
+ So in the classification, don't you use the previous data?
+
+296
+00:18:05,240 --> 00:18:09,520
+ Yeah, we are using previous data as well.
+
+297
+00:18:09,520 --> 00:18:12,560
+ But it already knows what it is.
+
+298
+00:18:12,560 --> 00:18:14,160
+ It's labeled.
+
+299
+00:18:14,160 --> 00:18:16,680
+ It's labeled.
+
+300
+00:18:16,680 --> 00:18:18,000
+ In regression--
+
+301
+00:18:18,000 --> 00:18:19,840
+ So in classification, it is labeled.
+
+302
+00:18:19,840 --> 00:18:25,000
+ Then in regression, isn't it labeled or--
+
+303
+00:18:25,000 --> 00:18:26,440
+ Could be labeled as well.
+
+304
+00:18:26,440 --> 00:18:34,640
+ But the main difference in my mind, if I'm wrong,
+
+305
+00:18:34,640 --> 00:18:35,960
+ you can correct me, Professor.
+
+306
+00:18:35,960 --> 00:18:37,600
+ I'm just telling what I know.
+
+307
+00:18:37,600 --> 00:18:42,680
+ No, no, I'm just asking the cross-question to clarify.
+
+308
+00:18:42,680 --> 00:18:44,320
+ I'm not saying that you are telling it.
+
+309
+00:18:44,320 --> 00:18:47,040
+ So I'm just asking the cross-question
+
+310
+00:18:47,040 --> 00:18:49,400
+ to clarify the wording that you are using.
+
+311
+00:18:49,400 --> 00:18:51,600
+ Yeah, yeah, please go ahead.
+
+312
+00:18:51,600 --> 00:18:58,400
+ Yeah, in regression, we are trying
+
+313
+00:18:58,400 --> 00:19:02,880
+ to predict what is going to be continuous data,
+
+314
+00:19:02,880 --> 00:19:09,040
+ the continuous result. But in the classification,
+
+315
+00:19:09,040 --> 00:19:14,200
+ we are just predicting if it's black or white or horse
+
+316
+00:19:14,200 --> 00:19:18,080
+ or cat, human or animal.
+
+317
+00:19:18,080 --> 00:19:20,800
+ Yeah, I can see these things.
+
+318
+00:19:20,800 --> 00:19:22,880
+ Yeah, and you can feel it.
+
+319
+00:19:22,880 --> 00:19:26,560
+ Yeah, Professor, I'm happy to hear.
+
+320
+00:19:26,560 --> 00:19:29,320
+ Yes, anybody else?
+
+321
+00:19:33,880 --> 00:19:43,040
+ Anybody else? Rakesh, Simon, Victor, Irani?
+
+322
+00:19:43,040 --> 00:19:54,640
+ Your classification is-- we have to classify our data.
+
+323
+00:19:54,640 --> 00:20:04,880
+ For example, is it apple or pineapple?
+
+324
+00:20:04,880 --> 00:20:10,920
+ But regression is like--
+
+325
+00:20:10,920 --> 00:20:18,280
+ if we know that the price of fruits
+
+326
+00:20:18,280 --> 00:20:27,920
+ is seasonal based on if it's summer or winter.
+
+327
+00:20:27,920 --> 00:20:34,680
+ So we have to predict next price,
+
+328
+00:20:34,680 --> 00:20:37,120
+ based on what season right now.
+
+329
+00:20:40,440 --> 00:20:42,560
+ Yes, Simon, we can't hear you.
+
+330
+00:20:47,240 --> 00:20:49,080
+ Can you unmute and try to speak up?
+
+331
+00:20:55,720 --> 00:20:57,680
+ OK.
+
+332
+00:20:57,680 --> 00:21:01,480
+ You again mentioned in the chat that classification
+
+333
+00:21:01,480 --> 00:21:04,120
+ is categorical, whereas regression
+
+334
+00:21:04,120 --> 00:21:08,880
+ is prediction of trend based on the existing data.
+
+335
+00:21:08,880 --> 00:21:09,680
+ Yes, correct.
+
+336
+00:21:09,680 --> 00:21:13,040
+ Yes, Khan, do you want to add anything?
+
+337
+00:21:13,040 --> 00:21:14,640
+ I want to ask a question.
+
+338
+00:21:14,640 --> 00:21:16,200
+ Yeah.
+
+339
+00:21:16,200 --> 00:21:21,800
+ For example, both in regression and classification.
+
+340
+00:21:21,800 --> 00:21:26,120
+ Yes, of course, we are going to use the previous datas
+
+341
+00:21:26,120 --> 00:21:31,640
+ to predict, but I'm talking about both of them.
+
+342
+00:21:31,640 --> 00:21:36,760
+ Both of them could be supervised and unsupervised learning.
+
+343
+00:21:36,760 --> 00:21:42,320
+ For example, with clustering, usually what I know
+
+344
+00:21:42,320 --> 00:21:47,000
+ is we are using unsupervised learning.
+
+345
+00:21:47,000 --> 00:21:52,200
+ But in supervised learning, we already
+
+346
+00:21:52,200 --> 00:21:56,880
+ know the result and making predictions according to that.
+
+347
+00:21:56,880 --> 00:22:03,760
+ I think I'm confusing about this situation.
+
+348
+00:22:03,760 --> 00:22:04,520
+ OK.
+
+349
+00:22:04,520 --> 00:22:09,360
+ We will discuss about confusion.
+
+350
+00:22:09,360 --> 00:22:11,080
+ Hi, Cameron, can you hear me now?
+
+351
+00:22:11,080 --> 00:22:12,480
+ Yeah, I can hear you now.
+
+352
+00:22:12,480 --> 00:22:14,200
+ Yes, I'm on board.
+
+353
+00:22:14,200 --> 00:22:14,960
+ OK.
+
+354
+00:22:14,960 --> 00:22:18,920
+ So classification is like choosing a category which
+
+355
+00:22:18,920 --> 00:22:22,520
+ predict a level or class.
+
+356
+00:22:22,520 --> 00:22:28,440
+ Example, in medical, it's can cancer or no cancer
+
+357
+00:22:28,440 --> 00:22:30,200
+ pass or fail.
+
+358
+00:22:30,200 --> 00:22:33,880
+ And regression is predicting a number which
+
+359
+00:22:33,880 --> 00:22:36,000
+ predicts a continuous value.
+
+360
+00:22:36,000 --> 00:22:40,480
+ For example, house of price is 1 million, 2 million.
+
+361
+00:22:40,480 --> 00:22:43,040
+ Temperature for tomorrow, like 28 degrees
+
+362
+00:22:43,040 --> 00:22:47,000
+ Celsius or 29 degrees Celsius.
+
+363
+00:22:47,000 --> 00:22:48,240
+ Correct.
+
+364
+00:22:48,240 --> 00:22:49,400
+ Yes.
+
+365
+00:22:49,400 --> 00:22:52,000
+ Thank you so much, Simon and everyone.
+
+366
+00:22:52,000 --> 00:22:56,320
+ Yes, all of you have discussed about these two concepts
+
+367
+00:22:56,320 --> 00:22:57,720
+ correctly.
+
+368
+00:22:57,720 --> 00:22:59,040
+ I can summarize it.
+
+369
+00:22:59,040 --> 00:23:02,120
+ Classification and regression, both
+
+370
+00:23:02,120 --> 00:23:05,440
+ are supervised learning tasks.
+
+371
+00:23:05,440 --> 00:23:09,080
+ These are not unsupervised learning tasks.
+
+372
+00:23:09,080 --> 00:23:14,360
+ In classification, because classification and regression,
+
+373
+00:23:14,360 --> 00:23:17,240
+ since both are supervised learning tasks,
+
+374
+00:23:17,240 --> 00:23:23,160
+ it means we already aware what is the final level, which
+
+375
+00:23:23,160 --> 00:23:25,120
+ we are going to predict.
+
+376
+00:23:25,120 --> 00:23:27,640
+ What is the resultant attribute?
+
+377
+00:23:27,640 --> 00:23:32,720
+ Now only the difference between classification and regression,
+
+378
+00:23:32,720 --> 00:23:38,440
+ as the region mentioned, is the type of that attribute.
+
+379
+00:23:38,440 --> 00:23:43,000
+ If the type of that attribute, that attribute means,
+
+380
+00:23:43,000 --> 00:23:45,160
+ I'm talking about the resulting attribute,
+
+381
+00:23:45,160 --> 00:23:47,920
+ I'm talking about the labeled attribute,
+
+382
+00:23:47,920 --> 00:23:51,240
+ the final outcome which we are going to predict.
+
+383
+00:23:51,240 --> 00:23:58,320
+ If the type of that attribute is categorical,
+
+384
+00:23:58,320 --> 00:24:01,400
+ it has certain categories, then the task
+
+385
+00:24:01,400 --> 00:24:03,800
+ will become the classification.
+
+386
+00:24:03,800 --> 00:24:07,400
+ And if the type of the attribute which
+
+387
+00:24:07,400 --> 00:24:10,840
+ we are going to predict is of type continuous,
+
+388
+00:24:10,840 --> 00:24:13,800
+ then it becomes your regression.
+
+389
+00:24:13,800 --> 00:24:16,480
+ As all of you have given example,
+
+390
+00:24:16,480 --> 00:24:22,840
+ if you are going to predict what would be the weather tomorrow,
+
+391
+00:24:22,840 --> 00:24:27,280
+ whether it would be sunny, rainy, windy, cloudy,
+
+392
+00:24:27,280 --> 00:24:29,880
+ you have just four categories, means
+
+393
+00:24:29,880 --> 00:24:33,320
+ the type of the attribute would be categorical,
+
+394
+00:24:33,320 --> 00:24:35,240
+ then it is classification.
+
+395
+00:24:35,240 --> 00:24:39,160
+ But if you are going to predict the temperature value, what
+
+396
+00:24:39,160 --> 00:24:41,360
+ would be the temperature tomorrow?
+
+397
+00:24:41,360 --> 00:24:49,280
+ Again, it would be 19 Celsius, 19.5 Celsius, 20 Celsius,
+
+398
+00:24:49,280 --> 00:24:53,560
+ or Fahrenheit, or whatever the scale you use.
+
+399
+00:24:53,560 --> 00:24:57,600
+ But it would have a range of the values
+
+400
+00:24:57,600 --> 00:25:00,120
+ which are continuous in nature.
+
+401
+00:25:00,120 --> 00:25:02,800
+ So then it becomes your regression.
+
+402
+00:25:02,800 --> 00:25:05,680
+ Similarly, all of the examples which
+
+403
+00:25:05,680 --> 00:25:09,360
+ we discussed in previous example, previous class,
+
+404
+00:25:09,360 --> 00:25:12,640
+ whether a file is a malware, non-malware,
+
+405
+00:25:12,640 --> 00:25:16,760
+ whether an email is a spam email or a ham email,
+
+406
+00:25:16,760 --> 00:25:20,280
+ or we discussed whether the person is COVID patient,
+
+407
+00:25:20,280 --> 00:25:23,600
+ non-COVID patient, cancer patient, non-cancer patient,
+
+408
+00:25:23,600 --> 00:25:26,080
+ whether the student will pass the course
+
+409
+00:25:26,080 --> 00:25:27,920
+ or will fail the course.
+
+410
+00:25:27,920 --> 00:25:33,080
+ All of these outcome have just only few categories
+
+411
+00:25:33,080 --> 00:25:36,080
+ among which we have to do the prediction.
+
+412
+00:25:36,080 --> 00:25:39,800
+ And further to this concept we discussed
+
+413
+00:25:39,800 --> 00:25:44,720
+ in our previous class, if you have just two possibilities
+
+414
+00:25:44,720 --> 00:25:48,000
+ between which you have to do the prediction, malware,
+
+415
+00:25:48,000 --> 00:25:52,920
+ non-malware, student pass, student will fail.
+
+416
+00:25:52,920 --> 00:25:56,560
+ Tomorrow weather is rainy, not rainy.
+
+417
+00:25:56,560 --> 00:25:59,920
+ Person is a cancer patient, non-cancer patient.
+
+418
+00:25:59,920 --> 00:26:02,840
+ Just two categories, two possibilities,
+
+419
+00:26:02,840 --> 00:26:06,080
+ then it becomes your binary classification.
+
+420
+00:26:06,080 --> 00:26:09,160
+ And if you have more than two categories,
+
+421
+00:26:09,160 --> 00:26:14,400
+ like tomorrow weather is rainy, windy, cloudy,
+
+422
+00:26:14,400 --> 00:26:20,080
+ or the grade, for example, grade is HD, distinction, pass,
+
+423
+00:26:20,080 --> 00:26:25,320
+ fail, so it has more than two possibilities,
+
+424
+00:26:25,320 --> 00:26:29,440
+ among which you have to do the prediction, right?
+
+425
+00:26:29,440 --> 00:26:33,000
+ Then it is your multi-class classification.
+
+426
+00:26:33,000 --> 00:26:35,320
+ On the other hand, if you are predicting
+
+427
+00:26:35,320 --> 00:26:38,120
+ the stock exchange share price,
+
+428
+00:26:38,120 --> 00:26:40,200
+ that would be a continuous number.
+
+429
+00:26:40,200 --> 00:26:42,880
+ If you are predicting the temperature value,
+
+430
+00:26:42,880 --> 00:26:45,800
+ if you are predicting one Australian dollar
+
+431
+00:26:45,800 --> 00:26:50,800
+ is equal to how many, for example, US dollar, right?
+
+432
+00:26:50,960 --> 00:26:55,040
+ Or if you are predicting the house prices, right?
+
+433
+00:26:55,040 --> 00:26:59,040
+ If you are predicting the number of COVID cases
+
+434
+00:26:59,040 --> 00:27:01,680
+ in a certain year, for example,
+
+435
+00:27:01,680 --> 00:27:06,000
+ all of these will give you a continuous number as a result.
+
+436
+00:27:06,000 --> 00:27:09,880
+ Then the task will become your regression.
+
+437
+00:27:09,880 --> 00:27:12,560
+ So having said with all of these examples,
+
+438
+00:27:13,520 --> 00:27:17,040
+ to be surprising, classification and regression
+
+439
+00:27:17,040 --> 00:27:20,000
+ both are your supervised learning tasks,
+
+440
+00:27:20,000 --> 00:27:22,280
+ whereas in classification,
+
+441
+00:27:22,280 --> 00:27:27,280
+ you have a categorical attribute which you have to predict,
+
+442
+00:27:27,760 --> 00:27:29,560
+ whereas in regression,
+
+443
+00:27:29,560 --> 00:27:34,120
+ you have a type of the attribute is your continuous,
+
+444
+00:27:34,120 --> 00:27:38,680
+ where you have the two possibilities in classification,
+
+445
+00:27:38,680 --> 00:27:42,160
+ the task will become your binary classification,
+
+446
+00:27:42,160 --> 00:27:45,680
+ and where you have more than two classes,
+
+447
+00:27:45,680 --> 00:27:48,200
+ among which you have to do the prediction,
+
+448
+00:27:48,200 --> 00:27:52,680
+ then the task will become your multi-class classification.
+
+449
+00:27:52,680 --> 00:27:56,680
+ Then we also discussed about unsupervised learning,
+
+450
+00:27:56,680 --> 00:28:00,040
+ where we do not have any idea
+
+451
+00:28:00,040 --> 00:28:02,360
+ of what we are going to predict.
+
+452
+00:28:02,360 --> 00:28:05,000
+ We just analyze our data.
+
+453
+00:28:05,000 --> 00:28:07,280
+ Based on that analysis,
+
+454
+00:28:07,280 --> 00:28:10,360
+ we will just let our data
+
+455
+00:28:10,360 --> 00:28:13,320
+ to be grouped into various clusters.
+
+456
+00:28:13,320 --> 00:28:15,880
+ As I had given you the example before,
+
+457
+00:28:15,880 --> 00:28:19,960
+ you have, I can see different students enrolled
+
+458
+00:28:19,960 --> 00:28:22,240
+ into this class, attending this class.
+
+459
+00:28:22,240 --> 00:28:24,720
+ I can cluster them based on their gender.
+
+460
+00:28:24,720 --> 00:28:28,360
+ I can cluster them based on their origin,
+
+461
+00:28:28,360 --> 00:28:30,000
+ based on their country,
+
+462
+00:28:30,000 --> 00:28:32,720
+ based on which campus they are joining,
+
+463
+00:28:32,720 --> 00:28:34,920
+ based on whether they are domestic
+
+464
+00:28:34,920 --> 00:28:37,440
+ or international students, and so on.
+
+465
+00:28:37,440 --> 00:28:41,000
+ So in all of these, we did not have any idea before.
+
+466
+00:28:41,000 --> 00:28:44,200
+ We just analyze, and based on that analysis,
+
+467
+00:28:44,200 --> 00:28:46,440
+ we will do that prediction,
+
+468
+00:28:46,440 --> 00:28:49,600
+ or we will let our data to be clustered
+
+469
+00:28:49,600 --> 00:28:51,160
+ into various groups.
+
+470
+00:28:51,160 --> 00:28:53,840
+ So that is unsupervised learning.
+
+471
+00:28:53,840 --> 00:28:57,360
+ And then we have another concept as well,
+
+472
+00:28:57,360 --> 00:29:01,840
+ which also come under the umbrella of unsupervised learning,
+
+473
+00:29:01,840 --> 00:29:05,600
+ because the one we discussed, that is called clustering,
+
+474
+00:29:05,600 --> 00:29:10,160
+ where you are clustering your data into various groups.
+
+475
+00:29:10,160 --> 00:29:15,160
+ Another task is, which also comes under the area
+
+476
+00:29:15,920 --> 00:29:20,920
+ of unsupervised learning, that is your outlier analysis.
+
+477
+00:29:21,360 --> 00:29:24,080
+ Or the other name of outlier analysis
+
+478
+00:29:24,080 --> 00:29:26,160
+ is your anomaly detection.
+
+479
+00:29:30,160 --> 00:29:31,480
+ Enomaly detection.
+
+480
+00:29:31,480 --> 00:29:35,880
+ So in anomaly detection, or in outlier analysis,
+
+481
+00:29:35,880 --> 00:29:40,880
+ basically you are trying to find out those data instances
+
+482
+00:29:42,760 --> 00:29:46,200
+ which are highly deviating to the rest of your data.
+
+483
+00:29:47,440 --> 00:29:52,440
+ Their behavior, their distance, their feature values
+
+484
+00:29:53,160 --> 00:29:57,560
+ are highly distinct to the rest of your distribution
+
+485
+00:29:57,560 --> 00:29:58,560
+ of your data.
+
+486
+00:29:58,560 --> 00:30:01,840
+ So sometimes it is really very important
+
+487
+00:30:01,840 --> 00:30:04,440
+ to find out those patterns.
+
+488
+00:30:04,440 --> 00:30:09,440
+ For example, if you will have a scan of your brain,
+
+489
+00:30:10,600 --> 00:30:14,360
+ MRI scan, all of the cells would be of one type.
+
+490
+00:30:14,360 --> 00:30:17,640
+ Maybe if somebody has any cancer cells,
+
+491
+00:30:17,640 --> 00:30:20,760
+ that would be highly distinct to the rest of your data.
+
+492
+00:30:20,760 --> 00:30:23,640
+ Similarly, if you will find all of the houses
+
+493
+00:30:23,640 --> 00:30:27,800
+ in a certain suburb are very closer to each other,
+
+494
+00:30:27,800 --> 00:30:31,080
+ but there is one or two houses which are far away
+
+495
+00:30:31,080 --> 00:30:34,760
+ from that particular suburb.
+
+496
+00:30:34,760 --> 00:30:37,440
+ So you will say these are the outliers.
+
+497
+00:30:38,480 --> 00:30:42,440
+ So we will study more in detail about these tasks.
+
+498
+00:30:42,440 --> 00:30:45,480
+ Do you have any question about these concepts
+
+499
+00:30:45,480 --> 00:30:48,160
+ which we discussed machine learning,
+
+500
+00:30:48,160 --> 00:30:51,400
+ we discussed about classification, regression,
+
+501
+00:30:51,400 --> 00:30:53,680
+ clustering, outlier analysis.
+
+502
+00:30:54,600 --> 00:30:57,520
+ Similarly, we have another task which we call it
+
+503
+00:30:57,520 --> 00:31:02,520
+ as association analysis.
+
+504
+00:31:02,600 --> 00:31:05,160
+ That's also come under the umbrella
+
+505
+00:31:05,160 --> 00:31:07,160
+ of unsupervised learning.
+
+506
+00:31:08,160 --> 00:31:12,320
+ The best example to understand the association analysis
+
+507
+00:31:12,320 --> 00:31:15,080
+ is the basket value analysis.
+
+508
+00:31:15,080 --> 00:31:20,080
+ Basket value analysis means that you just go
+
+509
+00:31:20,680 --> 00:31:24,000
+ to any grocery store, say you go to Kohl's,
+
+510
+00:31:24,000 --> 00:31:29,000
+ you go to Willy's and then you will find what are the items
+
+511
+00:31:29,360 --> 00:31:33,600
+ which are highly associated with each other.
+
+512
+00:31:33,600 --> 00:31:37,200
+ For example, if you will see different kind of
+
+513
+00:31:39,320 --> 00:31:42,320
+ like fast food items,
+
+514
+00:31:42,320 --> 00:31:45,880
+ different kind of fries and chips and so on.
+
+515
+00:31:45,880 --> 00:31:48,480
+ And next that one, if you go to any shop,
+
+516
+00:31:48,480 --> 00:31:52,920
+ you will find there are freezer of cans,
+
+517
+00:31:52,920 --> 00:31:56,720
+ different soft drinks, though both of them,
+
+518
+00:31:56,720 --> 00:32:00,480
+ they are not related to each other, right?
+
+519
+00:32:00,480 --> 00:32:03,280
+ Drinks has nothing to do with fries.
+
+520
+00:32:03,280 --> 00:32:05,480
+ Our drink has nothing to do with chips.
+
+521
+00:32:05,480 --> 00:32:08,400
+ If you have chips, you should come with some lollies
+
+522
+00:32:08,400 --> 00:32:11,000
+ and some biscuits, some other snacks.
+
+523
+00:32:11,000 --> 00:32:14,440
+ And if it is a drink, then it should come with other water
+
+524
+00:32:14,440 --> 00:32:16,600
+ and juices and so on.
+
+525
+00:32:16,600 --> 00:32:21,240
+ But why if you go to any shop, any fast food item,
+
+526
+00:32:21,240 --> 00:32:25,040
+ you will find these two items because people tend
+
+527
+00:32:25,040 --> 00:32:28,240
+ to buy these items together, right?
+
+528
+00:32:28,240 --> 00:32:30,320
+ Wherever you will find onions,
+
+529
+00:32:30,320 --> 00:32:33,080
+ you will find the potatoes there, right?
+
+530
+00:32:33,080 --> 00:32:35,960
+ You will find all the vegetables there.
+
+531
+00:32:35,960 --> 00:32:40,960
+ Sometimes you go to any traditional grocery store,
+
+532
+00:32:43,600 --> 00:32:46,000
+ you will find also meat there.
+
+533
+00:32:46,000 --> 00:32:49,200
+ They are selling the halal meat, for example.
+
+534
+00:32:49,200 --> 00:32:51,520
+ So some of the people, they tend to buy
+
+535
+00:32:51,520 --> 00:32:56,520
+ some other traditional items from their home country.
+
+536
+00:32:56,560 --> 00:33:01,560
+ And they also want to buy the halal meat as well,
+
+537
+00:33:02,400 --> 00:33:03,680
+ for example, there.
+
+538
+00:33:03,680 --> 00:33:07,080
+ Though these two has nothing to do with each other,
+
+539
+00:33:07,080 --> 00:33:10,160
+ but there is a tendency, they analyze
+
+540
+00:33:10,160 --> 00:33:14,360
+ that there are the purchasing behavior of different people
+
+541
+00:33:14,360 --> 00:33:17,680
+ that they are trying to buy these items together.
+
+542
+00:33:17,680 --> 00:33:21,040
+ It means they are highly associated with each other.
+
+543
+00:33:21,040 --> 00:33:26,040
+ That will help to apply your association analysis
+
+544
+00:33:27,440 --> 00:33:30,240
+ to solve various real life problems.
+
+545
+00:33:30,240 --> 00:33:32,720
+ For example, customer segmentation.
+
+546
+00:33:32,720 --> 00:33:35,120
+ If you will find which are the customers
+
+547
+00:33:35,120 --> 00:33:38,320
+ which have the same purchasing behavior,
+
+548
+00:33:38,320 --> 00:33:43,320
+ or you can set up your shop properly.
+
+549
+00:33:43,840 --> 00:33:47,160
+ Because if you are just analyze how the people
+
+550
+00:33:47,160 --> 00:33:49,720
+ are trying to buy, wherever you will find the cigarette,
+
+551
+00:33:49,720 --> 00:33:51,360
+ you will find the waves there.
+
+552
+00:33:51,360 --> 00:33:53,720
+ Wherever you will find the ice cream,
+
+553
+00:33:53,720 --> 00:33:56,840
+ you will find some other stuff there, right?
+
+554
+00:33:56,840 --> 00:33:59,120
+ Yes, Irani, yes, that's correct.
+
+555
+00:33:59,120 --> 00:34:01,760
+ So you will find bread and milk together,
+
+556
+00:34:01,760 --> 00:34:04,440
+ you will find somebody will buy the beer,
+
+557
+00:34:04,440 --> 00:34:07,360
+ they will also find the nappies, for example.
+
+558
+00:34:07,360 --> 00:34:11,360
+ They might having any weekend night, for example,
+
+559
+00:34:11,360 --> 00:34:13,480
+ and they are doing drinking and so on.
+
+560
+00:34:13,480 --> 00:34:15,720
+ So there would be a tendency,
+
+561
+00:34:15,720 --> 00:34:19,840
+ there would be an association between certain items
+
+562
+00:34:19,840 --> 00:34:21,800
+ which are being sold together.
+
+563
+00:34:21,800 --> 00:34:24,240
+ So that is called association analysis.
+
+564
+00:34:24,240 --> 00:34:27,960
+ And that's help you to set up different deals, for example,
+
+565
+00:34:27,960 --> 00:34:30,440
+ and that will help you to promote your business
+
+566
+00:34:30,440 --> 00:34:33,120
+ to increase the value of your business and so on.
+
+567
+00:34:33,120 --> 00:34:36,040
+ So that is another machine learning task
+
+568
+00:34:36,040 --> 00:34:40,800
+ which comes under the umbrella of your unsupervised learning
+
+569
+00:34:40,800 --> 00:34:42,640
+ that is association analysis.
+
+570
+00:34:42,640 --> 00:34:45,840
+ So in supervised learning,
+
+571
+00:34:45,840 --> 00:34:48,760
+ we discussed classification and regression.
+
+572
+00:34:48,760 --> 00:34:52,480
+ We also discussed about semi-supervised learning.
+
+573
+00:34:52,480 --> 00:34:55,360
+ We discussed about the difference of model
+
+574
+00:34:55,360 --> 00:34:57,760
+ and machine learning algorithm.
+
+575
+00:34:57,760 --> 00:35:00,560
+ We discussed about the outlier analysis.
+
+576
+00:35:00,560 --> 00:35:04,920
+ We discussed about the association analysis and so on.
+
+577
+00:35:04,920 --> 00:35:07,920
+ So any question, any doubt,
+
+578
+00:35:07,920 --> 00:35:10,640
+ anything you wanna add up as of now?
+
+579
+00:35:13,520 --> 00:35:16,040
+ Or if you can quickly search,
+
+580
+00:35:16,040 --> 00:35:19,240
+ take two minutes to search on the internet,
+
+581
+00:35:19,240 --> 00:35:23,120
+ what are the applications of association analysis
+
+582
+00:35:23,120 --> 00:35:25,320
+ in the context of machine learning?
+
+583
+00:35:26,400 --> 00:35:30,000
+ So in the context of machine learning,
+
+584
+00:35:30,000 --> 00:35:34,360
+ what are the application of association analysis?
+
+585
+00:35:34,360 --> 00:35:37,360
+ If you can just quickly search
+
+586
+00:35:37,360 --> 00:35:40,480
+ and maybe mention one or two example here,
+
+587
+00:35:40,480 --> 00:35:43,360
+ not exactly copy pasting from the internet,
+
+588
+00:35:43,360 --> 00:35:47,000
+ just try to understand and briefly one or two line
+
+589
+00:35:47,000 --> 00:35:51,400
+ about one of the applications of association analysis
+
+590
+00:35:51,400 --> 00:35:54,120
+ to solve various real life problems.
+
+591
+00:35:54,120 --> 00:35:57,400
+ So then we will understand this concept in a better way.
+
+592
+00:36:01,640 --> 00:36:03,280
+ Yes, just try to search.
+
+593
+00:36:10,480 --> 00:36:12,640
+ (silence)
+
+594
+00:36:40,480 --> 00:36:42,640
+ (silence)
+
+595
+00:36:50,640 --> 00:36:52,680
+ Please put into the chat window
+
+596
+00:36:52,680 --> 00:36:56,240
+ application of association analysis
+
+597
+00:36:56,240 --> 00:36:58,560
+ to solve various real life problems.
+
+598
+00:36:58,560 --> 00:37:00,720
+ (silence)
+
+599
+00:37:10,480 --> 00:37:12,640
+ (silence)
+
+600
+00:37:40,480 --> 00:37:42,640
+ (silence)
+
+601
+00:38:10,480 --> 00:38:12,640
+ (silence)
+
+602
+00:38:36,400 --> 00:38:40,360
+ Search engine is based on association
+
+603
+00:38:40,360 --> 00:38:45,360
+ analysis, yes, because if you will try
+
+604
+00:38:45,920 --> 00:38:49,600
+ to search anything, right, and it will try
+
+605
+00:38:49,600 --> 00:38:54,600
+ to find out whom or which website it is mostly related.
+
+606
+00:38:55,240 --> 00:39:00,120
+ So yeah, that would be an example of association analysis.
+
+607
+00:39:02,080 --> 00:39:06,520
+ Co-occurrence patterns, can you elaborate it further, Simon?
+
+608
+00:39:10,360 --> 00:39:13,240
+ (silence)
+
+609
+00:39:13,240 --> 00:39:16,680
+ And you can mention fraud detection
+
+610
+00:39:16,680 --> 00:39:20,120
+ by identifying unusual patterns of transaction, yes.
+
+611
+00:39:20,120 --> 00:39:23,600
+ So most of the transactions, so it really depends
+
+612
+00:39:23,600 --> 00:39:27,560
+ how actually you describe your problem.
+
+613
+00:39:27,560 --> 00:39:31,560
+ Like this, you can problem the fraud detection problem.
+
+614
+00:39:31,560 --> 00:39:34,920
+ It could be a classification problem.
+
+615
+00:39:34,920 --> 00:39:39,120
+ It could be like association analysis problem.
+
+616
+00:39:39,120 --> 00:39:44,120
+ It could be an example of clustering as well.
+
+617
+00:39:44,480 --> 00:39:46,760
+ For example, if you are trying to find
+
+618
+00:39:46,760 --> 00:39:51,760
+ and categorizing the transaction which are legitimate
+
+619
+00:39:51,960 --> 00:39:56,280
+ or which are not legitimate, that would be your clustering.
+
+620
+00:39:56,280 --> 00:39:59,480
+ Or whether the transaction is a fraudulent transaction
+
+621
+00:39:59,480 --> 00:40:02,880
+ or a legitimate transaction, could be classification.
+
+622
+00:40:02,880 --> 00:40:06,440
+ Or maybe you're just analyzing what are the instructions
+
+623
+00:40:06,440 --> 00:40:11,360
+ which are highly deviating to the rest of your transactions.
+
+624
+00:40:11,360 --> 00:40:13,480
+ It could be an outline analysis.
+
+625
+00:40:13,480 --> 00:40:16,680
+ And or maybe you'll say, oh, which are the transactions
+
+626
+00:40:16,680 --> 00:40:19,360
+ which are most associated with each other?
+
+627
+00:40:19,360 --> 00:40:24,360
+ So then I could say, okay, these could be your transaction,
+
+628
+00:40:25,040 --> 00:40:27,200
+ could be an example of your association analysis.
+
+629
+00:40:27,200 --> 00:40:31,320
+ So it's how actually you are describing the problem.
+
+630
+00:40:31,320 --> 00:40:34,140
+ And it also depends on the application,
+
+631
+00:40:34,140 --> 00:40:36,060
+ what you are looking for, what is your task,
+
+632
+00:40:36,060 --> 00:40:37,060
+ what do you wanna do.
+
+633
+00:40:39,000 --> 00:40:42,640
+ Khan mentioned could be finding suspicious activities
+
+634
+00:40:42,640 --> 00:40:44,320
+ and behavior that appear together
+
+635
+00:40:44,320 --> 00:40:46,040
+ in your mobile banking activities.
+
+636
+00:40:46,040 --> 00:40:47,800
+ For example, unusual location
+
+637
+00:40:47,800 --> 00:40:50,500
+ and high transaction amount correctly.
+
+638
+00:40:51,440 --> 00:40:54,960
+ So that could be an example of association analysis.
+
+639
+00:40:54,960 --> 00:40:58,320
+ Association analysis is Victor mentioned search
+
+640
+00:40:58,320 --> 00:41:03,320
+ for relations between entities.
+
+641
+00:41:03,980 --> 00:41:08,340
+ Application analysis is where it can be applied.
+
+642
+00:41:08,340 --> 00:41:09,180
+ That's correct.
+
+643
+00:41:09,180 --> 00:41:10,560
+ But what is the example?
+
+644
+00:41:10,560 --> 00:41:13,400
+ Can any real life example where you can apply
+
+645
+00:41:13,400 --> 00:41:17,180
+ this association analysis to solve the real world problems?
+
+646
+00:41:22,540 --> 00:41:27,080
+ And then Irani mentioned YouTube.
+
+647
+00:41:27,080 --> 00:41:32,080
+ Instagram next video is based on our previous interest.
+
+648
+00:41:34,680 --> 00:41:39,680
+ Yes, you can say and in YouTube,
+
+649
+00:41:40,120 --> 00:41:43,160
+ you could also have an example of cluster analysis
+
+650
+00:41:43,160 --> 00:41:46,920
+ where you will listen certain kind of songs,
+
+651
+00:41:46,920 --> 00:41:49,960
+ different kind of, different genre
+
+652
+00:41:49,960 --> 00:41:53,520
+ and then they can make a playlist for you, right?
+
+653
+00:41:53,520 --> 00:41:56,720
+ So that would be your example of your cluster analysis.
+
+654
+00:41:56,720 --> 00:41:59,980
+ But if you will watch a certain song
+
+655
+00:41:59,980 --> 00:42:04,160
+ and then if it will see that whether it is related
+
+656
+00:42:04,160 --> 00:42:09,040
+ to the same singer or same genre or same kind of tone,
+
+657
+00:42:09,040 --> 00:42:12,960
+ then it would be your association analysis, okay?
+
+658
+00:42:15,640 --> 00:42:17,920
+ Victor mentioned example is online shopping
+
+659
+00:42:17,920 --> 00:42:21,440
+ is the platform where good associations could be applied.
+
+660
+00:42:21,440 --> 00:42:25,640
+ Yes, you can say that these are the food items, right?
+
+661
+00:42:25,640 --> 00:42:28,800
+ And these are the different sections.
+
+662
+00:42:28,800 --> 00:42:30,440
+ If you go to Kohl's or Woolley's,
+
+663
+00:42:30,440 --> 00:42:33,000
+ so you will say these are your,
+
+664
+00:42:33,000 --> 00:42:35,520
+ where you can find the different kind of vegetables,
+
+665
+00:42:35,520 --> 00:42:37,580
+ where you can find different daily items,
+
+666
+00:42:37,580 --> 00:42:40,160
+ you can find a barbecue section and so on.
+
+667
+00:42:40,160 --> 00:42:43,360
+ So yeah, so I hope you understood now
+
+668
+00:42:43,360 --> 00:42:47,080
+ what is basically suggestions for the next purchase.
+
+669
+00:42:47,080 --> 00:42:50,100
+ Yes, maybe sometimes they say,
+
+670
+00:42:50,100 --> 00:42:52,120
+ oh, do you also wanna buy this one?
+
+671
+00:42:52,120 --> 00:42:55,200
+ For example, if you go to any online shopping store,
+
+672
+00:42:55,200 --> 00:42:58,320
+ they will find the related items which you can also buy.
+
+673
+00:42:58,320 --> 00:43:00,740
+ So that would be an example of association analysis.
+
+674
+00:43:00,740 --> 00:43:03,720
+ So I'm very happy that you understood
+
+675
+00:43:03,720 --> 00:43:08,760
+ and can easily distinguish these concepts.
+
+676
+00:43:08,760 --> 00:43:11,840
+ Simon mentioned find links between machine settings,
+
+677
+00:43:11,840 --> 00:43:15,320
+ process and defects, high temperature, fast speed,
+
+678
+00:43:15,320 --> 00:43:18,080
+ defect probability using predictive maintenance.
+
+679
+00:43:18,080 --> 00:43:19,880
+ Yes, you can use up there.
+
+680
+00:43:19,880 --> 00:43:24,800
+ So now we have clear idea of these concepts
+
+681
+00:43:24,800 --> 00:43:27,080
+ with different real life problems as well.
+
+682
+00:43:27,080 --> 00:43:29,640
+ So know if there would be any problem.
+
+683
+00:43:29,640 --> 00:43:33,200
+ So we also discussed that it would be based on
+
+684
+00:43:33,200 --> 00:43:35,480
+ what would be tasks what you want
+
+685
+00:43:35,480 --> 00:43:38,040
+ out of that particular problem based on that one,
+
+686
+00:43:38,040 --> 00:43:40,360
+ you can apply any of the machine learning tasks
+
+687
+00:43:40,360 --> 00:43:42,760
+ to solve that real world problem.
+
+688
+00:43:44,080 --> 00:43:49,080
+ Okay, so now in our today's class,
+
+689
+00:43:49,900 --> 00:43:52,400
+ we have to discuss about
+
+690
+00:43:56,440 --> 00:43:57,860
+ what we have to discuss.
+
+691
+00:43:57,860 --> 00:44:02,860
+ We have to discuss about the Chris DM architecture,
+
+692
+00:44:03,160 --> 00:44:06,680
+ Chris DM framework.
+
+693
+00:44:06,680 --> 00:44:10,280
+ So Chris DM is approval approach framework,
+
+694
+00:44:10,280 --> 00:44:12,600
+ the way to do the things to organize
+
+695
+00:44:12,600 --> 00:44:15,080
+ and show successful completion
+
+696
+00:44:15,080 --> 00:44:17,600
+ of a machine learning project.
+
+697
+00:44:17,600 --> 00:44:21,240
+ This is very important to understand
+
+698
+00:44:21,240 --> 00:44:23,920
+ that what Chris DM architecture,
+
+699
+00:44:23,920 --> 00:44:27,000
+ what Chris DM framework is,
+
+700
+00:44:27,000 --> 00:44:29,960
+ because in all of the three assessment,
+
+701
+00:44:29,960 --> 00:44:33,600
+ you are following this Chris DM architecture, right?
+
+702
+00:44:33,600 --> 00:44:35,280
+ And it's very easy.
+
+703
+00:44:35,280 --> 00:44:38,960
+ There are certain steps that on each step,
+
+704
+00:44:38,960 --> 00:44:42,520
+ you have to follow what tasks you are going to do, right?
+
+705
+00:44:42,520 --> 00:44:44,720
+ And we have to clearly understand
+
+706
+00:44:44,720 --> 00:44:47,240
+ what you are going to mention in those tasks.
+
+707
+00:44:47,240 --> 00:44:50,960
+ So here it is mentioned if you go down to the real guide
+
+708
+00:44:50,960 --> 00:44:54,320
+ to the Chris DM architecture in your module section,
+
+709
+00:44:54,320 --> 00:44:58,840
+ you will find this particular figure there.
+
+710
+00:44:58,840 --> 00:45:01,260
+ So in this particular figure,
+
+711
+00:45:01,260 --> 00:45:04,960
+ you will see the first phase is of your,
+
+712
+00:45:09,760 --> 00:45:13,400
+ Rakesh, I think you are not muted, okay.
+
+713
+00:45:13,400 --> 00:45:17,040
+ So in the first phase is your business understanding,
+
+714
+00:45:17,040 --> 00:45:18,920
+ that is very important.
+
+715
+00:45:18,920 --> 00:45:23,080
+ Next step is your data understanding.
+
+716
+00:45:23,080 --> 00:45:26,120
+ Next is your data preparation.
+
+717
+00:45:26,120 --> 00:45:28,960
+ Then you have data modeling.
+
+718
+00:45:28,960 --> 00:45:31,920
+ Then you have the model evaluation,
+
+719
+00:45:31,920 --> 00:45:35,120
+ and then you have the model deployment.
+
+720
+00:45:35,120 --> 00:45:40,120
+ That's what the six phases of the Chris DM architecture are,
+
+721
+00:45:40,280 --> 00:45:44,900
+ or you can say this is also your data mining life cycle.
+
+722
+00:45:44,900 --> 00:45:48,700
+ So if there would be any data reaching up to the deployment,
+
+723
+00:45:49,680 --> 00:45:52,400
+ what are different steps which we need to follow?
+
+724
+00:45:52,400 --> 00:45:54,160
+ So as I mentioned,
+
+725
+00:45:54,160 --> 00:45:59,160
+ Chris DM architecture has six different phases.
+
+726
+00:45:59,280 --> 00:46:04,040
+ The first one is your business understanding, right?
+
+727
+00:46:04,040 --> 00:46:07,640
+ Business understanding, that is the first phase
+
+728
+00:46:07,640 --> 00:46:09,520
+ where you need to determine
+
+729
+00:46:09,520 --> 00:46:12,560
+ what are your business objectives.
+
+730
+00:46:12,560 --> 00:46:13,820
+ That is very important.
+
+731
+00:46:13,820 --> 00:46:16,240
+ That's what I was discussing about
+
+732
+00:46:16,240 --> 00:46:20,360
+ that you have to define your business success criteria.
+
+733
+00:46:20,360 --> 00:46:22,660
+ You have to define the process.
+
+734
+00:46:22,660 --> 00:46:23,760
+ What is your task?
+
+735
+00:46:23,760 --> 00:46:25,200
+ What you are going to do?
+
+736
+00:46:25,200 --> 00:46:28,720
+ Whether you are going to do any clustering,
+
+737
+00:46:28,720 --> 00:46:32,280
+ whether you are going to do regression, classification,
+
+738
+00:46:32,280 --> 00:46:35,240
+ what is your success criteria?
+
+739
+00:46:35,240 --> 00:46:37,380
+ What, for example, you say,
+
+740
+00:46:37,380 --> 00:46:42,380
+ if I would be able to achieve 97% accuracy
+
+741
+00:46:42,580 --> 00:46:45,000
+ for our classification model,
+
+742
+00:46:45,000 --> 00:46:46,700
+ that is my success criteria.
+
+743
+00:46:46,700 --> 00:46:50,100
+ Then I will say this model is the best one, right?
+
+744
+00:46:50,100 --> 00:46:51,020
+ And so on.
+
+745
+00:46:51,020 --> 00:46:53,920
+ So what is the task that you are going to do?
+
+746
+00:46:53,920 --> 00:46:58,780
+ What you wanna achieve out of that process?
+
+747
+00:46:58,780 --> 00:47:02,040
+ And what is your success criteria?
+
+748
+00:47:02,040 --> 00:47:05,220
+ That is the first step or sub-step
+
+749
+00:47:05,220 --> 00:47:07,280
+ of your business understanding.
+
+750
+00:47:07,280 --> 00:47:09,800
+ You have to assess your situation as well.
+
+751
+00:47:09,800 --> 00:47:14,200
+ You have to see what are your available resources?
+
+752
+00:47:14,200 --> 00:47:15,480
+ Do you have the data set?
+
+753
+00:47:15,480 --> 00:47:17,560
+ Do you have the infrastructure?
+
+754
+00:47:17,560 --> 00:47:21,080
+ Do you have the right platforms to execute those things?
+
+755
+00:47:21,080 --> 00:47:22,920
+ Do you have the right personals
+
+756
+00:47:22,920 --> 00:47:26,440
+ in order to perform those experiments?
+
+757
+00:47:26,440 --> 00:47:28,400
+ Do you have the project requirement?
+
+758
+00:47:28,400 --> 00:47:29,620
+ What do you wanna do?
+
+759
+00:47:29,620 --> 00:47:31,840
+ Have you assessed any risk?
+
+760
+00:47:31,840 --> 00:47:34,600
+ What would be the risk involved into that one?
+
+761
+00:47:34,600 --> 00:47:37,720
+ Or what would be the mitigation strategies
+
+762
+00:47:37,720 --> 00:47:41,860
+ in order to avoid, in order to mitigate those risks?
+
+763
+00:47:41,860 --> 00:47:46,460
+ And then you need to do a cost benefit analysis as well.
+
+764
+00:47:46,460 --> 00:47:48,240
+ So what would be the cost?
+
+765
+00:47:48,240 --> 00:47:50,080
+ How much cost it would involve?
+
+766
+00:47:50,080 --> 00:47:53,080
+ And then what are you gonna get out of it, right?
+
+767
+00:47:53,080 --> 00:47:54,680
+ So all of these things come
+
+768
+00:47:54,680 --> 00:47:58,040
+ under the umbrella of your assess situation.
+
+769
+00:47:58,040 --> 00:48:02,200
+ Then you have to set up your data mining goals.
+
+770
+00:48:02,200 --> 00:48:06,940
+ So we are getting this term again
+
+771
+00:48:06,940 --> 00:48:09,420
+ and again, that is data mining.
+
+772
+00:48:09,420 --> 00:48:12,200
+ So that is out of scope of this subject
+
+773
+00:48:12,200 --> 00:48:15,160
+ but that is a separate course, right?
+
+774
+00:48:15,160 --> 00:48:18,520
+ So data mining is basically the extraction
+
+775
+00:48:18,520 --> 00:48:23,520
+ of interesting patterns from the huge amount of data.
+
+776
+00:48:23,920 --> 00:48:26,020
+ So if you are trying to extract,
+
+777
+00:48:30,720 --> 00:48:32,960
+ Irani, I will come back to your question, okay?
+
+778
+00:48:33,840 --> 00:48:37,240
+ So in this one, data mining,
+
+779
+00:48:37,240 --> 00:48:38,860
+ I'm explaining about the data mining.
+
+780
+00:48:38,860 --> 00:48:41,140
+ So data mining is a process.
+
+781
+00:48:42,360 --> 00:48:45,920
+ What you are applying for that process to extract,
+
+782
+00:48:45,920 --> 00:48:49,400
+ what you want to extract, the interesting patterns,
+
+783
+00:48:49,400 --> 00:48:52,960
+ the hidden patterns from the data, right?
+
+784
+00:48:52,960 --> 00:48:57,600
+ So that process is called your data mining, right?
+
+785
+00:48:57,600 --> 00:49:00,480
+ Now you ask the software models come
+
+786
+00:49:00,480 --> 00:49:02,560
+ into the picture of Chris Diem.
+
+787
+00:49:02,560 --> 00:49:05,920
+ What software models you are referring here, Irani?
+
+788
+00:49:08,860 --> 00:49:11,040
+ (silence)
+
+789
+00:49:23,320 --> 00:49:28,320
+ No, that has, so those are some of the processes
+
+790
+00:49:31,360 --> 00:49:36,360
+ that you normally use in order to develop your software.
+
+791
+00:49:37,320 --> 00:49:42,320
+ So in that one, this Chris Diem architecture
+
+792
+00:49:42,400 --> 00:49:45,180
+ is the umbrella stuff, right?
+
+793
+00:49:45,180 --> 00:49:49,920
+ So whether it is agile, whether it is prototyping,
+
+794
+00:49:49,920 --> 00:49:54,760
+ whether it is waterfall, whether it is a rad,
+
+795
+00:49:54,760 --> 00:49:58,560
+ rapid application development or whatever, right?
+
+796
+00:49:58,560 --> 00:50:03,240
+ So those are the ways to develop certain software.
+
+797
+00:50:03,240 --> 00:50:05,920
+ This is how you will get the data,
+
+798
+00:50:05,920 --> 00:50:08,720
+ how you will apply, what methods you will apply,
+
+799
+00:50:08,720 --> 00:50:11,620
+ whether you have the right infrastructure and so on,
+
+800
+00:50:11,620 --> 00:50:13,360
+ and then in that one.
+
+801
+00:50:13,360 --> 00:50:15,520
+ So more or less, you can say,
+
+802
+00:50:15,520 --> 00:50:18,240
+ you can relate it to any software model.
+
+803
+00:50:18,240 --> 00:50:23,200
+ For example, not exactly the agile or waterfall,
+
+804
+00:50:23,200 --> 00:50:27,240
+ the normal SDLC, which is where you will actually
+
+805
+00:50:29,000 --> 00:50:32,360
+ gather the requirement, then you will do the analysis,
+
+806
+00:50:32,360 --> 00:50:36,960
+ then you will do the design stage, the development stage,
+
+807
+00:50:36,960 --> 00:50:41,000
+ then your testing stage, and then your deployment stage.
+
+808
+00:50:41,000 --> 00:50:46,000
+ So more or less, you have a flow how your software will work
+
+809
+00:50:46,240 --> 00:50:49,480
+ starting from the requirements up to the development,
+
+810
+00:50:49,480 --> 00:50:51,280
+ but that is with the software.
+
+811
+00:50:51,280 --> 00:50:55,840
+ Here, you are more with the data related stuff, right?
+
+812
+00:50:55,840 --> 00:50:58,420
+ The task would be the same, right?
+
+813
+00:50:59,600 --> 00:51:02,920
+ But for machine learning consideration, that's correct,
+
+814
+00:51:02,920 --> 00:51:03,860
+ that's correct.
+
+815
+00:51:03,860 --> 00:51:06,480
+ So Chris DM architecture is basically
+
+816
+00:51:06,480 --> 00:51:11,480
+ your cross industry standard process for data mining,
+
+817
+00:51:12,440 --> 00:51:16,300
+ C for cross industry, right?
+
+818
+00:51:16,300 --> 00:51:19,640
+ And I for your industry,
+
+819
+00:51:19,640 --> 00:51:24,640
+ and then S for your standard process for data mining, right?
+
+820
+00:51:25,640 --> 00:51:30,640
+ So that is how and what Chris DM architecture stands for.
+
+821
+00:51:30,960 --> 00:51:33,360
+ So as we were discussing,
+
+822
+00:51:33,360 --> 00:51:37,080
+ you have to determine your data mining goals.
+
+823
+00:51:37,080 --> 00:51:39,580
+ What is your business objective?
+
+824
+00:51:39,580 --> 00:51:43,080
+ And what would be your success will look like?
+
+825
+00:51:43,080 --> 00:51:46,200
+ As I mentioned, if you are doing classification,
+
+826
+00:51:46,200 --> 00:51:48,280
+ so you will set up a metric.
+
+827
+00:51:48,280 --> 00:51:51,680
+ What is your metric to compare whether it is accuracy,
+
+828
+00:51:51,680 --> 00:51:56,400
+ whether it is any, for example, net present value,
+
+829
+00:51:56,400 --> 00:51:59,360
+ if you talk about any financial stuff,
+
+830
+00:51:59,360 --> 00:52:01,080
+ and with respect to machine learning,
+
+831
+00:52:01,080 --> 00:52:06,080
+ you will say that MAE value,
+
+832
+00:52:06,320 --> 00:52:10,880
+ like your median error value, for example,
+
+833
+00:52:10,880 --> 00:52:13,040
+ or your accuracy, or your precision,
+
+834
+00:52:13,040 --> 00:52:15,920
+ or your recall, or your G means and so on.
+
+835
+00:52:15,920 --> 00:52:18,960
+ So you have to define a metric,
+
+836
+00:52:18,960 --> 00:52:21,540
+ and you have to define a goal.
+
+837
+00:52:21,540 --> 00:52:23,800
+ What would be your success when you will say,
+
+838
+00:52:23,800 --> 00:52:26,480
+ oh, I have achieved using this model,
+
+839
+00:52:26,480 --> 00:52:28,200
+ what was my objective?
+
+840
+00:52:28,200 --> 00:52:30,360
+ And then you have to have a plan,
+
+841
+00:52:30,360 --> 00:52:33,920
+ what are the tools and techniques, technologies
+
+842
+00:52:33,920 --> 00:52:38,480
+ that you are going to use, Python or Jupyter you are using,
+
+843
+00:52:38,480 --> 00:52:40,080
+ and which language you are coding,
+
+844
+00:52:40,080 --> 00:52:43,640
+ which volume you are using and working in,
+
+845
+00:52:43,640 --> 00:52:47,840
+ and also you will define the framework TensorFlow and so on.
+
+846
+00:52:47,840 --> 00:52:51,360
+ So all of these things will come under your business
+
+847
+00:52:51,360 --> 00:52:52,320
+ understanding.
+
+848
+00:52:53,600 --> 00:52:55,660
+ So in business understanding,
+
+849
+00:52:55,660 --> 00:52:59,200
+ you will define your business objective,
+
+850
+00:52:59,200 --> 00:53:01,200
+ you will define your goals,
+
+851
+00:53:01,200 --> 00:53:06,040
+ you will define what is your success criteria,
+
+852
+00:53:06,040 --> 00:53:09,240
+ what is your considered metric,
+
+853
+00:53:09,240 --> 00:53:12,720
+ and then you will also assess your situation
+
+854
+00:53:12,720 --> 00:53:14,560
+ at the same time as well,
+
+855
+00:53:14,560 --> 00:53:17,480
+ where you will define what you have,
+
+856
+00:53:17,480 --> 00:53:22,000
+ or do you have the right stuff in terms of personals,
+
+857
+00:53:22,000 --> 00:53:25,020
+ in terms of technologies, in terms of cost,
+
+858
+00:53:25,020 --> 00:53:26,960
+ in terms of time,
+
+859
+00:53:26,960 --> 00:53:31,120
+ in order to implement or achieve that particular target.
+
+860
+00:53:31,120 --> 00:53:36,120
+ So that is the first phase of your Chris DM architecture,
+
+861
+00:53:36,600 --> 00:53:38,760
+ Chris DM framework.
+
+862
+00:53:38,760 --> 00:53:42,740
+ The second one is the data understanding.
+
+863
+00:53:42,740 --> 00:53:47,380
+ Now, the data is the most important thing
+
+864
+00:53:47,380 --> 00:53:50,760
+ in any machine learning application.
+
+865
+00:53:50,760 --> 00:53:53,760
+ If you don't have the right data,
+
+866
+00:53:53,760 --> 00:53:58,300
+ you will not able to achieve doesn't matter,
+
+867
+00:53:58,300 --> 00:54:02,260
+ you will apply the best model in order to do that task.
+
+868
+00:54:02,260 --> 00:54:06,600
+ If your data is not good, right?
+
+869
+00:54:06,600 --> 00:54:09,200
+ What do I mean data is not good?
+
+870
+00:54:09,200 --> 00:54:14,000
+ It means data might have certain problems, right?
+
+871
+00:54:14,000 --> 00:54:18,080
+ Or you have to divide your data properly, right?
+
+872
+00:54:18,080 --> 00:54:19,900
+ So that is very important.
+
+873
+00:54:19,900 --> 00:54:23,760
+ So data in any machine learning context is very important.
+
+874
+00:54:23,760 --> 00:54:27,520
+ So the second phase of your Chris DM architecture
+
+875
+00:54:27,520 --> 00:54:29,720
+ is your data understanding.
+
+876
+00:54:29,720 --> 00:54:31,600
+ How you will understand your data,
+
+877
+00:54:31,600 --> 00:54:33,280
+ you will explore your data,
+
+878
+00:54:33,280 --> 00:54:36,920
+ you will describe your data using different permits,
+
+879
+00:54:36,920 --> 00:54:40,200
+ different figures and diagrams,
+
+880
+00:54:40,200 --> 00:54:42,600
+ different ways to visualize your data
+
+881
+00:54:42,600 --> 00:54:45,320
+ to see if there any problem into your data.
+
+882
+00:54:45,320 --> 00:54:48,640
+ You will verify its quality, whether it is good,
+
+883
+00:54:48,640 --> 00:54:51,320
+ whether there is any problem into your data,
+
+884
+00:54:51,320 --> 00:54:54,720
+ whether there is any inconsistencies in your data,
+
+885
+00:54:54,720 --> 00:54:58,360
+ whether there is any redundancies in your data.
+
+886
+00:54:58,360 --> 00:55:00,640
+ Now I have used two terms,
+
+887
+00:55:00,640 --> 00:55:04,660
+ data redundancy and data inconsistency.
+
+888
+00:55:04,660 --> 00:55:07,560
+ These two terms are also very important
+
+889
+00:55:07,560 --> 00:55:12,560
+ and it is important that you can clearly differentiate
+
+890
+00:55:12,920 --> 00:55:14,540
+ between these two terms.
+
+891
+00:55:15,680 --> 00:55:18,600
+ So the first is data redundancy.
+
+892
+00:55:18,600 --> 00:55:21,520
+ So you can say data inconsistency
+
+893
+00:55:21,520 --> 00:55:25,520
+ is the follow-up of data redundancy
+
+894
+00:55:25,520 --> 00:55:29,200
+ or due to data redundancy, you would have the problem
+
+895
+00:55:29,200 --> 00:55:32,880
+ or you may have the problem of data inconsistency.
+
+896
+00:55:32,880 --> 00:55:37,880
+ So data redundancy is just the duplication of your data.
+
+897
+00:55:38,920 --> 00:55:43,920
+ Multiple copies of the same data is called data redundancy.
+
+898
+00:55:44,640 --> 00:55:47,640
+ If somebody will ask you, what is data redundancy?
+
+899
+00:55:47,640 --> 00:55:52,640
+ So you will simply say multiple copies of same data, right?
+
+900
+00:55:52,940 --> 00:55:57,680
+ So for example, you might have your files saved on one drive
+
+901
+00:55:57,680 --> 00:56:01,280
+ and similarly you have the same folders
+
+902
+00:56:01,280 --> 00:56:04,120
+ saved on your hard drive, right?
+
+903
+00:56:04,120 --> 00:56:09,120
+ So you have two separate folders on two separate locations.
+
+904
+00:56:10,620 --> 00:56:15,620
+ One is your hard drive, one is your one drive, right?
+
+905
+00:56:15,900 --> 00:56:19,600
+ But of the same type, you might have doing any assessment,
+
+906
+00:56:19,600 --> 00:56:21,560
+ you have one copy there, one copy here,
+
+907
+00:56:21,560 --> 00:56:24,720
+ sometimes you work here, sometimes you work here and so on.
+
+908
+00:56:24,720 --> 00:56:28,000
+ So that is called your data redundancy.
+
+909
+00:56:28,000 --> 00:56:30,520
+ Then what is the problem, right?
+
+910
+00:56:30,520 --> 00:56:33,600
+ Similarly, whatever the folder you are having
+
+911
+00:56:33,600 --> 00:56:36,380
+ in any part of your hard disk,
+
+912
+00:56:36,380 --> 00:56:40,160
+ you will try to sync it with the one drive.
+
+913
+00:56:40,160 --> 00:56:43,080
+ So what will happen if you will make any change here
+
+914
+00:56:43,080 --> 00:56:47,680
+ into this one or you directly assess it from the one drive,
+
+915
+00:56:47,680 --> 00:56:50,880
+ you will see the same version, right?
+
+916
+00:56:50,880 --> 00:56:53,640
+ It means that is not data redundancy, right?
+
+917
+00:56:53,640 --> 00:56:56,800
+ And that's what you get rid of the problem
+
+918
+00:56:56,800 --> 00:56:59,760
+ that the data redundancy could create, right?
+
+919
+00:56:59,760 --> 00:57:03,240
+ Because data redundancy is two separate copies
+
+920
+00:57:03,240 --> 00:57:05,960
+ of the same data, that is data redundancy.
+
+921
+00:57:05,960 --> 00:57:09,200
+ Now, what is data inconsistency?
+
+922
+00:57:09,200 --> 00:57:13,040
+ Data inconsistency is multiple
+
+923
+00:57:13,040 --> 00:57:16,520
+ and conflicting version of same data.
+
+924
+00:57:16,520 --> 00:57:19,900
+ If you have multiple copies of the same data,
+
+925
+00:57:19,900 --> 00:57:21,760
+ but at the same times,
+
+926
+00:57:21,760 --> 00:57:25,920
+ you have a contradictory version of that data
+
+927
+00:57:25,920 --> 00:57:29,360
+ that is called data inconsistency.
+
+928
+00:57:29,360 --> 00:57:34,360
+ For example, you have visited the student services.
+
+929
+00:57:35,320 --> 00:57:39,280
+ They have all of your record, for example,
+
+930
+00:57:39,280 --> 00:57:43,440
+ and the finance department, they, if they have,
+
+931
+00:57:43,440 --> 00:57:45,120
+ which is not the case at Torrance,
+
+932
+00:57:45,120 --> 00:57:50,040
+ but if they have a separate copies of your personal details,
+
+933
+00:57:50,920 --> 00:57:55,280
+ right, or maybe immigration asks you
+
+934
+00:57:55,280 --> 00:57:58,120
+ if there would be any change into your address,
+
+935
+00:57:58,120 --> 00:58:00,160
+ you have to update us, right?
+
+936
+00:58:00,160 --> 00:58:04,520
+ Similarly, university also have your personal information,
+
+937
+00:58:04,520 --> 00:58:07,720
+ your address, your visa details, and so on,
+
+938
+00:58:07,720 --> 00:58:10,880
+ your phone number, your residential address, right?
+
+939
+00:58:11,760 --> 00:58:15,500
+ So you change your address,
+
+940
+00:58:15,500 --> 00:58:17,340
+ you move to a different location,
+
+941
+00:58:17,340 --> 00:58:19,720
+ you updated your phone number.
+
+942
+00:58:19,720 --> 00:58:24,240
+ So you might have updated that information
+
+943
+00:58:24,240 --> 00:58:26,560
+ with the student services center,
+
+944
+00:58:26,560 --> 00:58:30,560
+ but the finance department, the immigration department,
+
+945
+00:58:30,560 --> 00:58:34,160
+ they have your previous address,
+
+946
+00:58:34,160 --> 00:58:37,020
+ they have your previous phone numbers.
+
+947
+00:58:37,020 --> 00:58:41,160
+ So they will say, oh, Victor, this name is this one,
+
+948
+00:58:41,160 --> 00:58:43,900
+ father name is this one, what is the phone number?
+
+949
+00:58:43,900 --> 00:58:45,840
+ They will say phone number is this one.
+
+950
+00:58:46,760 --> 00:58:48,640
+ But at the same times,
+
+951
+00:58:48,640 --> 00:58:51,880
+ they will see the finance department, they will say,
+
+952
+00:58:51,880 --> 00:58:55,080
+ no, Victor phone number is this one, right?
+
+953
+00:58:55,080 --> 00:59:00,080
+ So problem is the Victor updated first information
+
+954
+00:59:00,680 --> 00:59:02,660
+ with the student services,
+
+955
+00:59:02,660 --> 00:59:05,680
+ but not with the finance department.
+
+956
+00:59:05,680 --> 00:59:08,840
+ And why this problem arose here?
+
+957
+00:59:08,840 --> 00:59:10,720
+ Because of the data residency,
+
+958
+00:59:10,720 --> 00:59:13,920
+ because the student services, the finance department,
+
+959
+00:59:13,920 --> 00:59:16,400
+ they had the separate copies.
+
+960
+00:59:16,400 --> 00:59:18,520
+ If they have the shared copy,
+
+961
+00:59:18,520 --> 00:59:21,720
+ know if at any point if they will update it,
+
+962
+00:59:21,720 --> 00:59:25,000
+ so then anybody can easily access those ones.
+
+963
+00:59:25,000 --> 00:59:27,540
+ So that will not create any problem.
+
+964
+00:59:34,080 --> 00:59:39,080
+ Okay, so I hope you have understood up till here
+
+965
+00:59:39,560 --> 00:59:41,520
+ that what is data redundancy
+
+966
+00:59:41,520 --> 00:59:43,800
+ and what is data inconsistency.
+
+967
+00:59:43,800 --> 00:59:47,040
+ Data redundancy is multiple copies of same data
+
+968
+00:59:47,040 --> 00:59:50,480
+ and data inconsistency is multiple
+
+969
+00:59:50,480 --> 00:59:53,720
+ and conflicting version of same data.
+
+970
+00:59:53,720 --> 00:59:55,340
+ So, but all of these things,
+
+971
+00:59:55,340 --> 00:59:57,180
+ you have to explore your data
+
+972
+00:59:57,180 --> 01:00:00,420
+ to see more details of your data,
+
+973
+01:00:00,420 --> 01:00:03,600
+ what is, how you will be realize it,
+
+974
+01:00:03,600 --> 01:00:05,240
+ you will make different diagrams,
+
+975
+01:00:05,240 --> 01:00:08,640
+ which we will study in our upcoming lectures,
+
+976
+01:00:08,640 --> 01:00:12,000
+ you will examine your data to see in data
+
+977
+01:00:12,000 --> 01:00:14,300
+ into a different formats and so on.
+
+978
+01:00:14,300 --> 01:00:17,060
+ That's what you will do at the second stage
+
+979
+01:00:17,060 --> 01:00:19,800
+ of your CRISP-DM architecture.
+
+980
+01:00:19,800 --> 01:00:22,240
+ That is your data understanding stage.
+
+981
+01:00:23,800 --> 01:00:28,120
+ Then the next one is when you have verified the data quality
+
+982
+01:00:28,120 --> 01:00:30,220
+ when you have realized your data,
+
+983
+01:00:30,220 --> 01:00:33,160
+ now you have to prepare your data, right?
+
+984
+01:00:33,160 --> 01:00:36,080
+ So first thing into the data preparation
+
+985
+01:00:36,080 --> 01:00:39,420
+ is you have to split your data.
+
+986
+01:00:39,420 --> 01:00:43,200
+ That is the first stage that you have to do, right?
+
+987
+01:00:43,200 --> 01:00:44,960
+ So splitting data means,
+
+988
+01:00:44,960 --> 01:00:47,760
+ as we discussed in our previous class,
+
+989
+01:00:47,760 --> 01:00:52,640
+ data could be divided into two main stages or three stages.
+
+990
+01:00:52,640 --> 01:00:56,200
+ First is your training data.
+
+991
+01:00:56,200 --> 01:00:59,040
+ Second one is your validation data.
+
+992
+01:00:59,040 --> 01:01:01,880
+ And the third one is your testing data.
+
+993
+01:01:01,880 --> 01:01:05,040
+ So mostly people will say training data and test data.
+
+994
+01:01:05,040 --> 01:01:07,700
+ So they include the validation data
+
+995
+01:01:07,700 --> 01:01:09,320
+ in the training of your model.
+
+996
+01:01:09,320 --> 01:01:11,300
+ So they consider it as a training data.
+
+997
+01:01:11,300 --> 01:01:14,020
+ So training data and testing data.
+
+998
+01:01:14,020 --> 01:01:17,300
+ So mostly people use 80% of your data
+
+999
+01:01:17,300 --> 01:01:20,920
+ or 75% of your data to train their model
+
+1000
+01:01:20,920 --> 01:01:25,280
+ and the rest of the 25% or 20% to test your model.
+
+1001
+01:01:25,280 --> 01:01:27,400
+ So that is the first important thing
+
+1002
+01:01:27,400 --> 01:01:32,400
+ is to split your data and select the right data, right?
+
+1003
+01:01:33,140 --> 01:01:34,740
+ What documents you gonna use?
+
+1004
+01:01:34,740 --> 01:01:38,640
+ What documents you gonna have to exclude or include?
+
+1005
+01:01:38,640 --> 01:01:42,040
+ Then if there would be any problem into your data,
+
+1006
+01:01:42,040 --> 01:01:45,160
+ is there are any outliers in your data
+
+1007
+01:01:45,160 --> 01:01:47,440
+ that might creating a problem?
+
+1008
+01:01:47,440 --> 01:01:50,180
+ You have to clean your data properly.
+
+1009
+01:01:50,180 --> 01:01:52,480
+ If there would be, as I mentioned,
+
+1010
+01:01:52,480 --> 01:01:57,400
+ data is the most important things, garbage in garbage out.
+
+1011
+01:01:57,400 --> 01:02:01,120
+ If you will take a picture into the dark mode,
+
+1012
+01:02:01,120 --> 01:02:03,680
+ when you will see it, it will be in a dark mode.
+
+1013
+01:02:03,680 --> 01:02:05,160
+ If it would be a sunny day,
+
+1014
+01:02:05,160 --> 01:02:06,920
+ you will capture an image there,
+
+1015
+01:02:06,920 --> 01:02:09,760
+ the resolution better you will capture,
+
+1016
+01:02:09,760 --> 01:02:12,400
+ and then you will analyze it, you will get the right one.
+
+1017
+01:02:12,400 --> 01:02:14,660
+ So garbage in garbage out.
+
+1018
+01:02:14,660 --> 01:02:17,460
+ That is the first thing which we already discussed
+
+1019
+01:02:17,460 --> 01:02:20,240
+ about the quality of your data, right?
+
+1020
+01:02:20,240 --> 01:02:22,920
+ And if there would be any problem in your data,
+
+1021
+01:02:22,920 --> 01:02:26,040
+ if there are any outliers in your data,
+
+1022
+01:02:26,040 --> 01:02:28,400
+ you have to remove those one as well.
+
+1023
+01:02:28,400 --> 01:02:30,560
+ That is very important.
+
+1024
+01:02:30,560 --> 01:02:33,660
+ Or maybe the data integration as well.
+
+1025
+01:02:33,660 --> 01:02:38,320
+ There are certain sources where the data is coming from,
+
+1026
+01:02:38,320 --> 01:02:40,840
+ or maybe there are different features
+
+1027
+01:02:41,820 --> 01:02:46,280
+ which are like not really necessary to be separated.
+
+1028
+01:02:46,280 --> 01:02:50,240
+ You might need to integrate them together
+
+1029
+01:02:50,240 --> 01:02:53,440
+ to form one feature instead of multiple features.
+
+1030
+01:02:53,440 --> 01:02:57,080
+ For example, some might have street address,
+
+1031
+01:02:57,080 --> 01:02:59,040
+ some might have postal code,
+
+1032
+01:02:59,040 --> 01:03:04,040
+ or maybe your state information, country information,
+
+1033
+01:03:04,800 --> 01:03:09,160
+ suburbs, city, all of these together, right, separate.
+
+1034
+01:03:09,160 --> 01:03:11,560
+ Then you might have combined all of this one
+
+1035
+01:03:11,560 --> 01:03:14,060
+ and make an address attribute.
+
+1036
+01:03:15,480 --> 01:03:17,960
+ It really depends on your task.
+
+1037
+01:03:17,960 --> 01:03:21,200
+ If sometimes you have to divide the people
+
+1038
+01:03:21,200 --> 01:03:25,960
+ into different states and to different other things,
+
+1039
+01:03:25,960 --> 01:03:29,180
+ then you might need to, yes.
+
+1040
+01:03:30,640 --> 01:03:33,220
+ Ligandap, yes, anything you wanna say?
+
+1041
+01:03:37,440 --> 01:03:38,680
+ - Hi, Cameron.
+
+1042
+01:03:38,680 --> 01:03:40,720
+ - Hi, yes, please.
+
+1043
+01:03:40,720 --> 01:03:41,760
+ - Sorry to interrupt.
+
+1044
+01:03:41,760 --> 01:03:44,520
+ I just joined the class right now.
+
+1045
+01:03:44,520 --> 01:03:47,260
+ - It's okay. (chuckles)
+
+1046
+01:03:47,260 --> 01:03:48,880
+ Yes, please.
+
+1047
+01:03:48,880 --> 01:03:50,120
+ - I missed the first class
+
+1048
+01:03:50,120 --> 01:03:53,720
+ because I could not register to this subject.
+
+1049
+01:03:53,720 --> 01:03:58,240
+ So on Friday, luckily, I was registered to this subject.
+
+1050
+01:03:58,240 --> 01:04:00,880
+ And I thought of joining earlier
+
+1051
+01:04:00,880 --> 01:04:04,500
+ because I took these classes online.
+
+1052
+01:04:04,500 --> 01:04:07,520
+ So it's, timing is 11.30 a.m.
+
+1053
+01:04:07,520 --> 01:04:11,720
+ So 11.30 a.m. to 2.30 a.m.
+
+1054
+01:04:11,720 --> 01:04:14,680
+ So I didn't know it's Brisbane time.
+
+1055
+01:04:14,680 --> 01:04:16,280
+ I mean, it's a Sydney time.
+
+1056
+01:04:16,280 --> 01:04:18,200
+ We have to follow the Sydney time.
+
+1057
+01:04:18,200 --> 01:04:19,280
+ Sorry for that.
+
+1058
+01:04:19,280 --> 01:04:21,360
+ It's my past class.
+
+1059
+01:04:21,360 --> 01:04:22,200
+ - No worries.
+
+1060
+01:04:22,200 --> 01:04:24,500
+ Welcome to the machine learning course
+
+1061
+01:04:24,500 --> 01:04:28,760
+ and recordings of all the lectures are available.
+
+1062
+01:04:29,800 --> 01:04:32,320
+ All of the things which we have discussed, you can find.
+
+1063
+01:04:32,320 --> 01:04:35,540
+ I will also guide the way to find those one, okay?
+
+1064
+01:04:35,540 --> 01:04:36,380
+ - Okay, thank you.
+
+1065
+01:04:36,380 --> 01:04:37,200
+ Thank you so much.
+
+1066
+01:04:37,200 --> 01:04:38,360
+ - Okay, no worries.
+
+1067
+01:04:38,360 --> 01:04:41,800
+ So as we were discussing that there could be
+
+1068
+01:04:41,800 --> 01:04:45,160
+ certain features which are unnecessarily,
+
+1069
+01:04:45,160 --> 01:04:47,880
+ you might need to combine them, right?
+
+1070
+01:04:47,880 --> 01:04:51,720
+ Or maybe you can also construct your data.
+
+1071
+01:04:51,720 --> 01:04:53,960
+ You might generate new features.
+
+1072
+01:04:53,960 --> 01:04:58,660
+ For example, if I have your date of birth,
+
+1073
+01:04:58,660 --> 01:05:02,300
+ I can tell you how old you are, right?
+
+1074
+01:05:04,420 --> 01:05:08,480
+ So I can get it from your date of birth up till here,
+
+1075
+01:05:08,480 --> 01:05:11,120
+ and I can tell, okay, you are 22 years of age,
+
+1076
+01:05:11,120 --> 01:05:13,520
+ you are 25 years of age and so on.
+
+1077
+01:05:13,520 --> 01:05:18,520
+ So I can construct a new feature age from your date of birth.
+
+1078
+01:05:20,320 --> 01:05:24,760
+ Similarly, if I will tell you my date of joining at Torrance,
+
+1079
+01:05:24,760 --> 01:05:27,960
+ you can tell me how long you are with the Torrance.
+
+1080
+01:05:27,960 --> 01:05:30,840
+ You can tell me the number of years
+
+1081
+01:05:30,840 --> 01:05:32,960
+ I am serving with Torrance University.
+
+1082
+01:05:35,280 --> 01:05:37,960
+ So you can either construct new features,
+
+1083
+01:05:37,960 --> 01:05:40,800
+ you can integrate certain features,
+
+1084
+01:05:40,800 --> 01:05:44,820
+ and maybe you can also remove certain data.
+
+1085
+01:05:44,820 --> 01:05:47,200
+ Maybe the problem could be with the data
+
+1086
+01:05:47,200 --> 01:05:49,460
+ where you have verified the quality.
+
+1087
+01:05:49,460 --> 01:05:52,160
+ There are a lot of missing values.
+
+1088
+01:05:52,160 --> 01:05:54,600
+ You have to handle those missing values.
+
+1089
+01:05:54,600 --> 01:05:59,160
+ So for example, some people as we are,
+
+1090
+01:05:59,160 --> 01:06:03,920
+ I'll do whenever we go to any shopping store
+
+1091
+01:06:03,920 --> 01:06:05,320
+ or different store and they ask,
+
+1092
+01:06:05,320 --> 01:06:06,720
+ okay, are you member with us?
+
+1093
+01:06:06,720 --> 01:06:07,820
+ And we say, no.
+
+1094
+01:06:07,820 --> 01:06:10,000
+ They will say, okay, can you give me your name
+
+1095
+01:06:10,000 --> 01:06:11,900
+ and the phone number, for example.
+
+1096
+01:06:11,900 --> 01:06:13,380
+ They don't care about the address.
+
+1097
+01:06:13,380 --> 01:06:15,100
+ They don't care about our gender.
+
+1098
+01:06:15,100 --> 01:06:18,280
+ They don't care about other information where we come from,
+
+1099
+01:06:18,280 --> 01:06:20,640
+ what is our state and so on.
+
+1100
+01:06:20,640 --> 01:06:24,280
+ And later on, if they have to do the customer segmentation,
+
+1101
+01:06:24,280 --> 01:06:29,060
+ they can't do it because they don't have that data, right?
+
+1102
+01:06:29,060 --> 01:06:32,720
+ They can't segregate, they can't split their clusters
+
+1103
+01:06:32,720 --> 01:06:34,720
+ based on whether in my shop,
+
+1104
+01:06:34,720 --> 01:06:36,760
+ whether males are coming more
+
+1105
+01:06:36,760 --> 01:06:38,840
+ or the females are coming more.
+
+1106
+01:06:38,840 --> 01:06:41,600
+ For example, I don't have the gender information,
+
+1107
+01:06:41,600 --> 01:06:45,080
+ then how can I classify it, right?
+
+1108
+01:06:45,080 --> 01:06:47,720
+ So it means there are missing values
+
+1109
+01:06:47,720 --> 01:06:49,600
+ and there are a lot of different techniques
+
+1110
+01:06:49,600 --> 01:06:53,320
+ in order to fill those missing values.
+
+1111
+01:06:53,320 --> 01:06:56,960
+ Some of the techniques say, you can just ignore those rows.
+
+1112
+01:06:56,960 --> 01:07:01,460
+ If it has many missing values across all the attribute,
+
+1113
+01:07:01,460 --> 01:07:04,080
+ some of them says, oh, if you have a missing value
+
+1114
+01:07:04,080 --> 01:07:05,960
+ for a specific feature,
+
+1115
+01:07:05,960 --> 01:07:09,700
+ then don't remove the information of a row of a person,
+
+1116
+01:07:09,700 --> 01:07:11,680
+ rather remove that particular feature
+
+1117
+01:07:11,680 --> 01:07:13,560
+ which has the most number of reaching.
+
+1118
+01:07:13,560 --> 01:07:16,800
+ And some also mute the values.
+
+1119
+01:07:16,800 --> 01:07:20,520
+ They will analyze the different values which are available
+
+1120
+01:07:20,520 --> 01:07:24,120
+ and can make assessment based on, for example,
+
+1121
+01:07:24,120 --> 01:07:26,040
+ if the numeric values are there.
+
+1122
+01:07:26,040 --> 01:07:28,920
+ So maybe you can take an average and fill those values.
+
+1123
+01:07:28,920 --> 01:07:32,120
+ Maybe you can take a median and then fill up those values.
+
+1124
+01:07:32,120 --> 01:07:34,880
+ So there are different ways to handle the problem.
+
+1125
+01:07:34,880 --> 01:07:39,040
+ So in the last stage where we have understood our data,
+
+1126
+01:07:39,040 --> 01:07:41,280
+ now it's time to prepare our data
+
+1127
+01:07:41,280 --> 01:07:44,240
+ because the next stage is the modeling stage
+
+1128
+01:07:44,240 --> 01:07:46,660
+ where we have to apply our model.
+
+1129
+01:07:46,660 --> 01:07:50,480
+ Here we have to fix all of our problems with the data.
+
+1130
+01:07:50,480 --> 01:07:54,880
+ If it has missing values, if it has any outlier values,
+
+1131
+01:07:54,880 --> 01:07:56,540
+ we have to fix it.
+
+1132
+01:07:56,540 --> 01:08:00,820
+ And because outlier detection is also very important, right?
+
+1133
+01:08:00,820 --> 01:08:02,960
+ Because if there would be any outlier,
+
+1134
+01:08:02,960 --> 01:08:04,400
+ it can create a problem.
+
+1135
+01:08:04,400 --> 01:08:09,400
+ For example, if you are going to calculate
+
+1136
+01:08:09,840 --> 01:08:13,680
+ what is the average salary in your organization.
+
+1137
+01:08:13,680 --> 01:08:18,680
+ And in your organization, people are working on 70K, 80K,
+
+1138
+01:08:18,680 --> 01:08:23,680
+ a lot of software engineer working on 85K, 90K, 95K.
+
+1139
+01:08:24,000 --> 01:08:27,080
+ But there are two or three people
+
+1140
+01:08:27,080 --> 01:08:30,280
+ who are working at a vice president level
+
+1141
+01:08:30,280 --> 01:08:33,200
+ and some other executive positions.
+
+1142
+01:08:33,200 --> 01:08:37,160
+ They are getting 300K, right?
+
+1143
+01:08:37,160 --> 01:08:41,340
+ And if you will take the average, right?
+
+1144
+01:08:41,340 --> 01:08:46,340
+ The average would become maybe 130K, right?
+
+1145
+01:08:47,880 --> 01:08:51,720
+ Because of just those two or three people
+
+1146
+01:08:51,720 --> 01:08:56,040
+ who are earning 300K, 250K,
+
+1147
+01:08:56,040 --> 01:08:59,240
+ because of those two or three people,
+
+1148
+01:09:00,200 --> 01:09:03,680
+ rest of your data is creating problem.
+
+1149
+01:09:03,680 --> 01:09:06,640
+ And you are getting your average salary is,
+
+1150
+01:09:06,640 --> 01:09:07,860
+ you will add them up.
+
+1151
+01:09:07,860 --> 01:09:09,900
+ Like we everybody know that math,
+
+1152
+01:09:09,900 --> 01:09:14,900
+ you will add 80 plus 80 plus 80 plus 95 plus 35 plus 90
+
+1153
+01:09:15,580 --> 01:09:20,580
+ plus 98, 94 plus 250,000, then 200,000.
+
+1154
+01:09:22,040 --> 01:09:25,200
+ 5,000 and so on, right?
+
+1155
+01:09:25,200 --> 01:09:27,880
+ And then when you will take an average,
+
+1156
+01:09:27,880 --> 01:09:31,440
+ you will get the average salary is 130K.
+
+1157
+01:09:31,440 --> 01:09:35,000
+ Whereas in your company, more than 80 people,
+
+1158
+01:09:35,000 --> 01:09:37,780
+ more than 80%, 90% of the people
+
+1159
+01:09:37,780 --> 01:09:40,440
+ have salary lower than 100K.
+
+1160
+01:09:40,440 --> 01:09:43,200
+ How can you say that your average salary
+
+1161
+01:09:43,200 --> 01:09:45,760
+ is 130K in your organization?
+
+1162
+01:09:45,760 --> 01:09:50,040
+ That is because of those two or three outlines,
+
+1163
+01:09:50,040 --> 01:09:54,120
+ which are highly deviated from the rest of your data
+
+1164
+01:09:54,120 --> 01:09:55,940
+ and that is creating problems.
+
+1165
+01:09:55,940 --> 01:09:59,640
+ I'm not saying that always the outliers are the problem.
+
+1166
+01:09:59,640 --> 01:10:02,320
+ Sometimes they are of your interest.
+
+1167
+01:10:02,320 --> 01:10:04,520
+ You want to identify those outliers.
+
+1168
+01:10:04,520 --> 01:10:06,960
+ Like you have given example like,
+
+1169
+01:10:06,960 --> 01:10:09,780
+ is there any anomalous transaction?
+
+1170
+01:10:09,780 --> 01:10:12,040
+ Is there any anomalous person?
+
+1171
+01:10:12,040 --> 01:10:15,360
+ Is there any anomalous computer or device
+
+1172
+01:10:15,360 --> 01:10:19,480
+ connected to the network, which is creating problem?
+
+1173
+01:10:19,480 --> 01:10:23,480
+ So your task is to identify that particular node,
+
+1174
+01:10:23,480 --> 01:10:26,560
+ that particular person, that particular device,
+
+1175
+01:10:26,560 --> 01:10:29,600
+ that particular application, which is creating problem.
+
+1176
+01:10:30,760 --> 01:10:33,440
+ So sometimes it is of your interest,
+
+1177
+01:10:33,440 --> 01:10:35,440
+ but sometimes it can create problem.
+
+1178
+01:10:35,440 --> 01:10:38,040
+ It depends on the task, it depends on your data.
+
+1179
+01:10:38,040 --> 01:10:40,520
+ But anyways, whatever you have to do,
+
+1180
+01:10:40,520 --> 01:10:44,340
+ you have to do the data cleaning at this particular stage
+
+1181
+01:10:44,340 --> 01:10:45,960
+ of your data preparation,
+
+1182
+01:10:45,960 --> 01:10:49,520
+ which is the third stage of your CRIS DM architecture.
+
+1183
+01:10:49,520 --> 01:10:52,840
+ Now our data is ready, we understood the features,
+
+1184
+01:10:52,840 --> 01:10:56,060
+ we understood the objectives, goals,
+
+1185
+01:10:56,060 --> 01:10:59,600
+ then they would become your modeling stage.
+
+1186
+01:10:59,600 --> 01:11:03,020
+ In modeling stage, you have to define,
+
+1187
+01:11:03,020 --> 01:11:05,440
+ because we already know what task you are doing,
+
+1188
+01:11:05,440 --> 01:11:07,180
+ then within that task,
+
+1189
+01:11:07,180 --> 01:11:10,020
+ you have to define your modeling technique.
+
+1190
+01:11:11,320 --> 01:11:13,440
+ If you are doing classification,
+
+1191
+01:11:13,440 --> 01:11:16,680
+ whether you're gonna go with the CN tree
+
+1192
+01:11:16,680 --> 01:11:19,280
+ or sport vector machine and so on,
+
+1193
+01:11:19,280 --> 01:11:20,960
+ and if you are doing clustering,
+
+1194
+01:11:20,960 --> 01:11:24,000
+ then what you are going to do, right?
+
+1195
+01:11:24,000 --> 01:11:28,240
+ Then this here, you have to generate your test design,
+
+1196
+01:11:28,240 --> 01:11:31,600
+ you have to see which technique you are applying,
+
+1197
+01:11:31,600 --> 01:11:35,180
+ what is your data training, testing and validation,
+
+1198
+01:11:35,180 --> 01:11:38,600
+ and then you have to build up your model, right?
+
+1199
+01:11:38,600 --> 01:11:40,440
+ So you can do the data splitting
+
+1200
+01:11:40,440 --> 01:11:42,520
+ at your modeling stage as well.
+
+1201
+01:11:42,520 --> 01:11:44,760
+ So it would be the first stage here,
+
+1202
+01:11:44,760 --> 01:11:46,760
+ if it would be data modeling,
+
+1203
+01:11:46,760 --> 01:11:50,400
+ or it could be the last stage of your data preparation,
+
+1204
+01:11:50,400 --> 01:11:51,220
+ right?
+
+1205
+01:11:51,220 --> 01:11:53,280
+ Then you have to build up your model,
+
+1206
+01:11:53,280 --> 01:11:56,420
+ you have to let your algorithm
+
+1207
+01:11:56,420 --> 01:11:59,440
+ to execute on that particular data,
+
+1208
+01:11:59,440 --> 01:12:02,600
+ that is what they call their building a model,
+
+1209
+01:12:02,600 --> 01:12:06,080
+ then you will assess your model, right?
+
+1210
+01:12:06,080 --> 01:12:08,080
+ You will interpret your model.
+
+1211
+01:12:08,080 --> 01:12:10,440
+ Once you have done that modeling,
+
+1212
+01:12:10,440 --> 01:12:12,400
+ then it becomes your evaluation.
+
+1213
+01:12:12,400 --> 01:12:15,000
+ Now you will evaluate your results,
+
+1214
+01:12:15,000 --> 01:12:17,740
+ whatever the models you have selected here,
+
+1215
+01:12:17,740 --> 01:12:19,160
+ you have built up a model,
+
+1216
+01:12:19,160 --> 01:12:23,000
+ you have applied into different ways on your data,
+
+1217
+01:12:23,000 --> 01:12:25,040
+ you have made all the assessment.
+
+1218
+01:12:25,040 --> 01:12:27,960
+ Now you have to evaluate that assessment
+
+1219
+01:12:27,960 --> 01:12:30,280
+ based on several metrics,
+
+1220
+01:12:30,280 --> 01:12:32,840
+ based on several ways to look up your results.
+
+1221
+01:12:32,840 --> 01:12:35,440
+ So you have to evaluate your results,
+
+1222
+01:12:35,440 --> 01:12:38,260
+ evaluate the performance of your model,
+
+1223
+01:12:38,260 --> 01:12:40,320
+ you have to do the review process,
+
+1224
+01:12:40,320 --> 01:12:42,920
+ you have to determine the next stages,
+
+1225
+01:12:42,920 --> 01:12:44,080
+ know what is next,
+
+1226
+01:12:44,080 --> 01:12:46,680
+ what you are going to do next and so on.
+
+1227
+01:12:46,680 --> 01:12:51,400
+ So all of these things will come into your evaluation stage.
+
+1228
+01:12:51,400 --> 01:12:54,120
+ Then you have your deployment,
+
+1229
+01:12:54,120 --> 01:12:56,940
+ in deployment you will actually install
+
+1230
+01:12:56,940 --> 01:12:59,000
+ that particular model, right?
+
+1231
+01:12:59,000 --> 01:13:04,000
+ That would be the last stage of your CRIS DM architecture.
+
+1232
+01:13:04,260 --> 01:13:09,260
+ But please be aware for all of your three assessment,
+
+1233
+01:13:09,280 --> 01:13:12,400
+ whether it is assessment one, two and three,
+
+1234
+01:13:12,400 --> 01:13:16,440
+ you're gonna do this CRIS DM architecture,
+
+1235
+01:13:16,440 --> 01:13:19,080
+ for whatever the task we will say you,
+
+1236
+01:13:19,080 --> 01:13:22,540
+ for whatever the model we will advise you to implement,
+
+1237
+01:13:22,540 --> 01:13:25,320
+ but you don't do the deployment
+
+1238
+01:13:25,320 --> 01:13:28,300
+ for all of the three assessments.
+
+1239
+01:13:28,300 --> 01:13:33,040
+ So you will apply all the above five stages,
+
+1240
+01:13:33,040 --> 01:13:35,880
+ you will not do the deployment stage.
+
+1241
+01:13:35,880 --> 01:13:40,680
+ Yes, you will have this deployment in your assessment,
+
+1242
+01:13:40,680 --> 01:13:43,480
+ but instead of deploying that one,
+
+1243
+01:13:43,480 --> 01:13:46,160
+ you're gonna mention the lessons learned
+
+1244
+01:13:46,160 --> 01:13:50,200
+ into your deployment stage, right?
+
+1245
+01:13:50,200 --> 01:13:53,360
+ So in the deployment, as in real world scenario
+
+1246
+01:13:53,360 --> 01:13:56,520
+ is the installation of that model
+
+1247
+01:13:56,520 --> 01:13:58,640
+ into the real life problem,
+
+1248
+01:13:58,640 --> 01:14:01,040
+ then you will monitor how the model is doing,
+
+1249
+01:14:01,040 --> 01:14:03,980
+ how the software is working and so on.
+
+1250
+01:14:03,980 --> 01:14:05,280
+ That is your deployment.
+
+1251
+01:14:05,280 --> 01:14:08,000
+ But for all of your three assessment,
+
+1252
+01:14:08,000 --> 01:14:10,000
+ what you're gonna have in deployment,
+
+1253
+01:14:10,000 --> 01:14:12,780
+ you will mention all the lesson learned,
+
+1254
+01:14:12,780 --> 01:14:14,340
+ what were the mistake.
+
+1255
+01:14:14,340 --> 01:14:17,360
+ Now you will evaluate what was your criteria,
+
+1256
+01:14:17,360 --> 01:14:19,680
+ what was your success criteria,
+
+1257
+01:14:19,680 --> 01:14:22,760
+ whether you have met that criteria or not,
+
+1258
+01:14:22,760 --> 01:14:24,040
+ what was the failure,
+
+1259
+01:14:24,040 --> 01:14:26,840
+ what was the things where you can improve
+
+1260
+01:14:26,840 --> 01:14:29,720
+ or how the things are the result could be improved,
+
+1261
+01:14:29,720 --> 01:14:33,660
+ how the performance of your model could be increased.
+
+1262
+01:14:33,660 --> 01:14:38,520
+ That's what you gonna discuss into your deployment stage.
+
+1263
+01:14:38,520 --> 01:14:43,520
+ That would be the final step of your CRIS DM architecture.
+
+1264
+01:14:43,720 --> 01:14:47,640
+ So, so far we discussed CRIS DM architecture
+
+1265
+01:14:47,640 --> 01:14:52,360
+ is your cross industry standard process for data mining,
+
+1266
+01:14:52,360 --> 01:14:54,000
+ which has six stages.
+
+1267
+01:14:54,000 --> 01:14:56,980
+ First is your business understanding,
+
+1268
+01:14:56,980 --> 01:15:01,980
+ then is your data understanding as we discussed in detail,
+
+1269
+01:15:02,060 --> 01:15:05,940
+ and then you will have your data preparation,
+
+1270
+01:15:05,940 --> 01:15:10,460
+ data modeling, evaluation and your deployment stage.
+
+1271
+01:15:11,800 --> 01:15:16,640
+ Then we have discussed all of these things in detail here,
+
+1272
+01:15:16,640 --> 01:15:18,880
+ where we discuss determine objective,
+
+1273
+01:15:18,880 --> 01:15:20,720
+ assess your situation,
+
+1274
+01:15:20,720 --> 01:15:22,960
+ data understanding where you will verify,
+
+1275
+01:15:22,960 --> 01:15:24,980
+ here you will prepare your data,
+
+1276
+01:15:24,980 --> 01:15:28,560
+ here you will separate and apply the modeling technique,
+
+1277
+01:15:28,560 --> 01:15:31,400
+ and then here you will evaluate those models
+
+1278
+01:15:31,400 --> 01:15:35,380
+ and here you will mention all of your lesson learns.
+
+1279
+01:15:38,320 --> 01:15:43,320
+ I'm gonna also send this link into the chat window,
+
+1280
+01:15:43,700 --> 01:15:46,460
+ so where you can just have a read
+
+1281
+01:15:46,460 --> 01:15:50,080
+ and if there is any further question you may have,
+
+1282
+01:15:50,080 --> 01:15:51,080
+ you can ask.
+
+1283
+01:15:53,760 --> 01:15:58,760
+ And hopefully you have already started your assessment,
+
+1284
+01:16:01,800 --> 01:16:05,160
+ the first assessment which is due in week four.
+
+1285
+01:16:05,160 --> 01:16:09,640
+ So, understanding of assessment is also part
+
+1286
+01:16:09,640 --> 01:16:13,560
+ of your assessment, right?
+
+1287
+01:16:13,560 --> 01:16:15,520
+ Part of your examination.
+
+1288
+01:16:15,520 --> 01:16:20,140
+ So, that is why I'm not gonna discuss your assessment
+
+1289
+01:16:20,140 --> 01:16:21,400
+ as of now.
+
+1290
+01:16:21,400 --> 01:16:24,380
+ If you have any question, I'm happy to answer,
+
+1291
+01:16:24,380 --> 01:16:28,320
+ but in the start of next class, next week,
+
+1292
+01:16:28,320 --> 01:16:31,320
+ we're gonna discuss your assessment in detail.
+
+1293
+01:16:31,320 --> 01:16:33,800
+ So, meanwhile, if you have any question,
+
+1294
+01:16:33,800 --> 01:16:35,520
+ you can reach out to me,
+
+1295
+01:16:35,520 --> 01:16:38,200
+ I have also my office hours on Friday,
+
+1296
+01:16:38,200 --> 01:16:39,320
+ you can reach out to me,
+
+1297
+01:16:39,320 --> 01:16:42,000
+ we can book up a time and so on.
+
+1298
+01:16:42,000 --> 01:16:46,960
+ And another thing is, currently I am on leave.
+
+1299
+01:16:48,600 --> 01:16:49,880
+ So, that is very important.
+
+1300
+01:16:49,880 --> 01:16:53,360
+ If you will send any email to my Torrance email,
+
+1301
+01:16:53,360 --> 01:16:55,240
+ I'm not able to assess it.
+
+1302
+01:16:55,240 --> 01:16:58,600
+ Luckily, I even requested that maybe
+
+1303
+01:16:58,600 --> 01:17:01,440
+ because I'm on leave for four weeks,
+
+1304
+01:17:01,440 --> 01:17:05,180
+ already one week is passed and this is the second week.
+
+1305
+01:17:06,040 --> 01:17:08,000
+ So, even I, on the Friday,
+
+1306
+01:17:08,000 --> 01:17:12,480
+ they have suspended my access on my Torrance account.
+
+1307
+01:17:12,480 --> 01:17:15,960
+ Even on the Teams, I'm not able to assess it.
+
+1308
+01:17:15,960 --> 01:17:18,360
+ But luckily, even I requested, okay,
+
+1309
+01:17:18,360 --> 01:17:20,840
+ we could have somebody else.
+
+1310
+01:17:23,640 --> 01:17:25,140
+ What it is for everyone?
+
+1311
+01:17:27,680 --> 01:17:30,520
+ - MyLearn.
+
+1312
+01:17:30,520 --> 01:17:32,400
+ - No, MyLearn is for everyone.
+
+1313
+01:17:32,400 --> 01:17:35,240
+ MyLearn is used with the students and so on.
+
+1314
+01:17:35,240 --> 01:17:37,940
+ So, every teacher here has two email addresses,
+
+1315
+01:17:37,940 --> 01:17:41,560
+ at the rate Torrance and at the rate mylearn.torrance.
+
+1316
+01:17:41,560 --> 01:17:46,120
+ So, otherwise I was asking that somebody else can take
+
+1317
+01:17:46,120 --> 01:17:49,080
+ and even they asked me, okay, you are on leave,
+
+1318
+01:17:49,080 --> 01:17:51,740
+ so somebody else can teach your first four weeks
+
+1319
+01:17:51,740 --> 01:17:53,360
+ and then you can start.
+
+1320
+01:17:53,360 --> 01:17:54,680
+ I said, no, it's all good
+
+1321
+01:17:54,680 --> 01:17:57,080
+ because the student might have a problem later on,
+
+1322
+01:17:57,080 --> 01:18:00,880
+ just with the teacher and then I will jump in and so on.
+
+1323
+01:18:00,880 --> 01:18:04,000
+ And it would be good that we will have a flow
+
+1324
+01:18:04,000 --> 01:18:06,660
+ and I'm happy to do that one.
+
+1325
+01:18:06,660 --> 01:18:07,500
+ So--
+
+1326
+01:18:07,500 --> 01:18:09,600
+ - So, you're on leave since past four,
+
+1327
+01:18:09,600 --> 01:18:12,120
+ like past week to next two weeks too?
+
+1328
+01:18:12,120 --> 01:18:12,940
+ - Yes, yes.
+
+1329
+01:18:12,940 --> 01:18:15,120
+ - But you're continuing class on Monday just for us?
+
+1330
+01:18:15,120 --> 01:18:16,120
+ - Yes, yes.
+
+1331
+01:18:16,120 --> 01:18:17,360
+ - Oh, thank you so much for that.
+
+1332
+01:18:17,360 --> 01:18:22,360
+ - Yeah, yeah, I got a baby boy, so I'm on my paternal leave.
+
+1333
+01:18:22,920 --> 01:18:25,080
+ They said, okay, you can take care of your baby
+
+1334
+01:18:25,080 --> 01:18:27,060
+ and your family and so on.
+
+1335
+01:18:28,440 --> 01:18:29,280
+ - Congratulations for that.
+
+1336
+01:18:29,280 --> 01:18:31,860
+ - Yeah, thank you so much, thank you so much.
+
+1337
+01:18:31,860 --> 01:18:35,880
+ So, yeah, so, but I thought, okay, let me to continue.
+
+1338
+01:18:35,880 --> 01:18:38,120
+ So, because in the first four week,
+
+1339
+01:18:38,120 --> 01:18:40,400
+ we have to create a main base.
+
+1340
+01:18:40,400 --> 01:18:42,900
+ And if I'm asking you in the fifth week,
+
+1341
+01:18:43,940 --> 01:18:46,760
+ can we have, for example, what is classification?
+
+1342
+01:18:46,760 --> 01:18:48,240
+ And if you have a different concept,
+
+1343
+01:18:48,240 --> 01:18:50,520
+ then it will not have any advantage
+
+1344
+01:18:50,520 --> 01:18:52,600
+ where I want you to take, right?
+
+1345
+01:18:52,600 --> 01:18:55,560
+ So, that is why I'm taking those one.
+
+1346
+01:18:55,560 --> 01:18:58,800
+ So, please, if you have any problem in these four weeks,
+
+1347
+01:18:58,800 --> 01:19:01,920
+ you can approach on my MyLearn or this chat window,
+
+1348
+01:19:01,920 --> 01:19:03,480
+ whatever we are using.
+
+1349
+01:19:03,480 --> 01:19:07,440
+ And you can also send me an email as well,
+
+1350
+01:19:07,440 --> 01:19:10,040
+ which will come to me and I'm happy to answer.
+
+1351
+01:19:10,040 --> 01:19:12,680
+ You can book a time, we can discuss any question.
+
+1352
+01:19:12,680 --> 01:19:15,100
+ Thank you, Eugene, thank you, everyone.
+
+1353
+01:19:15,100 --> 01:19:17,120
+ So, that is one thing.
+
+1354
+01:19:17,120 --> 01:19:22,120
+ As the land up, how do you say your name?
+
+1355
+01:19:23,240 --> 01:19:24,080
+ Land up.
+
+1356
+01:19:25,300 --> 01:19:28,160
+ - Oh, it's in W, yeah, you are pronouncing correctly.
+
+1357
+01:19:28,160 --> 01:19:30,240
+ - Okay, land up, okay.
+
+1358
+01:19:30,240 --> 01:19:33,600
+ So, I'm also, yes, Irani, yes, please.
+
+1359
+01:19:33,600 --> 01:19:35,700
+ - It's Harini and the thing is like,
+
+1360
+01:19:35,700 --> 01:19:39,320
+ I'd like you to help me again with the Google collab.
+
+1361
+01:19:39,320 --> 01:19:42,760
+ I have signed up, but yeah,
+
+1362
+01:19:42,760 --> 01:19:44,940
+ I don't know whether I'm in the right path or not.
+
+1363
+01:19:44,940 --> 01:19:45,920
+ So, I'd like you to-
+
+1364
+01:19:45,920 --> 01:19:48,080
+ - So, let me to share the screen
+
+1365
+01:19:48,080 --> 01:19:50,000
+ and tell you where to find the recordings.
+
+1366
+01:19:50,000 --> 01:19:52,940
+ And then afterwards, we will ask you to share the screen
+
+1367
+01:19:52,940 --> 01:19:55,040
+ and then see how we can help you, okay?
+
+1368
+01:19:56,160 --> 01:20:01,120
+ So, firstly is all of the recordings are available
+
+1369
+01:20:01,120 --> 01:20:02,360
+ for all the courses.
+
+1370
+01:20:02,360 --> 01:20:05,700
+ If the teachers are recording, they're supposed to record,
+
+1371
+01:20:05,700 --> 01:20:07,600
+ whether it is a face-to-face class
+
+1372
+01:20:07,600 --> 01:20:09,880
+ or it is a online class,
+
+1373
+01:20:09,880 --> 01:20:12,400
+ recording should be available for the students.
+
+1374
+01:20:12,400 --> 01:20:15,000
+ And as I mentioned in my previous class,
+
+1375
+01:20:15,000 --> 01:20:17,140
+ I'm working as a course coordinator
+
+1376
+01:20:17,140 --> 01:20:19,280
+ for undergraduate cyber security program.
+
+1377
+01:20:19,280 --> 01:20:22,240
+ If there would be any problem or you have any issue
+
+1378
+01:20:22,240 --> 01:20:24,480
+ related to admin related stuff
+
+1379
+01:20:24,480 --> 01:20:27,420
+ or any research related stuff, you are most welcome.
+
+1380
+01:20:27,420 --> 01:20:29,040
+ You can discuss with me.
+
+1381
+01:20:29,040 --> 01:20:31,760
+ So, firstly, we will see where to find the recording.
+
+1382
+01:20:31,760 --> 01:20:34,480
+ So, you will go to your Myler.
+
+1383
+01:20:35,640 --> 01:20:37,420
+ Let me share the screen again.
+
+1384
+01:20:40,880 --> 01:20:45,040
+ And here you will click, select your particular subject,
+
+1385
+01:20:45,040 --> 01:20:48,540
+ which is machine learning course for our case.
+
+1386
+01:20:48,540 --> 01:20:51,440
+ Then you will click on online classes and chat.
+
+1387
+01:21:02,240 --> 01:21:07,240
+ And you just need to wait for few seconds as it is.
+
+1388
+01:21:08,560 --> 01:21:10,760
+ And here, when you click up here,
+
+1389
+01:21:10,760 --> 01:21:13,720
+ so you will find all the recordings here.
+
+1390
+01:21:13,720 --> 01:21:16,120
+ So, once I will stop recording,
+
+1391
+01:21:16,120 --> 01:21:19,700
+ so it will save into the week two as well, right?
+
+1392
+01:21:19,700 --> 01:21:21,220
+ So, when you click here,
+
+1393
+01:21:22,080 --> 01:21:27,080
+ you will see all of our lessons are recorded here.
+
+1394
+01:21:27,480 --> 01:21:31,220
+ So, that would be recording from the last week.
+
+1395
+01:21:36,520 --> 01:21:41,520
+ We'll take a bit to our preview.
+
+1396
+01:21:46,120 --> 01:21:48,280
+ (silence)
+
+1397
+01:21:59,160 --> 01:22:01,800
+ Maybe my internet connection is slow.
+
+1398
+01:22:04,340 --> 01:22:06,980
+ - It's the same for mine as before.
+
+1399
+01:22:06,980 --> 01:22:08,020
+ - Okay.
+
+1400
+01:22:08,020 --> 01:22:10,520
+ - I'm facing this issue since yesterday.
+
+1401
+01:22:10,520 --> 01:22:11,360
+ - Okay.
+
+1402
+01:22:11,360 --> 01:22:12,180
+ - I don't know why.
+
+1403
+01:22:12,180 --> 01:22:13,020
+ - That is, okay.
+
+1404
+01:22:13,020 --> 01:22:15,540
+ That is one way to see the recordings
+
+1405
+01:22:15,540 --> 01:22:16,540
+ for any subject.
+
+1406
+01:22:16,540 --> 01:22:18,020
+ The other way is.
+
+1407
+01:22:26,220 --> 01:22:30,240
+ - We'll be getting a link to our email address, right?
+
+1408
+01:22:30,240 --> 01:22:33,060
+ To our Outlook account.
+
+1409
+01:22:33,060 --> 01:22:33,900
+ - Yeah.
+
+1410
+01:22:33,900 --> 01:22:35,480
+ This is the second way.
+
+1411
+01:22:35,480 --> 01:22:38,100
+ If you have opened up your Teams,
+
+1412
+01:22:38,100 --> 01:22:40,420
+ you will click on this Teams,
+
+1413
+01:22:41,380 --> 01:22:44,080
+ where you will see the Teams here.
+
+1414
+01:22:44,080 --> 01:22:46,860
+ For example, this machine learning course.
+
+1415
+01:22:46,860 --> 01:22:50,100
+ You will click on the second channel here,
+
+1416
+01:22:50,100 --> 01:22:54,020
+ which I created lectures week one to week 12.
+
+1417
+01:22:54,020 --> 01:22:55,540
+ Once you click here,
+
+1418
+01:22:55,540 --> 01:22:58,340
+ you will see here three different options.
+
+1419
+01:22:58,340 --> 01:23:00,220
+ You will click on shared.
+
+1420
+01:23:05,300 --> 01:23:09,640
+ Normally, suppose the file tab here,
+
+1421
+01:23:09,640 --> 01:23:11,680
+ now they have shared.
+
+1422
+01:23:11,680 --> 01:23:14,220
+ But anyways, you have a shared here.
+
+1423
+01:23:14,220 --> 01:23:15,700
+ Then when you click here,
+
+1424
+01:23:15,700 --> 01:23:18,140
+ you will see a recording folder here.
+
+1425
+01:23:18,140 --> 01:23:19,700
+ You will click on the recording,
+
+1426
+01:23:20,620 --> 01:23:23,660
+ and you will find the recording here.
+
+1427
+01:23:23,660 --> 01:23:27,700
+ So I, firstly, it is saved with a very full name,
+
+1428
+01:23:27,700 --> 01:23:29,400
+ like the whole meeting name.
+
+1429
+01:23:29,400 --> 01:23:31,360
+ And once I finished the recording,
+
+1430
+01:23:31,360 --> 01:23:35,400
+ so I normally rename it as week one, week two, week three,
+
+1431
+01:23:35,400 --> 01:23:38,200
+ or week one assessment discussion and so on.
+
+1432
+01:23:38,200 --> 01:23:40,860
+ So easily you can track, right?
+
+1433
+01:23:40,860 --> 01:23:44,180
+ So this is the second way
+
+1434
+01:23:44,180 --> 01:23:47,160
+ where you can track all the recordings.
+
+1435
+01:23:47,160 --> 01:23:51,360
+ So for anyone who missed our previous lecture,
+
+1436
+01:23:51,360 --> 01:23:53,900
+ who missed any part of the today's lecture,
+
+1437
+01:23:53,900 --> 01:23:56,860
+ please have a look to this lecture.
+
+1438
+01:23:56,860 --> 01:23:59,180
+ And once we finish this one, stop the recording,
+
+1439
+01:23:59,180 --> 01:24:02,080
+ it will take a while to upload on the cloud.
+
+1440
+01:24:02,080 --> 01:24:06,360
+ Then you will be able to see week two lecture here as well.
+
+1441
+01:24:06,360 --> 01:24:07,200
+ Right?
+
+1442
+01:24:07,200 --> 01:24:11,240
+ So these are the two ways where you can file
+
+1443
+01:24:11,240 --> 01:24:13,100
+ all the recordings and so on.
+
+1444
+01:24:20,900 --> 01:24:22,620
+ Lend up okay for you?
+
+1445
+01:24:26,500 --> 01:24:27,700
+ - Yeah, all good, all good.
+
+1446
+01:24:27,700 --> 01:24:28,680
+ - Okay, okay.
+
+1447
+01:24:30,060 --> 01:24:34,420
+ Yes, Irani, can you share your screen and let us know?
+
+1448
+01:24:34,420 --> 01:24:35,260
+ - Professor, can you help?
+
+1449
+01:24:35,260 --> 01:24:40,000
+ Help me with your and itself, like my system is messed up.
+
+1450
+01:24:40,000 --> 01:24:43,760
+ - Okay, so you want me to go through that process again?
+
+1451
+01:24:43,760 --> 01:24:44,600
+ Okay.
+
+1452
+01:24:44,600 --> 01:24:46,300
+ - Yes, that would be great, thank you.
+
+1453
+01:24:49,980 --> 01:24:53,080
+ - So another thing, okay, it's already open.
+
+1454
+01:24:53,980 --> 01:24:58,980
+ So you will go to the Google Scholar.
+
+1455
+01:24:59,480 --> 01:25:03,280
+ And once you go there, you can type my name there,
+
+1456
+01:25:03,280 --> 01:25:08,280
+ Kamran Shokat and here you will see all of my publication,
+
+1457
+01:25:09,960 --> 01:25:14,960
+ whatever I have done so far related to machine.
+
+1458
+01:25:16,580 --> 01:25:20,580
+ - Professor, could you send a link of your Google Scholar?
+
+1459
+01:25:20,580 --> 01:25:23,040
+ - Yeah, I can share it here as well.
+
+1460
+01:25:23,040 --> 01:25:24,040
+ - Thank you so much.
+
+1461
+01:25:25,700 --> 01:25:27,240
+ - There is the chat.
+
+1462
+01:25:31,920 --> 01:25:33,880
+ My system also getting slow.
+
+1463
+01:25:33,880 --> 01:25:35,820
+ I'm not sure what's the problem.
+
+1464
+01:25:36,920 --> 01:25:38,980
+ Okay, there is the Google Scholar.
+
+1465
+01:25:40,220 --> 01:25:45,220
+ So you will see here, this is one of my PhD work.
+
+1466
+01:25:49,360 --> 01:25:52,520
+ During my PhD, I have applied machine learning techniques
+
+1467
+01:25:52,520 --> 01:25:56,080
+ for malware detection for cybersecurity.
+
+1468
+01:25:56,080 --> 01:26:00,480
+ So that is part of my PhD work related to machine learning
+
+1469
+01:26:00,480 --> 01:26:02,440
+ and cybersecurity.
+
+1470
+01:26:02,440 --> 01:26:05,840
+ Here I have done some work with the IoT devices,
+
+1471
+01:26:05,840 --> 01:26:09,400
+ internet of things like your smart watches,
+
+1472
+01:26:09,400 --> 01:26:13,720
+ your sensor data, your smart homes and wearable devices.
+
+1473
+01:26:13,720 --> 01:26:15,920
+ So if there would be any problem with those ones,
+
+1474
+01:26:15,920 --> 01:26:18,200
+ so those all come under the umbrella
+
+1475
+01:26:18,200 --> 01:26:19,920
+ of your internet of things.
+
+1476
+01:26:19,920 --> 01:26:21,920
+ So what could be the cyber attacks there
+
+1477
+01:26:21,920 --> 01:26:23,640
+ and how to mitigate and so on.
+
+1478
+01:26:24,660 --> 01:26:28,260
+ Then this is also part of my PhD work,
+
+1479
+01:26:28,260 --> 01:26:31,480
+ the performance comparison and current challenges,
+
+1480
+01:26:31,480 --> 01:26:32,440
+ current issues.
+
+1481
+01:26:32,440 --> 01:26:35,720
+ If you are not able to find out what would be the title
+
+1482
+01:26:35,720 --> 01:26:38,820
+ of my thesis or what would be the research problem,
+
+1483
+01:26:38,820 --> 01:26:41,680
+ or if you haven't decided with your supervisor,
+
+1484
+01:26:41,680 --> 01:26:44,140
+ you are most welcome, you can discuss with me.
+
+1485
+01:26:44,140 --> 01:26:45,980
+ If you have any interest to work
+
+1486
+01:26:45,980 --> 01:26:47,940
+ into the machine learning area to apply
+
+1487
+01:26:47,940 --> 01:26:52,940
+ for any type of your cybersecurity area.
+
+1488
+01:26:53,780 --> 01:26:57,800
+ Currently, I am supervising the five PhD students,
+
+1489
+01:26:57,800 --> 01:27:02,200
+ two at another uni and three as a principal supervisor
+
+1490
+01:27:02,200 --> 01:27:04,280
+ at Torrance University.
+
+1491
+01:27:04,280 --> 01:27:07,200
+ One of the student is doing something
+
+1492
+01:27:07,200 --> 01:27:11,920
+ with the yield crop prediction or maybe agriculture stuff.
+
+1493
+01:27:11,920 --> 01:27:14,240
+ So within the agriculture,
+
+1494
+01:27:14,240 --> 01:27:16,080
+ we haven't defined exactly the problem,
+
+1495
+01:27:16,080 --> 01:27:19,960
+ but we know that we are going to apply machine learning
+
+1496
+01:27:19,960 --> 01:27:22,500
+ to solve any problem in the agriculture.
+
+1497
+01:27:22,500 --> 01:27:25,680
+ So we discussed related to yield crop prediction and so on.
+
+1498
+01:27:25,680 --> 01:27:27,600
+ So one of the student is doing that thing.
+
+1499
+01:27:27,600 --> 01:27:30,720
+ The other student is doing using the LLMs,
+
+1500
+01:27:30,720 --> 01:27:32,980
+ large learning models in order to improve
+
+1501
+01:27:32,980 --> 01:27:36,760
+ the defect detection related to software and so on.
+
+1502
+01:27:36,760 --> 01:27:39,020
+ And the third student is doing related
+
+1503
+01:27:39,020 --> 01:27:41,360
+ to the federated learning.
+
+1504
+01:27:41,360 --> 01:27:44,520
+ I will explain you someday what federated learning is,
+
+1505
+01:27:44,520 --> 01:27:48,220
+ but that is for federating for the malware detection,
+
+1506
+01:27:48,220 --> 01:27:50,680
+ different kinds of attacks which are happening
+
+1507
+01:27:50,680 --> 01:27:53,360
+ over different platforms.
+
+1508
+01:27:53,360 --> 01:27:55,360
+ So what is the federated learning
+
+1509
+01:27:55,360 --> 01:27:58,640
+ and what are the drawbacks of the federated learning
+
+1510
+01:27:58,640 --> 01:28:01,960
+ if already being applied and how to improve that one.
+
+1511
+01:28:01,960 --> 01:28:03,720
+ Similarly, I have done a lot of work
+
+1512
+01:28:03,720 --> 01:28:05,640
+ on the medical data as well.
+
+1513
+01:28:05,640 --> 01:28:07,320
+ So there are certain problems,
+
+1514
+01:28:07,320 --> 01:28:09,560
+ which I will discuss to you when it comes.
+
+1515
+01:28:09,560 --> 01:28:11,520
+ What is data re-sampling problems?
+
+1516
+01:28:11,520 --> 01:28:14,040
+ Why we do it and what are those things?
+
+1517
+01:28:14,040 --> 01:28:17,700
+ So you can say these are highly cited papers.
+
+1518
+01:28:17,700 --> 01:28:21,320
+ Then I also work with the brain tumor classification,
+
+1519
+01:28:21,320 --> 01:28:23,520
+ like MRI images as well.
+
+1520
+01:28:23,520 --> 01:28:26,840
+ I also worked with the financial data as well,
+
+1521
+01:28:26,840 --> 01:28:29,200
+ where the credit card default prediction
+
+1522
+01:28:29,200 --> 01:28:31,040
+ for imbalance data set.
+
+1523
+01:28:31,040 --> 01:28:33,580
+ Then this is also part of my PhD work
+
+1524
+01:28:33,580 --> 01:28:36,960
+ for cyber detection using machine learning techniques.
+
+1525
+01:28:36,960 --> 01:28:39,120
+ This is also my PhD work,
+
+1526
+01:28:40,040 --> 01:28:42,640
+ machine learning techniques for malware detection.
+
+1527
+01:28:43,680 --> 01:28:46,960
+ I also work with anomaly detection as well,
+
+1528
+01:28:46,960 --> 01:28:49,080
+ that as you can find up here.
+
+1529
+01:28:49,080 --> 01:28:52,560
+ I did some work, some papers with the skin cancer
+
+1530
+01:28:52,560 --> 01:28:54,180
+ classification as well.
+
+1531
+01:28:55,040 --> 01:28:59,160
+ That is another kind of issue when you apply
+
+1532
+01:28:59,160 --> 01:29:03,080
+ machine learning for any task, which is adversarial attacks.
+
+1533
+01:29:03,080 --> 01:29:05,720
+ I will explain one day with you as well,
+
+1534
+01:29:05,720 --> 01:29:07,960
+ what are the adversarial attacks and so on.
+
+1535
+01:29:08,940 --> 01:29:13,940
+ Then I worked with the neuro imaging as well as my disease.
+
+1536
+01:29:14,800 --> 01:29:18,640
+ That's one of my other PhD students who is working
+
+1537
+01:29:18,640 --> 01:29:22,780
+ to detect different kind of asthma disease and so on.
+
+1538
+01:29:22,780 --> 01:29:25,640
+ The problem within these, I worked a little bit
+
+1539
+01:29:25,640 --> 01:29:28,680
+ into the blockchain as well, not too much.
+
+1540
+01:29:28,680 --> 01:29:31,020
+ Bankruptcy prediction using machine learning
+
+1541
+01:29:31,020 --> 01:29:32,280
+ is also other work.
+
+1542
+01:29:33,400 --> 01:29:36,320
+ With the collaboration of one of my friend,
+
+1543
+01:29:36,320 --> 01:29:41,160
+ I work with the belt fraud detection.
+
+1544
+01:29:41,160 --> 01:29:44,280
+ You see different conveyors and different belts
+
+1545
+01:29:44,280 --> 01:29:47,740
+ into the different industries where data is being,
+
+1546
+01:29:47,740 --> 01:29:49,920
+ not the data actually, the physical items
+
+1547
+01:29:49,920 --> 01:29:52,440
+ are being transferred from one place to another place.
+
+1548
+01:29:52,440 --> 01:29:55,720
+ Like for example, different belts where we get our luggage
+
+1549
+01:29:55,720 --> 01:29:57,800
+ when we came to Australia.
+
+1550
+01:29:57,800 --> 01:30:00,920
+ So in that case, there could be some problem with the belt
+
+1551
+01:30:00,920 --> 01:30:03,580
+ and you are not able to track it, where is the problem
+
+1552
+01:30:03,580 --> 01:30:06,220
+ and you not always monitor those ones.
+
+1553
+01:30:06,220 --> 01:30:09,060
+ So there could be certain sensors there,
+
+1554
+01:30:09,060 --> 01:30:12,080
+ which you can use in order to see if there any problem
+
+1555
+01:30:12,080 --> 01:30:15,680
+ into your belts and so on.
+
+1556
+01:30:15,680 --> 01:30:17,880
+ So these are the things which you can have a read
+
+1557
+01:30:17,880 --> 01:30:19,560
+ if you have any interest.
+
+1558
+01:30:19,560 --> 01:30:22,360
+ So you can have a read to those one as well, okay.
+
+1559
+01:30:24,080 --> 01:30:27,400
+ So these are the areas you can have a look on
+
+1560
+01:30:27,400 --> 01:30:29,800
+ on some of the papers if you have any interest
+
+1561
+01:30:29,800 --> 01:30:32,720
+ so you can discuss with those one.
+
+1562
+01:30:32,720 --> 01:30:35,880
+ Now comes towards what Rakesh mentioned
+
+1563
+01:30:35,880 --> 01:30:38,060
+ and Irani asked about the Google collab.
+
+1564
+01:30:38,060 --> 01:30:41,280
+ So you can simply search Google collab here.
+
+1565
+01:30:43,640 --> 01:30:48,560
+ And then you will click on Google collab.
+
+1566
+01:30:48,560 --> 01:30:53,560
+ The first thing I got and then you will click on open collab
+
+1567
+01:30:56,600 --> 01:31:00,360
+ and then it will ask you initially to sign in
+
+1568
+01:31:00,360 --> 01:31:03,200
+ to sync with any of your Gmail account.
+
+1569
+01:31:03,200 --> 01:31:06,380
+ Since I am already logging with that one,
+
+1570
+01:31:06,380 --> 01:31:07,880
+ so it didn't ask me.
+
+1571
+01:31:07,880 --> 01:31:11,240
+ So you can create a new notebook here
+
+1572
+01:31:11,240 --> 01:31:14,000
+ or maybe if you already have any template,
+
+1573
+01:31:14,000 --> 01:31:17,880
+ which we will provide you and you already have the template
+
+1574
+01:31:17,880 --> 01:31:21,000
+ for the Chris TM architecture for your assessment.
+
+1575
+01:31:21,000 --> 01:31:24,280
+ So you can simply use that template to upload it
+
+1576
+01:31:24,280 --> 01:31:26,440
+ and you can work with that one.
+
+1577
+01:31:26,440 --> 01:31:28,000
+ That will really help you.
+
+1578
+01:31:28,000 --> 01:31:31,780
+ So for example, if you go to the assessment one,
+
+1579
+01:31:42,240 --> 01:31:45,000
+ so in the assessment one,
+
+1580
+01:31:45,000 --> 01:31:48,640
+ here is the Chris TM architecture, IPYNB file.
+
+1581
+01:31:48,640 --> 01:31:51,960
+ You can download this one, which has all of these stages.
+
+1582
+01:31:51,960 --> 01:31:55,680
+ So you can just work and upload your data set
+
+1583
+01:31:55,680 --> 01:31:57,860
+ and work with that one, right?
+
+1584
+01:31:57,860 --> 01:32:02,860
+ So you can download this file, IPYNB Python file, right?
+
+1585
+01:32:02,960 --> 01:32:07,960
+ And then later on, you can just simply upload here
+
+1586
+01:32:08,120 --> 01:32:09,840
+ into the upload section.
+
+1587
+01:32:09,840 --> 01:32:12,280
+ You can browse and you can simply upload
+
+1588
+01:32:12,280 --> 01:32:16,080
+ that particular file, which you want to work with, right?
+
+1589
+01:32:16,080 --> 01:32:18,600
+ So whatever you have, for example,
+
+1590
+01:32:18,600 --> 01:32:21,880
+ you can simply work, for example, this one.
+
+1591
+01:32:21,880 --> 01:32:24,600
+ When you will open it up, it will open
+
+1592
+01:32:24,600 --> 01:32:26,700
+ and then you can start working.
+
+1593
+01:32:26,700 --> 01:32:28,720
+ No issue with that one.
+
+1594
+01:32:28,720 --> 01:32:30,400
+ When you will upload that template,
+
+1595
+01:32:30,400 --> 01:32:34,120
+ you will find here section one related to, for example,
+
+1596
+01:32:34,120 --> 01:32:36,340
+ data understanding, business understanding,
+
+1597
+01:32:36,340 --> 01:32:38,020
+ data preparation, and so on.
+
+1598
+01:32:38,020 --> 01:32:41,020
+ And you keep working with that one, what you are going to do.
+
+1599
+01:32:42,660 --> 01:32:46,780
+ And then we discuss like normally here, we have two blocks.
+
+1600
+01:32:46,780 --> 01:32:49,080
+ One is the code block, other one is the text.
+
+1601
+01:32:49,080 --> 01:32:52,900
+ Text one is, for example, this one, if you want to write.
+
+1602
+01:32:52,900 --> 01:32:55,920
+ And this is the code block because if you will run it,
+
+1603
+01:32:55,920 --> 01:32:59,920
+ so it will run as a code, right?
+
+1604
+01:32:59,920 --> 01:33:02,560
+ And this will run as a simple text.
+
+1605
+01:33:02,560 --> 01:33:05,680
+ When it is executed, you will find a tick box here.
+
+1606
+01:33:05,680 --> 01:33:08,840
+ When this one is executed, I will execute it now.
+
+1607
+01:33:08,840 --> 01:33:10,720
+ So you will see a tick box here.
+
+1608
+01:33:10,720 --> 01:33:14,960
+ And also you will see that it is just a text, right?
+
+1609
+01:33:14,960 --> 01:33:17,640
+ And there is no processes, but if it is the coding one,
+
+1610
+01:33:17,640 --> 01:33:20,200
+ then it has actual code, which you will work.
+
+1611
+01:33:24,680 --> 01:33:27,480
+ Rakesh, Irani, any question, anyone else?
+
+1612
+01:33:28,840 --> 01:33:30,640
+ - All good as of now, thank you.
+
+1613
+01:33:35,000 --> 01:33:36,460
+ - Yes, Rakesh, you got it?
+
+1614
+01:33:40,020 --> 01:33:41,860
+ - Yeah, got it, sir, thank you.
+
+1615
+01:33:44,960 --> 01:33:49,640
+ - So you can just upload your template here,
+
+1616
+01:33:51,080 --> 01:33:55,720
+ and you can just start like working.
+
+1617
+01:33:55,720 --> 01:34:00,180
+ And next week, I gonna discuss about all of the assessment,
+
+1618
+01:34:00,180 --> 01:34:03,580
+ what you can have, what you can do more
+
+1619
+01:34:03,580 --> 01:34:05,120
+ in order to get the distinction
+
+1620
+01:34:05,120 --> 01:34:07,160
+ or high distinction and so on.
+
+1621
+01:34:07,160 --> 01:34:10,640
+ So you can start working on those one.
+
+1622
+01:34:10,640 --> 01:34:13,480
+ Meanwhile, if you have any question, any confusion,
+
+1623
+01:34:13,480 --> 01:34:15,800
+ any doubt, you can approach me anytime
+
+1624
+01:34:15,800 --> 01:34:18,360
+ and happy to respond to you and help you.
+
+1625
+01:34:33,580 --> 01:34:38,580
+ - Yes, any other question you have?
+
+1626
+01:34:45,960 --> 01:34:47,760
+ - No, professor, thank you so much.
+
+1627
+01:34:58,600 --> 01:35:00,840
+ - So in our today's class,
+
+1628
+01:35:00,840 --> 01:35:03,920
+ we started with the discussion of machine learning.
+
+1629
+01:35:03,920 --> 01:35:06,680
+ We discussed machine learning is a branch of AI,
+
+1630
+01:35:06,680 --> 01:35:08,440
+ which performs various action
+
+1631
+01:35:08,440 --> 01:35:10,980
+ without explicitly being programmed.
+
+1632
+01:35:10,980 --> 01:35:14,180
+ We discussed about supervised and unsupervised learning.
+
+1633
+01:35:14,180 --> 01:35:17,400
+ Supervised is where we have an idea of the label,
+
+1634
+01:35:17,400 --> 01:35:22,180
+ unsupervised where we don't know what we going to do.
+
+1635
+01:35:22,180 --> 01:35:24,420
+ In supervised, we have classification
+
+1636
+01:35:24,420 --> 01:35:27,360
+ where the type of the attribute is categorical
+
+1637
+01:35:27,360 --> 01:35:30,040
+ and regression where the type of the attribute
+
+1638
+01:35:30,040 --> 01:35:32,200
+ is of type continuous.
+
+1639
+01:35:32,200 --> 01:35:33,640
+ In unsupervised learning,
+
+1640
+01:35:33,640 --> 01:35:36,200
+ we have clustering where you just analyze your data
+
+1641
+01:35:36,200 --> 01:35:37,440
+ and based on that analysis,
+
+1642
+01:35:37,440 --> 01:35:39,720
+ you group your data into various clusters.
+
+1643
+01:35:39,720 --> 01:35:42,600
+ You have unsemi-supervised learning.
+
+1644
+01:35:42,600 --> 01:35:44,680
+ We discussed about outlier analysis.
+
+1645
+01:35:44,680 --> 01:35:48,080
+ We discussed about association analysis.
+
+1646
+01:35:48,080 --> 01:35:50,440
+ And then further to that one,
+
+1647
+01:35:50,440 --> 01:35:55,440
+ we discussed about the machine learning algorithm,
+
+1648
+01:35:55,480 --> 01:35:57,460
+ machine learning model as well.
+
+1649
+01:35:57,460 --> 01:36:01,320
+ Then we also discussed about the Chris DM architecture.
+
+1650
+01:36:01,320 --> 01:36:05,080
+ We discussed that there are six different phases
+
+1651
+01:36:05,080 --> 01:36:07,340
+ of Chris DM architecture.
+
+1652
+01:36:07,340 --> 01:36:10,600
+ We discussed that the first stage is where you will
+
+1653
+01:36:10,600 --> 01:36:14,960
+ understand your business understanding.
+
+1654
+01:36:14,960 --> 01:36:18,040
+ You will understand what are your business objective.
+
+1655
+01:36:18,040 --> 01:36:19,840
+ You will assess your situation.
+
+1656
+01:36:19,840 --> 01:36:22,940
+ What do you have in order to accomplish
+
+1657
+01:36:22,940 --> 01:36:24,440
+ that particular task?
+
+1658
+01:36:24,440 --> 01:36:26,800
+ We will also set our data mining goals.
+
+1659
+01:36:26,800 --> 01:36:29,680
+ We discussed data mining is a process
+
+1660
+01:36:29,680 --> 01:36:31,520
+ to extract the interesting patterns
+
+1661
+01:36:31,520 --> 01:36:33,600
+ from the huge amount of data.
+
+1662
+01:36:33,600 --> 01:36:35,920
+ Then we discussed about the data understanding
+
+1663
+01:36:35,920 --> 01:36:38,200
+ where you will collect your initial data,
+
+1664
+01:36:38,200 --> 01:36:40,880
+ you will analyze it, you will visualize it,
+
+1665
+01:36:40,880 --> 01:36:42,560
+ and you will verify its quality
+
+1666
+01:36:42,560 --> 01:36:45,560
+ if there will be any problem, any issue in your data.
+
+1667
+01:36:45,560 --> 01:36:48,400
+ Do your data has any outliers?
+
+1668
+01:36:48,400 --> 01:36:52,560
+ Does it have any missing values and so on?
+
+1669
+01:36:52,560 --> 01:36:55,200
+ Then whatever the problems you have done here,
+
+1670
+01:36:55,200 --> 01:36:57,540
+ you will actually fix those one into third stage
+
+1671
+01:36:57,540 --> 01:37:00,260
+ of data preparation, where you will select your data,
+
+1672
+01:37:00,260 --> 01:37:02,080
+ clean your data from the missing values,
+
+1673
+01:37:02,080 --> 01:37:03,920
+ outline analysis and so on.
+
+1674
+01:37:03,920 --> 01:37:06,760
+ And you will also construct some new features
+
+1675
+01:37:06,760 --> 01:37:09,400
+ or maybe you can integrate some of the features.
+
+1676
+01:37:09,400 --> 01:37:11,140
+ You will permit your data properly.
+
+1677
+01:37:11,140 --> 01:37:13,980
+ And then in the modeling stage, which is the fourth stage,
+
+1678
+01:37:13,980 --> 01:37:15,840
+ you will apply certain models
+
+1679
+01:37:15,840 --> 01:37:19,640
+ and then you will do all that analysis.
+
+1680
+01:37:19,640 --> 01:37:22,280
+ After that analysis, you will evaluate it
+
+1681
+01:37:22,280 --> 01:37:25,280
+ and you will also assess whether you have met the target,
+
+1682
+01:37:25,280 --> 01:37:26,440
+ whichever you have done
+
+1683
+01:37:26,440 --> 01:37:30,360
+ in your first business understanding stage,
+
+1684
+01:37:30,360 --> 01:37:32,080
+ whether you have met those targets
+
+1685
+01:37:32,080 --> 01:37:35,400
+ and then for the deployment for the three assessments,
+
+1686
+01:37:35,400 --> 01:37:37,080
+ we are not gonna deploy your model
+
+1687
+01:37:37,080 --> 01:37:38,840
+ rather than we're gonna mention
+
+1688
+01:37:38,840 --> 01:37:41,280
+ all of the lesson learns here.
+
+1689
+01:37:41,280 --> 01:37:43,160
+ What was the problem that you observed?
+
+1690
+01:37:43,160 --> 01:37:44,800
+ What was the problem in your data set?
+
+1691
+01:37:44,800 --> 01:37:47,780
+ What was the problem in your machine learning models?
+
+1692
+01:37:47,780 --> 01:37:50,480
+ How you can improve it, how you can make it better,
+
+1693
+01:37:50,480 --> 01:37:52,280
+ how the performance or accuracy
+
+1694
+01:37:52,280 --> 01:37:55,040
+ or whatever the metric you have selected could be improved
+
+1695
+01:37:55,040 --> 01:37:58,360
+ in order to increase the performance of your model.
+
+1696
+01:37:58,360 --> 01:38:00,360
+ So those would be the six stages.
+
+1697
+01:38:00,360 --> 01:38:04,400
+ Then we discussed about the Google Colab and other stuff.
+
+1698
+01:38:05,520 --> 01:38:07,920
+ And then we also tried to trace it out
+
+1699
+01:38:07,920 --> 01:38:12,280
+ if we missed any class, how you can find the recordings.
+
+1700
+01:38:14,520 --> 01:38:18,400
+ And we discussed, you can do it using the MyLearn one
+
+1701
+01:38:18,400 --> 01:38:20,600
+ and you can do from the teams as well,
+
+1702
+01:38:20,600 --> 01:38:23,680
+ where in the teams you just have to scroll down
+
+1703
+01:38:23,680 --> 01:38:25,680
+ and see your particular teams,
+
+1704
+01:38:25,680 --> 01:38:28,600
+ then you will click on your share tab
+
+1705
+01:38:28,600 --> 01:38:32,120
+ and then where you will find the recording folders
+
+1706
+01:38:32,120 --> 01:38:33,240
+ and then within the recording,
+
+1707
+01:38:33,240 --> 01:38:35,160
+ you will find all those recordings.
+
+1708
+01:38:39,440 --> 01:38:43,280
+ So any question, any doubt you may have?
+
+1709
+01:38:48,400 --> 01:38:53,400
+ - Again, Landeep, Victor, Khan, Mustakim, Rakesh, Hirani.
+
+1710
+01:38:59,320 --> 01:39:00,400
+ - No questions.
+
+1711
+01:39:01,680 --> 01:39:03,920
+ - No questions, professor, thank you.
+
+1712
+01:39:03,920 --> 01:39:05,360
+ - Okay, all good.
+
+1713
+01:39:05,360 --> 01:39:06,960
+ - No question, thank you.
+
+1714
+01:39:06,960 --> 01:39:08,440
+ - Yeah, so good.
+
+1715
+01:39:08,440 --> 01:39:11,840
+ You can just, that's all from my side of the two days.
+
+1716
+01:39:11,840 --> 01:39:14,040
+ Then you can perform the activities.
+
+1717
+01:39:14,040 --> 01:39:16,040
+ You can just go to the module section
+
+1718
+01:39:16,040 --> 01:39:18,240
+ and see what activities you have
+
+1719
+01:39:18,240 --> 01:39:19,880
+ and if there would be any problem,
+
+1720
+01:39:19,880 --> 01:39:22,520
+ you can reach out to me and then happy to answer.
+
+1721
+01:39:22,520 --> 01:39:24,160
+ Once you're done with your activities,
+
+1722
+01:39:24,160 --> 01:39:26,720
+ all you wanna do later on, up to you guys
+
+1723
+01:39:26,720 --> 01:39:29,800
+ and that's all from my side and I will see you next week.
+
+1724
+01:39:30,880 --> 01:39:32,760
+ - Thank you very much, see you next week.
+
+1725
+01:39:32,760 --> 01:39:34,000
+ - See you, Mustakim.
+
+1726
+01:39:34,000 --> 01:39:35,840
+ - Thank you, professor, see you next week.
+
+1727
+01:39:35,840 --> 01:39:36,760
+ - Thank you. - Thank you.
+
+1728
+01:39:36,760 --> 01:39:37,600
+ - Thank you.
+
+1729
+01:39:48,240 --> 01:39:51,160
+ - Thank you again, thank you, Hirani.
+
+1730
+01:40:18,240 --> 01:40:20,400
+ (silence)
+
+1731
+01:40:48,240 --> 01:40:50,400
+ (silence)
+
+1732
+01:41:18,240 --> 01:41:20,400
+ (silence)
+
+1733
+01:41:48,240 --> 01:41:50,400
+ (silence)
+
+1734
+01:42:18,240 --> 01:42:20,400
+ (silence)
+
+1735
+01:42:48,240 --> 01:42:50,400
+ (silence)
+
+1736
+01:43:18,240 --> 01:43:20,400
+ (silence)
+
+1737
+01:43:48,240 --> 01:43:50,400
+ (silence)
+
+1738
+01:44:18,240 --> 01:44:20,400
+ (silence)
+
+1739
+01:44:48,240 --> 01:44:50,400
+ (silence)
+
+1740
+01:45:18,240 --> 01:45:20,400
+ (silence)
+
+1741
+01:45:48,240 --> 01:45:50,400
+ (silence)
+
+1742
+01:46:18,240 --> 01:46:20,400
+ (silence)
+
+1743
+01:46:48,240 --> 01:46:50,400
+ (silence)
+
+1744
+01:47:18,240 --> 01:47:20,400
+ (silence)
+
+1745
+01:47:48,240 --> 01:47:50,400
+ (silence)
+
+1746
+01:48:18,240 --> 01:48:20,400
+ (silence)
+
+1747
+01:48:48,240 --> 01:48:50,400
+ (silence)
+
+1748
+01:49:18,240 --> 01:49:20,400
+ (silence)
+
+1749
+01:49:48,240 --> 01:49:50,400
+ (silence)
+
+1750
+01:50:18,240 --> 01:50:20,400
+ (silence)
+
+1751
+01:50:48,240 --> 01:50:50,400
+ (silence)
+
+1752
+01:51:18,240 --> 01:51:20,400
+ (silence)
+
+1753
+01:51:48,240 --> 01:51:50,400
+ (silence)
+
+1754
+01:52:18,240 --> 01:52:20,400
+ (silence)
+
+1755
+01:52:48,240 --> 01:52:50,400
+ (silence)
+
+1756
+01:53:18,240 --> 01:53:20,400
+ (silence)
+
+1757
+01:53:48,240 --> 01:53:50,400
+ (silence)
+
+1758
+01:53:50,400 --> 01:53:52,400
+ (silence)
+
+1759
+01:54:18,240 --> 01:54:20,400
+ (silence)
+
+1760
+01:54:48,240 --> 01:54:50,400
+ (silence)
+
+1761
+01:55:18,240 --> 01:55:20,400
+ (silence)
+
+1762
+01:55:20,400 --> 01:55:22,400
+ (silence)
+
+1763
+01:55:48,240 --> 01:55:50,400
+ (silence)
+
+1764
+01:56:18,240 --> 01:56:20,400
+ (silence)
+
+1765
+01:56:48,240 --> 01:56:50,400
+ (silence)
+
+1766
+01:57:18,240 --> 01:57:20,400
+ (silence)
+
+1767
+01:57:48,240 --> 01:57:50,400
+ (silence)
+
+1768
+01:58:18,240 --> 01:58:20,240
+ (silence)
+
+1769
+01:58:48,240 --> 01:58:50,240
+ (silence)
+
+1770
+01:59:18,240 --> 01:59:20,240
+ (silence)
+
+1771
+01:59:48,240 --> 01:59:50,240
+ (silence)
+
+1772
+02:00:18,240 --> 02:00:20,240
+ (silence)
+
+1773
+02:00:48,240 --> 02:00:50,240
+ (silence)
+
+1774
+02:01:18,240 --> 02:01:20,240
+ (silence)
+

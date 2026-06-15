@@ -13,15 +13,17 @@
 
 ## 🖤 The 6 Phases (write as a spine down the left, with a loop arrow)
 ```
-1  Business Understanding  → objectives + success criteria
-2  Data Understanding      → collect · describe · verify quality
-3  Data Preparation        → select · clean · features · missing values
-4  Modeling                → pick technique · build · tune
-5  Evaluation              → judge vs BUSINESS criteria (not just accuracy)
-6  Deployment              → ship + monitor
+1  Business Understanding  → objectives · assess situation (people/kit/data) · DM goals
+2  Data Understanding      → collect · describe (rows·feats·types·label) · explore · verify quality
+3  Data Preparation        → select · clean · construct · integrate · format
+4  Modeling                → pick technique · test design · build · tune
+5  Evaluation              → judge vs BUSINESS objective (not just accuracy)
+6  Deployment              → ship + monitor   [in A1: NO deploy = LESSONS LEARNED]
     ↑________ backtrack to any earlier phase any time ________↓
 ```
-🔴 *Memorise the 6 — your A1 report is literally these 6 headings.*
+🔴 *Memorise the 6 - your A1 report is literally these 6 headings.*
+🔴 *Lecturer (wk2): the assessments never deploy, so the 6th heading becomes your **Lessons Learned** - what broke, how you fixed it, what you'd change.*
+🔵 *Data-Prep verbs to name explicitly: **construct** (derive age from DOB, BMI from height+weight) · **integrate** (merge suburb+postcode+state into one address) · **format** (map ranges, string→numeric). Mantra: "garbage in, garbage out."*
 
 ## 🖤 CRISP-DM → CRISP-ML(Q) (two columns)
 | CRISP-DM (1999, classic) | CRISP-ML(Q) (Studer 2020, for ML) |

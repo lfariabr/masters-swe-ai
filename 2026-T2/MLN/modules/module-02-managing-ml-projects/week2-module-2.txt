@@ -1,0 +1,1774 @@
+ Good morning, everyone.
+ Good morning.
+ Good morning.
+ I can see two Victor, OK?
+ One Victor is with different surnames.
+ Good morning.
+ Good morning, Kannan.
+ So I hope you guys are doing well.
+ So let's start the today's lecture.
+ Quickly have a recap of what we have
+ discussed in our last class.
+ Can anybody quickly tell me about what is machine learning?
+ Yes?
+ Hirani, Kannan, again, Victor?
+ Machine learning is algorithm results.
+ It is algorithm results, right?
+ Correct?
+ Yeah, machine learning--
+ It's making predictions, predictions or decisions.
+ Yeah.
+ Yeah, with using different kinds of algorithms,
+ machine learning making--
+ machine learning-- our machine learning model
+ giving us outcomes.
+ OK, good.
+ Yes, Victor, do you want to add anything?
+ Yes, machine learning is an algorithm
+ which is learned by data, unlike other algorithm
+ with prepared instructions.
+ OK.
+ Yes, Hirani, again?
+ So last time we discussed that machine learning
+ is a branch of artificial intelligence which
+ performs different actions, which includes prediction,
+ association mining, regression, and so on,
+ without explicitly being programmed.
+ So normally, the machine learning algorithms
+ trained on the data, and then it performs various tasks.
+ Then we also discussed about the difference between machine
+ learning algorithm and machine learning model.
+ Can anybody quickly tell me the difference
+ between these two terms?
+ I remember that machine learning algorithm is--
+ actually, algorithm-- machine learning result--
+ machine learning outcome is result of machine learning
+ algorithms.
+ Say again?
+ So with machine learnings, our models result is--
+ Machine learning models are the results?
+ OK.
+ Yeah, results of the algorithms with different kinds
+ of algorithms.
+ Something like KNN could be-- or linear regression models
+ algorithms.
+ So these are helping to predict.
+ And with using different kinds of algorithms,
+ we can choose the best fit and keep going up.
+ OK.
+ Anybody else which can differentiate
+ between machine learning algorithm and machine learning
+ model?
+ Yes, Victor, please go ahead.
+ So machine learning algorithm is how we learn our model,
+ but model is what we get after learning like that.
+ OK, so machine learning algorithms
+ are basically step-by-step instructions
+ to perform any task.
+ And once those algorithms are executed on a certain data,
+ so it learns the patterns out of that data,
+ and the output becomes your machine learning model.
+ So you can say machine learning models are basically
+ the machine learning algorithms already executed and learned
+ on a specific data.
+ Yeah, exactly.
+ Yes.
+ You just mentioned machine learning algorithm
+ set of rules or procedures used for learning from data,
+ whereas model is the output created
+ by applying the algorithm to a specific data set.
+ Perfect.
+ Yes, correct.
+ You again, thank you so much.
+ So yeah, so then we discussed about two tasks which mostly
+ the machine learning can do.
+ One was the supervised learning, the other
+ was the unsupervised learning.
+ Anybody tell me difference between these two terms?
+ In supervised learning, the algorithm is labeled.
+ We are giving the example data.
+ No, the machine learning algorithms
+ are labeled or the data is labeled?
+ The algorithm is labeled in supervised learning.
+ What do you mean by algorithm is labeled?
+ No.
+ The data needs label.
+ But you--
+ What I remember is we have sample data.
+ And in that data, the model already knows the result.
+ And when we give new data, it is comparing with that data.
+ Supervised learning, as I remembered at least,
+ was like that.
+ Did you understand that?
+ Yeah, you can accept the example that you have given is correct.
+ But the definition which you are telling
+ about the supervised learning is not 100% correct.
+ You mentioned machine learning algorithms are labeled.
+ Like machine learning algorithms are a set of instructions.
+ That doesn't need any labeling and so on.
+ And another thing which I want to clarify with your point
+ is when we say about label, label
+ means the name of the feature.
+ Or you can say name of the feature.
+ So normally in machine learning, the word label
+ is used for the resultant attribute.
+ Resultant attributes, because all of those
+ are the attribute.
+ For example, if I talk about the medical data,
+ and you will say, OK, how much is your blood pressure?
+ How much is your blood sugar?
+ Do you have any history?
+ Do you have any cardiac problem?
+ And so on.
+ Do you have flu?
+ Do you have any fever?
+ How much fever?
+ What is the value and so on?
+ And then the final attribute is whether you have a COVID
+ or you don't have a COVID.
+ So all of these are the attribute,
+ whether it is blood sugar, whether it is temperature
+ value, whether it is any history, whether it
+ is blood pressure, and so on.
+ And also this particular attribute, the COVID result,
+ whether it is yes or no, whether you have the COVID or not,
+ is also an attribute.
+ But that attribute, we call it as a label.
+ So normally, in supervised learning,
+ we do have that label.
+ We do have that attribute.
+ We know that attribute, what we are going to do.
+ Of course, we know the task.
+ OK, we are doing classification and regression.
+ But other than that, we know that particular attribute
+ which we have to do the prediction.
+ So that is important.
+ So label means that particular attribute.
+ Another thing in some wording, in some definition,
+ you will also find this label word.
+ You will find, oh, the data should be label.
+ What does that mean?
+ It means the data or the features or the attributes,
+ whatever your data has, should have features,
+ should have name of the features.
+ For example, if you give the image of a face, for example,
+ it should have label.
+ What does that mean?
+ It means it has already identified that this is nose,
+ this is forehead, these are the cheeks, these are the chin,
+ these are the lips.
+ And it means it has labels.
+ All of the things within that data
+ have attribute attached to it.
+ Similarly, if you will see any image,
+ any picture of your room, wherever
+ you are sitting at the moment to take this class.
+ So maybe it is already identified
+ that this is your TV screen, this is your monitor,
+ this is your laptop, this is your mouse,
+ these are the walls, these are the bed, these are the sceneries,
+ these are the fan, these are the birds, and so on.
+ So all of these things are already labeled.
+ It means it has the name of the attribute.
+ Because later on, when you will grow in machine learning,
+ you will find another technique which they call it
+ as semi-supervised learning.
+ It means there are certain labels available,
+ but there are certain labels which are not available.
+ Or you can understand semi-supervised learning
+ in a way that there are certain faces which
+ has the label data, means you have already
+ identified what is nose, what is forehead, what is so on.
+ But for some of the faces, you don't
+ have that particular identification.
+ In that case, you will use that knowledge that you already
+ have, you will use those labels which you already
+ have to learn that in the middle,
+ you have a nose on the top of your eyes,
+ you have a forehead on the other side of your nose,
+ these are the cheeks at the bottom of your nose,
+ you have lips, and then under the lips, you will have a chin.
+ So you will use that knowledge in order
+ to identify some features in other faces
+ where don't have these labels.
+ So in short, that kind of data which has certain labels
+ or which doesn't have certain labels,
+ the learning on that particular data
+ is also called semi-supervised learning.
+ So the point which I want to make is this label word.
+ Label means the name of the feature.
+ You can call it as feature, you can call it as attribute,
+ you can call it as label.
+ But you can't say that every attribute is label.
+ Normally, you can say, but normally in machine learning,
+ the final resultant attribute which
+ you want to predict if you are doing the prediction
+ or if you are doing the regression,
+ that would be named as your label.
+ So if you will have certain data,
+ somebody can ask you, OK, what is the label?
+ It means they are asking you the resultant attribute
+ which you want to classify.
+ I hope I have cleared this point, the labeling word.
+ So Eugene mentioned that supervised learning prediction
+ uses label data set, unsupervised learning,
+ discovery, unlabeled data set.
+ Yes, so here is the point.
+ Normally, if you will read the literature on the internet,
+ some of the websites, they will have this definition
+ as Eugene mentioned, that unsupervised learning discovery,
+ it is unlabeled data set.
+ So now you have to clarify the concept or the thing
+ which the Eugene mentioned is 100% correct,
+ but you have to understand what unlabeled data set means here.
+ So unlabeled means it doesn't have the final label.
+ But if you are considering label as an attribute, so of course,
+ even the unsupervised learning, you will have the labels.
+ You know the name of the features.
+ If you don't know the names of the feature,
+ then how can you cluster them?
+ How can you let them to be separated into various groups?
+ If I don't have any information, whether you have a machine
+ learning knowledge before or you do not have a machine learning
+ knowledge before, or which country you come from,
+ what is your gender, whether you have done any computer science
+ or AI degree before, or I don't have your state information,
+ I don't have your campus in which you are enrolled in,
+ if I don't have those labels, then how can I cluster you?
+ How can I let you to be separated into the groups?
+ Oh, these are the students from Adelaide campus.
+ These are the males.
+ These are the females.
+ These are offshore students.
+ These are onshore students.
+ These are international students.
+ These are the domestic students.
+ So in all of these one, I need to have the feature information.
+ But mostly, the websites which are
+ mentioning that unsupervised learning is unlabeled data set.
+ It means it doesn't have the final resulting attribute.
+ It doesn't know what label I have to predict,
+ because it will just analyze your data.
+ And based on that analysis, it will let it to be
+ clusters into various groups.
+ I hope everyone understood from this discussion.
+ Yes, thank you.
+ So as you can mention, and as you mentioned, Khan,
+ as well, in supervised learning, we know the final attribute.
+ And that is why, as I mentioned in my previous class as well,
+ and what we are following in this class,
+ that we will keep repeating these concepts,
+ because these concepts are the gist of this machine learning
+ course.
+ If you will score an HD, and if somebody will ask you,
+ OK, can you clearly differentiate between these two
+ terms, and you don't use that right words to explain
+ these concepts, or you don't have the right examples
+ to clearly differentiate between these two terms,
+ then there is no point to have an HD.
+ So that is why I will keep asking.
+ You will keep answering me.
+ And then you will use different words,
+ which we will use to further discuss and clarify
+ why that word needs to be there, or why
+ that word shouldn't be used while describing any concept.
+ So supervised learning, we know the final attribute.
+ We know the label for which we know the resulting attribute
+ which we are going to classify.
+ Whereas in unsupervised learning,
+ we don't have any idea of the labeling attribute.
+ Then in supervised learning, we further discussed two concepts.
+ One was classification, and other was regression.
+ Can anybody quickly tell me the difference
+ between these two terms?
+ Could you repeat, Professor?
+ I couldn't catch you.
+ The difference between classification and regression.
+ Classification, can I explain by giving examples?
+ Yeah, yeah, yeah, please go ahead.
+ For example, if something is black or white or red,
+ and if we are going to try to predict what it is,
+ this is a classification.
+ But if we are going to predict by using previous data,
+ if we are going to predict tomorrow's weather degree,
+ it will be regression.
+ So in the classification, don't you use the previous data?
+ Yeah, we are using previous data as well.
+ But it already knows what it is.
+ It's labeled.
+ It's labeled.
+ In regression--
+ So in classification, it is labeled.
+ Then in regression, isn't it labeled or--
+ Could be labeled as well.
+ But the main difference in my mind, if I'm wrong,
+ you can correct me, Professor.
+ I'm just telling what I know.
+ No, no, I'm just asking the cross-question to clarify.
+ I'm not saying that you are telling it.
+ So I'm just asking the cross-question
+ to clarify the wording that you are using.
+ Yeah, yeah, please go ahead.
+ Yeah, in regression, we are trying
+ to predict what is going to be continuous data,
+ the continuous result. But in the classification,
+ we are just predicting if it's black or white or horse
+ or cat, human or animal.
+ Yeah, I can see these things.
+ Yeah, and you can feel it.
+ Yeah, Professor, I'm happy to hear.
+ Yes, anybody else?
+ Anybody else? Rakesh, Simon, Victor, Irani?
+ Your classification is-- we have to classify our data.
+ For example, is it apple or pineapple?
+ But regression is like--
+ if we know that the price of fruits
+ is seasonal based on if it's summer or winter.
+ So we have to predict next price,
+ based on what season right now.
+ Yes, Simon, we can't hear you.
+ Can you unmute and try to speak up?
+ OK.
+ You again mentioned in the chat that classification
+ is categorical, whereas regression
+ is prediction of trend based on the existing data.
+ Yes, correct.
+ Yes, Khan, do you want to add anything?
+ I want to ask a question.
+ Yeah.
+ For example, both in regression and classification.
+ Yes, of course, we are going to use the previous datas
+ to predict, but I'm talking about both of them.
+ Both of them could be supervised and unsupervised learning.
+ For example, with clustering, usually what I know
+ is we are using unsupervised learning.
+ But in supervised learning, we already
+ know the result and making predictions according to that.
+ I think I'm confusing about this situation.
+ OK.
+ We will discuss about confusion.
+ Hi, Cameron, can you hear me now?
+ Yeah, I can hear you now.
+ Yes, I'm on board.
+ OK.
+ So classification is like choosing a category which
+ predict a level or class.
+ Example, in medical, it's can cancer or no cancer
+ pass or fail.
+ And regression is predicting a number which
+ predicts a continuous value.
+ For example, house of price is 1 million, 2 million.
+ Temperature for tomorrow, like 28 degrees
+ Celsius or 29 degrees Celsius.
+ Correct.
+ Yes.
+ Thank you so much, Simon and everyone.
+ Yes, all of you have discussed about these two concepts
+ correctly.
+ I can summarize it.
+ Classification and regression, both
+ are supervised learning tasks.
+ These are not unsupervised learning tasks.
+ In classification, because classification and regression,
+ since both are supervised learning tasks,
+ it means we already aware what is the final level, which
+ we are going to predict.
+ What is the resultant attribute?
+ Now only the difference between classification and regression,
+ as the region mentioned, is the type of that attribute.
+ If the type of that attribute, that attribute means,
+ I'm talking about the resulting attribute,
+ I'm talking about the labeled attribute,
+ the final outcome which we are going to predict.
+ If the type of that attribute is categorical,
+ it has certain categories, then the task
+ will become the classification.
+ And if the type of the attribute which
+ we are going to predict is of type continuous,
+ then it becomes your regression.
+ As all of you have given example,
+ if you are going to predict what would be the weather tomorrow,
+ whether it would be sunny, rainy, windy, cloudy,
+ you have just four categories, means
+ the type of the attribute would be categorical,
+ then it is classification.
+ But if you are going to predict the temperature value, what
+ would be the temperature tomorrow?
+ Again, it would be 19 Celsius, 19.5 Celsius, 20 Celsius,
+ or Fahrenheit, or whatever the scale you use.
+ But it would have a range of the values
+ which are continuous in nature.
+ So then it becomes your regression.
+ Similarly, all of the examples which
+ we discussed in previous example, previous class,
+ whether a file is a malware, non-malware,
+ whether an email is a spam email or a ham email,
+ or we discussed whether the person is COVID patient,
+ non-COVID patient, cancer patient, non-cancer patient,
+ whether the student will pass the course
+ or will fail the course.
+ All of these outcome have just only few categories
+ among which we have to do the prediction.
+ And further to this concept we discussed
+ in our previous class, if you have just two possibilities
+ between which you have to do the prediction, malware,
+ non-malware, student pass, student will fail.
+ Tomorrow weather is rainy, not rainy.
+ Person is a cancer patient, non-cancer patient.
+ Just two categories, two possibilities,
+ then it becomes your binary classification.
+ And if you have more than two categories,
+ like tomorrow weather is rainy, windy, cloudy,
+ or the grade, for example, grade is HD, distinction, pass,
+ fail, so it has more than two possibilities,
+ among which you have to do the prediction, right?
+ Then it is your multi-class classification.
+ On the other hand, if you are predicting
+ the stock exchange share price,
+ that would be a continuous number.
+ If you are predicting the temperature value,
+ if you are predicting one Australian dollar
+ is equal to how many, for example, US dollar, right?
+ Or if you are predicting the house prices, right?
+ If you are predicting the number of COVID cases
+ in a certain year, for example,
+ all of these will give you a continuous number as a result.
+ Then the task will become your regression.
+ So having said with all of these examples,
+ to be surprising, classification and regression
+ both are your supervised learning tasks,
+ whereas in classification,
+ you have a categorical attribute which you have to predict,
+ whereas in regression,
+ you have a type of the attribute is your continuous,
+ where you have the two possibilities in classification,
+ the task will become your binary classification,
+ and where you have more than two classes,
+ among which you have to do the prediction,
+ then the task will become your multi-class classification.
+ Then we also discussed about unsupervised learning,
+ where we do not have any idea
+ of what we are going to predict.
+ We just analyze our data.
+ Based on that analysis,
+ we will just let our data
+ to be grouped into various clusters.
+ As I had given you the example before,
+ you have, I can see different students enrolled
+ into this class, attending this class.
+ I can cluster them based on their gender.
+ I can cluster them based on their origin,
+ based on their country,
+ based on which campus they are joining,
+ based on whether they are domestic
+ or international students, and so on.
+ So in all of these, we did not have any idea before.
+ We just analyze, and based on that analysis,
+ we will do that prediction,
+ or we will let our data to be clustered
+ into various groups.
+ So that is unsupervised learning.
+ And then we have another concept as well,
+ which also come under the umbrella of unsupervised learning,
+ because the one we discussed, that is called clustering,
+ where you are clustering your data into various groups.
+ Another task is, which also comes under the area
+ of unsupervised learning, that is your outlier analysis.
+ Or the other name of outlier analysis
+ is your anomaly detection.
+ Enomaly detection.
+ So in anomaly detection, or in outlier analysis,
+ basically you are trying to find out those data instances
+ which are highly deviating to the rest of your data.
+ Their behavior, their distance, their feature values
+ are highly distinct to the rest of your distribution
+ of your data.
+ So sometimes it is really very important
+ to find out those patterns.
+ For example, if you will have a scan of your brain,
+ MRI scan, all of the cells would be of one type.
+ Maybe if somebody has any cancer cells,
+ that would be highly distinct to the rest of your data.
+ Similarly, if you will find all of the houses
+ in a certain suburb are very closer to each other,
+ but there is one or two houses which are far away
+ from that particular suburb.
+ So you will say these are the outliers.
+ So we will study more in detail about these tasks.
+ Do you have any question about these concepts
+ which we discussed machine learning,
+ we discussed about classification, regression,
+ clustering, outlier analysis.
+ Similarly, we have another task which we call it
+ as association analysis.
+ That's also come under the umbrella
+ of unsupervised learning.
+ The best example to understand the association analysis
+ is the basket value analysis.
+ Basket value analysis means that you just go
+ to any grocery store, say you go to Kohl's,
+ you go to Willy's and then you will find what are the items
+ which are highly associated with each other.
+ For example, if you will see different kind of
+ like fast food items,
+ different kind of fries and chips and so on.
+ And next that one, if you go to any shop,
+ you will find there are freezer of cans,
+ different soft drinks, though both of them,
+ they are not related to each other, right?
+ Drinks has nothing to do with fries.
+ Our drink has nothing to do with chips.
+ If you have chips, you should come with some lollies
+ and some biscuits, some other snacks.
+ And if it is a drink, then it should come with other water
+ and juices and so on.
+ But why if you go to any shop, any fast food item,
+ you will find these two items because people tend
+ to buy these items together, right?
+ Wherever you will find onions,
+ you will find the potatoes there, right?
+ You will find all the vegetables there.
+ Sometimes you go to any traditional grocery store,
+ you will find also meat there.
+ They are selling the halal meat, for example.
+ So some of the people, they tend to buy
+ some other traditional items from their home country.
+ And they also want to buy the halal meat as well,
+ for example, there.
+ Though these two has nothing to do with each other,
+ but there is a tendency, they analyze
+ that there are the purchasing behavior of different people
+ that they are trying to buy these items together.
+ It means they are highly associated with each other.
+ That will help to apply your association analysis
+ to solve various real life problems.
+ For example, customer segmentation.
+ If you will find which are the customers
+ which have the same purchasing behavior,
+ or you can set up your shop properly.
+ Because if you are just analyze how the people
+ are trying to buy, wherever you will find the cigarette,
+ you will find the waves there.
+ Wherever you will find the ice cream,
+ you will find some other stuff there, right?
+ Yes, Irani, yes, that's correct.
+ So you will find bread and milk together,
+ you will find somebody will buy the beer,
+ they will also find the nappies, for example.
+ They might having any weekend night, for example,
+ and they are doing drinking and so on.
+ So there would be a tendency,
+ there would be an association between certain items
+ which are being sold together.
+ So that is called association analysis.
+ And that's help you to set up different deals, for example,
+ and that will help you to promote your business
+ to increase the value of your business and so on.
+ So that is another machine learning task
+ which comes under the umbrella of your unsupervised learning
+ that is association analysis.
+ So in supervised learning,
+ we discussed classification and regression.
+ We also discussed about semi-supervised learning.
+ We discussed about the difference of model
+ and machine learning algorithm.
+ We discussed about the outlier analysis.
+ We discussed about the association analysis and so on.
+ So any question, any doubt,
+ anything you wanna add up as of now?
+ Or if you can quickly search,
+ take two minutes to search on the internet,
+ what are the applications of association analysis
+ in the context of machine learning?
+ So in the context of machine learning,
+ what are the application of association analysis?
+ If you can just quickly search
+ and maybe mention one or two example here,
+ not exactly copy pasting from the internet,
+ just try to understand and briefly one or two line
+ about one of the applications of association analysis
+ to solve various real life problems.
+ So then we will understand this concept in a better way.
+ Yes, just try to search.
+ (silence)
+ (silence)
+ Please put into the chat window
+ application of association analysis
+ to solve various real life problems.
+ (silence)
+ (silence)
+ (silence)
+ (silence)
+ Search engine is based on association
+ analysis, yes, because if you will try
+ to search anything, right, and it will try
+ to find out whom or which website it is mostly related.
+ So yeah, that would be an example of association analysis.
+ Co-occurrence patterns, can you elaborate it further, Simon?
+ (silence)
+ And you can mention fraud detection
+ by identifying unusual patterns of transaction, yes.
+ So most of the transactions, so it really depends
+ how actually you describe your problem.
+ Like this, you can problem the fraud detection problem.
+ It could be a classification problem.
+ It could be like association analysis problem.
+ It could be an example of clustering as well.
+ For example, if you are trying to find
+ and categorizing the transaction which are legitimate
+ or which are not legitimate, that would be your clustering.
+ Or whether the transaction is a fraudulent transaction
+ or a legitimate transaction, could be classification.
+ Or maybe you're just analyzing what are the instructions
+ which are highly deviating to the rest of your transactions.
+ It could be an outline analysis.
+ And or maybe you'll say, oh, which are the transactions
+ which are most associated with each other?
+ So then I could say, okay, these could be your transaction,
+ could be an example of your association analysis.
+ So it's how actually you are describing the problem.
+ And it also depends on the application,
+ what you are looking for, what is your task,
+ what do you wanna do.
+ Khan mentioned could be finding suspicious activities
+ and behavior that appear together
+ in your mobile banking activities.
+ For example, unusual location
+ and high transaction amount correctly.
+ So that could be an example of association analysis.
+ Association analysis is Victor mentioned search
+ for relations between entities.
+ Application analysis is where it can be applied.
+ That's correct.
+ But what is the example?
+ Can any real life example where you can apply
+ this association analysis to solve the real world problems?
+ And then Irani mentioned YouTube.
+ Instagram next video is based on our previous interest.
+ Yes, you can say and in YouTube,
+ you could also have an example of cluster analysis
+ where you will listen certain kind of songs,
+ different kind of, different genre
+ and then they can make a playlist for you, right?
+ So that would be your example of your cluster analysis.
+ But if you will watch a certain song
+ and then if it will see that whether it is related
+ to the same singer or same genre or same kind of tone,
+ then it would be your association analysis, okay?
+ Victor mentioned example is online shopping
+ is the platform where good associations could be applied.
+ Yes, you can say that these are the food items, right?
+ And these are the different sections.
+ If you go to Kohl's or Woolley's,
+ so you will say these are your,
+ where you can find the different kind of vegetables,
+ where you can find different daily items,
+ you can find a barbecue section and so on.
+ So yeah, so I hope you understood now
+ what is basically suggestions for the next purchase.
+ Yes, maybe sometimes they say,
+ oh, do you also wanna buy this one?
+ For example, if you go to any online shopping store,
+ they will find the related items which you can also buy.
+ So that would be an example of association analysis.
+ So I'm very happy that you understood
+ and can easily distinguish these concepts.
+ Simon mentioned find links between machine settings,
+ process and defects, high temperature, fast speed,
+ defect probability using predictive maintenance.
+ Yes, you can use up there.
+ So now we have clear idea of these concepts
+ with different real life problems as well.
+ So know if there would be any problem.
+ So we also discussed that it would be based on
+ what would be tasks what you want
+ out of that particular problem based on that one,
+ you can apply any of the machine learning tasks
+ to solve that real world problem.
+ Okay, so now in our today's class,
+ we have to discuss about
+ what we have to discuss.
+ We have to discuss about the Chris DM architecture,
+ Chris DM framework.
+ So Chris DM is approval approach framework,
+ the way to do the things to organize
+ and show successful completion
+ of a machine learning project.
+ This is very important to understand
+ that what Chris DM architecture,
+ what Chris DM framework is,
+ because in all of the three assessment,
+ you are following this Chris DM architecture, right?
+ And it's very easy.
+ There are certain steps that on each step,
+ you have to follow what tasks you are going to do, right?
+ And we have to clearly understand
+ what you are going to mention in those tasks.
+ So here it is mentioned if you go down to the real guide
+ to the Chris DM architecture in your module section,
+ you will find this particular figure there.
+ So in this particular figure,
+ you will see the first phase is of your,
+ Rakesh, I think you are not muted, okay.
+ So in the first phase is your business understanding,
+ that is very important.
+ Next step is your data understanding.
+ Next is your data preparation.
+ Then you have data modeling.
+ Then you have the model evaluation,
+ and then you have the model deployment.
+ That's what the six phases of the Chris DM architecture are,
+ or you can say this is also your data mining life cycle.
+ So if there would be any data reaching up to the deployment,
+ what are different steps which we need to follow?
+ So as I mentioned,
+ Chris DM architecture has six different phases.
+ The first one is your business understanding, right?
+ Business understanding, that is the first phase
+ where you need to determine
+ what are your business objectives.
+ That is very important.
+ That's what I was discussing about
+ that you have to define your business success criteria.
+ You have to define the process.
+ What is your task?
+ What you are going to do?
+ Whether you are going to do any clustering,
+ whether you are going to do regression, classification,
+ what is your success criteria?
+ What, for example, you say,
+ if I would be able to achieve 97% accuracy
+ for our classification model,
+ that is my success criteria.
+ Then I will say this model is the best one, right?
+ And so on.
+ So what is the task that you are going to do?
+ What you wanna achieve out of that process?
+ And what is your success criteria?
+ That is the first step or sub-step
+ of your business understanding.
+ You have to assess your situation as well.
+ You have to see what are your available resources?
+ Do you have the data set?
+ Do you have the infrastructure?
+ Do you have the right platforms to execute those things?
+ Do you have the right personals
+ in order to perform those experiments?
+ Do you have the project requirement?
+ What do you wanna do?
+ Have you assessed any risk?
+ What would be the risk involved into that one?
+ Or what would be the mitigation strategies
+ in order to avoid, in order to mitigate those risks?
+ And then you need to do a cost benefit analysis as well.
+ So what would be the cost?
+ How much cost it would involve?
+ And then what are you gonna get out of it, right?
+ So all of these things come
+ under the umbrella of your assess situation.
+ Then you have to set up your data mining goals.
+ So we are getting this term again
+ and again, that is data mining.
+ So that is out of scope of this subject
+ but that is a separate course, right?
+ So data mining is basically the extraction
+ of interesting patterns from the huge amount of data.
+ So if you are trying to extract,
+ Irani, I will come back to your question, okay?
+ So in this one, data mining,
+ I'm explaining about the data mining.
+ So data mining is a process.
+ What you are applying for that process to extract,
+ what you want to extract, the interesting patterns,
+ the hidden patterns from the data, right?
+ So that process is called your data mining, right?
+ Now you ask the software models come
+ into the picture of Chris Diem.
+ What software models you are referring here, Irani?
+ (silence)
+ No, that has, so those are some of the processes
+ that you normally use in order to develop your software.
+ So in that one, this Chris Diem architecture
+ is the umbrella stuff, right?
+ So whether it is agile, whether it is prototyping,
+ whether it is waterfall, whether it is a rad,
+ rapid application development or whatever, right?
+ So those are the ways to develop certain software.
+ This is how you will get the data,
+ how you will apply, what methods you will apply,
+ whether you have the right infrastructure and so on,
+ and then in that one.
+ So more or less, you can say,
+ you can relate it to any software model.
+ For example, not exactly the agile or waterfall,
+ the normal SDLC, which is where you will actually
+ gather the requirement, then you will do the analysis,
+ then you will do the design stage, the development stage,
+ then your testing stage, and then your deployment stage.
+ So more or less, you have a flow how your software will work
+ starting from the requirements up to the development,
+ but that is with the software.
+ Here, you are more with the data related stuff, right?
+ The task would be the same, right?
+ But for machine learning consideration, that's correct,
+ that's correct.
+ So Chris DM architecture is basically
+ your cross industry standard process for data mining,
+ C for cross industry, right?
+ And I for your industry,
+ and then S for your standard process for data mining, right?
+ So that is how and what Chris DM architecture stands for.
+ So as we were discussing,
+ you have to determine your data mining goals.
+ What is your business objective?
+ And what would be your success will look like?
+ As I mentioned, if you are doing classification,
+ so you will set up a metric.
+ What is your metric to compare whether it is accuracy,
+ whether it is any, for example, net present value,
+ if you talk about any financial stuff,
+ and with respect to machine learning,
+ you will say that MAE value,
+ like your median error value, for example,
+ or your accuracy, or your precision,
+ or your recall, or your G means and so on.
+ So you have to define a metric,
+ and you have to define a goal.
+ What would be your success when you will say,
+ oh, I have achieved using this model,
+ what was my objective?
+ And then you have to have a plan,
+ what are the tools and techniques, technologies
+ that you are going to use, Python or Jupyter you are using,
+ and which language you are coding,
+ which volume you are using and working in,
+ and also you will define the framework TensorFlow and so on.
+ So all of these things will come under your business
+ understanding.
+ So in business understanding,
+ you will define your business objective,
+ you will define your goals,
+ you will define what is your success criteria,
+ what is your considered metric,
+ and then you will also assess your situation
+ at the same time as well,
+ where you will define what you have,
+ or do you have the right stuff in terms of personals,
+ in terms of technologies, in terms of cost,
+ in terms of time,
+ in order to implement or achieve that particular target.
+ So that is the first phase of your Chris DM architecture,
+ Chris DM framework.
+ The second one is the data understanding.
+ Now, the data is the most important thing
+ in any machine learning application.
+ If you don't have the right data,
+ you will not able to achieve doesn't matter,
+ you will apply the best model in order to do that task.
+ If your data is not good, right?
+ What do I mean data is not good?
+ It means data might have certain problems, right?
+ Or you have to divide your data properly, right?
+ So that is very important.
+ So data in any machine learning context is very important.
+ So the second phase of your Chris DM architecture
+ is your data understanding.
+ How you will understand your data,
+ you will explore your data,
+ you will describe your data using different permits,
+ different figures and diagrams,
+ different ways to visualize your data
+ to see if there any problem into your data.
+ You will verify its quality, whether it is good,
+ whether there is any problem into your data,
+ whether there is any inconsistencies in your data,
+ whether there is any redundancies in your data.
+ Now I have used two terms,
+ data redundancy and data inconsistency.
+ These two terms are also very important
+ and it is important that you can clearly differentiate
+ between these two terms.
+ So the first is data redundancy.
+ So you can say data inconsistency
+ is the follow-up of data redundancy
+ or due to data redundancy, you would have the problem
+ or you may have the problem of data inconsistency.
+ So data redundancy is just the duplication of your data.
+ Multiple copies of the same data is called data redundancy.
+ If somebody will ask you, what is data redundancy?
+ So you will simply say multiple copies of same data, right?
+ So for example, you might have your files saved on one drive
+ and similarly you have the same folders
+ saved on your hard drive, right?
+ So you have two separate folders on two separate locations.
+ One is your hard drive, one is your one drive, right?
+ But of the same type, you might have doing any assessment,
+ you have one copy there, one copy here,
+ sometimes you work here, sometimes you work here and so on.
+ So that is called your data redundancy.
+ Then what is the problem, right?
+ Similarly, whatever the folder you are having
+ in any part of your hard disk,
+ you will try to sync it with the one drive.
+ So what will happen if you will make any change here
+ into this one or you directly assess it from the one drive,
+ you will see the same version, right?
+ It means that is not data redundancy, right?
+ And that's what you get rid of the problem
+ that the data redundancy could create, right?
+ Because data redundancy is two separate copies
+ of the same data, that is data redundancy.
+ Now, what is data inconsistency?
+ Data inconsistency is multiple
+ and conflicting version of same data.
+ If you have multiple copies of the same data,
+ but at the same times,
+ you have a contradictory version of that data
+ that is called data inconsistency.
+ For example, you have visited the student services.
+ They have all of your record, for example,
+ and the finance department, they, if they have,
+ which is not the case at Torrance,
+ but if they have a separate copies of your personal details,
+ right, or maybe immigration asks you
+ if there would be any change into your address,
+ you have to update us, right?
+ Similarly, university also have your personal information,
+ your address, your visa details, and so on,
+ your phone number, your residential address, right?
+ So you change your address,
+ you move to a different location,
+ you updated your phone number.
+ So you might have updated that information
+ with the student services center,
+ but the finance department, the immigration department,
+ they have your previous address,
+ they have your previous phone numbers.
+ So they will say, oh, Victor, this name is this one,
+ father name is this one, what is the phone number?
+ They will say phone number is this one.
+ But at the same times,
+ they will see the finance department, they will say,
+ no, Victor phone number is this one, right?
+ So problem is the Victor updated first information
+ with the student services,
+ but not with the finance department.
+ And why this problem arose here?
+ Because of the data residency,
+ because the student services, the finance department,
+ they had the separate copies.
+ If they have the shared copy,
+ know if at any point if they will update it,
+ so then anybody can easily access those ones.
+ So that will not create any problem.
+ Okay, so I hope you have understood up till here
+ that what is data redundancy
+ and what is data inconsistency.
+ Data redundancy is multiple copies of same data
+ and data inconsistency is multiple
+ and conflicting version of same data.
+ So, but all of these things,
+ you have to explore your data
+ to see more details of your data,
+ what is, how you will be realize it,
+ you will make different diagrams,
+ which we will study in our upcoming lectures,
+ you will examine your data to see in data
+ into a different formats and so on.
+ That's what you will do at the second stage
+ of your CRISP-DM architecture.
+ That is your data understanding stage.
+ Then the next one is when you have verified the data quality
+ when you have realized your data,
+ now you have to prepare your data, right?
+ So first thing into the data preparation
+ is you have to split your data.
+ That is the first stage that you have to do, right?
+ So splitting data means,
+ as we discussed in our previous class,
+ data could be divided into two main stages or three stages.
+ First is your training data.
+ Second one is your validation data.
+ And the third one is your testing data.
+ So mostly people will say training data and test data.
+ So they include the validation data
+ in the training of your model.
+ So they consider it as a training data.
+ So training data and testing data.
+ So mostly people use 80% of your data
+ or 75% of your data to train their model
+ and the rest of the 25% or 20% to test your model.
+ So that is the first important thing
+ is to split your data and select the right data, right?
+ What documents you gonna use?
+ What documents you gonna have to exclude or include?
+ Then if there would be any problem into your data,
+ is there are any outliers in your data
+ that might creating a problem?
+ You have to clean your data properly.
+ If there would be, as I mentioned,
+ data is the most important things, garbage in garbage out.
+ If you will take a picture into the dark mode,
+ when you will see it, it will be in a dark mode.
+ If it would be a sunny day,
+ you will capture an image there,
+ the resolution better you will capture,
+ and then you will analyze it, you will get the right one.
+ So garbage in garbage out.
+ That is the first thing which we already discussed
+ about the quality of your data, right?
+ And if there would be any problem in your data,
+ if there are any outliers in your data,
+ you have to remove those one as well.
+ That is very important.
+ Or maybe the data integration as well.
+ There are certain sources where the data is coming from,
+ or maybe there are different features
+ which are like not really necessary to be separated.
+ You might need to integrate them together
+ to form one feature instead of multiple features.
+ For example, some might have street address,
+ some might have postal code,
+ or maybe your state information, country information,
+ suburbs, city, all of these together, right, separate.
+ Then you might have combined all of this one
+ and make an address attribute.
+ It really depends on your task.
+ If sometimes you have to divide the people
+ into different states and to different other things,
+ then you might need to, yes.
+ Ligandap, yes, anything you wanna say?
+ - Hi, Cameron.
+ - Hi, yes, please.
+ - Sorry to interrupt.
+ I just joined the class right now.
+ - It's okay. (chuckles)
+ Yes, please.
+ - I missed the first class
+ because I could not register to this subject.
+ So on Friday, luckily, I was registered to this subject.
+ And I thought of joining earlier
+ because I took these classes online.
+ So it's, timing is 11.30 a.m.
+ So 11.30 a.m. to 2.30 a.m.
+ So I didn't know it's Brisbane time.
+ I mean, it's a Sydney time.
+ We have to follow the Sydney time.
+ Sorry for that.
+ It's my past class.
+ - No worries.
+ Welcome to the machine learning course
+ and recordings of all the lectures are available.
+ All of the things which we have discussed, you can find.
+ I will also guide the way to find those one, okay?
+ - Okay, thank you.
+ Thank you so much.
+ - Okay, no worries.
+ So as we were discussing that there could be
+ certain features which are unnecessarily,
+ you might need to combine them, right?
+ Or maybe you can also construct your data.
+ You might generate new features.
+ For example, if I have your date of birth,
+ I can tell you how old you are, right?
+ So I can get it from your date of birth up till here,
+ and I can tell, okay, you are 22 years of age,
+ you are 25 years of age and so on.
+ So I can construct a new feature age from your date of birth.
+ Similarly, if I will tell you my date of joining at Torrance,
+ you can tell me how long you are with the Torrance.
+ You can tell me the number of years
+ I am serving with Torrance University.
+ So you can either construct new features,
+ you can integrate certain features,
+ and maybe you can also remove certain data.
+ Maybe the problem could be with the data
+ where you have verified the quality.
+ There are a lot of missing values.
+ You have to handle those missing values.
+ So for example, some people as we are,
+ I'll do whenever we go to any shopping store
+ or different store and they ask,
+ okay, are you member with us?
+ And we say, no.
+ They will say, okay, can you give me your name
+ and the phone number, for example.
+ They don't care about the address.
+ They don't care about our gender.
+ They don't care about other information where we come from,
+ what is our state and so on.
+ And later on, if they have to do the customer segmentation,
+ they can't do it because they don't have that data, right?
+ They can't segregate, they can't split their clusters
+ based on whether in my shop,
+ whether males are coming more
+ or the females are coming more.
+ For example, I don't have the gender information,
+ then how can I classify it, right?
+ So it means there are missing values
+ and there are a lot of different techniques
+ in order to fill those missing values.
+ Some of the techniques say, you can just ignore those rows.
+ If it has many missing values across all the attribute,
+ some of them says, oh, if you have a missing value
+ for a specific feature,
+ then don't remove the information of a row of a person,
+ rather remove that particular feature
+ which has the most number of reaching.
+ And some also mute the values.
+ They will analyze the different values which are available
+ and can make assessment based on, for example,
+ if the numeric values are there.
+ So maybe you can take an average and fill those values.
+ Maybe you can take a median and then fill up those values.
+ So there are different ways to handle the problem.
+ So in the last stage where we have understood our data,
+ now it's time to prepare our data
+ because the next stage is the modeling stage
+ where we have to apply our model.
+ Here we have to fix all of our problems with the data.
+ If it has missing values, if it has any outlier values,
+ we have to fix it.
+ And because outlier detection is also very important, right?
+ Because if there would be any outlier,
+ it can create a problem.
+ For example, if you are going to calculate
+ what is the average salary in your organization.
+ And in your organization, people are working on 70K, 80K,
+ a lot of software engineer working on 85K, 90K, 95K.
+ But there are two or three people
+ who are working at a vice president level
+ and some other executive positions.
+ They are getting 300K, right?
+ And if you will take the average, right?
+ The average would become maybe 130K, right?
+ Because of just those two or three people
+ who are earning 300K, 250K,
+ because of those two or three people,
+ rest of your data is creating problem.
+ And you are getting your average salary is,
+ you will add them up.
+ Like we everybody know that math,
+ you will add 80 plus 80 plus 80 plus 95 plus 35 plus 90
+ plus 98, 94 plus 250,000, then 200,000.
+ 5,000 and so on, right?
+ And then when you will take an average,
+ you will get the average salary is 130K.
+ Whereas in your company, more than 80 people,
+ more than 80%, 90% of the people
+ have salary lower than 100K.
+ How can you say that your average salary
+ is 130K in your organization?
+ That is because of those two or three outlines,
+ which are highly deviated from the rest of your data
+ and that is creating problems.
+ I'm not saying that always the outliers are the problem.
+ Sometimes they are of your interest.
+ You want to identify those outliers.
+ Like you have given example like,
+ is there any anomalous transaction?
+ Is there any anomalous person?
+ Is there any anomalous computer or device
+ connected to the network, which is creating problem?
+ So your task is to identify that particular node,
+ that particular person, that particular device,
+ that particular application, which is creating problem.
+ So sometimes it is of your interest,
+ but sometimes it can create problem.
+ It depends on the task, it depends on your data.
+ But anyways, whatever you have to do,
+ you have to do the data cleaning at this particular stage
+ of your data preparation,
+ which is the third stage of your CRIS DM architecture.
+ Now our data is ready, we understood the features,
+ we understood the objectives, goals,
+ then they would become your modeling stage.
+ In modeling stage, you have to define,
+ because we already know what task you are doing,
+ then within that task,
+ you have to define your modeling technique.
+ If you are doing classification,
+ whether you're gonna go with the CN tree
+ or sport vector machine and so on,
+ and if you are doing clustering,
+ then what you are going to do, right?
+ Then this here, you have to generate your test design,
+ you have to see which technique you are applying,
+ what is your data training, testing and validation,
+ and then you have to build up your model, right?
+ So you can do the data splitting
+ at your modeling stage as well.
+ So it would be the first stage here,
+ if it would be data modeling,
+ or it could be the last stage of your data preparation,
+ right?
+ Then you have to build up your model,
+ you have to let your algorithm
+ to execute on that particular data,
+ that is what they call their building a model,
+ then you will assess your model, right?
+ You will interpret your model.
+ Once you have done that modeling,
+ then it becomes your evaluation.
+ Now you will evaluate your results,
+ whatever the models you have selected here,
+ you have built up a model,
+ you have applied into different ways on your data,
+ you have made all the assessment.
+ Now you have to evaluate that assessment
+ based on several metrics,
+ based on several ways to look up your results.
+ So you have to evaluate your results,
+ evaluate the performance of your model,
+ you have to do the review process,
+ you have to determine the next stages,
+ know what is next,
+ what you are going to do next and so on.
+ So all of these things will come into your evaluation stage.
+ Then you have your deployment,
+ in deployment you will actually install
+ that particular model, right?
+ That would be the last stage of your CRIS DM architecture.
+ But please be aware for all of your three assessment,
+ whether it is assessment one, two and three,
+ you're gonna do this CRIS DM architecture,
+ for whatever the task we will say you,
+ for whatever the model we will advise you to implement,
+ but you don't do the deployment
+ for all of the three assessments.
+ So you will apply all the above five stages,
+ you will not do the deployment stage.
+ Yes, you will have this deployment in your assessment,
+ but instead of deploying that one,
+ you're gonna mention the lessons learned
+ into your deployment stage, right?
+ So in the deployment, as in real world scenario
+ is the installation of that model
+ into the real life problem,
+ then you will monitor how the model is doing,
+ how the software is working and so on.
+ That is your deployment.
+ But for all of your three assessment,
+ what you're gonna have in deployment,
+ you will mention all the lesson learned,
+ what were the mistake.
+ Now you will evaluate what was your criteria,
+ what was your success criteria,
+ whether you have met that criteria or not,
+ what was the failure,
+ what was the things where you can improve
+ or how the things are the result could be improved,
+ how the performance of your model could be increased.
+ That's what you gonna discuss into your deployment stage.
+ That would be the final step of your CRIS DM architecture.
+ So, so far we discussed CRIS DM architecture
+ is your cross industry standard process for data mining,
+ which has six stages.
+ First is your business understanding,
+ then is your data understanding as we discussed in detail,
+ and then you will have your data preparation,
+ data modeling, evaluation and your deployment stage.
+ Then we have discussed all of these things in detail here,
+ where we discuss determine objective,
+ assess your situation,
+ data understanding where you will verify,
+ here you will prepare your data,
+ here you will separate and apply the modeling technique,
+ and then here you will evaluate those models
+ and here you will mention all of your lesson learns.
+ I'm gonna also send this link into the chat window,
+ so where you can just have a read
+ and if there is any further question you may have,
+ you can ask.
+ And hopefully you have already started your assessment,
+ the first assessment which is due in week four.
+ So, understanding of assessment is also part
+ of your assessment, right?
+ Part of your examination.
+ So, that is why I'm not gonna discuss your assessment
+ as of now.
+ If you have any question, I'm happy to answer,
+ but in the start of next class, next week,
+ we're gonna discuss your assessment in detail.
+ So, meanwhile, if you have any question,
+ you can reach out to me,
+ I have also my office hours on Friday,
+ you can reach out to me,
+ we can book up a time and so on.
+ And another thing is, currently I am on leave.
+ So, that is very important.
+ If you will send any email to my Torrance email,
+ I'm not able to assess it.
+ Luckily, I even requested that maybe
+ because I'm on leave for four weeks,
+ already one week is passed and this is the second week.
+ So, even I, on the Friday,
+ they have suspended my access on my Torrance account.
+ Even on the Teams, I'm not able to assess it.
+ But luckily, even I requested, okay,
+ we could have somebody else.
+ What it is for everyone?
+ - MyLearn.
+ - No, MyLearn is for everyone.
+ MyLearn is used with the students and so on.
+ So, every teacher here has two email addresses,
+ at the rate Torrance and at the rate mylearn.torrance.
+ So, otherwise I was asking that somebody else can take
+ and even they asked me, okay, you are on leave,
+ so somebody else can teach your first four weeks
+ and then you can start.
+ I said, no, it's all good
+ because the student might have a problem later on,
+ just with the teacher and then I will jump in and so on.
+ And it would be good that we will have a flow
+ and I'm happy to do that one.
+ So--
+ - So, you're on leave since past four,
+ like past week to next two weeks too?
+ - Yes, yes.
+ - But you're continuing class on Monday just for us?
+ - Yes, yes.
+ - Oh, thank you so much for that.
+ - Yeah, yeah, I got a baby boy, so I'm on my paternal leave.
+ They said, okay, you can take care of your baby
+ and your family and so on.
+ - Congratulations for that.
+ - Yeah, thank you so much, thank you so much.
+ So, yeah, so, but I thought, okay, let me to continue.
+ So, because in the first four week,
+ we have to create a main base.
+ And if I'm asking you in the fifth week,
+ can we have, for example, what is classification?
+ And if you have a different concept,
+ then it will not have any advantage
+ where I want you to take, right?
+ So, that is why I'm taking those one.
+ So, please, if you have any problem in these four weeks,
+ you can approach on my MyLearn or this chat window,
+ whatever we are using.
+ And you can also send me an email as well,
+ which will come to me and I'm happy to answer.
+ You can book a time, we can discuss any question.
+ Thank you, Eugene, thank you, everyone.
+ So, that is one thing.
+ As the land up, how do you say your name?
+ Land up.
+ - Oh, it's in W, yeah, you are pronouncing correctly.
+ - Okay, land up, okay.
+ So, I'm also, yes, Irani, yes, please.
+ - It's Harini and the thing is like,
+ I'd like you to help me again with the Google collab.
+ I have signed up, but yeah,
+ I don't know whether I'm in the right path or not.
+ So, I'd like you to-
+ - So, let me to share the screen
+ and tell you where to find the recordings.
+ And then afterwards, we will ask you to share the screen
+ and then see how we can help you, okay?
+ So, firstly is all of the recordings are available
+ for all the courses.
+ If the teachers are recording, they're supposed to record,
+ whether it is a face-to-face class
+ or it is a online class,
+ recording should be available for the students.
+ And as I mentioned in my previous class,
+ I'm working as a course coordinator
+ for undergraduate cyber security program.
+ If there would be any problem or you have any issue
+ related to admin related stuff
+ or any research related stuff, you are most welcome.
+ You can discuss with me.
+ So, firstly, we will see where to find the recording.
+ So, you will go to your Myler.
+ Let me share the screen again.
+ And here you will click, select your particular subject,
+ which is machine learning course for our case.
+ Then you will click on online classes and chat.
+ And you just need to wait for few seconds as it is.
+ And here, when you click up here,
+ so you will find all the recordings here.
+ So, once I will stop recording,
+ so it will save into the week two as well, right?
+ So, when you click here,
+ you will see all of our lessons are recorded here.
+ So, that would be recording from the last week.
+ We'll take a bit to our preview.
+ (silence)
+ Maybe my internet connection is slow.
+ - It's the same for mine as before.
+ - Okay.
+ - I'm facing this issue since yesterday.
+ - Okay.
+ - I don't know why.
+ - That is, okay.
+ That is one way to see the recordings
+ for any subject.
+ The other way is.
+ - We'll be getting a link to our email address, right?
+ To our Outlook account.
+ - Yeah.
+ This is the second way.
+ If you have opened up your Teams,
+ you will click on this Teams,
+ where you will see the Teams here.
+ For example, this machine learning course.
+ You will click on the second channel here,
+ which I created lectures week one to week 12.
+ Once you click here,
+ you will see here three different options.
+ You will click on shared.
+ Normally, suppose the file tab here,
+ now they have shared.
+ But anyways, you have a shared here.
+ Then when you click here,
+ you will see a recording folder here.
+ You will click on the recording,
+ and you will find the recording here.
+ So I, firstly, it is saved with a very full name,
+ like the whole meeting name.
+ And once I finished the recording,
+ so I normally rename it as week one, week two, week three,
+ or week one assessment discussion and so on.
+ So easily you can track, right?
+ So this is the second way
+ where you can track all the recordings.
+ So for anyone who missed our previous lecture,
+ who missed any part of the today's lecture,
+ please have a look to this lecture.
+ And once we finish this one, stop the recording,
+ it will take a while to upload on the cloud.
+ Then you will be able to see week two lecture here as well.
+ Right?
+ So these are the two ways where you can file
+ all the recordings and so on.
+ Lend up okay for you?
+ - Yeah, all good, all good.
+ - Okay, okay.
+ Yes, Irani, can you share your screen and let us know?
+ - Professor, can you help?
+ Help me with your and itself, like my system is messed up.
+ - Okay, so you want me to go through that process again?
+ Okay.
+ - Yes, that would be great, thank you.
+ - So another thing, okay, it's already open.
+ So you will go to the Google Scholar.
+ And once you go there, you can type my name there,
+ Kamran Shokat and here you will see all of my publication,
+ whatever I have done so far related to machine.
+ - Professor, could you send a link of your Google Scholar?
+ - Yeah, I can share it here as well.
+ - Thank you so much.
+ - There is the chat.
+ My system also getting slow.
+ I'm not sure what's the problem.
+ Okay, there is the Google Scholar.
+ So you will see here, this is one of my PhD work.
+ During my PhD, I have applied machine learning techniques
+ for malware detection for cybersecurity.
+ So that is part of my PhD work related to machine learning
+ and cybersecurity.
+ Here I have done some work with the IoT devices,
+ internet of things like your smart watches,
+ your sensor data, your smart homes and wearable devices.
+ So if there would be any problem with those ones,
+ so those all come under the umbrella
+ of your internet of things.
+ So what could be the cyber attacks there
+ and how to mitigate and so on.
+ Then this is also part of my PhD work,
+ the performance comparison and current challenges,
+ current issues.
+ If you are not able to find out what would be the title
+ of my thesis or what would be the research problem,
+ or if you haven't decided with your supervisor,
+ you are most welcome, you can discuss with me.
+ If you have any interest to work
+ into the machine learning area to apply
+ for any type of your cybersecurity area.
+ Currently, I am supervising the five PhD students,
+ two at another uni and three as a principal supervisor
+ at Torrance University.
+ One of the student is doing something
+ with the yield crop prediction or maybe agriculture stuff.
+ So within the agriculture,
+ we haven't defined exactly the problem,
+ but we know that we are going to apply machine learning
+ to solve any problem in the agriculture.
+ So we discussed related to yield crop prediction and so on.
+ So one of the student is doing that thing.
+ The other student is doing using the LLMs,
+ large learning models in order to improve
+ the defect detection related to software and so on.
+ And the third student is doing related
+ to the federated learning.
+ I will explain you someday what federated learning is,
+ but that is for federating for the malware detection,
+ different kinds of attacks which are happening
+ over different platforms.
+ So what is the federated learning
+ and what are the drawbacks of the federated learning
+ if already being applied and how to improve that one.
+ Similarly, I have done a lot of work
+ on the medical data as well.
+ So there are certain problems,
+ which I will discuss to you when it comes.
+ What is data re-sampling problems?
+ Why we do it and what are those things?
+ So you can say these are highly cited papers.
+ Then I also work with the brain tumor classification,
+ like MRI images as well.
+ I also worked with the financial data as well,
+ where the credit card default prediction
+ for imbalance data set.
+ Then this is also part of my PhD work
+ for cyber detection using machine learning techniques.
+ This is also my PhD work,
+ machine learning techniques for malware detection.
+ I also work with anomaly detection as well,
+ that as you can find up here.
+ I did some work, some papers with the skin cancer
+ classification as well.
+ That is another kind of issue when you apply
+ machine learning for any task, which is adversarial attacks.
+ I will explain one day with you as well,
+ what are the adversarial attacks and so on.
+ Then I worked with the neuro imaging as well as my disease.
+ That's one of my other PhD students who is working
+ to detect different kind of asthma disease and so on.
+ The problem within these, I worked a little bit
+ into the blockchain as well, not too much.
+ Bankruptcy prediction using machine learning
+ is also other work.
+ With the collaboration of one of my friend,
+ I work with the belt fraud detection.
+ You see different conveyors and different belts
+ into the different industries where data is being,
+ not the data actually, the physical items
+ are being transferred from one place to another place.
+ Like for example, different belts where we get our luggage
+ when we came to Australia.
+ So in that case, there could be some problem with the belt
+ and you are not able to track it, where is the problem
+ and you not always monitor those ones.
+ So there could be certain sensors there,
+ which you can use in order to see if there any problem
+ into your belts and so on.
+ So these are the things which you can have a read
+ if you have any interest.
+ So you can have a read to those one as well, okay.
+ So these are the areas you can have a look on
+ on some of the papers if you have any interest
+ so you can discuss with those one.
+ Now comes towards what Rakesh mentioned
+ and Irani asked about the Google collab.
+ So you can simply search Google collab here.
+ And then you will click on Google collab.
+ The first thing I got and then you will click on open collab
+ and then it will ask you initially to sign in
+ to sync with any of your Gmail account.
+ Since I am already logging with that one,
+ so it didn't ask me.
+ So you can create a new notebook here
+ or maybe if you already have any template,
+ which we will provide you and you already have the template
+ for the Chris TM architecture for your assessment.
+ So you can simply use that template to upload it
+ and you can work with that one.
+ That will really help you.
+ So for example, if you go to the assessment one,
+ so in the assessment one,
+ here is the Chris TM architecture, IPYNB file.
+ You can download this one, which has all of these stages.
+ So you can just work and upload your data set
+ and work with that one, right?
+ So you can download this file, IPYNB Python file, right?
+ And then later on, you can just simply upload here
+ into the upload section.
+ You can browse and you can simply upload
+ that particular file, which you want to work with, right?
+ So whatever you have, for example,
+ you can simply work, for example, this one.
+ When you will open it up, it will open
+ and then you can start working.
+ No issue with that one.
+ When you will upload that template,
+ you will find here section one related to, for example,
+ data understanding, business understanding,
+ data preparation, and so on.
+ And you keep working with that one, what you are going to do.
+ And then we discuss like normally here, we have two blocks.
+ One is the code block, other one is the text.
+ Text one is, for example, this one, if you want to write.
+ And this is the code block because if you will run it,
+ so it will run as a code, right?
+ And this will run as a simple text.
+ When it is executed, you will find a tick box here.
+ When this one is executed, I will execute it now.
+ So you will see a tick box here.
+ And also you will see that it is just a text, right?
+ And there is no processes, but if it is the coding one,
+ then it has actual code, which you will work.
+ Rakesh, Irani, any question, anyone else?
+ - All good as of now, thank you.
+ - Yes, Rakesh, you got it?
+ - Yeah, got it, sir, thank you.
+ - So you can just upload your template here,
+ and you can just start like working.
+ And next week, I gonna discuss about all of the assessment,
+ what you can have, what you can do more
+ in order to get the distinction
+ or high distinction and so on.
+ So you can start working on those one.
+ Meanwhile, if you have any question, any confusion,
+ any doubt, you can approach me anytime
+ and happy to respond to you and help you.
+ - Yes, any other question you have?
+ - No, professor, thank you so much.
+ - So in our today's class,
+ we started with the discussion of machine learning.
+ We discussed machine learning is a branch of AI,
+ which performs various action
+ without explicitly being programmed.
+ We discussed about supervised and unsupervised learning.
+ Supervised is where we have an idea of the label,
+ unsupervised where we don't know what we going to do.
+ In supervised, we have classification
+ where the type of the attribute is categorical
+ and regression where the type of the attribute
+ is of type continuous.
+ In unsupervised learning,
+ we have clustering where you just analyze your data
+ and based on that analysis,
+ you group your data into various clusters.
+ You have unsemi-supervised learning.
+ We discussed about outlier analysis.
+ We discussed about association analysis.
+ And then further to that one,
+ we discussed about the machine learning algorithm,
+ machine learning model as well.
+ Then we also discussed about the Chris DM architecture.
+ We discussed that there are six different phases
+ of Chris DM architecture.
+ We discussed that the first stage is where you will
+ understand your business understanding.
+ You will understand what are your business objective.
+ You will assess your situation.
+ What do you have in order to accomplish
+ that particular task?
+ We will also set our data mining goals.
+ We discussed data mining is a process
+ to extract the interesting patterns
+ from the huge amount of data.
+ Then we discussed about the data understanding
+ where you will collect your initial data,
+ you will analyze it, you will visualize it,
+ and you will verify its quality
+ if there will be any problem, any issue in your data.
+ Do your data has any outliers?
+ Does it have any missing values and so on?
+ Then whatever the problems you have done here,
+ you will actually fix those one into third stage
+ of data preparation, where you will select your data,
+ clean your data from the missing values,
+ outline analysis and so on.
+ And you will also construct some new features
+ or maybe you can integrate some of the features.
+ You will permit your data properly.
+ And then in the modeling stage, which is the fourth stage,
+ you will apply certain models
+ and then you will do all that analysis.
+ After that analysis, you will evaluate it
+ and you will also assess whether you have met the target,
+ whichever you have done
+ in your first business understanding stage,
+ whether you have met those targets
+ and then for the deployment for the three assessments,
+ we are not gonna deploy your model
+ rather than we're gonna mention
+ all of the lesson learns here.
+ What was the problem that you observed?
+ What was the problem in your data set?
+ What was the problem in your machine learning models?
+ How you can improve it, how you can make it better,
+ how the performance or accuracy
+ or whatever the metric you have selected could be improved
+ in order to increase the performance of your model.
+ So those would be the six stages.
+ Then we discussed about the Google Colab and other stuff.
+ And then we also tried to trace it out
+ if we missed any class, how you can find the recordings.
+ And we discussed, you can do it using the MyLearn one
+ and you can do from the teams as well,
+ where in the teams you just have to scroll down
+ and see your particular teams,
+ then you will click on your share tab
+ and then where you will find the recording folders
+ and then within the recording,
+ you will find all those recordings.
+ So any question, any doubt you may have?
+ - Again, Landeep, Victor, Khan, Mustakim, Rakesh, Hirani.
+ - No questions.
+ - No questions, professor, thank you.
+ - Okay, all good.
+ - No question, thank you.
+ - Yeah, so good.
+ You can just, that's all from my side of the two days.
+ Then you can perform the activities.
+ You can just go to the module section
+ and see what activities you have
+ and if there would be any problem,
+ you can reach out to me and then happy to answer.
+ Once you're done with your activities,
+ all you wanna do later on, up to you guys
+ and that's all from my side and I will see you next week.
+ - Thank you very much, see you next week.
+ - See you, Mustakim.
+ - Thank you, professor, see you next week.
+ - Thank you. - Thank you.
+ - Thank you.
+ - Thank you again, thank you, Hirani.
+ (silence)
+ (silence)
+ (silence)
+ (silence)
+ (silence)
+ (silence)
+ (silence)
+ (silence)
+ (silence)
+ (silence)
+ (silence)
+ (silence)
+ (silence)
+ (silence)
+ (silence)
+ (silence)
+ (silence)
+ (silence)
+ (silence)
+ (silence)
+ (silence)
+ (silence)
+ (silence)
+ (silence)
+ (silence)
+ (silence)
+ (silence)
+ (silence)
+ (silence)
+ (silence)
+ (silence)
+ (silence)
+ (silence)
+ (silence)
+ (silence)
+ (silence)
+ (silence)
+ (silence)
+ (silence)
+ (silence)
+ (silence)
+ (silence)
+ (silence)
+ (silence)
+ (silence)
