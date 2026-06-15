@@ -1,0 +1,69 @@
+{
+  "n_rows": 7043,
+  "n_features": 14,
+  "base_rate_no": 0.7346,
+  "base_rate_yes": 0.2654,
+  "best_max_depth": 8,
+  "test": {
+    "accuracy": 0.7657,
+    "weighted_precision": 0.7643,
+    "weighted_recall": 0.7657,
+    "f1": 0.765,
+    "auc": 0.7321
+  },
+  "churn_class": {
+    "recall": 0.5532,
+    "precision": 0.5637
+  },
+  "confusion": {
+    "tn": 867,
+    "fp": 161,
+    "fn": 168,
+    "tp": 208
+  },
+  "most_important_attribute": "Contract",
+  "top_features": [
+    {
+      "name": "Contract",
+      "importance": 0.4276
+    },
+    {
+      "name": "tenure",
+      "importance": 0.1766
+    },
+    {
+      "name": "TechSupport",
+      "importance": 0.1044
+    },
+    {
+      "name": "TotalCharges",
+      "importance": 0.0594
+    },
+    {
+      "name": "PaymentMethod",
+      "importance": 0.0404
+    },
+    {
+      "name": "StreamingMovies",
+      "importance": 0.0374
+    },
+    {
+      "name": "OnlineBackup",
+      "importance": 0.0298
+    },
+    {
+      "name": "MultipleLines",
+      "importance": 0.0294
+    }
+  ],
+  "tenure_totalcharges_corr": 0.825,
+  "missing_value_experiment": {
+    "feature": "Contract",
+    "pct_missing": 0.3,
+    "impute_method": "mode imputation ('Month-to-month')",
+    "accuracy_before": 0.7657,
+    "accuracy_after": 0.7828,
+    "f1_before": 0.765,
+    "f1_after": 0.7701
+  }
+}
