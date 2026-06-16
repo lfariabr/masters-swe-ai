@@ -14,7 +14,8 @@
 ## 🖤 Zone 1 — Why integrate (Foote 2019)
 - 🔴 **Integration happens BEFORE any analytics.** "Before analytics can be performed, integration has to happen" — data sourced, moved, transformed, provisioned (securely).
 - 🔵 **= unify** data from varied sources/formats into one **translated view**. Incompatible/untransformed data = useless.
-- 🔵 **ETL → ELT-on-Hadoop:** "once-in-a-generation shift" off legacy tools; warehouse ETL evolving for big-data volume + unstructured variety. (iPaaS, MDM, Sqoop, Scribe.)
+- 🔵 **4 integration patterns:** **ETL** (clean→store) · **ELT** (store raw→clean later; cloud lakes) · **Data Virtualization** (soft view, no copy; latency cost) · **Streaming** (live events: IoT/fraud).
+- 🔴 **Logical (soft) fix > physical rewrite** of legacy data — add metadata/transform rules to route & reconcile; rewriting risks data loss + cost. *(Big firms minimise risk.)*
 - 🔴 **5 challenges:** staff · bringing-in data · **synchronization** (sources desync) · incompatible NoSQL tools · no **strategy** (silo-hopping).
 - 🔴 **Design rule:** bake in **performance + governance + security** from the *logical architecture*, not bolted on later. (Same "governance ≠ optional" lesson as lake→swamp in Mod 2.)
 
@@ -77,6 +78,8 @@ flowchart LR
 > 1. **Integrate** — name a *schema-alignment → record-linkage → data-fusion* step for your sources.
 > 2. **Store** — pick a lake store (S3/ADLS) + a NoSQL model, and **justify via CAP** (do you need CP correctness or AP availability?).
 > 3. **Quote:** "performance → less compute → lower cost" + "governance from the logical architecture".
+>
+> **Dr. Chen wants (Week 3):** analyse data *first* (sources + example **columns/rows**) · align to the **5 Vs (not 6)** · design **logical → physical** · recommend **ONE platform** (justify) · **diagrams/tables = bonus marks**. See [class notes](module03_notes-class.md).
 
 ## 🔴 If you only memorise 5 things
 1. **Integration comes BEFORE analytics** — governance/security from day one.

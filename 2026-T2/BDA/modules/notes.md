@@ -219,7 +219,7 @@ This Module focuses on the next component of the data lake; that is, the data ma
 
     Study ‘Chapter 3: Data Integration, Quality and Enrichment’ (pp. 51–77). This chapter describes the second component of the data lake; that is, the data management tier, which essentially handles the complex tasks of integration and enrichment. This chapter further divides the task of data management into smaller components and presents different approaches and techniques to address the issues related to those components. This chapter also describes the importance of data enrichment (i.e., augmenting data with newer attributes to facilitate data analytics at a later stage). Finally, this chapter provides a high-level overview of different tools that can be used to facilitate big data integration.
 
-> *Status: 🔥 WIP — needs manual ebook access (EBSCO). See stub in [module03_notes.md](module-03-bd-integration-and-storage/module03_notes.md)*
+> *Status: ✅ Covered via Week 3 lecture (ebook itself still unread) — see [module03_notes-class.md](module-03-bd-integration-and-storage/module03_notes-class.md) + [module03_notes.md](module-03-bd-integration-and-storage/module03_notes.md)*
 
 #### 4. Data Lake Storage
 - AWS. (n. d). Data lake storage on AWS. Retrieved from https://aws.amazon.com/products/storage/data-lake-storage/

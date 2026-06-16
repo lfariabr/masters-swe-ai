@@ -8,7 +8,7 @@
 |---|------|--------|
 | **1** | Read & summarise Foote (2019) — Big Data Integration 101: What, Why, How | ✅ |
 | **2** | Read & summarise Dong & Srivastava (2015) — Traditional Data Integration (Ch. 1 §1.1) | ✅ |
-| 3 | Read & summarise Pasupuleti & Purra (2015) — Data Integration, Quality & Enrichment (Ch. 3) | 🔥 WIP — needs manual ebook access (EBSCO) |
+| **3** | Pasupuleti & Purra (2015) — Data Integration, Quality & Enrichment (Ch. 3) — *covered via Week 3 lecture; ebook still unread* | ✅ (lecture) |
 | **4** | Read & summarise AWS / Baker (2019) — Data Lake Storage: S3 + ADLS Gen2 | ✅ |
 | **5** | Read & summarise Siddiqa et al. (2017) — Big Data Storage Technologies: A Survey | ✅ |
 | 6 | Activity 1: Discussion Forum — Cost models of AWS S3 vs ADLS Gen2 | 🔥 draft ready — see [module03_activities.md](module03_activities.md) |
@@ -117,15 +117,35 @@ Module 2 stopped at the **intake tier** (Source → Transient → Raw). Module 3
 
 ---
 
-### 3. Pasupuleti, P. & Purra, B. S. (2015). Data Lake Development with Big Data — Ch. 3: Data Integration, Quality & Enrichment. 🔥 WIP
+### 3. Pasupuleti, P. & Purra, B. S. (2015). Data Lake Development with Big Data — Ch. 3: Data Integration, Quality & Enrichment.
 
 **Citation:** Pasupuleti, P., & Purra, B. S. (2015). *Data lake development with big data* (Ch. 3, pp. 51–77). Packt. (EBSCO eBook — Torrens institutional login required.)
 
-**Status:** Not summarised yet — this is an **EBSCO eBook behind authentication**, so there is no local copy to extract. To complete: open via the Torrens library proxy, export Ch. 3, drop the PDF/text into this folder, then re-run `/study-mode BDA 3`.
+> 📎 **Source note (honesty):** the ebook itself is still behind EBSCO auth and unread. The summary below is reconstructed from **Dr. Chen's Week 3 lecture**, which delivered the *same* management-tier material — see [module03_notes-class.md](module03_notes-class.md) for the full live-session version. Verify against the chapter when you can access it.
 
-**What it covers (from the resource brief — to verify on read):** the data lake's **management tier** — the second component after intake. It decomposes data management into sub-tasks (**integration, cleaning/quality, enrichment**), gives approaches/techniques for each, stresses **enrichment** (augmenting data with new attributes to ease later analytics), and surveys tools for big data integration. This is the textbook companion that turns R1/R2's *concepts* into the lake's *architecture*, and it sets up the **data hub** (storage) covered by R4/R5.
+**Purpose:** Describes the lake's **management tier** — the second component after intake — which turns raw, heterogeneous data into a reliable, reusable, governed asset.
 
-> 🔗 Reconciles with Module 2: intake tier (Mod 2) → **management tier** (this chapter) → consumption tier (Mod 5+).
+---
+
+#### 1. The 4 core components of the management tier ⭐
+| Component | Job |
+|---|---|
+| **Integration** | join + reconcile heterogeneous sources — *resolve meaning, structure, identity, quality* (not just copy files) |
+| **Quality control** | clean / validate / monitor *fitness-for-use*: type · range · referential · duplicate-merge · missing-value checks + **quality logs / exception reports** |
+| **Enrichment** | add context/attributes so later analysis is richer — 4 kinds: **internal** (segments, hierarchies) · **external** (geo/demo/economic) · **derived features** (LTV, churn risk, rolling avg) · **labels/metadata** |
+| **Storage** | persist in a scalable, secure, retrieval-ready form (the data hub → R4/R5) |
+
+#### 2. Integration patterns (4)
+- **ETL** — standardise *before* storing · **ELT** — store raw, transform *later* (cloud lakes/lakehouse) · **Data Virtualization** — logical soft-view across sources, no physical move (fast, but latency + governance cost) · **Streaming** — continuous events (IoT, clickstream, fraud).
+- 🔑 **Logical (soft) fix > physical rewrite** of legacy data: rewriting risks data loss + cost; prefer a metadata/transformation-rule layer that *routes & reconciles*.
+
+#### 3. Enrichment caution
+- Enrichment can introduce **bias, privacy risk, misleading correlation if ungoverned** — still do it, but flag the risk.
+
+#### Key Takeaways for BDA601
+1. **Integration → Quality → Enrichment → Storage** is the management-tier skeleton — name all four in A1's middle step.
+2. **Operational principle (examinable):** capture rules/metadata/lineage *during* management — don't wait until modelling to find quality problems.
+3. 🔗 Reconciles with Module 2: intake tier (Mod 2) → **management tier** (this chapter) → consumption tier (Mod 5+). Maps to Medallion **Bronze → Silver → Gold**.
 
 ---
 
