@@ -341,6 +341,13 @@ The activity requires you to:
 ## Module 4 - Decision Trees
 
 ### TLDR
+A **decision tree** is a **non-parametric supervised** learner that recursively splits data into **if-then rules**. It is the one family that natively does **both classification and regression** (CART), takes **numerical + categorical** features, needs **no scaling**, and is a **white-box / explainable** model.
+- **Splitting:** choose the split that maximises **purity**. **ID3** uses **Entropy + Information Gain**; **CART** uses the **Gini index** (binary splits). Pick the largest impurity decrease.
+- **Weakness:** a single tree **overfits** and is **unstable** (a small data change -> a different tree). Control with `max_depth`, `min_samples_leaf`, and `ccp_alpha` (pruning).
+- **Ensembles fix this:** **Bagging -> Random Forest** (parallel trees, vote) and **Boosting -> Gradient Boosting -> XGBoost** (sequential weak learners, each fixing the last's errors; XGBoost adds regularisation + sparsity-awareness + parallelisation).
+- **A1 link:** your **RandomForest beat LinearRegression** because trees capture the **non-linearity** a single line cannot - this module is the machinery behind that result.
+
+> Full per-resource breakdown: [module04_notes.md](module-04-decision-trees/module04_notes.md)
 
 ### Introduction
 A decision tree (DT) algorithm (like a linear regression algorithm) belongs to the family of supervised learning algorithms. Unlike other supervised learning algorithms, a DT algorithm can be used to solve prediction and classification problems. Additionally, a DT algorithm handles both categorical and numerical data.
@@ -365,7 +372,7 @@ This Module explains how to use Scikit-learn to build a basic decision tree (DT)
 
     Building on the concepts presented in the video above (Augmented Startups, 2017), this article covers the basic terminology of DTs, their applications, advantages and disadvantages, the types of DTs and THE most common algorithms. It also provides a useful narrative reference without referring to any machine learning (ML) code.
 
-> *Status: 🕐 To-Do* 
+> *Status: ✅ Read + Reviewed - see [module04_notes.md](module-04-decision-trees/module04_notes.md#1-introduction-to-decision-trees-brid-2018-koli-2023)* 
 
 #### 2. Decision Trees and Boosting, XGBoost (eXtreme Gradient Boosting)
 - Reference: Two Minute Papers. (2016, 25 March). Decision trees and boosting, XGBoost | Two Minute Papers #55 [Video file]. Retrieved from https://www.youtube.com/watch?v=0Xc9LIb_HTw
@@ -374,7 +381,7 @@ This Module explains how to use Scikit-learn to build a basic decision tree (DT)
 
     This short video explains boosting, a very popular technique used to combine a lot of weak learner DTs into a strong learner. Individually, a weak learner is quiet inaccurate and makes predictions that are only slightly better than random guessing. However, if you take a whole bunch of weak learner DTs, you can produce a strong learning tree or algorithm.
 
-> *Status: 🕐 To-Do* 
+> *Status: ✅ Watched + Reviewed - see [module04_notes.md](module-04-decision-trees/module04_notes.md#2-decision-trees-and-boosting-xgboost-two-minute-papers-2016)* 
 
 #### 3. XGBoost Algorithm
 - Morde, V. (2019, 8 April). XGBoost algorithm: Long may she reign! Retrieved from https://towardsdatascience.com/https-medium-com-vishalmorde-xgboost-algorithm-long-she-may-rein-edd9f99be63d
@@ -383,7 +390,7 @@ This Module explains how to use Scikit-learn to build a basic decision tree (DT)
 
     XGBoost or extreme gradient boosting is a DT-based ensemble ML algorithm that performs very well. This article discusses the evolution of the algorithm from DTs and the potential future of the XGBoost algorithm. The algorithm has a large open community, which contributes to XGBoost projects (https://github.com/dmlc/xgboost/). To better understand the next generation of tree algorithms, including XGBoost, an analogy is used of an interview process and hiring criteria. The approaches taken to enable XGBoost to achieve a superior performance, including algorithm enhancements, provide a strong justification for its usage. This is proven by comparing Scikit-learn’s ‘make classification’ benchmarking to other algorithms.
 
-> *Status: 🕐 To-Do* 
+> *Status: 🔥 Primer ready - needs manual read - see [module04_notes.md](module-04-decision-trees/module04_notes.md#3-xgboost-algorithm-long-may-she-reign-morde-2019)* 
 
 #### 4. Plotting XGBoost Decision Tree in Python
 - Brownlee, J. (2019, 11 December). How to visualize gradient boosting decision trees with XGBoost in Python. Retrieved from https://machinelearningmastery.com/visualize-gradient-boosting-decision-trees-xgboost-python/
@@ -392,7 +399,7 @@ This Module explains how to use Scikit-learn to build a basic decision tree (DT)
 
     This hands-on tutorial shows how you can plot individual DTs within a trained gradient boosting model using XGBoost in Python. A full code listing is provided to create a plot of the first DT.
 
-> *Status: 🕐 To-Do* 
+> *Status: ✅ Read + Reviewed - see [module04_notes.md](module-04-decision-trees/module04_notes.md#4-plotting-xgboost-trees-in-python-brownlee-2019)* 
 
 #### 5. Scikit-learn Decision Tree Documentation
 - Reference: Pedregosa, F.; Michel, V.; Grisel, O.; Blondel, M.; Prettenhofer, P.; Weiss, R.; Vanderplas, J.; Cournapeau, D.; Pedregosa, F.; Varoquaux, G.; et al. (2015). Scikit-learn: Machine Learning in Python. J. Mach. Learn. Res. 12, 2825–2830. Retrieved from https://scikit-learn.org/stable/index.html
@@ -404,7 +411,7 @@ This Module explains how to use Scikit-learn to build a basic decision tree (DT)
     - Decision Tree Classifier (https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html); and
     - Decision Tree Regressor (https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeRegressor.html).
 
-> *Status: 🕐 To-Do* 
+> *Status: ✅ Read + Reviewed - see [module04_notes.md](module-04-decision-trees/module04_notes.md#5-scikit-learn-decision-tree-documentation-pedregosa-et-al-2015)* 
 
 ### Learning Activities
 
