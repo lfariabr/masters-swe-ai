@@ -359,7 +359,7 @@ Reference: Rose, D. (2018). Decision trees [Video file]. Retrieved from https://
 This Module explains how to use Scikit-learn to build a basic decision tree (DT) classifier (in which data are put into different categories), visualise DTs and extract rules. The use of a DT to visualise the decision rules and logic has made the DT algorithm explainable and popular. It is explainable because the decisions made by the model are interpretable by humans and do not constitute a ‘black box model’. Indeed, ‘of all the ML learning techniques, decision trees are the most explainable because you can follow the progression of branches to determine the exact factors used in making the final prediction’ (PwC, 2018).
 
 #### 1. Introduction to Decision Trees
-- Reference: Brid, R. (2018, 26 October). Introduction to decision trees. Retrieved from https://medium.com/greyatom/decision-trees-a-simple-way-to-visualize-a-decision-dc506a403aeb
+- Reference: Brid, R. (2018, 26 October). Introduction to decision trees. Retrieved from https://medium.com/@MrBam44/decision-trees-91f61a42c724
 
 *Resource Overview:*
 
