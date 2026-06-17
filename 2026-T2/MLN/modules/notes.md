@@ -338,6 +338,137 @@ The activity requires you to:
 
 ---
 
+## Module 4 - Decision Trees
+
+### TLDR
+
+### Introduction
+A decision tree (DT) algorithm (like a linear regression algorithm) belongs to the family of supervised learning algorithms. Unlike other supervised learning algorithms, a DT algorithm can be used to solve prediction and classification problems. Additionally, a DT algorithm handles both categorical and numerical data.
+
+The name ‘DT’ originates from building models drawn in the form of a tree structure diagram but upside down. Each branch represents a decision or outcome. The goal of using a DT is to create a model to predict the class or value of a target variable. This is achieved by applying learning decision rules to the data. The purpose of a DT analysis is to determine a set of if-then logical conditions to improve classification or prediction.
+
+DTs are easy to interpret and visualise due to the tree structure and the ability to read the rules directly from the tree in terms of the path from root to leaf.
+
+The video below highlights the flexibility and user friendly visualisation of the DT algorithm (Rose, 2018). This algorithm is also known as the Classification and Regression Trees (CART) algorithm due to its ability to handle classification and regression trees. The algorithm captures a sequence of events, which enables a target value to be predicted via the learning of simple decision rules from the data features.
+
+Reference: Rose, D. (2018). Decision trees [Video file]. Retrieved from https://www.linkedin.com/learning/artificial-intelligence-foundations-machine-learning/decision-trees?u=56744473
+
+### Resources
+- PwC. (n.d.). Explainable AI. Driving business value through greater understanding. Retrieved from https://www.pwc.co.uk/xai
+
+This Module explains how to use Scikit-learn to build a basic decision tree (DT) classifier (in which data are put into different categories), visualise DTs and extract rules. The use of a DT to visualise the decision rules and logic has made the DT algorithm explainable and popular. It is explainable because the decisions made by the model are interpretable by humans and do not constitute a ‘black box model’. Indeed, ‘of all the ML learning techniques, decision trees are the most explainable because you can follow the progression of branches to determine the exact factors used in making the final prediction’ (PwC, 2018).
+
+#### 1. Introduction to Decision Trees
+- Reference: Brid, R. (2018, 26 October). Introduction to decision trees. Retrieved from https://medium.com/greyatom/decision-trees-a-simple-way-to-visualize-a-decision-dc506a403aeb
+
+*Resource Overview:*
+
+    Building on the concepts presented in the video above (Augmented Startups, 2017), this article covers the basic terminology of DTs, their applications, advantages and disadvantages, the types of DTs and THE most common algorithms. It also provides a useful narrative reference without referring to any machine learning (ML) code.
+
+> *Status: 🕐 To-Do* 
+
+#### 2. Decision Trees and Boosting, XGBoost (eXtreme Gradient Boosting)
+- Reference: Two Minute Papers. (2016, 25 March). Decision trees and boosting, XGBoost | Two Minute Papers #55 [Video file]. Retrieved from https://www.youtube.com/watch?v=0Xc9LIb_HTw
+
+*Resource Overview:*
+
+    This short video explains boosting, a very popular technique used to combine a lot of weak learner DTs into a strong learner. Individually, a weak learner is quiet inaccurate and makes predictions that are only slightly better than random guessing. However, if you take a whole bunch of weak learner DTs, you can produce a strong learning tree or algorithm.
+
+> *Status: 🕐 To-Do* 
+
+#### 3. XGBoost Algorithm
+- Morde, V. (2019, 8 April). XGBoost algorithm: Long may she reign! Retrieved from https://towardsdatascience.com/https-medium-com-vishalmorde-xgboost-algorithm-long-she-may-rein-edd9f99be63d
+
+*Resource Overview:*
+
+    XGBoost or extreme gradient boosting is a DT-based ensemble ML algorithm that performs very well. This article discusses the evolution of the algorithm from DTs and the potential future of the XGBoost algorithm. The algorithm has a large open community, which contributes to XGBoost projects (https://github.com/dmlc/xgboost/). To better understand the next generation of tree algorithms, including XGBoost, an analogy is used of an interview process and hiring criteria. The approaches taken to enable XGBoost to achieve a superior performance, including algorithm enhancements, provide a strong justification for its usage. This is proven by comparing Scikit-learn’s ‘make classification’ benchmarking to other algorithms.
+
+> *Status: 🕐 To-Do* 
+
+#### 4. Plotting XGBoost Decision Tree in Python
+- Brownlee, J. (2019, 11 December). How to visualize gradient boosting decision trees with XGBoost in Python. Retrieved from https://machinelearningmastery.com/visualize-gradient-boosting-decision-trees-xgboost-python/
+
+*Resource Overview:*
+
+    This hands-on tutorial shows how you can plot individual DTs within a trained gradient boosting model using XGBoost in Python. A full code listing is provided to create a plot of the first DT.
+
+> *Status: 🕐 To-Do* 
+
+#### 5. Scikit-learn Decision Tree Documentation
+- Reference: Pedregosa, F.; Michel, V.; Grisel, O.; Blondel, M.; Prettenhofer, P.; Weiss, R.; Vanderplas, J.; Cournapeau, D.; Pedregosa, F.; Varoquaux, G.; et al. (2015). Scikit-learn: Machine Learning in Python. J. Mach. Learn. Res. 12, 2825–2830. Retrieved from https://scikit-learn.org/stable/index.html
+
+*Resource Overview:*
+
+    Scikit-learn documentation is highly readable and well presented. The documentation below will allow you to implement DT algorithms with little prior knowledge. The following resources make for useful reading:
+    - Understanding the decision tree structure (https://scikit-learn.org/stable/auto_examples/tree/plot_unveil_tree_structure.html);
+    - Decision Tree Classifier (https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html); and
+    - Decision Tree Regressor (https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeRegressor.html).
+
+> *Status: 🕐 To-Do* 
+
+### Learning Activities
+
+#### 1. Visualising a Decision Tree and Machine Learning —A Useful Exercise for Your Assessments
+- Reference: Google Developers. (2016, 13 April). Visualizing a decision tree—Machine learning recipes #2 [Video file]. Retrieved from https://www.youtube.com/watch?v=tNa99PG8hR8
+
+In this learning activity, you will create your own DT classifier from a real data set, visualise the nodes/edges and read the rules from the tree.
+
+For this activity, you should follow along with your Jupyter Notebook (e.g., Google Colab). Notably, this activity will remind you of the ideal nature of DTs to be able to capture interactions between features in data.
+
+This activity requires you to:
+
+Upload the file visualising a decision tree #2.ipynb;
+Watch the video below (Google Developers, 2016; available athttps://www.youtube.com/embed/tNa99PG8hR8) and follow along with the coding in your Notebook; and
+Once complete, share any interesting applications relevant to the workplace that emerged from this experience to the discussion forum. Comment on the ease or difficulty with which you were able to generate the DT and interpret the final output rules.
+
+> *Status: 🕐 To-Do* 
+
+#### 2. Writing a Decision Tree Classifier from Scratch —A Useful Exercise for Your Assessments
+- Google Developers. (2017, 13 September). Let’s write a decision tree classifier from scratch. Machine learning recipes #8. Retrieved from https://www.youtube.com/watch?v=LDRbO9a6XPU
+
+This activity requires you to follow along and build a DT classifier from scratch, preview the tree and build it. Notably, the key concepts of DT learning (i.e., Gini, impurity and information gain) are covered. These are also covered in the essential resource entitled, Introduction to Decision Trees (Brid, 2018).
+
+This activity requires you to:
+
+Upload the complete source code file decision_tree classifier from scratch #8.ipynb to your notebook;
+Ensure that you can execute the code step by step while following along with the video (Google Developers, 2017; available at,https://www.youtube.com/embed/LDRbO9a6XPU.).
+Once complete, share your complete output to the discussion forum along with answers to the following questions: How realistic or useful do you consider the toy data set? What understanding do you have of the working of Gini impurity? How well did you fare in relation to the predictions?
+
+> *Status: 🕐 To-Do* 
+
+#### 3. Decision Tree in Scikit-learn (Wine Dataset) —A Useful Exercise for Your Assessments
+- Babu, V. (2020, 13 May). Decision tree in Sklearn [Web log post]. Retrieved from https://kanoki.org/2020/05/13/decision-tree-in-sklearn/.
+
+This learning activity requires you to follow and explore the code required to build a DT classifier.
+
+For this learning activity, you should:
+
+Download the DT classifier code from https://github.com/min2bro/Tree-Based-Algorithms/blob/master/Decision Tree Classifier in sklearn.ipynb.;
+Follow the paper (https://kanoki.org/2020/05/13/decision-tree-in-sklearn/.), which explores the DT functionality of Scikit-learn;
+Explore what the code is trying to achieve and pay attention to the visualisation;
+Extract the output (DT rules) as a text report; and
+Once complete, share your output in text format to the discussion forum along with your interpretation of the DT rules. Compare and contrast with the DT visualisation previously generated. Which one do you prefer and why?
+
+
+> *Status: 🕐 To-Do* 
+
+#### 4. Comparing Decision Tree Algorithms (Random Forest versus XGBoost) in Python Using the UCI Wine Dataset - —A Useful Exercise for Your Assessments
+- Sblendorio, D. (2019, 14 August). Comparing decision tree algorithms: Random forest vs. XGBoost [Web log post]. Retrieved from https://www.activestate.com/blog/comparing-decision-tree-algorithms-random-forest-vs-xgboost/.
+
+For this learning activity, you will compare the different algorithms and determine the most appropriate solution for the task at hand.
+
+For this learning activity, you should:
+
+- Download the Notebook code from https://gitlab.com/dsblendo/comparingrf_xgboost.;
+- Read through the post below (Sblendorio, 2019; available at https://www.activestate.com/blog/comparing-decision-tree-algorithms-random-forest-vs-xgboost/.);
+- Follow the suggested code snippets embedded in the article together with the comments;
+- Execute the Notebook code step by step; and
+- Once complete, share your thoughts to the discussion forum about your experiences with the different algorithms. Do they all perform at the same speed? Discuss which algorithm you prefer and why.
+
+> *Status: 🕐 To-Do* 
+
+---
+
 ```bash
 --- PLACEHOLDER:
 ## Module X - ...
