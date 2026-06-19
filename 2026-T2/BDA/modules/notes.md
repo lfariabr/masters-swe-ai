@@ -268,6 +268,7 @@ https://mylearn.torrens.edu.au/courses/26571/files/10605037/preview?
 ## Module 4 - Analytics Engine for Big Data - Apache Spark
 
 ### TLDR
+Module 4 is the **processing engine** of the pipeline - once data is ingested (Mod 2) and integrated/stored (Mod 3), **Apache Spark** runs the analytics on it **at scale**. Spark is a distributed engine that is **up to 100x faster than Hadoop/MapReduce** thanks to **in-memory computation** and **lazy DAG optimisation**. Its foundation is the **RDD** (immutable, distributed, fault-tolerant via **lineage**), but in **PySpark** you work with the higher-level **DataFrame** API (named columns, like a distributed pandas/SQL table) optimised by **Catalyst + Tungsten**. Execution runs through a **driver** (plans) and **executors** (do the work). The practical skill set: load data (`spark.read.csv`), shape it (`select`, `withColumn`, `filter`, `groupBy`, `orderBy`, `union`, `join`), and clean it with **built-in functions** (string/date/math) - always preferring built-ins over **UDFs**, which break Spark's optimiser and serialization model. This is the engine layer of **Assessment 1** and **SLOs c) d) e)**.
 
 ### Introduction
 In Module 2 and Module 3 of this subject, you learned about how to build the infrastructure to ingest data from various sources and then integrate, enrich and store them in a data hub. The data hub of a data lake makes the data available to data scientists for analysis. In Module 1, you learned about the data analytics lifecycle, which comprises six phases: discovery, data preparation, model planning, module building, the communication of results and operationalisation. To efficiently perform various tasks in the data analytics lifecycle, data engineers and scientists need effective tools. Due to the sheer volume and complexity, traditional data processing tools and libraries are inadequate at processing and analysing big data. To process data at scale, a distributed system is needed that is scalable, efficient and easy-to-use. In this Module, you will learn about Apache Spark, which is a fast and efficient analytics engine that was designed for large-scale distributed data processing and machine learning (ML).
@@ -285,7 +286,7 @@ Python is one of the most popular programming languages among data scientists. I
 
     Read 'Chapter 1: Understanding Spark' (pp. 1–15). The section entitled 'What is Apache Spark?' provides a brief overview of Apache Spark’s ecosystem, which consists of Spark Core API, Spark SQL, Streaming, MLlib and GraphX. The next section, entitled 'Spark Jobs and APIs' describes the essential concepts related to Spark applications, such as the Execution process, the Resilient Distributed Dataset (RDD), DataFrames and the Query Optimiser. Finally, the overall architecture of Apache Spark is presented in the section entitled 'Spark 2.0 Architecture', which explains how different components work together to achieve scalable, resilient and efficient data processing and ML.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed - see [module04_notes.md](module-04-apache-spark/module04_notes.md)*
 
 #### 2. PySpark DataFrame API
 - Example, Linkedln Learning (2019, January 31). Working with the DataFrame API, Apache PySpark [Video file]. Retrieved from https://www.linkedin.com/learning/apache-pyspark-by-example/the-apache-spark-ecosystem?u=56744473
@@ -294,7 +295,7 @@ Python is one of the most popular programming languages among data scientists. I
 
     You learnt that Spark provides easy-to-use APIs for data processing and machine learning that can be used from Scala, R, Python, and SQL. In this subject, you will be using Python to access Sparks APIs which is termed as PySpark. The concepts of DataSets and DataFrames are central to Spark applications. A Dataset is a distributed collection of data whereas a DataFrame is Dataset organised into named columns. DataFrame is conceptually similar to a table in a relational database or a table in a spreadsheet. Focus on Section 3: Working with the DataFrame API of the video tutorial that demonstrates, using publicly available datasets, how to work with DataFrame in PySpark. In Module 1 of this subject, you have already installed Jupyter Notebook and PySpark. Follow the video instructions, in your own working environment.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Watched + Reviewed - see [module04_notes.md](module-04-apache-spark/module04_notes.md)*
 
 #### 3. PySpark DataFrame API
 - Example, Linkedln Learning (2019, January 31). Working with the DataFrame API, Apache PySpark [Video file]. Retrieved from https://www.linkedin.com/learning/apache-pyspark-by-example/the-apache-spark-ecosystem?u=56744473
@@ -303,7 +304,7 @@ Python is one of the most popular programming languages among data scientists. I
 
     Spark SQL component provides a rich set of built-in functions for aggregation, arrays, maps, date, timestamp, and JSON data. These built-in functions are available from the library PySpark.sql.functions. Focus on Section 4: Functions of the video tutorial that, using publicly available datasets, demonstrates how to work with PySpark’s built-in functions. Spark SQL also supports user-defined functions (UDFs) that allow users to define their own functions when the built-in functions are inadequate for a desired task. However, this section also explains why UDFs can lead to performance degradation and thus built-in functions shall be the first choice.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Watched + Reviewed - see [module04_notes.md](module-04-apache-spark/module04_notes.md)*
 
 ### Learning Activities
 
