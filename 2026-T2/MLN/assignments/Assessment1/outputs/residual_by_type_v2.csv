@@ -1,0 +1,3 @@
+wine,test_wines,mean_abs_residual
+red,341,0.3871
+white,959,0.4539

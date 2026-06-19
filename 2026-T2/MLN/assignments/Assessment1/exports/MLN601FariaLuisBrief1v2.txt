@@ -141,14 +141,14 @@ def regression_metrics(y_true, y_pred):
     }
 
 
-# Mean baseline: predict the training-set mean for every test row.
+# Mean baseline: predict the training-set mean for every test row
 baseline_pred = np.full(shape=y_test.shape, fill_value=y_train.mean())
 
-# Required model: ordinary least squares (no hyperparameters to tune).
+# Required model: ordinary least squares (no hyperparameters to tune)
 linreg = LinearRegression(fit_intercept=True).fit(X_train, y_train)
 
-# Competitors, each with a hyperparameter grid (5-fold CV = validation).
-# Regularised linear models are scaled; the tree model is not.
+# Competitors, each with a hyperparameter grid (5-fold CV = validation)
+# Regularised linear models are scaled; the tree model is not
 searches = {
     "Ridge": (
         Pipeline([("sc", StandardScaler()), ("m", Ridge(random_state=RANDOM_STATE))]),
@@ -215,17 +215,28 @@ best_model = best_estimators[best_name]
 print("Best model by test RMSE:", best_name)
 
 best_pred = best_model.predict(X_test)
-residuals = y_test - best_pred
+
+# Per-wine-type diagnostics: does the model err more on red or on white?
+# Keep wine_type as 0/1 with the default palette so the colours match the
+# quality-distribution and pairplot figures (white = blue, red = orange).
+diag = pd.DataFrame({
+    "actual": y_test.to_numpy(),
+    "predicted": best_pred,
+    "residual": y_test.to_numpy() - best_pred,
+    "wine_type": X_test["wine_type"].to_numpy(),
+})
 
 fig, axes = plt.subplots(1, 2, figsize=(13, 5))
-sns.scatterplot(x=best_pred, y=residuals, alpha=0.35, ax=axes[0])
+sns.scatterplot(data=diag, x="predicted", y="residual", hue="wine_type",
+                alpha=0.35, ax=axes[0])
 axes[0].axhline(0, color="black", linewidth=1)
 axes[0].set_xlabel("Predicted quality")
 axes[0].set_ylabel("Residual (actual - predicted)")
 axes[0].set_title(f"Residuals vs predicted ({best_name})")
 
-sns.scatterplot(x=y_test, y=best_pred, alpha=0.35, ax=axes[1])
-lims = [y_test.min() - 0.5, y_test.max() + 0.5]
+sns.scatterplot(data=diag, x="actual", y="predicted", hue="wine_type",
+                alpha=0.35, ax=axes[1])
+lims = [diag["actual"].min() - 0.5, diag["actual"].max() + 0.5]
 axes[1].plot(lims, lims, color="black", linewidth=1, linestyle="--")
 axes[1].set_xlabel("Actual quality")
 axes[1].set_ylabel("Predicted quality")
@@ -234,6 +245,15 @@ axes[1].set_title(f"Actual vs predicted ({best_name})")
 plt.tight_layout()
 plt.savefig(FIG_DIR / "v2_residuals.png", dpi=150)
 plt.show()
+
+# Hard numbers behind the colours: mean absolute residual by wine type
+diag["abs_residual"] = diag["residual"].abs()
+diag["wine"] = diag["wine_type"].map({1: "red", 0: "white"})
+mar = (diag.groupby("wine")["abs_residual"]
+       .agg(test_wines="count", mean_abs_residual="mean").round(4))
+mar.to_csv(OUTPUT_DIR / "residual_by_type_v2.csv")
+print("\nMean absolute residual by wine type (test set):")
+print(mar)
 
 
 # ----- Code cell 13 -----
