@@ -54,7 +54,7 @@ Dr. Chen Zhan
 - [ ] Module 12 🕐 - Big Data Privacy and Security
 
 ## Assignments
-- [ ] Assessment 1 - deadline 28/06/2026 🔥, **Design Data Pipeline**: report, 1500 words +/- 10% with supporting images, 30%, SLOs `a)`, `b)`, `e)`, XX/100 pts
+- [X] Assessment 1 - deadline 28/06/2026 ✅, **Design Data Pipeline**: report, 1500 words +/- 10% with supporting images, 30%, SLOs `a)`, `b)`, `e)`, XX/100 pts
 - [ ] Assessment 2 - deadline 26/07/2026 🔥, **Visualisation and Model Development**: source code + report, 1000 words +/- 10%, 30%, SLOs `c)`, `d)`, `e)`, XX/100 pts
 - [ ] Assessment 3 - deadline 19/08/2026 🕐, **Model Evaluation**: source code + presentation, 7-10 minutes, 40%, SLOs `c)`, `d)`, `e)`, XX/100 pts
 
