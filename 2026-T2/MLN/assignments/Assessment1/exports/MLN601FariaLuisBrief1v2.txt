@@ -8,6 +8,14 @@
 
 
 # ----- Code cell 1 -----
+import os
+import warnings
+
+# Silence sklearn/joblib parallel UserWarnings so they do not flood the
+# exported PDF. Setting the env var makes loky worker processes inherit it.
+os.environ["PYTHONWARNINGS"] = "ignore"
+warnings.filterwarnings("ignore")
+
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -165,7 +173,7 @@ searches = {
         {"m__alpha": [0.001, 0.01, 0.1, 1.0], "m__l1_ratio": [0.2, 0.5, 0.8]},
     ),
     "RandomForest": (
-        RandomForestRegressor(random_state=RANDOM_STATE, n_jobs=-1),
+        RandomForestRegressor(random_state=RANDOM_STATE, n_jobs=1),
         {"n_estimators": [200, 400], "max_depth": [None, 12, 20]},
     ),
 }
@@ -180,7 +188,7 @@ rows = [
 best_estimators = {"LinearRegression": linreg}
 for name, (estimator, grid) in searches.items():
     gs = GridSearchCV(estimator, grid, scoring="neg_root_mean_squared_error",
-                      cv=5, n_jobs=-1)
+                      cv=5, n_jobs=1)
     gs.fit(X_train, y_train)
     best_estimators[name] = gs.best_estimator_
     rows.append({
@@ -264,7 +272,7 @@ def evaluate_on(data, label):
         Xd, yd, test_size=0.20, random_state=RANDOM_STATE)
     lr = LinearRegression().fit(Xtr, ytr)
     rf = RandomForestRegressor(n_estimators=400, random_state=RANDOM_STATE,
-                               n_jobs=-1).fit(Xtr, ytr)
+                               n_jobs=1).fit(Xtr, ytr)
     return [
         {"dataset": label, "rows": len(data), "model": "LinearRegression",
          **regression_metrics(yte, lr.predict(Xte))},
