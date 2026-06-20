@@ -253,7 +253,7 @@ Step 3: Put together a flowchart in a Word document on how all the considered el
 
 Post your flowchart to the Module 3 discussion forum.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Done*
 
 #### 2. Interactive Knowledge Sharing - Speech Recognition
 Step 1: Think of an exciting speech recognition application that is important to you and that you believe that will have a wider impact on society.
@@ -276,6 +276,94 @@ Step 3: Put together a flowchart in a Word document on how all the considered el
 Post your flowchart to the Module 3 discussion forum.
 
 > *Status: 🕐 To-Do*
+
+---
+
+## Module 4 - Regularization
+
+### TLDR
+
+### Introduction
+Regularization is one of the key elements of machine learning, particularly of deep learning. Regularization refers to any supplementary technique that aims to make a deep learning model generalise better to produce better results for testing datasets. This can include various properties of the loss function, the loss optimisation algorithm or other techniques.
+
+For example, imagine a deep learning model that was built to identify cats using any images. If the model was perfected in extreme details with training data of lions and Siberian tigers, the model may not be able to identify domestic cats from images, as the size, structure and posture of the big cats (i.e., almost all their attributes) will be bigger or larger than those of the domestic cats.
+
+In situations like this, regularization helps deep learning models to become generalised. In this example, regularization could help the deep learning model to identify all types of cats.
+
+### Resources
+
+In this Module, you will learn about an important concept in deep learning called 'regularization'.
+
+A central problem in deep learning is how to make an algorithm that will perform well not just on the training data, but also with new inputs. Many of the strategies used in deep learning have been explicitly designed to reduce test errors, possibly at the expense of increased training errors. These strategies are known collectively as 'regularization'.
+
+You will also learn about related concepts, such as underfitting and overfitting. Most of the research literature available explains regularization in relation to overfitting, which occurs when a model performs exceptionally well with training data, but is not able to predict testing data. In this Module, you will learn about the concept of overfitting and how regularization helps to overcome this problem.
+
+Finally, you will have a hands-on practical experience with regularization.
+
+#### 1. Regularization in Deep Learning
+- Goodfellow, I., Bengio, Y. & Courville, A. (2016). Deep learning. Cambridge, MA: MIT Press. Retrieved from https://www.deeplearningbook.org/
+
+*Resource Overview:*
+
+    This book contains an introduction to a broad range of topics in deep learning. Specifically, it covers the mathematical and conceptual background to deep learning, the deep learning techniques used in industry and research perspectives. This book will be used throughout all the DLE602 modules.
+
+    Please read Chapter 7 for this Module, which discusses regularization. Focus on the various general strategies used to regularise neural networks and investigate all the necessary concepts, such as generalisation, underfitting, overfitting, bias and variance.
+
+> *Status: 🕐 To-Do*
+
+#### 2. Regularization for Unsupervised Deep Neural Nets
+- Wang, B. & Klabjan, D. (2017). Regularization for unsupervised deep neural nets. (ArXiv Working Paper). Retrieved from http://torrens.idm.oclc.org/login?url=https://search-proquest-com.torrens.idm.oclc.org/docview/2075336595?accountid=176901
+
+*Resource Overview:*
+
+    This research paper demonstrates that overfitting occurs in different deep learning models and in deep feedforward neural networks and discusses possible regularization methods to reduce overfitting.
+
+    This research paper will help you better understand the theories related to regularization that you encountered previously. It highlights the application of regularization.
+
+> *Status: 🕐 To-Do*
+
+#### 3. Regularization for Deep Learning: A Taxonomy
+- Kukacka, J., Golkov, V. & Cremers, D. (2017). Regularization for deep learning: A taxonomy. (ArXiv Working Paper). Retrieved from http://torrens.idm.oclc.org/login?url=https://search-proquest-com.torrens.idm.oclc.org/docview/2076307708?accountid=176901
+
+*Resource Overview:*
+    
+    As the title suggests, this research paper presents a taxonomy of regularization in deep learning. It starts at a very basic level and then describes different regularization methods in detail.
+
+    Read the entire paper and pay extra attention to Sections 3 to 7 to try understand the difference between different regularization methods.
+
+> *Status: 🕐 To-Do*
+
+#### 4. An Overview of Regularization Techniques in Deep Learning (with Python code)
+- Shubham, J. (2018, 19 April). An overview of regularization techniques in deep learning (with Python code) [Web log post]. Retrieved from https://www.analyticsvidhya.com/blog/2018/04/fundamentals-deep-learning-regularization-techniques/
+
+*Resource Overview:*
+    
+   This is a great blog post for deep learning beginners, as it provides a summarised presentation of the regularization concept. This blog highlights all the basic points that you need to know to understand regularization.
+
+    This post also contains a case study. Pay extra attention to the case study, as it will be used in one of the in-class activities. It is highly recommended that you download all the necessary software and dataLinks to an external site. related to this case study.
+
+> *Status: 🕐 To-Do*
+
+### Learning Activities
+
+#### 1. Programming
+Let us put our understanding into practice. The resource by Shubham (2018) shares some amazing general knowledge about regularization. Additionally, at the end of the post, Shubham (2018) also discusses a case study on MNIST data with keras. This case study is about automatic digit recognition, a popular object recognition exercise in image data.
+
+Please follow the instructions in relation to the Python implementation for the above case study. Copy and download the necessary Python codes and data from Shubham (2018) or the associated links (https://datahack.analyticsvidhya.com/contest/practice-problem-identify-the-digits/). Follow the instructions, run the code using the image data provided, observe the outcome and pay extra attention to the regularization technique used in this implementation.
+
+Discuss your experience and observations about regularization in the discussion forum.
+
+> *Status: 🕐 To-Do*
+
+#### 2. Analysis
+Whenever we discuss regularization, we are also explicitly or implicitly talking about overfitting. As part of this activity, you are required to identify an area in which overfitting may be required and may produce better outcomes.
+
+Share your answer to the discussion forum and explain why you would prefer to overfit your model for this selected area.
+
+> *Status: 🕐 To-Do*
+
+#### 3. I Wish
+Share your views as to whether if you had previous knowledge of regularization, it would have made any difference to your Assessment 1 submission. If you believe it would have made a difference, discuss the impact this knowledge would have had in the discussion forum in no more than 100 words.
 
 ---
 
