@@ -282,6 +282,12 @@ Post your flowchart to the Module 3 discussion forum.
 ## Module 4 - Regularization
 
 ### TLDR
+- **Regularization** = any technique that makes a model generalise better (lower test error), bought by **trading a little bias for a lot less variance** - the cure for overfitting (Goodfellow Ch.7).
+- **Parameter norm penalties:** **L2** (weight decay / ridge) shrinks weights toward zero; **L1** (lasso) drives many weights to *exactly* zero → sparsity and feature selection.
+- **The practical toolkit:** dataset augmentation, **early stopping** (the most-used regularizer), **dropout** (a cheap approximation to bagging an exponential ensemble of shared-weight sub-networks), bagging, noise/label smoothing.
+- **Kukačka et al. taxonomy:** there are exactly **5 levers** to regularize - **data, architecture, error function, regularization term, optimization** - so seemingly unrelated methods (augmentation, dropout, batch norm) are close cousins.
+- **Wang & Klabjan:** overfitting hits **unsupervised** nets (RBM/DBN/DBM) too; their **partial DropConnect (PDC)** is the most stable fix.
+- **Shubham (2018)** is the **Activity 1** hands-on: L1/L2, dropout, augmentation and early stopping on an MNIST digit-recognition net in Keras (augmentation gave the biggest leap).
 
 ### Introduction
 Regularization is one of the key elements of machine learning, particularly of deep learning. Regularization refers to any supplementary technique that aims to make a deep learning model generalise better to produce better results for testing datasets. This can include various properties of the loss function, the loss optimisation algorithm or other techniques.
@@ -309,7 +315,7 @@ Finally, you will have a hands-on practical experience with regularization.
 
     Please read Chapter 7 for this Module, which discusses regularization. Focus on the various general strategies used to regularise neural networks and investigate all the necessary concepts, such as generalisation, underfitting, overfitting, bias and variance.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module04_notes.md](module-04-regularization/module04_notes.md)*
 
 #### 2. Regularization for Unsupervised Deep Neural Nets
 - Wang, B. & Klabjan, D. (2017). Regularization for unsupervised deep neural nets. (ArXiv Working Paper). Retrieved from http://torrens.idm.oclc.org/login?url=https://search-proquest-com.torrens.idm.oclc.org/docview/2075336595?accountid=176901
@@ -320,7 +326,7 @@ Finally, you will have a hands-on practical experience with regularization.
 
     This research paper will help you better understand the theories related to regularization that you encountered previously. It highlights the application of regularization.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module04_notes.md](module-04-regularization/module04_notes.md)*
 
 #### 3. Regularization for Deep Learning: A Taxonomy
 - Kukacka, J., Golkov, V. & Cremers, D. (2017). Regularization for deep learning: A taxonomy. (ArXiv Working Paper). Retrieved from http://torrens.idm.oclc.org/login?url=https://search-proquest-com.torrens.idm.oclc.org/docview/2076307708?accountid=176901
@@ -331,7 +337,7 @@ Finally, you will have a hands-on practical experience with regularization.
 
     Read the entire paper and pay extra attention to Sections 3 to 7 to try understand the difference between different regularization methods.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module04_notes.md](module-04-regularization/module04_notes.md)*
 
 #### 4. An Overview of Regularization Techniques in Deep Learning (with Python code)
 - Shubham, J. (2018, 19 April). An overview of regularization techniques in deep learning (with Python code) [Web log post]. Retrieved from https://www.analyticsvidhya.com/blog/2018/04/fundamentals-deep-learning-regularization-techniques/
@@ -342,7 +348,7 @@ Finally, you will have a hands-on practical experience with regularization.
 
     This post also contains a case study. Pay extra attention to the case study, as it will be used in one of the in-class activities. It is highly recommended that you download all the necessary software and dataLinks to an external site. related to this case study.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module04_notes.md](module-04-regularization/module04_notes.md)*
 
 ### Learning Activities
 
