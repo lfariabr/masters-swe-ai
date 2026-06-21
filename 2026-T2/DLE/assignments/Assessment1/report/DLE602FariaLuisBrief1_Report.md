@@ -9,6 +9,18 @@
 
 Twitter sentiment analysis assigns positive, negative, or neutral sentiment to short, noisy social-media messages. Zhao, Gui, and Zhang (2018) approached this with deep convolutional neural networks; this assessment instead implements the required probabilistic N-Gram language model. Separate positive and negative bigram models are trained from labelled tweets, and a simple threshold rule decides each tweet's sentiment. The same model, preprocessing, and rule are applied to two of the paper's five datasets — STS-Test and STS-Gold — so their outcomes can be compared on identical terms.
 
+## Datasets
+
+Both evaluation sets are drawn from the five datasets used by Zhao, Gui, and Zhang (2018), and were chosen because they are the only two distributed as **full tweet text**: the paper's other sources (SemEval-2014, SS-Tweet) ship only as tweet IDs that now require paid Twitter-API hydration, which would break reproducibility. The pair is also deliberately contrastive — STS-Test carries a neutral class while STS-Gold does not — which directly exposes how the same model handles a three-class versus a two-class source (Table 1).
+
+*Table 1. Datasets used (one training corpus and two evaluation sources).*
+
+| Role | Dataset | Rows | Classes | Source (no login) |
+|---|---|---:|---|---|
+| Training corpus | Sentiment140 | 80,000 (sample) | neg / pos | cs.stanford.edu |
+| Dataset A | STS-Test | 498 | neg / **neutral** / pos | same Stanford zip |
+| Dataset B | STS-Gold | 2,034 | neg / pos | github.com/pollockj (Saif et al., 2013) |
+
 ## Implementation method
 
 The classifier uses a bigram model (n = 2) with add-one (Laplace) smoothing over a 49,038-token vocabulary, trained on a balanced 80,000-tweet sample of the Sentiment140 corpus (Go et al., 2009). Tweets are normalised by lowercasing, replacing URLs and usernames with placeholder tokens, stripping the hash symbol while keeping the hashtag word, and retaining exclamation marks and negation. For each test tweet, every bigram is scored under both models; a bigram counts as positive or negative when its smoothed conditional log-probability is higher under that model. Following the brief, a tweet is labelled positive when at least one quarter of its bigrams are positive and outnumber the negative ones, negative by the mirror rule, and neutral otherwise.
@@ -40,14 +52,13 @@ flowchart LR
 
 ## Results and comparison
 
-The two sources produced clearly different outcomes (Table 1). On STS-Gold the model reached 0.72 accuracy and 0.73 macro-F1; on STS-Test it managed only 0.45 accuracy and 0.40 macro-F1. Three factors explain the gap. First, STS-Gold is a two-class problem, whereas STS-Test adds a neutral class the model struggles with: it predicted neutral for only 38 of 498 tweets, far below the 139 truly neutral ones. With Laplace smoothing almost every bigram leans slightly positive or negative, so the 25% threshold is easily crossed and neutral is rarely chosen. Second, STS-Gold's informal tweet style closely matches the emoticon-labelled training corpus, giving denser, more reliable bigram evidence. Third, both datasets share a positive-leaning bias — predicted positives exceed true positives in each — inherited from the training data. The shared model behaviour is therefore consistent, but its usefulness depends heavily on the target source. A trigram variant performed worse on both datasets (0.42 and 0.55 accuracy), confirming that higher-order N-Grams are too sparse for short tweets, so the bigram is the submitted model.
+The two sources produced clearly different outcomes (Table 2). On STS-Gold the model reached 0.72 accuracy and 0.73 macro-F1; on STS-Test it managed only 0.45 accuracy and 0.40 macro-F1. Three factors explain the gap. First, STS-Gold is a two-class problem, whereas STS-Test adds a neutral class the model struggles with: it predicted neutral for only 38 of 498 tweets, far below the 139 truly neutral ones. With Laplace smoothing almost every bigram leans slightly positive or negative, so the 25% threshold is easily crossed and neutral is rarely chosen. Second, STS-Gold's informal tweet style closely matches the emoticon-labelled training corpus, giving denser, more reliable bigram evidence. Third, both datasets share a positive-leaning bias — predicted positives exceed true positives in each — inherited from the training data. The shared model behaviour is therefore consistent, but its usefulness depends heavily on the target source. A capacity sweep makes the model-selection choice concrete (Appendix C): as the N-Gram order rises from unigram to bigram to trigram, training accuracy climbs from 0.71 to 0.93 to 0.99 while the train-test gap widens from 0.25 to 0.48 to 0.57 — the textbook overfitting signature of variance growing with capacity. The trigram memorises the training tweets almost perfectly yet generalises worst (0.42 and 0.55 accuracy), so the bigram is the submitted model; here the add-k smoothing acts as a regularization dial that trades a little training fit for better generalisation.
 
 *Figure 2. Confusion matrices illustrating the model's performance.*
 
-<p align="center">
-  <img src="../outputs/figures/confusion_sts_test.png" width="48%" alt="STS-Test confusion matrix"/>
-  <img src="../outputs/figures/confusion_sts_gold.png" width="48%" alt="STS-Gold confusion matrix"/>
-</p>
+| STS-Test | STS-Gold |
+|:--:|:--:|
+| ![STS-Test confusion matrix](../outputs/figures/confusion_sts_test.png) | ![STS-Gold confusion matrix](../outputs/figures/confusion_sts_gold.png) |
 
 
 ## Critical reflection
@@ -87,7 +98,7 @@ The N-Gram model is a transparent, reproducible baseline that classifies tweets 
 
 ## Appendix B - Results
 
-*Table 1 — Results (bigram model, identical settings)*
+*Table 2 — Results (bigram model, identical settings)*
 
 | Metric | STS-Test | STS-Gold |
 |---|---:|---:|
@@ -96,6 +107,31 @@ The N-Gram model is a transparent, reproducible baseline that classifies tweets 
 | Predicted negative / neutral / positive | 186 / 38 / 274 | 1,110 / 136 / 788 |
 | Accuracy | 0.452 | 0.719 |
 | Macro-F1 | 0.401 | 0.726 |
+
+## Appendix C - Bias-variance and regularization
+
+The N-Gram order is a model-capacity dial and the add-k smoothing constant is a regularization dial. Sweeping both on the Assessment 1 data (`code/bias_variance_sweep.py`) reproduces the bias-variance trade-off on this exact model: raising capacity lowers bias but raises variance, and stronger smoothing buys some of that variance back.
+
+*Table C1. Capacity dial (add-k fixed at 1.0). Training accuracy rises with capacity while test accuracy falls and the train-test gap widens — the overfitting signature.*
+
+| N-Gram order | Train acc | STS-Test | STS-Gold | Train−Test gap |
+|---|---:|---:|---:|---:|
+| Unigram (n=1) | 0.71 | 0.46 | 0.69 | 0.25 |
+| Bigram (n=2) | 0.93 | 0.45 | 0.72 | 0.48 |
+| Trigram (n=3) | 0.99 | 0.42 | 0.55 | 0.57 |
+
+*Table C2. Regularization dial (bigram, add-k swept). Increasing k trades a little training fit for slightly better generalisation on STS-Gold.*
+
+| add-k | Train acc | STS-Gold |
+|---|---:|---:|
+| 0.001 | 0.94 | 0.69 |
+| 0.1 | 0.93 | 0.72 |
+| 1.0 | 0.93 | 0.72 |
+| 25 | 0.93 | 0.72 |
+
+![Bias-variance sweep](../outputs/figures/bias_variance.png)
+
+*Figure 3. Left: capacity dial — higher N-Gram order memorises the training set and generalises worse. Right: regularization dial — add-k smoothing is the finer knob once capacity is fixed. Generated by `code/bias_variance_sweep.py`.*
 
 ---
 

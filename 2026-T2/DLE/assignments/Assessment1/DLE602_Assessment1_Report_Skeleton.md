@@ -12,7 +12,7 @@
 | Weight | 30% |
 | Due | Sunday at end of Module 4; README currently records 28/06/2026 |
 | Learning outcomes | SLO a, SLO b |
-| Current status | v2: CLI implemented at `code/dle602_sentiment_ngram.py`, datasets downloaded and normalised, model executed end-to-end (bigram) on both datasets with real metrics, figures and a companion notebook; 500-word report written at `report/DLE602FariaLuisBrief1_Report.md` (532 words). Remaining: final APA pass + submission zip |
+| Current status | v3: CLI at `code/dle602_sentiment_ngram.py` + bias-variance harness `code/bias_variance_sweep.py`; datasets downloaded and normalised; model executed end-to-end (bigram) on both datasets with real metrics, figures and a companion notebook; report at `report/DLE602FariaLuisBrief1_Report.md` expanded to ~658 words (Datasets section + Tables 1-2, Figures 1-3, Appendix C bias-variance) under the facilitator's verbal 700-800 allowance. Remaining: final APA pass + submission zip |
 
 ---
 
@@ -46,7 +46,7 @@
 | Dataset comparison results | 180-220 | Similarities/differences across two sources; include metrics from final run |
 | Critical reflection | 80-100 | Explain limitations: sparse N-Grams, slang, negation, class imbalance |
 | Conclusion | 40-60 | One tight closing judgement |
-| Total body | 500 | Keep tables outside the 500 words if allowed |
+| Total body | 500 (verbal extension to 700-800; current draft ~658) | Keep tables, figures and appendices outside the word count |
 
 ## Draft Thesis
 
@@ -266,7 +266,9 @@ Overall, the experiment shows that N-Gram sentiment analysis can classify some T
 4. ✅ Exported metrics, confusion matrices and figures into `outputs/`.
 5. ✅ Replaced all `TBD` placeholders in the report shell with real numbers.
 6. ✅ Wrote the 500-word report (`report/DLE602FariaLuisBrief1_Report.md`, 532 words; table/refs kept separate).
-7. 🕐 Final APA reference pass and prepare the submission zip (source code, report, outputs, dataset links).
+7. ✅ Added a bias-variance sweep (`code/bias_variance_sweep.py`) and **Appendix C** (Tables C1-C2 + Figure 3) demonstrating the capacity dial (N-Gram order) vs the regularization dial (add-k) on the A1 model.
+8. ✅ Expanded the report to ~658 words: added a **Datasets** section (rationale + Table 1) and folded the bias-variance finding into Results, under the facilitator's verbal 700-800 allowance.
+9. 🕐 Final APA reference pass and prepare the submission zip (source code, report, outputs, dataset links).
 
 ---
 
