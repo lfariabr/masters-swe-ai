@@ -42,7 +42,7 @@ Dr. Kamran Shaukat
 - [X] Module 1 ✅ - Career Opportunities, Key Concepts, Applications, Types of Algorithms and Software
 - [X] Module 2 ✅ - Managing Machine Learning Projects: CRISP-DM, Ethics by Design (Australasia), and Data Sets
 - [X] Module 3 ✅ - Supervised Learning and Linear Regression
-- [ ] Module 4 🔥 - Decision Trees
+- [X] Module 4 ✅ - Decision Trees
 - [ ] Module 5 🕐 - Classification and Bayes Rule
 - [ ] Module 6 🕐 - Support Vector Machines
 - [ ] Module 7 🕐 - Automated and Explainable Machine Learning
