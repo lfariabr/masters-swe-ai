@@ -101,8 +101,8 @@ Write this as a **critical synthesis** that builds toward our design, not a list
 | Stage | Work | What it contributes | How we use it |
 |---|---|---|---|
 | Recent survey / map of the field | Systematic review of ABSA: domains, methods, trends (2024, *Artificial Intelligence Review*) [authors - confirm via DOI 10.1007/s10462-024-10906-z] | A 2024 taxonomy of ABSA subtasks and methods | Positions our ATSC scope on the current map; recency anchor |
-| Modern transformer SOTA on **our** benchmark | InstructABSA / Instruct-DeBERTa comparative study (2024, arXiv 2407.02834) | Instruction-tuned extraction + DeBERTa-V3 classification; SOTA on SemEval-2014 Restaurants/Laptops | Realistic upper bound; justifies DistilBERT as the feasible, lighter cousin |
-| LLM / generative frontier | Large language models for ABSA (2023, arXiv 2310.18025); aspect sentiment quad prediction with LLMs (2023-2025) | Zero/few-shot and generative (quad) ABSA via prompting | Frame as the frontier our interpretable, light-compute design deliberately contrasts with |
+| Modern transformer SOTA on **our** benchmark | Jayakody et al. (2024), comparative study (arXiv 2407.02834) | Benchmarks deep-NN ABSA on SemEval-2014 Restaurants/Laptops; reports LSA+DeBERTa as strongest (~90% / ~86%) | Realistic upper bound; justifies DistilBERT as the feasible, lighter cousin |
+| LLM / generative frontier | Simmering & Huoviala (2023), LLMs for ABSA (arXiv 2310.18025) | GPT-3.5/4 in zero/few-shot vs fine-tuning for ABSA via prompting | Frame as the frontier our interpretable, light-compute design deliberately contrasts with |
 | Topic-model bridge (see Section 3) | He et al. (2017) ABAE - unsupervised neural attention for aspect extraction; LDA + ABSA exploration (2024) | Neural, attention-based aspect *discovery* without gold labels | Optional aspect-discovery stage; ties Topic Modelling into the DL + attention narrative |
 
 **Positioning / gap.** Strong ABSA models exist - increasingly LLM-driven - but student/portfolio projects rarely pair a *light, reproducible* transformer baseline with an **interpretability layer** and a cross-domain demo on real customer feedback. Our niche is explainable, low-compute aspect sentiment, positioned honestly against the heavier LLM frontier.
@@ -224,14 +224,14 @@ Wang, Y., Huang, M., Zhu, X., & Zhao, L. (2016). Attention-based LSTM for aspect
 
 Zhao, J., Gui, X., & Zhang, X. (2018). Deep convolution neural networks for Twitter sentiment analysis. *IEEE Access, 6*, 23253-23260. https://doi.org/10.1109/ACCESS.2017.2776930
 
-### Recent additions (2023-2026) - confirm exact APA details (authors/year) against each source before submission
+### Recent additions (2023-2026) - authors confirmed from the PDFs in `ARTICLES/`; still confirm journal volume/issue/pages before final submission
 
 He, R., Lee, W. S., Ng, H. T., & Dahlmeier, D. (2017). An unsupervised neural attention model for aspect extraction. *Proceedings of ACL 2017*, 388-397. https://aclanthology.org/P17-1036/  *(the Topic-Modelling-to-ABSA bridge: neural, attention-based aspect discovery)*
 
-[Authors to confirm]. (2024). A systematic review of aspect-based sentiment analysis: Domains, methods, and trends. *Artificial Intelligence Review*. https://doi.org/10.1007/s10462-024-10906-z
+Hua, Y. C., Denny, P., Wicker, J., & Taskova, K. (2024). A systematic review of aspect-based sentiment analysis: Domains, methods, and trends. *Artificial Intelligence Review, 57*, Article 296. https://doi.org/10.1007/s10462-024-10906-z
 
-[Authors to confirm]. (2024). Aspect-based sentiment analysis techniques: A comparative study (InstructABSA / Instruct-DeBERTa on SemEval-2014). *arXiv preprint* arXiv:2407.02834. https://arxiv.org/abs/2407.02834
+Jayakody, D., Isuranda, K., Malkith, A. V. A., de Silva, N., Ponnamperuma, S. R., Sandamali, G. G. N., & Sudheera, K. L. K. (2024). Aspect-based sentiment analysis techniques: A comparative study. *arXiv* preprint arXiv:2407.02834. https://arxiv.org/abs/2407.02834
 
-[Authors to confirm]. (2023). Large language models for aspect-based sentiment analysis. *arXiv preprint* arXiv:2310.18025. https://arxiv.org/abs/2310.18025
+Simmering, P. F., & Huoviala, P. (2023). Large language models for aspect-based sentiment analysis. *arXiv* preprint arXiv:2310.18025. https://arxiv.org/abs/2310.18025
 
-[Authors to confirm]. (2024). A comprehensive exploration of machine and deep learning classification methods for aspect-based sentiment analysis with Latent Dirichlet Allocation topic modeling. *Journal of Future Artificial Intelligence and Technologies*. https://doi.org/10.62411/faith.2024-3
+Setiadi, D. R. I. M., Marutho, D., & Setiyanto, N. A. (2024). Comprehensive exploration of machine and deep learning classification methods for aspect-based sentiment analysis with Latent Dirichlet Allocation topic modeling. *Journal of Future Artificial Intelligence and Technologies*. https://doi.org/10.62411/faith.2024-3

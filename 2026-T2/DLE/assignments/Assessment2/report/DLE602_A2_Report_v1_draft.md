@@ -51,7 +51,7 @@ Deep learning reset the baseline for sentiment analysis: Zhao, Gui and Zhang (20
 
 The sequence-modelling line answers that question by conditioning on the aspect. Tang et al. (2016) show that target-dependent LSTMs (TD-LSTM) outperform target-agnostic ones by encoding the aspect's position, but they still weight all context words equally. Wang et al. (2016) close that gap with ATAE-LSTM, adding an aspect embedding and an attention mechanism so the model learns *which* words matter for *which* aspect - the design we adopt as our first model and the source of our interpretability layer.
 
-The transformer era diverges from recurrence. Devlin et al. (2019) replace sequential encoding with pretrained bidirectional attention, and Sun, Huang and Qiu (2019) adapt BERT to ABSA by constructing an auxiliary sentence per aspect, recasting classification as sentence-pair inference - the basis of our second (DistilBERT) model. Recent work pushes further: instruction-tuned systems such as InstructABSA report state-of-the-art results on the same SemEval-2014 sets (2024), and large language models now perform ABSA in zero- and few-shot settings (2023), a shift mapped by a 2024 systematic review of the field.
+The transformer era diverges from recurrence. Devlin et al. (2019) replace sequential encoding with pretrained bidirectional attention, and Sun, Huang and Qiu (2019) adapt BERT to ABSA by constructing an auxiliary sentence per aspect, recasting classification as sentence-pair inference - the basis of our second (DistilBERT) model. Recent work pushes further: comparative benchmarks report strong transformer results on the same SemEval-2014 sets (Jayakody et al., 2024), and large language models now perform ABSA in zero- and few-shot settings (Simmering & Huoviala, 2023), a shift mapped by a recent systematic review of the field (Hua et al., 2024).
 
 We build on, rather than chase, this frontier. Heavy LLM pipelines rarely pair a light, reproducible model with faithful explanations; and where reviews lack gold aspects, neural aspect discovery (He et al., 2017) can surface them unsupervised - our optional Topic Modelling stage. Our niche is explainable, low-compute aspect sentiment, evaluated honestly against this body of work.
 
@@ -87,7 +87,7 @@ Sentence-level sentiment loses the aspect-level detail that businesses act on. R
 ---
 
 ## 7. References
-*(APA - confirm authors/year of the 2023-2026 entries against each source before submission)*
+*(APA - authors confirmed from the PDFs in `ARTICLES/`; confirm journal volume/issue/pages before final submission)*
 
 Devlin, J., Chang, M.-W., Lee, K., & Toutanova, K. (2019). BERT: Pre-training of deep bidirectional transformers for language understanding. *Proceedings of NAACL-HLT 2019*, 4171-4186. https://aclanthology.org/N19-1423/
 
@@ -103,8 +103,8 @@ Wang, Y., Huang, M., Zhu, X., & Zhao, L. (2016). Attention-based LSTM for aspect
 
 Zhao, J., Gui, X., & Zhang, X. (2018). Deep convolution neural networks for Twitter sentiment analysis. *IEEE Access, 6*, 23253-23260. https://doi.org/10.1109/ACCESS.2017.2776930
 
-[Authors to confirm]. (2024). A systematic review of aspect-based sentiment analysis: Domains, methods, and trends. *Artificial Intelligence Review*. https://doi.org/10.1007/s10462-024-10906-z
+Hua, Y. C., Denny, P., Wicker, J., & Taskova, K. (2024). A systematic review of aspect-based sentiment analysis: Domains, methods, and trends. *Artificial Intelligence Review, 57*, Article 296. https://doi.org/10.1007/s10462-024-10906-z
 
-[Authors to confirm]. (2024). Aspect-based sentiment analysis techniques: A comparative study. *arXiv preprint* arXiv:2407.02834. https://arxiv.org/abs/2407.02834
+Jayakody, D., Isuranda, K., Malkith, A. V. A., de Silva, N., Ponnamperuma, S. R., Sandamali, G. G. N., & Sudheera, K. L. K. (2024). Aspect-based sentiment analysis techniques: A comparative study. *arXiv* preprint arXiv:2407.02834. https://arxiv.org/abs/2407.02834
 
-[Authors to confirm]. (2023). Large language models for aspect-based sentiment analysis. *arXiv preprint* arXiv:2310.18025. https://arxiv.org/abs/2310.18025
+Simmering, P. F., & Huoviala, P. (2023). Large language models for aspect-based sentiment analysis. *arXiv* preprint arXiv:2310.18025. https://arxiv.org/abs/2310.18025

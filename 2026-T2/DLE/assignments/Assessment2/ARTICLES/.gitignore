@@ -1,0 +1,4 @@
+# Third-party article PDFs - kept LOCAL ONLY, not pushed to the public portfolio repo.
+# Downloaded for personal academic study from open-access sources (ACL Anthology, arXiv).
+# The reading index (README.md) is tracked; the PDFs are not.
+*.pdf
