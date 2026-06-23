@@ -1,5 +1,5 @@
 # Review Pulse v2: Aspect-Based Sentiment Analysis of Customer Reviews with Attention-Based Deep Learning
-*DLE602 Deep Learning - Assessment 2 Proposal Skeleton v1*
+*DLE602 Deep Learning - Assessment 2 Proposal Skeleton v2*
 
 ## Working Metadata
 
@@ -9,12 +9,12 @@
 | Assessment | Assessment 2 - Deep Learning Project Proposal Presentation |
 | Task | Propose a deep-learning project (literature review + plan) and present it |
 | Deliverables | 1,000-word report (+/-10%) + 5-7 minute audio-visual presentation |
-| Group | 2-3 people |
+| Group | 3 people: Luis Faria (A00187785), Victor [surname - confirm + student ID], Juan [surname - confirm + student ID] |
 | Weight | 30% |
 | Due | Sunday end of Module 8; README currently records 26/07/2026 |
 | Learning outcomes | SLO b, SLO c, SLO d, SLO e |
 | Feeds into | Assessment 3 (the build) - same project, implemented in Python |
-| Current status | v1 skeleton: project framing, research questions, literature spine, method plan, project plan, and risk register drafted; prose, group names, and final paper set still to finalise |
+| Current status | v2 skeleton: group set (Luis + Victor + Juan; IDs to confirm), recent 2023-2026 literature folded into the spine, Topic Modelling scoped as an optional neural aspect-discovery stage, problem statement tightened to a word-counted draft. Still to finalise: surnames/IDs on the cover, full prose, APA pass, slide deck + recording |
 
 ---
 
@@ -72,16 +72,16 @@ Sentence-level sentiment models, including the deep CNN of Zhao, Gui, and Zhang 
 
 ## 1. Problem Statement, Aim & Research Questions
 
-**Problem.** Most sentiment systems classify a whole text as positive/negative/neutral. Real reviews are mixed: *"the food was great but the service was slow"* deserves two opposite labels, one per aspect. Sentence-level models (and bag-of-words baselines like Review Pulse) cannot express this, which limits their usefulness for product, hospitality, and customer-experience teams.
+**Problem.** Most sentiment systems assign a single polarity to a whole text. Our Assessment 1 N-gram classifier and the deep CNN of Zhao, Gui and Zhang (2018) both do exactly this. Real customer reviews are mixed: *"the food was great but the service was slow"* carries two opposite opinions, one per aspect. A single label collapses that detail and hides precisely what product, hospitality, and customer-experience teams need to act on.
 
-**Aim.** Design and evaluate an ABSA system that predicts sentiment for each aspect of a review, compares an attention-LSTM with a fine-tuned transformer, and exposes interpretable attention-based explanations.
+**Aim.** Design and evaluate an aspect-based sentiment analysis (ABSA) system that predicts sentiment per aspect of a review, compares an attention-based LSTM (ATAE-LSTM) with a fine-tuned transformer (DistilBERT), and exposes interpretable attention-based explanations of each prediction.
 
 **Research questions.**
 - **RQ1** - Does aspect-level modelling produce more useful, fine-grained sentiment than a sentence-level baseline on the same reviews?
 - **RQ2** - How does an attention-LSTM (ATAE-LSTM) compare with a fine-tuned transformer (DistilBERT) on the SemEval-2014 aspect sentiment task (accuracy, macro-F1)?
 - **RQ3** - Do attention weights give faithful, human-readable explanations of aspect-level predictions?
 
-> Keep this section ~130-160 words in the final report. The failing-example sentence is the hook — keep it.
+> Draft above is ~150 words (problem + aim + RQs), inside the 130-160 target. The A1 tie-in is deliberate continuity; the failing-example sentence is the hook - keep it. Optional RQ4 if the group adopts the Topic Modelling stage (see Section 3): *Can a neural topic model surface the review aspects without gold annotation, and how does discovery quality affect downstream aspect sentiment?*
 
 ## 2. Literature Review (spine to write against)
 
@@ -96,15 +96,26 @@ Write this as a **critical synthesis** that builds toward our design, not a list
 | Transformer era | Devlin et al. (2019) | BERT: pretrained contextual representations | Background for transfer learning |
 | BERT for ABSA | Sun, Huang & Qiu (2019) | Auxiliary-sentence construction for aspect sentiment with BERT | Our **second** model's design |
 
-**Positioning / gap.** Strong ABSA models exist, but student/portfolio projects rarely pair a transformer baseline with an **interpretability layer** and a cross-domain demo on real customer feedback. That is our niche.
+**Recent literature (2023-2026) - cite for currency.** The classic spine above (2014-2019) earns the marks for *foundations*; these recent works show the field's current frontier and protect us against a "dated reading list" critique. Use them in the synthesis, not as a separate list.
 
-> Target ~320-360 words. Synthesis verbs: *compare, contrast, build on, diverge from* — not *the authors say*.
+| Stage | Work | What it contributes | How we use it |
+|---|---|---|---|
+| Recent survey / map of the field | Systematic review of ABSA: domains, methods, trends (2024, *Artificial Intelligence Review*) [authors - confirm via DOI 10.1007/s10462-024-10906-z] | A 2024 taxonomy of ABSA subtasks and methods | Positions our ATSC scope on the current map; recency anchor |
+| Modern transformer SOTA on **our** benchmark | InstructABSA / Instruct-DeBERTa comparative study (2024, arXiv 2407.02834) | Instruction-tuned extraction + DeBERTa-V3 classification; SOTA on SemEval-2014 Restaurants/Laptops | Realistic upper bound; justifies DistilBERT as the feasible, lighter cousin |
+| LLM / generative frontier | Large language models for ABSA (2023, arXiv 2310.18025); aspect sentiment quad prediction with LLMs (2023-2025) | Zero/few-shot and generative (quad) ABSA via prompting | Frame as the frontier our interpretable, light-compute design deliberately contrasts with |
+| Topic-model bridge (see Section 3) | He et al. (2017) ABAE - unsupervised neural attention for aspect extraction; LDA + ABSA exploration (2024) | Neural, attention-based aspect *discovery* without gold labels | Optional aspect-discovery stage; ties Topic Modelling into the DL + attention narrative |
+
+**Positioning / gap.** Strong ABSA models exist - increasingly LLM-driven - but student/portfolio projects rarely pair a *light, reproducible* transformer baseline with an **interpretability layer** and a cross-domain demo on real customer feedback. Our niche is explainable, low-compute aspect sentiment, positioned honestly against the heavier LLM frontier.
+
+> Target ~320-360 words. Synthesis verbs: *compare, contrast, build on, diverge from* — not *the authors say*. The arc to narrate: CNN (2018) → aspect-aware/attention LSTM (2016) → BERT-for-ABSA (2019) → LLM/generative + neural aspect discovery (2023-2026, where we sit).
 
 ## 3. Proposed Approach & Methods
 
 **Dataset.** SemEval-2014 Task 4 — Restaurants (~3k sentences) and Laptops (~3k), each annotated with aspect terms/categories and polarity. Already annotated → no manual labelling (key feasibility point). Restaurants maps cleanly to service/customer-feedback framing.
 
 **Scope decision.** Focus on **Aspect Sentiment Classification** given gold aspect terms (the well-defined ATSC/ACSA setting), not full end-to-end aspect extraction. This keeps A3 feasible; extraction is a documented stretch goal.
+
+**Topic Modelling - where it fits (and where it does not).** Topic Modelling (LDA / BERTopic) is *unsupervised theme discovery*; ABSA is *supervised per-aspect sentiment*. They are not interchangeable, so Topic Modelling is **not** a third sentiment model. It earns a place in exactly one slot: the **aspect-discovery front-end**. SemEval gives gold aspects, but real reviews do not - so a neural topic model (BERTopic, or He et al.'s attention-based ABAE) can *discover* candidate aspects unsupervised, which the ASC models then score. This (a) closes the realistic "where do aspects come from?" gap, (b) stays inside Deep Learning by using **neural** topic models (transformer embeddings + attention), not classical LDA alone, and (c) reinforces - rather than dilutes - the attention theme. **Decision: include it as an optional/stretch pipeline stage and an EDA layer (a topic map of the corpus motivates which aspects matter), explicitly bounded in the risk register so it cannot threaten the core ATSC deliverable.** If the group wants it as a first-class contribution, it becomes RQ4; otherwise it stays a stretch goal and a portfolio-shine figure.
 
 **Model progression (each step demonstrates subject concepts).**
 
@@ -182,12 +193,13 @@ Indicative plan from proposal (Module 8) to A3 submission (Module 12 / README: 1
 | Attention != faithful explanation (known debate) | Over-claiming interpretability | Frame attention as indicative, not causal; cite the limitation |
 | Group coordination / uneven load | Delivery + marks risk | Defined roles, shared repo, weekly check-ins, equal presentation split |
 | Domain mismatch (SemEval vs clinic/Amazon) | Demo looks off-domain | Train on SemEval, present cross-domain demo explicitly as transfer, not in-domain accuracy |
+| Topic Modelling stage expands scope | Distracts from core ATSC, threatens A3 | Keep it optional/stretch; gate it behind a working ASC pipeline; ship core deliverable with gold aspects regardless |
 
 ## Appendix C - Next Draft Tasks
 
-1. Confirm group members and roles; add names + IDs to the cover page.
-2. Lock the final 4-6 paper set and pull APA citations.
-3. Write the problem statement + research questions to ~150 words.
+1. Confirm group members and roles; add Victor's + Juan's surnames + student IDs to the cover page (Luis = A00187785 done).
+2. Lock the final 4-6 paper set and pull APA citations - including confirming authors/year for the 2023-2026 additions (survey DOI 10.1007/s10462-024-10906-z; arXiv 2407.02834; arXiv 2310.18025).
+3. Problem statement + research questions drafted to ~150 words (done in Section 1); decide whether Topic Modelling becomes RQ4 or stays a stretch goal.
 4. Draft the literature review as critical synthesis (~340 words).
 5. Finalise the method section + the two model tables.
 6. Build the activity plan into a simple Gantt for the slides.
@@ -211,3 +223,15 @@ Torrens University Australia. (2024). *DLE602 Assessment 2 brief: Deep Learning 
 Wang, Y., Huang, M., Zhu, X., & Zhao, L. (2016). Attention-based LSTM for aspect-level sentiment classification. *Proceedings of EMNLP 2016*, 606-615. https://aclanthology.org/D16-1058/
 
 Zhao, J., Gui, X., & Zhang, X. (2018). Deep convolution neural networks for Twitter sentiment analysis. *IEEE Access, 6*, 23253-23260. https://doi.org/10.1109/ACCESS.2017.2776930
+
+### Recent additions (2023-2026) - confirm exact APA details (authors/year) against each source before submission
+
+He, R., Lee, W. S., Ng, H. T., & Dahlmeier, D. (2017). An unsupervised neural attention model for aspect extraction. *Proceedings of ACL 2017*, 388-397. https://aclanthology.org/P17-1036/  *(the Topic-Modelling-to-ABSA bridge: neural, attention-based aspect discovery)*
+
+[Authors to confirm]. (2024). A systematic review of aspect-based sentiment analysis: Domains, methods, and trends. *Artificial Intelligence Review*. https://doi.org/10.1007/s10462-024-10906-z
+
+[Authors to confirm]. (2024). Aspect-based sentiment analysis techniques: A comparative study (InstructABSA / Instruct-DeBERTa on SemEval-2014). *arXiv preprint* arXiv:2407.02834. https://arxiv.org/abs/2407.02834
+
+[Authors to confirm]. (2023). Large language models for aspect-based sentiment analysis. *arXiv preprint* arXiv:2310.18025. https://arxiv.org/abs/2310.18025
+
+[Authors to confirm]. (2024). A comprehensive exploration of machine and deep learning classification methods for aspect-based sentiment analysis with Latent Dirichlet Allocation topic modeling. *Journal of Future Artificial Intelligence and Technologies*. https://doi.org/10.62411/faith.2024-3
