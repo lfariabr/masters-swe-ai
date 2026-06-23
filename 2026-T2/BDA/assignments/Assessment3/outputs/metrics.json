@@ -1,0 +1,86 @@
+{
+  "total_weeks": 164,
+  "top3": [
+    {
+      "country": "US",
+      "total_confirmed": 103802702
+    },
+    {
+      "country": "India",
+      "total_confirmed": 44690738
+    },
+    {
+      "country": "France",
+      "total_confirmed": 39866718
+    }
+  ],
+  "regression": [
+    {
+      "country": "US",
+      "slope": 760753.0019982861,
+      "intercept": -15181282.780712271,
+      "r2": 0.9687813478947734,
+      "variance": 1347125717374112.5
+    },
+    {
+      "country": "India",
+      "slope": 357001.1568933387,
+      "intercept": -3769474.6693101996,
+      "r2": 0.9248721196625794,
+      "variance": 310744968490484.44
+    },
+    {
+      "country": "France",
+      "slope": 291818.6938922369,
+      "intercept": -9769356.313182719,
+      "r2": 0.8706642604188533,
+      "variance": 220557610110616.28
+    }
+  ],
+  "focal_country": "US",
+  "clustering": {
+    "best_k": 3,
+    "silhouette": {
+      "2": 0.538,
+      "3": 0.705,
+      "4": 0.647,
+      "5": 0.692,
+      "6": 0.637
+    },
+    "phases": [
+      {
+        "cluster": 0,
+        "weeks": 80,
+        "wk_lo": 1,
+        "wk_hi": 80,
+        "mean_new": 441979.6375
+      },
+      {
+        "cluster": 1,
+        "weeks": 79,
+        "wk_lo": 81,
+        "wk_hi": 164,
+        "mean_new": 584309.4556962026
+      },
+      {
+        "cluster": 2,
+        "weeks": 5,
+        "wk_lo": 102,
+        "wk_hi": 106,
+        "mean_new": 4456776.8
+      }
+    ]
+  },
+  "graph": {
+    "neighbours": [
+      {
+        "neighbour": "Canada",
+        "corr": 0.848
+      },
+      {
+        "neighbour": "Mexico",
+        "corr": 0.697
+      }
+    ]
+  }
+}
