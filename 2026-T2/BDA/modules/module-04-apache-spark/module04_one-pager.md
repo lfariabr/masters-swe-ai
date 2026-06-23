@@ -19,16 +19,19 @@
 - 🔵 **Runs anywhere** (laptop → YARN/Mesos → cloud); **reads** HDFS, Cassandra, HBase, **S3** (your Mod 3 lake).
 - 🔵 Origin: **Matei Zaharia**, UC Berkeley, v1 2012 → Apache flagship → **Databricks**.
 
-## 🖤 Zone 2 — Execution model (driver · executors · DAG)
+## 🖤 Zone 2 — Execution model (driver · cluster manager · executors · DAG)
 ```mermaid
 flowchart LR
-    D["DRIVER (master)<br/>holds SparkSession · plans · schedules"] --> E1["Executor (worker)<br/>runs tasks"]
-    D --> E2["Executor (worker)<br/>runs tasks"]
-    D --> E3["Executor (worker)<br/>runs tasks"]
+    D["DRIVER (your PySpark)<br/>SparkSession · builds plan"] --> CM["CLUSTER MANAGER<br/>allocates resources · schedules"]
+    CM --> E1["Executor (worker)<br/>runs tasks"]
+    CM --> E2["Executor (worker)<br/>runs tasks"]
+    CM --> E3["Executor (worker)<br/>runs tasks"]
     style D fill:#fff3b0,stroke:#333,stroke-width:2px
+    style CM fill:#cfe8ff,stroke:#333,stroke-width:2px
 ```
-- 🔵 **Driver** = 1 per app: builds the plan, decides number/composition of tasks. **Executors** = workers that run them.
-- 🔴 **DAG** (Directed Acyclic Graph): every **job** is a dependency graph. The **DAGScheduler** optimises stages and **avoids shuffling** (the most expensive operation).
+- 🔵 **Driver** (your PySpark code) builds the plan → **Cluster Manager** allocates resources + schedules → **Executors** (workers) run tasks & return results. Makes "5 laptops act as one unit."
+- 🔴 **DAG** (Directed Acyclic Graph): logical plan → Spark **reorders** it → splits into **stages** at **shuffle/reshuffle** boundaries → physical plan. The DAGScheduler **avoids shuffling** (the most expensive op).
+- 🔴 **Partitioning = the unit of parallelism.** Split data → compute partitions in parallel → combine. ⚠️ **Data skew (the "barrel" effect):** one oversized partition sets total runtime (a barrel holds only to its *shortest stave*) → balance partitions, or give the skewed one more CPU/RAM.
 
 ## 🖤 Zone 3 — The abstraction ladder ⭐ (RDD → DataFrame → Dataset)
 | Layer | What it is | Use it? |
@@ -61,10 +64,12 @@ flowchart LR
 > 1. **Name** Spark/PySpark as the analytics engine that runs on your lake (S3) data.
 > 2. **Justify** it: in-memory + lazy DAG = scale; **one stack** (SQL/ML/streaming) beats stitched Hadoop tools.
 > 3. **Design choices:** prefer **DataFrames over RDDs**; **built-ins over UDFs**.
+>
+> **Dr. Chen (Week 4):** A1 is **design only, no coding** · references **optional** (not in rubric) · the **LA1 code practical is NOT assessed**. Spark = the *execution engine* for the data analytics lifecycle (it doesn't replace it). See [class notes](module04_notes-class.md).
 
 ## 🔴 If you only memorise 5 things
 1. **Spark = distributed in-memory engine, ~100x Hadoop** (in-memory + lazy DAG).
-2. **Driver plans, executors work**; DAGScheduler avoids the **shuffle**.
+2. **Driver plans → cluster manager schedules → executors work**; mind **data skew** (the barrel effect).
 3. **RDD** (immutable, lineage, lazy) **→ DataFrame** (named columns, *use this*) **→ Dataset** (JVM only).
 4. **Transformations are lazy, actions trigger** - and `collect()` can crash the driver.
 5. **Built-in functions > UDFs** (serialization across JVM↔Python kills performance).

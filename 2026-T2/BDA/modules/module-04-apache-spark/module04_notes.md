@@ -23,6 +23,8 @@
 **Purpose:** Introduces Apache Spark as a fast, distributed processing engine - its origin, ecosystem, the execution model (driver / executors / DAG), and the foundational abstraction (RDDs) that everything else (DataFrames, Datasets) is built on.
 
 > **Source-boundary note (honesty):** the supplied PDF excerpt runs **pp. 1-5**, ending at the RDD section. The later topics the chapter advertises - DataFrames vs Datasets, the Catalyst Optimizer, Project Tungsten and the Spark 2.0 architecture - are summarised in Theme 4 below from the broader *Learning PySpark* chapter and standard Spark references, and are reinforced hands-on by Resources 2-3. The boundary is flagged so the source attribution stays honest.
+>
+> **Lecture coverage:** the **Week 4 live lecture (Dr. Chen)** covers all of this in depth and adds the conceptual scaffolding the readings skip - **cluster manager**, **stages / reshuffle**, **data skew (the barrel effect)**, the **lifecycle link**, and the **Assessment 1 debrief**. Full write-up in [module04_notes-class.md](module04_notes-class.md).
 
 ---
 
