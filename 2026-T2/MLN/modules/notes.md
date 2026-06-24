@@ -476,6 +476,116 @@ For this learning activity, you should:
 
 ---
 
+## Module 5 - Classification and Bayes Rule
+
+### TLDR
+
+### Introduction
+The Bayesian way of thinking is the key concept discussed in this Module. Bayes’ rule is primarily used for classification. Thomas Bayes (1702–1761), the inventor of Bayes’ theorem or rule, was a statistician, philosopher and clergyman who never published his work in his lifetime. His edited and published work only became available after his death through his friend Richard Price, who was a fellow statistician and sometimes church minister. Bayes’ rule (theorem) shows you how you can make an educated guess when you do not have everything at hand. No other mathematical concept has been met with as much fervour as Bayes’ rule. The most concise description for the use of Bayes’ rule in machine learning (ML) is:
+
+*initial model new evidence = new and improved model*
+
+The key idea behind the rule relates to the updating of prior knowledge based on new evidence. The thinking behind it is simple; however, its applications can be found everywhere. For example, this rule has been applied to ML, self-driving cars, spam detection, search and rescue operations (e.g., the Air France Flight 447 operation), medical diagnoses, including the interpretation of COVID-19 tests and classification of benign and malignant tumours in breast cancer, election predictions and weather predictions.
+
+### Resources
+
+#### 1. Bayes’ Rule—Introduction
+- Westbury, C. (2010, 16 November). Bayes’ rule for clinicians: An introduction. Retrieved from https://www.frontiersin.org/articles/10.3389/fpsyg.2010.00192/full
+
+*Resource Overview:*
+
+    This is an important resource. Bayes’ theorem is often referred to interchangeably as a hypothesis, rule, theorem or law. Most individuals find it very difficult to understand and apply Bayes’ theorem. This may be because of the simplicity of Bayes’ rule. Often, most resources expect the reader to have an unnecessary amount of knowledge about probability. No matter how simple it is, the concepts supporting Bayes take time to understand and apply comfortably. This paper has been written for clinicians. It discusses how the application of Bayes’ rule helps to better understand the probability of a diagnosis being correct taking into account prior probabilities. This paper assumes a basic understanding of probability and a little knowledge of clinical work.
+
+> *Status: 🕐 To-Do* 
+
+#### 2. How Bayes’ Rule is Applied in Machine Learning Models
+- Zornoza, J.(2019, 14 August). Probability learning II: How Bayes’ theorem is applied in machine learning [Web log post]. Retrieved from https://towardsdatascience.com/probability-learning-ii-how-bayes-theorem-is-applied-in-machine-learning-bd747a960962
+
+*Resource Overview:*
+
+    This resource focuses on the use of Bayes’ rule in ML. Zornoza, the author of this resource, note that Bayes’ rule ‘tells us how to gradually update our knowledge on something as we get more evidence or that about that something’. This resource also explains how Bayes’ rule is used to improve regression and classification models by incorporating previous knowledge.
+
+> *Status: 🕐 To-Do* 
+
+#### 3. Generative Algorithms
+- Zhiyang, W. (2015, 10 February). Andrew Ng Naive Bayes generative learning algorithms [Video file]. Retrieved from https://www.youtube.com/watch?v=nt63k3bfXS0
+
+*Resource Overview:*
+
+    In this video, Andrew Ng, an Associate Professor at Stanford, who is a very high-profile computer scientist and entrepreneur whose work focuses on AI, clearly explains discriminative and generative algorithms and their benefits . Ng also discusses the application of Bayes’ rule in classification (e.g., the classification of breast cancers as benign or malignant).
+
+> *Status: 🕐 To-Do* 
+
+#### 4. Machine Learning Applications for Bayes’ Rule
+- Nelson, D.(2020, 12 March). What is Bayes theorem? [Web log post]. Retrieved from https://www.unite.ai/what-is-bayes-theorem/
+
+*Resource Overview:*
+
+    This resource will help you understand the most common use of Bayes’ theorem in ML; that is, the Naïve Bayes’ classifier. Some variants of this classifier are also briefly discussed. Ensure that you read this concise resource before tackling the hands-on activity about scikit-learn.
+
+> *Status: 🕐 To-Do* 
+
+#### 5. Introduction to Modern Bayesian Learning and Probabilistic Programming
+- Neiswanger, W.(2019, 16 January). Intro to modern Bayesian learning and probabilistic programming [Web log post]. Retrieved from https://medium.com/@Petuum/intro-to-modern-bayesian-learning-and-probabilistic-programming-c61830df5c50
+
+*Resource Overview:*
+
+    This resource takes a close look at the reasons for using Bayesian programming. It also discusses a case study and the current challenges to capture probabilistic models for machine processing. An increasingly popular probabilistic programming framework provides users with an opportunity ‘to write down a Bayesian model, including the generative process, unknown model parameters, and prior beliefs about these parameters’ (Neiswanger, 2019). Once you complete this resource, take time to write your own Bayesian model, generative model, unknown parameters and previous beliefs. Use the ‘Has my milk gone bad?’ example and graphic aid to help you devise an example.
+
+> *Status: 🕐 To-Do* 
+
+#### 6. Bayesian Inference and Predictive Models
+- Reisz, W. (Interviewer). (2018, 31 August). Mike Lee Williams on probabilistic programming, Bayesian inference, and languages like PyMC3 [Audio podcast]. Retrieved from https://soundcloud.com/infoq-channel/mike-lee-williams-on-probabilistic-programming-bayesian-inference-and-languages-like-pymc3
+
+*Resource Overview:*
+
+    This podcast covers the concepts of Bayes’ rule as applied to probabilistic programming and databases. It also reminds us of the key advantages of using Bayes rule. The podcast discusses a number of Bayes applications, including clinical trials. The interviewer and guest discuss some extremely useful examples of Bayes, including the use of streaming data and the benefits of Bayesian predictions that are accompanied by measures of uncertainty. Pay careful attention to the interview, as the practitioners discuss the key concepts of Bayes’ rule and its applications in predictive modelling. Python/R tools and Python extensions are available to help with abstractions of deep mathematical and statistical concepts and to help describe problems using a Bayesian approach.
+
+> *Status: 🕐 To-Do* 
+
+#### 7. Search and rescue
+- Reisz, W. (Interviewer). (2018, 31 August). Mike Lee Williams on probabilistic programming, Bayesian inference, and languages like PyMC3 [Audio podcast]. Retrieved from https://soundcloud.com/infoq-channel/mike-lee-williams-on-probabilistic-programming-bayesian-inference-and-languages-like-pymc3
+
+*Resource Overview:*
+
+    This video resource on the Search and Rescue Optimal Planning System (SAROPS) used by the US Coast Guard illustrates a direct use of Bayes’ theorem to locate a person or object lost at sea by updating the probabilities based on sightings (evidence). The developer of this software is Metron (https://www.metsci.com), a company that provides assistance in locating anything from missing persons, missing submarines (e.g., the Soviet and USS Scorpion), sunken ships (e.g., SS Central America) to downed passenger planes (e.g., Air France 447). The company uses Bayes’ theorem to detect patterns in data  enabling the highlighting of primary focus targets, including The Lost Cities of Ecuador.
+
+> *Status: 🕐 To-Do* 
+
+### Learning Activities
+
+#### 1. The German Tank Problem
+- https://towardsdatascience.com/the-german-tank-problem-3455237aaf43/
+
+The German tank problem provides a real-world example of thinking differently about data, behaviors, and decisions. This problem is a way to estimate a total population size by observing a small sample. It will help you to understand how estimators learn from data in scikit-learn. This problem helped the Allies in World War II to estimate the total number of German tanks from a small number of serial numbers observed from tanks and component parts. Today, the approach helps determine estimates of the units of iPhones sold.
+
+To complete this activity, follow these steps:
+1. Upload the notebook file provided (Tank_Problem.ipynb).
+2. Review the Fahey (2019) article on the German tank problem and the difference between simulators and estimators.
+3. Investigate how the first estimator (i.e., the maximum serial number of the captured tanks) turned out to be the maximum likelihood estimate (MLE).
+4. Review the use of a Bayesian approach to reverse (invert) the observed data (i.e., the captured serial numbers) and simulate the parameters generating the data.
+5. Follow the snippets of code to understand how the estimators were built to determine the number of tanks.
+6. Follow the probabilistic programming (Bayesian) using the Python library pymc3 (this should be an import of the package in the code).
+
+Share your results to the discussion forum and discuss your experiences, including the story of the tank problem. Do you have any other ideas as to where the approach could be used? Is the use of probabilistic programming to specify the problem in Bayesian terms helpful? How else can you solve the problem?
+
+> *Status: 🕐 To-Do* 
+
+#### 2. Naïve Bayes Classification and Titanic Data Set
+- https://github.com/pb111/Naive-Bayes-Classification-Project/blob/master/Na%C3%AFve%20Bayes%20Classification%20with%20Python%20and%20Scikit-Learn.ipynb
+
+This activity highlights the use of scikit-learn for classification using a variant of the Naïve Bayes’ classifier. We will predict the survival of a Titanic passenger based on the fare paid. Follow these steps:
+
+1. Read the article by Martin (2018).
+2. Access the Titanic data set from the link provided (either download it or read the data directly from the URL into your notebook).
+3. Implement the Gaussian Naive Bayes’ classifier on the Titanic Disaster dataset using the notebook code snippets in the article using Sklearn (scikit-learn).
+4. Interpret the results.
+5. Share your experiences, including your interpretation and details of any issues you encountered and how you overcame them, to the discussion forum.
+
+> *Status: 🕐 To-Do* 
+
+---
+
 ```bash
 --- PLACEHOLDER:
 ## Module X - ...
