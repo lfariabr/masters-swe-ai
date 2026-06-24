@@ -43,7 +43,7 @@ Dr. Kamran Shaukat
 - [X] Module 2 ✅ - Managing Machine Learning Projects: CRISP-DM, Ethics by Design (Australasia), and Data Sets
 - [X] Module 3 ✅ - Supervised Learning and Linear Regression
 - [X] Module 4 ✅ - Decision Trees
-- [ ] Module 5 🕐 - Classification and Bayes Rule
+- [ ] Module 5 🔥 - Classification and Bayes Rule
 - [ ] Module 6 🕐 - Support Vector Machines
 - [ ] Module 7 🕐 - Automated and Explainable Machine Learning
 - [ ] Module 8 🕐 - Logistic Regression
@@ -53,7 +53,7 @@ Dr. Kamran Shaukat
 - [ ] Module 12 🕐 - Future of Machine Learning (ML): Enterprise Grade ML and Weak Supervision
 
 ## Assignments
-- [ ] Assessment 1 - deadline 28/06/2026 🔥, **Regression Analysis**: notebook with mark-up, source code, and 1000 words +/- 10%, 20%, SLOs `b)`, `c)`, `d)`, XX/100 pts
+- [X] Assessment 1 - deadline 28/06/2026 ✅, **Regression Analysis**: notebook with mark-up, source code, and 1000 words +/- 10%, 20%, SLOs `b)`, `c)`, `d)`, XX/100 pts
 - [ ] Assessment 2 - deadline 26/07/2026 🕐, **Classification**: notebook with mark-up, source code, and 7-10 minute presentation with 1500 words +/- 10%, 40%, SLOs `b)`, `c)`, `d)`, XX/100 pts
 - [ ] Assessment 3 - deadline 19/08/2026 🕐, **Machine Learning Project**: notebook and model selection, up to 2000 words, 40%, SLOs `a)`, `b)`, `c)`, `d)`, XX/100 pts
 
