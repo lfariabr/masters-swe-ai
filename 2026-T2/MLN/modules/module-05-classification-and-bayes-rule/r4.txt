@@ -1,0 +1,50 @@
+What is Bayes Theorem?
+mm
+Published March 12, 2020 Updated August 23, 2020
+By Daniel Nelson
+If you’ve been learning about data science or machine learning, there’s a good chance you’ve heard the term “Bayes Theorem” before, or a “Bayes classifier”. These concepts can be somewhat confusing, especially if you aren’t used to thinking of probability from a traditional, frequentist statistics perspective. This article will attempt to explain the principles behind Bayes Theorem and how it’s used in machine learning.
+
+What is Bayes Theorem?
+Bayes Theorem is a method of calculating conditional probability. The traditional method of calculating conditional probability (the probability that one event occurs given the occurrence of a different event) is to use the conditional probability formula, calculating the joint probability of event one and event two occurring at the same time, and then dividing it by the probability of event two occurring. However, conditional probability can also be calculated in a slightly different fashion by using Bayes Theorem.
+
+When calculating conditional probability with Bayes theorem, you use the following steps:
+
+Determine the probability of condition B being true, assuming that condition A is true.
+Determine the probability of event A being true.
+Multiply the two probabilities together.
+Divide by the probability of event B occurring.
+This means that the formula for Bayes Theorem could be expressed like this:
+
+P(A|B) = P(B|A)*P(A) / P(B)
+
+Calculating the conditional probability like this is especially useful when the reverse conditional probability can be easily calculated, or when calculating the joint probability would be too challenging.
+
+Example of Bayes Theorem
+This might be easier to interpret if we spend some time looking at an example of how you would apply Bayesian reasoning and Bayes Theorem. Let’s assume you were playing a simple game where multiple participants tell you a story and you have to determine which one of the participants is lying to you. Let’s fill in the equation for Bayes Theorem with the variables in this hypothetical scenario.
+
+We’re trying to predict whether each individual in the game is lying or telling the truth, so if there are three players apart from you, the categorical variables can be expressed as A1, A2, and A3. The evidence for their lies/truth is their behavior. Like when playing poker, you would look for certain “tells” that a person is lying and use those as bits of information to inform your guess. Or if you were allowed to question them it would be any evidence their story doesn’t add up. We can represent the evidence that a person is lying as B.
+
+To be clear, we’re aiming to predict Probability(A is lying/telling the truth|given the evidence of their behavior). To do this we’d want to figure out the probability of B given A, or the probability that their behavior would occur given the person genuinely lying or telling the truth. You’re trying to determine under which conditions the behavior you are seeing would make the most sense. If there are three behaviors you are witnessing, you would do the calculation for each behavior. For example, P(B1, B2, B3 * A). You would then do this for every occurrence of A/for every person in the game aside from yourself. That’s this part of the equation above:
+
+P(B1, B2, B3,|A) * P|A
+
+Finally, we just divide that by the probability of B.
+
+If we received any evidence about the actual probabilities in this equation, we would recreate our probability model, taking the new evidence into account. This is called updating your priors, as you update your assumptions about the prior probability of the observed events occurring.
+
+Machine Learning Applications for Bayes theorem
+The most common use of Bayes theorem when it comes to machine learning is in the form of the Naive Bayes algorithm.
+
+Naive Bayes is used for the classification of both binary and multi-class datasets, Naive Bayes gets its name because the values assigned to the witnesses evidence/attributes – Bs in P(B1, B2, B3 * A) – are assumed to be independent of one another. It’s assumed that these attributes don’t impact each other in order to simplify the model and make calculations possible, instead of attempting the complex task of calculating the relationships between each of the attributes. Despite this simplified model, Naive Bayes tends to perform quite well as a classification algorithm, even when this assumption probably isn’t true (which is most of the time).
+
+There are also commonly used variants of the Naive Bayes classifier such as Multinomial Naive Bayes, Bernoulli Naive Bayes, and Gaussian Naive Bayes.
+
+Multinomial Naive Bayes algorithms are often used to classify documents, as it is effective at interpreting the frequency of words within a document.
+
+Bernoulli Naive Bayes operates similarly to Multinomial Naive Bayes, but the predictions rendered by the algorithm are booleans. This means that when predicting a class the values will be binary, no or yes. In the domain of text classification, a Bernoulli Naive Bayes algorithm would assign the parameters a yes or no based on whether or not a word is found within the text document.
+
+If the value of the predictors/features aren’t discrete but are instead continuous, Gaussian Naive Bayes can be used. It’s assumed that the values the continuous features have been sampled from a gaussian distribution.
+
+mm
+Daniel Nelson
+Blogger and programmer with specialties in Machine Learning and Deep Learning topics. Daniel hopes to help others use the power of AI for social good.
