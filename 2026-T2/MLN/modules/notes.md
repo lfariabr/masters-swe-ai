@@ -479,6 +479,13 @@ For this learning activity, you should:
 ## Module 5 - Classification and Bayes Rule
 
 ### TLDR
+**Bayes' rule** updates a **prior** belief into a **posterior** as new **evidence** arrives: `P(H|E) = P(E|H)*P(H) / P(E)`. It is the engine of probabilistic **classification**.
+- **Base-rate fallacy:** for a rare condition, a positive test is mostly *false positives* - the prior dominates (Westbury 2010).
+- **Naive Bayes** is the workhorse classifier: it assumes features are **conditionally independent given the class** (naive but effective). Variants: **Gaussian** (continuous), **Multinomial** (counts), **Bernoulli** (binary).
+- **Generative vs discriminative:** Naive Bayes / GDA model `P(x|y)` then apply Bayes rule, vs logistic regression learning `P(y|x)` directly.
+- **MAP vs MLE:** MAP = MLE + a prior. **Probabilistic programming** (PyMC3) writes the model and auto-computes the posterior, giving **uncertainty**, not just a point estimate.
+
+> Full per-resource breakdown: [module05_notes.md](module-05-classification-and-bayes-rule/module05_notes.md)
 
 ### Introduction
 The Bayesian way of thinking is the key concept discussed in this Module. Bayes’ rule is primarily used for classification. Thomas Bayes (1702–1761), the inventor of Bayes’ theorem or rule, was a statistician, philosopher and clergyman who never published his work in his lifetime. His edited and published work only became available after his death through his friend Richard Price, who was a fellow statistician and sometimes church minister. Bayes’ rule (theorem) shows you how you can make an educated guess when you do not have everything at hand. No other mathematical concept has been met with as much fervour as Bayes’ rule. The most concise description for the use of Bayes’ rule in machine learning (ML) is:
@@ -496,7 +503,7 @@ The key idea behind the rule relates to the updating of prior knowledge based on
 
     This is an important resource. Bayes’ theorem is often referred to interchangeably as a hypothesis, rule, theorem or law. Most individuals find it very difficult to understand and apply Bayes’ theorem. This may be because of the simplicity of Bayes’ rule. Often, most resources expect the reader to have an unnecessary amount of knowledge about probability. No matter how simple it is, the concepts supporting Bayes take time to understand and apply comfortably. This paper has been written for clinicians. It discusses how the application of Bayes’ rule helps to better understand the probability of a diagnosis being correct taking into account prior probabilities. This paper assumes a basic understanding of probability and a little knowledge of clinical work.
 
-> *Status: 🕐 To-Do* 
+> *Status: ✅ Read + Reviewed - see [module05_notes.md](module-05-classification-and-bayes-rule/module05_notes.md#1-bayes-rule-for-clinicians-westbury-2010)* 
 
 #### 2. How Bayes’ Rule is Applied in Machine Learning Models
 - Zornoza, J.(2019, 14 August). Probability learning II: How Bayes’ theorem is applied in machine learning [Web log post]. Retrieved from https://towardsdatascience.com/probability-learning-ii-how-bayes-theorem-is-applied-in-machine-learning-bd747a960962
@@ -505,7 +512,7 @@ The key idea behind the rule relates to the updating of prior knowledge based on
 
     This resource focuses on the use of Bayes’ rule in ML. Zornoza, the author of this resource, note that Bayes’ rule ‘tells us how to gradually update our knowledge on something as we get more evidence or that about that something’. This resource also explains how Bayes’ rule is used to improve regression and classification models by incorporating previous knowledge.
 
-> *Status: 🕐 To-Do* 
+> *Status: ✅ Read + Reviewed - see [module05_notes.md](module-05-classification-and-bayes-rule/module05_notes.md#2-how-bayes-theorem-is-applied-in-ml-zornoza-2019)* 
 
 #### 3. Generative Algorithms
 - Zhiyang, W. (2015, 10 February). Andrew Ng Naive Bayes generative learning algorithms [Video file]. Retrieved from https://www.youtube.com/watch?v=nt63k3bfXS0
@@ -514,7 +521,7 @@ The key idea behind the rule relates to the updating of prior knowledge based on
 
     In this video, Andrew Ng, an Associate Professor at Stanford, who is a very high-profile computer scientist and entrepreneur whose work focuses on AI, clearly explains discriminative and generative algorithms and their benefits . Ng also discusses the application of Bayes’ rule in classification (e.g., the classification of breast cancers as benign or malignant).
 
-> *Status: 🕐 To-Do* 
+> *Status: ✅ Watched + Reviewed - see [module05_notes.md](module-05-classification-and-bayes-rule/module05_notes.md#3-naive-bayes-and-generative-learning-andrew-ng)* 
 
 #### 4. Machine Learning Applications for Bayes’ Rule
 - Nelson, D.(2020, 12 March). What is Bayes theorem? [Web log post]. Retrieved from https://www.unite.ai/what-is-bayes-theorem/
@@ -523,7 +530,7 @@ The key idea behind the rule relates to the updating of prior knowledge based on
 
     This resource will help you understand the most common use of Bayes’ theorem in ML; that is, the Naïve Bayes’ classifier. Some variants of this classifier are also briefly discussed. Ensure that you read this concise resource before tackling the hands-on activity about scikit-learn.
 
-> *Status: 🕐 To-Do* 
+> *Status: ✅ Read + Reviewed - see [module05_notes.md](module-05-classification-and-bayes-rule/module05_notes.md#4-what-is-bayes-theorem-nelson-2020)* 
 
 #### 5. Introduction to Modern Bayesian Learning and Probabilistic Programming
 - Neiswanger, W.(2019, 16 January). Intro to modern Bayesian learning and probabilistic programming [Web log post]. Retrieved from https://medium.com/@Petuum/intro-to-modern-bayesian-learning-and-probabilistic-programming-c61830df5c50
@@ -532,7 +539,7 @@ The key idea behind the rule relates to the updating of prior knowledge based on
 
     This resource takes a close look at the reasons for using Bayesian programming. It also discusses a case study and the current challenges to capture probabilistic models for machine processing. An increasingly popular probabilistic programming framework provides users with an opportunity ‘to write down a Bayesian model, including the generative process, unknown model parameters, and prior beliefs about these parameters’ (Neiswanger, 2019). Once you complete this resource, take time to write your own Bayesian model, generative model, unknown parameters and previous beliefs. Use the ‘Has my milk gone bad?’ example and graphic aid to help you devise an example.
 
-> *Status: 🕐 To-Do* 
+> *Status: ✅ Read + Reviewed - see [module05_notes.md](module-05-classification-and-bayes-rule/module05_notes.md#5-modern-bayesian-learning-and-probabilistic-programming-neiswanger-2019)* 
 
 #### 6. Bayesian Inference and Predictive Models
 - Reisz, W. (Interviewer). (2018, 31 August). Mike Lee Williams on probabilistic programming, Bayesian inference, and languages like PyMC3 [Audio podcast]. Retrieved from https://soundcloud.com/infoq-channel/mike-lee-williams-on-probabilistic-programming-bayesian-inference-and-languages-like-pymc3
@@ -541,7 +548,7 @@ The key idea behind the rule relates to the updating of prior knowledge based on
 
     This podcast covers the concepts of Bayes’ rule as applied to probabilistic programming and databases. It also reminds us of the key advantages of using Bayes rule. The podcast discusses a number of Bayes applications, including clinical trials. The interviewer and guest discuss some extremely useful examples of Bayes, including the use of streaming data and the benefits of Bayesian predictions that are accompanied by measures of uncertainty. Pay careful attention to the interview, as the practitioners discuss the key concepts of Bayes’ rule and its applications in predictive modelling. Python/R tools and Python extensions are available to help with abstractions of deep mathematical and statistical concepts and to help describe problems using a Bayesian approach.
 
-> *Status: 🕐 To-Do* 
+> *Status: 🔥 Primer ready - needs manual listen - see [module05_notes.md](module-05-classification-and-bayes-rule/module05_notes.md#6-probabilistic-programming-and-pymc3-podcast-williams-2018)* 
 
 #### 7. Search and rescue
 - Reisz, W. (Interviewer). (2018, 31 August). Mike Lee Williams on probabilistic programming, Bayesian inference, and languages like PyMC3 [Audio podcast]. Retrieved from https://soundcloud.com/infoq-channel/mike-lee-williams-on-probabilistic-programming-bayesian-inference-and-languages-like-pymc3
@@ -550,7 +557,7 @@ The key idea behind the rule relates to the updating of prior knowledge based on
 
     This video resource on the Search and Rescue Optimal Planning System (SAROPS) used by the US Coast Guard illustrates a direct use of Bayes’ theorem to locate a person or object lost at sea by updating the probabilities based on sightings (evidence). The developer of this software is Metron (https://www.metsci.com), a company that provides assistance in locating anything from missing persons, missing submarines (e.g., the Soviet and USS Scorpion), sunken ships (e.g., SS Central America) to downed passenger planes (e.g., Air France 447). The company uses Bayes’ theorem to detect patterns in data  enabling the highlighting of primary focus targets, including The Lost Cities of Ecuador.
 
-> *Status: 🕐 To-Do* 
+> *Status: 🔥 Primer ready - needs manual access - see [module05_notes.md](module-05-classification-and-bayes-rule/module05_notes.md#7-search-and-rescue-with-bayes-sarops)* 
 
 ### Learning Activities
 
