@@ -344,6 +344,15 @@ https://mylearn.torrens.edu.au/courses/26571/files/10605168/preview?
 
 ### TLDR
 
+Before modelling, you must **know, clean and shrink** your data.
+- **Know it** (Han §2.1-2.3): classify attributes (**nominal · binary · ordinal · numeric**; interval vs ratio), measure **central tendency** (mean/median/mode) and **dispersion** (range, **IQR**, variance/σ, five-number summary → boxplot), and **see it** (histograms, scatter plots, q-q plots).
+- **Clean it** (Han §3.2): handle **missing values** (ignore → constant → mean/median → most-probable), smooth **noise** (binning, regression, outlier/cluster analysis), run discrepancy detection with the **> 1.5×IQR** outlier rule.
+- **Shrink it** (Han §3.4): **dimensionality** (PCA, attribute selection), **numerosity** (sampling, histograms, clustering) and **compression** reduction.
+- **Do it in PySpark** (Lee & Drabas Ch.4): `dropDuplicates`, `dropna`/`fillna`, `approxQuantile`, `describe`, `groupBy().agg()`, `corr`, `.rdd.histogram()` - keep heavy compute in Spark, pull only small summaries to the driver.
+- **Why bother?** (ProjectPro): prep is **~80%** of a data scientist's time and bad data costs **~$13.5M/yr** (Gartner) - garbage in, garbage out.
+
+SLOs **c)** explore statistically & visually · **d)** clean/handle anomalies · **e)** transform & reduce. Primes **Activities 1-2** on the Bank Marketing dataset. Full write-up → [module05_notes.md](module-05-data-exploration-and-cleaning/module05_notes.md).
+
 ### Introduction
 Once the data are available, it is tempting to start building machine learning (ML) models to extract insights from the data. However, real-world data are usually noisy and dirty. For example, a data set may contain duplicate values, missing observations and outliers. Thus, one of the first stages in a data science project is to clean the data (e.g., to detect and correct any inaccurate records in the data). Even if the data are clean, it is essential to explore the data statistically and visually to understand the data’s underlying structures and patterns.
 
@@ -360,7 +369,7 @@ In this Module, you will learn about the attributes of data and how to explore d
 
     Focus on ‘Section 2.1: Data Objects and Attribute Types’, which describes various attribute types, including nominal attribute, binary attribute, ordinal attribute and numeric attribute types. Each attribute type represents a characteristic or a feature of data objects. ‘Section 2.2: Basic Statistical Descriptions of Data’ presents interesting basic statistical descriptions of data. Also, focus on ‘Section 2.3: Data Visualisation’, as it highlights different visualisation techniques.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed - see [module05_notes.md](module-05-data-exploration-and-cleaning/module05_notes.md)*
 
 #### 2. Data Preprocessing
 - Han, J., Pei, J. & Kamber, M. (2011). Data mining: Concepts and techniques. Waltham, MA: Elsevier. Retrieved from http://torrens.idm.oclc.org/login?url=http://search.ebscohost.com/login.aspx?direct=true&db=nlebk&AN=377411&site=ehost-live&ebv=EB&ppid=pp_83
@@ -371,7 +380,7 @@ In this Module, you will learn about the attributes of data and how to explore d
 
     Read Sections 3.2, 3.4 and 3.5 of ‘Chapter 3: Data Preprocessing’ (pp. 88–93 and pp. 99–120). ‘Section 3.2: Data Cleaning’ describes different techniques for filling missing values, identifying outliers and smoothing out noisy samples. In practice, data sets can be reduced (i.e., a representation of a data set that is smaller in volume but closely maintains the integrity of the original data can be obtained). Data reduction greatly facilitates analysis and the building of ML models. ‘Section 3.4: Data Reduction’ outlines different data reduction techniques. ‘Section 3.5: Data Transformation and Data Discretization’ presents different methods of data transformation that help to build and interpret ML models.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed - see [module05_notes.md](module-05-data-exploration-and-cleaning/module05_notes.md) (PDFs supplied cover §3.2 + §3.4; §3.5 summarised from cross-refs)*
 
 #### 3. Data Preprocessing Using PySpark
 - Lee, D. & Drabas, T. (2018). PySpark cookbook. Birmingham, UK: Packt. Retrieved from https://ebookcentral-proquest-com.torrens.idm.oclc.org/lib/think/reader.action?docID=5446040&ppg=151
@@ -380,7 +389,7 @@ In this Module, you will learn about the attributes of data and how to explore d
 
     In the above resources, you learned about various techniques and methods of data exploration, visualisation, cleaning and transformation. Read ‘Chapter 4: Prepare Data for Modelling’ (pp. 136–170) to learn how these tasks can be performed using PySpark. As you read this Chapter, follow the instructions and implement them in your development environment.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed - see [module05_notes.md](module-05-data-exploration-and-cleaning/module05_notes.md)*
 
 #### 4. Why Data Preparation is an Important Part of Data Science?
 - ProjectPro. (2020, 7 June). Why data preparation is an important part of data science? Retrieved from https://www.dezyre.com/article/why-data-preparation-is-an-important-part-of-data-science/242
@@ -391,7 +400,7 @@ In this Module, you will learn about the attributes of data and how to explore d
 
     The primary objective of this article is to highlight that it is extremely important for data scientists to reshape and refine data sets into usable data sets that can be leveraged for analytics. 
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed - see [module05_notes.md](module-05-data-exploration-and-cleaning/module05_notes.md)*
 
 ### Learning Activities
 
