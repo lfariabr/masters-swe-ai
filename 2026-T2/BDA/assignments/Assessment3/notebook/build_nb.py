@@ -123,10 +123,12 @@ plt.tight_layout(); plt.savefig(FIG_DIR / "fig01_top3_cumulative.png"); plt.show
 md(r"""## 3. Predictive modelling - linear regression per country
 
 For each top-3 country I fit a Spark MLlib **linear regression** of cumulative count on week number
-(the assumption being that infections rise steadily from week 1). I then pick the **country with the
-highest variance** in its weekly counts - the most volatile growth - and carry it into the clustering
-step. I report R-squared too: a low R-squared signals that a straight line is a poor fit, i.e. the real
-growth came in waves, which is exactly what clustering will expose.""")
+(the assumption being that infections rise steadily from week 1). To choose which country to carry into
+the clustering step I rank them by the **variance of their weekly new cases** - a direct measure of
+volatility, and the same weekly-new-case signal the clustering then works on. Ranking by the variance
+of the *cumulative* total would instead just pick the largest country by construction, so volatility is
+measured on the new-case series. I report R-squared too: a low R-squared signals that a straight line is
+a poor fit, i.e. the real growth came in waves, which is exactly what clustering will expose.""")
 
 code(r"""from pyspark.ml.regression import LinearRegression
 from pyspark.ml.feature import VectorAssembler
@@ -138,15 +140,16 @@ for c in TOP3:
     sdf = spark.createDataFrame(d)
     va = VectorAssembler(inputCols=["week"], outputCol="features")
     lr = LinearRegression(featuresCol="features", labelCol="label").fit(va.transform(sdf))
-    variance = float(d["label"].var())
+    # Volatility = variance of weekly NEW cases (not the cumulative total, which would just rank by size).
+    newcase_var = float(weekly[weekly["Country/Region"] == c]["new_cases"].var())
     reg_rows.append({"country": c, "slope": float(lr.coefficients[0]), "intercept": float(lr.intercept),
-                     "r2": float(lr.summary.r2), "variance": variance})
+                     "r2": float(lr.summary.r2), "newcase_var": newcase_var})
     fits[c] = (lr.coefficients[0], lr.intercept)
-reg = pd.DataFrame(reg_rows).sort_values("variance", ascending=False).reset_index(drop=True)
+reg = pd.DataFrame(reg_rows).sort_values("newcase_var", ascending=False).reset_index(drop=True)
 FOCAL = reg.iloc[0]["country"]
-print(reg.assign(variance=reg["variance"].map(lambda x: f"{x:.3e}"),
+print(reg.assign(newcase_var=reg["newcase_var"].map(lambda x: f"{x:.3e}"),
                  slope=reg["slope"].map(lambda x: f"{x:,.0f}/wk")).to_string(index=False))
-print("\nHighest-variance country (carried forward):", FOCAL)""")
+print("\nMost volatile country by weekly new cases (carried forward):", FOCAL)""")
 
 code(r"""# Plot the three regression fits.
 fig, axes = plt.subplots(1, 3, figsize=(15, 4))
