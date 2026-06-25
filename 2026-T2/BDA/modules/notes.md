@@ -338,6 +338,106 @@ https://mylearn.torrens.edu.au/courses/26571/files/10605168/preview?
 
 > *Status: 🕐 To-Do*
 
+---
+
+## Module 5 - Data Exploration and Cleaning
+
+### TLDR
+
+### Introduction
+Once the data are available, it is tempting to start building machine learning (ML) models to extract insights from the data. However, real-world data are usually noisy and dirty. For example, a data set may contain duplicate values, missing observations and outliers. Thus, one of the first stages in a data science project is to clean the data (e.g., to detect and correct any inaccurate records in the data). Even if the data are clean, it is essential to explore the data statistically and visually to understand the data’s underlying structures and patterns.
+
+In this Module, you will learn about the attributes of data and how to explore data both statistically and visually to detect patterns and anomalies. You will also learn about how to transform a data set to reduce its volume and complexity to enable the efficient construction and interpretation of ML models.
+
+### Resources
+
+#### 1. Getting to Know Your Data
+- Han, J., Pei, J. & Kamber, M. (2011). Data mining: Concepts and techniques. Waltham, MA: Elsevier. Retrieved from http://torrens.idm.oclc.org/login?url=http://search.ebscohost.com/login.aspx?direct=true&db=nlebk&AN=377411&site=ehost-live&ebv=EB&ppid=pp_39
+
+*Resource Overview*
+
+    Data sets comprise data objects that are referred to as samples, examples and instances in practice. Data objects are described by their attributes, which are also termed variables. Read Sections 2.1–2.3 of ‘Chapter 2: Getting to Know Your Data’ (pp. 39–65).
+
+    Focus on ‘Section 2.1: Data Objects and Attribute Types’, which describes various attribute types, including nominal attribute, binary attribute, ordinal attribute and numeric attribute types. Each attribute type represents a characteristic or a feature of data objects. ‘Section 2.2: Basic Statistical Descriptions of Data’ presents interesting basic statistical descriptions of data. Also, focus on ‘Section 2.3: Data Visualisation’, as it highlights different visualisation techniques.
+
+> *Status: 🕐 To-Do*
+
+#### 2. Data Preprocessing
+- Han, J., Pei, J. & Kamber, M. (2011). Data mining: Concepts and techniques. Waltham, MA: Elsevier. Retrieved from http://torrens.idm.oclc.org/login?url=http://search.ebscohost.com/login.aspx?direct=true&db=nlebk&AN=377411&site=ehost-live&ebv=EB&ppid=pp_83
+
+*Resource Overview*
+
+    In the previous reading resource, you learned about using statistical analyses and visualisation techniques. Statistical analyses and techniques help you to know your data and identify noise, anomalies and inconsistencies in the data. The next step is to pre-process the data based on this exploratory analysis, which involves handling missing values and noisy values, data reduction and data transformation.
+
+    Read Sections 3.2, 3.4 and 3.5 of ‘Chapter 3: Data Preprocessing’ (pp. 88–93 and pp. 99–120). ‘Section 3.2: Data Cleaning’ describes different techniques for filling missing values, identifying outliers and smoothing out noisy samples. In practice, data sets can be reduced (i.e., a representation of a data set that is smaller in volume but closely maintains the integrity of the original data can be obtained). Data reduction greatly facilitates analysis and the building of ML models. ‘Section 3.4: Data Reduction’ outlines different data reduction techniques. ‘Section 3.5: Data Transformation and Data Discretization’ presents different methods of data transformation that help to build and interpret ML models.
+
+> *Status: 🕐 To-Do*
+
+#### 3. Data Preprocessing Using PySpark
+- Lee, D. & Drabas, T. (2018). PySpark cookbook. Birmingham, UK: Packt. Retrieved from https://ebookcentral-proquest-com.torrens.idm.oclc.org/lib/think/reader.action?docID=5446040&ppg=151
+
+*Resource Overview*
+
+    In the above resources, you learned about various techniques and methods of data exploration, visualisation, cleaning and transformation. Read ‘Chapter 4: Prepare Data for Modelling’ (pp. 136–170) to learn how these tasks can be performed using PySpark. As you read this Chapter, follow the instructions and implement them in your development environment.
+
+> *Status: 🕐 To-Do*
+
+#### 4. Why Data Preparation is an Important Part of Data Science?
+- ProjectPro. (2020, 7 June). Why data preparation is an important part of data science? Retrieved from https://www.dezyre.com/article/why-data-preparation-is-an-important-part-of-data-science/242
+
+*Resource Overview*
+
+    As the title suggests, this online article highlights why data preparation is an important part of data science from the data cleaning and exploration perspectives.
+
+    The primary objective of this article is to highlight that it is extremely important for data scientists to reshape and refine data sets into usable data sets that can be leveraged for analytics. 
+
+> *Status: 🕐 To-Do*
+
+### Learning Activities
+
+#### 1. Hands-on Exercise—Data Exploration using PySpark
+- [Moro et al., 2014] S. Moro, P. Cortez and P. Rita. A Data-Driven Approach to Predict the Success of Bank Telemarketing. Decision Support Systems, Elsevier, 62:22-31, June 2014. Retrieved from https://archive.ics.uci.edu/dataset/222/bank+marketing
+
+In this activity, you will perform both a visual and statistical exploratory analysis to gain insights into a data set. Using the Bank Marketing dataset (bank.csv), which is available at https://archive.ics.uci.edu/dataset/222/bank+marketing
+
+The data is related to a term deposit (variable y), you are required to perform the following tasks using PySpark:
+
+- Calculate the mean, median and standard deviation of all the variables/attributes of 'numeric' type;
+- Create a bar graph of the variable/attribute: previous;
+- Create a normalized bar graph of the variable/attribute: previous;
+- Create a histogram of the variable/attribute: age;
+- Create a histogram of the normalized variable/attribute: age;
+- Bin the variable/attribute age and create a bar chart;
+- Create a scatter plot for the following variables/attributes: age and balance;
+- Use the discussion forum entitled 'Data Exploration using PySpark' to present your collective findings from the statistics and visuals that you produced above. In your own words, share and detail as many insights from the statistics and visuals as you consider important. For example, you may wish to state:
+    - What the mean, median and standard deviation of age indicate about the individual employment status listed under the 'Job' column; and
+    - What trend you see in the bar graph generated using the 'Previous' column; and
+- Provide feedback about other students' findings.
+
+> *Status: 🕐 To-Do*
+
+#### 2. Data Cleaning
+In this activity, you will perform a data cleaning operation on the same data (i.e., the Bank Marketing dataset [bank.csv]), which you used in the first activity (see above).
+
+To do this, consider a scenario in which the owner of the data set decides that any data under the 'Job' column that contains 'unknown' or 'unemployed' data should be considered inaccurate. Thus, those data should be removed from the dataset before data exploration.
+
+As part of this data removal operation (i.e., the data cleaning operation), you are requested to get rid of all the data rows in which the 'Job' column contains 'unknown' or 'unemployed' instead of data. You can remove these either using PySpark or Excel. Once these data have been removed, save the remaining data in a csv file named bank.csv as before.
+
+Now, perform all the following tasks, which are the same as those you performed in the previous activity, using the newly saved bank.csv file. Thus, you should:
+
+- Calculate the mean, median and standard deviation of all variables/attributes of 'numeric' type;
+- Create a bar graph of the variable/attribute: previous;
+- Create a normalized bar graph of the variable/attribute: previous;
+- Create a histogram of the variable/attribute: age;
+- Create a histogram of the normalized variable/attribute: age;
+- Bin the variable/attribute age and create a bar chart;
+- Create a scatter plot for the following variables/attributes: age and balance; and
+- Finally, use the discussion forum entitled 'Data Cleaning' and report the differences that you see in the outcomes of each of the above listed tasks against the same tasks completed in the first activity for which the data were not cleaned. The differences that you observe reflect the effects of the data cleaning operation, which in this case, is what the owner of the data wanted.
+
+> *Status: 🕐 To-Do*
+
+---
+
 ```bash
 --- PLACEHOLDER:
 ## Module X - ...
