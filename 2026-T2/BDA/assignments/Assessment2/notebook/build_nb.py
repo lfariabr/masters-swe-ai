@@ -373,6 +373,106 @@ the importance chart confirms that contract type and tenure carry most of the de
 the EDA. The confusion matrix shows where the model trades false alarms against missed churners - the
 key tension given the class imbalance.""")
 
+# ---------------------------------------------------------------- 5b. Recall
+md(r"""## 5b. Optimising for recall
+
+At the default 0.5 cut-off the interpretable tree misses nearly half of the churners. Because retention
+cares far more about catching churners than about the occasional false alarm, this section keeps the
+interpretable tree as the **headline model** and adds three standard remedies, then compares them on the
+held-out test set: (a) **decision-threshold tuning**, (b) **class weighting**, and (c) a **Random Forest**
+selected by **3-fold cross-validation**. AUC is reported per model - it is threshold-independent, so it
+measures how well each model *ranks* churners regardless of the cut-off.""")
+
+code(r"""from pyspark.ml.functions import vector_to_array
+from pyspark.sql import functions as F
+
+# Pull (label, P[churn]) to the driver so any decision threshold can be scored cheaply.
+def scored(pred_df):
+    return pred_df.select("label", vector_to_array("probability")[1].alias("p1")).toPandas()
+
+def churn_scores(s, t):
+    yhat = (s["p1"] >= t).astype(int); y = s["label"].astype(int)
+    tp = int(((yhat == 1) & (y == 1)).sum()); fp = int(((yhat == 1) & (y == 0)).sum())
+    fn = int(((yhat == 0) & (y == 1)).sum()); tn = int(((yhat == 0) & (y == 0)).sum())
+    prec = tp / (tp + fp) if (tp + fp) else 0.0
+    rec  = tp / (tp + fn) if (tp + fn) else 0.0
+    f1   = 2 * prec * rec / (prec + rec) if (prec + rec) else 0.0
+    return {"acc": (tp + tn) / len(y), "precision": prec, "recall": rec, "f1": f1}
+
+auc_eval = BinaryClassificationEvaluator(labelCol="label", rawPredictionCol="rawPrediction", metricName="areaUnderROC")
+
+# (a) Tune the baseline tree's decision threshold on the VALIDATION set (maximise churn-class F1).
+val_s = scored(model.transform(val_df))
+grid = np.round(np.arange(0.10, 0.61, 0.02), 3)
+val_curve = pd.DataFrame([{"t": t, **churn_scores(val_s, t)} for t in grid])
+t_tree = float(val_curve.loc[val_curve["f1"].idxmax(), "t"])
+print("Decision tree: best threshold on validation =", t_tree)
+
+plt.figure(figsize=(8, 5))
+for col, lab in [("recall", "recall (churn)"), ("precision", "precision (churn)"), ("f1", "F1 (churn)")]:
+    plt.plot(val_curve["t"], val_curve[col], marker="o", ms=3, label=lab)
+plt.axvline(t_tree, color="grey", ls="--", lw=1, label=f"chosen t={t_tree}")
+plt.axvline(0.5, color="black", ls=":", lw=1, label="default 0.5")
+plt.xlabel("Decision threshold on P(churn)"); plt.ylabel("Score")
+plt.title("Threshold trade-off (validation, decision tree)")
+plt.legend(); plt.tight_layout(); plt.savefig(FIG_DIR / "fig09_recall_tradeoff.png"); plt.show()""")
+
+code(r"""# (b) Class-weighted tree: weight each row by inverse class frequency.
+n_tot = train_df.count(); n_pos = train_df.filter(F.col("label") == 1.0).count(); n_neg = n_tot - n_pos
+w_pos, w_neg = n_tot / (2 * n_pos), n_tot / (2 * n_neg)
+train_w = train_df.withColumn("weight", F.when(F.col("label") == 1.0, F.lit(w_pos)).otherwise(F.lit(w_neg)))
+wtree = DecisionTreeClassifier(labelCol="label", featuresCol="features", maxDepth=best_depth,
+                               seed=RANDOM_SEED, weightCol="weight").fit(train_w)
+
+# (c) Random Forest tuned by 3-fold cross-validation on a small grid.
+from pyspark.ml.classification import RandomForestClassifier
+from pyspark.ml.tuning import CrossValidator, ParamGridBuilder
+rf = RandomForestClassifier(labelCol="label", featuresCol="features", seed=RANDOM_SEED)
+rf_grid = ParamGridBuilder().addGrid(rf.numTrees, [60, 120]).addGrid(rf.maxDepth, [5, 8]).build()
+rf_cv = CrossValidator(estimator=rf, estimatorParamMaps=rf_grid, evaluator=auc_eval,
+                       numFolds=3, seed=RANDOM_SEED, parallelism=2).fit(train_df)
+rf_model = rf_cv.bestModel
+print("RF best params: numTrees=%s  maxDepth=%s" % (rf_model.getNumTrees, rf_model.getOrDefault("maxDepth")))
+
+# Threshold-tune the RF on validation too.
+rf_val_s = scored(rf_model.transform(val_df))
+rf_curve = pd.DataFrame([{"t": t, **churn_scores(rf_val_s, t)} for t in grid])
+t_rf = float(rf_curve.loc[rf_curve["f1"].idxmax(), "t"])
+
+# Score every model on the held-out TEST set.
+tree_test = scored(model.transform(test_df))
+w_test    = scored(wtree.transform(test_df))
+rf_test   = scored(rf_model.transform(test_df))
+auc_tree, auc_w, auc_rf = (auc_eval.evaluate(model.transform(test_df)),
+                           auc_eval.evaluate(wtree.transform(test_df)),
+                           auc_eval.evaluate(rf_model.transform(test_df)))
+
+def row_for(name, s, t, a):
+    m = churn_scores(s, t)
+    return {"model": name, "threshold": t, "accuracy": round(m["acc"], 4),
+            "precision_churn": round(m["precision"], 4), "recall_churn": round(m["recall"], 4),
+            "f1_churn": round(m["f1"], 4), "auc": round(a, 4)}
+
+rows = [
+    ("Decision tree (t=0.5, baseline)", tree_test, 0.5, auc_tree),
+    (f"Decision tree (t={t_tree}, tuned)", tree_test, t_tree, auc_tree),
+    ("Weighted tree (t=0.5)", w_test, 0.5, auc_w),
+    ("Random Forest (t=0.5, CV)", rf_test, 0.5, auc_rf),
+    (f"Random Forest (t={t_rf}, tuned)", rf_test, t_rf, auc_rf),
+]
+comparison = pd.DataFrame([row_for(*r) for r in rows])
+print(comparison.to_string(index=False))
+
+plt.figure(figsize=(9, 4.5))
+sns.barplot(data=comparison, y="model", x="recall_churn", hue="model", palette="rocket", legend=False)
+plt.xlabel("Churn-class recall (test set)"); plt.ylabel("")
+plt.title("Recall lift across models"); plt.tight_layout()
+plt.savefig(FIG_DIR / "fig10_recall_comparison.png"); plt.show()
+
+recall_improvement = {"comparison": comparison.to_dict(orient="records"),
+                      "chosen_threshold_tree": t_tree, "chosen_threshold_rf": t_rf,
+                      "class_weights": {"pos": round(w_pos, 3), "neg": round(w_neg, 3)}}""")
+
 # ---------------------------------------------------------------- 6. Task 3
 md(r"""## 6. Task 3 - Handling missing values
 
@@ -438,6 +538,7 @@ metrics = {
         "feature": top_feature, "pct_missing": 0.30, "impute_method": impute_desc,
         "accuracy_before": round(acc, 4), "accuracy_after": round(acc2, 4),
         "f1_before": round(f1, 4), "f1_after": round(f1_2, 4)},
+    "recall_improvement": recall_improvement,
 }
 (OUT_DIR / "metrics.json").write_text(json.dumps(metrics, indent=2))
 print(json.dumps(metrics, indent=2))""")

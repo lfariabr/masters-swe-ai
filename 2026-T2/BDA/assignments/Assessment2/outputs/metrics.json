@@ -65,5 +65,60 @@
     "accuracy_after": 0.7828,
     "f1_before": 0.765,
     "f1_after": 0.7701
+  },
+  "recall_improvement": {
+    "comparison": [
+      {
+        "model": "Decision tree (t=0.5, baseline)",
+        "threshold": 0.5,
+        "accuracy": 0.7657,
+        "precision_churn": 0.5637,
+        "recall_churn": 0.5532,
+        "f1_churn": 0.5584,
+        "auc": 0.7321
+      },
+      {
+        "model": "Decision tree (t=0.34, tuned)",
+        "threshold": 0.34,
+        "accuracy": 0.7557,
+        "precision_churn": 0.5363,
+        "recall_churn": 0.6489,
+        "f1_churn": 0.5872,
+        "auc": 0.7321
+      },
+      {
+        "model": "Weighted tree (t=0.5)",
+        "threshold": 0.5,
+        "accuracy": 0.7208,
+        "precision_churn": 0.4863,
+        "recall_churn": 0.7527,
+        "f1_churn": 0.5908,
+        "auc": 0.7431
+      },
+      {
+        "model": "Random Forest (t=0.5, CV)",
+        "threshold": 0.5,
+        "accuracy": 0.7877,
+        "precision_churn": 0.6354,
+        "recall_churn": 0.4867,
+        "f1_churn": 0.5512,
+        "auc": 0.8223
+      },
+      {
+        "model": "Random Forest (t=0.38, tuned)",
+        "threshold": 0.38,
+        "accuracy": 0.7664,
+        "precision_churn": 0.5545,
+        "recall_churn": 0.6489,
+        "f1_churn": 0.598,
+        "auc": 0.8223
+      }
+    ],
+    "chosen_threshold_tree": 0.34,
+    "chosen_threshold_rf": 0.38,
+    "class_weights": {
+      "pos": 1.861,
+      "neg": 0.684
+    }
   }
 }
