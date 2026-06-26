@@ -10,8 +10,10 @@
 | **2** | Read & summarise Han, Pei & Kamber (2012) — Data Preprocessing (§3.2 Cleaning, §3.4 Reduction) | ✅ |
 | **3** | Read & summarise Lee & Drabas (2018) — PySpark Cookbook Ch.4: Preparing Data for Modeling | ✅ |
 | **4** | Read & summarise ProjectPro (2020) — Why Data Preparation Matters | ✅ |
-| 5 | Activity 1: Data Exploration using PySpark (Bank Marketing dataset) | 🕐 |
-| 6 | Activity 2: Data Cleaning (remove `Job` = unknown/unemployed, re-run Activity 1) | 🕐 |
+| 5 | Activity 1: Data Exploration using PySpark (Bank Marketing dataset) | 🔥 |
+| 6 | Activity 2: Data Cleaning (remove `Job` = unknown/unemployed, re-run Activity 1) | 🔥 |
+
+> **Activities notebook (scaffolded):** [`Module_5_LA1-LA2_PySpark_Bank_Marketing.ipynb`](Module_5_LA1-LA2_PySpark_Bank_Marketing.ipynb) - Colab-ready, both activities wired up against `activities-dataset-bank-and-marketing/bank/bank.csv`. Activity-1 tasks are reusable functions so Activity 2 replays them on the cleaned data. Ships with an offline pandas **reference-values appendix** to verify the Spark run. Remaining: run on Colab + write the two forum posts (🔥 until submitted).
 
 > **Source-boundary note:** Resource 2's overview lists §3.2, §3.4 **and §3.5** (Data Transformation & Discretization), but only the §3.2 and §3.4 PDF excerpts were supplied. §3.5 ideas (normalization, binning-as-discretization, concept hierarchies) are summarised here from cross-references inside §3.2/§3.4 and from the PySpark/ProjectPro readings, and flagged where used. The §3.2 PDF also ends mid-section (§3.2.3) and the §3.4 PDF stops inside §3.4.8 (Sampling); the tail (stratified sampling, data cube aggregation) is noted from the chapter's own forward references.
 
