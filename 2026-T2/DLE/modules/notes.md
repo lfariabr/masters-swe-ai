@@ -376,6 +376,12 @@ Share your views as to whether if you had previous knowledge of regularization, 
 ## Module 5 - Convolutional Neural Networks
 
 ### TLDR
+- **A CNN** swaps general matrix multiplication for **convolution** in at least one layer; it is the go-to network for **grid-structured data** (images, audio spectrograms, even text windows).
+- **Three structural ideas** make convolution work (Goodfellow Ch.9): **sparse interactions**, **parameter sharing** (tied weights) and **equivariance to translation** - together they slash the parameter count and let a feature be detected *anywhere* in the input.
+- **Pooling** (usually **max pooling**) summarises a neighbourhood into one value, giving **approximate invariance to small translations** and letting the net accept variable-size inputs.
+- **The landmark architectures trace the field's arc:** **AlexNet** (2012, depth + GPUs) → **VGG16** (depth via small 3×3 filters) → **GoogleNet/Inception** (width + 1×1 bottlenecks); **ResNet** later added **skip connections** to train 152 layers.
+- **Training a CNN is the same loop as any net** - forward → loss → backprop → SGD; only the per-layer math changes (Zhou's from-scratch NumPy MNIST CNN reaches ~78%, ~97% in Keras).
+- **Assessment link:** A1 stays classical n-grams, but the **Zhao et al. (2018) GloVe-DCNN** you cite *is* a CNN over text - Module 5 finally explains that architecture and feeds the **Review Pulse v2** direction.
 
 ### Introduction
 A convolutional neural network (CNN) is the type of neural network that is most often applied to image-processing problems. You have probably seen CNNs in practise anywhere software has to identify an object in an image (e.g., when Facebook identifies you and your friends in an image that you just uploaded). However, you can also use CNNs in natural language processing. The fact that CNNs are useful in these fast growing areas is one of the main reasons why they are very important in deep learning (DL) and artificial intelligence (AI).
@@ -401,7 +407,7 @@ Finally, it is important that you pay special attention to several variants of t
 
     If the concepts discussed in the chapter are not clear, please refer to the additional resources in this Module.
 
-> *Status: 🕐 To-Do*  
+> *Status: ✅ Read + Reviewed — see [module05_notes.md](module-05-cnn/module05_notes.md)*
 
 #### 2. Convolutional and Recurrent Neural Networks
 - Kelleher, J. D. (2019). Deep learning. Cambridge, MA: MIT Press. Retrieved from https://ebookcentral-proquest-com.torrens.idm.oclc.org/lib/think/reader.action?docID=5855529&ppg=173
@@ -414,7 +420,7 @@ Finally, it is important that you pay special attention to several variants of t
 
     Pay special attention to the different CNNs developed over the past decade, such as AlexNet and ResNet.
 
-> *Status: 🕐 To-Do*  
+> *Status: ✅ Read + Reviewed — see [module05_notes.md](module-05-cnn/module05_notes.md)*
 
 #### 3. Neural Networks and Convolutional Neural Networks Essential Training
 - Fernandes, J. (2018). Neural networks and convolutional neural networks essential training [Video file]. Retrieved from https://www.linkedin.com/learning/neural-networks-and-convolutional-neural-networks-essential-training/convolutions?u=56744473
@@ -425,7 +431,7 @@ Finally, it is important that you pay special attention to several variants of t
 
     You may wish to view all the short videos from Chapters 1 to 5; however, pay special attention to ‘Chapter 4: Convolutional Neural Networks’ and ‘Chapter 5: Convolutional Neural Networks in Keras’.
 
-> *Status: 🕐 To-Do*  
+> *Status: 🔥 WIP — needs manual listen/authenticated LinkedIn access*
 
 #### 4. A Review of Popular Deep Learning Architectures: AlexNet, VGG16 and GoogleNet
 - Kumara, V. (2020). A review of popular deep learning architectures: AlexNet, VGG16 and GoogleNet [Web log post]. Retrieved from https://blog.paperspace.com/popular-deep-learning-architectures-alexnet-vgg-googlenet/
@@ -436,7 +442,7 @@ Finally, it is important that you pay special attention to several variants of t
 
     It is important to pay attention to the relationship between these architectures and CNNs, as this will help you implement any project that involves such architectures. Additionally, pay special attention to the unique value proposition of each architecture.
 
-> *Status: 🕐 To-Do*  
+> *Status: ✅ Read + Reviewed — see [module05_notes.md](module-05-cnn/module05_notes.md)*
 
 #### 5. CNNs, Part 2: Training a Convolutional Neural Network
 - Zhou, V. (2019). CNNs, Part 2: training a convolutional neural network [Web log post]. Retrieved from https://victorzhou.com/blog/intro-to-cnns-part-2
@@ -447,7 +453,7 @@ Finally, it is important that you pay special attention to several variants of t
 
     It is good to have sound ideas on how to train a network before putting your network into practise. Pay special attention to the Python codes shared in the post, as these will help you to better understand how to implement such codes in your final assessment.
 
-> *Status: 🕐 To-Do*  
+> *Status: ✅ Read + Reviewed — see [module05_notes.md](module-05-cnn/module05_notes.md)*
 
 ### Learning Activities
 
