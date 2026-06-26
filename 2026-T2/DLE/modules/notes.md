@@ -373,6 +373,130 @@ Share your views as to whether if you had previous knowledge of regularization, 
 
 ---
 
+## Module 5 - Convolutional Neural Networks
+
+### TLDR
+
+### Introduction
+A convolutional neural network (CNN) is the type of neural network that is most often applied to image-processing problems. You have probably seen CNNs in practise anywhere software has to identify an object in an image (e.g., when Facebook identifies you and your friends in an image that you just uploaded). However, you can also use CNNs in natural language processing. The fact that CNNs are useful in these fast growing areas is one of the main reasons why they are very important in deep learning (DL) and artificial intelligence (AI).
+
+CNNs are designed from biologically driven models. These models try to mimic how a human perceives an image in the brain in different layers. Unlike simple neural networks that have one or several hidden layers, CNNs have many layers. This allows them to compactly represent highly nonlinear and varying functions. CNNs have proven highly efficient in image-processing pattern recognition applications.
+
+In this Module, you will learn about a key concept in deep learning (DL) called convolutional neural networks (CNNs). CNNs are specialised neural networks that work with data that have a clear grid-structured topology and scale such neural networks to very large size. This approach has been very successful for two-dimensional image topologies.
+
+You will also learn about related concepts, such as convolution (a specialised kind of linear operation), kernel (a second argument to the convolution) and pooling (an operation that almost all convolutional networks employ).
+
+Finally, it is important that you pay special attention to several variants of the convolution function that are widely used in practice for neural networks. For example, one may not use only a strict linear operation to transform inputs to outputs in a convolutional layer.
+
+### Resources
+
+#### 1. Convolutional Neural Network
+- Goodfellow, I., Bengio, Y. & Courville, A. (2016). Deep learning. Cambridge, MA: MIT Press. Retrieved from https://www.deeplearningbook.org/
+
+*Resource Overview:*
+
+    This book contains an introduction to a broad range of topics in DL, including its mathematical and conceptual background, the DL techniques used in industry and different research perspectives. This book will be used throughout all the DLE602 modules.
+
+    Please read Chapter 9 for this Module. This chapter introduces CNNs, highlights relevant concepts (e.g., convolution, kernel and pooling) and provides examples. Section 9.5 discusses some variants of the basic convolutional function.
+
+    If the concepts discussed in the chapter are not clear, please refer to the additional resources in this Module.
+
+> *Status: 🕐 To-Do*  
+
+#### 2. Convolutional and Recurrent Neural Networks
+- Kelleher, J. D. (2019). Deep learning. Cambridge, MA: MIT Press. Retrieved from https://ebookcentral-proquest-com.torrens.idm.oclc.org/lib/think/reader.action?docID=5855529&ppg=173
+
+*Resource Overview:*
+
+    This book contains an easy to read introduction to CNNs. The discussion starts at a very basic level and builds from there with examples.
+
+    Please read Chapter 5 for this Module. If necessary, you can read Chapter 4 to refresh your memory before jumping into the details of CNN. For this Module, you only need to read the CNN section of the chapter.
+
+    Pay special attention to the different CNNs developed over the past decade, such as AlexNet and ResNet.
+
+> *Status: 🕐 To-Do*  
+
+#### 3. Neural Networks and Convolutional Neural Networks Essential Training
+- Fernandes, J. (2018). Neural networks and convolutional neural networks essential training [Video file]. Retrieved from https://www.linkedin.com/learning/neural-networks-and-convolutional-neural-networks-essential-training/convolutions?u=56744473
+
+*Resource Overview:*
+
+    This LinkedIn Learning course is a great resource that will ease anyone into the world of CNNs.
+
+    You may wish to view all the short videos from Chapters 1 to 5; however, pay special attention to ‘Chapter 4: Convolutional Neural Networks’ and ‘Chapter 5: Convolutional Neural Networks in Keras’.
+
+> *Status: 🕐 To-Do*  
+
+#### 4. A Review of Popular Deep Learning Architectures: AlexNet, VGG16 and GoogleNet
+- Kumara, V. (2020). A review of popular deep learning architectures: AlexNet, VGG16 and GoogleNet [Web log post]. Retrieved from https://blog.paperspace.com/popular-deep-learning-architectures-alexnet-vgg-googlenet/
+
+*Resource Overview:*
+
+    This great blog post discusses different types of popular DL architectures.
+
+    It is important to pay attention to the relationship between these architectures and CNNs, as this will help you implement any project that involves such architectures. Additionally, pay special attention to the unique value proposition of each architecture.
+
+> *Status: 🕐 To-Do*  
+
+#### 5. CNNs, Part 2: Training a Convolutional Neural Network
+- Zhou, V. (2019). CNNs, Part 2: training a convolutional neural network [Web log post]. Retrieved from https://victorzhou.com/blog/intro-to-cnns-part-2
+
+*Resource Overview:*
+
+    This great blog post discusses how to train a CNN.
+
+    It is good to have sound ideas on how to train a network before putting your network into practise. Pay special attention to the Python codes shared in the post, as these will help you to better understand how to implement such codes in your final assessment.
+
+> *Status: 🕐 To-Do*  
+
+### Learning Activities
+
+#### 1. Critical Analysis I—Initial Recommendation
+As part of this individual activity, describe situations, using examples, in which a CNN should be recommended over a Feedforward Neural Network. In completing this activity, ensure that you:
+
+- Critically analyse the task;
+- Form your example and present your recommendation to the discussion forum entitled ‘Critical Analysis!—Initial Recommendation’; and
+- Review other students’ recommendations and provide your feedback.
+
+> *Status: 🕐 To-Do* 
+
+#### 2. Critical Analysis II—Final Recommendation
+This is a continuation of Critical Analysis I. In completing this activity, ensure that you:
+- Review the feedback you received for your initial recommendation;
+- Revise your initial recommendation based on the feedback received; and
+Post your final recommendation (of no more than 100 words) to the discussion forum entitled ‘Critical Analysis II—Final Recommendation’. Ensure you use your own words.
+
+> *Status: 🕐 To-Do*
+
+#### 3. Train the Network
+As part of this activity, you will work on one of the important issues related to neural networks: training a neural network.
+- Imagine that you have been tasked with training a CNN to identify the images of two types of animals: cats and dogs.
+- Discuss your strategy for training the CNN and explain why it is the best. Support your claims with research.
+Post your response to the discussion forum.
+
+> *Status: 🕐 To-Do*
+
+#### 4. Collaboration
+The two common problems that are currently observed with CNNs are the:
+1. Computer requirement; and
+2. Memory requirement.
+
+By now, you have been allocated to a group and your group has been assigned a stance (i.e., your group is either in favour or against the above statement).
+
+If you have not yet been allocated to a group, please contact your facilitator immediately.
+
+Click on DLE602 Wiki Group > Then, click on Pages.
+Click on the Page titled "Module 5: Learning Activity 4 - Collaboration".
+Click on Edit to edit the Page.
+Insert your response in the column to which you are allocated. Justify your response.
+To save your response, remember to click on the ‘Save’ button.
+
+The facilitator will decide on the winner of the two groups.
+
+> *Status: 🕐 To-Do*
+
+---
+
 ```bash
 --- PLACEHOLDER:
 ## Module X - ...
