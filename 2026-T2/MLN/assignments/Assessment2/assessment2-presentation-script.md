@@ -20,10 +20,11 @@ on screen + delivery tips. Target: ~9 min (middle of the 7-10 range, safe).
 | 3 | Data Understanding | 1:30 | EDA: class balance, heatmap, pairplot |
 | 4 | Data Preparation | 1:00 | Section 3 + split |
 | 5 | Modelling | 1:30 | Section 4 + grid + best params |
-| 6 | Evaluation | 2:00 | Metrics table, ROC, confusion matrix, importances |
+| 6 | Evaluation | 2:00 | Metrics table, ROC (4 curves), confusion matrix, importances |
+| 6.5 | Naive Bayes (generative angle) | 0:30 | Section 5.4 + ROC |
 | 7 | Deployment / Lessons | 1:00 | Section 6 |
 | 8 | Close + experience | 0:30 | Camera (no screen) |
-| | **Total** | **~8:45** | |
+| | **Total** | **~9:15** | |
 
 ---
 
@@ -90,9 +91,9 @@ never sees the validation data. That's how I prevent leakage."
 ## 5. CRISP-DM Stage 4: Modelling (1:30)
 > *Direction: Section 4, then the best-params output. Emphasise 'roc_auc' and the hyperparameters.*
 
-"Stage four, Modelling. I compared four models so the tree could be read in context: a
-majority-class **baseline**, a **default** Decision Tree, a **tuned** Decision Tree - which is
-the required model - and Logistic Regression as optional context. For tuning I used
+"Stage four, Modelling. I compared five models so the tree could be read in context: a
+majority-class **baseline**, a **default** Decision Tree, the **tuned** Decision Tree - which is
+the required model - Logistic Regression, and a Gaussian Naive Bayes, both as optional context. For tuning I used
 `GridSearchCV` with **5-fold cross-validation**, searching `max_depth`, `min_samples_leaf`,
 the split criterion, and `class_weight`, all scored on **ROC AUC** rather than accuracy. The
 best configuration came out as `max_depth` of 6 and a minimum leaf size of 20 - a moderate,
@@ -105,8 +106,8 @@ memorises the training data. The pruning is what stops it overfitting."
 
 "Stage five, Evaluation - judged on the held-out test set. Here's the metrics table. The
 tuned Decision Tree reaches an **AUC of 0.809**, far above the baseline's 0.500. Now look at
-this ROC curve: the tuned tree, in orange, sits well above the diagonal, which is random
-guessing.
+this ROC curve, with all four models overlaid: the tuned tree, in orange, sits well above
+the diagonal, which is random guessing.
 
 Here's the honest part. The Logistic Regression - the *simpler* model - scored **0.814**, so
 the two are **essentially level**. That's a genuine finding, not a failure: it tells me a
@@ -122,6 +123,17 @@ imbalance and the class overlap.
 Finally, **feature importance**: `alcohol` dominates at 0.49, then `volatile acidity` at 0.21
 - which matches both the EDA and real wine chemistry. The fact that the model agrees with
 domain knowledge gives me confidence it's learning something real."
+
+## 6.5 Naive Bayes - the generative counterpoint (0:30)
+> *Direction: scroll to section 5.4 and point at the dark-red Naive Bayes curve on the ROC. Ties to Module 5 - say it with a bit of pride.*
+
+"One more comparison, and it ties straight to Module 5. Every model so far is *discriminative* -
+it learns the decision boundary directly. Gaussian Naive Bayes is *generative*: it models how
+each feature is distributed per class and inverts it with Bayes' rule. Its big assumption -
+that the features are independent given the class - my own correlation heatmap shows is *not*
+true here. And yet it still scores an **AUC of 0.771**, basically tied with the untuned tree.
+So the assumption is violated, but Naive Bayes stays robust for *ranking* - a classic,
+counter-intuitive result I found genuinely interesting."
 
 ## 7. CRISP-DM Stage 6: Deployment / Lessons Learned (1:00)
 > *Direction: Section 6. More reflective tone, slower.*
@@ -151,5 +163,5 @@ Assessment 1 taught me to measure *how much I'm wrong*; Assessment 2 taught me t
 - [ ] Clean audio (no echo). Speak at a measured pace, vary the tone on the numbers.
 - [ ] Timer: if you go past 10 min, cut segment 5 (Modelling) first.
 - [ ] File name: `MLN601FariaLuisBrief2.mp4` (or paste the URL into the submission field).
-- [ ] Make sure to mention AUC 0.809, the tie with logistic regression, and recall 0.78 vs 0.66
-      (the numbers the marker wants to hear).
+- [ ] Make sure to mention AUC 0.809, the tie with logistic regression, recall 0.78 vs 0.66,
+      and the Naive Bayes result (0.771 - assumption violated but robust). The numbers the marker wants to hear.
