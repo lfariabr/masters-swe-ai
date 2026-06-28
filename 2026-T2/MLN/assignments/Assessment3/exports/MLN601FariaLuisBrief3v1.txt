@@ -1,0 +1,292 @@
+# MLN601 Assessment 3 - Bike Sharing Daily Demand Regression
+# Author: Luis Faria (A00187785)  |  Source extracted from MLN601FariaLuisBrief3v1.ipynb
+# Run order top-to-bottom; requires: numpy, pandas, matplotlib, seaborn, scikit-learn
+
+# ===== Code cell 1 =====
+import os
+import warnings
+
+# Silence sklearn/joblib parallel UserWarnings so they cannot flood the exported
+# PDF. n_jobs=1 in the grid searches below means no worker processes spawn either.
+os.environ["PYTHONWARNINGS"] = "ignore"
+warnings.filterwarnings("ignore")
+
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+from sklearn.dummy import DummyRegressor
+from sklearn.linear_model import LinearRegression
+from sklearn.neighbors import KNeighborsRegressor
+from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
+from sklearn.preprocessing import StandardScaler, OneHotEncoder
+from sklearn.compose import ColumnTransformer
+from sklearn.pipeline import Pipeline
+from sklearn.model_selection import train_test_split, GridSearchCV
+from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
+
+sns.set_theme(style="whitegrid")
+RANDOM_STATE = 42
+
+# ===== Code cell 2 =====
+from pathlib import Path
+
+NB_DIR = Path.cwd()
+BASE_DIR = NB_DIR.parent if NB_DIR.name == "notebook" else NB_DIR
+OUTPUT_DIR = BASE_DIR / "outputs"
+FIG_DIR = OUTPUT_DIR / "figures"
+FIG_DIR.mkdir(parents=True, exist_ok=True)
+
+UCI_URL = ("https://archive.ics.uci.edu/static/public/275/"
+           "bike+sharing+dataset.zip")
+
+
+def load_bike():
+    candidates = [BASE_DIR / "dataset" / "day.csv", NB_DIR / "dataset" / "day.csv",
+                  NB_DIR / "day.csv"]
+    local = next((p for p in candidates if p.exists()), None)
+    if local is not None:
+        print("Loading local:", local)
+        return pd.read_csv(local, parse_dates=["dteday"])
+    import io, zipfile, urllib.request
+    print("Downloading from UCI:", UCI_URL)
+    with urllib.request.urlopen(UCI_URL) as r:
+        zf = zipfile.ZipFile(io.BytesIO(r.read()))
+    return pd.read_csv(zf.open("day.csv"), parse_dates=["dteday"])
+
+
+df = load_bike()
+print("Shape:", df.shape, "| date range:", df.dteday.min().date(), "->", df.dteday.max().date())
+df.head()
+
+# ===== Code cell 3 =====
+df.info()
+
+# ===== Code cell 4 =====
+df.describe().T
+
+# ===== Code cell 5 =====
+print("Missing values per column:")
+print(df.isna().sum().to_string())
+print("\nDuplicate rows:", int(df.duplicated().sum()))
+print("Identity check (casual + registered == cnt):",
+      bool((df["casual"] + df["registered"] == df["cnt"]).all()))
+
+# ===== Code cell 6 =====
+season_lbl = {1: "spring", 2: "summer", 3: "fall", 4: "winter"}
+weather_lbl = {1: "clear", 2: "mist", 3: "light rain/snow", 4: "heavy rain/snow"}
+weekday_lbl = {0: "Sun", 1: "Mon", 2: "Tue", 3: "Wed", 4: "Thu", 5: "Fri", 6: "Sat"}
+df["season_name"] = df["season"].map(season_lbl)
+df["weather_name"] = df["weathersit"].map(weather_lbl)
+df["weekday_name"] = df["weekday"].map(weekday_lbl)
+df["year_name"] = df["yr"].map({0: "2011", 1: "2012"})
+
+# Distribution of the target and its growth over the two years
+fig, ax = plt.subplots(1, 2, figsize=(13, 4))
+sns.histplot(df["cnt"], bins=30, kde=True, ax=ax[0])
+ax[0].set_title("Distribution of daily rentals (cnt)")
+ax[0].set_xlabel("daily rental count")
+sns.lineplot(data=df, x="dteday", y="cnt", hue="year_name", ax=ax[1])
+ax[1].set_title("Daily rentals over time (2011-2012)")
+ax[1].set_xlabel("date"); ax[1].set_ylabel("cnt")
+plt.tight_layout()
+plt.savefig(FIG_DIR / "v1_cnt_distribution.png", dpi=120)
+plt.show()
+
+# ===== Code cell 7 =====
+# Season / month / weekday against total rentals (rubric-named plots)
+fig, ax = plt.subplots(1, 3, figsize=(16, 4))
+sns.barplot(data=df, x="season_name", y="cnt",
+            order=["spring", "summer", "fall", "winter"], ax=ax[0])
+ax[0].set_title("Mean rentals by season"); ax[0].set_xlabel("")
+sns.lineplot(data=df, x="mnth", y="cnt", hue="year_name", marker="o", ax=ax[1])
+ax[1].set_title("Mean rentals by month"); ax[1].set_xlabel("month")
+sns.barplot(data=df, x="weekday_name", y="cnt",
+            order=["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"], ax=ax[2])
+ax[2].set_title("Mean rentals by weekday"); ax[2].set_xlabel("")
+plt.tight_layout()
+plt.savefig(FIG_DIR / "v1_season_month_weekday.png", dpi=120)
+plt.show()
+
+# ===== Code cell 8 =====
+# Weather situation and working-day effect on rentals
+fig, ax = plt.subplots(1, 2, figsize=(13, 4))
+sns.boxplot(data=df, x="weather_name", y="cnt",
+            order=["clear", "mist", "light rain/snow", "heavy rain/snow"], ax=ax[0])
+ax[0].set_title("Rentals by weather situation"); ax[0].set_xlabel("")
+sns.boxplot(data=df, x="workingday", y="cnt", ax=ax[1])
+ax[1].set_title("Rentals: working day (1) vs weekend/holiday (0)")
+ax[1].set_xlabel("working day")
+plt.tight_layout()
+plt.savefig(FIG_DIR / "v1_weather_cnt.png", dpi=120)
+plt.show()
+
+# ===== Code cell 9 =====
+# Continuous weather measures against rentals
+cont = ["temp", "atemp", "hum", "windspeed"]
+fig, ax = plt.subplots(1, 4, figsize=(17, 4))
+for a, c in zip(ax, cont):
+    sns.regplot(data=df, x=c, y="cnt", scatter_kws={"alpha": 0.3, "s": 12},
+                line_kws={"color": "black"}, ax=a)
+    a.set_title(f"{c} vs cnt")
+plt.tight_layout()
+plt.savefig(FIG_DIR / "v1_continuous_vs_cnt.png", dpi=120)
+plt.show()
+
+# ===== Code cell 10 =====
+# Casual vs registered composition of total demand
+comp = df.groupby("season_name")[["casual", "registered"]].mean().reindex(
+    ["spring", "summer", "fall", "winter"])
+fig, ax = plt.subplots(1, 2, figsize=(13, 4))
+comp.plot(kind="bar", stacked=True, ax=ax[0])
+ax[0].set_title("Mean casual vs registered by season")
+ax[0].set_xlabel(""); ax[0].set_ylabel("mean daily users")
+ax[0].tick_params(axis="x", rotation=0)
+ax[1].stackplot(df["dteday"], df["casual"], df["registered"],
+                labels=["casual", "registered"], alpha=0.8)
+ax[1].set_title("Casual + registered over time = cnt")
+ax[1].set_xlabel("date"); ax[1].legend(loc="upper left")
+plt.tight_layout()
+plt.savefig(FIG_DIR / "v1_casual_registered.png", dpi=120)
+plt.show()
+
+# ===== Code cell 11 =====
+# Correlation heatmap of the modelling variables (+ cnt)
+num_cols = ["season", "yr", "mnth", "holiday", "weekday", "workingday",
+            "weathersit", "temp", "atemp", "hum", "windspeed", "cnt"]
+corr = df[num_cols].corr()
+plt.figure(figsize=(10, 8))
+sns.heatmap(corr, annot=True, fmt=".2f", cmap="coolwarm", center=0,
+            square=True, cbar_kws={"shrink": 0.8}, annot_kws={"size": 7})
+plt.title("Correlation heatmap (features + cnt)")
+plt.tight_layout()
+plt.savefig(FIG_DIR / "v1_corr_heatmap.png", dpi=120)
+plt.show()
+corr["cnt"].drop("cnt").sort_values(ascending=False).round(3).to_frame("corr_with_cnt")
+
+# ===== Code cell 12 =====
+# Seaborn pairplot (required by the brief) - key continuous drivers + target
+g = sns.pairplot(df[["temp", "atemp", "hum", "windspeed", "cnt"]],
+                 corner=True, plot_kws={"alpha": 0.3, "s": 12}, diag_kind="kde")
+g.fig.suptitle("Pairplot of continuous weather variables and cnt", y=1.02)
+g.savefig(FIG_DIR / "v1_pairplot.png", dpi=110)
+plt.show()
+
+# ===== Code cell 13 =====
+DROP = ["casual", "registered", "cnt", "instant", "dteday",
+        "season_name", "weather_name", "weekday_name", "year_name"]
+nominal = ["season", "mnth", "weekday", "weathersit"]
+binary = ["yr", "holiday", "workingday"]
+continuous = ["temp", "atemp", "hum", "windspeed"]
+feature_cols = nominal + binary + continuous
+
+X = df[feature_cols]
+y = df["cnt"]
+
+preprocessor = ColumnTransformer([
+    ("oh", OneHotEncoder(drop="first", handle_unknown="ignore"), nominal),
+    ("sc", StandardScaler(), continuous),
+    ("pass", "passthrough", binary),
+])
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.25, random_state=RANDOM_STATE)
+
+print("Train:", X_train.shape, "| Test:", X_test.shape)
+print("\nTop correlations with cnt:")
+print(df[feature_cols + ["cnt"]].corr()["cnt"].drop("cnt")
+      .sort_values(ascending=False).round(3).to_string())
+
+# ===== Code cell 14 =====
+def pipe(est):
+    return Pipeline([("prep", preprocessor), ("model", est)])
+
+searches = {
+    "K-Nearest Neighbors": (KNeighborsRegressor(), {
+        "model__n_neighbors": [3, 5, 7, 9, 11, 15],
+        "model__weights": ["uniform", "distance"]}),
+    "Random Forest": (RandomForestRegressor(random_state=RANDOM_STATE), {
+        "model__n_estimators": [200, 400],
+        "model__max_depth": [None, 8, 16],
+        "model__min_samples_leaf": [1, 2, 4]}),
+    "Gradient Boosting": (GradientBoostingRegressor(random_state=RANDOM_STATE), {
+        "model__n_estimators": [200, 400],
+        "model__max_depth": [2, 3],
+        "model__learning_rate": [0.05, 0.1]}),
+}
+
+fitted = {}
+fitted["Mean baseline"] = pipe(DummyRegressor(strategy="mean")).fit(X_train, y_train)
+fitted["Linear Regression"] = pipe(LinearRegression()).fit(X_train, y_train)
+
+best_params = {}
+for name, (est, grid) in searches.items():
+    gs = GridSearchCV(pipe(est), grid, scoring="neg_mean_absolute_error",
+                      cv=5, n_jobs=1)
+    gs.fit(X_train, y_train)
+    fitted[name] = gs.best_estimator_
+    best_params[name] = gs.best_params_
+    print(f"{name}: CV MAE = {-gs.best_score_:.1f} | best = {gs.best_params_}")
+
+# ===== Code cell 15 =====
+bp = pd.DataFrame({k: {p.replace("model__", ""): v for p, v in params.items()}
+                   for k, params in best_params.items()}).T
+bp.to_csv(OUTPUT_DIR / "rf_best_params_v1.csv")
+bp
+
+# ===== Code cell 16 =====
+def reg_metrics(model, X_te, y_te):
+    pred = model.predict(X_te)
+    mse = mean_squared_error(y_te, pred)
+    return {"MAE": mean_absolute_error(y_te, pred),
+            "RMSE": np.sqrt(mse),
+            "R2": r2_score(y_te, pred)}
+
+results = pd.DataFrame({name: reg_metrics(m, X_test, y_test)
+                        for name, m in fitted.items()}).T.round(3)
+results.index.name = "model"
+results = results.sort_values("MAE")
+results.to_csv(OUTPUT_DIR / "model_metrics_v1.csv")
+results
+
+# ===== Code cell 17 =====
+# Best model = lowest test MAE (excluding the baseline)
+ranked = results.drop(index="Mean baseline")
+best_name = ranked["MAE"].idxmin()
+best_model = fitted[best_name]
+print("Best model by test MAE:", best_name)
+
+pred = best_model.predict(X_test)
+fig, ax = plt.subplots(1, 2, figsize=(13, 5))
+ax[0].scatter(y_test, pred, alpha=0.4, s=18)
+lims = [min(y_test.min(), pred.min()), max(y_test.max(), pred.max())]
+ax[0].plot(lims, lims, "k--", label="perfect prediction")
+ax[0].set_xlabel("actual cnt"); ax[0].set_ylabel("predicted cnt")
+ax[0].set_title(f"Predicted vs actual - {best_name}"); ax[0].legend()
+resid = y_test - pred
+ax[1].scatter(pred, resid, alpha=0.4, s=18)
+ax[1].axhline(0, color="k", ls="--")
+ax[1].set_xlabel("predicted cnt"); ax[1].set_ylabel("residual (actual - predicted)")
+ax[1].set_title("Residuals")
+plt.tight_layout()
+plt.savefig(FIG_DIR / "v1_pred_vs_actual.png", dpi=120)
+plt.show()
+
+# ===== Code cell 18 =====
+# Feature importance from the best tree-based ensemble
+tree_name = best_name if best_name in ("Random Forest", "Gradient Boosting") else "Gradient Boosting"
+tree_model = fitted[tree_name]
+feat_names = tree_model.named_steps["prep"].get_feature_names_out()
+imp = (pd.DataFrame({"feature": feat_names,
+                     "importance": tree_model.named_steps["model"].feature_importances_})
+       .sort_values("importance", ascending=False).reset_index(drop=True))
+imp.to_csv(OUTPUT_DIR / "feature_importance_v1.csv", index=False)
+
+plt.figure(figsize=(8, 6))
+sns.barplot(data=imp.head(12), x="importance", y="feature")
+plt.title(f"Top feature importances - {tree_name}")
+plt.tight_layout()
+plt.savefig(FIG_DIR / "v1_feature_importance.png", dpi=120)
+plt.show()
+imp.head(10)

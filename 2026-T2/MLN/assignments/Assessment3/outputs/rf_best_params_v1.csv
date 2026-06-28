@@ -1,0 +1,4 @@
+,n_neighbors,weights,max_depth,min_samples_leaf,n_estimators,learning_rate
+K-Nearest Neighbors,5,distance,,,,
+Random Forest,,,16.0,1.0,400.0,
+Gradient Boosting,,,2.0,,400.0,0.05
