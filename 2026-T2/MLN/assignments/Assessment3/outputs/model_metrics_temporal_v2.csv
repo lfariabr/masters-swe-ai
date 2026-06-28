@@ -1,0 +1,6 @@
+model,MAE,RMSE,R2
+Gradient Boosting,2024.15,2189.801,-0.503
+Random Forest,2034.355,2195.377,-0.511
+K-Nearest Neighbors,2065.057,2240.731,-0.574
+Linear Regression,2121.765,2298.932,-0.656
+Mean baseline,2488.673,2829.308,-1.509

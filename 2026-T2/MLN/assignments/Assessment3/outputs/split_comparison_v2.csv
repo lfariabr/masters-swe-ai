@@ -1,0 +1,6 @@
+model,MAE_random_75_25,MAE_temporal_2011_2012,times_worse
+Gradient Boosting,473.307,2024.15,4.28
+Random Forest,450.908,2034.355,4.51
+K-Nearest Neighbors,721.113,2065.057,2.86
+Linear Regression,566.091,2121.765,3.75
+Mean baseline,1662.978,2488.673,1.5
