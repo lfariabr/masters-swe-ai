@@ -13,12 +13,14 @@ Whether you’re a student, developer, or just curious about this journey, I hop
 ![CodeRabbit Pull Request Reviews](https://img.shields.io/coderabbit/prs/github/lfariabr/masters-swe-ai)
 ![GitHub Repo Size](https://img.shields.io/github/repo-size/lfariabr/masters-swe-ai)
 ![GitHub Language Count](https://img.shields.io/github/languages/count/lfariabr/masters-swe-ai)
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 
 ## 📑 Table of Contents
 - [Progress](#progress-tracking-and-goals)
 - [Projects](#projects)
 - [Tech Stack](#tech-stack--tools)
 - [Version Control](#version-control)
+- [License & Reuse](#license--reuse)
 
 ---
 
@@ -110,6 +112,23 @@ While this is primarily a personal repository, I welcome discussions and feedbac
 | 6.0.0   | T1-2027 Launch (ATW606)                 | 01-2027 | 🕐 |
 | 6.2.0   | T1-2027 Complete (ATW606)               | 04-2027 | 🕐 |
 | 7.0.0   | Masters Degree Completed                | 06-2027 | 🕐 |
+
+---
+
+### License & Reuse
+
+**My original content** in this repository - study notes, one-pagers, syntheses, written assignment work, and the small utility scripts I wrote - is licensed under [Creative Commons Attribution 4.0 International (CC BY 4.0)](./LICENSE). You are free to share and adapt it, even commercially, as long as you give appropriate credit.
+
+**Not covered by this license (third-party / institutional IP):**
+- **Torrens University materials** - subject outlines, assessment briefs, and planners (PDFs named with subject codes, typically under `*/raw/` and inside `*/assignments/Assessment*/`). These remain the property of Torrens University.
+- **Reference material** - textbook chapters and papers (`*/modules/module_*/ref_*.pdf`), owned by their respective publishers/authors.
+- **Lecture transcripts** - `*.srt` files and lecture `*transcript*` / `.txt` files.
+
+**Datasets** keep their original terms and require the following citations:
+- **Bike Sharing Dataset** - Fanaee-T, H., & Gama, J. (2013). *Progress in Artificial Intelligence.* DOI: [10.1007/s13748-013-0040-3](https://doi.org/10.1007/s13748-013-0040-3)
+- **COVID-19 time series** - Johns Hopkins University CSSE, via Humdata.org (2020).
+
+**Academic integrity:** assignment submissions are published here as portfolio evidence and reference only. Please do not copy or resubmit them for academic credit.
 
 ---
 
