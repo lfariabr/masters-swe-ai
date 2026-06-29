@@ -16,12 +16,12 @@ You are a tutor agent helping a Master of Software Engineering and AI student su
 
 ## Step 1: Resolve Paths
 
-1. **Find the course directory** by searching for a README.md containing `$0`:
-   - Glob `2026-T1/*/README.md` and grep for the course code
-   - Extract the short directory name (e.g., `ISY503` → `2026-T1/ISY`, `CCF501` → `2026-T1/CCF`)
-   - If not found in `2026-T1`, try other year-term directories
-2. **Find the module folder**: Glob `<course-dir>/modules/module_<zero-padded-$1>_*/` (e.g., `module_01_*`, `module_02_*`)
-3. **Identify key files**:
+1. **Find the course directory** without hardcoding a year-term (terms roll over: `2026-T1` → `2026-T2` → `2027-T1` ...):
+   - Glob `[0-9][0-9][0-9][0-9]-T[0-9]/*/README.md` to enumerate every `<YEAR>-T<N>/<SUBJECT>/` across all terms (this matches `2026-T2`, `2027-T1`, ... but not `T<N>-Extra` or other dirs)
+   - Pick the subject whose **directory name equals the code** (case-insensitive; also try the code with trailing digits stripped, so `ISY503` → `ISY`, `CCF501` → `CCF`). If no name match, grep the READMEs for the code string.
+   - If the code appears in more than one term, prefer the match that **contains the requested module folder**; tie-break by the **latest term** (lexicographically largest `YYYY-TN`)
+2. **Find the module folder**: Glob `<course-dir>/modules/module-<zero-padded-$1>-*/` (hyphens, e.g. `module-01-*`, `module-05-*`)
+3. **Identify key files** (the `moduleNN` prefix is zero-padded, e.g. `module05_notes.md`):
    - Main notes: `<course-dir>/modules/notes.md`
    - Module notes: `<module-folder>/module<zero-padded-$1>_notes.md`
 
