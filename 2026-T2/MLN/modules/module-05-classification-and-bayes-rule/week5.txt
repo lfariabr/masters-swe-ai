@@ -1,0 +1,1241 @@
+ Good morning, everyone.
+ Hello, Dr. Kamara, how's it going?
+ Everything is fine.
+ How was your assessments?
+ All good, very fun to tackle.
+ Good.
+ Reddy, how was your assessment?
+ Yep, all good, so far.
+ Good.
+ Thank you.
+ Good.
+ Can you please tell me, as we left
+ with one of the questions in our last lecture,
+ that what are the shortcomings or the limitations
+ of the C-entry algorithm?
+ Can you please quickly search and paste your answer
+ into the chat?
+ Thank you, Dr. Kamara.
+ Good morning, everyone.
+ Welcome to the C-entry algorithm,
+ where we will be discussing some of the challenges
+ that the C-entry algorithm is facing.
+ And we'll be discussing some of the challenges
+ that the C-entry algorithm is facing.
+ And we'll be discussing some of the challenges
+ that the C-entry algorithm is facing.
+ And we'll be discussing some of the challenges
+ that the C-entry algorithm is facing.
+ And we'll be discussing some of the challenges
+ that the C-entry algorithm is facing.
+ And we'll be discussing some of the challenges
+ that the C-entry algorithm is facing.
+ Good morning, Professor.
+ Good morning, Renato.
+ I have asked anybody to search the limitations
+ or the shortcomings of the C-entry algorithm,
+ the question which we left in our last class.
+ So quickly, have a look and search and paste
+ your answer into the chat.
+ [BLANK_AUDIO]
+ [BLANK_AUDIO]
+ [BLANK_AUDIO]
+ So Louis mentioned high tendency to overfitting training data
+ due to memorizing noise and outlies in training data.
+ And Ferdi mentioned that no building uncertainty,
+ small data set produce unreliable trees.
+ Okay, fair enough.
+ Anybody else?
+ Complexity in which sense?
+ Whether you are referring to the time complexity
+ or space complexity of S.
+ [BLANK_AUDIO]
+ [BLANK_AUDIO]
+ Yes, and another important
+ term which the Louis mentioned before going there,
+ Wes mentioned because when the data set and different features grow,
+ it can create more complexity in the C-entry.
+ Yes, in terms of space and time both.
+ Yes, true.
+ And then very important terminology,
+ which everybody has to be very much clear
+ is what is overfitting and underfitting.
+ So firstly, what is underfitting?
+ Underfitting happens when the model fail to learn important patterns.
+ It performs poorly on both training and testing data.
+ Underfitting happen due to the model is too simple,
+ very high regularization features are weak or missing, not enough training.
+ So sometimes if you have like very few samples related to a data set,
+ where the model actually can't learn the important features out of that one.
+ So for example, everybody's coming and they say,
+ I have a fever, I'm feeling back pain and so on.
+ So you as a medical petitioner actually did not ask whether are you feeling sneezing?
+ Do you have a flu?
+ Is your platelets count is decreasing?
+ So the other symptoms which are really very important for you
+ as a medical petitioner to decide whether the person is a COVID patient or not a COVID patient.
+ So of course, if somebody is just saying I'm feeling pain and I have fever,
+ it could be a malaria, it could be a typhoid, it could be a dengue fever.
+ It could be a normal seasonal flu.
+ So it is very important for that medical petitioner to identify,
+ to learn the features which are very important
+ to distinguish between the related diseases, which I just mentioned.
+ So maybe your model hasn't learned those features properly, which are very important.
+ And that is what we are saying the model is underfitted.
+ It did not learn the things properly.
+ The second one is overfitting.
+ Overfitting happens when the model learns too much from the training data, including the noise.
+ It means some things which is really very important for you to learn
+ to distinguish that this is right, this is wrong, right?
+ You also considered that noise, that wrong things into your training,
+ and you consider them that this is okay.
+ There is no issue with that one, right?
+ And what happens then?
+ So sometimes maybe this example may not be applicable or understandable to everyone,
+ but sometimes there are few words which normally we don't want to speak with our family members,
+ especially with the parents, especially with our siblings, for example.
+ And there are certain jokes, certain fun things which we normally do with our friends, right?
+ And if in your brought up, in our brought up, if we think that this is okay to do,
+ whether the jokes which could be done with the friends or the fun which could be done
+ with the family is totally different or there is a certain limit, right?
+ Something which you can do with your friends, but not with your parents, for example.
+ But if you understood that this is okay, both things are okay.
+ So now what will happen?
+ It means you learned the noise as well.
+ You learned the wrong things as well.
+ And why I'm saying it is noise, because this is not applicable to those jokes,
+ are not applicable to your parents, but you consider them as it's okay, right?
+ And you haven't distinguished them properly.
+ Now what will happen when you go home?
+ You talk with your parents, you talk with your siblings.
+ Maybe you will make those jokes with them.
+ Right?
+ Without understanding that these are not applicable to them.
+ So that is what they call it as you are overfitted.
+ So overfitted happens when the model learns too much from the training data,
+ including the noise and outliers.
+ Means some things which like you have to distinguish it clearly.
+ And it performs very well on the training data, but poorly on the test data.
+ Right?
+ Because you have learned the noise as well.
+ Now what will happen if somebody say is this joke is applicable to your parents or just your friends?
+ You're not able to distinguish it properly.
+ Right?
+ Because you considered everything is okay.
+ Right?
+ Now if somebody give you a test data because now they have the right data, that is correct.
+ Right?
+ This is okay.
+ This is not okay.
+ Right?
+ So but when the test data will come, you will not really perform good there.
+ Right?
+ And that is what it is overfitted.
+ Overfitted happens due to the model is too complex, too many features,
+ are very little data, are very high, various is there.
+ Right?
+ These two things are really very important.
+ Underfitting is when your model fails to learn the important features, important patterns,
+ important information, hidden information that a model, a machine learning algorithm has to learn.
+ And it hasn't learned it properly.
+ So now even if you will give the training data or the testing data, it will not perform good there.
+ And on the other hand, overfitting is when your model is learned too much from the training data,
+ even the noise.
+ And now when it is applicable to the test data, it is not performing really well there.
+ Right?
+ And that is what we call it as overfitting and underfitting.
+ So any questions?
+ I hope you understood these two terms, which are very important.
+ Overfitting and underfitting.
+ Any question related to these two terms?
+ Super clear.
+ Okay, now the other thing which we started in our last class was related to the CN tree, right?
+ The CN tree algorithm is the first algorithm, you can say,
+ which we are studying as a first and there are a lot of other algorithms as well.
+ But the algorithm for classification as part of this course.
+ We discussed in our last class that classification is a supervised learning technique.
+ Supervised learning means where we know what we are going to do, means we know our label.
+ And classification because the type of the label, the type of the attribute,
+ which we are going to predict is categorical in nature.
+ It has few categories among which you have to do that classification, that prediction.
+ And then we further discussed, if there are only two outcomes for a particular label,
+ then we call it as binary classification.
+ And if it has more than two classes, more than two outcome values of that particular label,
+ among which we have to do the prediction, then it is called multi-class classification.
+ With a very simple example, and if the type of the attribute is continuous,
+ then it is a regression problem.
+ And with very simple example, I can explain these three concepts.
+ That is the weather forecast data.
+ If you are saying tomorrow is rainy or not rainy, then it means,
+ firstly, it is a supervised learning, means you know what you are going to do.
+ Now, you just have to predict between which whether tomorrow is going to be rain or not, right?
+ Then it is a classification and it is a binary classification, right?
+ Now, if the classes are whether tomorrow is rainy, windy, cloudy.
+ Again, you know what you are going to do and the type are the limited,
+ but it is more than two, then it is multi-class classification.
+ If you are predicting, how much would be the temperature tomorrow?
+ 7 degree, 8 degree, 9 degree regression, because the value
+ which you are going to predict is continuous in nature, right?
+ Then we started with the decision tree.
+ We discussed that decision tree is basically used for classification
+ and also decision tree regressor, DTR.
+ And we discussed that in this one, you have attribute features to be selected.
+ And the first feature that you will select on the top is would be the your root attribute.
+ And then the branches would be the outcome values of that particular attribute.
+ And then once you reach here, you will basically need to
+ split your data based on these features and here there would be a separate split based on this
+ feature value and then you will keep growing this tree means it is a recursive process
+ until you reach on your leaf node, right?
+ And then further we discussed that if there would be any value here, which we can just answer.
+ And that is what the decision tree algorithm is also called is rule based learning.
+ Right, rule based learning where you induce certain rules after constructing a decision tree
+ and then you can just simply answer.
+ So, for example, you can make one rule that if the student value is no,
+ income value is high, age value is less than 30.
+ So, you would say no, you can have another rule student value is no, income value is high,
+ but the age is greater than 30, then you will approve the loan for that particular person.
+ Right?
+ So, means you will write all those rules which you have induced inferred from this decision tree.
+ Right? Now, before revising, how this decision tree would be constructed because then I have
+ to come back here, I want to link the limitations which you have mentioned.
+ Right?
+ So, you can see that if you have more number of attributes, then it would be really hard
+ for you to manage the whole construction of this decision tree into your memory.
+ Or if you will store it, you need a substantial amount of memory to store this whole decision tree.
+ Right?
+ The next thing is if I had to answer only one question, this is very important.
+ I will just need to raise two questions.
+ If I have to answer this particular instance, this test case.
+ For this one, I need to construct the whole decision tree.
+ I will construct the whole decision tree.
+ And afterwards, I will traverse this rule over here, and then I can answer.
+ So, it means even to answer a one test case, one test sample, I need the construction of
+ whole decision tree.
+ Second thing.
+ You have mentioned after this one that if the student value is no, income value is high,
+ age value is less than 30, then you will not approve the loan for that particular individual.
+ But what are the chances?
+ How much sure you are?
+ What is the probability that you will not approve the loan for that particular person?
+ Right? Because when we talk about classification, we need a certain answers.
+ Sometimes you have a line on 50 and somebody is on 48, somebody is on 52.
+ So, there are very high chances that 52, 54th one will jump into that class below 50.
+ And that 48 would adjust a normal change into the feature, can jump into the 52.
+ But we are 100% sure if somebody is on 20, if somebody is on 80.
+ 81 is 100% pass, 21 is 100% fail, 48 one can pass, 52 one can be fail.
+ So, 20, 81 is okay, 70, 31 is okay.
+ But the border cases creates a lot of problem.
+ For that one, we need to have a shorty, we need to know the probability.
+ Right?
+ And this is what we can't see from the decision tree.
+ So, two problems I raised, two issues I raised.
+ That one is, if you have to answer a single test case,
+ then you need to construct the whole decision tree.
+ Of course, for that one, time complexity will involve, space complexity will involve,
+ you need a storage, you need a computational resources to manage all of that one.
+ Just to answer one test case.
+ And the second is, even whatever the answer you will give me, whatever the label you will assign,
+ you weren't able to tell me the probability.
+ You weren't able to tell me the relevance or what is the likelihood of that one.
+ Right?
+ That is, that are the two issues which actually let us to think about its solutions.
+ And that is what we have today, Naive Bayes algorithm.
+ Right?
+ So, before going into the detail of Naive Bayes algorithm, let me quickly recap what
+ we have discussed last time about the decision tree.
+ If anybody missed the lecture or has any confusion, please speak up and do ask the questions.
+ We will see here that you need to select this particular attribute as your root attribute.
+ Right?
+ And then we discussed that you will split your data set.
+ Right?
+ That is what we were discussing.
+ And then for each of these one, you need to select these particular attributes.
+ Right?
+ And then we further discussed that what is the chances or what are the ways to select
+ that particular attribute.
+ Right?
+ We thought that we have to select the best splitting attribute would be the one which
+ has low contradictions, means it has less uncertainty, but if you have a data set, which
+ is very small, which we did in our last class as well, does it fly?
+ It is easy to do it.
+ But if you have a huge data set with a lot of features, then it is really very difficult.
+ Right?
+ For that one, we discussed that there are two things, mathematics help us there that
+ you can do.
+ One is the entropy.
+ The other one is the information gain, as we discussed last time.
+ And we discussed in detail how to calculate this one.
+ Right?
+ We discussed that you first need to calculate the information gain or entropy of the final
+ class.
+ And the formula for that one is you will pick up the samples for one class.
+ So here, for example, there are two possibilities, mammal and bird.
+ Right?
+ And then you will count how many total do we have?
+ Seven.
+ How many total mammals do we have?
+ Three.
+ So minus three by seven log base two of three by seven minus four.
+ Why four?
+ Because the other class, which is bird, has four count.
+ By seven, which is the total count of your data set log base two of four by seven.
+ And eventually you will get this one.
+ And then we discussed you need to calculate the entropy of all the attributes and to
+ calculate the entropy of your individual attribute, you first need to calculate the entropy of
+ the all of its possible values.
+ Say for the color one, it has two possibilities, brown and white.
+ And once we have those entropies, then we add them up.
+ That would be the overall entropy, overall gain of your color attribute.
+ And then you will take a difference of the individual information gain of an attribute
+ to the information gain of the whole class, the final class.
+ Right?
+ And you will do this one for all the attribute, for all the features.
+ And then whosoever the attribute will have the highest probability, highest value, you're
+ going to choose that particular attribute to be selected here.
+ So we did for the final class, which is here, and then we did it for the color.
+ For the color, it has brown and white.
+ First we did for the brown.
+ So how many browns do we have?
+ We have three browns here.
+ Out of the three browns, how many are mammals?
+ How many are the birds?
+ So out of these three mammals, out of all the three browns, the one is mammal, this
+ brown is mammal, this brown is bird, and this brown is bird.
+ So one is the mammal.
+ So one by three, log base two of one by three, same formula here.
+ And minus two by three, because out of three brown color, you have two birds.
+ And out of three brown color, you have one mammal.
+ And similarly, you will do for the white color, because for the white color, you will see
+ all the values are same.
+ White is mammal, white is sorry, white is mammal, and then white is bird, then white
+ is mammal, and then white is bird.
+ So two equal possibilities.
+ And if you will evaluate this way here, you will get the value one.
+ And that's what we are not doing that one.
+ And the other thing we discussed, if for all the value, you have one value and there is
+ no instance exist for the other one, then you will straight away mention it zero as
+ we did for the fly yes.
+ Because if you will see fly yes here, yes is bird, yes is bird, yes is bird.
+ So there is no contradiction.
+ And if you will calculate its entropy, it will come to zero.
+ So you can do the calculation and evaluate it first, but that is the short way we did
+ it.
+ And then for the no, similar way you calculate it.
+ And then you calculated the overall and then took the difference and the color got 0.02
+ and fly got 0.5, 5 is high.
+ So that's why we got to choose fly as the root attribute.
+ And similar way you have to repeat this process for the whole one.
+ And that's what we did in our last class as well, where we actually did this one with
+ this one.
+ So I want to really appreciate and thanks to Louise and Fadi who actually did all the
+ calculation and the solution for both of them are available into the announcement.
+ So please have a look and if there would be any contradiction, any question, please let
+ me know.
+ Okay.
+ Coming back to the start of my lecture where I mentioned two issues.
+ One is that with this the C entry you will not able to find and you will not able to
+ get the probability.
+ So that is we are going to stop it here.
+ Before going into that one, some of you have implemented one model in your first assessment,
+ which we call it as Ensembling technique.
+ Ensemble means where you are actually mixing multiple models.
+ So for example, if Louise has to take admission or to go to Australia, for example, or just
+ to go out of from whatever the country he belongs, he discussed with one person where
+ should I go.
+ Somebody advised him to go for Australia, for example.
+ And somebody else came and say, okay, you can go to Canada.
+ Somebody else came and then they advise go to Australia, it's good and weather is good
+ and blah, blah, blah.
+ Right.
+ And then Louise now is feeling very easy and confident as well to make a decision for Australia
+ because he got the two votes for Australia and one for Canada, for example.
+ Similarly, if he plans to come to Australia and then somebody else, okay, wait to which
+ university to choose or which program to choose, for example.
+ So similar way he discussed with multiple people and then he took the voting, like voting
+ means somebody suggested to go here, somebody go there, there.
+ He took the majority voting to make a decision.
+ Now he is feeling more confident that a lot of people sports into that one.
+ So it means he is making a right decision, that is what ensemble learning is.
+ You have not just one model, you will have multiple models and you will give the single
+ test sample to one model, number one.
+ Right.
+ And the same to the second, same to the third one.
+ Now first set say yes, second set say yes, third set say no.
+ So you got two yeses.
+ So you are 66% sure to make a decision.
+ Right.
+ Now these models could be the same model and it could be different as well.
+ Right.
+ Maybe some data set you choose to train one DC entry, another chunk of data set you choose
+ to train the second DC entry, another chunk of data set you try to choose and train the
+ third DC entry.
+ And then you give the one test sample to all of these three DC entries.
+ Right.
+ And then you took the voting and you assign the final label.
+ The other thing could be you have multiple models here.
+ Right.
+ First model would be the DC entry, second could be logistic regression, third could be
+ sport vector machine, another could be artificial neural network and so on.
+ Right.
+ Now you got it from there.
+ So it could be multiple models are the same model with different kind of data sets.
+ Right.
+ So the important thing is like you have to mix up this one.
+ That is important.
+ Right.
+ And that is what is our agenda of our today's lecture is one of the agendas in sample learning.
+ So method that combines multiple learning algorithms to obtain the performance improvement
+ over its components, random forest is another algorithm, which is not part of this course,
+ but it is 100% you know about it.
+ So if you mix up multiple DC entry and from the example which we just discussed, there
+ could be one model.
+ And if the one model is DC entry, right, you give you have one DC entry here, which is
+ trained on some chunk of data set, another DC entry which is trained on a separate chunk
+ of data set, a third DC entry.
+ It means you are assembling multiple DC entries.
+ Note the model name is a random forest and random forest is used for classification purposes.
+ Right.
+ Now three important things.
+ Please pay attention here.
+ Very important concepts.
+ First is bagging, random subspace method and boosting.
+ I'm going intentionally slow.
+ So to clarify your understanding in a better way so you can understand.
+ Bagging is where you have multiple subset of the data.
+ Multiple subset of the data.
+ For example, if you have 100 total samples, for example, and you pick up 30 samples to
+ train the first DC entry, another 30 out of that 100, you choose to train the second DC
+ entry, another 30 you choose to train the third DC entry.
+ So first thing, if it is all DC entries, then it is random forest right now within the random
+ forest technique is bagging.
+ Why bagging?
+ Because you are making different subset of the data samples, right?
+ The second one is random subspace method where you are running multiple model.
+ It could be one model.
+ It could be different model.
+ That's what we already discussed on a random subset of the features.
+ Very important.
+ In the bagging, you're going to choose all the 30 rows out of 100 you pick up, for example,
+ if you have a data, sorry, if you have a data of 100 patients and out of those 100 patients,
+ you have the data for 10 different features.
+ There could be biomarkers or medical test reports and so on.
+ So those 10 you're going to choose the any of the 30 people for with all of the 10 samples
+ and you train one model, then you pick up another 30 people with all the 10 biomarkers
+ and you give it to a second DC entry, second model, right?
+ That is what the bagging is.
+ Now, the random subspace method, which is also called feature bagging, means you have
+ to choose, you have to give 100 patient data to all of the three DC entries, not 30.
+ All the 100 patients data will be given to the first DC entry, second DC entry, third
+ DC entry.
+ Now, the difference is with the first DC entry, you are not giving the data for all the 10
+ features, you may be given, oh, just give the fever and cough and blood pressure value,
+ for example.
+ For the second DC entry, where the 100 patient data is going, but only for five other features.
+ For the third one, again 100, but five different features data, not all the 10 features.
+ That is called the second method, random subspace method, right?
+ The third one is boosting.
+ We have a detail of each one of this, but before going into detail, I am discussing
+ you about the concept.
+ Boosting is where you will train your models iteratively.
+ What will happen?
+ You have a test data and you gave to the model, model gave some prediction, right?
+ Say model set based on this feature, person is COVID patient.
+ For example, only the few people whom were the COVID was not correctly classified, not
+ detected properly, right?
+ Now what happens next time, what we will do, we will increase their weight.
+ We will see, oh, last time you did not classify them correctly, pay more attention, right?
+ Now the weights are increased, attention is increased, right?
+ And now you give the test sample to the second model.
+ Of course, where there are very high chances where you increase the weight or you put more
+ pressure, more attention, you could have classified them correctly.
+ But maybe some other samples might be misclassified.
+ Now in the next phase, you will increase their weight and then you will retrain your model
+ with the updated revised weight, right?
+ That's how the boosting works, right?
+ So bagging is you are making subset of data.
+ This is a random subset of the features and this is the iterative process, right?
+ Random forest, which we already discussed that is in simple learning of decision trees.
+ Instead of building a single decision tree, use it to make prediction, build many slightly
+ different decision trees and combine their prediction, that is random forest.
+ Now the two concepts came again.
+ One is bagging.
+ Bagging is the short form of bootstrap aggregating.
+ And what is that?
+ You will take a random subset of the data points from the training set to create n smaller
+ data set and then on each of the subset you will have, you will fit a decision tree on
+ it, right?
+ The second is random subspace method, which we discussed is also called feature bagging,
+ where you will fit n different decision trees.
+ Again, there are multiple decision trees, but each of them is using to operate on a
+ random subset of the features.
+ For example, here you will say you have a training set here and say 100 samples you
+ have here and out of that one you will divide them into 30 different subset.
+ 30 here, 30 here, 30 here.
+ Randomly you choose 30, 30 out of those 101.
+ For the one you choose 1, 5, 9, 11, 12, 50, 51, 52.
+ Randomly choose and make it 30 and you have this subset and for this one you actually
+ constructed a decision tree here.
+ Now this decision tree is ready here.
+ This is the first decision tree, second decision tree, third and fourth.
+ Right, now you have a test sample here and you will give all those decision trees which
+ you constructed here all four to classify.
+ And this one classified, this is an apple, apple, orange, apple.
+ And you took the voting.
+ Voting is 75% confidence.
+ You mentioned this is an apple.
+ This is bagging.
+ Right, the second one is feature bagging or random subspace method where you have a training
+ data set like here.
+ I mentioned like for example you have here 100 patient data and for all of them you have
+ different features.
+ Feature bagging is you will give all 100 to the first decision tree but with few features.
+ Maybe for the first one you consider only color and mass, for the second one you give
+ texture and pH value, for the third one you give pH and mass for example.
+ You build up a decision tree based on that one.
+ When that decision tree is ready, the model is ready, you will give a test sample to all
+ these three decision tree trained on multiple subset of the features, right, not on the
+ data, on the features.
+ And now they classify this thing.
+ And then you took the voting and you assign the particular label.
+ So in both of these examples, first thing is we are applying in sampling where just
+ not one model exists there but multiple could be different form of one of the algorithms
+ or could be different models even, right.
+ And here it is random forest which we discussed, right.
+ Then boosting, boosting we discussed is an iterative process, right.
+ And in this one we discussed you will use this data set, you will train a model and
+ then after that training the model is trained, you will have a test data here, right.
+ You will give this test data to this particular model, right.
+ And you will get a result say for example apple, right.
+ And then you identified it is not you are not considering what output they have, you
+ will definitely consider because that is what you need to take the vote at end.
+ So some of the samples were misclassified and then you increase their weight, you retrain
+ another model here.
+ Maybe those could have been classified correctly but some others have been misclassified.
+ Now you got the output here as well because you got the apple here, you got the apple
+ here for example and then you would retrain it again with the revised adjusted weight
+ and again you got the orange here.
+ Then you will take the average of this one.
+ So this one you retrain it, adjusted the weight and then with this one you actually got the
+ output and this one and then all of them got this one.
+ So this way you can see that you got the boosting.
+ You got the boosting here.
+ So in this way you can retrain your model.
+ Professor, I have two questions so we can pause.
+ So the first one is if you use the test data set you won't have another like test data
+ set? No, you will give the same test data, same test data.
+ Okay, yeah because if you are giving the different test data then you can't compare.
+ But in that case we can have some higher chances to have overfitting?
+ Could be a chance, that's true.
+ Because you see that the overfitting is when your model is learning the bad things.
+ But we are not actually letting the model to learn the bad things.
+ So for example if you have been trained, you have been brought up from the example which
+ I have given could be personal example maybe understandable for few of you then you would
+ say this is good, this is good joke, this is the joke which you can do with the friend,
+ this is the one you can do with the family, with your parents and then if somebody is
+ not doing that one right so we are not letting you to be overfitted.
+ Means overfitted is when you learn the noise and the good and the bad things all together
+ and you say everything is good right but we are if you are not understanding you are making
+ that joke with the family we are giving you emphasis that this is the not the joke which
+ you can do with the family. We are just putting a pressure on the things to get it right or what
+ is wrong we are putting the pressure there. Overfitting is when you are mixing both things
+ but when you are adjusting the weight it means the emphasis on the same thing is improved
+ not on the other things. You getting my point John?
+ Right so if you are saying this is good thing and this is bad thing and you are learning both
+ as good or both as bad for example then it means you are doing overfitting means you learn the
+ noise and you did a lot of learning from your data and then you learn the noise as well which
+ you consider is good for example and now somebody will ask you in the test time what is good what is
+ bad and now you learn everything as good and no you are not able to answer it correctly that is
+ overfitting but here the emphasis would be if somebody that the good thing to be classified as
+ good and bad thing to be classified as bad but if you are not predicting it correctly
+ either it is good either it is bad so we are putting you more emphasize and you are putting
+ more pressure you are giving more attention to that particular thing that this is good and you
+ have to make it good and this is bad you have to make it bad right so it means you are putting
+ pressure on the individual things it is not the learning that you learn something else as well
+ you are learning the same thing to understand it to memorize it that I have to do it correctly
+ or this is bad I have to negate it I have to classify it bad right so that is what here
+ so the chances of the overfitting could be there like maybe with the others that are said but not
+ that much due to that in sampling technique right so you might be confused because you are learning
+ too much on the same data set and that is what the chances of the overfitting is improved but
+ in that one the learning is that sense is that you are not getting distinguished between good and bad
+ but here it's not good or bad difference is the thing where you are actually emphasizing on
+ the good to be classified as good and bad to be classified as bad I hope I have cleared the point
+ yeah well 100 and I just wanted to state that I use it rental forest on my assessment number one
+ and just sharing that SKlearn abstracts the real machinery behind for example I never wrote bagging
+ or RCM on my assessment submission but I understand now while you were explaining that there are
+ defaults when they pass the regression in there with the bootstrap equals true and with the max
+ features as well so super interesting to get that under theory perspective yeah so that is what
+ boosting bagging and feature bagging difference is right so I repeat one more time again here
+ in sampling is where you are mixing multiple models in order to get their
+ input what are those things and it could be one model it could be different models
+ and for the second assessment we gonna apply this in sampling learning we gonna apply random forest
+ as well and which I will give a little bit more details when we will discuss about second
+ assessment and the other thing is bagging is where you have one data set and you are making multiple
+ subset of the major data set and each of the subset you are training a different model
+ could be one model and then from there you gonna actually test them right and then eventually you
+ gonna take the voting for the feature bagging which is random subspace method basically you
+ gonna take the whole data set you are not dividing the you are considering all the rows all the
+ individuals but for the features now you are taking the subset of the features right so when
+ you take the subset of the features in that case you gonna actually train a different models and
+ based on that one you gonna do that one and the boosting is where you have one model you get the
+ output some prediction some misclassification you will adjust the waste for those samples
+ retrain your model again and then again test it and then retrain again test it and then eventually
+ you get the voting finally right so all of these techniques and other methods as well which are not
+ discussed which is not part of this course here as well even I think in sampling is not part of
+ machine learning course but if you will say I got a distinction in machine learning and somebody
+ else okay what is in sampling and you say oh in sampling come run hasn't taught us so that is why
+ I discussed few of the methods here so you would actually understand the concepts and also apply
+ for your second and third assessments as well so what is the takeaway of of these in sampling
+ the stuff so far the C-entry which we have discussed right so take away the
+ easy the the the C-entries are very you can use it for different purposes can use for we have
+ discussed whatever the classification example we discussed you can apply the C-entry for all of
+ them right but the thing in the things which we need to focus is the two things that if you will
+ increase the accuracy then you need to increase the trees and if you will increase the trees
+ eventually you will increase the time complexity and space complexity as well right and then once
+ you have more number of the C-entries it can slower down means your speed efficiency detection
+ would be decreased the time would be decreased right and then the two things which we mentioned
+ if you have to construct one the C-entry if you have to answer one test data you need to construct
+ the whole the C-entry and second is you can't tell the probability what is the likelihood of that one
+ right so that is the thing which we we discussed so far so a lot of members now join the class now
+ so if i give you five minutes to have a look to the two important things one is to tell me
+ what are the shortcomings of the C-entry algorithm second is what are the applications
+ of the C-entry algorithm right and what is ensemble learning so just three questions if you
+ give a few minutes to understand these one which would be really good and then we will start about
+ the naive Bayes algorithm right so i write the question here to clarify if there would be
+ anything why i'm giving this time because sometimes if you will read anything about
+ these models these algorithms and later on if any specific terms come up there any terminologies
+ there you might not able to understand it properly or if you build up your understanding on the
+ writing whatever is available on the literature and if it is not aligned then you can tell me okay
+ this is what i understood but the meaning of this sentence looks different to me so can you explain
+ is there a problem in my understanding or is the problem into the writing right so three things
+ which we need to search limitations are the shortcomings of the C-entry
+ algorithm applications of the C-entry and the third one is in assembling learning so take few
+ minutes maybe maybe max 10 minutes right so we will come back at 12 40 so whatever the answer
+ you get for these three quan please paste here into the chat okay right everybody aware sleeping
+ ali here in our two sudeep jon search for these three and paste your answer here one two three
+ okay and it's not just copy and paste here try to understand the thing is try to understand if
+ you could not understand just mention i could not understand can you please clarify i'm happy to do
+ that one okay so it preserved
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ yeah sorry i mistakenly entered so i just updated now
+ you
+ you
+ you
+ you
+ you
+ so sudeep mentioned that limitations are the cnt is easy to understand is this the limitation
+ okay but it has some drawbacks it can overfit the training data good which means learns the data
+ too closely and may not work well with the new data so that is another issue which is the basically
+ the overfitting in the overfitting what happens that the model actually has the limited amount
+ of data and due to which what happens it did not generalize properly means it did not understand
+ that there is something else there or maybe it hasn't seen the test data for example what
+ happens that you have a 100 patient data out of those 100 patient maybe 80s patients are
+ from australia and 20 comes from a different country i don't want to name any country comes
+ from a different country where there is a different strain of covid exist for example
+ and if you build up a model using the first 80 patient data to classify whether the person
+ is a covid patient or not a covid patient so if you will give those 20 symbol patients
+ data to test your model will not give you a good accuracy why because those 20 samples
+ are different and those have not been added into the training of your model means you
+ haven't considered them during the training now how you can imagine that it will give
+ good accuracy on that data which is had as hasn't learned properly for example if somebody
+ is living at home and know how the things works within the home and so on and if you
+ if you go to a professional life which is totally different you can't say oh i handle
+ this family problem this contradiction or complications with the sibling for example
+ i can also do in my industry as well into my company as well for example maybe you can't
+ do it because you haven't have any professional experience to working in a professional context
+ the things work different there right and then maybe you will not perform better there
+ so that could be another issue there it is also sensitive to the small changes or even
+ a small change in the data can create a different areas you can imagine if there is a yes value
+ you will have a different subtree and if it is a no there is a slight change into that
+ one you can imagine you could have a totally a different decision tree health care the
+ applications in health care doctors banking marketing behavior yes ensemble learning is
+ good yeah thank you sudeep then louise mentioned overfitting multi value bias weak probability
+ of applications are in credit medical and churn rice and then a method combining models
+ for better so good thank you louise rinato application medical to rational rule yes limitations
+ overfitting ensemble awareness mention applications in credit scoring fraud detection and solubin
+ mention limitations overfitting the c entry can create complex models and through so in
+ all of these one we understood now what the c entry is what are its applications how it
+ could give benefits into different areas of life we also understood its limitations we
+ we know what is in sampling what is random forest how they works and everything with
+ these one i want you to emphasize on two things one is the to answer one sample test test
+ data you need to construct the whole to see entry and the second one is you want able
+ to know what is the probability what is the likelihood of particular case whether it is
+ yes what is the probability if it is no what is the probability so with having this one
+ we can now discuss about the naive base algorithm right naive base algorithm is basically a
+ statistical classifier which will give you a probabilistic predictions for that one it
+ works based on the base theorem right and this is the base theory right so x be our
+ test set h be your hypothesis right and with the probability that you will say oh this
+ particular sample belong to this class what is the probability just imagine if this will
+ be assigned to this class what is the probability and so on so we straight away go to the question
+ the question is here that the class has bias computer yes and no and this is the data to
+ be classified where the age value is less than 30 income is medium student is yes credit
+ rating is fair so which class you will assign whether you will that person will buy the
+ computer are will not buy the computer of course if you have to answer this question
+ from a decision tree perspective you need to construct the whole decision tree you need
+ to calculate the entropy value for this particular class then you will calculate the entropy
+ for this one for this one you need to calculate the entropy for fair excellent and so on and
+ then the overall would be for credit rating then you will take its difference here then
+ you will do the same process for the other features and then you will gonna select only
+ a single root node and then you have a different subset different branches based on whatever
+ the feature you choose and so on but with the naive Bayes algorithm this is very easy
+ right so imagine this is the test sample which we need to answer just pay attention for few
+ minutes and you will be easily understanding how it works this is the age value is less
+ than 30 income is medium student is yes and credit rating is fair we need to answer this
+ sample whether that person will buy his computer are will not okay first we will calculate
+ the probability of the overall class how many yeses are here out of the 14 9 are yes so
+ you can see here yes 1 2 3 4 5 6 7 8 and 9 so 9 yeses are here out of the 14 and this
+ is the probability for a sample to be yes and how many are no 5 by 14 because we left
+ with 5 so 5 by 14 this is the probability now it says that the age value is less than
+ 30 so you will see if the age value is less than 30 how many bias computer are yeses right
+ so how many 30 we have we have 1 2 3 4 and 5 out of this one this 30 is no this 30 is
+ again no this 30 is again no this 30 is yes and this less than 30 is yes so you have 3
+ nos here and 2 yeses so 2 yeses 2 by 9 total 9 yeses are there out of that one 2 are with
+ less than 30 look the other way around right so this is the probability out of the 5 nos
+ one how many are less than 30 3 right and so the probability is this one here right
+ now for the same one income value is medium how many are yeses so out of 9 yeses you will
+ see 4 of them has income as medium and out of the 5 nos like you have a no here no here
+ you have a no here no here and no here credit rating is medium so this is excellent this
+ is fair this is excellent this is excellent this is fair right and this is about the income
+ income is for this no it is high for this no it is high we are not considering that
+ one we are just considering the the medium one so you will say out of the 9 yeses how
+ many has the income value as medium so 1 medium here 2 3 4 5 and 6 there are total 6 mediums
+ right this medium is no as you can see here let me select the laser this medium is no
+ this medium is yes this medium is yes this medium is yes so 1 2 3 yeses 1 no this medium
+ is no so 3 yeses 2 nos this medium is yes so 4 yeses and 2 nos here so you calculate
+ the probability for this one similarly if the student is yes means they are the student
+ so after yes you have yes here yes no here yes yes here you will calculate and you will
+ do this one right so now what happens this one which you calculated for the yes the attribute
+ value you will multiply this with this yes with this yes with this yes and this no one
+ will multiply with this no with this no and with this no so whatever the answer you will
+ have for the yes whatever the answer you will have for the no for the yes one you gonna
+ multiply with this yes and for the no one you will multiply with this no right as we
+ did here so 0.22 is for this yes now select the laser this 0.2 into 0.44 here right then
+ 0.66 here then 0.667 again here and you calculate the probability similarly for no 0.6 here
+ 0.4 here then 0.2 here and then 0.4 here and you get the value here now whatever the yeses
+ value you have 0.044 this you gonna multiply it with the 0.643 and this 0.019 will be multiplied
+ with the 0.357 right and then the answer for the yes you will get is 0.028 and with the
+ no you will get 0.007 who has the highest one of course 0.028 which is the label is
+ yes so firstly for this class you gonna assign the label yes and the probability is also
+ this one so for this one you have actually answered those two questions you have just
+ calculated and math is easy you haven't need so many memory as you require to construct
+ and hold the C entry because for all of the answers you need to keep holding that C entry
+ into the memory otherwise you can't answer right so you have 100 samples to predict so
+ you will see if you have constructed a huge the C entry you need to hold it into the memory
+ but for this one it is quick calculation is more quicker as compared to if it is involve
+ some other medium to hold and store and then answer the question from there please have
+ a look to this calculation if you could not understand then let me know.
+ Thank you.
+ [Applause]
+ [Silence]
+ anybody has any confusion I repeat it again for you guys that if there is one test sample
+ and for that one you need to answer which label has to assign using the name base algorithm
+ which says that you need to calculate the probability for each of the sample and you
+ will first calculate for the final class which is has two labels no and yes so you will calculate
+ for yes and no's and then for each of the value of the test sample you just consider
+ that one you will totally ignore the other values so age has three different values less
+ than 30, 31 to 40 and greater than 40 you are not considering anything related to 30
+ to 40 or greater than 40 just considering less than equal to 30 and in that one you
+ will have the value here for the less than 30 how many are the yeses out of the nine
+ yeses two are less than 30 out of the five no's three of them are less than 30 and then
+ with the bias computer no how many has the value income as medium how many five no's
+ has the value medium income value and then once you calculate you will multiply all the
+ features yes values between this two two with this one with this one with this one and similarly
+ for the no one as well the answer you gonna multiply the yes one with the yes and with
+ whatever the no you have got you will multiply it with the no and then whosoever will has
+ the high probability you gonna assign that particular label to this test sample right
+ okay any any confusion any question so far good here okay okay now if everything is clear
+ now the next thing is please calculate the label and the probability for this test sample
+ which is here using this data set the same data set please show the same calculation
+ as I did here and take a screenshot take a picture and share into the chat for this test
+ sample what would be the label what would be the probability age is 31 to 40 income
+ is low student is yes credit rating is excellent please do these calculations and share your
+ result into the chat.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ So Louis shared so what level you are going to assign it is the one that is not zero then
+ yes one device computer 0.0329 right which is for the bias computer yes yes correct the
+ final result I multiplied by 0.643 and got the 00211 then you move toward 9 then because
+ no is zero right no zero correct okay we wait somebody else as well to double check the
+ right.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Yes anybody else if finished the calculation please do share.
+ I have a question yes please what if we don't have the answer so what if it was prediction
+ outcomes sorry I could not get what do you mean by this so let's say we know that we
+ have 14 we know that nine say yes and five say no or five there is no if there is no
+ exist here so for example if doesn't have any probability here so you will assign zero
+ for example means doesn't exist any simple no no that's not what I mean so let's say
+ that's a business for a computer store and that's what he that's what his data is yes
+ all right but if he's starting the business and he wants to know how many he will sell
+ this month for example he will sell nine and he cannot sell five because the credit score
+ of the age or something like this that is another question that is not a classification
+ problem so you mean for example the events in advance yeah for example I give you two
+ examples so immigration says that in 2021 we have this much students came from a particular
+ country are entered into Australia for example and this is the historic data for the last
+ five years what you can predict for the next five years for example this is the stock exchange
+ share price historic data for the last two years and then can you predict what would
+ be the stock exchange share price for example whether I would go to buy it or not buy it
+ and so on right that is another problem that is not a classification problem so for that
+ one you would use for example lstm long shirt short term memory for that one they need to
+ memorize what was happening to the previous event what happened afterwards what happens
+ afterwards and then you have to predict right and that is a totally a separate question
+ that is not a comes under this naive base algorithm yeah I know it's separate I was
+ just thinking about some different yeah yeah yeah you you definitely can do but but in
+ that case that of course if you are predicting for example the medium how many medium you
+ could have so in that case you made the income as your attribute not the computer buys so
+ it means that is a totally a different case study and for that one you have to explore
+ lstm or rcnn and other algorithms which actually most of them used into the nlp area as well
+ natural language processing because in natural language processing if you have said come
+ on is the good boy and then you say you say she gets up early in the morning and there
+ is an issue because you said come on is a boy then you must have to use he why you using
+ she so it means to in order to correct that one whether it should use he or she or his
+ or him or her you have to memorize the previous event and that is what in your generative
+ AI and chat gpt they they does it right because they need to store what they have said previously
+ and then they have to quote and they have to memorize everything up till the end the
+ context would be same so that is a total subset different subset of the problems and the algorithms
+ and I don't think so we have anything in our machine learning course at the moment but
+ I have like we are revising this machine learning course and definitely I have one or two lectures
+ for generative AI which Louise may know that I have given something a talk in your intelligent
+ system course in last term related to the generative AI and different kind of tools
+ but that is not part of this machine learning course so definitely I will also include that
+ one because there you might have simply discussed about those things but here I will integrate
+ in the future terms the implementation of those things with simple example for everyone
+ to understand. You got the answer Farideh? No actually I haven't but I'll try again.
+ Okay. So Sullivan also. So your calculation Sullivan is same as of Lewis Renato your one
+ is also same as Lewis. No contradiction. Lewis can you confirm? Apparently similar to Sullivan's
+ one. But for Renato is a little bit different but also states by computers yes it's bigger
+ than the zero on the no. But it's slightly different on the numbers. Okay so now with
+ this one like now we have the calculation there could be some issue with the minor change
+ into the probability value but we have got roughly these answers here right. Now whatever
+ the Lewis has mentioned let me share that one R Renato has shared let me download for
+ any of them. Both of them did okay great job and maybe I can take a snippet of this one
+ here. One sec please. So before going into the detail I'm going to tell you very important
+ thing here. As you can see here from the this slide that this is very important please pay
+ attention here. You can see if this value is 0.2 to 0.44, 0.66, 0.66. Say you have no
+ sample for less than 30 pi's computer is yes. So what you will do here you will put zero
+ here right and this value would be zero. Everybody agree with this one right and this value is
+ 0.6. This value is 0.4 which is quite similar to this one which is 0.2 the no one which
+ is 4 less than 0.6 right. This no again is for less than the positive one right. So in
+ most of the cases are all of the cases except one case the value for the yes is higher right.
+ But because of the single digit zero all of the value result would be zero and the other
+ class which may have all these 0.00003 probability you're going to choose that one to assign
+ that particular label. That is what you will do and that is what you have done here right.
+ Because for one of the class if you will see you do not have any samples there right. As
+ you can see here
+ you have 0.6 probability here 0.3. Then this is 0.4, 0.3, 0.6, 0.3. But the other class
+ which has the probability value which we can see here 0.6, 2, 2 and because of this zero
+ eventually you're going to get the zero here. You're going to get the zero here. Agree.
+ And the other one which may not have higher value you're going to choose that particular
+ label to be assigned to that test sample right. So, the point which I want to make is just
+ because of this zero so all of the value is going to be zero. You're going to eliminate
+ that one. Maybe the example which I have given to you guys is as you can see here in all
+ of the cases your no class is less than the yes class. But because of this zero you're
+ going to have all the value to zero and you're going to go for the second class, second label
+ right. And this may not be right for most of the cases. I hope if I have clarified my
+ point I repeat it one more time. You are calculating the probability for all the yes for all the
+ nos and yes is far higher than the no. But one of the value of the yes is zero. So, of
+ course when you're going to multiply that one the probability would be zero. The final
+ aggregate probability would be zero right just because of one zero. Otherwise for all
+ other cases the yes probability is far higher than the no one but still you're going to
+ choose the label no right. This may not be the right indication in most of the cases
+ right. And this is the problem with this naive Bayes algorithm. And we call it as zero probability
+ problem. As we have highlighted the other issues, limitations, shortcomings of the C
+ entry algorithm. This is the main drawback of naive Bayes algorithm. The problem of the
+ zero probability. So, if somebody asks you what is the zero probability problem. So,
+ you can say in the test data for the values different values of the features we have to
+ investigate and we have to calculate. But for one of the sample of the features we don't
+ have any sample exist in your data set. Eventually it will lead towards you the zero probability
+ and eventually that zero will make all of the result to be zero which may not be the
+ true right. So, I may not be strong enough right but you just mentioned okay sometimes
+ most of you might be come from as an international student right. And when you go for a job normally
+ they will ask you on which visa you are in. You will say on a student visa. Doesn't matter
+ you have 10 years of software industry experience. You are very good in programming. You are
+ very good. You have been qualified from a very good university. You have the right certification.
+ But just because you do not have the working rights the full working rights they will not
+ shortlist your applicant. Any such case happen with any one of you. Yes. Right. So, only
+ just one point is making you out of that race. But that may not be the true. If we will give
+ you the few working rights we just suppose that without with having zero working rights
+ still you have 40 hours for example. We just increase right. So, just in case you have
+ few working rights few hours. And now if somebody will be compared with your profile definitely
+ your profile would be higher. Because you were just lacking in one of them which we
+ handle that one to give you the few hours few hours as a working rights. And now if
+ you will be compared your profile would be compared you will be far higher than the other
+ candidates. Agree with this solution Louis? Yep. That is what the solution of this zero
+ probability is. So, zero probability solution is if any of the samples does not exist in
+ your data set and its probability is going to be zero you just assume you just assume
+ it is not zero it is 0.0000001. Right. So, if the other points other values are higher
+ and just because of this zero if you are getting the overall value zero no you will not get
+ zero. Right. And even this minor value this 0.1 probability this 0.001 probability will
+ not give you any advantage on others. Right. So, if suppose I give you the 40 hours working
+ rights per week and it will not make any more like superior performance on your profile.
+ So, it is not they are going to choose oh no you have the 40 hour working rights now
+ Louis your profile is far more higher than the others. No. If still you have a very good
+ competitors if their profile is really very good and you are just being disadvantaged
+ due to the working rights. So, giving you the working rights will not make you to be
+ selected there. But just to give you a chance that you will not get the disadvantage we
+ give you the few working rights to have a fair comparison not just to be eliminated
+ out of that rate just because of the one of the features. Right. And that is what the
+ solution of the zero probability is and that is what you have faced here in this particular
+ example where you see that if you have the age value is this and income is low. Right.
+ And student value is yes. You will when you will solve this one. So, you will see bias
+ computer value is no is zero. And once you will multiply with this value with this value
+ with this value. Right. And eventually you will get the zero value. Right. So, even though
+ you have included to make it zero make it 0.1. So, this will solve the zero probability
+ problem. Right. So, even though the value is still lower. Right. But you will not be
+ surprised that you might have lost a very good candidate. Right. So, just because of
+ the one feature you are not ignoring the other one and you see that doesn't make much sense
+ much advantage to be added into in comparison to this one. Even it is zero one still because
+ it is lower zero point two zero point two is lower than this zero point two is lower
+ than this one zero point one is lower than this one. This one is equal. OK. Ignore this
+ one still no is lower. Right. So, even you see this zero point one did not add much into
+ the final decision. But just suppose if this would have been zero. Right. And this have
+ been zero point one suppose. Right. This is zero. So, it means this would be zero. So,
+ it means this one is far higher zero point two is higher less than zero point three again
+ zero point six is much higher. So, yes is getting higher. But just because of this zero
+ you gonna make the final decision to be zero and you gonna assign the other class. But
+ if you just give its value to zero point one here and know if you will calculate then you
+ will see this one would be the highest and you reach on the final decision. Right. And
+ that is the solution of this Naive Bayes Algorithm problem of the zero probability. Right. Any
+ question so far here I will speak here. So, in our today's class we have discussed various
+ concepts we first started with the decision tree and classification algorithm we discussed
+ that classification is where you have the type of attribute of your label is categorical
+ in nature and if it is just two outcomes then it is binary classification if it is more
+ than two then you have multiclass classification then we discussed about the issue of decision
+ tree we discussed what decision tree is how it has been constructed and so on and we discussed
+ that using the decision tree you need to hold the whole decision tree into your memory all
+ the time and then even if you have to answer one thing you need to hold the whole decision
+ you need to construct you need to hold the whole decision tree into your memory so that
+ comes with a lot of overhead memory overhead computational sources are required and so
+ on and the second is you weren't able to know the probability value the likelihood the chances
+ of that label to be assigned what are the chances right so you can't know using the
+ decision tree algorithm then we discussed the Naive Bayes algorithm which comes and
+ solve this problem for that one you just need to apply the Bayes theorem which will solve
+ this problem quickly you just have to work with whatever your test data values are and
+ multiply the values and get the results and everything and then we discussed still with
+ this Naive Bayes algorithm you have a problem of zero probability where maybe for one of
+ the class maybe the samples doesn't exist for one of the features but due to that one
+ the overall probability will become zero to handle that problem we just assign a very
+ minor value that if just in case the other values of that class is highest so maybe we
+ not being disadvantaged to this class and even contributing that probability value to
+ be 0.1 will not give it much preference so if it is no it will still be no if it is yes
+ if still will be yes and then we also discussed about the assembling learning in sampling
+ is where you are mixing up the output from the multiple models one method is bagging
+ where you will make different subset of your data and you give those subsets to your multiple
+ models could be one model could be same model and could be one model as well if it is just
+ one model which is decision tree and you have multiple decision tree then you have a new
+ modifier which we call them as random forest and then if you will have considered the whole
+ data set but you will make a selection on the features then it is called random subspace
+ method also called feature bagging and the third one is the boosting where you will give
+ the data to one of the model you get the output the misclassified samples weight would be increased
+ adjusted and then you do the classification and you keep doing that process and evaluate
+ the outcomes and take the voting at the end that is your boosting with these one if you
+ have any any questions any any doubt in your mind
+ Just wanted to ask one question Dr. Caron regarding the add one part that you mentioned
+ I understand that these can be relate this is related to the Laplace smoothing so we
+ consider all the features of the model to explore everything right just thinking about
+ the concept of it am I correct on that yes yes yes okay
+ any other question you may have okay with this one now we are going to look up some
+ other important things this is related to Nebase and for that one we will see the Nebase
+ exist here and with this one you have a Gaussian Nebase you can use different variants of Nebase
+ algorithm one is simple Nebase with the Gaussian NB then you have multinomial then you have
+ complement NB then you have Bernoulli NB and categorical NB you can explore all of these
+ one though you don't need to understand each one of them just the their values are changed
+ but you can explore this one for your second assessment right just a minor difference one
+ line difference and you can implement all of these four versions of Nebase algorithm
+ I have already shared the URL of all of these one right so here when you say s k learn Nebase
+ and import Gaussian Nebase right you will have the same lines of the data set splitting
+ everything here you will create an object of Gaussian Nebase and you will use that object
+ to fit the model and if you have the multinomial Nebase you just have to import the multinomial
+ you don't and here you need to create the object of that one if you are doing the Bernoulli
+ Nebase you just need to import it create its object and you will be all same and I don't
+ mind you copy this code for your second assessment but I want you to explore as much as you can
+ the different kind of models right I also show you another URL here this is Nebase right
+ this is also one of your learning activity as well so you will see this is data visualization
+ this is data subplating here they important the Nebase algorithm right they created its
+ object here right they fit the model you got the accuracy right and now this is the confusion
+ matrix this is another example of the implementation of Nebase algorithm these are some additional
+ things which you already have explored Seaborn and libraries used for data visualization
+ purposes and Matplotlib both are used for mostly for data visualization purposes data
+ pre-processing the point is here you're going to import the Gaussian Nebase create its object
+ fit the model here and then evaluate the model so you will get the result so very simple
+ you just need to change the two lines just is one is where you are importing your model
+ second one is while creating the object of that model ok third thing is here Nebase tutorial
+ scikit-learn they also discuss the same thing what is Nebase algorithm and the probability
+ and how they actually work what you need to do in step one two you need to calculate their
+ frequency value and then you need to multiply that one right and once you have this value
+ you will get the final result and then you will evaluate the label now they also discussed
+ the zero probability problem here right first they gave the implementation just the same
+ one which we did before trained a split is same here they did the Gaussian Nebase and
+ you just create the you can do Bernoulli you can do other one as well right and the thing
+ main thing they have done here zero probability problem suppose there is no
+ tuple for our risky loan in the data set in this scenario the posterior probability will
+ be zero and the model is unable to make a prediction this problem is known as a zero
+ probability because the occurrence of the particular class is zero the solution to such
+ an issue is the Laplacian correction or Laplace transformation as the Luis was discussing
+ in this one you assume that the data set is large enough that adding one row of each class
+ will not make a difference in the estimated probability this will overcome the issue of
+ the probability value to zero right suppose there is a class loan risky there are one
+ thousand samples suppose in the data set and if it does not exist with that one you might
+ add a very minor probability of that one will not make any big difference on the final outcome
+ right they have also listed the advantages here it is not it is very not only very simple
+ approach but also very fast accurate is a very it needs a it's it has it is a very computationally
+ efficient algorithm means it doesn't require a lot of computational cost right it work
+ well really on the large data set which was the problem of the DC entry as well because
+ you can assume how big the DC entry needs to be constructed and retain into the memory
+ while answering all of those test sample and it also performed well in case of discrete
+ response variables can work with the continuous and issues are the assumption of independent
+ feature in practice most impossible the model will get a prediction which is entirely independent
+ and there is no training tuple of a particular class right so if there is no training tuple
+ mean the same problem which we discussed this causes zero posterior probability zero probability
+ issue mean no sample exist for a particular class during the training right and that is
+ what Naive Bayes algorithm is another important thing which I wanna discuss here this is the
+ code for that one so you have an iris data set and for that one and this is really helpful
+ for you for your second assessment you gonna load your data set here and afterwards you
+ will see its head if you will see the head function you will see the first top five values
+ right and if you wanna see the first ten values you can insert value ten here in the parentheses
+ and you will see the first ten rows and then you will describe your data set and if you
+ haven't done this one for your first assessment you can copy paste this code here into your
+ second and third assessment then make a plot here different kind of scatter plot and mat
+ plot lib using seaborne and so on you can use these code for your second assessment
+ if you haven't done any box plot analysis you can use this code for your second and
+ third assessment as well right and this one is the pair plot which was required for all
+ of your three assessment so make sure if you have done in your first good if you haven't
+ done please just copy paste these two lines and you will be all fine for your second and
+ third assessment and the other important thing or the most important thing which I am using
+ this one is this thing you have a data set right and with this data set you just need
+ to import create the object this code would be hundred percent same you just need to change
+ these two lines which you can easily implement five to ten models for your second and third
+ assessment and by the way most of the student did it for the first assessment as well because
+ I advise not just rely on the linear regression you can explore less so and region so on some
+ of them implemented sport vector regressor to see entry regressor and other as well and
+ for this one you just see they implemented logistic regression now come here the k nearest
+ neighbor just need to change these two lines these things are hundred percent same you
+ implemented the second one second classification model just change these two lines you implemented
+ sport vector machine hundred percent same this one just need to create import to see
+ entry implement it simple and with this name base you can implement for neighbors algorithm
+ first one they imported the Gaussian neighbors for the follow up one they did the multinomial
+ neighbors they did the Bernoulli neighbors just two lines change right and then complement
+ neighbors see so here they just show the accuracy for each one of them which one is performing
+ really better so you see with just changing the two lines of code you have implemented
+ all of these things and all of these URLs I have already sent you in your announcement
+ so please keep an eye explore these one and incorporate all of these models for your second
+ and third assessment second one is related to classification please start exploring that
+ one and third one is related to regression using a different data set and we will discuss
+ when we'll reach to that point but the point which I want to make is I want you to use
+ the existing resources I'm not asking you to learn each one of them just see what are
+ the models available implement this one in your assessment and see what is the performance
+ is there any advantage you have got after incorporating those one or not okay yeah so
+ since you are all the master students and doing this machine learning course exploring
+ new things is not difficult for you and I'm not asking you to learn each one of the things
+ just explore which are important try to implement those one and implement as much as you can
+ using the existing existing knowledge okay so that's all from my side today do you have
+ any question in your mind then maybe you can do the other activities and if not then we
+ will see you next week.
+ I will thank you for the lecture Dr. Kamara appreciate it thank you thank you professor
+ yeah you can also have a look to the announcements here this is the announcement which I already
+ shared if you will go to the class click on the announcement you will see here this is
+ the C entry and name base and here you will be able to find all the links all the data
+ set URL and slides also here you can explore this one right and then you can have a look
+ to the activities of this week you can go to week 5 and you can do the activities any
+ question please let me know and wish you all the best.
+ Thank you thank you professor no questions thank you so much thank you take care thank
+ you see you next week thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.

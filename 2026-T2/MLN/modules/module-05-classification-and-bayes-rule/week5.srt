@@ -1,0 +1,4964 @@
+1
+00:00:00,000 --> 00:00:15,560
+ Good morning, everyone.
+
+2
+00:00:15,560 --> 00:00:21,840
+ Hello, Dr. Kamara, how's it going?
+
+3
+00:00:21,840 --> 00:00:23,520
+ Everything is fine.
+
+4
+00:00:23,520 --> 00:00:25,840
+ How was your assessments?
+
+5
+00:00:25,840 --> 00:00:30,600
+ All good, very fun to tackle.
+
+6
+00:00:30,600 --> 00:00:31,600
+ Good.
+
+7
+00:00:31,600 --> 00:00:35,160
+ Reddy, how was your assessment?
+
+8
+00:00:35,160 --> 00:00:37,240
+ Yep, all good, so far.
+
+9
+00:00:55,840 --> 00:00:56,840
+ Good.
+
+10
+00:00:56,840 --> 00:00:56,840
+ Thank you.
+
+11
+00:01:25,840 --> 00:01:26,840
+ Good.
+
+12
+00:01:55,840 --> 00:02:02,800
+ Can you please tell me, as we left
+
+13
+00:02:02,800 --> 00:02:06,160
+ with one of the questions in our last lecture,
+
+14
+00:02:06,160 --> 00:02:09,600
+ that what are the shortcomings or the limitations
+
+15
+00:02:09,600 --> 00:02:13,000
+ of the C-entry algorithm?
+
+16
+00:02:13,000 --> 00:02:15,960
+ Can you please quickly search and paste your answer
+
+17
+00:02:15,960 --> 00:02:16,840
+ into the chat?
+
+18
+00:02:25,840 --> 00:02:27,680
+ Thank you, Dr. Kamara.
+
+19
+00:02:27,680 --> 00:02:29,040
+ Good morning, everyone.
+
+20
+00:02:29,040 --> 00:02:31,120
+ Welcome to the C-entry algorithm,
+
+21
+00:02:31,120 --> 00:02:34,280
+ where we will be discussing some of the challenges
+
+22
+00:02:34,280 --> 00:02:37,080
+ that the C-entry algorithm is facing.
+
+23
+00:02:37,080 --> 00:02:40,000
+ And we'll be discussing some of the challenges
+
+24
+00:02:40,000 --> 00:02:42,520
+ that the C-entry algorithm is facing.
+
+25
+00:02:42,520 --> 00:02:44,800
+ And we'll be discussing some of the challenges
+
+26
+00:02:44,800 --> 00:02:46,960
+ that the C-entry algorithm is facing.
+
+27
+00:02:46,960 --> 00:02:49,360
+ And we'll be discussing some of the challenges
+
+28
+00:02:49,360 --> 00:02:51,520
+ that the C-entry algorithm is facing.
+
+29
+00:02:51,520 --> 00:02:54,080
+ And we'll be discussing some of the challenges
+
+30
+00:02:54,080 --> 00:02:56,080
+ that the C-entry algorithm is facing.
+
+31
+00:02:56,080 --> 00:02:58,160
+ And we'll be discussing some of the challenges
+
+32
+00:02:58,160 --> 00:03:00,160
+ that the C-entry algorithm is facing.
+
+33
+00:03:00,160 --> 00:03:02,720
+ Good morning, Professor.
+
+34
+00:03:02,720 --> 00:03:03,920
+ Good morning, Renato.
+
+35
+00:03:06,560 --> 00:03:10,560
+ I have asked anybody to search the limitations
+
+36
+00:03:10,560 --> 00:03:13,240
+ or the shortcomings of the C-entry algorithm,
+
+37
+00:03:13,240 --> 00:03:16,480
+ the question which we left in our last class.
+
+38
+00:03:16,480 --> 00:03:20,640
+ So quickly, have a look and search and paste
+
+39
+00:03:20,640 --> 00:03:21,840
+ your answer into the chat.
+
+40
+00:03:24,080 --> 00:03:34,080
+ [BLANK_AUDIO]
+
+41
+00:03:54,080 --> 00:04:04,080
+ [BLANK_AUDIO]
+
+42
+00:04:24,080 --> 00:04:34,080
+ [BLANK_AUDIO]
+
+43
+00:04:46,560 --> 00:04:52,800
+ So Louis mentioned high tendency to overfitting training data
+
+44
+00:04:52,800 --> 00:04:57,760
+ due to memorizing noise and outlies in training data.
+
+45
+00:04:59,600 --> 00:05:03,520
+ And Ferdi mentioned that no building uncertainty,
+
+46
+00:05:04,240 --> 00:05:08,080
+ small data set produce unreliable trees.
+
+47
+00:05:09,360 --> 00:05:10,560
+ Okay, fair enough.
+
+48
+00:05:11,520 --> 00:05:12,320
+ Anybody else?
+
+49
+00:05:14,560 --> 00:05:16,640
+ Complexity in which sense?
+
+50
+00:05:16,640 --> 00:05:19,360
+ Whether you are referring to the time complexity
+
+51
+00:05:19,360 --> 00:05:24,320
+ or space complexity of S.
+
+52
+00:05:24,320 --> 00:05:34,320
+ [BLANK_AUDIO]
+
+53
+00:05:49,360 --> 00:06:00,320
+ [BLANK_AUDIO]
+
+54
+00:06:14,880 --> 00:06:17,920
+ Yes, and another important
+
+55
+00:06:20,240 --> 00:06:26,240
+ term which the Louis mentioned before going there,
+
+56
+00:06:26,240 --> 00:06:29,760
+ Wes mentioned because when the data set and different features grow,
+
+57
+00:06:29,760 --> 00:06:33,360
+ it can create more complexity in the C-entry.
+
+58
+00:06:33,360 --> 00:06:37,600
+ Yes, in terms of space and time both.
+
+59
+00:06:37,600 --> 00:06:38,240
+ Yes, true.
+
+60
+00:06:39,840 --> 00:06:42,640
+ And then very important terminology,
+
+61
+00:06:42,640 --> 00:06:46,960
+ which everybody has to be very much clear
+
+62
+00:06:47,760 --> 00:06:53,440
+ is what is overfitting and underfitting.
+
+63
+00:06:55,040 --> 00:07:00,000
+ So firstly, what is underfitting?
+
+64
+00:07:00,000 --> 00:07:04,880
+ Underfitting happens when the model fail to learn important patterns.
+
+65
+00:07:05,520 --> 00:07:09,600
+ It performs poorly on both training and testing data.
+
+66
+00:07:10,320 --> 00:07:13,520
+ Underfitting happen due to the model is too simple,
+
+67
+00:07:14,080 --> 00:07:20,320
+ very high regularization features are weak or missing, not enough training.
+
+68
+00:07:20,960 --> 00:07:29,360
+ So sometimes if you have like very few samples related to a data set,
+
+69
+00:07:30,000 --> 00:07:35,360
+ where the model actually can't learn the important features out of that one.
+
+70
+00:07:35,360 --> 00:07:37,920
+ So for example, everybody's coming and they say,
+
+71
+00:07:38,560 --> 00:07:43,360
+ I have a fever, I'm feeling back pain and so on.
+
+72
+00:07:43,360 --> 00:07:50,800
+ So you as a medical petitioner actually did not ask whether are you feeling sneezing?
+
+73
+00:07:52,000 --> 00:07:53,200
+ Do you have a flu?
+
+74
+00:07:55,040 --> 00:07:59,760
+ Is your platelets count is decreasing?
+
+75
+00:08:01,600 --> 00:08:08,560
+ So the other symptoms which are really very important for you
+
+76
+00:08:08,560 --> 00:08:15,440
+ as a medical petitioner to decide whether the person is a COVID patient or not a COVID patient.
+
+77
+00:08:16,880 --> 00:08:22,000
+ So of course, if somebody is just saying I'm feeling pain and I have fever,
+
+78
+00:08:22,000 --> 00:08:26,080
+ it could be a malaria, it could be a typhoid, it could be a dengue fever.
+
+79
+00:08:27,040 --> 00:08:29,280
+ It could be a normal seasonal flu.
+
+80
+00:08:30,720 --> 00:08:36,480
+ So it is very important for that medical petitioner to identify,
+
+81
+00:08:36,480 --> 00:08:39,760
+ to learn the features which are very important
+
+82
+00:08:39,760 --> 00:08:44,480
+ to distinguish between the related diseases, which I just mentioned.
+
+83
+00:08:45,120 --> 00:08:52,720
+ So maybe your model hasn't learned those features properly, which are very important.
+
+84
+00:08:53,840 --> 00:08:57,200
+ And that is what we are saying the model is underfitted.
+
+85
+00:08:57,200 --> 00:08:59,440
+ It did not learn the things properly.
+
+86
+00:09:01,280 --> 00:09:03,280
+ The second one is overfitting.
+
+87
+00:09:04,000 --> 00:09:10,720
+ Overfitting happens when the model learns too much from the training data, including the noise.
+
+88
+00:09:10,720 --> 00:09:15,840
+ It means some things which is really very important for you to learn
+
+89
+00:09:16,560 --> 00:09:22,560
+ to distinguish that this is right, this is wrong, right?
+
+90
+00:09:22,560 --> 00:09:29,200
+ You also considered that noise, that wrong things into your training,
+
+91
+00:09:29,200 --> 00:09:31,760
+ and you consider them that this is okay.
+
+92
+00:09:32,560 --> 00:09:35,600
+ There is no issue with that one, right?
+
+93
+00:09:35,600 --> 00:09:37,840
+ And what happens then?
+
+94
+00:09:37,840 --> 00:09:47,680
+ So sometimes maybe this example may not be applicable or understandable to everyone,
+
+95
+00:09:47,680 --> 00:09:55,680
+ but sometimes there are few words which normally we don't want to speak with our family members,
+
+96
+00:09:55,680 --> 00:10:00,880
+ especially with the parents, especially with our siblings, for example.
+
+97
+00:10:01,440 --> 00:10:08,880
+ And there are certain jokes, certain fun things which we normally do with our friends, right?
+
+98
+00:10:09,440 --> 00:10:17,600
+ And if in your brought up, in our brought up, if we think that this is okay to do,
+
+99
+00:10:18,560 --> 00:10:25,360
+ whether the jokes which could be done with the friends or the fun which could be done
+
+100
+00:10:25,360 --> 00:10:31,920
+ with the family is totally different or there is a certain limit, right?
+
+101
+00:10:31,920 --> 00:10:36,400
+ Something which you can do with your friends, but not with your parents, for example.
+
+102
+00:10:36,960 --> 00:10:41,440
+ But if you understood that this is okay, both things are okay.
+
+103
+00:10:41,440 --> 00:10:43,360
+ So now what will happen?
+
+104
+00:10:43,360 --> 00:10:46,160
+ It means you learned the noise as well.
+
+105
+00:10:46,160 --> 00:10:49,280
+ You learned the wrong things as well.
+
+106
+00:10:49,280 --> 00:10:56,320
+ And why I'm saying it is noise, because this is not applicable to those jokes,
+
+107
+00:10:56,320 --> 00:11:02,800
+ are not applicable to your parents, but you consider them as it's okay, right?
+
+108
+00:11:03,360 --> 00:11:06,560
+ And you haven't distinguished them properly.
+
+109
+00:11:07,360 --> 00:11:09,920
+ Now what will happen when you go home?
+
+110
+00:11:10,720 --> 00:11:14,400
+ You talk with your parents, you talk with your siblings.
+
+111
+00:11:14,400 --> 00:11:18,080
+ Maybe you will make those jokes with them.
+
+112
+00:11:19,520 --> 00:11:20,080
+ Right?
+
+113
+00:11:20,080 --> 00:11:24,000
+ Without understanding that these are not applicable to them.
+
+114
+00:11:25,040 --> 00:11:30,560
+ So that is what they call it as you are overfitted.
+
+115
+00:11:31,360 --> 00:11:36,960
+ So overfitted happens when the model learns too much from the training data,
+
+116
+00:11:38,480 --> 00:11:42,000
+ including the noise and outliers.
+
+117
+00:11:42,000 --> 00:11:45,920
+ Means some things which like you have to distinguish it clearly.
+
+118
+00:11:46,640 --> 00:11:53,360
+ And it performs very well on the training data, but poorly on the test data.
+
+119
+00:11:53,360 --> 00:11:53,680
+ Right?
+
+120
+00:11:53,680 --> 00:11:56,640
+ Because you have learned the noise as well.
+
+121
+00:11:57,280 --> 00:12:06,160
+ Now what will happen if somebody say is this joke is applicable to your parents or just your friends?
+
+122
+00:12:06,720 --> 00:12:09,440
+ You're not able to distinguish it properly.
+
+123
+00:12:09,440 --> 00:12:10,160
+ Right?
+
+124
+00:12:10,160 --> 00:12:12,880
+ Because you considered everything is okay.
+
+125
+00:12:13,440 --> 00:12:14,080
+ Right?
+
+126
+00:12:14,080 --> 00:12:20,640
+ Now if somebody give you a test data because now they have the right data, that is correct.
+
+127
+00:12:20,640 --> 00:12:20,880
+ Right?
+
+128
+00:12:20,880 --> 00:12:21,760
+ This is okay.
+
+129
+00:12:21,760 --> 00:12:23,360
+ This is not okay.
+
+130
+00:12:23,360 --> 00:12:24,160
+ Right?
+
+131
+00:12:24,160 --> 00:12:29,120
+ So but when the test data will come, you will not really perform good there.
+
+132
+00:12:29,120 --> 00:12:29,440
+ Right?
+
+133
+00:12:29,440 --> 00:12:32,080
+ And that is what it is overfitted.
+
+134
+00:12:32,080 --> 00:12:37,600
+ Overfitted happens due to the model is too complex, too many features,
+
+135
+00:12:37,600 --> 00:12:41,680
+ are very little data, are very high, various is there.
+
+136
+00:12:43,520 --> 00:12:44,020
+ Right?
+
+137
+00:12:44,720 --> 00:12:47,680
+ These two things are really very important.
+
+138
+00:12:47,680 --> 00:12:54,400
+ Underfitting is when your model fails to learn the important features, important patterns,
+
+139
+00:12:55,040 --> 00:13:01,120
+ important information, hidden information that a model, a machine learning algorithm has to learn.
+
+140
+00:13:02,080 --> 00:13:04,640
+ And it hasn't learned it properly.
+
+141
+00:13:04,640 --> 00:13:11,840
+ So now even if you will give the training data or the testing data, it will not perform good there.
+
+142
+00:13:11,840 --> 00:13:18,800
+ And on the other hand, overfitting is when your model is learned too much from the training data,
+
+143
+00:13:18,800 --> 00:13:19,600
+ even the noise.
+
+144
+00:13:20,240 --> 00:13:25,360
+ And now when it is applicable to the test data, it is not performing really well there.
+
+145
+00:13:26,080 --> 00:13:26,720
+ Right?
+
+146
+00:13:26,720 --> 00:13:31,360
+ And that is what we call it as overfitting and underfitting.
+
+147
+00:13:31,360 --> 00:13:33,760
+ So any questions?
+
+148
+00:13:33,760 --> 00:13:37,520
+ I hope you understood these two terms, which are very important.
+
+149
+00:13:37,520 --> 00:13:38,960
+ Overfitting and underfitting.
+
+150
+00:13:38,960 --> 00:13:42,640
+ Any question related to these two terms?
+
+151
+00:13:42,640 --> 00:13:43,280
+ Super clear.
+
+152
+00:13:45,120 --> 00:13:55,040
+ Okay, now the other thing which we started in our last class was related to the CN tree, right?
+
+153
+00:13:55,040 --> 00:14:01,680
+ The CN tree algorithm is the first algorithm, you can say,
+
+154
+00:14:01,680 --> 00:14:06,240
+ which we are studying as a first and there are a lot of other algorithms as well.
+
+155
+00:14:06,880 --> 00:14:11,600
+ But the algorithm for classification as part of this course.
+
+156
+00:14:12,240 --> 00:14:18,160
+ We discussed in our last class that classification is a supervised learning technique.
+
+157
+00:14:18,720 --> 00:14:24,560
+ Supervised learning means where we know what we are going to do, means we know our label.
+
+158
+00:14:25,280 --> 00:14:31,840
+ And classification because the type of the label, the type of the attribute,
+
+159
+00:14:31,840 --> 00:14:35,520
+ which we are going to predict is categorical in nature.
+
+160
+00:14:35,520 --> 00:14:41,440
+ It has few categories among which you have to do that classification, that prediction.
+
+161
+00:14:42,240 --> 00:14:49,360
+ And then we further discussed, if there are only two outcomes for a particular label,
+
+162
+00:14:49,360 --> 00:14:52,400
+ then we call it as binary classification.
+
+163
+00:14:52,400 --> 00:15:00,400
+ And if it has more than two classes, more than two outcome values of that particular label,
+
+164
+00:15:00,400 --> 00:15:05,680
+ among which we have to do the prediction, then it is called multi-class classification.
+
+165
+00:15:06,880 --> 00:15:12,800
+ With a very simple example, and if the type of the attribute is continuous,
+
+166
+00:15:13,360 --> 00:15:16,800
+ then it is a regression problem.
+
+167
+00:15:16,800 --> 00:15:22,560
+ And with very simple example, I can explain these three concepts.
+
+168
+00:15:22,560 --> 00:15:24,560
+ That is the weather forecast data.
+
+169
+00:15:25,200 --> 00:15:32,320
+ If you are saying tomorrow is rainy or not rainy, then it means,
+
+170
+00:15:33,120 --> 00:15:36,800
+ firstly, it is a supervised learning, means you know what you are going to do.
+
+171
+00:15:37,600 --> 00:15:46,160
+ Now, you just have to predict between which whether tomorrow is going to be rain or not, right?
+
+172
+00:15:46,160 --> 00:15:52,640
+ Then it is a classification and it is a binary classification, right?
+
+173
+00:15:52,640 --> 00:15:59,520
+ Now, if the classes are whether tomorrow is rainy, windy, cloudy.
+
+174
+00:16:00,560 --> 00:16:06,880
+ Again, you know what you are going to do and the type are the limited,
+
+175
+00:16:06,880 --> 00:16:11,280
+ but it is more than two, then it is multi-class classification.
+
+176
+00:16:12,880 --> 00:16:17,280
+ If you are predicting, how much would be the temperature tomorrow?
+
+177
+00:16:18,640 --> 00:16:24,320
+ 7 degree, 8 degree, 9 degree regression, because the value
+
+178
+00:16:24,320 --> 00:16:28,640
+ which you are going to predict is continuous in nature, right?
+
+179
+00:16:29,680 --> 00:16:32,560
+ Then we started with the decision tree.
+
+180
+00:16:32,560 --> 00:16:39,760
+ We discussed that decision tree is basically used for classification
+
+181
+00:16:39,760 --> 00:16:43,200
+ and also decision tree regressor, DTR.
+
+182
+00:16:44,000 --> 00:16:50,400
+ And we discussed that in this one, you have attribute features to be selected.
+
+183
+00:16:50,400 --> 00:16:56,320
+ And the first feature that you will select on the top is would be the your root attribute.
+
+184
+00:16:57,040 --> 00:17:03,200
+ And then the branches would be the outcome values of that particular attribute.
+
+185
+00:17:03,760 --> 00:17:07,600
+ And then once you reach here, you will basically need to
+
+186
+00:17:07,600 --> 00:17:14,720
+ split your data based on these features and here there would be a separate split based on this
+
+187
+00:17:14,720 --> 00:17:21,840
+ feature value and then you will keep growing this tree means it is a recursive process
+
+188
+00:17:21,840 --> 00:17:25,040
+ until you reach on your leaf node, right?
+
+189
+00:17:25,760 --> 00:17:34,720
+ And then further we discussed that if there would be any value here, which we can just answer.
+
+190
+00:17:34,720 --> 00:17:42,320
+ And that is what the decision tree algorithm is also called is rule based learning.
+
+191
+00:17:42,960 --> 00:17:51,120
+ Right, rule based learning where you induce certain rules after constructing a decision tree
+
+192
+00:17:51,120 --> 00:17:53,360
+ and then you can just simply answer.
+
+193
+00:17:53,360 --> 00:17:58,960
+ So, for example, you can make one rule that if the student value is no,
+
+194
+00:17:58,960 --> 00:18:02,800
+ income value is high, age value is less than 30.
+
+195
+00:18:02,800 --> 00:18:10,560
+ So, you would say no, you can have another rule student value is no, income value is high,
+
+196
+00:18:10,560 --> 00:18:16,080
+ but the age is greater than 30, then you will approve the loan for that particular person.
+
+197
+00:18:17,680 --> 00:18:18,320
+ Right?
+
+198
+00:18:18,320 --> 00:18:26,080
+ So, means you will write all those rules which you have induced inferred from this decision tree.
+
+199
+00:18:27,840 --> 00:18:35,680
+ Right? Now, before revising, how this decision tree would be constructed because then I have
+
+200
+00:18:35,680 --> 00:18:41,520
+ to come back here, I want to link the limitations which you have mentioned.
+
+201
+00:18:43,600 --> 00:18:43,920
+ Right?
+
+202
+00:18:44,480 --> 00:18:52,240
+ So, you can see that if you have more number of attributes, then it would be really hard
+
+203
+00:18:52,240 --> 00:18:58,080
+ for you to manage the whole construction of this decision tree into your memory.
+
+204
+00:18:58,880 --> 00:19:06,320
+ Or if you will store it, you need a substantial amount of memory to store this whole decision tree.
+
+205
+00:19:07,840 --> 00:19:08,080
+ Right?
+
+206
+00:19:08,960 --> 00:19:16,400
+ The next thing is if I had to answer only one question, this is very important.
+
+207
+00:19:16,400 --> 00:19:19,120
+ I will just need to raise two questions.
+
+208
+00:19:20,320 --> 00:19:25,600
+ If I have to answer this particular instance, this test case.
+
+209
+00:19:26,880 --> 00:19:31,840
+ For this one, I need to construct the whole decision tree.
+
+210
+00:19:32,720 --> 00:19:34,880
+ I will construct the whole decision tree.
+
+211
+00:19:35,440 --> 00:19:42,400
+ And afterwards, I will traverse this rule over here, and then I can answer.
+
+212
+00:19:43,360 --> 00:19:53,440
+ So, it means even to answer a one test case, one test sample, I need the construction of
+
+213
+00:19:53,440 --> 00:19:54,800
+ whole decision tree.
+
+214
+00:19:56,880 --> 00:19:57,600
+ Second thing.
+
+215
+00:19:59,440 --> 00:20:08,880
+ You have mentioned after this one that if the student value is no, income value is high,
+
+216
+00:20:09,600 --> 00:20:18,640
+ age value is less than 30, then you will not approve the loan for that particular individual.
+
+217
+00:20:19,760 --> 00:20:21,600
+ But what are the chances?
+
+218
+00:20:24,880 --> 00:20:26,800
+ How much sure you are?
+
+219
+00:20:27,520 --> 00:20:33,440
+ What is the probability that you will not approve the loan for that particular person?
+
+220
+00:20:35,360 --> 00:20:44,320
+ Right? Because when we talk about classification, we need a certain answers.
+
+221
+00:20:44,320 --> 00:20:54,000
+ Sometimes you have a line on 50 and somebody is on 48, somebody is on 52.
+
+222
+00:20:54,960 --> 00:21:05,200
+ So, there are very high chances that 52, 54th one will jump into that class below 50.
+
+223
+00:21:05,920 --> 00:21:13,360
+ And that 48 would adjust a normal change into the feature, can jump into the 52.
+
+224
+00:21:14,400 --> 00:21:19,840
+ But we are 100% sure if somebody is on 20, if somebody is on 80.
+
+225
+00:21:21,040 --> 00:21:30,720
+ 81 is 100% pass, 21 is 100% fail, 48 one can pass, 52 one can be fail.
+
+226
+00:21:32,640 --> 00:21:37,760
+ So, 20, 81 is okay, 70, 31 is okay.
+
+227
+00:21:37,760 --> 00:21:40,880
+ But the border cases creates a lot of problem.
+
+228
+00:21:40,880 --> 00:21:46,800
+ For that one, we need to have a shorty, we need to know the probability.
+
+229
+00:21:48,800 --> 00:21:49,520
+ Right?
+
+230
+00:21:49,520 --> 00:21:53,440
+ And this is what we can't see from the decision tree.
+
+231
+00:21:55,280 --> 00:21:58,640
+ So, two problems I raised, two issues I raised.
+
+232
+00:21:59,760 --> 00:22:04,000
+ That one is, if you have to answer a single test case,
+
+233
+00:22:04,720 --> 00:22:08,400
+ then you need to construct the whole decision tree.
+
+234
+00:22:08,400 --> 00:22:14,560
+ Of course, for that one, time complexity will involve, space complexity will involve,
+
+235
+00:22:14,560 --> 00:22:20,160
+ you need a storage, you need a computational resources to manage all of that one.
+
+236
+00:22:20,160 --> 00:22:21,840
+ Just to answer one test case.
+
+237
+00:22:22,720 --> 00:22:28,960
+ And the second is, even whatever the answer you will give me, whatever the label you will assign,
+
+238
+00:22:28,960 --> 00:22:31,360
+ you weren't able to tell me the probability.
+
+239
+00:22:31,360 --> 00:22:37,920
+ You weren't able to tell me the relevance or what is the likelihood of that one.
+
+240
+00:22:39,920 --> 00:22:40,160
+ Right?
+
+241
+00:22:40,880 --> 00:22:48,240
+ That is, that are the two issues which actually let us to think about its solutions.
+
+242
+00:22:49,520 --> 00:22:53,680
+ And that is what we have today, Naive Bayes algorithm.
+
+243
+00:22:54,720 --> 00:22:55,440
+ Right?
+
+244
+00:22:55,440 --> 00:23:02,320
+ So, before going into the detail of Naive Bayes algorithm, let me quickly recap what
+
+245
+00:23:02,320 --> 00:23:06,000
+ we have discussed last time about the decision tree.
+
+246
+00:23:06,000 --> 00:23:13,680
+ If anybody missed the lecture or has any confusion, please speak up and do ask the questions.
+
+247
+00:23:25,440 --> 00:23:38,480
+ We will see here that you need to select this particular attribute as your root attribute.
+
+248
+00:23:39,120 --> 00:23:39,440
+ Right?
+
+249
+00:23:40,160 --> 00:23:44,560
+ And then we discussed that you will split your data set.
+
+250
+00:23:45,360 --> 00:23:45,680
+ Right?
+
+251
+00:23:45,680 --> 00:23:47,280
+ That is what we were discussing.
+
+252
+00:23:47,280 --> 00:23:52,240
+ And then for each of these one, you need to select these particular attributes.
+
+253
+00:23:53,040 --> 00:23:53,280
+ Right?
+
+254
+00:23:54,080 --> 00:24:04,960
+ And then we further discussed that what is the chances or what are the ways to select
+
+255
+00:24:04,960 --> 00:24:06,880
+ that particular attribute.
+
+256
+00:24:06,880 --> 00:24:07,120
+ Right?
+
+257
+00:24:07,920 --> 00:24:16,880
+ We thought that we have to select the best splitting attribute would be the one which
+
+258
+00:24:16,880 --> 00:24:25,680
+ has low contradictions, means it has less uncertainty, but if you have a data set, which
+
+259
+00:24:25,680 --> 00:24:31,040
+ is very small, which we did in our last class as well, does it fly?
+
+260
+00:24:31,600 --> 00:24:33,280
+ It is easy to do it.
+
+261
+00:24:33,280 --> 00:24:39,120
+ But if you have a huge data set with a lot of features, then it is really very difficult.
+
+262
+00:24:39,840 --> 00:24:40,560
+ Right?
+
+263
+00:24:40,560 --> 00:24:47,120
+ For that one, we discussed that there are two things, mathematics help us there that
+
+264
+00:24:47,120 --> 00:24:47,760
+ you can do.
+
+265
+00:24:48,560 --> 00:24:52,160
+ One is the entropy.
+
+266
+00:24:52,160 --> 00:24:56,400
+ The other one is the information gain, as we discussed last time.
+
+267
+00:24:57,040 --> 00:25:02,080
+ And we discussed in detail how to calculate this one.
+
+268
+00:25:02,640 --> 00:25:02,960
+ Right?
+
+269
+00:25:04,080 --> 00:25:14,160
+ We discussed that you first need to calculate the information gain or entropy of the final
+
+270
+00:25:14,160 --> 00:25:14,640
+ class.
+
+271
+00:25:15,280 --> 00:25:20,880
+ And the formula for that one is you will pick up the samples for one class.
+
+272
+00:25:20,880 --> 00:25:25,040
+ So here, for example, there are two possibilities, mammal and bird.
+
+273
+00:25:25,680 --> 00:25:26,480
+ Right?
+
+274
+00:25:26,480 --> 00:25:30,160
+ And then you will count how many total do we have?
+
+275
+00:25:30,160 --> 00:25:30,720
+ Seven.
+
+276
+00:25:30,720 --> 00:25:32,720
+ How many total mammals do we have?
+
+277
+00:25:32,720 --> 00:25:33,440
+ Three.
+
+278
+00:25:33,440 --> 00:25:39,600
+ So minus three by seven log base two of three by seven minus four.
+
+279
+00:25:39,600 --> 00:25:40,320
+ Why four?
+
+280
+00:25:40,320 --> 00:25:44,560
+ Because the other class, which is bird, has four count.
+
+281
+00:25:45,680 --> 00:25:50,880
+ By seven, which is the total count of your data set log base two of four by seven.
+
+282
+00:25:50,880 --> 00:25:52,880
+ And eventually you will get this one.
+
+283
+00:25:54,400 --> 00:26:02,960
+ And then we discussed you need to calculate the entropy of all the attributes and to
+
+284
+00:26:02,960 --> 00:26:09,680
+ calculate the entropy of your individual attribute, you first need to calculate the entropy of
+
+285
+00:26:09,680 --> 00:26:12,960
+ the all of its possible values.
+
+286
+00:26:12,960 --> 00:26:18,480
+ Say for the color one, it has two possibilities, brown and white.
+
+287
+00:26:18,480 --> 00:26:23,840
+ And once we have those entropies, then we add them up.
+
+288
+00:26:23,840 --> 00:26:29,840
+ That would be the overall entropy, overall gain of your color attribute.
+
+289
+00:26:30,480 --> 00:26:37,840
+ And then you will take a difference of the individual information gain of an attribute
+
+290
+00:26:37,840 --> 00:26:43,200
+ to the information gain of the whole class, the final class.
+
+291
+00:26:43,200 --> 00:26:43,520
+ Right?
+
+292
+00:26:44,160 --> 00:26:49,120
+ And you will do this one for all the attribute, for all the features.
+
+293
+00:26:49,120 --> 00:26:57,120
+ And then whosoever the attribute will have the highest probability, highest value, you're
+
+294
+00:26:57,120 --> 00:27:00,320
+ going to choose that particular attribute to be selected here.
+
+295
+00:27:00,960 --> 00:27:08,640
+ So we did for the final class, which is here, and then we did it for the color.
+
+296
+00:27:08,640 --> 00:27:11,680
+ For the color, it has brown and white.
+
+297
+00:27:11,680 --> 00:27:13,760
+ First we did for the brown.
+
+298
+00:27:13,760 --> 00:27:16,480
+ So how many browns do we have?
+
+299
+00:27:16,480 --> 00:27:18,480
+ We have three browns here.
+
+300
+00:27:18,480 --> 00:27:22,320
+ Out of the three browns, how many are mammals?
+
+301
+00:27:22,320 --> 00:27:24,080
+ How many are the birds?
+
+302
+00:27:24,080 --> 00:27:32,800
+ So out of these three mammals, out of all the three browns, the one is mammal, this
+
+303
+00:27:32,800 --> 00:27:38,240
+ brown is mammal, this brown is bird, and this brown is bird.
+
+304
+00:27:38,240 --> 00:27:39,440
+ So one is the mammal.
+
+305
+00:27:39,440 --> 00:27:44,320
+ So one by three, log base two of one by three, same formula here.
+
+306
+00:27:45,840 --> 00:27:51,680
+ And minus two by three, because out of three brown color, you have two birds.
+
+307
+00:27:51,680 --> 00:27:55,280
+ And out of three brown color, you have one mammal.
+
+308
+00:27:55,280 --> 00:28:00,640
+ And similarly, you will do for the white color, because for the white color, you will see
+
+309
+00:28:00,640 --> 00:28:02,400
+ all the values are same.
+
+310
+00:28:02,400 --> 00:28:09,200
+ White is mammal, white is sorry, white is mammal, and then white is bird, then white
+
+311
+00:28:09,200 --> 00:28:10,960
+ is mammal, and then white is bird.
+
+312
+00:28:10,960 --> 00:28:13,600
+ So two equal possibilities.
+
+313
+00:28:13,600 --> 00:28:17,760
+ And if you will evaluate this way here, you will get the value one.
+
+314
+00:28:17,760 --> 00:28:20,480
+ And that's what we are not doing that one.
+
+315
+00:28:20,480 --> 00:28:26,320
+ And the other thing we discussed, if for all the value, you have one value and there is
+
+316
+00:28:26,320 --> 00:28:31,920
+ no instance exist for the other one, then you will straight away mention it zero as
+
+317
+00:28:31,920 --> 00:28:33,600
+ we did for the fly yes.
+
+318
+00:28:34,160 --> 00:28:40,800
+ Because if you will see fly yes here, yes is bird, yes is bird, yes is bird.
+
+319
+00:28:40,800 --> 00:28:42,560
+ So there is no contradiction.
+
+320
+00:28:42,560 --> 00:28:46,480
+ And if you will calculate its entropy, it will come to zero.
+
+321
+00:28:46,480 --> 00:28:52,720
+ So you can do the calculation and evaluate it first, but that is the short way we did
+
+322
+00:28:52,720 --> 00:28:53,360
+ it.
+
+323
+00:28:53,360 --> 00:28:56,000
+ And then for the no, similar way you calculate it.
+
+324
+00:28:57,200 --> 00:29:04,640
+ And then you calculated the overall and then took the difference and the color got 0.02
+
+325
+00:29:05,200 --> 00:29:08,320
+ and fly got 0.5, 5 is high.
+
+326
+00:29:08,320 --> 00:29:13,040
+ So that's why we got to choose fly as the root attribute.
+
+327
+00:29:13,040 --> 00:29:17,120
+ And similar way you have to repeat this process for the whole one.
+
+328
+00:29:18,560 --> 00:29:26,480
+ And that's what we did in our last class as well, where we actually did this one with
+
+329
+00:29:26,480 --> 00:29:27,440
+ this one.
+
+330
+00:29:27,440 --> 00:29:33,680
+ So I want to really appreciate and thanks to Louise and Fadi who actually did all the
+
+331
+00:29:33,680 --> 00:29:41,120
+ calculation and the solution for both of them are available into the announcement.
+
+332
+00:29:41,120 --> 00:29:45,840
+ So please have a look and if there would be any contradiction, any question, please let
+
+333
+00:29:45,840 --> 00:29:46,160
+ me know.
+
+334
+00:29:46,800 --> 00:29:47,040
+ Okay.
+
+335
+00:29:48,320 --> 00:29:53,600
+ Coming back to the start of my lecture where I mentioned two issues.
+
+336
+00:29:54,160 --> 00:30:01,680
+ One is that with this the C entry you will not able to find and you will not able to
+
+337
+00:30:01,680 --> 00:30:02,880
+ get the probability.
+
+338
+00:30:04,000 --> 00:30:06,800
+ So that is we are going to stop it here.
+
+339
+00:30:07,440 --> 00:30:17,200
+ Before going into that one, some of you have implemented one model in your first assessment,
+
+340
+00:30:17,760 --> 00:30:20,640
+ which we call it as Ensembling technique.
+
+341
+00:30:21,360 --> 00:30:28,240
+ Ensemble means where you are actually mixing multiple models.
+
+342
+00:30:28,240 --> 00:30:37,680
+ So for example, if Louise has to take admission or to go to Australia, for example, or just
+
+343
+00:30:37,680 --> 00:30:45,680
+ to go out of from whatever the country he belongs, he discussed with one person where
+
+344
+00:30:45,680 --> 00:30:46,240
+ should I go.
+
+345
+00:30:47,040 --> 00:30:50,560
+ Somebody advised him to go for Australia, for example.
+
+346
+00:30:51,440 --> 00:30:54,800
+ And somebody else came and say, okay, you can go to Canada.
+
+347
+00:30:55,760 --> 00:31:00,720
+ Somebody else came and then they advise go to Australia, it's good and weather is good
+
+348
+00:31:00,720 --> 00:31:01,760
+ and blah, blah, blah.
+
+349
+00:31:02,480 --> 00:31:03,200
+ Right.
+
+350
+00:31:03,200 --> 00:31:12,800
+ And then Louise now is feeling very easy and confident as well to make a decision for Australia
+
+351
+00:31:12,800 --> 00:31:17,520
+ because he got the two votes for Australia and one for Canada, for example.
+
+352
+00:31:18,960 --> 00:31:25,040
+ Similarly, if he plans to come to Australia and then somebody else, okay, wait to which
+
+353
+00:31:25,040 --> 00:31:29,200
+ university to choose or which program to choose, for example.
+
+354
+00:31:29,200 --> 00:31:36,640
+ So similar way he discussed with multiple people and then he took the voting, like voting
+
+355
+00:31:36,640 --> 00:31:40,640
+ means somebody suggested to go here, somebody go there, there.
+
+356
+00:31:40,640 --> 00:31:43,600
+ He took the majority voting to make a decision.
+
+357
+00:31:43,600 --> 00:31:48,720
+ Now he is feeling more confident that a lot of people sports into that one.
+
+358
+00:31:48,720 --> 00:31:54,880
+ So it means he is making a right decision, that is what ensemble learning is.
+
+359
+00:31:55,760 --> 00:32:03,440
+ You have not just one model, you will have multiple models and you will give the single
+
+360
+00:32:03,440 --> 00:32:07,040
+ test sample to one model, number one.
+
+361
+00:32:07,760 --> 00:32:08,080
+ Right.
+
+362
+00:32:08,640 --> 00:32:13,040
+ And the same to the second, same to the third one.
+
+363
+00:32:13,040 --> 00:32:19,360
+ Now first set say yes, second set say yes, third set say no.
+
+364
+00:32:19,360 --> 00:32:20,800
+ So you got two yeses.
+
+365
+00:32:21,360 --> 00:32:26,080
+ So you are 66% sure to make a decision.
+
+366
+00:32:27,840 --> 00:32:28,080
+ Right.
+
+367
+00:32:29,040 --> 00:32:36,800
+ Now these models could be the same model and it could be different as well.
+
+368
+00:32:36,800 --> 00:32:37,120
+ Right.
+
+369
+00:32:37,680 --> 00:32:46,080
+ Maybe some data set you choose to train one DC entry, another chunk of data set you choose
+
+370
+00:32:46,080 --> 00:32:52,240
+ to train the second DC entry, another chunk of data set you try to choose and train the
+
+371
+00:32:52,240 --> 00:32:53,520
+ third DC entry.
+
+372
+00:32:54,160 --> 00:32:59,840
+ And then you give the one test sample to all of these three DC entries.
+
+373
+00:33:01,120 --> 00:33:01,840
+ Right.
+
+374
+00:33:01,840 --> 00:33:06,240
+ And then you took the voting and you assign the final label.
+
+375
+00:33:07,680 --> 00:33:12,320
+ The other thing could be you have multiple models here.
+
+376
+00:33:13,120 --> 00:33:13,520
+ Right.
+
+377
+00:33:14,160 --> 00:33:19,040
+ First model would be the DC entry, second could be logistic regression, third could be
+
+378
+00:33:19,040 --> 00:33:24,000
+ sport vector machine, another could be artificial neural network and so on.
+
+379
+00:33:24,560 --> 00:33:25,200
+ Right.
+
+380
+00:33:25,200 --> 00:33:26,880
+ Now you got it from there.
+
+381
+00:33:26,880 --> 00:33:33,440
+ So it could be multiple models are the same model with different kind of data sets.
+
+382
+00:33:33,440 --> 00:33:34,160
+ Right.
+
+383
+00:33:34,160 --> 00:33:40,160
+ So the important thing is like you have to mix up this one.
+
+384
+00:33:40,160 --> 00:33:41,200
+ That is important.
+
+385
+00:33:41,760 --> 00:33:42,080
+ Right.
+
+386
+00:33:42,640 --> 00:33:52,320
+ And that is what is our agenda of our today's lecture is one of the agendas in sample learning.
+
+387
+00:33:53,040 --> 00:34:00,000
+ So method that combines multiple learning algorithms to obtain the performance improvement
+
+388
+00:34:00,000 --> 00:34:08,640
+ over its components, random forest is another algorithm, which is not part of this course,
+
+389
+00:34:08,640 --> 00:34:12,160
+ but it is 100% you know about it.
+
+390
+00:34:12,720 --> 00:34:20,160
+ So if you mix up multiple DC entry and from the example which we just discussed, there
+
+391
+00:34:20,160 --> 00:34:21,760
+ could be one model.
+
+392
+00:34:21,760 --> 00:34:29,280
+ And if the one model is DC entry, right, you give you have one DC entry here, which is
+
+393
+00:34:29,280 --> 00:34:35,200
+ trained on some chunk of data set, another DC entry which is trained on a separate chunk
+
+394
+00:34:35,200 --> 00:34:38,160
+ of data set, a third DC entry.
+
+395
+00:34:38,160 --> 00:34:42,400
+ It means you are assembling multiple DC entries.
+
+396
+00:34:43,120 --> 00:34:50,240
+ Note the model name is a random forest and random forest is used for classification purposes.
+
+397
+00:34:50,240 --> 00:34:50,740
+ Right.
+
+398
+00:34:52,160 --> 00:34:54,960
+ Now three important things.
+
+399
+00:34:55,680 --> 00:34:57,120
+ Please pay attention here.
+
+400
+00:34:57,120 --> 00:34:58,560
+ Very important concepts.
+
+401
+00:35:00,160 --> 00:35:06,560
+ First is bagging, random subspace method and boosting.
+
+402
+00:35:06,560 --> 00:35:08,720
+ I'm going intentionally slow.
+
+403
+00:35:08,720 --> 00:35:12,880
+ So to clarify your understanding in a better way so you can understand.
+
+404
+00:35:13,840 --> 00:35:20,720
+ Bagging is where you have multiple subset of the data.
+
+405
+00:35:21,920 --> 00:35:23,840
+ Multiple subset of the data.
+
+406
+00:35:24,400 --> 00:35:35,120
+ For example, if you have 100 total samples, for example, and you pick up 30 samples to
+
+407
+00:35:35,120 --> 00:35:45,280
+ train the first DC entry, another 30 out of that 100, you choose to train the second DC
+
+408
+00:35:45,280 --> 00:35:51,520
+ entry, another 30 you choose to train the third DC entry.
+
+409
+00:35:52,240 --> 00:36:00,240
+ So first thing, if it is all DC entries, then it is random forest right now within the random
+
+410
+00:36:00,240 --> 00:36:02,640
+ forest technique is bagging.
+
+411
+00:36:03,760 --> 00:36:04,480
+ Why bagging?
+
+412
+00:36:04,480 --> 00:36:09,520
+ Because you are making different subset of the data samples, right?
+
+413
+00:36:10,640 --> 00:36:17,920
+ The second one is random subspace method where you are running multiple model.
+
+414
+00:36:17,920 --> 00:36:19,360
+ It could be one model.
+
+415
+00:36:19,360 --> 00:36:20,720
+ It could be different model.
+
+416
+00:36:20,720 --> 00:36:27,040
+ That's what we already discussed on a random subset of the features.
+
+417
+00:36:28,400 --> 00:36:29,200
+ Very important.
+
+418
+00:36:29,920 --> 00:36:38,240
+ In the bagging, you're going to choose all the 30 rows out of 100 you pick up, for example,
+
+419
+00:36:38,240 --> 00:36:48,240
+ if you have a data, sorry, if you have a data of 100 patients and out of those 100 patients,
+
+420
+00:36:48,240 --> 00:36:54,800
+ you have the data for 10 different features.
+
+421
+00:36:55,840 --> 00:37:00,080
+ There could be biomarkers or medical test reports and so on.
+
+422
+00:37:01,360 --> 00:37:10,800
+ So those 10 you're going to choose the any of the 30 people for with all of the 10 samples
+
+423
+00:37:11,440 --> 00:37:21,440
+ and you train one model, then you pick up another 30 people with all the 10 biomarkers
+
+424
+00:37:21,440 --> 00:37:26,720
+ and you give it to a second DC entry, second model, right?
+
+425
+00:37:26,720 --> 00:37:28,720
+ That is what the bagging is.
+
+426
+00:37:29,600 --> 00:37:39,280
+ Now, the random subspace method, which is also called feature bagging, means you have
+
+427
+00:37:39,280 --> 00:37:48,160
+ to choose, you have to give 100 patient data to all of the three DC entries, not 30.
+
+428
+00:37:48,880 --> 00:37:56,560
+ All the 100 patients data will be given to the first DC entry, second DC entry, third
+
+429
+00:37:56,560 --> 00:37:57,600
+ DC entry.
+
+430
+00:37:57,600 --> 00:38:03,520
+ Now, the difference is with the first DC entry, you are not giving the data for all the 10
+
+431
+00:38:03,520 --> 00:38:10,640
+ features, you may be given, oh, just give the fever and cough and blood pressure value,
+
+432
+00:38:10,640 --> 00:38:11,280
+ for example.
+
+433
+00:38:11,840 --> 00:38:20,320
+ For the second DC entry, where the 100 patient data is going, but only for five other features.
+
+434
+00:38:21,040 --> 00:38:28,480
+ For the third one, again 100, but five different features data, not all the 10 features.
+
+435
+00:38:29,040 --> 00:38:35,200
+ That is called the second method, random subspace method, right?
+
+436
+00:38:36,000 --> 00:38:39,280
+ The third one is boosting.
+
+437
+00:38:39,840 --> 00:38:45,280
+ We have a detail of each one of this, but before going into detail, I am discussing
+
+438
+00:38:45,280 --> 00:38:46,480
+ you about the concept.
+
+439
+00:38:48,000 --> 00:38:54,080
+ Boosting is where you will train your models iteratively.
+
+440
+00:38:55,200 --> 00:38:56,240
+ What will happen?
+
+441
+00:38:56,240 --> 00:39:05,120
+ You have a test data and you gave to the model, model gave some prediction, right?
+
+442
+00:39:05,120 --> 00:39:09,680
+ Say model set based on this feature, person is COVID patient.
+
+443
+00:39:10,480 --> 00:39:22,640
+ For example, only the few people whom were the COVID was not correctly classified, not
+
+444
+00:39:22,640 --> 00:39:24,720
+ detected properly, right?
+
+445
+00:39:25,760 --> 00:39:31,600
+ Now what happens next time, what we will do, we will increase their weight.
+
+446
+00:39:31,600 --> 00:39:38,160
+ We will see, oh, last time you did not classify them correctly, pay more attention, right?
+
+447
+00:39:38,160 --> 00:39:42,720
+ Now the weights are increased, attention is increased, right?
+
+448
+00:39:43,360 --> 00:39:48,720
+ And now you give the test sample to the second model.
+
+449
+00:39:50,000 --> 00:39:55,680
+ Of course, where there are very high chances where you increase the weight or you put more
+
+450
+00:39:55,680 --> 00:40:00,000
+ pressure, more attention, you could have classified them correctly.
+
+451
+00:40:00,800 --> 00:40:07,280
+ But maybe some other samples might be misclassified.
+
+452
+00:40:07,280 --> 00:40:14,480
+ Now in the next phase, you will increase their weight and then you will retrain your model
+
+453
+00:40:14,480 --> 00:40:19,120
+ with the updated revised weight, right?
+
+454
+00:40:19,120 --> 00:40:24,960
+ That's how the boosting works, right?
+
+455
+00:40:25,840 --> 00:40:29,440
+ So bagging is you are making subset of data.
+
+456
+00:40:30,160 --> 00:40:35,440
+ This is a random subset of the features and this is the iterative process, right?
+
+457
+00:40:36,240 --> 00:40:41,840
+ Random forest, which we already discussed that is in simple learning of decision trees.
+
+458
+00:40:45,200 --> 00:40:53,600
+ Instead of building a single decision tree, use it to make prediction, build many slightly
+
+459
+00:40:53,600 --> 00:40:59,280
+ different decision trees and combine their prediction, that is random forest.
+
+460
+00:41:00,480 --> 00:41:02,640
+ Now the two concepts came again.
+
+461
+00:41:03,360 --> 00:41:04,880
+ One is bagging.
+
+462
+00:41:04,880 --> 00:41:08,800
+ Bagging is the short form of bootstrap aggregating.
+
+463
+00:41:09,520 --> 00:41:10,480
+ And what is that?
+
+464
+00:41:10,480 --> 00:41:18,000
+ You will take a random subset of the data points from the training set to create n smaller
+
+465
+00:41:18,000 --> 00:41:26,000
+ data set and then on each of the subset you will have, you will fit a decision tree on
+
+466
+00:41:26,000 --> 00:41:28,640
+ it, right?
+
+467
+00:41:28,640 --> 00:41:35,120
+ The second is random subspace method, which we discussed is also called feature bagging,
+
+468
+00:41:35,840 --> 00:41:39,440
+ where you will fit n different decision trees.
+
+469
+00:41:39,440 --> 00:41:46,400
+ Again, there are multiple decision trees, but each of them is using to operate on a
+
+470
+00:41:46,400 --> 00:41:48,320
+ random subset of the features.
+
+471
+00:41:51,360 --> 00:41:58,320
+ For example, here you will say you have a training set here and say 100 samples you
+
+472
+00:41:58,320 --> 00:42:04,240
+ have here and out of that one you will divide them into 30 different subset.
+
+473
+00:42:05,760 --> 00:42:08,400
+ 30 here, 30 here, 30 here.
+
+474
+00:42:08,400 --> 00:42:12,560
+ Randomly you choose 30, 30 out of those 101.
+
+475
+00:42:12,560 --> 00:42:20,400
+ For the one you choose 1, 5, 9, 11, 12, 50, 51, 52.
+
+476
+00:42:21,520 --> 00:42:31,040
+ Randomly choose and make it 30 and you have this subset and for this one you actually
+
+477
+00:42:31,040 --> 00:42:33,120
+ constructed a decision tree here.
+
+478
+00:42:34,240 --> 00:42:37,840
+ Now this decision tree is ready here.
+
+479
+00:42:37,840 --> 00:42:41,920
+ This is the first decision tree, second decision tree, third and fourth.
+
+480
+00:42:43,040 --> 00:42:50,400
+ Right, now you have a test sample here and you will give all those decision trees which
+
+481
+00:42:50,400 --> 00:42:54,560
+ you constructed here all four to classify.
+
+482
+00:42:55,360 --> 00:43:01,280
+ And this one classified, this is an apple, apple, orange, apple.
+
+483
+00:43:01,280 --> 00:43:02,560
+ And you took the voting.
+
+484
+00:43:03,200 --> 00:43:05,520
+ Voting is 75% confidence.
+
+485
+00:43:05,520 --> 00:43:07,040
+ You mentioned this is an apple.
+
+486
+00:43:08,560 --> 00:43:09,440
+ This is bagging.
+
+487
+00:43:11,680 --> 00:43:18,640
+ Right, the second one is feature bagging or random subspace method where you have a training
+
+488
+00:43:18,640 --> 00:43:20,320
+ data set like here.
+
+489
+00:43:20,320 --> 00:43:27,360
+ I mentioned like for example you have here 100 patient data and for all of them you have
+
+490
+00:43:27,360 --> 00:43:28,240
+ different features.
+
+491
+00:43:29,600 --> 00:43:36,800
+ Feature bagging is you will give all 100 to the first decision tree but with few features.
+
+492
+00:43:36,800 --> 00:43:42,560
+ Maybe for the first one you consider only color and mass, for the second one you give
+
+493
+00:43:42,560 --> 00:43:46,960
+ texture and pH value, for the third one you give pH and mass for example.
+
+494
+00:43:47,840 --> 00:43:51,040
+ You build up a decision tree based on that one.
+
+495
+00:43:51,040 --> 00:43:59,520
+ When that decision tree is ready, the model is ready, you will give a test sample to all
+
+496
+00:43:59,520 --> 00:44:09,200
+ these three decision tree trained on multiple subset of the features, right, not on the
+
+497
+00:44:09,200 --> 00:44:10,560
+ data, on the features.
+
+498
+00:44:11,120 --> 00:44:13,840
+ And now they classify this thing.
+
+499
+00:44:14,560 --> 00:44:18,560
+ And then you took the voting and you assign the particular label.
+
+500
+00:44:19,840 --> 00:44:29,520
+ So in both of these examples, first thing is we are applying in sampling where just
+
+501
+00:44:30,240 --> 00:44:39,360
+ not one model exists there but multiple could be different form of one of the algorithms
+
+502
+00:44:39,360 --> 00:44:42,160
+ or could be different models even, right.
+
+503
+00:44:42,800 --> 00:44:47,920
+ And here it is random forest which we discussed, right.
+
+504
+00:44:49,520 --> 00:44:55,840
+ Then boosting, boosting we discussed is an iterative process, right.
+
+505
+00:44:56,560 --> 00:45:06,800
+ And in this one we discussed you will use this data set, you will train a model and
+
+506
+00:45:06,800 --> 00:45:14,720
+ then after that training the model is trained, you will have a test data here, right.
+
+507
+00:45:15,360 --> 00:45:25,680
+ You will give this test data to this particular model, right.
+
+508
+00:45:25,680 --> 00:45:32,720
+ And you will get a result say for example apple, right.
+
+509
+00:45:32,720 --> 00:45:37,600
+ And then you identified it is not you are not considering what output they have, you
+
+510
+00:45:37,600 --> 00:45:41,520
+ will definitely consider because that is what you need to take the vote at end.
+
+511
+00:45:42,480 --> 00:45:53,200
+ So some of the samples were misclassified and then you increase their weight, you retrain
+
+512
+00:45:53,200 --> 00:45:55,840
+ another model here.
+
+513
+00:45:57,760 --> 00:46:06,080
+ Maybe those could have been classified correctly but some others have been misclassified.
+
+514
+00:46:07,040 --> 00:46:13,840
+ Now you got the output here as well because you got the apple here, you got the apple
+
+515
+00:46:13,840 --> 00:46:19,680
+ here for example and then you would retrain it again with the revised adjusted weight
+
+516
+00:46:20,400 --> 00:46:22,960
+ and again you got the orange here.
+
+517
+00:46:22,960 --> 00:46:25,600
+ Then you will take the average of this one.
+
+518
+00:46:29,200 --> 00:46:39,360
+ So this one you retrain it, adjusted the weight and then with this one you actually got the
+
+519
+00:46:39,360 --> 00:46:43,520
+ output and this one and then all of them got this one.
+
+520
+00:46:54,720 --> 00:47:00,640
+ So this way you can see that you got the boosting.
+
+521
+00:47:01,360 --> 00:47:02,800
+ You got the boosting here.
+
+522
+00:47:03,360 --> 00:47:06,560
+ So in this way you can retrain your model.
+
+523
+00:47:08,800 --> 00:47:11,600
+ Professor, I have two questions so we can pause.
+
+524
+00:47:13,360 --> 00:47:20,720
+ So the first one is if you use the test data set you won't have another like test data
+
+525
+00:47:20,720 --> 00:47:27,280
+ set? No, you will give the same test data, same test data.
+
+526
+00:47:29,120 --> 00:47:36,080
+ Okay, yeah because if you are giving the different test data then you can't compare.
+
+527
+00:47:38,560 --> 00:47:42,880
+ But in that case we can have some higher chances to have overfitting?
+
+528
+00:47:46,000 --> 00:47:48,800
+ Could be a chance, that's true.
+
+529
+00:47:51,360 --> 00:47:59,680
+ Because you see that the overfitting is when your model is learning the bad things.
+
+530
+00:48:00,960 --> 00:48:05,520
+ But we are not actually letting the model to learn the bad things.
+
+531
+00:48:06,240 --> 00:48:14,320
+ So for example if you have been trained, you have been brought up from the example which
+
+532
+00:48:14,320 --> 00:48:21,600
+ I have given could be personal example maybe understandable for few of you then you would
+
+533
+00:48:21,600 --> 00:48:26,720
+ say this is good, this is good joke, this is the joke which you can do with the friend,
+
+534
+00:48:26,720 --> 00:48:32,000
+ this is the one you can do with the family, with your parents and then if somebody is
+
+535
+00:48:32,000 --> 00:48:36,880
+ not doing that one right so we are not letting you to be overfitted.
+
+536
+00:48:36,880 --> 00:48:41,920
+ Means overfitted is when you learn the noise and the good and the bad things all together
+
+537
+00:48:41,920 --> 00:48:48,640
+ and you say everything is good right but we are if you are not understanding you are making
+
+538
+00:48:48,640 --> 00:48:56,160
+ that joke with the family we are giving you emphasis that this is the not the joke which
+
+539
+00:48:56,160 --> 00:49:02,000
+ you can do with the family. We are just putting a pressure on the things to get it right or what
+
+540
+00:49:02,000 --> 00:49:07,440
+ is wrong we are putting the pressure there. Overfitting is when you are mixing both things
+
+541
+00:49:08,080 --> 00:49:14,720
+ but when you are adjusting the weight it means the emphasis on the same thing is improved
+
+542
+00:49:14,720 --> 00:49:19,200
+ not on the other things. You getting my point John?
+
+543
+00:49:23,520 --> 00:49:29,200
+ Right so if you are saying this is good thing and this is bad thing and you are learning both
+
+544
+00:49:29,200 --> 00:49:35,840
+ as good or both as bad for example then it means you are doing overfitting means you learn the
+
+545
+00:49:35,840 --> 00:49:41,360
+ noise and you did a lot of learning from your data and then you learn the noise as well which
+
+546
+00:49:41,360 --> 00:49:47,920
+ you consider is good for example and now somebody will ask you in the test time what is good what is
+
+547
+00:49:47,920 --> 00:49:53,760
+ bad and now you learn everything as good and no you are not able to answer it correctly that is
+
+548
+00:49:53,760 --> 00:50:01,760
+ overfitting but here the emphasis would be if somebody that the good thing to be classified as
+
+549
+00:50:01,760 --> 00:50:08,240
+ good and bad thing to be classified as bad but if you are not predicting it correctly
+
+550
+00:50:08,800 --> 00:50:15,680
+ either it is good either it is bad so we are putting you more emphasize and you are putting
+
+551
+00:50:15,680 --> 00:50:22,240
+ more pressure you are giving more attention to that particular thing that this is good and you
+
+552
+00:50:22,240 --> 00:50:29,440
+ have to make it good and this is bad you have to make it bad right so it means you are putting
+
+553
+00:50:29,440 --> 00:50:34,400
+ pressure on the individual things it is not the learning that you learn something else as well
+
+554
+00:50:34,400 --> 00:50:40,560
+ you are learning the same thing to understand it to memorize it that I have to do it correctly
+
+555
+00:50:40,560 --> 00:50:47,680
+ or this is bad I have to negate it I have to classify it bad right so that is what here
+
+556
+00:50:47,680 --> 00:50:55,280
+ so the chances of the overfitting could be there like maybe with the others that are said but not
+
+557
+00:50:55,280 --> 00:51:04,480
+ that much due to that in sampling technique right so you might be confused because you are learning
+
+558
+00:51:04,480 --> 00:51:13,040
+ too much on the same data set and that is what the chances of the overfitting is improved but
+
+559
+00:51:13,040 --> 00:51:19,040
+ in that one the learning is that sense is that you are not getting distinguished between good and bad
+
+560
+00:51:19,040 --> 00:51:25,840
+ but here it's not good or bad difference is the thing where you are actually emphasizing on
+
+561
+00:51:25,840 --> 00:51:32,640
+ the good to be classified as good and bad to be classified as bad I hope I have cleared the point
+
+562
+00:51:35,520 --> 00:51:43,360
+ yeah well 100 and I just wanted to state that I use it rental forest on my assessment number one
+
+563
+00:51:44,160 --> 00:51:53,360
+ and just sharing that SKlearn abstracts the real machinery behind for example I never wrote bagging
+
+564
+00:51:53,360 --> 00:52:01,280
+ or RCM on my assessment submission but I understand now while you were explaining that there are
+
+565
+00:52:01,280 --> 00:52:10,720
+ defaults when they pass the regression in there with the bootstrap equals true and with the max
+
+566
+00:52:10,720 --> 00:52:20,880
+ features as well so super interesting to get that under theory perspective yeah so that is what
+
+567
+00:52:20,880 --> 00:52:28,080
+ boosting bagging and feature bagging difference is right so I repeat one more time again here
+
+568
+00:52:28,720 --> 00:52:34,320
+ in sampling is where you are mixing multiple models in order to get their
+
+569
+00:52:37,200 --> 00:52:43,520
+ input what are those things and it could be one model it could be different models
+
+570
+00:52:44,240 --> 00:52:50,880
+ and for the second assessment we gonna apply this in sampling learning we gonna apply random forest
+
+571
+00:52:50,880 --> 00:52:57,360
+ as well and which I will give a little bit more details when we will discuss about second
+
+572
+00:52:57,360 --> 00:53:05,520
+ assessment and the other thing is bagging is where you have one data set and you are making multiple
+
+573
+00:53:05,520 --> 00:53:13,280
+ subset of the major data set and each of the subset you are training a different model
+
+574
+00:53:13,280 --> 00:53:20,080
+ could be one model and then from there you gonna actually test them right and then eventually you
+
+575
+00:53:20,080 --> 00:53:27,920
+ gonna take the voting for the feature bagging which is random subspace method basically you
+
+576
+00:53:27,920 --> 00:53:34,400
+ gonna take the whole data set you are not dividing the you are considering all the rows all the
+
+577
+00:53:34,400 --> 00:53:41,280
+ individuals but for the features now you are taking the subset of the features right so when
+
+578
+00:53:41,280 --> 00:53:49,040
+ you take the subset of the features in that case you gonna actually train a different models and
+
+579
+00:53:49,040 --> 00:53:56,080
+ based on that one you gonna do that one and the boosting is where you have one model you get the
+
+580
+00:53:56,080 --> 00:54:04,400
+ output some prediction some misclassification you will adjust the waste for those samples
+
+581
+00:54:05,120 --> 00:54:12,160
+ retrain your model again and then again test it and then retrain again test it and then eventually
+
+582
+00:54:12,160 --> 00:54:18,960
+ you get the voting finally right so all of these techniques and other methods as well which are not
+
+583
+00:54:18,960 --> 00:54:24,480
+ discussed which is not part of this course here as well even I think in sampling is not part of
+
+584
+00:54:24,480 --> 00:54:29,040
+ machine learning course but if you will say I got a distinction in machine learning and somebody
+
+585
+00:54:29,040 --> 00:54:34,800
+ else okay what is in sampling and you say oh in sampling come run hasn't taught us so that is why
+
+586
+00:54:34,800 --> 00:54:40,880
+ I discussed few of the methods here so you would actually understand the concepts and also apply
+
+587
+00:54:40,880 --> 00:54:49,520
+ for your second and third assessments as well so what is the takeaway of of these in sampling
+
+588
+00:54:49,520 --> 00:54:56,000
+ the stuff so far the C-entry which we have discussed right so take away the
+
+589
+00:54:58,080 --> 00:55:07,280
+ easy the the the C-entries are very you can use it for different purposes can use for we have
+
+590
+00:55:07,280 --> 00:55:12,800
+ discussed whatever the classification example we discussed you can apply the C-entry for all of
+
+591
+00:55:12,800 --> 00:55:21,200
+ them right but the thing in the things which we need to focus is the two things that if you will
+
+592
+00:55:21,200 --> 00:55:26,480
+ increase the accuracy then you need to increase the trees and if you will increase the trees
+
+593
+00:55:26,480 --> 00:55:33,040
+ eventually you will increase the time complexity and space complexity as well right and then once
+
+594
+00:55:33,040 --> 00:55:41,280
+ you have more number of the C-entries it can slower down means your speed efficiency detection
+
+595
+00:55:41,280 --> 00:55:48,560
+ would be decreased the time would be decreased right and then the two things which we mentioned
+
+596
+00:55:48,560 --> 00:55:56,160
+ if you have to construct one the C-entry if you have to answer one test data you need to construct
+
+597
+00:55:56,160 --> 00:56:03,200
+ the whole the C-entry and second is you can't tell the probability what is the likelihood of that one
+
+598
+00:56:03,200 --> 00:56:12,560
+ right so that is the thing which we we discussed so far so a lot of members now join the class now
+
+599
+00:56:12,560 --> 00:56:20,160
+ so if i give you five minutes to have a look to the two important things one is to tell me
+
+600
+00:56:20,800 --> 00:56:29,840
+ what are the shortcomings of the C-entry algorithm second is what are the applications
+
+601
+00:56:29,840 --> 00:56:37,760
+ of the C-entry algorithm right and what is ensemble learning so just three questions if you
+
+602
+00:56:37,760 --> 00:56:43,840
+ give a few minutes to understand these one which would be really good and then we will start about
+
+603
+00:56:43,840 --> 00:56:49,680
+ the naive Bayes algorithm right so i write the question here to clarify if there would be
+
+604
+00:56:49,680 --> 00:56:53,760
+ anything why i'm giving this time because sometimes if you will read anything about
+
+605
+00:56:54,400 --> 00:57:03,200
+ these models these algorithms and later on if any specific terms come up there any terminologies
+
+606
+00:57:03,200 --> 00:57:09,600
+ there you might not able to understand it properly or if you build up your understanding on the
+
+607
+00:57:09,600 --> 00:57:16,160
+ writing whatever is available on the literature and if it is not aligned then you can tell me okay
+
+608
+00:57:16,160 --> 00:57:22,560
+ this is what i understood but the meaning of this sentence looks different to me so can you explain
+
+609
+00:57:22,560 --> 00:57:28,400
+ is there a problem in my understanding or is the problem into the writing right so three things
+
+610
+00:57:28,400 --> 00:57:36,480
+ which we need to search limitations are the shortcomings of the C-entry
+
+611
+00:57:38,960 --> 00:57:53,920
+ algorithm applications of the C-entry and the third one is in assembling learning so take few
+
+612
+00:57:53,920 --> 00:58:04,000
+ minutes maybe maybe max 10 minutes right so we will come back at 12 40 so whatever the answer
+
+613
+00:58:04,000 --> 00:58:19,040
+ you get for these three quan please paste here into the chat okay right everybody aware sleeping
+
+614
+00:58:19,040 --> 00:58:26,480
+ ali here in our two sudeep jon search for these three and paste your answer here one two three
+
+615
+00:58:26,480 --> 00:58:33,280
+ okay and it's not just copy and paste here try to understand the thing is try to understand if
+
+616
+00:58:33,280 --> 00:58:37,920
+ you could not understand just mention i could not understand can you please clarify i'm happy to do
+
+617
+00:58:37,920 --> 00:58:44,000
+ that one okay so it preserved
+
+618
+00:59:04,160 --> 00:59:04,660
+ you
+
+619
+00:59:33,280 --> 00:59:33,780
+ you
+
+620
+01:00:03,280 --> 01:00:03,780
+ you
+
+621
+01:00:33,280 --> 01:00:33,780
+ you
+
+622
+01:01:03,280 --> 01:01:03,780
+ you
+
+623
+01:01:33,280 --> 01:01:33,780
+ you
+
+624
+01:02:03,280 --> 01:02:03,780
+ you
+
+625
+01:02:33,280 --> 01:02:33,780
+ you
+
+626
+01:03:03,280 --> 01:03:03,780
+ you
+
+627
+01:03:33,280 --> 01:03:33,780
+ you
+
+628
+01:04:03,280 --> 01:04:03,780
+ you
+
+629
+01:04:33,280 --> 01:04:33,780
+ you
+
+630
+01:05:03,280 --> 01:05:03,780
+ you
+
+631
+01:05:33,280 --> 01:05:33,780
+ you
+
+632
+01:06:03,280 --> 01:06:03,780
+ you
+
+633
+01:06:33,280 --> 01:06:33,780
+ you
+
+634
+01:07:03,280 --> 01:07:03,780
+ you
+
+635
+01:07:33,280 --> 01:07:33,780
+ you
+
+636
+01:08:03,280 --> 01:08:03,780
+ you
+
+637
+01:08:33,280 --> 01:08:33,780
+ you
+
+638
+01:08:33,780 --> 01:08:34,280
+ you
+
+639
+01:08:34,280 --> 01:08:34,780
+ you
+
+640
+01:08:34,780 --> 01:08:35,280
+ you
+
+641
+01:08:35,280 --> 01:08:35,780
+ you
+
+642
+01:08:35,780 --> 01:08:36,280
+ you
+
+643
+01:08:36,280 --> 01:08:36,780
+ you
+
+644
+01:08:36,780 --> 01:08:37,280
+ you
+
+645
+01:08:37,280 --> 01:08:37,780
+ you
+
+646
+01:08:37,780 --> 01:08:38,280
+ you
+
+647
+01:08:38,280 --> 01:08:38,780
+ you
+
+648
+01:08:38,780 --> 01:08:39,280
+ you
+
+649
+01:08:39,280 --> 01:08:39,780
+ you
+
+650
+01:08:39,780 --> 01:08:40,280
+ you
+
+651
+01:08:40,280 --> 01:08:40,780
+ you
+
+652
+01:08:40,780 --> 01:08:41,280
+ you
+
+653
+01:08:41,280 --> 01:08:41,780
+ you
+
+654
+01:08:41,780 --> 01:08:42,280
+ you
+
+655
+01:08:42,280 --> 01:08:42,780
+ you
+
+656
+01:08:42,780 --> 01:08:43,280
+ you
+
+657
+01:08:43,280 --> 01:08:43,780
+ you
+
+658
+01:08:43,780 --> 01:08:44,280
+ you
+
+659
+01:08:44,280 --> 01:08:44,780
+ you
+
+660
+01:08:44,780 --> 01:08:45,280
+ you
+
+661
+01:08:45,280 --> 01:08:45,780
+ you
+
+662
+01:08:45,780 --> 01:08:46,280
+ you
+
+663
+01:08:46,280 --> 01:08:46,780
+ you
+
+664
+01:08:46,780 --> 01:08:47,280
+ you
+
+665
+01:08:47,280 --> 01:08:47,780
+ you
+
+666
+01:08:47,780 --> 01:08:48,280
+ you
+
+667
+01:08:48,280 --> 01:08:48,780
+ you
+
+668
+01:08:48,780 --> 01:08:49,280
+ you
+
+669
+01:08:49,280 --> 01:08:49,780
+ you
+
+670
+01:08:49,780 --> 01:08:59,280
+ yeah sorry i mistakenly entered so i just updated now
+
+671
+01:08:59,280 --> 01:09:05,280
+ you
+
+672
+01:09:29,280 --> 01:09:29,780
+ you
+
+673
+01:09:59,280 --> 01:09:59,780
+ you
+
+674
+01:09:59,780 --> 01:10:00,280
+ you
+
+675
+01:10:00,280 --> 01:10:00,780
+ you
+
+676
+01:10:29,780 --> 01:10:36,180
+ so sudeep mentioned that limitations are the cnt is easy to understand is this the limitation
+
+677
+01:10:36,180 --> 01:10:44,780
+ okay but it has some drawbacks it can overfit the training data good which means learns the data
+
+678
+01:10:44,780 --> 01:10:52,780
+ too closely and may not work well with the new data so that is another issue which is the basically
+
+679
+01:10:52,780 --> 01:11:00,780
+ the overfitting in the overfitting what happens that the model actually has the limited amount
+
+680
+01:11:00,780 --> 01:11:07,780
+ of data and due to which what happens it did not generalize properly means it did not understand
+
+681
+01:11:07,780 --> 01:11:14,780
+ that there is something else there or maybe it hasn't seen the test data for example what
+
+682
+01:11:14,780 --> 01:11:28,780
+ happens that you have a 100 patient data out of those 100 patient maybe 80s patients are
+
+683
+01:11:28,780 --> 01:11:34,780
+ from australia and 20 comes from a different country i don't want to name any country comes
+
+684
+01:11:34,780 --> 01:11:42,780
+ from a different country where there is a different strain of covid exist for example
+
+685
+01:11:42,780 --> 01:11:51,780
+ and if you build up a model using the first 80 patient data to classify whether the person
+
+686
+01:11:51,780 --> 01:12:00,780
+ is a covid patient or not a covid patient so if you will give those 20 symbol patients
+
+687
+01:12:00,780 --> 01:12:08,780
+ data to test your model will not give you a good accuracy why because those 20 samples
+
+688
+01:12:08,780 --> 01:12:16,780
+ are different and those have not been added into the training of your model means you
+
+689
+01:12:16,780 --> 01:12:23,780
+ haven't considered them during the training now how you can imagine that it will give
+
+690
+01:12:23,780 --> 01:12:29,780
+ good accuracy on that data which is had as hasn't learned properly for example if somebody
+
+691
+01:12:29,780 --> 01:12:36,780
+ is living at home and know how the things works within the home and so on and if you
+
+692
+01:12:36,780 --> 01:12:41,780
+ if you go to a professional life which is totally different you can't say oh i handle
+
+693
+01:12:41,780 --> 01:12:47,780
+ this family problem this contradiction or complications with the sibling for example
+
+694
+01:12:47,780 --> 01:12:54,780
+ i can also do in my industry as well into my company as well for example maybe you can't
+
+695
+01:12:54,780 --> 01:12:59,780
+ do it because you haven't have any professional experience to working in a professional context
+
+696
+01:12:59,780 --> 01:13:07,780
+ the things work different there right and then maybe you will not perform better there
+
+697
+01:13:07,780 --> 01:13:13,780
+ so that could be another issue there it is also sensitive to the small changes or even
+
+698
+01:13:13,780 --> 01:13:19,780
+ a small change in the data can create a different areas you can imagine if there is a yes value
+
+699
+01:13:19,780 --> 01:13:25,780
+ you will have a different subtree and if it is a no there is a slight change into that
+
+700
+01:13:25,780 --> 01:13:32,780
+ one you can imagine you could have a totally a different decision tree health care the
+
+701
+01:13:32,780 --> 01:13:43,780
+ applications in health care doctors banking marketing behavior yes ensemble learning is
+
+702
+01:13:43,780 --> 01:13:53,780
+ good yeah thank you sudeep then louise mentioned overfitting multi value bias weak probability
+
+703
+01:13:53,780 --> 01:14:01,780
+ of applications are in credit medical and churn rice and then a method combining models
+
+704
+01:14:01,780 --> 01:14:14,780
+ for better so good thank you louise rinato application medical to rational rule yes limitations
+
+705
+01:14:14,780 --> 01:14:24,980
+ overfitting ensemble awareness mention applications in credit scoring fraud detection and solubin
+
+706
+01:14:24,980 --> 01:14:31,320
+ mention limitations overfitting the c entry can create complex models and through so in
+
+707
+01:14:31,320 --> 01:14:39,820
+ all of these one we understood now what the c entry is what are its applications how it
+
+708
+01:14:39,820 --> 01:14:47,900
+ could give benefits into different areas of life we also understood its limitations we
+
+709
+01:14:47,900 --> 01:14:53,660
+ we know what is in sampling what is random forest how they works and everything with
+
+710
+01:14:53,660 --> 01:15:03,860
+ these one i want you to emphasize on two things one is the to answer one sample test test
+
+711
+01:15:03,860 --> 01:15:11,260
+ data you need to construct the whole to see entry and the second one is you want able
+
+712
+01:15:11,260 --> 01:15:18,860
+ to know what is the probability what is the likelihood of particular case whether it is
+
+713
+01:15:18,860 --> 01:15:24,780
+ yes what is the probability if it is no what is the probability so with having this one
+
+714
+01:15:24,780 --> 01:15:34,540
+ we can now discuss about the naive base algorithm right naive base algorithm is basically a
+
+715
+01:15:34,540 --> 01:15:41,460
+ statistical classifier which will give you a probabilistic predictions for that one it
+
+716
+01:15:41,460 --> 01:15:54,940
+ works based on the base theorem right and this is the base theory right so x be our
+
+717
+01:15:54,940 --> 01:16:01,580
+ test set h be your hypothesis right and with the probability that you will say oh this
+
+718
+01:16:01,580 --> 01:16:06,940
+ particular sample belong to this class what is the probability just imagine if this will
+
+719
+01:16:06,940 --> 01:16:14,280
+ be assigned to this class what is the probability and so on so we straight away go to the question
+
+720
+01:16:14,280 --> 01:16:25,740
+ the question is here that the class has bias computer yes and no and this is the data to
+
+721
+01:16:25,740 --> 01:16:33,060
+ be classified where the age value is less than 30 income is medium student is yes credit
+
+722
+01:16:33,060 --> 01:16:41,260
+ rating is fair so which class you will assign whether you will that person will buy the
+
+723
+01:16:41,260 --> 01:16:51,140
+ computer are will not buy the computer of course if you have to answer this question
+
+724
+01:16:51,140 --> 01:16:56,300
+ from a decision tree perspective you need to construct the whole decision tree you need
+
+725
+01:16:56,300 --> 01:17:03,940
+ to calculate the entropy value for this particular class then you will calculate the entropy
+
+726
+01:17:03,940 --> 01:17:10,700
+ for this one for this one you need to calculate the entropy for fair excellent and so on and
+
+727
+01:17:10,700 --> 01:17:15,820
+ then the overall would be for credit rating then you will take its difference here then
+
+728
+01:17:15,820 --> 01:17:21,900
+ you will do the same process for the other features and then you will gonna select only
+
+729
+01:17:21,900 --> 01:17:31,900
+ a single root node and then you have a different subset different branches based on whatever
+
+730
+01:17:31,900 --> 01:17:40,700
+ the feature you choose and so on but with the naive Bayes algorithm this is very easy
+
+731
+01:17:40,700 --> 01:17:47,720
+ right so imagine this is the test sample which we need to answer just pay attention for few
+
+732
+01:17:47,720 --> 01:17:53,340
+ minutes and you will be easily understanding how it works this is the age value is less
+
+733
+01:17:53,340 --> 01:17:58,580
+ than 30 income is medium student is yes and credit rating is fair we need to answer this
+
+734
+01:17:58,580 --> 01:18:04,380
+ sample whether that person will buy his computer are will not okay first we will calculate
+
+735
+01:18:04,380 --> 01:18:17,100
+ the probability of the overall class how many yeses are here out of the 14 9 are yes so
+
+736
+01:18:17,100 --> 01:18:31,240
+ you can see here yes 1 2 3 4 5 6 7 8 and 9 so 9 yeses are here out of the 14 and this
+
+737
+01:18:31,240 --> 01:18:39,380
+ is the probability for a sample to be yes and how many are no 5 by 14 because we left
+
+738
+01:18:39,380 --> 01:18:47,260
+ with 5 so 5 by 14 this is the probability now it says that the age value is less than
+
+739
+01:18:47,260 --> 01:18:59,980
+ 30 so you will see if the age value is less than 30 how many bias computer are yeses right
+
+740
+01:18:59,980 --> 01:19:19,500
+ so how many 30 we have we have 1 2 3 4 and 5 out of this one this 30 is no this 30 is
+
+741
+01:19:19,500 --> 01:19:31,100
+ again no this 30 is again no this 30 is yes and this less than 30 is yes so you have 3
+
+742
+01:19:31,100 --> 01:19:41,580
+ nos here and 2 yeses so 2 yeses 2 by 9 total 9 yeses are there out of that one 2 are with
+
+743
+01:19:41,580 --> 01:19:49,320
+ less than 30 look the other way around right so this is the probability out of the 5 nos
+
+744
+01:19:49,320 --> 01:20:02,540
+ one how many are less than 30 3 right and so the probability is this one here right
+
+745
+01:20:02,540 --> 01:20:11,660
+ now for the same one income value is medium how many are yeses so out of 9 yeses you will
+
+746
+01:20:11,660 --> 01:20:25,460
+ see 4 of them has income as medium and out of the 5 nos like you have a no here no here
+
+747
+01:20:25,460 --> 01:20:35,380
+ you have a no here no here and no here credit rating is medium so this is excellent this
+
+748
+01:20:35,380 --> 01:20:46,340
+ is fair this is excellent this is excellent this is fair right and this is about the income
+
+749
+01:20:46,340 --> 01:20:53,780
+ income is for this no it is high for this no it is high we are not considering that
+
+750
+01:20:53,780 --> 01:21:00,060
+ one we are just considering the the medium one so you will say out of the 9 yeses how
+
+751
+01:21:00,060 --> 01:21:14,500
+ many has the income value as medium so 1 medium here 2 3 4 5 and 6 there are total 6 mediums
+
+752
+01:21:14,500 --> 01:21:22,620
+ right this medium is no as you can see here let me select the laser this medium is no
+
+753
+01:21:22,620 --> 01:21:31,940
+ this medium is yes this medium is yes this medium is yes so 1 2 3 yeses 1 no this medium
+
+754
+01:21:31,940 --> 01:21:41,020
+ is no so 3 yeses 2 nos this medium is yes so 4 yeses and 2 nos here so you calculate
+
+755
+01:21:41,020 --> 01:21:49,500
+ the probability for this one similarly if the student is yes means they are the student
+
+756
+01:21:49,500 --> 01:21:55,860
+ so after yes you have yes here yes no here yes yes here you will calculate and you will
+
+757
+01:21:55,860 --> 01:22:04,660
+ do this one right so now what happens this one which you calculated for the yes the attribute
+
+758
+01:22:04,660 --> 01:22:13,020
+ value you will multiply this with this yes with this yes with this yes and this no one
+
+759
+01:22:13,020 --> 01:22:20,820
+ will multiply with this no with this no and with this no so whatever the answer you will
+
+760
+01:22:20,820 --> 01:22:26,500
+ have for the yes whatever the answer you will have for the no for the yes one you gonna
+
+761
+01:22:26,500 --> 01:22:35,660
+ multiply with this yes and for the no one you will multiply with this no right as we
+
+762
+01:22:35,660 --> 01:22:49,340
+ did here so 0.22 is for this yes now select the laser this 0.2 into 0.44 here right then
+
+763
+01:22:49,340 --> 01:23:00,160
+ 0.66 here then 0.667 again here and you calculate the probability similarly for no 0.6 here
+
+764
+01:23:00,160 --> 01:23:11,860
+ 0.4 here then 0.2 here and then 0.4 here and you get the value here now whatever the yeses
+
+765
+01:23:11,860 --> 01:23:23,980
+ value you have 0.044 this you gonna multiply it with the 0.643 and this 0.019 will be multiplied
+
+766
+01:23:23,980 --> 01:23:35,540
+ with the 0.357 right and then the answer for the yes you will get is 0.028 and with the
+
+767
+01:23:35,540 --> 01:23:45,340
+ no you will get 0.007 who has the highest one of course 0.028 which is the label is
+
+768
+01:23:45,340 --> 01:23:53,820
+ yes so firstly for this class you gonna assign the label yes and the probability is also
+
+769
+01:23:53,820 --> 01:24:04,720
+ this one so for this one you have actually answered those two questions you have just
+
+770
+01:24:04,720 --> 01:24:11,780
+ calculated and math is easy you haven't need so many memory as you require to construct
+
+771
+01:24:11,780 --> 01:24:19,900
+ and hold the C entry because for all of the answers you need to keep holding that C entry
+
+772
+01:24:19,900 --> 01:24:26,380
+ into the memory otherwise you can't answer right so you have 100 samples to predict so
+
+773
+01:24:26,380 --> 01:24:32,340
+ you will see if you have constructed a huge the C entry you need to hold it into the memory
+
+774
+01:24:32,340 --> 01:24:38,460
+ but for this one it is quick calculation is more quicker as compared to if it is involve
+
+775
+01:24:38,460 --> 01:24:47,240
+ some other medium to hold and store and then answer the question from there please have
+
+776
+01:24:47,240 --> 01:24:53,580
+ a look to this calculation if you could not understand then let me know.
+
+777
+01:25:17,240 --> 01:25:24,240
+ Thank you.
+
+778
+01:25:47,240 --> 01:25:49,240
+ [Applause]
+
+779
+01:26:17,240 --> 01:26:41,240
+ [Silence]
+
+780
+01:26:41,240 --> 01:27:00,440
+ anybody has any confusion I repeat it again for you guys that if there is one test sample
+
+781
+01:27:00,440 --> 01:27:10,800
+ and for that one you need to answer which label has to assign using the name base algorithm
+
+782
+01:27:10,800 --> 01:27:18,160
+ which says that you need to calculate the probability for each of the sample and you
+
+783
+01:27:18,160 --> 01:27:25,360
+ will first calculate for the final class which is has two labels no and yes so you will calculate
+
+784
+01:27:25,360 --> 01:27:31,800
+ for yes and no's and then for each of the value of the test sample you just consider
+
+785
+01:27:31,800 --> 01:27:37,300
+ that one you will totally ignore the other values so age has three different values less
+
+786
+01:27:37,300 --> 01:27:42,440
+ than 30, 31 to 40 and greater than 40 you are not considering anything related to 30
+
+787
+01:27:42,440 --> 01:27:49,780
+ to 40 or greater than 40 just considering less than equal to 30 and in that one you
+
+788
+01:27:49,780 --> 01:27:58,600
+ will have the value here for the less than 30 how many are the yeses out of the nine
+
+789
+01:27:58,600 --> 01:28:09,680
+ yeses two are less than 30 out of the five no's three of them are less than 30 and then
+
+790
+01:28:09,680 --> 01:28:18,920
+ with the bias computer no how many has the value income as medium how many five no's
+
+791
+01:28:18,920 --> 01:28:26,300
+ has the value medium income value and then once you calculate you will multiply all the
+
+792
+01:28:26,300 --> 01:28:32,760
+ features yes values between this two two with this one with this one with this one and similarly
+
+793
+01:28:32,760 --> 01:28:40,440
+ for the no one as well the answer you gonna multiply the yes one with the yes and with
+
+794
+01:28:40,440 --> 01:28:47,360
+ whatever the no you have got you will multiply it with the no and then whosoever will has
+
+795
+01:28:47,360 --> 01:29:03,660
+ the high probability you gonna assign that particular label to this test sample right
+
+796
+01:29:03,660 --> 01:29:32,720
+ okay any any confusion any question so far good here okay okay now if everything is clear
+
+797
+01:29:32,720 --> 01:29:41,060
+ now the next thing is please calculate the label and the probability for this test sample
+
+798
+01:29:41,060 --> 01:29:56,380
+ which is here using this data set the same data set please show the same calculation
+
+799
+01:29:56,380 --> 01:30:05,700
+ as I did here and take a screenshot take a picture and share into the chat for this test
+
+800
+01:30:05,700 --> 01:30:14,440
+ sample what would be the label what would be the probability age is 31 to 40 income
+
+801
+01:30:14,440 --> 01:30:31,380
+ is low student is yes credit rating is excellent please do these calculations and share your
+
+802
+01:30:31,380 --> 01:30:49,580
+ result into the chat.
+
+803
+01:30:49,580 --> 01:31:12,380
+ Thank you.
+
+804
+01:31:19,580 --> 01:31:47,380
+ Thank you.
+
+805
+01:31:49,580 --> 01:32:17,380
+ Thank you.
+
+806
+01:32:19,580 --> 01:32:47,380
+ Thank you.
+
+807
+01:32:49,580 --> 01:33:17,380
+ Thank you.
+
+808
+01:33:19,580 --> 01:33:47,380
+ Thank you.
+
+809
+01:33:49,580 --> 01:34:17,380
+ Thank you.
+
+810
+01:34:19,580 --> 01:34:47,380
+ Thank you.
+
+811
+01:34:49,580 --> 01:35:14,380
+ Thank you.
+
+812
+01:35:14,380 --> 01:35:39,180
+ Thank you.
+
+813
+01:35:44,380 --> 01:36:12,180
+ Thank you.
+
+814
+01:36:14,380 --> 01:36:42,180
+ Thank you.
+
+815
+01:36:44,380 --> 01:37:12,180
+ Thank you.
+
+816
+01:37:14,380 --> 01:37:42,180
+ Thank you.
+
+817
+01:37:44,380 --> 01:38:12,180
+ Thank you.
+
+818
+01:38:12,180 --> 01:38:31,680
+ So Louis shared so what level you are going to assign it is the one that is not zero then
+
+819
+01:38:31,680 --> 01:38:47,320
+ yes one device computer 0.0329 right which is for the bias computer yes yes correct the
+
+820
+01:38:47,320 --> 01:39:00,080
+ final result I multiplied by 0.643 and got the 00211 then you move toward 9 then because
+
+821
+01:39:00,080 --> 01:39:09,880
+ no is zero right no zero correct okay we wait somebody else as well to double check the
+
+822
+01:39:30,080 --> 01:39:40,880
+ right.
+
+823
+01:40:00,080 --> 01:40:11,880
+ Thank you.
+
+824
+01:40:30,080 --> 01:40:51,880
+ Thank you.
+
+825
+01:41:00,080 --> 01:41:24,880
+ Thank you.
+
+826
+01:41:24,880 --> 01:41:33,680
+ Thank you.
+
+827
+01:41:33,680 --> 01:41:58,480
+ Thank you.
+
+828
+01:42:03,680 --> 01:42:16,480
+ Yes anybody else if finished the calculation please do share.
+
+829
+01:42:16,480 --> 01:42:27,880
+ I have a question yes please what if we don't have the answer so what if it was prediction
+
+830
+01:42:27,880 --> 01:42:37,360
+ outcomes sorry I could not get what do you mean by this so let's say we know that we
+
+831
+01:42:37,360 --> 01:42:44,560
+ have 14 we know that nine say yes and five say no or five there is no if there is no
+
+832
+01:42:44,560 --> 01:42:49,600
+ exist here so for example if doesn't have any probability here so you will assign zero
+
+833
+01:42:49,600 --> 01:42:57,220
+ for example means doesn't exist any simple no no that's not what I mean so let's say
+
+834
+01:42:57,220 --> 01:43:05,000
+ that's a business for a computer store and that's what he that's what his data is yes
+
+835
+01:43:05,000 --> 01:43:10,660
+ all right but if he's starting the business and he wants to know how many he will sell
+
+836
+01:43:10,660 --> 01:43:17,080
+ this month for example he will sell nine and he cannot sell five because the credit score
+
+837
+01:43:17,080 --> 01:43:24,200
+ of the age or something like this that is another question that is not a classification
+
+838
+01:43:24,200 --> 01:43:32,880
+ problem so you mean for example the events in advance yeah for example I give you two
+
+839
+01:43:32,880 --> 01:43:40,400
+ examples so immigration says that in 2021 we have this much students came from a particular
+
+840
+01:43:40,400 --> 01:43:46,520
+ country are entered into Australia for example and this is the historic data for the last
+
+841
+01:43:46,520 --> 01:43:55,640
+ five years what you can predict for the next five years for example this is the stock exchange
+
+842
+01:43:55,640 --> 01:44:02,200
+ share price historic data for the last two years and then can you predict what would
+
+843
+01:44:02,200 --> 01:44:07,800
+ be the stock exchange share price for example whether I would go to buy it or not buy it
+
+844
+01:44:07,800 --> 01:44:16,680
+ and so on right that is another problem that is not a classification problem so for that
+
+845
+01:44:16,680 --> 01:44:25,160
+ one you would use for example lstm long shirt short term memory for that one they need to
+
+846
+01:44:25,160 --> 01:44:31,240
+ memorize what was happening to the previous event what happened afterwards what happens
+
+847
+01:44:31,240 --> 01:44:38,280
+ afterwards and then you have to predict right and that is a totally a separate question
+
+848
+01:44:38,280 --> 01:44:44,040
+ that is not a comes under this naive base algorithm yeah I know it's separate I was
+
+849
+01:44:44,040 --> 01:44:50,080
+ just thinking about some different yeah yeah yeah you you definitely can do but but in
+
+850
+01:44:50,080 --> 01:44:55,660
+ that case that of course if you are predicting for example the medium how many medium you
+
+851
+01:44:55,660 --> 01:45:03,600
+ could have so in that case you made the income as your attribute not the computer buys so
+
+852
+01:45:03,600 --> 01:45:09,480
+ it means that is a totally a different case study and for that one you have to explore
+
+853
+01:45:09,480 --> 01:45:19,800
+ lstm or rcnn and other algorithms which actually most of them used into the nlp area as well
+
+854
+01:45:19,800 --> 01:45:23,920
+ natural language processing because in natural language processing if you have said come
+
+855
+01:45:23,920 --> 01:45:30,280
+ on is the good boy and then you say you say she gets up early in the morning and there
+
+856
+01:45:30,280 --> 01:45:34,840
+ is an issue because you said come on is a boy then you must have to use he why you using
+
+857
+01:45:34,840 --> 01:45:41,720
+ she so it means to in order to correct that one whether it should use he or she or his
+
+858
+01:45:41,720 --> 01:45:49,560
+ or him or her you have to memorize the previous event and that is what in your generative
+
+859
+01:45:49,560 --> 01:45:56,160
+ AI and chat gpt they they does it right because they need to store what they have said previously
+
+860
+01:45:56,160 --> 01:46:01,080
+ and then they have to quote and they have to memorize everything up till the end the
+
+861
+01:46:01,080 --> 01:46:09,880
+ context would be same so that is a total subset different subset of the problems and the algorithms
+
+862
+01:46:09,880 --> 01:46:16,720
+ and I don't think so we have anything in our machine learning course at the moment but
+
+863
+01:46:16,720 --> 01:46:24,920
+ I have like we are revising this machine learning course and definitely I have one or two lectures
+
+864
+01:46:24,920 --> 01:46:32,440
+ for generative AI which Louise may know that I have given something a talk in your intelligent
+
+865
+01:46:32,440 --> 01:46:38,320
+ system course in last term related to the generative AI and different kind of tools
+
+866
+01:46:38,320 --> 01:46:43,680
+ but that is not part of this machine learning course so definitely I will also include that
+
+867
+01:46:43,680 --> 01:46:48,840
+ one because there you might have simply discussed about those things but here I will integrate
+
+868
+01:46:48,840 --> 01:46:53,920
+ in the future terms the implementation of those things with simple example for everyone
+
+869
+01:46:53,920 --> 01:47:17,600
+ to understand. You got the answer Farideh? No actually I haven't but I'll try again.
+
+870
+01:47:17,600 --> 01:47:37,720
+ Okay. So Sullivan also. So your calculation Sullivan is same as of Lewis Renato your one
+
+871
+01:47:37,720 --> 01:47:55,080
+ is also same as Lewis. No contradiction. Lewis can you confirm? Apparently similar to Sullivan's
+
+872
+01:47:55,080 --> 01:48:06,920
+ one. But for Renato is a little bit different but also states by computers yes it's bigger
+
+873
+01:48:06,920 --> 01:48:29,800
+ than the zero on the no. But it's slightly different on the numbers. Okay so now with
+
+874
+01:48:29,800 --> 01:48:36,660
+ this one like now we have the calculation there could be some issue with the minor change
+
+875
+01:48:36,660 --> 01:48:49,840
+ into the probability value but we have got roughly these answers here right. Now whatever
+
+876
+01:48:49,840 --> 01:49:01,120
+ the Lewis has mentioned let me share that one R Renato has shared let me download for
+
+877
+01:49:01,120 --> 01:49:13,920
+ any of them. Both of them did okay great job and maybe I can take a snippet of this one
+
+878
+01:49:13,920 --> 01:49:36,760
+ here. One sec please. So before going into the detail I'm going to tell you very important
+
+879
+01:49:36,760 --> 01:49:53,020
+ thing here. As you can see here from the this slide that this is very important please pay
+
+880
+01:49:53,020 --> 01:50:09,380
+ attention here. You can see if this value is 0.2 to 0.44, 0.66, 0.66. Say you have no
+
+881
+01:50:09,380 --> 01:50:18,300
+ sample for less than 30 pi's computer is yes. So what you will do here you will put zero
+
+882
+01:50:18,300 --> 01:50:34,220
+ here right and this value would be zero. Everybody agree with this one right and this value is
+
+883
+01:50:34,220 --> 01:50:47,820
+ 0.6. This value is 0.4 which is quite similar to this one which is 0.2 the no one which
+
+884
+01:50:47,820 --> 01:51:03,120
+ is 4 less than 0.6 right. This no again is for less than the positive one right. So in
+
+885
+01:51:03,120 --> 01:51:17,940
+ most of the cases are all of the cases except one case the value for the yes is higher right.
+
+886
+01:51:17,940 --> 01:51:31,100
+ But because of the single digit zero all of the value result would be zero and the other
+
+887
+01:51:31,100 --> 01:51:42,980
+ class which may have all these 0.00003 probability you're going to choose that one to assign
+
+888
+01:51:42,980 --> 01:51:52,240
+ that particular label. That is what you will do and that is what you have done here right.
+
+889
+01:51:52,240 --> 01:52:00,100
+ Because for one of the class if you will see you do not have any samples there right. As
+
+890
+01:52:00,100 --> 01:52:09,380
+ you can see here
+
+891
+01:52:09,380 --> 01:52:24,500
+ you have 0.6 probability here 0.3. Then this is 0.4, 0.3, 0.6, 0.3. But the other class
+
+892
+01:52:24,500 --> 01:52:36,440
+ which has the probability value which we can see here 0.6, 2, 2 and because of this zero
+
+893
+01:52:36,440 --> 01:52:45,500
+ eventually you're going to get the zero here. You're going to get the zero here. Agree.
+
+894
+01:52:45,500 --> 01:52:52,660
+ And the other one which may not have higher value you're going to choose that particular
+
+895
+01:52:52,660 --> 01:53:01,740
+ label to be assigned to that test sample right. So, the point which I want to make is just
+
+896
+01:53:01,740 --> 01:53:11,020
+ because of this zero so all of the value is going to be zero. You're going to eliminate
+
+897
+01:53:11,020 --> 01:53:21,900
+ that one. Maybe the example which I have given to you guys is as you can see here in all
+
+898
+01:53:21,900 --> 01:53:34,940
+ of the cases your no class is less than the yes class. But because of this zero you're
+
+899
+01:53:34,940 --> 01:53:45,540
+ going to have all the value to zero and you're going to go for the second class, second label
+
+900
+01:53:45,540 --> 01:53:55,860
+ right. And this may not be right for most of the cases. I hope if I have clarified my
+
+901
+01:53:55,860 --> 01:54:05,500
+ point I repeat it one more time. You are calculating the probability for all the yes for all the
+
+902
+01:54:05,500 --> 01:54:18,220
+ nos and yes is far higher than the no. But one of the value of the yes is zero. So, of
+
+903
+01:54:18,220 --> 01:54:24,660
+ course when you're going to multiply that one the probability would be zero. The final
+
+904
+01:54:24,660 --> 01:54:32,460
+ aggregate probability would be zero right just because of one zero. Otherwise for all
+
+905
+01:54:32,460 --> 01:54:40,820
+ other cases the yes probability is far higher than the no one but still you're going to
+
+906
+01:54:40,820 --> 01:54:48,900
+ choose the label no right. This may not be the right indication in most of the cases
+
+907
+01:54:48,900 --> 01:54:59,700
+ right. And this is the problem with this naive Bayes algorithm. And we call it as zero probability
+
+908
+01:54:59,700 --> 01:55:10,460
+ problem. As we have highlighted the other issues, limitations, shortcomings of the C
+
+909
+01:55:10,460 --> 01:55:17,340
+ entry algorithm. This is the main drawback of naive Bayes algorithm. The problem of the
+
+910
+01:55:17,340 --> 01:55:23,460
+ zero probability. So, if somebody asks you what is the zero probability problem. So,
+
+911
+01:55:23,460 --> 01:55:33,540
+ you can say in the test data for the values different values of the features we have to
+
+912
+01:55:33,540 --> 01:55:39,140
+ investigate and we have to calculate. But for one of the sample of the features we don't
+
+913
+01:55:39,140 --> 01:55:48,220
+ have any sample exist in your data set. Eventually it will lead towards you the zero probability
+
+914
+01:55:48,220 --> 01:55:54,060
+ and eventually that zero will make all of the result to be zero which may not be the
+
+915
+01:55:54,060 --> 01:56:03,900
+ true right. So, I may not be strong enough right but you just mentioned okay sometimes
+
+916
+01:56:03,900 --> 01:56:15,160
+ most of you might be come from as an international student right. And when you go for a job normally
+
+917
+01:56:15,160 --> 01:56:24,740
+ they will ask you on which visa you are in. You will say on a student visa. Doesn't matter
+
+918
+01:56:24,740 --> 01:56:30,420
+ you have 10 years of software industry experience. You are very good in programming. You are
+
+919
+01:56:30,420 --> 01:56:37,720
+ very good. You have been qualified from a very good university. You have the right certification.
+
+920
+01:56:37,720 --> 01:56:46,780
+ But just because you do not have the working rights the full working rights they will not
+
+921
+01:56:46,780 --> 01:56:58,860
+ shortlist your applicant. Any such case happen with any one of you. Yes. Right. So, only
+
+922
+01:56:58,860 --> 01:57:08,180
+ just one point is making you out of that race. But that may not be the true. If we will give
+
+923
+01:57:08,180 --> 01:57:18,040
+ you the few working rights we just suppose that without with having zero working rights
+
+924
+01:57:18,040 --> 01:57:27,360
+ still you have 40 hours for example. We just increase right. So, just in case you have
+
+925
+01:57:27,360 --> 01:57:35,120
+ few working rights few hours. And now if somebody will be compared with your profile definitely
+
+926
+01:57:35,120 --> 01:57:41,380
+ your profile would be higher. Because you were just lacking in one of them which we
+
+927
+01:57:41,380 --> 01:57:47,940
+ handle that one to give you the few hours few hours as a working rights. And now if
+
+928
+01:57:47,940 --> 01:57:53,180
+ you will be compared your profile would be compared you will be far higher than the other
+
+929
+01:57:53,180 --> 01:58:03,420
+ candidates. Agree with this solution Louis? Yep. That is what the solution of this zero
+
+930
+01:58:03,420 --> 01:58:12,340
+ probability is. So, zero probability solution is if any of the samples does not exist in
+
+931
+01:58:12,340 --> 01:58:20,440
+ your data set and its probability is going to be zero you just assume you just assume
+
+932
+01:58:20,440 --> 01:58:33,920
+ it is not zero it is 0.0000001. Right. So, if the other points other values are higher
+
+933
+01:58:33,920 --> 01:58:39,640
+ and just because of this zero if you are getting the overall value zero no you will not get
+
+934
+01:58:39,640 --> 01:58:50,260
+ zero. Right. And even this minor value this 0.1 probability this 0.001 probability will
+
+935
+01:58:50,260 --> 01:58:57,520
+ not give you any advantage on others. Right. So, if suppose I give you the 40 hours working
+
+936
+01:58:57,520 --> 01:59:07,260
+ rights per week and it will not make any more like superior performance on your profile.
+
+937
+01:59:07,260 --> 01:59:11,420
+ So, it is not they are going to choose oh no you have the 40 hour working rights now
+
+938
+01:59:11,420 --> 01:59:17,280
+ Louis your profile is far more higher than the others. No. If still you have a very good
+
+939
+01:59:17,280 --> 01:59:23,760
+ competitors if their profile is really very good and you are just being disadvantaged
+
+940
+01:59:23,760 --> 01:59:28,700
+ due to the working rights. So, giving you the working rights will not make you to be
+
+941
+01:59:28,700 --> 01:59:36,040
+ selected there. But just to give you a chance that you will not get the disadvantage we
+
+942
+01:59:36,040 --> 01:59:41,960
+ give you the few working rights to have a fair comparison not just to be eliminated
+
+943
+01:59:41,960 --> 01:59:48,280
+ out of that rate just because of the one of the features. Right. And that is what the
+
+944
+01:59:48,280 --> 01:59:56,960
+ solution of the zero probability is and that is what you have faced here in this particular
+
+945
+01:59:56,960 --> 02:00:05,480
+ example where you see that if you have the age value is this and income is low. Right.
+
+946
+02:00:05,480 --> 02:00:10,960
+ And student value is yes. You will when you will solve this one. So, you will see bias
+
+947
+02:00:10,960 --> 02:00:19,000
+ computer value is no is zero. And once you will multiply with this value with this value
+
+948
+02:00:19,000 --> 02:00:26,180
+ with this value. Right. And eventually you will get the zero value. Right. So, even though
+
+949
+02:00:26,180 --> 02:00:35,720
+ you have included to make it zero make it 0.1. So, this will solve the zero probability
+
+950
+02:00:35,720 --> 02:00:42,240
+ problem. Right. So, even though the value is still lower. Right. But you will not be
+
+951
+02:00:42,240 --> 02:00:49,440
+ surprised that you might have lost a very good candidate. Right. So, just because of
+
+952
+02:00:49,440 --> 02:00:54,900
+ the one feature you are not ignoring the other one and you see that doesn't make much sense
+
+953
+02:00:54,900 --> 02:01:02,440
+ much advantage to be added into in comparison to this one. Even it is zero one still because
+
+954
+02:01:02,440 --> 02:01:06,280
+ it is lower zero point two zero point two is lower than this zero point two is lower
+
+955
+02:01:06,280 --> 02:01:11,040
+ than this one zero point one is lower than this one. This one is equal. OK. Ignore this
+
+956
+02:01:11,040 --> 02:01:20,880
+ one still no is lower. Right. So, even you see this zero point one did not add much into
+
+957
+02:01:20,880 --> 02:01:29,240
+ the final decision. But just suppose if this would have been zero. Right. And this have
+
+958
+02:01:29,240 --> 02:01:35,560
+ been zero point one suppose. Right. This is zero. So, it means this would be zero. So,
+
+959
+02:01:35,560 --> 02:01:41,960
+ it means this one is far higher zero point two is higher less than zero point three again
+
+960
+02:01:41,960 --> 02:01:48,680
+ zero point six is much higher. So, yes is getting higher. But just because of this zero
+
+961
+02:01:48,680 --> 02:01:57,520
+ you gonna make the final decision to be zero and you gonna assign the other class. But
+
+962
+02:01:57,520 --> 02:02:03,120
+ if you just give its value to zero point one here and know if you will calculate then you
+
+963
+02:02:03,120 --> 02:02:15,480
+ will see this one would be the highest and you reach on the final decision. Right. And
+
+964
+02:02:15,480 --> 02:02:27,000
+ that is the solution of this Naive Bayes Algorithm problem of the zero probability. Right. Any
+
+965
+02:02:27,000 --> 02:02:41,160
+ question so far here I will speak here. So, in our today's class we have discussed various
+
+966
+02:02:41,160 --> 02:02:48,720
+ concepts we first started with the decision tree and classification algorithm we discussed
+
+967
+02:02:48,720 --> 02:02:55,800
+ that classification is where you have the type of attribute of your label is categorical
+
+968
+02:02:55,800 --> 02:03:02,880
+ in nature and if it is just two outcomes then it is binary classification if it is more
+
+969
+02:03:02,880 --> 02:03:11,680
+ than two then you have multiclass classification then we discussed about the issue of decision
+
+970
+02:03:11,680 --> 02:03:18,320
+ tree we discussed what decision tree is how it has been constructed and so on and we discussed
+
+971
+02:03:18,320 --> 02:03:26,400
+ that using the decision tree you need to hold the whole decision tree into your memory all
+
+972
+02:03:26,400 --> 02:03:33,160
+ the time and then even if you have to answer one thing you need to hold the whole decision
+
+973
+02:03:33,160 --> 02:03:38,920
+ you need to construct you need to hold the whole decision tree into your memory so that
+
+974
+02:03:38,920 --> 02:03:45,840
+ comes with a lot of overhead memory overhead computational sources are required and so
+
+975
+02:03:45,840 --> 02:03:51,780
+ on and the second is you weren't able to know the probability value the likelihood the chances
+
+976
+02:03:51,780 --> 02:03:57,440
+ of that label to be assigned what are the chances right so you can't know using the
+
+977
+02:03:57,440 --> 02:04:03,760
+ decision tree algorithm then we discussed the Naive Bayes algorithm which comes and
+
+978
+02:04:03,760 --> 02:04:09,600
+ solve this problem for that one you just need to apply the Bayes theorem which will solve
+
+979
+02:04:09,600 --> 02:04:15,840
+ this problem quickly you just have to work with whatever your test data values are and
+
+980
+02:04:15,840 --> 02:04:21,560
+ multiply the values and get the results and everything and then we discussed still with
+
+981
+02:04:21,560 --> 02:04:30,180
+ this Naive Bayes algorithm you have a problem of zero probability where maybe for one of
+
+982
+02:04:30,180 --> 02:04:38,200
+ the class maybe the samples doesn't exist for one of the features but due to that one
+
+983
+02:04:38,200 --> 02:04:43,900
+ the overall probability will become zero to handle that problem we just assign a very
+
+984
+02:04:43,900 --> 02:04:52,020
+ minor value that if just in case the other values of that class is highest so maybe we
+
+985
+02:04:52,020 --> 02:04:58,680
+ not being disadvantaged to this class and even contributing that probability value to
+
+986
+02:04:58,680 --> 02:05:06,080
+ be 0.1 will not give it much preference so if it is no it will still be no if it is yes
+
+987
+02:05:06,080 --> 02:05:13,520
+ if still will be yes and then we also discussed about the assembling learning in sampling
+
+988
+02:05:13,520 --> 02:05:21,360
+ is where you are mixing up the output from the multiple models one method is bagging
+
+989
+02:05:21,360 --> 02:05:29,200
+ where you will make different subset of your data and you give those subsets to your multiple
+
+990
+02:05:29,200 --> 02:05:35,680
+ models could be one model could be same model and could be one model as well if it is just
+
+991
+02:05:35,680 --> 02:05:42,440
+ one model which is decision tree and you have multiple decision tree then you have a new
+
+992
+02:05:42,440 --> 02:05:48,240
+ modifier which we call them as random forest and then if you will have considered the whole
+
+993
+02:05:48,240 --> 02:05:54,000
+ data set but you will make a selection on the features then it is called random subspace
+
+994
+02:05:54,000 --> 02:06:00,400
+ method also called feature bagging and the third one is the boosting where you will give
+
+995
+02:06:00,400 --> 02:06:08,140
+ the data to one of the model you get the output the misclassified samples weight would be increased
+
+996
+02:06:08,140 --> 02:06:14,560
+ adjusted and then you do the classification and you keep doing that process and evaluate
+
+997
+02:06:14,560 --> 02:06:24,280
+ the outcomes and take the voting at the end that is your boosting with these one if you
+
+998
+02:06:24,280 --> 02:06:28,040
+ have any any questions any any doubt in your mind
+
+999
+02:06:28,040 --> 02:06:41,040
+ Just wanted to ask one question Dr. Caron regarding the add one part that you mentioned
+
+1000
+02:06:41,040 --> 02:06:49,960
+ I understand that these can be relate this is related to the Laplace smoothing so we
+
+1001
+02:06:49,960 --> 02:06:57,920
+ consider all the features of the model to explore everything right just thinking about
+
+1002
+02:06:57,920 --> 02:07:09,600
+ the concept of it am I correct on that yes yes yes okay
+
+1003
+02:07:09,600 --> 02:07:20,640
+ any other question you may have okay with this one now we are going to look up some
+
+1004
+02:07:20,640 --> 02:07:30,340
+ other important things this is related to Nebase and for that one we will see the Nebase
+
+1005
+02:07:30,340 --> 02:07:39,460
+ exist here and with this one you have a Gaussian Nebase you can use different variants of Nebase
+
+1006
+02:07:39,460 --> 02:07:50,320
+ algorithm one is simple Nebase with the Gaussian NB then you have multinomial then you have
+
+1007
+02:07:50,320 --> 02:07:58,760
+ complement NB then you have Bernoulli NB and categorical NB you can explore all of these
+
+1008
+02:07:58,760 --> 02:08:07,200
+ one though you don't need to understand each one of them just the their values are changed
+
+1009
+02:08:07,200 --> 02:08:14,520
+ but you can explore this one for your second assessment right just a minor difference one
+
+1010
+02:08:14,520 --> 02:08:20,400
+ line difference and you can implement all of these four versions of Nebase algorithm
+
+1011
+02:08:20,400 --> 02:08:28,700
+ I have already shared the URL of all of these one right so here when you say s k learn Nebase
+
+1012
+02:08:28,700 --> 02:08:38,080
+ and import Gaussian Nebase right you will have the same lines of the data set splitting
+
+1013
+02:08:38,080 --> 02:08:44,240
+ everything here you will create an object of Gaussian Nebase and you will use that object
+
+1014
+02:08:44,240 --> 02:08:52,480
+ to fit the model and if you have the multinomial Nebase you just have to import the multinomial
+
+1015
+02:08:52,480 --> 02:08:59,280
+ you don't and here you need to create the object of that one if you are doing the Bernoulli
+
+1016
+02:08:59,280 --> 02:09:08,240
+ Nebase you just need to import it create its object and you will be all same and I don't
+
+1017
+02:09:08,240 --> 02:09:16,480
+ mind you copy this code for your second assessment but I want you to explore as much as you can
+
+1018
+02:09:16,480 --> 02:09:27,040
+ the different kind of models right I also show you another URL here this is Nebase right
+
+1019
+02:09:27,040 --> 02:09:35,320
+ this is also one of your learning activity as well so you will see this is data visualization
+
+1020
+02:09:35,320 --> 02:09:42,640
+ this is data subplating here they important the Nebase algorithm right they created its
+
+1021
+02:09:42,640 --> 02:09:51,360
+ object here right they fit the model you got the accuracy right and now this is the confusion
+
+1022
+02:09:51,360 --> 02:09:59,260
+ matrix this is another example of the implementation of Nebase algorithm these are some additional
+
+1023
+02:09:59,260 --> 02:10:05,360
+ things which you already have explored Seaborn and libraries used for data visualization
+
+1024
+02:10:05,360 --> 02:10:12,320
+ purposes and Matplotlib both are used for mostly for data visualization purposes data
+
+1025
+02:10:12,320 --> 02:10:18,720
+ pre-processing the point is here you're going to import the Gaussian Nebase create its object
+
+1026
+02:10:18,720 --> 02:10:26,880
+ fit the model here and then evaluate the model so you will get the result so very simple
+
+1027
+02:10:26,880 --> 02:10:32,800
+ you just need to change the two lines just is one is where you are importing your model
+
+1028
+02:10:32,800 --> 02:10:42,240
+ second one is while creating the object of that model ok third thing is here Nebase tutorial
+
+1029
+02:10:42,240 --> 02:10:50,040
+ scikit-learn they also discuss the same thing what is Nebase algorithm and the probability
+
+1030
+02:10:50,040 --> 02:10:58,440
+ and how they actually work what you need to do in step one two you need to calculate their
+
+1031
+02:10:58,440 --> 02:11:08,760
+ frequency value and then you need to multiply that one right and once you have this value
+
+1032
+02:11:08,760 --> 02:11:16,040
+ you will get the final result and then you will evaluate the label now they also discussed
+
+1033
+02:11:16,040 --> 02:11:24,600
+ the zero probability problem here right first they gave the implementation just the same
+
+1034
+02:11:24,600 --> 02:11:30,840
+ one which we did before trained a split is same here they did the Gaussian Nebase and
+
+1035
+02:11:30,840 --> 02:11:42,460
+ you just create the you can do Bernoulli you can do other one as well right and the thing
+
+1036
+02:11:42,460 --> 02:11:52,440
+ main thing they have done here zero probability problem suppose there is no
+
+1037
+02:11:52,440 --> 02:11:59,680
+ tuple for our risky loan in the data set in this scenario the posterior probability will
+
+1038
+02:11:59,680 --> 02:12:06,120
+ be zero and the model is unable to make a prediction this problem is known as a zero
+
+1039
+02:12:06,120 --> 02:12:12,600
+ probability because the occurrence of the particular class is zero the solution to such
+
+1040
+02:12:12,600 --> 02:12:19,720
+ an issue is the Laplacian correction or Laplace transformation as the Luis was discussing
+
+1041
+02:12:19,720 --> 02:12:26,660
+ in this one you assume that the data set is large enough that adding one row of each class
+
+1042
+02:12:26,660 --> 02:12:32,460
+ will not make a difference in the estimated probability this will overcome the issue of
+
+1043
+02:12:32,460 --> 02:12:38,720
+ the probability value to zero right suppose there is a class loan risky there are one
+
+1044
+02:12:38,720 --> 02:12:43,900
+ thousand samples suppose in the data set and if it does not exist with that one you might
+
+1045
+02:12:43,900 --> 02:12:51,460
+ add a very minor probability of that one will not make any big difference on the final outcome
+
+1046
+02:12:51,460 --> 02:12:59,400
+ right they have also listed the advantages here it is not it is very not only very simple
+
+1047
+02:12:59,400 --> 02:13:08,520
+ approach but also very fast accurate is a very it needs a it's it has it is a very computationally
+
+1048
+02:13:08,520 --> 02:13:16,160
+ efficient algorithm means it doesn't require a lot of computational cost right it work
+
+1049
+02:13:16,160 --> 02:13:22,040
+ well really on the large data set which was the problem of the DC entry as well because
+
+1050
+02:13:22,040 --> 02:13:28,000
+ you can assume how big the DC entry needs to be constructed and retain into the memory
+
+1051
+02:13:28,000 --> 02:13:33,800
+ while answering all of those test sample and it also performed well in case of discrete
+
+1052
+02:13:33,800 --> 02:13:41,580
+ response variables can work with the continuous and issues are the assumption of independent
+
+1053
+02:13:41,580 --> 02:13:47,760
+ feature in practice most impossible the model will get a prediction which is entirely independent
+
+1054
+02:13:47,760 --> 02:13:53,680
+ and there is no training tuple of a particular class right so if there is no training tuple
+
+1055
+02:13:53,680 --> 02:14:00,160
+ mean the same problem which we discussed this causes zero posterior probability zero probability
+
+1056
+02:14:00,160 --> 02:14:07,200
+ issue mean no sample exist for a particular class during the training right and that is
+
+1057
+02:14:07,200 --> 02:14:16,720
+ what Naive Bayes algorithm is another important thing which I wanna discuss here this is the
+
+1058
+02:14:16,720 --> 02:14:26,200
+ code for that one so you have an iris data set and for that one and this is really helpful
+
+1059
+02:14:26,200 --> 02:14:34,320
+ for you for your second assessment you gonna load your data set here and afterwards you
+
+1060
+02:14:34,320 --> 02:14:41,080
+ will see its head if you will see the head function you will see the first top five values
+
+1061
+02:14:41,080 --> 02:14:47,440
+ right and if you wanna see the first ten values you can insert value ten here in the parentheses
+
+1062
+02:14:47,440 --> 02:14:53,920
+ and you will see the first ten rows and then you will describe your data set and if you
+
+1063
+02:14:53,920 --> 02:14:59,640
+ haven't done this one for your first assessment you can copy paste this code here into your
+
+1064
+02:14:59,640 --> 02:15:06,920
+ second and third assessment then make a plot here different kind of scatter plot and mat
+
+1065
+02:15:06,920 --> 02:15:14,640
+ plot lib using seaborne and so on you can use these code for your second assessment
+
+1066
+02:15:14,640 --> 02:15:20,480
+ if you haven't done any box plot analysis you can use this code for your second and
+
+1067
+02:15:20,480 --> 02:15:29,420
+ third assessment as well right and this one is the pair plot which was required for all
+
+1068
+02:15:29,420 --> 02:15:36,400
+ of your three assessment so make sure if you have done in your first good if you haven't
+
+1069
+02:15:36,400 --> 02:15:42,600
+ done please just copy paste these two lines and you will be all fine for your second and
+
+1070
+02:15:42,600 --> 02:15:51,120
+ third assessment and the other important thing or the most important thing which I am using
+
+1071
+02:15:51,120 --> 02:16:01,520
+ this one is this thing you have a data set right and with this data set you just need
+
+1072
+02:16:01,520 --> 02:16:12,840
+ to import create the object this code would be hundred percent same you just need to change
+
+1073
+02:16:12,840 --> 02:16:22,880
+ these two lines which you can easily implement five to ten models for your second and third
+
+1074
+02:16:22,880 --> 02:16:30,240
+ assessment and by the way most of the student did it for the first assessment as well because
+
+1075
+02:16:30,240 --> 02:16:37,920
+ I advise not just rely on the linear regression you can explore less so and region so on some
+
+1076
+02:16:37,920 --> 02:16:44,120
+ of them implemented sport vector regressor to see entry regressor and other as well and
+
+1077
+02:16:44,120 --> 02:16:50,460
+ for this one you just see they implemented logistic regression now come here the k nearest
+
+1078
+02:16:50,460 --> 02:16:59,560
+ neighbor just need to change these two lines these things are hundred percent same you
+
+1079
+02:16:59,560 --> 02:17:07,040
+ implemented the second one second classification model just change these two lines you implemented
+
+1080
+02:17:07,040 --> 02:17:16,760
+ sport vector machine hundred percent same this one just need to create import to see
+
+1081
+02:17:16,760 --> 02:17:24,720
+ entry implement it simple and with this name base you can implement for neighbors algorithm
+
+1082
+02:17:24,720 --> 02:17:31,000
+ first one they imported the Gaussian neighbors for the follow up one they did the multinomial
+
+1083
+02:17:31,000 --> 02:17:39,680
+ neighbors they did the Bernoulli neighbors just two lines change right and then complement
+
+1084
+02:17:39,680 --> 02:17:50,800
+ neighbors see so here they just show the accuracy for each one of them which one is performing
+
+1085
+02:17:50,800 --> 02:17:59,720
+ really better so you see with just changing the two lines of code you have implemented
+
+1086
+02:17:59,720 --> 02:18:06,460
+ all of these things and all of these URLs I have already sent you in your announcement
+
+1087
+02:18:06,460 --> 02:18:14,080
+ so please keep an eye explore these one and incorporate all of these models for your second
+
+1088
+02:18:14,080 --> 02:18:21,120
+ and third assessment second one is related to classification please start exploring that
+
+1089
+02:18:21,120 --> 02:18:28,000
+ one and third one is related to regression using a different data set and we will discuss
+
+1090
+02:18:28,000 --> 02:18:33,680
+ when we'll reach to that point but the point which I want to make is I want you to use
+
+1091
+02:18:33,680 --> 02:18:38,480
+ the existing resources I'm not asking you to learn each one of them just see what are
+
+1092
+02:18:38,480 --> 02:18:45,100
+ the models available implement this one in your assessment and see what is the performance
+
+1093
+02:18:45,100 --> 02:19:00,220
+ is there any advantage you have got after incorporating those one or not okay yeah so
+
+1094
+02:19:00,220 --> 02:19:07,180
+ since you are all the master students and doing this machine learning course exploring
+
+1095
+02:19:07,180 --> 02:19:13,860
+ new things is not difficult for you and I'm not asking you to learn each one of the things
+
+1096
+02:19:13,860 --> 02:19:21,120
+ just explore which are important try to implement those one and implement as much as you can
+
+1097
+02:19:21,120 --> 02:19:39,660
+ using the existing existing knowledge okay so that's all from my side today do you have
+
+1098
+02:19:39,660 --> 02:19:48,880
+ any question in your mind then maybe you can do the other activities and if not then we
+
+1099
+02:19:48,880 --> 02:19:50,160
+ will see you next week.
+
+1100
+02:19:51,120 --> 02:19:59,540
+ I will thank you for the lecture Dr. Kamara appreciate it thank you thank you professor
+
+1101
+02:19:59,540 --> 02:20:06,560
+ yeah you can also have a look to the announcements here this is the announcement which I already
+
+1102
+02:20:06,560 --> 02:20:15,740
+ shared if you will go to the class click on the announcement you will see here this is
+
+1103
+02:20:15,740 --> 02:20:25,820
+ the C entry and name base and here you will be able to find all the links all the data
+
+1104
+02:20:25,820 --> 02:20:37,740
+ set URL and slides also here you can explore this one right and then you can have a look
+
+1105
+02:20:37,740 --> 02:20:54,300
+ to the activities of this week you can go to week 5 and you can do the activities any
+
+1106
+02:20:54,300 --> 02:21:19,180
+ question please let me know and wish you all the best.
+
+1107
+02:21:19,180 --> 02:21:27,540
+ Thank you thank you professor no questions thank you so much thank you take care thank
+
+1108
+02:21:27,540 --> 02:21:29,820
+ you see you next week thank you.
+
+1109
+02:21:49,180 --> 02:21:50,180
+ Thank you.
+
+1110
+02:21:50,180 --> 02:21:50,180
+ Thank you.
+
+1111
+02:22:19,180 --> 02:22:20,180
+ Thank you.
+
+1112
+02:22:20,180 --> 02:22:20,180
+ Thank you.
+
+1113
+02:22:49,180 --> 02:22:50,180
+ Thank you.
+
+1114
+02:22:50,180 --> 02:22:51,180
+ Thank you.
+
+1115
+02:22:51,180 --> 02:22:51,180
+ Thank you.
+
+1116
+02:23:19,180 --> 02:23:20,180
+ Thank you.
+
+1117
+02:23:49,180 --> 02:23:50,180
+ Thank you.
+
+1118
+02:23:50,180 --> 02:23:51,180
+ Thank you.
+
+1119
+02:23:51,180 --> 02:23:52,180
+ Thank you.
+
+1120
+02:23:52,180 --> 02:23:52,180
+ Thank you.
+
+1121
+02:24:19,180 --> 02:24:20,180
+ Thank you.
+
+1122
+02:24:20,180 --> 02:24:21,180
+ Thank you.
+
+1123
+02:24:21,180 --> 02:24:21,180
+ Thank you.
+
+1124
+02:24:49,180 --> 02:24:50,180
+ Thank you.
+
+1125
+02:24:50,180 --> 02:24:51,180
+ Thank you.
+
+1126
+02:24:51,180 --> 02:24:51,180
+ Thank you.
+
+1127
+02:25:19,180 --> 02:25:21,180
+ Thank you.
+
+1128
+02:25:21,180 --> 02:25:22,180
+ Thank you.
+
+1129
+02:25:22,180 --> 02:25:22,180
+ Thank you.
+
+1130
+02:25:49,180 --> 02:25:50,180
+ Thank you.
+
+1131
+02:25:50,180 --> 02:25:51,180
+ Thank you.
+
+1132
+02:25:51,180 --> 02:25:52,180
+ Thank you.
+
+1133
+02:25:52,180 --> 02:25:52,180
+ Thank you.
+
+1134
+02:26:19,180 --> 02:26:20,180
+ Thank you.
+
+1135
+02:26:20,180 --> 02:26:21,180
+ Thank you.
+
+1136
+02:26:21,180 --> 02:26:22,180
+ Thank you.
+
+1137
+02:26:22,180 --> 02:26:22,180
+ Thank you.
+
+1138
+02:26:49,180 --> 02:26:50,180
+ Thank you.
+
+1139
+02:26:50,180 --> 02:26:51,180
+ Thank you.
+
+1140
+02:26:51,180 --> 02:26:52,180
+ Thank you.
+
+1141
+02:26:52,180 --> 02:26:52,180
+ Thank you.
+
+1142
+02:27:19,180 --> 02:27:20,180
+ Thank you.
+
+1143
+02:27:20,180 --> 02:27:21,180
+ Thank you.
+
+1144
+02:27:21,180 --> 02:27:22,180
+ Thank you.
+
+1145
+02:27:22,180 --> 02:27:22,180
+ Thank you.
+
+1146
+02:27:49,180 --> 02:27:50,180
+ Thank you.
+
+1147
+02:27:50,180 --> 02:27:51,180
+ Thank you.
+
+1148
+02:27:51,180 --> 02:27:52,180
+ Thank you.
+
+1149
+02:27:52,180 --> 02:27:52,180
+ Thank you.
+
+1150
+02:28:19,180 --> 02:28:20,180
+ Thank you.
+
+1151
+02:28:20,180 --> 02:28:21,180
+ Thank you.
+
+1152
+02:28:21,180 --> 02:28:22,180
+ Thank you.
+
+1153
+02:28:22,180 --> 02:28:22,180
+ Thank you.
+
+1154
+02:28:49,180 --> 02:28:50,180
+ Thank you.
+
+1155
+02:28:50,180 --> 02:28:51,180
+ Thank you.
+
+1156
+02:28:51,180 --> 02:28:52,180
+ Thank you.
+
+1157
+02:28:52,180 --> 02:28:52,180
+ Thank you.
+
+1158
+02:29:19,180 --> 02:29:21,180
+ Thank you.
+
+1159
+02:29:49,180 --> 02:29:50,180
+ Thank you.
+
+1160
+02:29:50,180 --> 02:29:51,180
+ Thank you.
+
+1161
+02:29:51,180 --> 02:29:52,180
+ Thank you.
+
+1162
+02:29:52,180 --> 02:29:52,180
+ Thank you.
+
+1163
+02:30:19,180 --> 02:30:20,180
+ Thank you.
+
+1164
+02:30:20,180 --> 02:30:21,180
+ Thank you.
+
+1165
+02:30:21,180 --> 02:30:22,180
+ Thank you.
+
+1166
+02:30:22,180 --> 02:30:22,180
+ Thank you.
+
+1167
+02:30:49,180 --> 02:30:50,180
+ Thank you.
+
+1168
+02:30:50,180 --> 02:30:51,180
+ Thank you.
+
+1169
+02:30:51,180 --> 02:30:52,180
+ Thank you.
+
+1170
+02:30:52,180 --> 02:30:52,180
+ Thank you.
+
+1171
+02:31:19,180 --> 02:31:20,180
+ Thank you.
+
+1172
+02:31:20,180 --> 02:31:20,180
+ Thank you.
+
+1173
+02:31:49,180 --> 02:31:50,180
+ Thank you.
+
+1174
+02:31:50,180 --> 02:31:51,180
+ Thank you.
+
+1175
+02:31:51,180 --> 02:31:52,180
+ Thank you.
+
+1176
+02:31:52,180 --> 02:31:52,180
+ Thank you.
+
+1177
+02:32:19,180 --> 02:32:20,180
+ Thank you.
+
+1178
+02:32:20,180 --> 02:32:21,180
+ Thank you.
+
+1179
+02:32:21,180 --> 02:32:21,180
+ Thank you.
+
+1180
+02:32:49,180 --> 02:32:50,180
+ Thank you.
+
+1181
+02:32:50,180 --> 02:32:51,180
+ Thank you.
+
+1182
+02:32:51,180 --> 02:32:52,180
+ Thank you.
+
+1183
+02:32:52,180 --> 02:32:52,180
+ Thank you.
+
+1184
+02:33:19,180 --> 02:33:20,180
+ Thank you.
+
+1185
+02:33:20,180 --> 02:33:21,180
+ Thank you.
+
+1186
+02:33:21,180 --> 02:33:22,180
+ Thank you.
+
+1187
+02:33:22,180 --> 02:33:22,180
+ Thank you.
+
+1188
+02:33:49,180 --> 02:33:50,180
+ Thank you.
+
+1189
+02:33:50,180 --> 02:33:51,180
+ Thank you.
+
+1190
+02:33:51,180 --> 02:33:52,180
+ Thank you.
+
+1191
+02:33:52,180 --> 02:33:52,180
+ Thank you.
+
+1192
+02:34:19,180 --> 02:34:20,180
+ Thank you.
+
+1193
+02:34:20,180 --> 02:34:21,180
+ Thank you.
+
+1194
+02:34:21,180 --> 02:34:22,180
+ Thank you.
+
+1195
+02:34:22,180 --> 02:34:22,180
+ Thank you.
+
+1196
+02:34:49,180 --> 02:34:50,180
+ Thank you.
+
+1197
+02:34:50,180 --> 02:34:51,180
+ Thank you.
+
+1198
+02:34:51,180 --> 02:34:52,180
+ Thank you.
+
+1199
+02:34:52,180 --> 02:34:52,180
+ Thank you.
+
+1200
+02:35:19,180 --> 02:35:20,180
+ Thank you.
+
+1201
+02:35:20,180 --> 02:35:21,180
+ Thank you.
+
+1202
+02:35:21,180 --> 02:35:22,180
+ Thank you.
+
+1203
+02:35:22,180 --> 02:35:22,180
+ Thank you.
+
+1204
+02:35:49,180 --> 02:35:50,180
+ Thank you.
+
+1205
+02:35:50,180 --> 02:35:50,180
+ Thank you.
+
+1206
+02:36:19,180 --> 02:36:20,180
+ Thank you.
+
+1207
+02:36:20,180 --> 02:36:21,180
+ Thank you.
+
+1208
+02:36:21,180 --> 02:36:22,180
+ Thank you.
+
+1209
+02:36:22,180 --> 02:36:22,180
+ Thank you.
+
+1210
+02:36:49,180 --> 02:36:50,180
+ Thank you.
+
+1211
+02:36:50,180 --> 02:36:51,180
+ Thank you.
+
+1212
+02:36:51,180 --> 02:36:52,180
+ Thank you.
+
+1213
+02:36:52,180 --> 02:36:52,180
+ Thank you.
+
+1214
+02:37:19,180 --> 02:37:20,180
+ Thank you.
+
+1215
+02:37:20,180 --> 02:37:21,180
+ Thank you.
+
+1216
+02:37:21,180 --> 02:37:22,180
+ Thank you.
+
+1217
+02:37:22,180 --> 02:37:22,180
+ Thank you.
+
+1218
+02:37:49,180 --> 02:37:50,180
+ Thank you.
+
+1219
+02:37:50,180 --> 02:37:51,180
+ Thank you.
+
+1220
+02:37:51,180 --> 02:37:52,180
+ Thank you.
+
+1221
+02:37:52,180 --> 02:37:52,180
+ Thank you.
+
+1222
+02:38:19,180 --> 02:38:20,180
+ Thank you.
+
+1223
+02:38:20,180 --> 02:38:21,180
+ Thank you.
+
+1224
+02:38:21,180 --> 02:38:22,180
+ Thank you.
+
+1225
+02:38:22,180 --> 02:38:22,180
+ Thank you.
+
+1226
+02:38:49,180 --> 02:38:50,180
+ Thank you.
+
+1227
+02:38:50,180 --> 02:38:51,180
+ Thank you.
+
+1228
+02:38:51,180 --> 02:38:52,180
+ Thank you.
+
+1229
+02:38:52,180 --> 02:38:52,180
+ Thank you.
+
+1230
+02:39:19,180 --> 02:39:20,180
+ Thank you.
+
+1231
+02:39:20,180 --> 02:39:21,180
+ Thank you.
+
+1232
+02:39:21,180 --> 02:39:22,180
+ Thank you.
+
+1233
+02:39:22,180 --> 02:39:22,180
+ Thank you.
+
+1234
+02:39:49,180 --> 02:39:50,180
+ Thank you.
+
+1235
+02:39:50,180 --> 02:39:51,180
+ Thank you.
+
+1236
+02:39:51,180 --> 02:39:52,180
+ Thank you.
+
+1237
+02:39:52,180 --> 02:39:52,180
+ Thank you.
+
+1238
+02:40:19,180 --> 02:40:20,180
+ Thank you.
+
+1239
+02:40:20,180 --> 02:40:21,180
+ Thank you.
+
+1240
+02:40:21,180 --> 02:40:22,180
+ Thank you.
+
+1241
+02:40:22,180 --> 02:40:22,180
+ Thank you.
+
