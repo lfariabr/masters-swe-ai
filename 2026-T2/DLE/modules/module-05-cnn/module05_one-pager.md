@@ -29,6 +29,38 @@
 - 🔵 **Downsampling:** space the pooling regions `k` apart → fewer units → smaller, cheaper later layers. Also lets variable-size inputs feed a **fixed-size** classifier.
 - 🖤 **Conv-layer pipeline:** `Convolution (linear) → ReLU → Pool → (often) Dense`. The ReLU `max(0,z)` comes *after* convolution; convolution alone has no nonlinearity.
 
+## 🖤 The Convolution Pipeline (draw this big across the page) ⭐
+```mermaid
+flowchart LR
+    IN["INPUT<br/>28×28×1<br/><i>grid data</i>"]
+
+    subgraph B1["Conv Block 1 · low-level"]
+        direction LR
+        C1["CONV<br/>8×[3×3]<br/>Σ(w·x)+b"] --> R1["ReLU<br/>max(0,z)"] --> P1["POOL<br/>2×2 max"]
+    end
+
+    subgraph B2["Conv Block 2 · mid-level"]
+        direction LR
+        C2["CONV<br/>16×[3×3]<br/>Σ(w·x)+b"] --> R2["ReLU<br/>max(0,z)"] --> P2["POOL<br/>2×2 max"]
+    end
+
+    D["DENSE<br/>flatten →<br/>class scores"]
+    S["SOFTMAX<br/>P(class)<br/>L=-ln(p_c)"]
+
+    IN --> B1
+    B1 -->|"detects EDGES"| B2
+    B2 -->|"detects PARTS"| D
+    D -->|"assembles OBJECTS"| S
+
+    classDef conv fill:#dbeafe,stroke:#1e40af,color:#000;
+    classDef pool fill:#fee2e2,stroke:#b91c1c,color:#000;
+    classDef head fill:#dcfce7,stroke:#166534,color:#000;
+    class C1,C2,R1,R2 conv;
+    class P1,P2 pool;
+    class D,S head;
+```
+> 🔵 Read it left→right: **space → features → nonlinearity → summary → decision.** Conv keeps *where* (equivariance), Pool throws *where* away on purpose (invariance). **Stacking blocks = the feature hierarchy:** Block 1 finds edges → Block 2 combines them into parts → Dense assembles whole objects. Channels grow (8→16), spatial size shrinks (28→13→...) - the AlexNet/VGG pattern in miniature.
+
 ## 🖤 Zone 3 - The landmark architectures ⭐ SLO c (Activity 2 = the narrative)
 > **Story arc: deeper, then smarter/cheaper.** AlexNet (depth+GPU) → VGG (small-filter depth) → GoogleNet (width + 1×1 bottleneck) → ResNet (skip connections, 152 layers).
 
