@@ -593,6 +593,186 @@ This activity highlights the use of scikit-learn for classification using a vari
 
 ---
 
+## Module 6 - Support Vector Machines
+
+### TLDR
+
+### Introduction
+In this Module, we will focus our attention on the support vector machines (SVM). A SVM is a supervised machine leaning (ML) algorithm that requires labelled or classified data for training. A SVM classifies data into one of two categories by finding a separating line (or hyperplane). The two videos below introduce SVMs—the videos touch on terms such as optimal hyperplane, decision boundaries, the kernel trick, maximum margin, support vectors and also discuss the circumstances in which SVMs are used.
+
+Source: Loukas, S. (2020, 4 June). Support vector machines (SVM) clearly explained: A Python tutorial for classification problems with 3D plots. Retrieved from https://towardsdatascience.com/support-vector-machines-svm-clearly-explained-a-python-tutorial-for-classification-problems-29c539f3ad8
+
+Video 1: McCormick, K. (2018). Linear SVM [Video file]. Retrieved from https://www.linkedin.com/learning/machine-learning-and-ai-foundations-classification-modeling/linear-svm?u=56744473
+
+Video 2: Jedamski, D. (2019). What is support vector machine? [Video file]. Retrieved from https://www.linkedin.com/learning/applied-machine-learning-algorithms/what-is-support-vector-machine?u=56744473
+
+When presented with a training set of examples marked as belonging to one of two categories, a SVM builds a model that is capable of assigning new incoming data to one category or the other. Additionally, for non-linear classifications, a SVM uses the kernel trick to map the data into a higher dimensional space to tease out the categories.
+
+To help you gain a better understanding of the topic, this Module includes some videos and tutorial commentary about hands-on applications, including an application that uses SVM to classify muffin and cupcake recipes and also some of the more common face identification and cancer diagnoses applications. All these examples include notebooks with accompanying commentary in markdown to help reinforce the use of ML in Python using scikit-learn.
+
+### Resources
+
+#### 1. When Should You Consider Using Support Vector Machines
+- Jedamski, D. (2019, 15 May). When should you consider using SVM? [Video file]. Retrieved from https://www.linkedin.com/learning/applied-machine-learning-algorithms/when-should-you-consider-using-svm?u=56744473
+
+*Resource Overview:*
+
+    This short video outlines when to use and when not to use SVMs. SVMs can be used for regression and classification; however, this video notes that the SVM is best used for classification problems with a binary target variable. Another important characteristic of the SVM is its ability to use many outliers and consider very complex relationships in relation to the binary target variable. Data sets with lots of features and very little data should fit SVMs.
+
+> *Status: 🕐 To-Do* 
+
+#### 2. Visualisation of the Kernel Trick
+- Aharoni, U. (2007, 5 February). SVM with polynomial kernel visualisation [Video file]. Retrieved from https://www.youtube.com/watch?time_continue=1&v=3liCbRZPrZA&feature=emb_logo
+
+*Resource Overview:*
+
+    No substitute exists for a clever visualisation. This visualisation nicely demonstrates the use of the ‘kernel trick’ showing how points of two different classes (red and blue dots) cannot be linearly separated in two-dimensional (2D) space. However, the trick allows the points to become linearly separated by a transformation function into a higher dimensional space. Here, the transformation is f([x,y]) = [x,y,(x^2 y^2)]. Given that the original dimensions are x and y, we add a third-dimension z = x^2 y^2. In the subsequent learning activities, we will actually compute the transformation and see it in action for a range of points.
+
+> *Status: 🕐 To-Do* 
+
+#### 3. Maximal Margin Classifiers
+- Kennedy, M. Jaffe, B. & Malone, K. (2017a, 4 December). Maximal margin classifiers [Audio podcast]. Retrieved from http://lineardigressions.com/episodes/2017/12/3/maximal-margin-classifiers
+
+*Resource Overview:*
+
+    This podcast (Kennedy, Jaffe & Malone, 2017a) is a prerequisite to understanding SVMs. Margin classifiers provide an approach to thinking about supervised learning and the decision boundary separating two classes. This in turn helps create a simple theoretical model for understanding the SVM. The margin of a linear classifier is the distance from the decision boundary to the nearest point. The decision boundary is defined by a small number of points recognised as the support vectors. What if we make the margin as wide as possible? This question helps focus our thinking around SVMs.
+
+> *Status: 🕐 To-Do* 
+
+#### 4. The Kernel Trick and Support Vector Machines
+- Kennedy, M., Jaffe, B. & Malone, K. (2017b, 10 December). The kernel trick and support vector machines [Audio podcast]. Retrieved from http://lineardigressions.com/episodes/2017/12/10/the-kernel-trick-and-support-vector-machines
+
+*Resource Overview:*
+
+    This podcast (Kennedy, Jaffe & Malone, 2017b) complements the podcast above (Kennedy, Jaffe & Malone, 2017a).
+
+    Building on maximal margin algorithms and adding the kernel trick gives us the SVM. The kernel helps us find a plane (the line in two dimensions) in a higher dimensional space and project into a lower dimensional space. The kernel helps to separate out data points belonging to different classes with a plane (i.e., a good margin line that represents the decision boundary as far as possible from the points).
+
+> *Status: 🕐 To-Do* 
+
+#### 5. Support Vector Machines for Machine Learning
+- Brownlee, J. (2020, 15 August). Support vector machines for machine learning. Retrieved from https://machinelearningmastery.com/support-vector-machines-for-machine-learning/
+
+*Resource Overview:*
+
+    This article, which includes minimal mathematics, revisits the maximal-margin classifier and the soft margin classifier. Notably, it also considers how other kernels like the radial and polynomial can be used. Read this article before consulting the Scikit documentation (see the next resource).
+
+> *Status: 🕐 To-Do* 
+
+#### 6. Scikit Documentation—Support Vector Machines
+- Pedregosa, F., Varoquaux, G.,Gramfort, A.,Michel, V., Thirion, B., Grisel, O., Blondel, M.,Prettenhofer, P., Weiss, R.,Dubourg, V.,Vanderplas, J., Passos, A.,Cournapeau, D.,Brucher, M.,Perrot, M. & Duchesnay, E. (2011). Scikit-learn: Machine learning in Python. Journal of Machine Learning Research. 12, 2825–2830.  Retrieved from https://scikit-learn.org/stable/modules/svm.html
+
+*Resource Overview:*
+
+    This resource is a useful SVM reference document to keep handy, as it has useful tips for practical use.
+
+> *Status: 🕐 To-Do* 
+
+#### 7. Scikit Documentation—Quantifying the Quality of Predictions: The Confusion Matrix
+- Pedregosa, F., Varoquaux, G.,Gramfort, A.,Michel, V., Thirion, B., Grisel, O., Blondel, M.,Prettenhofer, P., Weiss, R.,Dubourg, V.,Vanderplas, J., Passos, A.,Cournapeau, D.,Brucher, M.,Perrot, M. & Duchesnay, E. (2011). Scikit-learn: Machine learning in Python. Journal of Machine Learning Research. 12, 2825–2830.  Retrieved from https://scikit-learn.org/stable/modules/model_evaluation.html#confusion-matrix
+
+*Resource Overview:*
+
+    This resource will help you to understand the quality of your model prediction. Determining how well your model predicted or classified data helps determine the next steps, including everything from finding alternate models to fine tuning the hyperparameters.
+
+    For the most common cases of scoring (i.e., classification, clustering or regression), scikit-learn provides predefine functions. In this resource, we focus our attention on the confusion matrix function for evaluating classification accuracy.
+
+> *Status: 🕐 To-Do* 
+
+#### 8. New Machine Learning Applications to Accelerate Personalised Medicine in Breast Cancer: Rise of the Support Vector Machines
+- POzer, M., Sarica, P. & Arga, K. (2020). New machine learning applications to accelerate personalized medicine in breast cancer: Rise of the support vector machines. OMICS A Journal of Integrative Biology, 24(5),241–246. Retrieved from https://doi.org/10.1089/omi.2020.0001
+
+*Resource Overview:*
+
+    This article reinforces the importance of SVMs in public and clinical applications and examines the prediction models of breast cancer subtypes. Ensure that you consult Figure 1 to see how SVM is centre stage in disease classification. As the authors remind us, ‘SVM is a promising approach for development and application of the best medical practices and will be encountered more frequently in 2020 and the coming decade as the concept of precision/personalized medicine moves from theory to mainstream clinical practice’ (Ozer, Sarcia & Arga, 2020).
+
+> *Status: 🕐 To-Do* 
+
+### Learning Activities
+
+#### 1. Kernel Trick Using Spreadsheet
+- Malakar, G. (2016, 24 July). Introduction to support vector machine (SVM) and kernel trick [Data set]. Retrieved from https://drive.google.com/file/d/0Byo-GmbU7XciMUtJalFMUnlDRnM/view
+
+In this activity, you will see for yourself two key aspects of SVMs: 1) the ability of SVMs to work with small data; and 2) the kernel trick. As a refresher, we use the kernel trick to separate linear and non-linear space. In this activity, you will use the transformation of variables to convert non-linear space into linear space. Some other SVM concepts you should keep in the mind are the maximum margin classifier, the support vectors located closest to the other class and hyperplane classification.
+
+To complete this learning activity, follow these steps:
+1. Access your Google drive and Google Sheets or Microsoft Excel;
+2. Either upload the Excel sheet (Kernel_Trick for SVM.xls; Malakar 2016) to your Google drive or read it into Excel depending upon your preference.
+3. Review each of the worksheets (data and chart) from left to right (original, transformed, base_eclipse_Data,base_eclipse_Data_1 and base_eclipse_Data_2 ).
+4. In each worksheet, change the data but note the transformation of non-linear space into linear space and the hyperplane.
+5. Share your thoughts to the discussion forum once you have completed the activity. Did this exercise help you understand the kernel trick?
+
+> *Status: 🕐 To-Do* 
+
+#### 2. Classification of Muffin and Cupcake Recipes Using SVMs
+- Zhao, A. (2017, 21 August). Support vector machines: A visual explanation with sample python code [Video file]. Retrieved from https://www.youtube.com/watch?v=N1vOgolbjSc
+
+For this activity, you should follow the YouTube tutorial and the provided Jupyter Notebook file. This activity uses SVMs to classify muffin and cupcake recipes.
+
+To complete this learning activity, follow these steps:
+
+1. Upload the file ‘Classification of Muffin and Cupcake Recipes using SVM.ipynb’ to your Notebook.
+2. Watch the first part of the video (https://www.youtube.com/embed/N1vOgolbjSc) to the 3 minute 40 seconds mark. The first part of the video will serve as a refresher, as it provides a visual explanation of SVM concepts margin, support vectors and the hyperplane.
+3. Complete the case study about using SVM to classify cupcake and muffin recipes by tuning the model and using the kernel trick (examples of the code are provided in your Notebook).
+4. Follow the steps in the Notebook to:
+   - import the Python libraries (matplotlib, numpy, pandas and sklearn);
+   - import the data (the code reads in the data directly from the URL);
+   - prepare the data;
+   - fit the model;
+   - visualise the results; and
+   - predict a new case.
+5. Share your feedback to the discussion forum regarding the difference between cupcakes and muffins once you have completed the activity. Did the explanation and working example help you understand SVMs in the short time allocated? From the learnings, how would you set the best C parameter? What setting for C would you select apart from the default?
+
+> *Status: 🕐 To-Do* 
+
+#### 3. Breast Cancer Classification Using Support Vector Machines
+- Mel, L. (2019, 19 November). Breast cancer classification using support vector machines [Web log post]. Medium. Retrieved from https://medium.com/data-py-blog/breast-cancer-classification-using-support-vector-machines-23bd4cc2790b
+
+FThe SVM is a popular ML algorithm for industrial applications, including image, face and medical classification applications (Ozer et al., 2020). This activity focuses on breast cancer classification. After you have uploaded the Notebook code, you will find a very short narrative at: https://medium.com/data-py-blog/breast-cancer-classification-using-support-vector-machines-23bd4cc2790b.
+
+To complete this learning activity, follow these steps:
+
+1. Upload the file ‘Breast_Cancer_Classification_Using_SVM.ipynb’.
+2. Follow the markdown steps outlined in the notebook code and execute each stage of the analysis to gain an understanding of the Python and ML code being used.
+3. Consult the online scikit-learn documentation as necessary to gain an understanding of the parameter settings (e.g., the grid-searches in model tuning).
+4. Execute the code step by step without error.
+5. Share your thoughts to the discussion forum on the accuracy of the model and implications once you have completed the activity.
+
+> *Status: 🕐 To-Do* 
+
+#### 4. Face Recognition Using SVM and Pre-COVID-19 algorithms
+- Pedregosa, F., Varoquaux, G.,Gramfort, A.,Michel, V., Thirion, B., Grisel, O., Blondel, M.,Prettenhofer, P., Weiss, R.,Dubourg, V.,Vanderplas, J., Passos, A.,Cournapeau, D.,Brucher, M.,Perrot, M. & Duchesnay, E. (2011). Scikit-learn: Machine learning in Python. Journal of Machine Learning Research. 12, 2825–2830.  Retrieved from https://scikit-learn.org/stable/auto_examples/applications/plot_face_recognition.html
+- Ngan, M., Grother, P. & Hanaoka, K. (2020). Part 6A: Face recognition accuracy with masks using pre-COVID-19 algorithms. In Ongoing face recognition vendor test (FRVT). National Institute of Standards and Technology, US Department of Commerce. Retrieved from https://pages.nist.gov/frvt/reports/facemask/frvt_facemask_report.pdf
+SVM is a popular ML algorithm for industrial applications, such as face classification. For this activity, we will review and analyse the ML code to train a SVM classifier to recognise faces. The source for the facial images is Labelled Faces in the Wild (LFW; http://vis-www.cs.umass.edu/lfw/). The data set contains more than 13,000 images of faces collected from the web; each face in the data set is labelled with the name of the person. The database is available through sklearn.datasets import fetch_lfw_people.
+
+To complete this learning activity, follow these steps:
+
+1. Upload the file ‘SVM_Face_Recognition_using_LFW.ipynb’.
+2. Follow the markdown steps outlined in the notebook code and execute each stage of the analysis to gain an understanding of the Python and ML code being used.
+3. Consult the online scikit-learn documentation as necessary to gain an understanding of the scikit code used in this notebook (e.g., the sklearn datasets).
+4. Execute the code step by step without error.
+5. Review the report entitled, ‘United States Ongoing Face Recognition Vendor Test (FRVT)’. Pay particular attention to Part 6A (which examines face recognition accuracy with masks using pre-COVID-19 algorithms). This is available at: https://pages.nist.gov/frvt/reports/facemask/frvt_facemask_report.pdf.
+6. Share your thoughts to the discussion forum for SVM applications on the usefulness of the classification report for face recognition once you have completed the activity. What do you think about using eigenfaces as the pre-processing step for facial recognition? How can we improve our accuracy and thus algorithms in a world in which faces are obfuscated by masks?
+
+> *Status: 🕐 To-Do*
+
+#### 5. Wine Classification Using a Support Vector Machine
+The SVM is a popular ML algorithm. You will not be surprised to find out that our familiar red wine data set (https://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-red.csv) has been used in a wine classification exercise.
+
+To complete this learning activity, follow these steps:
+
+1. Upload the file ‘Wine_Classification_and_SVM’.
+2. Follow the markdown steps outlined in the notebook code and execute each stage of the analysis to gain an understanding of the Python and ML code being used.
+3. Go through the early stages of the notebook right through to finding correlations, with which you should be familiar by now.
+4. Execute the code step by step without error.
+5. Follow the steps to go from a continuous variable to a categorical variable.
+6. Consult the relevant online documentation to sort data values into bins using cut().
+Share your thoughts on the Wine Classification to the SVM discussion forum and describe how well your SVM model performed once you have completed the activity.
+
+> *Status: 🕐 To-Do*
+
+---
+
 ```bash
 --- PLACEHOLDER:
 ## Module X - ...
