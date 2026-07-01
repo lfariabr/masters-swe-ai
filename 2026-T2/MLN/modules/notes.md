@@ -596,6 +596,13 @@ This activity highlights the use of scikit-learn for classification using a vari
 ## Module 6 - Support Vector Machines
 
 ### TLDR
+A **Support Vector Machine (SVM)** is a supervised classifier that separates two classes with the **maximum-margin hyperplane** - the boundary is defined only by the **support vectors** (the points nearest it), which makes SVM naturally **robust to outliers**.
+- **Soft margin + C:** real data isn't perfectly separable, so `C` trades margin violations against boundary hardness (a bias-variance dial).
+- **Kernel trick:** swap the dot-product kernel for **polynomial** or **RBF** to bend the boundary into higher dimensions without computing those coordinates. RBF adds `gamma` (influence radius) - tune `C` + `gamma` with `GridSearchCV`.
+- **Use it when:** many features, few rows ("short-and-fat" data), complex boundaries, outliers. **Avoid when:** you need transparency, a fast benchmark, or have huge low-dimensional data.
+- **Always** scale features (`Pipeline(StandardScaler(), SVC())`) and judge with the **confusion matrix + `classification_report`** (precision/recall/F1), not accuracy - especially on imbalanced medical data.
+
+> Full per-resource breakdown: [module06_notes.md](module-06-support-vector-machines/module06_notes.md)
 
 ### Introduction
 In this Module, we will focus our attention on the support vector machines (SVM). A SVM is a supervised machine leaning (ML) algorithm that requires labelled or classified data for training. A SVM classifies data into one of two categories by finding a separating line (or hyperplane). The two videos below introduce SVMs—the videos touch on terms such as optimal hyperplane, decision boundaries, the kernel trick, maximum margin, support vectors and also discuss the circumstances in which SVMs are used.
@@ -619,7 +626,7 @@ To help you gain a better understanding of the topic, this Module includes some 
 
     This short video outlines when to use and when not to use SVMs. SVMs can be used for regression and classification; however, this video notes that the SVM is best used for classification problems with a binary target variable. Another important characteristic of the SVM is its ability to use many outliers and consider very complex relationships in relation to the binary target variable. Data sets with lots of features and very little data should fit SVMs.
 
-> *Status: 🕐 To-Do* 
+> *Status: ✅ Watched + Reviewed - see [module06_notes.md](module-06-support-vector-machines/module06_notes.md#1-when-should-you-consider-using-svm-jedamski-2019)* 
 
 #### 2. Visualisation of the Kernel Trick
 - Aharoni, U. (2007, 5 February). SVM with polynomial kernel visualisation [Video file]. Retrieved from https://www.youtube.com/watch?time_continue=1&v=3liCbRZPrZA&feature=emb_logo
@@ -657,7 +664,7 @@ To help you gain a better understanding of the topic, this Module includes some 
 
     This article, which includes minimal mathematics, revisits the maximal-margin classifier and the soft margin classifier. Notably, it also considers how other kernels like the radial and polynomial can be used. Read this article before consulting the Scikit documentation (see the next resource).
 
-> *Status: 🕐 To-Do* 
+> *Status: ✅ Read + Reviewed - see [module06_notes.md](module-06-support-vector-machines/module06_notes.md#5-support-vector-machines-for-machine-learning-brownlee-2020)* 
 
 #### 6. Scikit Documentation—Support Vector Machines
 - Pedregosa, F., Varoquaux, G.,Gramfort, A.,Michel, V., Thirion, B., Grisel, O., Blondel, M.,Prettenhofer, P., Weiss, R.,Dubourg, V.,Vanderplas, J., Passos, A.,Cournapeau, D.,Brucher, M.,Perrot, M. & Duchesnay, E. (2011). Scikit-learn: Machine learning in Python. Journal of Machine Learning Research. 12, 2825–2830.  Retrieved from https://scikit-learn.org/stable/modules/svm.html
@@ -666,7 +673,7 @@ To help you gain a better understanding of the topic, this Module includes some 
 
     This resource is a useful SVM reference document to keep handy, as it has useful tips for practical use.
 
-> *Status: 🕐 To-Do* 
+> *Status: ✅ Read + Reviewed - see [module06_notes.md](module-06-support-vector-machines/module06_notes.md#6-scikit-learn---support-vector-machines-documentation-2011)* 
 
 #### 7. Scikit Documentation—Quantifying the Quality of Predictions: The Confusion Matrix
 - Pedregosa, F., Varoquaux, G.,Gramfort, A.,Michel, V., Thirion, B., Grisel, O., Blondel, M.,Prettenhofer, P., Weiss, R.,Dubourg, V.,Vanderplas, J., Passos, A.,Cournapeau, D.,Brucher, M.,Perrot, M. & Duchesnay, E. (2011). Scikit-learn: Machine learning in Python. Journal of Machine Learning Research. 12, 2825–2830.  Retrieved from https://scikit-learn.org/stable/modules/model_evaluation.html#confusion-matrix
@@ -677,7 +684,7 @@ To help you gain a better understanding of the topic, this Module includes some 
 
     For the most common cases of scoring (i.e., classification, clustering or regression), scikit-learn provides predefine functions. In this resource, we focus our attention on the confusion matrix function for evaluating classification accuracy.
 
-> *Status: 🕐 To-Do* 
+> *Status: ✅ Read + Reviewed - see [module06_notes.md](module-06-support-vector-machines/module06_notes.md#7-scikit-learn---metrics--the-confusion-matrix-2011)* 
 
 #### 8. New Machine Learning Applications to Accelerate Personalised Medicine in Breast Cancer: Rise of the Support Vector Machines
 - POzer, M., Sarica, P. & Arga, K. (2020). New machine learning applications to accelerate personalized medicine in breast cancer: Rise of the support vector machines. OMICS A Journal of Integrative Biology, 24(5),241–246. Retrieved from https://doi.org/10.1089/omi.2020.0001
