@@ -451,6 +451,14 @@ Now, perform all the following tasks, which are the same as those you performed 
 
 ### TLDR
 
+Cleaned data (Modules 4-5) now feeds the **modelling stage**: build a **supervised classifier** (labelled data → predict a target `y`), as opposed to unsupervised clustering (Module 9).
+- **Frame it** (Kelleher & Tierney): supervised = learn a function attributes→target; each algorithm has a **learning bias** to match to the data; **correlation** (Pearson r) is what makes prediction possible.
+- **The 3 base classifiers** (Witten §4.1-4.3): **1R** (one-attribute baseline), **Naive Bayes** (all attributes independent + Bayes' rule; **Laplace smoothing** kills the zero-frequency veto), and **decision trees** (divide-and-conquer, split on max **information gain** / entropy; **gain ratio** fixes the highly-branching bias).
+- **Trees for the real world** (Witten §6.1 = C4.5): binary splits for **numeric** attributes, **fractional instances** for **missing** values, and - the headline - **pruning** (subtree replacement/raising via a pessimistic error estimate) to stop **overfitting**.
+- **At big-data scale** (Koturwar et al.): parallelise DT via **distributed C4.5 on MapReduce**; **DT vs SVM** - DT is fast/interpretable/handles categoricals, SVM wins on accuracy for high-dimensional data.
+
+SLO **d)** build and apply classification models. Primes **Activities 1-2** (hand-built decision tree + missing values) and feeds **Assessment 2**. Full write-up → [module06_notes.md](module-06-classification/module06_notes.md).
+
 ### Introduction
 Once the data is cleaned and pre-processed, the next step is ‘model building’. In this stage, machine learning (ML) algorithms are used to automatically detect useful patterns in the data. There are different ways of representing the patterns and each representation dictates the type of algorithm that can be used to discover patterns in the data. These representations of patterns are known as models. Once a model is created, it can be used for analysis. In this Module, you will learn how to build ‘classification’ models from data using ML algorithms. Due to the inherent complexity of big data attributes (i.e., the Vs: volume, velocity and variety), it is often necessary to use ML algorithms to create models.
 
@@ -467,7 +475,7 @@ To simplify the analysis of big data, classification techniques are used on big 
 
     Read the section entitled ‘Supervised versus Unsupervised Learning’ in Chapter 4: Machine Learning 101 (pp. 99–104). This section describes, with examples, the distinction between supervised learning and unsupervised learning.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed - see [module06_notes.md](module-06-classification/module06_notes.md)*
 
 
 #### 2. Classification Algorithms
@@ -477,7 +485,7 @@ To simplify the analysis of big data, classification techniques are used on big 
 
     In the above resource, you learned about building ‘classification’ models that belong to the category of supervised learning. Read Sections 4.1–4.3 in ‘Chapter 4: Algorithms—The Basic Methods’ (pp. 91–113). ‘Section 4.1: Inferring Rudimentary Rules’ describes a simple rule-based classification algorithm. ‘Section 4.2: Simple Probabilistic Modelling’ presents the well-known ‘Naïve Bayes’ method for probabilistic classification. Finally, Section 4.3 describes the decision tree and decision rule algorithms for classification, which are based on ‘divide-and-conquer’ and ‘separate-and-conquer’ strategies, respectively.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed - see [module06_notes.md](module-06-classification/module06_notes.md)*
 
 #### 3. Decision Tree—Practical Considerations
 - Witten, I. H., Frank, E., Hall, M. A. & Pal, C. J. (2017). Data mining: Practical machine learning tools and techniques (4th ed.). Cambridge, MA: Morgan Kaufmann. Retrieved from https://www-sciencedirect-com.torrens.idm.oclc.org/science/article/pii/B9780128042915000064
@@ -486,7 +494,7 @@ To simplify the analysis of big data, classification techniques are used on big 
 
     In the above resources, you learned about the basic decision tree algorithm. However, the basic decision tree algorithm is not robust enough to deal with real-world datasets. When using a decision tree in practical applications, a decision tree needs to address the issues of numeric attributes and missing values. Additionally, a decision tree needs to have a strategy for pruning any nodes that do not have sufficient support from the data. Read ‘Section 6.1: Decision Tree’ in ‘Chapter 6: Trees and Rule's’ (pp. 110 –115). This section describes how to deal with numeric attributes and missing values in decision tree learning. Fully extended decision trees often contain unnecessary nodes and need to be simplified before being deployed in practice. This section also presents different techniques for pruning.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed - see [module06_notes.md](module-06-classification/module06_notes.md)*
 
 #### 4. A Survey of Classification Techniques in the Area of Big Data
 - Koturwar, P., Girase, S. & Mukhopadhyay, D. (2015). A survey of classification techniques in the area of big data. Retrieved from https://arxiv.org/ftp/arxiv/papers/1503/1503.07477.pdf
@@ -495,7 +503,7 @@ To simplify the analysis of big data, classification techniques are used on big 
 
     This survey paper discusses classification in relation to big data. In this paper, the authors highlight both supervised and unsupervised classifications. However, the main focus of this paper is on different types of supervised classification. One of the key points to note from this paper is how the authors discuss decision trees under the banner of supervised classification.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed - see [module06_notes.md](module-06-classification/module06_notes.md)*
 
 ### Learning Activities
 
