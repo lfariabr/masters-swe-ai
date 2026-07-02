@@ -447,6 +447,85 @@ Now, perform all the following tasks, which are the same as those you performed 
 
 ---
 
+## Module 6 - Classification
+
+### TLDR
+
+### Introduction
+Once the data is cleaned and pre-processed, the next step is ‘model building’. In this stage, machine learning (ML) algorithms are used to automatically detect useful patterns in the data. There are different ways of representing the patterns and each representation dictates the type of algorithm that can be used to discover patterns in the data. These representations of patterns are known as models. Once a model is created, it can be used for analysis. In this Module, you will learn how to build ‘classification’ models from data using ML algorithms. Due to the inherent complexity of big data attributes (i.e., the Vs: volume, velocity and variety), it is often necessary to use ML algorithms to create models.
+
+To simplify the analysis of big data, classification techniques are used on big transactional databases to provide the required data to users of large datasets. There are two main classification techniques: 1) supervised classification; and 2) unsupervised classification. Supervised classification group data into a set of possible classes, which are known in advanced. In the case of unsupervised classification, the set of possible classes is unknown, and it is only after classification that the set of possible classes can be identified.
+
+### Resources
+
+#### 1. Supervised versus Unsupervised Learning
+- Kelleher, J. D. & Tierney, B. (2018). Data science. Cambridge MA: MIT Press. Retrieved from https://ebookcentral-proquest-com.torrens.idm.oclc.org/lib/think/reader.action?docID=5345177&ppg=115
+
+*Resource Overview*
+
+    The majority of ML algorithms can be categorised into supervised learning or unsupervised learning algorithms. Under a supervised learning model, the algorithm learns using a labelled dataset (i.e., the algorithm is provided with an answer and its accuracy is evaluated using training data). Conversely, under an unsupervised learning model, the algorithm tries to make sense of unlabelled data by extracting features and patterns on its own.
+
+    Read the section entitled ‘Supervised versus Unsupervised Learning’ in Chapter 4: Machine Learning 101 (pp. 99–104). This section describes, with examples, the distinction between supervised learning and unsupervised learning.
+
+> *Status: 🕐 To-Do*
+
+
+#### 2. Classification Algorithms
+- Witten, I. H., Frank, E., Hall, M. A. & Pal, C. J. (2017). Data mining: Practical machine learning tools and techniques (4th ed.). Cambridge, MA: Morgan Kaufmann. Retrieved from https://www-sciencedirect-com.torrens.idm.oclc.org/science/article/pii/B9780128042915000040
+
+*Resource Overview*
+
+    In the above resource, you learned about building ‘classification’ models that belong to the category of supervised learning. Read Sections 4.1–4.3 in ‘Chapter 4: Algorithms—The Basic Methods’ (pp. 91–113). ‘Section 4.1: Inferring Rudimentary Rules’ describes a simple rule-based classification algorithm. ‘Section 4.2: Simple Probabilistic Modelling’ presents the well-known ‘Naïve Bayes’ method for probabilistic classification. Finally, Section 4.3 describes the decision tree and decision rule algorithms for classification, which are based on ‘divide-and-conquer’ and ‘separate-and-conquer’ strategies, respectively.
+
+> *Status: 🕐 To-Do*
+
+#### 3. Decision Tree—Practical Considerations
+- Witten, I. H., Frank, E., Hall, M. A. & Pal, C. J. (2017). Data mining: Practical machine learning tools and techniques (4th ed.). Cambridge, MA: Morgan Kaufmann. Retrieved from https://www-sciencedirect-com.torrens.idm.oclc.org/science/article/pii/B9780128042915000064
+
+*Resource Overview*
+
+    In the above resources, you learned about the basic decision tree algorithm. However, the basic decision tree algorithm is not robust enough to deal with real-world datasets. When using a decision tree in practical applications, a decision tree needs to address the issues of numeric attributes and missing values. Additionally, a decision tree needs to have a strategy for pruning any nodes that do not have sufficient support from the data. Read ‘Section 6.1: Decision Tree’ in ‘Chapter 6: Trees and Rule's’ (pp. 110 –115). This section describes how to deal with numeric attributes and missing values in decision tree learning. Fully extended decision trees often contain unnecessary nodes and need to be simplified before being deployed in practice. This section also presents different techniques for pruning.
+
+> *Status: 🕐 To-Do*
+
+#### 4. A Survey of Classification Techniques in the Area of Big Data
+- Koturwar, P., Girase, S. & Mukhopadhyay, D. (2015). A survey of classification techniques in the area of big data. Retrieved from https://arxiv.org/ftp/arxiv/papers/1503/1503.07477.pdf
+
+*Resource Overview*
+
+    This survey paper discusses classification in relation to big data. In this paper, the authors highlight both supervised and unsupervised classifications. However, the main focus of this paper is on different types of supervised classification. One of the key points to note from this paper is how the authors discuss decision trees under the banner of supervised classification.
+
+> *Status: 🕐 To-Do*
+
+### Learning Activities
+
+#### 1. Hands-on Exercise—Decision Tree and Naïve Bayes Algorithms
+- Han, J., Pei, J. & Kamber, M. (2011). Data mining: Concepts and techniques. Waltham, MA: Elsevier. Retrieved from http://torrens.idm.oclc.org/login?url=http://search.ebscohost.com/login.aspx?direct=true&db=nlebk&AN=377411&site=ehost-live&ebv=EB&ppid=pp_387
+
+In this activity, you will construct a decision tree from a small data set. You do not need to construct the decision tree using any programming language. Indeed, you could even do this using a pen and paper. This activity also includes some other additional tasks that you need to complete (see details below).
+
+In this activity, you should: 
+1. Complete Exercise 8.7 from ‘Chapter 8: Classification: Basic Concepts’;
+2. Submit your answers to the discussion forum, ‘Decision Tree and Naïve Bayes Algorithms’. In relation to the following statement, ‘(b) Use your algorithm to construct a decision tree from the given data’, you should describe the decision tree that you constructed (probably by using a pen and paper) in your own words; and
+3. Read other students’ submissions and provide feedback.
+
+> *Status: 🕐 To-Do*
+
+#### 2. Missing Values
+- Han, J., Pei, J. & Kamber, M. (2011). Data mining: Concepts and techniques. Waltham, MA: Elsevier. Retrieved from http://torrens.idm.oclc.org/login?url=http://search.ebscohost.com/login.aspx?direct=true&db=nlebk&AN=377411&site=ehost-live&ebv=EB&ppid=pp_387
+
+In this activity, we will continue on from the exercise used in the above activity. This time, you will be required to deal with some missing values in relation to the decision tree that you constructed.
+
+From the decision tree model built in the previous activity, identify the most important attribute. If a significant number of values were missing in the most important attribute column, implement a method to replace the missing values and describe that method in your own words.
+
+If you believe for this given dataset that it is not possible to implement a method to replace the missing values, detail how you came to this conclusion.
+
+Submit your answers to the discussion forum, ‘Missing Values’. Read other students’ submissions and provide feedback.
+
+> *Status: 🕐 To-Do*
+
+---
+
 ```bash
 --- PLACEHOLDER:
 ## Module X - ...
