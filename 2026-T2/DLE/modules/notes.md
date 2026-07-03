@@ -507,6 +507,12 @@ The facilitator will decide on the winner of the two groups.
 
 ### TLDR
 
+- A **linear factor model** explains observed data as `x = Wh + b + noise`, where `h` contains unobserved explanatory factors.
+- **PCA** preserves high-variance directions; **factor analysis** models shared covariance separately from variable-specific noise.
+- **ICA** separates independent non-Gaussian sources; **SFA** extracts slowly changing temporal features.
+- **Sparse coding** reconstructs inputs using a small number of active basis vectors, commonly encouraged by an L1 penalty.
+- These classical latent-variable methods are the conceptual bridge to nonlinear **autoencoders, embeddings, and deep representation learning**.
+
 ### Introduction
 Linear factor models are some of the simplest generative models and some of the simplest models that learn a representation of data. Linear factor models can help simplify neural networks by streamlining data inputs. Deep learning (DL) research involving latent variables are good candidates for using linear factor models (i.e., probabilistic models with latent variables).
 
@@ -535,7 +541,7 @@ Finally, it is important to visualise how these linear factor models are related
 
     It is also highly recommended that you take a look at all the other resources in this Module that contain additional introductory information on these linear factor models.
 
-> *Status: 🕐 To-Do* 
+> *Status: ✅ Read + Reviewed — see [module06_notes.md](module-06-linear-factors-models/module06_notes.md)*
 
 #### 2. SPSS Statistics Essential Training: Factor Analysis and Principle Component Analysis
 - Poulson, B. (2019). SPSS statistics essential training: Factor analysis and principle component analysis [Video file]. Retrieved from https://www.linkedin.com/learning/spss-statistics-essential-training-2/factor-analysis-and-principal-component-analysis?u=56744473
@@ -546,7 +552,7 @@ Finally, it is important to visualise how these linear factor models are related
 
     This will provide you with a basic understanding of PCA and factor analysis. This resource will help you to better understand the detail analysis in (Goodfellow, 2016).
 
-> *Status: 🕐 To-Do* 
+> *Status: ✅ Read + Reviewed — see [module06_notes.md](module-06-linear-factors-models/module06_notes.md)*
 
 #### 3. What is Independent Component Analysis?
 - Hyvärinen, A. (2019). What is independent component analysis?. Retrieved from https://www.cs.helsinki.fi/u/ahyvarin/whatisica.shtml
@@ -557,7 +563,7 @@ Finally, it is important to visualise how these linear factor models are related
 
     This will provide you with a basic understanding of ICA. This resource will help you to better understand the detail analysis in (Goodfellow, 2016).
 
-> *Status: 🕐 To-Do* 
+> *Status: ✅ Read + Reviewed — see [module06_notes.md](module-06-linear-factors-models/module06_notes.md)*
 
 #### 4. A Quick Introduction to Slow Feature Analysis
 - Hlynsson, H. (2017, 21 October). A quick introduction to slow feature analysis [Web log post]. Retrieved from https://towardsdatascience.com/a-brief-introduction-to-slow-feature-analysis-18c901bc2a58
@@ -568,7 +574,7 @@ Finally, it is important to visualise how these linear factor models are related
 
     This will provide you with a basic understanding of SFA. This resource will help you to better understand the detail analysis in (Goodfellow, 2016).
 
-> *Status: 🕐 To-Do* 
+> *Status: ✅ Read + Reviewed — see [module06_notes.md](module-06-linear-factors-models/module06_notes.md)*
 
 #### 5. Sparse Coding
 - UFLDL Tutorial. (2017). Sparse coding. Retrieved from http://ufldl.stanford.edu/tutorial/unsupervised/SparseCoding/
@@ -579,7 +585,7 @@ Finally, it is important to visualise how these linear factor models are related
 
     This will provide you with a basic understanding of sparse coding. This resource will help you to better understand the detail analysis in (Goodfellow, 2016).
 
-> *Status: 🕐 To-Do* 
+> *Status: ✅ Read + Reviewed — see [module06_notes.md](module-06-linear-factors-models/module06_notes.md)*
 
 #### 6. Difference between Machine Learning and Statistical Modelling
 - Srivastava, T. (2015, 1 July). Difference between machine learning and statistical modeling [Web log post]. Retrieved from https://www.analyticsvidhya.com/blog/2015/07/difference-machine-learning-statistical-modeling/
@@ -590,7 +596,7 @@ Finally, it is important to visualise how these linear factor models are related
 
     As you complete this Module, you may find that some of the concepts sound quite statistical. This additional reading will help you visualise how these statistical studies are often related to machine learning and thus to DL. Keep in mind that DL does not standalone and is a subset of machine learning and machine learning is a subset of artificial intelligence.
 
-> *Status: 🕐 To-Do* 
+> *Status: ✅ Read + Reviewed — see [module06_notes.md](module-06-linear-factors-models/module06_notes.md)*
 
 ### Learning Activities
 
