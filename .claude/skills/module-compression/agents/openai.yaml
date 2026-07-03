@@ -1,0 +1,4 @@
+interface:
+  display_name: "Module Compression"
+  short_description: "Compress dense module notes after first-pass study"
+  default_prompt: "Compress a completed university module into one mental model, a comparison, and focused follow-up questions."

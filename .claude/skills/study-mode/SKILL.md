@@ -120,6 +120,17 @@ Create (or update if it already exists) the module notes file at `<module-folder
    > *Status: ✅ Read + Reviewed — see [moduleNN_notes.md](<relative-path-to-module-notes>)*
    ```
 
+## Step 6: Hand Off to Second-Pass Compression
+
+After the module notes are complete, always recommend a deliberate second pass:
+
+1. Tell the student to scan the detailed notes first and allow a short break before compressing them.
+2. Offer the exact next command: `/module-compression <COURSE> <MODULE>`.
+3. Explain in one sentence that compression is a consolidation step, not a replacement for encountering the detailed sources.
+4. Do not include the compressed answer automatically unless the user says they have already completed the first pass or explicitly asks for immediate compression.
+
+The final completion message must include this handoff even when the notes were already complete.
+
 ## Important Notes
 
 - **Do NOT modify** resources that are already marked `✅ Read + Reviewed` — skip them entirely
