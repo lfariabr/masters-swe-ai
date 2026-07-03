@@ -503,6 +503,129 @@ The facilitator will decide on the winner of the two groups.
 
 ---
 
+## Module 6 - Linear Factor Models
+
+### TLDR
+
+### Introduction
+Linear factor models are some of the simplest generative models and some of the simplest models that learn a representation of data. Linear factor models can help simplify neural networks by streamlining data inputs. Deep learning (DL) research involving latent variables are good candidates for using linear factor models (i.e., probabilistic models with latent variables).
+
+Linear factor models can be better explained with a popular phenomenon called the cocktail party effect, which highlights the brain's ability to focus on the single speech signal that matters in a crowded room full of noises. How does the brain do this? Linear factor models sort of mimic this phenomenon by allowing machines to focus on the signals that matter.
+
+Different models are often discussed under the linear factor models banner. However, the key to success is to decide the suitability and the necessity of these models for any given project.
+
+Hearing facts: What is the cocktail party effect? [Web log post]. (2016, 25 July). Retrieved from https://global.widex.com/en/blog/hearing-facts-what-is-the-cocktail-party-effect
+
+In this Module, you will learn about an important concept called linear factor models. This Module describes some of the simplest probabilistic models with latent variables; that is, linear factor models.
+
+In this Module, of the many linear factor models available, you will learn about probabilistic principal component analysis (PCA), factor analysis, independent component analysis (ICA), slow feature analysis (SFA) and sparse coding. These models are often considered the most prominent by practitioners.
+
+Finally, it is important to visualise how these linear factor models are related to the neural networks and how these models can help operate the neural networks efficiently by streamlining the input data.
+
+### Resources
+
+#### 1. Linear Factor Models
+- Goodfellow, I., Bengio, Y. & Courville, A. (2016). Deep learning. Cambridge, MA: MIT Press. Retrieved from https://www.deeplearningbook.org/
+
+*Resource Overview:*
+
+    This book contains an introduction to a broad range of topics in DL, including its mathematical and conceptual background, the DL techniques used in industry and different research perspectives. This book will be used throughout all the DLE602 modules.
+
+    Please read Chapter 13 for this Module. This chapter introduces you to various linear factor models. It is recommended that you study at least the first four models (i.e., Section 13.1 to Section 13.4) closely.
+
+    It is also highly recommended that you take a look at all the other resources in this Module that contain additional introductory information on these linear factor models.
+
+> *Status: 🕐 To-Do* 
+
+#### 2. SPSS Statistics Essential Training: Factor Analysis and Principle Component Analysis
+- Poulson, B. (2019). SPSS statistics essential training: Factor analysis and principle component analysis [Video file]. Retrieved from https://www.linkedin.com/learning/spss-statistics-essential-training-2/factor-analysis-and-principal-component-analysis?u=56744473
+
+*Resource Overview:*
+
+    This LinkedIn learning video contains an easy-to-understand explanation of PCA and factor analysis based on an example dataset. In watching the video, it is not necessary to know anything about the SPSS software and you need not pay attention to any discussions on SPSS. Listen to the introduction to PCA in the first minute of the video and then follow the overall processes used to reduce the dimensionality of the dataset.
+
+    This will provide you with a basic understanding of PCA and factor analysis. This resource will help you to better understand the detail analysis in (Goodfellow, 2016).
+
+> *Status: 🕐 To-Do* 
+
+#### 3. What is Independent Component Analysis?
+- Hyvärinen, A. (2019). What is independent component analysis?. Retrieved from https://www.cs.helsinki.fi/u/ahyvarin/whatisica.shtml
+
+*Resource Overview:*
+
+    This short blog post from the University of Helsinki contains an easy-to-understand explanation of ICA.
+
+    This will provide you with a basic understanding of ICA. This resource will help you to better understand the detail analysis in (Goodfellow, 2016).
+
+> *Status: 🕐 To-Do* 
+
+#### 4. A Quick Introduction to Slow Feature Analysis
+- Hlynsson, H. (2017, 21 October). A quick introduction to slow feature analysis [Web log post]. Retrieved from https://towardsdatascience.com/a-brief-introduction-to-slow-feature-analysis-18c901bc2a58
+
+*Resource Overview:*
+
+    This short blog post contains an easy-to-understand explanation of SFA.
+
+    This will provide you with a basic understanding of SFA. This resource will help you to better understand the detail analysis in (Goodfellow, 2016).
+
+> *Status: 🕐 To-Do* 
+
+#### 5. Sparse Coding
+- UFLDL Tutorial. (2017). Sparse coding. Retrieved from http://ufldl.stanford.edu/tutorial/unsupervised/SparseCoding/
+
+*Resource Overview:*
+
+    This short blog post contains an easy-to-understand explanation of sparse coding.
+
+    This will provide you with a basic understanding of sparse coding. This resource will help you to better understand the detail analysis in (Goodfellow, 2016).
+
+> *Status: 🕐 To-Do* 
+
+#### 6. Difference between Machine Learning and Statistical Modelling
+- Srivastava, T. (2015, 1 July). Difference between machine learning and statistical modeling [Web log post]. Retrieved from https://www.analyticsvidhya.com/blog/2015/07/difference-machine-learning-statistical-modeling/
+
+*Resource Overview:*
+
+    This great post discusses the difference between machine learning and statistical modelling.
+
+    As you complete this Module, you may find that some of the concepts sound quite statistical. This additional reading will help you visualise how these statistical studies are often related to machine learning and thus to DL. Keep in mind that DL does not standalone and is a subset of machine learning and machine learning is a subset of artificial intelligence.
+
+> *Status: 🕐 To-Do* 
+
+### Learning Activities
+
+#### 1. Comparison
+Your understanding of linear factor models will be tested in this activity.
+
+Answer the following questions in no more than 150 words and post your responses to the Module 6 discussion forum:
+- When should ICA be preferred over PCA?
+
+Please read other students’ posts and provide feedback.
+
+> *Status: 🕐 To-Do* 
+
+#### 2. Idea Generation
+As part of this activity, you will generate some project or application ideas in relation to linear factor models.
+
+Propose one application for each of the following: (i) natural language processing; (ii) speech recognition; and (iii) computer vision. Ensure that the applications proposed could use linear factor models. Explain how linear factor models are used for the proposed applications.
+
+The key here is to identify and discuss as many applications as possible from each of the three categories mentioned above.
+
+> *Status: 🕐 To-Do* 
+
+#### 3. Open Forum
+This discussion forum is meant to be an open forum where you and your peers can post questions and answers. An open forum is a great way to learn from and share knowledge with other participants. It is a great opportunity to ask any questions and find out other people’s points of view.
+
+This forum is meant to be fun and useful. Thus, do not hesitate to ask any question you have or seek clarification. Some example questions include:
+- What is a latent variable?
+- Can you share an example of latent variable?
+- Can you explain factor analysis in purely statistical terms?
+- I do not understand ‘…’, can anyone explain?
+
+> *Status: 🕐 To-Do* 
+
+---
+
 ```bash
 --- PLACEHOLDER:
 ## Module X - ...
