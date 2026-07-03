@@ -473,6 +473,56 @@ recall_improvement = {"comparison": comparison.to_dict(orient="records"),
                       "chosen_threshold_tree": t_tree, "chosen_threshold_rf": t_rf,
                       "class_weights": {"pos": round(w_pos, 3), "neg": round(w_neg, 3)}}""")
 
+# ---------------------------------------------------------------- 5c. Business-cost operating point
+md(r"""### 5c. Choosing the threshold by business cost
+
+Maximising F1 balances precision and recall *equally*, but the two errors are not equally expensive.
+A **missed churner** (false negative) forfeits that customer's future value; a **wasted retention
+offer** (false positive) costs only the incentive. Retention studies put acquiring a new customer at
+roughly five times the cost of keeping one (EMC Education Services, 2015), so we set
+`cost(FN) = 5 x cost(FP)`, pick the threshold that **minimises expected cost on the validation set**,
+and report the resulting **confusion matrix at that operating point** on the test set. This turns an
+abstract cut-off into an explicit business decision.""")
+
+code(r"""# A missed churner (FN) is set 5x as costly as a wasted offer (FP); minimise expected cost.
+COST_FN, COST_FP = 5.0, 1.0
+
+def counts(s, t):
+    yhat = (s["p1"] >= t).astype(int); y = s["label"].astype(int)
+    tp = int(((yhat == 1) & (y == 1)).sum()); fp = int(((yhat == 1) & (y == 0)).sum())
+    fn = int(((yhat == 0) & (y == 1)).sum()); tn = int(((yhat == 0) & (y == 0)).sum())
+    return tn, fp, fn, tp
+
+def exp_cost(s, t):
+    _, fp, fn, _ = counts(s, t)
+    return COST_FN * fn + COST_FP * fp
+
+# Deploy the Random Forest (best AUC); choose its threshold by min expected cost on VALIDATION.
+cost_curve = pd.DataFrame([{"t": t, "cost": exp_cost(rf_val_s, t)} for t in grid])
+t_cost = float(cost_curve.loc[cost_curve["cost"].idxmin(), "t"])
+tn_c, fp_c, fn_c, tp_c = counts(rf_test, t_cost)
+m_cost = churn_scores(rf_test, t_cost)
+print(f"Cost-optimal RF threshold (FN:FP = {COST_FN:.0f}:{COST_FP:.0f}): t = {t_cost}")
+print(f"  Confusion (TN, FP, FN, TP): {tn_c}, {fp_c}, {fn_c}, {tp_c}")
+print(f"  Recall {m_cost['recall']:.3f} | Precision {m_cost['precision']:.3f} | Accuracy {m_cost['acc']:.3f}")
+print(f"  Churners caught: {tp_c}/{tp_c + fn_c}  |  Offers wasted on stayers: {fp_c}")
+
+fig, ax = plt.subplots(1, 2, figsize=(11, 4))
+ax[0].plot(cost_curve["t"], cost_curve["cost"], marker="o")
+ax[0].axvline(t_cost, ls="--", c="crimson", label=f"min-cost t={t_cost}")
+ax[0].set_xlabel("Decision threshold"); ax[0].set_ylabel(f"Expected cost ({COST_FN:.0f}xFN + {COST_FP:.0f}xFP)")
+ax[0].set_title("Threshold chosen by business cost (validation)"); ax[0].legend()
+cm = np.array([[tn_c, fp_c], [fn_c, tp_c]])
+sns.heatmap(cm, annot=True, fmt="d", cmap="Blues", cbar=False, ax=ax[1],
+            xticklabels=["pred stay", "pred churn"], yticklabels=["actual stay", "actual churn"])
+ax[1].set_title(f"Confusion at cost-optimal RF (t={t_cost})")
+plt.tight_layout(); plt.savefig(FIG_DIR / "fig11_cost_operating_point.png"); plt.show()
+
+business_operating_point = {"cost_fn": COST_FN, "cost_fp": COST_FP, "threshold": t_cost,
+                            "confusion": {"tn": tn_c, "fp": fp_c, "fn": fn_c, "tp": tp_c},
+                            "recall": round(m_cost["recall"], 4), "precision": round(m_cost["precision"], 4),
+                            "accuracy": round(m_cost["acc"], 4)}""")
+
 # ---------------------------------------------------------------- 6. Task 3
 md(r"""## 6. Task 3 - Handling missing values
 
@@ -539,6 +589,7 @@ metrics = {
         "accuracy_before": round(acc, 4), "accuracy_after": round(acc2, 4),
         "f1_before": round(f1, 4), "f1_after": round(f1_2, 4)},
     "recall_improvement": recall_improvement,
+    "business_operating_point": business_operating_point,
 }
 (OUT_DIR / "metrics.json").write_text(json.dumps(metrics, indent=2))
 print(json.dumps(metrics, indent=2))""")

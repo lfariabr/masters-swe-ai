@@ -120,5 +120,19 @@
       "pos": 1.861,
       "neg": 0.684
     }
+  },
+  "business_operating_point": {
+    "cost_fn": 5.0,
+    "cost_fp": 1.0,
+    "threshold": 0.2,
+    "confusion": {
+      "tn": 648,
+      "fp": 380,
+      "fn": 63,
+      "tp": 313
+    },
+    "recall": 0.8324,
+    "precision": 0.4517,
+    "accuracy": 0.6845
   }
 }
