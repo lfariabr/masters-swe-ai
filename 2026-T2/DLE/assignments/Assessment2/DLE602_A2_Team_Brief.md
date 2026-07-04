@@ -61,3 +61,5 @@ By the time we submit we will have covered CNN (M5) and LSTM (M8) - exactly the 
 3. Which role you want.
 
 Full working plan with the literature spine, methods, and risk register is in the repo: `Assessment2/DLE602_Assessment2_Proposal_Skeleton.md`.
+
+The live dates, owner-level checklists, decisions and ready-to-send follow-up are maintained in `Assessment2/PROJECT_TRACKER.md`.

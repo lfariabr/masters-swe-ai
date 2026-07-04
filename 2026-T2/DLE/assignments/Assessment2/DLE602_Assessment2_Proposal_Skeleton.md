@@ -74,12 +74,12 @@ Sentence-level sentiment models, including the deep CNN of Zhao, Gui, and Zhang 
 
 **Problem.** Most sentiment systems assign a single polarity to a whole text. Our Assessment 1 N-gram classifier and the deep CNN of Zhao, Gui and Zhang (2018) both do exactly this. Real customer reviews are mixed: *"the food was great but the service was slow"* carries two opposite opinions, one per aspect. A single label collapses that detail and hides precisely what product, hospitality, and customer-experience teams need to act on.
 
-**Aim.** Design and evaluate an aspect-based sentiment analysis (ABSA) system that predicts sentiment per aspect of a review, compares an attention-based LSTM (ATAE-LSTM) with a fine-tuned transformer (DistilBERT), and exposes interpretable attention-based explanations of each prediction.
+**Aim.** Design and evaluate an aspect-based sentiment analysis (ABSA) system that predicts sentiment per aspect of a review, compares an attention-based LSTM (ATAE-LSTM) with a fine-tuned transformer (DistilBERT), and provides human-readable attention or attribution visualisations for each prediction.
 
 **Research questions.**
-- **RQ1** - Does aspect-level modelling produce more useful, fine-grained sentiment than a sentence-level baseline on the same reviews?
+- **RQ1** - How much does explicit aspect conditioning improve sentiment classification on multi-aspect sentences compared with a target-agnostic baseline?
 - **RQ2** - How does an attention-LSTM (ATAE-LSTM) compare with a fine-tuned transformer (DistilBERT) on the SemEval-2014 aspect sentiment task (accuracy, macro-F1)?
-- **RQ3** - Do attention weights give faithful, human-readable explanations of aspect-level predictions?
+- **RQ3** - What human-readable evidence do attention or attribution visualisations provide for aspect-level predictions?
 
 > Draft above is ~150 words (problem + aim + RQs), inside the 130-160 target. The A1 tie-in is deliberate continuity; the failing-example sentence is the hook - keep it. Optional RQ4 if the group adopts the Topic Modelling stage (see Section 3): *Can a neural topic model surface the review aspects without gold annotation, and how does discovery quality affect downstream aspect sentiment?*
 
@@ -122,11 +122,12 @@ Write this as a **critical synthesis** that builds toward our design, not a list
 | Model | Role | DL concepts (subject modules) |
 |---|---|---|
 | TF-IDF + Logistic Regression (sentence-level) | Classical baseline showing the aspect gap | contrast point; ties to Review Pulse |
-| ATAE-LSTM (BiLSTM + aspect-aware attention) | First deep model | embeddings / representation learning (M1, M9), RNN/LSTM (M8), attention |
+| Target-agnostic LSTM (sentence-level) | Tests whether recurrence alone solves the aspect gap | embeddings / representation learning, RNN/LSTM (M8) |
+| ATAE-LSTM (LSTM + aspect embedding + attention) | Tests explicit aspect conditioning | aspect embeddings, RNN/LSTM (M8), attention |
 | DistilBERT fine-tuned (aspect as auxiliary sentence) | Modern model | transfer learning, contextual representations |
-| Attention / saliency visualisation | Interpretability layer | visual analytics (M11) |
+| Attention / attribution visualisation | Indicative interpretation layer; faithfulness requires additional tests | visual analytics (M11) |
 
-**Evaluation.** Accuracy and macro-F1 on aspect sentiment; per-class breakdown; cross-domain check (train Restaurants → test Laptops) for generalisation; qualitative attention heatmaps. Fixed seeds, explicit train/dev/test splits, no leakage.
+**Evaluation.** Accuracy and macro-F1 on aspect sentiment; per-class breakdown; focused analysis of sentences containing conflicting aspect sentiment; qualitative attention or attribution heatmaps. Fixed seeds, explicit train/dev/test splits, no leakage. Cross-domain transfer from Restaurants to Laptops remains optional because their aspect distributions differ.
 
 **Deployment (A3 portfolio shine).** A Streamlit demo: user types a review, sees per-aspect sentiment and the attention heatmap. Mirrors the live Review Pulse v1 app.
 

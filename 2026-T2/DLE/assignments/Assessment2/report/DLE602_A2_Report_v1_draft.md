@@ -2,7 +2,7 @@
 DLE602 Assessment 2 - Project Proposal Report - DRAFT v1
 Body target: 1,000 words (+/-10%). Cover, ToC, captions, tables and references sit outside the count if allowed.
 Per-section word targets are noted in italics under each heading - delete before final export.
-Outstanding: Victor + Juan surnames/IDs on cover; APA author confirmation for 2023-2026 sources; figures/captions; final word count check.
+Outstanding: Victor + Juan surnames/IDs on cover; figures/captions; final word count check.
 -->
 
 # Review Pulse v2: Aspect-Based Sentiment Analysis of Customer Reviews with Attention-Based Deep Learning
@@ -24,6 +24,7 @@ Outstanding: Victor + Juan surnames/IDs on cover; APA author confirmation for 20
 5. Project Plan and Risk Management
 6. Conclusion
 7. References
+8. Appendix A - From Assessment 1 to Review Pulse v2
 
 ---
 
@@ -37,12 +38,12 @@ Customer reviews carry mixed opinions - praise for one aspect, criticism of anot
 
 **Problem.** Most sentiment systems assign a single polarity to a whole text. Our Assessment 1 N-gram classifier and the deep CNN of Zhao, Gui and Zhang (2018) both do exactly this. Real customer reviews are mixed: *"the food was great but the service was slow"* carries two opposite opinions, one per aspect. A single label collapses that detail and hides precisely what product, hospitality, and customer-experience teams need to act on.
 
-**Aim.** Design and evaluate an aspect-based sentiment analysis system that predicts sentiment per aspect of a review, compares an attention-based LSTM (ATAE-LSTM) with a fine-tuned transformer (DistilBERT), and exposes interpretable attention-based explanations of each prediction.
+**Aim.** Design and evaluate an aspect-based sentiment analysis system that predicts sentiment per aspect of a review, compares an attention-based LSTM (ATAE-LSTM) with a fine-tuned transformer (DistilBERT), and provides human-readable attention or attribution visualisations for each prediction.
 
 **Research questions.**
-- **RQ1** - Does aspect-level modelling produce more useful, fine-grained sentiment than a sentence-level baseline on the same reviews?
+- **RQ1** - How much does explicit aspect conditioning improve sentiment classification on multi-aspect sentences compared with a target-agnostic baseline?
 - **RQ2** - How does an attention-LSTM compare with a fine-tuned transformer on the SemEval-2014 aspect sentiment task (accuracy, macro-F1)?
-- **RQ3** - Do attention weights give faithful, human-readable explanations of aspect-level predictions?
+- **RQ3** - What human-readable evidence do attention or attribution visualisations provide for aspect-level predictions?
 
 ## 3. Literature Review
 *(~350 words)*
@@ -62,9 +63,9 @@ We build on, rather than chase, this frontier. Heavy LLM pipelines rarely pair a
 
 **Scope.** We focus on **aspect sentiment classification given gold aspect terms** (the well-defined ATSC setting) rather than full end-to-end aspect extraction, which keeps the Assessment 3 build feasible. Extraction - and an optional neural Topic Modelling stage that *discovers* aspects when gold labels are absent - are documented stretch goals, not core deliverables.
 
-**Model progression.** (1) A TF-IDF + logistic-regression sentence-level baseline establishes the aspect gap and ties back to Review Pulse v1. (2) ATAE-LSTM, a BiLSTM with aspect-aware attention, is our first deep model and the source of the attention we visualise. (3) DistilBERT, fine-tuned with the aspect as an auxiliary sentence, is the modern contextual model. (4) An attention/saliency visualisation layer exposes *why* a prediction was made.
+**Model progression.** (1) A TF-IDF + logistic-regression sentence-level baseline establishes the aspect gap and ties back to Review Pulse v1. (2) A target-agnostic LSTM tests whether recurrence alone resolves that gap. (3) ATAE-LSTM, an LSTM conditioned on an aspect embedding with aspect-aware attention, tests the value of explicit aspect conditioning. (4) DistilBERT, fine-tuned with the aspect as an auxiliary sentence, is the modern contextual model. (5) An attention or attribution visualisation layer provides indicative, human-readable evidence for each prediction; it is not treated as a causal explanation without additional faithfulness tests.
 
-**Evaluation.** Accuracy and macro-F1 on aspect sentiment, with a per-class breakdown; a cross-domain check (train Restaurants, test Laptops) tests generalisation; and qualitative attention heatmaps assess interpretability. We use fixed seeds, explicit train/dev/test splits, and guard against data leakage.
+**Evaluation.** Accuracy and macro-F1 on aspect sentiment, with a per-class breakdown and a focused analysis of sentences containing conflicting aspect sentiment. Qualitative attention or attribution heatmaps assess interpretability. We use fixed seeds, explicit train/dev/test splits, and guard against data leakage. Cross-domain transfer from Restaurants to Laptops remains an optional extension because their aspect distributions differ.
 
 **Deployment.** Assessment 3 ships a Streamlit demo where a user types a review and sees per-aspect sentiment plus the attention heatmap, mirroring the live Review Pulse v1 app.
 
@@ -82,7 +83,7 @@ Sentence-level sentiment loses the aspect-level detail that businesses act on. R
 
 ---
 
-**Word count (body, Sections 1-6): ~964 words.** *Inside the 900-1,100 valid band for 1,000 +/-10%. Cover page, ToC, captions and references are excluded. Re-count on the final prose after edits; if your template counts the abstract separately, trim Section 4 slightly.*
+**Word count (body, Sections 1-6): ~1,034 words.** *Inside the 900-1,100 valid band for 1,000 +/-10%. Cover page, ToC, captions, references and Appendix A are excluded. Re-count after final edits and conversion to the submission template.*
 
 ---
 
@@ -108,3 +109,23 @@ Hua, Y. C., Denny, P., Wicker, J., & Taskova, K. (2024). A systematic review of 
 Jayakody, D., Isuranda, K., Malkith, A. V. A., de Silva, N., Ponnamperuma, S. R., Sandamali, G. G. N., & Sudheera, K. L. K. (2024). Aspect-based sentiment analysis techniques: A comparative study. *arXiv* preprint arXiv:2407.02834. https://arxiv.org/abs/2407.02834
 
 Simmering, P. F., & Huoviala, P. (2023). Large language models for aspect-based sentiment analysis. *arXiv* preprint arXiv:2310.18025. https://arxiv.org/abs/2310.18025
+
+---
+
+## Appendix A - From Assessment 1 to Review Pulse v2
+
+Assessment 1 established a transparent sentence-level baseline using observed N-gram counts. Assessment 2 proposes the transition from fixed local probabilities to learned contextual representations and from one sentiment label per text to one label per aspect. The evaluation discipline remains continuous across both assessments.
+
+*Table A1. Knowledge transition from Assessment 1 to the proposed Assessment 2 and 3 project.*
+
+| Assessment 1 - N-gram sentiment | Assessment 2/3 - Review Pulse v2 |
+|---|---|
+| Count observed word sequences | Learn distributed and contextual representations |
+| Fixed Markov context window | LSTM recurrence, aspect-aware attention and Transformer context |
+| One sentiment label per tweet | One sentiment label per aspect within a review |
+| Add-k smoothing controls sparse counts | Dropout, weight decay, early stopping and transfer learning control overfitting |
+| Hand-defined probability and threshold rule | Learned logits optimised through loss and backpropagation |
+| Inspect bigram probabilities and error examples | Inspect attention or attribution alongside error examples |
+| Accuracy, macro-F1 and confusion matrices | Retain the same metrics, now calculated for aspect-level predictions |
+
+This is also the bridge from Review Pulse v1 to v2. The existing project supplies reusable preprocessing, experiment, metric and interface patterns, while A3 changes the model input from a review alone to a `(review, aspect)` pair. The implementation then compares a sentence-only baseline, aspect-conditioned ATAE-LSTM and fine-tuned DistilBERT before exposing per-aspect predictions in the Streamlit interface.
