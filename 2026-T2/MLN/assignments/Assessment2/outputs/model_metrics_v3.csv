@@ -1,0 +1,6 @@
+model,accuracy,precision_low,recall_low,f1_low,roc_auc
+Majority baseline,0.626,0.0,0.0,0.0,0.5
+Decision Tree (default),0.682,0.579,0.555,0.567,0.657
+Decision Tree (tuned),0.739,0.672,0.588,0.627,0.793
+Logistic Regression,0.744,0.706,0.543,0.614,0.813
+Naive Bayes (Gaussian),0.671,0.579,0.442,0.501,0.736

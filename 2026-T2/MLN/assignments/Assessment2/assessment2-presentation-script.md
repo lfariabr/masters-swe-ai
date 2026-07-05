@@ -63,30 +63,30 @@ replace them."
 > *Direction: show, in sequence, the class-balance chart, the heatmap, then the pairplot.*
 
 "Stage two, Data Understanding. I loaded both the red and white wine files and combined them
-into one dataset of **6,497 wines**, with a `wine_type` flag. Here you can see the class
-balance: about **63% high quality and 37% low** - so the classes are *imbalanced*, which
-becomes important later.
+into **6,497 raw rows**, with a `wine_type` flag. The quality check found **1,177 exact
+duplicates**, so I removed them before modelling, leaving **5,320 unique wines**. Here you
+can see the final class balance: about **63% high quality and 37% low** - so the classes are
+moderately imbalanced, which becomes important later.
 
 This correlation heatmap shows `alcohol` has the strongest link with quality, and several
 features - like the two sulfur-dioxide measures - are correlated with each other.
 
 And this is the seaborn **pairplot** the brief asks for. The key takeaway is that the two
 classes **overlap heavily** - no single feature cleanly separates a good wine from a bad one.
-That tells me upfront to expect a *good-but-imperfect* model, not a perfect one. I also found
-1,177 duplicate rows; with no unique wine ID, those are likely real wines with identical
-readings, so I kept them rather than throw away valid data."
+That tells me upfront to expect a *useful-but-imperfect* classifier, not a perfect one."
 
 ## 4. CRISP-DM Stage 3: Data Preparation (1:00)
 > *Direction: Section 3 + the split cell. Point at `stratify` and the Pipeline.*
 
-"Stage three, Data Preparation. The data was already clean and numeric, so prep was light but
-deliberate. First, I removed the original quality score from the features so it can't leak
-into training. Second, I used an **80/20 stratified split** - stratified so the high/low ratio
-is preserved in both sets, which matters under imbalance. That gives 5,197 training and 1,300
-test wines. Third, on scaling: a Decision Tree is **scale-invariant** - it splits on
-thresholds - so it needs no scaling. The Logistic Regression comparator *does*, so I put its
-scaler **inside a Pipeline**, which means it's refit on each fold during cross-validation and
-never sees the validation data. That's how I prevent leakage."
+"Stage three, Data Preparation. The most important change was removing duplicates **before**
+the split. Otherwise, an identical row can appear in training and testing, so the test set is
+not genuinely unseen. In the previous draft this affected 359 test rows. The final split has
+**zero exact overlap**, with 4,256 training and 1,064 test wines.
+
+I also removed the original quality score from the features so it cannot leak into training,
+and used an **80/20 stratified split** to preserve the class ratio. A Decision Tree is
+scale-invariant, while Logistic Regression needs scaling, so its `StandardScaler` sits inside
+a Pipeline and is fitted only on training data during cross-validation."
 
 ## 5. CRISP-DM Stage 4: Modelling (1:30)
 > *Direction: Section 4, then the best-params output. Emphasise 'roc_auc' and the hyperparameters.*
@@ -96,7 +96,7 @@ majority-class **baseline**, a **default** Decision Tree, the **tuned** Decision
 the required model - Logistic Regression, and a Gaussian Naive Bayes, both as optional context. For tuning I used
 `GridSearchCV` with **5-fold cross-validation**, searching `max_depth`, `min_samples_leaf`,
 the split criterion, and `class_weight`, all scored on **ROC AUC** rather than accuracy. The
-best configuration came out as `max_depth` of 6 and a minimum leaf size of 20 - a moderate,
+best configuration came out as `max_depth` of 5 and a minimum leaf size of 20 - a moderate,
 pruned tree, which makes sense: an unconstrained tree grows until its leaves are pure and just
 memorises the training data. The pruning is what stops it overfitting."
 
@@ -105,47 +105,49 @@ memorises the training data. The pruning is what stops it overfitting."
 > confusion matrix, then feature importance. Pause on every number.*
 
 "Stage five, Evaluation - judged on the held-out test set. Here's the metrics table. The
-tuned Decision Tree reaches an **AUC of 0.809**, far above the baseline's 0.500. Now look at
+tuned Decision Tree reaches an **AUC of 0.793**, far above the baseline's 0.500. In plain
+English, that means a random low-quality wine receives a higher risk score than a random
+high-quality wine about 79% of the time. Now look at
 this ROC curve, with all four models overlaid: the tuned tree, in orange, sits well above
 the diagonal, which is random guessing.
 
-Here's the honest part. The Logistic Regression - the *simpler* model - scored **0.814**, so
-the two are **essentially level**. That's a genuine finding, not a failure: it tells me a
-straight-line boundary captures almost as much as the tree on this data. And notice tuning
-actually *lowered* raw accuracy from 0.79 to 0.74 - because I optimised for *ranking*, AUC,
-not accuracy. Under imbalance, accuracy is misleading: a model that always predicts 'high'
-already scores 63%.
+Here's the honest part. Logistic Regression - the simpler model - scored **0.813**, which is
+0.020 above the required tree on this test split. Tuning still matters: it lifts the tree's
+AUC from **0.657 to 0.793** and accuracy from 0.68 to 0.74 by pruning the overfit default
+tree. Removing duplicates also lowers the earlier draft AUC from 0.809 to 0.793. That is a
+more credible result, not a worse project.
 
 The confusion matrix shows the trade-off: the model confirms high-quality wines well - recall
-of 0.78 - but catches the low-quality ones less reliably, recall 0.66. That's the cost of the
-imbalance and the class overlap.
+of **0.83** - but catches the low-quality ones less reliably, recall **0.59**. That's the
+cost of the imbalance and class overlap.
 
-Finally, **feature importance**: `alcohol` dominates at 0.49, then `volatile acidity` at 0.21
+Finally, **feature importance**: `alcohol` dominates at 0.58, then `volatile acidity` at 0.19
 - which matches both the EDA and real wine chemistry. The fact that the model agrees with
 domain knowledge gives me confidence it's learning something real."
 
 ## 6.5 Naive Bayes - the generative counterpoint (0:30)
 > *Direction: scroll to section 5.4 and point at the dark-red Naive Bayes curve on the ROC. Ties to Module 5 - say it with a bit of pride.*
 
-"One more comparison, and it ties straight to Module 5. Every model so far is *discriminative* -
-it learns the decision boundary directly. Gaussian Naive Bayes is *generative*: it models how
+"One more comparison, and it ties straight to Module 5. The Decision Tree and Logistic
+Regression are *discriminative* - they learn the decision boundary directly. Gaussian Naive
+Bayes is *generative*: it models how
 each feature is distributed per class and inverts it with Bayes' rule. Its big assumption -
 that the features are independent given the class - my own correlation heatmap shows is *not*
-true here. And yet it still scores an **AUC of 0.771**, basically tied with the untuned tree.
-So the assumption is violated, but Naive Bayes stays robust for *ranking* - a classic,
-counter-intuitive result I found genuinely interesting."
+true here. It still scores an **AUC of 0.736** - above the untuned tree at 0.657, but below
+the tuned tree and Logistic Regression. This is consistent with classic evidence that Naive
+Bayes classification can remain useful when independence is violated, although the
+discriminative models fit this dataset better."
 
 ## 7. CRISP-DM Stage 6: Deployment / Lessons Learned (1:00)
 > *Direction: Section 6. More reflective tone, slower.*
 
-"Stage six, Deployment. For this assessment, deployment means reflection. What worked: framing
-it as classification made the Decision Tree a natural, **interpretable** fit, and AUC-ROC gave
-an honest read where accuracy would have flattered a lazy model. The white-box tree and the
-importance chart make the result explainable to a non-technical stakeholder - a real advantage
-for quality control. What was harder: the classes overlap so heavily that no tuning produced a
-clean separation - the model is a *screen*, not an oracle. And what I'd do next time: try an
-ensemble like Random Forest to see how much a single tree leaves on the table, and tune the
-decision threshold to the real cost of missing a bad batch, instead of defaulting to 0.5."
+"Stage six, Deployment. For this assessment, deployment means reflection. What worked: the
+Decision Tree remained interpretable, AUC evaluated ranking across thresholds, and removing
+duplicates made the test genuinely unseen. What was harder: the classes overlap heavily and
+low-quality recall is only 0.59, so the model is a *screen*, not an oracle. Next time I would
+test Random Forest or gradient boosting, tune the threshold to the real cost of missing a bad
+batch, and validate on wine from a different producer or time period. The key lesson is that
+evaluation design can change credibility as much as model choice."
 
 ## 8. Close + personal experience (0:30)
 > *Direction: back to camera, no screen. Eyes on the lens. Finish with energy.*
@@ -163,5 +165,5 @@ Assessment 1 taught me to measure *how much I'm wrong*; Assessment 2 taught me t
 - [ ] Clean audio (no echo). Speak at a measured pace, vary the tone on the numbers.
 - [ ] Timer: if you go past 10 min, cut segment 5 (Modelling) first.
 - [ ] File name: `MLN601FariaLuisBrief2.mp4` (or paste the URL into the submission field).
-- [ ] Make sure to mention AUC 0.809, the tie with logistic regression, recall 0.78 vs 0.66,
-      and the Naive Bayes result (0.771 - assumption violated but robust). The numbers the marker wants to hear.
+- [ ] Make sure to mention: 1,177 duplicates removed; zero split overlap; tree AUC 0.793;
+      Logistic Regression 0.813; low-quality recall 0.59; Naive Bayes 0.736.

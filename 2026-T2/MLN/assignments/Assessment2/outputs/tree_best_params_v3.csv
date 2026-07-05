@@ -1,0 +1,6 @@
+,value
+class_weight,
+criterion,gini
+max_depth,5
+min_samples_leaf,20
+cv_roc_auc,0.791
