@@ -5,6 +5,20 @@ notebook, and explain the point in your own words. Small wording differences are
 
 Target: 8-9 minutes. Webcam and notebook visible together.
 
+## Technical cheat sheet - understand, do not read verbatim
+
+- **Duplicate leakage:** an identical row in train and test means the model has already seen
+  part of the exam. This risk also existed in A1; it is not specific to classification. In
+  regression it can improve RMSE/R2 artificially; here it can improve AUC and other metrics.
+- **Gini impurity:** tells the tree how mixed a node is. `0` = one pure class; `0.5` = maximum
+  mixing for two equal classes. The tree chooses splits that reduce weighted Gini the most.
+- **Precision:** of everything predicted low, how much was actually low? `TP / (TP + FP)`.
+- **Recall:** of every genuinely low wine, how much did the model catch? `TP / (TP + FN)`.
+- **F1:** harmonic balance of precision and recall. A very weak value in either one pulls F1 down.
+- **ROC:** shows recall (true-positive rate) against false-positive rate across all thresholds.
+- **AUC:** area under ROC. `0.5` = random ranking; `1.0` = perfect ranking. AUC 0.793 means
+  the tree ranks a random low-quality wine above a random high-quality wine about 79% of the time.
+
 ## 0. Opening - title cell (30-40 sec)
 
 - Name, student ID, MLN601 Assessment 2.
@@ -31,6 +45,7 @@ Target: 8-9 minutes. Webcam and notebook visible together.
 ## 3. Data Preparation - split cell (60 sec)
 
 - Duplicate leakage: identical row in train and test means the answer was partly seen.
+- This was also a risk in A1; the difference is that the stricter A2 audit caught and corrected it.
 - Previous draft: **359 test rows** had exact copies in training.
 - Final v3: deduplicate first; **zero train/test overlap**.
 - Stratified 80/20 split: **4,256 train / 1,064 test**.
@@ -43,6 +58,7 @@ Target: 8-9 minutes. Webcam and notebook visible together.
 - GridSearchCV: 5 folds, scoring = ROC AUC.
 - Search: depth, leaf size, criterion, class weight.
 - Winner: **gini, depth 5, min leaf 20, no class weighting**.
+- Gini chooses splits that create purer child nodes: `0` is pure, `0.5` is maximally mixed.
 - Why pruning: default tree memorises detail and generalises poorly.
 - **Transition:** "The held-out test set then answers whether that tuning really helped."
 
@@ -52,7 +68,11 @@ Target: 8-9 minutes. Webcam and notebook visible together.
 - Plain English: in about **79%** of random low/high pairs, low gets the higher risk score.
 - Logistic Regression: **0.813**, 0.020 higher on this split.
 - Deduplication changed tree AUC **0.809 -> 0.793**: more credible validation.
-- Confusion matrix: high recall **0.83**, low recall **0.59** -> still misses weak batches.
+- Confusion matrix for low quality: **TP 234, FP 114, FN 164, TN 552**.
+- Precision **0.672**: about 67% of low-quality flags are correct.
+- Recall **0.588**: the tree catches about 59% of genuinely low-quality wines.
+- F1 **0.627**: harmonic balance between that precision and recall.
+- ROC compares recall with false-positive rate across all thresholds; AUC summarises the curve.
 - Importance: alcohol **0.58**, volatile acidity **0.19**.
 - **Transition:** "I also tested a model built on a completely different probability assumption."
 
