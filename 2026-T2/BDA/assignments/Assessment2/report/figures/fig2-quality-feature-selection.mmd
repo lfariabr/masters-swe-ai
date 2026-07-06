@@ -1,0 +1,20 @@
+flowchart TB
+    A["Schema and attribute-type checks"] --> B["Missingness and duplicate checks"]
+    B --> C{"Blank TotalCharges<br/>and tenure = 0?"}
+    C -->|Yes| D["Set TotalCharges = 0<br/>domain-informed correction"]
+    C -->|No| E["Investigate separately"]
+    A --> F["SeniorCitizen = binary categorical"]
+    B --> G["IQR diagnostics<br/>retain valid extremes"]
+    D --> H["Correlation analysis<br/>tenure vs TotalCharges: r = 0.826"]
+    F --> H
+    G --> H
+    H --> I["Validation ablation<br/>full vs without TotalCharges"]
+    I --> J["Drop TotalCharges<br/>AUC 0.615 to 0.679<br/>churn-F1 change -0.002"]
+    J --> K["Final set<br/>13 predictors"]
+
+    classDef check fill:#E8F1FB,stroke:#4C72B0,color:#111;
+    classDef action fill:#F4F4F4,stroke:#666,color:#111;
+    classDef outcome fill:#EAF4EA,stroke:#55A868,color:#111;
+    class A,B,C,F,G,H,I check;
+    class D,E action;
+    class J,K outcome;

@@ -1,138 +1,250 @@
 {
   "n_rows": 7043,
-  "n_features": 14,
+  "n_features": 13,
   "base_rate_no": 0.7346,
   "base_rate_yes": 0.2654,
-  "best_max_depth": 8,
+  "best_max_depth": 6,
   "test": {
-    "accuracy": 0.7657,
-    "weighted_precision": 0.7643,
-    "weighted_recall": 0.7657,
-    "f1": 0.765,
-    "auc": 0.7321
+    "accuracy": 0.7807,
+    "weighted_precision": 0.7703,
+    "weighted_recall": 0.7807,
+    "f1": 0.7736,
+    "auc": 0.8019
   },
   "churn_class": {
-    "recall": 0.5532,
-    "precision": 0.5637
+    "recall": 0.5,
+    "precision": 0.6052
   },
   "confusion": {
-    "tn": 867,
-    "fp": 161,
-    "fn": 168,
-    "tp": 208
+    "tn": 913,
+    "fp": 122,
+    "fn": 187,
+    "tp": 187
   },
   "most_important_attribute": "Contract",
   "top_features": [
     {
       "name": "Contract",
-      "importance": 0.4276
+      "importance": 0.564
     },
     {
       "name": "tenure",
-      "importance": 0.1766
+      "importance": 0.1679
     },
     {
       "name": "TechSupport",
-      "importance": 0.1044
-    },
-    {
-      "name": "TotalCharges",
-      "importance": 0.0594
+      "importance": 0.1604
     },
     {
       "name": "PaymentMethod",
-      "importance": 0.0404
+      "importance": 0.0613
     },
     {
       "name": "StreamingMovies",
-      "importance": 0.0374
+      "importance": 0.0189
     },
     {
-      "name": "OnlineBackup",
-      "importance": 0.0298
+      "name": "PaperlessBilling",
+      "importance": 0.0168
     },
     {
       "name": "MultipleLines",
-      "importance": 0.0294
+      "importance": 0.0038
+    },
+    {
+      "name": "gender",
+      "importance": 0.0027
     }
   ],
-  "tenure_totalcharges_corr": 0.825,
+  "tenure_totalcharges_corr": 0.826,
+  "data_quality": {
+    "duplicate_rows": 0,
+    "duplicate_customer_ids": 0,
+    "blank_totalcharges_set_to_zero": 11,
+    "iqr_outlier_flags": {
+      "tenure": 0,
+      "TotalCharges": 0
+    }
+  },
+  "split_summary": [
+    {
+      "split": "test",
+      "Churn": "No",
+      "count": 1035
+    },
+    {
+      "split": "test",
+      "Churn": "Yes",
+      "count": 374
+    },
+    {
+      "split": "train",
+      "Churn": "No",
+      "count": 3104
+    },
+    {
+      "split": "train",
+      "Churn": "Yes",
+      "count": 1121
+    },
+    {
+      "split": "validation",
+      "Churn": "No",
+      "count": 1035
+    },
+    {
+      "split": "validation",
+      "Churn": "Yes",
+      "count": 374
+    }
+  ],
+  "feature_selection": {
+    "tenure_totalcharges_corr": 0.826,
+    "ablation": [
+      {
+        "feature_set": "full",
+        "validation_auc": 0.8084,
+        "validation_churn_f1": 0.5223
+      },
+      {
+        "feature_set": "without_TotalCharges",
+        "validation_auc": 0.8068,
+        "validation_churn_f1": 0.52
+      }
+    ],
+    "selected_feature_set": "without_TotalCharges",
+    "selected_features": [
+      "tenure",
+      "gender",
+      "SeniorCitizen",
+      "Dependents",
+      "PhoneService",
+      "MultipleLines",
+      "OnlineBackup",
+      "DeviceProtection",
+      "TechSupport",
+      "StreamingMovies",
+      "Contract",
+      "PaperlessBilling",
+      "PaymentMethod"
+    ]
+  },
   "missing_value_experiment": {
     "feature": "Contract",
     "pct_missing": 0.3,
     "impute_method": "mode imputation ('Month-to-month')",
-    "accuracy_before": 0.7657,
-    "accuracy_after": 0.7828,
-    "f1_before": 0.765,
-    "f1_after": 0.7701
+    "accuracy_before": 0.7807,
+    "accuracy_after": 0.7786,
+    "weighted_f1_before": 0.7736,
+    "weighted_f1_after": 0.7597,
+    "churn_f1_before": 0.5476,
+    "churn_f1_after": 0.4851,
+    "auc_before": 0.8019,
+    "auc_after": 0.7912,
+    "same_test_customer_ids": true
   },
   "recall_improvement": {
     "comparison": [
       {
         "model": "Decision tree (t=0.5, baseline)",
         "threshold": 0.5,
-        "accuracy": 0.7657,
-        "precision_churn": 0.5637,
-        "recall_churn": 0.5532,
-        "f1_churn": 0.5584,
-        "auc": 0.7321
+        "accuracy": 0.7807,
+        "precision_churn": 0.6052,
+        "recall_churn": 0.5,
+        "f1_churn": 0.5476,
+        "auc": 0.8019
       },
       {
-        "model": "Decision tree (t=0.34, tuned)",
-        "threshold": 0.34,
-        "accuracy": 0.7557,
-        "precision_churn": 0.5363,
-        "recall_churn": 0.6489,
-        "f1_churn": 0.5872,
-        "auc": 0.7321
+        "model": "Decision tree (t=0.26, tuned)",
+        "threshold": 0.26,
+        "accuracy": 0.7502,
+        "precision_churn": 0.5224,
+        "recall_churn": 0.6845,
+        "f1_churn": 0.5926,
+        "auc": 0.8019
       },
       {
         "model": "Weighted tree (t=0.5)",
         "threshold": 0.5,
-        "accuracy": 0.7208,
-        "precision_churn": 0.4863,
-        "recall_churn": 0.7527,
-        "f1_churn": 0.5908,
-        "auc": 0.7431
+        "accuracy": 0.7246,
+        "precision_churn": 0.4885,
+        "recall_churn": 0.7968,
+        "f1_churn": 0.6057,
+        "auc": 0.8094
       },
       {
         "model": "Random Forest (t=0.5, CV)",
         "threshold": 0.5,
-        "accuracy": 0.7877,
-        "precision_churn": 0.6354,
-        "recall_churn": 0.4867,
-        "f1_churn": 0.5512,
-        "auc": 0.8223
+        "accuracy": 0.7935,
+        "precision_churn": 0.6509,
+        "recall_churn": 0.4786,
+        "f1_churn": 0.5516,
+        "auc": 0.8334
       },
       {
-        "model": "Random Forest (t=0.38, tuned)",
-        "threshold": 0.38,
-        "accuracy": 0.7664,
-        "precision_churn": 0.5545,
-        "recall_churn": 0.6489,
-        "f1_churn": 0.598,
-        "auc": 0.8223
+        "model": "Random Forest (t=0.3, tuned)",
+        "threshold": 0.3,
+        "accuracy": 0.753,
+        "precision_churn": 0.5242,
+        "recall_churn": 0.754,
+        "f1_churn": 0.6184,
+        "auc": 0.8334
       }
     ],
-    "chosen_threshold_tree": 0.34,
-    "chosen_threshold_rf": 0.38,
+    "chosen_threshold_tree": 0.26,
+    "chosen_threshold_rf": 0.3,
     "class_weights": {
-      "pos": 1.861,
-      "neg": 0.684
+      "pos": 1.884,
+      "neg": 0.681
     }
   },
+  "cost_sensitivity": [
+    {
+      "fn_fp_ratio": 2.0,
+      "threshold": 0.36,
+      "tn": 838,
+      "fp": 197,
+      "fn": 124,
+      "tp": 250,
+      "recall": 0.6684,
+      "precision": 0.5593,
+      "accuracy": 0.7722
+    },
+    {
+      "fn_fp_ratio": 5.0,
+      "threshold": 0.14,
+      "tn": 549,
+      "fp": 486,
+      "fn": 25,
+      "tp": 349,
+      "recall": 0.9332,
+      "precision": 0.418,
+      "accuracy": 0.6373
+    },
+    {
+      "fn_fp_ratio": 10.0,
+      "threshold": 0.08,
+      "tn": 379,
+      "fp": 656,
+      "fn": 9,
+      "tp": 365,
+      "recall": 0.9759,
+      "precision": 0.3575,
+      "accuracy": 0.528
+    }
+  ],
   "business_operating_point": {
     "cost_fn": 5.0,
     "cost_fp": 1.0,
-    "threshold": 0.2,
+    "threshold": 0.14,
     "confusion": {
-      "tn": 648,
-      "fp": 380,
-      "fn": 63,
-      "tp": 313
+      "tn": 549,
+      "fp": 486,
+      "fn": 25,
+      "tp": 349
     },
-    "recall": 0.8324,
-    "precision": 0.4517,
-    "accuracy": 0.6845
+    "recall": 0.9332,
+    "precision": 0.418,
+    "accuracy": 0.6373
   }
 }

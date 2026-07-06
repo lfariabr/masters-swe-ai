@@ -1,0 +1,21 @@
+flowchart TB
+    D["Modified Telco dataset<br/>7,043 customers x 16 attributes"] --> Q["Profile and clean<br/>types, missingness, duplicates, IQR"]
+    Q --> S["Deterministic stratified split<br/>60% train / 20% validation / 20% test"]
+    S --> TR["Training<br/>fit indexers and feature pipeline"]
+    S --> VA["Validation<br/>feature ablation, depth and threshold"]
+    S --> TE["Held-out test<br/>final evaluation only"]
+    TR --> DT["Interpretable decision tree"]
+    TR --> RF["Random Forest comparison"]
+    DT --> VA
+    RF --> VA
+    VA --> FM["Selected model and operating point"]
+    FM --> TE
+    TE --> M["Accuracy, churn precision/recall/F1, AUC"]
+    M --> B["Retention action<br/>target high-risk customers"]
+
+    classDef data fill:#E8F1FB,stroke:#4C72B0,color:#111;
+    classDef process fill:#F4F4F4,stroke:#666,color:#111;
+    classDef decision fill:#FFF0E6,stroke:#DD8452,color:#111;
+    class D,TR,VA,TE data;
+    class Q,S,DT,RF,M process;
+    class FM,B decision;

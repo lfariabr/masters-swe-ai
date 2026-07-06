@@ -124,13 +124,15 @@ code(r"""df = pd.read_csv(MOD_CSV)
 
 # TotalCharges is read as text because 11 rows carry a blank space -> coerce to numeric to expose NaNs.
 df["TotalCharges"] = pd.to_numeric(df["TotalCharges"], errors="coerce")
+# SeniorCitizen is a binary category, not a continuous measurement.
+df["SeniorCitizen"] = df["SeniorCitizen"].map({0: "No", 1: "Yes"}).astype("category")
 print("Missing values per column (non-zero only):")
 print(df.isna().sum()[df.isna().sum() > 0])
 print("\nThe", int(df['TotalCharges'].isna().sum()), "missing TotalCharges all have tenure == 0:",
       df.loc[df['TotalCharges'].isna(), 'tenure'].unique())""")
 
-code(r"""# Central tendency AND dispersion for the numeric features.
-num_cols = ["tenure", "TotalCharges", "SeniorCitizen"]
+code(r"""# Central tendency AND dispersion for genuine numeric features.
+num_cols = ["tenure", "TotalCharges"]
 desc = df[num_cols].describe().T
 desc["median"] = df[num_cols].median()
 desc["variance"] = df[num_cols].var()
@@ -139,7 +141,7 @@ print("Numeric summary (central tendency: mean/median; dispersion: std/variance/
 desc.round(2)""")
 
 code(r"""# Categorical levels and the modal category (central tendency for categoricals).
-cat_cols = [c for c in df.columns if df[c].dtype == "object" and c not in ("customerID", "Churn")]
+cat_cols = [c for c in df.columns if c not in num_cols + ["customerID", "Churn"]]
 for c in cat_cols:
     vc = df[c].value_counts()
     print(f"{c:18s} | levels={df[c].nunique()} | mode='{vc.index[0]}' ({vc.iloc[0]})")""")
@@ -181,8 +183,8 @@ plt.tight_layout(); plt.savefig(FIG_DIR / "fig03_categorical_churn_rate.png"); p
 
 code(r"""# 3.4 Correlation heatmap (numeric + label-encoded categoricals) to spot redundancy.
 enc = df.drop(columns=["customerID"]).copy()
-enc["TotalCharges"] = enc["TotalCharges"].fillna(enc["TotalCharges"].median())
-for c in enc.select_dtypes("object").columns:
+enc["TotalCharges"] = enc["TotalCharges"].fillna(0)
+for c in enc.select_dtypes(include=["object", "category"]).columns:
     enc[c] = enc[c].astype("category").cat.codes
 plt.figure(figsize=(11, 9))
 sns.heatmap(enc.corr(numeric_only=True), cmap="coolwarm", center=0, annot=False)
@@ -219,40 +221,122 @@ Steps: (1) handle the data anomaly in `TotalCharges`; (2) run the redundancy / c
 (3) select features and justify the choice; (4) assemble a Spark ML pipeline that indexes the
 categoricals, marks them as categorical for the tree, and vectorises the predictors.""")
 
-code(r"""# (1) Anomaly handling: impute the 11 blank TotalCharges with the median (robust to skew).
-median_tc = df["TotalCharges"].median()
+code(r"""# (1) Data-quality diagnostics and domain-informed anomaly handling.
 clean = df.copy()
-clean["TotalCharges"] = clean["TotalCharges"].fillna(median_tc)
-clean = clean.drop(columns=["customerID"])  # identifier, not predictive
-print(f"Imputed {df['TotalCharges'].isna().sum()} TotalCharges blanks with median = {median_tc:.2f}")
+duplicate_rows = int(clean.duplicated().sum())
+duplicate_ids = int(clean["customerID"].duplicated().sum())
+blank_totalcharges = int(clean["TotalCharges"].isna().sum())
+assert clean.loc[clean["TotalCharges"].isna(), "tenure"].eq(0).all()
+# A tenure-zero customer has not accumulated charges; zero is coherent, unlike a mature-customer median.
+clean["TotalCharges"] = clean["TotalCharges"].fillna(0.0)
+
+outlier_counts = {}
+for col in ["tenure", "TotalCharges"]:
+    q1, q3 = clean[col].quantile([0.25, 0.75]); iqr = q3 - q1
+    lo, hi = q1 - 1.5 * iqr, q3 + 1.5 * iqr
+    outlier_counts[col] = int(((clean[col] < lo) | (clean[col] > hi)).sum())
+print("Exact duplicate rows:", duplicate_rows, "| duplicate customerID:", duplicate_ids)
+print(f"Blank TotalCharges corrected to zero: {blank_totalcharges}")
+print("IQR outlier flags (diagnostic only; valid customers retained):", outlier_counts)
 print("Remaining missing values:", int(clean.isna().sum().sum()))
 
-# (2) Redundancy / correlation analysis already surfaced tenure~TotalCharges.
-# We keep both: the tree can use either split and feature-importance will tell us which it prefers.
-NUMERIC = ["SeniorCitizen", "tenure", "TotalCharges"]
-CATEGORICAL = [c for c in clean.columns if c not in NUMERIC + ["Churn"]]
-print(f"\n{len(NUMERIC)} numeric + {len(CATEGORICAL)} categorical = {len(NUMERIC)+len(CATEGORICAL)} predictors")
-print("Categorical:", CATEGORICAL)""")
+# (2) Candidate feature sets for the redundancy ablation below.
+NUMERIC_FULL = ["tenure", "TotalCharges"]
+CATEGORICAL_FULL = [c for c in clean.columns if c not in NUMERIC_FULL + ["customerID", "Churn"]]
+data_quality = {"duplicate_rows": duplicate_rows, "duplicate_customer_ids": duplicate_ids,
+                "blank_totalcharges_set_to_zero": blank_totalcharges, "iqr_outlier_flags": outlier_counts}
+print(f"\n{len(NUMERIC_FULL)} numeric + {len(CATEGORICAL_FULL)} categorical = "
+      f"{len(NUMERIC_FULL)+len(CATEGORICAL_FULL)} candidate predictors")""")
 
 code(r"""from pyspark.ml import Pipeline
 from pyspark.ml.feature import StringIndexer, VectorAssembler, VectorIndexer
+from pyspark.ml.functions import vector_to_array
+from pyspark.ml.classification import DecisionTreeClassifier
+from pyspark.ml.evaluation import BinaryClassificationEvaluator
+from pyspark.sql import functions as F
+from pyspark.sql.window import Window
 
 sdf = spark.createDataFrame(clean)
 
-# Index each categorical column, index the label, assemble, then mark low-cardinality
-# vector slots as categorical so the tree splits them as sets rather than ordinals.
-cat_indexers = [StringIndexer(inputCol=c, outputCol=c + "_idx", handleInvalid="keep") for c in CATEGORICAL]
-label_indexer = StringIndexer(inputCol="Churn", outputCol="label", handleInvalid="error")  # Churn is clean -> exactly 2 classes (binary AUC)
-FEATURE_NAMES = NUMERIC + CATEGORICAL                      # display name per vector index
-assembler = VectorAssembler(inputCols=NUMERIC + [c + "_idx" for c in CATEGORICAL], outputCol="features_raw")
-vindexer = VectorIndexer(inputCol="features_raw", outputCol="features", maxCategories=12, handleInvalid="keep")
+# Deterministic and label-stratified 60/20/20 partitioning using customerID.
+w = Window.partitionBy("Churn").orderBy(F.xxhash64("customerID", F.lit(RANDOM_SEED)))
+wc = Window.partitionBy("Churn")
+split_raw = (sdf.withColumn("_rn", F.row_number().over(w))
+                .withColumn("_n", F.count("*").over(wc))
+                .withColumn("_p", F.col("_rn") / F.col("_n"))
+                .withColumn("split", F.when(F.col("_p") <= 0.60, "train")
+                                      .when(F.col("_p") <= 0.80, "validation")
+                                      .otherwise("test"))
+                .drop("_rn", "_n", "_p").cache())
+train_raw = split_raw.filter("split = 'train'").drop("split").cache()
+val_raw = split_raw.filter("split = 'validation'").drop("split").cache()
+test_raw = split_raw.filter("split = 'test'").drop("split").cache()
 
-prep = Pipeline(stages=cat_indexers + [label_indexer, assembler, vindexer]).fit(sdf)
-model_df = prep.transform(sdf).select("features", "label", "Churn").cache()
-print("Prepared rows:", model_df.count(), "| features per row:", len(FEATURE_NAMES))
-# label mapping (StringIndexer orders by frequency: No=0.0, Yes=1.0)
-label_labels = prep.stages[len(CATEGORICAL)].labels
-print("Label index ->", {i: l for i, l in enumerate(label_labels)})""")
+split_summary = (split_raw.groupBy("split", "Churn").count().toPandas()
+                 .sort_values(["split", "Churn"]).reset_index(drop=True))
+split_ids = {name: set(frame.select("customerID").toPandas()["customerID"])
+             for name, frame in {"train": train_raw, "validation": val_raw, "test": test_raw}.items()}
+assert not (split_ids["train"] & split_ids["validation"] or split_ids["train"] & split_ids["test"]
+            or split_ids["validation"] & split_ids["test"])
+assert len(set.union(*split_ids.values())) == len(clean)
+print(split_summary.to_string(index=False))
+
+def make_preprocessor(numeric, categorical):
+    cat_indexers = [StringIndexer(inputCol=c, outputCol=c + "_idx", handleInvalid="keep",
+                                  stringOrderType="alphabetAsc") for c in categorical]
+    label_indexer = StringIndexer(inputCol="Churn", outputCol="label", handleInvalid="error",
+                                  stringOrderType="alphabetAsc")  # No=0, Yes=1, stable across runs
+    assembler = VectorAssembler(inputCols=numeric + [c + "_idx" for c in categorical],
+                                outputCol="features_raw", handleInvalid="error")
+    vindexer = VectorIndexer(inputCol="features_raw", outputCol="features",
+                             maxCategories=12, handleInvalid="keep")
+    return Pipeline(stages=cat_indexers + [label_indexer, assembler, vindexer])
+
+def churn_f1(pred):
+    cm = {(float(r["label"]), float(r["prediction"])): int(r["count"])
+          for r in pred.groupBy("label", "prediction").count().collect()}
+    tp, fp, fn = cm.get((1.0, 1.0), 0), cm.get((0.0, 1.0), 0), cm.get((1.0, 0.0), 0)
+    precision = tp / (tp + fp) if tp + fp else 0.0
+    recall = tp / (tp + fn) if tp + fn else 0.0
+    return 2 * precision * recall / (precision + recall) if precision + recall else 0.0
+
+# Redundancy ablation: retain TotalCharges only if it adds material validation value.
+auc_eval = BinaryClassificationEvaluator(labelCol="label", rawPredictionCol="p_churn",
+                                          metricName="areaUnderROC")
+def probability_auc(pred):
+    return auc_eval.evaluate(pred.withColumn("p_churn", vector_to_array("probability")[1]))
+ablation_rows, ablation_models = [], {}
+for name, numeric in [("full", NUMERIC_FULL), ("without_TotalCharges", ["tenure"])]:
+    prep_candidate = make_preprocessor(numeric, CATEGORICAL_FULL).fit(train_raw)
+    tr = prep_candidate.transform(train_raw).select("customerID", "features", "label")
+    va = prep_candidate.transform(val_raw).select("customerID", "features", "label")
+    candidate = DecisionTreeClassifier(labelCol="label", featuresCol="features", maxDepth=5,
+                                       seed=RANDOM_SEED).fit(tr)
+    vp = candidate.transform(va)
+    row = {"feature_set": name, "validation_auc": float(probability_auc(vp)),
+           "validation_churn_f1": float(churn_f1(vp))}
+    ablation_rows.append(row); ablation_models[name] = (prep_candidate, tr, va)
+ablation = pd.DataFrame(ablation_rows)
+full_r = ablation.set_index("feature_set").loc["full"]
+red_r = ablation.set_index("feature_set").loc["without_TotalCharges"]
+drop_redundant = (red_r.validation_auc >= full_r.validation_auc - 0.005 and
+                  red_r.validation_churn_f1 >= full_r.validation_churn_f1 - 0.01)
+selected_set = "without_TotalCharges" if drop_redundant else "full"
+NUMERIC = ["tenure"] if drop_redundant else NUMERIC_FULL
+CATEGORICAL = CATEGORICAL_FULL
+FEATURE_NAMES = NUMERIC + CATEGORICAL
+
+# Fit the final preprocessing pipeline on training only, then transform validation/test.
+prep = make_preprocessor(NUMERIC, CATEGORICAL).fit(train_raw)
+def prepared(frame):
+    return prep.transform(frame).select("customerID", "features", "label", "Churn").cache()
+train_df, val_df, test_df = prepared(train_raw), prepared(val_raw), prepared(test_raw)
+feature_selection = {"tenure_totalcharges_corr": round(float(tc_corr), 3),
+                     "ablation": ablation.round(4).to_dict(orient="records"),
+                     "selected_feature_set": selected_set, "selected_features": FEATURE_NAMES}
+print(ablation.round(4).to_string(index=False))
+print("Selected feature set:", selected_set, "| predictors:", len(FEATURE_NAMES))
+print("train/validation/test:", train_df.count(), val_df.count(), test_df.count())""")
 
 # ---------------------------------------------------------------- 5. Model
 md(r"""## 5. Model building - PySpark MLlib decision tree
@@ -264,18 +348,13 @@ MLlib's `DecisionTreeClassifier`.""")
 code(r"""from pyspark.ml.classification import DecisionTreeClassifier
 from pyspark.ml.evaluation import MulticlassClassificationEvaluator, BinaryClassificationEvaluator
 
-train_df, val_df, test_df = model_df.randomSplit([0.6, 0.2, 0.2], seed=RANDOM_SEED)
-print("train/val/test =", train_df.count(), val_df.count(), test_df.count())
-
-f1_eval = MulticlassClassificationEvaluator(labelCol="label", predictionCol="prediction", metricName="f1")
-
-# Tune maxDepth on the validation set.
+# Tune maxDepth on the validation set using churn-class F1, not majority-weighted F1.
 val_scores = {}
 for depth in [3, 4, 5, 6, 8]:
     m = DecisionTreeClassifier(labelCol="label", featuresCol="features", maxDepth=depth, seed=RANDOM_SEED).fit(train_df)
-    val_scores[depth] = f1_eval.evaluate(m.transform(val_df))
+    val_scores[depth] = churn_f1(m.transform(val_df))
 best_depth = max(val_scores, key=val_scores.get)
-print("Validation F1 by depth:", {d: round(s, 4) for d, s in val_scores.items()})
+print("Validation churn-F1 by depth:", {d: round(s, 4) for d, s in val_scores.items()})
 print("Best maxDepth =", best_depth)
 
 dt = DecisionTreeClassifier(labelCol="label", featuresCol="features", maxDepth=best_depth, seed=RANDOM_SEED)
@@ -287,7 +366,7 @@ acc = MulticlassClassificationEvaluator(labelCol="label", predictionCol="predict
 wp  = MulticlassClassificationEvaluator(labelCol="label", predictionCol="prediction", metricName="weightedPrecision").evaluate(pred)
 wr  = MulticlassClassificationEvaluator(labelCol="label", predictionCol="prediction", metricName="weightedRecall").evaluate(pred)
 f1  = MulticlassClassificationEvaluator(labelCol="label", predictionCol="prediction", metricName="f1").evaluate(pred)
-auc = BinaryClassificationEvaluator(labelCol="label", rawPredictionCol="rawPrediction", metricName="areaUnderROC").evaluate(pred)
+auc = probability_auc(pred)
 print(f"TEST  accuracy={acc:.4f}  weightedPrecision={wp:.4f}  weightedRecall={wr:.4f}  F1={f1:.4f}  AUC={auc:.4f}")""")
 
 code(r"""# Confusion matrix and churn-class precision/recall (label 1 = Yes/churn).
@@ -399,11 +478,12 @@ def churn_scores(s, t):
     f1   = 2 * prec * rec / (prec + rec) if (prec + rec) else 0.0
     return {"acc": (tp + tn) / len(y), "precision": prec, "recall": rec, "f1": f1}
 
-auc_eval = BinaryClassificationEvaluator(labelCol="label", rawPredictionCol="rawPrediction", metricName="areaUnderROC")
+auc_cv_eval = BinaryClassificationEvaluator(labelCol="label", rawPredictionCol="rawPrediction",
+                                             metricName="areaUnderROC")
 
 # (a) Tune the baseline tree's decision threshold on the VALIDATION set (maximise churn-class F1).
 val_s = scored(model.transform(val_df))
-grid = np.round(np.arange(0.10, 0.61, 0.02), 3)
+grid = np.round(np.arange(0.02, 0.81, 0.02), 3)
 val_curve = pd.DataFrame([{"t": t, **churn_scores(val_s, t)} for t in grid])
 t_tree = float(val_curve.loc[val_curve["f1"].idxmax(), "t"])
 print("Decision tree: best threshold on validation =", t_tree)
@@ -429,7 +509,7 @@ from pyspark.ml.classification import RandomForestClassifier
 from pyspark.ml.tuning import CrossValidator, ParamGridBuilder
 rf = RandomForestClassifier(labelCol="label", featuresCol="features", seed=RANDOM_SEED)
 rf_grid = ParamGridBuilder().addGrid(rf.numTrees, [60, 120]).addGrid(rf.maxDepth, [5, 8]).build()
-rf_cv = CrossValidator(estimator=rf, estimatorParamMaps=rf_grid, evaluator=auc_eval,
+rf_cv = CrossValidator(estimator=rf, estimatorParamMaps=rf_grid, evaluator=auc_cv_eval,
                        numFolds=3, seed=RANDOM_SEED, parallelism=2).fit(train_df)
 rf_model = rf_cv.bestModel
 print("RF best params: numTrees=%s  maxDepth=%s" % (rf_model.getNumTrees, rf_model.getOrDefault("maxDepth")))
@@ -443,9 +523,9 @@ t_rf = float(rf_curve.loc[rf_curve["f1"].idxmax(), "t"])
 tree_test = scored(model.transform(test_df))
 w_test    = scored(wtree.transform(test_df))
 rf_test   = scored(rf_model.transform(test_df))
-auc_tree, auc_w, auc_rf = (auc_eval.evaluate(model.transform(test_df)),
-                           auc_eval.evaluate(wtree.transform(test_df)),
-                           auc_eval.evaluate(rf_model.transform(test_df)))
+auc_tree, auc_w, auc_rf = (probability_auc(model.transform(test_df)),
+                           probability_auc(wtree.transform(test_df)),
+                           probability_auc(rf_model.transform(test_df)))
 
 def row_for(name, s, t, a):
     m = churn_scores(s, t)
@@ -477,15 +557,13 @@ recall_improvement = {"comparison": comparison.to_dict(orient="records"),
 md(r"""### 5c. Choosing the threshold by business cost
 
 Maximising F1 balances precision and recall *equally*, but the two errors are not equally expensive.
-A **missed churner** (false negative) forfeits that customer's future value; a **wasted retention
-offer** (false positive) costs only the incentive. Retention studies put acquiring a new customer at
-roughly five times the cost of keeping one (EMC Education Services, 2015), so we set
-`cost(FN) = 5 x cost(FP)`, pick the threshold that **minimises expected cost on the validation set**,
-and report the resulting **confusion matrix at that operating point** on the test set. This turns an
-abstract cut-off into an explicit business decision.""")
+A **missed churner** (false negative) forfeits future value; a **wasted retention offer** (false
+positive) costs only the incentive. Because the real costs are not supplied, ratios of **2:1, 5:1 and
+10:1** are treated as illustrative sensitivity scenarios. Thresholds are selected on validation and
+evaluated once on test; 5:1 is retained as the headline operating point.""")
 
-code(r"""# A missed churner (FN) is set 5x as costly as a wasted offer (FP); minimise expected cost.
-COST_FN, COST_FP = 5.0, 1.0
+code(r"""# Sensitivity analysis: missed-churner cost relative to a wasted retention offer.
+COST_RATIOS, COST_FP = [2.0, 5.0, 10.0], 1.0
 
 def counts(s, t):
     yhat = (s["p1"] >= t).astype(int); y = s["label"].astype(int)
@@ -493,32 +571,46 @@ def counts(s, t):
     fn = int(((yhat == 0) & (y == 1)).sum()); tn = int(((yhat == 0) & (y == 0)).sum())
     return tn, fp, fn, tp
 
-def exp_cost(s, t):
+def exp_cost(s, t, cost_fn):
     _, fp, fn, _ = counts(s, t)
-    return COST_FN * fn + COST_FP * fp
+    return cost_fn * fn + COST_FP * fp
 
-# Deploy the Random Forest (best AUC); choose its threshold by min expected cost on VALIDATION.
-cost_curve = pd.DataFrame([{"t": t, "cost": exp_cost(rf_val_s, t)} for t in grid])
-t_cost = float(cost_curve.loc[cost_curve["cost"].idxmin(), "t"])
-tn_c, fp_c, fn_c, tp_c = counts(rf_test, t_cost)
+# Select each threshold on validation, then evaluate it on the untouched test set.
+cost_rows, cost_curves = [], {}
+for ratio in COST_RATIOS:
+    curve = pd.DataFrame([{"t": t, "cost": exp_cost(rf_val_s, t, ratio)} for t in grid])
+    threshold = float(curve.loc[curve["cost"].idxmin(), "t"])
+    tn_s, fp_s, fn_s, tp_s = counts(rf_test, threshold)
+    score = churn_scores(rf_test, threshold)
+    cost_rows.append({"fn_fp_ratio": ratio, "threshold": threshold, "tn": tn_s, "fp": fp_s,
+                      "fn": fn_s, "tp": tp_s, "recall": score["recall"],
+                      "precision": score["precision"], "accuracy": score["acc"]})
+    cost_curves[ratio] = curve
+cost_sensitivity_df = pd.DataFrame(cost_rows)
+headline = cost_sensitivity_df.loc[cost_sensitivity_df["fn_fp_ratio"] == 5.0].iloc[0]
+t_cost = float(headline["threshold"])
+tn_c, fp_c, fn_c, tp_c = (int(headline[k]) for k in ["tn", "fp", "fn", "tp"])
 m_cost = churn_scores(rf_test, t_cost)
-print(f"Cost-optimal RF threshold (FN:FP = {COST_FN:.0f}:{COST_FP:.0f}): t = {t_cost}")
+print(cost_sensitivity_df.round(4).to_string(index=False))
+print(f"Headline RF threshold (illustrative FN:FP = 5:1): t = {t_cost}")
 print(f"  Confusion (TN, FP, FN, TP): {tn_c}, {fp_c}, {fn_c}, {tp_c}")
 print(f"  Recall {m_cost['recall']:.3f} | Precision {m_cost['precision']:.3f} | Accuracy {m_cost['acc']:.3f}")
 print(f"  Churners caught: {tp_c}/{tp_c + fn_c}  |  Offers wasted on stayers: {fp_c}")
 
 fig, ax = plt.subplots(1, 2, figsize=(11, 4))
-ax[0].plot(cost_curve["t"], cost_curve["cost"], marker="o")
+for ratio, curve in cost_curves.items():
+    ax[0].plot(curve["t"], curve["cost"], marker="o", ms=2, label=f"FN:FP={ratio:.0f}:1")
 ax[0].axvline(t_cost, ls="--", c="crimson", label=f"min-cost t={t_cost}")
-ax[0].set_xlabel("Decision threshold"); ax[0].set_ylabel(f"Expected cost ({COST_FN:.0f}xFN + {COST_FP:.0f}xFP)")
-ax[0].set_title("Threshold chosen by business cost (validation)"); ax[0].legend()
+ax[0].set_xlabel("Decision threshold"); ax[0].set_ylabel("Illustrative expected cost")
+ax[0].set_title("Cost-ratio sensitivity (validation)"); ax[0].legend(fontsize=8)
 cm = np.array([[tn_c, fp_c], [fn_c, tp_c]])
 sns.heatmap(cm, annot=True, fmt="d", cmap="Blues", cbar=False, ax=ax[1],
             xticklabels=["pred stay", "pred churn"], yticklabels=["actual stay", "actual churn"])
 ax[1].set_title(f"Confusion at cost-optimal RF (t={t_cost})")
 plt.tight_layout(); plt.savefig(FIG_DIR / "fig11_cost_operating_point.png"); plt.show()
 
-business_operating_point = {"cost_fn": COST_FN, "cost_fp": COST_FP, "threshold": t_cost,
+cost_sensitivity = cost_sensitivity_df.round(4).to_dict(orient="records")
+business_operating_point = {"cost_fn": 5.0, "cost_fp": COST_FP, "threshold": t_cost,
                             "confusion": {"tn": tn_c, "fp": fp_c, "fn": fn_c, "tp": tp_c},
                             "recall": round(m_cost["recall"], 4), "precision": round(m_cost["precision"], 4),
                             "accuracy": round(m_cost["acc"], 4)}""")
@@ -530,45 +622,49 @@ The supplied data is almost complete, but in production the *most important* att
 with gaps. We take the top attribute from the tree, **simulate ~30% missingness** in it, then impute
 and re-fit to measure the impact - mirroring the real decision a data scientist faces.""")
 
-code(r"""from pyspark.ml.feature import Imputer
-
-top_idx = FEATURE_NAMES.index(top_feature)
+code(r"""top_idx = FEATURE_NAMES.index(top_feature)
 is_numeric = top_feature in NUMERIC
-rng = np.random.default_rng(RANDOM_SEED)
 
-# Rebuild a tabular frame, knock out ~30% of the most important attribute, then impute.
-work = clean.copy()
-mask = rng.random(len(work)) < 0.30
-n_missing = int(mask.sum())
+# Inject the same deterministic 30% missingness rule into each fixed raw partition.
+def inject_missing(frame):
+    mask = F.pmod(F.xxhash64("customerID", F.lit(RANDOM_SEED + 99)), F.lit(100)) < 30
+    return frame.withColumn(top_feature, F.when(mask, F.lit(None)).otherwise(F.col(top_feature)))
+
+tr_missing, va_missing, te_missing = (inject_missing(x) for x in [train_raw, val_raw, test_raw])
+n_missing = sum(x.filter(F.col(top_feature).isNull()).count() for x in [tr_missing, va_missing, te_missing])
+# Derive the replacement from TRAINING only and apply it to all partitions.
 if is_numeric:
-    work.loc[mask, top_feature] = np.nan
-    fill = work[top_feature].median(); work[top_feature] = work[top_feature].fillna(fill)
+    fill = float(tr_missing.approxQuantile(top_feature, [0.5], 0.0)[0])
     impute_desc = f"median imputation ({fill:.2f})"
 else:
-    work.loc[mask, top_feature] = np.nan
-    fill = work[top_feature].mode(dropna=True)[0]; work[top_feature] = work[top_feature].fillna(fill)
+    fill = (tr_missing.filter(F.col(top_feature).isNotNull()).groupBy(top_feature).count()
+            .orderBy(F.desc("count"), F.asc(top_feature)).first()[top_feature])
     impute_desc = f"mode imputation ('{fill}')"
-print(f"Knocked out {n_missing} ({mask.mean():.0%}) values of '{top_feature}', imputed via {impute_desc}")
+tr_imp, va_imp, te_imp = (x.fillna({top_feature: fill}) for x in [tr_missing, va_missing, te_missing])
+print(f"Knocked out {n_missing} ({n_missing/len(clean):.0%}) values of '{top_feature}', imputed via {impute_desc}")
 
-# Re-run the same pipeline + model on the imputed data and compare on a matching split.
-sdf2 = spark.createDataFrame(work)
-prep2 = Pipeline(stages=cat_indexers + [label_indexer, assembler, vindexer]).fit(sdf2)
-mdf2 = prep2.transform(sdf2).select("features", "label")
-tr2, _, te2 = mdf2.randomSplit([0.6, 0.2, 0.2], seed=RANDOM_SEED)
+# Fit preprocessing/model on imputed TRAINING and evaluate the same held-out test customer IDs.
+prep2 = make_preprocessor(NUMERIC, CATEGORICAL).fit(tr_imp)
+tr2 = prep2.transform(tr_imp).select("customerID", "features", "label")
+te2 = prep2.transform(te_imp).select("customerID", "features", "label")
 model2 = DecisionTreeClassifier(labelCol="label", featuresCol="features", maxDepth=best_depth, seed=RANDOM_SEED).fit(tr2)
 p2 = model2.transform(te2)
 acc2 = MulticlassClassificationEvaluator(labelCol="label", predictionCol="prediction", metricName="accuracy").evaluate(p2)
 f1_2 = MulticlassClassificationEvaluator(labelCol="label", predictionCol="prediction", metricName="f1").evaluate(p2)
-print(f"After 30% missing + impute:  accuracy={acc2:.4f}  F1={f1_2:.4f}")
-print(f"Original (complete data):    accuracy={acc:.4f}  F1={f1:.4f}")""")
+churn_f1_2 = churn_f1(p2); auc2 = probability_auc(p2)
+assert set(te2.select("customerID").toPandas()["customerID"]) == split_ids["test"]
+print(f"After 30% missing + train-mode impute: accuracy={acc2:.4f} weightedF1={f1_2:.4f} "
+      f"churnF1={churn_f1_2:.4f} AUC={auc2:.4f}")
+print(f"Original, same test IDs: accuracy={acc:.4f} weightedF1={f1:.4f} "
+      f"churnF1={churn_f1(pred):.4f} AUC={auc:.4f}")""")
 
 md(r"""**Missing-value strategy.** Because the most important attribute carries most of the model's
 signal, dropping rows with gaps would discard ~30% of the data and bias the sample toward complete
-records. Instead we impute: the **median** for a numeric attribute (robust to skew) or the **mode**
-for a categorical one. Re-fitting on the imputed data shows only a small change in accuracy and F1,
-confirming the model degrades gracefully - though heavy imputation on the single most important
-feature does erode the signal, so a model-based imputer (e.g. predicting the attribute from the
-others) would be the next step.""")
+records. Instead we derive the **median** (numeric) or **mode** (categorical) from training only and
+apply it unchanged to validation/test. C4.5's fractional-instance strategy is a useful theoretical
+alternative, but it is not the missing-value behavior implemented by Spark MLlib here. The paired
+experiment uses the same customer IDs, so any performance change is attributable to missingness and
+imputation rather than a different test sample.""")
 
 # ---------------------------------------------------------------- 7. Persist + summary
 code(r"""# Persist metrics for the report and print a summary.
@@ -584,11 +680,18 @@ metrics = {
     "most_important_attribute": top_feature,
     "top_features": [{"name": n, "importance": round(float(v), 4)} for n, v in imp[:8]],
     "tenure_totalcharges_corr": round(float(tc_corr), 3),
+    "data_quality": data_quality,
+    "split_summary": split_summary.to_dict(orient="records"),
+    "feature_selection": feature_selection,
     "missing_value_experiment": {
         "feature": top_feature, "pct_missing": 0.30, "impute_method": impute_desc,
         "accuracy_before": round(acc, 4), "accuracy_after": round(acc2, 4),
-        "f1_before": round(f1, 4), "f1_after": round(f1_2, 4)},
+        "weighted_f1_before": round(f1, 4), "weighted_f1_after": round(f1_2, 4),
+        "churn_f1_before": round(churn_f1(pred), 4), "churn_f1_after": round(churn_f1_2, 4),
+        "auc_before": round(auc, 4), "auc_after": round(auc2, 4),
+        "same_test_customer_ids": True},
     "recall_improvement": recall_improvement,
+    "cost_sensitivity": cost_sensitivity,
     "business_operating_point": business_operating_point,
 }
 (OUT_DIR / "metrics.json").write_text(json.dumps(metrics, indent=2))
@@ -596,7 +699,7 @@ print(json.dumps(metrics, indent=2))""")
 
 md(r"""## 7. Conclusion
 
-The Spark MLlib decision tree predicts churn well above the naive base rate and, more importantly,
+The Spark MLlib decision tree predicts churn modestly above the naive base rate and, more importantly,
 gives an interpretable picture of *who* churns: short-tenure customers on month-to-month contracts
 paying by electronic check, without tech support. Because the data is imbalanced, the churn-class
 recall and F1 (not raw accuracy) are the metrics that matter for a retention use case. The full
