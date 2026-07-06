@@ -44,7 +44,7 @@ Dr. Kamran Shaukat
 - [X] Module 3 ✅ - Supervised Learning and Linear Regression
 - [X] Module 4 ✅ - Decision Trees
 - [X] Module 5 ✅ - Classification and Bayes Rule
-- [ ] Module 6 🔥 - Support Vector Machines
+- [X] Module 6 ✅ - Support Vector Machines
 - [ ] Module 7 🕐 - Automated and Explainable Machine Learning
 - [ ] Module 8 🕐 - Logistic Regression
 - [ ] Module 9 🕐 - K-means Clustering
