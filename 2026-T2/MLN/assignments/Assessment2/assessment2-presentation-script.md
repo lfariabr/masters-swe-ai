@@ -1,169 +1,136 @@
-# MLN601 Assessment 2 - Video Presentation Script (7-10 min)
+# MLN601 Assessment 2 - Video Presentation Script v4
 
-Timed script for the video (screen recording + webcam picture-in-picture).
-**Spoken lines** are what you say to camera. **Directions** (in *italics*) are what to show
-on screen + delivery tips. Target: ~9 min (middle of the 7-10 range, safe).
-
-## Golden rules (video rubric - 15%)
-- Picture-in-picture: webcam on + notebook on screen at the same time.
-- **Vary tone and volume** - emphasise the numbers and the honest conclusion (the marker rewards this).
-- **Touch ALL 6 CRISP-DM stages** and close with your own personal experience.
-- Point at what's on screen ("here you can see..."). Don't read the slide, tell the story.
-- Pace: ~150 words/min. Don't rush. Pause after each important number.
+Target: 8:30-9:30. Use this to rehearse the argument, not as text to read verbatim.
 
 ## Time map
-| # | Segment | Time | Show on screen |
-|---|---|---|---|
-| 0 | Intro + purpose | 0:45 | Title cell |
-| 1 | A1 -> A2 (the hook) | 0:45 | Title cell / table |
-| 2 | Business Understanding | 0:45 | Section 1 |
-| 3 | Data Understanding | 1:30 | EDA: class balance, heatmap, pairplot |
-| 4 | Data Preparation | 1:00 | Section 3 + split |
-| 5 | Modelling | 1:30 | Section 4 + grid + best params |
-| 6 | Evaluation | 2:00 | Metrics table, ROC (4 curves), confusion matrix, importances |
-| 6.5 | Naive Bayes (generative angle) | 0:30 | Section 5.4 + ROC |
-| 7 | Deployment / Lessons | 1:00 | Section 6 |
-| 8 | Close + experience | 0:30 | Camera (no screen) |
-| | **Total** | **~9:15** | |
 
----
+| Segment | Time | Screen |
+|---|---:|---|
+| Introduction and A1 to A2 | 0:50 | Title |
+| Business Understanding | 0:45 | Section 1 |
+| Data Understanding | 1:10 | Balance, heatmap, pairplot |
+| Data Preparation | 1:00 | Split and leakage checks |
+| Modelling | 1:30 | Tree, SMOTE and SVM searches |
+| Evaluation | 2:45 | Metrics, confusion matrices, ROC, trade-offs |
+| Deployment and reflection | 1:00 | Section 6 |
+| Close | 0:20 | Camera |
+| **Total** | **~9:20** | |
 
-## 0. Intro + purpose (0:45)
-> *Direction: camera on your face, smile, high energy at the start. Show the title cell.*
+## 0. Introduction and A1 to A2
 
-"Hi, my name is Luis Faria, and this is my Assessment 2 for MLN601, Machine Learning, with
-Dr. Kamran Shaukat. In Assessment 1 I treated the UCI wine quality dataset as a *regression*
-problem - predicting the exact quality score. Today I'm revisiting the *same* data, but as a
-*binary classification* task: is a wine high or low quality? I'll walk you through the whole
-notebook following the six stages of CRISP-DM, share the results, and finish with what I
-learned along the way."
+> Show the title. Start looking at the camera, then point to the task definition.
 
-## 1. A1 -> A2: the hook (0:45)
-> *Direction: this is the part that impresses. Speak with conviction.*
+"Hi, my name is Luis Faria, and this is my Assessment 2 for MLN601. In Assessment 1 I used
+regression to predict the numerical wine quality score. Here the same data becomes a binary
+classification problem: should a wine be flagged as likely low quality? That changes the target,
+the models and, most importantly, what an error means. I will follow the six CRISP-DM stages and
+finish with two different but defensible model recommendations."
 
-"The interesting shift here is conceptual. In regression I was asking *'how far off is my
-number?'* - measured with RMSE and R-squared. In classification I'm asking *'which side of
-the line does it fall on, and how well do I separate the two groups?'* - measured with the
-**AUC-ROC curve**. Same wines, but a completely different question, a different baseline, and
-a whole new vocabulary of metrics. So everything downstream - the target, the models, the
-evaluation - had to change with it."
+## 1. Business Understanding
 
-## 2. CRISP-DM Stage 1: Business Understanding (0:45)
-> *Direction: scroll to Section 1.*
+> Point to `low = 1` and explain why the encoding is intentional.
 
-"Stage one, Business Understanding. The practical idea is a fast, low-cost screen that flags
-wine batches likely to score poorly, so expert tasters spend their time where it matters.
-Following the brief, I split the quality score: **below 6 is 'low', 6 or above is 'high'**.
-I deliberately made *low quality the positive class*, because the action we care about is
-*flagging the weak batches*. And throughout, this is framed as **decision support**, not
-automation - quality is a subjective human score, so the model assists experts, it doesn't
-replace them."
+"The purpose is a low-cost screen that prioritises batches for expert tasting. Following the
+brief, quality below 6 is low and quality 6 or above is high. I made low quality the positive
+class because that is the event requiring action. A false negative is therefore a genuinely weak
+wine that the model fails to flag. This remains decision support, not automated rejection."
 
-## 3. CRISP-DM Stage 2: Data Understanding (1:30)
-> *Direction: show, in sequence, the class-balance chart, the heatmap, then the pairplot.*
+## 2. Data Understanding
 
-"Stage two, Data Understanding. I loaded both the red and white wine files and combined them
-into **6,497 raw rows**, with a `wine_type` flag. The quality check found **1,177 exact
-duplicates**, so I removed them before modelling, leaving **5,320 unique wines**. Here you
-can see the final class balance: about **63% high quality and 37% low** - so the classes are
-moderately imbalanced, which becomes important later.
+> Show class balance, heatmap and pairplot. Give one sentence per visual.
 
-This correlation heatmap shows `alcohol` has the strongest link with quality, and several
-features - like the two sulfur-dioxide measures - are correlated with each other.
+"I combined the red and white datasets into 6,497 raw rows and retained wine type as a feature.
+The quality audit found 1,177 exact duplicates, leaving 5,320 unique wines. The final target is
+about 63 percent high and 37 percent low, so accuracy alone can flatter a model.
 
-And this is the seaborn **pairplot** the brief asks for. The key takeaway is that the two
-classes **overlap heavily** - no single feature cleanly separates a good wine from a bad one.
-That tells me upfront to expect a *useful-but-imperfect* classifier, not a perfect one."
+The heatmap identifies alcohol and volatile acidity as useful signals and also shows correlated
+features. The pairplot shows substantial overlap between classes. That overlap explains why a
+single straight boundary or one feature cannot classify every wine correctly, and it motivates
+testing a nonlinear kernel later."
 
-## 4. CRISP-DM Stage 3: Data Preparation (1:00)
-> *Direction: Section 3 + the split cell. Point at `stratify` and the Pipeline.*
+## 3. Data Preparation
 
-"Stage three, Data Preparation. The most important change was removing duplicates **before**
-the split. Otherwise, an identical row can appear in training and testing, so the test set is
-not genuinely unseen. In the previous draft this affected 359 test rows. The final split has
-**zero exact overlap**, with 4,256 training and 1,064 test wines.
+> Point to deduplication, `stratify`, leakage columns and the zero-overlap assertion.
 
-I also removed the original quality score from the features so it cannot leak into training,
-and used an **80/20 stratified split** to preserve the class ratio. A Decision Tree is
-scale-invariant, while Logistic Regression needs scaling, so its `StandardScaler` sits inside
-a Pipeline and is fitted only on training data during cross-validation."
+"I removed duplicates before splitting. Otherwise an identical wine could appear in both the
+training and test sets, which is equivalent to seeing part of the exam in advance. I removed the
+original quality score from the predictors, used an 80/20 stratified split, and confirmed zero
+exact overlap between 4,256 training and 1,064 test rows.
 
-## 5. CRISP-DM Stage 4: Modelling (1:30)
-> *Direction: Section 4, then the best-params output. Emphasise 'roc_auc' and the hyperparameters.*
+Scaling and SMOTE both sit inside Pipelines. This means each cross-validation fold learns its
+scaler and creates synthetic examples from its own training portion only. The final test set keeps
+its natural distribution."
 
-"Stage four, Modelling. I compared five models so the tree could be read in context: a
-majority-class **baseline**, a **default** Decision Tree, the **tuned** Decision Tree - which is
-the required model - Logistic Regression, and a Gaussian Naive Bayes, both as optional context. For tuning I used
-`GridSearchCV` with **5-fold cross-validation**, searching `max_depth`, `min_samples_leaf`,
-the split criterion, and `class_weight`, all scored on **ROC AUC** rather than accuracy. The
-best configuration came out as `max_depth` of 5 and a minimum leaf size of 20 - a moderate,
-pruned tree, which makes sense: an unconstrained tree grows until its leaves are pure and just
-memorises the training data. The pruning is what stops it overfitting."
+## 4. Modelling
 
-## 6. CRISP-DM Stage 5: Evaluation (2:00)
-> *Direction: the most important part. Show the metrics table, then the ROC curve, then the
-> confusion matrix, then feature importance. Pause on every number.*
+> Show the modelling cell and selected parameters. Do not enumerate every grid value.
 
-"Stage five, Evaluation - judged on the held-out test set. Here's the metrics table. The
-tuned Decision Tree reaches an **AUC of 0.793**, far above the baseline's 0.500. In plain
-English, that means a random low-quality wine receives a higher risk score than a random
-high-quality wine about 79% of the time. Now look at
-this ROC curve, with all four models overlaid: the tuned tree, in orange, sits well above
-the diagonal, which is random guessing.
+"The required model is the Decision Tree. Gini impurity tells the tree how mixed a node is: zero
+is pure, and for two equally represented classes it reaches 0.5. The tree chooses splits that
+reduce weighted impurity. GridSearchCV selected a Gini tree with depth 5 and minimum leaf size 20,
+scored by ROC-AUC.
 
-Here's the honest part. Logistic Regression - the simpler model - scored **0.813**, which is
-0.020 above the required tree on this test split. Tuning still matters: it lifts the tree's
-AUC from **0.657 to 0.793** and accuracy from 0.68 to 0.74 by pruning the overfit default
-tree. Removing duplicates also lowers the earlier draft AUC from 0.809 to 0.793. That is a
-more credible result, not a worse project.
+I then ran two controlled imbalance experiments. The balanced tree kept exactly the same structure
+but made minority-class mistakes more expensive. The SMOTE Pipeline kept the structure fixed and
+created minority examples only inside training folds.
 
-The confusion matrix shows the trade-off: the model confirms high-quality wines well - recall
-of **0.83** - but catches the low-quality ones less reliably, recall **0.59**. That's the
-cost of the imbalance and class overlap.
+Finally, I compared SVM kernels. An SVM builds a boundary with the widest useful margin around its
+closest points, called support vectors. C controls the penalty for violations. The kernel trick
+allows a nonlinear boundary without explicitly constructing every higher-dimensional feature, and
+gamma controls how local the RBF influence is."
 
-Finally, **feature importance**: `alcohol` dominates at 0.58, then `volatile acidity` at 0.19
-- which matches both the EDA and real wine chemistry. The fact that the model agrees with
-domain knowledge gives me confidence it's learning something real."
+## 5. Evaluation
 
-## 6.5 Naive Bayes - the generative counterpoint (0:30)
-> *Direction: scroll to section 5.4 and point at the dark-red Naive Bayes curve on the ROC. Ties to Module 5 - say it with a bit of pride.*
+> Lead with the confusion matrices, then show the operating-point bars, then ROC.
 
-"One more comparison, and it ties straight to Module 5. The Decision Tree and Logistic
-Regression are *discriminative* - they learn the decision boundary directly. Gaussian Naive
-Bayes is *generative*: it models how
-each feature is distributed per class and inverts it with Bayes' rule. Its big assumption -
-that the features are independent given the class - my own correlation heatmap shows is *not*
-true here. It still scores an **AUC of 0.736** - above the untuned tree at 0.657, but below
-the tuned tree and Logistic Regression. This is consistent with classic evidence that Naive
-Bayes classification can remain useful when independence is violated, although the
-discriminative models fit this dataset better."
+"I treat low quality as positive throughout. Precision asks how many low-quality flags are correct.
+Recall, or sensitivity, asks how many genuinely low wines are caught. For example, catching 3 out
+of 10 gives 30 percent recall. Specificity asks how many genuinely high wines are correctly cleared.
+Balanced accuracy averages sensitivity and specificity, while G-mean penalises a model if either
+side is weak.
 
-## 7. CRISP-DM Stage 6: Deployment / Lessons Learned (1:00)
-> *Direction: Section 6. More reflective tone, slower.*
+The AUC-tuned tree reaches AUC 0.793. At its default threshold it catches 234 of 398 low wines, so
+recall is 0.588, while specificity is 0.829.
 
-"Stage six, Deployment. For this assessment, deployment means reflection. What worked: the
-Decision Tree remained interpretable, AUC evaluated ranking across thresholds, and removing
-duplicates made the test genuinely unseen. What was harder: the classes overlap heavily and
-low-quality recall is only 0.59, so the model is a *screen*, not an oracle. Next time I would
-test Random Forest or gradient boosting, tune the threshold to the real cost of missing a bad
-batch, and validate on wine from a different producer or time period. The key lesson is that
-evaluation design can change credibility as much as model choice."
+The balanced tree catches 292 low wines. Recall rises to 0.734, F1 to 0.669 and balanced accuracy
+to 0.729. But this is not free: false alarms increase from 114 to 183, and specificity falls to
+0.725. That is the exact business trade-off created by prioritising weak-batch detection.
 
-## 8. Close + personal experience (0:30)
-> *Direction: back to camera, no screen. Eyes on the lens. Finish with energy.*
+SMOTE reaches recall 0.709 and AUC 0.787. It helps compared with the AUC tree, but does not beat
+simple class weighting on recall, F1 or balanced accuracy. I would therefore keep class weighting.
 
-"To close on a personal note: across both assessments the same lesson kept coming back.
-Assessment 1 taught me to measure *how much I'm wrong*; Assessment 2 taught me to measure
-*how well I separate* - and both taught me that choosing the right model and evaluating it
-*honestly* matters more than piling on data or complexity. Thanks for watching."
+The ROC curve asks a different question across every possible threshold. The RBF SVM, with C equal
+to 1 and gamma set to scale, has the highest AUC at 0.824. In plain English, it ranks a random low
+wine above a random high wine about 82 percent of the time. Yet its default-threshold recall is
+only 0.590.
 
----
+So I have two winners. The RBF SVM is the technical ranking winner. The balanced Decision Tree is
+the operational screening winner because it catches more weak wines and its rules can be inspected.
+There is no contradiction: AUC evaluates ranking across thresholds, while recall evaluates one
+chosen operating point."
 
-## Recording checklist
-- [ ] Webcam + screen at the same time (picture-in-picture). Test before recording.
-- [ ] Notebook already open and scrolled to the top, font large enough to read on video.
-- [ ] Clean audio (no echo). Speak at a measured pace, vary the tone on the numbers.
-- [ ] Timer: if you go past 10 min, cut segment 5 (Modelling) first.
-- [ ] File name: `MLN601FariaLuisBrief2.mp4` (or paste the URL into the submission field).
-- [ ] Make sure to mention: 1,177 duplicates removed; zero split overlap; tree AUC 0.793;
-      Logistic Regression 0.813; low-quality recall 0.59; Naive Bayes 0.736.
+## 6. Deployment and lessons learned
+
+> Slow down and make this sound reflective.
+
+"For deployment I would choose the balanced tree as the interpretable screening policy, but only
+after setting the threshold against the real costs of a missed weak batch and an unnecessary
+tasting. I would validate it on wines from another producer or time period and monitor red and
+white wines separately.
+
+The main lesson is that more sophisticated preprocessing is not automatically better: SMOTE helped,
+but class weighting was simpler and slightly stronger here. The other lesson is that the phrase
+'best model' is incomplete until we specify the business objective and the operating threshold."
+
+## 7. Close
+
+"Assessment 1 taught me to measure how wrong a numerical prediction is. Assessment 2 taught me to
+separate classes, inspect the errors, and choose which errors matter most. Thank you."
+
+## Recording checks
+
+- Webcam and notebook visible together.
+- Explain the charts instead of reading their titles.
+- Pause after `0.588 -> 0.734` and explain the false-alarm cost.
+- Keep the SVM explanation below 40 seconds.
+- Finish between 8:30 and 9:30.

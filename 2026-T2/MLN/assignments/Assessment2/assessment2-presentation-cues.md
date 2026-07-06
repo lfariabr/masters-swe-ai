@@ -1,106 +1,93 @@
-# MLN601 Assessment 2 - Recording Cue Sheet
+# MLN601 Assessment 2 - Recording Cue Sheet v4
 
-Use this while recording. Do **not** read it as prose. Glance at one cue, look back at the
-notebook, and explain the point in your own words. Small wording differences are fine.
+Glance, look back at the notebook, explain. Do not read complete sentences.
 
-Target: 8-9 minutes. Webcam and notebook visible together.
+## Technical anchors
 
-## Technical cheat sheet - understand, do not read verbatim
+- Positive class: `low (<6) = 1` because low wine requires action.
+- Gini: node mixing, `1 - sum(p_k^2)`; lower weighted impurity is better.
+- Precision: correct low flags / all low flags.
+- Recall or sensitivity: caught low wines / all actual low wines.
+- Specificity: cleared high wines / all actual high wines.
+- F1: harmonic balance of precision and recall.
+- Balanced accuracy: average of sensitivity and specificity.
+- G-mean: geometric balance; one weak side pulls it down.
+- ROC: sensitivity versus false-positive rate across thresholds.
+- AUC: ranking quality; 0.5 random, 1.0 perfect.
+- SVM margin: separation around the closest support vectors.
+- `C`: penalty for margin violations. Higher C penalises errors more.
+- Kernel trick: nonlinear separation through implicit higher-dimensional similarity.
+- `gamma`: locality of RBF influence.
+- SMOTE: synthetic minority training examples, never test examples.
 
-- **Duplicate leakage:** an identical row in train and test means the model has already seen
-  part of the exam. This risk also existed in A1; it is not specific to classification. In
-  regression it can improve RMSE/R2 artificially; here it can improve AUC and other metrics.
-- **Gini impurity:** tells the tree how mixed a node is. `0` = one pure class; `0.5` = maximum
-  mixing for two equal classes. The tree chooses splits that reduce weighted Gini the most.
-- **Precision:** of everything predicted low, how much was actually low? `TP / (TP + FP)`.
-- **Recall:** of every genuinely low wine, how much did the model catch? `TP / (TP + FN)`.
-- **F1:** harmonic balance of precision and recall. A very weak value in either one pulls F1 down.
-- **ROC:** shows recall (true-positive rate) against false-positive rate across all thresholds.
-- **AUC:** area under ROC. `0.5` = random ranking; `1.0` = perfect ranking. AUC 0.793 means
-  the tree ranks a random low-quality wine above a random high-quality wine about 79% of the time.
+## Navigation and numbers
 
-## 0. Opening - title cell (30-40 sec)
+### Opening - 40 sec
 
-- Name, student ID, MLN601 Assessment 2.
-- Same wine data as A1, new question: exact score -> high/low classification.
-- Promise: six CRISP-DM stages, results, lessons learned.
-- **Transition:** "So the first change is the business question itself."
+- A1 regression -> A2 binary classification.
+- Six CRISP-DM stages.
+- Two winners for two objectives.
 
-## 1. Business Understanding - Section 1 (40 sec)
+### Business - 40 sec
 
-- Goal: low-cost screen for batches needing expert review.
-- Target: quality `<6` = low/positive class; `>=6` = high.
-- Decision support, not automated rejection.
-- **Transition:** "Before modelling, I needed to understand what the data could actually support."
+- Screen for expert review.
+- `<6 low/positive`, `>=6 high`.
+- False negative = weak wine missed.
+- Human decision support.
 
-## 2. Data Understanding - balance, heatmap, pairplot (75 sec)
+### Data - 70 sec
 
-- Raw data: **6,497 rows**, red + white, `wine_type` flag.
-- Found **1,177 exact duplicates** -> **5,320 unique rows**.
-- Final balance: about **63% high / 37% low**.
-- Heatmap: alcohol strongest positive signal; correlated sulphur measures.
-- Pairplot: heavy overlap -> expect useful, not perfect, separation.
-- **Transition:** "That duplicate finding directly changed my preparation step."
+- 6,497 raw -> remove 1,177 duplicates -> 5,320 unique.
+- 63% high / 37% low.
+- Heatmap: alcohol, volatile acidity, correlated features.
+- Pairplot overlap -> imperfect separation + nonlinear test justified.
 
-## 3. Data Preparation - split cell (60 sec)
+### Preparation - 55 sec
 
-- Duplicate leakage: identical row in train and test means the answer was partly seen.
-- This was also a risk in A1; the difference is that the stricter A2 audit caught and corrected it.
-- Previous draft: **359 test rows** had exact copies in training.
-- Final v3: deduplicate first; **zero train/test overlap**.
-- Stratified 80/20 split: **4,256 train / 1,064 test**.
-- Remove original quality score from features; scaler only inside Logistic Pipeline.
-- **Transition:** "With a genuinely unseen test set, I could tune the required tree honestly."
+- Deduplicate before split.
+- Remove original quality score.
+- Stratified 80/20: 4,256 train / 1,064 test.
+- Zero exact overlap.
+- Scaler and SMOTE inside folds only.
 
-## 4. Modelling - grid and best parameters (75 sec)
+### Modelling - 80 sec
 
-- Required model: Decision Tree. Context only: baseline, Logistic Regression, GaussianNB.
-- GridSearchCV: 5 folds, scoring = ROC AUC.
-- Search: depth, leaf size, criterion, class weight.
-- Winner: **gini, depth 5, min leaf 20, no class weighting**.
-- Gini chooses splits that create purer child nodes: `0` is pure, `0.5` is maximally mixed.
-- Why pruning: default tree memorises detail and generalises poorly.
-- **Transition:** "The held-out test set then answers whether that tuning really helped."
+- Required Decision Tree.
+- AUC tree: Gini, depth 5, leaf 20.
+- Balanced tree: same structure, only class cost changes.
+- SMOTE: same structure, synthetic train examples.
+- SVM: support vectors, margin, C, kernel, gamma.
+- RBF wins kernel CV.
 
-## 5. Evaluation - table, ROC, confusion matrix, importance (2 min)
+### Evaluation - 2:30
 
-- Tuned tree: **AUC 0.793**, baseline 0.500, default tree 0.657.
-- Plain English: in about **79%** of random low/high pairs, low gets the higher risk score.
-- Logistic Regression: **0.813**, 0.020 higher on this split.
-- Deduplication changed tree AUC **0.809 -> 0.793**: more credible validation.
-- Confusion matrix for low quality: **TP 234, FP 114, FN 164, TN 552**.
-- Precision **0.672**: about 67% of low-quality flags are correct.
-- Recall **0.588**: the tree catches about 59% of genuinely low-quality wines.
-- F1 **0.627**: harmonic balance between that precision and recall.
-- ROC compares recall with false-positive rate across all thresholds; AUC summarises the curve.
-- Importance: alcohol **0.58**, volatile acidity **0.19**.
-- **Transition:** "I also tested a model built on a completely different probability assumption."
+- Start with confusion matrix language.
+- AUC tree: TP 234, FN 164, FP 114, TN 552.
+- Recall 0.588, specificity 0.829, AUC 0.793.
+- Balanced tree: TP 292, FN 106, FP 183, TN 483.
+- Recall 0.734, specificity 0.725, F1 0.669, balanced accuracy 0.729.
+- Message: catch 58 more low wines, but create 69 more false alarms.
+- SMOTE: recall 0.709, AUC 0.787 -> helps, class weighting still wins.
+- RBF SVM: AUC 0.824, recall 0.590, specificity 0.865.
+- Two winners:
+  - RBF SVM = best ranking.
+  - Balanced tree = best recall + interpretability.
+- AUC and recall do not contradict each other.
 
-## 6. Naive Bayes - Section 5.4 and ROC (30 sec)
+### Deployment - 50 sec
 
-- Tree/Logistic = discriminative boundary; GaussianNB = generative distributions + Bayes.
-- Independence assumption is violated by correlated features.
-- NB AUC **0.736**: above default tree, below tuned tree and Logistic.
-- Conclusion: useful despite violation, but not the best fit here.
-- **Transition:** "Those results shaped the lessons I would carry into a real deployment."
+- Prefer balanced tree for screening, conditional on business costs.
+- Tune threshold, externally validate, monitor wine type.
+- SMOTE not automatically better.
+- "Best" requires an objective and threshold.
 
-## 7. Deployment / lessons - Section 6 (50 sec)
+### Close - 20 sec
 
-- Worked: interpretable tree, threshold-independent AUC, deduplicated validation.
-- Hard: overlapping classes and low-class recall 0.59.
-- Next: ensemble, business-cost threshold, external dataset validation.
-- Main lesson: evaluation design affects credibility as much as model choice.
+- A1: size of numerical error.
+- A2: class separation + which errors matter.
 
-## 8. Close - camera (20-30 sec)
+## Three rehearsal passes
 
-- A1: how wrong is the number? A2: how well do I separate groups?
-- Both: honest evaluation matters more than complexity.
-- Thank the audience.
-
-## Three-pass rehearsal
-
-1. **Navigation pass:** scroll through every stop without speaking.
-2. **Cue pass:** explain each section without reading full sentences.
-3. **Timed pass:** record once; do not restart for minor wording mistakes.
-
-Delivery rule: pause after every headline number, then explain what it means.
+1. Navigation only - reach each visual without searching.
+2. Explain from cues - no full script.
+3. Timed recording - continue through small wording mistakes.

@@ -1,0 +1,2 @@
+# Additional dependency used by the v4 SMOTE sensitivity experiment.
+imbalanced-learn==0.14.2

@@ -1,62 +1,49 @@
-# A2 Video - Cue Card (take 2, v3 numbers)
+# A2 Video - Cue Card v4
 
-One page. Tape it next to the camera. **Do NOT open the full script while recording** - the
-stiffness in take 1 came from reading. Segment-by-segment cues live in
-`assessment2-presentation-cues.md`; this page is the numbers + delivery rules.
+Keep this beside the camera. Keep the full script closed while recording.
 
-## The story spine (say it as ONE sentence if you blank)
+## Story spine
 
-> **6,497 raw → 1,177 duplicates removed → 5,320 unique → zero train/test overlap →
-> tree AUC 0.793 → low recall 0.59**
+> **6,497 raw -> 1,177 duplicates removed -> 5,320 unique -> zero overlap ->
+> AUC tree ranks well -> balanced tree catches more low wines -> RBF SVM ranks best**
 
-## The numbers (pause after each)
+## Numbers worth pausing on
 
-> **0.793** tuned tree AUC | **0.813** LogReg (leads by 0.020) | **0.736** Naive Bayes
-> **0.657** default tree | **63/37** imbalance | **0.83 vs 0.59** recall high vs low
-> **alcohol 0.58** | split **4,256 / 1,064** | winner: **gini, depth 5, leaf 20**
+- Split: **4,256 train / 1,064 test**; class balance **63/37**.
+- AUC tree: **AUC 0.793**, recall **0.588**, specificity **0.829**.
+- Balanced tree: **AUC 0.792**, recall **0.734**, specificity **0.725**.
+- Operational trade-off: **58 more low wines caught, 69 more false alarms**.
+- SMOTE: recall **0.709**, AUC **0.787** - helpful, but class weighting wins.
+- RBF SVM: **AUC 0.824**, recall **0.590**, specificity **0.865**.
+- Tree parameters: **Gini, depth 5, minimum leaf 20**.
 
-## Beats that CHANGED since the old draft (do not say the v2 lines)
+## One-line explanations
 
-1. **No more "tie".** LogReg 0.813 beats the tree 0.793 on this split. Line: "the simpler
-   model edges ahead - honest comparison, evidence-based choice."
-2. **Tuning now HELPS accuracy too** (0.682 → 0.739). The old "tuning lowered accuracy on
-   purpose" line is dead. The honest-finding slot is now the DEDUP: "removing duplicates
-   dropped my own AUC from 0.809 to 0.793 - and that is the more credible number."
-3. **NB softened.** 0.736: above the default tree, below tuned tree and LogReg. "Useful
-   despite the violated assumption, but not the best fit here" - do not oversell.
-4. **New star beat = duplicate leakage.** 359 test rows used to have exact copies in
-   training; v3 deduplicates first, overlap zero. This is YOUR methodological catch - say
-   it with pride in Data Prep.
+- Recall: "Of every genuinely low wine, how many did I catch?"
+- Specificity: "Of every genuinely high wine, how many did I clear?"
+- AUC: "Across thresholds, how well does the model rank low risk above high?"
+- Gini: "How mixed is this tree node?"
+- SVM: "Find a wide-margin boundary around the closest support vectors."
+- Kernel trick: "Permit nonlinear separation through implicit higher-dimensional similarity."
+- SMOTE: "Create synthetic minority examples inside training folds only."
+
+## The conclusion
+
+> **RBF SVM wins ranking. Balanced Decision Tree wins low-quality screening and
+> interpretability. Best depends on the cost of false negatives and false positives.**
 
 ## Anti-stiffness rules
 
-1. **Talk to ONE person** (a colleague at the warehouse), not to "the audience".
-2. **Describe what you SEE.** Scroll the notebook and point ("here you can see...") - eyes
-   on the plot, not on text. That is what kills the reading voice.
-3. **Warm-up take per block:** say the block once with NOTHING in front of you, then record.
-   The warm-up is the rehearsal; the recording is the second telling - always looser.
-4. **Flubbed a phrase? Keep going.** Small stumbles read as human. Only re-do a block if
-   you lost the thread entirely.
-5. **Pause AFTER every number.** One breath. It reads as confidence.
-6. **Smile at the open and the close.** First and last impressions carry the marker.
-
-## Record in 4 blocks (not one 9-min take)
-
-| Block | Segments (cue sheet nums) | ~Time |
-|---|---|---|
-| A | 0 + 1 (opening + business) | 1:15 |
-| B | 2 + 3 (data + prep, incl. the DUPLICATE catch) | 2:15 |
-| C | 4 + 5 (modelling + evaluation) | 3:15 |
-| D | 6 + 7 + 8 (NB + lessons + close) | 1:45 |
-
-Join the blocks in any editor (or QuickTime). Each block is short enough to hold entirely
-in your head - that is what makes it sound spoken, not read.
+1. Explain what the current chart shows. Do not recite definitions before showing it.
+2. Look at the camera for the conclusion, not at the script.
+3. Pause after `0.588 -> 0.734`; then explain the 69 additional false alarms.
+4. If wording changes but meaning survives, continue recording.
+5. Keep SVM theory below 40 seconds.
 
 ## Pre-flight
 
-- [ ] v3 notebook open at the top, font zoomed for video
-- [ ] Webcam picture-in-picture ON, audio checked
-- [ ] This card + cue sheet next to the camera, full script CLOSED
-- [ ] Quiz gaps rehearsed out loud: "you get what you optimise" + "broken assumption,
-      intact ranking" (now with the v3 caveat: NB not the best fit here)
-- [ ] File: `MLN601FariaLuisBrief2.mp4`
+- [ ] v4 notebook open and zoomed.
+- [ ] Webcam picture-in-picture and clean audio.
+- [ ] Confusion matrices -> trade-off bars -> ROC navigation rehearsed.
+- [ ] Finish between 8:30 and 9:30.
+- [ ] Output file: `MLN601FariaLuisBrief2.mp4`.
