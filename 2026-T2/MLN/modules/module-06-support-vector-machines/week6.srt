@@ -1,0 +1,5916 @@
+1
+00:00:00,000 --> 00:00:10,000
+ [BLANK_AUDIO]
+
+2
+00:00:30,500 --> 00:00:31,820
+ >> Good morning, everyone.
+
+3
+00:00:31,820 --> 00:00:36,320
+ [BLANK_AUDIO]
+
+4
+00:00:36,320 --> 00:00:37,560
+ >> Good morning.
+
+5
+00:00:37,560 --> 00:00:38,740
+ >> Good morning.
+
+6
+00:00:38,740 --> 00:00:39,240
+ >> Good morning, sir.
+
+7
+00:00:39,240 --> 00:00:40,520
+ >> Good morning.
+
+8
+00:00:40,520 --> 00:00:41,020
+ >> Good morning.
+
+9
+00:00:41,020 --> 00:00:43,600
+ [BLANK_AUDIO]
+
+10
+00:00:43,600 --> 00:00:46,880
+ >> How are you going with the second assessment?
+
+11
+00:00:46,880 --> 00:00:47,800
+ Have you started?
+
+12
+00:00:49,040 --> 00:00:54,520
+ >> The second assessment, I just submitted it last week, previous last week.
+
+13
+00:00:54,520 --> 00:00:56,680
+ Last week, I couldn't attend the class.
+
+14
+00:00:56,680 --> 00:01:02,040
+ Yeah, I haven't yet because we had two more, I had two more assignments and
+
+15
+00:01:02,040 --> 00:01:03,360
+ I have a presentation today.
+
+16
+00:01:03,360 --> 00:01:06,440
+ So after this one, maybe we'll all sit with it.
+
+17
+00:01:06,440 --> 00:01:08,040
+ Inshallah.
+
+18
+00:01:08,040 --> 00:01:11,920
+ >> I got another very good tool.
+
+19
+00:01:11,920 --> 00:01:14,120
+ What was the name of that tool?
+
+20
+00:01:16,000 --> 00:01:16,920
+ It's very good.
+
+21
+00:01:16,920 --> 00:01:21,280
+ Maybe you guys can explore that one.
+
+22
+00:01:21,280 --> 00:01:27,160
+ It's name is Haygen, H-E-Y-G-E-N.
+
+23
+00:01:28,920 --> 00:01:31,560
+ This is very good tool.
+
+24
+00:01:31,560 --> 00:01:36,400
+ In that one, first, you have to give your voice, whatever you say,
+
+25
+00:01:36,400 --> 00:01:38,240
+ just half a minute.
+
+26
+00:01:38,240 --> 00:01:43,440
+ And then you give your video, whatever you say.
+
+27
+00:01:43,440 --> 00:01:46,840
+ And afterwards, you have to give any script.
+
+28
+00:01:48,320 --> 00:01:49,040
+ >> Okay.
+
+29
+00:01:49,040 --> 00:01:51,680
+ >> And then it will make a video for you.
+
+30
+00:01:53,440 --> 00:01:55,120
+ And seems like- >> AI?
+
+31
+00:01:55,120 --> 00:01:58,440
+ >> Yeah, yeah, yeah, and then it will look like you are speaking.
+
+32
+00:02:00,200 --> 00:02:05,160
+ So for example, if I record my video, my audio,
+
+33
+00:02:05,160 --> 00:02:09,840
+ it will understand my official expression and voice related data.
+
+34
+00:02:09,840 --> 00:02:14,840
+ How much I stress and how I say with how much energy I talk.
+
+35
+00:02:14,840 --> 00:02:20,120
+ And then afterward, I can just give a script to deliver a lecture.
+
+36
+00:02:20,120 --> 00:02:24,920
+ And you will assume that Kamran is speaking.
+
+37
+00:02:24,920 --> 00:02:25,800
+ >> No, really?
+
+38
+00:02:25,800 --> 00:02:34,880
+ >> Yeah, and sometimes it makes some problem with the official.
+
+39
+00:02:34,880 --> 00:02:41,400
+ I just captured and developed one video there, but it's really good to explore.
+
+40
+00:02:41,400 --> 00:02:43,680
+ I can just mention the name here.
+
+41
+00:02:43,680 --> 00:02:46,800
+ So maybe you can explore later on.
+
+42
+00:02:46,800 --> 00:02:50,960
+ Sometimes we are not even aware of various AI tools.
+
+43
+00:02:52,320 --> 00:02:57,200
+ Normally, we say work with cloud and then with chat GPT.
+
+44
+00:02:57,200 --> 00:02:59,400
+ But there are a lot of different tools.
+
+45
+00:02:59,400 --> 00:03:05,880
+ For example, I know of one of the tool where you can give your PPT slides,
+
+46
+00:03:05,880 --> 00:03:07,800
+ and it will generate a script for you.
+
+47
+00:03:09,600 --> 00:03:10,560
+ >> Okay.
+
+48
+00:03:10,560 --> 00:03:17,200
+ >> So things are going very easy, maybe we prepare slides.
+
+49
+00:03:17,200 --> 00:03:26,320
+ Or maybe we give our notebook to any of the tools which can develop slide for us.
+
+50
+00:03:26,320 --> 00:03:31,160
+ And then give another AI tool who will develop the transcript for
+
+51
+00:03:31,160 --> 00:03:37,560
+ you based on those slides, and then use this tool in order to develop the video.
+
+52
+00:03:37,560 --> 00:03:44,640
+ >> Wow, what's that called?
+
+53
+00:03:44,640 --> 00:03:48,160
+ The presentation is on face-to-face, so I don't know.
+
+54
+00:03:48,160 --> 00:03:52,400
+ Well, this one, if it was on video, maybe I would have done that.
+
+55
+00:03:52,400 --> 00:03:55,720
+ Maybe I don't know, maybe teacher wouldn't have approved it.
+
+56
+00:03:55,720 --> 00:04:01,480
+ >> Yeah, yeah, but I'm just sharing, I'm not asking you to do it.
+
+57
+00:04:01,480 --> 00:04:06,840
+ >> Yeah, I might use it at my job, maybe, for a small interview.
+
+58
+00:04:06,840 --> 00:04:10,880
+ I might use it for my job if I have to do any sort of presentation.
+
+59
+00:04:10,880 --> 00:04:12,760
+ They don't check AIs or anything.
+
+60
+00:04:12,760 --> 00:04:17,360
+ Sir, I have a small question regarding the assignment one.
+
+61
+00:04:17,360 --> 00:04:21,360
+ Did you give us any feedbacks on that or not?
+
+62
+00:04:21,360 --> 00:04:25,680
+ >> Yeah, hopefully maybe tomorrow, a day after tomorrow.
+
+63
+00:04:25,680 --> 00:04:27,800
+ Because whenever the students submit,
+
+64
+00:04:27,800 --> 00:04:31,080
+ we normally have ten days, two weeks in order to do that one.
+
+65
+00:04:31,080 --> 00:04:32,960
+ So we just passed one week.
+
+66
+00:04:32,960 --> 00:04:37,560
+ So hopefully, by this week, I will be able to share the feedback.
+
+67
+00:04:37,560 --> 00:04:41,440
+ And then next week, I'm gonna discuss about the assessment two as well,
+
+68
+00:04:41,440 --> 00:04:42,680
+ what you are supposed to do.
+
+69
+00:04:42,680 --> 00:04:46,600
+ And also, I will tell you the feedback, discuss the feedback.
+
+70
+00:04:46,600 --> 00:04:50,920
+ Because most of the things related to assessment one, two, and three are same.
+
+71
+00:04:52,720 --> 00:04:54,920
+ So stages are same, so it would be good.
+
+72
+00:04:54,920 --> 00:04:58,080
+ I will explain you how to improve your assessment two.
+
+73
+00:04:58,080 --> 00:05:01,920
+ And definitely, that feedback will help you out to improve your assessment two.
+
+74
+00:05:03,240 --> 00:05:05,320
+ >> All right, thank you.
+
+75
+00:05:07,320 --> 00:05:12,560
+ >> Yes, Padi, Avaz, Hussain, John,
+
+76
+00:05:12,560 --> 00:05:16,160
+ who are you going with machine learning, any suggestion you have?
+
+77
+00:05:23,120 --> 00:05:27,200
+ >> Yeah, just- >> So when you go first.
+
+78
+00:05:32,200 --> 00:05:33,160
+ >> Why so you go first?
+
+79
+00:05:34,960 --> 00:05:37,120
+ >> No problem, you can ask the question.
+
+80
+00:05:37,120 --> 00:05:39,600
+ I'll ask later, thanks.
+
+81
+00:05:39,600 --> 00:05:44,720
+ >> So are we gonna go through assessment two today or next week?
+
+82
+00:05:44,720 --> 00:05:46,240
+ >> Next week.
+
+83
+00:05:46,240 --> 00:05:48,920
+ >> Yeah, because then we'll have the feedback from assessment, so
+
+84
+00:05:48,920 --> 00:05:49,840
+ it would be good.
+
+85
+00:05:49,840 --> 00:05:53,320
+ I can match, okay, this is the thing where you have to improve.
+
+86
+00:05:53,320 --> 00:05:55,320
+ So it would be easy for you to map it.
+
+87
+00:05:56,640 --> 00:05:57,140
+ >> Okay.
+
+88
+00:05:58,600 --> 00:06:04,080
+ Any feedback, Padi, to how to improve the subject learning, are you going well?
+
+89
+00:06:04,080 --> 00:06:05,640
+ >> Yep, yep, it's going well.
+
+90
+00:06:07,160 --> 00:06:09,200
+ >> Yes, Avaz, please go ahead.
+
+91
+00:06:09,200 --> 00:06:11,920
+ >> Professor, you have mentioned the name of app.
+
+92
+00:06:11,920 --> 00:06:16,280
+ So we have presentation, I think, for the subject as well.
+
+93
+00:06:16,280 --> 00:06:17,720
+ So can we use that one?
+
+94
+00:06:17,720 --> 00:06:18,800
+ I'm just asking.
+
+95
+00:06:18,800 --> 00:06:23,760
+ >> [LAUGH] I don't think so.
+
+96
+00:06:23,760 --> 00:06:26,560
+ >> Okay, no, no, that's fine, that's fine.
+
+97
+00:06:26,560 --> 00:06:28,840
+ >> I was just asking.
+
+98
+00:06:28,840 --> 00:06:33,960
+ >> Because when we have our presentation and everything,
+
+99
+00:06:35,960 --> 00:06:41,400
+ because for this particular subject they have actually based on your learning,
+
+100
+00:06:41,400 --> 00:06:44,040
+ the student learning, right?
+
+101
+00:06:44,040 --> 00:06:52,560
+ Later on, I'm not against, because my idea is when back in 1990s,
+
+102
+00:06:52,560 --> 00:06:58,040
+ when they introduced later on the WWW and later on the search engines,
+
+103
+00:06:58,040 --> 00:07:02,440
+ like Google at that time, people were even against at that time.
+
+104
+00:07:02,440 --> 00:07:05,760
+ They were saying, we have to go to library and then search the book there,
+
+105
+00:07:05,760 --> 00:07:07,240
+ get the material there.
+
+106
+00:07:07,240 --> 00:07:08,320
+ What do you guys are learning?
+
+107
+00:07:08,320 --> 00:07:09,240
+ We are learning a lot.
+
+108
+00:07:09,240 --> 00:07:12,600
+ You are just giving the search string and getting the feedback and
+
+109
+00:07:12,600 --> 00:07:13,960
+ all the material at one point.
+
+110
+00:07:13,960 --> 00:07:16,040
+ People were against at that time as well.
+
+111
+00:07:17,160 --> 00:07:19,320
+ Now, nobody will talk about this one.
+
+112
+00:07:19,320 --> 00:07:24,880
+ And similarly, my idea is same that people know are against AI.
+
+113
+00:07:24,880 --> 00:07:27,400
+ Why you are using AI, you have to search it by yourself.
+
+114
+00:07:27,400 --> 00:07:29,560
+ You have to do the things by yourself.
+
+115
+00:07:29,560 --> 00:07:31,960
+ With the AI, you can do the things quickly.
+
+116
+00:07:31,960 --> 00:07:33,880
+ Why you are using this one.
+
+117
+00:07:33,880 --> 00:07:38,240
+ So at one point of time, people will also accept this thing.
+
+118
+00:07:39,680 --> 00:07:46,160
+ So yeah, and later on, maybe in future, I have planned next year,
+
+119
+00:07:46,160 --> 00:07:51,520
+ we have to revise our machine learning assessments in a way where we can
+
+120
+00:07:51,520 --> 00:07:58,600
+ let the student to use the AI to generate code, to capture videos.
+
+121
+00:07:58,600 --> 00:08:01,760
+ And then we can think one step ahead of that one.
+
+122
+00:08:02,920 --> 00:08:07,600
+ If I can do one thing easily, like why I have to struggle for that one.
+
+123
+00:08:07,600 --> 00:08:08,440
+ >> Definitely.
+
+124
+00:08:08,440 --> 00:08:12,000
+ >> Right, there could be a lot of different learning pathways ahead to
+
+125
+00:08:12,000 --> 00:08:12,520
+ that one.
+
+126
+00:08:13,640 --> 00:08:16,640
+ So it's not the case like you have to put your efforts, but
+
+127
+00:08:16,640 --> 00:08:21,320
+ as of now they have set like no genii or anything.
+
+128
+00:08:21,320 --> 00:08:24,800
+ It is based on the student learning, right?
+
+129
+00:08:24,800 --> 00:08:28,400
+ But I'm okay to do with the coding stuff.
+
+130
+00:08:28,400 --> 00:08:32,160
+ That is why if you will see last time, I have suggested to you different codes.
+
+131
+00:08:32,160 --> 00:08:34,440
+ I have suggested to you, you can use those one.
+
+132
+00:08:34,440 --> 00:08:38,880
+ Because for me as a, for you guys as a machine learning engineer,
+
+133
+00:08:38,880 --> 00:08:43,400
+ I want you to use whatever the material available online.
+
+134
+00:08:43,400 --> 00:08:47,600
+ But use it with the purpose to improve your assessment,
+
+135
+00:08:47,600 --> 00:08:49,320
+ to improve more on the learning.
+
+136
+00:08:49,320 --> 00:08:52,320
+ So you will see for assessment two, for assessment three,
+
+137
+00:08:52,320 --> 00:08:55,200
+ I will give more focus on the modeling part.
+
+138
+00:08:55,200 --> 00:08:59,400
+ I will give more focus, not just how many models you have implemented,
+
+139
+00:08:59,400 --> 00:09:00,640
+ because I have given you the code.
+
+140
+00:09:00,640 --> 00:09:02,680
+ So what's the point to test that one?
+
+141
+00:09:02,680 --> 00:09:08,440
+ I will see how you are actually judging different hyper parameters.
+
+142
+00:09:08,440 --> 00:09:10,000
+ What parameters you have to select?
+
+143
+00:09:10,000 --> 00:09:14,680
+ Why you think that these set of parameters gave you the best accuracy?
+
+144
+00:09:14,680 --> 00:09:17,600
+ Why this model has given you the best accuracy?
+
+145
+00:09:17,600 --> 00:09:19,280
+ It's not you implemented five models.
+
+146
+00:09:19,280 --> 00:09:22,080
+ I've told you last time, in our last lecture,
+
+147
+00:09:22,080 --> 00:09:26,120
+ I've told you I've gone through the code, just two lines you have to change, and
+
+148
+00:09:26,120 --> 00:09:28,840
+ you're gonna implement five different models.
+
+149
+00:09:28,840 --> 00:09:31,760
+ And then I will not be happy, you have to implement one model,
+
+150
+00:09:31,760 --> 00:09:33,840
+ you implemented five, really very good.
+
+151
+00:09:33,840 --> 00:09:39,280
+ No, you have to tell me why you are implementing those five models.
+
+152
+00:09:39,280 --> 00:09:41,360
+ What benefits you have got?
+
+153
+00:09:41,360 --> 00:09:43,440
+ What was the issue in one of the models?
+
+154
+00:09:43,440 --> 00:09:47,120
+ Why do you think like this model has not performed good?
+
+155
+00:09:47,120 --> 00:09:51,920
+ Where that learning will come, where you learned there were some limitations with
+
+156
+00:09:51,920 --> 00:09:56,160
+ the decision tree, there was some limitation with the algorithm.
+
+157
+00:09:56,160 --> 00:09:58,920
+ How you have to improve, they were sensitive to the outliers,
+
+158
+00:09:58,920 --> 00:10:01,840
+ they were sensitive to the missing data and so on.
+
+159
+00:10:01,840 --> 00:10:05,560
+ Because in our data set, maybe a lot of values, a lot of columns,
+
+160
+00:10:05,560 --> 00:10:09,840
+ a lot of fields and they have a lot of missing values, that could be one of
+
+161
+00:10:09,840 --> 00:10:13,880
+ the reasons this particular model has not performed well there.
+
+162
+00:10:13,880 --> 00:10:18,560
+ Or you will say, this model has these capabilities that is well aligned with
+
+163
+00:10:18,560 --> 00:10:24,120
+ this data set, that is why you're thinking that it has outperformed there, right?
+
+164
+00:10:24,120 --> 00:10:29,320
+ So, and another question for example, if at the end of machine learning course,
+
+165
+00:10:29,320 --> 00:10:33,520
+ somebody asks you, what do you think what is the best model, right?
+
+166
+00:10:33,520 --> 00:10:37,240
+ So, you can't say any of the model is the best, right?
+
+167
+00:10:37,240 --> 00:10:42,240
+ You can say, these models have these limitations, right?
+
+168
+00:10:42,240 --> 00:10:46,600
+ But you have to apply that one on a particular data set.
+
+169
+00:10:46,600 --> 00:10:52,240
+ And then you can say, you can't say that here the decision tree outperformed and
+
+170
+00:10:52,240 --> 00:10:55,840
+ for other model, the decision tree will also perform good.
+
+171
+00:10:55,840 --> 00:11:02,400
+ No, maybe whatever and the capabilities this particular model has,
+
+172
+00:11:02,400 --> 00:11:07,560
+ they are actually there into your research problem, into your data set, right?
+
+173
+00:11:07,560 --> 00:11:11,840
+ And that is why that model performed really good there, right?
+
+174
+00:11:11,840 --> 00:11:16,560
+ Did not good there because if there is a lot of missing values,
+
+175
+00:11:16,560 --> 00:11:23,600
+ or maybe you have a sparse data set means that our values are not enough for
+
+176
+00:11:23,600 --> 00:11:26,400
+ a machine learning model to train on, for example.
+
+177
+00:11:26,400 --> 00:11:30,160
+ So that could be one of the reasons your model hasn't learned properly.
+
+178
+00:11:30,160 --> 00:11:34,080
+ For example, if there are only few samples, for example, for
+
+179
+00:11:34,080 --> 00:11:37,920
+ a fraudulent transaction, or there are a few sample for a COVID patient,
+
+180
+00:11:37,920 --> 00:11:42,560
+ or there are a few samples for malicious files, and there are hell of different
+
+181
+00:11:42,560 --> 00:11:47,160
+ non malicious benign files, or legitimate transactions.
+
+182
+00:11:47,160 --> 00:11:51,160
+ So it means there is a problem of imbalance data set means for
+
+183
+00:11:51,160 --> 00:11:55,680
+ one of the class you have very few sample for the other class you have a lot of files.
+
+184
+00:11:55,680 --> 00:12:00,720
+ Right, and for that is the reason your model hasn't learned it properly.
+
+185
+00:12:00,720 --> 00:12:06,240
+ Say for example, if you are speaking, if you are up for example for
+
+186
+00:12:06,240 --> 00:12:12,600
+ 16 hours, and then in those 16 hours, you are speaking English for only two hours.
+
+187
+00:12:12,600 --> 00:12:17,520
+ And rest of the 14 hours you are speaking in your native language,
+
+188
+00:12:17,520 --> 00:12:21,800
+ in Hindi, in Bengali, whatever your native language is, right?
+
+189
+00:12:21,800 --> 00:12:26,080
+ And then in that case, how can you expect you would be as fluent as you are in your
+
+190
+00:12:26,080 --> 00:12:29,100
+ native language, you would be in the English as well.
+
+191
+00:12:29,100 --> 00:12:33,880
+ Because you haven't given the proper time to mean the same case happened with your model
+
+192
+00:12:33,880 --> 00:12:34,880
+ as well.
+
+193
+00:12:34,880 --> 00:12:40,720
+ If there are only few samples for the fraudulent transaction or for COVID patient or for malicious
+
+194
+00:12:40,720 --> 00:12:46,360
+ files, and there are hell of different files, different data set and items available for
+
+195
+00:12:46,360 --> 00:12:50,260
+ legitimate transaction for benign file, right?
+
+196
+00:12:50,260 --> 00:12:56,680
+ Then in that case, your model may not learn the minority class properly, right?
+
+197
+00:12:56,680 --> 00:13:02,160
+ And that could be another reason why a particular model is not performing really well there.
+
+198
+00:13:02,160 --> 00:13:07,680
+ So there could be a lot of different reasons where you can think of a model can perform
+
+199
+00:13:07,680 --> 00:13:10,680
+ better or may not perform better there.
+
+200
+00:13:10,680 --> 00:13:15,840
+ So you have to apply you have to test and then you can say for this particular one,
+
+201
+00:13:15,840 --> 00:13:19,520
+ this model is outperforming and this is not outperforming.
+
+202
+00:13:19,520 --> 00:13:25,920
+ So as such, there is no good or best model to that will work for all of the problems.
+
+203
+00:13:25,920 --> 00:13:31,440
+ Okay, can can I ask some questions?
+
+204
+00:13:31,440 --> 00:13:32,440
+ Yes, me too.
+
+205
+00:13:32,440 --> 00:13:37,120
+ Or just wait for the next year, you can ask Yeah, please go right.
+
+206
+00:13:37,120 --> 00:13:44,640
+ The first thing is that target split because the brief size low quality one below the value
+
+207
+00:13:44,640 --> 00:13:48,500
+ of six and high quality zero below the value of six as well.
+
+208
+00:13:48,500 --> 00:13:50,440
+ Is this a typo?
+
+209
+00:13:50,440 --> 00:13:51,440
+ Yes.
+
+210
+00:13:51,440 --> 00:13:52,440
+ Okay.
+
+211
+00:13:52,440 --> 00:13:53,440
+ Right.
+
+212
+00:13:53,440 --> 00:13:57,720
+ So should be less than six and greater than or equal six.
+
+213
+00:13:57,720 --> 00:13:58,720
+ Correct?
+
+214
+00:13:58,720 --> 00:13:59,720
+ Correct.
+
+215
+00:13:59,720 --> 00:14:04,720
+ And the data set scoop is it combined same as the first one?
+
+216
+00:14:04,720 --> 00:14:06,400
+ First assessment?
+
+217
+00:14:06,400 --> 00:14:07,400
+ Right.
+
+218
+00:14:07,400 --> 00:14:12,960
+ Uh, hyper parameters tuning, is it a manual iteration?
+
+219
+00:14:12,960 --> 00:14:21,960
+ For me, I would I would suggest you to do the grid search CV, which I will teach you
+
+220
+00:14:21,960 --> 00:14:26,360
+ in a while and then I will advise you to implement those one.
+
+221
+00:14:26,360 --> 00:14:31,880
+ But as of now you can do try manually, but I will give you the code, the grid search
+
+222
+00:14:31,880 --> 00:14:32,880
+ CV code.
+
+223
+00:14:32,880 --> 00:14:37,320
+ I will explain you how to do it and you can just simply use it and all good.
+
+224
+00:14:37,320 --> 00:14:38,320
+ Okay.
+
+225
+00:14:38,320 --> 00:14:39,320
+ All right.
+
+226
+00:14:39,320 --> 00:14:41,200
+ Thank you so much.
+
+227
+00:14:41,200 --> 00:14:42,200
+ No worries.
+
+228
+00:14:42,200 --> 00:14:43,200
+ No worries.
+
+229
+00:14:43,200 --> 00:14:44,200
+ Okay.
+
+230
+00:14:44,200 --> 00:14:52,640
+ So any, any other questions, any other feedback anyone has any further thing to discuss?
+
+231
+00:14:52,640 --> 00:14:56,360
+ It's just during the assignment one I've submitted it.
+
+232
+00:14:56,360 --> 00:15:03,480
+ And during that time, as I was going through the textbook and matching it, I realized that
+
+233
+00:15:03,480 --> 00:15:09,560
+ the data set was only for one type of wine.
+
+234
+00:15:09,560 --> 00:15:19,800
+ So the stratification, basically, I am yet to understand how the strategy, the stratify
+
+235
+00:15:19,800 --> 00:15:25,200
+ function works when there's like multiple types of wine and they have different volume
+
+236
+00:15:25,200 --> 00:15:26,920
+ of data set.
+
+237
+00:15:26,920 --> 00:15:34,120
+ So that's something interested me while I was doing the assignment.
+
+238
+00:15:34,120 --> 00:15:36,160
+ So what is your question?
+
+239
+00:15:36,160 --> 00:15:39,600
+ What is your concern related to that one?
+
+240
+00:15:39,600 --> 00:15:46,000
+ I'm not entirely sure how to implement that type of function when I have multiple types
+
+241
+00:15:46,000 --> 00:15:53,020
+ of let's say data sets at different volumes.
+
+242
+00:15:53,020 --> 00:15:58,320
+ It really depends because for this one, red wine and white wine, both have the same number
+
+243
+00:15:58,320 --> 00:16:02,680
+ of parameters, same number of features and their names are same.
+
+244
+00:16:02,680 --> 00:16:08,880
+ So as such, there is as such, no problem to integrate both of the data sets, right?
+
+245
+00:16:08,880 --> 00:16:16,960
+ Because if one is saying student ID, other one is saying student number, or somebody
+
+246
+00:16:16,960 --> 00:16:23,000
+ has the parameter name as simple ID, then if you will ask them to integrate both data
+
+247
+00:16:23,000 --> 00:16:25,640
+ sets, then would be problem.
+
+248
+00:16:25,640 --> 00:16:31,480
+ But in our case, since red wine and white wine data sets, both of these data sets, they
+
+249
+00:16:31,480 --> 00:16:36,600
+ have, they share the same number, same type of parameters.
+
+250
+00:16:36,600 --> 00:16:41,080
+ And our problem is not to distinguish between different kinds of wines.
+
+251
+00:16:41,080 --> 00:16:46,960
+ We are just saying, okay, there is another kind of wine, black, white, red, white.
+
+252
+00:16:46,960 --> 00:16:53,720
+ The thing is the problem which we are tackling is every wine data set, they have the same
+
+253
+00:16:53,720 --> 00:17:00,540
+ number of features, type of parameters are same, number of parameters are same, and the
+
+254
+00:17:00,540 --> 00:17:08,120
+ label is same and the label value, their distribution is also same, right?
+
+255
+00:17:08,120 --> 00:17:11,920
+ They have a value in the range of 0 to 10.
+
+256
+00:17:11,920 --> 00:17:18,200
+ And your task is just based on those parameters, you are predicting how much would be the count,
+
+257
+00:17:18,200 --> 00:17:23,540
+ how much would be the quality of your wine, whether it is now for the second one, it would
+
+258
+00:17:23,540 --> 00:17:31,800
+ be good and bad, which we will discuss how to actually convert them into a discrete attribute.
+
+259
+00:17:31,800 --> 00:17:36,200
+ But for the first one, it was just a continuous value, and you just have to simply predict
+
+260
+00:17:36,200 --> 00:17:37,200
+ it.
+
+261
+00:17:37,200 --> 00:17:43,360
+ Doesn't matter what kind of wine is that one.
+
+262
+00:17:43,360 --> 00:17:44,360
+ I see.
+
+263
+00:17:44,360 --> 00:17:45,360
+ Okay.
+
+264
+00:17:45,360 --> 00:17:46,360
+ Okay.
+
+265
+00:17:46,360 --> 00:17:54,160
+ Okay, so as last time we discussed about the decision tree algorithm, we discussed about
+
+266
+00:17:54,160 --> 00:17:59,680
+ the Naive Bayes algorithm, which we'll also quickly review.
+
+267
+00:17:59,680 --> 00:18:06,800
+ But for both of those models, both machine learning algorithms, which we have studied
+
+268
+00:18:06,800 --> 00:18:10,760
+ related to classification.
+
+269
+00:18:10,760 --> 00:18:15,500
+ So as we discussed, classification is a supervised learning technique.
+
+270
+00:18:15,500 --> 00:18:20,800
+ In supervised learning, we know the label what we are going to predict.
+
+271
+00:18:20,800 --> 00:18:28,320
+ And out of that one, if the type of the attribute, if the type of the labels is discrete, then
+
+272
+00:18:28,320 --> 00:18:30,880
+ it is called classification.
+
+273
+00:18:30,880 --> 00:18:36,160
+ And if it is continuous in nature, then that is called regression, right.
+
+274
+00:18:36,160 --> 00:18:42,040
+ And then we discussed that you will apply the decision tree algorithm, you can apply
+
+275
+00:18:42,040 --> 00:18:48,320
+ random forest, you can apply in sampling, we will also study about logistic regression.
+
+276
+00:18:48,320 --> 00:18:52,680
+ Today, we will discuss about sport vector machine and so on.
+
+277
+00:18:52,680 --> 00:18:58,580
+ So in all of these one, we have to see which model is performing really good, as we were
+
+278
+00:18:58,580 --> 00:19:04,400
+ discussing before, you can't say that this model is performing really well there, and
+
+279
+00:19:04,400 --> 00:19:06,600
+ this model is not performing well.
+
+280
+00:19:06,600 --> 00:19:13,580
+ So what are the basis, what are the metrics, what are the measures you have in your minds
+
+281
+00:19:13,580 --> 00:19:18,280
+ based on which you can actually comparing the performance of your model.
+
+282
+00:19:18,280 --> 00:19:24,200
+ So the main thing which we normally use for classification and which you will use for
+
+283
+00:19:24,200 --> 00:19:31,620
+ your second assessment as well is the confusion matrix or the error matrix, right.
+
+284
+00:19:31,620 --> 00:19:36,060
+ So just discuss those things in order to understand.
+
+285
+00:19:36,060 --> 00:19:45,260
+ So let me share my screen.
+
+286
+00:19:45,260 --> 00:19:54,620
+ So here, you can see that you have confusion matrix, also known as error matrix, it is
+
+287
+00:19:54,620 --> 00:20:03,760
+ a table that really will tell you the performance of any algorithm of any model, right.
+
+288
+00:20:03,760 --> 00:20:13,920
+ So suppose this is the individual number means you have the data of 12 individuals, 12 patients
+
+289
+00:20:13,920 --> 00:20:22,600
+ or different personals, and these are their actual classification, actual qualification
+
+290
+00:20:22,600 --> 00:20:29,160
+ is basically we also call it as ground truth, right.
+
+291
+00:20:29,160 --> 00:20:38,440
+ And this predictive classification is basically the prediction which is made by your model
+
+292
+00:20:38,440 --> 00:20:41,300
+ or your algorithm, right.
+
+293
+00:20:41,300 --> 00:20:49,200
+ So in this case, as you can see here, we have to see which one is.
+
+294
+00:20:49,200 --> 00:20:57,620
+ So this one is the ground truth means 1 and your model predicted it as 0.
+
+295
+00:20:57,620 --> 00:21:00,960
+ This is 1, your model predicted it as 0.
+
+296
+00:21:00,960 --> 00:21:04,080
+ This was 1, your model predicted it correctly.
+
+297
+00:21:04,080 --> 00:21:11,720
+ Similarly, this was 0, your model predicted it as 1 means misclassification.
+
+298
+00:21:11,720 --> 00:21:17,920
+ This was 0 and your model predicted it correctly as 0, right.
+
+299
+00:21:17,920 --> 00:21:27,400
+ Now all of these things could be explained using these 4 measures.
+
+300
+00:21:27,400 --> 00:21:38,520
+ One is called true positive, true negative, false negative and false positive, right.
+
+301
+00:21:38,520 --> 00:21:44,480
+ So please just pay attention here, very, I am going to tell you in a very easy way so
+
+302
+00:21:44,480 --> 00:21:48,960
+ hopefully you will remember and understand it properly.
+
+303
+00:21:48,960 --> 00:21:58,580
+ The second one is what your model, what your algorithm has given.
+
+304
+00:21:58,580 --> 00:22:04,840
+ The second letter is what your algorithm, your model has given you.
+
+305
+00:22:04,840 --> 00:22:10,360
+ The classification made by your model.
+
+306
+00:22:10,360 --> 00:22:21,320
+ The first character, the first letter tell you whether your model has done the correct
+
+307
+00:22:21,320 --> 00:22:26,400
+ prediction or wrong prediction.
+
+308
+00:22:26,400 --> 00:22:28,480
+ I am repeating it again.
+
+309
+00:22:28,480 --> 00:22:34,060
+ The second letter is what your model has predicted.
+
+310
+00:22:34,060 --> 00:22:42,260
+ The first letter is whether your model predicted it correctly or not.
+
+311
+00:22:42,260 --> 00:22:45,160
+ Now I am going to explain.
+
+312
+00:22:45,160 --> 00:22:55,340
+ Your model predicted it as positive and it is truly predicted means it was positive and
+
+313
+00:22:55,340 --> 00:23:01,000
+ your model also predicted it as positive.
+
+314
+00:23:01,000 --> 00:23:09,680
+ True negative, your model predicted it as negative and it is truly predicted means it
+
+315
+00:23:09,680 --> 00:23:18,740
+ was negative and your model also predicted it as negative.
+
+316
+00:23:18,740 --> 00:23:28,660
+ False negative, your model predicted it as negative and it is falsely predicted means
+
+317
+00:23:28,660 --> 00:23:36,880
+ it was actually positive and your model predicted it as negative.
+
+318
+00:23:36,880 --> 00:23:44,460
+ False positive, your model predicted it as positive and it is falsely predicted means
+
+319
+00:23:44,460 --> 00:23:53,580
+ it was negative, but your model predicted it as positive.
+
+320
+00:23:53,580 --> 00:23:56,220
+ Try to understand this one.
+
+321
+00:23:56,220 --> 00:24:01,180
+ Can I repeat one more time before proceeding?
+
+322
+00:24:01,180 --> 00:24:02,900
+ I understand.
+
+323
+00:24:02,900 --> 00:24:07,740
+ What I wanted to clarify is the second letter, it's what the model predicts and the first
+
+324
+00:24:07,740 --> 00:24:14,780
+ letter is basically what we not predict, we know would be the actual one.
+
+325
+00:24:14,780 --> 00:24:19,860
+ Any mismatch between those two would result in the false positive or false negative and
+
+326
+00:24:19,860 --> 00:24:23,460
+ if it matches, it's true positive or true negative.
+
+327
+00:24:23,460 --> 00:24:24,460
+ True.
+
+328
+00:24:24,460 --> 00:24:25,460
+ Okay.
+
+329
+00:24:25,460 --> 00:24:31,100
+ So basically we know the answer from before, what we expect the answer to be and basically
+
+330
+00:24:31,100 --> 00:24:36,780
+ the second letter is the model telling us what the output is and we just match it against
+
+331
+00:24:36,780 --> 00:24:37,780
+ that.
+
+332
+00:24:37,780 --> 00:24:38,780
+ Okay.
+
+333
+00:24:38,780 --> 00:24:39,780
+ True.
+
+334
+00:24:39,780 --> 00:24:40,780
+ True.
+
+335
+00:24:40,780 --> 00:24:41,780
+ True.
+
+336
+00:24:41,780 --> 00:24:42,780
+ Yes.
+
+337
+00:24:42,780 --> 00:24:49,120
+ So second letter tells you what your model has predicted and first tells you whether
+
+338
+00:24:49,120 --> 00:24:55,180
+ your model predicted it correctly or not, right?
+
+339
+00:24:55,180 --> 00:25:01,380
+ You might hear this term in your life, right?
+
+340
+00:25:01,380 --> 00:25:10,620
+ When you go to doctor and I got a medical test and they say, oh, you are positive.
+
+341
+00:25:10,620 --> 00:25:14,180
+ I said, I don't have any such symptoms, right?
+
+342
+00:25:14,180 --> 00:25:17,820
+ And then they said, oh, we can do another test.
+
+343
+00:25:17,820 --> 00:25:23,940
+ Basically it's false positive, means it is becoming positive that you have that particular
+
+344
+00:25:23,940 --> 00:25:33,140
+ disease, but it might be false positive, means you are negative, but incorrectly it has predicted
+
+345
+00:25:33,140 --> 00:25:35,500
+ you positive, right?
+
+346
+00:25:35,500 --> 00:25:42,220
+ So before coming to Australia, I was in Norway, I had my x-ray there and so on scan there
+
+347
+00:25:42,220 --> 00:25:45,300
+ and they said, oh, you might have this particular disease.
+
+348
+00:25:45,300 --> 00:25:49,460
+ I said, I'm feeling okay, there is such no issue.
+
+349
+00:25:49,460 --> 00:25:54,660
+ And they said, okay, might be we need to have another test where we can see might be it
+
+350
+00:25:54,660 --> 00:25:58,240
+ would be a fall positive, for example, right?
+
+351
+00:25:58,240 --> 00:26:00,420
+ So you might hear this term before.
+
+352
+00:26:00,420 --> 00:26:05,300
+ So fall positive and what the doctor want to say, medical practitioner want to say,
+
+353
+00:26:05,300 --> 00:26:13,620
+ oh, it is predicted, predicted it as positive and it is falsely predicted, means maybe your
+
+354
+00:26:13,620 --> 00:26:18,860
+ model predicted it incorrectly, means it was negative, it is supposed to be negative, but
+
+355
+00:26:18,860 --> 00:26:22,500
+ your model predicted it as positive, right?
+
+356
+00:26:22,500 --> 00:26:29,780
+ And that is why you will see this whole line is basically for negatives and this is for
+
+357
+00:26:29,780 --> 00:26:31,360
+ the positive one.
+
+358
+00:26:31,360 --> 00:26:42,920
+ So when you have more values here and zero value here, it means all of the negative one
+
+359
+00:26:42,920 --> 00:26:45,380
+ are correctly classified.
+
+360
+00:26:45,380 --> 00:26:52,460
+ Once you have zero here and all the values are coming here in this column, then you will
+
+361
+00:26:52,460 --> 00:26:59,540
+ say your model classified all the positive correctly, right?
+
+362
+00:26:59,540 --> 00:27:04,780
+ It means none of the positive were classified as negative here.
+
+363
+00:27:04,780 --> 00:27:12,500
+ Just take few more seconds to understand this analogy which I have given, then I will explain
+
+364
+00:27:12,500 --> 00:27:29,600
+ it further, okay.
+
+365
+00:27:29,600 --> 00:27:39,220
+ Now try to understand this particular table here, where there is just a serial number
+
+366
+00:27:39,220 --> 00:27:48,220
+ of the 12 different personals and this is the actual classification, means this is the
+
+367
+00:27:48,220 --> 00:27:56,300
+ ground truth and this is what your model has made, right?
+
+368
+00:27:56,300 --> 00:28:02,860
+ And the first one is false negative, why false negative?
+
+369
+00:28:02,860 --> 00:28:11,740
+ Just recap the analogy which I have given, your model has predicted it as negative and
+
+370
+00:28:11,740 --> 00:28:20,980
+ it is falsely predicted, means it was positive, but your model predicted it as negative, say
+
+371
+00:28:20,980 --> 00:28:28,160
+ for the person who has the cancer, for example, or a particular disease, COVID or dengue.
+
+372
+00:28:28,160 --> 00:28:33,660
+ So positive one is for that one who has that particular disease and zero who do not have
+
+373
+00:28:33,660 --> 00:28:35,540
+ those one, right?
+
+374
+00:28:35,540 --> 00:28:43,020
+ Similarly, true positives means it was predicted as positive and it is truly predicted, means
+
+375
+00:28:43,020 --> 00:28:46,320
+ it was one and predicted as one.
+
+376
+00:28:46,320 --> 00:28:55,380
+ Come up here, the last one, it is predicted, it is predicted as negative, means zero and
+
+377
+00:28:55,380 --> 00:29:01,260
+ it is truly predicted, means it was negative and it is correctly predicted.
+
+378
+00:29:01,260 --> 00:29:10,260
+ Come up here, the ninth one, it was predicted as positives, means one and it is falsely
+
+379
+00:29:10,260 --> 00:29:25,300
+ predicted, means it was negative, but it is falsely predicted as positive, right?
+
+380
+00:29:25,300 --> 00:29:33,300
+ Anyone has any confusion, any questions in understanding these four measures?
+
+381
+00:29:33,300 --> 00:29:37,140
+ All good?
+
+382
+00:29:37,140 --> 00:29:42,300
+ Saroj, Sudip, Takunda?
+
+383
+00:29:42,300 --> 00:29:49,380
+ All good, all good sir.
+
+384
+00:29:49,380 --> 00:29:59,720
+ Okay, now using these four measures, we actually build up a lot of different metrics, right?
+
+385
+00:29:59,720 --> 00:30:04,620
+ And this is what they have given example, there was total eight individuals who are
+
+386
+00:30:04,620 --> 00:30:08,740
+ having the cancer, like these eight, right?
+
+387
+00:30:08,740 --> 00:30:14,380
+ And four of them were without cancer, right?
+
+388
+00:30:14,380 --> 00:30:20,880
+ So you can see three of them was negative and it is correctly predicted and only one
+
+389
+00:30:20,880 --> 00:30:26,820
+ of them who was predicted as positive, means they said, oh, you have a fall positive, right?
+
+390
+00:30:26,820 --> 00:30:33,020
+ You can imagine if somebody, any medical report say, oh, you have a cancer, you can imagine.
+
+391
+00:30:33,020 --> 00:30:39,040
+ And these eight individuals out of those eight, six were classified correctly means there
+
+392
+00:30:39,040 --> 00:30:46,480
+ are the cancer patient and two were said, oh, you are not a cancer patient, right?
+
+393
+00:30:46,480 --> 00:30:54,220
+ Now using these four measures, we actually build up all these metrics, right?
+
+394
+00:30:54,220 --> 00:31:03,560
+ Not all of them are being used in the everyday whenever you apply any model, few of them
+
+395
+00:31:03,560 --> 00:31:05,580
+ are being used.
+
+396
+00:31:05,580 --> 00:31:13,660
+ So the important one is basically this sensitivity or recall, this is very important.
+
+397
+00:31:13,660 --> 00:31:20,260
+ So it tells you out of those positives, how many are correctly classified.
+
+398
+00:31:20,260 --> 00:31:27,020
+ This is very important, the probability of detection or the hit rate.
+
+399
+00:31:27,020 --> 00:31:31,160
+ This is very important in most of the cases, right?
+
+400
+00:31:31,160 --> 00:31:44,060
+ For example, you see up here, in this example, if this is not a, suppose it is a cancer patient
+
+401
+00:31:44,060 --> 00:31:45,560
+ data, right?
+
+402
+00:31:45,560 --> 00:31:56,820
+ So if these four individuals who are non-cancer individuals, one were correctly classified,
+
+403
+00:31:56,820 --> 00:32:03,180
+ incorrectly classified, they said, oh, you have a cancer, what will happen?
+
+404
+00:32:03,180 --> 00:32:12,820
+ He or she will go through some medical test, will redo some of the medical reports and
+
+405
+00:32:12,820 --> 00:32:22,820
+ finally they will say, oh, there was a fall positive and you are non-cancer person, right?
+
+406
+00:32:22,820 --> 00:32:33,600
+ But if a cancer patient, those eight one, if you said to two of them, you are not a
+
+407
+00:32:33,600 --> 00:32:37,160
+ cancer patient, right?
+
+408
+00:32:37,160 --> 00:32:45,660
+ You are all okay and you let that one to go home, this would be a big disaster, right?
+
+409
+00:32:45,660 --> 00:32:55,660
+ You can imagine that person may be on a different stage of their cancer, they need very quick
+
+410
+00:32:55,660 --> 00:33:01,500
+ remedy to fight against that particular disease, right?
+
+411
+00:33:01,500 --> 00:33:07,640
+ This would be a big disaster if you let that one to go.
+
+412
+00:33:07,640 --> 00:33:17,220
+ Think about another example, you have benign data, mean non-malicious data, non-virus data
+
+413
+00:33:17,220 --> 00:33:25,980
+ and you have some malicious files, mean the files, the data which is malicious in nature.
+
+414
+00:33:25,980 --> 00:33:34,660
+ And then you have stopped few non-malicious files, mean benign files and you predicted
+
+415
+00:33:34,660 --> 00:33:39,660
+ them as they are the malicious, like one here.
+
+416
+00:33:39,660 --> 00:33:40,660
+ What you will do?
+
+417
+00:33:40,660 --> 00:33:48,140
+ You will further investigate into that file, you will see structure and everything, what
+
+418
+00:33:48,140 --> 00:33:54,320
+ is the normally the cyber security individuals they used to do in order to investigate whatever
+
+419
+00:33:54,320 --> 00:33:57,120
+ the methods they are applying.
+
+420
+00:33:57,120 --> 00:34:02,300
+ You will do some further investigation and then you will say, oh, sorry, sorry, this
+
+421
+00:34:02,300 --> 00:34:09,940
+ file is non-malicious and we let it to go, enter into your system.
+
+422
+00:34:09,940 --> 00:34:24,560
+ But if you have let any malicious file to be classified as non-malicious, non-cancer
+
+423
+00:34:24,560 --> 00:34:33,540
+ and you let that file enter into your network, into your computer system, that will be a
+
+424
+00:34:33,540 --> 00:34:38,140
+ big disaster, that would be a big damage.
+
+425
+00:34:38,140 --> 00:34:45,620
+ You can think of this example, if there is a legitimate transaction and you stop that
+
+426
+00:34:45,620 --> 00:34:51,760
+ one, you do some further investigation, you let that person to log in into your system
+
+427
+00:34:51,760 --> 00:34:57,740
+ and do some further verification, give a call, whether it is you who is making this huge
+
+428
+00:34:57,740 --> 00:35:05,660
+ transaction and so on, okay, that person might be offended for few time and then they will
+
+429
+00:35:05,660 --> 00:35:10,460
+ say, oh, why you are asking, I am the legitimate person and then you will clear up that transaction.
+
+430
+00:35:10,460 --> 00:35:18,300
+ But if there would be any fraudulent transaction and you let it to be happen, imagine how much
+
+431
+00:35:18,300 --> 00:35:21,800
+ damage it will create.
+
+432
+00:35:21,800 --> 00:35:30,120
+ Any person who is with the right visa, no issue, enroll into any course and Australian
+
+433
+00:35:30,120 --> 00:35:35,580
+ government actually stop that individual which normally immigration stop whenever we come
+
+434
+00:35:35,580 --> 00:35:41,460
+ to Australia and then they will do some further investigation, they will say, oh, you are
+
+435
+00:35:41,460 --> 00:35:46,960
+ studying and you have an active COE and so on, right, and then they will say, okay, you
+
+436
+00:35:46,960 --> 00:35:49,820
+ are good to go, there is no issue.
+
+437
+00:35:49,820 --> 00:35:59,320
+ But if they allow anyone with the fraudulent visa or with any suspicious history and so
+
+438
+00:35:59,320 --> 00:36:04,380
+ on, enter into Australia, that would be a big disaster.
+
+439
+00:36:04,380 --> 00:36:15,020
+ So in most of the cases, right, we are very much inclined toward the positive cases and
+
+440
+00:36:15,020 --> 00:36:19,760
+ we want to see what positive cases are doing.
+
+441
+00:36:19,760 --> 00:36:24,300
+ We are interested into that one as compared to the negative one.
+
+442
+00:36:24,300 --> 00:36:25,300
+ Negative one is okay.
+
+443
+00:36:25,300 --> 00:36:31,100
+ We will do some further investigation, waste some resources, energy, time and so on.
+
+444
+00:36:31,100 --> 00:36:32,100
+ And that is okay.
+
+445
+00:36:32,100 --> 00:36:38,320
+ We will finalize, okay, we were on the mistake and we let that person to go.
+
+446
+00:36:38,320 --> 00:36:47,220
+ But if we have not investigated that fraudulent, that malicious, that illegal personal to let
+
+447
+00:36:47,220 --> 00:36:52,480
+ it to enter into systems, imagine somebody is doing COVID testing and they say, oh, you
+
+448
+00:36:52,480 --> 00:36:56,900
+ are a COVID and then you say, I do not want to have any running nose and I do not have
+
+449
+00:36:56,900 --> 00:37:03,820
+ a fever, they will say, oh, there might be false positive and then they will say, okay,
+
+450
+00:37:03,820 --> 00:37:04,820
+ you are okay to go.
+
+451
+00:37:04,820 --> 00:37:11,540
+ But if you will say a COVID person to go into your family, go into any event, just imagine
+
+452
+00:37:11,540 --> 00:37:16,260
+ what happens five years back when there was a COVID and you let that one to go into the
+
+453
+00:37:16,260 --> 00:37:20,740
+ society, how much damage it would have been created, right?
+
+454
+00:37:20,740 --> 00:37:24,800
+ So this metric is very important.
+
+455
+00:37:24,800 --> 00:37:33,360
+ That is TP over P. Out of the positive, how many you have correctly classified.
+
+456
+00:37:33,360 --> 00:37:39,360
+ That is the recall, that is the sensitivity, right?
+
+457
+00:37:39,360 --> 00:37:42,780
+ Sometimes we are interested into the negative as well.
+
+458
+00:37:42,780 --> 00:37:48,500
+ And that is what the other metric is specificity, right?
+
+459
+00:37:48,500 --> 00:37:51,780
+ Specificity that is true negative rate.
+
+460
+00:37:51,780 --> 00:37:58,500
+ Out of all the negatives, these are all the negative one here, right?
+
+461
+00:37:58,500 --> 00:38:07,820
+ All the negative ones, how many are correctly classified, 3N over N. So this ratio will
+
+462
+00:38:07,820 --> 00:38:16,940
+ tell you, will give you the specificity, the true negative rate of your model, right?
+
+463
+00:38:16,940 --> 00:38:24,840
+ The most important one, which everybody will use is your accuracy, right?
+
+464
+00:38:24,840 --> 00:38:30,020
+ Out of total positive plus negative, how many are correctly classified?
+
+465
+00:38:30,020 --> 00:38:33,940
+ And that is what the performance of your model, right?
+
+466
+00:38:33,940 --> 00:38:38,180
+ So you have, for example, total 12, right?
+
+467
+00:38:38,180 --> 00:38:45,720
+ Out of that one, 6 plus 3, 9 over 12 is basically the accuracy of your model.
+
+468
+00:38:45,720 --> 00:38:53,820
+ So if you have 8 here, if you have 4 here, means 12 by 12, 100% is what your accuracy
+
+469
+00:38:53,820 --> 00:38:57,980
+ is.
+
+470
+00:38:57,980 --> 00:39:05,300
+ Here we have another one, which is balanced accuracy, right?
+
+471
+00:39:05,300 --> 00:39:15,780
+ And this gives us another research problem, which everybody need to understand and consider
+
+472
+00:39:15,780 --> 00:39:22,820
+ whenever you go to industry, whenever you apply any machine learning model to solve
+
+473
+00:39:22,820 --> 00:39:30,420
+ any problem, that is the imbalance data set issue, right?
+
+474
+00:39:30,420 --> 00:39:40,380
+ So whenever you apply any machine learning model to solve any of the problem, right?
+
+475
+00:39:40,380 --> 00:39:47,460
+ You basically have to understand some of the problems which are inherent with the machine
+
+476
+00:39:47,460 --> 00:39:50,420
+ learning, right?
+
+477
+00:39:50,420 --> 00:39:53,420
+ Same problem could be with the data.
+
+478
+00:39:53,420 --> 00:40:00,180
+ As we were discussing at the start of our lecture, data may not be sufficient, data
+
+479
+00:40:00,180 --> 00:40:07,380
+ may have missing values, data may have outliers, data may have noise and so on.
+
+480
+00:40:07,380 --> 00:40:11,620
+ There could be some other problem with the data implementation and so on.
+
+481
+00:40:11,620 --> 00:40:16,820
+ But there are a few problems with come with AI, right?
+
+482
+00:40:16,820 --> 00:40:24,380
+ Like for your understanding, maybe I can say, oh, chat GPT, helping a lot, but ethical issues.
+
+483
+00:40:24,380 --> 00:40:25,760
+ Ethical issues are coming.
+
+484
+00:40:25,760 --> 00:40:32,600
+ How you are actually using, what are dos, what are don'ts to whenever you are using
+
+485
+00:40:32,600 --> 00:40:41,460
+ the chat GPT, whenever you are using any gen AI tools, generative AI tools, right?
+
+486
+00:40:41,460 --> 00:40:44,000
+ What you should do, what you shouldn't do.
+
+487
+00:40:44,000 --> 00:40:48,460
+ So that is an inherent problem whenever it's coming to you.
+
+488
+00:40:48,460 --> 00:40:55,180
+ Then you have to think, you install Snapchat, you install Instagram, you install any other
+
+489
+00:40:55,180 --> 00:40:59,920
+ social media application, Facebook, for example.
+
+490
+00:40:59,920 --> 00:41:04,960
+ How much scrolling you are doing, how much time you are spending, that is the inherent
+
+491
+00:41:04,960 --> 00:41:07,780
+ problem that comes with that one.
+
+492
+00:41:07,780 --> 00:41:11,880
+ The memory, the mindset that you are training, right?
+
+493
+00:41:11,880 --> 00:41:15,380
+ You are scrolling and your mind is not ready.
+
+494
+00:41:15,380 --> 00:41:23,340
+ Your mind is not build to understand and process the information that you are giving.
+
+495
+00:41:23,340 --> 00:41:27,500
+ You are giving a few seconds and then you scroll it down, scroll it down, scroll it
+
+496
+00:41:27,500 --> 00:41:28,500
+ down.
+
+497
+00:41:28,500 --> 00:41:35,380
+ So your mindset is not trained, is not built, is not developed to process that information
+
+498
+00:41:35,380 --> 00:41:42,180
+ correctly and that comes with a lot of other problem, anxiety and then sleeping issue and
+
+499
+00:41:42,180 --> 00:41:44,700
+ so on because you are doing and you are processing.
+
+500
+00:41:44,700 --> 00:41:51,540
+ So your mind get extra active and when you try to sleep, still your mind is not going
+
+501
+00:41:51,540 --> 00:41:53,820
+ into that stage.
+
+502
+00:41:53,820 --> 00:41:57,660
+ That is the whole science behind this one.
+
+503
+00:41:57,660 --> 00:41:59,560
+ I am not going into the detail of that one.
+
+504
+00:41:59,560 --> 00:42:05,580
+ The problem which I want to tell you is that if there would be any certain advancement
+
+505
+00:42:05,580 --> 00:42:12,900
+ that also comes with certain limitations, certain issues which could like auto driving
+
+506
+00:42:12,900 --> 00:42:13,900
+ cars.
+
+507
+00:42:13,900 --> 00:42:20,020
+ A lot of issues if there would be any problem which your vehicle cannot judge can hit anyone
+
+508
+00:42:20,020 --> 00:42:23,100
+ and in that case the disaster is huge.
+
+509
+00:42:23,100 --> 00:42:27,820
+ You can hit and take the life of anyone or you would be on risk as well, right?
+
+510
+00:42:27,820 --> 00:42:35,300
+ It is not just a problem with the resources or the damage of, it is someone's life, right?
+
+511
+00:42:35,300 --> 00:42:42,340
+ So whenever you apply in AI in the life critical missions, it is very important.
+
+512
+00:42:42,340 --> 00:42:51,100
+ Surgical reports, if you are using AI to predict whether the wine quality is good or bad as
+
+513
+00:42:51,100 --> 00:42:58,740
+ compared to when reports are doing surgery, for example, medical surgery, in that case
+
+514
+00:42:58,740 --> 00:43:03,140
+ their accuracy like it should be 100%.
+
+515
+00:43:03,140 --> 00:43:08,140
+ There is no chance to make a single mistake, right?
+
+516
+00:43:08,140 --> 00:43:15,380
+ So that is the problem that is called like the imbalance data set issue.
+
+517
+00:43:15,380 --> 00:43:25,380
+ If your data is highly imbalanced means you have few samples of one of the classes as
+
+518
+00:43:25,380 --> 00:43:34,740
+ I was discussing before if you talk about malicious versus benign or like nonmalicious
+
+519
+00:43:34,740 --> 00:43:41,700
+ data and you have only few samples of the malicious files.
+
+520
+00:43:41,700 --> 00:43:48,420
+ You do not have sufficient samples to train your machine learning model.
+
+521
+00:43:48,420 --> 00:43:50,060
+ What you will do in that case?
+
+522
+00:43:50,060 --> 00:43:56,020
+ If you will train your model with such an imbalanced data set, your model would be skewed
+
+523
+00:43:56,020 --> 00:43:59,760
+ toward to the majority class, right?
+
+524
+00:43:59,760 --> 00:44:07,340
+ Similarly, there are a lot of legitimate transactions, financial transactions which are going to
+
+525
+00:44:07,340 --> 00:44:10,780
+ be done every day and that is okay.
+
+526
+00:44:10,780 --> 00:44:16,900
+ But there are only few fraudulent transactions, right?
+
+527
+00:44:16,900 --> 00:44:24,100
+ And you do not have the sufficient samples that you can give your machine learning algorithm
+
+528
+00:44:24,100 --> 00:44:26,780
+ during the training, right?
+
+529
+00:44:26,780 --> 00:44:34,900
+ And the model that you will build at the end is not capable of enough to detect actually
+
+530
+00:44:34,900 --> 00:44:42,380
+ those malicious or legitimate, that malicious and fraudulent transactions because you have
+
+531
+00:44:42,380 --> 00:44:47,820
+ not given the sufficient data set to train with that one, right?
+
+532
+00:44:47,820 --> 00:44:52,580
+ So that is one of the problem which we call it as imbalanced data set.
+
+533
+00:44:52,580 --> 00:45:00,020
+ So whenever you apply machine learning, whether you go into industry or you apply in research,
+
+534
+00:45:00,020 --> 00:45:07,500
+ so you have to see whether your data is balanced or not and there are a lot of different techniques
+
+535
+00:45:07,500 --> 00:45:09,140
+ which you can use.
+
+536
+00:45:09,140 --> 00:45:13,540
+ They call as data resampling techniques.
+
+537
+00:45:13,540 --> 00:45:18,060
+ So when you do the data resampling, there are two methods.
+
+538
+00:45:18,060 --> 00:45:25,000
+ One is data oversampling, one is data undersampling.
+
+539
+00:45:25,000 --> 00:45:31,780
+ So oversampling is if you have, for example, two classes for one of the class, you have
+
+540
+00:45:31,780 --> 00:45:37,880
+ 200 sample and for the other class, you have 500 samples, right?
+
+541
+00:45:37,880 --> 00:45:48,020
+ So if you will increase those 201, the minority class to be equal to the majority class, the
+
+542
+00:45:48,020 --> 00:46:00,520
+ 201, you are doing oversampling, right? and if you want to decrease, you want to remove
+
+543
+00:46:00,520 --> 00:46:08,420
+ the samples from the majority class, which is the 501 to get it equal to the 201, you
+
+544
+00:46:08,420 --> 00:46:11,160
+ are doing undersampling.
+
+545
+00:46:11,160 --> 00:46:17,060
+ And for each of the method, whether it is oversampling or undersampling, there are a
+
+546
+00:46:17,060 --> 00:46:22,140
+ lot of different methods, a lot of different algorithms, which you can explore, which you
+
+547
+00:46:22,140 --> 00:46:27,660
+ can apply in order to do oversampling or undersampling.
+
+548
+00:46:27,660 --> 00:46:35,060
+ But that is to balance your data and then after balancing your data, it is highly likely
+
+549
+00:46:35,060 --> 00:46:41,540
+ that your performance, your model performance will be improved, right?
+
+550
+00:46:41,540 --> 00:46:50,180
+ I have applied this one during my PhD, my PhD focus was how to apply AI to improve cyber
+
+551
+00:46:50,180 --> 00:46:52,080
+ security, right?
+
+552
+00:46:52,080 --> 00:46:59,820
+ So in that case, I played mostly with the malwares and malicious files and so on and
+
+553
+00:46:59,820 --> 00:47:05,260
+ in that one, I have tried whenever you balance your data, your performance would be improved
+
+554
+00:47:05,260 --> 00:47:06,740
+ a bit, right?
+
+555
+00:47:06,740 --> 00:47:09,800
+ In most of the cases, right?
+
+556
+00:47:09,800 --> 00:47:13,860
+ So that is the imbalance data set issue.
+
+557
+00:47:13,860 --> 00:47:21,300
+ And why it is also important, let me give you another example.
+
+558
+00:47:21,300 --> 00:47:37,500
+ Okay, so I am going to explain you the thing which
+
+559
+00:47:37,500 --> 00:47:59,780
+ I discussed earlier is, for example, you have here, so in that one, what is happening?
+
+560
+00:47:59,780 --> 00:48:12,820
+ You have 1 to 80 samples here out of 80, 100.
+
+561
+00:48:12,820 --> 00:48:23,460
+ So you are using this 20% for the training and this 80% for, sorry, this 20% for the
+
+562
+00:48:23,460 --> 00:48:28,140
+ testing and this 80% for the training, right?
+
+563
+00:48:28,140 --> 00:48:38,900
+ And we are mentioning this is our training set, right?
+
+564
+00:48:38,900 --> 00:48:42,220
+ And this is our testing set, right?
+
+565
+00:48:42,220 --> 00:48:50,380
+ And whenever we apply and we apply the train test sublet one, so we got it as this one
+
+566
+00:48:50,380 --> 00:49:01,020
+ is our X train, which we also discussed in our previous classes as well.
+
+567
+00:49:01,020 --> 00:49:12,780
+ This is your Y train.
+
+568
+00:49:12,780 --> 00:49:20,420
+ This is your X test.
+
+569
+00:49:20,420 --> 00:49:27,980
+ And this is your Y test.
+
+570
+00:49:27,980 --> 00:49:35,980
+ And this is also your ground truth, ground truth as well, right?
+
+571
+00:49:35,980 --> 00:49:45,460
+ So what you will do is, you will use this training X train and Y train to train your
+
+572
+00:49:45,460 --> 00:49:51,820
+ model that if this is your X samples, this should be your label.
+
+573
+00:49:51,820 --> 00:49:55,400
+ If this is this kind of stuff, this should be your label.
+
+574
+00:49:55,400 --> 00:50:01,660
+ So you have given 80 different samples where you say, okay, this is the data, then this
+
+575
+00:50:01,660 --> 00:50:02,660
+ should be the label.
+
+576
+00:50:02,660 --> 00:50:03,660
+ This is the data.
+
+577
+00:50:03,660 --> 00:50:04,660
+ This should be the label.
+
+578
+00:50:04,660 --> 00:50:05,660
+ This is the data.
+
+579
+00:50:05,660 --> 00:50:07,660
+ This should be the label, right?
+
+580
+00:50:07,660 --> 00:50:12,020
+ And then afterwards, you have given X test, right?
+
+581
+00:50:12,020 --> 00:50:17,480
+ Now, you are giving the same kind of labels as you given up here.
+
+582
+00:50:17,480 --> 00:50:23,820
+ And once you give this X test, right?
+
+583
+00:50:23,820 --> 00:50:38,080
+ Then you will get the Y prediction, right?
+
+584
+00:50:38,080 --> 00:50:46,580
+ You will give X test, out of that one, you will get your Y prediction for that X test.
+
+585
+00:50:46,580 --> 00:50:52,060
+ And then you will compare as we did last time when we were discussing about different models,
+
+586
+00:50:52,060 --> 00:50:59,660
+ you will compare this Y prediction with this Y test because this Y test is our actual prediction.
+
+587
+00:50:59,660 --> 00:51:07,080
+ If you remember here, as we discussed, right?
+
+588
+00:51:07,080 --> 00:51:13,500
+ This is your predicted classifications means your Y prediction.
+
+589
+00:51:13,500 --> 00:51:20,400
+ And this is your Y test means the actual classification, right?
+
+590
+00:51:20,400 --> 00:51:30,260
+ So this Y test is your ground truth means actual classification.
+
+591
+00:51:30,260 --> 00:51:34,900
+ And this is what you have got from the model, which is your Y prediction.
+
+592
+00:51:34,900 --> 00:51:39,500
+ And if it is one here, it is one here means you are doing code if it is one here, it is
+
+593
+00:51:39,500 --> 00:51:44,940
+ zero here, then would be problem it is zero here, it is one here, this would be a problem
+
+594
+00:51:44,940 --> 00:51:49,700
+ if it is zero here, and also zero here, this is good, right?
+
+595
+00:51:49,700 --> 00:51:53,000
+ True negative, true positive, false positive, false negative.
+
+596
+00:51:53,000 --> 00:52:01,080
+ And based on that one, you are going to actually calculate the performance in terms of accuracy.
+
+597
+00:52:01,080 --> 00:52:03,580
+ And this is what we have understood now.
+
+598
+00:52:03,580 --> 00:52:15,060
+ Now, the point which I want to tell you which I want to explain you is that you have 900
+
+599
+00:52:15,060 --> 00:52:23,160
+ samples for non-COVID patient, right?
+
+600
+00:52:23,160 --> 00:52:32,860
+ And 100 samples for the COVID patient, right?
+
+601
+00:52:32,860 --> 00:52:42,340
+ You have trained your model with this highly imbalanced data, where you just have given
+
+602
+00:52:42,340 --> 00:52:52,180
+ only 100 samples for the COVID patients and 901 with the normal individuals.
+
+603
+00:52:52,180 --> 00:53:07,500
+ Now, during the testing, you have basically given 90 samples for non-COVID one and 10
+
+604
+00:53:07,500 --> 00:53:13,400
+ samples for the COVID one, right?
+
+605
+00:53:13,400 --> 00:53:20,980
+ Out of those 90, 90 were correctly classified.
+
+606
+00:53:20,980 --> 00:53:30,300
+ And out of these 10, only three were correctly classified, right?
+
+607
+00:53:30,300 --> 00:53:41,380
+ So true positive rate is this one, 3, 3 by 10.
+
+608
+00:53:41,380 --> 00:53:47,980
+ And true negative rate means non-COVID patient were 100%, right?
+
+609
+00:53:47,980 --> 00:53:54,580
+ Out of 90, you have, because you have given a lot of non-COVID one, so your model knows
+
+610
+00:53:54,580 --> 00:53:57,900
+ really well who are the non-COVID one.
+
+611
+00:53:57,900 --> 00:54:04,100
+ And on top of that, because the other one is not sufficient enough, so your model is
+
+612
+00:54:04,100 --> 00:54:06,400
+ skewed toward to the majority class.
+
+613
+00:54:06,400 --> 00:54:15,540
+ So 91 are correctly classified and even 7 out of the COVID one, your model has predicted
+
+614
+00:54:15,540 --> 00:54:24,420
+ as negative, means 3 were correctly classified as COVID and 7 were actually classified as
+
+615
+00:54:24,420 --> 00:54:26,220
+ non-COVID, right?
+
+616
+00:54:26,220 --> 00:54:34,900
+ So 97 was classified, were classified as non-COVID where 90 were the correct and 7 was incorrect
+
+617
+00:54:34,900 --> 00:54:41,820
+ because 7 were the COVID one and your model has predicted them as negative, non-COVID,
+
+618
+00:54:41,820 --> 00:54:43,260
+ right?
+
+619
+00:54:43,260 --> 00:54:51,880
+ So overall, your true positive rate is 3 and true negative count is 90.
+
+620
+00:54:51,880 --> 00:54:59,980
+ So you will say 3 plus 90, which is 93, right?
+
+621
+00:54:59,980 --> 00:55:04,820
+ By 100 because total you have given 90 plus 10 is yours.
+
+622
+00:55:04,820 --> 00:55:09,880
+ So you will say your accuracy is 93%, right?
+
+623
+00:55:09,880 --> 00:55:16,500
+ Which you will claim, oh, I got a very good accuracy, I got 93% accuracy, but now that
+
+624
+00:55:16,500 --> 00:55:18,520
+ is not true.
+
+625
+00:55:18,520 --> 00:55:22,020
+ That is not the true indication, right?
+
+626
+00:55:22,020 --> 00:55:29,460
+ Actually you have not got that much good accuracy because for one of the samples, you are successful
+
+627
+00:55:29,460 --> 00:55:34,140
+ in order to classify the samples correctly, right?
+
+628
+00:55:34,140 --> 00:55:40,980
+ But for the other class, you have not been successful and you just shown the 30% of the
+
+629
+00:55:40,980 --> 00:55:49,060
+ accuracy because you were just able to classify 3 out of 10 samples correctly, right?
+
+630
+00:55:49,060 --> 00:56:03,980
+ So in that case, your true positive rate is 30% and your true negative rate is 100%, right?
+
+631
+00:56:03,980 --> 00:56:11,660
+ And if you will just rely on the accuracy, that is 93%, right?
+
+632
+00:56:11,660 --> 00:56:35,900
+ But if you will calculate the other metric, which is 90, or you will say 0.9 plus 0.3
+
+633
+00:56:35,900 --> 00:56:55,940
+ divided by 2, right, which is, what is that, 60%, right, 0.9 plus 0.3, 1.2 divided by 2
+
+634
+00:56:55,940 --> 00:57:17,300
+ is equal to 60%, right, 60%, right?
+
+635
+00:57:17,300 --> 00:57:26,340
+ So that 2 is 1 point, that is same, right, 1.2 divided by 2 and out of that, when we
+
+636
+00:57:26,340 --> 00:57:29,300
+ got this result, right?
+
+637
+00:57:29,300 --> 00:57:32,860
+ And that is the balanced accuracy.
+
+638
+00:57:32,860 --> 00:57:39,020
+ That is another metric, which I am going to tell you is very important, right?
+
+639
+00:57:39,020 --> 00:57:49,620
+ So whenever you would have imbalanced dataset, in that case, you have to rely other metrics,
+
+640
+00:57:49,620 --> 00:57:53,820
+ not on the accuracy, right?
+
+641
+00:57:53,820 --> 00:58:00,020
+ And it really depends and that what metric is important for you.
+
+642
+00:58:00,020 --> 00:58:06,380
+ So it is not the case always you will consider the accuracy is the right metric, right?
+
+643
+00:58:06,380 --> 00:58:13,740
+ In that case, the negative rate was important and the positive one was very important.
+
+644
+00:58:13,740 --> 00:58:17,740
+ So the recall was just a 30%.
+
+645
+00:58:17,740 --> 00:58:25,660
+ Because out of those 10 samples, you were able to classify only 3 of them, right?
+
+646
+00:58:25,660 --> 00:58:34,300
+ So 3 by 10 is your recall or sensitivity, 30%, right?
+
+647
+00:58:34,300 --> 00:58:36,660
+ And that is a big disaster here.
+
+648
+00:58:36,660 --> 00:58:41,780
+ Because in this case, the negative one was very important for you.
+
+649
+00:58:41,780 --> 00:58:47,660
+ Because those were the COVID patient and you cannot let them to go, right, into the society.
+
+650
+00:58:47,660 --> 00:58:55,380
+ So the point which I want to make is that you have to choose the metrics carefully,
+
+651
+00:58:55,380 --> 00:58:56,780
+ right?
+
+652
+00:58:56,780 --> 00:59:05,420
+ Whenever your data is highly imbalanced, in that case, accuracy is not the right metric
+
+653
+00:59:05,420 --> 00:59:09,340
+ to compare the performance of your models.
+
+654
+00:59:09,340 --> 00:59:16,300
+ In that case, either you are going to go for F1 score or G mean score.
+
+655
+00:59:16,300 --> 00:59:18,080
+ Do we have G mean here?
+
+656
+00:59:18,080 --> 00:59:21,180
+ You can search G mean score as well.
+
+657
+00:59:21,180 --> 00:59:24,960
+ That is another metric maybe not listed here.
+
+658
+00:59:24,960 --> 00:59:36,880
+ But if you will search, you will be able to find it out, right?
+
+659
+00:59:36,880 --> 00:59:44,580
+ That is G mean score, geometric mean that has their own calculation and so on, right?
+
+660
+00:59:44,580 --> 00:59:47,960
+ Specificity and multiplication into sensitivity.
+
+661
+00:59:47,960 --> 00:59:51,580
+ And then you have to take the square root and then you will calculate.
+
+662
+00:59:51,580 --> 00:59:58,160
+ So if your data is highly imbalanced, then you are going to refer F1 score or G mean
+
+663
+00:59:58,160 --> 01:00:02,680
+ score in order to see the performance of your model.
+
+664
+01:00:02,680 --> 01:00:09,140
+ In that case, accuracy will not be the right metric to compare the performance of your
+
+665
+01:00:09,140 --> 01:00:10,140
+ model.
+
+666
+01:00:10,140 --> 01:00:16,040
+ I have given you one example where I not only introduce you the balanced accuracy, which
+
+667
+01:00:16,040 --> 01:00:17,040
+ I calculated.
+
+668
+01:00:17,040 --> 01:00:25,140
+ The true positive rate was 0.3, the true negative rate was 100%, right?
+
+669
+01:00:25,140 --> 01:00:32,140
+ And when we have plus them and divide them with 2, you got the 60% accuracy.
+
+670
+01:00:32,140 --> 01:00:35,060
+ See how bad your model is performing.
+
+671
+01:00:35,060 --> 01:00:40,480
+ But if you will consider the accuracy, you're going to say, oh, my model is doing the 93%
+
+672
+01:00:40,480 --> 01:00:42,760
+ of the accuracy, right?
+
+673
+01:00:42,760 --> 01:00:51,060
+ So it is very important when you choose and when you apply machine learning AI into solve
+
+674
+01:00:51,060 --> 01:01:01,040
+ any problem, what model you are choosing, what is your data set.
+
+675
+01:01:01,040 --> 01:01:07,720
+ That is what you have explored, you have analyzed, you have seen is there any problem in my data
+
+676
+01:01:07,720 --> 01:01:13,440
+ set and that is what the CRISDM architecture first few stages are.
+
+677
+01:01:13,440 --> 01:01:19,800
+ And you have reached to the level 4, stage 4, when you actually think about the modeling
+
+678
+01:01:19,800 --> 01:01:22,160
+ and other stuff, right?
+
+679
+01:01:22,160 --> 01:01:28,040
+ The first few stages where you analyze your data set, because there would be certain problems
+
+680
+01:01:28,040 --> 01:01:29,460
+ in your data set.
+
+681
+01:01:29,460 --> 01:01:37,840
+ So next time for second assessment, for third assessment, you just have not to rely just
+
+682
+01:01:37,840 --> 01:01:40,920
+ to analyze and visualize your data set.
+
+683
+01:01:40,920 --> 01:01:48,200
+ If there are certain problem, you can fix it up and see that after the fixing, have
+
+684
+01:01:48,200 --> 01:01:54,480
+ you seen any accuracy into that one, improvement into that one, like improvement in your accuracy
+
+685
+01:01:54,480 --> 01:02:00,000
+ or whatever the metric you are comparing, is your error is decreased or not.
+
+686
+01:02:00,000 --> 01:02:05,420
+ So that is what you have mentioned in your lesson learns, right?
+
+687
+01:02:05,420 --> 01:02:08,680
+ What are the things which you think can improve?
+
+688
+01:02:08,680 --> 01:02:14,920
+ So you have to apply those one and see whether that is improving or not, right?
+
+689
+01:02:14,920 --> 01:02:37,260
+ And before concluding this discussion, I want to tell you very easy thing, right?
+
+690
+01:02:37,260 --> 01:02:46,840
+ That is when you talk about the imbalance data set.
+
+691
+01:02:46,840 --> 01:02:56,760
+ So SMOTE is, if you have heard this name before, this is used for data sampling, right?
+
+692
+01:02:56,760 --> 01:03:03,800
+ And that is one of the data oversampling technique as we already discussed, that when you do
+
+693
+01:03:03,800 --> 01:03:13,060
+ the data resampling, right, then if you are increasing the quality count of your minority
+
+694
+01:03:13,060 --> 01:03:22,240
+ class in order to get equal to the majority class, then in that case, you have actually
+
+695
+01:03:22,240 --> 01:03:28,400
+ get this information, right?
+
+696
+01:03:28,400 --> 01:03:44,720
+ So here you will see, what I want to emphasize is the important things that you need to consider.
+
+697
+01:03:44,720 --> 01:03:56,160
+ Here you need to from the imbalance learn, IMB learn, from oversampling, you have to
+
+698
+01:03:56,160 --> 01:04:07,880
+ import SMOTE and once you have actually got this one, you need to create its object oversample,
+
+699
+01:04:07,880 --> 01:04:16,400
+ then with this oversample dot fit resample and you have to give those x and y, your training
+
+700
+01:04:16,400 --> 01:04:18,040
+ one, right?
+
+701
+01:04:18,040 --> 01:04:23,000
+ And then afterwards, you can simply apply as you normally do, right?
+
+702
+01:04:23,000 --> 01:04:28,840
+ And you see there were few samples here, like the oranges one and you were having a lot
+
+703
+01:04:28,840 --> 01:04:30,520
+ of different samples.
+
+704
+01:04:30,520 --> 01:04:42,040
+ So 99, 9,900 were from one of the class, looks like from the blue one and only the oranges
+
+705
+01:04:42,040 --> 01:04:49,680
+ one which is positive was only the oranges one, just the 100 one and when you balance
+
+706
+01:04:49,680 --> 01:04:57,600
+ it up, now you can see, now this one is 99, 100 and this is again 99, 100 and you can
+
+707
+01:04:57,600 --> 01:05:03,240
+ see a lot of different data and once you have applied this one, definitely its accuracy
+
+708
+01:05:03,240 --> 01:05:07,400
+ would have been improved, right?
+
+709
+01:05:07,400 --> 01:05:16,760
+ And SMOTE for classification, simply like you have to apply, they applied the CN3 and
+
+710
+01:05:16,760 --> 01:05:25,120
+ then they after they applied the SMOTE one and then they check, earlier it was 76%, the
+
+711
+01:05:25,120 --> 01:05:30,880
+ area under curve and then once they have applied SMOTE, right?
+
+712
+01:05:30,880 --> 01:05:39,400
+ The accuracy, the value of area under curve is improved to 80.9%, right?
+
+713
+01:05:39,400 --> 01:05:49,320
+ Once the CN3 and they applied, then it is 83.4% and so on, right?
+
+714
+01:05:49,320 --> 01:05:55,720
+ So as I mentioned earlier that it is very simple to apply, you just have to create its
+
+715
+01:05:55,720 --> 01:06:03,360
+ object as they have done here, they have done here for example and you just can apply for
+
+716
+01:06:03,360 --> 01:06:10,600
+ your second assessment and first simply apply and see how many samples you have for one
+
+717
+01:06:10,600 --> 01:06:19,040
+ of the class because next week, I am going to tell you how you have to convert that continuous
+
+718
+01:06:19,040 --> 01:06:25,060
+ label into a discrete one as the FEDI were discussing at the start of our class that
+
+719
+01:06:25,060 --> 01:06:31,800
+ over greater than equal to 6, you are going to say good quality wine and the lower one
+
+720
+01:06:31,800 --> 01:06:34,840
+ would be the bad quality one.
+
+721
+01:06:34,840 --> 01:06:41,960
+ So after that one, you have to see how many samples do you have for the good wine, good
+
+722
+01:06:41,960 --> 01:06:48,560
+ quality wine, how many for the bad quality one and if there would be a lot of difference,
+
+723
+01:06:48,560 --> 01:06:56,920
+ then simply apply one of the modelling techniques say the CN3 and afterwards, you can balance
+
+724
+01:06:56,920 --> 01:06:57,920
+ it.
+
+725
+01:06:57,920 --> 01:07:05,440
+ So, for example, not just one, maybe you can apply more, for example, you will start with
+
+726
+01:07:05,440 --> 01:07:10,160
+ the same data set as you were doing applying different models and you got certain accuracy,
+
+727
+01:07:10,160 --> 01:07:15,880
+ you will say, oh, I applied four different models out of those one, for example, sport
+
+728
+01:07:15,880 --> 01:07:22,160
+ vector machine is outperformed with an accuracy of 83%, right?
+
+729
+01:07:22,160 --> 01:07:27,660
+ And then you will say, oh, there was a problem of the imbalance data set, when I converted,
+
+730
+01:07:27,660 --> 01:07:33,320
+ there was only few samples for the good quality wine, there was a lot of different samples
+
+731
+01:07:33,320 --> 01:07:35,320
+ for the bad quality one.
+
+732
+01:07:35,320 --> 01:07:41,400
+ So what I did is I know applied smote, simply copy paste this code.
+
+733
+01:07:41,400 --> 01:07:48,400
+ And once that smote is done, right, you will simply say now the data count for the bad
+
+734
+01:07:48,400 --> 01:07:51,400
+ is this one and good is this one.
+
+735
+01:07:51,400 --> 01:07:57,720
+ And now copy paste exactly all of the cores whatever you have written before, again downwards
+
+736
+01:07:57,720 --> 01:08:06,600
+ after that one with the new re-sampled data and say that accuracy is improved from 83%
+
+737
+01:08:06,600 --> 01:08:11,240
+ to 86%, right, very simple, right?
+
+738
+01:08:11,240 --> 01:08:17,180
+ Simply apply the modelling technique, then apply the code related to data re-sample and
+
+739
+01:08:17,180 --> 01:08:23,000
+ then copy paste again the code to do the modelling again.
+
+740
+01:08:23,000 --> 01:08:28,880
+ And just say whether you got any improvement or not, right?
+
+741
+01:08:28,880 --> 01:08:37,760
+ So that is related to some of the discussion which we have made here to let you understand
+
+742
+01:08:37,760 --> 01:08:49,160
+ what classification is, how to measure the performance of any model and how to compare
+
+743
+01:08:49,160 --> 01:08:56,800
+ different models based on this confusion matrix using that for my years, how can you build
+
+744
+01:08:56,800 --> 01:08:59,180
+ up the other matrix.
+
+745
+01:08:59,180 --> 01:09:07,080
+ And on top of that, we discussed one of the problems which can be inherent whenever you
+
+746
+01:09:07,080 --> 01:09:12,560
+ apply AI to solve any of the research problems, right?
+
+747
+01:09:12,560 --> 01:09:19,920
+ And then we discussed why a certain matrix are really very important for some of the
+
+748
+01:09:19,920 --> 01:09:21,000
+ research problems.
+
+749
+01:09:21,000 --> 01:09:31,220
+ So it is very significant to see which matrix are like really making more sense for a research
+
+750
+01:09:31,220 --> 01:09:32,320
+ problem.
+
+751
+01:09:32,320 --> 01:09:37,080
+ And then you're going to use those one in order to see whether your model is performing
+
+752
+01:09:37,080 --> 01:09:39,080
+ good or bad.
+
+753
+01:09:39,080 --> 01:09:46,080
+ So any question up till here from all of this discussion, if there is any question you may
+
+754
+01:09:46,080 --> 01:09:55,520
+ ask, otherwise, we will take a few minutes break, it's 1243 on the dial, we will meet
+
+755
+01:09:55,520 --> 01:10:02,040
+ again at 1250, right, after all of this discussion, take a seven minute break, and then we will
+
+756
+01:10:02,040 --> 01:10:09,120
+ come back and start about the sport vector machine, which is the model which we have
+
+757
+01:10:09,120 --> 01:10:16,400
+ to discuss today, which would be brief, but we have to discuss how it works and so on.
+
+758
+01:10:16,400 --> 01:10:21,320
+ And then we will see its implementation and then we will conclude our lecture.
+
+759
+01:10:21,320 --> 01:10:29,800
+ So take a seven minute break, and then I will see you back at 1250.
+
+760
+01:10:32,040 --> 01:10:37,720
+ Thank you.
+
+761
+01:11:02,040 --> 01:11:12,680
+ Transcribed by https://otter.ai
+
+762
+01:11:32,040 --> 01:11:47,960
+ Transcribed by https://otter.ai
+
+763
+01:12:02,040 --> 01:12:07,600
+ Transcribed by https://otter.ai
+
+764
+01:12:32,040 --> 01:12:42,580
+ Transcribed by https://otter.ai
+
+765
+01:13:02,040 --> 01:13:06,700
+ Transcribed by https://otter.ai
+
+766
+01:13:32,040 --> 01:13:37,280
+ Transcribed by https://otter.ai
+
+767
+01:14:02,040 --> 01:14:07,180
+ Transcribed by https://otter.ai
+
+768
+01:14:32,040 --> 01:14:38,000
+ Transcribed by https://otter.ai
+
+769
+01:15:02,040 --> 01:15:05,840
+ Transcribed by https://otter.ai
+
+770
+01:15:32,040 --> 01:15:37,480
+ Transcribed by https://otter.ai
+
+771
+01:16:02,040 --> 01:16:06,520
+ Transcribed by https://otter.ai
+
+772
+01:16:32,040 --> 01:16:37,220
+ Transcribed by https://otter.ai
+
+773
+01:17:02,040 --> 01:17:07,140
+ Transcribed by https://otter.ai
+
+774
+01:17:32,040 --> 01:17:36,340
+ Transcribed by https://otter.ai
+
+775
+01:18:02,040 --> 01:18:13,000
+ Okay, welcome back, dear students.
+
+776
+01:18:13,000 --> 01:18:25,120
+ Any questions you may have related to what we have discussed so far?
+
+777
+01:18:25,120 --> 01:18:49,760
+ Okay, so now we are discussing another classification algorithm.
+
+778
+01:18:49,760 --> 01:19:00,360
+ It is used for classification, but we do have a version of this one where it is used for
+
+779
+01:19:00,360 --> 01:19:01,760
+ regression as well.
+
+780
+01:19:01,760 --> 01:19:08,600
+ Some of you have used for your first assessment as well that is called sport vector regressor
+
+781
+01:19:08,600 --> 01:19:11,000
+ SVR.
+
+782
+01:19:11,000 --> 01:19:19,480
+ But for mostly it is famous for classification, which is sport vector machine SVM.
+
+783
+01:19:19,480 --> 01:19:23,120
+ It is very famous, very good algorithm.
+
+784
+01:19:23,120 --> 01:19:30,000
+ It is used mostly for the supervised binary classification.
+
+785
+01:19:30,000 --> 01:19:36,920
+ We discussed already what supervised learning is, where we know the label and the type of
+
+786
+01:19:36,920 --> 01:19:42,520
+ the attribute if it is categorical, then it is called classification.
+
+787
+01:19:42,520 --> 01:19:49,640
+ And if it is just has two categories, two possibilities between which you have to do
+
+788
+01:19:49,640 --> 01:19:55,600
+ the prediction, then it is called binary classification.
+
+789
+01:19:55,600 --> 01:20:04,760
+ The goal of SVM is to train a model that assign new unseen objects into a particular category.
+
+790
+01:20:04,760 --> 01:20:10,480
+ That is what the aim of any classification algorithm is.
+
+791
+01:20:10,480 --> 01:20:15,680
+ They have given different examples, which we have already discussed whether an email
+
+792
+01:20:15,680 --> 01:20:24,800
+ is a spam email or a ham email or non-spam email, whether an object is above or below,
+
+793
+01:20:24,800 --> 01:20:31,120
+ whether a person is COVID, non-COVID patient, whether a file is malicious, nonmalicious,
+
+794
+01:20:31,120 --> 01:20:35,300
+ whether a transaction is fraudulent or legitimate.
+
+795
+01:20:35,300 --> 01:20:40,460
+ So all of these are the example of your binary classification.
+
+796
+01:20:40,460 --> 01:20:47,600
+ So as discussed earlier, sport vector machines are supervised learning models with associated
+
+797
+01:20:47,600 --> 01:20:52,840
+ learning algorithm that analyze data used for classification.
+
+798
+01:20:52,840 --> 01:20:58,760
+ And I discussed you have a version of sport vector machine, sport vector regressor that
+
+799
+01:20:58,760 --> 01:21:03,240
+ is used for regression analysis as well.
+
+800
+01:21:03,240 --> 01:21:09,600
+ There are a few important things which we need to consider whenever you are discussing
+
+801
+01:21:09,600 --> 01:21:12,800
+ about the sport vector machine.
+
+802
+01:21:12,800 --> 01:21:16,060
+ You have this hyper plane.
+
+803
+01:21:16,060 --> 01:21:24,080
+ This is very significant when we discussed about sport vector machine and then you have
+
+804
+01:21:24,080 --> 01:21:34,200
+ all of the data objects of one class to one side of this hyper plane and the data objects
+
+805
+01:21:34,200 --> 01:21:40,120
+ of the other class to the other side of this hyper plane.
+
+806
+01:21:40,120 --> 01:21:49,120
+ And it is very important and that is what actually this hyper plane purpose is that
+
+807
+01:21:49,120 --> 01:21:59,960
+ the aim of this sport vector machine is to have this hyper plane on that side or on that
+
+808
+01:21:59,960 --> 01:22:11,840
+ position where it can segregate the samples of both of the classes correctly, right?
+
+809
+01:22:11,840 --> 01:22:18,240
+ This is very important because if you will draw this hyper plane here, then you will
+
+810
+01:22:18,240 --> 01:22:23,480
+ see that this sample will be misclassified, right?
+
+811
+01:22:29,960 --> 01:22:39,160
+ So, any question up till here?
+
+812
+01:22:39,160 --> 01:22:44,520
+ >> Yes, sir, I have a question.
+
+813
+01:22:44,520 --> 01:22:50,480
+ Is this algorithm just works for two classes or can it work for, I don't know, three more?
+
+814
+01:22:50,480 --> 01:22:58,800
+ >> Yeah, there is a version of this one that is used for multi-classification as well.
+
+815
+01:22:58,800 --> 01:23:01,520
+ You have to tweak around that one, right?
+
+816
+01:23:01,520 --> 01:23:09,840
+ So, it is very important that you where you have to draw this hyper plane, right?
+
+817
+01:23:09,840 --> 01:23:14,040
+ So, we understood that this is an hyper plane.
+
+818
+01:23:14,040 --> 01:23:24,120
+ Now, another important concept is that the data points which of one of the class which
+
+819
+01:23:24,120 --> 01:23:31,080
+ is the closest to this hyper plane are called your sport vectors.
+
+820
+01:23:31,080 --> 01:23:41,520
+ So, sport vectors are the points which of both of the classes which are closest to this
+
+821
+01:23:41,520 --> 01:23:45,120
+ hyper plane, right?
+
+822
+01:23:45,120 --> 01:23:55,780
+ And the purpose of the sport vector machine is to draw this hyper plane in a way that
+
+823
+01:23:55,780 --> 01:24:03,160
+ the distance between the sport vector points is high.
+
+824
+01:24:03,160 --> 01:24:11,680
+ So, it means if you will draw this hyper plane here, right, then you will see the distance
+
+825
+01:24:11,680 --> 01:24:15,120
+ to this blue one to this hyper plane is very close.
+
+826
+01:24:15,120 --> 01:24:23,560
+ So, we have to draw this hyper plane in a way where the distance to the sport vector
+
+827
+01:24:23,560 --> 01:24:29,520
+ points to this hyper plane will be the maximum one, right?
+
+828
+01:24:29,520 --> 01:24:37,520
+ Or the other way around you can think that we have to distinguish the both of the samples
+
+829
+01:24:37,520 --> 01:24:42,320
+ of both of the classes explicitly, right?
+
+830
+01:24:42,320 --> 01:24:53,780
+ We do not want to have any samples on 48 or 52 because 52 can jump to 49 would raise a
+
+831
+01:24:53,780 --> 01:25:03,080
+ chance of the misclassification and this 48 would be to the 51, 52 side and will be assigned
+
+832
+01:25:03,080 --> 01:25:06,320
+ to a different class which would be misclassification.
+
+833
+01:25:06,320 --> 01:25:15,040
+ So, we have to draw that line in a way where they can segregate the samples of both classes
+
+834
+01:25:15,040 --> 01:25:18,800
+ explicitly and easily, right?
+
+835
+01:25:18,800 --> 01:25:29,320
+ And the other important thing is while you are drawing this hyper plane, the first purpose
+
+836
+01:25:29,320 --> 01:25:34,080
+ is if you will understand this line, then it means you understood the lecture and we
+
+837
+01:25:34,080 --> 01:25:36,280
+ will just quickly go through.
+
+838
+01:25:36,280 --> 01:25:47,620
+ The first priority is to have the right classification and second priority is to have the margin,
+
+839
+01:25:47,620 --> 01:25:53,720
+ we call it as margin, the distance from the sport vector point to that hyper plane is
+
+840
+01:25:53,720 --> 01:25:55,320
+ called margin.
+
+841
+01:25:55,320 --> 01:26:00,840
+ So, the margin would be the maximum and that is what the aim of sport vector machine is,
+
+842
+01:26:00,840 --> 01:26:06,000
+ but the first priority is to having the right classification.
+
+843
+01:26:06,000 --> 01:26:14,640
+ If you will have any chance where you will have the, any of the sample will be the misclassification,
+
+844
+01:26:14,640 --> 01:26:16,200
+ right?
+
+845
+01:26:16,200 --> 01:26:22,600
+ And then the size, the distance, the margin will be increased, no, we do not know, we
+
+846
+01:26:22,600 --> 01:26:24,860
+ do not go for that one.
+
+847
+01:26:24,860 --> 01:26:29,960
+ First priority is to the right classification, does not matter for one of the class, you
+
+848
+01:26:29,960 --> 01:26:35,380
+ would have the margin which is minimum one, not maximum, right?
+
+849
+01:26:35,380 --> 01:26:38,720
+ And the second priority would be to increase that margin.
+
+850
+01:26:38,720 --> 01:26:43,480
+ So, the first is the right correct classification, right?
+
+851
+01:26:43,480 --> 01:26:52,880
+ So, here you will see that is the hyper plane, a sample example, classification task, any
+
+852
+01:26:52,880 --> 01:26:58,360
+ two features, you can think of hyper plane as a line that linearly separates and classify
+
+853
+01:26:58,360 --> 01:27:04,880
+ set of the data and hyper plane over data points lie the more confident we are that
+
+854
+01:27:04,880 --> 01:27:06,520
+ they will be correctly classified.
+
+855
+01:27:06,520 --> 01:27:13,080
+ So, when the new testing data are added, whether whatever the side of the hyper plane it lands
+
+856
+01:27:13,080 --> 01:27:16,920
+ will decide the class that it will assign, right?
+
+857
+01:27:16,920 --> 01:27:21,600
+ So, and we also discussed this is called the margin.
+
+858
+01:27:21,600 --> 01:27:27,400
+ The goal is to choose a hyper plane with the greatest possible margin between the hyper
+
+859
+01:27:27,400 --> 01:27:33,040
+ plane and any point and we discussed that the closest point are called the sport vector
+
+860
+01:27:33,040 --> 01:27:34,040
+ points.
+
+861
+01:27:34,040 --> 01:27:39,080
+ So, the distance between the sport vector points to this hyper plane is called margin
+
+862
+01:27:39,080 --> 01:27:45,480
+ and the aim of the sport vector machine algorithm is to increase that margin means you have
+
+863
+01:27:45,480 --> 01:27:48,360
+ to maximize, right?
+
+864
+01:27:48,360 --> 01:27:52,520
+ And this is another concept.
+
+865
+01:27:52,520 --> 01:28:12,000
+ So, for example, if you will try to understand this that I have a paper here, right?
+
+866
+01:28:12,000 --> 01:28:25,360
+ This paper and I draw the few points here into the middle of the paper, right?
+
+867
+01:28:25,360 --> 01:28:31,240
+ And those points which I am drawing here into the middle of this paper is belong to one
+
+868
+01:28:31,240 --> 01:28:38,200
+ of the class means all of the blue one are in the middle and all of the green one on
+
+869
+01:28:38,200 --> 01:28:44,640
+ the other side, right, in a different circle, right, but that is around all of the data
+
+870
+01:28:44,640 --> 01:28:48,280
+ points not just on one side on this side, right?
+
+871
+01:28:48,280 --> 01:28:53,720
+ So, green one here on this side and the blue one into the middle one, right?
+
+872
+01:28:53,720 --> 01:29:00,520
+ And now if somebody asked me to use the sport vector machine here, if I will draw any hyper
+
+873
+01:29:00,520 --> 01:29:09,360
+ plane here, then these samples belong to one class, these samples belong to other class,
+
+874
+01:29:09,360 --> 01:29:10,360
+ right?
+
+875
+01:29:10,360 --> 01:29:17,280
+ But that will lead a lot of misclassification, accuracy would be compromised because a lot
+
+876
+01:29:17,280 --> 01:29:23,220
+ of green on this side you will put them into one of the class, a lot of blue to the other
+
+877
+01:29:23,220 --> 01:29:26,400
+ side you will put them into a different class.
+
+878
+01:29:26,400 --> 01:29:31,360
+ So, a lot of blue will be misclassified, a lot of green will be misclassified.
+
+879
+01:29:31,360 --> 01:29:34,400
+ So, what is the solution?
+
+880
+01:29:34,400 --> 01:29:40,160
+ The solution they say is that the middle one that are belong to one class here and the
+
+881
+01:29:40,160 --> 01:29:45,940
+ green one that is around that one here, they will say that you pick up this paper like
+
+882
+01:29:45,940 --> 01:29:54,220
+ this and you pick up the four sides of your paper like this, pick up this side from here,
+
+883
+01:29:54,220 --> 01:29:56,660
+ the paper this side from here.
+
+884
+01:29:56,660 --> 01:30:00,720
+ So you will see paper will look like this now, right?
+
+885
+01:30:00,720 --> 01:30:06,680
+ Means you have picked up all of the four side of your paper like this, right?
+
+886
+01:30:06,680 --> 01:30:08,640
+ So, it would be like this.
+
+887
+01:30:08,640 --> 01:30:14,680
+ So, four side would be together, then they say you have to draw the hyper plane here,
+
+888
+01:30:14,680 --> 01:30:15,680
+ right?
+
+889
+01:30:15,680 --> 01:30:21,900
+ So, all of the green one who are on the centers are picked up, all of them get together on
+
+890
+01:30:21,900 --> 01:30:28,240
+ upper side and the bottom one where which was the middle of that paper was the blue
+
+891
+01:30:28,240 --> 01:30:33,360
+ one and then all of them would be correctly classified because the bottom one and the
+
+892
+01:30:33,360 --> 01:30:36,400
+ top one would be the green and the yellow one.
+
+893
+01:30:36,400 --> 01:30:46,200
+ They call it as kerneling, the concept of kerneling where they say that one of the,
+
+894
+01:30:46,200 --> 01:30:53,220
+ if you do not have the samples, which can easily be segregated, so what you can do is
+
+895
+01:30:53,220 --> 01:31:03,320
+ you can let your data to be mapped, to be realized into a higher dimension, right?
+
+896
+01:31:03,320 --> 01:31:05,400
+ Into a 3D dimension.
+
+897
+01:31:05,400 --> 01:31:11,340
+ In that case, then you can draw that hyper plane which can easily segregate them.
+
+898
+01:31:11,340 --> 01:31:18,600
+ As you can see the example here, they introduced that if the data is like this, for example,
+
+899
+01:31:18,600 --> 01:31:23,940
+ there is no way if you draw hyper plane here and you say these are the green, these are
+
+900
+01:31:23,940 --> 01:31:24,940
+ the blue.
+
+901
+01:31:24,940 --> 01:31:30,780
+ So, you will see a lot of greens are here into the blue category, a lot of blues are
+
+902
+01:31:30,780 --> 01:31:33,600
+ here into the green category, right?
+
+903
+01:31:33,600 --> 01:31:38,400
+ So, how to split them, how to segregate them?
+
+904
+01:31:38,400 --> 01:31:44,040
+ They say then the list lifting of the balls represent the mapping of the data into a higher
+
+905
+01:31:44,040 --> 01:31:47,320
+ dimension and that is called the kerneling.
+
+906
+01:31:47,320 --> 01:31:53,820
+ So, a 2D view of the data to be mapped into a 3D view, right?
+
+907
+01:31:53,820 --> 01:31:54,820
+ Like this.
+
+908
+01:31:54,820 --> 01:32:03,000
+ So, if you have this one, so you will let it to be mapped into a higher dimension, right?
+
+909
+01:32:03,000 --> 01:32:09,960
+ And then you can segregate the one line from here, all of the blue ones are up of this
+
+910
+01:32:09,960 --> 01:32:14,120
+ one box and the green one at the bottom.
+
+911
+01:32:14,120 --> 01:32:21,400
+ And then if you will draw an hyper plane here, you can easily segregate them, right?
+
+912
+01:32:21,400 --> 01:32:28,560
+ So, select the hyper plane which segregate the two classes better, right?
+
+913
+01:32:28,560 --> 01:32:31,400
+ Which one is the best one?
+
+914
+01:32:31,400 --> 01:32:37,960
+ Of course, not the C one because if you will choose the C here, right?
+
+915
+01:32:37,960 --> 01:32:45,520
+ So, some of the red one belong to the store category and some of the stars are coming
+
+916
+01:32:45,520 --> 01:32:48,660
+ into this category, not the good one.
+
+917
+01:32:48,660 --> 01:32:57,240
+ If you will choose the A, a lot of red one are classified as stars, right?
+
+918
+01:32:57,240 --> 01:33:04,020
+ The best one is the B, right, where one side is all the stars and the other side all the
+
+919
+01:33:04,020 --> 01:33:06,280
+ balls, right?
+
+920
+01:33:06,280 --> 01:33:19,420
+ Then the other thing which we discussed what is the best one, A is also okay, B is also
+
+921
+01:33:19,420 --> 01:33:28,980
+ okay, but we will go for C because that is the concept that you have to choose that hyper
+
+922
+01:33:28,980 --> 01:33:31,960
+ plane with the maximum margin.
+
+923
+01:33:31,960 --> 01:33:38,480
+ Because if you will choose the B here, these stars are very closer to the B and they can
+
+924
+01:33:38,480 --> 01:33:43,820
+ easily jump to the other side if any of the minor change you would have into the hyper
+
+925
+01:33:43,820 --> 01:33:45,820
+ parameters, right?
+
+926
+01:33:45,820 --> 01:33:51,040
+ Similarly if you will choose the A, these two red one can jump to the other side and
+
+927
+01:33:51,040 --> 01:33:52,840
+ can raise the chance of misclassification.
+
+928
+01:33:52,840 --> 01:33:59,860
+ So, you are going to go for C which would be the best in this case, right?
+
+929
+01:33:59,860 --> 01:34:08,360
+ Then there is a mathematics behind here, right, behind this hyper plane and then they said
+
+930
+01:34:08,360 --> 01:34:13,440
+ on this side would be positive, on the other side would be negative one, right?
+
+931
+01:34:13,440 --> 01:34:22,160
+ And the hyper plane here would be okay, there could be another one, there could be another
+
+932
+01:34:22,160 --> 01:34:30,220
+ one, all of them are okay, they are correctly classified, but the optimal one would be the
+
+933
+01:34:30,220 --> 01:34:34,440
+ one that will actually increase that margin.
+
+934
+01:34:34,440 --> 01:34:40,200
+ You see which we discussed here, star is very closer to B, this red one is very closer to
+
+935
+01:34:40,200 --> 01:34:49,840
+ A, so we are going to go for C which has the maximum margin here, right?
+
+936
+01:34:49,840 --> 01:35:02,240
+ What we already discussed and the other important thing which we discussed is whether if you
+
+937
+01:35:02,240 --> 01:35:12,880
+ will choose the hyper plane A here, right, which has the less margin, right?
+
+938
+01:35:12,880 --> 01:35:20,120
+ Because this star is very closer to this hyper plane, this red one is very closer to A, but
+
+939
+01:35:20,120 --> 01:35:27,040
+ as compared to if you will choose this B one, then you will see these stars are away, these
+
+940
+01:35:27,040 --> 01:35:34,840
+ red balls are away, but the problem is if you will choose this B one, then this star
+
+941
+01:35:34,840 --> 01:35:42,240
+ would be misclassified as ball, as circle and it will be classified on this side because
+
+942
+01:35:42,240 --> 01:35:50,200
+ all of the samples of the B would be belong to balls and then this would be classified
+
+943
+01:35:50,200 --> 01:35:54,120
+ as circle which is not correct, right?
+
+944
+01:35:54,120 --> 01:36:02,980
+ This is a star, so the first priority is the right hyper plane is A, so as I given you
+
+945
+01:36:02,980 --> 01:36:12,320
+ the example earlier, the first priority is to choose the correct classification and second
+
+946
+01:36:12,320 --> 01:36:18,000
+ priority is to increase that margin, right?
+
+947
+01:36:18,000 --> 01:36:23,920
+ Then they have given scenarios what you will do and so on, this is the problem which I
+
+948
+01:36:23,920 --> 01:36:30,280
+ discussed earlier that all of the samples here and the other class samples around that
+
+949
+01:36:30,280 --> 01:36:36,280
+ one, if you will choose any of the hyper plane, this will not give you the best result, so
+
+950
+01:36:36,280 --> 01:36:43,080
+ the solution is kernaling, you can use different kernels and what the kernels will do, they
+
+951
+01:36:43,080 --> 01:36:50,840
+ will map your data into a higher dimension and then you can actually split a line here,
+
+952
+01:36:50,840 --> 01:36:57,520
+ split and hyper plane here which will actually segregate the data samples of both of the
+
+953
+01:36:57,520 --> 01:36:59,840
+ classes here, right?
+
+954
+01:36:59,840 --> 01:37:04,760
+ And that is called a kernel trick, there are different kernels which you can use with the
+
+955
+01:37:04,760 --> 01:37:10,680
+ sport vector machine in order to let your data to be draw into a higher dimension and
+
+956
+01:37:10,680 --> 01:37:24,760
+ so on, right and I kernel trick and there are different kernels, linear kernel, polynomial,
+
+957
+01:37:24,760 --> 01:37:28,040
+ RBF and sigmoid and so on.
+
+958
+01:37:28,040 --> 01:37:50,400
+ Now, if we will go to the discussion here, just give me a second, I will share the screen
+
+959
+01:37:50,400 --> 01:38:00,600
+ with you.
+
+960
+01:38:00,600 --> 01:38:30,440
+ So, they have given a very good result.
+
+961
+01:38:30,440 --> 01:38:38,440
+ Very good video where you can easily understand the concept of kernel which we were discussing.
+
+962
+01:38:38,440 --> 01:38:51,560
+ I think this one, very short video of 43 seconds, the same thing which we discussed before,
+
+963
+01:38:51,560 --> 01:39:04,400
+ just have a look to this video where you can see the data points for one of the class is
+
+964
+01:39:04,400 --> 01:39:08,760
+ in the middle, the blue one and the red one on the other side.
+
+965
+01:39:08,760 --> 01:39:20,520
+ So, what they have done, see the data is here in the blue one in the middle and the red
+
+966
+01:39:20,520 --> 01:39:38,900
+ one is on the side, now if you will see all of the red one or on the top and the butter
+
+967
+01:39:38,900 --> 01:39:48,960
+ one is with the blue which was in the middle and then you can have a one separator here
+
+968
+01:39:48,960 --> 01:39:53,360
+ which can easily segregate the blue one and the red one.
+
+969
+01:39:53,360 --> 01:40:05,880
+ That is called kernel link where you are actually mapping your data into a higher dimension.
+
+970
+01:40:05,880 --> 01:40:21,720
+ Watch it one more time.
+
+971
+01:40:21,720 --> 01:40:39,560
+ Okay, thank you.
+
+972
+01:40:39,560 --> 01:41:04,640
+ Okay, I hope you have understood this one.
+
+973
+01:41:04,640 --> 01:41:09,680
+ And any questions so far?
+
+974
+01:41:09,680 --> 01:41:17,520
+ So just to clarify in terms of that classification, if on a lateral plane, I mean for visualization,
+
+975
+01:41:17,520 --> 01:41:25,540
+ if we have class A on the outside and class B in the inside, then what we need to do is
+
+976
+01:41:25,540 --> 01:41:32,640
+ through kernel link, we create that hyperbole where it then sort of makes it easier for
+
+977
+01:41:32,640 --> 01:41:39,840
+ us to classify between class A and class B. True, yes.
+
+978
+01:41:39,840 --> 01:41:41,720
+ Okay.
+
+979
+01:41:41,720 --> 01:41:47,120
+ Because otherwise it is difficult for you to segregate if you will on the linear space,
+
+980
+01:41:47,120 --> 01:41:55,080
+ if you will just draw a hyperplane, then you would have a high misclassification rate.
+
+981
+01:41:55,080 --> 01:42:03,760
+ So you are just tweaking around in order to have the right classification, just mapping
+
+982
+01:42:03,760 --> 01:42:26,160
+ that data into a higher dimension, that is it.
+
+983
+01:42:26,160 --> 01:42:52,820
+ The other thing is the Google Colab, if I would be sharing that one.
+
+984
+01:42:52,820 --> 01:43:15,200
+ So if I will upload, for example, this one here.
+
+985
+01:43:15,200 --> 01:43:33,920
+ So you will see here, there are different data set of different phases where they have
+
+986
+01:43:33,920 --> 01:43:43,120
+ given the example and they have actually, the important part is when they are actually
+
+987
+01:43:43,120 --> 01:43:59,040
+ applying this SVC, sport vector classifier, kernel is RBF and then they are actually segregating.
+
+988
+01:43:59,040 --> 01:44:02,560
+ That is one of the example that they have given.
+
+989
+01:44:02,560 --> 01:44:08,800
+ The second one is, and that is what I picked from your activities, which you need to do.
+
+990
+01:44:08,800 --> 01:44:21,400
+ The second one is related to
+
+991
+01:44:21,400 --> 01:44:24,140
+ this breast cancer classification.
+
+992
+01:44:24,140 --> 01:44:33,040
+ The data set is uploaded here, they just have to analyze your data and after that one, they
+
+993
+01:44:33,040 --> 01:44:40,440
+ just have looked up to the target class and after the target class, they just have looked
+
+994
+01:44:40,440 --> 01:44:46,520
+ up your head and tail, visualize your data, you can do that realization for your second
+
+995
+01:44:46,520 --> 01:44:54,480
+ and third assessment as well, scatter plot as well, heat map as well and draw up if there
+
+996
+01:44:54,480 --> 01:45:00,560
+ would be any value, then train, test, split, just see the samples, how many samples you
+
+997
+01:45:00,560 --> 01:45:06,320
+ have got in training and how many into the testing and then you applied the sport vector
+
+998
+01:45:06,320 --> 01:45:14,080
+ machine, sklearn, SVM import SVC and then create an object and then that object just
+
+999
+01:45:14,080 --> 01:45:20,620
+ fit your data and this is by default values, the C value, the gamma value, the kernel is
+
+1000
+01:45:20,620 --> 01:45:26,200
+ RBF, which is by default, if you will do this one and then you can just have that prediction,
+
+1001
+01:45:26,200 --> 01:45:32,200
+ you can realize your confusion matrix using this code in the form of heat map and if you
+
+1002
+01:45:32,200 --> 01:45:37,720
+ want to see it as a report, you can see the classification report, y test and y pred,
+
+1003
+01:45:37,720 --> 01:45:42,800
+ y pred means the prediction that you have got, y test is your actual one which you have
+
+1004
+01:45:42,800 --> 01:45:48,640
+ got, right and then you can see what is your recall accuracy and so on.
+
+1005
+01:45:48,640 --> 01:45:59,160
+ So that is one of the examples in our today's class which you need to do the SVC, right
+
+1006
+01:45:59,160 --> 01:46:21,800
+ okay and that is one thing, the other important thing that you need to do the SVC is to look
+
+1007
+01:46:21,800 --> 01:46:39,760
+ for SVM, go to SVM, simple scikit-learn one and then you will see that is used for classification
+
+1008
+01:46:39,760 --> 01:46:48,280
+ right, SVC, if you will see the SVC, then you will see these are the hyper parameters,
+
+1009
+01:46:48,280 --> 01:46:53,680
+ you have a value of C, you have a value of kernel, you have a value of gamma, normally
+
+1010
+01:46:53,680 --> 01:46:59,180
+ these are the three important one which is making a huge difference and then they have
+
+1011
+01:46:59,180 --> 01:47:04,780
+ mentioned the default values and what the default kernel as you see with the recent
+
+1012
+01:47:04,780 --> 01:47:11,160
+ example which we just discussed, the default value for the C was 1.0 and for the kernel
+
+1013
+01:47:11,160 --> 01:47:21,840
+ it was RBF and so on, right and you can simply explore this sport vector machine.
+
+1014
+01:47:41,160 --> 01:48:05,320
+ Okay, they have not given any implementation, what I want to show you some other important
+
+1015
+01:48:05,320 --> 01:48:17,840
+ stuff.
+
+1016
+01:48:35,320 --> 01:48:55,340
+ but while you just change the value of the kernel, you are going to implement the
+
+1017
+01:48:55,340 --> 01:49:04,000
+ different kind of sport vector machines very easily, right, so it is not if like for example,
+
+1018
+01:49:04,000 --> 01:49:11,020
+ whatever the classification task you are doing as you are doing for your second assessment,
+
+1019
+01:49:11,020 --> 01:49:19,240
+ you just change the value of the kernel for example, like here different kind of kernels
+
+1020
+01:49:19,240 --> 01:49:29,840
+ what you can do is you just have to say svm.svc and the kernel is linear, right, you will
+
+1021
+01:49:29,840 --> 01:49:34,760
+ set the fit and you will set the boundary and so on and then you can simply change it
+
+1022
+01:49:34,760 --> 01:49:45,680
+ to polynomial, right and simply build another model and definitely these kernels, let me
+
+1023
+01:49:45,680 --> 01:49:53,320
+ tell you, they have a very huge difference in the overall performance of your whatever
+
+1024
+01:49:53,320 --> 01:49:59,000
+ the problem you are like implementing them, right, so maybe with the RBF kernel you are
+
+1025
+01:49:59,000 --> 01:50:01,440
+ getting 80% accuracy.
+
+1026
+01:50:01,440 --> 01:50:08,120
+ But when you apply the linear kernel, there would be a 70% accuracy, so most of the cases
+
+1027
+01:50:08,120 --> 01:50:15,120
+ they have a very huge difference in terms of the overall performance when you change
+
+1028
+01:50:15,120 --> 01:50:21,680
+ the value of the kernel, right, so the point which I am going to make the link which I
+
+1029
+01:50:21,680 --> 01:50:36,280
+ shared you in my last announcement if you remember if you will have a look to
+
+1030
+01:50:36,280 --> 01:51:05,160
+ the Naive Bayes one which I did where I shared the, there you see Naive Bayes algorithm with
+
+1031
+01:51:05,160 --> 01:51:11,400
+ different Naive Bayes and similarly here they applied sport vector machine, so here svm,
+
+1032
+01:51:11,400 --> 01:51:17,980
+ so svc you can try if kernel is equal to linear, if kernel is equal to polynomial, if kernel
+
+1033
+01:51:17,980 --> 01:51:25,860
+ is equal to sigmoid and the rest of the code would be 100% same, right, you just need to
+
+1034
+01:51:25,860 --> 01:51:36,720
+ change the hyper parameters here into the svc when you create its object, right, so
+
+1035
+01:51:36,720 --> 01:51:43,320
+ you just have to change the values here, right, and you would be all fine to implement multiple
+
+1036
+01:51:43,320 --> 01:51:51,500
+ models for your second assessments, right, so even if you apply the cn3 you can apply
+
+1037
+01:51:51,500 --> 01:51:57,880
+ random forest, you can apply logistic regression which we will study shortly, you can apply
+
+1038
+01:51:57,880 --> 01:52:04,280
+ Naive Bayes and within the Naive Bayes you can apply multiple Naive Bayes, Gaussian Naive
+
+1039
+01:52:04,280 --> 01:52:11,540
+ Bayes, Bernoulli Naive Bayes and so on which we discussed in our last classes, similarly
+
+1040
+01:52:11,540 --> 01:52:18,240
+ when you apply svm you can apply svm with linear kernel with polynomial and sigmoid
+
+1041
+01:52:18,240 --> 01:52:25,080
+ and so on RBF kernels, you can implement 8 or 10 models easily with just changing the
+
+1042
+01:52:25,080 --> 01:52:32,120
+ few lines of code and that would be all fine for your second assessment.
+
+1043
+01:52:32,120 --> 01:52:38,200
+ And then you can also apply the ensembling as well to see if combining the output of
+
+1044
+01:52:38,200 --> 01:52:48,440
+ multiples model whether there is an impact on the overall performance or not and yeah,
+
+1045
+01:52:48,440 --> 01:52:49,720
+ that is important thing.
+
+1046
+01:52:49,720 --> 01:53:04,020
+ Another one is which you can also explore is that as I mentioned that during my PhD
+
+1047
+01:53:04,020 --> 01:53:12,560
+ I have actually implemented this Naive Bayes algorithm and also this sport vector machine
+
+1048
+01:53:12,560 --> 01:53:22,640
+ and different variations of this one, so let me also share with you that one as well, let
+
+1049
+01:53:22,640 --> 01:53:35,480
+ me quickly first show you and then you can explore it further.
+
+1050
+01:53:35,480 --> 01:53:55,000
+ Which I will also share you in an announcement, so this is the paper where actually I proposed
+
+1051
+01:53:55,000 --> 01:54:10,680
+ a learning based algorithm for malware detection, in that one you can have a look that I have
+
+1052
+01:54:10,680 --> 01:54:19,480
+ actually implemented different models as you can see I am going to show you one of the
+
+1053
+01:54:19,480 --> 01:54:34,960
+ other tables, so here I implemented 15 deep learning models and for example, any of the
+
+1054
+01:54:34,960 --> 01:54:44,080
+ deep learning model can be used in two ways, one way is from the start up till the end
+
+1055
+01:54:44,080 --> 01:54:51,540
+ you will use it for the classification, then we call it as end to end classification.
+
+1056
+01:54:51,540 --> 01:54:58,920
+ The other way is if you will feel that this deep learning model is trained on another
+
+1057
+01:54:58,920 --> 01:55:06,640
+ data set and you are using just for your purpose which is totally different, for example these
+
+1058
+01:55:06,640 --> 01:55:13,960
+ models are trained on to do some image classification of some real life images and you are doing
+
+1059
+01:55:13,960 --> 01:55:22,840
+ it for your malware classification whether an image is of a normal file or a malware
+
+1060
+01:55:22,840 --> 01:55:29,040
+ file, so that is not built for this one, so what you can do is you use their learning,
+
+1061
+01:55:29,040 --> 01:55:38,840
+ you use their capabilities but from the second last layer you can actually get the parameters
+
+1062
+01:55:38,840 --> 01:55:47,040
+ from there, the features from there and then use those features to give to another machine
+
+1063
+01:55:47,040 --> 01:55:56,040
+ learning model to do the classification, so one way is you will do this VGG 16 and you
+
+1064
+01:55:56,040 --> 01:56:04,000
+ get its accuracy is 93% accuracy, right that is used for end to end classification but
+
+1065
+01:56:04,000 --> 01:56:12,960
+ if you will use the features which are extracted from the second last layer of this VGG 16
+
+1066
+01:56:12,960 --> 01:56:19,280
+ and you give to a bagging algorithm what is the accuracy, similarly the features that
+
+1067
+01:56:19,280 --> 01:56:24,840
+ you have extracted you have given to a logistic regression, you have given to a random forest,
+
+1068
+01:56:24,840 --> 01:56:29,500
+ you have given to an air base, you have given to a sea entry, you have given to a sport
+
+1069
+01:56:29,500 --> 01:56:34,360
+ vector machine and you see the performance is improved as compared to if it is exactly
+
+1070
+01:56:34,360 --> 01:56:39,740
+ used for end to end classification and if you will just extract the features from the
+
+1071
+01:56:39,740 --> 01:56:49,600
+ second last layer and given to a SVM, the accuracy is improved to 97%, so for all of
+
+1072
+01:56:49,600 --> 01:57:00,640
+ the 15 deep learning model into I think 10 or 13 machine learning models I have implemented
+
+1073
+01:57:00,640 --> 01:57:07,800
+ and got all of this score, if it is extracted through regnet and applied directly then 88%
+
+1074
+01:57:07,800 --> 01:57:13,880
+ but if it is features are extracted through the regnet and then given to any air base
+
+1075
+01:57:13,880 --> 01:57:21,120
+ accuracy is 85%, if extracted features through this one given to an SVM the accuracy improved
+
+1076
+01:57:21,120 --> 01:57:28,720
+ to 98%, right and this is mostly what I have done but the important thing which I want
+
+1077
+01:57:28,720 --> 01:57:37,400
+ to tell you is the thing here is the proposed framework is where I used this SVM and I have
+
+1078
+01:57:37,400 --> 01:57:45,520
+ explained that one in detail here, you can have a look which we also discussed here.
+
+1079
+01:57:45,520 --> 01:57:52,860
+ This is the simple, I used any of the file, any executable file, I first converted them
+
+1080
+01:57:52,860 --> 01:57:59,760
+ into an image and you will see if malware file is converted to an image, it looks different
+
+1081
+01:57:59,760 --> 01:58:10,760
+ as compared to if a benign file, non-malicious file is converted to an image and later on
+
+1082
+01:58:10,760 --> 01:58:20,480
+ here is that final classifier where you can see the one which we discussed where is to
+
+1083
+01:58:20,480 --> 01:58:31,720
+ increase its zonius here, right, here I used the final proposed one is the SVM here, right
+
+1084
+01:58:31,720 --> 01:58:40,440
+ in the middle one here, so you will see I explained what is class 1, class 2, these
+
+1085
+01:58:40,440 --> 01:58:46,760
+ are the sport vector 1 which has the closest one to that hyper plane and I increase what
+
+1086
+01:58:46,760 --> 01:58:54,860
+ is the margin and so on, all those things here, right for this malware detection purposes,
+
+1087
+01:58:54,860 --> 01:59:02,820
+ so I explain in detail like what could be the best and the mathematics behind this sport
+
+1088
+01:59:02,820 --> 01:59:10,080
+ vector machine and all the mathematics, the machine learning stuff behind that one, so
+
+1089
+01:59:10,080 --> 01:59:15,840
+ you can also have a read to this paper and if there would be any question that has come
+
+1090
+01:59:15,840 --> 01:59:20,500
+ into your mind, you may ask, you not have to understand everything of that one because
+
+1091
+01:59:20,500 --> 01:59:25,680
+ you do not know about deep learning, you do not know about other world, other models but
+
+1092
+01:59:25,680 --> 01:59:35,400
+ just to have a feel that how these sport vector machines could be used in a real world task
+
+1093
+01:59:35,400 --> 01:59:43,760
+ and to solve the real world problems, so yeah that is all about the SVM that is the most
+
+1094
+01:59:43,760 --> 01:59:47,360
+ very powerful machine learning algorithms.
+
+1095
+01:59:47,360 --> 01:59:58,040
+ So, yeah that is all from my side today, you can have a look to those activities and you
+
+1096
+01:59:58,040 --> 02:00:04,920
+ can explore how to implement this SVM very easy, I have shown you in the activities,
+
+1097
+02:00:04,920 --> 02:00:10,080
+ you can see you just have to change the value of the kernel, one of the hyper parameters
+
+1098
+02:00:10,080 --> 02:00:16,640
+ of the sport vector classifier and you can see its impact, it is on the overall performance
+
+1099
+02:00:16,640 --> 02:00:23,200
+ of your model, so overall in today's lecture, we discussed very important point, we discussed
+
+1100
+02:00:23,200 --> 02:00:30,560
+ about confusion matrix, 4 different measures where we discussed the true positive, the
+
+1101
+02:00:30,560 --> 02:00:36,880
+ second letter tells you the classification, the label which assigned by your model and
+
+1102
+02:00:36,880 --> 02:00:43,400
+ the first letter tells you whether your model did it correctly or not and then how these
+
+1103
+02:00:43,400 --> 02:00:50,160
+ 4 measures could be used to build up the other matrix and then we discussed one of the inherent
+
+1104
+02:00:50,160 --> 02:00:56,860
+ problems that can come with whenever you apply the any of the machine learning AI algorithm
+
+1105
+02:00:56,860 --> 02:01:05,840
+ that is the imbalance data set issue, we discussed why in those cases specific matrix are important
+
+1106
+02:01:05,840 --> 02:01:12,400
+ to consider and it related to some of the problems I have given you a various example.
+
+1107
+02:01:12,400 --> 02:01:17,520
+ Then we discussed the sport vector machine, where we discussed about the important concept
+
+1108
+02:01:17,520 --> 02:01:24,840
+ of the hyper plane which is a line which is being drawn to segregate explicitly separate
+
+1109
+02:01:24,840 --> 02:01:32,640
+ the data samples of both of the classes and our aim is to increase the margin, margin
+
+1110
+02:01:32,640 --> 02:01:39,080
+ is the distance between the sport vector machine, sport vector points to that hyper plane and
+
+1111
+02:01:39,080 --> 02:01:44,880
+ sport vector points are the points which are the closer to that hyper plane and then we
+
+1112
+02:01:44,880 --> 02:01:54,640
+ discussed about the first priority is to actually increase that correct classification and later
+
+1113
+02:01:54,640 --> 02:01:57,800
+ on the priority would be to increase the margin.
+
+1114
+02:01:57,800 --> 02:02:05,360
+ Then we discussed about the kerneling concept where actually you gonna actually map your
+
+1115
+02:02:05,360 --> 02:02:15,720
+ data points into higher dimensions in order to like see your classification more effectively.
+
+1116
+02:02:15,720 --> 02:02:23,840
+ Any question, any doubt into this discussion you may have in your mind and please keep
+
+1117
+02:02:23,840 --> 02:02:30,440
+ working on your second assessment as well and if there would be any question along the
+
+1118
+02:02:30,440 --> 02:02:36,960
+ way you are most welcome to contact with me happy to answer but hopefully next week we
+
+1119
+02:02:36,960 --> 02:02:43,080
+ will have the feedback from the assessment one and also we will discuss our assessment
+
+1120
+02:02:43,080 --> 02:02:53,680
+ two in detail what are our expectations and how you can improve that one.
+
+1121
+02:02:53,680 --> 02:03:10,160
+ Before going to the activities any question you may have in our discussions.
+
+1122
+02:03:10,160 --> 02:03:25,320
+ Yeah any question Saroj, Suleiman, Sudip, Takunda, Renato, Feli, John, Wes, Usain, Noam.
+
+1123
+02:03:25,320 --> 02:03:26,680
+ Everything good so far.
+
+1124
+02:03:26,680 --> 02:03:27,680
+ Good.
+
+1125
+02:03:27,680 --> 02:03:33,840
+ I said just looking forward to the second assessment.
+
+1126
+02:03:33,840 --> 02:03:39,900
+ Yes so just start and if there is any question you are most welcome to discuss otherwise
+
+1127
+02:03:39,900 --> 02:03:48,720
+ I will discuss the assessment two next week because understanding of the assessment understanding
+
+1128
+02:03:48,720 --> 02:03:55,600
+ of the problem is also part of the assessment which is also very important later on nobody
+
+1129
+02:03:55,600 --> 02:04:00,720
+ will come to explain you they will just give the requirements and then you have to understand
+
+1130
+02:04:00,720 --> 02:04:03,920
+ and make your analogy and understanding first on that one.
+
+1131
+02:04:03,920 --> 02:04:10,940
+ So that is why I let you to work on your assessment first make some understanding and then it
+
+1132
+02:04:10,940 --> 02:04:18,080
+ would be easy for us to correct that understanding and given it a roadmap.
+
+1133
+02:04:18,080 --> 02:04:19,080
+ Yes Ferdy.
+
+1134
+02:04:19,080 --> 02:04:22,840
+ Yeah so when will you get the grid search CV?
+
+1135
+02:04:22,840 --> 02:04:28,280
+ Hopefully before the next week class in next next couple of days yeah hopefully before
+
+1136
+02:04:28,280 --> 02:04:33,280
+ the weekend during this week.
+
+1137
+02:04:33,280 --> 02:04:40,120
+ I paused because most of you have applied extension so that is why I don't want to release
+
+1138
+02:04:40,120 --> 02:04:45,880
+ before everyone will have the submission because otherwise it would be unfair for those people
+
+1139
+02:04:45,880 --> 02:04:48,120
+ who have submitted on time.
+
+1140
+02:04:48,120 --> 02:04:55,880
+ No no I mean I mean the code for assessment two.
+
+1141
+02:04:55,880 --> 02:04:59,960
+ The code for assessment two what do you mean?
+
+1142
+02:04:59,960 --> 02:05:01,240
+ Grid search CV.
+
+1143
+02:05:01,240 --> 02:05:08,360
+ Yeah yeah I will explain next week okay yeah you can simply search even what is grid search
+
+1144
+02:05:08,360 --> 02:05:16,480
+ CV and then I will also give you the code because sometimes you can do it manually as
+
+1145
+02:05:16,480 --> 02:05:22,520
+ well like you can implement it but grid search CV is very easy you can simply search and
+
+1146
+02:05:22,520 --> 02:05:30,600
+ wherever you get the code you can just simply use it just a few lines of code.
+
+1147
+02:05:30,600 --> 02:05:35,700
+ But don't worry about that one we are in week six next week would be the week seven so if
+
+1148
+02:05:35,700 --> 02:05:40,960
+ you have implemented few of the models grid search CV would be top of that one you don't
+
+1149
+02:05:40,960 --> 02:05:45,760
+ need to make any modification into your console don't worry about that one where you will
+
+1150
+02:05:45,760 --> 02:05:56,600
+ have that code you will just embed it and it would be all fine it would be an incremental.
+
+1151
+02:05:56,600 --> 02:06:00,240
+ So the rest of the time please do your activities go through the code and if there would be
+
+1152
+02:06:00,240 --> 02:06:09,560
+ any question we can discuss okay till that all the best and have a good day yet.
+
+1153
+02:06:09,560 --> 02:06:10,560
+ Thank you.
+
+1154
+02:06:10,560 --> 02:06:11,560
+ Thank you professor.
+
+1155
+02:06:11,560 --> 02:06:12,560
+ Thank you.
+
+1156
+02:06:12,560 --> 02:06:12,560
+ Thank you.
+
+1157
+02:06:30,240 --> 02:06:31,240
+ Thank you.
+
+1158
+02:06:31,240 --> 02:06:31,240
+ Thank you.
+
+1159
+02:07:00,240 --> 02:07:01,240
+ Thank you.
+
+1160
+02:07:01,240 --> 02:07:01,240
+ Thank you.
+
+1161
+02:07:30,240 --> 02:07:32,240
+ Thank you.
+
+1162
+02:07:32,240 --> 02:07:33,240
+ Thank you.
+
+1163
+02:07:33,240 --> 02:07:33,240
+ Thank you.
+
+1164
+02:08:00,240 --> 02:08:01,240
+ Thank you.
+
+1165
+02:08:01,240 --> 02:08:02,240
+ Thank you.
+
+1166
+02:08:02,240 --> 02:08:02,240
+ Thank you.
+
+1167
+02:08:30,240 --> 02:08:32,240
+ Thank you.
+
+1168
+02:08:32,240 --> 02:08:32,240
+ Thank you.
+
+1169
+02:09:00,240 --> 02:09:02,240
+ Thank you.
+
+1170
+02:09:02,240 --> 02:09:03,240
+ Thank you.
+
+1171
+02:09:03,240 --> 02:09:03,240
+ Thank you.
+
+1172
+02:09:30,240 --> 02:09:31,240
+ Thank you.
+
+1173
+02:09:31,240 --> 02:09:32,240
+ Thank you.
+
+1174
+02:09:32,240 --> 02:09:32,240
+ Thank you.
+
+1175
+02:10:00,240 --> 02:10:01,240
+ Thank you.
+
+1176
+02:10:01,240 --> 02:10:02,240
+ Thank you.
+
+1177
+02:10:02,240 --> 02:10:02,240
+ Thank you.
+
+1178
+02:10:30,240 --> 02:10:31,240
+ Thank you.
+
+1179
+02:10:31,240 --> 02:10:32,240
+ Thank you.
+
+1180
+02:10:32,240 --> 02:10:33,240
+ Thank you.
+
+1181
+02:10:33,240 --> 02:10:33,240
+ Thank you.
+
+1182
+02:11:00,240 --> 02:11:01,240
+ Thank you.
+
+1183
+02:11:01,240 --> 02:11:02,240
+ Thank you.
+
+1184
+02:11:02,240 --> 02:11:03,240
+ Thank you.
+
+1185
+02:11:03,240 --> 02:11:03,240
+ Thank you.
+
+1186
+02:11:30,240 --> 02:11:31,240
+ Thank you.
+
+1187
+02:11:31,240 --> 02:11:32,240
+ Thank you.
+
+1188
+02:11:32,240 --> 02:11:33,240
+ Thank you.
+
+1189
+02:11:33,240 --> 02:11:33,240
+ Thank you.
+
+1190
+02:12:00,240 --> 02:12:01,240
+ Thank you.
+
+1191
+02:12:01,240 --> 02:12:01,240
+ Thank you.
+
+1192
+02:12:30,240 --> 02:12:31,240
+ Thank you.
+
+1193
+02:12:31,240 --> 02:12:31,240
+ Thank you.
+
+1194
+02:13:00,240 --> 02:13:01,240
+ Thank you.
+
+1195
+02:13:01,240 --> 02:13:02,240
+ Thank you.
+
+1196
+02:13:02,240 --> 02:13:03,240
+ Thank you.
+
+1197
+02:13:03,240 --> 02:13:03,240
+ Thank you.
+
+1198
+02:13:30,240 --> 02:13:31,240
+ Thank you.
+
+1199
+02:13:31,240 --> 02:13:32,240
+ Thank you.
+
+1200
+02:13:32,240 --> 02:13:33,240
+ Thank you.
+
+1201
+02:13:33,240 --> 02:13:33,240
+ Thank you.
+
+1202
+02:14:00,240 --> 02:14:01,240
+ Thank you.
+
+1203
+02:14:01,240 --> 02:14:02,240
+ Thank you.
+
+1204
+02:14:02,240 --> 02:14:03,240
+ Thank you.
+
+1205
+02:14:03,240 --> 02:14:03,240
+ Thank you.
+
+1206
+02:14:30,240 --> 02:14:31,240
+ Thank you.
+
+1207
+02:14:31,240 --> 02:14:32,240
+ Thank you.
+
+1208
+02:14:32,240 --> 02:14:33,240
+ Thank you.
+
+1209
+02:14:33,240 --> 02:14:33,240
+ Thank you.
+
+1210
+02:15:00,240 --> 02:15:01,240
+ Thank you.
+
+1211
+02:15:01,240 --> 02:15:02,240
+ Thank you.
+
+1212
+02:15:02,240 --> 02:15:03,240
+ Thank you.
+
+1213
+02:15:03,240 --> 02:15:03,240
+ Thank you.
+
+1214
+02:15:30,240 --> 02:15:31,240
+ Thank you.
+
+1215
+02:15:31,240 --> 02:15:32,240
+ Thank you.
+
+1216
+02:15:32,240 --> 02:15:32,240
+ Thank you.
+
+1217
+02:16:00,240 --> 02:16:01,240
+ Thank you.
+
+1218
+02:16:01,240 --> 02:16:02,240
+ Thank you.
+
+1219
+02:16:02,240 --> 02:16:03,240
+ Thank you.
+
+1220
+02:16:03,240 --> 02:16:03,240
+ Thank you.
+
+1221
+02:16:30,240 --> 02:16:31,240
+ Thank you.
+
+1222
+02:16:31,240 --> 02:16:32,240
+ Thank you.
+
+1223
+02:16:32,240 --> 02:16:33,240
+ Thank you.
+
+1224
+02:16:33,240 --> 02:16:33,240
+ Thank you.
+
+1225
+02:17:00,240 --> 02:17:01,240
+ Thank you.
+
+1226
+02:17:01,240 --> 02:17:02,240
+ Thank you.
+
+1227
+02:17:02,240 --> 02:17:03,240
+ Thank you.
+
+1228
+02:17:03,240 --> 02:17:03,240
+ Thank you.
+
+1229
+02:17:30,240 --> 02:17:31,240
+ Thank you.
+
+1230
+02:17:31,240 --> 02:17:32,240
+ Thank you.
+
+1231
+02:17:32,240 --> 02:17:33,240
+ Thank you.
+
+1232
+02:17:33,240 --> 02:17:33,240
+ Thank you.
+
+1233
+02:18:00,240 --> 02:18:01,240
+ Thank you.
+
+1234
+02:18:01,240 --> 02:18:02,240
+ Thank you.
+
+1235
+02:18:02,240 --> 02:18:03,240
+ Thank you.
+
+1236
+02:18:03,240 --> 02:18:03,240
+ Thank you.
+
+1237
+02:18:30,240 --> 02:18:31,240
+ Thank you.
+
+1238
+02:18:31,240 --> 02:18:32,240
+ Thank you.
+
+1239
+02:18:32,240 --> 02:18:33,240
+ Thank you.
+
+1240
+02:18:33,240 --> 02:18:33,240
+ Thank you.
+
+1241
+02:19:00,240 --> 02:19:01,240
+ Thank you.
+
+1242
+02:19:01,240 --> 02:19:02,240
+ Thank you.
+
+1243
+02:19:02,240 --> 02:19:03,240
+ Thank you.
+
+1244
+02:19:03,240 --> 02:19:03,240
+ Thank you.
+
+1245
+02:19:30,240 --> 02:19:31,240
+ Thank you.
+
+1246
+02:19:31,240 --> 02:19:32,240
+ Thank you.
+
+1247
+02:19:32,240 --> 02:19:32,240
+ Thank you.
+
+1248
+02:20:00,240 --> 02:20:01,240
+ Thank you.
+
+1249
+02:20:01,240 --> 02:20:02,240
+ Thank you.
+
+1250
+02:20:02,240 --> 02:20:03,240
+ Thank you.
+
+1251
+02:20:03,240 --> 02:20:03,240
+ Thank you.
+
+1252
+02:20:30,240 --> 02:20:31,240
+ Thank you.
+
+1253
+02:20:31,240 --> 02:20:32,240
+ Thank you.
+
+1254
+02:20:32,240 --> 02:20:33,240
+ Thank you.
+
+1255
+02:20:33,240 --> 02:20:33,240
+ Thank you.
+
+1256
+02:21:00,240 --> 02:21:01,240
+ Thank you.
+
+1257
+02:21:01,240 --> 02:21:02,240
+ Thank you.
+
+1258
+02:21:02,240 --> 02:21:03,240
+ Thank you.
+
+1259
+02:21:03,240 --> 02:21:03,240
+ Thank you.
+
+1260
+02:21:30,240 --> 02:21:31,240
+ Thank you.
+
+1261
+02:21:31,240 --> 02:21:31,240
+ Thank you.
+
+1262
+02:22:00,240 --> 02:22:01,240
+ Thank you.
+
+1263
+02:22:01,240 --> 02:22:02,240
+ Thank you.
+
+1264
+02:22:02,240 --> 02:22:03,240
+ Thank you.
+
+1265
+02:22:03,240 --> 02:22:03,240
+ Thank you.
+
+1266
+02:22:30,240 --> 02:22:31,240
+ Thank you.
+
+1267
+02:22:31,240 --> 02:22:32,240
+ Thank you.
+
+1268
+02:22:32,240 --> 02:22:33,240
+ Thank you.
+
+1269
+02:22:33,240 --> 02:22:33,240
+ Thank you.
+
+1270
+02:23:00,240 --> 02:23:01,240
+ Thank you.
+
+1271
+02:23:01,240 --> 02:23:02,240
+ Thank you.
+
+1272
+02:23:02,240 --> 02:23:03,240
+ Thank you.
+
+1273
+02:23:03,240 --> 02:23:03,240
+ Thank you.
+
+1274
+02:23:30,240 --> 02:23:31,240
+ Thank you.
+
+1275
+02:23:31,240 --> 02:23:32,240
+ Thank you.
+
+1276
+02:23:32,240 --> 02:23:33,240
+ Thank you.
+
+1277
+02:23:33,240 --> 02:23:33,240
+ Thank you.
+
+1278
+02:24:00,240 --> 02:24:01,240
+ Thank you.
+
+1279
+02:24:01,240 --> 02:24:01,240
+ Thank you.
+
+1280
+02:24:30,240 --> 02:24:31,240
+ Thank you.
+
+1281
+02:24:31,240 --> 02:24:32,240
+ Thank you.
+
+1282
+02:24:32,240 --> 02:24:33,240
+ Thank you.
+
+1283
+02:24:33,240 --> 02:24:33,240
+ Thank you.
+
+1284
+02:25:00,240 --> 02:25:01,240
+ Thank you.
+
+1285
+02:25:01,240 --> 02:25:02,240
+ Thank you.
+
+1286
+02:25:02,240 --> 02:25:03,240
+ Thank you.
+
+1287
+02:25:03,240 --> 02:25:03,240
+ Thank you.
+
+1288
+02:25:30,240 --> 02:25:31,240
+ Thank you.
+
+1289
+02:25:31,240 --> 02:25:32,240
+ Thank you.
+
+1290
+02:25:32,240 --> 02:25:32,240
+ Thank you.
+
+1291
+02:26:00,240 --> 02:26:01,240
+ Thank you.
+
+1292
+02:26:01,240 --> 02:26:02,240
+ Thank you.
+
+1293
+02:26:02,240 --> 02:26:03,240
+ Thank you.
+
+1294
+02:26:03,240 --> 02:26:03,240
+ Thank you.
+
+1295
+02:26:30,240 --> 02:26:31,240
+ Thank you.
+
+1296
+02:26:31,240 --> 02:26:32,240
+ Thank you.
+
+1297
+02:26:32,240 --> 02:26:33,240
+ Thank you.
+
+1298
+02:26:33,240 --> 02:26:33,240
+ Thank you.
+
+1299
+02:27:00,240 --> 02:27:01,240
+ Thank you.
+
+1300
+02:27:01,240 --> 02:27:02,240
+ Thank you.
+
+1301
+02:27:02,240 --> 02:27:03,240
+ Thank you.
+
+1302
+02:27:03,240 --> 02:27:03,240
+ Thank you.
+
+1303
+02:27:30,240 --> 02:27:31,240
+ Thank you.
+
+1304
+02:27:31,240 --> 02:27:32,240
+ Thank you.
+
+1305
+02:27:32,240 --> 02:27:33,240
+ Thank you.
+
+1306
+02:27:33,240 --> 02:27:33,240
+ Thank you.
+
+1307
+02:28:00,240 --> 02:28:01,240
+ Thank you.
+
+1308
+02:28:01,240 --> 02:28:02,240
+ Thank you.
+
+1309
+02:28:02,240 --> 02:28:03,240
+ Thank you.
+
+1310
+02:28:03,240 --> 02:28:03,240
+ Thank you.
+
+1311
+02:28:30,240 --> 02:28:31,240
+ Thank you.
+
+1312
+02:28:31,240 --> 02:28:32,240
+ Thank you.
+
+1313
+02:28:32,240 --> 02:28:33,240
+ Thank you.
+
+1314
+02:28:33,240 --> 02:28:33,240
+ Thank you.
+
+1315
+02:29:00,240 --> 02:29:01,240
+ Thank you.
+
+1316
+02:29:01,240 --> 02:29:02,240
+ Thank you.
+
+1317
+02:29:02,240 --> 02:29:03,240
+ Thank you.
+
+1318
+02:29:03,240 --> 02:29:03,240
+ Thank you.
+
+1319
+02:29:30,240 --> 02:29:31,240
+ Thank you.
+
+1320
+02:29:31,240 --> 02:29:32,240
+ Thank you.
+
+1321
+02:29:32,240 --> 02:29:33,240
+ Thank you.
+
+1322
+02:29:33,240 --> 02:29:33,240
+ Thank you.
+
+1323
+02:30:00,240 --> 02:30:01,240
+ Thank you.
+
+1324
+02:30:01,240 --> 02:30:02,240
+ Thank you.
+
+1325
+02:30:02,240 --> 02:30:03,240
+ Thank you.
+
+1326
+02:30:03,240 --> 02:30:03,240
+ Thank you.
+
+1327
+02:30:30,240 --> 02:30:31,240
+ Thank you.
+
+1328
+02:30:31,240 --> 02:30:32,240
+ Thank you.
+
+1329
+02:30:32,240 --> 02:30:33,240
+ Thank you.
+
+1330
+02:30:33,240 --> 02:30:33,240
+ Thank you.
+
+1331
+02:31:00,240 --> 02:31:01,240
+ Thank you.
+
+1332
+02:31:01,240 --> 02:31:02,240
+ Thank you.
+
+1333
+02:31:02,240 --> 02:31:03,240
+ Thank you.
+
+1334
+02:31:03,240 --> 02:31:03,240
+ Thank you.
+
+1335
+02:31:30,240 --> 02:31:31,240
+ Thank you.
+
+1336
+02:31:31,240 --> 02:31:32,240
+ Thank you.
+
+1337
+02:31:32,240 --> 02:31:33,240
+ Thank you.
+
+1338
+02:31:33,240 --> 02:31:33,240
+ Thank you.
+
+1339
+02:32:00,240 --> 02:32:01,240
+ Thank you.
+
+1340
+02:32:01,240 --> 02:32:02,240
+ Thank you.
+
+1341
+02:32:02,240 --> 02:32:03,240
+ Thank you.
+
+1342
+02:32:03,240 --> 02:32:03,240
+ Thank you.
+
+1343
+02:32:30,240 --> 02:32:31,240
+ Thank you.
+
+1344
+02:32:31,240 --> 02:32:32,240
+ Thank you.
+
+1345
+02:32:32,240 --> 02:32:33,240
+ Thank you.
+
+1346
+02:32:33,240 --> 02:32:33,240
+ Thank you.
+
+1347
+02:33:00,240 --> 02:33:01,240
+ Thank you.
+
+1348
+02:33:01,240 --> 02:33:02,240
+ Thank you.
+
+1349
+02:33:02,240 --> 02:33:03,240
+ Thank you.
+
+1350
+02:33:03,240 --> 02:33:03,240
+ Thank you.
+
+1351
+02:33:30,240 --> 02:33:31,240
+ Thank you.
+
+1352
+02:33:31,240 --> 02:33:32,240
+ Thank you.
+
+1353
+02:33:32,240 --> 02:33:33,240
+ Thank you.
+
+1354
+02:33:33,240 --> 02:33:33,240
+ Thank you.
+
+1355
+02:34:00,240 --> 02:34:01,240
+ Thank you.
+
+1356
+02:34:01,240 --> 02:34:02,240
+ Thank you.
+
+1357
+02:34:02,240 --> 02:34:03,240
+ Thank you.
+
+1358
+02:34:03,240 --> 02:34:03,240
+ Thank you.
+
+1359
+02:34:30,240 --> 02:34:32,240
+ Thank you.
+
+1360
+02:35:00,240 --> 02:35:01,240
+ Thank you.
+
+1361
+02:35:01,240 --> 02:35:02,240
+ Thank you.
+
+1362
+02:35:02,240 --> 02:35:03,240
+ Thank you.
+
+1363
+02:35:03,240 --> 02:35:03,240
+ Thank you.
+
+1364
+02:35:30,240 --> 02:35:31,240
+ Thank you.
+
+1365
+02:35:31,240 --> 02:35:32,240
+ Thank you.
+
+1366
+02:35:32,240 --> 02:35:33,240
+ Thank you.
+
+1367
+02:35:33,240 --> 02:35:33,240
+ Thank you.
+
+1368
+02:36:00,240 --> 02:36:01,240
+ Thank you.
+
+1369
+02:36:01,240 --> 02:36:02,240
+ Thank you.
+
+1370
+02:36:02,240 --> 02:36:03,240
+ Thank you.
+
+1371
+02:36:03,240 --> 02:36:03,240
+ Thank you.
+
+1372
+02:36:30,240 --> 02:36:31,240
+ Thank you.
+
+1373
+02:36:31,240 --> 02:36:32,240
+ Thank you.
+
+1374
+02:36:32,240 --> 02:36:33,240
+ Thank you.
+
+1375
+02:36:33,240 --> 02:36:33,240
+ Thank you.
+
+1376
+02:37:00,240 --> 02:37:01,240
+ Thank you.
+
+1377
+02:37:01,240 --> 02:37:02,240
+ Thank you.
+
+1378
+02:37:02,240 --> 02:37:03,240
+ Thank you.
+
+1379
+02:37:03,240 --> 02:37:03,240
+ Thank you.
+
+1380
+02:37:30,240 --> 02:37:31,240
+ Thank you.
+
+1381
+02:37:31,240 --> 02:37:32,240
+ Thank you.
+
+1382
+02:37:32,240 --> 02:37:33,240
+ Thank you.
+
+1383
+02:37:33,240 --> 02:37:33,240
+ Thank you.
+
+1384
+02:38:00,240 --> 02:38:01,240
+ Thank you.
+
+1385
+02:38:01,240 --> 02:38:02,240
+ Thank you.
+
+1386
+02:38:02,240 --> 02:38:03,240
+ Thank you.
+
+1387
+02:38:03,240 --> 02:38:03,240
+ Thank you.
+
+1388
+02:38:30,240 --> 02:38:31,240
+ Thank you.
+
+1389
+02:38:31,240 --> 02:38:32,240
+ Thank you.
+
+1390
+02:38:32,240 --> 02:38:33,240
+ Thank you.
+
+1391
+02:38:33,240 --> 02:38:33,240
+ Thank you.
+
+1392
+02:39:00,240 --> 02:39:02,240
+ Thank you.
+
+1393
+02:39:30,240 --> 02:39:31,240
+ Thank you.
+
+1394
+02:39:31,240 --> 02:39:32,240
+ Thank you.
+
+1395
+02:39:32,240 --> 02:39:33,240
+ Thank you.
+
+1396
+02:39:33,240 --> 02:39:33,240
+ Thank you.
+
+1397
+02:40:00,240 --> 02:40:01,240
+ Thank you.
+
+1398
+02:40:01,240 --> 02:40:02,240
+ Thank you.
+
+1399
+02:40:02,240 --> 02:40:03,240
+ Thank you.
+
+1400
+02:40:03,240 --> 02:40:03,240
+ Thank you.
+
+1401
+02:40:30,240 --> 02:40:31,240
+ Thank you.
+
+1402
+02:40:31,240 --> 02:40:32,240
+ Thank you.
+
+1403
+02:40:32,240 --> 02:40:32,240
+ Thank you.
+
+1404
+02:41:00,240 --> 02:41:01,240
+ Thank you.
+
+1405
+02:41:01,240 --> 02:41:02,240
+ Thank you.
+
+1406
+02:41:02,240 --> 02:41:03,240
+ Thank you.
+
+1407
+02:41:03,240 --> 02:41:03,240
+ Thank you.
+
+1408
+02:41:30,240 --> 02:41:32,240
+ Thank you.
+
+1409
+02:42:00,240 --> 02:42:01,240
+ Thank you.
+
+1410
+02:42:01,240 --> 02:42:01,240
+ Thank you.
+
+1411
+02:42:30,240 --> 02:42:31,240
+ Thank you.
+
+1412
+02:42:31,240 --> 02:42:32,240
+ Thank you.
+
+1413
+02:42:32,240 --> 02:42:33,240
+ Thank you.
+
+1414
+02:42:33,240 --> 02:42:33,240
+ Thank you.
+
+1415
+02:43:00,240 --> 02:43:01,240
+ Thank you.
+
+1416
+02:43:01,240 --> 02:43:02,240
+ Thank you.
+
+1417
+02:43:02,240 --> 02:43:03,240
+ Thank you.
+
+1418
+02:43:03,240 --> 02:43:03,240
+ Thank you.
+
+1419
+02:43:30,240 --> 02:43:31,240
+ Thank you.
+
+1420
+02:43:31,240 --> 02:43:32,240
+ Thank you.
+
+1421
+02:43:32,240 --> 02:43:33,240
+ Thank you.
+
+1422
+02:43:33,240 --> 02:43:33,240
+ Thank you.
+
+1423
+02:44:00,240 --> 02:44:01,240
+ Thank you.
+
+1424
+02:44:01,240 --> 02:44:02,240
+ Thank you.
+
+1425
+02:44:02,240 --> 02:44:03,240
+ Thank you.
+
+1426
+02:44:03,240 --> 02:44:03,240
+ Thank you.
+
+1427
+02:44:30,240 --> 02:44:31,240
+ Thank you.
+
+1428
+02:44:31,240 --> 02:44:32,240
+ Thank you.
+
+1429
+02:44:32,240 --> 02:44:33,240
+ Thank you.
+
+1430
+02:44:33,240 --> 02:44:33,240
+ Thank you.
+
+1431
+02:45:00,240 --> 02:45:01,240
+ Thank you.
+
+1432
+02:45:01,240 --> 02:45:02,240
+ Thank you.
+
+1433
+02:45:02,240 --> 02:45:03,240
+ Thank you.
+
+1434
+02:45:03,240 --> 02:45:03,240
+ Thank you.
+
+1435
+02:45:30,240 --> 02:45:31,240
+ Thank you.
+
+1436
+02:45:31,240 --> 02:45:32,240
+ Thank you.
+
+1437
+02:45:32,240 --> 02:45:33,240
+ Thank you.
+
+1438
+02:45:33,240 --> 02:45:33,240
+ Thank you.
+
+1439
+02:46:00,240 --> 02:46:01,240
+ Thank you.
+
+1440
+02:46:01,240 --> 02:46:02,240
+ Thank you.
+
+1441
+02:46:02,240 --> 02:46:03,240
+ Thank you.
+
+1442
+02:46:03,240 --> 02:46:03,240
+ Thank you.
+
+1443
+02:46:30,240 --> 02:46:31,240
+ Thank you.
+
+1444
+02:46:31,240 --> 02:46:32,240
+ Thank you.
+
+1445
+02:46:32,240 --> 02:46:33,240
+ Thank you.
+
+1446
+02:46:33,240 --> 02:46:33,240
+ Thank you.
+
+1447
+02:47:00,240 --> 02:47:01,240
+ Thank you.
+
+1448
+02:47:01,240 --> 02:47:02,240
+ Thank you.
+
+1449
+02:47:02,240 --> 02:47:02,240
+ Thank you.
+
+1450
+02:47:30,240 --> 02:47:31,240
+ Thank you.
+
+1451
+02:47:31,240 --> 02:47:32,240
+ Thank you.
+
+1452
+02:47:32,240 --> 02:47:33,240
+ Thank you.
+
+1453
+02:47:33,240 --> 02:47:33,240
+ Thank you.
+
+1454
+02:48:00,240 --> 02:48:01,240
+ Thank you.
+
+1455
+02:48:01,240 --> 02:48:02,240
+ Thank you.
+
+1456
+02:48:02,240 --> 02:48:03,240
+ Thank you.
+
+1457
+02:48:03,240 --> 02:48:03,240
+ Thank you.
+
+1458
+02:48:30,240 --> 02:48:31,240
+ Thank you.
+
+1459
+02:48:31,240 --> 02:48:31,240
+ Thank you.
+
+1460
+02:49:00,240 --> 02:49:01,240
+ Thank you.
+
+1461
+02:49:01,240 --> 02:49:02,240
+ Thank you.
+
+1462
+02:49:02,240 --> 02:49:03,240
+ Thank you.
+
+1463
+02:49:03,240 --> 02:49:03,240
+ Thank you.
+
+1464
+02:49:30,240 --> 02:49:31,240
+ Thank you.
+
+1465
+02:49:31,240 --> 02:49:32,240
+ Thank you.
+
+1466
+02:49:32,240 --> 02:49:33,240
+ Thank you.
+
+1467
+02:49:33,240 --> 02:49:33,240
+ Thank you.
+
+1468
+02:50:00,240 --> 02:50:01,240
+ Thank you.
+
+1469
+02:50:01,240 --> 02:50:02,240
+ Thank you.
+
+1470
+02:50:02,240 --> 02:50:03,240
+ Thank you.
+
+1471
+02:50:03,240 --> 02:50:03,240
+ Thank you.
+
+1472
+02:50:30,240 --> 02:50:31,240
+ Thank you.
+
+1473
+02:50:31,240 --> 02:50:31,240
+ Thank you.
+
+1474
+02:51:00,240 --> 02:51:01,240
+ Thank you.
+
+1475
+02:51:01,240 --> 02:51:01,240
+ Thank you.
+
+1476
+02:51:30,240 --> 02:51:31,240
+ Thank you.
+
+1477
+02:51:31,240 --> 02:51:32,240
+ Thank you.
+
+1478
+02:51:32,240 --> 02:51:33,240
+ Thank you.
+
+1479
+02:51:33,240 --> 02:51:33,240
+ Thank you.
+

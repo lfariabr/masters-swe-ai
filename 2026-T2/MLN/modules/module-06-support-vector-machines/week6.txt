@@ -1,0 +1,1479 @@
+ [BLANK_AUDIO]
+ >> Good morning, everyone.
+ [BLANK_AUDIO]
+ >> Good morning.
+ >> Good morning.
+ >> Good morning, sir.
+ >> Good morning.
+ >> Good morning.
+ [BLANK_AUDIO]
+ >> How are you going with the second assessment?
+ Have you started?
+ >> The second assessment, I just submitted it last week, previous last week.
+ Last week, I couldn't attend the class.
+ Yeah, I haven't yet because we had two more, I had two more assignments and
+ I have a presentation today.
+ So after this one, maybe we'll all sit with it.
+ Inshallah.
+ >> I got another very good tool.
+ What was the name of that tool?
+ It's very good.
+ Maybe you guys can explore that one.
+ It's name is Haygen, H-E-Y-G-E-N.
+ This is very good tool.
+ In that one, first, you have to give your voice, whatever you say,
+ just half a minute.
+ And then you give your video, whatever you say.
+ And afterwards, you have to give any script.
+ >> Okay.
+ >> And then it will make a video for you.
+ And seems like- >> AI?
+ >> Yeah, yeah, yeah, and then it will look like you are speaking.
+ So for example, if I record my video, my audio,
+ it will understand my official expression and voice related data.
+ How much I stress and how I say with how much energy I talk.
+ And then afterward, I can just give a script to deliver a lecture.
+ And you will assume that Kamran is speaking.
+ >> No, really?
+ >> Yeah, and sometimes it makes some problem with the official.
+ I just captured and developed one video there, but it's really good to explore.
+ I can just mention the name here.
+ So maybe you can explore later on.
+ Sometimes we are not even aware of various AI tools.
+ Normally, we say work with cloud and then with chat GPT.
+ But there are a lot of different tools.
+ For example, I know of one of the tool where you can give your PPT slides,
+ and it will generate a script for you.
+ >> Okay.
+ >> So things are going very easy, maybe we prepare slides.
+ Or maybe we give our notebook to any of the tools which can develop slide for us.
+ And then give another AI tool who will develop the transcript for
+ you based on those slides, and then use this tool in order to develop the video.
+ >> Wow, what's that called?
+ The presentation is on face-to-face, so I don't know.
+ Well, this one, if it was on video, maybe I would have done that.
+ Maybe I don't know, maybe teacher wouldn't have approved it.
+ >> Yeah, yeah, but I'm just sharing, I'm not asking you to do it.
+ >> Yeah, I might use it at my job, maybe, for a small interview.
+ I might use it for my job if I have to do any sort of presentation.
+ They don't check AIs or anything.
+ Sir, I have a small question regarding the assignment one.
+ Did you give us any feedbacks on that or not?
+ >> Yeah, hopefully maybe tomorrow, a day after tomorrow.
+ Because whenever the students submit,
+ we normally have ten days, two weeks in order to do that one.
+ So we just passed one week.
+ So hopefully, by this week, I will be able to share the feedback.
+ And then next week, I'm gonna discuss about the assessment two as well,
+ what you are supposed to do.
+ And also, I will tell you the feedback, discuss the feedback.
+ Because most of the things related to assessment one, two, and three are same.
+ So stages are same, so it would be good.
+ I will explain you how to improve your assessment two.
+ And definitely, that feedback will help you out to improve your assessment two.
+ >> All right, thank you.
+ >> Yes, Padi, Avaz, Hussain, John,
+ who are you going with machine learning, any suggestion you have?
+ >> Yeah, just- >> So when you go first.
+ >> Why so you go first?
+ >> No problem, you can ask the question.
+ I'll ask later, thanks.
+ >> So are we gonna go through assessment two today or next week?
+ >> Next week.
+ >> Yeah, because then we'll have the feedback from assessment, so
+ it would be good.
+ I can match, okay, this is the thing where you have to improve.
+ So it would be easy for you to map it.
+ >> Okay.
+ Any feedback, Padi, to how to improve the subject learning, are you going well?
+ >> Yep, yep, it's going well.
+ >> Yes, Avaz, please go ahead.
+ >> Professor, you have mentioned the name of app.
+ So we have presentation, I think, for the subject as well.
+ So can we use that one?
+ I'm just asking.
+ >> [LAUGH] I don't think so.
+ >> Okay, no, no, that's fine, that's fine.
+ >> I was just asking.
+ >> Because when we have our presentation and everything,
+ because for this particular subject they have actually based on your learning,
+ the student learning, right?
+ Later on, I'm not against, because my idea is when back in 1990s,
+ when they introduced later on the WWW and later on the search engines,
+ like Google at that time, people were even against at that time.
+ They were saying, we have to go to library and then search the book there,
+ get the material there.
+ What do you guys are learning?
+ We are learning a lot.
+ You are just giving the search string and getting the feedback and
+ all the material at one point.
+ People were against at that time as well.
+ Now, nobody will talk about this one.
+ And similarly, my idea is same that people know are against AI.
+ Why you are using AI, you have to search it by yourself.
+ You have to do the things by yourself.
+ With the AI, you can do the things quickly.
+ Why you are using this one.
+ So at one point of time, people will also accept this thing.
+ So yeah, and later on, maybe in future, I have planned next year,
+ we have to revise our machine learning assessments in a way where we can
+ let the student to use the AI to generate code, to capture videos.
+ And then we can think one step ahead of that one.
+ If I can do one thing easily, like why I have to struggle for that one.
+ >> Definitely.
+ >> Right, there could be a lot of different learning pathways ahead to
+ that one.
+ So it's not the case like you have to put your efforts, but
+ as of now they have set like no genii or anything.
+ It is based on the student learning, right?
+ But I'm okay to do with the coding stuff.
+ That is why if you will see last time, I have suggested to you different codes.
+ I have suggested to you, you can use those one.
+ Because for me as a, for you guys as a machine learning engineer,
+ I want you to use whatever the material available online.
+ But use it with the purpose to improve your assessment,
+ to improve more on the learning.
+ So you will see for assessment two, for assessment three,
+ I will give more focus on the modeling part.
+ I will give more focus, not just how many models you have implemented,
+ because I have given you the code.
+ So what's the point to test that one?
+ I will see how you are actually judging different hyper parameters.
+ What parameters you have to select?
+ Why you think that these set of parameters gave you the best accuracy?
+ Why this model has given you the best accuracy?
+ It's not you implemented five models.
+ I've told you last time, in our last lecture,
+ I've told you I've gone through the code, just two lines you have to change, and
+ you're gonna implement five different models.
+ And then I will not be happy, you have to implement one model,
+ you implemented five, really very good.
+ No, you have to tell me why you are implementing those five models.
+ What benefits you have got?
+ What was the issue in one of the models?
+ Why do you think like this model has not performed good?
+ Where that learning will come, where you learned there were some limitations with
+ the decision tree, there was some limitation with the algorithm.
+ How you have to improve, they were sensitive to the outliers,
+ they were sensitive to the missing data and so on.
+ Because in our data set, maybe a lot of values, a lot of columns,
+ a lot of fields and they have a lot of missing values, that could be one of
+ the reasons this particular model has not performed well there.
+ Or you will say, this model has these capabilities that is well aligned with
+ this data set, that is why you're thinking that it has outperformed there, right?
+ So, and another question for example, if at the end of machine learning course,
+ somebody asks you, what do you think what is the best model, right?
+ So, you can't say any of the model is the best, right?
+ You can say, these models have these limitations, right?
+ But you have to apply that one on a particular data set.
+ And then you can say, you can't say that here the decision tree outperformed and
+ for other model, the decision tree will also perform good.
+ No, maybe whatever and the capabilities this particular model has,
+ they are actually there into your research problem, into your data set, right?
+ And that is why that model performed really good there, right?
+ Did not good there because if there is a lot of missing values,
+ or maybe you have a sparse data set means that our values are not enough for
+ a machine learning model to train on, for example.
+ So that could be one of the reasons your model hasn't learned properly.
+ For example, if there are only few samples, for example, for
+ a fraudulent transaction, or there are a few sample for a COVID patient,
+ or there are a few samples for malicious files, and there are hell of different
+ non malicious benign files, or legitimate transactions.
+ So it means there is a problem of imbalance data set means for
+ one of the class you have very few sample for the other class you have a lot of files.
+ Right, and for that is the reason your model hasn't learned it properly.
+ Say for example, if you are speaking, if you are up for example for
+ 16 hours, and then in those 16 hours, you are speaking English for only two hours.
+ And rest of the 14 hours you are speaking in your native language,
+ in Hindi, in Bengali, whatever your native language is, right?
+ And then in that case, how can you expect you would be as fluent as you are in your
+ native language, you would be in the English as well.
+ Because you haven't given the proper time to mean the same case happened with your model
+ as well.
+ If there are only few samples for the fraudulent transaction or for COVID patient or for malicious
+ files, and there are hell of different files, different data set and items available for
+ legitimate transaction for benign file, right?
+ Then in that case, your model may not learn the minority class properly, right?
+ And that could be another reason why a particular model is not performing really well there.
+ So there could be a lot of different reasons where you can think of a model can perform
+ better or may not perform better there.
+ So you have to apply you have to test and then you can say for this particular one,
+ this model is outperforming and this is not outperforming.
+ So as such, there is no good or best model to that will work for all of the problems.
+ Okay, can can I ask some questions?
+ Yes, me too.
+ Or just wait for the next year, you can ask Yeah, please go right.
+ The first thing is that target split because the brief size low quality one below the value
+ of six and high quality zero below the value of six as well.
+ Is this a typo?
+ Yes.
+ Okay.
+ Right.
+ So should be less than six and greater than or equal six.
+ Correct?
+ Correct.
+ And the data set scoop is it combined same as the first one?
+ First assessment?
+ Right.
+ Uh, hyper parameters tuning, is it a manual iteration?
+ For me, I would I would suggest you to do the grid search CV, which I will teach you
+ in a while and then I will advise you to implement those one.
+ But as of now you can do try manually, but I will give you the code, the grid search
+ CV code.
+ I will explain you how to do it and you can just simply use it and all good.
+ Okay.
+ All right.
+ Thank you so much.
+ No worries.
+ No worries.
+ Okay.
+ So any, any other questions, any other feedback anyone has any further thing to discuss?
+ It's just during the assignment one I've submitted it.
+ And during that time, as I was going through the textbook and matching it, I realized that
+ the data set was only for one type of wine.
+ So the stratification, basically, I am yet to understand how the strategy, the stratify
+ function works when there's like multiple types of wine and they have different volume
+ of data set.
+ So that's something interested me while I was doing the assignment.
+ So what is your question?
+ What is your concern related to that one?
+ I'm not entirely sure how to implement that type of function when I have multiple types
+ of let's say data sets at different volumes.
+ It really depends because for this one, red wine and white wine, both have the same number
+ of parameters, same number of features and their names are same.
+ So as such, there is as such, no problem to integrate both of the data sets, right?
+ Because if one is saying student ID, other one is saying student number, or somebody
+ has the parameter name as simple ID, then if you will ask them to integrate both data
+ sets, then would be problem.
+ But in our case, since red wine and white wine data sets, both of these data sets, they
+ have, they share the same number, same type of parameters.
+ And our problem is not to distinguish between different kinds of wines.
+ We are just saying, okay, there is another kind of wine, black, white, red, white.
+ The thing is the problem which we are tackling is every wine data set, they have the same
+ number of features, type of parameters are same, number of parameters are same, and the
+ label is same and the label value, their distribution is also same, right?
+ They have a value in the range of 0 to 10.
+ And your task is just based on those parameters, you are predicting how much would be the count,
+ how much would be the quality of your wine, whether it is now for the second one, it would
+ be good and bad, which we will discuss how to actually convert them into a discrete attribute.
+ But for the first one, it was just a continuous value, and you just have to simply predict
+ it.
+ Doesn't matter what kind of wine is that one.
+ I see.
+ Okay.
+ Okay.
+ Okay, so as last time we discussed about the decision tree algorithm, we discussed about
+ the Naive Bayes algorithm, which we'll also quickly review.
+ But for both of those models, both machine learning algorithms, which we have studied
+ related to classification.
+ So as we discussed, classification is a supervised learning technique.
+ In supervised learning, we know the label what we are going to predict.
+ And out of that one, if the type of the attribute, if the type of the labels is discrete, then
+ it is called classification.
+ And if it is continuous in nature, then that is called regression, right.
+ And then we discussed that you will apply the decision tree algorithm, you can apply
+ random forest, you can apply in sampling, we will also study about logistic regression.
+ Today, we will discuss about sport vector machine and so on.
+ So in all of these one, we have to see which model is performing really good, as we were
+ discussing before, you can't say that this model is performing really well there, and
+ this model is not performing well.
+ So what are the basis, what are the metrics, what are the measures you have in your minds
+ based on which you can actually comparing the performance of your model.
+ So the main thing which we normally use for classification and which you will use for
+ your second assessment as well is the confusion matrix or the error matrix, right.
+ So just discuss those things in order to understand.
+ So let me share my screen.
+ So here, you can see that you have confusion matrix, also known as error matrix, it is
+ a table that really will tell you the performance of any algorithm of any model, right.
+ So suppose this is the individual number means you have the data of 12 individuals, 12 patients
+ or different personals, and these are their actual classification, actual qualification
+ is basically we also call it as ground truth, right.
+ And this predictive classification is basically the prediction which is made by your model
+ or your algorithm, right.
+ So in this case, as you can see here, we have to see which one is.
+ So this one is the ground truth means 1 and your model predicted it as 0.
+ This is 1, your model predicted it as 0.
+ This was 1, your model predicted it correctly.
+ Similarly, this was 0, your model predicted it as 1 means misclassification.
+ This was 0 and your model predicted it correctly as 0, right.
+ Now all of these things could be explained using these 4 measures.
+ One is called true positive, true negative, false negative and false positive, right.
+ So please just pay attention here, very, I am going to tell you in a very easy way so
+ hopefully you will remember and understand it properly.
+ The second one is what your model, what your algorithm has given.
+ The second letter is what your algorithm, your model has given you.
+ The classification made by your model.
+ The first character, the first letter tell you whether your model has done the correct
+ prediction or wrong prediction.
+ I am repeating it again.
+ The second letter is what your model has predicted.
+ The first letter is whether your model predicted it correctly or not.
+ Now I am going to explain.
+ Your model predicted it as positive and it is truly predicted means it was positive and
+ your model also predicted it as positive.
+ True negative, your model predicted it as negative and it is truly predicted means it
+ was negative and your model also predicted it as negative.
+ False negative, your model predicted it as negative and it is falsely predicted means
+ it was actually positive and your model predicted it as negative.
+ False positive, your model predicted it as positive and it is falsely predicted means
+ it was negative, but your model predicted it as positive.
+ Try to understand this one.
+ Can I repeat one more time before proceeding?
+ I understand.
+ What I wanted to clarify is the second letter, it's what the model predicts and the first
+ letter is basically what we not predict, we know would be the actual one.
+ Any mismatch between those two would result in the false positive or false negative and
+ if it matches, it's true positive or true negative.
+ True.
+ Okay.
+ So basically we know the answer from before, what we expect the answer to be and basically
+ the second letter is the model telling us what the output is and we just match it against
+ that.
+ Okay.
+ True.
+ True.
+ True.
+ Yes.
+ So second letter tells you what your model has predicted and first tells you whether
+ your model predicted it correctly or not, right?
+ You might hear this term in your life, right?
+ When you go to doctor and I got a medical test and they say, oh, you are positive.
+ I said, I don't have any such symptoms, right?
+ And then they said, oh, we can do another test.
+ Basically it's false positive, means it is becoming positive that you have that particular
+ disease, but it might be false positive, means you are negative, but incorrectly it has predicted
+ you positive, right?
+ So before coming to Australia, I was in Norway, I had my x-ray there and so on scan there
+ and they said, oh, you might have this particular disease.
+ I said, I'm feeling okay, there is such no issue.
+ And they said, okay, might be we need to have another test where we can see might be it
+ would be a fall positive, for example, right?
+ So you might hear this term before.
+ So fall positive and what the doctor want to say, medical practitioner want to say,
+ oh, it is predicted, predicted it as positive and it is falsely predicted, means maybe your
+ model predicted it incorrectly, means it was negative, it is supposed to be negative, but
+ your model predicted it as positive, right?
+ And that is why you will see this whole line is basically for negatives and this is for
+ the positive one.
+ So when you have more values here and zero value here, it means all of the negative one
+ are correctly classified.
+ Once you have zero here and all the values are coming here in this column, then you will
+ say your model classified all the positive correctly, right?
+ It means none of the positive were classified as negative here.
+ Just take few more seconds to understand this analogy which I have given, then I will explain
+ it further, okay.
+ Now try to understand this particular table here, where there is just a serial number
+ of the 12 different personals and this is the actual classification, means this is the
+ ground truth and this is what your model has made, right?
+ And the first one is false negative, why false negative?
+ Just recap the analogy which I have given, your model has predicted it as negative and
+ it is falsely predicted, means it was positive, but your model predicted it as negative, say
+ for the person who has the cancer, for example, or a particular disease, COVID or dengue.
+ So positive one is for that one who has that particular disease and zero who do not have
+ those one, right?
+ Similarly, true positives means it was predicted as positive and it is truly predicted, means
+ it was one and predicted as one.
+ Come up here, the last one, it is predicted, it is predicted as negative, means zero and
+ it is truly predicted, means it was negative and it is correctly predicted.
+ Come up here, the ninth one, it was predicted as positives, means one and it is falsely
+ predicted, means it was negative, but it is falsely predicted as positive, right?
+ Anyone has any confusion, any questions in understanding these four measures?
+ All good?
+ Saroj, Sudip, Takunda?
+ All good, all good sir.
+ Okay, now using these four measures, we actually build up a lot of different metrics, right?
+ And this is what they have given example, there was total eight individuals who are
+ having the cancer, like these eight, right?
+ And four of them were without cancer, right?
+ So you can see three of them was negative and it is correctly predicted and only one
+ of them who was predicted as positive, means they said, oh, you have a fall positive, right?
+ You can imagine if somebody, any medical report say, oh, you have a cancer, you can imagine.
+ And these eight individuals out of those eight, six were classified correctly means there
+ are the cancer patient and two were said, oh, you are not a cancer patient, right?
+ Now using these four measures, we actually build up all these metrics, right?
+ Not all of them are being used in the everyday whenever you apply any model, few of them
+ are being used.
+ So the important one is basically this sensitivity or recall, this is very important.
+ So it tells you out of those positives, how many are correctly classified.
+ This is very important, the probability of detection or the hit rate.
+ This is very important in most of the cases, right?
+ For example, you see up here, in this example, if this is not a, suppose it is a cancer patient
+ data, right?
+ So if these four individuals who are non-cancer individuals, one were correctly classified,
+ incorrectly classified, they said, oh, you have a cancer, what will happen?
+ He or she will go through some medical test, will redo some of the medical reports and
+ finally they will say, oh, there was a fall positive and you are non-cancer person, right?
+ But if a cancer patient, those eight one, if you said to two of them, you are not a
+ cancer patient, right?
+ You are all okay and you let that one to go home, this would be a big disaster, right?
+ You can imagine that person may be on a different stage of their cancer, they need very quick
+ remedy to fight against that particular disease, right?
+ This would be a big disaster if you let that one to go.
+ Think about another example, you have benign data, mean non-malicious data, non-virus data
+ and you have some malicious files, mean the files, the data which is malicious in nature.
+ And then you have stopped few non-malicious files, mean benign files and you predicted
+ them as they are the malicious, like one here.
+ What you will do?
+ You will further investigate into that file, you will see structure and everything, what
+ is the normally the cyber security individuals they used to do in order to investigate whatever
+ the methods they are applying.
+ You will do some further investigation and then you will say, oh, sorry, sorry, this
+ file is non-malicious and we let it to go, enter into your system.
+ But if you have let any malicious file to be classified as non-malicious, non-cancer
+ and you let that file enter into your network, into your computer system, that will be a
+ big disaster, that would be a big damage.
+ You can think of this example, if there is a legitimate transaction and you stop that
+ one, you do some further investigation, you let that person to log in into your system
+ and do some further verification, give a call, whether it is you who is making this huge
+ transaction and so on, okay, that person might be offended for few time and then they will
+ say, oh, why you are asking, I am the legitimate person and then you will clear up that transaction.
+ But if there would be any fraudulent transaction and you let it to be happen, imagine how much
+ damage it will create.
+ Any person who is with the right visa, no issue, enroll into any course and Australian
+ government actually stop that individual which normally immigration stop whenever we come
+ to Australia and then they will do some further investigation, they will say, oh, you are
+ studying and you have an active COE and so on, right, and then they will say, okay, you
+ are good to go, there is no issue.
+ But if they allow anyone with the fraudulent visa or with any suspicious history and so
+ on, enter into Australia, that would be a big disaster.
+ So in most of the cases, right, we are very much inclined toward the positive cases and
+ we want to see what positive cases are doing.
+ We are interested into that one as compared to the negative one.
+ Negative one is okay.
+ We will do some further investigation, waste some resources, energy, time and so on.
+ And that is okay.
+ We will finalize, okay, we were on the mistake and we let that person to go.
+ But if we have not investigated that fraudulent, that malicious, that illegal personal to let
+ it to enter into systems, imagine somebody is doing COVID testing and they say, oh, you
+ are a COVID and then you say, I do not want to have any running nose and I do not have
+ a fever, they will say, oh, there might be false positive and then they will say, okay,
+ you are okay to go.
+ But if you will say a COVID person to go into your family, go into any event, just imagine
+ what happens five years back when there was a COVID and you let that one to go into the
+ society, how much damage it would have been created, right?
+ So this metric is very important.
+ That is TP over P. Out of the positive, how many you have correctly classified.
+ That is the recall, that is the sensitivity, right?
+ Sometimes we are interested into the negative as well.
+ And that is what the other metric is specificity, right?
+ Specificity that is true negative rate.
+ Out of all the negatives, these are all the negative one here, right?
+ All the negative ones, how many are correctly classified, 3N over N. So this ratio will
+ tell you, will give you the specificity, the true negative rate of your model, right?
+ The most important one, which everybody will use is your accuracy, right?
+ Out of total positive plus negative, how many are correctly classified?
+ And that is what the performance of your model, right?
+ So you have, for example, total 12, right?
+ Out of that one, 6 plus 3, 9 over 12 is basically the accuracy of your model.
+ So if you have 8 here, if you have 4 here, means 12 by 12, 100% is what your accuracy
+ is.
+ Here we have another one, which is balanced accuracy, right?
+ And this gives us another research problem, which everybody need to understand and consider
+ whenever you go to industry, whenever you apply any machine learning model to solve
+ any problem, that is the imbalance data set issue, right?
+ So whenever you apply any machine learning model to solve any of the problem, right?
+ You basically have to understand some of the problems which are inherent with the machine
+ learning, right?
+ Same problem could be with the data.
+ As we were discussing at the start of our lecture, data may not be sufficient, data
+ may have missing values, data may have outliers, data may have noise and so on.
+ There could be some other problem with the data implementation and so on.
+ But there are a few problems with come with AI, right?
+ Like for your understanding, maybe I can say, oh, chat GPT, helping a lot, but ethical issues.
+ Ethical issues are coming.
+ How you are actually using, what are dos, what are don'ts to whenever you are using
+ the chat GPT, whenever you are using any gen AI tools, generative AI tools, right?
+ What you should do, what you shouldn't do.
+ So that is an inherent problem whenever it's coming to you.
+ Then you have to think, you install Snapchat, you install Instagram, you install any other
+ social media application, Facebook, for example.
+ How much scrolling you are doing, how much time you are spending, that is the inherent
+ problem that comes with that one.
+ The memory, the mindset that you are training, right?
+ You are scrolling and your mind is not ready.
+ Your mind is not build to understand and process the information that you are giving.
+ You are giving a few seconds and then you scroll it down, scroll it down, scroll it
+ down.
+ So your mindset is not trained, is not built, is not developed to process that information
+ correctly and that comes with a lot of other problem, anxiety and then sleeping issue and
+ so on because you are doing and you are processing.
+ So your mind get extra active and when you try to sleep, still your mind is not going
+ into that stage.
+ That is the whole science behind this one.
+ I am not going into the detail of that one.
+ The problem which I want to tell you is that if there would be any certain advancement
+ that also comes with certain limitations, certain issues which could like auto driving
+ cars.
+ A lot of issues if there would be any problem which your vehicle cannot judge can hit anyone
+ and in that case the disaster is huge.
+ You can hit and take the life of anyone or you would be on risk as well, right?
+ It is not just a problem with the resources or the damage of, it is someone's life, right?
+ So whenever you apply in AI in the life critical missions, it is very important.
+ Surgical reports, if you are using AI to predict whether the wine quality is good or bad as
+ compared to when reports are doing surgery, for example, medical surgery, in that case
+ their accuracy like it should be 100%.
+ There is no chance to make a single mistake, right?
+ So that is the problem that is called like the imbalance data set issue.
+ If your data is highly imbalanced means you have few samples of one of the classes as
+ I was discussing before if you talk about malicious versus benign or like nonmalicious
+ data and you have only few samples of the malicious files.
+ You do not have sufficient samples to train your machine learning model.
+ What you will do in that case?
+ If you will train your model with such an imbalanced data set, your model would be skewed
+ toward to the majority class, right?
+ Similarly, there are a lot of legitimate transactions, financial transactions which are going to
+ be done every day and that is okay.
+ But there are only few fraudulent transactions, right?
+ And you do not have the sufficient samples that you can give your machine learning algorithm
+ during the training, right?
+ And the model that you will build at the end is not capable of enough to detect actually
+ those malicious or legitimate, that malicious and fraudulent transactions because you have
+ not given the sufficient data set to train with that one, right?
+ So that is one of the problem which we call it as imbalanced data set.
+ So whenever you apply machine learning, whether you go into industry or you apply in research,
+ so you have to see whether your data is balanced or not and there are a lot of different techniques
+ which you can use.
+ They call as data resampling techniques.
+ So when you do the data resampling, there are two methods.
+ One is data oversampling, one is data undersampling.
+ So oversampling is if you have, for example, two classes for one of the class, you have
+ 200 sample and for the other class, you have 500 samples, right?
+ So if you will increase those 201, the minority class to be equal to the majority class, the
+ 201, you are doing oversampling, right? and if you want to decrease, you want to remove
+ the samples from the majority class, which is the 501 to get it equal to the 201, you
+ are doing undersampling.
+ And for each of the method, whether it is oversampling or undersampling, there are a
+ lot of different methods, a lot of different algorithms, which you can explore, which you
+ can apply in order to do oversampling or undersampling.
+ But that is to balance your data and then after balancing your data, it is highly likely
+ that your performance, your model performance will be improved, right?
+ I have applied this one during my PhD, my PhD focus was how to apply AI to improve cyber
+ security, right?
+ So in that case, I played mostly with the malwares and malicious files and so on and
+ in that one, I have tried whenever you balance your data, your performance would be improved
+ a bit, right?
+ In most of the cases, right?
+ So that is the imbalance data set issue.
+ And why it is also important, let me give you another example.
+ Okay, so I am going to explain you the thing which
+ I discussed earlier is, for example, you have here, so in that one, what is happening?
+ You have 1 to 80 samples here out of 80, 100.
+ So you are using this 20% for the training and this 80% for, sorry, this 20% for the
+ testing and this 80% for the training, right?
+ And we are mentioning this is our training set, right?
+ And this is our testing set, right?
+ And whenever we apply and we apply the train test sublet one, so we got it as this one
+ is our X train, which we also discussed in our previous classes as well.
+ This is your Y train.
+ This is your X test.
+ And this is your Y test.
+ And this is also your ground truth, ground truth as well, right?
+ So what you will do is, you will use this training X train and Y train to train your
+ model that if this is your X samples, this should be your label.
+ If this is this kind of stuff, this should be your label.
+ So you have given 80 different samples where you say, okay, this is the data, then this
+ should be the label.
+ This is the data.
+ This should be the label.
+ This is the data.
+ This should be the label, right?
+ And then afterwards, you have given X test, right?
+ Now, you are giving the same kind of labels as you given up here.
+ And once you give this X test, right?
+ Then you will get the Y prediction, right?
+ You will give X test, out of that one, you will get your Y prediction for that X test.
+ And then you will compare as we did last time when we were discussing about different models,
+ you will compare this Y prediction with this Y test because this Y test is our actual prediction.
+ If you remember here, as we discussed, right?
+ This is your predicted classifications means your Y prediction.
+ And this is your Y test means the actual classification, right?
+ So this Y test is your ground truth means actual classification.
+ And this is what you have got from the model, which is your Y prediction.
+ And if it is one here, it is one here means you are doing code if it is one here, it is
+ zero here, then would be problem it is zero here, it is one here, this would be a problem
+ if it is zero here, and also zero here, this is good, right?
+ True negative, true positive, false positive, false negative.
+ And based on that one, you are going to actually calculate the performance in terms of accuracy.
+ And this is what we have understood now.
+ Now, the point which I want to tell you which I want to explain you is that you have 900
+ samples for non-COVID patient, right?
+ And 100 samples for the COVID patient, right?
+ You have trained your model with this highly imbalanced data, where you just have given
+ only 100 samples for the COVID patients and 901 with the normal individuals.
+ Now, during the testing, you have basically given 90 samples for non-COVID one and 10
+ samples for the COVID one, right?
+ Out of those 90, 90 were correctly classified.
+ And out of these 10, only three were correctly classified, right?
+ So true positive rate is this one, 3, 3 by 10.
+ And true negative rate means non-COVID patient were 100%, right?
+ Out of 90, you have, because you have given a lot of non-COVID one, so your model knows
+ really well who are the non-COVID one.
+ And on top of that, because the other one is not sufficient enough, so your model is
+ skewed toward to the majority class.
+ So 91 are correctly classified and even 7 out of the COVID one, your model has predicted
+ as negative, means 3 were correctly classified as COVID and 7 were actually classified as
+ non-COVID, right?
+ So 97 was classified, were classified as non-COVID where 90 were the correct and 7 was incorrect
+ because 7 were the COVID one and your model has predicted them as negative, non-COVID,
+ right?
+ So overall, your true positive rate is 3 and true negative count is 90.
+ So you will say 3 plus 90, which is 93, right?
+ By 100 because total you have given 90 plus 10 is yours.
+ So you will say your accuracy is 93%, right?
+ Which you will claim, oh, I got a very good accuracy, I got 93% accuracy, but now that
+ is not true.
+ That is not the true indication, right?
+ Actually you have not got that much good accuracy because for one of the samples, you are successful
+ in order to classify the samples correctly, right?
+ But for the other class, you have not been successful and you just shown the 30% of the
+ accuracy because you were just able to classify 3 out of 10 samples correctly, right?
+ So in that case, your true positive rate is 30% and your true negative rate is 100%, right?
+ And if you will just rely on the accuracy, that is 93%, right?
+ But if you will calculate the other metric, which is 90, or you will say 0.9 plus 0.3
+ divided by 2, right, which is, what is that, 60%, right, 0.9 plus 0.3, 1.2 divided by 2
+ is equal to 60%, right, 60%, right?
+ So that 2 is 1 point, that is same, right, 1.2 divided by 2 and out of that, when we
+ got this result, right?
+ And that is the balanced accuracy.
+ That is another metric, which I am going to tell you is very important, right?
+ So whenever you would have imbalanced dataset, in that case, you have to rely other metrics,
+ not on the accuracy, right?
+ And it really depends and that what metric is important for you.
+ So it is not the case always you will consider the accuracy is the right metric, right?
+ In that case, the negative rate was important and the positive one was very important.
+ So the recall was just a 30%.
+ Because out of those 10 samples, you were able to classify only 3 of them, right?
+ So 3 by 10 is your recall or sensitivity, 30%, right?
+ And that is a big disaster here.
+ Because in this case, the negative one was very important for you.
+ Because those were the COVID patient and you cannot let them to go, right, into the society.
+ So the point which I want to make is that you have to choose the metrics carefully,
+ right?
+ Whenever your data is highly imbalanced, in that case, accuracy is not the right metric
+ to compare the performance of your models.
+ In that case, either you are going to go for F1 score or G mean score.
+ Do we have G mean here?
+ You can search G mean score as well.
+ That is another metric maybe not listed here.
+ But if you will search, you will be able to find it out, right?
+ That is G mean score, geometric mean that has their own calculation and so on, right?
+ Specificity and multiplication into sensitivity.
+ And then you have to take the square root and then you will calculate.
+ So if your data is highly imbalanced, then you are going to refer F1 score or G mean
+ score in order to see the performance of your model.
+ In that case, accuracy will not be the right metric to compare the performance of your
+ model.
+ I have given you one example where I not only introduce you the balanced accuracy, which
+ I calculated.
+ The true positive rate was 0.3, the true negative rate was 100%, right?
+ And when we have plus them and divide them with 2, you got the 60% accuracy.
+ See how bad your model is performing.
+ But if you will consider the accuracy, you're going to say, oh, my model is doing the 93%
+ of the accuracy, right?
+ So it is very important when you choose and when you apply machine learning AI into solve
+ any problem, what model you are choosing, what is your data set.
+ That is what you have explored, you have analyzed, you have seen is there any problem in my data
+ set and that is what the CRISDM architecture first few stages are.
+ And you have reached to the level 4, stage 4, when you actually think about the modeling
+ and other stuff, right?
+ The first few stages where you analyze your data set, because there would be certain problems
+ in your data set.
+ So next time for second assessment, for third assessment, you just have not to rely just
+ to analyze and visualize your data set.
+ If there are certain problem, you can fix it up and see that after the fixing, have
+ you seen any accuracy into that one, improvement into that one, like improvement in your accuracy
+ or whatever the metric you are comparing, is your error is decreased or not.
+ So that is what you have mentioned in your lesson learns, right?
+ What are the things which you think can improve?
+ So you have to apply those one and see whether that is improving or not, right?
+ And before concluding this discussion, I want to tell you very easy thing, right?
+ That is when you talk about the imbalance data set.
+ So SMOTE is, if you have heard this name before, this is used for data sampling, right?
+ And that is one of the data oversampling technique as we already discussed, that when you do
+ the data resampling, right, then if you are increasing the quality count of your minority
+ class in order to get equal to the majority class, then in that case, you have actually
+ get this information, right?
+ So here you will see, what I want to emphasize is the important things that you need to consider.
+ Here you need to from the imbalance learn, IMB learn, from oversampling, you have to
+ import SMOTE and once you have actually got this one, you need to create its object oversample,
+ then with this oversample dot fit resample and you have to give those x and y, your training
+ one, right?
+ And then afterwards, you can simply apply as you normally do, right?
+ And you see there were few samples here, like the oranges one and you were having a lot
+ of different samples.
+ So 99, 9,900 were from one of the class, looks like from the blue one and only the oranges
+ one which is positive was only the oranges one, just the 100 one and when you balance
+ it up, now you can see, now this one is 99, 100 and this is again 99, 100 and you can
+ see a lot of different data and once you have applied this one, definitely its accuracy
+ would have been improved, right?
+ And SMOTE for classification, simply like you have to apply, they applied the CN3 and
+ then they after they applied the SMOTE one and then they check, earlier it was 76%, the
+ area under curve and then once they have applied SMOTE, right?
+ The accuracy, the value of area under curve is improved to 80.9%, right?
+ Once the CN3 and they applied, then it is 83.4% and so on, right?
+ So as I mentioned earlier that it is very simple to apply, you just have to create its
+ object as they have done here, they have done here for example and you just can apply for
+ your second assessment and first simply apply and see how many samples you have for one
+ of the class because next week, I am going to tell you how you have to convert that continuous
+ label into a discrete one as the FEDI were discussing at the start of our class that
+ over greater than equal to 6, you are going to say good quality wine and the lower one
+ would be the bad quality one.
+ So after that one, you have to see how many samples do you have for the good wine, good
+ quality wine, how many for the bad quality one and if there would be a lot of difference,
+ then simply apply one of the modelling techniques say the CN3 and afterwards, you can balance
+ it.
+ So, for example, not just one, maybe you can apply more, for example, you will start with
+ the same data set as you were doing applying different models and you got certain accuracy,
+ you will say, oh, I applied four different models out of those one, for example, sport
+ vector machine is outperformed with an accuracy of 83%, right?
+ And then you will say, oh, there was a problem of the imbalance data set, when I converted,
+ there was only few samples for the good quality wine, there was a lot of different samples
+ for the bad quality one.
+ So what I did is I know applied smote, simply copy paste this code.
+ And once that smote is done, right, you will simply say now the data count for the bad
+ is this one and good is this one.
+ And now copy paste exactly all of the cores whatever you have written before, again downwards
+ after that one with the new re-sampled data and say that accuracy is improved from 83%
+ to 86%, right, very simple, right?
+ Simply apply the modelling technique, then apply the code related to data re-sample and
+ then copy paste again the code to do the modelling again.
+ And just say whether you got any improvement or not, right?
+ So that is related to some of the discussion which we have made here to let you understand
+ what classification is, how to measure the performance of any model and how to compare
+ different models based on this confusion matrix using that for my years, how can you build
+ up the other matrix.
+ And on top of that, we discussed one of the problems which can be inherent whenever you
+ apply AI to solve any of the research problems, right?
+ And then we discussed why a certain matrix are really very important for some of the
+ research problems.
+ So it is very significant to see which matrix are like really making more sense for a research
+ problem.
+ And then you're going to use those one in order to see whether your model is performing
+ good or bad.
+ So any question up till here from all of this discussion, if there is any question you may
+ ask, otherwise, we will take a few minutes break, it's 1243 on the dial, we will meet
+ again at 1250, right, after all of this discussion, take a seven minute break, and then we will
+ come back and start about the sport vector machine, which is the model which we have
+ to discuss today, which would be brief, but we have to discuss how it works and so on.
+ And then we will see its implementation and then we will conclude our lecture.
+ So take a seven minute break, and then I will see you back at 1250.
+ Thank you.
+ Transcribed by https://otter.ai
+ Transcribed by https://otter.ai
+ Transcribed by https://otter.ai
+ Transcribed by https://otter.ai
+ Transcribed by https://otter.ai
+ Transcribed by https://otter.ai
+ Transcribed by https://otter.ai
+ Transcribed by https://otter.ai
+ Transcribed by https://otter.ai
+ Transcribed by https://otter.ai
+ Transcribed by https://otter.ai
+ Transcribed by https://otter.ai
+ Transcribed by https://otter.ai
+ Transcribed by https://otter.ai
+ Okay, welcome back, dear students.
+ Any questions you may have related to what we have discussed so far?
+ Okay, so now we are discussing another classification algorithm.
+ It is used for classification, but we do have a version of this one where it is used for
+ regression as well.
+ Some of you have used for your first assessment as well that is called sport vector regressor
+ SVR.
+ But for mostly it is famous for classification, which is sport vector machine SVM.
+ It is very famous, very good algorithm.
+ It is used mostly for the supervised binary classification.
+ We discussed already what supervised learning is, where we know the label and the type of
+ the attribute if it is categorical, then it is called classification.
+ And if it is just has two categories, two possibilities between which you have to do
+ the prediction, then it is called binary classification.
+ The goal of SVM is to train a model that assign new unseen objects into a particular category.
+ That is what the aim of any classification algorithm is.
+ They have given different examples, which we have already discussed whether an email
+ is a spam email or a ham email or non-spam email, whether an object is above or below,
+ whether a person is COVID, non-COVID patient, whether a file is malicious, nonmalicious,
+ whether a transaction is fraudulent or legitimate.
+ So all of these are the example of your binary classification.
+ So as discussed earlier, sport vector machines are supervised learning models with associated
+ learning algorithm that analyze data used for classification.
+ And I discussed you have a version of sport vector machine, sport vector regressor that
+ is used for regression analysis as well.
+ There are a few important things which we need to consider whenever you are discussing
+ about the sport vector machine.
+ You have this hyper plane.
+ This is very significant when we discussed about sport vector machine and then you have
+ all of the data objects of one class to one side of this hyper plane and the data objects
+ of the other class to the other side of this hyper plane.
+ And it is very important and that is what actually this hyper plane purpose is that
+ the aim of this sport vector machine is to have this hyper plane on that side or on that
+ position where it can segregate the samples of both of the classes correctly, right?
+ This is very important because if you will draw this hyper plane here, then you will
+ see that this sample will be misclassified, right?
+ So, any question up till here?
+ >> Yes, sir, I have a question.
+ Is this algorithm just works for two classes or can it work for, I don't know, three more?
+ >> Yeah, there is a version of this one that is used for multi-classification as well.
+ You have to tweak around that one, right?
+ So, it is very important that you where you have to draw this hyper plane, right?
+ So, we understood that this is an hyper plane.
+ Now, another important concept is that the data points which of one of the class which
+ is the closest to this hyper plane are called your sport vectors.
+ So, sport vectors are the points which of both of the classes which are closest to this
+ hyper plane, right?
+ And the purpose of the sport vector machine is to draw this hyper plane in a way that
+ the distance between the sport vector points is high.
+ So, it means if you will draw this hyper plane here, right, then you will see the distance
+ to this blue one to this hyper plane is very close.
+ So, we have to draw this hyper plane in a way where the distance to the sport vector
+ points to this hyper plane will be the maximum one, right?
+ Or the other way around you can think that we have to distinguish the both of the samples
+ of both of the classes explicitly, right?
+ We do not want to have any samples on 48 or 52 because 52 can jump to 49 would raise a
+ chance of the misclassification and this 48 would be to the 51, 52 side and will be assigned
+ to a different class which would be misclassification.
+ So, we have to draw that line in a way where they can segregate the samples of both classes
+ explicitly and easily, right?
+ And the other important thing is while you are drawing this hyper plane, the first purpose
+ is if you will understand this line, then it means you understood the lecture and we
+ will just quickly go through.
+ The first priority is to have the right classification and second priority is to have the margin,
+ we call it as margin, the distance from the sport vector point to that hyper plane is
+ called margin.
+ So, the margin would be the maximum and that is what the aim of sport vector machine is,
+ but the first priority is to having the right classification.
+ If you will have any chance where you will have the, any of the sample will be the misclassification,
+ right?
+ And then the size, the distance, the margin will be increased, no, we do not know, we
+ do not go for that one.
+ First priority is to the right classification, does not matter for one of the class, you
+ would have the margin which is minimum one, not maximum, right?
+ And the second priority would be to increase that margin.
+ So, the first is the right correct classification, right?
+ So, here you will see that is the hyper plane, a sample example, classification task, any
+ two features, you can think of hyper plane as a line that linearly separates and classify
+ set of the data and hyper plane over data points lie the more confident we are that
+ they will be correctly classified.
+ So, when the new testing data are added, whether whatever the side of the hyper plane it lands
+ will decide the class that it will assign, right?
+ So, and we also discussed this is called the margin.
+ The goal is to choose a hyper plane with the greatest possible margin between the hyper
+ plane and any point and we discussed that the closest point are called the sport vector
+ points.
+ So, the distance between the sport vector points to this hyper plane is called margin
+ and the aim of the sport vector machine algorithm is to increase that margin means you have
+ to maximize, right?
+ And this is another concept.
+ So, for example, if you will try to understand this that I have a paper here, right?
+ This paper and I draw the few points here into the middle of the paper, right?
+ And those points which I am drawing here into the middle of this paper is belong to one
+ of the class means all of the blue one are in the middle and all of the green one on
+ the other side, right, in a different circle, right, but that is around all of the data
+ points not just on one side on this side, right?
+ So, green one here on this side and the blue one into the middle one, right?
+ And now if somebody asked me to use the sport vector machine here, if I will draw any hyper
+ plane here, then these samples belong to one class, these samples belong to other class,
+ right?
+ But that will lead a lot of misclassification, accuracy would be compromised because a lot
+ of green on this side you will put them into one of the class, a lot of blue to the other
+ side you will put them into a different class.
+ So, a lot of blue will be misclassified, a lot of green will be misclassified.
+ So, what is the solution?
+ The solution they say is that the middle one that are belong to one class here and the
+ green one that is around that one here, they will say that you pick up this paper like
+ this and you pick up the four sides of your paper like this, pick up this side from here,
+ the paper this side from here.
+ So you will see paper will look like this now, right?
+ Means you have picked up all of the four side of your paper like this, right?
+ So, it would be like this.
+ So, four side would be together, then they say you have to draw the hyper plane here,
+ right?
+ So, all of the green one who are on the centers are picked up, all of them get together on
+ upper side and the bottom one where which was the middle of that paper was the blue
+ one and then all of them would be correctly classified because the bottom one and the
+ top one would be the green and the yellow one.
+ They call it as kerneling, the concept of kerneling where they say that one of the,
+ if you do not have the samples, which can easily be segregated, so what you can do is
+ you can let your data to be mapped, to be realized into a higher dimension, right?
+ Into a 3D dimension.
+ In that case, then you can draw that hyper plane which can easily segregate them.
+ As you can see the example here, they introduced that if the data is like this, for example,
+ there is no way if you draw hyper plane here and you say these are the green, these are
+ the blue.
+ So, you will see a lot of greens are here into the blue category, a lot of blues are
+ here into the green category, right?
+ So, how to split them, how to segregate them?
+ They say then the list lifting of the balls represent the mapping of the data into a higher
+ dimension and that is called the kerneling.
+ So, a 2D view of the data to be mapped into a 3D view, right?
+ Like this.
+ So, if you have this one, so you will let it to be mapped into a higher dimension, right?
+ And then you can segregate the one line from here, all of the blue ones are up of this
+ one box and the green one at the bottom.
+ And then if you will draw an hyper plane here, you can easily segregate them, right?
+ So, select the hyper plane which segregate the two classes better, right?
+ Which one is the best one?
+ Of course, not the C one because if you will choose the C here, right?
+ So, some of the red one belong to the store category and some of the stars are coming
+ into this category, not the good one.
+ If you will choose the A, a lot of red one are classified as stars, right?
+ The best one is the B, right, where one side is all the stars and the other side all the
+ balls, right?
+ Then the other thing which we discussed what is the best one, A is also okay, B is also
+ okay, but we will go for C because that is the concept that you have to choose that hyper
+ plane with the maximum margin.
+ Because if you will choose the B here, these stars are very closer to the B and they can
+ easily jump to the other side if any of the minor change you would have into the hyper
+ parameters, right?
+ Similarly if you will choose the A, these two red one can jump to the other side and
+ can raise the chance of misclassification.
+ So, you are going to go for C which would be the best in this case, right?
+ Then there is a mathematics behind here, right, behind this hyper plane and then they said
+ on this side would be positive, on the other side would be negative one, right?
+ And the hyper plane here would be okay, there could be another one, there could be another
+ one, all of them are okay, they are correctly classified, but the optimal one would be the
+ one that will actually increase that margin.
+ You see which we discussed here, star is very closer to B, this red one is very closer to
+ A, so we are going to go for C which has the maximum margin here, right?
+ What we already discussed and the other important thing which we discussed is whether if you
+ will choose the hyper plane A here, right, which has the less margin, right?
+ Because this star is very closer to this hyper plane, this red one is very closer to A, but
+ as compared to if you will choose this B one, then you will see these stars are away, these
+ red balls are away, but the problem is if you will choose this B one, then this star
+ would be misclassified as ball, as circle and it will be classified on this side because
+ all of the samples of the B would be belong to balls and then this would be classified
+ as circle which is not correct, right?
+ This is a star, so the first priority is the right hyper plane is A, so as I given you
+ the example earlier, the first priority is to choose the correct classification and second
+ priority is to increase that margin, right?
+ Then they have given scenarios what you will do and so on, this is the problem which I
+ discussed earlier that all of the samples here and the other class samples around that
+ one, if you will choose any of the hyper plane, this will not give you the best result, so
+ the solution is kernaling, you can use different kernels and what the kernels will do, they
+ will map your data into a higher dimension and then you can actually split a line here,
+ split and hyper plane here which will actually segregate the data samples of both of the
+ classes here, right?
+ And that is called a kernel trick, there are different kernels which you can use with the
+ sport vector machine in order to let your data to be draw into a higher dimension and
+ so on, right and I kernel trick and there are different kernels, linear kernel, polynomial,
+ RBF and sigmoid and so on.
+ Now, if we will go to the discussion here, just give me a second, I will share the screen
+ with you.
+ So, they have given a very good result.
+ Very good video where you can easily understand the concept of kernel which we were discussing.
+ I think this one, very short video of 43 seconds, the same thing which we discussed before,
+ just have a look to this video where you can see the data points for one of the class is
+ in the middle, the blue one and the red one on the other side.
+ So, what they have done, see the data is here in the blue one in the middle and the red
+ one is on the side, now if you will see all of the red one or on the top and the butter
+ one is with the blue which was in the middle and then you can have a one separator here
+ which can easily segregate the blue one and the red one.
+ That is called kernel link where you are actually mapping your data into a higher dimension.
+ Watch it one more time.
+ Okay, thank you.
+ Okay, I hope you have understood this one.
+ And any questions so far?
+ So just to clarify in terms of that classification, if on a lateral plane, I mean for visualization,
+ if we have class A on the outside and class B in the inside, then what we need to do is
+ through kernel link, we create that hyperbole where it then sort of makes it easier for
+ us to classify between class A and class B. True, yes.
+ Okay.
+ Because otherwise it is difficult for you to segregate if you will on the linear space,
+ if you will just draw a hyperplane, then you would have a high misclassification rate.
+ So you are just tweaking around in order to have the right classification, just mapping
+ that data into a higher dimension, that is it.
+ The other thing is the Google Colab, if I would be sharing that one.
+ So if I will upload, for example, this one here.
+ So you will see here, there are different data set of different phases where they have
+ given the example and they have actually, the important part is when they are actually
+ applying this SVC, sport vector classifier, kernel is RBF and then they are actually segregating.
+ That is one of the example that they have given.
+ The second one is, and that is what I picked from your activities, which you need to do.
+ The second one is related to
+ this breast cancer classification.
+ The data set is uploaded here, they just have to analyze your data and after that one, they
+ just have looked up to the target class and after the target class, they just have looked
+ up your head and tail, visualize your data, you can do that realization for your second
+ and third assessment as well, scatter plot as well, heat map as well and draw up if there
+ would be any value, then train, test, split, just see the samples, how many samples you
+ have got in training and how many into the testing and then you applied the sport vector
+ machine, sklearn, SVM import SVC and then create an object and then that object just
+ fit your data and this is by default values, the C value, the gamma value, the kernel is
+ RBF, which is by default, if you will do this one and then you can just have that prediction,
+ you can realize your confusion matrix using this code in the form of heat map and if you
+ want to see it as a report, you can see the classification report, y test and y pred,
+ y pred means the prediction that you have got, y test is your actual one which you have
+ got, right and then you can see what is your recall accuracy and so on.
+ So that is one of the examples in our today's class which you need to do the SVC, right
+ okay and that is one thing, the other important thing that you need to do the SVC is to look
+ for SVM, go to SVM, simple scikit-learn one and then you will see that is used for classification
+ right, SVC, if you will see the SVC, then you will see these are the hyper parameters,
+ you have a value of C, you have a value of kernel, you have a value of gamma, normally
+ these are the three important one which is making a huge difference and then they have
+ mentioned the default values and what the default kernel as you see with the recent
+ example which we just discussed, the default value for the C was 1.0 and for the kernel
+ it was RBF and so on, right and you can simply explore this sport vector machine.
+ Okay, they have not given any implementation, what I want to show you some other important
+ stuff.
+ but while you just change the value of the kernel, you are going to implement the
+ different kind of sport vector machines very easily, right, so it is not if like for example,
+ whatever the classification task you are doing as you are doing for your second assessment,
+ you just change the value of the kernel for example, like here different kind of kernels
+ what you can do is you just have to say svm.svc and the kernel is linear, right, you will
+ set the fit and you will set the boundary and so on and then you can simply change it
+ to polynomial, right and simply build another model and definitely these kernels, let me
+ tell you, they have a very huge difference in the overall performance of your whatever
+ the problem you are like implementing them, right, so maybe with the RBF kernel you are
+ getting 80% accuracy.
+ But when you apply the linear kernel, there would be a 70% accuracy, so most of the cases
+ they have a very huge difference in terms of the overall performance when you change
+ the value of the kernel, right, so the point which I am going to make the link which I
+ shared you in my last announcement if you remember if you will have a look to
+ the Naive Bayes one which I did where I shared the, there you see Naive Bayes algorithm with
+ different Naive Bayes and similarly here they applied sport vector machine, so here svm,
+ so svc you can try if kernel is equal to linear, if kernel is equal to polynomial, if kernel
+ is equal to sigmoid and the rest of the code would be 100% same, right, you just need to
+ change the hyper parameters here into the svc when you create its object, right, so
+ you just have to change the values here, right, and you would be all fine to implement multiple
+ models for your second assessments, right, so even if you apply the cn3 you can apply
+ random forest, you can apply logistic regression which we will study shortly, you can apply
+ Naive Bayes and within the Naive Bayes you can apply multiple Naive Bayes, Gaussian Naive
+ Bayes, Bernoulli Naive Bayes and so on which we discussed in our last classes, similarly
+ when you apply svm you can apply svm with linear kernel with polynomial and sigmoid
+ and so on RBF kernels, you can implement 8 or 10 models easily with just changing the
+ few lines of code and that would be all fine for your second assessment.
+ And then you can also apply the ensembling as well to see if combining the output of
+ multiples model whether there is an impact on the overall performance or not and yeah,
+ that is important thing.
+ Another one is which you can also explore is that as I mentioned that during my PhD
+ I have actually implemented this Naive Bayes algorithm and also this sport vector machine
+ and different variations of this one, so let me also share with you that one as well, let
+ me quickly first show you and then you can explore it further.
+ Which I will also share you in an announcement, so this is the paper where actually I proposed
+ a learning based algorithm for malware detection, in that one you can have a look that I have
+ actually implemented different models as you can see I am going to show you one of the
+ other tables, so here I implemented 15 deep learning models and for example, any of the
+ deep learning model can be used in two ways, one way is from the start up till the end
+ you will use it for the classification, then we call it as end to end classification.
+ The other way is if you will feel that this deep learning model is trained on another
+ data set and you are using just for your purpose which is totally different, for example these
+ models are trained on to do some image classification of some real life images and you are doing
+ it for your malware classification whether an image is of a normal file or a malware
+ file, so that is not built for this one, so what you can do is you use their learning,
+ you use their capabilities but from the second last layer you can actually get the parameters
+ from there, the features from there and then use those features to give to another machine
+ learning model to do the classification, so one way is you will do this VGG 16 and you
+ get its accuracy is 93% accuracy, right that is used for end to end classification but
+ if you will use the features which are extracted from the second last layer of this VGG 16
+ and you give to a bagging algorithm what is the accuracy, similarly the features that
+ you have extracted you have given to a logistic regression, you have given to a random forest,
+ you have given to an air base, you have given to a sea entry, you have given to a sport
+ vector machine and you see the performance is improved as compared to if it is exactly
+ used for end to end classification and if you will just extract the features from the
+ second last layer and given to a SVM, the accuracy is improved to 97%, so for all of
+ the 15 deep learning model into I think 10 or 13 machine learning models I have implemented
+ and got all of this score, if it is extracted through regnet and applied directly then 88%
+ but if it is features are extracted through the regnet and then given to any air base
+ accuracy is 85%, if extracted features through this one given to an SVM the accuracy improved
+ to 98%, right and this is mostly what I have done but the important thing which I want
+ to tell you is the thing here is the proposed framework is where I used this SVM and I have
+ explained that one in detail here, you can have a look which we also discussed here.
+ This is the simple, I used any of the file, any executable file, I first converted them
+ into an image and you will see if malware file is converted to an image, it looks different
+ as compared to if a benign file, non-malicious file is converted to an image and later on
+ here is that final classifier where you can see the one which we discussed where is to
+ increase its zonius here, right, here I used the final proposed one is the SVM here, right
+ in the middle one here, so you will see I explained what is class 1, class 2, these
+ are the sport vector 1 which has the closest one to that hyper plane and I increase what
+ is the margin and so on, all those things here, right for this malware detection purposes,
+ so I explain in detail like what could be the best and the mathematics behind this sport
+ vector machine and all the mathematics, the machine learning stuff behind that one, so
+ you can also have a read to this paper and if there would be any question that has come
+ into your mind, you may ask, you not have to understand everything of that one because
+ you do not know about deep learning, you do not know about other world, other models but
+ just to have a feel that how these sport vector machines could be used in a real world task
+ and to solve the real world problems, so yeah that is all about the SVM that is the most
+ very powerful machine learning algorithms.
+ So, yeah that is all from my side today, you can have a look to those activities and you
+ can explore how to implement this SVM very easy, I have shown you in the activities,
+ you can see you just have to change the value of the kernel, one of the hyper parameters
+ of the sport vector classifier and you can see its impact, it is on the overall performance
+ of your model, so overall in today's lecture, we discussed very important point, we discussed
+ about confusion matrix, 4 different measures where we discussed the true positive, the
+ second letter tells you the classification, the label which assigned by your model and
+ the first letter tells you whether your model did it correctly or not and then how these
+ 4 measures could be used to build up the other matrix and then we discussed one of the inherent
+ problems that can come with whenever you apply the any of the machine learning AI algorithm
+ that is the imbalance data set issue, we discussed why in those cases specific matrix are important
+ to consider and it related to some of the problems I have given you a various example.
+ Then we discussed the sport vector machine, where we discussed about the important concept
+ of the hyper plane which is a line which is being drawn to segregate explicitly separate
+ the data samples of both of the classes and our aim is to increase the margin, margin
+ is the distance between the sport vector machine, sport vector points to that hyper plane and
+ sport vector points are the points which are the closer to that hyper plane and then we
+ discussed about the first priority is to actually increase that correct classification and later
+ on the priority would be to increase the margin.
+ Then we discussed about the kerneling concept where actually you gonna actually map your
+ data points into higher dimensions in order to like see your classification more effectively.
+ Any question, any doubt into this discussion you may have in your mind and please keep
+ working on your second assessment as well and if there would be any question along the
+ way you are most welcome to contact with me happy to answer but hopefully next week we
+ will have the feedback from the assessment one and also we will discuss our assessment
+ two in detail what are our expectations and how you can improve that one.
+ Before going to the activities any question you may have in our discussions.
+ Yeah any question Saroj, Suleiman, Sudip, Takunda, Renato, Feli, John, Wes, Usain, Noam.
+ Everything good so far.
+ Good.
+ I said just looking forward to the second assessment.
+ Yes so just start and if there is any question you are most welcome to discuss otherwise
+ I will discuss the assessment two next week because understanding of the assessment understanding
+ of the problem is also part of the assessment which is also very important later on nobody
+ will come to explain you they will just give the requirements and then you have to understand
+ and make your analogy and understanding first on that one.
+ So that is why I let you to work on your assessment first make some understanding and then it
+ would be easy for us to correct that understanding and given it a roadmap.
+ Yes Ferdy.
+ Yeah so when will you get the grid search CV?
+ Hopefully before the next week class in next next couple of days yeah hopefully before
+ the weekend during this week.
+ I paused because most of you have applied extension so that is why I don't want to release
+ before everyone will have the submission because otherwise it would be unfair for those people
+ who have submitted on time.
+ No no I mean I mean the code for assessment two.
+ The code for assessment two what do you mean?
+ Grid search CV.
+ Yeah yeah I will explain next week okay yeah you can simply search even what is grid search
+ CV and then I will also give you the code because sometimes you can do it manually as
+ well like you can implement it but grid search CV is very easy you can simply search and
+ wherever you get the code you can just simply use it just a few lines of code.
+ But don't worry about that one we are in week six next week would be the week seven so if
+ you have implemented few of the models grid search CV would be top of that one you don't
+ need to make any modification into your console don't worry about that one where you will
+ have that code you will just embed it and it would be all fine it would be an incremental.
+ So the rest of the time please do your activities go through the code and if there would be
+ any question we can discuss okay till that all the best and have a good day yet.
+ Thank you.
+ Thank you professor.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
+ Thank you.
