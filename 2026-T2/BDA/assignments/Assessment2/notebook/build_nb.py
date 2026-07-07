@@ -342,8 +342,9 @@ print("train/validation/test:", train_df.count(), val_df.count(), test_df.count(
 md(r"""## 5. Model building - PySpark MLlib decision tree
 
 We split the data into **train / validation / test** (60/20/20, fixed seed). The validation set tunes
-the tree depth; the held-out test set gives an unbiased performance estimate. The model is Spark
-MLlib's `DecisionTreeClassifier`.""")
+the tree depth; the held-out test set gives an unbiased performance estimate. Limiting `maxDepth`
+acts as **pre-pruning**: it stops unsupported recursive splits before they overfit the training data.
+The model is Spark MLlib's `DecisionTreeClassifier`.""")
 
 code(r"""from pyspark.ml.classification import DecisionTreeClassifier
 from pyspark.ml.evaluation import MulticlassClassificationEvaluator, BinaryClassificationEvaluator
@@ -385,6 +386,82 @@ sns.heatmap([[tn, fp], [fn, tp]], annot=True, fmt="d", cmap="Blues",
             xticklabels=["No", "Yes"], yticklabels=["No", "Yes"])
 plt.xlabel("Predicted"); plt.ylabel("Actual"); plt.title("Confusion matrix (test set)")
 plt.tight_layout(); plt.savefig(FIG_DIR / "fig06_confusion_matrix.png"); plt.show()""")
+
+md(r"""### 5.1 Generalisation and demographic error audit
+
+A useful classifier must perform beyond the data used to fit it. We therefore compare the same
+baseline tree at threshold 0.5 on training and held-out test data. We also inspect recall and the
+false-positive rate across `gender` and `SeniorCitizen` groups. This is a diagnostic audit, not proof
+of fairness, and its results do not feed back into model selection.""")
+
+code(r"""from pyspark.ml.functions import vector_to_array
+
+def independent_rank_auc(y, probability):
+    # Mann-Whitney rank formulation, independent of Spark's evaluator; average ranks handle ties.
+    ranked = pd.Series(probability).rank(method="average").to_numpy()
+    y = np.asarray(y, dtype=int)
+    n_pos, n_neg = int(y.sum()), int((1 - y).sum())
+    return float((ranked[y == 1].sum() - n_pos * (n_pos + 1) / 2) / (n_pos * n_neg))
+
+def generalisation_metrics(name, prediction_df):
+    scored_pdf = (prediction_df
+                  .select("label", "prediction", vector_to_array("probability")[1].alias("p1"))
+                  .toPandas())
+    y = scored_pdf["label"].astype(int).to_numpy()
+    yhat = scored_pdf["prediction"].astype(int).to_numpy()
+    tp_ = int(((yhat == 1) & (y == 1)).sum()); fp_ = int(((yhat == 1) & (y == 0)).sum())
+    fn_ = int(((yhat == 0) & (y == 1)).sum()); tn_ = int(((yhat == 0) & (y == 0)).sum())
+    precision_ = tp_ / (tp_ + fp_) if (tp_ + fp_) else 0.0
+    recall_ = tp_ / (tp_ + fn_) if (tp_ + fn_) else 0.0
+    f1_ = 2 * precision_ * recall_ / (precision_ + recall_) if (precision_ + recall_) else 0.0
+    spark_auc_ = float(probability_auc(prediction_df))
+    rank_auc_ = independent_rank_auc(y, scored_pdf["p1"].to_numpy())
+    assert abs(spark_auc_ - rank_auc_) < 1e-9, (spark_auc_, rank_auc_)
+    return {"dataset": name, "support": len(y), "accuracy": (tp_ + tn_) / len(y),
+            "precision_churn": precision_, "recall_churn": recall_, "f1_churn": f1_,
+            "auc": spark_auc_, "independent_rank_auc": rank_auc_}
+
+generalisation = pd.DataFrame([
+    generalisation_metrics("train", model.transform(train_df)),
+    generalisation_metrics("test", pred),
+])
+generalisation_diagnostic = {
+    "comparison": generalisation.round(4).to_dict(orient="records"),
+    "absolute_gaps": {
+        metric: round(abs(float(generalisation.loc[0, metric]) - float(generalisation.loc[1, metric])), 4)
+        for metric in ["accuracy", "precision_churn", "recall_churn", "f1_churn", "auc"]
+    },
+    "auc_check_tolerance": 1e-9,
+}
+print("Train vs test (baseline decision tree, threshold 0.5):")
+print(generalisation.drop(columns="independent_rank_auc").round(4).to_string(index=False))
+print("Independent AUC check passed for both datasets.")""")
+
+code(r"""# Join protected/demographic attributes back by customerID; never use them from test for tuning.
+audit_pdf = (pred.select("customerID", "label", "prediction")
+             .join(test_raw.select("customerID", "gender", "SeniorCitizen"), "customerID", "inner")
+             .toPandas())
+assert len(audit_pdf) == test_df.count()
+
+audit_rows = []
+for attribute in ["gender", "SeniorCitizen"]:
+    for group, part in audit_pdf.groupby(attribute, dropna=False):
+        y = part["label"].astype(int).to_numpy(); yhat = part["prediction"].astype(int).to_numpy()
+        tp_ = int(((yhat == 1) & (y == 1)).sum()); fp_ = int(((yhat == 1) & (y == 0)).sum())
+        fn_ = int(((yhat == 0) & (y == 1)).sum()); tn_ = int(((yhat == 0) & (y == 0)).sum())
+        audit_rows.append({
+            "attribute": attribute, "group": str(group), "support": int(len(part)),
+            "churn_prevalence": float(y.mean()),
+            "recall": tp_ / (tp_ + fn_) if (tp_ + fn_) else None,
+            "false_positive_rate": fp_ / (fp_ + tn_) if (fp_ + tn_) else None,
+        })
+
+demographic_audit = pd.DataFrame(audit_rows)
+assert demographic_audit[["recall", "false_positive_rate"]].notna().all().all()
+assert demographic_audit[["churn_prevalence", "recall", "false_positive_rate"]].apply(
+    lambda col: col.between(0, 1).all()).all()
+print("Held-out demographic error audit (baseline decision tree):")
+print(demographic_audit.round(4).to_string(index=False))""")
 
 code(r"""# Feature importances -> the most important attribute drives Task 3.
 imp = sorted(zip(FEATURE_NAMES, model.featureImportances.toArray()), key=lambda x: -x[1])
@@ -693,6 +770,8 @@ metrics = {
     "recall_improvement": recall_improvement,
     "cost_sensitivity": cost_sensitivity,
     "business_operating_point": business_operating_point,
+    "generalisation_diagnostic": generalisation_diagnostic,
+    "demographic_audit": demographic_audit.round(4).to_dict(orient="records"),
 }
 (OUT_DIR / "metrics.json").write_text(json.dumps(metrics, indent=2))
 print(json.dumps(metrics, indent=2))""")

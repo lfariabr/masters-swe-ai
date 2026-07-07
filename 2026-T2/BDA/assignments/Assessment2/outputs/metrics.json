@@ -246,5 +246,71 @@
     "recall": 0.9332,
     "precision": 0.418,
     "accuracy": 0.6373
-  }
+  },
+  "generalisation_diagnostic": {
+    "comparison": [
+      {
+        "dataset": "train",
+        "support": 4225,
+        "accuracy": 0.7986,
+        "precision_churn": 0.6452,
+        "recall_churn": 0.5352,
+        "f1_churn": 0.5851,
+        "auc": 0.8242,
+        "independent_rank_auc": 0.8242
+      },
+      {
+        "dataset": "test",
+        "support": 1409,
+        "accuracy": 0.7807,
+        "precision_churn": 0.6052,
+        "recall_churn": 0.5,
+        "f1_churn": 0.5476,
+        "auc": 0.8019,
+        "independent_rank_auc": 0.8019
+      }
+    ],
+    "absolute_gaps": {
+      "accuracy": 0.0179,
+      "precision_churn": 0.04,
+      "recall_churn": 0.0352,
+      "f1_churn": 0.0375,
+      "auc": 0.0223
+    },
+    "auc_check_tolerance": 1e-09
+  },
+  "demographic_audit": [
+    {
+      "attribute": "gender",
+      "group": "Female",
+      "support": 693,
+      "churn_prevalence": 0.2756,
+      "recall": 0.5079,
+      "false_positive_rate": 0.1414
+    },
+    {
+      "attribute": "gender",
+      "group": "Male",
+      "support": 716,
+      "churn_prevalence": 0.2556,
+      "recall": 0.4918,
+      "false_positive_rate": 0.0957
+    },
+    {
+      "attribute": "SeniorCitizen",
+      "group": "No",
+      "support": 1183,
+      "churn_prevalence": 0.235,
+      "recall": 0.4784,
+      "false_positive_rate": 0.1116
+    },
+    {
+      "attribute": "SeniorCitizen",
+      "group": "Yes",
+      "support": 226,
+      "churn_prevalence": 0.4248,
+      "recall": 0.5625,
+      "false_positive_rate": 0.1615
+    }
+  ]
 }
