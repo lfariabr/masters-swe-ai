@@ -65,6 +65,23 @@ We build on, rather than chase, this frontier. Heavy LLM pipelines rarely pair a
 
 **Model progression.** (1) A TF-IDF + logistic-regression sentence-level baseline establishes the aspect gap and ties back to Review Pulse v1. (2) A target-agnostic LSTM tests whether recurrence alone resolves that gap. (3) ATAE-LSTM, an LSTM conditioned on an aspect embedding with aspect-aware attention, tests the value of explicit aspect conditioning. (4) DistilBERT, fine-tuned with the aspect as an auxiliary sentence, is the modern contextual model. (5) An attention or attribution visualisation layer provides indicative, human-readable evidence for each prediction; it is not treated as a causal explanation without additional faithfulness tests.
 
+```mermaid
+flowchart LR
+    A["(review, aspect)<br/>pair"] --> B["Preprocess<br/>tokenise + embed"]
+    B --> C1["Baseline<br/>TF-IDF + LogReg"]
+    B --> C2["Model 1<br/>ATAE-LSTM<br/>aspect-aware attention"]
+    B --> C3["Model 2<br/>DistilBERT<br/>aspect as auxiliary sentence"]
+    C1 --> D["Per-aspect sentiment<br/>pos / neu / neg"]
+    C2 --> D
+    C3 --> D
+    C2 --> E["Attention /<br/>attribution heatmap"]
+    C3 --> E
+    D --> F["Streamlit demo<br/>Review Pulse v2"]
+    E --> F
+```
+
+*Figure 1. Review Pulse v2 pipeline. A (review, aspect) pair flows through shared preprocessing to three comparable models, producing a per-aspect sentiment label and an interpretability heatmap surfaced in the Streamlit demo.*
+
 **Evaluation.** Accuracy and macro-F1 on aspect sentiment, with a per-class breakdown and a focused analysis of sentences containing conflicting aspect sentiment. Qualitative attention or attribution heatmaps assess interpretability. We use fixed seeds, explicit train/dev/test splits, and guard against data leakage. Cross-domain transfer from Restaurants to Laptops remains an optional extension because their aspect distributions differ.
 
 **Deployment.** Assessment 3 ships a Streamlit demo where a user types a review and sees per-aspect sentiment plus the attention heatmap, mirroring the live Review Pulse v1 app.
@@ -72,7 +89,7 @@ We build on, rather than chase, this frontier. Heavy LLM pipelines rarely pair a
 ## 5. Project Plan and Risk Management
 *(~140 words)*
 
-The plan runs from this proposal (Module 8) to the Assessment 3 submission (Module 12): data pipeline and classical baseline (Modules 8-9), ATAE-LSTM (Modules 9-10), DistilBERT fine-tuning (Module 10), interpretability and Streamlit demo (Module 11), then evaluation, comparison and report (Modules 11-12), with a submission buffer. Roles are split across implementation, literature, and project management, with equal presentation time. Critical success factors: the data is pre-annotated, compute is light (DistilBERT on free Colab GPU), and a working classical/LSTM path exists even if the transformer underperforms.
+The plan runs from this proposal (Module 8) to the Assessment 3 submission (Module 12): data pipeline and classical baseline (Modules 8-9), ATAE-LSTM (Modules 9-10), DistilBERT fine-tuning (Module 10), interpretability and Streamlit demo (Module 11), then evaluation, comparison and report (Modules 11-12), with a submission buffer. The project is scoped to fit three constraints: a fixed academic timeframe, a zero-cost budget (free Colab GPU, open datasets and libraries) and three part-time contributors. Roles split across implementation, literature and project management, with equal presentation time. Critical success factors: pre-annotated data, compute within the free tier, and a working classical/LSTM path even if the transformer underperforms.
 
 Key risks and mitigations: small data risks overfitting (mitigate with dropout, early stopping, and transfer learning); transformer fine-tuning could be heavy (use DistilBERT, contingency ATAE-LSTM only); scope creep (keep extraction and Topic Modelling as gated stretch goals); and attention is not guaranteed to be faithful, so we frame it as indicative, not causal.
 
@@ -83,7 +100,7 @@ Sentence-level sentiment loses the aspect-level detail that businesses act on. R
 
 ---
 
-**Word count (body, Sections 1-6): ~1,034 words.** *Inside the 900-1,100 valid band for 1,000 +/-10%. Cover page, ToC, captions, references and Appendix A are excluded. Re-count after final edits and conversion to the submission template.*
+**Word count (body, Sections 1-6): ~1,045 words.** *Inside the 900-1,100 valid band for 1,000 +/-10%. Cover page, ToC, the Figure 1 diagram and caption, tables, references and Appendix A are excluded. Re-count after final edits and conversion to the submission template.*
 
 ---
 
@@ -94,7 +111,13 @@ Devlin, J., Chang, M.-W., Lee, K., & Toutanova, K. (2019). BERT: Pre-training of
 
 He, R., Lee, W. S., Ng, H. T., & Dahlmeier, D. (2017). An unsupervised neural attention model for aspect extraction. *Proceedings of ACL 2017*, 388-397. https://aclanthology.org/P17-1036/
 
+Hua, Y. C., Denny, P., Wicker, J., & Taskova, K. (2024). A systematic review of aspect-based sentiment analysis: Domains, methods, and trends. *Artificial Intelligence Review, 57*(11), Article 296. https://doi.org/10.1007/s10462-024-10906-z
+
+Jayakody, D., Isuranda, K., Malkith, A. V. A., de Silva, N., Ponnamperuma, S. R., Sandamali, G. G. N., & Sudheera, K. L. K. (2024). Aspect-based sentiment analysis techniques: A comparative study. *arXiv* preprint arXiv:2407.02834. https://arxiv.org/abs/2407.02834
+
 Pontiki, M., Galanis, D., Pavlopoulos, J., Papageorgiou, H., Androutsopoulos, I., & Manandhar, S. (2014). SemEval-2014 Task 4: Aspect based sentiment analysis. *Proceedings of SemEval 2014*, 27-35. https://aclanthology.org/S14-2004/
+
+Simmering, P. F., & Huoviala, P. (2023). Large language models for aspect-based sentiment analysis. *arXiv* preprint arXiv:2310.18025. https://arxiv.org/abs/2310.18025
 
 Sun, C., Huang, L., & Qiu, X. (2019). Utilizing BERT for aspect-based sentiment analysis via constructing auxiliary sentence. *Proceedings of NAACL-HLT 2019*, 380-385. https://aclanthology.org/N19-1035/
 
@@ -103,12 +126,6 @@ Tang, D., Qin, B., Feng, X., & Liu, T. (2016). Effective LSTMs for target-depend
 Wang, Y., Huang, M., Zhu, X., & Zhao, L. (2016). Attention-based LSTM for aspect-level sentiment classification. *Proceedings of EMNLP 2016*, 606-615. https://aclanthology.org/D16-1058/
 
 Zhao, J., Gui, X., & Zhang, X. (2018). Deep convolution neural networks for Twitter sentiment analysis. *IEEE Access, 6*, 23253-23260. https://doi.org/10.1109/ACCESS.2017.2776930
-
-Hua, Y. C., Denny, P., Wicker, J., & Taskova, K. (2024). A systematic review of aspect-based sentiment analysis: Domains, methods, and trends. *Artificial Intelligence Review, 57*, Article 296. https://doi.org/10.1007/s10462-024-10906-z
-
-Jayakody, D., Isuranda, K., Malkith, A. V. A., de Silva, N., Ponnamperuma, S. R., Sandamali, G. G. N., & Sudheera, K. L. K. (2024). Aspect-based sentiment analysis techniques: A comparative study. *arXiv* preprint arXiv:2407.02834. https://arxiv.org/abs/2407.02834
-
-Simmering, P. F., & Huoviala, P. (2023). Large language models for aspect-based sentiment analysis. *arXiv* preprint arXiv:2310.18025. https://arxiv.org/abs/2310.18025
 
 ---
 
@@ -129,3 +146,30 @@ Assessment 1 established a transparent sentence-level baseline using observed N-
 | Accuracy, macro-F1 and confusion matrices | Retain the same metrics, now calculated for aspect-level predictions |
 
 This is also the bridge from Review Pulse v1 to v2. The existing project supplies reusable preprocessing, experiment, metric and interface patterns, while A3 changes the model input from a review alone to a `(review, aspect)` pair. The implementation then compares a sentence-only baseline, aspect-conditioned ATAE-LSTM and fine-tuned DistilBERT before exposing per-aspect predictions in the Streamlit interface.
+
+# Statement of Acknowledgement
+
+We acknowledge that we have used the following AI tools in the preparation of this project proposal:
+
+- OpenAI ChatGPT (Codex 5.5)
+- Anthropic Claude (Opus 4.8)
+
+Both tools were used to assist with clarifying aspect-based sentiment analysis (ABSA) concepts and the
+progression from N-gram baselines to attention-LSTM and transformer models, structuring the literature
+review and its critical synthesis, sanity-checking the SemEval-2014 experimental design against data
+leakage, refining academic clarity, and supporting APA 7th referencing conventions. All source papers
+were read and verified against the original publications by the group.
+
+Prompt examples:
+
+1. "Given our Assessment 1 N-gram single-label classifier, how do I frame the aspect-level problem so that a sentence like 'the food was great but the service was slow' motivates ABSA over sentence-level sentiment?"
+2. "Compare ATAE-LSTM (Wang et al., 2016) and BERT-for-ABSA via auxiliary sentence (Sun et al., 2019) as two contrasting models on SemEval-2014 Task 4, and explain what each adds over a target-agnostic baseline."
+3. "Review this project plan for a hypothetical ABSA proposal: are the risks, contingency plan and critical success factors sound and feasible within a fixed academic timeframe and a zero-cost compute budget?"
+
+We confirm that the use of these AI tools has been in accordance with the Torrens University Australia
+Academic Integrity Policy and the TUA, Think and MDS Position Paper on the Use of AI. We confirm that the
+final output is authored by the group and represents our own critical thinking, analysis, and synthesis
+of sources. We take full responsibility for the final content of this report.
+
+
+---
