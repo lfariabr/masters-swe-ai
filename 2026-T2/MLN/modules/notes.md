@@ -785,7 +785,7 @@ Share your thoughts on the Wine Classification to the SVM discussion forum and d
 ### TLDR
 Two linked ideas that bookend the ML lifecycle:
 - **Automated ML (Auto ML)** automates the *whole pipeline* — data cleaning, feature engineering, model selection and **hyperparameter tuning** — not just tuning. It is a **productivity tool, not a replacement** for data scientists (Olson). Modern search uses **Bayesian optimisation, genetic programming and meta-learning**; tools include **TPOT, Auto-sklearn, H2O AutoML**.
-- **Explainable ML (XAI)** makes predictions justifiable — answering *why did it do that?* and *when can I trust it?* Core distinctions: **intrinsic** (linear/logistic regression, decision trees) vs **post-hoc/model-agnostic** (**SHAP, LIME, permutation importance, PDP**), and **global** (feature importance) vs **local** (SHAP on one instance). Central tension = **performance vs explainability**; DARPA's XAI aims for both. Warning: a *wrong* explanation is worse than none.
+- **Explainable ML (XAI)** makes predictions justifiable — answering *why did it do that?* and *when can I trust it?* Core distinctions: **intrinsic** (linear/logistic regression, decision trees) vs **post-hoc/model-agnostic** (**SHAP, LIME, permutation importance, PDP**), and **global** (feature importance) vs **local** (SHAP on one instance). Central tension = **performance vs explainability**; DARPA's XAI aims for both. Warning: a *wrong* explanation is worse than none. Beyond technique, explainability is now a **governance requirement** — NZ's Algorithm Charter + Data Ethics Advisory Group (Sowden) make it a public-policy expectation, not optional.
 
 ### Introduction
 This Module focuses on two important and related areas: the automation and explanability of Machine Learning (ML).
@@ -841,7 +841,7 @@ For example, imagine that you apply for a bank loan online and input the necessa
 
     In this video, Mark Sowden, Government Chief Data Steward, outlines the steps undertaken by the New Zealand (NZ) government to improve the transparency and accountability of government-used algorithms. This work builds on the Algorithm Assessment Report (Stats NZ, 2018) that recommended that algorithms and their effects on people be explainable.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module07_notes.md](../modules/module-07-automated-explainable-ml/module07_notes.md)*
 
 #### 6. Interpretable Machine Learning
 - Molnar, C. (2019). Interpretable machine learning: A guide for making black box models explainable. Retrieved from https://christophm.github.io/interpretable-ml-book/

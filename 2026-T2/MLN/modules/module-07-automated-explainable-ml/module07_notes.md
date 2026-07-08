@@ -10,7 +10,7 @@
 | 2 | Listen & summarise Linear Digressions (2018) — AutoML podcast | 🔥 needs manual listen |
 | **3** | Read & summarise Mark (2020) — awesome-autoML-papers (curated map) | ✅ |
 | **4** | Watch & summarise Aha (2019) — DARPA Explainable AI (XAI) colloquium | ✅ |
-| 5 | Watch & summarise Sowden (2018) — transparency & accountability of NZ government algorithms | 🔥 needs manual listen |
+| **5** | Watch & summarise Sowden (2018) — transparency & accountability of NZ government algorithms | ✅ |
 | **6** | Read & summarise Molnar (2019) — Interpretable ML book (Ch. 4 focus) | ✅ |
 | 7 | Activity 1: Google What-If Tool — probe 2+ notebooks (wine, COMPAS, census, smile) | 🕐 |
 | 8 | Activity 2: IBM AI Explainability 360 — bank-loan scenario (CEM + Protodash explainers) | 🕐 |
@@ -179,8 +179,36 @@ Auto-sklearn, TPOT, Auto-WEKA, Auto-Keras, H2O AutoML, Google AutoML, plus HPO l
 
 No local transcript available and no public transcript URL in the resource overview. Listen manually (it covers the same "AutoML in plain English" framing as Olson). Summarise after listening.
 
-### 5. Sowden, M. (2018). Transparency and accountability of government algorithms. — 🔥 needs manual listen
+### 5. Sowden, M. (2018). Transparency and accountability of government algorithms.
 
-**Citation:** Snowden, M. (2018, 15 July). Transparency and accountability of government algorithms [Video file]. https://www.youtube.com/watch?v=Jpbd-5r3xO8
+**Citation:** Sowden, M. (2018, 15 July). Transparency and accountability of government algorithms [Video file]. https://www.youtube.com/watch?v=Jpbd-5r3xO8
 
-No local transcript available. Mark Sowden (NZ Government Chief Data Steward) describes NZ's steps to make government-used algorithms explainable and accountable (builds on the 2018 Algorithm Assessment Report). Watch manually — it is the governance/policy angle that complements the technical XAI of Aha (Res. 4).
+**Purpose:** Mark Sowden (NZ Government Statistician / Chief Data Steward, Stats NZ) gives the **governance and policy** angle on explainability — how a *government* makes its algorithmic decision-making transparent and accountable to citizens. Complements Aha's technical XAI (Res. 4) with the "so what should institutions actually do?" answer.
+
+---
+
+#### 1. The trigger: algorithms in public service delivery
+
+- Growing use of algorithms in **services delivered to New Zealanders** prompted a **2018 government-wide review**.
+- Scope: how the **14 biggest data agencies** use algorithms that **inform significant decisions** about people.
+- Assessed against **6 principles for safe & effective data use**, co-developed with the **NZ Privacy Commissioner**.
+- Output: the **Algorithm Assessment Report** — tells citizens how algorithms are (and are *not*) used in decision-making, and what data/ethics safeguards exist.
+
+#### 2. What the review found
+
+- Good safeguards already in place, **but** more was needed on **including citizens' views** in how algorithms are developed and used — i.e. more **transparency and accountability**.
+
+#### 3. Three concrete responses (the actionable part)
+
+| Initiative | What it is |
+|---|---|
+| **Algorithm Charter** | a public commitment agencies sign up to, on transparency & accountability to their customers |
+| **Data Ethics Advisory Group** | external experts reviewing innovative/ethical data use; fostering public debate on *when* to use algorithms |
+| **Workforce data-ethics uplift** | building data-ethics understanding across the government workforce that handles data |
+
+- **The balance he's after:** access the *power* of algorithms to deliver better services **while keeping public trust and confidence**.
+
+#### Key Takeaways for MLN601
+1. This is the **institutional/regulatory** complement to the module's technical XAI — the same trust concern as Aha (Res. 4), but answered with *charters, ethics boards and accountability*, not heat maps.
+2. Directly reinforces **Activity 2's** legal-obligation twist (bank *must* explain a loan rejection): explainability is not just a technique, it's a **governance requirement**.
+3. Strong, citable real-world case that explainability + accountability are now **public-policy expectations**, not optional — useful framing for A2/A3 discussion sections.
