@@ -50,9 +50,11 @@ Canvas ↑       • •              ↗ PC1                 ●────●
 | **Factor analysis** | Which hidden causes explain shared covariance? | latent Gaussian factors + variable-specific noise | inferring constructs like engagement or mastery |
 | **ICA** | Which independent sources were mixed together? | independent, **non-Gaussian** sources | separating speakers, EEG signals, interference |
 
+- 🔵 **Lecturer's 1-line analogies (memorise these):** PCA = summarise a long report to its key ideas · ICA = listen to one friend's voice in a noisy party · SFA = watch a moving object and focus on what stays consistent · Sparse coding = describe a face with a few distinctive features, not every pixel.
 - 🔵 **Uncorrelated ≠ independent.** Independence is stronger: two variables may have zero linear correlation but still depend on each other nonlinearly.
 - 🔴 **When ICA over PCA?** Choose ICA when observations are linear mixtures of hidden non-Gaussian sources and you need to **recover the sources**, not merely reduce dimensions.
 - 🔵 **Cocktail party:** microphones observe mixed voices `x`; ICA estimates each original speaker `h` without being told the mixing weights.
+- 🔴 **Exam trap (lecturer flagged this live):** PCA is **not** the right tool to prevent overfitting - use **regularization** (Module 4). PCA reduces dimensions; it does not regularise the model.
 
 ## 🖤 Zone 3 - SFA and Sparse Coding
 
@@ -99,4 +101,5 @@ Canvas ↑       • •              ↗ PC1                 ●────●
 - [ ] Activity 1 - write the ≤150-word ICA vs PCA comparison
 - [ ] Activity 2 - propose NLP, speech, and vision applications using factor models
 - [ ] Activity 3 - post one precise latent-variable question to the open forum
+- [ ] Gapminder in-class reflection: on [gapminder.org](https://www.gapminder.org/tools/), vary the axes (GDP per capita vs life expectancy vs CO2 vs income), then answer *"if you could keep only 5 variables, which would you choose and why, and how does PCA help simplify this while keeping most information?"*
 - [ ] From memory, explain `variance → eigenvector → eigenvalue → principal component`
