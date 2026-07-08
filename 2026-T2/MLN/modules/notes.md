@@ -783,6 +783,9 @@ Share your thoughts on the Wine Classification to the SVM discussion forum and d
 ## Module 7 - Automated and Explainable Machine Learning
 
 ### TLDR
+Two linked ideas that bookend the ML lifecycle:
+- **Automated ML (Auto ML)** automates the *whole pipeline* — data cleaning, feature engineering, model selection and **hyperparameter tuning** — not just tuning. It is a **productivity tool, not a replacement** for data scientists (Olson). Modern search uses **Bayesian optimisation, genetic programming and meta-learning**; tools include **TPOT, Auto-sklearn, H2O AutoML**.
+- **Explainable ML (XAI)** makes predictions justifiable — answering *why did it do that?* and *when can I trust it?* Core distinctions: **intrinsic** (linear/logistic regression, decision trees) vs **post-hoc/model-agnostic** (**SHAP, LIME, permutation importance, PDP**), and **global** (feature importance) vs **local** (SHAP on one instance). Central tension = **performance vs explainability**; DARPA's XAI aims for both. Warning: a *wrong* explanation is worse than none.
 
 ### Introduction
 This Module focuses on two important and related areas: the automation and explanability of Machine Learning (ML).
@@ -802,7 +805,7 @@ For example, imagine that you apply for a bank loan online and input the necessa
 
     In this video, Dr Randal Olson discusses the benefits of automated ML, its future and provides a screen demonstration of the key concepts using scikit-learn. Dr Olson is a researcher and practitioner. He developed one of the first auto ML tools—the TPOT. Follow the narrative provided by Dr Olson as he works on his notebook. This skill of being able to use the notebook and talk out loud about what is happening as the notebook runs is extremely valuable. Try talking out loud sometime and tell the story of your data analysis. The Auto ML tools operate alongside and seamlessly with the scikit-learn environment. Having viewed the video, how much time do you think Auto ML tools will help save? Do you agree with Dr Olson’s view on the future of Auto ML?
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module07_notes.md](../modules/module-07-automated-explainable-ml/module07_notes.md)*
 
 #### 2. Auto ML—Automated ML (in Plain English)
 - Kennedy, M. Jaffe, B. & Malone, K. (2018, 29 April). AutoML [Audio podcast]. Retrieved from http://lineardigressions.com/episodes/2018/4/29/automl
@@ -820,7 +823,7 @@ For example, imagine that you apply for a bank loan online and input the necessa
 
     This resource includes a curated list of automated ML papers, articles, tutorials, slides and projects. It includes useful references in this dynamic and ever growing area of ML, provides a useful mind map that encapsulates the field of auto ML and provides the details of some projects being carried out. This is a very useful curation for exploring Auto ML beyond this subject and into the workplace.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module07_notes.md](../modules/module-07-automated-explainable-ml/module07_notes.md)*
 
 #### 4. DARPA (US Defense Advanced Research Projects Agency) Explainable Artificial Intelligence
 - Aha, D. (2019, 26 March). Artificial intelligence colloquium: Explainable AI https://www.youtube.com/watch?v=YSsYXAn_L00
@@ -829,7 +832,7 @@ For example, imagine that you apply for a bank loan online and input the necessa
 
     This talk highlights the United States defence (and non-defence) activities in explainable ML techniques. It should be noted that for this resource, the term artificial intelligence (AI) is used interchangeably with ML. The goal of the programme is to produce more explainable models while maintaining performance to enable users to understand and trust the models that power the analytics to make discoveries in the data and autonomous applications. A supporting slide pack (Gunning, 2016) helps illustrate the evaluation framework used to explain the effectiveness and sequence of steps used to conduct the evaluation. This video and slide pack highlight the importance of explainability and identify the challenges facing this emerging field, especially in high-stake decision domains, such as defence and medicine.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module07_notes.md](../modules/module-07-automated-explainable-ml/module07_notes.md)*
 
 #### 5. Transparency and Accountability of Government Algorithms
 - Snowden, M. (2018, 15 July). Transparency and accountability of government algorithms [Video file]. Retrieved from https://www.youtube.com/watch?v=Jpbd-5r3xO8
@@ -847,7 +850,7 @@ For example, imagine that you apply for a bank loan online and input the necessa
 
     In this freely available book, the author really tries to capture how you make supervised ML models interpretable. Without reverting to any fashionable techniques, this PhD researcher tries to bring together some basic concepts and established methods. R packages (but not Python) are provided. Additionally, explanations are provided for each of the models and the accompanying examples have an easy to follow narrative. At a minimum, you should follow read Chapter 4 in one sitting to understand the explainers for each type of algorithm.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module07_notes.md](../modules/module-07-automated-explainable-ml/module07_notes.md)*
 
 ### Learning Activities
 
