@@ -780,6 +780,149 @@ Share your thoughts on the Wine Classification to the SVM discussion forum and d
 
 ---
 
+## Module 7 - Automated and Explainable Machine Learning
+
+### TLDR
+
+### Introduction
+This Module focuses on two important and related areas: the automation and explanability of Machine Learning (ML).
+
+Automated (auto) ML accelerates the construction and production of models, from access to the data through to ML model deployment. Without human intervention, auto ML extracts the most relevant features from data, selects relevant algorithms, tunes the hyperparameters and applies the model to unseen data.
+
+Explainability shows how data relates to the final model, prediction and features. Explainability helps build trust in the prediction and helps answer questions like, ‘Why did it do that?’ and ‘How does it work?’. Most importantly, explainability will help you to tell a story about your own analysis of the data when presenting the data to non-technical staff and other stakeholders.
+
+For example, imagine that you apply for a bank loan online and input the necessary data. After which, you receive an answer as to whether the bank loan is likely to be approved or not. The decision is reached through the use of automated ML without human involvement. If you did not succeed in getting a bank loan, the website may not provide an explanation as to the reason why. This issue can be resolved by using the explaining the use of ML (explainability)to provide consumers with a rationale as to why they did not receive a loan.
+
+### Resources
+
+#### 1. The Past, Present and Future of Automated Machine Learning
+- Olson, R. (2018, 15 July). The past, present, and future of automated machine learning [Video file]. Retrieved from https://www.youtube.com/watch?v=QrJlj0VCHys
+
+*Resource Overview:*
+
+    In this video, Dr Randal Olson discusses the benefits of automated ML, its future and provides a screen demonstration of the key concepts using scikit-learn. Dr Olson is a researcher and practitioner. He developed one of the first auto ML tools—the TPOT. Follow the narrative provided by Dr Olson as he works on his notebook. This skill of being able to use the notebook and talk out loud about what is happening as the notebook runs is extremely valuable. Try talking out loud sometime and tell the story of your data analysis. The Auto ML tools operate alongside and seamlessly with the scikit-learn environment. Having viewed the video, how much time do you think Auto ML tools will help save? Do you agree with Dr Olson’s view on the future of Auto ML?
+
+> *Status: 🕐 To-Do*
+
+#### 2. Auto ML—Automated ML (in Plain English)
+- Kennedy, M. Jaffe, B. & Malone, K. (2018, 29 April). AutoML [Audio podcast]. Retrieved from http://lineardigressions.com/episodes/2018/4/29/automl
+
+*Resource Overview:*
+
+    In this video, Dr Randal Olson discusses the benefits of automated ML, its future and provides a screen demonstration of the key concepts using scikit-learn. Dr Olson is a researcher and practitioner. He developed one of the first auto ML tools—the TPOT. Follow the narrative provided by Dr Olson as he works on his notebook. This skill of being able to use the notebook and talk out loud about what is happening as the notebook runs is extremely valuable. Try talking out loud sometime and tell the story of your data analysis. The Auto ML tools operate alongside and seamlessly with the scikit-learn environment. Having viewed the video, how much time do you think Auto ML tools will help save? Do you agree with Dr Olson’s view on the future of Auto ML?
+
+> *Status: 🕐 To-Do*
+
+#### 3. Awesome-Auto ML-Papers (curated)
+- Mark, L. (Ed.). (2020, 15 August). Awesome-autoML-papers. Retrieved from https://github.com/hibayesian/awesome-automl-papers
+
+*Resource Overview:*
+
+    This resource includes a curated list of automated ML papers, articles, tutorials, slides and projects. It includes useful references in this dynamic and ever growing area of ML, provides a useful mind map that encapsulates the field of auto ML and provides the details of some projects being carried out. This is a very useful curation for exploring Auto ML beyond this subject and into the workplace.
+
+> *Status: 🕐 To-Do*
+
+#### 4. DARPA (US Defense Advanced Research Projects Agency) Explainable Artificial Intelligence
+- Aha, D. (2019, 26 March). Artificial intelligence colloquium: Explainable AI https://www.youtube.com/watch?v=YSsYXAn_L00
+
+*Resource Overview:*
+
+    This talk highlights the United States defence (and non-defence) activities in explainable ML techniques. It should be noted that for this resource, the term artificial intelligence (AI) is used interchangeably with ML. The goal of the programme is to produce more explainable models while maintaining performance to enable users to understand and trust the models that power the analytics to make discoveries in the data and autonomous applications. A supporting slide pack (Gunning, 2016) helps illustrate the evaluation framework used to explain the effectiveness and sequence of steps used to conduct the evaluation. This video and slide pack highlight the importance of explainability and identify the challenges facing this emerging field, especially in high-stake decision domains, such as defence and medicine.
+
+> *Status: 🕐 To-Do*
+
+#### 5. Transparency and Accountability of Government Algorithms
+- Snowden, M. (2018, 15 July). Transparency and accountability of government algorithms [Video file]. Retrieved from https://www.youtube.com/watch?v=Jpbd-5r3xO8
+
+*Resource Overview:*
+
+    In this video, Mark Sowden, Government Chief Data Steward, outlines the steps undertaken by the New Zealand (NZ) government to improve the transparency and accountability of government-used algorithms. This work builds on the Algorithm Assessment Report (Stats NZ, 2018) that recommended that algorithms and their effects on people be explainable.
+
+> *Status: 🕐 To-Do*
+
+#### 6. Interpretable Machine Learning
+- Molnar, C. (2019). Interpretable machine learning: A guide for making black box models explainable. Retrieved from https://christophm.github.io/interpretable-ml-book/
+
+*Resource Overview:*
+
+    In this freely available book, the author really tries to capture how you make supervised ML models interpretable. Without reverting to any fashionable techniques, this PhD researcher tries to bring together some basic concepts and established methods. R packages (but not Python) are provided. Additionally, explanations are provided for each of the models and the accompanying examples have an easy to follow narrative. At a minimum, you should follow read Chapter 4 in one sitting to understand the explainers for each type of algorithm.
+
+> *Status: 🕐 To-Do*
+
+### Learning Activities
+
+#### 1. Visually Probe Machine Learning Models—The Google What-If Tool
+
+A number of ML explainable tools require that significant efforts be undertaken to install the software. The tools for this hands-on activity were selected to enable you to rapidly start to work with the tools and explore the data and algorithms for explainability. 
+The number of tools and frameworks in this rapidly evolving field continues to increase. The first tool integrates directly with the Google AI platform to make the vision of explainable automated ML a reality. The What-If tool is an interactive visual interface designed to visualise data and enable the probing of ML models with little or no coding.
+
+To complete this learning activity, follow these steps:
+
+1. Log into your Google Colab notebook.
+2. Review details of the What-if tool at the landing page: https://pair-code.github.io/what-if-tool/.
+3. Execute and explore at least two of the following four notebook demonstrations (use the links below to gain access to already preconfigured notebooks). You can:
+   - Train and compare wine quality models with an AI Platform https://colab.research.google.com/github/pair-code/what-if-tool/blob/master/keras_sklearn_compare_caip_e2e.ipynb. This notebook compares the results of models run in two different Python libraries shallow (scikit-learn) and deep (Keras);
+   - Explore celebrity face image smile classification https://colab.research.google.com/github/PAIR-code/what-if-tool/blob/master/WIT_Smile_Detector.ipynb.
+   - Investigate the fairness of recidivism classification https://colab.research.google.com/github/pair-code/what-if-tool/blob/master/WIT_COMPAS.ipynb; and/or
+   - Compare income classification on UCI census data https://colab.research.google.com/github/pair-code/what-if-tool/blob/master/WIT_Model_Comparison.ipynb.
+4. Execute ('Run all') for each of your notebook selections and follow the suggested prompts indicated within the notebooks and the exploration ideas section at the end of each notebook
+5. Share your thoughts to the discussion forum once you have completed the activity. In the discussion forum, consider if the tool has the potential to avoid or at least minimise the issues you envisage emerging from running algorithms that affect humans. Now that you have an understanding of the What-if tool, expand on your understanding of using the tool within the online forum. Do you need special expertise to understand the outputs?
+
+> *Status: 🕐 To-Do*
+
+#### 2. Bank-Loan Activity Using an Open Source Toolkit for Explainability
+- IBM Research. (2019, 8 August). Making AI more trusted, by making it explainable [Video file]. Retrieved from https://www.youtube.com/watch?time_continue=3&v=dSYnNtH_8LY&feature=emb_logo
+- Mojsilovic, A. (2019, 8 August). Introducing AI Explainability 360. [Web log post]. Retrieved from https://www.ibm.com/blogs/research/2019/08/ai-explainability-360/
+
+No single approach to explaining decisions made by algorithms exists. Depending upon the perspective being sought, the consumer, front-office staff member, data scientist or regulator require different explanations when it comes to the support of algorithmic decision making. The IBM toolkit (Mojsilovic, 2019) tackles explainability through one interface. IBM positions the toolkit as an AI toolkit; however, our focus is on a subset of AI—ML algorithms.
+
+To complete this learning activity, follow these steps:
+
+1. Review the video (IBM Research, 2019).
+2. Consider explainability in the context of a bank loaning money and making decisions to accept or reject an applicant on the basis of an algorithm.
+3. Review the bank loan scenario in detail step by step using the AI Explainability 360—Demo http://aix360.mybluemix.net/data.
+4. Choose each consumer type (e.g., a data scientist, a loan officer and a bank customer) and see what explanation each consumer type needs to understand when it comes to explainability.
+5. As part of your discovery, explore the objectives of the Contrastive Explanations Method (CEM) explainer algorithm and Protodash explainer.
+6. Peruse the notebook code for the credit approval (you do not have to load this into your own notebook, simply use the nbviewer already provided) https://nbviewer.jupyter.org/github/IBM/AIX360/blob/master/examples/tutorials/HELOC.ipynb#2.3.-Ruen-Logistic-Rule-Regression-(LogRR).
+7. Share your thoughts to the discussion forum on explainability once you have completed the activity. Take the bank loan scenario one stage further when sharing your experience—assume that every time the bank decides to reject a loan application, a legal obligation exists that requires the bank to explain the basis for each loan rejection. Do you feel that with the scenario and supporting algorithms that you have the ability to sufficiently explain the basis of the machine decision? What might you be missing?
+
+> *Status: 🕐 To-Do*
+
+#### 3. SHapley Additive exPlanations (SHAP) and Explainer Dashboard
+- Molnar, C. (2019). Interpretable machine learning: A guide for making black box models explainable. Retrieved from https://christophm.github.io/interpretable-ml-book/shap.html
+
+SHapley Additive exPlanations (SHAP) is a popular and well-established model agnostic technique that is used to explain predictions. It was first proposed in 1953. The aim of SHAP ‘is to explain the prediction of an instance x by computing the contribution of each feature to the prediction’ (Molnar, 2019). This task is far from easy. Exploring and explaining the workings of an ML model likely requires a dashboard to make sense of a variety of outputs (e.g., SHAP, predictions, model performance and feature importance). The explainer dashboard is a Python package that enables a rapid build of a dashboard to explore ML. You could install this library with pip install explainer dashboard and find the documentation at: https://explainerdashboard.readthedocs.io/en/latest/; however, in the interest of time, we will use existing demonstrations of the dashboard for this activity.
+
+To complete this learning activity, follow these steps:
+
+1. Rapidly explore the effects of different features on model prediction.
+2. Consult and keep Molnar’s (2019) text accessible as a reference (as required).
+3. Apply a classifier explainer to the ML output. One popular exercise for ML in competitions is to predict which individual/s will survive the Titanic.
+4. View the explainer dashboard deployment at http://titanicexplainer.herokuapp.com/classifier/Links to an external site..
+5. Review and interact with the dashboard. Pay attention to feature importances, model performance, individual predictions, feature dependence, feature interactions and decision trees.
+6. View the explainer dashboard deployment at http://titanicexplainer.herokuapp.com/regression/Links to an external site. for the fare paid for a ticket on the Titanic.
+7. Repeat Step 5 for the Regression Explainer.
+8. In the discussion forum, share how well you believe the model performed in predicting survival. Which parameters are the most important in relation to survival? What is the relationship between the features and the model output? What do you think about the explainer dashboard being used in the workplace or consumers having access to such a dashboard whenever a ML decision is made that affects humans?
+
+> *Status: 🕐 To-Do*
+
+#### 4. SHapley Additive exPlanations (SHAP) and Explainer Dashboard
+- Raschka, S. (2017, 21 October). Mlxtend 0.9.0. Retrieved from https://sebastianraschka.com/pdf/software/mlxtend-latest.pdf
+
+As you can see, explainable ML is an emerging field and a number of software packages and library routines are available for interpreting and explaining ML models. This hands-on activity considers three popular packages: 1) Explain like I am a 5-year old (Eli5); 2) Local interpretable model-agnostic explanations (Lime); and 3) Machine learning extensions with lots of useful tools (Mlxtend) (see Raschka, 2017).
+
+To complete this learning activity, follow these steps:
+
+1. Upload the notebook Interpretable_ML_Python_Libraries.ipynb.
+2. Follow the markdown steps outlined in the notebook code and execute each of the packages of the analysis.
+3. Execute the code step by step without error.
+4. Inspect feature importances as a strategy for a trained model using Eli5, interpret some predictions using LIME and look at decision boundaries using Mlxtend.
+5. Share your experience of using each of the tools to the discussion forum once you have completed the activity. How does having access to these tools compare with the explainer dashboard?
+
+> *Status: 🕐 To-Do*
+
+---
+
 ```bash
 --- PLACEHOLDER:
 ## Module X - ...
