@@ -220,6 +220,39 @@
 
 ---
 
+---
+
+## Live class capture - 8 Jul 2026 (Tayab Din Memon, ~90 min)
+
+**Flow of the session:** Module 5 recap (CNN: convolution filter over an image produces a feature map, activation, then pooling to cut parameters and computation) -> Module 6 linear factor models framed strictly as *better representation of data*. Cocktail-party problem as the anchor example. The two algorithms he singled out as the important ones are **PCA and ICA**; the rest (factor analysis, SFA, sparse coding) sit around them. He promised to share a **Python interactive tutorial (Colab)** so we can run PCA/ICA and see their effect on the data - worth doing once it lands, it maps onto Activity 1/2.
+
+**Core message repeated:** linear factor models pull *hidden factors / a simpler representation* out of the data, and that compact representation is what you feed the deep model - you do not need every raw variable, only the important latent features. This is the exact bridge our A2 report already draws (raw embeddings -> PCA-reduced -> transformer).
+
+**Group rule confirmed live:** 2 or 3 members both allowed; once formed, keep it stable (swapping needs permission from other groups). Our group of 3 (Luis, Victor, Juan) is fine.
+
+### A2 requirements he read out - checklist vs our current report draft
+
+| Lecturer requirement (said in class) | Our draft status |
+|---|---|
+| Group of 2-3; select **quality research articles** like the A1 papers, define a hypothetical DL research project | Done - ABSA / Review Pulse v2, 11 sourced papers |
+| It is a **project proposal** you will **implement in A3** (research-informed, backed by published work) | Done - proposal explicitly feeds the A3 build |
+| **Literature review** demonstrating you can search/assess/evaluate sources | Done - Section 3 critical synthesis |
+| **Abstract / executive summary** | Done - Section 1 |
+| **State the word count at the end, before the references** | Done - line 86, before Section 7 |
+| **Insert page numbers** | To add on export to the submission template |
+| **Detailed research plan feasible** within timeframe/budget/constraints | Done - Section 5 (Module 8 -> 12) |
+| **Risk analysis + contingency plan + critical success factors** | Done - Section 5 |
+| **APA references** | Done - Section 7 |
+| 5-7 min AV, **all members equal time**, title slide with group + topic | Outline done - ~115-120s each; add title slide |
+| Presentation must **not** repeat full report detail; consistent layout/text sizes; **practice beforehand** | Slide outline stays high-level - keep it that way |
+| **Online students: voice-over only**, no need to film yourself. He would appreciate a live in-class presentation | Decide as a group; voice-over is the safe default |
+
+**Rubric weighting he flagged:** marking clusters around ~25% bands - (a) feasible detailed research plan, (b) risk/contingency/critical-success-factors, (c) compelling argument targeted at the right audience + structure/flow, (d) AV delivery with vocal variation. Our draft already leans into (a) and (b); the gap to watch is (d) - rehearse the voice-over so it does not read flat.
+
+**Net:** nothing in today's class forces a change to the report content. The only outstanding mechanical items are page numbers on export, the title slide, Victor + Juan surnames/IDs on the cover, and confirming journal volume/issue/pages for the APA list.
+
+---
+
 ### How Module 6 connects to the assessments
 - **Assessment 1:** the n-gram model works with directly observed token counts and does not learn latent representations. Module 6 introduces the opposite idea: compress observations into hidden factors that may remove noise or expose structure.
 - **Assessment 2 proposal:** PCA, ICA, or sparse coding can serve as interpretable baselines or preprocessing steps, but the proposal should explain why an attention model or transformer is needed for nonlinear, contextual aspect sentiment.
