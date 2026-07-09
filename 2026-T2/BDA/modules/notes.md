@@ -534,6 +534,90 @@ Submit your answers to the discussion forum, ‘Missing Values’. Read other st
 
 ---
 
+## Module 7 - Model Evaluation
+### TLDR
+
+### Introduction
+In the previous module, you learned about several classification algorithms, such as the Naïve Bayes and decision tree algorithms. It is natural to ask the following questions: 
+
+How accurately can a classifier estimate a target variable when provided with an instance that was not used to build the model? 
+
+How can two or more competing models be compared to choose the best?
+
+Evaluation is key to machine learning (ML) processes. Systematic ways are needed to evaluate how well different models work and to compare one model with another. In this Module, you will learn about model evaluation metrics and selection techniques.
+
+### Resources
+
+#### 1. Metrics for Evaluating Classifier Performance
+- Han, J., Pei, J. & Kamber, M. (2011). Data mining: Concepts and techniques. Waltham, MA: Elsevier. Retrieved from http://torrens.idm.oclc.org/login?url=http://search.ebscohost.com/login.aspx?direct=true&db=nlebk&AN=377411&site=ehost-live&ebv=EB&ppid=pp_387
+
+*Resource Overview*
+
+    Accuracy is often thought of as the only measure to determine how good a classifier is at predicting a target variable. However, for imbalanced data in which the distribution of the target variable is not even, this model evaluation metric is inadequate. Read ‘Section 8.5.1: Metrics for Evaluating Classifier Performance’ in ‘Chapter 8: Classification: Basic Concepts’ (pp. 364–370). This chapter presents different metrics for model evaluations for both balanced and imbalanced data.
+
+> *Status: 🕐 To-Do* 
+
+#### 2. Training and Testing
+- Witten, I. H., Frank, E., Hall, M. A. & Pal, C. J. (2017). Data mining: Practical machine learning tools and techniques (4th ed.). Cambridge, MA: Morgan Kaufmann. Retrieved from https://www-sciencedirect-com.torrens.idm.oclc.org/science/article/pii/B9780128042915000052
+
+*Resource Overview*
+
+    In the above resource, you learned about model evaluation metrics. It is important to note that we are interested in the future performance of a classifier on new data rather than its past performance on old data from which the model was built. Thus, the question arises: If the performance metrics are based on the old data, will the model be a good indicator of the future performance of the model on new data? As the model has been built from the training data, any estimate of performance based on that data may be too optimistic. 
+
+    Read Section 5.1 and Sections 5.3–5.5 in ‘Chapter 5: Credibility: Evaluating What’s Been Learned’ (pp. 163–165 and pp. 167–171, respectively) to learn about different methods for obtaining a reliable estimate of a model’s performance. ‘Section 5.1: Training and Testing’ discusses the importance of partitioning the dataset into training data and test data. The idea is to build a ML model using training data and assess the performance of the model using test data that played no role in building the model. Several strategies to deal with situations in which the data for training and testing are limited are presented in ‘Section 5.3: Cross-Validation’ and ‘Section 5.4: Other Estimates’.
+
+> *Status: 🕐 To-Do* 
+
+#### 3. Comparing Classifiers Based on Cost-Benefit and ROC Curves
+- Han, J., Pei, J. & Kamber, M. (2011). Data mining: Concepts and techniques. Waltham, MA: Elsevier. Retrieved from http://torrens.idm.oclc.org/login?url=http://search.ebscohost.com/login.aspx?direct=true&db=nlebk&AN=377411&site=ehost-live&ebv=EB&ppid=pp_373
+
+*Resource Overview*
+
+    Thus far, in evaluating a classifier’s accuracy, we have assumed equal costs for both false positives and false negatives. However, the costs of false positives and false negatives and the benefits of true positives and true negatives are not the same for all applications. For example, the cost of incorrectly predicting that a cancerous patient is non-cancerous is far greater than the cost of predicting that a non-cancerous patient is cancerous. Read Section 8.5.6 in ‘Chapter 8: Classification: Basic Concepts’ (pp. 373–377) to learn about cost-sensitive evaluation metrics.
+
+> *Status: 🕐 To-Do* 
+
+#### 4. Eleven Important Model Evaluation Metrics for Machine Learning Everyone Should Know
+
+- Srivastava, T. (2019, 6 August). Eleven important model evaluation metrics for machine learning everyone should know [Web log post]. Retrieved from https://www.analyticsvidhya.com/blog/2019/08/11-important-model-evaluation-error-metrics/
+
+*Resource Overview*
+
+    This blog post reiterates the importance of model evaluation and highlights the point that model evaluation is a core part of building an effective ML model. As we know, we build a model, get feedback from the metrics, make improvements and continue until we achieve a desirable level of accuracy. This post discusses 11 important model evaluation metrics for ML.
+
+> *Status: 🕐 To-Do* 
+
+### Learning Activities
+
+#### 1. Hands-on Exercise—Model Evaluation
+- Larose, C. D. & Larose, D. T. (2019). Data science using Python and R. Hoboken, NJ: John Wiley and Sons. Retrieved from http://bcs.wiley.com/he-bcs/Books?action=resource&bcsId=11712&itemId=1119526817&resourceId=46601
+
+In this activity, you will compare two models as part of a model evaluation using a dataset.
+
+Using the audlt_ch6_training and adult_ch6_test datasets, which are available at http://bcs.wiley.com/he-bcs/Books?action=resource&bcsId=11712&itemId=1119526817&resourceId=46601, perform the following tasks using PySpark: 
+
+- Use the training dataset to create a decision tree model (Model 1) to predict a customer’s Income using Marital Status and Capital Gains and Losses; 
+- Use the test data set to evaluate Model 1. Construct a contingency table to compare the actual and predicted values for Income; 
+- Use the training dataset to create a decision tree model (Model 2) to predict a customer’s Income using Marital Status and Age; 
+- Use the test data set to evaluate Model 2. Construct a contingency table to compare the actual and predicted values for Income; 
+- Compare Model 1 and Model 2 in terms of accuracy, precision, recall and the F1 scores. After you have compared the models, present all of your key observations in the ‘Model Evaluation’ discussion forum in your own words; and 
+- Read other students’ submissions and provide feedback.
+
+> *Status: 🕐 To-Do* 
+
+#### 2. Please Explain
+In this activity, you are expected to explain the statement below in your own words.
+
+In the essential resource by Srivastava (2019), he states that ‘different evaluation metrics are used for different kinds of problems’.
+
+Can you explain the statement in your own words using example scenarios? Do you agree or disagree with the statement? Why?
+
+Submit your answer to the ‘Model Evaluation’ discussion forum. Read other students’ submissions and provide feedback.
+
+> *Status: 🕐 To-Do* 
+
+---
+
 ```bash
 --- PLACEHOLDER:
 ## Module X - ...
