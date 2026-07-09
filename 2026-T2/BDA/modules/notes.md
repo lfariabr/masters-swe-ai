@@ -536,6 +536,12 @@ Submit your answers to the discussion forum, ‘Missing Values’. Read other st
 
 ## Module 7 - Model Evaluation
 ### TLDR
+- **Why:** a classifier's accuracy on its own training data is optimistically biased - you need a systematic way to estimate *future* performance on unseen data and to pick the better of two models.
+- **Metrics (Han §8.5.1):** build everything from the **confusion matrix** (TP/TN/FP/FN) - accuracy, error rate, **sensitivity/recall**, specificity, **precision**, **F1/Fβ**. Raw **accuracy lies on imbalanced data** (97% accurate yet catches 0% of cancers), so report sensitivity/specificity or precision/recall.
+- **Reliable estimates (Witten Ch5):** keep **train / validation / test** separate; the test set is used **once**. On limited data the workhorse is **stratified 10-fold cross-validation** (repeat 10x for reliability); alternatives are **leave-one-out** and the **0.632 bootstrap**.
+- **Cost-aware selection (Han §8.5.6):** errors are not equally costly (a missed cancer >> a false alarm). Compare probabilistic classifiers with **ROC curves** (TPR vs FPR) and **AUC** (1.0 perfect, 0.5 random) - threshold-independent.
+- **Practitioner toolkit (Srivastava):** F1, lift/gain, KS, AUC-ROC, log loss, Gini (=2·AUC-1), concordant-discordant for classification; RMSE, RMSLE, R²/adjusted-R² for regression. Core message: **different problems need different metrics**.
+- **SLO d)** evaluate and select big-data ML models. Feeds **Assessment 2** and the two forum activities (build & compare two PySpark trees; explain why metrics are problem-specific). Full detail: [module07_notes.md](module-07-module-evaluation/module07_notes.md).
 
 ### Introduction
 In the previous module, you learned about several classification algorithms, such as the Naïve Bayes and decision tree algorithms. It is natural to ask the following questions: 
@@ -555,7 +561,7 @@ Evaluation is key to machine learning (ML) processes. Systematic ways are needed
 
     Accuracy is often thought of as the only measure to determine how good a classifier is at predicting a target variable. However, for imbalanced data in which the distribution of the target variable is not even, this model evaluation metric is inadequate. Read ‘Section 8.5.1: Metrics for Evaluating Classifier Performance’ in ‘Chapter 8: Classification: Basic Concepts’ (pp. 364–370). This chapter presents different metrics for model evaluations for both balanced and imbalanced data.
 
-> *Status: 🕐 To-Do* 
+> *Status: ✅ Read + Reviewed - see [module07_notes.md](module-07-module-evaluation/module07_notes.md)*
 
 #### 2. Training and Testing
 - Witten, I. H., Frank, E., Hall, M. A. & Pal, C. J. (2017). Data mining: Practical machine learning tools and techniques (4th ed.). Cambridge, MA: Morgan Kaufmann. Retrieved from https://www-sciencedirect-com.torrens.idm.oclc.org/science/article/pii/B9780128042915000052
@@ -566,7 +572,7 @@ Evaluation is key to machine learning (ML) processes. Systematic ways are needed
 
     Read Section 5.1 and Sections 5.3–5.5 in ‘Chapter 5: Credibility: Evaluating What’s Been Learned’ (pp. 163–165 and pp. 167–171, respectively) to learn about different methods for obtaining a reliable estimate of a model’s performance. ‘Section 5.1: Training and Testing’ discusses the importance of partitioning the dataset into training data and test data. The idea is to build a ML model using training data and assess the performance of the model using test data that played no role in building the model. Several strategies to deal with situations in which the data for training and testing are limited are presented in ‘Section 5.3: Cross-Validation’ and ‘Section 5.4: Other Estimates’.
 
-> *Status: 🕐 To-Do* 
+> *Status: ✅ Read + Reviewed - see [module07_notes.md](module-07-module-evaluation/module07_notes.md)*
 
 #### 3. Comparing Classifiers Based on Cost-Benefit and ROC Curves
 - Han, J., Pei, J. & Kamber, M. (2011). Data mining: Concepts and techniques. Waltham, MA: Elsevier. Retrieved from http://torrens.idm.oclc.org/login?url=http://search.ebscohost.com/login.aspx?direct=true&db=nlebk&AN=377411&site=ehost-live&ebv=EB&ppid=pp_373
@@ -575,7 +581,7 @@ Evaluation is key to machine learning (ML) processes. Systematic ways are needed
 
     Thus far, in evaluating a classifier’s accuracy, we have assumed equal costs for both false positives and false negatives. However, the costs of false positives and false negatives and the benefits of true positives and true negatives are not the same for all applications. For example, the cost of incorrectly predicting that a cancerous patient is non-cancerous is far greater than the cost of predicting that a non-cancerous patient is cancerous. Read Section 8.5.6 in ‘Chapter 8: Classification: Basic Concepts’ (pp. 373–377) to learn about cost-sensitive evaluation metrics.
 
-> *Status: 🕐 To-Do* 
+> *Status: ✅ Read + Reviewed - see [module07_notes.md](module-07-module-evaluation/module07_notes.md)*
 
 #### 4. Eleven Important Model Evaluation Metrics for Machine Learning Everyone Should Know
 
@@ -585,7 +591,7 @@ Evaluation is key to machine learning (ML) processes. Systematic ways are needed
 
     This blog post reiterates the importance of model evaluation and highlights the point that model evaluation is a core part of building an effective ML model. As we know, we build a model, get feedback from the metrics, make improvements and continue until we achieve a desirable level of accuracy. This post discusses 11 important model evaluation metrics for ML.
 
-> *Status: 🕐 To-Do* 
+> *Status: ✅ Read + Reviewed - see [module07_notes.md](module-07-module-evaluation/module07_notes.md)*
 
 ### Learning Activities
 
