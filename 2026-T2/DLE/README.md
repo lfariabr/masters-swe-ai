@@ -46,7 +46,7 @@ Dr. Tayab Din Memon
 - [X] Module 4 ✅ - Regularization
 - [X] Module 5 ✅ - Convolutional Neural Networks
 - [X] Module 6 ✅ - Linear Factor Models
-- [ ] Module 7 🕐 - Autoencoders
+- [ ] Module 7 🔥 - Autoencoders
 - [ ] Module 8 🕐 - Recurrent Neural Networks and Long Short-Term Memory
 - [ ] Module 9 🕐 - Representation Learning
 - [ ] Module 10 🕐 - Structured Probabilistic Models for Deep Learning

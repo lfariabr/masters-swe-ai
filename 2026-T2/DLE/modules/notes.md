@@ -632,6 +632,104 @@ This forum is meant to be fun and useful. Thus, do not hesitate to ask any quest
 
 ---
 
+## Module 7 - Autoencoders
+
+### TLDR
+
+### Introduction
+Autoencoders are neural networks that are trained to attempt to copy input to output. They reduce the dimensionality of input and then reconstruct the output from this representation.
+
+Autoencoders are currently used in a limited set of real-world applications. However, recently, they have been receiving significant attention for their ability to produce deepfake videos. Deepfake videos or audios are recordings that look and sound just like the original object or person.
+
+Autoencoders use an unsupervised learning process that allows you to take advantage of your unlabelled data and learn interesting things about the structure of the data that is often useful for another context. At a high level, autoencoders learn to throw away noisy details from the initial raw data and only keep the data important for inputs to, for example, another neural network.
+
+In this Module, you will learn about autoencoders. Autoencoders are a unique form of neural networks. Autoencoder architecture can be divided into two parts: 1) the encoder; and 2) decoder. The encoder part encodes the features of the input training data. While the decoder part tries to convert those encoded features back to the input features. Autoencoders have been successfully applied to dimensionality reduction and information retrieval tasks.
+
+In this Module, you will learn about different autoencoders; for example, denoising, contractive, sparse and other autoencoders. Each of these autoencoders differ slightly and offer unique value propositions to deep learning (DL) practitioners.
+
+Despite their limited use at this time, autoencoders are full of potential. An ability to envision the future use of autoencoders will provide you with a competitive edge in the world of DL. Thus, reviewing the current applications of autoencoders is an important exercise in this Module.
+
+### Resources
+
+#### 1. Autoencoders
+- Goodfellow, I., Bengio, Y. & Courville, A. (2016). Deep learning. Cambridge, MA: MIT Press. Retrieved from https://www.deeplearningbook.org/
+
+*Resource Overview:*
+
+    This book contains an introduction to a broad range of topics in DL, including its mathematical and conceptual background, the DL techniques used in industry and different research perspectives. This book will be used throughout all the DLE602 modules.
+
+    Please read Chapter 14 for this Module. This chapter introduces you to autoencoders and discusses various types of autoencoders. It will be beneficial to read from 'Section 14.1: Undercomplete Autoencoders' to 'Section 14.7: Contractive Autoencoders' to learn about different types of autoencoders.
+
+    Finally, read 'Section 14.9: Applications of Autoencoders' to learn about the applicability of autoencoders.
+
+> *Status: 🕐 To-Do* 
+
+#### 2. Autoencoders, Unsupervised Learning and Deep Architectures
+- Baldi, P. (2012). Autoencoders, unsupervised learning and deep architectures. Proceedings of ICML Workshop on Unsupervised and Transfer Learning, in Proceedings of Machine Learning Research (PMLR) 27, 37-49. Retrieved from http://proceedings.mlr.press/v27/baldi12a/baldi12a.pdf
+
+*Resource Overview:*
+
+    This paper will provide you with an understanding of the basic concept of autoencoders. It discusses both linear and non-linear autoencoders. It is worth paying attention to both linear and non-linear autoencoders, as data often do not follow a simple model.
+
+    Studying the above in detail will enable you to gain a general perspective on autoencoders and define the key properties that are shared by different autoencoders.
+
+> *Status: 🕐 To-Do* 
+
+#### 3. Deep Learning of Representations for Unsupervised and Transfer Learning
+- Bengio, Y. (2012). Deep learning of representations for unsupervised and transfer learning. Proceedings of ICML Workshop on Unsupervised and Transfer Learning in Proceedings of Machine Learning Research (PMLR), 27, 17-36. Retrieved from http://proceedings.mlr.press/v27/bengio12a/bengio12a.pdf
+
+*Resource Overview:*
+
+    One of the main focuses of this research paper is unsupervised learning in the world of DL. This topic is intimately related to autoencoders. This paper reiterates the point that autoencoders use an unsupervised learning process that allows you to take advantage of your unlabelled data.
+
+    Perhaps the most interesting section of this paper is 'Section 3: A Zoo of Possible Layer-Wise Unsupervised Learning Algorithms'. This section not only discusses autoencoders but also briefly discusses linear factor models, which you learned about in Module 6.
+
+> *Status: 🕐 To-Do* 
+
+#### 4. What is a Deepfake?
+- Dickson, B. (2020, 5 March). What Is a deepfake? Retrieved from https://au.pcmag.com/news/65869/what-is-a- deepfake
+
+*Resource Overview:*
+
+    This great post discusses the concept of a deepfake and provides examples. It is worth watching the video examples in the post as you read.
+
+    Have fun while reading! The idea is to look at some extreme examples of deepfake that can be built using autoencoders. This should kick your brain into thinking outside of the box in relation to applications that could rely on autoencoders.
+
+> *Status: 🕐 To-Do* 
+
+### Learning Activities
+
+#### 1. Comparison
+For this activity, you will compare linear factor models (see Module 6) and autoencoders in terms of their ability to reduce the dimensionality of input data.
+
+In this Module, you learned that autoencoders reduce the dimensionality of input and then reconstruct the output from this representation. Previously, in Module 6, you learned about linear factor models and their ability to reduce dimensionality.
+
+Given the above, do you think autoencoders offer you anything distinct from linear factor models?
+
+Write a post critically analysing and answering the above question in your own words (your post should be no more than 150 words). Post your answer to the Module 7 discussion forum.
+
+You should also read other students' posts and provide feedback.
+
+> *Status: 🕐 To-Do* 
+
+#### 2. Fake to Real
+In this Module, you have learned that deepfake videos or audios are recordings that look and sound just like the original object or person. Certainly, it is very easy to think of many unethical applications of deepfake videos or audios. However, your challenge is to think of an ethical deep learning application using the deepfake concept that will do a world of good for its users.
+
+Describe an application in your own words highlighting the relevant scientific and technical information (your post should be no more than 150 words). Post your answer to the Module 7 discussion forum.
+
+Please read other students' posts and provide feedback.
+
+> *Status: 🕐 To-Do* 
+
+#### 3. Discussion Forum
+Do you agree with this statement: 'Autoencoders may cause overfitting?'
+
+Discuss your views with the class. Support your views with scientific and technical facts, examples or references.
+
+> *Status: 🕐 To-Do* 
+
+---
+
 ```bash
 --- PLACEHOLDER:
 ## Module X - ...
