@@ -1,5 +1,17 @@
 # Module 7 - Model Evaluation
 
+## TL;DR
+
+A classifier's accuracy on its own training data is optimistically biased, so Module 7 is about estimating **future** performance honestly and picking the better model.
+- **Metrics:** build everything from the **confusion matrix** (TP/TN/FP/FN) - accuracy, **sensitivity/recall**, specificity, **precision**, **F1/Fβ**. Raw accuracy **lies on imbalanced data** (97% accurate yet catches 0 cancers), so split into sensitivity/specificity or precision/recall.
+- **Reliable estimates:** keep **train / validation / test** separate (test used once); on limited data the default is **stratified 10-fold cross-validation**, with leave-one-out and the **0.632 bootstrap** as alternatives.
+- **Cost-aware selection:** errors are not equally costly, so compare probabilistic classifiers with **ROC curves** (TPR vs FPR) and **AUC** (1.0 perfect, 0.5 random) - threshold-independent.
+- **Toolkit:** F1, lift/gain, KS, AUC-ROC, log loss, Gini for classification; RMSE/RMSLE, R²/adjusted-R² for regression. Core message: **different problems need different metrics**.
+
+Feeds **SLO d)** and **Assessment 2** (train, evaluate, compare) plus the two forum activities below.
+
+---
+
 ## Task List
 
 > Tip: ✅ = Done, 🔥 = WIP, 🕐 = Not started
@@ -54,7 +66,7 @@
 | **Specificity** (TN rate) | TN / N | Of real negatives, how many caught? |
 | **Precision** | TP / (TP + FP) | Of predicted positives, how many right? (*exactness*) |
 | **F1** (harmonic mean) | 2·precision·recall / (precision + recall) | Balances precision & recall equally |
-| **Fβ** | (1+β²)·precision·recall / (β²·precision + recall) | Weights recall β× vs precision (F2 favours recall, F0.5 favours precision) |
+| **Fβ** | (1+β²)·precision·recall / (β²·precision + recall) | Weights recall β times as much as precision (the β² term implements that balance; F2 favours recall, F0.5 favours precision) |
 
 - **accuracy = sensitivity·(P/(P+N)) + specificity·(N/(P+N))** - accuracy is just a class-weighted blend of the two rates.
 
@@ -183,7 +195,7 @@ Classifiers are also judged on **speed** (cost to build/use), **robustness** (ha
 #### 1. Two model families → two metric families
 
 - **Classification** (class or probability output) vs **regression** (continuous output) need **different metrics**.
-- **Class-output** algorithms (SVM, KNN) → judged with the **confusion matrix**. **Probability-output** algorithms (logistic regression, random forest, boosting) → judged with **threshold-sweeping** metrics (ROC, log loss). Converting probability → class is just applying a threshold (default 0.5).
+- **Class-output** algorithms (SVM, KNN) → judged with the **confusion matrix**. **Probability-output** algorithms (logistic regression, random forest, boosting) → judged with two different families: **threshold-sweeping** metrics like **ROC/AUC** (vary the cut-off to trace TPR vs FPR) *and* **probability-calibration** metrics like **log loss** (score the predicted probabilities directly, no threshold involved). Converting probability → class is just applying a threshold (default 0.5).
 
 #### 2. Classification metrics
 
