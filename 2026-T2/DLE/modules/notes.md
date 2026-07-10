@@ -637,9 +637,9 @@ This forum is meant to be fun and useful. Thus, do not hesitate to ask any quest
 ### TLDR
 
 - An **autoencoder** is a neural net that copies its input to its output through a bottleneck **code** `h` (encoder `h=f(x)` → decoder `r=g(h)`); the value comes from copying *imperfectly*, forcing it to learn the data's salient structure (Goodfellow Ch.14).
-- **A linear autoencoder with MSE loss recovers PCA** - Baldi (2012) proves the global optimum is the projection onto the top eigenvectors; the real payoff of autoencoders is the **nonlinear, deep, stackable** generalisation of PCA.
+- An **undercomplete autoencoder with linear encoder/decoder mappings and squared-error (MSE) loss recovers the PCA subspace** at its global optimum - Baldi (2012) proves that optimum is the projection onto the top eigenvectors; the real payoff of autoencoders is the **nonlinear, deep, stackable** generalisation of PCA.
 - **Regularized variants** shape what `h` keeps: **sparse** (few active units, L1/Laplace), **denoising** (reconstruct clean from a corrupted input - implicitly learns the data manifold / score), **contractive** (features insensitive to small input changes).
-- **Bengio (2012):** deep, stacked autoencoders learn abstract representations that **transfer** to new tasks with very few labels - the academic backbone of the Review Pulse transfer-learning story (Glorot et al. did exactly this on sentiment reviews).
+- **Bengio (2012):** deep, stacked autoencoders learn abstract representations that **transfer** to new tasks with very few labels - the academic backbone of the Review Pulse transfer-learning story. Bengio cites **Glorot et al. (2011b)**, who used stacked denoising autoencoders with sparse rectifiers for **domain adaptation in sentiment classification** - essentially the same task one deep-learning generation earlier.
 - **Applications:** dimensionality reduction, semantic-hashing information retrieval, and **deepfakes** (two autoencoders sharing an encoder, swap the decoders - Dickson 2020).
 - **Overfitting caution:** an overcomplete autoencoder with too much capacity just learns the identity function and nothing useful - regularization is the cure (Module 4, now on an unsupervised net).
 

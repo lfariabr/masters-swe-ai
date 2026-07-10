@@ -1,5 +1,13 @@
 # Module 07 — Autoencoders
 
+## TL;DR
+- An **autoencoder** copies input → output through a bottleneck code `h`; the value is that it copies *imperfectly*, so it must learn the data's salient structure.
+- **An undercomplete autoencoder with linear encoder/decoder and MSE loss recovers the PCA subspace** at its global optimum (Baldi proves it); the win of AEs is the **nonlinear, deep, stackable** generalisation.
+- **Regularized variants** shape what `h` keeps: **sparse** (few active units), **denoising** (reconstruct clean from corrupted - under Gaussian-noise/MSE it learns the data manifold / score), **contractive** (features insensitive to small input changes).
+- Autoencoders learn a **local coordinate system on the data manifold**; deep/stacked AEs pretrain representations that **transfer** to new tasks with few labels (Bengio) - the academic backbone of your Review Pulse transfer story.
+- **Applications:** dimensionality reduction, semantic-hashing retrieval, and **deepfakes** (two AEs sharing an encoder, swap decoders).
+- **Overfitting warning:** an overcomplete AE with too much capacity learns the identity and nothing useful - regularization is the cure (Module 4, now unsupervised).
+
 ## Task List
 
 | # | Task | Status |
@@ -41,8 +49,8 @@ Rather than limiting capacity by keeping it shallow/small, add a term to the los
 | **Contractive AE (CAE)** | penalise the Jacobian `Ω = λ‖∂f/∂x‖²_F` | features insensitive to small input changes; learns manifold tangent directions |
 
 - **Sparse AE nuance:** unlike weight decay, the sparsity penalty has **no clean Bayesian/prior interpretation** because it depends on the *data*. Better read as approximating maximum likelihood of a latent-variable generative model where `log p_model(h)` is sparsity-inducing.
-- **DAE geometry (the money insight):** the vector `g(f(x)) − x` learned by a DAE **estimates the score** `∇x log p_data(x)` — it points toward the nearest point on the data manifold. Denoising = learning which direction increases probability.
-- **CAE vs DAE:** DAE makes the *reconstruction* resist finite-size perturbations; CAE makes the *encoder* resist infinitesimal ones. In the small-noise limit they coincide.
+- **DAE geometry (the money insight):** with **Gaussian corruption and a squared-error reconstruction loss**, the vector `g(f(x)) − x` learned by a DAE **estimates the data score** `∇x log p_data(x)` *up to a multiplicative (noise-dependent) scale factor* - it points approximately toward higher-density regions / the nearest point on the data manifold. Denoising = learning which direction increases probability.
+- **CAE vs DAE:** they regularize *different objects* - DAE makes the *reconstruction* resist finite-size perturbations; CAE makes the *encoder* resist infinitesimal ones. Under corresponding small-noise assumptions their behaviour is related (Alain & Bengio 2013), not universally identical.
 
 #### 3. Depth, manifolds, and why it all works
 - **Depth pays** the same dividends as in any feedforward net (Ch.6.4.1): exponentially cheaper representation of some functions, exponentially less training data. Deep AEs compress far better than shallow/linear ones (Hinton & Salakhutdinov 2006).
@@ -76,7 +84,7 @@ Rather than limiting capacity by keeping it shallow/small, add a term to the los
 - The squared-error landscape has **no local minima** — every critical point is a projection onto a subspace of eigenvectors of the data covariance `Σxx`.
 - The **global minimum** is the projection onto the top-`p` eigenvectors = **PCA**. Every other critical point is a **saddle**.
 - At the optimum the hidden activities are the dot products with the first `p` eigenvectors — i.e. the PCA coordinates. Ties the M6 covariance→eigenvector story to AEs rigorously.
-- **Weight symmetry:** at the optimum `A = Bᵀ` (tied weights), consistent with a **Hebbian** learning rule.
+- **Weight symmetry:** the solution is invariant to an invertible change of hidden coordinates `C`; choosing `C = I` gives `A = Bᵀ` (tied weights), consistent with a **Hebbian** learning rule.
 
 #### 3. The Boolean autoencoder = clustering
 - With unrestricted Boolean functions and Hamming distance, the optimal decoder maps each hidden code to a **centroid**, and the optimal encoder assigns each input to its **nearest centroid (Voronoi)** — this is literally **k-means-style clustering** into `2ᵖ` clusters.
@@ -152,20 +160,10 @@ The section the brief flags — each can be a layer in a deep stack:
 - Why it works: the shared encoder learns a **generic "face" code** (pose, expression); each decoder learned to render *one specific identity* from that code. Pure encoder/decoder representation transfer.
 
 #### 2. Cost, quality, and the arms race
-- **Democratised** what used to need a VFX studio — now a decent GPU (e.g. GTX 1080) or a few hundred dollars of cloud does it. But it's **not trivial/automatic**: thousands of cropped face frames from many angles, plus days-to-two-weeks of training.
+- **Democratised** what used to need a VFX studio. *Per Dickson (2020) - these are 2020-era figures:* a decent consumer GPU (he cites a GTX 1080) or a few hundred dollars of cloud does it - but it's **not trivial/automatic**: thousands of cropped face frames from many angles, plus (then) days-to-two-weeks of training.
 - **Detection is cat-and-mouse:** early tells (unnatural blinking, skin-tone artefacts) keep getting fixed. Facebook/Microsoft's Deepfake Detection Challenge ($10M) and DARPA's media-forensics effort are the defensive side.
 
 #### Key Takeaways for DLE602 (Deep Learning)
 1. **Activity 2 (ethical deepfake):** the "two-autoencoders-share-an-encoder" mechanism is your technical grounding. Ethical framings that hold up: **voice/face restoration** for ALS or stroke patients, **historical/education** re-enactment with consent, **film dubbing** that syncs lips across languages, **privacy-preserving** face anonymisation in released datasets. Lead with consent + provenance.
 2. **Concrete "autoencoder in the wild"** to cite when someone claims AEs have no real use — pairs well with Goodfellow's semantic-hashing and dimensionality-reduction applications.
-3. **Ties to your day job framing:** an autoencoder here is a *feature-level* compressor — same idea as reducing 40 noisy student indicators to a handful of factors, just on face pixels.
-
----
-
-## TL;DR (for the module)
-- An **autoencoder** copies input → output through a bottleneck code `h`; the value is that it copies *imperfectly*, so it must learn the data's salient structure.
-- **Linear AE + MSE = PCA** (Baldi proves the global optimum is the top-eigenvector projection); the win of AEs is the **nonlinear, deep, stackable** generalisation.
-- **Regularized variants** shape what `h` keeps: **sparse** (few active units), **denoising** (reconstruct clean from corrupted — learns the data manifold / score), **contractive** (features insensitive to small input changes).
-- Autoencoders learn a **local coordinate system on the data manifold**; deep/stacked AEs pretrain representations that **transfer** to new tasks with few labels (Bengio) — the academic backbone of your Review Pulse transfer story.
-- **Applications:** dimensionality reduction, semantic-hashing retrieval, and **deepfakes** (two AEs sharing an encoder, swap decoders).
-- **Overfitting warning:** an overcomplete AE with too much capacity learns the identity and nothing useful — regularization is the cure (Module 4, now unsupervised).
+3. **Ties to your day job framing:** an autoencoder here is a *feature-level* compressor - same idea as reducing 40 noisy student indicators to a handful of factors, just on face pixels.
