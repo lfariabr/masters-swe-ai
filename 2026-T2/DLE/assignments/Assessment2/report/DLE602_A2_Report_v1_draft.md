@@ -2,13 +2,13 @@
 DLE602 Assessment 2 - Project Proposal Report - DRAFT v1
 Body target: 1,000 words (+/-10%). Cover, ToC, captions, tables and references sit outside the count if allowed.
 Per-section word targets are noted in italics under each heading - delete before final export.
-Outstanding: Victor + Juan surnames/IDs on cover; figures/captions; final word count check.
+Outstanding: figures/captions; final word count check.
 -->
 
 # Review Pulse v2: Aspect-Based Sentiment Analysis of Customer Reviews with Attention-Based Deep Learning
 
 **Subject:** DLE602 Deep Learning - Assessment 2: Deep Learning Project Proposal Presentation
-**Group members:** Luis Faria (A00187785); Victor [surname - ID]; Juan [surname - ID]
+**Group members:** Luis Guilherme de Barros Andrade Faria (A00187785); Victor Javier Dorantes Meneses (A00179705); Juan Sebastian Martinez Contreras (A00167145)
 **Project name:** Review Pulse v2
 **Learning facilitator:** Dr Tayab Din Memon
 **Date:** July 2026
