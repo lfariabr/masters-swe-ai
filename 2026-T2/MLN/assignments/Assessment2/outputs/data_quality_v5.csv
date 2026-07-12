@@ -1,0 +1,11 @@
+check,status,action
+Expected schema,Pass,Retain
+All columns numeric,Pass,Retain
+No missing values,Pass,Retain
+All values finite,Pass,Retain
+No negative laboratory values,Pass,Retain
+Quality is integer-valued,Pass,Retain
+Quality within documented 0-10 range,Pass,Retain
+Free SO2 does not exceed total SO2,Pass,Retain
+Exact duplicate source rows,Issue found: 1177,Remove before target engineering and splitting
+Observed quality levels,"3, 4, 5, 6, 7, 8, 9",Retain; levels are inside documented range
