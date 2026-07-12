@@ -871,7 +871,7 @@ To complete this learning activity, follow these steps:
 4. Execute ('Run all') for each of your notebook selections and follow the suggested prompts indicated within the notebooks and the exploration ideas section at the end of each notebook
 5. Share your thoughts to the discussion forum once you have completed the activity. In the discussion forum, consider if the tool has the potential to avoid or at least minimise the issues you envisage emerging from running algorithms that affect humans. Now that you have an understanding of the What-if tool, expand on your understanding of using the tool within the online forum. Do you need special expertise to understand the outputs?
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Done — rebuilt locally (WIT is Colab-only), see [activity1_what_if_wine.ipynb](../modules/module-07-automated-explainable-ml/activities/activity1_what_if_wine.ipynb)*
 
 #### 2. Bank-Loan Activity Using an Open Source Toolkit for Explainability
 - IBM Research. (2019, 8 August). Making AI more trusted, by making it explainable [Video file]. Retrieved from https://www.youtube.com/watch?time_continue=3&v=dSYnNtH_8LY&feature=emb_logo
@@ -889,7 +889,7 @@ To complete this learning activity, follow these steps:
 6. Peruse the notebook code for the credit approval (you do not have to load this into your own notebook, simply use the nbviewer already provided) https://nbviewer.jupyter.org/github/IBM/AIX360/blob/master/examples/tutorials/HELOC.ipynb#2.3.-Ruen-Logistic-Rule-Regression-(LogRR).
 7. Share your thoughts to the discussion forum on explainability once you have completed the activity. Take the bank loan scenario one stage further when sharing your experience—assume that every time the bank decides to reject a loan application, a legal obligation exists that requires the bank to explain the basis for each loan rejection. Do you feel that with the scenario and supporting algorithms that you have the ability to sufficiently explain the basis of the machine decision? What might you be missing?
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Done — rebuilt locally (aix360.mybluemix.net is dead), see [activity2_bank_loan_explainability.ipynb](../modules/module-07-automated-explainable-ml/activities/activity2_bank_loan_explainability.ipynb)*
 
 #### 3. SHapley Additive exPlanations (SHAP) and Explainer Dashboard
 - Molnar, C. (2019). Interpretable machine learning: A guide for making black box models explainable. Retrieved from https://christophm.github.io/interpretable-ml-book/shap.html
@@ -907,7 +907,7 @@ To complete this learning activity, follow these steps:
 7. Repeat Step 5 for the Regression Explainer.
 8. In the discussion forum, share how well you believe the model performed in predicting survival. Which parameters are the most important in relation to survival? What is the relationship between the features and the model output? What do you think about the explainer dashboard being used in the workplace or consumers having access to such a dashboard whenever a ML decision is made that affects humans?
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Done — rebuilt locally (titanicexplainer.herokuapp.com is dead), see [activity3_shap_titanic.ipynb](../modules/module-07-automated-explainable-ml/activities/activity3_shap_titanic.ipynb)*
 
 #### 4. SHapley Additive exPlanations (SHAP) and Explainer Dashboard
 - Raschka, S. (2017, 21 October). Mlxtend 0.9.0. Retrieved from https://sebastianraschka.com/pdf/software/mlxtend-latest.pdf

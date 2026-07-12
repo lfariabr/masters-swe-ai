@@ -12,9 +12,14 @@
 | **4** | Watch & summarise Aha (2019) — DARPA Explainable AI (XAI) colloquium | ✅ |
 | **5** | Watch & summarise Sowden (2018) — transparency & accountability of NZ government algorithms | ✅ |
 | **6** | Read & summarise Molnar (2019) — Interpretable ML book (Ch. 4 focus) | ✅ |
-| 7 | Activity 1: Google What-If Tool — probe 2+ notebooks (wine, COMPAS, census, smile) | 🕐 |
-| 8 | Activity 2: IBM AI Explainability 360 — bank-loan scenario (CEM + Protodash explainers) | 🕐 |
-| 9 | Activity 3: SHAP + explainerdashboard on the Titanic classifier | 🕐 |
+| **7** | Activity 1: Google What-If Tool — probed via local rebuild on the **wine** data (A2 dataset) | ✅ |
+| **8** | Activity 2: IBM AI Explainability 360 — bank-loan scenario (**CEM** + **Protodash** rebuilt from scratch) | ✅ |
+| **9** | Activity 3: SHAP + explainer dashboard on the Titanic classifier (4 panels + a leakage trap) | ✅ |
+| 10 | Activity 4: Eli5 / LIME / Mlxtend notebook | 🕐 |
+
+> Activities 1-3 are executed notebooks in [`activities/`](activities/) — the original briefs point at
+> hosted demos that are now dead (Heroku, IBM Bluemix) or Colab-locked, so the substance was rebuilt
+> locally. See [activities/README.md](activities/README.md) for results and how to verify them.
 
 ---
 
