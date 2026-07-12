@@ -922,7 +922,7 @@ To complete this learning activity, follow these steps:
 4. Inspect feature importances as a strategy for a trained model using Eli5, interpret some predictions using LIME and look at decision boundaries using Mlxtend.
 5. Share your experience of using each of the tools to the discussion forum once you have completed the activity. How does having access to these tools compare with the explainer dashboard?
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Done — see [activity4_eli5_lime_mlxtend.ipynb](../modules/module-07-automated-explainable-ml/activities/activity4_eli5_lime_mlxtend.ipynb) — the explainers **contradict each other**: Eli5 reports every local sign inverted*
 
 ---
 

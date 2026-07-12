@@ -15,7 +15,7 @@
 | **7** | Activity 1: Google What-If Tool — probed via local rebuild on the **wine** data (A2 dataset) | ✅ |
 | **8** | Activity 2: IBM AI Explainability 360 — bank-loan scenario (**CEM** + **Protodash** rebuilt from scratch) | ✅ |
 | **9** | Activity 3: SHAP + explainer dashboard on the Titanic classifier (4 panels + a leakage trap) | ✅ |
-| 10 | Activity 4: Eli5 / LIME / Mlxtend notebook | 🕐 |
+| **10** | Activity 4: Eli5 / LIME / Mlxtend — **four explainers vs one prediction; they contradict** | ✅ |
 
 > Activities 1-3 are executed notebooks in [`activities/`](activities/) — the original briefs point at
 > hosted demos that are now dead (Heroku, IBM Bluemix) or Colab-locked, so the substance was rebuilt
