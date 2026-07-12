@@ -1,154 +1,139 @@
-# MLN601 A2 - Single Walkthrough (v4)
+# MLN601 A2 - Operational Lot-Screening Walkthrough (v5)
 
-One file, three uses: (1) study review, (2) rehearsal, (3) the thing next to the camera while
-you scroll `MLN601FariaLuisBrief2v4.ipynb` on video. Replaces the old script + cues + cue card.
+Use this beside the camera while scrolling `MLN601FariaLuisBrief2v5.ipynb`.
+Target: 8:00-9:00. Speak from cues; do not read notebook prose.
+Keep `assessment2-glossary.md` nearby during rehearsal when a metric or modelling term is unclear.
 
-Target: 8:30-9:30. Webcam and notebook visible together. Glance at a cue, look back at the
-notebook, say it in your own words. Do NOT read prose.
+## Story spine
 
-## The story spine (say it as ONE sentence if you blank)
+> One laboratory sample represents one bottling lot -> 6,497 raw rows -> 1,177 exact
+> duplicates removed -> 5,320 unique proxies -> zero split overlap -> three predefined
+> operational gates -> Balanced Tree is the only candidate that passes all three -> human
+> quality-control staff retain the release decision.
 
-> **6,497 raw -> 1,177 duplicates removed -> 5,320 unique -> zero train/test overlap ->
-> SVM 0.824 ranks best -> required tree 0.793 -> balanced tree recovers recall 0.59 -> 0.73**
+## Numbers box
 
-## The numbers box (pause after each)
+| Item | Number |
+|---|---:|
+| 5-fold cross-validation (CV) gates | AUC >= 0.75; sensitivity >= 0.70; specificity >= 0.70 |
+| Balanced Tree CV | AUC 0.787; sensitivity 0.731; specificity 0.703 |
+| Balanced Tree test | AUC 0.792; sensitivity 0.734; specificity 0.725 |
+| Test confusion matrix | TN 483; FP 183; FN 106; TP 292 |
+| AUC-tuned tree | AUC 0.793; sensitivity 0.588 |
+| RBF SVM | AUC 0.824; sensitivity 0.590 |
+| Operational trade | 58 more weak lots caught; 69 more acceptable lots reviewed |
+| Tree settings | gini; depth 5; minimum leaf 20 |
+| Strongest signal | alcohol importance about 0.62; target correlation -0.4145 |
 
-> **0.824** SVM RBF (AUC leader) | **0.813** LogReg | **0.793** tuned tree | **0.792** balanced tree
-> **0.787** SMOTE tree | **0.736** NB | **0.657** default tree | **0.500** baseline
-> recall low: **0.588** tuned -> **0.734** balanced (FN 164 -> 106; FP 114 -> 183)
-> **63/37** imbalance | split **4,256 / 1,064** | tree: **gini, depth 5, leaf 20** | alcohol **0.58**
-> kernels (CV): **rbf 0.826 > linear 0.804 > poly 0.795 > sigmoid 0.703**
+## Walkthrough
 
----
+### 0. Introduction (0:45) - title cell
 
-## Walkthrough - segment by segment
+Cues: name + student ID | producer and bottling operation | sample is a lot proxy, not a
+bottle | model routes review, human makes final release decision.
 
-### 0. Introduction and A1 to A2 (0:50) - screen: title cell (nb cell 0)
+Anchor: "The question is whether routine laboratory measurements can identify production
+lots at risk of low sensory quality before their bottles reach distribution."
 
-Cues: name + ID | same wine data, new question | regression "how far off" -> classification
-"which side of the line" | promise: six CRISP-DM stages, two defensible recommendations.
+### 1. Business Understanding (1:00) - Section 1
 
-Spoken anchor: "In Assessment 1 I predicted the numerical score; here the same data becomes a
-binary question: should this wine be flagged as likely low quality? That changes the target,
-the models and, most importantly, what an error means."
+Cues: current process already has lab tests and expert tasting | improvement is consistent
+triage | low quality `<6` is positive because it triggers action.
 
-### 1. Business Understanding (0:45) - screen: Section 1 (nb cell 1)
+Explain the errors:
 
-Cues: low-cost screen for expert tasting | quality <6 = low = positive class (the event we ACT
-on) | false negative = weak wine shipped unflagged | decision support, not automated rejection.
+- False negative: weak lot follows normal release path.
+- False positive: acceptable lot receives extra tasting, retest or hold.
 
-### 2. Data Understanding (1:10) - screen: balance, heatmap, pairplot (nb cells 8-12)
+Point to the gates. Say they were set before modelling, so the final recommendation is not
+chosen after seeing the test result.
 
-Cues: 6,497 raw red+white, wine_type kept | audit found **1,177 exact duplicates** -> **5,320
-unique** | balance ~**63% high / 37% low** -> accuracy alone flatters | heatmap: alcohol +
-volatile acidity are the signals, sulphur features correlate | pairplot: heavy class overlap ->
-motivates testing a nonlinear kernel later.
+### 2. Data Understanding (1:10) - validation table, balance and correlations
 
-Transition: "That duplicate finding directly changed my preparation step."
+Cues: UCI red + white `vinho verde` | no real `batch_id`, production date or release outcome |
+technical feasibility, not proven production ROI.
 
-### 3. Data Preparation (1:00) - screen: dedup + split + leakage cells (nb cells 9, 14-15)
+Audit story: schema/types/finite/domain checks pass; 1,177 exact duplicates are the recorded
+quality issue. Removal is conservative because UCI cannot prove whether they are repeated
+measurements or separate identical samples.
 
-Cues: duplicate leakage = identical row in train and test = part of the exam seen in advance
-(risk also existed in A1; the stricter A2 audit caught it) | dedup BEFORE split -> **zero
-overlap** | drop quality columns from features | stratified 80/20: **4,256 / 1,064** | scaler
-AND SMOTE live inside Pipelines -> each CV fold learns only from its own training portion.
+Correlation signs use low quality as 1: alcohol -0.4145, density +0.2872, volatile acidity
++0.2699. Pairplot overlap means imperfect screening is realistic.
 
-Transition: "With a genuinely unseen test set, I could tune the required tree honestly."
+### 3. Data Preparation (0:55) - split and feature ablation
 
-### 4. Modelling (1:30) - screen: baseline + grid + params (nb cells 16-19)
+Cues: deduplicate before split | source quality and derived text labels excluded | stratified
+80/20 gives 4,256 train and 1,064 test | exact overlap is zero | scaler and SMOTE stay inside
+training folds.
 
-Cues: required model = Decision Tree | Gini: 0 pure, 0.5 max mix; splits reduce weighted
-impurity | GridSearchCV 5-fold, scoring roc_auc -> **gini, depth 5, leaf 20** | why pruning:
-unconstrained tree memorises | two controlled imbalance experiments: **balanced** (same
-structure, minority mistakes cost more) and **SMOTE** (synthetic minority rows inside training
-folds only) | SVM: widest-margin boundary around support vectors; C = violation penalty;
-kernel trick = nonlinear boundary without building the higher dimension; gamma = how local RBF is.
+Feature-engineering result: bound SO2 and free-SO2 ratio were tested, but not retained. Tuned
+CV AUC fell 0.7910 -> 0.7892 and balanced-accuracy gain was only 0.0075, below the 0.01 rule.
 
-Delivery check: keep the SVM explanation under 40 seconds.
+### 4. Modelling (1:15) - tuning and CV approval table
 
-### 5. Evaluation (2:45) - screen: report, comparison table, ROC, importance (nb cells 20-28)
+Cues: required model is Decision Tree | default tree shows overfit | grid searches criterion,
+depth and leaf size for AUC | selected gini/depth 5/leaf 20 | class weighting changes error
+cost | SMOTE changes training distribution | SVM is a benchmark only.
 
-Definitions in one breath each: precision = of the flagged, how many truly low; recall/
-sensitivity = of the truly low, how many caught (3 of 10 = 30%); specificity = truly high
-correctly cleared; balanced accuracy = mean of the two sides; G-mean punishes a weak side.
+Read the CV table by gate, not by rank:
 
-The three beats, in order:
+- AUC tree fails sensitivity: 0.643.
+- SMOTE fails specificity: 0.696.
+- SVM fails sensitivity: 0.631 despite AUC 0.827.
+- Balanced Tree alone passes all three: 0.787 / 0.731 / 0.703.
 
-1. **Required tree:** AUC **0.793**, catches **234 of 398** low wines -> recall **0.588**,
-   specificity 0.829. Good ranking, weak catch rate at the default threshold.
-2. **The lever:** balanced tree catches **292** -> recall **0.734**, F1 0.669, balanced
-   accuracy 0.729. Not free: false alarms 114 -> **183**, specificity falls to 0.725. PAUSE
-   here and name the trade: 58 fewer weak batches shipped, ~70 extra unnecessary tastings.
-   SMOTE reaches recall 0.709 / AUC 0.787 - helps, but simple class weighting beats it, so I
-   keep class weighting.
-3. **The ranking winner:** RBF SVM AUC **0.824** - ranks a random low wine above a random high
-   wine ~82% of the time - yet its default-threshold recall is only 0.590. Two winners, no
-   contradiction: **AUC judges the ranking across all thresholds; recall judges one chosen
-   operating point.** SVM = technical winner; balanced tree = operational screening winner
-   (catches more, rules can be inspected).
+### 5. Evaluation and Approval (2:10) - metrics, matrices and tree
 
-Kernel line (the tested hypothesis): "linear kernel already reaches 0.804, so the boundary is
-mostly linear - but RBF finds a further 0.02 of nonlinear structure the tree alone missed."
+Start with the approved model. On 1,064 held-out proxy lots, Balanced Tree catches 292 of 398
+low-quality samples and misses 106. It clears 483 high-quality samples and unnecessarily flags
+183. Test AUC 0.792, sensitivity 0.734, specificity 0.725.
 
-Importance: alcohol **0.58**, volatile acidity next.
+Point to the AUC-tuned and balanced matrices. Balancing catches 58 additional weak proxy lots
+at the cost of 69 additional acceptable lots going to review. This is the operational trade,
+not a free improvement.
 
-### 6. Deployment and lessons (1:00) - screen: Section 6 (nb cell 29) - slow down, reflective
+SVM line, under 20 seconds: "RBF SVM ranks best at AUC 0.824, but catches only 59% of weak
+lots at its current threshold. Ranking leadership does not satisfy the screening gate."
 
-Cues: deploy the balanced tree as the interpretable screening policy, threshold set against
-real costs | validate on another producer or period; monitor red and white separately | lesson
-1: sophisticated is not automatically better - SMOTE helped, class weighting was simpler and
-stronger | lesson 2: "best model" is incomplete until you name the objective and the threshold.
+Approval sentence: "I approve the Balanced Decision Tree for a controlled, human-supervised
+pilot. I do not approve any model for automated lot release or rejection."
+
+Show feature importance: alcohol about 0.62, volatile acidity next. Explain that importance
+comes from tree splits, while correlation is a separate univariate relationship.
+
+### 6. Deployment and Lessons (1:05) - Section 6
+
+Cues: real pilot needs `lot_id`, production date, tank/line, lab timestamp, tasting result and
+release decision | monitor sensitivity, specificity, hold rate, weak-lot escapes and lead time |
+red/white separately | external temporal validation.
+
+Lessons: duplicate handling changed evaluation; engineered features did not earn complexity;
+highest AUC was not the approved operating policy; class weighting was simpler than SMOTE.
+
+Rollback: disable model routing and return all lots to the existing manual workflow.
 
 ### 7. Close (0:20) - camera
 
-"Assessment 1 taught me to measure how wrong a numerical prediction is. Assessment 2 taught me
-to separate classes, inspect the errors, and choose which errors matter most. Thank you."
+"This assessment moves from predicting a score to improving a production decision. The model
+does not replace quality control; it helps quality-control staff focus attention consistently
+before a bottling lot is released. Thank you."
 
----
+## Rehearsal and Recording
 
-## Technical cheat sheet (understand, never read verbatim)
-
-- **Score vs decision vs metric:** the model outputs a probability per wine (the score); the
-  threshold turns score into a 0/1 decision (flag or clear); recall/precision/F1 grade the
-  decisions, AUC grades the scores. Move the threshold and the first three change; AUC does not.
-- **AUC as pairs:** all (real low, real high) pairs in the test set = 398 x 666 = **265,068
-  duels**. AUC 0.793 = the low wine got the higher suspicion score in ~79% of them.
-- **Duplicate leakage:** identical row in train and test = exam seen in advance; inflates any
-  metric (RMSE in A1, AUC here).
-- **Gini impurity:** how mixed a node is; 0 = pure, 0.5 = 50/50. Splits chosen to reduce it.
-- **NB, broken assumption intact ranking:** correlated features double-count evidence, so the
-  probabilities are wrong but the winner of each pair usually is not; that is why AUC survives.
-
-## Recording method (the anti-stiffness part)
-
-1. Talk to ONE person (a colleague at the warehouse), not to "the audience".
-2. Describe what you SEE - scroll, point at the plot, "here you can see". Eyes on the screen,
-   not on text: that is what kills the reading voice.
-3. Warm-up take per block: say it once with NOTHING in front of you, then record the second
-   telling - always looser.
-4. Flubbed a phrase? Keep going. Only redo a block if you lost the thread.
-5. Pause AFTER every number. One breath. Reads as confidence.
-6. Smile at the open and the close.
-
-### Record in 4 blocks, then join
-
-| Block | Segments | ~Time |
-|---|---|---|
-| A | 0 + 1 (intro + business) | 1:35 |
-| B | 2 + 3 (data + prep, the DUPLICATE catch) | 2:10 |
-| C | 4 + 5 (modelling + evaluation, the LEVER beat) | 4:15 |
-| D | 6 + 7 (lessons + close) | 1:20 |
-
-### Three-pass rehearsal
-
-1. Navigation pass: scroll every stop without speaking.
-2. Cue pass: explain each segment from the cues, no full sentences.
-3. Timed pass: record once, no restarts for minor wording.
+1. Navigation pass: scroll every notebook stop without speaking.
+2. Gate pass: explain why each candidate passes or fails from the CV table.
+3. Operational pass: explain the confusion matrices as lots, holds and escapes.
+4. Timed pass: one complete take, target 8:30.
 
 ### Pre-flight
 
-- [ ] v4 notebook open at the top, font zoomed for video
-- [ ] Webcam picture-in-picture ON, audio checked
-- [ ] Only THIS file next to the camera
-- [ ] Rehearsed out loud: score/threshold/AUC three layers + "broken assumption, intact ranking"
-- [ ] File: `MLN601FariaLuisBrief2.mp4`
+- [ ] v5 notebook executed and open at the title
+- [ ] Webcam picture-in-picture and microphone checked
+- [ ] Name and student ID stated in the first 20 seconds
+- [ ] UCI row-to-lot proxy limitation stated
+- [ ] Three gates stated before model results
+- [ ] Balanced Tree is the only approved model
+- [ ] SVM explanation under 20 seconds
+- [ ] Human release authority stated
+- [ ] Recording between 7 and 10 minutes
+- [ ] Final filename `MLN601FariaLuisBrief2.mp4`

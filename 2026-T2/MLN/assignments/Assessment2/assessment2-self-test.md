@@ -1,244 +1,132 @@
-# MLN601 Assessment 2 - Self-Test (40 min)
+# MLN601 Assessment 2 v5 - Operational Self-Test
 
-A closed-book check on the wine-quality classification assessment: CRISP-DM, ROC/AUC,
-imbalance, the confusion matrix, tree tuning, leakage, and the generative vs discriminative
-contrast (Naive Bayes).
+Closed-book rehearsal for the notebook and video. Target: 35-40 minutes. Answer each question
+aloud in two to four sentences before checking the key.
 
-**How to use it**
-- Time-box: ~40 minutes. Write your answers on paper or in a scratch file first.
-- Questions get harder as you go (Q1 easy → Q10 hard). Total = 100 points (+5 bonus).
-- **Do not scroll to the Answer Key until you are done.** Then self-grade with the rubric.
-- For written questions, 2-4 honest sentences is enough. "I don't know" beats a bluff.
-- Bonus reason to do this NOW: everything you recall here is exactly what you say in the
-  video. This is rehearsal disguised as a quiz.
+**CV means cross-validation:** five rotations over training-data folds, used to select the model
+before the untouched test set is opened.
 
-Your key numbers to reason from (combined red+white, 6,497 wines, held-out test set of 1,300):
+## Evidence Box
 
-| Model | Test AUC | Accuracy |
-|---|---|---|
-| Logistic Regression | 0.814 | 0.752 |
-| Decision Tree (tuned) | **0.809** | 0.737 |
-| Decision Tree (default) | 0.773 | 0.786 |
-| Naive Bayes (Gaussian) | 0.771 | 0.703 |
-| Majority baseline | 0.500 | 0.633 |
+| Candidate | CV AUC | Sensitivity | Specificity | Passes all gates? |
+|---|---:|---:|---:|---|
+| AUC-tuned tree | 0.791 | 0.643 | 0.787 | No |
+| Balanced tree | 0.787 | 0.731 | 0.703 | Yes |
+| SMOTE tree | 0.783 | 0.738 | 0.696 | No |
+| RBF SVM | 0.827 | 0.631 | 0.843 | No |
 
-Classes: **63% high / 37% low** (low = positive class). Tuned-tree recall: **high 0.78 vs
-low 0.66**. Best params: `max_depth=6`, `min_samples_leaf=20`, gini. Feature importance:
-**alcohol 0.49**, volatile acidity 0.21. The two sulfur-dioxide features correlate at 0.72.
+Balanced Tree test: AUC 0.792, sensitivity 0.734, specificity 0.725, TN 483, FP 183,
+FN 106, TP 292. Low quality is class 1.
 
----
+## Questions
 
-## Section A - Foundations (easy)
+### Q1. Operational unit and limitation (10 points)
 
-### Q1. Reframing the problem (5 pts) - multiple choice
-A1 used the SAME wine data as regression; A2 turns it into **binary classification**. What
-fundamentally changed?
+What does one UCI row represent in the proposed business case, and why can the report not claim
+that it has already validated real bottling lots?
 
-- A) The dataset was replaced with a bigger one
-- B) The target: the numeric quality score became a two-class label (low < 6 vs high >= 6), so the question shifts from "how far off?" to "which side of the line, and how well separated?"
-- C) The features were rescaled to 0-1
-- D) Nothing - classification and regression are the same task with different names
+### Q2. Business workflow (10 points)
 
-### Q2. The positive class (5 pts) - written, 1-2 lines
-The notebook deliberately makes **"low quality" the positive class** (label 1). Why that
-choice, in business terms?
+Describe the path from laboratory sampling to final lot-release decision. Where must human
+authority remain?
 
-### Q3. The majority baseline (8 pts) - multiple choice
-The `DummyClassifier` that always predicts "high" scores **accuracy 0.633** but **AUC 0.500**.
-What does that pair of numbers tell you?
+### Q3. Error costs (10 points)
 
-- A) The baseline is a decent model - 63% is a passing grade
-- B) Accuracy inherits the class imbalance for free (63% is the cost of saying "high" every time), while AUC 0.5 exposes that it has zero ability to rank or separate the classes
-- C) AUC is broken for baselines
-- D) The baseline overfits
+Explain a false negative and false positive as operational events. Why is sensitivity prioritised
+without allowing specificity to collapse?
 
----
+### Q4. Predefined gates (10 points)
 
-## Section B - Metrics & interpretation (medium)
+State all three model-performance gates. Why must they be declared before inspecting the final
+test results?
 
-### Q4. The ROC curve (10 pts) - written
-In 2-4 sentences: (a) what is on the two axes of a ROC curve, and what does moving along the
-curve correspond to? (b) What does the diagonal line represent, and why does the tuned tree's
-curve sitting well above it matter?
+### Q5. Data-quality issue (10 points)
 
-### Q5. Accuracy went DOWN with tuning (10 pts) - written
-The default tree scores **accuracy 0.786**, the tuned tree only **0.737** - yet the tuned tree
-is the better model (AUC 0.773 → 0.809). Explain how tuning can lower accuracy while
-improving the model, and why that is not a contradiction here.
+Why were 1,177 exact rows removed, and what uncertainty prevents calling all of them proven
+duplicate measurements?
 
-### Q6. Reading the confusion matrix (10 pts) - written
-Tuned-tree recall is **0.78 for high** wines but only **0.66 for low** wines.
-- (a) In plain words, what does "recall 0.66 for low" mean?
-- (b) Which of the two errors (missing a low wine vs flagging a good wine as low) is more
-  costly for the business framing (a screen that flags weak batches for expert tasters), and
-  what lever could shift the balance?
+### Q6. Correlation and importance (10 points)
+
+Low quality is encoded as 1. Interpret alcohol's target correlation of -0.4145. Why is this not
+the same quantity as its Decision Tree importance of about 0.62?
+
+### Q7. Feature engineering (10 points)
+
+Which two sulfur features were tested? What evidence caused them to be rejected?
+
+### Q8. Model approval (10 points)
+
+The SVM has the highest CV and test AUC. Why is the Balanced Tree still the only approved model?
+
+### Q9. Confusion-matrix trade-off (10 points)
+
+Compared with the AUC-tuned tree, the Balanced Tree catches 58 more weak proxy lots and creates
+69 more false alarms. Explain the business meaning of both numbers.
+
+### Q10. Pilot and rollback (10 points)
+
+Name at least four fields missing from UCI that a real pilot needs, three monitoring metrics and
+the rollback procedure.
 
 ---
 
-## Section C - Pipeline, tuning, leakage (hard)
+# Answer Key
 
-### Q7. Stratified split + scaler placement (12 pts) - multiple choice + one line
-**Part 1 (MC):** the 80/20 split uses `stratify=y`. Why?
+### A1
 
-- A) To shuffle the rows more randomly
-- B) To preserve the 63/37 high/low ratio in both train and test, so the test metrics are not distorted by a lucky or unlucky class mix
-- C) To make training faster
-- D) Because Decision Trees require stratification
+One row is treated as a proxy for a representative laboratory sample from a homogeneous bottling
+lot, not as a bottle. UCI has no lot ID, production date, line, tasting workflow or release outcome,
+so it only supports technical feasibility.
 
-**Part 2 (written, one line):** the `StandardScaler` sits **inside** the Logistic Regression
-Pipeline (not applied to all of `X_train` first). State the leakage rule this enforces -
-careful with the DIRECTION of the arrow.
+### A2
 
-### Q8. What the tuned hyperparameters do (12 pts) - written
-GridSearchCV chose `max_depth=6` and `min_samples_leaf=20`.
-- (a) What does each parameter control in the tree?
-- (b) What would an UNconstrained tree (no depth limit, leaf size 1) do on this data, and why
-  does that hurt test performance?
-- (c) Why was the grid scored on `roc_auc` instead of accuracy?
+Assign a lot ID, take a representative sample, record the 11 measurements, score it, route flagged
+lots to hold/review and let quality-control staff decide release, retest or rework. The model cannot
+release or reject automatically.
 
----
+### A3
 
-## Section D - Synthesis (hardest)
+A false negative lets a weak lot continue through normal release. A false positive sends an
+acceptable lot to unnecessary tasting or hold. Sensitivity protects against escapes; the 0.70
+specificity gate keeps the review queue from becoming operationally unusable.
 
-### Q9. Generative vs discriminative (13 pts) - written
-The tree and logistic regression are *discriminative*; Gaussian Naive Bayes is *generative*.
-- (a) What does each type of model actually learn / model?
-- (b) NB assumes features are independent given the class - your own heatmap shows the two
-  sulfur-dioxide features correlate at 0.72, so the assumption is violated. Yet NB still
-  scores AUC **0.771**. Why does it stay usable despite the broken assumption?
+### A4
 
-### Q10. The honest finding (15 pts) - written
-Logistic Regression (0.814) essentially **ties** with the tuned Decision Tree (0.809).
-- (a) What does that near-tie tell you about the shape of the decision boundary in this data?
-- (b) Why is reporting this openly a STRENGTH of the assessment, not a failure of the tree?
-- (c) Given the tie, name one concrete reason you might still deploy the tree over the
-  logistic regression for the wine-screening use case.
+CV ROC-AUC >= 0.75, sensitivity >= 0.70 and specificity >= 0.70. Declaring them first prevents
+post-hoc model choice and keeps the final held-out test as confirmation rather than tuning data.
 
----
+### A5
 
-### Bonus (5 pts) - multiple choice (the classic trap)
-Your tuned tree's AUC is **0.809**. Does that mean the model is right 80.9% of the time?
+Removing exact rows before splitting prevents identical feature/label records crossing the
+train/test boundary. Without source IDs, identical rows could still be separate samples with the
+same measurements, so removal is a conservative evaluation decision rather than proof of bad data.
 
-- A) Yes - AUC is just accuracy measured on the ROC curve
-- B) No - AUC is the probability that a randomly chosen positive (low wine) is ranked above a randomly chosen negative (high wine); it is about ranking across ALL thresholds, not correctness at one threshold
-- C) Yes, but only on the training set
-- D) No - AUC is the error rate, so it is right 19.1% of the time
+### A6
 
----
----
+The negative sign means higher alcohol is associated with a lower probability of class 1, low
+quality. Correlation is a standalone linear association; tree importance measures how much learned
+splits using that feature reduce impurity, including interactions and repeated splits.
 
-# 🛑 STOP - Answer Key below. Do the quiz first.
+### A7
 
-<br><br><br><br><br><br><br><br>
+`bound_sulfur_dioxide = total - free` and `free_so2_ratio = free / total`. Tuned CV AUC fell from
+0.7910 to 0.7892, and the balanced-accuracy improvement was only 0.0075, below the 0.01 materiality
+rule, so the added complexity was not retained.
 
----
+### A8
 
-## Answer Key & Rubric
+The SVM fails the operational sensitivity gate: CV sensitivity is 0.631 and test sensitivity is
+0.590. Balanced Tree is the only candidate passing all CV gates, and its rules are inspectable by
+quality-control staff.
 
-### Q1 - **B** (5 pts)
-Same wines, different question. Regression asked "how far off is my number?" (RMSE/R²);
-classification asks "which side of the line, and how well do I separate the groups?"
-(AUC-ROC). The target, the baseline, the models and the whole metric vocabulary change with it.
+### A9
 
-### Q2 (5 pts)
-Because the **action** we care about is flagging the weak batches - the screen exists so
-expert tasters spend time where it matters. The positive class should be the event you want
-to detect, so recall/precision "for the positive class" directly measure the useful thing.
-- *Scoring:* full marks for "low is what we act on / want to catch"; 2 pts if you only said
-  "the brief said so."
+Fifty-eight additional weak proxy lots would be routed to review instead of escaping normal
+screening. Sixty-nine additional acceptable lots would incur tasting, hold and possible delay. The
+approved policy accepts that review cost to reduce weak-lot escapes.
 
-### Q3 - **B** (8 pts)
-The trap of accuracy under imbalance in one row: 63% accuracy is free for a model with zero
-skill. AUC strips that away - 0.5 = random ranking, no separation. This is exactly why the
-whole assessment is scored on AUC, not accuracy.
+### A10
 
-### Q4 (10 pts)
-- (a) **y-axis TPR (recall of the positive class), x-axis FPR** (false alarms among the true
-  negatives). Each point is one **decision threshold**; sliding the threshold from strict to
-  lenient traces the curve. (6 pts)
-- (b) The diagonal is **random guessing** (TPR = FPR at every threshold). Sitting well above
-  it means the model buys true positives at a cheap false-alarm price at many thresholds -
-  genuine separation, threshold-independent. (4 pts)
-
-### Q5 (10 pts)
-The grid optimised **roc_auc**, not accuracy - so it happily traded raw hit-rate at the 0.5
-threshold for better *ranking* across all thresholds. Under a 63/37 imbalance, accuracy is a
-soft target (the baseline gets 0.633 for free), so a drop from 0.786 to 0.737 says little;
-the AUC rise 0.773 → 0.809 says the tuned tree separates the classes better. You optimise
-what you actually care about, and the metrics can disagree.
-- *Scoring:* 6 pts for "optimised AUC, not accuracy"; 4 pts for why accuracy is the wrong
-  yardstick under imbalance.
-
-### Q6 (10 pts)
-- (a) Of all the wines that are TRULY low quality, the model catches **66%** - it misses
-  about 1 in 3 weak batches. (4 pts)
-- (b) In the screening framing, **missing a low wine** (a false negative) is the costlier
-  error: a weak batch ships unflagged; a false alarm just costs one expert taste. Lever:
-  **lower the decision threshold** (or use `class_weight`) to trade precision for recall on
-  the low class. (6 pts - any defensible cost argument + a threshold/weighting lever gets full
-  marks)
-
-### Q7 (12 pts)
-- **Part 1: B** (6 pts). Stratification preserves the class mix in both sets - crucial under
-  imbalance, otherwise a skewed test set biases every metric.
-- **Part 2** (6 pts): the scaler is refit on each CV fold's **training portion only**, so
-  **validation/answer data never flows INTO training** - not the model, not the scaler, not
-  even a mean. (Direction check: it is the validation fold leaking into the scaler we
-  prevent - remember the A1 fix.)
-
-### Q8 (12 pts)
-- (a) `max_depth` caps how many split levels the tree can stack (its overall complexity);
-  `min_samples_leaf` forbids leaves smaller than 20 wines, so no rule is built on a handful
-  of samples. (4 pts)
-- (b) An unconstrained tree keeps splitting until leaves are pure - it **memorises the
-  training set** (noise included). Train accuracy ~1.0, but it generalises worse: the
-  default tree's AUC 0.773 vs the pruned tree's 0.809 is that gap made visible. (4 pts)
-- (c) Because the deliverable is judged on **ranking/separation under imbalance** - scoring
-  the grid on accuracy would have selected a tree that plays the majority-class safe bet.
-  Tune on the metric you report. (4 pts)
-
-### Q9 (13 pts)
-- (a) **Discriminative** models learn P(class | features) - the boundary - directly.
-  **Generative** models learn P(features | class) per class (here: a Gaussian per feature per
-  class) plus the priors, and invert with **Bayes' rule** to classify. (6 pts)
-- (b) Because classification only needs the **right ORDER** (ranking), not calibrated
-  probabilities. Violated independence distorts the probability values but often preserves
-  which class wins, so AUC survives - the classic Domingos & Pazzani (1997) result. NB's
-  0.771 is level with the default tree despite the "naive" assumption being false. (7 pts)
-
-### Q10 (15 pts)
-- (a) A straight-line (linear) boundary captures almost everything the axis-aligned tree
-  splits capture - the signal separating low from high wine is **mostly linear** in these
-  features; there is little non-linear structure left for the tree to exploit. (5 pts)
-- (b) Honest evaluation is the competency being graded: the comparison was run fairly and
-  reported as found. It also shows the baseline-and-comparator design working - without
-  LogReg in the lineup, "AUC 0.809" would have looked more impressive than it is. Model
-  choice should be evidence-based, not loyalty-based. (5 pts)
-- (c) Any one of: the tree is a **white-box** - the tree diagram + feature importances
-  (alcohol 0.49, volatile acidity 0.21) are directly explainable to a non-technical QC
-  stakeholder; it needs no scaling; it handles the features' non-linearities/interactions if
-  the data drifts. (5 pts)
-
-### Bonus - **B** (5 pts)
-AUC = P(random positive ranked above random negative). It is threshold-free; accuracy lives
-at exactly one threshold. The tuned tree makes the trap vivid: AUC 0.809 with accuracy 0.737 -
-if AUC "were" accuracy, those two numbers could not disagree.
-
----
-
-## Score yourself
-
-| Band | Total /100 | Read |
-|---|---|---|
-| 85-100 | You own this material - record the video today |
-| 70-84 | Solid; re-read the sections behind the misses, then record |
-| 50-69 | Concepts landing but fragile - re-walk the notebook first |
-| < 50 | Re-read the notebook + script, retake tomorrow |
-
-**Where each question maps in the notebook (v2)**
-- Q1-Q3 → title/intro + Business Understanding + baseline cell
-- Q4-Q6 → Evaluation (ROC figure, metrics table, confusion matrix)
-- Q7 → Data Preparation (split cell + LogReg Pipeline)
-- Q8 → Modelling (GridSearchCV + best params)
-- Q9 → §5.4 generative vs discriminative
-- Q10 → Evaluation interpretation + §6 lessons learned
+Pilot fields include lot ID, production date, tank/line, lab timestamp, tasting outcome and release
+decision. Monitor sensitivity, specificity, hold rate, weak-lot escape rate and release lead time.
+Rollback disables model routing and restores the existing manual workflow for every lot.

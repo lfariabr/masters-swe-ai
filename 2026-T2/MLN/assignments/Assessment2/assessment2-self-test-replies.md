@@ -56,3 +56,6 @@ it tells us that the decision boundary in this data is likely to be linear...
 because it means that we've digged deep into the data, trained multiple models and approaches, explored possibilities and challenged the assumptions, and reporting honestly
 (c) Given the tie, name one concrete reason you might still deploy the tree over the logistic regression for the wine-screening use case.
 definitely its interpretability stands out... easy to showcase!
+> **Archive notice:** These answers were written against the pre-deduplication/v3 experiment.
+> Use `assessment2-self-test.md` for the current v5 operational lot-screening rehearsal. This file
+> is retained as study history and its old metrics must not be used in the final presentation.

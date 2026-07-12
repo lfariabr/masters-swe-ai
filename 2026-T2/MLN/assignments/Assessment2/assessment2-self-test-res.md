@@ -114,3 +114,6 @@ numbers prove AUC != accuracy: 0.809 vs 0.737 could not disagree if they were th
 Band: 78/100 = solid. A1 was 80 with a 0/12 blank too - same pattern: strong on what you
 have used, blank on what you have only read. The two fixes above ARE video beats, so
 rehearsing them closes the gap and preps the recording at the same time.
+> **Archive notice:** This result sheet evaluates the earlier v3 self-test. The authoritative v5
+> gates, model metrics and answer key now live in `assessment2-self-test.md`. Old values such as
+> AUC 0.809, a 1,300-row test set and tree depth 6 must not be used in the final submission.
