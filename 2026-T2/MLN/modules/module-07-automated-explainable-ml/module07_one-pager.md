@@ -29,6 +29,25 @@
 | **How you get it** | **Intrinsic** = transparent by design (linear/logistic reg, **decision trees**, rules) | **Post-hoc / model-agnostic** = explain any black box after (SHAP, LIME, PDP, ALE) |
 | **Scope** | **Global** = overall behaviour (permutation importance, PDP) | **Local** = one prediction (**SHAP**, LIME, counterfactuals) |
 
+- 🖤 **The 2x2 map** (copy this square - it's the whole zone on one glance):
+
+```
+                 GLOBAL                    LOCAL
+              (whole model)            (one prediction)
+        +---------------------+---------------------+
+INTRIN- |  tree feature       |  read the if/else   |
+  SIC   |  importance;        |  path for THIS row  |
+(built  |  logistic coeffs    |  (tree/rule)        |
+ -in)   |                     |                     |
+        +---------------------+---------------------+
+POST-   |  permutation imp.,  |  * SHAP *  LIME,     |
+  HOC   |  PDP, ALE           |  counterfactuals    |
+(any    |  (shuffle & measure)|  <- Activity 3      |
+ model) |                     |                     |
+        +---------------------+---------------------+
+   ^ pick a ROW by the model you have; a COLUMN by the question you ask.
+```
+
 - 🔵 **SHAP** = Shapley values (1953, cooperative game) split a prediction across features; local per-instance, aggregates to global → **Activity 3**.
 - 🔵 **LIME** = fits a simple surrogate around one point (fast approximation). **Permutation importance** = shuffle a feature, measure the accuracy drop (global).
 - 🔴 **The one-line exam distinction:** *feature importance = global; SHAP-on-one-passenger = local.*
