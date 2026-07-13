@@ -45,9 +45,25 @@ ACTUAL  │ yes  │   TP   │   FN   │  P = TP + FN   (all real positives)
 
 ## 🖤 Zone 3 - Why accuracy lies (the imbalanced-data trap)
 
-- 🔴 **The cancer trap:** 3% of rows are "cancer = yes". Predict "no" for **everyone** → **97% accuracy, 0 cancers caught**. Accuracy is only trustworthy when classes are **roughly balanced**.
-- 🔵 Worked example in Han: 96.4% accuracy hiding **30% sensitivity**. Only the split metrics expose it.
-- 🖤 **The fix:** report **sensitivity + specificity** separately (or precision + recall), never a lone accuracy number.
+**The cancer trap - screen 10,000 people, only 300 have cancer (3%). Build the laziest model: always predict "no".**
+
+```text
+                 PREDICTED
+                 cancer    no
+        ┌──────┬────────┬────────┐
+ACTUAL  │cancer│  TP=0  │ FN=300 │   P = 300     ← every single one MISSED
+        │  no  │  FP=0  │TN=9700 │   N = 9,700
+        └──────┴────────┴────────┘
+
+accuracy    = (TP+TN)/total =  9700/10000 = 97%   ← looks brilliant
+sensitivity = TP/P          =     0/300   =  0%   ← learned NOTHING
+specificity = TN/N          =  9700/9700  = 100%
+```
+
+- 🖤 **Why it happens (arithmetic, not ML):** accuracy is dominated by the **biggest class**. With 97% of rows negative, getting negatives right is worth 97 points; the positives - the entire reason the model exists - are worth 3. A rock with "no" painted on it beats most real models.
+- 🖤 **Why the fix works:** sensitivity and specificity score each class **against its own total** (`/P` and `/N`, not `/everybody`), so neither class can hide behind the other. Accuracy is just a size-weighted blend of the two - and that weighting is what does the lying.
+- 🔴 Han's version with a *real* classifier: **96.4% accuracy hiding 30% sensitivity** - still missing 7 of every 10 cancers.
+- 🔴 **Rule:** accuracy is only trustworthy when classes are **roughly balanced**. The moment the interesting class is rare (cancer, fraud, churn, a failed load), report **sensitivity + specificity** (or precision + recall) separately - never a lone accuracy figure.
 - 🔵 Classifiers are also judged on **speed · robustness · scalability · interpretability** - not just the score.
 
 ## 🖤 Zone 4 - Reliable estimates: how you get an honest number
