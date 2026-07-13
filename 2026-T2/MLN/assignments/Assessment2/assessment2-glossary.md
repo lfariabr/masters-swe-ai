@@ -13,6 +13,8 @@ ingles, mas aqui os termos sao explicados em portugues e ligados aos numeros rea
 | **Held-out test set** | Dados separados e mantidos intocados durante selecao/tuning. No A2: 1.064 amostras usadas somente para confirmar a decisao final. |
 | **Data leakage** | Quando informacao do teste ou da validacao entra no treino. Isso faz as metricas parecerem melhores do que realmente seriam em dados novos. |
 | **Stratified split** | Divisao que preserva aproximadamente a mesma proporcao de low/high nos conjuntos de treino e teste. |
+| **IQR / intervalo interquartil** | Distancia entre o primeiro e o terceiro quartil. A regra de 1.5-IQR marcou 1.473 linhas como estatisticamente incomuns, mas isso nao prova erro de medicao. |
+| **Outlier** | Valor distante da regiao central dos dados. No A2, os valores marcados foram retidos porque continuam plausiveis e lotes raros podem ser justamente os mais importantes para screening. |
 
 ### CV em uma imagem mental
 
@@ -69,6 +71,8 @@ sensitivity e apenas 0.590, abaixo do gate operacional de 0.70.
 | **SMOTE** | Cria amostras sinteticas da classe minoritaria somente dentro dos folds de treino. Ajudou a sensitivity, mas falhou o gate de specificity. |
 | **SVM** | Support Vector Machine. Procura uma fronteira que separe as classes com maior margem. |
 | **RBF kernel** | Permite que o SVM represente uma fronteira nao linear. Foi o melhor ranking, mas nao o modelo operacional aprovado. |
+| **C no SVM** | Controla a penalidade por erros de treino. O melhor resultado usou `C=1`, um compromisso intermediario entre margem e erros. |
+| **Gamma no RBF** | Controla o alcance de cada ponto na fronteira RBF. `gamma='scale'` ajusta esse alcance a variancia das features. |
 
 ## Interpretacao e operacao
 
@@ -76,6 +80,11 @@ sensitivity e apenas 0.590, abaixo do gate operacional de 0.70.
 |---|---|
 | **Correlation** | Associacao linear entre duas variaveis. `alcohol = -0.4145` contra low quality significa que mais alcohol esta associado a menor chance da classe low. Nao prova causalidade. |
 | **Feature importance** | Quanto uma feature contribuiu para as divisoes da arvore. Alcohol teve aproximadamente 0.62. Nao e a mesma coisa que correlation. |
+| **Explainable AI / XAI** | Tecnicas que tornam o comportamento geral do modelo ou uma previsao individual mais compreensiveis. |
+| **Global explanation** | Explica o modelo sobre muitas amostras. No SHAP global, alcohol teve a maior contribuicao absoluta media: 0.192. |
+| **Local explanation** | Explica uma previsao especifica. No exemplo do A2, alcohol contribuiu +0.222 e volatile acidity +0.070 para a classe low. |
+| **SHAP** | Decompoe a diferenca entre a previsao base e a previsao de uma amostra em contribuicoes aditivas de cada feature. Valores positivos aqui empurram para `low = 1`. |
+| **SHAP additivity check** | Confirma que `baseline + soma das contribuicoes = probabilidade do modelo`. O erro maximo observado foi `1.41e-14`, essencialmente zero numerico. |
 | **Feature engineering** | Criacao de atributos derivados. Bound SO2 e free-SO2 ratio foram testados, mas rejeitados porque a melhoria nao foi material. |
 | **Class imbalance** | Classes com tamanhos diferentes. Depois da deduplicacao: 62.6% high e 37.4% low. |
 | **Proxy lot sample** | Interpretacao operacional de uma linha UCI como amostra representativa de lote. O dataset nao possui um `lot_id` real. |

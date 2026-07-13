@@ -1,6 +1,6 @@
-# MLN601 A2 - Operational Lot-Screening Walkthrough (v5)
+# MLN601 A2 - Operational Lot-Screening Walkthrough (v6)
 
-Use this beside the camera while scrolling `MLN601FariaLuisBrief2v5.ipynb`.
+Use this beside the camera while scrolling `MLN601FariaLuisBrief2v6.ipynb`.
 Target: 8:00-9:00. Speak from cues; do not read notebook prose.
 Keep `assessment2-glossary.md` nearby during rehearsal when a metric or modelling term is unclear.
 
@@ -24,6 +24,8 @@ Keep `assessment2-glossary.md` nearby during rehearsal when a metric or modellin
 | Operational trade | 58 more weak lots caught; 69 more acceptable lots reviewed |
 | Tree settings | gini; depth 5; minimum leaf 20 |
 | Strongest signal | alcohol importance about 0.62; target correlation -0.4145 |
+| Outlier audit | 1,473 rows flagged by IQR; retained as plausible measurements |
+| SHAP example | P(low) 0.797; alcohol +0.222; volatile acidity +0.070 |
 
 ## Walkthrough
 
@@ -48,7 +50,7 @@ Explain the errors:
 Point to the gates. Say they were set before modelling, so the final recommendation is not
 chosen after seeing the test result.
 
-### 2. Data Understanding (1:10) - validation table, balance and correlations
+### 2. Data Understanding (1:20) - validation table, outliers, balance and correlations
 
 Cues: UCI red + white `vinho verde` | no real `batch_id`, production date or release outcome |
 technical feasibility, not proven production ROI.
@@ -57,8 +59,12 @@ Audit story: schema/types/finite/domain checks pass; 1,177 exact duplicates are 
 quality issue. Removal is conservative because UCI cannot prove whether they are repeated
 measurements or separate identical samples.
 
+IQR flags 1,473 rows, but a statistical flag is not proof of a measurement error. Retain them
+because the values are physically plausible and rare weak lots matter to screening.
+
 Correlation signs use low quality as 1: alcohol -0.4145, density +0.2872, volatile acidity
-+0.2699. Pairplot overlap means imperfect screening is realistic.
++0.2699. Between predictors, free and total SO2 are +0.720 while density and alcohol are
+-0.668. Pairplot overlap means imperfect screening is realistic.
 
 ### 3. Data Preparation (0:55) - split and feature ablation
 
@@ -82,7 +88,7 @@ Read the CV table by gate, not by rank:
 - SVM fails sensitivity: 0.631 despite AUC 0.827.
 - Balanced Tree alone passes all three: 0.787 / 0.731 / 0.703.
 
-### 5. Evaluation and Approval (2:10) - metrics, matrices and tree
+### 5. Evaluation, XAI and Approval (2:20) - metrics, matrices, tree and SHAP
 
 Start with the approved model. On 1,064 held-out proxy lots, Balanced Tree catches 292 of 398
 low-quality samples and misses 106. It clears 483 high-quality samples and unnecessarily flags
@@ -101,16 +107,28 @@ pilot. I do not approve any model for automated lot release or rejection."
 Show feature importance: alcohol about 0.62, volatile acidity next. Explain that importance
 comes from tree splits, while correlation is a separate univariate relationship.
 
-### 6. Deployment and Lessons (1:05) - Section 6
+SHAP line: "Global SHAP adds direction; local SHAP explains one decision. In the selected correctly
+flagged proxy, alcohol contributes +0.222 and volatile acidity +0.070 toward low quality, producing
+P(low) 0.797. The additivity assertion verifies the explanation against the tree probability."
 
-Cues: real pilot needs `lot_id`, production date, tank/line, lab timestamp, tasting result and
-release decision | monitor sensitivity, specificity, hold rate, weak-lot escapes and lead time |
-red/white separately | external temporal validation.
+Limit: SHAP explains what the model used. It does not prove chemistry causation or prescribe a
+production adjustment.
 
-Lessons: duplicate handling changed evaluation; engineered features did not earn complexity;
-highest AUC was not the approved operating policy; class weighting was simpler than SMOTE.
+### 6. Deployment and Lessons (1:25) - Section 6
 
-Rollback: disable model routing and return all lots to the existing manual workflow.
+Cue - what went well: baseline made improvement measurable | learned how metrics answer different
+questions | clearer lot-screening context | incorporated A1 feedback into criteria, validation,
+correlation analysis and explicit model approval.
+
+Cue - challenges: classification was harder than regression because confusion matrix, AUC,
+precision, sensitivity, specificity, F1 and threshold must be read together | SMOTE must remain
+inside CV folds | highest-AUC model was not the approved model.
+
+Cue - future: collect real lot/timestamp/tasting/release data | estimate business costs and tune the
+threshold | externally validate | use Sommelier API for shadow-mode engineering, model versioning,
+SHAP and monitoring, while stating that the same UCI data is not external validation.
+
+Rollback: staff retain authority; disable model routing and return to the manual workflow.
 
 ### 7. Close (0:20) - camera
 
@@ -127,8 +145,9 @@ before a bottling lot is released. Thank you."
 
 ### Pre-flight
 
-- [ ] v5 notebook executed and open at the title
+- [ ] v6 notebook executed and open at the title
 - [ ] Webcam picture-in-picture and microphone checked
+- [ ] Physical student card ready and shown at the beginning
 - [ ] Name and student ID stated in the first 20 seconds
 - [ ] UCI row-to-lot proxy limitation stated
 - [ ] Three gates stated before model results
@@ -136,4 +155,7 @@ before a bottling lot is released. Thank you."
 - [ ] SVM explanation under 20 seconds
 - [ ] Human release authority stated
 - [ ] Recording between 7 and 10 minutes
+- [ ] No PowerPoint; walkthrough uses the Jupyter Notebook
+- [ ] Four separate files ready: `.ipynb`, `.pdf`, `.txt`, `.mp4`
+- [ ] No ZIP/RAR; video link permissions tested if a URL is submitted
 - [ ] Final filename `MLN601FariaLuisBrief2.mp4`

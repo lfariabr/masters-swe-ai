@@ -72,6 +72,10 @@ language. Why are sensitivity and specificity both required?
 > measurements, valid quality levels and the rule that free sulfur dioxide cannot exceed total
 > sulfur dioxide. Every hard check passes.
 >
+> The IQR audit flags 1,473 rows as statistically unusual. I retain them because their laboratory
+> values remain plausible, an IQR flag is not evidence of an error, and rare weak lots are important
+> to this screening problem.
+>
 > The material issue is 1,177 identical rows. Without sample IDs, I cannot prove they are all
 > accidental duplicates; some may be separate samples with identical values. However, retaining
 > them risks identical records crossing train and test. I remove them before splitting, leaving
@@ -94,6 +98,10 @@ data is wrong? What would duplicate leakage do to the reported metrics?
 > carefully. Alcohol is strongest at negative 0.4145, meaning higher alcohol is associated with a
 > lower probability of low quality. Density and volatile acidity have the strongest positive
 > relationships. Correlation is association, not causation or tree importance.
+>
+> Between laboratory attributes, free and total sulfur dioxide have the strongest positive
+> correlation at 0.720, while density and alcohol have a strong negative relationship at minus
+> 0.668. This means the predictors should not be interpreted as independent evidence.
 >
 > The pairplot shows class overlap: there is useful signal, but no clean separation.
 >
@@ -126,6 +134,9 @@ Why is rejecting engineered features evidence of good model development?
 >
 > The Balanced Tree keeps this structure but makes low-class mistakes more costly. SMOTE creates
 > synthetic minority examples only inside training folds. RBF SVM remains a technical benchmark.
+> The RBF kernel reaches CV AUC 0.826 compared with 0.804 for the linear kernel, using C equal to 1
+> and gamma set to scale. This supports a moderately nonlinear boundary, consistent with the
+> overlapping classes in the pairplot.
 >
 > CV is the selection point. The AUC tree fails sensitivity at 0.643. SMOTE fails specificity at
 > 0.696. SVM has AUC 0.827 but sensitivity 0.631. Only the Balanced Tree passes every gate: AUC
@@ -136,9 +147,9 @@ highest AUC not automatically approved?
 
 ---
 
-## Block 5 - Final Evaluation and Model Approval (5:55-7:55)
+## Block 5 - Final Evaluation, XAI and Model Approval (5:55-8:20)
 
-**Screen:** Test metrics, ROC curves, confusion matrices, tree and approval table.
+**Screen:** Test metrics, ROC curves, confusion matrices, tree, SHAP and approval table.
 
 **Spoken walkthrough:**
 
@@ -161,37 +172,47 @@ highest AUC not automatically approved?
 > gates and exposes inspectable rules. No model is approved for automated release or rejection.
 > Alcohol has importance around 0.62, followed by volatile acidity, but importance does not prove
 > causation.
+>
+> I then add SHAP because the tree diagram and feature importance are global views. Global SHAP adds
+> direction, while local SHAP explains one prediction. For the selected correctly flagged proxy,
+> alcohol contributes plus 0.222 and volatile acidity plus 0.070 toward low quality, producing a
+> low-quality probability of 0.797. The additivity check reconstructs the model probability within
+> numerical tolerance. SHAP explains the model's reasoning; it does not prove chemical causation.
 
 **Check your understanding:** Explain AUC without saying "accuracy". Explain the 58 versus 69
 trade-off as if speaking to a quality-control manager.
 
 ---
 
-## Block 6 - Deployment, Monitoring and Lessons (7:55-9:00)
+## Block 6 - Deployment, Monitoring and Lessons (8:20-9:40)
 
 **Screen:** Section 6.
 
 **Spoken walkthrough:**
 
-> Real deployment would require information that UCI does not provide: lot ID, production date,
-> tank or line, laboratory timestamp, tasting result and final release decision. The pilot would
-> record lot ID, model version, risk score, screening decision and timestamp. Staff retain final
-> authority.
+> What went well was learning to use a baseline and several metrics to make improvement measurable.
+> I also defined a clearer lot-screening context and incorporated the Assessment 1 feedback by
+> strengthening data validation, correlation analysis, success criteria and the approval decision.
 >
-> Monitoring covers sensitivity, specificity, hold rate, unnecessary reviews, weak-lot escapes and
-> release lead time, with red and white tracked separately. Wider adoption requires later-period or
-> independent data. Rollback disables model routing and restores the manual workflow.
+> The main challenge was moving from regression to classification. Instead of interpreting one
+> prediction error, I had to understand the confusion matrix, ROC-AUC, precision, sensitivity,
+> specificity, F1 and threshold together. I found this substantially more difficult because a model
+> can improve one metric while weakening another. SMOTE added another challenge because synthetic
+> samples must be created only inside cross-validation training folds to avoid leakage.
 >
-> The lessons are that data quality changes evaluation, features must earn complexity, and highest
-> AUC does not automatically mean best policy. Good model choice connects evidence, error costs,
-> interpretability and human governance.
+> Future work needs real lot IDs, timestamps, process conditions, tasting outcomes and release
+> decisions, followed by temporal or external validation and cost-based threshold tuning. The
+> existing Sommelier API provides an engineering path through FastAPI and Streamlit. It could support
+> shadow-mode predictions, model versioning, SHAP explanations and monitoring. However, because it
+> uses the same UCI data, it demonstrates delivery capability rather than external validation. Staff
+> retain authority, and rollback restores the manual workflow.
 
 **Check your understanding:** Which fields are missing for a real pilot? What would trigger rollback
 or recalibration?
 
 ---
 
-## Block 7 - Closing (9:00-9:20)
+## Block 7 - Closing (9:40-9:55)
 
 **Screen:** Return to the title or keep the deployment conclusion visible.
 

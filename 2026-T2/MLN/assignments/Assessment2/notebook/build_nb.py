@@ -1,4 +1,4 @@
-"""Build MLN601 Assessment 2 v5 from the executed v4 notebook structure."""
+"""Build MLN601 Assessment 2 v6 from the executed v4 notebook structure."""
 
 from pathlib import Path
 
@@ -7,7 +7,7 @@ import nbformat
 
 HERE = Path(__file__).resolve().parent
 SOURCE = HERE / "MLN601FariaLuisBrief2v4.ipynb"
-TARGET = HERE / "MLN601FariaLuisBrief2v5.ipynb"
+TARGET = HERE / "MLN601FariaLuisBrief2v6.ipynb"
 
 nb = nbformat.read(SOURCE, as_version=4)
 
@@ -37,7 +37,7 @@ Design and Creative Technologies, Torrens University
 | Required algorithm | Decision Tree - default, AUC-tuned and balanced variants |
 | Sensitivity studies | Leakage-safe SMOTE and kernel SVM benchmark |
 | Methodology | CRISP-DM |
-| Report body | Approximately 1,500 words, excluding title, code, references, declarations and glossary appendix |
+| Narrative | Explanations are embedded beside code and outputs, following facilitator guidance |
 
 This notebook treats each UCI observation as a **proxy for one representative laboratory sample
 from a homogeneous bottling lot**, not as an individual bottle. The proposed system routes lots
@@ -117,6 +117,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+import shap
 
 from sklearn.tree import DecisionTreeClassifier, plot_tree
 from sklearn.svm import SVC
@@ -148,6 +149,7 @@ runtime = {
     "pandas": package_version("pandas"),
     "scikit-learn": package_version("scikit-learn"),
     "imbalanced-learn": package_version("imbalanced-learn"),
+    "shap": package_version("shap"),
 }
 pd.Series(runtime, name="version").to_frame()
 """)
@@ -199,6 +201,23 @@ expected_columns = source_features + ["quality", "wine_type"]
 numeric_values = df[expected_columns].to_numpy()
 duplicate_rows = int(df.duplicated().sum())
 
+# IQR flags support an explicit outlier decision; they do not automatically imply errors.
+q1 = df[source_features].quantile(0.25)
+q3 = df[source_features].quantile(0.75)
+iqr = q3 - q1
+lower_bounds = q1 - 1.5 * iqr
+upper_bounds = q3 + 1.5 * iqr
+outlier_flags = (df[source_features].lt(lower_bounds) |
+                 df[source_features].gt(upper_bounds))
+rows_with_iqr_flags = int(outlier_flags.any(axis=1).sum())
+outlier_summary = pd.DataFrame({
+    "lower_iqr_bound": lower_bounds,
+    "upper_iqr_bound": upper_bounds,
+    "flagged_values": outlier_flags.sum(),
+    "observed_min": df[source_features].min(),
+    "observed_max": df[source_features].max(),
+}).sort_values("flagged_values", ascending=False)
+
 hard_checks = {
     "Expected schema": list(df.columns) == expected_columns,
     "All columns numeric": all(pd.api.types.is_numeric_dtype(df[c]) for c in expected_columns),
@@ -223,15 +242,38 @@ validation_rows.append({
     "action": "Remove before target engineering and splitting",
 })
 validation_rows.append({
+    "check": "Rows with at least one 1.5-IQR outlier flag",
+    "status": "%d (%.1f%%)" % (rows_with_iqr_flags,
+                                100 * rows_with_iqr_flags / len(df)),
+    "action": "Retain; plausible and not verified as errors",
+})
+validation_rows.append({
     "check": "Observed quality levels",
     "status": ", ".join(map(str, sorted(df["quality"].unique()))),
     "action": "Retain; levels are inside documented range",
 })
 data_quality = pd.DataFrame(validation_rows)
-data_quality.to_csv(OUTPUT_DIR / "data_quality_v5.csv", index=False)
+data_quality.to_csv(OUTPUT_DIR / "data_quality_v6.csv", index=False)
+outlier_summary.to_csv(OUTPUT_DIR / "outlier_summary_v6.csv")
 
 print("Raw rows:", len(df), "| exact duplicates:", duplicate_rows)
 display(data_quality)
+display(outlier_summary[
+    ["flagged_values", "observed_min", "observed_max"]
+].round(3))
+
+fig, axes = plt.subplots(3, 4, figsize=(12, 8))
+for ax, feature in zip(axes.flat, source_features):
+    sns.boxplot(x=df[feature], ax=ax, color="#6a9c78", fliersize=2,
+                linewidth=0.8)
+    ax.set_title(feature, fontsize=9)
+    ax.set_xlabel("")
+for ax in axes.flat[len(source_features):]:
+    ax.axis("off")
+fig.suptitle("IQR outlier audit - source laboratory measurements", y=1.01)
+plt.tight_layout()
+plt.savefig(FIG_DIR / "v6_outlier_boxplots.png", dpi=120, bbox_inches="tight")
+plt.show()
 """)
 
 markdown(8, r"""
@@ -269,7 +311,7 @@ plt.title("Class balance after deduplication")
 plt.xlabel("Lot-sample quality class")
 plt.ylabel("Proxy samples")
 plt.tight_layout()
-plt.savefig(FIG_DIR / "v5_class_balance.png", dpi=120)
+plt.savefig(FIG_DIR / "v6_class_balance.png", dpi=120)
 plt.show()
 """)
 
@@ -290,14 +332,14 @@ sns.heatmap(source_corr, annot=True, fmt=".2f", cmap="coolwarm", center=0,
             square=True, cbar_kws={"shrink": 0.8}, annot_kws={"size": 7})
 plt.title("Correlation heatmap - laboratory features and source quality")
 plt.tight_layout()
-plt.savefig(FIG_DIR / "v5_corr_heatmap.png", dpi=120)
+plt.savefig(FIG_DIR / "v6_corr_heatmap.png", dpi=120)
 plt.show()
 
 target_corr = (df[source_features + ["wine_type", "quality_label"]]
                .corr()["quality_label"].drop("quality_label"))
 target_corr = target_corr.reindex(target_corr.abs().sort_values(ascending=False).index)
 target_corr.rename("correlation_with_low_quality").to_csv(
-    OUTPUT_DIR / "target_correlations_v5.csv", header=True)
+    OUTPUT_DIR / "target_correlations_v6.csv", header=True)
 display(target_corr.rename("correlation_with_low_quality").round(4).to_frame())
 
 plt.figure(figsize=(8, 5))
@@ -308,7 +350,7 @@ plt.xlabel("Correlation with low-quality label (1 = low)")
 plt.ylabel("")
 plt.title("Feature correlations with the classification target")
 plt.tight_layout()
-plt.savefig(FIG_DIR / "v5_target_correlations.png", dpi=120)
+plt.savefig(FIG_DIR / "v6_target_correlations.png", dpi=120)
 plt.show()
 """)
 
@@ -318,18 +360,28 @@ g = sns.pairplot(df, vars=pair_cols, hue="quality_name",
                  hue_order=["high (>=6)", "low (<6)"], corner=True,
                  plot_kws={"alpha": 0.4, "s": 12}, diag_kind="kde")
 g.fig.suptitle("Pairplot of key features by lot-sample quality class", y=1.02)
-g.savefig(FIG_DIR / "v5_pairplot.png", dpi=110)
+g.savefig(FIG_DIR / "v6_pairplot.png", dpi=110)
 plt.show()
 """)
 
 markdown(13, r"""
-**Interpretation.** The validation checks pass for schema, types, missing/non-finite values and
-physical consistency; exact duplication is the documented quality issue. `alcohol` has the
-strongest target association (-0.4145): more alcohol is associated with a lower probability of the
-positive low-quality class. `density` (+0.2872) and `volatile acidity` (+0.2699) have the strongest
-positive associations with low quality. The pairplot still shows substantial overlap, so near-perfect
-lot screening is unrealistic. Later, tree importance again identifies alcohol as the strongest
-predictor, but importance reflects learned splits rather than a standalone linear relationship.
+**Interpretation:**
+
+- **Data quality:** schema, numeric types, missing/non-finite values and physical-consistency checks
+  pass. The 1.5-IQR rule flags 1,473 rows (22.7%), but the values remain plausible laboratory
+  measurements. Removing them without process evidence could discard rare weak lots, so they remain.
+- **Duplicate decision:** 1,177 exact rows are removed before splitting to prevent identical
+  feature/label records crossing the held-out boundary.
+- **Feature-to-feature relationships:** free and total SO2 have the strongest positive correlation
+  (+0.720), while density and alcohol have a strong negative correlation (-0.668). Residual sugar
+  and density are also positively related (+0.521). These relationships warn against treating each
+  laboratory measure as independent evidence.
+- **Relationship with the target:** because low quality is class 1, alcohol's -0.4145 correlation
+  means higher alcohol is associated with lower low-quality risk. Density (+0.2872) and volatile
+  acidity (+0.2699) point toward low quality. Correlation is association, not causation.
+- **Pairplot:** the four displayed attributes are the strongest target correlations by absolute
+  value. Their class overlap shows useful signal but no clean boundary, so near-perfect screening is
+  unrealistic and supports testing nonlinear models.
 """)
 
 markdown(14, r"""
@@ -379,6 +431,12 @@ floor; the default tree exposes overfitting; five-fold `GridSearchCV` then tunes
 minimum leaf size for ROC-AUC. The balanced tree freezes that structure and changes only error cost,
 while SMOTE tests synthetic minority examples inside training folds. An SVM kernel search is retained
 as a technical ranking benchmark, not as the operational recommendation.
+
+Parameter ranges are deliberate: Gini and entropy compare two split criteria; depths 3-8 test
+readable trees before allowing an unrestricted tree; minimum leaf sizes 1-20 test whether broader
+rules generalise better than rules fitted around small groups. The SVM search compares linear and
+nonlinear kernels, three values of C, and fold-local scaling. C controls the penalty for training
+errors, while gamma controls how local an RBF boundary can become.
 
 Selection is made from training cross-validation before final test evaluation. The approval gates
 are AUC >= 0.75, low-quality sensitivity >= 0.70 and high-quality specificity >= 0.70. This prevents
@@ -473,19 +531,19 @@ remains untouched until Section 5.
 code(19, r"""
 best_params = pd.Series(grid.best_params_, dtype="object").astype(str)
 best_params.loc["cv_roc_auc"] = round(grid.best_score_, 4)
-best_params.to_csv(OUTPUT_DIR / "tree_best_params_v5.csv", header=["value"])
+best_params.to_csv(OUTPUT_DIR / "tree_best_params_v6.csv", header=["value"])
 
 smote_results = (pd.DataFrame(smote_grid.cv_results_)
                  [["param_smote__k_neighbors", "mean_test_score", "std_test_score", "rank_test_score"]]
                  .sort_values("rank_test_score"))
-smote_results.to_csv(OUTPUT_DIR / "smote_results_v5.csv", index=False)
+smote_results.to_csv(OUTPUT_DIR / "smote_results_v6.csv", index=False)
 
 svm_cv = pd.DataFrame(svm_search.cv_results_)
 svm_kernel_results = (svm_cv.assign(kernel=svm_cv["param_svc__kernel"].astype(str))
                       .groupby("kernel", as_index=False)["mean_test_score"].max()
                       .rename(columns={"mean_test_score": "best_cv_roc_auc"})
                       .sort_values("best_cv_roc_auc", ascending=False))
-svm_kernel_results.to_csv(OUTPUT_DIR / "svm_kernel_results_v5.csv", index=False)
+svm_kernel_results.to_csv(OUTPUT_DIR / "svm_kernel_results_v6.csv", index=False)
 
 cv_scoring = {
     "roc_auc": "roc_auc",
@@ -517,7 +575,7 @@ cv_comparison["passes_specificity"] = cv_comparison["specificity_high"] >= 0.70
 cv_comparison["passes_all_gates"] = cv_comparison[
     ["passes_auc", "passes_sensitivity", "passes_specificity"]
 ].all(axis=1)
-cv_comparison.to_csv(OUTPUT_DIR / "candidate_cv_metrics_v5.csv")
+cv_comparison.to_csv(OUTPUT_DIR / "candidate_cv_metrics_v6.csv")
 
 # Training-only feature-engineering ablation.
 def add_sulfur_features(frame):
@@ -567,7 +625,7 @@ ablation = pd.DataFrame([
         "retained": False,
     },
 ])
-ablation.to_csv(OUTPUT_DIR / "feature_ablation_v5.csv", index=False)
+ablation.to_csv(OUTPUT_DIR / "feature_ablation_v6.csv", index=False)
 
 display(best_params.to_frame("value"))
 cv_display = (cv_comparison[["roc_auc", "sensitivity_low", "specificity_high",
@@ -591,6 +649,16 @@ display(svm_kernel_results.round(4))
 
 markdown(20, r"""
 ## 5. Evaluation
+
+**Interpretation:**
+
+- The tuned tree selects Gini, depth 5 and minimum leaf size 20. Limiting depth and requiring broader
+  leaves reduce the default tree's tendency to fit narrow, unstable rules.
+- RBF is the strongest SVM kernel (CV AUC 0.826 versus 0.804 linear) with `C=1` and `gamma='scale'`.
+  Its advantage is consistent with the nonlinear class overlap in the pairplot, but model approval
+  still depends on the operating-point gates rather than AUC alone.
+- The engineered sulfur features do not earn their added complexity: tuned AUC falls from 0.7910 to
+  0.7892 and the balanced-accuracy gain is only 0.0075, below the predefined 0.01 materiality rule.
 
 The held-out test now confirms the frozen selection. ROC-AUC measures ranking across thresholds;
 sensitivity measures the share of genuinely low proxy lots caught; specificity measures the share
@@ -629,7 +697,7 @@ results_full = pd.DataFrame(
     {name: class_metrics(model, X_test, y_test) for name, model in models.items()}
 ).T
 results_full.index.name = "model"
-results_full.to_csv(OUTPUT_DIR / "model_metrics_v5.csv")
+results_full.to_csv(OUTPUT_DIR / "model_metrics_v6.csv")
 
 metric_cols = ["accuracy", "precision_low", "sensitivity_low", "specificity_high",
                "f1_low", "balanced_accuracy", "g_mean", "roc_auc"]
@@ -642,7 +710,7 @@ report = classification_report(
     target_names=["high (>=6)", "low (<6)"],
     output_dict=True, zero_division=0)
 report_df = pd.DataFrame(report).T.round(3)
-report_df.to_csv(OUTPUT_DIR / "classification_report_v5.csv")
+report_df.to_csv(OUTPUT_DIR / "classification_report_v6.csv")
 report_df
 """)
 
@@ -666,7 +734,7 @@ plt.ylabel("True-positive rate (sensitivity)")
 plt.title("ROC curves - low-quality lot-sample detection")
 plt.legend(loc="lower right")
 plt.tight_layout()
-plt.savefig(FIG_DIR / "v5_roc_curves.png", dpi=120)
+plt.savefig(FIG_DIR / "v6_roc_curves.png", dpi=120)
 plt.show()
 """)
 
@@ -684,7 +752,7 @@ for ax, (name, model) in zip(axes, comparison_models.items()):
     ax.set_title(name)
 fig.suptitle("Confusion matrices - positive class is low quality", y=1.03)
 plt.tight_layout()
-plt.savefig(FIG_DIR / "v5_confusion_matrices.png", dpi=120, bbox_inches="tight")
+plt.savefig(FIG_DIR / "v6_confusion_matrices.png", dpi=120, bbox_inches="tight")
 plt.show()
 
 balance_plot = (results_full.loc[["Decision Tree (AUC-tuned)",
@@ -705,7 +773,7 @@ plt.title("Operating-point trade-offs")
 plt.xticks(rotation=15, ha="right")
 plt.legend(title="")
 plt.tight_layout()
-plt.savefig(FIG_DIR / "v5_operating_tradeoffs.png", dpi=120)
+plt.savefig(FIG_DIR / "v6_operating_tradeoffs.png", dpi=120)
 plt.show()
 """)
 
@@ -716,7 +784,7 @@ plot_tree(dt_balanced, feature_names=feature_cols, class_names=["high", "low"],
           impurity=True, proportion=True)
 plt.title("Approved balanced Decision Tree (top 3 levels)")
 plt.tight_layout()
-plt.savefig(FIG_DIR / "v5_decision_tree.png", dpi=110)
+plt.savefig(FIG_DIR / "v6_decision_tree.png", dpi=110)
 plt.show()
 """)
 
@@ -725,20 +793,20 @@ importance = (pd.DataFrame({"feature": feature_cols,
                             "importance": dt_balanced.feature_importances_})
               .sort_values("importance", ascending=False)
               .reset_index(drop=True))
-importance.to_csv(OUTPUT_DIR / "feature_importance_v5.csv", index=False)
+importance.to_csv(OUTPUT_DIR / "feature_importance_v6.csv", index=False)
 
 plt.figure(figsize=(8, 5))
 sns.barplot(x="importance", y="feature", data=importance,
             hue="feature", palette="crest", legend=False)
 plt.title("Balanced Decision Tree feature importance")
 plt.tight_layout()
-plt.savefig(FIG_DIR / "v5_feature_importance.png", dpi=120)
+plt.savefig(FIG_DIR / "v6_feature_importance.png", dpi=120)
 plt.show()
 importance
 """)
 
 markdown(27, r"""
-### 5.1 Operational result
+### 5.2 Operational result
 
 The Balanced Tree is the only candidate passing all training gates: CV AUC **0.787**, sensitivity
 **0.731** and specificity **0.703**. The held-out test confirms AUC **0.792**, sensitivity **0.734**,
@@ -756,7 +824,7 @@ leading target correlation, while volatile acidity is the next major split signa
 markdown(28, r"""
 <div style="break-before: page;"></div>
 
-### 5.2 Approval decision
+### 5.3 Approval decision
 
 | Candidate | Decision | Reason |
 |---|---|---|
@@ -773,27 +841,189 @@ additional tasting; choosing it now would invent a business cost function.
 markdown(29, r"""
 ## 6. Deployment / Lessons Learned
 
-The proposed pilot records `lot_id`, laboratory measurements, model version, risk score, screening
-decision and timestamp. Flagged lots enter quality-control hold for tasting, retesting or process
-investigation; staff retain final authority. Real validation also needs production date, tank or
-line, wine type, tasting result and final release outcome because the UCI data has none of this
-operational context.
+The brief does not require a live deployment. This stage therefore reflects on the work and defines
+what would be required to move from an assessment model to a controlled operational pilot.
 
-Monitoring should track sensitivity, specificity, percentage of lots held, unnecessary reviews,
-weak-lot escapes and release lead time, segmented by red and white wine. Validation must use a later
-production period or independent producer before wider adoption.
+### What went well
 
-During the pilot, a weekly review should reconcile model flags with tasting and release outcomes.
-Every false-negative lot should trigger root-cause review; shifts in hold rate or class mix should
-trigger a recalibration assessment. Rollback is simple: disable model routing and return every lot
-to the existing manual workflow.
+- **Learning through baselines and metrics:** the majority baseline made model improvement
+  measurable rather than assumed. I learned to connect the confusion matrix, ROC-AUC, sensitivity,
+  specificity, precision and F1 to different operational questions instead of relying on accuracy.
+- **A clearer business context:** framing each row as a proxy lot sample turned an abstract wine
+  classifier into a screening decision with explicit costs for weak-lot escapes and unnecessary
+  reviews.
+- **Applying Assessment 1 feedback:** this notebook defines technical success criteria before
+  modelling, strengthens data-quality checks, explains positive and negative correlations, tests
+  derived attributes, and states clearly which model is approved and why.
+- **A defensible workflow:** duplicate control, a closed test set, five-fold CV, leakage-safe SMOTE
+  and SHAP checks make the final recommendation traceable and reproducible.
 
-The main lessons are that data quality can change the evaluation, feature engineering must earn its
-complexity, and the highest AUC is not automatically the best operating policy. Class weighting was
-simpler than synthetic sampling and was the only candidate to pass all predefined screening gates.
-The model therefore improves operational consistency by prioritising review, while its limitations
-remain visible to the people responsible for release.
+### Challenges
+
+- **Classification was substantially harder than regression:** Assessment 1 could centre on the
+  error of one predicted score. Here, several views must be understood together: confusion-matrix
+  counts, ROC-AUC, precision, sensitivity, specificity, F1 and the chosen threshold. A model can lead
+  on one metric and still be unsuitable for the business decision.
+- **Class imbalance added another layer:** SMOTE was difficult because synthetic observations must
+  be created only inside training folds. Applying it before splitting or validation would leak
+  information and make performance look stronger than it is.
+- **Model selection required judgement:** the SVM achieved the highest AUC, while the Balanced Tree
+  was the only model to pass every operational gate. This made model choice a trade-off between
+  ranking, threshold behaviour, interpretability and review workload rather than a leaderboard.
+- **The data limits the conclusion:** UCI has no real `lot_id`, timestamps, process conditions or
+  release outcomes, so the study cannot demonstrate production safety or return on investment.
+
+### What can be improved in future
+
+- Collect real lot-level data including production date, tank or line, laboratory timestamp, tasting
+  outcome and final release decision; then validate on a later period or an independent producer.
+- Estimate the costs of a missed weak lot, an unnecessary hold and an additional tasting. Those
+  values would support threshold optimisation and probability calibration instead of accepting the
+  classifier's default threshold.
+- Compare additional tuned families such as logistic regression, random forest and calibrated SVM,
+  then test whether any alternative passes the same gates without increasing operational complexity.
+- Use the existing **Sommelier API** proof of concept as the engineering path: it already exposes the
+  assessment model through FastAPI and a Streamlit interface. The next step is a shadow-mode pilot
+  with schema validation, model versioning, stored predictions, SHAP explanations and monitoring for
+  data drift, hold rate, weak-lot escapes and red/white performance. Because it uses the same UCI
+  data, the API demonstrates delivery capability, not external model validation.
+
+During a pilot, staff retain release authority and review model flags weekly against tasting and
+release outcomes. A false-negative lot triggers root-cause review; material shifts in class mix,
+hold rate or performance trigger recalibration. Rollback disables model routing and restores the
+existing manual workflow.
 """)
+
+markdown(33, r"""
+## References
+
+Chapman, P., Clinton, J., Kerber, R., Khabaza, T., Reinartz, T., Shearer, C., & Wirth, R. (2000). *CRISP-DM 1.0: Step-by-step data mining guide*. SPSS Inc. https://www.the-modeling-agency.com/crisp-dm.pdf
+
+Chawla, N. V., Bowyer, K. W., Hall, L. O., & Kegelmeyer, W. P. (2002). SMOTE: Synthetic minority over-sampling technique. *Journal of Artificial Intelligence Research, 16*, 321-357. https://doi.org/10.1613/jair.953
+
+Cortes, C., & Vapnik, V. (1995). Support-vector networks. *Machine Learning, 20*, 273-297. https://doi.org/10.1007/BF00994018
+
+Cortez, P., Cerdeira, A., Almeida, F., Matos, T., & Reis, J. (2009). Modeling wine preferences by data mining from physicochemical properties. *Decision Support Systems, 47*(4), 547-553. https://doi.org/10.1016/j.dss.2009.05.016
+
+Lundberg, S. M., & Lee, S.-I. (2017). A unified approach to interpreting model predictions. *Advances in Neural Information Processing Systems, 30*, 4765-4774. https://proceedings.neurips.cc/paper/2017/hash/8a20a8621978632d76c43dfd28b67767-Abstract.html
+
+Pedregosa, F., Varoquaux, G., Gramfort, A., Michel, V., Thirion, B., Grisel, O., Blondel, M., Prettenhofer, P., Weiss, R., Dubourg, V., Vanderplas, J., Passos, A., Cournapeau, D., Brucher, M., Perrot, M., & Duchesnay, E. (2011). Scikit-learn: Machine learning in Python. *Journal of Machine Learning Research, 12*, 2825-2830.
+
+University of California, Irvine. (n.d.). *Wine Quality* [Data set]. UCI Machine Learning Repository. Retrieved July 2, 2026, from https://archive.ics.uci.edu/dataset/186/wine+quality
+""")
+
+nb.cells[27:27] = [
+    nbformat.v4.new_markdown_cell(r"""
+### 5.1 Explainable AI
+
+The approved tree is intrinsically interpretable: its diagram exposes global decision rules and
+its impurity importance summarises which attributes create splits. Those views do not show direction
+or explain one lot. SHAP adds both a global directional view and a local decomposition for class 1,
+which is **low quality** in this assessment (Lundberg & Lee, 2017).
+
+**Interpretation:**
+
+- **Tree diagram:** the top levels show the most influential screening rules, but the displayed
+  depth is intentionally limited so that a reviewer can read it.
+- **Built-in importance:** alcohol dominates the fitted splits, followed by volatile acidity. This
+  is a global ranking, not proof that changing either measurement will cause a quality change.
+- **Why SHAP is added:** it answers which measurements pushed a particular risk score toward or
+  away from low quality, while retaining an additive check against the model probability.
+""".strip()),
+    nbformat.v4.new_code_cell(r"""
+explainer = shap.TreeExplainer(dt_balanced)
+shap_all = explainer(X_test)
+
+# Recent SHAP versions return one attribution matrix per class for sklearn classifiers.
+if shap_all.values.ndim == 3:
+    low_class_index = list(dt_balanced.classes_).index(1)
+    low_values = shap_all.values[:, :, low_class_index]
+    if np.asarray(shap_all.base_values).ndim == 2:
+        low_base = shap_all.base_values[:, low_class_index]
+    else:
+        low_base = np.repeat(shap_all.base_values[low_class_index], len(X_test))
+    low_shap = shap.Explanation(
+        values=low_values,
+        base_values=low_base,
+        data=X_test.to_numpy(),
+        feature_names=feature_cols,
+    )
+else:
+    low_shap = shap_all
+
+low_probability = dt_balanced.predict_proba(X_test)[:, 1]
+reconstructed_probability = low_shap.base_values + low_shap.values.sum(axis=1)
+max_additivity_error = float(np.max(np.abs(
+    reconstructed_probability - low_probability
+)))
+assert max_additivity_error < 1e-6, "SHAP values do not reconstruct class-1 probabilities"
+
+shap_global = (pd.DataFrame({
+    "feature": feature_cols,
+    "mean_absolute_shap": np.abs(low_shap.values).mean(axis=0),
+})
+    .sort_values("mean_absolute_shap", ascending=False)
+    .reset_index(drop=True))
+shap_global.to_csv(OUTPUT_DIR / "shap_global_importance_v6.csv", index=False)
+
+shap.plots.beeswarm(low_shap, max_display=12, show=False)
+plt.title("Global SHAP - direction of low-quality risk")
+plt.tight_layout()
+plt.savefig(FIG_DIR / "v6_shap_global.png", dpi=120, bbox_inches="tight")
+plt.show()
+
+test_prediction = dt_balanced.predict(X_test)
+true_positive_positions = np.flatnonzero(
+    (y_test.to_numpy() == 1) & (test_prediction == 1)
+)
+tp_scores = low_probability[true_positive_positions]
+local_position = int(true_positive_positions[
+    np.argmin(np.abs(tp_scores - np.median(tp_scores)))
+])
+local_index = X_test.index[local_position]
+local_explanation = low_shap[local_position]
+
+local_table = (pd.DataFrame({
+    "feature": feature_cols,
+    "value": X_test.iloc[local_position].to_numpy(),
+    "shap_toward_low_quality": local_explanation.values,
+})
+    .assign(absolute_shap=lambda frame: frame["shap_toward_low_quality"].abs())
+    .sort_values("absolute_shap", ascending=False)
+    .drop(columns="absolute_shap")
+    .reset_index(drop=True))
+local_table.to_csv(OUTPUT_DIR / "shap_local_example_v6.csv", index=False)
+
+print("Representative true-positive proxy row:", local_index)
+print("Actual class: low (1) | predicted class: low (1)")
+print("Predicted low-quality probability: %.3f" % low_probability[local_position])
+print("Maximum SHAP additivity error: %.2e" % max_additivity_error)
+display(shap_global.round(4))
+display(local_table.head(6).round(4))
+
+shap.plots.waterfall(local_explanation, max_display=12, show=False)
+plt.title("Local SHAP - one correctly flagged low-quality proxy")
+plt.tight_layout()
+plt.savefig(FIG_DIR / "v6_shap_local.png", dpi=120, bbox_inches="tight")
+plt.show()
+""".strip()),
+    nbformat.v4.new_markdown_cell(r"""
+**Interpretation:**
+
+- **Global SHAP:** points to the right increase the model's class-1 low-quality probability; points
+  to the left decrease it. Alcohol has the largest mean absolute contribution (0.192), followed by
+  volatile acidity (0.096). Colour represents the measured feature value, not wine quality itself.
+- **Local SHAP:** for the representative correctly flagged proxy, low alcohol contributes +0.222
+  and volatile acidity +0.070 toward low quality, while free SO2 contributes -0.018 away from it.
+  The waterfall combines all contributions into a predicted low-quality probability of 0.797.
+- **Reliability check:** the base value plus all SHAP contributions reconstructs the tree probability
+  within numerical tolerance. This checks the explanation against the model rather than trusting the
+  chart alone.
+- **Operational limit:** SHAP explains what the model used; it does not establish chemistry causation
+  or prescribe how production staff should alter a lot. Quality-control staff still investigate the
+  flag using laboratory and tasting evidence.
+""".strip()),
+]
 
 nb.metadata.language_info.version = "3.14.3"
 nb.cells.append(nbformat.v4.new_markdown_cell(r"""
@@ -820,6 +1050,10 @@ nb.cells.append(nbformat.v4.new_markdown_cell(r"""
 | Feature engineering | Deriving candidate predictors from source variables and retaining them only when evidence supports it |
 | Correlation | Univariate linear association; it does not establish causation |
 | Feature importance | Tree-based measure of how much a feature contributes to impurity-reducing splits |
+| Explainable AI (XAI) | Methods that make model behaviour or individual predictions more understandable |
+| SHAP | Additive feature contributions that explain how measurements move a prediction from its baseline |
+| Global explanation | Summary of model behaviour across many proxy samples |
+| Local explanation | Explanation of one proxy sample's prediction |
 | Proxy lot sample | UCI observation interpreted as a representative lot sample; not a real recorded batch ID |
 | Human-supervised pilot | Model routes review, while quality-control staff retain release authority |
 """.strip()))

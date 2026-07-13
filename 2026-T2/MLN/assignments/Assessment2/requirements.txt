@@ -1,10 +1,11 @@
-# Versions used to execute and export MLN601 Assessment 2 v5.
+# Versions used to execute and export MLN601 Assessment 2 v6.
 # The notebook reports these at runtime and does not claim Python 3.6 compatibility.
-numpy==2.5.0
+numpy==2.4.6
 pandas==3.0.3
 matplotlib==3.11.0
 seaborn==0.13.2
 scikit-learn==1.9.0
 imbalanced-learn==0.14.2
+shap==0.52.0
 nbformat==5.10.4
 nbconvert==7.17.1
