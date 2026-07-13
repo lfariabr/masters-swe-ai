@@ -7,7 +7,7 @@
 | # | Task | Status |
 |---|------|--------|
 | **1** | Watch & summarise Olson (2018) — the past, present & future of Auto ML (TPOT) | ✅ |
-| 2 | Listen & summarise Linear Digressions (2018) — AutoML podcast | 🔥 needs manual listen |
+| 2 | Listen & summarise Linear Digressions (2018) — AutoML podcast | 🔌 |
 | **3** | Read & summarise Mark (2020) — awesome-autoML-papers (curated map) | ✅ |
 | **4** | Watch & summarise Aha (2019) — DARPA Explainable AI (XAI) colloquium | ✅ |
 | **5** | Watch & summarise Sowden (2018) — transparency & accountability of NZ government algorithms | ✅ |
@@ -16,10 +16,17 @@
 | **8** | Activity 2: IBM AI Explainability 360 — bank-loan scenario (**CEM** + **Protodash** rebuilt from scratch) | ✅ |
 | **9** | Activity 3: SHAP + explainer dashboard on the Titanic classifier (4 panels + a leakage trap) | ✅ |
 | **10** | Activity 4: Eli5 / LIME / Mlxtend — **four explainers vs one prediction; they contradict** | ✅ |
+| **11** | Transcribe & summarise both Week 7 lectures (146 min) — **the A2 spec, dictated** | ✅ |
 
-> Activities 1-3 are executed notebooks in [`activities/`](activities/) — the original briefs point at
+> Activities 1-4 are executed notebooks in [`activities/`](activities/) — the original briefs point at
 > hosted demos that are now dead (Heroku, IBM Bluemix) or Colab-locked, so the substance was rebuilt
 > locally. See [activities/README.md](activities/README.md) for results and how to verify them.
+> The lecturer only asked for **any two**.
+
+> **Start with [`module07_notes-class.md`](module07_notes-class.md), not with these readings.** The live
+> lecture is where Assessment 2 is actually specified (target encoding, the four grade levers, the
+> four-files-no-zip rule, the video format) — and it **never mentions Auto ML once**. The readings below
+> are still fair game for SLO a), but XAI is what carries marks.
 
 ---
 
@@ -178,11 +185,20 @@ Auto-sklearn, TPOT, Auto-WEKA, Auto-Keras, H2O AutoML, Google AutoML, plus HPO l
 
 ---
 
-### 2. Kennedy, M., Jaffe, B. & Malone, K. (2018). AutoML — Linear Digressions podcast. — 🔥 needs manual listen
+### 2. Kennedy, M., Jaffe, B. & Malone, K. (2018). AutoML — Linear Digressions podcast. — 🔌 Discontinued
 
 **Citation:** Kennedy, M. Jaffe, B. & Malone, K. (2018, 29 April). AutoML [Audio podcast]. http://lineardigressions.com/episodes/2018/4/29/automl
 
-No local transcript available and no public transcript URL in the resource overview. Listen manually (it covers the same "AutoML in plain English" framing as Olson). Summarise after listening.
+**Not completed, and deliberately so.** Three reasons, so this is auditable rather than quietly skipped:
+
+1. The subject's own *Resource Overview* for this item in `notes.md` is a **verbatim copy-paste of
+   Resource 1's (Olson)** — it describes Dr Olson's video, TPOT and a scikit-learn screen demo, none of
+   which is what the podcast is. There is no distinct brief for it.
+2. Audio-only, 2018, no transcript published, so it cannot be processed the way the video resources were.
+3. Its stated content ("AutoML in plain English") duplicates Olson (Res. 1), which is summarised in full
+   above — and the Week 7 lecture does not mention Auto ML at all, so nothing downstream depends on it.
+
+If it is ever needed, it is a ~20 minute listen.
 
 ### 5. Sowden, M. (2018). Transparency and accountability of government algorithms.
 

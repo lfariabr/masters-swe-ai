@@ -1,0 +1,2408 @@
+1
+00:00:00,000 --> 00:00:10,000
+ [BLANK_AUDIO]
+
+2
+00:00:30,000 --> 00:00:49,000
+.
+
+3
+00:00:49,000 --> 00:00:51,000
+ Good morning, everyone.
+
+4
+00:00:51,000 --> 00:00:55,000
+ I hope you are doing well.
+
+5
+00:00:55,000 --> 00:00:58,000
+ So there are a few agendas today.
+
+6
+00:00:58,000 --> 00:01:03,000
+ First is we have to discuss our assessment two.
+
+7
+00:01:03,000 --> 00:01:07,000
+ And before discussing the assessment two,
+
+8
+00:01:07,000 --> 00:01:16,000
+ I would like to thanks everyone for your great efforts that you have put to complete your assessment one.
+
+9
+00:01:16,000 --> 00:01:22,000
+ I really appreciate that how you are actually learning and applying those things.
+
+10
+00:01:22,000 --> 00:01:28,000
+ There are some issues with some of the students who actually did not follow.
+
+11
+00:01:28,000 --> 00:01:37,000
+ Maybe they haven't looked up to the instruction which we have given or the assessment specification document properly,
+
+12
+00:01:37,000 --> 00:01:44,000
+ or maybe they haven't watched the video that I have recorded to explain assessment one.
+
+13
+00:01:44,000 --> 00:01:54,000
+ So for assessment two and assessment three, I would request that everyone please watch that video and special instruction
+
+14
+00:01:54,000 --> 00:02:02,000
+ and announcement that I will make to do your assessment two and then the following assessment three.
+
+15
+00:02:02,000 --> 00:02:11,000
+ Still, if you have any issue, any concerns why your marks are deducted and are it shouldn't be deducted that much,
+
+16
+00:02:11,000 --> 00:02:17,000
+ you are most welcome to discuss with me and I'm happy to answer any question you may have.
+
+17
+00:02:17,000 --> 00:02:20,000
+ We can discuss it shortly. Feel free to discuss.
+
+18
+00:02:20,000 --> 00:02:25,000
+ No need to be hesitate.
+
+19
+00:02:25,000 --> 00:02:37,000
+ I will also show you one of the assessments as a sample for you to do or how it's not 100% correct.
+
+20
+00:02:37,000 --> 00:02:40,000
+ It's not 100% that you have to follow it.
+
+21
+00:02:40,000 --> 00:02:49,000
+ But just as a guideline for you to get an idea what you are supposed to do in your assessment one,
+
+22
+00:02:49,000 --> 00:02:58,000
+ because the first few stages would be same for assessment one or for assessment two.
+
+23
+00:02:58,000 --> 00:03:06,000
+ And I will also tell you where you need to emphasize when you have to do your assessment two.
+
+24
+00:03:06,000 --> 00:03:18,000
+ But before that one, if anybody has any concern or want to discuss with me later privately about assessment one feedback,
+
+25
+00:03:18,000 --> 00:03:23,000
+ you can do so if you want to make it public. You are most welcome to discuss.
+
+26
+00:03:23,000 --> 00:03:42,000
+ So any concerns? OK, now I'm going to show you one of the assessment where you can get an idea what you are supposed to do,
+
+27
+00:03:42,000 --> 00:03:45,000
+ how you have to format and all those things.
+
+28
+00:03:45,000 --> 00:03:50,000
+ And then we will discuss some common issues which you need to take care of,
+
+29
+00:03:50,000 --> 00:03:56,000
+ which I will also send an announcement as well so you can follow those one.
+
+30
+00:03:56,000 --> 00:04:04,000
+ And I'm very much hopeful that you will follow all those things for your assessment two and for your assessment three as well.
+
+31
+00:04:04,000 --> 00:04:23,000
+ So let's share the screen and then going to tell you what you are up to for your first assessment. So I hope you would be able to see my screen.
+
+32
+00:04:23,000 --> 00:04:35,000
+ Yes. Yes. OK, so this is one of the examples, as I mentioned, not 100 percent correct.
+
+33
+00:04:35,000 --> 00:04:43,000
+ You have to follow. But this is how you need to structure for a better representation.
+
+34
+00:04:43,000 --> 00:04:52,000
+ Most of you haven't followed the template, which I will highly encourage mandatory for assessment two and three to follow the template.
+
+35
+00:04:52,000 --> 00:04:57,000
+ And then you have to mention here some of them just mentioned and started.
+
+36
+00:04:57,000 --> 00:05:02,000
+ I have given the feedback which you can follow in order to complete those one.
+
+37
+00:05:02,000 --> 00:05:09,000
+ So that is your stage one business understanding how you're going to work.
+
+38
+00:05:09,000 --> 00:05:14,000
+ What about the data set? What kind of models you are going to apply?
+
+39
+00:05:14,000 --> 00:05:23,000
+ You can describe a little bit about your data set. What is your current situation? What resources you have?
+
+40
+00:05:23,000 --> 00:05:34,000
+ And like what is your success criteria? Which metrics you are going to use in order to compare the performance of your models?
+
+41
+00:05:34,000 --> 00:05:46,000
+ And then later on, when you will actually discuss about your results and modeling, then you can say whether you actually met your criteria or not.
+
+42
+00:05:46,000 --> 00:05:54,000
+ So all of these things need to be in detail. What models, what rationale you have in your mind for using any of the models.
+
+43
+00:05:54,000 --> 00:06:10,000
+ And that's what you need to mention here. Then you have stage two in stage two is your data understanding where you will mention the data and everything related to that and detail.
+
+44
+00:06:10,000 --> 00:06:25,000
+ That stuff where you will mention and load all the libraries properly, explain your code, document your code properly, and then also explain.
+
+45
+00:06:25,000 --> 00:06:34,000
+ Whatever you are applying, not just the coding stuff, whatever the values you have got, you have to explain up here.
+
+46
+00:06:34,000 --> 00:06:43,000
+ Then the data quality, mention what you are going to check and then mention it properly, then explain it.
+
+47
+00:06:43,000 --> 00:06:49,000
+ It's not you just implement it without mentioning what you are going to do and you just go away.
+
+48
+00:06:49,000 --> 00:06:55,000
+ You have to explain your rationale. Have you got any missing value? Have you got any outliers?
+
+49
+00:06:55,000 --> 00:07:01,000
+ Is there any problem of the data redundancy in your data or not?
+
+50
+00:07:01,000 --> 00:07:11,000
+ So you have to explain all these things in detail. Then you have to have your exploratory data analysis where you will explain what you are going to do.
+
+51
+00:07:11,000 --> 00:07:24,000
+ You're going to make various histogram, different distributions. You're going to see how the relation of various variables or features they have with each other.
+
+52
+00:07:24,000 --> 00:07:34,000
+ You're going to have your box plot analysis, correlation analysis. Is there any correlations? And then most of you have missed this thing.
+
+53
+00:07:34,000 --> 00:07:43,000
+ Is there any positive or negative correlation exist in your data between various or among various variables?
+
+54
+00:07:43,000 --> 00:07:54,000
+ Most of you have missed this thing. Then paired plot analysis was mandatory, was actually advised to follow that one.
+
+55
+00:07:54,000 --> 00:08:00,000
+ Few of the students, they also missed this paired plot analysis as well. So please follow this one.
+
+56
+00:08:00,000 --> 00:08:10,000
+ This is also part of your assessment. And then you have to explain and give its commentary as well to say what you have got out of that analysis.
+
+57
+00:08:10,000 --> 00:08:22,000
+ It's not just you do the analysis. You have to tell us the rationale or you have to induce certain knowledge from that one, what you have got actually from that analysis.
+
+58
+00:08:22,000 --> 00:08:31,000
+ Then clean your data properly, split your data properly, make everything very clear.
+
+59
+00:08:31,000 --> 00:08:44,000
+ And then afterwards, your modeling stage will come, mention your modeling assumption properly, build up your model, mention the features and their value properly.
+
+60
+00:08:44,000 --> 00:08:52,000
+ What you have got out of that one, once you have run those model, what you have got out of it.
+
+61
+00:08:52,000 --> 00:08:56,000
+ And then all of these things properly would be visible here.
+
+62
+00:08:56,000 --> 00:09:08,000
+ I'm not showing the output of this one. That is an additional. But in addition to the output, you have to explain that one, how many features you consider and so on, or whether you applied some other models as well.
+
+63
+00:09:08,000 --> 00:09:16,000
+ Some of you have applied other modeling techniques as well, which is really very appreciated. And that is the first thing you have to do.
+
+64
+00:09:16,000 --> 00:09:23,000
+ You have to see if there are any buys or whether you have met that criteria, which I was mentioning that in the first stage,
+
+65
+00:09:23,000 --> 00:09:28,000
+ you have to mention that one, whether you would be able to achieve those one or not.
+
+66
+00:09:28,000 --> 00:09:32,000
+ Some of the students, they just mentioned very few lines here.
+
+67
+00:09:32,000 --> 00:09:38,000
+ So you have to explain in detail what was the things which went wrong or what do you think,
+
+68
+00:09:38,000 --> 00:09:48,000
+ what things could be implemented which can actually improve the overall performance of your model and can mention some of the references if you have referred,
+
+69
+00:09:48,000 --> 00:09:52,000
+ which is still not necessary, but you can mention some of the references as well.
+
+70
+00:09:52,000 --> 00:10:00,000
+ So this is one of the examples which I have shown you how you are supposed to attempt your assessment.
+
+71
+00:10:00,000 --> 00:10:06,000
+ One, two and three, how detailed you need to provide.
+
+72
+00:10:06,000 --> 00:10:15,000
+ And then the important thing, as I mentioned, not just apply those analyses, because I have already advised you that, OK, look up from here.
+
+73
+00:10:15,000 --> 00:10:21,000
+ Somebody applied, copy paste it. So if you have to copy paste and compile into one file and give it to me,
+
+74
+00:10:21,000 --> 00:10:28,000
+ then what we have learned, right, the learning is where to search, how to search.
+
+75
+00:10:28,000 --> 00:10:33,000
+ Then to fix that thing, whatever you have searched according to your data.
+
+76
+00:10:33,000 --> 00:10:39,000
+ And then you have to explain it, what you have got out of that implementation,
+
+77
+00:10:39,000 --> 00:10:46,000
+ out of that analysis. Right. And document everything in a very nice way, in a presentable way.
+
+78
+00:10:46,000 --> 00:10:50,000
+ That is important. That is the expectation from you.
+
+79
+00:10:50,000 --> 00:10:59,000
+ Right. I'm not asking, I'm not stopping you that you can't search here and there. Even I advise you, OK, you can look up the code and then you can do.
+
+80
+00:10:59,000 --> 00:11:06,000
+ Because if you remember in our week three or four, we discuss in detail about the classification, which can also go through today.
+
+81
+00:11:06,000 --> 00:11:11,000
+ And in one go, you can implement five or eight models.
+
+82
+00:11:11,000 --> 00:11:16,000
+ Right. But how you are actually selecting those parameters, what is the rationale behind.
+
+83
+00:11:16,000 --> 00:11:24,000
+ Once you have done all the analysis, all the implementation, then you have to compare them properly, discuss them properly.
+
+84
+00:11:24,000 --> 00:11:43,000
+ Right. That is very important. So any question from this example or discussion that we had so far?
+
+85
+00:11:43,000 --> 00:12:02,000
+ Yes. Sudeep, Sullivan, Renato, Nomar, Fadi.
+
+86
+00:12:02,000 --> 00:12:06,000
+ OK, so then.
+
+87
+00:12:06,000 --> 00:12:15,000
+ We can discuss about our assessment two before discussing assessment two.
+
+88
+00:12:15,000 --> 00:12:22,000
+ Do you have any questions so far? Because definitely you would have already started this one.
+
+89
+00:12:22,000 --> 00:12:38,000
+ So do you have any question in your mind, any confusion you have so far? So we first can clear that one up before going into the detail.
+
+90
+00:12:38,000 --> 00:12:52,000
+ Yes. Any question from assessment two? Sorry, professor. Yes. Could you show a link where the example is located, please?
+
+91
+00:12:52,000 --> 00:12:58,000
+ No, that is that is not public anywhere. That is from one of the students.
+
+92
+00:12:58,000 --> 00:13:03,000
+ I just have shown you and you just have to get the idea.
+
+93
+00:13:03,000 --> 00:13:06,000
+ You don't need to copy that one. You can do much better than that one.
+
+94
+00:13:06,000 --> 00:13:10,000
+ And some of you might have done better to that one.
+
+95
+00:13:10,000 --> 00:13:15,000
+ I'm just explaining you that wherever you search, anything related to realisation,
+
+96
+00:13:15,000 --> 00:13:24,000
+ which you think would give you some better information out of your data, you can incorporate that one into your code, into your assessment.
+
+97
+00:13:24,000 --> 00:13:30,000
+ But you have to present it properly, not just copy pasting the code, run the code, and then that's it and submit it.
+
+98
+00:13:30,000 --> 00:13:37,000
+ You have to explain it, document properly, plus explain it what you have got out of that data.
+
+99
+00:13:37,000 --> 00:13:45,000
+ That is also very important. Because just applying, OK, you applied a C entry, then you applied NABASE, Port Vector Machine.
+
+100
+00:13:45,000 --> 00:13:49,000
+ So firstly, you need to see what parameters you have given, what hyper parameters you are doing.
+
+101
+00:13:49,000 --> 00:13:54,000
+ And then afterwards, once you have done the analysis, you have to give a little bit of rationale there.
+
+102
+00:13:54,000 --> 00:14:02,000
+ Why do you think like the C value of SVM did well or maybe the NABASE, for example,
+
+103
+00:14:02,000 --> 00:14:09,000
+ with this, for example, kernel value of the SVM, it performed really well or Bernoulli NABASE did not well, right?
+
+104
+00:14:09,000 --> 00:14:14,000
+ Gaussian NABASE performed really well. What do you think, why this has been happened?
+
+105
+00:14:14,000 --> 00:14:18,000
+ You may say this is due to the data set because there is no value.
+
+106
+00:14:18,000 --> 00:14:25,000
+ So in that case, missing values in that case, this one is really performing better and so on.
+
+107
+00:14:25,000 --> 00:14:35,000
+ Right. So that is important. That is just for as a guide, not you have to follow exactly to that one.
+
+108
+00:14:35,000 --> 00:14:37,000
+ OK, Professor, thank you.
+
+109
+00:14:37,000 --> 00:14:52,000
+ Yeah. So this is our assessment two, which we are going to discuss. And then if you further have any question, once I finish my discussion, then we can discuss those one.
+
+110
+00:14:52,000 --> 00:15:00,000
+ So firstly, as I mentioned, the start of our course, that all of our three assessments are individual.
+
+111
+00:15:00,000 --> 00:15:08,000
+ There are no group assessment, assessment one and assessment two both are using the same data set.
+
+112
+00:15:08,000 --> 00:15:17,000
+ The problem is with the assessment one, we did regression, whereas with the assessment two, we are doing the classification.
+
+113
+00:15:17,000 --> 00:15:27,000
+ You don't need to worry about the word count, though this assessment carries high weightage of 40 percent.
+
+114
+00:15:27,000 --> 00:15:34,000
+ And that is due by the end of week eight. Right. And we are in week seven now.
+
+115
+00:15:34,000 --> 00:15:44,000
+ So this week, week after. And if you have any unavoidable circumstances, you may ask for extension.
+
+116
+00:15:44,000 --> 00:15:56,000
+ And I'm happy to approve it before the deadline. OK, so in assessment one, we consider this wine quality data set as a regression task.
+
+117
+00:15:56,000 --> 00:16:10,000
+ So for this one, again, we are doing it into a classification. Plus, in addition to that one, it has seven to 10 minute video presentation as well.
+
+118
+00:16:10,000 --> 00:16:21,000
+ Another important thing is, as we discussed here, you have a template here which you can follow or you can just keep working with your assessment one,
+
+119
+00:16:21,000 --> 00:16:29,000
+ whatever you have, just improve or just change it wherever necessary, according to classification tasks,
+
+120
+00:16:29,000 --> 00:16:35,000
+ which I don't believe for realization for any of the stuff you really need to make any change.
+
+121
+00:16:35,000 --> 00:16:46,000
+ Of course, for the first one, for the business requirement, you need to make changes according to the classification wherever you referred regression.
+
+122
+00:16:46,000 --> 00:16:55,000
+ So it means there is nothing much work for analysis part that you have to do, rather you have to improve it.
+
+123
+00:16:55,000 --> 00:17:03,000
+ You have to incorporate some more realization stuff which you need to do. Again, the data set is available.
+
+124
+00:17:03,000 --> 00:17:14,000
+ You can use the red wine or white wine. Feri, can you please mute? So white wine, red wine data set, or you may combine it to have more number of samples.
+
+125
+00:17:14,000 --> 00:17:22,000
+ Again, there are 11 different features, including your acidity and sugar, alcohol concentration and so on.
+
+126
+00:17:22,000 --> 00:17:28,000
+ And their range is between 1 to 10. Right.
+
+127
+00:17:28,000 --> 00:17:46,000
+ But the important thing that you have to do at your data preparation stage or before modeling that you have to convert that quality attribute that is basically a continuous attribute,
+
+128
+00:17:46,000 --> 00:17:51,000
+ which is giving you the value from 1 to 10 into a discrete attribute.
+
+129
+00:17:51,000 --> 00:17:58,000
+ So it will just have two values, either 1 or it would have the value 0.
+
+130
+00:17:58,000 --> 00:18:06,000
+ So what you need to do, if it's the quality of your wine is below 6. Right.
+
+131
+00:18:06,000 --> 00:18:22,000
+ Means 0 up till 6, then you would do it like 1. Right. Or high if it is below, it's not below, it is should be above, above the 6.
+
+132
+00:18:22,000 --> 00:18:37,000
+ So less than. 6 is your 1 means your bad quality wine.
+
+133
+00:18:37,000 --> 00:18:41,000
+ Right. And for good.
+
+134
+00:18:41,000 --> 00:18:52,000
+ It is 0. Which is greater than equal to 6. Right.
+
+135
+00:18:52,000 --> 00:19:03,000
+ That is good quality wine. That is the important thing that you need to do. That understanding would be same.
+
+136
+00:19:03,000 --> 00:19:15,000
+ So, again, what you need to do in your introduction part, you need to explain what you are going to do, concise narrative, the resources that you have.
+
+137
+00:19:15,000 --> 00:19:21,000
+ You can take benefit of the comments that I have given to you, the example which I have shown you.
+
+138
+00:19:21,000 --> 00:19:26,000
+ So you get an idea how to mention everything, assess your situation and so on.
+
+139
+00:19:26,000 --> 00:19:37,000
+ Then for the data understanding, you can incorporate more realisation, read your data set properly, explain your variables, see if they have any relation.
+
+140
+00:19:37,000 --> 00:19:44,000
+ Is there any missing area? Is there any outliers? Do the data exploration properly and so on.
+
+141
+00:19:44,000 --> 00:19:51,000
+ Simply search, for example, data realisation.
+
+142
+00:19:51,000 --> 00:19:59,000
+ For example. You may find a lot of different example.
+
+143
+00:19:59,000 --> 00:20:05,000
+ This is just such you can improve your improve your query.
+
+144
+00:20:05,000 --> 00:20:12,000
+ Right. So, for example, this one. So you see the plot and they have this kind of analysis, for example.
+
+145
+00:20:12,000 --> 00:20:23,000
+ Oh, just copy paste this code, for example, and explain. It's not you just copy paste, you have to explain it like they have explained it here, what they have got out of that one.
+
+146
+00:20:23,000 --> 00:20:28,000
+ So just. You see how much diagrams they have.
+
+147
+00:20:28,000 --> 00:20:36,000
+ So you can just use the diagram, use this code in your.
+
+148
+00:20:36,000 --> 00:20:43,000
+ Assessment two and the following assessment three. Right. You can incorporate this one.
+
+149
+00:20:43,000 --> 00:20:49,000
+ Then another example, I simply search like realisation code in Python and so on.
+
+150
+00:20:49,000 --> 00:20:56,000
+ For example, when you have to present it, scatter plot and so on line chart.
+
+151
+00:20:56,000 --> 00:21:03,000
+ By chart and so on. You have to see what actually fits based on your data set.
+
+152
+00:21:03,000 --> 00:21:07,000
+ Maybe not all the realisation will be applicable to your data set.
+
+153
+00:21:07,000 --> 00:21:14,000
+ Right. But most of them would be. So you you may have a look and see if you can take a benefit of this one.
+
+154
+00:21:14,000 --> 00:21:28,000
+ Right. For example. This one, you can see scatter plot, for example, line chart, bar chart, histograms, seaborn, for example.
+
+155
+00:21:28,000 --> 00:21:39,000
+ And then afterwards you will have a look to different line plot and so on bar plot bar charts.
+
+156
+00:21:39,000 --> 00:21:46,000
+ Right. So easily you can have an idea. You can explore it further, for example.
+
+157
+00:21:46,000 --> 00:21:53,000
+ Right. What are the people has done already? And then you can take the benefit of those ones.
+
+158
+00:21:53,000 --> 00:21:59,000
+ Right. So that is the thing you have to do.
+
+159
+00:21:59,000 --> 00:22:05,000
+ You have to make the pair plot analysis and other data realisation here.
+
+160
+00:22:05,000 --> 00:22:09,000
+ And then with the data preparation, you have to clean up your data properly.
+
+161
+00:22:09,000 --> 00:22:14,000
+ Is there any outliers you have to remove or you have to handle them properly?
+
+162
+00:22:14,000 --> 00:22:27,000
+ And afterwards, you have to convert your data at this stage, the last attribute, the quality attribute, which was continuous in your data.
+
+163
+00:22:27,000 --> 00:22:41,000
+ So maybe you can have another new quality attribute or you can name any of the attribute or you may convert the existing attribute and feature into a discrete one.
+
+164
+00:22:41,000 --> 00:22:47,000
+ Right. So we already discussed what would be your criteria if it is less than six.
+
+165
+00:22:47,000 --> 00:22:52,000
+ Then it is a bad quality. If it is greater than equal to six, then it is a good quality one.
+
+166
+00:22:52,000 --> 00:23:03,000
+ Right. This is very important that I will focus more here for your assessment to write realisation and everything.
+
+167
+00:23:03,000 --> 00:23:10,000
+ We have given already the detailed comment for this one would be my priority for your second and third assessment.
+
+168
+00:23:10,000 --> 00:23:17,000
+ So here maybe you can apply as many models as you can.
+
+169
+00:23:17,000 --> 00:23:23,000
+ I'm going to give you the code as well, which we already have discussed, but we will explore those one.
+
+170
+00:23:23,000 --> 00:23:31,000
+ But here you have to mention all the model assumption properly, run your model, rerun your model.
+
+171
+00:23:31,000 --> 00:23:40,000
+ We will also see what is grid search CV, which we already discussed in our last class that you have to tune your parameters.
+
+172
+00:23:40,000 --> 00:23:46,000
+ Mean you have to change the value of those parameters and then see by changing the parameters.
+
+173
+00:23:46,000 --> 00:23:51,000
+ Is there any effect on the overall performance of your model or not?
+
+174
+00:23:51,000 --> 00:24:05,000
+ Right. That is called hyper parameter tuning. So you can't manually see, OK, now the value of C is one, then the value of C is one point two, one point five, one point eight, for example.
+
+175
+00:24:05,000 --> 00:24:16,000
+ Right. You have to see the range. If it is range is zero to one, then, of course, it would be zero point four, zero point five, zero point six, zero point eight and so on.
+
+176
+00:24:16,000 --> 00:24:21,000
+ Then you have to see you have not have to manually try all of those one.
+
+177
+00:24:21,000 --> 00:24:29,000
+ Right. So by using this grid search CV that you can actually do all these things in in one go.
+
+178
+00:24:29,000 --> 00:24:34,000
+ Right. I'm going to share you the explanation of that one and also the code for that one as well.
+
+179
+00:24:34,000 --> 00:24:41,000
+ Right. And then afterwards, your evaluate stage will come where you have to mention whether you met your targets,
+
+180
+00:24:41,000 --> 00:24:47,000
+ whatever the business criteria you have mentioned in your first stage or not.
+
+181
+00:24:47,000 --> 00:24:51,000
+ Then the deployment stage, as I mentioned, I had given you a few examples.
+
+182
+00:24:51,000 --> 00:24:54,000
+ You not just have to say what went wrong, what was good.
+
+183
+00:24:54,000 --> 00:25:03,000
+ You have to provide a proper rationale here where you think, OK, if this thing could be incorporated, your results could be improved.
+
+184
+00:25:03,000 --> 00:25:14,000
+ Right. And so on. Then this is very important that you have to record a presentation for seven to 10 minutes.
+
+185
+00:25:14,000 --> 00:25:18,000
+ Once complete, Jupyter notebook for screen recording.
+
+186
+00:25:18,000 --> 00:25:25,000
+ This is very important. You don't need to prepare extra PowerPoint slides.
+
+187
+00:25:25,000 --> 00:25:29,000
+ You don't need to prepare extra PowerPoint slides.
+
+188
+00:25:29,000 --> 00:25:37,000
+ So what I want is in all of your assessments, which I mentioned at the start of this course as well,
+
+189
+00:25:37,000 --> 00:25:43,000
+ that I want you to apply machine learning, learn machine learning.
+
+190
+00:25:43,000 --> 00:25:47,000
+ Right. Not to do anything extra.
+
+191
+00:25:47,000 --> 00:25:52,000
+ Right. Even though for this one, I did not ask you to prepare any Word document.
+
+192
+00:25:52,000 --> 00:26:01,000
+ I say whatever your Jupyter notebook is, explain everything into that Jupyter notebook and just convert that one into your PDF.
+
+193
+00:26:01,000 --> 00:26:05,000
+ Right. I don't need any extra explanation in Word document and so on.
+
+194
+00:26:05,000 --> 00:26:13,000
+ I don't want to waste your time there. Rather, whatever the time you have, you have to spend that one to apply different modeling techniques and so on.
+
+195
+00:26:13,000 --> 00:26:19,000
+ Right. And for this one, you don't need to prepare any PowerPoint slides.
+
+196
+00:26:19,000 --> 00:26:24,000
+ You are required to make a screen recording of your Jupyter notebook.
+
+197
+00:26:24,000 --> 00:26:30,000
+ You just have to Jupyter notebook and your webcam video of yourself.
+
+198
+00:26:30,000 --> 00:26:34,000
+ Right. Where we can verify your identification as well.
+
+199
+00:26:34,000 --> 00:26:44,000
+ You can show your card, student ID card that we can verify that this is you actually recording this presentation.
+
+200
+00:26:44,000 --> 00:26:50,000
+ And then afterwards, you should specify your name and any other student detail at the beginning.
+
+201
+00:26:50,000 --> 00:26:53,000
+ Right. And then afterwards, you have to share your screen.
+
+202
+00:26:53,000 --> 00:27:00,000
+ Walk through your notebook as you discuss the key concepts of your DM steps.
+
+203
+00:27:00,000 --> 00:27:04,000
+ Right. The lessons you have learned and any other experiences.
+
+204
+00:27:04,000 --> 00:27:09,000
+ You don't need to go into the detail. You just say, OK, this was the data set.
+
+205
+00:27:09,000 --> 00:27:17,000
+ And then afterwards, not like this. Right. But not in that much detail where you will explain each line.
+
+206
+00:27:17,000 --> 00:27:21,000
+ You can say, OK, here you have actually applied line chart.
+
+207
+00:27:21,000 --> 00:27:26,000
+ And then from out of this line chart, what you have got, for example, this information you have got.
+
+208
+00:27:26,000 --> 00:27:31,000
+ And then you applied box plot analysis or player pair plot analysis.
+
+209
+00:27:31,000 --> 00:27:36,000
+ And then you have to see the correlation of different attributes, different features with each other.
+
+210
+00:27:36,000 --> 00:27:43,000
+ And out of that one, what you have got. And then you can see I prepare my data set according to the classification,
+
+211
+00:27:43,000 --> 00:27:55,000
+ where on this line I converted actually the less than six values to be as bad quality wine and greater than equal to six values as the good quality wine.
+
+212
+00:27:55,000 --> 00:28:02,000
+ And afterwards, for example, you can say after doing this one, there is highly data is highly imbalanced, for example.
+
+213
+00:28:02,000 --> 00:28:09,000
+ And you might have done some data imbalancing or data balancing techniques, which we have studied last time.
+
+214
+00:28:09,000 --> 00:28:15,000
+ The SMOTE and so on, which may be apply if you are seeking the distinction, high distinction.
+
+215
+00:28:15,000 --> 00:28:21,000
+ Then you have to be within that limit, not less than seven, not greater than 10 minutes.
+
+216
+00:28:21,000 --> 00:28:25,000
+ So explain your stuff properly. Right.
+
+217
+00:28:25,000 --> 00:28:33,000
+ You can use like any of the tools to record it, either zoom teams or whatever you feel convenient.
+
+218
+00:28:33,000 --> 00:28:38,000
+ You are comfortable fit. So you can just record it here.
+
+219
+00:28:38,000 --> 00:28:44,000
+ Then last important thing is which most of the students did not follow.
+
+220
+00:28:44,000 --> 00:28:52,000
+ You don't you don't need to zip your files. You have to upload your file state away.
+
+221
+00:28:52,000 --> 00:29:02,000
+ So one would be your IPYNB file. Second would be you just have to convert that IPYNB into a PDF.
+
+222
+00:29:02,000 --> 00:29:15,000
+ And the third would be .txt file, which I explained you already that if you are working with Jupyter notebook, you can download it as a .py as well.
+
+223
+00:29:15,000 --> 00:29:29,000
+ So if you will download at .py, open your notebook, sorry, text, text pad or your notepad and just copy paste that code into your .txt, that .py code.
+
+224
+00:29:29,000 --> 00:29:37,000
+ Right. Which you download it here. And that would be your third file. And fourth would be your video file, video presentation.
+
+225
+00:29:37,000 --> 00:29:44,000
+ Make sure it is uploaded here. If you can't do it, make sure you have provided the proper link here with the accessibility.
+
+226
+00:29:44,000 --> 00:29:53,000
+ So with the proper permissions, if you can upload it on the as the unless unlist video on YouTube as well.
+
+227
+00:29:53,000 --> 00:29:58,000
+ So whosoever will have that URL will be able to watch your video.
+
+228
+00:29:58,000 --> 00:30:06,000
+ So you feel it better wherever you are comfortable with. You can upload on your Google Drive or OneDrive wherever.
+
+229
+00:30:06,000 --> 00:30:12,000
+ But it should have the proper permission to anyone who will watch. Maybe I will mark your assessment.
+
+230
+00:30:12,000 --> 00:30:20,000
+ Maybe somebody else will mark your assessment. So they're not going to ask you that they give a success and so on.
+
+231
+00:30:20,000 --> 00:30:33,000
+ So that are the fourth four files which you need to submit it. No zip, no rare, no compression, just straight away four files.
+
+232
+00:30:33,000 --> 00:30:43,000
+ Right. So I explain one one more time here. Again, this is a classification assessment.
+
+233
+00:30:43,000 --> 00:30:51,000
+ No worries about the word count. 40 percent weightage due at the end of week eight next week.
+
+234
+00:30:51,000 --> 00:30:56,000
+ Any problem, any issue, please apply for an extension. Do send me a message that come on.
+
+235
+00:30:56,000 --> 00:31:03,000
+ I have applied. I'm happy to approve. I'm happy to support you. But please give your 100 percent right.
+
+236
+00:31:03,000 --> 00:31:14,000
+ Don't submit any half cook work. Then with this one, this is important that the criteria based on which you have to divide your data set.
+
+237
+00:31:14,000 --> 00:31:23,000
+ Business and sending would be a little bit more detail. As I've shown you the example, the students who joined late at the start of our lecture.
+
+238
+00:31:23,000 --> 00:31:27,000
+ I have gone through one of the example of one of the students.
+
+239
+00:31:27,000 --> 00:31:35,000
+ So you can have an idea after watching that one, what was the expectation or how you can improve your assessment one.
+
+240
+00:31:35,000 --> 00:31:40,000
+ So business understanding, nothing much would be changed. Data set, URL and so on would be changed.
+
+241
+00:31:40,000 --> 00:31:47,000
+ But if you haven't mentioned enough details, maybe you need to add something for the data visualization and everything.
+
+242
+00:31:47,000 --> 00:31:55,000
+ I have shown you how you can just search and incorporate those one at data preparation where you actually have to do that splitting of your data.
+
+243
+00:31:55,000 --> 00:32:02,000
+ Plus the that you are converting your data into a discrete nature. The final attribute here.
+
+244
+00:32:02,000 --> 00:32:10,000
+ It would be your modeling where you can apply seven, eight different kind of models, which I will also go through shortly.
+
+245
+00:32:10,000 --> 00:32:16,000
+ And then you can evaluate it, record the presentation and everything.
+
+246
+00:32:16,000 --> 00:32:23,000
+ Now, what extra you can mention in order to achieve good result into that one?
+
+247
+00:32:23,000 --> 00:32:31,000
+ The one thing is you can incorporate as many models as you can, but not just apply, explain them properly.
+
+248
+00:32:31,000 --> 00:32:43,000
+ Second thing, if you have to achieve really good result for your second and third assessment, you can have a look to if there is any highly imbalanced data.
+
+249
+00:32:43,000 --> 00:32:53,000
+ So maybe you can apply data balancing technique. The third thing which you can do is to apply the grid search CV.
+
+250
+00:32:53,000 --> 00:32:58,000
+ Right. And which I will explain you shortly. Very simple, very easy.
+
+251
+00:32:58,000 --> 00:33:04,000
+ And the fourth thing is your explainable A.I., which we will discuss in our today's lecture.
+
+252
+00:33:04,000 --> 00:33:09,000
+ I will give you the code. You just have to copy paste that code and explain it.
+
+253
+00:33:09,000 --> 00:33:17,000
+ Very easy, very handy stuff. Right. One is the basic the minimum thing which you have to do in this assessment.
+
+254
+00:33:17,000 --> 00:33:22,000
+ The videos that you have to record as part of your assessment, too.
+
+255
+00:33:22,000 --> 00:33:28,000
+ And the third thing is you can apply as many model as you can.
+
+256
+00:33:28,000 --> 00:33:37,000
+ The fourth thing is you are supposed to apply grid search CV for hyper parameter tuning as many model as you can.
+
+257
+00:33:37,000 --> 00:33:40,000
+ I have already shown you and I will also show you shortly.
+
+258
+00:33:40,000 --> 00:33:48,000
+ Right. You can apply smart, which we have discussed to balance your data, which we have discussed in our last class.
+
+259
+00:33:48,000 --> 00:33:52,000
+ You can watch that one. The other one is grid search CV.
+
+260
+00:33:52,000 --> 00:33:57,000
+ I'm going to show you the code which you can just incorporate and apply and see.
+
+261
+00:33:57,000 --> 00:34:04,000
+ Right. And last one is explainable A.I., which we will study as part of our today's lecture.
+
+262
+00:34:04,000 --> 00:34:12,000
+ You just have to copy paste that code and see what results you can get out of that one in your assessment.
+
+263
+00:34:12,000 --> 00:34:19,000
+ So if you will incorporate these things in a good way, explain the things properly.
+
+264
+00:34:19,000 --> 00:34:29,000
+ So I'm 100 percent sure that you're going to get very good result as part of your assessment two and assessment three.
+
+265
+00:34:29,000 --> 00:34:36,000
+ So now I cannot tell you what is grid search CV, which we have already discussed.
+
+266
+00:34:36,000 --> 00:34:43,000
+ The first thing is why we need to have the grid search CV. That is very important.
+
+267
+00:34:43,000 --> 00:34:59,000
+ We have discussed in our previous lectures that you may have any of the problem in your data set, maybe where your data set is not properly distributed.
+
+268
+00:34:59,000 --> 00:35:13,000
+ And maybe if you will have from individual one to individual 80, you're going to use this one to train your model, for example.
+
+269
+00:35:13,000 --> 00:35:22,000
+ And 81 to 100, you're going to use to test your model. Right.
+
+270
+00:35:22,000 --> 00:35:28,000
+ So maybe if you will do this one. So what problems we can get out of this one.
+
+271
+00:35:28,000 --> 00:35:35,000
+ Right. The first problem could be and we have discussed this thing in our previous classes as well.
+
+272
+00:35:35,000 --> 00:35:50,000
+ Maybe last or maybe last to last class where we discussed maybe some people who are based in Australia and they have the COVID result and symptoms and everything.
+
+273
+00:35:50,000 --> 00:36:02,000
+ For example, those are here. Right. And maybe these 20 people, these 20 individuals, they are coming from a different country.
+
+274
+00:36:02,000 --> 00:36:09,000
+ Maybe they have a different kind of strain, the COVID strain, different kind of wave there.
+
+275
+00:36:09,000 --> 00:36:18,000
+ Maybe in their genes and in their symptoms and everything is totally different to those 80 people.
+
+276
+00:36:18,000 --> 00:36:26,000
+ Right. So if you will build up your model based on these 80 samples.
+
+277
+00:36:26,000 --> 00:36:30,000
+ Right. And these 20 are different. Right.
+
+278
+00:36:30,000 --> 00:36:44,000
+ And if you will use these 20 to test your model and we can understand that your model performance will not be good because these kind of 20 individuals,
+
+279
+00:36:44,000 --> 00:36:52,000
+ their symptoms, their data, how they actually structured, your model hasn't seen those one, hasn't learned about those things.
+
+280
+00:36:52,000 --> 00:37:00,000
+ Similarly, for example, if there are 10 chapters and then you prepare the first eight chapters for your exam
+
+281
+00:37:00,000 --> 00:37:07,000
+ and the teacher give you the question from Chapter 9 and Chapter 10, which you haven't seen, which you haven't practiced.
+
+282
+00:37:07,000 --> 00:37:12,000
+ Right. And then, of course, you're not going to perform really well into that exam.
+
+283
+00:37:12,000 --> 00:37:18,000
+ So that could be the issue in your data. So what is the solution?
+
+284
+00:37:18,000 --> 00:37:23,000
+ The solution is that you make you do the cross folding.
+
+285
+00:37:23,000 --> 00:37:32,000
+ We call it as N fold cross folding, five fold cross validation, ten fold cross validation.
+
+286
+00:37:32,000 --> 00:37:36,000
+ Normally we use the five fold cross validation.
+
+287
+00:37:36,000 --> 00:37:39,000
+ Right. What is the purpose of that one?
+
+288
+00:37:39,000 --> 00:37:51,000
+ The purpose is, for example, for the first run of your model, you're going to use one to 80 to train your model.
+
+289
+00:37:51,000 --> 00:37:57,000
+ And then this 81 to 100 to test your model.
+
+290
+00:37:57,000 --> 00:38:04,000
+ Right. And you're going to get some result, maybe very bad accuracy, say 60 percent, for example.
+
+291
+00:38:04,000 --> 00:38:15,000
+ Then in next go, what you are going to do is you're going to use from one to 20.
+
+292
+00:38:15,000 --> 00:38:19,000
+ And 21 to 100.
+
+293
+00:38:19,000 --> 00:38:28,000
+ So you're going to use this chunk of your data set to train your model.
+
+294
+00:38:28,000 --> 00:38:35,000
+ Right. And then first one to 20, you're going to use to test your model.
+
+295
+00:38:35,000 --> 00:38:39,000
+ So you're going to use them as to test it.
+
+296
+00:38:39,000 --> 00:39:00,000
+ Right. So in the third go, what you will do is you're going to use one to 10 and plus 31 to 40, for example.
+
+297
+00:39:00,000 --> 00:39:10,000
+ Or maybe if you just make a 20, 24, so you would say, for example, one, one to one to 20.
+
+298
+00:39:10,000 --> 00:39:19,000
+ And plus 20 to 40, 41 to 100.
+
+299
+00:39:19,000 --> 00:39:28,000
+ So these 80 chunk, one to 20, this one and 41 to 100, 60 this one.
+
+300
+00:39:28,000 --> 00:39:39,000
+ So in total, this 80 percent you're going to use for training and the between one, 21 to 41, you're going to use for testing.
+
+301
+00:39:39,000 --> 00:39:54,000
+ I hope you are getting my point. I can also show you one good diagram here, which we call it as a fold cross validation.
+
+302
+00:39:54,000 --> 00:40:03,000
+ Right here, this would be the diagram here, so I think this would be good for you to have its understanding here, this one.
+
+303
+00:40:03,000 --> 00:40:22,000
+ So you have made a different fold of your data set, say on the first one, you can see that you're going to have.
+
+304
+00:40:22,000 --> 00:40:30,000
+ Right. So you have made five different folds of your data set and then first one,
+
+305
+00:40:30,000 --> 00:40:40,000
+ you're going to use the first fold one to 20 to test your data because this is for the test and the rest of them to train your model.
+
+306
+00:40:40,000 --> 00:40:51,000
+ Then in second go, this 21 to 40, you're going to use for testing the first 20 and the rest of the 60 you're going to use to train your model.
+
+307
+00:40:51,000 --> 00:40:54,000
+ Similarly, one to 40.
+
+308
+00:40:54,000 --> 00:41:11,000
+ Right. You're going to use for training and then 61 to 100, those 40 and this 40, 80 you're going to use for training and the between 141 to 61 you're going to use for testing and so on.
+
+309
+00:41:11,000 --> 00:41:18,000
+ Similarly, for this one and similarly for this one. And then what you do is you will take the average out of that one.
+
+310
+00:41:18,000 --> 00:41:21,000
+ So that would be the average accuracy of that one.
+
+311
+00:41:21,000 --> 00:41:25,000
+ So if is there any bias in your data set?
+
+312
+00:41:25,000 --> 00:41:30,000
+ Is there any problem in your data set? So you can easily fix that one up.
+
+313
+00:41:30,000 --> 00:41:38,000
+ Right. So can you please all quickly search about this one?
+
+314
+00:41:38,000 --> 00:41:48,000
+ What is N fold cross validation?
+
+315
+00:41:48,000 --> 00:41:52,000
+ Can you please search about this one?
+
+316
+00:41:52,000 --> 00:42:02,000
+ And read a few lines related to that one so your understanding would be clear. Then we will move forward.
+
+317
+00:42:02,000 --> 00:42:09,000
+ Please take two to three minutes.
+
+318
+00:42:32,000 --> 00:42:34,000
+ Thank you.
+
+319
+00:43:02,000 --> 00:43:04,000
+ Please take two to three minutes.
+
+320
+00:43:32,000 --> 00:43:34,000
+ Please take two to three minutes.
+
+321
+00:44:02,000 --> 00:44:04,000
+ Please take two to three minutes.
+
+322
+00:44:32,000 --> 00:44:46,000
+ OK, any confusion to understand this concept?
+
+323
+00:44:46,000 --> 00:44:56,000
+ It's just very simple that if there would be any bias in your data set, is there any problem of variance in your data set?
+
+324
+00:44:56,000 --> 00:45:02,000
+ So not later on, you would have the problem of overfitting or underfitting.
+
+325
+00:45:02,000 --> 00:45:07,000
+ So you will make different chunks, different fold of your data set.
+
+326
+00:45:07,000 --> 00:45:13,000
+ And then you can use different folds to train and to test your model.
+
+327
+00:45:13,000 --> 00:45:21,000
+ And then later on, you can take an average. That would be the overall accuracy or the performance of your model.
+
+328
+00:45:21,000 --> 00:45:28,000
+ So that is the main aim of this N fold cross validation. OK, I hope this concept is clear.
+
+329
+00:45:28,000 --> 00:45:35,000
+ Now, coming back to this grid search CV, which you can incorporate for your second and third assessment.
+
+330
+00:45:35,000 --> 00:45:37,000
+ Very simple, very easy.
+
+331
+00:45:37,000 --> 00:45:46,000
+ So what is grid search CV? As I mentioned, you can you are supposed to try different parameters.
+
+332
+00:45:46,000 --> 00:45:57,000
+ You have to do the hyper parameter tuning where you can try different value of different parameters within your model.
+
+333
+00:45:57,000 --> 00:46:04,000
+ And then you can see whether changing those one actually improved the overall performance of your model or not.
+
+334
+00:46:04,000 --> 00:46:15,000
+ And this within this grid search CV, you basically have one hyper parameter, which they call it as CV, which is initially it is none.
+
+335
+00:46:15,000 --> 00:46:22,000
+ But you can set is five, which is the five fold cross validation integer value.
+
+336
+00:46:22,000 --> 00:46:26,000
+ Right. So which we discussed this N fold cross validation.
+
+337
+00:46:26,000 --> 00:46:32,000
+ So this is very simple to use this grid search CV. I have just simply search its implementation.
+
+338
+00:46:32,000 --> 00:46:37,000
+ And this is the code I have got. This is just a logistic regression.
+
+339
+00:46:37,000 --> 00:46:44,000
+ One of the classification model which you can use for your second assessment as well.
+
+340
+00:46:44,000 --> 00:46:54,000
+ So this is very simple way how you can actually create the object of any model, how you actually fit on your data and then you check its accuracy.
+
+341
+00:46:54,000 --> 00:47:07,000
+ Right now, with different parameters, this is the way to use the grid search CV, because within the grid search CV, actually, we have the parameter grid.
+
+342
+00:47:07,000 --> 00:47:15,000
+ So this is very important how you actually have to give this list. Right. This is the parameter list.
+
+343
+00:47:15,000 --> 00:47:29,000
+ Right. And that is the main thing. Nothing more than that one. Here you have to mention the estimator, which is your object of your whatever the algorithm you are using, whatever the model you are using.
+
+344
+00:47:29,000 --> 00:47:36,000
+ And the second thing is you have to give the parameter grid. Here you can give all the values which you want to test for that one.
+
+345
+00:47:36,000 --> 00:47:51,000
+ So say for this one, they are using the logistic regressions, though we haven't studied about logistic regression, but you can understand they have a hyper parameter as penalty C solver maximum iteration.
+
+346
+00:47:51,000 --> 00:47:59,000
+ Right. So if I will ask you to try, maybe you will give L1 value, for example, and then give some other value.
+
+347
+00:47:59,000 --> 00:48:05,000
+ Then for the solver, you give this particular value and for the maximum iteration, you will give this value.
+
+348
+00:48:05,000 --> 00:48:13,000
+ Right. But you need to do manually if I will say, oh, why not you try 1000 as your maximum iteration?
+
+349
+00:48:13,000 --> 00:48:24,000
+ Why not you try 2500? For example, why not you try 5000 iterations? So you have to do manually. In this way, you don't need to do anything manually.
+
+350
+00:48:24,000 --> 00:48:38,000
+ You just set whatever the values you want to see for any of the learning algorithm, and then you can give that one as your para parameter grid value.
+
+351
+00:48:38,000 --> 00:48:43,000
+ You can give that list here, which you have created. Right. And just run it.
+
+352
+00:48:43,000 --> 00:48:48,000
+ And then you have to give for CV value is three or five or whatever the fold you want to make.
+
+353
+00:48:48,000 --> 00:48:58,000
+ Normally, we recommend five fold cross validation, but make sure when you do this one, your result would be slow.
+
+354
+00:48:58,000 --> 00:49:01,000
+ This result would be very much slow.
+
+355
+00:49:01,000 --> 00:49:10,000
+ You can expect because the first one, it will pick up the L1, then one value from here, then this one and then try 100.
+
+356
+00:49:10,000 --> 00:49:16,000
+ And if you have given the CV value as three, so it will do this thing thrice for this value.
+
+357
+00:49:16,000 --> 00:49:22,000
+ Then it will pick up L1, this value LB and then 1003 value for this one.
+
+358
+00:49:22,000 --> 00:49:28,000
+ Then L11 value from here, this one and then three values from here, three values from here.
+
+359
+00:49:28,000 --> 00:49:36,000
+ Then it will pick up this value, this value and then second value and then 101 thrice.
+
+360
+00:49:36,000 --> 00:49:49,000
+ Right. The same way you know that we normally do is if you have one comma two in math and then you have three comma four.
+
+361
+00:49:49,000 --> 00:49:58,000
+ So how many subsets you can have? One comma three, one comma four, two.
+
+362
+00:49:58,000 --> 00:50:10,000
+ Two comma three, two comma four, the same way you will have here now, so you will have the L1 and then for one value of this one,
+
+363
+00:50:10,000 --> 00:50:20,000
+ first value of this one, then 100, then the same values and then 1000, same values, then 2500, same values, then 5000.
+
+364
+00:50:20,000 --> 00:50:28,000
+ Now you have the CV value as three. So, of course, each of the values would be made into three different chunks.
+
+365
+00:50:28,000 --> 00:50:37,000
+ Right. And so but you don't need to do anything manually, just have this code and this code and you are all fine.
+
+366
+00:50:37,000 --> 00:50:45,000
+ And then you just now fit this one here. It will do everything. Then at the end, you just have to use these two lines.
+
+367
+00:50:45,000 --> 00:50:54,000
+ What is the best estimator? So this function will actually will give you what is the best parameters that they have got?
+
+368
+00:50:54,000 --> 00:51:07,000
+ What is the best combination? So they said if your CV value is this one, maximum iteration is 1000 and solver is your Newton CG.
+
+369
+00:51:07,000 --> 00:51:20,000
+ Right. This one here, then you get the best result. Right. The maximum value, all other possibilities, whatever they have tried, are lower than that one.
+
+370
+00:51:20,000 --> 00:51:27,000
+ Right. And what is the accuracy? What is the value? That is what here? What is the best score they have mentioned here?
+
+371
+00:51:27,000 --> 00:51:39,000
+ Right. So that is very simple. You just have to import it from SKlearn model selection, import grid search CV, and then you just have to create its object within that object.
+
+372
+00:51:39,000 --> 00:51:49,000
+ Then you have to fit your model. Right. Fit your model with this one, not with the simple one. Other you just create LL and then with this one, you create this one.
+
+373
+00:51:49,000 --> 00:52:03,000
+ Right. I can show you any other related to this one. Similarly, you see, you need to create parameter grid KNN, different neighbors, three, five, seven.
+
+374
+00:52:03,000 --> 00:52:09,000
+ Weight is uniform or distance and leaf size is 1520. Right.
+
+375
+00:52:09,000 --> 00:52:21,000
+ And you just have to grid search CV, KNN pipe, whatever the model they have built up here and the parameter grid has that frame value.
+
+376
+00:52:21,000 --> 00:52:39,000
+ And then the what is the value you are considering to see the performers? And this is the CV value, which is five. You just fit it and then you get the best parameters. These are the best parameter combinations. And you can just try and this is the output that you have got.
+
+377
+00:52:39,000 --> 00:52:52,000
+ Very easy, very, very simple. Right. You just have to do this parameter. Don't need to do any other change into that one. OK, another.
+
+378
+00:52:52,000 --> 00:53:12,000
+ Good search CV here. This is the parameter grid you see classification estimator. This is simple for random forest. Right. And this is the different hyper parameter value of this one, Gini index or entropy or whatever the depth they have to consider.
+
+379
+00:53:12,000 --> 00:53:25,000
+ How many estimator? Because, you know, within the random forest is basically the same as of your decision tree, but it is the combination or ensemble of multiple decision trees.
+
+380
+00:53:25,000 --> 00:53:35,000
+ So with this one, as you can see here, you would have the different values, how many trees you want to have.
+
+381
+00:53:35,000 --> 00:53:42,000
+ And then simply created subject grid search CV estimator is this pipeline or the object.
+
+382
+00:53:42,000 --> 00:53:49,000
+ Right. The model here is the parameter grid. CV is you don't need to do straightforward.
+
+383
+00:53:49,000 --> 00:53:54,000
+ I'm not going into detail. That is not part of our course. You can simply say CV is equal to five.
+
+384
+00:53:54,000 --> 00:54:02,000
+ And whatever the accuracy or whatever the metric you want to compare up here, just fit it and then get the best parameters and its accuracy.
+
+385
+00:54:02,000 --> 00:54:08,000
+ That's it. It is simple.
+
+386
+00:54:08,000 --> 00:54:15,000
+ I can try if I can find anything with the grid.
+
+387
+00:54:15,000 --> 00:54:22,000
+ So CV with SVM implementation.
+
+388
+00:54:22,000 --> 00:54:26,000
+ So because we did this one in our last class.
+
+389
+00:54:26,000 --> 00:54:37,000
+ So we understand that how actually this SVM you just have to SVC sport vector classifier and you just get it.
+
+390
+00:54:37,000 --> 00:54:42,000
+ So that is the normal attribute. When you create it subject to you have got this one.
+
+391
+00:54:42,000 --> 00:54:51,000
+ Now you can have different values of C. C value could be zero point one because C value 110, 100, 1000.
+
+392
+00:54:51,000 --> 00:54:57,000
+ Gamma values could be like this one. Kernel could be RBF, sigmoid, poly, linear.
+
+393
+00:54:57,000 --> 00:55:07,000
+ For example, you can have multiple here. So if you will try RBF kernel with this value, with this value, then our linear kernel with these values.
+
+394
+00:55:07,000 --> 00:55:14,000
+ So you have to do it manually where you don't need to do just you need to write this single line,
+
+395
+00:55:14,000 --> 00:55:26,000
+ put other parameters as well like RBF kernel, linear, poly, for example, and then with the grids or CV, give the whatever the object you have created here model.
+
+396
+00:55:26,000 --> 00:55:34,000
+ Right. As we see, simply you can write parameter grid, whatever the list you have created, you created here a dictionary.
+
+397
+00:55:34,000 --> 00:55:42,000
+ And then you just give the CV value is equal to five and just switch it here and this will keep working.
+
+398
+00:55:42,000 --> 00:55:47,000
+ Right. And then at the end, you can get the best parameters. Right.
+
+399
+00:55:47,000 --> 00:55:53,000
+ So it gave you that this is the best combination. C value one, gamma is this one, kernel is RBF.
+
+400
+00:55:53,000 --> 00:55:59,000
+ Or maybe it can give you best value with linear kernel or with poly kernel or sigmoid, for example.
+
+401
+00:55:59,000 --> 00:56:06,000
+ So it will have to try. It will go and go. And then based on that one, you see the overall accuracy,
+
+402
+00:56:06,000 --> 00:56:12,000
+ which was 92 percent here because you were just trying with the default values of the SVC.
+
+403
+00:56:12,000 --> 00:56:18,000
+ But why not to try with instead of value one, why not to try with 100?
+
+404
+00:56:18,000 --> 00:56:22,000
+ Why if in the default value, maybe the gamma value is one.
+
+405
+00:56:22,000 --> 00:56:27,000
+ But if you change the gamma value to zero point zero zero one, maybe the results are improved.
+
+406
+00:56:27,000 --> 00:56:30,000
+ But if you are doing it manually, it would be so much hectic.
+
+407
+00:56:30,000 --> 00:56:37,000
+ So grid search CV, you just give whatever you want to try here, fit it out and then you will see what is the best combination you have got.
+
+408
+00:56:37,000 --> 00:56:43,000
+ And this is the improved accuracy, which is 94 percent. Very easy for you to understand.
+
+409
+00:56:43,000 --> 00:56:51,000
+ So I'm just sharing this link into the chat. So just have a look to this one.
+
+410
+00:56:51,000 --> 00:57:01,000
+ And then if there is any question, please let me know, then we can finish up this discussion or take any question you may have and then we move forward to the next stuff.
+
+411
+00:57:01,000 --> 00:57:09,000
+ So just have a look to this one, please. If there is any confusion, any problem, please let me know.
+
+412
+00:57:09,000 --> 00:57:25,000
+ So take five minutes to have a go through this one.
+
+413
+00:57:39,000 --> 00:57:44,000
+ You.
+
+414
+00:58:09,000 --> 00:58:14,000
+ You.
+
+415
+00:58:39,000 --> 00:58:44,000
+ You.
+
+416
+00:59:09,000 --> 00:59:14,000
+ You.
+
+417
+00:59:39,000 --> 00:59:44,000
+ You.
+
+418
+01:00:09,000 --> 01:00:14,000
+ You.
+
+419
+01:00:39,000 --> 01:00:44,000
+ You.
+
+420
+01:00:44,000 --> 01:00:49,000
+ You.
+
+421
+01:00:49,000 --> 01:00:54,000
+ You.
+
+422
+01:00:54,000 --> 01:00:59,000
+ You.
+
+423
+01:00:59,000 --> 01:01:04,000
+ You.
+
+424
+01:01:04,000 --> 01:01:09,000
+ You.
+
+425
+01:01:34,000 --> 01:01:39,000
+ You.
+
+426
+01:02:04,000 --> 01:02:09,000
+ You.
+
+427
+01:02:09,000 --> 01:02:14,000
+ You.
+
+428
+01:02:14,000 --> 01:02:19,000
+ You.
+
+429
+01:02:19,000 --> 01:02:24,000
+ You.
+
+430
+01:02:24,000 --> 01:02:29,000
+ You.
+
+431
+01:02:29,000 --> 01:02:35,000
+ You.
+
+432
+01:02:35,000 --> 01:02:41,000
+ You.
+
+433
+01:02:41,000 --> 01:03:08,000
+ OK, dear students, any any questions?
+
+434
+01:03:08,000 --> 01:03:15,000
+ OK, so I hope now you have understood about yes, anything? Yes, nothing.
+
+435
+01:03:15,000 --> 01:03:21,000
+ So I hope now we have understood how to apply this very easy.
+
+436
+01:03:21,000 --> 01:03:30,000
+ You can find out the code and then you can incorporate that code into your assessment for assessment two and for assessment three as well.
+
+437
+01:03:30,000 --> 01:03:41,000
+ Another thing which I mentioned, I will show you how to apply multiple models, which we have already did in our week three, week four.
+
+438
+01:03:41,000 --> 01:03:51,000
+ And you can find this one in your announcement when you see the CN3 and name base and where you can find this one in your last URL here.
+
+439
+01:03:51,000 --> 01:03:55,000
+ When you click up this one, then you can find all the implementation here.
+
+440
+01:03:55,000 --> 01:04:05,000
+ So first thing is you can copy paste this different kind of realisation and adjust it based on your data set.
+
+441
+01:04:05,000 --> 01:04:12,000
+ For example, this facet grade and so on box plot and so on.
+
+442
+01:04:12,000 --> 01:04:26,000
+ Most of them you might already have this strip plot and so on, which may not have this one plot and so on, which you can incorporate this facet grade.
+
+443
+01:04:26,000 --> 01:04:42,000
+ This is what you need to have the spare plot analysis and the important thing which we have to see is so you can copy paste all of these realisation in your code for second and third assessment.
+
+444
+01:04:42,000 --> 01:04:49,000
+ So this is that they have implemented, you can see different model.
+
+445
+01:04:49,000 --> 01:04:56,000
+ You just need to change two lines. You just have to import that.
+
+446
+01:04:56,000 --> 01:05:03,000
+ Of course, you have to do and then you have to create its object and fit it.
+
+447
+01:05:03,000 --> 01:05:10,000
+ That's it. Here you see they have implemented logistic regression and try it.
+
+448
+01:05:10,000 --> 01:05:16,000
+ You can simply search logistic regression because we have we will study this one in our next class.
+
+449
+01:05:16,000 --> 01:05:23,000
+ So you just search this one. You will get the first link of scikit-learn click here.
+
+450
+01:05:23,000 --> 01:05:28,000
+ And these are its hyper parameters where you can just quickly have a look.
+
+451
+01:05:28,000 --> 01:05:35,000
+ OK, penalty could be L1, L2, C value could be floating value. Default is one point zero.
+
+452
+01:05:35,000 --> 01:05:46,000
+ So you may try zero point one, zero point five, one point zero and maybe any other parameter if you find it really good for you.
+
+453
+01:05:46,000 --> 01:05:52,000
+ If you can understand anything and then you can implement like this.
+
+454
+01:05:52,000 --> 01:05:59,000
+ Not here, but like as a grid search CV where you just copy paste that grid search CV code here, like here.
+
+455
+01:05:59,000 --> 01:06:07,000
+ You can just create a parameter grid here. Right. Parameter grid and just give the name of the attributes here.
+
+456
+01:06:07,000 --> 01:06:17,000
+ The parameters and the possible value which you want to try and just fit it here on this one. Simple, simple code.
+
+457
+01:06:17,000 --> 01:06:28,000
+ Right. And then simply this is the K nearest neighbor, another classifier, which is not part of our machine learning course, but very easy, very simple.
+
+458
+01:06:28,000 --> 01:06:35,000
+ So you just need to add these two lines. Rest of the code would be 100 percent same.
+
+459
+01:06:35,000 --> 01:06:43,000
+ Of course, not this one, but you have to do incorporate the grid search CV here. Then it would be 100 percent same.
+
+460
+01:06:43,000 --> 01:06:59,000
+ Then sport vector machine. So, you know, you just have to see SVC, for example, and you have to see what SVC has.
+
+461
+01:06:59,000 --> 01:07:08,000
+ SVC has C kernel value as RBF. So here you can see kernel could be linear, poly, RBF, sigmoid, which we already have studied.
+
+462
+01:07:08,000 --> 01:07:16,000
+ And gamma value could be scale or auto, for example. So you can make an.
+
+463
+01:07:16,000 --> 01:07:27,000
+ As we see here, gamma value, kernel value, RBF, poly, sigmoid and give that one to your model here and would be all fine.
+
+464
+01:07:27,000 --> 01:07:38,000
+ Then, as we see with the different kernels, for example, no, it comes for the C entry, which you can do simple neighbors.
+
+465
+01:07:38,000 --> 01:07:45,000
+ You see the neighbors could be with four different variations. So one could be Gaussian neighbors.
+
+466
+01:07:45,000 --> 01:07:50,000
+ You just have to import Gaussian neighbors. Then this code would be 100 percent same.
+
+467
+01:07:50,000 --> 01:07:58,000
+ Then you can do the multinomial neighbors and this code would be 100 percent same. Then you can use the Bernoulli neighbors.
+
+468
+01:07:58,000 --> 01:08:03,000
+ This code would be 100 percent same. Then it could be your complement neighbors.
+
+469
+01:08:03,000 --> 01:08:10,000
+ Then this code would be 100 percent same. Right. And then you can do different kind of realization as well.
+
+470
+01:08:10,000 --> 01:08:21,000
+ And you can also search, for example, machine learning model.
+
+471
+01:08:21,000 --> 01:08:30,000
+ Analysis example, for example, if we have applied the machine learning model, what you can do with that one.
+
+472
+01:08:30,000 --> 01:08:38,000
+ Right. So we just search these two things randomly, very randomly.
+
+473
+01:08:38,000 --> 01:08:48,000
+ So one way is you can have this classification matrix and then classification report as well.
+
+474
+01:08:48,000 --> 01:08:55,000
+ And then afterwards, if you will scroll it down, cross validation, which could be part of your grid search CV.
+
+475
+01:08:55,000 --> 01:09:02,000
+ So you don't need to do I'm just interested into if they have any example of the code here.
+
+476
+01:09:02,000 --> 01:09:09,000
+ This entry classify libraries, training and accuracy, they're just discussing the basic accuracy.
+
+477
+01:09:09,000 --> 01:09:16,000
+ You can also calculate this one here, for example, giving this one and you can make up a table here.
+
+478
+01:09:16,000 --> 01:09:21,000
+ Right. Box plot analysis will tell you the only the.
+
+479
+01:09:21,000 --> 01:09:26,000
+ Two values, because your one, your one would be two by two.
+
+480
+01:09:26,000 --> 01:09:30,000
+ Here they have three by three, because in your one you have good or bad quality.
+
+481
+01:09:30,000 --> 01:09:38,000
+ So TPTF and all of those four measures, and then based on that one, you can calculate these one.
+
+482
+01:09:38,000 --> 01:09:43,000
+ And then you can make up a table here for F1 score, recall and for each of the model.
+
+483
+01:09:43,000 --> 01:09:48,000
+ And then finally, you can have for all of them model, whatever the models you have implemented.
+
+484
+01:09:48,000 --> 01:09:55,000
+ So that would strengthen your analysis part for your assessment.
+
+485
+01:09:55,000 --> 01:10:07,000
+ Yes, so. That is from my side related to your assessment two and assessment three.
+
+486
+01:10:07,000 --> 01:10:19,000
+ I repeat one time. That you have to follow the guidelines you need to make change into your quality attribute.
+
+487
+01:10:19,000 --> 01:10:25,000
+ You need to make it discrete instead of continuous.
+
+488
+01:10:25,000 --> 01:10:32,000
+ Less than six would be bad quality. Greater than equal to six would be good quality wine.
+
+489
+01:10:32,000 --> 01:10:37,000
+ And then you have to apply different classification models.
+
+490
+01:10:37,000 --> 01:10:42,000
+ The code I have shown you from your the C entry announcement.
+
+491
+01:10:42,000 --> 01:10:50,000
+ You can copy paste from their grid search CV. You have to implement cross validation would be part of grid search CV.
+
+492
+01:10:50,000 --> 01:11:00,000
+ I have shown you the code. You just have to copy paste that code, make it run with one model, and then it will work with all of your models.
+
+493
+01:11:00,000 --> 01:11:17,000
+ And apart from this one, after you convert that quality attribute into good quality or bad quality to see if there is highly imbalanced data,
+
+494
+01:11:17,000 --> 01:11:24,000
+ then you can apply the smart, which is very easy, which I have shown you the code in our previous classes.
+
+495
+01:11:24,000 --> 01:11:35,000
+ You can implement that one. And the last thing which you can implement is the explainable AI, which we will study in our two days lecture.
+
+496
+01:11:35,000 --> 01:11:40,000
+ And I will also give you its code and example very easy.
+
+497
+01:11:40,000 --> 01:11:48,000
+ Just two to three lines of code will give you the explainability of your respective model.
+
+498
+01:11:48,000 --> 01:11:59,000
+ And you just can implement that one in your following assessments. And that's what I want you to do for your following assessment.
+
+499
+01:11:59,000 --> 01:12:07,000
+ Do you have any confusion, any question that comes into your mind?
+
+500
+01:12:07,000 --> 01:12:20,000
+ Anybody who joined late, I have already published your assessment one marks. Please have a look if there is any problem, any confusion, any concern you have.
+
+501
+01:12:20,000 --> 01:12:27,000
+ Feel free to discuss with me if you feel your marks are not up till that mark or need to get more marks.
+
+502
+01:12:27,000 --> 01:12:33,000
+ You are most welcome to discuss with me. I will give you the rationale why your marks are detected and so on.
+
+503
+01:12:33,000 --> 01:12:41,000
+ If there is any problem you are going through and you need an extension for your following assessment, please do apply to discuss with me.
+
+504
+01:12:41,000 --> 01:12:52,000
+ I'm happy to support wherever possible. Important thing is you have to make your video for your second assessment.
+
+505
+01:12:52,000 --> 01:13:04,000
+ Very first, you need to show your identity, show your card, and then afterwards you can start recording your video. You don't need to prepare any extra PowerPoint slides.
+
+506
+01:13:04,000 --> 01:13:10,000
+ You just have to go through that one between seven to eight minutes, seven to 10 minutes.
+
+507
+01:13:10,000 --> 01:13:23,000
+ Make sure you are submitting four files. One would be the IPYNB file. Second would be the same PDF of that IPYNB. The third would be the .txt file.
+
+508
+01:13:23,000 --> 01:13:32,000
+ When you download IPYNB as a .py and just copy paste that code into notepad and then just submit it.
+
+509
+01:13:32,000 --> 01:13:39,000
+ And the fourth would be your MP4 file, which would be the video file of your recordings.
+
+510
+01:13:39,000 --> 01:13:43,000
+ And I will also share it as an announcement as well.
+
+511
+01:13:43,000 --> 01:13:49,000
+ Two important things which you need to take care of for your second assessment so we can quickly summarize that up.
+
+512
+01:13:49,000 --> 01:13:55,000
+ So is there any further question you may have related to assessment to any confusion you have?
+
+513
+01:13:55,000 --> 01:14:04,000
+ Please do ask. Otherwise, I will stop the recording so anybody will later can watch this recording related to assessment too.
+
+514
+01:14:04,000 --> 01:14:09,000
+ So any question you may have?
+
+515
+01:14:09,000 --> 01:14:14,000
+ I just had a question in relation to the K fold or the N fold.
+
+516
+01:14:14,000 --> 01:14:16,000
+ Yes, please.
+
+517
+01:14:16,000 --> 01:14:33,000
+ So I understand how we are supposed to divide up the data between the test and the validation and the training so that we do not lose any underlying connections between the data.
+
+518
+01:14:33,000 --> 01:14:38,000
+ It's just that I'm not because I'm reading about I was reading about it.
+
+519
+01:14:38,000 --> 01:14:42,000
+ I'm not entirely sure how this following step goes.
+
+520
+01:14:42,000 --> 01:14:57,000
+ So basically, one of these steps, it says that for each fold, we treat one subset as the validation set and the remaining nine as the training set.
+
+521
+01:14:57,000 --> 01:14:59,000
+ Remaining nine for training set. Yes.
+
+522
+01:14:59,000 --> 01:15:02,000
+ So we're talking about like a ten fold cross validation here.
+
+523
+01:15:02,000 --> 01:15:03,000
+ OK.
+
+524
+01:15:03,000 --> 01:15:12,000
+ So in a ten fold cross validation, the training and validation process is the following. For each fold, we treat one subset as the validation.
+
+525
+01:15:12,000 --> 01:15:13,000
+ Are you ready from somewhere?
+
+526
+01:15:13,000 --> 01:15:14,000
+ Yes.
+
+527
+01:15:14,000 --> 01:15:17,000
+ OK, you can share the screen so it will be easy for us to.
+
+528
+01:15:17,000 --> 01:15:19,000
+ Oh, OK. Sorry about that.
+
+529
+01:15:19,000 --> 01:15:27,000
+ It's OK. Easy for us to trace.
+
+530
+01:15:27,000 --> 01:15:29,000
+ OK.
+
+531
+01:15:29,000 --> 01:15:30,000
+ Can you see it?
+
+532
+01:15:30,000 --> 01:15:32,000
+ Yes, I can. Yes.
+
+533
+01:15:32,000 --> 01:15:39,000
+ OK, so here is what they're suggesting with the end fold cross validation.
+
+534
+01:15:39,000 --> 01:15:44,000
+ Basically, it's a data set of eleven thousand observations.
+
+535
+01:15:44,000 --> 01:15:47,000
+ They've divided up between test and that training and validation.
+
+536
+01:15:47,000 --> 01:15:54,000
+ So one thousand for testing and the other ten thousand between training and validation.
+
+537
+01:15:54,000 --> 01:16:02,000
+ Now, what they're suggesting is that once we split it up, we create that ten fold cross validation.
+
+538
+01:16:02,000 --> 01:16:07,000
+ I'm just confused in this section, the training and validation process.
+
+539
+01:16:07,000 --> 01:16:10,000
+ Maybe it's just the way it's worded. I'm not understanding it.
+
+540
+01:16:10,000 --> 01:16:19,000
+ So it says for each fold, we treat one subset as the validation set and the remaining nine as the training set.
+
+541
+01:16:19,000 --> 01:16:35,000
+ So is it suggesting that when it's the training and the validation set that the rest of the nine like here, like the rest of the blue ones are training?
+
+542
+01:16:35,000 --> 01:16:41,000
+ OK, so there are two things I want to clarify here.
+
+543
+01:16:41,000 --> 01:16:50,000
+ First is whether you have to do any coding to split this data into various fold.
+
+544
+01:16:50,000 --> 01:16:53,000
+ So answer is no.
+
+545
+01:16:53,000 --> 01:17:04,000
+ Right. You just have to implement the grid search CV and you just have to give the CV value as five or ten or three or whatever the fold you want to convert.
+
+546
+01:17:04,000 --> 01:17:08,000
+ It will do its task by itself.
+
+547
+01:17:08,000 --> 01:17:15,000
+ You don't need to worry. You will do the same split as you did for your first assessment.
+
+548
+01:17:15,000 --> 01:17:19,000
+ You will do the same test train split. You will do the same way.
+
+549
+01:17:19,000 --> 01:17:27,000
+ Twenty five percent for point to five or 20 percent for the training or whatever for the testing and the rest would be for training and so on.
+
+550
+01:17:27,000 --> 01:17:34,000
+ So you don't need to worry about this thing. But the other thing is your understanding, like how actually this work.
+
+551
+01:17:34,000 --> 01:17:41,000
+ So basically here they are saying that you totally have 11 chunks.
+
+552
+01:17:41,000 --> 01:17:52,000
+ Right. Eleven thousand data. Ten thousand data is used for training and one thousand data is used for testing.
+
+553
+01:17:52,000 --> 01:18:03,000
+ Right. Now, when you train your model, you're going to actually have a validation data as well, which will validate your training that you are going accurately.
+
+554
+01:18:03,000 --> 01:18:08,000
+ Because the testing will be applied when you finish your training.
+
+555
+01:18:08,000 --> 01:18:17,000
+ Right. The same way is, for example, you read your chapter one, then at the end of chapter one, you have certain exercises.
+
+556
+01:18:17,000 --> 01:18:25,000
+ Those certain exercises would be your validation that will test the validate and validate your learning outcome of that chapter one.
+
+557
+01:18:25,000 --> 01:18:34,000
+ And then once you do all the chapter 10, then you will have your final exam where that 11th chunk will come.
+
+558
+01:18:34,000 --> 01:18:40,000
+ Now, within these 10 chapters, the exercises you have, they further split that one.
+
+559
+01:18:40,000 --> 01:18:47,000
+ They say nine would be used for training and out of those 10, one would be used for testing.
+
+560
+01:18:47,000 --> 01:18:53,000
+ So testing mean validation, validation which is happening during the training of your model.
+
+561
+01:18:53,000 --> 01:19:00,000
+ I see. Yeah, because training and this validation that set a data set is when you are training.
+
+562
+01:19:00,000 --> 01:19:06,000
+ So during the training, your model is is there would be something which can actually validate or you are learning.
+
+563
+01:19:06,000 --> 01:19:13,000
+ OK. Right. So that is the validation data set. Right. Then you will learn the other chunk and you will say, OK.
+
+564
+01:19:13,000 --> 01:19:21,000
+ So same similarly as a given example that at the end of each chapter, you have certain exercises that you will say, oh, you are learning.
+
+565
+01:19:21,000 --> 01:19:26,000
+ OK, then you will read the chapter two, then do the second chapter exercise and so on.
+
+566
+01:19:26,000 --> 01:19:30,000
+ Once you finish all 10, you will repeat it and then you will say, oh, I'm all ready.
+
+567
+01:19:30,000 --> 01:19:35,000
+ Then I will give you that 1000 to to see that it would be the test data.
+
+568
+01:19:35,000 --> 01:19:41,000
+ But during the training, you can have the validation data that would be used during the training of your model.
+
+569
+01:19:41,000 --> 01:19:45,000
+ So they say total 11000 data.
+
+570
+01:19:45,000 --> 01:19:53,000
+ Right. When you do the 10 fold cross validation, so that 1000 is even out, that would be used for your testing.
+
+571
+01:19:53,000 --> 01:19:56,000
+ Right. That would be when you finish your model training.
+
+572
+01:19:56,000 --> 01:20:04,000
+ But those 10,000, those 10 chunks where they say one would be for validation, nine would be for the training.
+
+573
+01:20:04,000 --> 01:20:09,000
+ And then I would be for the testing, but that would be once everything is done.
+
+574
+01:20:09,000 --> 01:20:16,000
+ So they will say we will run different epochs, different epoch is I will also explain that is even not part of this course,
+
+575
+01:20:16,000 --> 01:20:23,000
+ but I will explain you by the end of this course in our week to have some important concepts that you need to go through.
+
+576
+01:20:23,000 --> 01:20:30,000
+ Epoch is the full pass, the full scan that you will do from start up till the end of your data set.
+
+577
+01:20:30,000 --> 01:20:40,000
+ So say you have 1000 samples. So starting from one up till 1000, if you will go through one time, that is one epoch, one pass.
+
+578
+01:20:40,000 --> 01:20:45,000
+ So, for example, they say, oh, how many times you have revised? You will say I have revised five times.
+
+579
+01:20:45,000 --> 01:20:49,000
+ It means from one up till Chapter 10, you have revised it once.
+
+580
+01:20:49,000 --> 01:20:55,000
+ Then you started from Chapter one again up till Chapter two, you will be why second time is one.
+
+581
+01:20:55,000 --> 01:20:58,000
+ So that is basically your epoch value.
+
+582
+01:20:58,000 --> 01:21:02,000
+ So they say you will run 11 different epochs in each of that one.
+
+583
+01:21:02,000 --> 01:21:12,000
+ You will make one part 1000 of that 10,000 will be for validation and relate remaining 9000 for the training, actually.
+
+584
+01:21:12,000 --> 01:21:20,000
+ No, I remember epoch because I've worked in this last semester when I was working on an assignment, intelligent systems.
+
+585
+01:21:20,000 --> 01:21:28,000
+ So I was working on creating a system basically sort of like close to machine learning.
+
+586
+01:21:28,000 --> 01:21:34,000
+ And then I had to go through the epoch, but it was taking a long time if I was doing it via, well, CPU.
+
+587
+01:21:34,000 --> 01:21:41,000
+ So I had to switch over to the GPU power, which sort of that really depends on your data set hole or large data set you will have.
+
+588
+01:21:41,000 --> 01:21:46,000
+ So it is a huge data set or if it is an image data set. So, of course, it will take a lot of time.
+
+589
+01:21:46,000 --> 01:21:51,000
+ So then you have to shift from CPU to GPU or TPU even.
+
+590
+01:21:51,000 --> 01:21:55,000
+ I see a GPU was sufficient for this one.
+
+591
+01:21:55,000 --> 01:22:00,000
+ Yeah. All right. So, you know, that makes so much sense. It's just that I was a bit confused with the wording in there.
+
+592
+01:22:00,000 --> 01:22:07,000
+ But, you know, it makes sense now that basically it's validation at the same time it's being trained.
+
+593
+01:22:07,000 --> 01:22:14,000
+ Yes, true. True. Okay. And when everything is done that then that 11,001 would be used to test your model.
+
+594
+01:22:14,000 --> 01:22:21,000
+ I see. OK. Yeah. Yeah. So, yeah, I was a bit confused whether they're mixing up testing in there as well.
+
+595
+01:22:21,000 --> 01:22:25,000
+ But now I get it. So it's basically validating the data and the rest are being trained.
+
+596
+01:22:25,000 --> 01:22:30,000
+ And then once again, the next chunk is being validated by the other nine are being trained. I understand that.
+
+597
+01:22:30,000 --> 01:22:36,000
+ Yes. Yeah. Yeah. OK. Thank you.
+
+598
+01:22:36,000 --> 01:22:46,000
+ So any. Yeah. Thank you. No matter for raising this great question. So no, it has clarified the understanding of most of us.
+
+599
+01:22:46,000 --> 01:22:52,000
+ Any further question you have any further concerns that you have what you are supposed to do for your assessment one.
+
+600
+01:22:52,000 --> 01:22:59,000
+ We have actually made a very huge video. Normally we have half an hour video, but it would be good.
+
+601
+01:22:59,000 --> 01:23:05,000
+ Everyone can understand easily our expectation and everything.
+
+602
+01:23:05,000 --> 01:23:15,000
+ OK. If no further. Yes, buddy. Any question? No. Good. OK. OK. OK. We can stop the recording for this one.
+

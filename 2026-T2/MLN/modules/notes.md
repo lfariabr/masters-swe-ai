@@ -814,7 +814,7 @@ For example, imagine that you apply for a bank loan online and input the necessa
 
     In this video, Dr Randal Olson discusses the benefits of automated ML, its future and provides a screen demonstration of the key concepts using scikit-learn. Dr Olson is a researcher and practitioner. He developed one of the first auto ML tools—the TPOT. Follow the narrative provided by Dr Olson as he works on his notebook. This skill of being able to use the notebook and talk out loud about what is happening as the notebook runs is extremely valuable. Try talking out loud sometime and tell the story of your data analysis. The Auto ML tools operate alongside and seamlessly with the scikit-learn environment. Having viewed the video, how much time do you think Auto ML tools will help save? Do you agree with Dr Olson’s view on the future of Auto ML?
 
-> *Status: 🕐 To-Do*
+> *Status: 🔌 Discontinued — the Resource Overview above is a copy-paste of Resource 1's (it describes Olson's video, not this podcast); audio-only with no transcript; content duplicates Olson. Rationale in [module07_notes.md](../modules/module-07-automated-explainable-ml/module07_notes.md).*
 
 #### 3. Awesome-Auto ML-Papers (curated)
 - Mark, L. (Ed.). (2020, 15 August). Awesome-autoML-papers. Retrieved from https://github.com/hibayesian/awesome-automl-papers
@@ -851,6 +851,15 @@ For example, imagine that you apply for a bank loan online and input the necessa
     In this freely available book, the author really tries to capture how you make supervised ML models interpretable. Without reverting to any fashionable techniques, this PhD researcher tries to bring together some basic concepts and established methods. R packages (but not Python) are provided. Additionally, explanations are provided for each of the models and the accompanying examples have an easy to follow narrative. At a minimum, you should follow read Chapter 4 in one sitting to understand the explainers for each type of algorithm.
 
 > *Status: ✅ Read + Reviewed — see [module07_notes.md](../modules/module-07-automated-explainable-ml/module07_notes.md)*
+
+#### 7. Week 7 live lectures (not in the official resource list — the most load-bearing source in the module)
+- Shaukat, K. (2026). *Week 7 - Part 1: Assessment 2 Discussion* (83 min) and *Week 7 - Part 2* (63 min) [Class recordings].
+
+*Why it matters:*
+
+    Part 1 is effectively the Assessment 2 specification, dictated: the target encoding (quality < 6 -> 1 = bad, so the positive class is the BAD wine), the four named grade levers (many models with rationale, SMOTE, GridSearchCV(cv=5), XAI), the four-files-no-zip submission rule, and the 7-10 min video format (notebook + webcam + student ID, no PowerPoint). Part 2 is the XAI lecture — and it never mentions Auto ML once, which reprioritises the whole module: Auto ML is readings-only, XAI is what carries marks.
+
+> *Status: ✅ Transcribed (whisper.cpp, medium.en) + summarised — see [module07_notes-class.md](../modules/module-07-automated-explainable-ml/module07_notes-class.md)*
 
 ### Learning Activities
 

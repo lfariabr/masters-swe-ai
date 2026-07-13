@@ -175,3 +175,6 @@ T2-REM/assignments/Assessment2/sales/
 
 # DLE creds
 2026-T2/DLE/assignments/Assessment2/creds
+# Lecture recordings - transcribed to .txt/.srt; the source video stays local
+# (GitHub hard-rejects files over 100 MB)
+*.mp4

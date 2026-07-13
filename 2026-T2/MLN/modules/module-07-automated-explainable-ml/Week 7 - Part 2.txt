@@ -1,0 +1,367 @@
+ So take a five minute break, and then we will start our normal lecture.
+ Okay.
+ Okay.
+ Professor.
+ Yes.
+ Okay.
+ So, we will start our normal lecture.
+ Okay.
+ Okay.
+ We will start our normal lecture and then we will start our normal lecture.
+ Okay.
+ Okay.
+ Okay.
+ We will start our normal lecture and then we will start our normal lecture and then we
+ will start our normal lecture.
+ And then we will start our normal lecture and then we will start our normal lecture.
+ And then we will start our normal lecture and then we will start our normal lecture.
+ And then we will start our normal lecture and then we will start our normal lecture.
+ Okay.
+ Okay.
+ We will start our normal lecture and then we will start our normal lecture.
+ And then we will start our normal lecture and then we will start our normal lecture.
+ And then we will start our normal lecture and then we will start our normal lecture.
+ Okay.
+ Welcome back, dear students.
+ In today's class, we are going to discuss very important concept of explainability.
+ Let me share my screen so you can watch the slide desk deck here.
+ Okay.
+ That is explainable AI, explainable machine learning, right?
+ This is very important for us because most of your machine learning models, they are
+ black box in nature.
+ And when we apply these models into the life critical missions where health or life is
+ involved, in that case, we need to understand how actually your model has reached to that
+ particular decision.
+ This is very important.
+ For example, if you, and we have discussed this one in our previous class as well, where
+ we discussed that, if you remember when we discussed about the balanced accuracy, in
+ the balanced accuracy, what we have discussed that maybe your model is giving us 93% results
+ and you are saying your model is performing really well.
+ But for those 90 samples, which were for non-COVID, your model accurately identified and classified
+ those one.
+ But out of those 10 COVID patients, your model could have identified 3 samples correctly.
+ So, for your positive cases, your accuracy was just 30% because out of 10, 3 were correctly
+ classified.
+ Though for the non-one, your true negative rate was 100% because out of 90 all were classified
+ correctly.
+ So, overall accuracy was 90 plus 3, which is Tn plus Tp divide by total which are 100.
+ So, your accuracy was 93%.
+ But that is not correct because misclassifying any non-COVID person is involving some extra
+ test and consideration.
+ And then you will eventually reach to the CNO that person is a non-COVID patient.
+ We like mistakenly classified it as a COVID one.
+ But if you will let any COVID person to go into the society, to go home, that will create
+ a big disaster.
+ So, those 7 which you are misclassifying are big disaster for us.
+ Similarly, we discussed another example of the malware files.
+ So 90 out of 90 non-malware files, non-malicious, non-virus files were classified correctly.
+ And out of the 10 malicious files, 3 were classified correctly.
+ So you can imagine like misclassifying a non-malicious file would require some extensive tests and
+ some doing some further static analysis or dynamic analysis.
+ But if you will release a malware file to enter into the network or into a computer
+ system that will create a big disaster for us.
+ So in most of the cases, this is very important.
+ And last time you remember, we discussed with the immigration example that the person who
+ do not have the right visa, if you let that one to enter, that is a big problem for us.
+ So we need to understand when this machine learning is being applied because you know
+ machine learning nowadays is being applied in every area of life, whether it is health,
+ whether it is manufacturing, mechanical, whether it is education, finance, cyber, anywhere.
+ So it is very important to use the machine learning wisely.
+ So that is all about this lecture.
+ So when you have a data and within the data, you train a black box AI model and then you
+ get the output.
+ That is one way.
+ The other is you have the data here and you get your model here.
+ But whatever the output you have, you are getting here, you need its explanation, right?
+ How this would have been interpreted or you need to understand the rules related are behind
+ that one.
+ So that is what the main, that raise two main concept.
+ Number one is the interpretability refers to the ability to observe cause and effect
+ situation in a system and essentially predict which changes will cause what type of shift
+ in the result, right?
+ And explainability is basically the ability to understand and explain in human terms what
+ is happening with the model, how exactly it works under the hood.
+ So interpretability, I can give you one example, which we discussed that if you have a normal
+ fever, you are feeling pain on the backside of your eyes or maybe back pain, are you feeling
+ a little bit of dizzy?
+ Then maybe you, your medical petitioner will say, or you have a normal seasonal flu.
+ But if you are vomiting along with these symptoms, they might say you have a typhoid or if you
+ are along with these features, if you are shivering a lot, they might say you got a
+ malaria, for example, or if you are sneezing a lot, your platelets are decreasing.
+ They might say that you got a COVID for example.
+ So you just have to see this cause and effect situation, which are actually changing your
+ result.
+ But explainability on the other hand is telling you and explaining you into a human understandable
+ way that what happening with this model, how your model actually reached to that particular
+ disease and so on.
+ So that is what your explainability of any model is.
+ So these things are very important because the machine learning raises novel challenges.
+ The one challenge which we discussed is your imbalance data set issue, which we discussed
+ in our previous class.
+ So as I mentioned, whenever you are applying any machine learning to solve any of the problem,
+ you have to see whether your data is balanced or not, because if your data is highly imbalanced,
+ then in that case, your model will be skewed toward to the majority class.
+ That is the second issue now that most of your machine learning models, they are black
+ box in nature.
+ So it is very important for us.
+ I can ask you this question some I know some of the universities here in Australia, some
+ big universities when they advertise any lecturer position, they found a lot of applicants more
+ than 150, 200 and then it is really very hard because all of them they are the PhDs, they
+ have the papers and so on.
+ So they use certain AI tools in order to shortlist certain applicant.
+ In that case, me as an applicant want to know why my application has not been selected,
+ not been shortlisted, or maybe Commonwealth Bank, they are using any tool, any AI to approve
+ your loan or not.
+ So even in that case, you also want to know that why my loan application was not approved.
+ So it is important for policymakers, regulators to understand to see how your model reached
+ to that particular to see and is there any discriminatory stuff behind the selection
+ or the short listing of the applicants in whatever the task you apply.
+ So it needs some further technical research, which will actually tell you that everything
+ is okay, there is no as such wiseness or any problem into the machine learning decision.
+ So examples could be when interacting with any algorithmic decisions, whatever the decision,
+ whatever the prediction your model has made user actually expect and demand the same level
+ of expressiveness, why you have made that decision, why you reach to that decision.
+ A doctor if using the AI to diagnose any disease, so then both of them they want to see whether
+ the machine learning whatever the CN the model has missed, what are the reasons behind what
+ is the rationale behind what important features they have considered in order to reach to
+ that particular decision.
+ Similarly as we discussed the example of loan approval, if your application is denied, then
+ you want to know and understand the main reasons because based on that one you can improve
+ in future and then you can reapply again.
+ Similarly regulator will want to understand the behavior of the system or a developer
+ may want to understand where the model is more or less confident so they can provide
+ more data set, more number of features or they can improve the overall performance of
+ your model.
+ So as we discussed that your machine learning, your AI both are being applied into various
+ areas of life and then each one of them when there is a very high critical whether it is
+ a finance, whether it is a medical, so that needs a lot amount of your explainability
+ to understand that how actually your model reached to that decision.
+ So explainable AI is crucial for risk assessment, fraud detection and explaining credit decisions,
+ how they actually assign you a particular credit rating and so on.
+ So these things are really very important because if you will have these things that
+ will actually increase the trust of your customers, your investors on your system because they
+ will feel that your system has a rational, it is telling us what are the reasons and
+ then if you improve those reasons, if you overcome those limitations and then you reapply
+ then you could have selected there.
+ So both make sense, both makes more logic and if there is any problem they can feed
+ more data to the training of your model and then can improve the predictions later on.
+ So whether it is finance and the second one which is very important nowadays which is
+ your autonomous driving, autonomous cars, you can understand now also working in Australia
+ which needs a huge number of sensors and various technology, maps, satellites and artificial
+ intelligence in order to make a certain decision, roads and if there is any obstacles come on
+ the way and parking and so on.
+ So you can understand in that one how explainability, how much explainability is required.
+ So explainability in autonomous vehicles is vital for the understanding vehicle, the scenes
+ in the real time which is crucial for the safety and the legal reasons.
+ So explanation help operators to intervene if needed and add regulators in accountability
+ assessments after accident if anything bad happens and in recent there was an incident
+ happen into the US where one car was actually collided with a house and they have put it
+ on the auto driving but they say that even putting into the auto driving the driver actually
+ put a pressure onto the pedal and so on.
+ So there was a lot of discussion which Elon Musk has given but that was happening with
+ the recent case in a few weeks ago with the Tesla in US.
+ So anyways but in that case even the autonomous driving you need to understand how actually
+ that decision has been made or if there would be any problem how you can improve in future.
+ Healthcare as we discussed it's really help to the medical practitioner, diagnostic process,
+ treatment recommendation and so on and whatever the CT scan or x-ray or other analysis, image
+ analysis we are doing so it is really very important because the emphasis on the accuracy
+ plus the reliability and the ability to provide explanation to the healthcare professional
+ that how they actually reach to that particular disease so they can trust and make the system
+ more robust whenever they have any problem into the analysis.
+ Similarly manufacturing as you can understand there could be a simple bug into that one
+ that can raise a significant issue later on.
+ So it is very important to understand how actually that process is going to be happen.
+ So why do we need the interpretability, explainability sometimes it is important for our safety right.
+ Your system would be much more secured and then you also have the curiosity as well how
+ your system is working and how they are making those particular decisions and so on and if
+ there would be any problem you can debug it and then can add more regulations, more data
+ into that one in order to make your system more robust and so on and can also optimize
+ your true objective they are detecting it correctly by adding more stuff you can actually
+ improve their overall performance so that is the four areas.
+ There are a lot of different areas but these are the four important areas where actually
+ give us a need of this interpretability and why and where we do not need any explainability
+ where there is low risk there is as such no significant problem whether you are going
+ to play tennis or not remember the example which we discussed when we were discussing
+ about the sea and tree or if there would be any awareness related stuff so that is also
+ well studies area so where we actually do not need to have the explainability everybody
+ also understood that they have to follow this thing and they have to go through this path
+ in order to achieve anything and when the vulnerability prevent people from gaming the
+ system where there is need of the interpretability.
+ So now the question is how you can actually achieve that explainability that interpretability
+ the first is very easy is to use those models which are inherently interpretable like the
+ sea and tree which we already have studied where normally you select a particular attribute
+ as your root attribute for example and its possible values will actually make their path
+ right and then you select an attribute here select an attribute here select here and all
+ of this one has back of the mathematics but we are not going actually how actually this
+ has been built but one this has been built for us as human it is very easy that we can
+ induce the rules and based on those rules we can make certain the sea and we can say
+ oh if your loan is not approved or if you are not going to play the tennis because of
+ this one because the humidity is low or the temperature is high or your age value is this
+ one so that is why you reach to that particular sea and so those models they we call it as
+ instantly interpretable or inherently interpretable means they are by birth you can say they are
+ the explainable right anybody who can see and the simple linear regression as well very
+ easy for us you can say if it is a 2 gb ram then this much cost if it is 4 gb then this
+ much cost if it is iphone 14 this cost you find one 15 this card if your iphone 16 this
+ is the cost so easily anybody can relate and understand as soon as you are growing into
+ the models as soon as you are increasing the storage capacity your price your cost is also
+ increasing so very easy to understand how actually the model is working and so on the
+ second problem is if you have the black box model which most of your models are for that
+ one we need to understand what important features the model has considered in order to understand
+ the things right in order to understand and making that particular to see and for that
+ one we will study about 3 things one is the shapely the second one is lime and the third
+ one is eld5 which are very easy so lime is basically local interpretable model agnostic
+ explanation right so for example lime approach provides explanation for instance prediction
+ of a model what is the target that drives like what actually reach to the adhesion so
+ for example you say you have a model here this is your data and data set you you got
+ a flu for example and then it will explain you why you we have assigned you the flu because
+ you were sneezing you were having headache and there was no fatigue so that is the reason
+ we actually assigned to that particular label similar case for example if they assign typhoid
+ so maybe they will give more weightage here to the vomiting or if they assign you the
+ label for example covid they they might say that your platelets are decreasing and then
+ you you have a running nose and so on so that are some of the reasons which I considered
+ in order to reach to that particular decision to that prediction label so that is get through
+ the line right so start with the normal image and use the black box model to produce a probability
+ distribution over the classes so for example here they say this is the original image and
+ they will actually interpret different components of that image and based on that one they will
+ assign the particular label for example here they can have one chunk of images like this
+ one one chunk is this one one check is this and then they will assign the probability
+ so maybe if if this is the image and if it is the had been divided like this so they
+ might say this is a frog for example or they might say that if you just have these kind
+ of balls here so they might say that this this is a snooker table or billiard table
+ for example and this is the probability probability is very low and this may be a balloon because
+ you have different colors and so on and then the probability is again very low so the high
+ probability is that it is a frog which is on a for example a leaf of a tree and so on
+ so it gives the different probability to to each of the label which is being assigned
+ and then you can say okay this label got the high probability so that could be one of the
+ reasons second is your shapely values in that one you gonna use a shape library which is
+ very easy so for example they say this is the house and its price is for example this
+ one so it will give you the understanding that what could be the reasons its price is
+ high so for example if somebody is buying a house any anywhere you you are doing you
+ are living into different house some of you most of you are international students so
+ they might be living on a rental property so whenever they advertise this property so
+ they always mention that it is closer to the school closer to the supermarket closer to
+ the train station and so on or maybe it is on the first floor on the ground floor for
+ example or maybe it is on the fourth floor so where you can have view of the ocean and
+ so on you can watch the beaches from there and and so on so based on that one they their
+ price can actually increase and we have to understand if it is something is very closer
+ to the shore so we can understand maybe it is closer to the ocean so because of the view
+ as much as you will go high into that high rise building so the price would high but
+ if you are living on to other sides other areas and then maybe if you have closer to
+ the supermarket or closer to the school for example or bus station train station that
+ might be the increase would be in your price and so on so it will actually explain you
+ give the different values to different attributes so Shapley is basically Shapley adaptive explanation
+ goal of shape is to explain the prediction of an instance x by computing the contribution
+ of each features to the prediction so very simple code you can import shape so that is
+ what I mentioned that you can copy paste this code into your assessment at the end maybe
+ just for one of the example when you are discussing after the result so you would say for example
+ you already applied to random forest regressor right so of course now it would be random
+ forest classifier not the regression because you are not doing the regression and then
+ you can create shape and model that fit and then shape values give that model here and
+ it will give you that bar chart so it will give you that alcohol has the higher priority
+ if the alcohol value is high then the overall quality of your wine would be high and that
+ is what you can just simply see in your red wine white wine data set if your alcohol value
+ is high you gonna actually have the high quality value between 0 to 10 and if it is a lower
+ then you can have low though other attributes are also contributing but not that much as
+ you can see free sugar dioxide residual sugar citric acid and so on our density or fix acid
+ dt but alcohol has a maximum contribution for that particular example so you can just
+ have shaped our summary plot and it will give you that kind of summary similarly you can
+ just have shape summary plot shape values extreme and you can have this kind of diagram
+ here you can see the high contribution is for the alcohol feature then sulfates and
+ so on and then this actually shows that these particular attributes they have very low contributions
+ and these are very high similarly for example for the covid one so you would see that running
+ nose are decreasing the platelets count they have more number of influence on your final
+ results similarly for typhoid the vomiting fever along with other symptoms would have
+ the maximum impact as compared to your height or age or area season or could be other attribute
+ other features into your data set as well so that is shapely you can just copy paste
+ that according to your second and third assessment to implement the explainability very easy
+ for you the last one is the ele5 python library which also allows to visualize and debug the
+ various machine learning models using unified api it is also built in sport for several
+ machine learning frameworks and provides a way to explain black box models so say these
+ are the features for very famous titanic data set for example and then from here you just
+ have to import show weights for example you implement this extreme gradient boosting classifier
+ that is one of the in sampler algorithm in sampling techniques we already have studied
+ and then you fit your training data and then you say show weights and here you would see
+ the way so where the priority was given to the female gender this particular feature
+ firstly the sex and then the value is the female that has the highest weighty that is
+ given in order to assign the particular label and so on right similarly explaining predictions
+ show prediction give another example and that is another chart here so you will see the
+ this particular feature and its particular value has plus 1.6 contribution and where
+ the other one has in negative or in plus and so on
+ right i hope this makes sense which you can easily understand and can easily implement
+ in your second and third assessments very easy so you can understand that explainability
+ is really very important and to implement that explainability you can either use the
+ ele5 python library you can use shape which is very famous or you can use the lime which
+ will actually give you different diagrams different bar charts to show the significance
+ the contribution of each features and based on that one you can actually discuss that
+ this particular features has very much importance toward assigning that particular label so
+ any any question any doubt you may have to understand this one please do ask yes any
+ any question any doubt guys
+ you
+ okay any any question you may explore the resources available here if you go to this
+ one that will also give you some ideas related to week seven so explainable ai you can have
+ a look to these resources right and then you can perform these activities so similarly
+ you will have one discussion forum here there is another bank loan activity using open source
+ toolkit where they actually implement this one and the other one is implementing the
+ shapely shape explainer dashboard so you may have a look to this one so what is shape when
+ it has been implemented what is its theory we don't need to understand and go into detail
+ of that we are more into how actually this could be implemented so you will see here
+ if if they have given the code so you can just implement any two of them we have given
+ you the code for today for this diagram for this one so you can just use that to course
+ in in your assessment to implement and clearly says that you implemented the explainable
+ ai.
+ yes any further question you have so please go through these activities and if there would
+ be any question please let me know okay so you'll upload the recording for assessment
+ as well right for assessment yeah that we talked earlier today i missed the class in
+ the beginning that's right yeah yeah that recording definitely would have been saved
+ maybe all right but that would be available i will rename it properly assessment to discussion
+ so you can watch that recording in order to understand it sounds good thank you so much
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ so guys to your activities and if there would be any question please don't hesitate to ask
+ otherwise i will see you next week please watch the recordings which is very important
+ i will rename it properly and i will send an announcement as well for your following
+ assessments okay all the best thank you thank you thank you professor no worries no worries
+ have a good day guys bye
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you

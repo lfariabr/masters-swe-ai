@@ -1,0 +1,602 @@
+ [BLANK_AUDIO]
+.
+ Good morning, everyone.
+ I hope you are doing well.
+ So there are a few agendas today.
+ First is we have to discuss our assessment two.
+ And before discussing the assessment two,
+ I would like to thanks everyone for your great efforts that you have put to complete your assessment one.
+ I really appreciate that how you are actually learning and applying those things.
+ There are some issues with some of the students who actually did not follow.
+ Maybe they haven't looked up to the instruction which we have given or the assessment specification document properly,
+ or maybe they haven't watched the video that I have recorded to explain assessment one.
+ So for assessment two and assessment three, I would request that everyone please watch that video and special instruction
+ and announcement that I will make to do your assessment two and then the following assessment three.
+ Still, if you have any issue, any concerns why your marks are deducted and are it shouldn't be deducted that much,
+ you are most welcome to discuss with me and I'm happy to answer any question you may have.
+ We can discuss it shortly. Feel free to discuss.
+ No need to be hesitate.
+ I will also show you one of the assessments as a sample for you to do or how it's not 100% correct.
+ It's not 100% that you have to follow it.
+ But just as a guideline for you to get an idea what you are supposed to do in your assessment one,
+ because the first few stages would be same for assessment one or for assessment two.
+ And I will also tell you where you need to emphasize when you have to do your assessment two.
+ But before that one, if anybody has any concern or want to discuss with me later privately about assessment one feedback,
+ you can do so if you want to make it public. You are most welcome to discuss.
+ So any concerns? OK, now I'm going to show you one of the assessment where you can get an idea what you are supposed to do,
+ how you have to format and all those things.
+ And then we will discuss some common issues which you need to take care of,
+ which I will also send an announcement as well so you can follow those one.
+ And I'm very much hopeful that you will follow all those things for your assessment two and for your assessment three as well.
+ So let's share the screen and then going to tell you what you are up to for your first assessment. So I hope you would be able to see my screen.
+ Yes. Yes. OK, so this is one of the examples, as I mentioned, not 100 percent correct.
+ You have to follow. But this is how you need to structure for a better representation.
+ Most of you haven't followed the template, which I will highly encourage mandatory for assessment two and three to follow the template.
+ And then you have to mention here some of them just mentioned and started.
+ I have given the feedback which you can follow in order to complete those one.
+ So that is your stage one business understanding how you're going to work.
+ What about the data set? What kind of models you are going to apply?
+ You can describe a little bit about your data set. What is your current situation? What resources you have?
+ And like what is your success criteria? Which metrics you are going to use in order to compare the performance of your models?
+ And then later on, when you will actually discuss about your results and modeling, then you can say whether you actually met your criteria or not.
+ So all of these things need to be in detail. What models, what rationale you have in your mind for using any of the models.
+ And that's what you need to mention here. Then you have stage two in stage two is your data understanding where you will mention the data and everything related to that and detail.
+ That stuff where you will mention and load all the libraries properly, explain your code, document your code properly, and then also explain.
+ Whatever you are applying, not just the coding stuff, whatever the values you have got, you have to explain up here.
+ Then the data quality, mention what you are going to check and then mention it properly, then explain it.
+ It's not you just implement it without mentioning what you are going to do and you just go away.
+ You have to explain your rationale. Have you got any missing value? Have you got any outliers?
+ Is there any problem of the data redundancy in your data or not?
+ So you have to explain all these things in detail. Then you have to have your exploratory data analysis where you will explain what you are going to do.
+ You're going to make various histogram, different distributions. You're going to see how the relation of various variables or features they have with each other.
+ You're going to have your box plot analysis, correlation analysis. Is there any correlations? And then most of you have missed this thing.
+ Is there any positive or negative correlation exist in your data between various or among various variables?
+ Most of you have missed this thing. Then paired plot analysis was mandatory, was actually advised to follow that one.
+ Few of the students, they also missed this paired plot analysis as well. So please follow this one.
+ This is also part of your assessment. And then you have to explain and give its commentary as well to say what you have got out of that analysis.
+ It's not just you do the analysis. You have to tell us the rationale or you have to induce certain knowledge from that one, what you have got actually from that analysis.
+ Then clean your data properly, split your data properly, make everything very clear.
+ And then afterwards, your modeling stage will come, mention your modeling assumption properly, build up your model, mention the features and their value properly.
+ What you have got out of that one, once you have run those model, what you have got out of it.
+ And then all of these things properly would be visible here.
+ I'm not showing the output of this one. That is an additional. But in addition to the output, you have to explain that one, how many features you consider and so on, or whether you applied some other models as well.
+ Some of you have applied other modeling techniques as well, which is really very appreciated. And that is the first thing you have to do.
+ You have to see if there are any buys or whether you have met that criteria, which I was mentioning that in the first stage,
+ you have to mention that one, whether you would be able to achieve those one or not.
+ Some of the students, they just mentioned very few lines here.
+ So you have to explain in detail what was the things which went wrong or what do you think,
+ what things could be implemented which can actually improve the overall performance of your model and can mention some of the references if you have referred,
+ which is still not necessary, but you can mention some of the references as well.
+ So this is one of the examples which I have shown you how you are supposed to attempt your assessment.
+ One, two and three, how detailed you need to provide.
+ And then the important thing, as I mentioned, not just apply those analyses, because I have already advised you that, OK, look up from here.
+ Somebody applied, copy paste it. So if you have to copy paste and compile into one file and give it to me,
+ then what we have learned, right, the learning is where to search, how to search.
+ Then to fix that thing, whatever you have searched according to your data.
+ And then you have to explain it, what you have got out of that implementation,
+ out of that analysis. Right. And document everything in a very nice way, in a presentable way.
+ That is important. That is the expectation from you.
+ Right. I'm not asking, I'm not stopping you that you can't search here and there. Even I advise you, OK, you can look up the code and then you can do.
+ Because if you remember in our week three or four, we discuss in detail about the classification, which can also go through today.
+ And in one go, you can implement five or eight models.
+ Right. But how you are actually selecting those parameters, what is the rationale behind.
+ Once you have done all the analysis, all the implementation, then you have to compare them properly, discuss them properly.
+ Right. That is very important. So any question from this example or discussion that we had so far?
+ Yes. Sudeep, Sullivan, Renato, Nomar, Fadi.
+ OK, so then.
+ We can discuss about our assessment two before discussing assessment two.
+ Do you have any questions so far? Because definitely you would have already started this one.
+ So do you have any question in your mind, any confusion you have so far? So we first can clear that one up before going into the detail.
+ Yes. Any question from assessment two? Sorry, professor. Yes. Could you show a link where the example is located, please?
+ No, that is that is not public anywhere. That is from one of the students.
+ I just have shown you and you just have to get the idea.
+ You don't need to copy that one. You can do much better than that one.
+ And some of you might have done better to that one.
+ I'm just explaining you that wherever you search, anything related to realisation,
+ which you think would give you some better information out of your data, you can incorporate that one into your code, into your assessment.
+ But you have to present it properly, not just copy pasting the code, run the code, and then that's it and submit it.
+ You have to explain it, document properly, plus explain it what you have got out of that data.
+ That is also very important. Because just applying, OK, you applied a C entry, then you applied NABASE, Port Vector Machine.
+ So firstly, you need to see what parameters you have given, what hyper parameters you are doing.
+ And then afterwards, once you have done the analysis, you have to give a little bit of rationale there.
+ Why do you think like the C value of SVM did well or maybe the NABASE, for example,
+ with this, for example, kernel value of the SVM, it performed really well or Bernoulli NABASE did not well, right?
+ Gaussian NABASE performed really well. What do you think, why this has been happened?
+ You may say this is due to the data set because there is no value.
+ So in that case, missing values in that case, this one is really performing better and so on.
+ Right. So that is important. That is just for as a guide, not you have to follow exactly to that one.
+ OK, Professor, thank you.
+ Yeah. So this is our assessment two, which we are going to discuss. And then if you further have any question, once I finish my discussion, then we can discuss those one.
+ So firstly, as I mentioned, the start of our course, that all of our three assessments are individual.
+ There are no group assessment, assessment one and assessment two both are using the same data set.
+ The problem is with the assessment one, we did regression, whereas with the assessment two, we are doing the classification.
+ You don't need to worry about the word count, though this assessment carries high weightage of 40 percent.
+ And that is due by the end of week eight. Right. And we are in week seven now.
+ So this week, week after. And if you have any unavoidable circumstances, you may ask for extension.
+ And I'm happy to approve it before the deadline. OK, so in assessment one, we consider this wine quality data set as a regression task.
+ So for this one, again, we are doing it into a classification. Plus, in addition to that one, it has seven to 10 minute video presentation as well.
+ Another important thing is, as we discussed here, you have a template here which you can follow or you can just keep working with your assessment one,
+ whatever you have, just improve or just change it wherever necessary, according to classification tasks,
+ which I don't believe for realization for any of the stuff you really need to make any change.
+ Of course, for the first one, for the business requirement, you need to make changes according to the classification wherever you referred regression.
+ So it means there is nothing much work for analysis part that you have to do, rather you have to improve it.
+ You have to incorporate some more realization stuff which you need to do. Again, the data set is available.
+ You can use the red wine or white wine. Feri, can you please mute? So white wine, red wine data set, or you may combine it to have more number of samples.
+ Again, there are 11 different features, including your acidity and sugar, alcohol concentration and so on.
+ And their range is between 1 to 10. Right.
+ But the important thing that you have to do at your data preparation stage or before modeling that you have to convert that quality attribute that is basically a continuous attribute,
+ which is giving you the value from 1 to 10 into a discrete attribute.
+ So it will just have two values, either 1 or it would have the value 0.
+ So what you need to do, if it's the quality of your wine is below 6. Right.
+ Means 0 up till 6, then you would do it like 1. Right. Or high if it is below, it's not below, it is should be above, above the 6.
+ So less than. 6 is your 1 means your bad quality wine.
+ Right. And for good.
+ It is 0. Which is greater than equal to 6. Right.
+ That is good quality wine. That is the important thing that you need to do. That understanding would be same.
+ So, again, what you need to do in your introduction part, you need to explain what you are going to do, concise narrative, the resources that you have.
+ You can take benefit of the comments that I have given to you, the example which I have shown you.
+ So you get an idea how to mention everything, assess your situation and so on.
+ Then for the data understanding, you can incorporate more realisation, read your data set properly, explain your variables, see if they have any relation.
+ Is there any missing area? Is there any outliers? Do the data exploration properly and so on.
+ Simply search, for example, data realisation.
+ For example. You may find a lot of different example.
+ This is just such you can improve your improve your query.
+ Right. So, for example, this one. So you see the plot and they have this kind of analysis, for example.
+ Oh, just copy paste this code, for example, and explain. It's not you just copy paste, you have to explain it like they have explained it here, what they have got out of that one.
+ So just. You see how much diagrams they have.
+ So you can just use the diagram, use this code in your.
+ Assessment two and the following assessment three. Right. You can incorporate this one.
+ Then another example, I simply search like realisation code in Python and so on.
+ For example, when you have to present it, scatter plot and so on line chart.
+ By chart and so on. You have to see what actually fits based on your data set.
+ Maybe not all the realisation will be applicable to your data set.
+ Right. But most of them would be. So you you may have a look and see if you can take a benefit of this one.
+ Right. For example. This one, you can see scatter plot, for example, line chart, bar chart, histograms, seaborn, for example.
+ And then afterwards you will have a look to different line plot and so on bar plot bar charts.
+ Right. So easily you can have an idea. You can explore it further, for example.
+ Right. What are the people has done already? And then you can take the benefit of those ones.
+ Right. So that is the thing you have to do.
+ You have to make the pair plot analysis and other data realisation here.
+ And then with the data preparation, you have to clean up your data properly.
+ Is there any outliers you have to remove or you have to handle them properly?
+ And afterwards, you have to convert your data at this stage, the last attribute, the quality attribute, which was continuous in your data.
+ So maybe you can have another new quality attribute or you can name any of the attribute or you may convert the existing attribute and feature into a discrete one.
+ Right. So we already discussed what would be your criteria if it is less than six.
+ Then it is a bad quality. If it is greater than equal to six, then it is a good quality one.
+ Right. This is very important that I will focus more here for your assessment to write realisation and everything.
+ We have given already the detailed comment for this one would be my priority for your second and third assessment.
+ So here maybe you can apply as many models as you can.
+ I'm going to give you the code as well, which we already have discussed, but we will explore those one.
+ But here you have to mention all the model assumption properly, run your model, rerun your model.
+ We will also see what is grid search CV, which we already discussed in our last class that you have to tune your parameters.
+ Mean you have to change the value of those parameters and then see by changing the parameters.
+ Is there any effect on the overall performance of your model or not?
+ Right. That is called hyper parameter tuning. So you can't manually see, OK, now the value of C is one, then the value of C is one point two, one point five, one point eight, for example.
+ Right. You have to see the range. If it is range is zero to one, then, of course, it would be zero point four, zero point five, zero point six, zero point eight and so on.
+ Then you have to see you have not have to manually try all of those one.
+ Right. So by using this grid search CV that you can actually do all these things in in one go.
+ Right. I'm going to share you the explanation of that one and also the code for that one as well.
+ Right. And then afterwards, your evaluate stage will come where you have to mention whether you met your targets,
+ whatever the business criteria you have mentioned in your first stage or not.
+ Then the deployment stage, as I mentioned, I had given you a few examples.
+ You not just have to say what went wrong, what was good.
+ You have to provide a proper rationale here where you think, OK, if this thing could be incorporated, your results could be improved.
+ Right. And so on. Then this is very important that you have to record a presentation for seven to 10 minutes.
+ Once complete, Jupyter notebook for screen recording.
+ This is very important. You don't need to prepare extra PowerPoint slides.
+ You don't need to prepare extra PowerPoint slides.
+ So what I want is in all of your assessments, which I mentioned at the start of this course as well,
+ that I want you to apply machine learning, learn machine learning.
+ Right. Not to do anything extra.
+ Right. Even though for this one, I did not ask you to prepare any Word document.
+ I say whatever your Jupyter notebook is, explain everything into that Jupyter notebook and just convert that one into your PDF.
+ Right. I don't need any extra explanation in Word document and so on.
+ I don't want to waste your time there. Rather, whatever the time you have, you have to spend that one to apply different modeling techniques and so on.
+ Right. And for this one, you don't need to prepare any PowerPoint slides.
+ You are required to make a screen recording of your Jupyter notebook.
+ You just have to Jupyter notebook and your webcam video of yourself.
+ Right. Where we can verify your identification as well.
+ You can show your card, student ID card that we can verify that this is you actually recording this presentation.
+ And then afterwards, you should specify your name and any other student detail at the beginning.
+ Right. And then afterwards, you have to share your screen.
+ Walk through your notebook as you discuss the key concepts of your DM steps.
+ Right. The lessons you have learned and any other experiences.
+ You don't need to go into the detail. You just say, OK, this was the data set.
+ And then afterwards, not like this. Right. But not in that much detail where you will explain each line.
+ You can say, OK, here you have actually applied line chart.
+ And then from out of this line chart, what you have got, for example, this information you have got.
+ And then you applied box plot analysis or player pair plot analysis.
+ And then you have to see the correlation of different attributes, different features with each other.
+ And out of that one, what you have got. And then you can see I prepare my data set according to the classification,
+ where on this line I converted actually the less than six values to be as bad quality wine and greater than equal to six values as the good quality wine.
+ And afterwards, for example, you can say after doing this one, there is highly data is highly imbalanced, for example.
+ And you might have done some data imbalancing or data balancing techniques, which we have studied last time.
+ The SMOTE and so on, which may be apply if you are seeking the distinction, high distinction.
+ Then you have to be within that limit, not less than seven, not greater than 10 minutes.
+ So explain your stuff properly. Right.
+ You can use like any of the tools to record it, either zoom teams or whatever you feel convenient.
+ You are comfortable fit. So you can just record it here.
+ Then last important thing is which most of the students did not follow.
+ You don't you don't need to zip your files. You have to upload your file state away.
+ So one would be your IPYNB file. Second would be you just have to convert that IPYNB into a PDF.
+ And the third would be .txt file, which I explained you already that if you are working with Jupyter notebook, you can download it as a .py as well.
+ So if you will download at .py, open your notebook, sorry, text, text pad or your notepad and just copy paste that code into your .txt, that .py code.
+ Right. Which you download it here. And that would be your third file. And fourth would be your video file, video presentation.
+ Make sure it is uploaded here. If you can't do it, make sure you have provided the proper link here with the accessibility.
+ So with the proper permissions, if you can upload it on the as the unless unlist video on YouTube as well.
+ So whosoever will have that URL will be able to watch your video.
+ So you feel it better wherever you are comfortable with. You can upload on your Google Drive or OneDrive wherever.
+ But it should have the proper permission to anyone who will watch. Maybe I will mark your assessment.
+ Maybe somebody else will mark your assessment. So they're not going to ask you that they give a success and so on.
+ So that are the fourth four files which you need to submit it. No zip, no rare, no compression, just straight away four files.
+ Right. So I explain one one more time here. Again, this is a classification assessment.
+ No worries about the word count. 40 percent weightage due at the end of week eight next week.
+ Any problem, any issue, please apply for an extension. Do send me a message that come on.
+ I have applied. I'm happy to approve. I'm happy to support you. But please give your 100 percent right.
+ Don't submit any half cook work. Then with this one, this is important that the criteria based on which you have to divide your data set.
+ Business and sending would be a little bit more detail. As I've shown you the example, the students who joined late at the start of our lecture.
+ I have gone through one of the example of one of the students.
+ So you can have an idea after watching that one, what was the expectation or how you can improve your assessment one.
+ So business understanding, nothing much would be changed. Data set, URL and so on would be changed.
+ But if you haven't mentioned enough details, maybe you need to add something for the data visualization and everything.
+ I have shown you how you can just search and incorporate those one at data preparation where you actually have to do that splitting of your data.
+ Plus the that you are converting your data into a discrete nature. The final attribute here.
+ It would be your modeling where you can apply seven, eight different kind of models, which I will also go through shortly.
+ And then you can evaluate it, record the presentation and everything.
+ Now, what extra you can mention in order to achieve good result into that one?
+ The one thing is you can incorporate as many models as you can, but not just apply, explain them properly.
+ Second thing, if you have to achieve really good result for your second and third assessment, you can have a look to if there is any highly imbalanced data.
+ So maybe you can apply data balancing technique. The third thing which you can do is to apply the grid search CV.
+ Right. And which I will explain you shortly. Very simple, very easy.
+ And the fourth thing is your explainable A.I., which we will discuss in our today's lecture.
+ I will give you the code. You just have to copy paste that code and explain it.
+ Very easy, very handy stuff. Right. One is the basic the minimum thing which you have to do in this assessment.
+ The videos that you have to record as part of your assessment, too.
+ And the third thing is you can apply as many model as you can.
+ The fourth thing is you are supposed to apply grid search CV for hyper parameter tuning as many model as you can.
+ I have already shown you and I will also show you shortly.
+ Right. You can apply smart, which we have discussed to balance your data, which we have discussed in our last class.
+ You can watch that one. The other one is grid search CV.
+ I'm going to show you the code which you can just incorporate and apply and see.
+ Right. And last one is explainable A.I., which we will study as part of our today's lecture.
+ You just have to copy paste that code and see what results you can get out of that one in your assessment.
+ So if you will incorporate these things in a good way, explain the things properly.
+ So I'm 100 percent sure that you're going to get very good result as part of your assessment two and assessment three.
+ So now I cannot tell you what is grid search CV, which we have already discussed.
+ The first thing is why we need to have the grid search CV. That is very important.
+ We have discussed in our previous lectures that you may have any of the problem in your data set, maybe where your data set is not properly distributed.
+ And maybe if you will have from individual one to individual 80, you're going to use this one to train your model, for example.
+ And 81 to 100, you're going to use to test your model. Right.
+ So maybe if you will do this one. So what problems we can get out of this one.
+ Right. The first problem could be and we have discussed this thing in our previous classes as well.
+ Maybe last or maybe last to last class where we discussed maybe some people who are based in Australia and they have the COVID result and symptoms and everything.
+ For example, those are here. Right. And maybe these 20 people, these 20 individuals, they are coming from a different country.
+ Maybe they have a different kind of strain, the COVID strain, different kind of wave there.
+ Maybe in their genes and in their symptoms and everything is totally different to those 80 people.
+ Right. So if you will build up your model based on these 80 samples.
+ Right. And these 20 are different. Right.
+ And if you will use these 20 to test your model and we can understand that your model performance will not be good because these kind of 20 individuals,
+ their symptoms, their data, how they actually structured, your model hasn't seen those one, hasn't learned about those things.
+ Similarly, for example, if there are 10 chapters and then you prepare the first eight chapters for your exam
+ and the teacher give you the question from Chapter 9 and Chapter 10, which you haven't seen, which you haven't practiced.
+ Right. And then, of course, you're not going to perform really well into that exam.
+ So that could be the issue in your data. So what is the solution?
+ The solution is that you make you do the cross folding.
+ We call it as N fold cross folding, five fold cross validation, ten fold cross validation.
+ Normally we use the five fold cross validation.
+ Right. What is the purpose of that one?
+ The purpose is, for example, for the first run of your model, you're going to use one to 80 to train your model.
+ And then this 81 to 100 to test your model.
+ Right. And you're going to get some result, maybe very bad accuracy, say 60 percent, for example.
+ Then in next go, what you are going to do is you're going to use from one to 20.
+ And 21 to 100.
+ So you're going to use this chunk of your data set to train your model.
+ Right. And then first one to 20, you're going to use to test your model.
+ So you're going to use them as to test it.
+ Right. So in the third go, what you will do is you're going to use one to 10 and plus 31 to 40, for example.
+ Or maybe if you just make a 20, 24, so you would say, for example, one, one to one to 20.
+ And plus 20 to 40, 41 to 100.
+ So these 80 chunk, one to 20, this one and 41 to 100, 60 this one.
+ So in total, this 80 percent you're going to use for training and the between one, 21 to 41, you're going to use for testing.
+ I hope you are getting my point. I can also show you one good diagram here, which we call it as a fold cross validation.
+ Right here, this would be the diagram here, so I think this would be good for you to have its understanding here, this one.
+ So you have made a different fold of your data set, say on the first one, you can see that you're going to have.
+ Right. So you have made five different folds of your data set and then first one,
+ you're going to use the first fold one to 20 to test your data because this is for the test and the rest of them to train your model.
+ Then in second go, this 21 to 40, you're going to use for testing the first 20 and the rest of the 60 you're going to use to train your model.
+ Similarly, one to 40.
+ Right. You're going to use for training and then 61 to 100, those 40 and this 40, 80 you're going to use for training and the between 141 to 61 you're going to use for testing and so on.
+ Similarly, for this one and similarly for this one. And then what you do is you will take the average out of that one.
+ So that would be the average accuracy of that one.
+ So if is there any bias in your data set?
+ Is there any problem in your data set? So you can easily fix that one up.
+ Right. So can you please all quickly search about this one?
+ What is N fold cross validation?
+ Can you please search about this one?
+ And read a few lines related to that one so your understanding would be clear. Then we will move forward.
+ Please take two to three minutes.
+ Thank you.
+ Please take two to three minutes.
+ Please take two to three minutes.
+ Please take two to three minutes.
+ OK, any confusion to understand this concept?
+ It's just very simple that if there would be any bias in your data set, is there any problem of variance in your data set?
+ So not later on, you would have the problem of overfitting or underfitting.
+ So you will make different chunks, different fold of your data set.
+ And then you can use different folds to train and to test your model.
+ And then later on, you can take an average. That would be the overall accuracy or the performance of your model.
+ So that is the main aim of this N fold cross validation. OK, I hope this concept is clear.
+ Now, coming back to this grid search CV, which you can incorporate for your second and third assessment.
+ Very simple, very easy.
+ So what is grid search CV? As I mentioned, you can you are supposed to try different parameters.
+ You have to do the hyper parameter tuning where you can try different value of different parameters within your model.
+ And then you can see whether changing those one actually improved the overall performance of your model or not.
+ And this within this grid search CV, you basically have one hyper parameter, which they call it as CV, which is initially it is none.
+ But you can set is five, which is the five fold cross validation integer value.
+ Right. So which we discussed this N fold cross validation.
+ So this is very simple to use this grid search CV. I have just simply search its implementation.
+ And this is the code I have got. This is just a logistic regression.
+ One of the classification model which you can use for your second assessment as well.
+ So this is very simple way how you can actually create the object of any model, how you actually fit on your data and then you check its accuracy.
+ Right now, with different parameters, this is the way to use the grid search CV, because within the grid search CV, actually, we have the parameter grid.
+ So this is very important how you actually have to give this list. Right. This is the parameter list.
+ Right. And that is the main thing. Nothing more than that one. Here you have to mention the estimator, which is your object of your whatever the algorithm you are using, whatever the model you are using.
+ And the second thing is you have to give the parameter grid. Here you can give all the values which you want to test for that one.
+ So say for this one, they are using the logistic regressions, though we haven't studied about logistic regression, but you can understand they have a hyper parameter as penalty C solver maximum iteration.
+ Right. So if I will ask you to try, maybe you will give L1 value, for example, and then give some other value.
+ Then for the solver, you give this particular value and for the maximum iteration, you will give this value.
+ Right. But you need to do manually if I will say, oh, why not you try 1000 as your maximum iteration?
+ Why not you try 2500? For example, why not you try 5000 iterations? So you have to do manually. In this way, you don't need to do anything manually.
+ You just set whatever the values you want to see for any of the learning algorithm, and then you can give that one as your para parameter grid value.
+ You can give that list here, which you have created. Right. And just run it.
+ And then you have to give for CV value is three or five or whatever the fold you want to make.
+ Normally, we recommend five fold cross validation, but make sure when you do this one, your result would be slow.
+ This result would be very much slow.
+ You can expect because the first one, it will pick up the L1, then one value from here, then this one and then try 100.
+ And if you have given the CV value as three, so it will do this thing thrice for this value.
+ Then it will pick up L1, this value LB and then 1003 value for this one.
+ Then L11 value from here, this one and then three values from here, three values from here.
+ Then it will pick up this value, this value and then second value and then 101 thrice.
+ Right. The same way you know that we normally do is if you have one comma two in math and then you have three comma four.
+ So how many subsets you can have? One comma three, one comma four, two.
+ Two comma three, two comma four, the same way you will have here now, so you will have the L1 and then for one value of this one,
+ first value of this one, then 100, then the same values and then 1000, same values, then 2500, same values, then 5000.
+ Now you have the CV value as three. So, of course, each of the values would be made into three different chunks.
+ Right. And so but you don't need to do anything manually, just have this code and this code and you are all fine.
+ And then you just now fit this one here. It will do everything. Then at the end, you just have to use these two lines.
+ What is the best estimator? So this function will actually will give you what is the best parameters that they have got?
+ What is the best combination? So they said if your CV value is this one, maximum iteration is 1000 and solver is your Newton CG.
+ Right. This one here, then you get the best result. Right. The maximum value, all other possibilities, whatever they have tried, are lower than that one.
+ Right. And what is the accuracy? What is the value? That is what here? What is the best score they have mentioned here?
+ Right. So that is very simple. You just have to import it from SKlearn model selection, import grid search CV, and then you just have to create its object within that object.
+ Then you have to fit your model. Right. Fit your model with this one, not with the simple one. Other you just create LL and then with this one, you create this one.
+ Right. I can show you any other related to this one. Similarly, you see, you need to create parameter grid KNN, different neighbors, three, five, seven.
+ Weight is uniform or distance and leaf size is 1520. Right.
+ And you just have to grid search CV, KNN pipe, whatever the model they have built up here and the parameter grid has that frame value.
+ And then the what is the value you are considering to see the performers? And this is the CV value, which is five. You just fit it and then you get the best parameters. These are the best parameter combinations. And you can just try and this is the output that you have got.
+ Very easy, very, very simple. Right. You just have to do this parameter. Don't need to do any other change into that one. OK, another.
+ Good search CV here. This is the parameter grid you see classification estimator. This is simple for random forest. Right. And this is the different hyper parameter value of this one, Gini index or entropy or whatever the depth they have to consider.
+ How many estimator? Because, you know, within the random forest is basically the same as of your decision tree, but it is the combination or ensemble of multiple decision trees.
+ So with this one, as you can see here, you would have the different values, how many trees you want to have.
+ And then simply created subject grid search CV estimator is this pipeline or the object.
+ Right. The model here is the parameter grid. CV is you don't need to do straightforward.
+ I'm not going into detail. That is not part of our course. You can simply say CV is equal to five.
+ And whatever the accuracy or whatever the metric you want to compare up here, just fit it and then get the best parameters and its accuracy.
+ That's it. It is simple.
+ I can try if I can find anything with the grid.
+ So CV with SVM implementation.
+ So because we did this one in our last class.
+ So we understand that how actually this SVM you just have to SVC sport vector classifier and you just get it.
+ So that is the normal attribute. When you create it subject to you have got this one.
+ Now you can have different values of C. C value could be zero point one because C value 110, 100, 1000.
+ Gamma values could be like this one. Kernel could be RBF, sigmoid, poly, linear.
+ For example, you can have multiple here. So if you will try RBF kernel with this value, with this value, then our linear kernel with these values.
+ So you have to do it manually where you don't need to do just you need to write this single line,
+ put other parameters as well like RBF kernel, linear, poly, for example, and then with the grids or CV, give the whatever the object you have created here model.
+ Right. As we see, simply you can write parameter grid, whatever the list you have created, you created here a dictionary.
+ And then you just give the CV value is equal to five and just switch it here and this will keep working.
+ Right. And then at the end, you can get the best parameters. Right.
+ So it gave you that this is the best combination. C value one, gamma is this one, kernel is RBF.
+ Or maybe it can give you best value with linear kernel or with poly kernel or sigmoid, for example.
+ So it will have to try. It will go and go. And then based on that one, you see the overall accuracy,
+ which was 92 percent here because you were just trying with the default values of the SVC.
+ But why not to try with instead of value one, why not to try with 100?
+ Why if in the default value, maybe the gamma value is one.
+ But if you change the gamma value to zero point zero zero one, maybe the results are improved.
+ But if you are doing it manually, it would be so much hectic.
+ So grid search CV, you just give whatever you want to try here, fit it out and then you will see what is the best combination you have got.
+ And this is the improved accuracy, which is 94 percent. Very easy for you to understand.
+ So I'm just sharing this link into the chat. So just have a look to this one.
+ And then if there is any question, please let me know, then we can finish up this discussion or take any question you may have and then we move forward to the next stuff.
+ So just have a look to this one, please. If there is any confusion, any problem, please let me know.
+ So take five minutes to have a go through this one.
+ You.
+ You.
+ You.
+ You.
+ You.
+ You.
+ You.
+ You.
+ You.
+ You.
+ You.
+ You.
+ You.
+ You.
+ You.
+ You.
+ You.
+ You.
+ You.
+ You.
+ OK, dear students, any any questions?
+ OK, so I hope now you have understood about yes, anything? Yes, nothing.
+ So I hope now we have understood how to apply this very easy.
+ You can find out the code and then you can incorporate that code into your assessment for assessment two and for assessment three as well.
+ Another thing which I mentioned, I will show you how to apply multiple models, which we have already did in our week three, week four.
+ And you can find this one in your announcement when you see the CN3 and name base and where you can find this one in your last URL here.
+ When you click up this one, then you can find all the implementation here.
+ So first thing is you can copy paste this different kind of realisation and adjust it based on your data set.
+ For example, this facet grade and so on box plot and so on.
+ Most of them you might already have this strip plot and so on, which may not have this one plot and so on, which you can incorporate this facet grade.
+ This is what you need to have the spare plot analysis and the important thing which we have to see is so you can copy paste all of these realisation in your code for second and third assessment.
+ So this is that they have implemented, you can see different model.
+ You just need to change two lines. You just have to import that.
+ Of course, you have to do and then you have to create its object and fit it.
+ That's it. Here you see they have implemented logistic regression and try it.
+ You can simply search logistic regression because we have we will study this one in our next class.
+ So you just search this one. You will get the first link of scikit-learn click here.
+ And these are its hyper parameters where you can just quickly have a look.
+ OK, penalty could be L1, L2, C value could be floating value. Default is one point zero.
+ So you may try zero point one, zero point five, one point zero and maybe any other parameter if you find it really good for you.
+ If you can understand anything and then you can implement like this.
+ Not here, but like as a grid search CV where you just copy paste that grid search CV code here, like here.
+ You can just create a parameter grid here. Right. Parameter grid and just give the name of the attributes here.
+ The parameters and the possible value which you want to try and just fit it here on this one. Simple, simple code.
+ Right. And then simply this is the K nearest neighbor, another classifier, which is not part of our machine learning course, but very easy, very simple.
+ So you just need to add these two lines. Rest of the code would be 100 percent same.
+ Of course, not this one, but you have to do incorporate the grid search CV here. Then it would be 100 percent same.
+ Then sport vector machine. So, you know, you just have to see SVC, for example, and you have to see what SVC has.
+ SVC has C kernel value as RBF. So here you can see kernel could be linear, poly, RBF, sigmoid, which we already have studied.
+ And gamma value could be scale or auto, for example. So you can make an.
+ As we see here, gamma value, kernel value, RBF, poly, sigmoid and give that one to your model here and would be all fine.
+ Then, as we see with the different kernels, for example, no, it comes for the C entry, which you can do simple neighbors.
+ You see the neighbors could be with four different variations. So one could be Gaussian neighbors.
+ You just have to import Gaussian neighbors. Then this code would be 100 percent same.
+ Then you can do the multinomial neighbors and this code would be 100 percent same. Then you can use the Bernoulli neighbors.
+ This code would be 100 percent same. Then it could be your complement neighbors.
+ Then this code would be 100 percent same. Right. And then you can do different kind of realization as well.
+ And you can also search, for example, machine learning model.
+ Analysis example, for example, if we have applied the machine learning model, what you can do with that one.
+ Right. So we just search these two things randomly, very randomly.
+ So one way is you can have this classification matrix and then classification report as well.
+ And then afterwards, if you will scroll it down, cross validation, which could be part of your grid search CV.
+ So you don't need to do I'm just interested into if they have any example of the code here.
+ This entry classify libraries, training and accuracy, they're just discussing the basic accuracy.
+ You can also calculate this one here, for example, giving this one and you can make up a table here.
+ Right. Box plot analysis will tell you the only the.
+ Two values, because your one, your one would be two by two.
+ Here they have three by three, because in your one you have good or bad quality.
+ So TPTF and all of those four measures, and then based on that one, you can calculate these one.
+ And then you can make up a table here for F1 score, recall and for each of the model.
+ And then finally, you can have for all of them model, whatever the models you have implemented.
+ So that would strengthen your analysis part for your assessment.
+ Yes, so. That is from my side related to your assessment two and assessment three.
+ I repeat one time. That you have to follow the guidelines you need to make change into your quality attribute.
+ You need to make it discrete instead of continuous.
+ Less than six would be bad quality. Greater than equal to six would be good quality wine.
+ And then you have to apply different classification models.
+ The code I have shown you from your the C entry announcement.
+ You can copy paste from their grid search CV. You have to implement cross validation would be part of grid search CV.
+ I have shown you the code. You just have to copy paste that code, make it run with one model, and then it will work with all of your models.
+ And apart from this one, after you convert that quality attribute into good quality or bad quality to see if there is highly imbalanced data,
+ then you can apply the smart, which is very easy, which I have shown you the code in our previous classes.
+ You can implement that one. And the last thing which you can implement is the explainable AI, which we will study in our two days lecture.
+ And I will also give you its code and example very easy.
+ Just two to three lines of code will give you the explainability of your respective model.
+ And you just can implement that one in your following assessments. And that's what I want you to do for your following assessment.
+ Do you have any confusion, any question that comes into your mind?
+ Anybody who joined late, I have already published your assessment one marks. Please have a look if there is any problem, any confusion, any concern you have.
+ Feel free to discuss with me if you feel your marks are not up till that mark or need to get more marks.
+ You are most welcome to discuss with me. I will give you the rationale why your marks are detected and so on.
+ If there is any problem you are going through and you need an extension for your following assessment, please do apply to discuss with me.
+ I'm happy to support wherever possible. Important thing is you have to make your video for your second assessment.
+ Very first, you need to show your identity, show your card, and then afterwards you can start recording your video. You don't need to prepare any extra PowerPoint slides.
+ You just have to go through that one between seven to eight minutes, seven to 10 minutes.
+ Make sure you are submitting four files. One would be the IPYNB file. Second would be the same PDF of that IPYNB. The third would be the .txt file.
+ When you download IPYNB as a .py and just copy paste that code into notepad and then just submit it.
+ And the fourth would be your MP4 file, which would be the video file of your recordings.
+ And I will also share it as an announcement as well.
+ Two important things which you need to take care of for your second assessment so we can quickly summarize that up.
+ So is there any further question you may have related to assessment to any confusion you have?
+ Please do ask. Otherwise, I will stop the recording so anybody will later can watch this recording related to assessment too.
+ So any question you may have?
+ I just had a question in relation to the K fold or the N fold.
+ Yes, please.
+ So I understand how we are supposed to divide up the data between the test and the validation and the training so that we do not lose any underlying connections between the data.
+ It's just that I'm not because I'm reading about I was reading about it.
+ I'm not entirely sure how this following step goes.
+ So basically, one of these steps, it says that for each fold, we treat one subset as the validation set and the remaining nine as the training set.
+ Remaining nine for training set. Yes.
+ So we're talking about like a ten fold cross validation here.
+ OK.
+ So in a ten fold cross validation, the training and validation process is the following. For each fold, we treat one subset as the validation.
+ Are you ready from somewhere?
+ Yes.
+ OK, you can share the screen so it will be easy for us to.
+ Oh, OK. Sorry about that.
+ It's OK. Easy for us to trace.
+ OK.
+ Can you see it?
+ Yes, I can. Yes.
+ OK, so here is what they're suggesting with the end fold cross validation.
+ Basically, it's a data set of eleven thousand observations.
+ They've divided up between test and that training and validation.
+ So one thousand for testing and the other ten thousand between training and validation.
+ Now, what they're suggesting is that once we split it up, we create that ten fold cross validation.
+ I'm just confused in this section, the training and validation process.
+ Maybe it's just the way it's worded. I'm not understanding it.
+ So it says for each fold, we treat one subset as the validation set and the remaining nine as the training set.
+ So is it suggesting that when it's the training and the validation set that the rest of the nine like here, like the rest of the blue ones are training?
+ OK, so there are two things I want to clarify here.
+ First is whether you have to do any coding to split this data into various fold.
+ So answer is no.
+ Right. You just have to implement the grid search CV and you just have to give the CV value as five or ten or three or whatever the fold you want to convert.
+ It will do its task by itself.
+ You don't need to worry. You will do the same split as you did for your first assessment.
+ You will do the same test train split. You will do the same way.
+ Twenty five percent for point to five or 20 percent for the training or whatever for the testing and the rest would be for training and so on.
+ So you don't need to worry about this thing. But the other thing is your understanding, like how actually this work.
+ So basically here they are saying that you totally have 11 chunks.
+ Right. Eleven thousand data. Ten thousand data is used for training and one thousand data is used for testing.
+ Right. Now, when you train your model, you're going to actually have a validation data as well, which will validate your training that you are going accurately.
+ Because the testing will be applied when you finish your training.
+ Right. The same way is, for example, you read your chapter one, then at the end of chapter one, you have certain exercises.
+ Those certain exercises would be your validation that will test the validate and validate your learning outcome of that chapter one.
+ And then once you do all the chapter 10, then you will have your final exam where that 11th chunk will come.
+ Now, within these 10 chapters, the exercises you have, they further split that one.
+ They say nine would be used for training and out of those 10, one would be used for testing.
+ So testing mean validation, validation which is happening during the training of your model.
+ I see. Yeah, because training and this validation that set a data set is when you are training.
+ So during the training, your model is is there would be something which can actually validate or you are learning.
+ OK. Right. So that is the validation data set. Right. Then you will learn the other chunk and you will say, OK.
+ So same similarly as a given example that at the end of each chapter, you have certain exercises that you will say, oh, you are learning.
+ OK, then you will read the chapter two, then do the second chapter exercise and so on.
+ Once you finish all 10, you will repeat it and then you will say, oh, I'm all ready.
+ Then I will give you that 1000 to to see that it would be the test data.
+ But during the training, you can have the validation data that would be used during the training of your model.
+ So they say total 11000 data.
+ Right. When you do the 10 fold cross validation, so that 1000 is even out, that would be used for your testing.
+ Right. That would be when you finish your model training.
+ But those 10,000, those 10 chunks where they say one would be for validation, nine would be for the training.
+ And then I would be for the testing, but that would be once everything is done.
+ So they will say we will run different epochs, different epoch is I will also explain that is even not part of this course,
+ but I will explain you by the end of this course in our week to have some important concepts that you need to go through.
+ Epoch is the full pass, the full scan that you will do from start up till the end of your data set.
+ So say you have 1000 samples. So starting from one up till 1000, if you will go through one time, that is one epoch, one pass.
+ So, for example, they say, oh, how many times you have revised? You will say I have revised five times.
+ It means from one up till Chapter 10, you have revised it once.
+ Then you started from Chapter one again up till Chapter two, you will be why second time is one.
+ So that is basically your epoch value.
+ So they say you will run 11 different epochs in each of that one.
+ You will make one part 1000 of that 10,000 will be for validation and relate remaining 9000 for the training, actually.
+ No, I remember epoch because I've worked in this last semester when I was working on an assignment, intelligent systems.
+ So I was working on creating a system basically sort of like close to machine learning.
+ And then I had to go through the epoch, but it was taking a long time if I was doing it via, well, CPU.
+ So I had to switch over to the GPU power, which sort of that really depends on your data set hole or large data set you will have.
+ So it is a huge data set or if it is an image data set. So, of course, it will take a lot of time.
+ So then you have to shift from CPU to GPU or TPU even.
+ I see a GPU was sufficient for this one.
+ Yeah. All right. So, you know, that makes so much sense. It's just that I was a bit confused with the wording in there.
+ But, you know, it makes sense now that basically it's validation at the same time it's being trained.
+ Yes, true. True. Okay. And when everything is done that then that 11,001 would be used to test your model.
+ I see. OK. Yeah. Yeah. So, yeah, I was a bit confused whether they're mixing up testing in there as well.
+ But now I get it. So it's basically validating the data and the rest are being trained.
+ And then once again, the next chunk is being validated by the other nine are being trained. I understand that.
+ Yes. Yeah. Yeah. OK. Thank you.
+ So any. Yeah. Thank you. No matter for raising this great question. So no, it has clarified the understanding of most of us.
+ Any further question you have any further concerns that you have what you are supposed to do for your assessment one.
+ We have actually made a very huge video. Normally we have half an hour video, but it would be good.
+ Everyone can understand easily our expectation and everything.
+ OK. If no further. Yes, buddy. Any question? No. Good. OK. OK. OK. We can stop the recording for this one.

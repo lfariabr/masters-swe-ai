@@ -1,0 +1,1468 @@
+1
+00:00:00,000 --> 00:00:08,740
+ So take a five minute break, and then we will start our normal lecture.
+
+2
+00:00:08,740 --> 00:00:09,740
+ Okay.
+
+3
+00:00:09,740 --> 00:00:10,740
+ Okay.
+
+4
+00:00:10,740 --> 00:00:11,740
+ Professor.
+
+5
+00:00:11,740 --> 00:00:12,740
+ Yes.
+
+6
+00:00:12,740 --> 00:00:13,740
+ Okay.
+
+7
+00:00:13,740 --> 00:00:41,740
+ So, we will start our normal lecture.
+
+8
+00:00:41,740 --> 00:00:48,740
+ Okay.
+
+9
+00:01:11,740 --> 00:01:18,740
+ Okay.
+
+10
+00:01:18,740 --> 00:01:47,740
+ We will start our normal lecture and then we will start our normal lecture.
+
+11
+00:01:47,740 --> 00:01:54,740
+ Okay.
+
+12
+00:01:54,740 --> 00:02:18,740
+ Okay.
+
+13
+00:02:18,740 --> 00:02:38,740
+ Okay.
+
+14
+00:02:38,740 --> 00:02:55,740
+ We will start our normal lecture and then we will start our normal lecture and then we
+
+15
+00:02:55,740 --> 00:03:02,740
+ will start our normal lecture.
+
+16
+00:03:02,740 --> 00:03:30,740
+ And then we will start our normal lecture and then we will start our normal lecture.
+
+17
+00:03:30,740 --> 00:03:54,740
+ And then we will start our normal lecture and then we will start our normal lecture.
+
+18
+00:03:54,740 --> 00:04:22,740
+ And then we will start our normal lecture and then we will start our normal lecture.
+
+19
+00:04:22,740 --> 00:04:28,740
+ Okay.
+
+20
+00:04:28,740 --> 00:04:35,740
+ Okay.
+
+21
+00:04:35,740 --> 00:05:03,740
+ We will start our normal lecture and then we will start our normal lecture.
+
+22
+00:05:03,740 --> 00:05:26,740
+ And then we will start our normal lecture and then we will start our normal lecture.
+
+23
+00:05:26,740 --> 00:05:51,740
+ And then we will start our normal lecture and then we will start our normal lecture.
+
+24
+00:05:51,740 --> 00:06:07,740
+ Okay.
+
+25
+00:06:07,740 --> 00:06:28,740
+ Welcome back, dear students.
+
+26
+00:06:28,740 --> 00:06:37,740
+ In today's class, we are going to discuss very important concept of explainability.
+
+27
+00:06:37,740 --> 00:07:01,740
+ Let me share my screen so you can watch the slide desk deck here.
+
+28
+00:07:01,740 --> 00:07:20,740
+ Okay.
+
+29
+00:07:20,740 --> 00:07:29,740
+ That is explainable AI, explainable machine learning, right?
+
+30
+00:07:29,740 --> 00:07:38,740
+ This is very important for us because most of your machine learning models, they are
+
+31
+00:07:38,740 --> 00:07:41,740
+ black box in nature.
+
+32
+00:07:41,740 --> 00:07:50,740
+ And when we apply these models into the life critical missions where health or life is
+
+33
+00:07:50,740 --> 00:07:59,740
+ involved, in that case, we need to understand how actually your model has reached to that
+
+34
+00:07:59,740 --> 00:08:01,740
+ particular decision.
+
+35
+00:08:01,740 --> 00:08:03,740
+ This is very important.
+
+36
+00:08:03,740 --> 00:08:11,740
+ For example, if you, and we have discussed this one in our previous class as well, where
+
+37
+00:08:11,740 --> 00:08:18,740
+ we discussed that, if you remember when we discussed about the balanced accuracy, in
+
+38
+00:08:18,740 --> 00:08:25,740
+ the balanced accuracy, what we have discussed that maybe your model is giving us 93% results
+
+39
+00:08:25,740 --> 00:08:29,740
+ and you are saying your model is performing really well.
+
+40
+00:08:29,740 --> 00:08:40,740
+ But for those 90 samples, which were for non-COVID, your model accurately identified and classified
+
+41
+00:08:40,740 --> 00:08:41,740
+ those one.
+
+42
+00:08:41,740 --> 00:08:50,740
+ But out of those 10 COVID patients, your model could have identified 3 samples correctly.
+
+43
+00:08:50,740 --> 00:09:01,740
+ So, for your positive cases, your accuracy was just 30% because out of 10, 3 were correctly
+
+44
+00:09:01,740 --> 00:09:02,740
+ classified.
+
+45
+00:09:02,740 --> 00:09:12,740
+ Though for the non-one, your true negative rate was 100% because out of 90 all were classified
+
+46
+00:09:12,740 --> 00:09:13,740
+ correctly.
+
+47
+00:09:13,740 --> 00:09:22,740
+ So, overall accuracy was 90 plus 3, which is Tn plus Tp divide by total which are 100.
+
+48
+00:09:22,740 --> 00:09:25,300
+ So, your accuracy was 93%.
+
+49
+00:09:25,300 --> 00:09:37,340
+ But that is not correct because misclassifying any non-COVID person is involving some extra
+
+50
+00:09:37,340 --> 00:09:42,140
+ test and consideration.
+
+51
+00:09:42,140 --> 00:09:47,620
+ And then you will eventually reach to the CNO that person is a non-COVID patient.
+
+52
+00:09:47,620 --> 00:09:52,200
+ We like mistakenly classified it as a COVID one.
+
+53
+00:09:52,200 --> 00:09:59,000
+ But if you will let any COVID person to go into the society, to go home, that will create
+
+54
+00:09:59,000 --> 00:10:00,580
+ a big disaster.
+
+55
+00:10:00,580 --> 00:10:06,700
+ So, those 7 which you are misclassifying are big disaster for us.
+
+56
+00:10:06,700 --> 00:10:12,340
+ Similarly, we discussed another example of the malware files.
+
+57
+00:10:12,340 --> 00:10:21,200
+ So 90 out of 90 non-malware files, non-malicious, non-virus files were classified correctly.
+
+58
+00:10:21,200 --> 00:10:26,180
+ And out of the 10 malicious files, 3 were classified correctly.
+
+59
+00:10:26,180 --> 00:10:33,540
+ So you can imagine like misclassifying a non-malicious file would require some extensive tests and
+
+60
+00:10:33,540 --> 00:10:37,800
+ some doing some further static analysis or dynamic analysis.
+
+61
+00:10:37,800 --> 00:10:45,620
+ But if you will release a malware file to enter into the network or into a computer
+
+62
+00:10:45,620 --> 00:10:49,740
+ system that will create a big disaster for us.
+
+63
+00:10:49,740 --> 00:10:52,900
+ So in most of the cases, this is very important.
+
+64
+00:10:52,900 --> 00:10:58,020
+ And last time you remember, we discussed with the immigration example that the person who
+
+65
+00:10:58,020 --> 00:11:04,220
+ do not have the right visa, if you let that one to enter, that is a big problem for us.
+
+66
+00:11:04,220 --> 00:11:11,540
+ So we need to understand when this machine learning is being applied because you know
+
+67
+00:11:11,540 --> 00:11:17,300
+ machine learning nowadays is being applied in every area of life, whether it is health,
+
+68
+00:11:17,300 --> 00:11:27,460
+ whether it is manufacturing, mechanical, whether it is education, finance, cyber, anywhere.
+
+69
+00:11:27,460 --> 00:11:33,280
+ So it is very important to use the machine learning wisely.
+
+70
+00:11:33,280 --> 00:11:36,860
+ So that is all about this lecture.
+
+71
+00:11:36,860 --> 00:11:44,760
+ So when you have a data and within the data, you train a black box AI model and then you
+
+72
+00:11:44,760 --> 00:11:46,760
+ get the output.
+
+73
+00:11:46,760 --> 00:11:47,760
+ That is one way.
+
+74
+00:11:47,760 --> 00:11:52,820
+ The other is you have the data here and you get your model here.
+
+75
+00:11:52,820 --> 00:11:59,580
+ But whatever the output you have, you are getting here, you need its explanation, right?
+
+76
+00:11:59,580 --> 00:12:06,820
+ How this would have been interpreted or you need to understand the rules related are behind
+
+77
+00:12:06,820 --> 00:12:07,820
+ that one.
+
+78
+00:12:07,820 --> 00:12:12,420
+ So that is what the main, that raise two main concept.
+
+79
+00:12:12,420 --> 00:12:18,480
+ Number one is the interpretability refers to the ability to observe cause and effect
+
+80
+00:12:18,480 --> 00:12:24,680
+ situation in a system and essentially predict which changes will cause what type of shift
+
+81
+00:12:24,680 --> 00:12:26,920
+ in the result, right?
+
+82
+00:12:26,920 --> 00:12:32,360
+ And explainability is basically the ability to understand and explain in human terms what
+
+83
+00:12:32,360 --> 00:12:37,180
+ is happening with the model, how exactly it works under the hood.
+
+84
+00:12:37,180 --> 00:12:42,780
+ So interpretability, I can give you one example, which we discussed that if you have a normal
+
+85
+00:12:42,780 --> 00:12:50,500
+ fever, you are feeling pain on the backside of your eyes or maybe back pain, are you feeling
+
+86
+00:12:50,500 --> 00:12:52,440
+ a little bit of dizzy?
+
+87
+00:12:52,440 --> 00:12:58,880
+ Then maybe you, your medical petitioner will say, or you have a normal seasonal flu.
+
+88
+00:12:58,880 --> 00:13:06,020
+ But if you are vomiting along with these symptoms, they might say you have a typhoid or if you
+
+89
+00:13:06,020 --> 00:13:10,980
+ are along with these features, if you are shivering a lot, they might say you got a
+
+90
+00:13:10,980 --> 00:13:15,380
+ malaria, for example, or if you are sneezing a lot, your platelets are decreasing.
+
+91
+00:13:15,380 --> 00:13:18,500
+ They might say that you got a COVID for example.
+
+92
+00:13:18,500 --> 00:13:25,260
+ So you just have to see this cause and effect situation, which are actually changing your
+
+93
+00:13:25,260 --> 00:13:26,260
+ result.
+
+94
+00:13:26,260 --> 00:13:33,120
+ But explainability on the other hand is telling you and explaining you into a human understandable
+
+95
+00:13:33,120 --> 00:13:38,340
+ way that what happening with this model, how your model actually reached to that particular
+
+96
+00:13:38,340 --> 00:13:40,100
+ disease and so on.
+
+97
+00:13:40,100 --> 00:13:45,040
+ So that is what your explainability of any model is.
+
+98
+00:13:45,040 --> 00:13:54,340
+ So these things are very important because the machine learning raises novel challenges.
+
+99
+00:13:54,340 --> 00:14:00,700
+ The one challenge which we discussed is your imbalance data set issue, which we discussed
+
+100
+00:14:00,700 --> 00:14:02,160
+ in our previous class.
+
+101
+00:14:02,160 --> 00:14:09,460
+ So as I mentioned, whenever you are applying any machine learning to solve any of the problem,
+
+102
+00:14:09,460 --> 00:14:15,700
+ you have to see whether your data is balanced or not, because if your data is highly imbalanced,
+
+103
+00:14:15,700 --> 00:14:21,580
+ then in that case, your model will be skewed toward to the majority class.
+
+104
+00:14:21,580 --> 00:14:27,660
+ That is the second issue now that most of your machine learning models, they are black
+
+105
+00:14:27,660 --> 00:14:29,540
+ box in nature.
+
+106
+00:14:29,540 --> 00:14:31,940
+ So it is very important for us.
+
+107
+00:14:31,940 --> 00:14:37,340
+ I can ask you this question some I know some of the universities here in Australia, some
+
+108
+00:14:37,340 --> 00:14:44,660
+ big universities when they advertise any lecturer position, they found a lot of applicants more
+
+109
+00:14:44,660 --> 00:14:51,220
+ than 150, 200 and then it is really very hard because all of them they are the PhDs, they
+
+110
+00:14:51,220 --> 00:14:53,380
+ have the papers and so on.
+
+111
+00:14:53,380 --> 00:14:59,240
+ So they use certain AI tools in order to shortlist certain applicant.
+
+112
+00:14:59,240 --> 00:15:06,860
+ In that case, me as an applicant want to know why my application has not been selected,
+
+113
+00:15:06,860 --> 00:15:14,780
+ not been shortlisted, or maybe Commonwealth Bank, they are using any tool, any AI to approve
+
+114
+00:15:14,780 --> 00:15:16,560
+ your loan or not.
+
+115
+00:15:16,560 --> 00:15:25,300
+ So even in that case, you also want to know that why my loan application was not approved.
+
+116
+00:15:25,300 --> 00:15:34,020
+ So it is important for policymakers, regulators to understand to see how your model reached
+
+117
+00:15:34,020 --> 00:15:40,700
+ to that particular to see and is there any discriminatory stuff behind the selection
+
+118
+00:15:40,700 --> 00:15:45,880
+ or the short listing of the applicants in whatever the task you apply.
+
+119
+00:15:45,880 --> 00:15:51,780
+ So it needs some further technical research, which will actually tell you that everything
+
+120
+00:15:51,780 --> 00:15:57,820
+ is okay, there is no as such wiseness or any problem into the machine learning decision.
+
+121
+00:15:57,820 --> 00:16:05,660
+ So examples could be when interacting with any algorithmic decisions, whatever the decision,
+
+122
+00:16:05,660 --> 00:16:12,820
+ whatever the prediction your model has made user actually expect and demand the same level
+
+123
+00:16:12,820 --> 00:16:18,780
+ of expressiveness, why you have made that decision, why you reach to that decision.
+
+124
+00:16:18,780 --> 00:16:29,760
+ A doctor if using the AI to diagnose any disease, so then both of them they want to see whether
+
+125
+00:16:29,760 --> 00:16:36,540
+ the machine learning whatever the CN the model has missed, what are the reasons behind what
+
+126
+00:16:36,540 --> 00:16:41,860
+ is the rationale behind what important features they have considered in order to reach to
+
+127
+00:16:41,860 --> 00:16:44,460
+ that particular decision.
+
+128
+00:16:44,460 --> 00:16:50,400
+ Similarly as we discussed the example of loan approval, if your application is denied, then
+
+129
+00:16:50,400 --> 00:16:56,380
+ you want to know and understand the main reasons because based on that one you can improve
+
+130
+00:16:56,380 --> 00:17:01,340
+ in future and then you can reapply again.
+
+131
+00:17:01,340 --> 00:17:06,340
+ Similarly regulator will want to understand the behavior of the system or a developer
+
+132
+00:17:06,340 --> 00:17:11,500
+ may want to understand where the model is more or less confident so they can provide
+
+133
+00:17:11,500 --> 00:17:17,780
+ more data set, more number of features or they can improve the overall performance of
+
+134
+00:17:17,780 --> 00:17:18,780
+ your model.
+
+135
+00:17:18,780 --> 00:17:25,780
+ So as we discussed that your machine learning, your AI both are being applied into various
+
+136
+00:17:25,780 --> 00:17:32,460
+ areas of life and then each one of them when there is a very high critical whether it is
+
+137
+00:17:32,460 --> 00:17:41,820
+ a finance, whether it is a medical, so that needs a lot amount of your explainability
+
+138
+00:17:41,820 --> 00:17:45,900
+ to understand that how actually your model reached to that decision.
+
+139
+00:17:45,900 --> 00:17:55,580
+ So explainable AI is crucial for risk assessment, fraud detection and explaining credit decisions,
+
+140
+00:17:55,580 --> 00:18:00,360
+ how they actually assign you a particular credit rating and so on.
+
+141
+00:18:00,360 --> 00:18:10,460
+ So these things are really very important because if you will have these things that
+
+142
+00:18:10,460 --> 00:18:18,100
+ will actually increase the trust of your customers, your investors on your system because they
+
+143
+00:18:18,100 --> 00:18:26,140
+ will feel that your system has a rational, it is telling us what are the reasons and
+
+144
+00:18:26,140 --> 00:18:31,220
+ then if you improve those reasons, if you overcome those limitations and then you reapply
+
+145
+00:18:31,220 --> 00:18:33,540
+ then you could have selected there.
+
+146
+00:18:33,540 --> 00:18:40,340
+ So both make sense, both makes more logic and if there is any problem they can feed
+
+147
+00:18:40,340 --> 00:18:46,860
+ more data to the training of your model and then can improve the predictions later on.
+
+148
+00:18:46,860 --> 00:18:52,420
+ So whether it is finance and the second one which is very important nowadays which is
+
+149
+00:18:52,420 --> 00:18:59,700
+ your autonomous driving, autonomous cars, you can understand now also working in Australia
+
+150
+00:18:59,700 --> 00:19:09,220
+ which needs a huge number of sensors and various technology, maps, satellites and artificial
+
+151
+00:19:09,220 --> 00:19:15,580
+ intelligence in order to make a certain decision, roads and if there is any obstacles come on
+
+152
+00:19:15,580 --> 00:19:18,560
+ the way and parking and so on.
+
+153
+00:19:18,560 --> 00:19:24,960
+ So you can understand in that one how explainability, how much explainability is required.
+
+154
+00:19:24,960 --> 00:19:31,700
+ So explainability in autonomous vehicles is vital for the understanding vehicle, the scenes
+
+155
+00:19:31,700 --> 00:19:36,640
+ in the real time which is crucial for the safety and the legal reasons.
+
+156
+00:19:36,640 --> 00:19:43,640
+ So explanation help operators to intervene if needed and add regulators in accountability
+
+157
+00:19:43,640 --> 00:19:48,620
+ assessments after accident if anything bad happens and in recent there was an incident
+
+158
+00:19:48,620 --> 00:19:56,340
+ happen into the US where one car was actually collided with a house and they have put it
+
+159
+00:19:56,340 --> 00:20:03,940
+ on the auto driving but they say that even putting into the auto driving the driver actually
+
+160
+00:20:03,940 --> 00:20:06,660
+ put a pressure onto the pedal and so on.
+
+161
+00:20:06,660 --> 00:20:11,500
+ So there was a lot of discussion which Elon Musk has given but that was happening with
+
+162
+00:20:11,500 --> 00:20:16,340
+ the recent case in a few weeks ago with the Tesla in US.
+
+163
+00:20:16,340 --> 00:20:22,940
+ So anyways but in that case even the autonomous driving you need to understand how actually
+
+164
+00:20:22,940 --> 00:20:28,660
+ that decision has been made or if there would be any problem how you can improve in future.
+
+165
+00:20:28,660 --> 00:20:35,740
+ Healthcare as we discussed it's really help to the medical practitioner, diagnostic process,
+
+166
+00:20:35,740 --> 00:20:44,500
+ treatment recommendation and so on and whatever the CT scan or x-ray or other analysis, image
+
+167
+00:20:44,500 --> 00:20:51,620
+ analysis we are doing so it is really very important because the emphasis on the accuracy
+
+168
+00:20:51,620 --> 00:20:57,460
+ plus the reliability and the ability to provide explanation to the healthcare professional
+
+169
+00:20:57,460 --> 00:21:02,620
+ that how they actually reach to that particular disease so they can trust and make the system
+
+170
+00:21:02,620 --> 00:21:08,300
+ more robust whenever they have any problem into the analysis.
+
+171
+00:21:08,300 --> 00:21:14,340
+ Similarly manufacturing as you can understand there could be a simple bug into that one
+
+172
+00:21:14,340 --> 00:21:17,620
+ that can raise a significant issue later on.
+
+173
+00:21:17,620 --> 00:21:23,260
+ So it is very important to understand how actually that process is going to be happen.
+
+174
+00:21:23,260 --> 00:21:31,520
+ So why do we need the interpretability, explainability sometimes it is important for our safety right.
+
+175
+00:21:31,520 --> 00:21:39,020
+ Your system would be much more secured and then you also have the curiosity as well how
+
+176
+00:21:39,020 --> 00:21:44,500
+ your system is working and how they are making those particular decisions and so on and if
+
+177
+00:21:44,500 --> 00:21:51,820
+ there would be any problem you can debug it and then can add more regulations, more data
+
+178
+00:21:51,820 --> 00:21:57,740
+ into that one in order to make your system more robust and so on and can also optimize
+
+179
+00:21:57,740 --> 00:22:03,260
+ your true objective they are detecting it correctly by adding more stuff you can actually
+
+180
+00:22:03,260 --> 00:22:09,200
+ improve their overall performance so that is the four areas.
+
+181
+00:22:09,200 --> 00:22:14,060
+ There are a lot of different areas but these are the four important areas where actually
+
+182
+00:22:14,060 --> 00:22:22,220
+ give us a need of this interpretability and why and where we do not need any explainability
+
+183
+00:22:22,220 --> 00:22:26,980
+ where there is low risk there is as such no significant problem whether you are going
+
+184
+00:22:26,980 --> 00:22:31,980
+ to play tennis or not remember the example which we discussed when we were discussing
+
+185
+00:22:31,980 --> 00:22:37,900
+ about the sea and tree or if there would be any awareness related stuff so that is also
+
+186
+00:22:37,900 --> 00:22:43,880
+ well studies area so where we actually do not need to have the explainability everybody
+
+187
+00:22:43,880 --> 00:22:49,740
+ also understood that they have to follow this thing and they have to go through this path
+
+188
+00:22:49,740 --> 00:22:55,220
+ in order to achieve anything and when the vulnerability prevent people from gaming the
+
+189
+00:22:55,220 --> 00:23:00,340
+ system where there is need of the interpretability.
+
+190
+00:23:00,340 --> 00:23:09,240
+ So now the question is how you can actually achieve that explainability that interpretability
+
+191
+00:23:09,240 --> 00:23:16,540
+ the first is very easy is to use those models which are inherently interpretable like the
+
+192
+00:23:16,540 --> 00:23:23,340
+ sea and tree which we already have studied where normally you select a particular attribute
+
+193
+00:23:23,340 --> 00:23:31,380
+ as your root attribute for example and its possible values will actually make their path
+
+194
+00:23:31,380 --> 00:23:36,380
+ right and then you select an attribute here select an attribute here select here and all
+
+195
+00:23:36,380 --> 00:23:42,620
+ of this one has back of the mathematics but we are not going actually how actually this
+
+196
+00:23:42,620 --> 00:23:48,460
+ has been built but one this has been built for us as human it is very easy that we can
+
+197
+00:23:48,460 --> 00:23:53,380
+ induce the rules and based on those rules we can make certain the sea and we can say
+
+198
+00:23:53,380 --> 00:23:58,620
+ oh if your loan is not approved or if you are not going to play the tennis because of
+
+199
+00:23:58,620 --> 00:24:03,900
+ this one because the humidity is low or the temperature is high or your age value is this
+
+200
+00:24:03,900 --> 00:24:10,340
+ one so that is why you reach to that particular sea and so those models they we call it as
+
+201
+00:24:10,340 --> 00:24:19,060
+ instantly interpretable or inherently interpretable means they are by birth you can say they are
+
+202
+00:24:19,060 --> 00:24:24,900
+ the explainable right anybody who can see and the simple linear regression as well very
+
+203
+00:24:24,900 --> 00:24:30,700
+ easy for us you can say if it is a 2 gb ram then this much cost if it is 4 gb then this
+
+204
+00:24:30,700 --> 00:24:37,620
+ much cost if it is iphone 14 this cost you find one 15 this card if your iphone 16 this
+
+205
+00:24:37,620 --> 00:24:42,300
+ is the cost so easily anybody can relate and understand as soon as you are growing into
+
+206
+00:24:42,300 --> 00:24:49,100
+ the models as soon as you are increasing the storage capacity your price your cost is also
+
+207
+00:24:49,100 --> 00:24:54,980
+ increasing so very easy to understand how actually the model is working and so on the
+
+208
+00:24:54,980 --> 00:25:02,100
+ second problem is if you have the black box model which most of your models are for that
+
+209
+00:25:02,100 --> 00:25:09,820
+ one we need to understand what important features the model has considered in order to understand
+
+210
+00:25:09,820 --> 00:25:14,800
+ the things right in order to understand and making that particular to see and for that
+
+211
+00:25:14,800 --> 00:25:24,860
+ one we will study about 3 things one is the shapely the second one is lime and the third
+
+212
+00:25:24,860 --> 00:25:33,020
+ one is eld5 which are very easy so lime is basically local interpretable model agnostic
+
+213
+00:25:33,020 --> 00:25:40,220
+ explanation right so for example lime approach provides explanation for instance prediction
+
+214
+00:25:40,220 --> 00:25:46,180
+ of a model what is the target that drives like what actually reach to the adhesion so
+
+215
+00:25:46,180 --> 00:25:51,820
+ for example you say you have a model here this is your data and data set you you got
+
+216
+00:25:51,820 --> 00:25:58,980
+ a flu for example and then it will explain you why you we have assigned you the flu because
+
+217
+00:25:58,980 --> 00:26:04,620
+ you were sneezing you were having headache and there was no fatigue so that is the reason
+
+218
+00:26:04,620 --> 00:26:11,260
+ we actually assigned to that particular label similar case for example if they assign typhoid
+
+219
+00:26:11,260 --> 00:26:17,640
+ so maybe they will give more weightage here to the vomiting or if they assign you the
+
+220
+00:26:17,640 --> 00:26:24,740
+ label for example covid they they might say that your platelets are decreasing and then
+
+221
+00:26:24,740 --> 00:26:31,340
+ you you have a running nose and so on so that are some of the reasons which I considered
+
+222
+00:26:31,340 --> 00:26:38,300
+ in order to reach to that particular decision to that prediction label so that is get through
+
+223
+00:26:38,300 --> 00:26:46,700
+ the line right so start with the normal image and use the black box model to produce a probability
+
+224
+00:26:46,700 --> 00:26:51,820
+ distribution over the classes so for example here they say this is the original image and
+
+225
+00:26:51,820 --> 00:26:58,260
+ they will actually interpret different components of that image and based on that one they will
+
+226
+00:26:58,260 --> 00:27:04,380
+ assign the particular label for example here they can have one chunk of images like this
+
+227
+00:27:04,380 --> 00:27:10,060
+ one one chunk is this one one check is this and then they will assign the probability
+
+228
+00:27:10,060 --> 00:27:15,500
+ so maybe if if this is the image and if it is the had been divided like this so they
+
+229
+00:27:15,500 --> 00:27:21,620
+ might say this is a frog for example or they might say that if you just have these kind
+
+230
+00:27:21,620 --> 00:27:26,720
+ of balls here so they might say that this this is a snooker table or billiard table
+
+231
+00:27:26,720 --> 00:27:32,160
+ for example and this is the probability probability is very low and this may be a balloon because
+
+232
+00:27:32,160 --> 00:27:37,300
+ you have different colors and so on and then the probability is again very low so the high
+
+233
+00:27:37,300 --> 00:27:43,740
+ probability is that it is a frog which is on a for example a leaf of a tree and so on
+
+234
+00:27:43,740 --> 00:27:49,500
+ so it gives the different probability to to each of the label which is being assigned
+
+235
+00:27:49,500 --> 00:27:55,060
+ and then you can say okay this label got the high probability so that could be one of the
+
+236
+00:27:55,060 --> 00:28:03,700
+ reasons second is your shapely values in that one you gonna use a shape library which is
+
+237
+00:28:03,700 --> 00:28:10,380
+ very easy so for example they say this is the house and its price is for example this
+
+238
+00:28:10,380 --> 00:28:17,480
+ one so it will give you the understanding that what could be the reasons its price is
+
+239
+00:28:17,480 --> 00:28:26,220
+ high so for example if somebody is buying a house any anywhere you you are doing you
+
+240
+00:28:26,220 --> 00:28:30,940
+ are living into different house some of you most of you are international students so
+
+241
+00:28:30,940 --> 00:28:36,740
+ they might be living on a rental property so whenever they advertise this property so
+
+242
+00:28:36,740 --> 00:28:42,300
+ they always mention that it is closer to the school closer to the supermarket closer to
+
+243
+00:28:42,300 --> 00:28:48,660
+ the train station and so on or maybe it is on the first floor on the ground floor for
+
+244
+00:28:48,660 --> 00:28:54,740
+ example or maybe it is on the fourth floor so where you can have view of the ocean and
+
+245
+00:28:54,740 --> 00:29:01,940
+ so on you can watch the beaches from there and and so on so based on that one they their
+
+246
+00:29:01,940 --> 00:29:08,940
+ price can actually increase and we have to understand if it is something is very closer
+
+247
+00:29:08,940 --> 00:29:15,060
+ to the shore so we can understand maybe it is closer to the ocean so because of the view
+
+248
+00:29:15,060 --> 00:29:21,860
+ as much as you will go high into that high rise building so the price would high but
+
+249
+00:29:21,860 --> 00:29:27,740
+ if you are living on to other sides other areas and then maybe if you have closer to
+
+250
+00:29:27,740 --> 00:29:33,780
+ the supermarket or closer to the school for example or bus station train station that
+
+251
+00:29:33,780 --> 00:29:41,460
+ might be the increase would be in your price and so on so it will actually explain you
+
+252
+00:29:41,460 --> 00:29:48,980
+ give the different values to different attributes so Shapley is basically Shapley adaptive explanation
+
+253
+00:29:48,980 --> 00:29:54,560
+ goal of shape is to explain the prediction of an instance x by computing the contribution
+
+254
+00:29:54,560 --> 00:30:02,340
+ of each features to the prediction so very simple code you can import shape so that is
+
+255
+00:30:02,340 --> 00:30:09,420
+ what I mentioned that you can copy paste this code into your assessment at the end maybe
+
+256
+00:30:09,420 --> 00:30:15,820
+ just for one of the example when you are discussing after the result so you would say for example
+
+257
+00:30:15,820 --> 00:30:21,920
+ you already applied to random forest regressor right so of course now it would be random
+
+258
+00:30:21,920 --> 00:30:26,820
+ forest classifier not the regression because you are not doing the regression and then
+
+259
+00:30:26,820 --> 00:30:33,620
+ you can create shape and model that fit and then shape values give that model here and
+
+260
+00:30:33,620 --> 00:30:40,340
+ it will give you that bar chart so it will give you that alcohol has the higher priority
+
+261
+00:30:40,340 --> 00:30:49,860
+ if the alcohol value is high then the overall quality of your wine would be high and that
+
+262
+00:30:49,860 --> 00:30:57,300
+ is what you can just simply see in your red wine white wine data set if your alcohol value
+
+263
+00:30:57,300 --> 00:31:04,780
+ is high you gonna actually have the high quality value between 0 to 10 and if it is a lower
+
+264
+00:31:04,780 --> 00:31:10,600
+ then you can have low though other attributes are also contributing but not that much as
+
+265
+00:31:10,600 --> 00:31:19,820
+ you can see free sugar dioxide residual sugar citric acid and so on our density or fix acid
+
+266
+00:31:19,820 --> 00:31:28,340
+ dt but alcohol has a maximum contribution for that particular example so you can just
+
+267
+00:31:28,340 --> 00:31:33,540
+ have shaped our summary plot and it will give you that kind of summary similarly you can
+
+268
+00:31:33,540 --> 00:31:40,300
+ just have shape summary plot shape values extreme and you can have this kind of diagram
+
+269
+00:31:40,300 --> 00:31:47,100
+ here you can see the high contribution is for the alcohol feature then sulfates and
+
+270
+00:31:47,100 --> 00:31:54,640
+ so on and then this actually shows that these particular attributes they have very low contributions
+
+271
+00:31:54,640 --> 00:32:02,380
+ and these are very high similarly for example for the covid one so you would see that running
+
+272
+00:32:02,380 --> 00:32:10,740
+ nose are decreasing the platelets count they have more number of influence on your final
+
+273
+00:32:10,740 --> 00:32:17,740
+ results similarly for typhoid the vomiting fever along with other symptoms would have
+
+274
+00:32:17,740 --> 00:32:26,620
+ the maximum impact as compared to your height or age or area season or could be other attribute
+
+275
+00:32:26,620 --> 00:32:31,740
+ other features into your data set as well so that is shapely you can just copy paste
+
+276
+00:32:31,740 --> 00:32:37,540
+ that according to your second and third assessment to implement the explainability very easy
+
+277
+00:32:37,540 --> 00:32:45,300
+ for you the last one is the ele5 python library which also allows to visualize and debug the
+
+278
+00:32:45,300 --> 00:32:53,700
+ various machine learning models using unified api it is also built in sport for several
+
+279
+00:32:53,700 --> 00:32:59,700
+ machine learning frameworks and provides a way to explain black box models so say these
+
+280
+00:32:59,700 --> 00:33:10,060
+ are the features for very famous titanic data set for example and then from here you just
+
+281
+00:33:10,060 --> 00:33:16,300
+ have to import show weights for example you implement this extreme gradient boosting classifier
+
+282
+00:33:16,300 --> 00:33:21,780
+ that is one of the in sampler algorithm in sampling techniques we already have studied
+
+283
+00:33:21,780 --> 00:33:27,660
+ and then you fit your training data and then you say show weights and here you would see
+
+284
+00:33:27,660 --> 00:33:35,220
+ the way so where the priority was given to the female gender this particular feature
+
+285
+00:33:35,220 --> 00:33:41,820
+ firstly the sex and then the value is the female that has the highest weighty that is
+
+286
+00:33:41,820 --> 00:33:51,160
+ given in order to assign the particular label and so on right similarly explaining predictions
+
+287
+00:33:51,160 --> 00:33:56,980
+ show prediction give another example and that is another chart here so you will see the
+
+288
+00:33:56,980 --> 00:34:05,220
+ this particular feature and its particular value has plus 1.6 contribution and where
+
+289
+00:34:05,220 --> 00:34:13,900
+ the other one has in negative or in plus and so on
+
+290
+00:34:13,900 --> 00:34:22,260
+ right i hope this makes sense which you can easily understand and can easily implement
+
+291
+00:34:22,260 --> 00:34:32,040
+ in your second and third assessments very easy so you can understand that explainability
+
+292
+00:34:32,040 --> 00:34:39,100
+ is really very important and to implement that explainability you can either use the
+
+293
+00:34:39,100 --> 00:34:46,880
+ ele5 python library you can use shape which is very famous or you can use the lime which
+
+294
+00:34:46,880 --> 00:34:53,300
+ will actually give you different diagrams different bar charts to show the significance
+
+295
+00:34:53,300 --> 00:34:59,080
+ the contribution of each features and based on that one you can actually discuss that
+
+296
+00:34:59,080 --> 00:35:06,300
+ this particular features has very much importance toward assigning that particular label so
+
+297
+00:35:06,300 --> 00:35:26,880
+ any any question any doubt you may have to understand this one please do ask yes any
+
+298
+00:35:26,880 --> 00:35:38,900
+ any question any doubt guys
+
+299
+00:35:56,880 --> 00:35:57,880
+ you
+
+300
+00:36:26,880 --> 00:36:51,180
+ okay any any question you may explore the resources available here if you go to this
+
+301
+00:36:51,180 --> 00:37:06,280
+ one that will also give you some ideas related to week seven so explainable ai you can have
+
+302
+00:37:06,280 --> 00:37:18,460
+ a look to these resources right and then you can perform these activities so similarly
+
+303
+00:37:18,460 --> 00:37:24,460
+ you will have one discussion forum here there is another bank loan activity using open source
+
+304
+00:37:24,460 --> 00:37:30,020
+ toolkit where they actually implement this one and the other one is implementing the
+
+305
+00:37:30,020 --> 00:37:38,720
+ shapely shape explainer dashboard so you may have a look to this one so what is shape when
+
+306
+00:37:38,720 --> 00:37:43,860
+ it has been implemented what is its theory we don't need to understand and go into detail
+
+307
+00:37:43,860 --> 00:37:51,920
+ of that we are more into how actually this could be implemented so you will see here
+
+308
+00:37:51,920 --> 00:37:57,580
+ if if they have given the code so you can just implement any two of them we have given
+
+309
+00:37:57,580 --> 00:38:03,660
+ you the code for today for this diagram for this one so you can just use that to course
+
+310
+00:38:03,660 --> 00:38:11,960
+ in in your assessment to implement and clearly says that you implemented the explainable
+
+311
+00:38:11,960 --> 00:38:40,820
+ ai.
+
+312
+00:38:40,820 --> 00:38:45,820
+ yes any further question you have so please go through these activities and if there would
+
+313
+00:38:45,820 --> 00:38:59,180
+ be any question please let me know okay so you'll upload the recording for assessment
+
+314
+00:38:59,180 --> 00:39:07,820
+ as well right for assessment yeah that we talked earlier today i missed the class in
+
+315
+00:39:07,820 --> 00:39:11,820
+ the beginning that's right yeah yeah that recording definitely would have been saved
+
+316
+00:39:11,820 --> 00:39:17,020
+ maybe all right but that would be available i will rename it properly assessment to discussion
+
+317
+00:39:17,020 --> 00:39:21,540
+ so you can watch that recording in order to understand it sounds good thank you so much
+
+318
+00:39:37,820 --> 00:39:38,900
+ you
+
+319
+00:40:07,820 --> 00:40:08,900
+ you
+
+320
+00:40:37,820 --> 00:40:38,900
+ you
+
+321
+00:41:07,820 --> 00:41:08,900
+ you
+
+322
+00:41:37,820 --> 00:41:38,900
+ you
+
+323
+00:42:07,820 --> 00:42:08,900
+ you
+
+324
+00:42:37,820 --> 00:42:38,900
+ you
+
+325
+00:43:07,820 --> 00:43:22,660
+ so guys to your activities and if there would be any question please don't hesitate to ask
+
+326
+00:43:22,660 --> 00:43:27,540
+ otherwise i will see you next week please watch the recordings which is very important
+
+327
+00:43:27,540 --> 00:43:32,900
+ i will rename it properly and i will send an announcement as well for your following
+
+328
+00:43:32,900 --> 00:43:45,860
+ assessments okay all the best thank you thank you thank you professor no worries no worries
+
+329
+00:43:45,860 --> 00:43:47,780
+ have a good day guys bye
+
+330
+00:44:02,900 --> 00:44:02,980
+ you
+
+331
+00:44:32,900 --> 00:44:32,980
+ you
+
+332
+00:45:02,900 --> 00:45:03,060
+ you
+
+333
+00:45:32,900 --> 00:45:33,140
+ you
+
+334
+00:46:02,900 --> 00:46:03,220
+ you
+
+335
+00:46:32,900 --> 00:46:33,300
+ you
+
+336
+00:47:02,900 --> 00:47:03,380
+ you
+
+337
+00:47:32,900 --> 00:47:33,460
+ you
+
+338
+00:48:02,900 --> 00:48:03,460
+ you
+
+339
+00:48:32,900 --> 00:48:33,460
+ you
+
+340
+00:49:02,900 --> 00:49:03,460
+ you
+
+341
+00:49:32,900 --> 00:49:33,460
+ you
+
+342
+00:50:02,900 --> 00:50:03,460
+ you
+
+343
+00:50:32,900 --> 00:50:33,460
+ you
+
+344
+00:51:02,900 --> 00:51:03,460
+ you
+
+345
+00:51:32,900 --> 00:51:33,460
+ you
+
+346
+00:52:02,900 --> 00:52:03,460
+ you
+
+347
+00:52:32,900 --> 00:52:33,460
+ you
+
+348
+00:53:02,900 --> 00:53:03,460
+ you
+
+349
+00:53:32,900 --> 00:53:33,460
+ you
+
+350
+00:54:02,900 --> 00:54:03,460
+ you
+
+351
+00:54:32,900 --> 00:54:33,460
+ you
+
+352
+00:55:02,900 --> 00:55:03,460
+ you
+
+353
+00:55:32,900 --> 00:55:33,460
+ you
+
+354
+00:56:02,900 --> 00:56:03,460
+ you
+
+355
+00:56:32,900 --> 00:56:33,460
+ you
+
+356
+00:57:02,900 --> 00:57:03,460
+ you
+
+357
+00:57:32,900 --> 00:57:33,460
+ you
+
+358
+00:58:02,900 --> 00:58:03,460
+ you
+
+359
+00:58:32,900 --> 00:58:33,460
+ you
+
+360
+00:59:02,900 --> 00:59:03,460
+ you
+
+361
+00:59:32,900 --> 00:59:33,460
+ you
+
+362
+01:00:02,900 --> 01:00:03,460
+ you
+
+363
+01:00:32,900 --> 01:00:33,460
+ you
+
+364
+01:01:02,900 --> 01:01:03,460
+ you
+
+365
+01:01:32,900 --> 01:01:33,460
+ you
+
+366
+01:02:02,900 --> 01:02:03,460
+ you
+
+367
+01:02:32,900 --> 01:02:33,460
+ you
+
