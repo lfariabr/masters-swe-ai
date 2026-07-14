@@ -63,7 +63,7 @@ because its integer encoding would otherwise imply a meaningless ordering.
 Quality checks found no duplicate rows and no duplicate customer IDs. The 11 blank `TotalCharges`
 records all had `tenure = 0`; they were set to zero because these new customers had genuinely
 accumulated no charges, a domain-informed correction preferable to a global median (Han et al.,
-2012). Imputing the median here would have invented a spending history for customers who had none.
+2011). Imputing the median here would have invented a spending history for customers who had none.
 IQR checks found no outliers requiring removal. Even if an extreme had been found, it would require
 investigation rather than automatic deletion, because a high-value or long-tenure customer may be
 entirely legitimate and is precisely the customer the business least wants to lose.
@@ -215,6 +215,14 @@ last improves AUC, which is why the two tuned-threshold rows in Table 2 leave AU
 decision tree remains the explanatory model the brief requires and the source of the rules in §4.2;
 the Random Forest is the stronger operational candidate for scoring.
 
+None of this gain came from the earlier steps, and saying so is what pins down where it did come from.
+Dropping `TotalCharges` cost 0.0016 of validation AUC (§2): the 13-predictor model is simpler at no
+measurable price, but no more accurate. Missing-value handling pushed the outcome the other way. Mode
+imputation of a 30% gap in `Contract` barely moved accuracy, from 0.781 to 0.779, while churn-F1 fell
+from 0.548 to 0.485 (§3). Cleaning and imputation are not a route to better detection, then. They are
+what makes the numbers worth believing in the first place. Every point of improvement in Table 2 came
+from how the model is trained, ranked and cut.
+
 **Table 2. Held-out comparison of the baseline decision tree and recall-focused alternatives.**
 
 | Model | Threshold | Accuracy | Precision | Recall | Churn-F1 | AUC |
@@ -300,9 +308,9 @@ Apache Spark. (2024). *MLlib: Classification and regression*. https://spark.apac
 
 EMC Education Services. (2015). *Data science and big data analytics: Discovering, analyzing, visualizing and presenting data*. John Wiley & Sons.
 
-Han, J., Pei, J., & Kamber, M. (2012). *Data mining: Concepts and techniques* (3rd ed.). Elsevier.
+Han, J., Kamber, M., & Pei, J. (2011). *Data mining: Concepts and techniques* (3rd ed.). Morgan Kaufmann.
 
-Kaggle. (2020). *Telco customer churn - IBM sample data sets*. https://www.kaggle.com/blastchar/telco-customer-churn
+Kaggle. (2020). *Telco customer churn - IBM sample data sets*. https://www.kaggle.com/datasets/blastchar/telco-customer-churn
 
 Witten, I. H., Frank, E., Hall, M. A., & Pal, C. J. (2017). *Data mining: Practical machine learning tools and techniques* (4th ed.). Morgan Kaufmann.
 

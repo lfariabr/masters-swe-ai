@@ -698,7 +698,7 @@ md(r"""### 5d. ROC curves - what AUC actually measures
 Every model above reports an AUC, but AUC is a single number summarising a *curve*. The ROC curve
 plots the true-positive rate against the false-positive rate as the decision threshold sweeps from 1
 to 0, so it shows how well a model **ranks** churners ahead of stayers, independently of any chosen
-cut-off (Han et al., 2012). A model whose curve sits further towards the top-left ranks better; the
+cut-off (Han et al., 2011). A model whose curve sits further towards the top-left ranks better; the
 diagonal is random guessing (AUC 0.5).
 
 This makes concrete two claims made elsewhere in the analysis. First, threshold tuning slides the
@@ -880,7 +880,8 @@ conclusions are my own and I take full responsibility for them.
 EMC Education Services. (2015). *Data science and big data analytics: Discovering, analyzing,
 visualizing and presenting data*. John Wiley & Sons.
 
-Han, J., Pei, J., & Kamber, M. (2012). *Data mining: Concepts and techniques* (3rd ed.). Elsevier.
+Han, J., Kamber, M., & Pei, J. (2011). *Data mining: Concepts and techniques* (3rd ed.). Morgan
+Kaufmann.
 
 Kaggle. (2020). *Telco customer churn - IBM sample data sets*.
 https://www.kaggle.com/blastchar/telco-customer-churn
