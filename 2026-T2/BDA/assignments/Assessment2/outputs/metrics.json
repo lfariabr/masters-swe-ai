@@ -247,6 +247,11 @@
     "precision": 0.418,
     "accuracy": 0.6373
   },
+  "roc_auc": {
+    "Decision tree": 0.8019,
+    "Weighted tree": 0.8094,
+    "Random Forest": 0.8334
+  },
   "generalisation_diagnostic": {
     "comparison": [
       {

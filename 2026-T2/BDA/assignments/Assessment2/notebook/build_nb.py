@@ -692,6 +692,76 @@ business_operating_point = {"cost_fn": 5.0, "cost_fp": COST_FP, "threshold": t_c
                             "recall": round(m_cost["recall"], 4), "precision": round(m_cost["precision"], 4),
                             "accuracy": round(m_cost["acc"], 4)}""")
 
+# ---------------------------------------------------------------- 5d. ROC curves
+md(r"""### 5d. ROC curves - what AUC actually measures
+
+Every model above reports an AUC, but AUC is a single number summarising a *curve*. The ROC curve
+plots the true-positive rate against the false-positive rate as the decision threshold sweeps from 1
+to 0, so it shows how well a model **ranks** churners ahead of stayers, independently of any chosen
+cut-off (Han et al., 2012). A model whose curve sits further towards the top-left ranks better; the
+diagonal is random guessing (AUC 0.5).
+
+This makes concrete two claims made elsewhere in the analysis. First, threshold tuning slides the
+operating point *along* a model's curve without changing the curve, which is why it cannot change
+AUC. Second, the Random Forest's higher AUC means its whole curve dominates - a genuinely better
+ranking, not a re-cut of the same one. The markers show where each model's selected threshold and the
+default 0.5 actually land.""")
+
+code(r"""# ROC is computed from the same held-out (label, P[churn]) scores used for every metric above.
+def roc_points(s):
+    y = s["label"].astype(int).to_numpy()
+    p = s["p1"].to_numpy()
+    order = np.argsort(-p)                      # descending score = sweeping the threshold down
+    y, p = y[order], p[order]
+    tp = np.cumsum(y)
+    fp = np.cumsum(1 - y)
+    # A decision tree assigns the same probability to every customer in a leaf, so scores are heavily
+    # tied. Keep only the last index of each tied block: within a block the ranking is arbitrary, and
+    # emitting one point per customer would trace a staircase that overstates the area. One point per
+    # distinct score lets the trapezoid cut diagonally across ties, which is the correct treatment.
+    last = np.r_[np.nonzero(np.diff(p))[0], len(p) - 1]
+    tpr = np.r_[0.0, tp[last] / max(tp[-1], 1)]
+    fpr = np.r_[0.0, fp[last] / max(fp[-1], 1)]
+    return fpr, tpr
+
+def point_at(s, t):
+    m = churn_scores(s, t)
+    _, fp, _, _ = counts(s, t)
+    n_neg_ = int((s["label"] == 0).sum())
+    return fp / n_neg_, m["recall"]             # (FPR, TPR) at threshold t
+
+plt.figure(figsize=(6.5, 6))
+curves = [("Decision tree", tree_test, auc_tree, t_tree, "tab:blue"),
+          ("Weighted tree", w_test, auc_w, 0.5, "tab:orange"),
+          ("Random Forest", rf_test, auc_rf, t_rf, "tab:green")]
+for name, s, a, t_sel, colour in curves:
+    fpr, tpr = roc_points(s)
+    plt.plot(fpr, tpr, color=colour, lw=2, label=f"{name} (AUC = {a:.3f})")
+    fx, fy = point_at(s, t_sel)
+    plt.scatter([fx], [fy], color=colour, s=70, zorder=5, edgecolor="white")
+    plt.annotate(f"t={t_sel}", (fx, fy), textcoords="offset points", xytext=(8, -10),
+                 fontsize=9, color=colour)
+
+# Where the cost-optimal 5:1 operating point lands on the Random Forest curve.
+cx, cy = point_at(rf_test, t_cost)
+plt.scatter([cx], [cy], marker="*", s=260, color="crimson", zorder=6, edgecolor="white",
+            label=f"RF cost-optimal (5:1), t={t_cost}")
+
+plt.plot([0, 1], [0, 1], "k:", lw=1, label="Random guessing (AUC = 0.500)")
+plt.xlabel("False-positive rate (offers wasted on stayers)")
+plt.ylabel("True-positive rate (churners caught)")
+plt.title("ROC curves on the held-out test set")
+plt.legend(loc="lower right"); plt.grid(alpha=0.3); plt.tight_layout()
+plt.savefig(FIG_DIR / "fig12_roc_curves.png"); plt.show()
+
+# Sanity check: the area under the plotted curve must equal the AUC Spark reported.
+for name, s, a, _, _ in curves:
+    fpr, tpr = roc_points(s)
+    assert abs(np.trapezoid(tpr, fpr) - a) < 1e-3, (name, np.trapezoid(tpr, fpr), a)
+print("Plotted ROC areas match the reported AUCs for all three models.")
+
+roc_summary = {name: round(a, 4) for name, _, a, _, _ in curves}""")
+
 # ---------------------------------------------------------------- 6. Task 3
 md(r"""## 6. Task 3 - Handling missing values
 
@@ -770,6 +840,7 @@ metrics = {
     "recall_improvement": recall_improvement,
     "cost_sensitivity": cost_sensitivity,
     "business_operating_point": business_operating_point,
+    "roc_auc": roc_summary,
     "generalisation_diagnostic": generalisation_diagnostic,
     "demographic_audit": demographic_audit.round(4).to_dict(orient="records"),
 }
@@ -808,6 +879,8 @@ conclusions are my own and I take full responsibility for them.
 
 EMC Education Services. (2015). *Data science and big data analytics: Discovering, analyzing,
 visualizing and presenting data*. John Wiley & Sons.
+
+Han, J., Pei, J., & Kamber, M. (2012). *Data mining: Concepts and techniques* (3rd ed.). Elsevier.
 
 Kaggle. (2020). *Telco customer churn - IBM sample data sets*.
 https://www.kaggle.com/blastchar/telco-customer-churn
