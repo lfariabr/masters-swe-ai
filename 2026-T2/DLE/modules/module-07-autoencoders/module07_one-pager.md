@@ -12,11 +12,13 @@
 > Squeeze `x` through a bottleneck code `h`, and the network must decide what to keep and what to throw away. That decision *is* the learned representation.
 > (Goodfellow, Bengio & Courville 2016, Ch.14 · Baldi 2012)
 
-```
+```text
         x  ──►  encoder f  ──►   h   ──►  decoder g  ──►  r ≈ x
      (input)                  (CODE)                  (reconstruction)
                                 │
-                                └── the ONLY part you keep; the decoder is scaffolding
+                                └── for COMPRESSION / representation learning, `h` is all you keep
+                                    (⚠️ but denoising, anomaly detection and deepfakes all need
+                                     the decoder at inference - see Zone 5)
 ```
 
 ---
@@ -29,7 +31,7 @@
 - 🔴 That trap *is* the answer to Activity 3: **yes, autoencoders may cause overfitting** - and regularization is the cure (Module 4, now unsupervised).
 
 ## 🖤 Zone 2 - Undercomplete linear AE = PCA ⭐ SLO c) - THE GRADED CORE
-- 🖤 **Claim (state it with the conditions or you lose the mark):** an **undercomplete** AE with **linear** encoder/decoder and **squared-error (MSE)** loss recovers the **PCA subspace** at its global optimum.
+- 🖤 **Claim (state it with the conditions or you lose the mark):** an **undercomplete** AE with **linear** encoder/decoder, **squared-error (MSE)** loss and **centred data** (or biases free to absorb the mean) recovers the **PCA subspace** at its global optimum. *Drop any one of those four conditions and the claim stops holding.*
 - 🔵 **Baldi (2012) proves it** in the `n/p/n` framework (`B: Fⁿ→Gᵖ` encoder, `A: Gᵖ→Fⁿ` decoder, `p < n`):
   - the squared-error landscape has **no local minima**;
   - every critical point = projection onto some eigenvector subspace of `Σxx`;
@@ -42,41 +44,46 @@
 ## 🖤 Zone 3 - The regularized zoo (what forces `h` to be useful)
 Instead of limiting capacity, add a term to the loss demanding another property. Now even an **overcomplete nonlinear** AE learns something real.
 
-| Variant | Objective | What it buys | Failure it prevents |
+| Variant | Objective | What it buys | Failure it **mitigates** |
 |---|---|---|---|
-| **Sparse AE** | `L(x, g(f(x))) + Ω(h)` (L1 / Laplace) | few active units; interpretable, feature-selecting code | dense uninformative codes |
-| **Denoising AE (DAE)** | `L(x, g(f(x̃)))` - corrupt `x̃`, rebuild clean `x` | robustness; implicitly learns `p_data(x)` structure | identity function (can't just copy - the copy is broken) |
-| **Contractive AE (CAE)** | `L + λ‖∂f/∂x‖²_F` (Jacobian penalty) | encoder insensitive to tiny input wiggles; learns manifold **tangent** directions | over-sensitivity to noise directions |
+| **Sparse AE** | `L(x, g(f(x))) + Ω(h)` (L1 / Laplace) | few active units; interpretable, feature-selecting code | dense, uninformative codes |
+| **Denoising AE (DAE)** | `L(x, g(f(x̃)))` - corrupt `x̃`, rebuild clean `x` | robustness; implicitly learns `p_data(x)` structure | trivial identity copying - *but only against the corruptions you actually inject* |
+| **Contractive AE (CAE)** | `L + λ‖∂f/∂x‖²_F` (Jacobian penalty) | encoder insensitive to tiny input wiggles; learns manifold **tangent** directions | over-sensitivity to off-manifold noise directions |
 
-- 🔵 **DAE money insight:** under **Gaussian corruption + squared-error loss**, the learned vector `g(f(x)) − x` estimates the **score** `∇x log p_data(x)` (up to a noise-dependent scale). Plain English: *denoising teaches the net which direction points back toward real data.*
+- 🔴 **Say "mitigates", not "prevents".** No regularizer is a guarantee - each *raises the cost* of the degenerate solution. A DAE only defends against the corruption process you chose; pick a weak corruption and it can still drift toward the identity.
+- 🔵 **DAE money insight:** under **Gaussian corruption + squared-error loss**, and as an **asymptotic small-noise result** (Alain & Bengio 2013), the learned vector `g(f(x)) − x` estimates the **score** `∇x log p_data(x)` up to a noise-dependent scale. Plain English: *denoising teaches the net which direction points back toward real data.* The small-noise condition is part of the claim, not decoration.
 - 🔵 **DAE vs CAE - regularize different objects:** DAE hardens the **reconstruction** against *finite* perturbations; CAE hardens the **encoder** against *infinitesimal* ones. Related under small-noise assumptions (Alain & Bengio 2013), **not** universally identical.
 - 🔵 **Sparse-AE nuance:** the sparsity penalty has **no clean Bayesian prior** interpretation (it depends on the data) - read it as approximating ML of a latent-variable model with a sparsity-inducing `log p_model(h)`.
 
 ## 🖤 Zone 4 - Manifolds, depth & transfer (why anyone bothers)
 - 🖤 **Manifold learning is the unifying idea:** real data concentrates near a low-dimensional surface. Training balances two opposing forces:
-  ```
+  ```text
   (1) reconstruct the training points   ⇄   (2) obey the regularizer / stay insensitive
         (sensitive ALONG the manifold)          (insensitive ORTHOGONAL to it)
   ```
   The compromise makes `h` a **local coordinate system on the manifold**.
-- 🔵 **Depth pays:** deep AEs compress far better than shallow/linear (Hinton & Salakhutdinov 2006). **Greedy layer-wise pretraining** = train shallow AEs, stack them, then optionally fine-tune. Baldi's **vertical composition** is the mathematical justification.
-- 🔵 **Bengio (2012) - the transfer assumption:** unsupervised features help because **`P(x)` is structurally related to `P(y|x)`**. Deep learners transfer better than shallow ones; with 1-64 labels per class, the representation must be *generic*.
+- 🔵 **Depth pays** *on the tasks where it was measured:* deep AEs compressed far better than shallow/linear ones **on MNIST-style image data** (Hinton & Salakhutdinov 2006). It is a strong empirical regularity, **not a theorem** - depth is not automatically better on every dataset. **Greedy layer-wise pretraining** = train shallow AEs, stack them, then optionally fine-tune; Baldi's **vertical composition** is the mathematical justification.
+- 🔵 **Bengio (2012) - the transfer assumption:** unsupervised features help **when** `P(x)` is structurally related to `P(y|x)`. **That is a conditional, not a law** - if the input structure has nothing to do with the label, pretraining buys you nothing. In Bengio's challenge, deep learners transferred better than shallow ones; with 1-64 labels per class the representation had to be *generic*.
 - 🔴 **Bengio's honest caveat (gold for Critical Analysis):** **variance ≠ importance.** In face images most pixel variance is *pose*; **identity hides in low-variance components**. Cutting low-variance directions (PCA-style) can throw away exactly the signal you want.
-- 🔵 **Practical tips worth stealing:** search learning rate in the **log domain**; **random search > grid search**; **early stopping**; top-layer dimensionality should track the number of classes.
+- 🔵 **Practical heuristics worth stealing (rules of thumb, not laws):** search learning rate in the **log domain**; **random search usually beats grid search** at equal budget; **early stopping**; let top-layer dimensionality track the number of classes.
 
 ## 🖤 Zone 5 - Applications (the concrete payoff)
 🔴 *Dr Tayab's week-7 email names four: **image denoising · anomaly detection · data compression · deepfake generation**. Note that **anomaly detection is NOT in Goodfellow Ch.14's applications section** - it is lecturer-added, so it will come from the lecture, not the reading.*
 
 | Application | Mechanism (one line) | Source |
 |---|---|---|
-| **Data compression / dim. reduction** | keep `h`, drop the decoder; 30-unit bottleneck AE beat PCA-to-30 on reconstruction *and* interpretability | Goodfellow 14.9 |
-| **Image denoising** | the **DAE trained as a product, not a trick**: feed a grainy/corrupted image, output the clean one | Goodfellow 14.5 · lecture |
-| **Anomaly detection** ⚠️ | train the AE on **normal data only** → it reconstructs normal well, anomalies badly → **reconstruction error `‖x − g(f(x))‖²` IS the anomaly score**; threshold it | **lecture only - not in Ch.14** |
+| **Data compression / dim. reduction** | keep `h`, **drop the decoder** (the one case where you really can); 30-unit bottleneck AE beat PCA-to-30 on reconstruction *and* interpretability | Goodfellow 14.9 |
+| **Image denoising** | the **DAE trained as a product, not a trick**: feed a grainy/corrupted image, output the clean one. **Needs the decoder** | Goodfellow 14.5 · lecture |
+| **Anomaly detection** ⚠️ | train the AE on **normal data only** → reconstruction error `‖x − g(f(x))‖²` becomes a **candidate anomaly score**; threshold it. **Needs the decoder** | **lecture only - not in Ch.14** |
 | **Information retrieval / semantic hashing** | AE emits a **low-dim binary** code used as a **hash-table key**; near-matches = flip a few bits → extremely fast search | Goodfellow 14.9 |
-| **Deepfake generation** | **two AEs that SHARE an encoder**; swap the decoders | Dickson 2020 |
+| **Deepfake generation** | **two AEs that SHARE an encoder**; swap the decoders. **Needs both decoders** | Dickson 2020 |
 
 - 🔵 **Why anomaly detection works (be able to say this):** the AE only ever learned the manifold of the *normal* data, so an off-manifold input has **no good code** - the reconstruction fails, and the size of that failure is the signal. Same logic as the manifold picture in Zone 4, used as a detector.
-- 🔵 **Deepfakes (Dickson 2020) in detail:** train decoder-A on the actor, decoder-B on the target, **shared encoder**; at generation time feed the actor's code into the **target's decoder**. The shared encoder learns a generic "face" code (pose/expression); each decoder renders one identity. *2020-era cost per Dickson: a GTX-1080-class GPU or a few hundred dollars of cloud, thousands of cropped frames, days-to-two-weeks of training.*
+- 🔴 **...and where it breaks (say this too - it is the critical-analysis mark):** reconstruction error is a **candidate score, not a guaranteed separator.**
+  1. A **high-capacity** AE generalises so well it reconstructs *anomalies* nicely too - the trap from Zone 1, resurfacing. Keep it undercomplete / regularized.
+  2. **Near-manifold anomalies** (subtle fraud, a slightly-wrong sensor reading) reconstruct fine and score *normal*. It catches gross outliers best.
+  3. The **threshold is not free** - it must be **calibrated on validation data**, and it encodes your precision/recall trade-off exactly like a classification cut-off.
+- 🔵 **Deepfakes (Dickson 2020) in detail:** train decoder-A on the actor, decoder-B on the target, **shared encoder**; at generation time feed the actor's code into the **target's decoder**. The shared encoder is *intended* to learn a generic "face" code (pose/expression) while each decoder renders one identity - but that split is a **training goal, not a guarantee**: identity information can leak into the code, and how cleanly pose/expression separates from identity depends on the data and the training constraints. *2020-era cost per Dickson: a GTX-1080-class GPU or a few hundred dollars of cloud, thousands of cropped frames, days-to-two-weeks of training.*
 - 🔴 **Ethical deepfake angles for Activity 2:** voice/face restoration for ALS or stroke patients · consented historical/educational re-enactment · cross-language film dubbing with lip sync · **privacy-preserving face anonymisation in released datasets**. Lead with **consent + provenance**.
 
 ---
@@ -91,9 +98,9 @@ Instead of limiting capacity, add a term to the loss demanding another property.
 
 ## 🔴 If you only memorise 5 things
 1. **An autoencoder is only useful because it copies badly.** Bottleneck or regularizer - something must break the copy, or it learns the identity.
-2. **Undercomplete + linear + MSE ⇒ PCA** (Baldi: global optimum = top-`p` eigenvectors, no local minima, everything else a saddle). The value of AEs = the **nonlinear, deep, stackable** generalisation.
-3. **The zoo, in one line each:** sparse = *few units fire*; denoising = *rebuild clean from corrupted* (learns the score / manifold); contractive = *ignore tiny input wiggles* (Jacobian penalty).
-4. **`h` is a local coordinate system on the data manifold** - sensitive along it, insensitive orthogonal to it. Depth + stacking is what makes those coordinates transfer. **Anomaly detection is this idea weaponised:** train on normal only, and **reconstruction error = anomaly score**.
+2. **Undercomplete + linear + MSE + centred data ⇒ PCA** (Baldi: global optimum = top-`p` eigenvectors, no local minima, everything else a saddle). **Recite all four conditions.** The value of AEs = the **nonlinear, deep, stackable** generalisation.
+3. **The zoo, in one line each:** sparse = *few units fire*; denoising = *rebuild clean from corrupted* (score/manifold, under small Gaussian noise + MSE); contractive = *ignore tiny input wiggles* (Jacobian penalty).
+4. **`h` is a local coordinate system on the data manifold** - sensitive along it, insensitive orthogonal to it. Depth + stacking is what makes those coordinates transfer. **Anomaly detection is this idea weaponised:** train on normal only, use **reconstruction error as the anomaly score** - *a candidate score needing a calibrated threshold, not a guaranteed separator.*
 5. **Yes, AEs can overfit** (identity-function trap, overcomplete + high capacity) - and **variance ≠ importance** (face pose vs identity). Both are "critical analysis" marks waiting to be collected.
 
 ---

@@ -85,6 +85,19 @@ TODO - *the delivery schedule says M7 is where we "identify possible uses of aut
 ### Day-job anchors
 > *(Fill in after class - how does what he said map onto the school data warehouse?)*
 
-1. **Anomaly detection:** train an AE on only the "normal" nightly ETL rows; flag any row whose reconstruction error blows past a threshold. Learned validation rules instead of hand-coded ones.
+1. **Anomaly detection** *(pending confirmation in §2 - this is the mechanism I expect, not one he has stated yet)*: train an AE on only the "normal" nightly ETL rows; flag any row whose reconstruction error passes a **calibrated** threshold. Learned validation rules instead of hand-coded ones. **Caveats to hold onto:** a high-capacity AE will reconstruct anomalies too, near-normal anomalies slip through, and the threshold must be tuned on validation data.
 2. TODO
 3. TODO
+
+---
+
+## References
+Full citations, links and page-level detail live in **[module07_notes.md](module07_notes.md)**. The shorthand used above resolves as:
+
+- **Goodfellow, Ch.14** - Goodfellow, I., Bengio, Y. & Courville, A. (2016). *Deep learning.* Cambridge, MA: MIT Press. https://www.deeplearningbook.org/
+- **Baldi (2012)** - Baldi, P. (2012). Autoencoders, unsupervised learning and deep architectures. *PMLR 27*, 37-49. http://proceedings.mlr.press/v27/baldi12a/baldi12a.pdf
+- **Bengio (2012)** - Bengio, Y. (2012). Deep learning of representations for unsupervised and transfer learning. *PMLR 27*, 17-36. http://proceedings.mlr.press/v27/bengio12a/bengio12a.pdf
+- **Glorot et al. (2011b)** - cited *in* Bengio (2012); stacked denoising autoencoders with sparse rectifiers for domain adaptation in sentiment classification.
+- **Dickson (2020)** - Dickson, B. (2020, 5 March). What is a deepfake? *PCMag Australia.* https://au.pcmag.com/news/65869/what-is-a-deepfake
+- **Alain & Bengio (2013)** - the small-noise result linking DAE reconstruction to the data score.
+- **Dr Tayab Din Memon** - week-7 pre-class email (applications list; pre-class PCA question).
