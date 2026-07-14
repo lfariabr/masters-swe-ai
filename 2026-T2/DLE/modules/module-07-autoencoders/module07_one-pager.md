@@ -27,8 +27,8 @@
 - 🖤 **Encoder** `h = f(x)` · **Decoder** `r = g(h)` · loss `L(x, g(f(x)))`.
 - 🔵 **Undercomplete** = `dim(h) < dim(x)` → forced compression → must learn salient features.
   **Overcomplete** = `dim(h) ≥ dim(x)` → free capacity → *dangerous without a regularizer*.
-- 🔴 **THE CAPACITY TRAP (memorise this):** give `f`/`g` too much capacity and the AE learns the **identity function** - in the degenerate case the encoder maps example #i to the integer `i` and the decoder maps it back. **Perfect reconstruction, zero learning.**
-- 🔴 That trap *is* the answer to Activity 3: **yes, autoencoders may cause overfitting** - and regularization is the cure (Module 4, now unsupervised).
+- 🔴 **THE CAPACITY TRAP (memorise this):** give `f`/`g` too much capacity and the AE just learns the **identity function**. Degenerate case: the encoder maps example #i to the integer `i`, the decoder maps it back. **Perfect reconstruction, zero learning.**
+- 🔴 That trap *is* Activity 3: **yes, autoencoders may cause overfitting.** → **Zone 3 = the four cures.** (Module 4 again, now unsupervised.)
 
 ## 🖤 Zone 2 - Undercomplete linear AE = PCA ⭐ SLO c) - THE GRADED CORE
 - 🖤 **Claim (state it with the conditions or you lose the mark):** an **undercomplete** AE with **linear** encoder/decoder, **squared-error (MSE)** loss and **centred data** (or biases free to absorb the mean) recovers the **PCA subspace** at its global optimum. *Drop any one of those four conditions and the claim stops holding.*
@@ -41,19 +41,20 @@
 - 🖤 Baldi's thesis: *"Hebbian learning, autoencoders and clustering are three faces of the same die."*
 - 🔴 **Activity 1 killer line:** *"Linearly, an autoencoder offers nothing distinct - it **is** PCA. The distinct value is entirely in the **nonlinear, deep, stackable** generalisation, plus the ability to shape `h` by choosing the regularizer."*
 
-## 🖤 Zone 3 - The regularized zoo (what forces `h` to be useful)
-Instead of limiting capacity, add a term to the loss demanding another property. Now even an **overcomplete nonlinear** AE learns something real.
+## 🖤 Zone 3 - The four cures for the trap ⭐
+**One question: how do you stop it copying?** Four answers. This is the whole zoo.
 
-| Variant | Objective | What it buys | Failure it **mitigates** |
-|---|---|---|---|
-| **Sparse AE** | `L(x, g(f(x))) + Ω(h)` (L1 / Laplace) | few active units; interpretable, feature-selecting code | dense, uninformative codes |
-| **Denoising AE (DAE)** | `L(x, g(f(x̃)))` - corrupt `x̃`, rebuild clean `x` | robustness; implicitly learns `p_data(x)` structure | trivial identity copying - *but only against the corruptions you actually inject* |
-| **Contractive AE (CAE)** | `L + λ‖∂f/∂x‖²_F` (Jacobian penalty) | encoder insensitive to tiny input wiggles; learns manifold **tangent** directions | over-sensitivity to off-manifold noise directions |
+| Cure | What you do | Why it works |
+|---|---|---|
+| **1. Undercomplete** | make the middle layer **smaller** than the input | too few dimensions to fit the raw data, so it must compress |
+| **2. Sparse** | penalise the code: `L + Ω(h)` (L1) | middle layer can be big, but **most units must be zero** - no room to memorise |
+| **3. Denoising (DAE)** | **corrupt the input**, ask for the clean output: `L(x, g(f(x̃)))` | input ≠ output, so **copying is no longer the answer** |
+| **4. Contractive (CAE)** | penalise the encoder's derivatives: `L + λ‖∂f/∂x‖²_F` | code must **ignore small wiggles** in `x`, so it can't give each example a unique code |
 
-- 🔴 **Say "mitigates", not "prevents".** No regularizer is a guarantee - each *raises the cost* of the degenerate solution. A DAE only defends against the corruption process you chose; pick a weak corruption and it can still drift toward the identity.
-- 🔵 **DAE money insight:** under **Gaussian corruption + squared-error loss**, and as an **asymptotic small-noise result** (Alain & Bengio 2013), the learned vector `g(f(x)) − x` estimates the **score** `∇x log p_data(x)` up to a noise-dependent scale. Plain English: *denoising teaches the net which direction points back toward real data.* The small-noise condition is part of the claim, not decoration.
-- 🔵 **DAE vs CAE - regularize different objects:** DAE hardens the **reconstruction** against *finite* perturbations; CAE hardens the **encoder** against *infinitesimal* ones. Related under small-noise assumptions (Alain & Bengio 2013), **not** universally identical.
-- 🔵 **Sparse-AE nuance:** the sparsity penalty has **no clean Bayesian prior** interpretation (it depends on the data) - read it as approximating ML of a latent-variable model with a sparsity-inducing `log p_model(h)`.
+- 🔴 **The correction almost every summary gets wrong:** cure #1 alone is **not enough**. An *undercomplete* AE with a powerful enough `f`/`g` **still** learns the identity - the index trick needs only **one** dimension. Bottleneck **and** capacity control, or a regularizer. *(Goodfellow 14.1 - this is the sentence that separates a real answer from a Wikipedia answer in Activity 3.)*
+- 🔵 **They mitigate, they don't guarantee.** Each cure raises the *cost* of copying. A DAE only defends against the corruption you actually inject - weak noise, and it drifts back toward the identity.
+- 🔵 **Denoising, in one line:** it teaches the net **which direction points back toward real data**. (Formally: under Gaussian noise + MSE and small-noise assumptions, `g(f(x)) − x` estimates the score `∇x log p_data(x)` - Alain & Bengio 2013. Say the plain version, keep the formal one in your pocket.)
+- 🔵 **DAE vs CAE - the exam distinction:** DAE hardens the **reconstruction** against *big* pushes; CAE hardens the **encoder** against *tiny* ones. Different objects, related under small noise, not identical.
 
 ## 🖤 Zone 4 - Manifolds, depth & transfer (why anyone bothers)
 - 🖤 **Manifold learning is the unifying idea:** real data concentrates near a low-dimensional surface. Training balances two opposing forces:
@@ -62,10 +63,10 @@ Instead of limiting capacity, add a term to the loss demanding another property.
         (sensitive ALONG the manifold)          (insensitive ORTHOGONAL to it)
   ```
   The compromise makes `h` a **local coordinate system on the manifold**.
-- 🔵 **Depth pays** *on the tasks where it was measured:* deep AEs compressed far better than shallow/linear ones **on MNIST-style image data** (Hinton & Salakhutdinov 2006). It is a strong empirical regularity, **not a theorem** - depth is not automatically better on every dataset. **Greedy layer-wise pretraining** = train shallow AEs, stack them, then optionally fine-tune; Baldi's **vertical composition** is the mathematical justification.
-- 🔵 **Bengio (2012) - the transfer assumption:** unsupervised features help **when** `P(x)` is structurally related to `P(y|x)`. **That is a conditional, not a law** - if the input structure has nothing to do with the label, pretraining buys you nothing. In Bengio's challenge, deep learners transferred better than shallow ones; with 1-64 labels per class the representation had to be *generic*.
-- 🔴 **Bengio's honest caveat (gold for Critical Analysis):** **variance ≠ importance.** In face images most pixel variance is *pose*; **identity hides in low-variance components**. Cutting low-variance directions (PCA-style) can throw away exactly the signal you want.
-- 🔵 **Practical heuristics worth stealing (rules of thumb, not laws):** search learning rate in the **log domain**; **random search usually beats grid search** at equal budget; **early stopping**; let top-layer dimensionality track the number of classes.
+- 🔵 **Depth pays** (empirically, not as a theorem): deep AEs compressed far better than shallow/linear ones on image data (Hinton & Salakhutdinov 2006). **Greedy layer-wise pretraining** = train shallow AEs, stack them, fine-tune. Baldi's **vertical composition** is the maths behind it.
+- 🔵 **Bengio (2012) - the transfer assumption, in one line:** *pretrained features help **when** `P(x)` is related to `P(y|x)`.* If the input structure tells you nothing about the label, pretraining buys you nothing. It is a **condition, not a law**.
+- 🔴 **Bengio's caveat (gold for Critical Analysis):** **variance ≠ importance.** In face images most pixel variance is *pose*; **identity hides in the low-variance components**. Cut low variance PCA-style and you can bin the exact signal you wanted.
+- 🔵 **Heuristics worth stealing:** tune learning rate in the **log domain** · **random search > grid search** · **early stopping** · top-layer size tracks the number of classes.
 
 ## 🖤 Zone 5 - Applications (the concrete payoff)
 🔴 *Dr Tayab's week-7 email names four: **image denoising · anomaly detection · data compression · deepfake generation**. Note that **anomaly detection is NOT in Goodfellow Ch.14's applications section** - it is lecturer-added, so it will come from the lecture, not the reading.*
