@@ -2,7 +2,7 @@
 DLE602 Assessment 2 - Project Proposal Report - DRAFT v1
 Body target: 1,000 words (+/-10%). Cover, ToC, captions, tables and references sit outside the count if allowed.
 Per-section word targets are noted in italics under each heading - delete before final export.
-Outstanding: figures/captions; final word count check.
+Outstanding: figures/captions (Figure 1, Table 1); final word count check.
 -->
 
 # Review Pulse v2: Aspect-Based Sentiment Analysis of Customer Reviews with Attention-Based Deep Learning
@@ -82,14 +82,23 @@ flowchart LR
 
 *Figure 1. Review Pulse v2 pipeline. A (review, aspect) pair flows through shared preprocessing to three comparable models, producing a per-aspect sentiment label and an interpretability heatmap surfaced in the Streamlit demo.*
 
-**Evaluation.** Accuracy and macro-F1 on aspect sentiment, with a per-class breakdown and a focused analysis of sentences containing conflicting aspect sentiment. Qualitative attention or attribution heatmaps assess interpretability. We use fixed seeds, explicit train/dev/test splits, and guard against data leakage. Cross-domain transfer from Restaurants to Laptops remains an optional extension because their aspect distributions differ.
+**Evaluation.** Accuracy and macro-F1 on aspect sentiment, with a per-class breakdown and a focused analysis of sentences containing conflicting aspect sentiment. Qualitative attention or attribution heatmaps assess interpretability. We use fixed seeds, explicit train/dev/test splits, and guard against data leakage. Cross-domain transfer from Restaurants to Laptops remains an optional extension because their aspect distributions differ. Every model reports into the same fixed shape (Table 1) so the comparison stays like-for-like, with per-class precision, recall and F1 and confusion matrices in an appendix.
+
+*Table 1. Results-reporting shell for Assessment 3. The conflicting-aspect subset is the decisive column: it isolates the sentences a sentence-level model cannot resolve.*
+
+| Model | Accuracy | Macro-F1 | Accuracy on conflicting-aspect subset |
+|---|---|---|---|
+| TF-IDF + logistic regression (sentence-only baseline) | to be reported (A3) | to be reported (A3) | to be reported (A3) |
+| Target-agnostic LSTM (sentence-only) | to be reported (A3) | to be reported (A3) | to be reported (A3) |
+| ATAE-LSTM (aspect-conditioned, attention) | to be reported (A3) | to be reported (A3) | to be reported (A3) |
+| DistilBERT (aspect as auxiliary sentence) | to be reported (A3) | to be reported (A3) | to be reported (A3) |
 
 **Deployment.** Assessment 3 ships a Streamlit demo where a user types a review and sees per-aspect sentiment plus the attention heatmap, mirroring the live Review Pulse v1 app.
 
 ## 5. Project Plan and Risk Management
 *(~140 words)*
 
-The plan runs from this proposal (Module 8) to the Assessment 3 submission (Module 12): data pipeline and classical baseline (Modules 8-9), ATAE-LSTM (Modules 9-10), DistilBERT fine-tuning (Module 10), interpretability and Streamlit demo (Module 11), then evaluation, comparison and report (Modules 11-12), with a submission buffer. The project is scoped to fit three constraints: a fixed academic timeframe, a zero-cost budget (free Colab GPU, open datasets and libraries) and three part-time contributors. Roles split across implementation, literature and project management, with equal presentation time. Critical success factors: pre-annotated data, compute within the free tier, and a working classical/LSTM path even if the transformer underperforms.
+The plan runs from this proposal (Module 8) to the Assessment 3 submission (Module 12): data pipeline and classical baseline (Modules 8-9), ATAE-LSTM (Modules 9-10), DistilBERT fine-tuning (Module 10), interpretability and Streamlit demo (Module 11), then evaluation, comparison and report (Modules 11-12), with a submission buffer. The project is scoped to fit three constraints: a fixed academic timeframe, a zero-cost budget (free Colab GPU, open datasets and libraries) and three part-time contributors. Roles split across implementation, literature and project management, with equal presentation time. Critical success factors: pre-annotated data, compute within the free tier, a working classical/LSTM path even if the transformer underperforms, and modular, peer-reviewed code that reproduces every reported number from a fixed seed.
 
 Key risks and mitigations: small data risks overfitting (mitigate with dropout, early stopping, and transfer learning); transformer fine-tuning could be heavy (use DistilBERT, contingency ATAE-LSTM only); scope creep (keep extraction and Topic Modelling as gated stretch goals); and attention is not guaranteed to be faithful, so we frame it as indicative, not causal.
 
@@ -100,7 +109,7 @@ Sentence-level sentiment loses the aspect-level detail that businesses act on. R
 
 ---
 
-**Word count (body, Sections 1-6): ~1,045 words.** *Inside the 900-1,100 valid band for 1,000 +/-10%. Cover page, ToC, the Figure 1 diagram and caption, tables, references and Appendix A are excluded. Re-count after final edits and conversion to the submission template.*
+**Word count (body, Sections 1-6): ~1,075 words.** *Inside the 900-1,100 valid band for 1,000 +/-10%. Cover page, ToC, the Figure 1 diagram, Table 1 and their captions, references and Appendix A are excluded. Re-count after final edits and conversion to the submission template.*
 
 ---
 
