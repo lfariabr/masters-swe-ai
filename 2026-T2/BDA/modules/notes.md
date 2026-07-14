@@ -543,6 +543,8 @@ Submit your answers to the discussion forum, ‘Missing Values’. Read other st
 - **Practitioner toolkit (Srivastava):** F1, lift/gain, KS, AUC-ROC, log loss, Gini (=2·AUC-1), concordant-discordant for classification; RMSE, RMSLE, R²/adjusted-R² for regression. Core message: **different problems need different metrics**.
 - **SLO d)** evaluate and select big-data ML models. Feeds **Assessment 2** and the two forum activities (build & compare two PySpark trees; explain why metrics are problem-specific). Full detail: [module07_notes.md](module-07-module-evaluation/module07_notes.md).
 
+> **Week 7 lecture write-up:** [module07_notes-class.md](module-07-module-evaluation/module07_notes-class.md) - Dr. Chen's 3 questions, the **regression (MAE/RMSE/R²)** and **clustering (silhouette/elbow)** metric families the readings never cover, his **AUC > 0.8** bar, the "confusion matrix first, then 2-3 metrics that fit the business" reporting rule, and the **Assessment 2 debrief** (interpretation carries the most marks; PySpark no longer mandatory).
+
 ### Introduction
 In the previous module, you learned about several classification algorithms, such as the Naïve Bayes and decision tree algorithms. It is natural to ask the following questions: 
 
