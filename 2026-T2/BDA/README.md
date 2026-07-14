@@ -46,7 +46,7 @@ Dr. Chen Zhan
 - [X] Module 4 ✅ - Analytics Engine for Big Data - Apache Spark
 - [X] Module 5 ✅ - Data Exploration and Cleaning
 - [X] Module 6 ✅ - Classification
-- [ ] Module 7 🔥 - Model Evaluation
+- [X] Module 7 ✅ - Model Evaluation
 - [ ] Module 8 🕐 - Predictive Modelling
 - [ ] Module 9 🕐 - Clustering
 - [ ] Module 10 🕐 - Association Rules
