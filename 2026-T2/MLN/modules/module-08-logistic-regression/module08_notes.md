@@ -21,8 +21,8 @@
 | 13 | Activity 5: red-wine quality classification with LR (Cortez 2009) | 🕐 |
 
 > **One-line frame:** logistic regression is linear regression pushed through a **sigmoid** so the output is a
-> **probability in (0, 1)**, then thresholded at 0.5 to give a class. Its one tuning dial that matters is **`C`**
-> (inverse regularisation). Because it is transparent (each feature has a signed coefficient / odds ratio), it is
+> **probability in (0, 1)**, then thresholded (`≥ 0.5` → positive) to give a class. Its **primary** tuning dial is **`C`**
+> (inverse regularisation), though `solver`, `class_weight` and `max_iter` also matter in practice. Because it is transparent (each feature has a signed coefficient / odds ratio), it is
 > the natural **baseline classifier** and directly relevant to the Assessment 2 wine classification.
 
 ---
@@ -63,7 +63,7 @@
 #### Key Takeaways for MLN601
 1. This is the **classification twin** of the Module 3 linear-regression story — same `β₀ + βᵢxᵢ` core, wrapped in a sigmoid.
 2. **Odds ratios (Exp β)** are the explainability payoff, and tie straight into the Module 7 XAI theme — logistic regression is *intrinsically* interpretable.
-3. The train/test gap is exactly the **overfitting** signal that regularisation (`C`) exists to fix — see resources 3, 4, 8.
+3. A train/test gap is a **possible overfitting** signal (it can also come from sampling variance, leakage, or distribution shift) — confirm with **cross-validation** before concluding overfitting and reaching for `C`. See resources 3, 4, 8.
 
 ---
 
@@ -77,14 +77,14 @@
 
 #### 1. Classification vs regression
 - Supervised learning splits into **regression** (continuous values) and **classification** (assign a class). Despite the name, **logistic regression is a classification algorithm**.
-- It outputs the **probability an input belongs to a class** (a number in [0, 1]), then thresholds: `> 0.5` → positive class, `< 0.5` → negative.
+- It outputs the **probability an input belongs to a class** (a number in [0, 1]), then thresholds: `≥ 0.5` → positive class, `< 0.5` → negative (sklearn's `predict` assigns exactly `0.5` to the positive class).
 - **Multiclass:** assign a probability per class and take `argmax`.
 
 #### 2. The three-step loop
 | Step | What happens |
 |---|---|
 | **Predict** | run inputs through the linear core, then the **sigmoid** `1 / (1 + e^(−θᵀx))` |
-| **Evaluate error** | measure inaccuracy with a **log-likelihood (log-loss) cost function** — penalises confident-and-wrong more harshly |
+| **Evaluate error** | measure inaccuracy with the **negative log-likelihood (log-loss)** cost — log-likelihood is *maximised*, so its negative is what gradient descent *minimises*; penalises confident-and-wrong more harshly |
 | **Train** | update parameters `θ` with **gradient descent**, nudging by the derivative of the cost |
 
 #### 3. Composability — the bridge to neural nets
@@ -103,7 +103,7 @@
 
 **Citation:** Jedamski, D. (2019, 15 May). *What are the key hyperparameters to consider?* [Video file]. LinkedIn Learning — Applied Machine Learning Algorithms.
 
-**Purpose:** The practical bridge from theory to code — of LR's long hyperparameter list, **only `C` matters**, and this explains exactly what it does.
+**Purpose:** The practical bridge from theory to code — `C` is the **primary** focus of LR tuning (though not the only parameter with practical impact — see `solver`, `class_weight`, `max_iter`, `l1_ratio` in resources 4 & 8), and this explains what it does.
 
 ---
 
@@ -112,7 +112,7 @@
 - **Golden rule:** *never tune all hyperparameters.* Tune the few with the largest impact; leave the rest on defaults.
 - Every sklearn estimator exposes **`.fit(X_train, y_train)`** and **`.predict(X_test)`** — pass training features + labels to fit, test features to predict.
 
-#### 2. `C` — the one dial that matters
+#### 2. `C` — the primary dial to tune
 - `C` is a **regularisation parameter that controls how closely the model fits the training data**; regularisation combats **overfitting** by discouraging overly complex models.
 - **Counter-intuitive:** `C = 1/λ` (the inverse of the true regularisation strength λ). So:
 
@@ -145,13 +145,14 @@
 #### 1. The scikit-learn recipe
 ```python
 from sklearn.linear_model import LogisticRegression
-lr = LogisticRegression(C=100.0, random_state=1, solver='lbfgs', multi_class='ovr')
+lr = LogisticRegression(C=100.0, random_state=1, solver='lbfgs')  # multinomial by default
 lr.fit(X_train_std, y_train)      # fit on STANDARDISED features
 lr.predict_proba(X_test_std[:3])  # class-membership probabilities (rows sum to 1)
 lr.predict(X_test_std[:3])        # crisp labels (argmax of the probabilities)
 ```
 - **`predict_proba`** returns per-class probabilities; **`predict`** is just the `argmax`.
 - Single-row prediction needs a 2-D array: `lr.predict(X[0].reshape(1, -1))`.
+- **Note (version drift):** Raschka's book passes `multi_class='ovr'`, but that argument was **deprecated in sklearn 1.5 and removed in 1.8** — modern LR is multinomial by default. For explicit one-vs-rest, wrap the estimator: `OneVsRestClassifier(LogisticRegression(...))`.
 
 #### 2. Solvers
 - Convex loss, so most solvers converge easily. Options: **`newton-cg`, `lbfgs`, `liblinear`, `sag`, `saga`**.
@@ -160,7 +161,7 @@ lr.predict(X_test_std[:3])        # crisp labels (argmax of the probabilities)
 #### 3. Regularisation, `C`, and the bias-variance tradeoff
 - **L2 regularisation** adds `(λ/2)‖w‖²` to the cost, shrinking weights to penalise extreme values — handles collinearity, filters noise, prevents overfitting.
 - **`C = 1/λ`** (convention borrowed from SVMs). **Decreasing `C` → stronger regularisation → smaller weight coefficients** (demonstrated with the L2 regularisation-path plot).
-- **Feature scaling is mandatory for regularisation to work** — all features must be on comparable scales (standardise first).
+- **Feature scaling is strongly recommended** — LR still fits unscaled inputs, but regularisation only behaves well when features share a scale, and the `sag`/`saga` solvers need it to converge. Standardise first.
 - **Bias-variance:** high variance ∝ overfitting (sensitive to training randomness); high bias ∝ underfitting (systematic error). Tuning `C` finds the sweet spot.
 
 #### Key Takeaways for MLN601
@@ -249,7 +250,7 @@ lr.predict(X_test_std[:3])        # crisp labels (argmax of the probabilities)
 - Tumour example (100 people): TP=10, TN=60, FP=22, FN=8. Even with imbalance, a good model wants **TPR/TNR high, FPR/FNR low**.
 
 #### 2. Precision vs recall — and when each dominates
-- **Precision** = `TP / (TP + FP)` — of everything flagged positive, how much truly is. (Uses only TP, FP, FN — TN is irrelevant to retrieval.)
+- **Precision** = `TP / (TP + FP)` — of everything flagged positive, how much truly is. (Uses TP and FP only; `FN` drives recall, not precision. Both ignore TN, which is why they suit retrieval / imbalance.)
 - **Recall (TPR)** = `TP / (TP + FN)` — of all actual positives, how many caught.
 - **Fraud / medical diagnosis → maximise recall** (missing a positive is catastrophic; tolerate low precision).
 - **Spam filtering → maximise precision** (a real email lost to the spam folder is worse than a spam that slips through).

@@ -910,9 +910,9 @@ To complete this learning activity, follow these steps:
 1. Rapidly explore the effects of different features on model prediction.
 2. Consult and keep Molnar’s (2019) text accessible as a reference (as required).
 3. Apply a classifier explainer to the ML output. One popular exercise for ML in competitions is to predict which individual/s will survive the Titanic.
-4. View the explainer dashboard deployment at http://titanicexplainer.herokuapp.com/classifier/.
+4. View the explainer dashboard deployment at http://titanicexplainer.herokuapp.com/classifier/. ⚠️ *(This Heroku deployment is offline - rebuilt locally, see status note below.)*
 5. Review and interact with the dashboard. Pay attention to feature importances, model performance, individual predictions, feature dependence, feature interactions and decision trees.
-6. View the explainer dashboard deployment at http://titanicexplainer.herokuapp.com/regression/ for the fare paid for a ticket on the Titanic.
+6. View the explainer dashboard deployment at http://titanicexplainer.herokuapp.com/regression/ for the fare paid for a ticket on the Titanic. ⚠️ *(Offline - use the local rebuild in the status note below.)*
 7. Repeat Step 5 for the Regression Explainer.
 8. In the discussion forum, share how well you believe the model performed in predicting survival. Which parameters are the most important in relation to survival? What is the relationship between the features and the model output? What do you think about the explainer dashboard being used in the workplace or consumers having access to such a dashboard whenever a ML decision is made that affects humans?
 
@@ -984,12 +984,12 @@ This Module will show you how to do machine learning (ML) using the pre-built lo
 
 *Resource Overview:*
 
-    Before coding your ML using logistic regression, you need to understand the terms, names and coefficients describing the model. When reading this chapter, ignore discussions about the perceptron, Adaline and Support Vector Machines. Pay attention to the code snippets and parameter C. You should try to read the chapter without going too deep into the statistics. Keep the chapter handy as a reference and return to it as required. See pages 72–78 (Raschka & Mirialli, 2019 for the pages relevant to the logistic regression model).
+    Before coding your ML using logistic regression, you need to understand the terms, names and coefficients describing the model. When reading this chapter, ignore discussions about the perceptron, Adaline and Support Vector Machines. Pay attention to the code snippets and parameter C. You should try to read the chapter without going too deep into the statistics. Keep the chapter handy as a reference and return to it as required. See pages 72–78 (Raschka & Mirjalili, 2019 for the pages relevant to the logistic regression model).
 
 > *Status: ✅ Read + Reviewed - see [module08_notes.md](module-08-logistic-regression/module08_notes.md#4-raschka-s--mirjalili-v-2019-training-a-logistic-regression-model-with-scikit-learn)*
 
 #### 5. Logistic Regression Everything You Need to Know for Machine Learning
-- Brownless, J. (2019, 12 August). Logistic regression for machine learning [Web log post]. Retrieved from https://machinelearningmastery.com/logistic-regression-for-machine-learning/
+- Brownlee, J. (2019, 12 August). Logistic regression for machine learning [Web log post]. Retrieved from https://machinelearningmastery.com/logistic-regression-for-machine-learning/
 
 *Resource Overview:*
 
@@ -1104,6 +1104,8 @@ To complete this learning activity, follow these steps:
 9. Predict the results using the test dataset and evaluate the accuracy of the test dataset.
 10. Describe the accuracy of the train and test datasets on the discussion forum. Do you agree with the cut-off for wine quality? Is it arbitrary? Which psychochemical properties (variables) make the wine good?
 Reference
+
+> ⚠️ **Go beyond accuracy.** The brief stops at train/test accuracy, but this module's own through-line - and Assessment 2 - require more: tune **`C`** with `GridSearchCV`, handle the **class imbalance** (the "bad" wine class is the minority) with SMOTE or `class_weight='balanced'`, and report the **confusion matrix + precision/recall/F1** on the minority class, not accuracy alone. Accuracy on imbalanced wine data is exactly the metric resource 5 warns against. See the synthesis in [module08_notes.md](module-08-logistic-regression/module08_notes.md#synthesis--how-the-eight-fit-together).
 
 > *Status: 🕐 To-Do* 
 

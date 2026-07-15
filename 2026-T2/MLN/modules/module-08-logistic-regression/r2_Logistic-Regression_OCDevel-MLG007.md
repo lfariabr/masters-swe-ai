@@ -14,14 +14,14 @@ Logistic regression is a classification algorithm, despite its historically conf
 The algorithm determines the probability that an input belongs to a specific class, using outputs between zero and one.
 How Logistic Regression Works
 The process starts by passing inputs through a linear regression function, then applying a logistic (sigmoid) function to produce a probability.
-For binary classification, results above 0.5 usually indicate a positive class (for example, "expensive"), and results below 0.5 indicate a negative class ("not expensive").
+For binary classification, results at or above 0.5 indicate a positive class (for example, "expensive"), and results below 0.5 indicate a negative class ("not expensive") - the `0.5` tie conventionally maps to the positive class.
 Multiclass problems assign probabilities to each class, selecting the class with the highest probability using the arg max function.
 Example Application: Housing Spreadsheet
 An example uses a spreadsheet of houses with features like square footage and number of bedrooms, labeling each as "expensive" (1) or "not expensive" (0).
 Logistic regression uses the spreadsheet data to learn the pattern that separates expensive houses from less expensive ones.
 Steps in Logistic Regression
 The algorithm follows three steps: predict (infer a class), evaluate error (calculate how inaccurate the guesses were), and train (refine the underlying parameters).
-Predictions are compared to actual data, and the difference (error) is calculated via a log likelihood function, which accounts for how confident the prediction was compared to the true value.
+Predictions are compared to actual data, and the error is calculated via the negative log-likelihood (log-loss) - log-likelihood is maximised, so its negative is the quantity gradient descent minimises. It accounts for how confident the prediction was compared to the true value.
 Model parameters (theta values) are updated using gradient descent, which iteratively reduces the error by adjusting these values based on the derivative of the error function.
 The Mathematical Foundation
 The hypothesis function is the sigmoid or logistic function, with the formula: 1 / (1 + e^(-theta^T x)), where theta represents the parameters and x the input features.
