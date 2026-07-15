@@ -910,9 +910,9 @@ To complete this learning activity, follow these steps:
 1. Rapidly explore the effects of different features on model prediction.
 2. Consult and keep Molnar’s (2019) text accessible as a reference (as required).
 3. Apply a classifier explainer to the ML output. One popular exercise for ML in competitions is to predict which individual/s will survive the Titanic.
-4. View the explainer dashboard deployment at http://titanicexplainer.herokuapp.com/classifier/Links to an external site..
+4. View the explainer dashboard deployment at http://titanicexplainer.herokuapp.com/classifier/. ⚠️ *(This Heroku deployment is offline - rebuilt locally, see status note below.)*
 5. Review and interact with the dashboard. Pay attention to feature importances, model performance, individual predictions, feature dependence, feature interactions and decision trees.
-6. View the explainer dashboard deployment at http://titanicexplainer.herokuapp.com/regression/Links to an external site. for the fare paid for a ticket on the Titanic.
+6. View the explainer dashboard deployment at http://titanicexplainer.herokuapp.com/regression/ for the fare paid for a ticket on the Titanic. ⚠️ *(Offline - use the local rebuild in the status note below.)*
 7. Repeat Step 5 for the Regression Explainer.
 8. In the discussion forum, share how well you believe the model performed in predicting survival. Which parameters are the most important in relation to survival? What is the relationship between the features and the model output? What do you think about the explainer dashboard being used in the workplace or consumers having access to such a dashboard whenever a ML decision is made that affects humans?
 
@@ -932,6 +932,182 @@ To complete this learning activity, follow these steps:
 5. Share your experience of using each of the tools to the discussion forum once you have completed the activity. How does having access to these tools compare with the explainer dashboard?
 
 > *Status: ✅ Done — see [activity4_eli5_lime_mlxtend.ipynb](../modules/module-07-automated-explainable-ml/activities/activity4_eli5_lime_mlxtend.ipynb) — the explainers **contradict each other**: Eli5 reports every local sign inverted*
+
+---
+
+## Module 8 - Logistic Regression
+
+### TLDR
+**Logistic regression** is linear regression pushed through a **sigmoid** (`1 / (1 + e^(−z))`) so the output is a **probability in (0, 1)**, thresholded at 0.5 into a class. Despite the name, it is a **classification** algorithm — the go-to for **binary** problems.
+- **Representation = coefficients**, just like linear regression: `ln(p/(1−p)) = β₀ + βᵢxᵢ`. The left side is the **log-odds / logit**; `Exp(β)` = **odds ratio** → this is what makes LR **intrinsically interpretable** (ties back to Module 7 XAI).
+- Coefficients are learned by **Maximum-Likelihood Estimation** (L-BFGS/ADAM in practice; gradient descent from scratch) on a **log-loss** cost.
+- **The one hyperparameter that matters is `C` = 1/λ** (inverse regularisation): **smaller `C` = stronger regularisation = simpler model**. Tune it with `GridSearchCV`. Standardise features first — regularisation needs comparable scales.
+- **Imbalance is LR's Achilles heel:** it favours the majority class (97% "accuracy" catching zero rare cases). Fix with **SMOTE** or **`class_weight='balanced'`**, and **evaluate with the confusion matrix + precision/recall/F1**, never accuracy alone.
+- **LR = one neuron** (linear core + sigmoid activation) — the foundation for neural networks.
+
+> Full per-resource breakdown: [module08_notes.md](module-08-logistic-regression/module08_notes.md)
+
+### Introduction
+This Module will show you how to do machine learning (ML) using the pre-built logistic regression model from scikit-learn library. Logistic regression predates ML as a statistical approach that is ideally suited to binary classification problems. The method dates as far back as the early 19th century when it was applied to estimate population growth and chemical reactions. The types of problems have two class values (e.g., yes/no, red/white, positive or negative sentiment, pass/fail or 1/0); however, discrete (two or more classes) classification can also be handled e.g. predict the mood of a tweet or which promotion of the three is most attractive to customers? The learning activities will reinforce the importance of having the right and sufficient data for testing. You will learn the entire process for logistic regression, from inputting data to training and testing the model (see the CRISP-DM templates for a more detailed and expanded description).
+
+### Resources
+
+#### 1. Logistic Regression
+- McCormick, K. (2018, 20 August). Logistic regression [Video file]. Retrieved from https://www.linkedin.com/learning/machine-learning-and-ai-foundations-classification-modeling/logistic-regression?resume=false&u=56744473
+
+*Resource Overview:*
+
+    This video provides some background to logistic regression. Notably, it discusses use of Titanic data to determine the male survivors, the coefficients of variables and the confusion matrix.
+
+> *Status: ✅ Watched + Reviewed - see [module08_notes.md](module-08-logistic-regression/module08_notes.md#1-mccormick-k-2018-logistic-regression-video)*
+
+#### 2. Logistic Regression
+- Renelle, T. (2017, 19 February). Episode #007: Logistic regression [Audio podcast]. Retrieved from https://player.fm/series/machine-learning-guide-1457335/7-logistic-regression
+
+*Resource Overview:*
+
+    This podcast provides an introduction to logistic regression and serves to remind you of the classification capability of logistic regression. The audio explanation is comprehensive and very understandable and does not refer to any diagrams. The podcast positions logistic regression in relation to linear regression and extensively covers the vocabulary of logistic regression (e.g., labels and error function).
+
+> *Status: ✅ Listened + Reviewed - see [module08_notes.md](module-08-logistic-regression/module08_notes.md#2-ocdevel--renelle-t-2017-mlg-007-logistic-regression-podcast)*
+
+#### 3. What are the Key Hyperparameters to Consider in Logistic Regression?
+- Jedamski, D. (2019, 15 May). What are the key hyperparameters to consider? [Video file]. Retrieved from https://www.linkedin.com/learning/applied-machine-learning-algorithms/what-are-the-key-hyperparameters-to-consider-2?u=56744473
+
+*Resource Overview:*
+
+    This resource helps to reinforce the importance of focusing on the C parameter when tuning your model. It also discusses the model attributes and the fit and predict methods.
+
+> *Status: ✅ Watched + Reviewed - see [module08_notes.md](module-08-logistic-regression/module08_notes.md#3-jedamski-d-2019-key-hyperparameters-to-consider-video)*
+
+#### 4. Training a Logistic Regression Model with Scikit-Learn
+- Raschka, S. & Mirjalili, V. (2019). Python machine learning: Machine learning and deep learning with python, scikit-learn, and tensorflow (3rd ed).Birmingham, UK : Packt. Retrieved from https://ebookcentral-proquest-com.torrens.idm.oclc.org/lib/think/reader.action?docID=6005547&ppg=101
+
+*Resource Overview:*
+
+    Before coding your ML using logistic regression, you need to understand the terms, names and coefficients describing the model. When reading this chapter, ignore discussions about the perceptron, Adaline and Support Vector Machines. Pay attention to the code snippets and parameter C. You should try to read the chapter without going too deep into the statistics. Keep the chapter handy as a reference and return to it as required. See pages 72–78 (Raschka & Mirjalili, 2019 for the pages relevant to the logistic regression model).
+
+> *Status: ✅ Read + Reviewed - see [module08_notes.md](module-08-logistic-regression/module08_notes.md#4-raschka-s--mirjalili-v-2019-training-a-logistic-regression-model-with-scikit-learn)*
+
+#### 5. Logistic Regression Everything You Need to Know for Machine Learning
+- Brownlee, J. (2019, 12 August). Logistic regression for machine learning [Web log post]. Retrieved from https://machinelearningmastery.com/logistic-regression-for-machine-learning/
+
+*Resource Overview:*
+
+    This post requires only a limited knowledge of statistics. It will help you to come to grips with the terminology. You will also learn how to make predictions using logistic regression. Of all the resources, this resource details everything you need to know about logistic regression, including how coefficient values are estimated using Maximum Likelihood Estimation.
+
+> *Status: ✅ Read + Reviewed - see [module08_notes.md](module-08-logistic-regression/module08_notes.md#5-brownlee-j-2019-updated-2023-logistic-regression-for-machine-learning)*
+
+#### 6. Measures of Fit for Logistic Regression
+- Allison, P. (n.d.). Measures of fit for logistic regression [Web log post]. Retrieved from https://support.sas.com/resources/papers/proceedings14/1485-2014.pdf
+
+*Resource Overview:*
+
+    This article takes the perspective of a statistician to highlight the complexity of ensuring the goodness-of-fit of a logistics regression model. Scikit-learn can be used to generate logistic models and determine the quality of predictions. However, this does not mean a fitted model will be ideal for predictions or classifications. Having some understanding of the complexity of fitting models will be useful in your final model evaluations. This resource has been written for the popular Statistical Analysis Software (SAS).
+
+> *Status: ✅ Read + Reviewed - see [module08_notes.md](module-08-logistic-regression/module08_notes.md#6-allison-p-d-2014-measures-of-fit-for-logistic-regression)*
+
+#### 7. Understanding Confusion Matrix
+- Narkhede, S. (2018, 9 May). Understanding confusion matrix [Web log post]. Retrieved https://towardsdatascience.com/understanding-confusion-matrix-a9ad42dcfd62
+
+*Resource Overview:*
+
+    To measure the effectiveness of a model, the scikit-learn user has access to a variety of metrics and scores (see https://scikit-learn.org/stable/modules/model_evaluation.html). Using data, the ability to train_test_split and validate the model via an outside data set or by splitting the available data. Taking this approach  stops the model from having to memorise the data set and performing with unseen data. The confusion matrix is the most easily available output. This resource provides a simplified overview of a confusion matrix in the context of a two classification type problem.
+
+> *Status: ✅ Read + Reviewed - see [module08_notes.md](module-08-logistic-regression/module08_notes.md#7-jayaswal-v--narkhede-s-2020-understanding-the-confusion-matrix-precision-recall-f1)*
+
+#### 8. Scikit-learn Logistic Regression
+- Pedregosa, F., Varoquaux, G.,Gramfort, A.,Michel, V., Thirion, B., Grisel, O., Blondel, M.,Prettenhofer, P., Weiss, R.,Dubourg, V.,Vanderplas, J., Passos, A.,Cournapeau, D.,Brucher, M.,Perrot, M. and Duchesnay, E. (2011). Scikit-learn: Machine learning in Python. Journal of Machine Learning Research. 12, 2825–2830. Retrieved from https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html#examples-using-sklearn-linear-model-logisticregression
+
+*Resource Overview:*
+
+    This resource is a useful reference when writing ML code using scikit-learn logistic regression. An example of code is provided to help you follow the scikit implementation. The user guide (available at https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression) is an additional resource and worth consulting when working on a logistic problem.
+
+> *Status: ✅ Read + Reviewed - see [module08_notes.md](module-08-logistic-regression/module08_notes.md#8-pedregosa-et-al-2011-scikit-learn-logisticregression-reference)*
+
+### Learning Activities
+
+#### 1. Top Machine Learning Algorithms, Frameworks, Tools and Products Used by Data Scientists
+- Hayes, B. (2020, 24 July). Top machine learning algorithms, frameworks, tools and products used by data scientists. Retrieved from https://customerthink.com/top-machine-learning-algorithms-frameworks-tools-and-products-used-by-data-scientists/
+
+The results of the Kaggle survey of nearly 20,000 data professionals reveals the most popular ML algorithms, frameworks, tools and products.
+
+Read about the results at https://customerthink.com/top-machine-learning-algorithms-frameworks-tools-and-products-used-by-data-scientists/. Use the discussion forum to share your thinking on the algorithms, frameworks and products. Do not worry about the tools category (unless you have some experience), as we will cover this aspect in module 12. Your discussion should include your experiences with using each of the components featured in the polls. Would you wish to make any changes to the rankings, especially those the top three of each category? Please explain your views and share your thinking on the discussion forum.
+
+> *Status: 🕐 To-Do* 
+
+#### 2. Logistic Regression and Examination Prediction
+- Dhiraj, K., (2020, 10 January). Logistic regression in Python using scikit-learn. Medium. Retrieved from https://heartbeat.fritz.ai/logistic-regression-in-python-using-scikit-learn-d34e882eebb1
+
+This activity is about generating a logistic regression classifier for a pass/fail examination.
+
+To complete this learning activity, follow these steps:
+
+1. Upload Logistic_Regression_and_Exam_Prediction.ipynb. This file must be loaded to your notebook.
+2. Read Dhiraj (2020).
+3. Run all the code.
+4. Try to accept all the default values for the model and monitor the results.
+5. Add some comments to help you follow the notebook model.
+6. Share your comments to the discussion forum and discuss your use of scikit-learn logistic regression. Share your commented notebook file and discuss any aspects of the modelling that required further details as indicated by your own additions. Additionally, consider answering the following questions in your post:
+- Were there any major issues?
+- Did you try tweaking any parameters?
+- What happened when you chose all default values for the model parameters?
+
+> *Status: 🕐 To-Do* 
+
+#### 3. Prediction Purchase of New Launch Product
+- Geeksforgeeks. (2019, 29 April). ML | Logistic regression using Python. Retrieved from https://www.geeksforgeeks.org/ml-logistic-regression-using-python/
+
+The logistic regression model we will build will predict whether a user will purchase a product (or not) based on data from the customer database.
+
+To complete this learning activity, follow these steps:
+1. Upload Prediction Purchase New Launch Product.ipynb to your notebook.
+2. Read Geeksforgeeks (2019).
+3. Upload launch.csv e.g. Google Drive.
+4. Run all the code.
+5. Analyse or rather specify your predictions as indicated by the confusion matrix.
+6. Review the accuracy of the model.
+7. Look at the visualisation generated.
+8. Share a post to the discussion forum detailing how well the model performs. You will need to qualify your answer with feedback on the accuracy, confusion matrix and graph.
+
+> *Status: 🕐 To-Do* 
+
+#### 4. Tuning Hyperparameters for Logistic Regression Using the Iris Dataset
+We will now focus our attention on tuning parameters for logistic regression.
+
+To complete this learning activity, follow these steps:
+
+1. Upload Tuning_Hyperparameters_for_Logistic_Regression.ipynb. This file must be loaded to your notebook.
+2. Walk through import of packages and load the iris dataset (further details of this data set available at https://archive.ics.uci.edu/ml/datasets/iris).
+3. Visualise the data plots to show sepal width versus sepal length and petal width versus petal length.
+4. Create function to plot decision surface (initalise with colour mapping relating to amount of classes in target data, parameters for graph and decision surface) 
+5. Split the available dataset into two subsets comprising training data (this data will be used to train the model) and testing data (this data will be used to compare the performance of the model with the test set).
+6. Test the sepal data with different regularisation values (to improve generalisation performance on unseen data).
+7. Test the petal data with different regularisation values (to improve generalisation performance on unseen data).
+8. Generate validation curves and commentary.
+9. Share your comments to the discussion forum regarding each of the steps (i.e., Steps 1–9). Did you encounter any major issues? If so, how did you overcome them? Which parameters did you try modifying?
+
+> *Status: 🕐 To-Do* 
+
+#### 5. Red Wine Quality Classification with Logistic Regression
+- Cortez, P., Cerdeira, A., Almeida, F., Matos, T. & Reis, J. (2009). Modeling wine preferences by data mining from physicochemical properties. Decision Support Systems, 47(4), 547–553. Retrieved from https://www.sciencedirect.com/science/article/abs/pii/S0167923609001377
+
+To complete this learning activity, follow these steps:
+
+1. Upload Red_Wine_Quality_Classification_with_Logistic_Regression.ipynb.
+2. Walk through the import of packages.
+3. Load red wine quality data (description available at: https://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-red.csv);
+4. Complete the data visualisation of the wine features (12) and values.
+5. Implement models: Normalise data using the mean and standard deviation of the training data.
+6. Implement models: Calculate the Sigmoid function.
+7. Implement models: Perform training in the training dataset (using the gradient descent).
+8. Split the available dataset into two subsets comprising training data (this data will be used to train the model) and testing data (this data will be used to compare the performance of the model with the test set).
+9. Predict the results using the test dataset and evaluate the accuracy of the test dataset.
+10. Describe the accuracy of the train and test datasets on the discussion forum. Do you agree with the cut-off for wine quality? Is it arbitrary? Which psychochemical properties (variables) make the wine good?
+Reference
+
+> ⚠️ **Go beyond accuracy.** The brief stops at train/test accuracy, but this module's own through-line - and Assessment 2 - require more: tune **`C`** with `GridSearchCV`, handle the **class imbalance** (the "bad" wine class is the minority) with SMOTE or `class_weight='balanced'`, and report the **confusion matrix + precision/recall/F1** on the minority class, not accuracy alone. Accuracy on imbalanced wine data is exactly the metric resource 5 warns against. See the synthesis in [module08_notes.md](module-08-logistic-regression/module08_notes.md#synthesis--how-the-eight-fit-together).
+
+> *Status: 🕐 To-Do* 
 
 ---
 
