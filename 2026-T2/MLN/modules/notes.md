@@ -962,16 +962,7 @@ This Module will show you how to do machine learning (ML) using the pre-built lo
 
 > *Status: 🕐 To-Do* 
 
-#### 3. Logistic Regression
-- Gupta, S. (2019, 27 June). Logistic regression [Web log post]. Retrieved from https://in.springboard.com/blog/logistic-regression/
-
-*Resource Overview:*
-
-    This web log post with illustrations covers the basics of logistics regression, its advantages and disadvantages and its applications. After you read this resource, you will have a good idea of the algorithm and how it works. This reading contains very little statistics or mathematics.
-
-> *Status: 🕐 To-Do* 
-
-#### 4. What are the Key Hyperparameters to Consider in Logistic Regression?
+#### 3. What are the Key Hyperparameters to Consider in Logistic Regression?
 - Jedamski, D. (2019, 15 May). What are the key hyperparameters to consider? [Video file]. Retrieved from https://www.linkedin.com/learning/applied-machine-learning-algorithms/what-are-the-key-hyperparameters-to-consider-2?u=56744473
 
 *Resource Overview:*
@@ -980,7 +971,7 @@ This Module will show you how to do machine learning (ML) using the pre-built lo
 
 > *Status: 🕐 To-Do* 
 
-#### 5. Training a Logistic Regression Model with Scikit-Learn
+#### 4. Training a Logistic Regression Model with Scikit-Learn
 - Raschka, S. & Mirjalili, V. (2019). Python machine learning: Machine learning and deep learning with python, scikit-learn, and tensorflow (3rd ed).Birmingham, UK : Packt. Retrieved from https://ebookcentral-proquest-com.torrens.idm.oclc.org/lib/think/reader.action?docID=6005547&ppg=101
 
 *Resource Overview:*
@@ -989,7 +980,7 @@ This Module will show you how to do machine learning (ML) using the pre-built lo
 
 > *Status: 🕐 To-Do* 
 
-#### 6. Logistic Regression Everything You Need to Know for Machine Learning
+#### 5. Logistic Regression Everything You Need to Know for Machine Learning
 - Brownless, J. (2019, 12 August). Logistic regression for machine learning [Web log post]. Retrieved from https://machinelearningmastery.com/logistic-regression-for-machine-learning/
 
 *Resource Overview:*
@@ -998,7 +989,7 @@ This Module will show you how to do machine learning (ML) using the pre-built lo
 
 > *Status: 🕐 To-Do* 
 
-#### 7. Measures of Fit for Logistic Regression
+#### 6. Measures of Fit for Logistic Regression
 - Allison, P. (n.d.). Measures of fit for logistic regression [Web log post]. Retrieved from https://support.sas.com/resources/papers/proceedings14/1485-2014.pdf
 
 *Resource Overview:*
@@ -1007,7 +998,7 @@ This Module will show you how to do machine learning (ML) using the pre-built lo
 
 > *Status: 🕐 To-Do* 
 
-#### 8. Understanding Confusion Matrix
+#### 7. Understanding Confusion Matrix
 - Narkhede, S. (2018, 9 May). Understanding confusion matrix [Web log post]. Retrieved https://towardsdatascience.com/understanding-confusion-matrix-a9ad42dcfd62
 
 *Resource Overview:*
@@ -1016,21 +1007,12 @@ This Module will show you how to do machine learning (ML) using the pre-built lo
 
 > *Status: 🕐 To-Do* 
 
-#### 9. Scikit-learn Logistic Regression
+#### 8. Scikit-learn Logistic Regression
 - Pedregosa, F., Varoquaux, G.,Gramfort, A.,Michel, V., Thirion, B., Grisel, O., Blondel, M.,Prettenhofer, P., Weiss, R.,Dubourg, V.,Vanderplas, J., Passos, A.,Cournapeau, D.,Brucher, M.,Perrot, M. and Duchesnay, E. (2011). Scikit-learn: Machine learning in Python. Journal of Machine Learning Research. 12, 2825–2830. Retrieved from https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html#examples-using-sklearn-linear-model-logisticregression
 
 *Resource Overview:*
 
     This resource is a useful reference when writing ML code using scikit-learn logistic regression. An example of code is provided to help you follow the scikit implementation. The user guide (available at https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression) is an additional resource and worth consulting when working on a logistic problem.
-
-> *Status: 🕐 To-Do* 
-
-#### 10. Machine Learning Algorithm Cheat Sheet
-- Microsoft (n.d.). Machine learning algorithm cheat sheet. Retrieved from https://download.microsoft.com/download/3/5/b/35bb997f-a8c7-485d-8c56-19444dafd757/azure-machine-learning-algorithm-cheat-sheet-nov2019.pdf?WT.mc_id=docs-article-lazzeri
-
-*Resource Overview:*
-
-    This extremely useful resource provides suggestions for the selection of algorithms. This resource provides a rule of thumb and reminds us that logistic regression is ideally suitable for classification while linear regression is ideally suitable for the prediction of continuous values. You will find this cheat sheet useful beyond the classroom, so keep it accessible! You may even wish to print it out for use whenever you need to select an algorithm.
 
 > *Status: 🕐 To-Do* 
 
