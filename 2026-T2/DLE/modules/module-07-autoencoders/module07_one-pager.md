@@ -90,12 +90,14 @@
 ---
 
 ## 🔴 Assessment Hook (bottom red strip)
-> **Assessment 2 - Deep Learning Project Proposal Presentation** · 1000-word report ±10% + 5-7 min presentation · **group, 30%** · due **26/07/2026** · SLOs **b) c) d) e)**
+> **Assessment 2 - Deep Learning Project Proposal Presentation** · 1000-word report ±10% + presentation · **group, 30%** · due **26/07/2026** · SLOs **b) c) d) e)**
 > **Assessment 3 - Deep Learning Final Project** · source code + 1500-word report ±10% · **group, 40%** · due **19/08/2026** · SLOs **c) d) e)**
+>
+> 🔴 **A2 logistics per Dr Tayab in the week-7 class (supersedes the brief's "5-7 min"):** **7-10 min presentation + 4-5 min Q&A**, presented **live in class in week 8 or 9**. Our group is presenting **live** → the class recording counts as submission; just hand in **PPT + report**. See [class notes §6](module07_notes-class.md).
 >
 > Module 7 is where you **identify possible uses of autoencoders and possible input datasets, particularly for A3**. Concretely: **Bengio (2012) is the citable justification for your Review Pulse transfer-learning story** - and he cites **Glorot et al. (2011b)**, who used **stacked denoising autoencoders with sparse rectifiers for domain adaptation in sentiment classification**. That is literally your task, one deep-learning generation earlier. Cite it in the A2 literature/method section.
 >
-> 🔴 **Dr Tayab (week-7 email) widens the A2 hook:** this module supports Assessment 2 if your project involves **feature extraction, dimensionality reduction, image processing, or representation learning**. Review Pulse hits **feature extraction + representation learning** - so the M7 material belongs in the A2 proposal, not just A3.
+> 🔴 **Dr Tayab widens the A2 hook:** this module supports Assessment 2 if your project involves **feature extraction, dimensionality reduction, image processing, or representation learning**. Review Pulse hits **feature extraction + representation learning** - so the M7 material belongs in the A2 proposal, not just A3.
 
 ## 🔴 If you only memorise 5 things
 1. **An autoencoder is only useful because it copies badly.** Bottleneck or regularizer - something must break the copy, or it learns the identity.
