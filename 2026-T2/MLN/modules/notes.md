@@ -938,6 +938,14 @@ To complete this learning activity, follow these steps:
 ## Module 8 - Logistic Regression
 
 ### TLDR
+**Logistic regression** is linear regression pushed through a **sigmoid** (`1 / (1 + e^(−z))`) so the output is a **probability in (0, 1)**, thresholded at 0.5 into a class. Despite the name, it is a **classification** algorithm — the go-to for **binary** problems.
+- **Representation = coefficients**, just like linear regression: `ln(p/(1−p)) = β₀ + βᵢxᵢ`. The left side is the **log-odds / logit**; `Exp(β)` = **odds ratio** → this is what makes LR **intrinsically interpretable** (ties back to Module 7 XAI).
+- Coefficients are learned by **Maximum-Likelihood Estimation** (L-BFGS/ADAM in practice; gradient descent from scratch) on a **log-loss** cost.
+- **The one hyperparameter that matters is `C` = 1/λ** (inverse regularisation): **smaller `C` = stronger regularisation = simpler model**. Tune it with `GridSearchCV`. Standardise features first — regularisation needs comparable scales.
+- **Imbalance is LR's Achilles heel:** it favours the majority class (97% "accuracy" catching zero rare cases). Fix with **SMOTE** or **`class_weight='balanced'`**, and **evaluate with the confusion matrix + precision/recall/F1**, never accuracy alone.
+- **LR = one neuron** (linear core + sigmoid activation) — the foundation for neural networks.
+
+> Full per-resource breakdown: [module08_notes.md](module-08-logistic-regression/module08_notes.md)
 
 ### Introduction
 This Module will show you how to do machine learning (ML) using the pre-built logistic regression model from scikit-learn library. Logistic regression predates ML as a statistical approach that is ideally suited to binary classification problems. The method dates as far back as the early 19th century when it was applied to estimate population growth and chemical reactions. The types of problems have two class values (e.g., yes/no, red/white, positive or negative sentiment, pass/fail or 1/0); however, discrete (two or more classes) classification can also be handled e.g. predict the mood of a tweet or which promotion of the three is most attractive to customers? The learning activities will reinforce the importance of having the right and sufficient data for testing. You will learn the entire process for logistic regression, from inputting data to training and testing the model (see the CRISP-DM templates for a more detailed and expanded description).
@@ -951,7 +959,7 @@ This Module will show you how to do machine learning (ML) using the pre-built lo
 
     This video provides some background to logistic regression. Notably, it discusses use of Titanic data to determine the male survivors, the coefficients of variables and the confusion matrix.
 
-> *Status: 🕐 To-Do* 
+> *Status: ✅ Watched + Reviewed - see [module08_notes.md](module-08-logistic-regression/module08_notes.md#1-mccormick-k-2018-logistic-regression-video)*
 
 #### 2. Logistic Regression
 - Renelle, T. (2017, 19 February). Episode #007: Logistic regression [Audio podcast]. Retrieved from https://player.fm/series/machine-learning-guide-1457335/7-logistic-regression
@@ -960,7 +968,7 @@ This Module will show you how to do machine learning (ML) using the pre-built lo
 
     This podcast provides an introduction to logistic regression and serves to remind you of the classification capability of logistic regression. The audio explanation is comprehensive and very understandable and does not refer to any diagrams. The podcast positions logistic regression in relation to linear regression and extensively covers the vocabulary of logistic regression (e.g., labels and error function).
 
-> *Status: 🕐 To-Do* 
+> *Status: ✅ Listened + Reviewed - see [module08_notes.md](module-08-logistic-regression/module08_notes.md#2-ocdevel--renelle-t-2017-mlg-007-logistic-regression-podcast)*
 
 #### 3. What are the Key Hyperparameters to Consider in Logistic Regression?
 - Jedamski, D. (2019, 15 May). What are the key hyperparameters to consider? [Video file]. Retrieved from https://www.linkedin.com/learning/applied-machine-learning-algorithms/what-are-the-key-hyperparameters-to-consider-2?u=56744473
@@ -969,7 +977,7 @@ This Module will show you how to do machine learning (ML) using the pre-built lo
 
     This resource helps to reinforce the importance of focusing on the C parameter when tuning your model. It also discusses the model attributes and the fit and predict methods.
 
-> *Status: 🕐 To-Do* 
+> *Status: ✅ Watched + Reviewed - see [module08_notes.md](module-08-logistic-regression/module08_notes.md#3-jedamski-d-2019-key-hyperparameters-to-consider-video)*
 
 #### 4. Training a Logistic Regression Model with Scikit-Learn
 - Raschka, S. & Mirjalili, V. (2019). Python machine learning: Machine learning and deep learning with python, scikit-learn, and tensorflow (3rd ed).Birmingham, UK : Packt. Retrieved from https://ebookcentral-proquest-com.torrens.idm.oclc.org/lib/think/reader.action?docID=6005547&ppg=101
@@ -978,7 +986,7 @@ This Module will show you how to do machine learning (ML) using the pre-built lo
 
     Before coding your ML using logistic regression, you need to understand the terms, names and coefficients describing the model. When reading this chapter, ignore discussions about the perceptron, Adaline and Support Vector Machines. Pay attention to the code snippets and parameter C. You should try to read the chapter without going too deep into the statistics. Keep the chapter handy as a reference and return to it as required. See pages 72–78 (Raschka & Mirialli, 2019 for the pages relevant to the logistic regression model).
 
-> *Status: 🕐 To-Do* 
+> *Status: ✅ Read + Reviewed - see [module08_notes.md](module-08-logistic-regression/module08_notes.md#4-raschka-s--mirjalili-v-2019-training-a-logistic-regression-model-with-scikit-learn)*
 
 #### 5. Logistic Regression Everything You Need to Know for Machine Learning
 - Brownless, J. (2019, 12 August). Logistic regression for machine learning [Web log post]. Retrieved from https://machinelearningmastery.com/logistic-regression-for-machine-learning/
@@ -987,7 +995,7 @@ This Module will show you how to do machine learning (ML) using the pre-built lo
 
     This post requires only a limited knowledge of statistics. It will help you to come to grips with the terminology. You will also learn how to make predictions using logistic regression. Of all the resources, this resource details everything you need to know about logistic regression, including how coefficient values are estimated using Maximum Likelihood Estimation.
 
-> *Status: 🕐 To-Do* 
+> *Status: ✅ Read + Reviewed - see [module08_notes.md](module-08-logistic-regression/module08_notes.md#5-brownlee-j-2019-updated-2023-logistic-regression-for-machine-learning)*
 
 #### 6. Measures of Fit for Logistic Regression
 - Allison, P. (n.d.). Measures of fit for logistic regression [Web log post]. Retrieved from https://support.sas.com/resources/papers/proceedings14/1485-2014.pdf
@@ -996,7 +1004,7 @@ This Module will show you how to do machine learning (ML) using the pre-built lo
 
     This article takes the perspective of a statistician to highlight the complexity of ensuring the goodness-of-fit of a logistics regression model. Scikit-learn can be used to generate logistic models and determine the quality of predictions. However, this does not mean a fitted model will be ideal for predictions or classifications. Having some understanding of the complexity of fitting models will be useful in your final model evaluations. This resource has been written for the popular Statistical Analysis Software (SAS).
 
-> *Status: 🕐 To-Do* 
+> *Status: ✅ Read + Reviewed - see [module08_notes.md](module-08-logistic-regression/module08_notes.md#6-allison-p-d-2014-measures-of-fit-for-logistic-regression)*
 
 #### 7. Understanding Confusion Matrix
 - Narkhede, S. (2018, 9 May). Understanding confusion matrix [Web log post]. Retrieved https://towardsdatascience.com/understanding-confusion-matrix-a9ad42dcfd62
@@ -1005,7 +1013,7 @@ This Module will show you how to do machine learning (ML) using the pre-built lo
 
     To measure the effectiveness of a model, the scikit-learn user has access to a variety of metrics and scores (see https://scikit-learn.org/stable/modules/model_evaluation.html). Using data, the ability to train_test_split and validate the model via an outside data set or by splitting the available data. Taking this approach  stops the model from having to memorise the data set and performing with unseen data. The confusion matrix is the most easily available output. This resource provides a simplified overview of a confusion matrix in the context of a two classification type problem.
 
-> *Status: 🕐 To-Do* 
+> *Status: ✅ Read + Reviewed - see [module08_notes.md](module-08-logistic-regression/module08_notes.md#7-jayaswal-v--narkhede-s-2020-understanding-the-confusion-matrix-precision-recall-f1)*
 
 #### 8. Scikit-learn Logistic Regression
 - Pedregosa, F., Varoquaux, G.,Gramfort, A.,Michel, V., Thirion, B., Grisel, O., Blondel, M.,Prettenhofer, P., Weiss, R.,Dubourg, V.,Vanderplas, J., Passos, A.,Cournapeau, D.,Brucher, M.,Perrot, M. and Duchesnay, E. (2011). Scikit-learn: Machine learning in Python. Journal of Machine Learning Research. 12, 2825–2830. Retrieved from https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html#examples-using-sklearn-linear-model-logisticregression
@@ -1014,7 +1022,7 @@ This Module will show you how to do machine learning (ML) using the pre-built lo
 
     This resource is a useful reference when writing ML code using scikit-learn logistic regression. An example of code is provided to help you follow the scikit implementation. The user guide (available at https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression) is an additional resource and worth consulting when working on a logistic problem.
 
-> *Status: 🕐 To-Do* 
+> *Status: ✅ Read + Reviewed - see [module08_notes.md](module-08-logistic-regression/module08_notes.md#8-pedregosa-et-al-2011-scikit-learn-logisticregression-reference)*
 
 ### Learning Activities
 
