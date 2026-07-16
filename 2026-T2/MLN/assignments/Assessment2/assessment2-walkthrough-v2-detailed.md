@@ -11,6 +11,32 @@ This is the long-form rehearsal script for `MLN601FariaLuisBrief2.ipynb`.
 
 ---
 
+## Take-3 Fixes (from the 16 Jul recording attempt)
+
+The first full take ran **12:41 against a 10:00 limit** and broke at four specific joints.
+Every one of them now has a scripted line below (marked **Transition** or flagged inline).
+
+1. **Clock discipline.** The overrun came from Data Understanding: heatmap and pairplot were
+   narrated element by element. Each is worth ONE sentence (already scripted in Block 3).
+   Time each block against its window; if a block overruns by 15 seconds, cut commentary,
+   never numbers.
+2. **The Section 2 → 3 joint** ("I lost myself"). Use the diagnosis-to-treatment transition
+   at the end of Block 2. Do not re-explain the dedup in Section 3; it was already told.
+3. **The SVM scaling sentence** ("I don't have a clue how to explain that"). Scripted in
+   Block 4: the scaler lives inside the pipeline, fit only on each fold's training data.
+4. **The Section 4 → 5 joint** ("I need a hook"). Scripted: selection frozen in CV, the test
+   set is the final exam, not a second chance to pick.
+5. **The 398 mystery.** 398 is the bottom ROW SUM of the confusion matrix (292 caught + 106
+   missed = all genuinely low proxies in the 1,064-row test set; 483 + 183 = 666 high). The
+   figure shows the four cells only, so derive the sums aloud - scripted in Block 5.
+6. **Fact traps from the take:** it is **6,497** raw rows, not 6,400; enunciate **"Gini"**
+   and **"SMOTE"** slowly once (the transcript heard "genie" and "smart"); say **"balanced
+   tree"**, not "balance said tree".
+7. **Long paragraphs are for the marker, not for narration.** Never read them. Speak the
+   three numbers against the three gates and move on.
+
+---
+
 ## Block 0 - Introduction and Story (0:00-0:50)
 
 **Screen:** Notebook title and metadata.
@@ -83,6 +109,12 @@ language. Why are sensitivity and specificity both required?
 >
 > The resulting balance is 62.6 percent high and 37.4 percent low, so accuracy alone is misleading.
 
+**Transition into Section 3 (say this - it is the joint that broke take 2):**
+
+> Everything up to here was diagnosis: the audit tells me the data is clean, but duplicated and
+> imbalanced. Section 3 is the treatment. It decides what the model is allowed to see: which
+> features enter, how the target is encoded, and how the split protects the test set.
+
 **Check your understanding:** Why is deduplication a conservative choice rather than proof that the
 data is wrong? What would duplicate leakage do to the reported metrics?
 
@@ -103,7 +135,12 @@ data is wrong? What would duplicate leakage do to the reported metrics?
 > correlation at 0.720, while density and alcohol have a strong negative relationship at minus
 > 0.668. This means the predictors should not be interpreted as independent evidence.
 >
-> The pairplot shows class overlap: there is useful signal, but no clean separation.
+> The heatmap confirms what Assessment 1 showed: alcohol dominates. The pairplot shows class
+> overlap: there is useful signal, but no single feature separates the classes cleanly, which
+> is why we need a model.
+
+*(Clock note: those two figures get one sentence each, exactly as scripted above. This is where
+take 2 lost its two minutes.)*
 >
 > I exclude the original quality score and derived labels from predictors. A stratified 80/20 split
 > produces 4,256 training and 1,064 test observations, preserves class proportions and has zero
@@ -112,6 +149,11 @@ data is wrong? What would duplicate leakage do to the reported metrics?
 > I also test bound sulfur dioxide and the free-to-total sulfur ratio. CV AUC falls from 0.7910 to
 > 0.7892, while balanced accuracy improves only 0.0075, below my 0.01 rule. I retain the simpler
 > 12-feature set.
+
+**Transition into Section 4:**
+
+> The data is now ready and locked. Section 4 is where the candidates compete, all of them under
+> the same cross-validation rules.
 
 **Check your understanding:** Why is alcohol's negative correlation not a negative business result?
 Why is rejecting engineered features evidence of good model development?
@@ -134,6 +176,9 @@ Why is rejecting engineered features evidence of good model development?
 >
 > The Balanced Tree keeps this structure but makes low-class mistakes more costly. SMOTE creates
 > synthetic minority examples only inside training folds. RBF SVM remains a technical benchmark.
+> Unlike the trees, the SVM needs feature scaling, so the scaler lives inside the pipeline: it is
+> fit only on each fold's training data, and the validation fold never leaks into it. That is the
+> same discipline as SMOTE - anything learned from data happens inside the fold.
 > The RBF kernel reaches CV AUC 0.826 compared with 0.804 for the linear kernel, using C equal to 1
 > and gamma set to scale. This supports a moderately nonlinear boundary, consistent with the
 > overlapping classes in the pairplot.
@@ -141,6 +186,12 @@ Why is rejecting engineered features evidence of good model development?
 > CV is the selection point. The AUC tree fails sensitivity at 0.643. SMOTE fails specificity at
 > 0.696. SVM has AUC 0.827 but sensitivity 0.631. Only the Balanced Tree passes every gate: AUC
 > 0.787, sensitivity 0.731 and specificity 0.703.
+
+**Transition into Section 5 (say this - it is the other joint that broke take 2):**
+
+> Section 4 ends with the candidates and their cross-validation numbers, and the selection is
+> frozen there. Section 5 opens the held-out test set with one job only: confirm the frozen
+> choice. It is the final exam, not a second chance to pick.
 
 **Check your understanding:** Describe five-fold CV in your own words. Why is the model with the
 highest AUC not automatically approved?
@@ -157,8 +208,10 @@ highest AUC not automatically approved?
 > Balanced Tree confirms AUC 0.792, sensitivity 0.734, specificity 0.725, balanced accuracy 0.729
 > and F1 0.669. It meets the criteria defined in Business Understanding.
 >
-> The confusion matrix makes this concrete. Of 398 low-quality proxies, it flags 292 and misses
-> 106. Of 666 high-quality proxies, it clears 483 and unnecessarily flags 183.
+> The confusion matrix makes this concrete. The test set has 1,064 proxies: 666 genuinely high
+> and 398 genuinely low. Those are the row sums of the matrix - the figure shows only the four
+> cells. Of the 398 low-quality proxies, the model flags 292 and misses 106; that is the 73
+> percent sensitivity. Of the 666 high-quality proxies, it clears 483 and unnecessarily flags 183.
 >
 > Compared with the AUC-tuned tree, balancing catches 58 additional weak proxies but sends 69
 > additional acceptable proxies to review. This exchanges tasting effort and possible delay for
@@ -249,6 +302,9 @@ This demonstrates more than model fitting:
 
 1. Read the entire detailed script aloud once, slowly.
 2. Explain every Portuguese checkpoint without looking at the answer.
-3. Record one audio-only attempt from memory.
-4. Rehearse notebook scrolling with the shorter `assessment2-walkthrough.md`.
-5. Record the final video conversationally; use this detailed script only if you lose the thread.
+3. Rehearse the four scripted transitions (Blocks 2→3, 3→4, 4→5 and the 398 derivation) until
+   they come out without reading - these are exactly where take 2 broke.
+4. Record one audio-only attempt from memory, with a stopwatch: note the time at the end of
+   each block against its window. Over by 15 seconds means cut commentary, never numbers.
+5. Rehearse notebook scrolling with the shorter `assessment2-walkthrough.md`.
+6. Record the final video conversationally; use this detailed script only if you lose the thread.
