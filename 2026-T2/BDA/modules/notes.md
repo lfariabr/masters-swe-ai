@@ -626,6 +626,72 @@ Submit your answer to the ‘Model Evaluation’ discussion forum. Read other st
 
 ---
 
+## Module 8 - Predictive Modelling
+
+### TLDR
+
+### Introduction
+Predictive modelling, also commonly referred to as predictive analytics, estimates future outcomes based on historical data using statistical algorithms and machine learning (ML) techniques. Predictive models attempt to represent the influence that a set of (independent) variables have on the outcome of another (dependent) variable of interest. Predictive models are extremely important to businesses, as they allow estimations to be made of the likelihood of future events. The applications of predictive analytics include fraud detection, risk management and marketing campaigns.
+
+Predictive modelling is a process that uses data and statistics to predict outcomes with data models. Thus, it is often said predictive modelling is an art; it is the science of unearthing the story built into the silos of data.
+In this Module, you will learn about two widely used predictive modelling techniques: linear regression and logistic regression.
+
+### Resources
+
+#### 1. The Essential Elements of Predictive Analytics and Data Mining
+- McCormick, K. (2017). The essential elements of predictive analytics and data mining [Video file]. Retrieved from https://www.linkedin.com/learning/the-essential-elements-of-predictive-analytics-and-data-mining/introduction-3?u=56744473
+
+*Resource Overview:*
+
+    This video from LinkedIn Learning introduces predictive analytics from a practical perspective. Listen to the section entitled, ‘What is Data Mining and Predictive Analytics?’. In addition to introducing the concept of predictive analytics, it also highlights the related essential elements.
+
+> *Status: 🕐 To-Do*
+
+#### 2. Linear Regression
+Lee, W. (2019). Python machine learning. Indianapolis, IN: John Wiley and Sons. Retrieved from https://ebookcentral-proquest-com.torrens.idm.oclc.org/lib/think/reader.action?docID=5747364&ppg=145
+
+*Resource Overview:*
+
+    In Module 6, you learned about classification problems. Classification and regression are similar in the sense that both attempt to predict the value of a variable of interest from a given set of dependent variables. The major difference between classification and regression is that while classification attempts to predict the value of a categorical variable, regression seeks to estimate the value of a numeric variable.
+
+    Read ‘Chapter 6: Supervised Learning—Linear Regression’ (pp. 119–149). Linear regression seeks to find the linear relationship between a dependent variable and one or more independent variables. This chapter presents linear regression models of increasing complexity. It first describes simple linear regression models that describe the linear relationship between one independent variable and one dependent variable. In practice, simple linear models are often too simplistic, as the variable of interest often depends on multiple independent variables. This chapter then describes multiple linear regression models that represent the linear relationship between one independent variable and multiple dependent variables.
+
+    It may sometimes be difficult to capture the relationship between dependent and independent variables using linear models. Linear regression models can be extended to polynomial regression models that represent the linear relationship between one dependent variable and one independent variable using a n-th degree polynomial. Polynomial regression models can be generalised to multiple polynomial regression models that capture the relationship between one independent variable and two or more independent variables using n-th degree polynomials. After explaining linear models, this chapter describes polynomial regression models and multiple polynomial regression models.
+
+    Using the ‘Boston Dataset’ about house and price data in the Boston area, this chapter demonstrates how to build these regression models using Python.
+
+> *Status: 🕐 To-Do*
+
+#### 3. Logistic Regression
+- Lee, W. (2019). Python machine learning. Indianapolis, IN: John Wiley and Sons. Retrieved from https://ebookcentral-proquest-com.torrens.idm.oclc.org/lib/think/reader.action?docID=5747364&ppg=177
+
+*Resource Overview:* 
+
+    In the above reading resource, you learned about linear regression and how to use linear regression models to predict the future values of a numeric variable. In this resource, you will learn about logistic regression.
+
+    Read ‘Chapter 7: Supervised Learning—Classification Using Logistic Regression’ (pp. 151–175). The problem of linear regression is that the predicted output does not always fall within the desired range. One of the main components of logistic regression is the Sigmoid function, which transforms values in the range (-∞, ∞) to (0, 1). This chapter first explains the characteristics of the Sigmoid function. Logistic regression models can be used for binary classification by thresholding the outputs; that is, by mapping any value less than 0.5 to 0 and any value greater than or equal to 0.5 to 1. Using the ‘Breast Cancer Wisconsin (Diagnostic) Dataset’, this chapter then demonstrates how to build logistic regression models to predict if a diagnosis is malignant or benign using Python.
+
+> *Status: 🕐 To-Do*
+
+### Learning Activities
+
+#### 1. Hands-on Exercise—Predictive Modelling
+- Boston House-price Dataset. (1980). StatLib—Datasets archive. Retrieved from http://lib.stat.cmu.edu/datasets/boston
+
+In this activity, you will develop a predictive model using a dataset.
+
+Using the Boston House-price dataset available at the URL provided below, perform the following tasks using PySpark: 
+
+- Compute the pairwise correlations of the variables; 
+- Select the top three variables based on the pairwise correlations of the variables; 
+- Create a regression model using a polynomial function of degree two on the three selected variables. Use 70% of the data for training; 
+- Compute the R-Squared value of the model using the remaining 30% of the test data; and 
+- Discuss any challenges that you faced in performing the above tasks in the ‘Predictive Modelling’ discussion forum and reply to other students’ queries to help resolve their issues.
+
+> *Status: 🕐 To-Do*
+
+---
+
 ```bash
 --- PLACEHOLDER:
 ## Module X - ...
