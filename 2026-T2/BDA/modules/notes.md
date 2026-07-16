@@ -629,6 +629,13 @@ Submit your answer to the ‘Model Evaluation’ discussion forum. Read other st
 ## Module 8 - Predictive Modelling
 
 ### TLDR
+- **Why:** Module 6 built classifiers and Module 7 scored them. Module 8 adds the **regression** half of supervised learning - predicting a **number** instead of a class - and closes the loop back to the business decision.
+- **What data mining is (McCormick):** finding **previously unknown relationships** in data **accumulated during the normal course of doing business** (not experiments), proving them, and **deploying** them against new data. *"We're not done until we deploy"* - deployment means **taking an action**, not just running the model. This is what separates data mining from statistics, hypothesis testing, BI reporting and EDA.
+- **Linear regression (Lee Ch6):** **simple** (1 feature) → **multiple** (2+) → **polynomial** (nth-degree curve) → **polynomial multiple**. Select features with `corr()` (Boston: **LSTAT** -0.74, **RM** +0.70 vs MEDV); judge with **R²**. Multiple → R² 0.6162; degree-2 polynomial → **0.7340**. Key insight: **polynomial regression IS linear regression** on expanded features.
+- **Bias vs variance:** the toy demo goes degree 2 → R² 0.9474, degree 3 → 0.9889, degree 4 → **R² = 1.0 and worthless**. A perfect training fit is a warning, not a win. ⚠️ **The book's advice here is self-contradictory** - aim for **low bias AND low variance** (see module notes).
+- **Logistic regression (Lee Ch7):** linear regression predicts negative values on binary outcomes, so route it through the **sigmoid** - the inverse of the **logit** (log-odds) - mapping (-∞, ∞) → **(0, 1)**, then threshold at **0.5**. Despite the name it is a **classifier**. Coefficients stay **interpretable**.
+- **Loops back to Module 7:** Ch7 re-derives the confusion matrix, accuracy/precision/recall/F1/FPR and ROC/AUC (0.99 on Breast Cancer), including the clearest ROC derivation in the subject - and repeats the imbalanced-data warning ("dumb algorithm" = 997/1000 accuracy).
+- **SLO d)** design analytical models. **Assessment 2 is due at the end of this week (26/07/2026).** ⚠️ Activity 1's `load_boston()` was **removed from scikit-learn 1.2** on ethical grounds - workaround in the module notes. Full detail: [module08_notes.md](module-08-predictive-modelling/module08_notes.md).
 
 ### Introduction
 Predictive modelling, also commonly referred to as predictive analytics, estimates future outcomes based on historical data using statistical algorithms and machine learning (ML) techniques. Predictive models attempt to represent the influence that a set of (independent) variables have on the outcome of another (dependent) variable of interest. Predictive models are extremely important to businesses, as they allow estimations to be made of the likelihood of future events. The applications of predictive analytics include fraud detection, risk management and marketing campaigns.
@@ -645,7 +652,7 @@ In this Module, you will learn about two widely used predictive modelling techni
 
     This video from LinkedIn Learning introduces predictive analytics from a practical perspective. Listen to the section entitled, ‘What is Data Mining and Predictive Analytics?’. In addition to introducing the concept of predictive analytics, it also highlights the related essential elements.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Watched + Reviewed - see [module08_notes.md](module-08-predictive-modelling/module08_notes.md)*
 
 #### 2. Linear Regression
 Lee, W. (2019). Python machine learning. Indianapolis, IN: John Wiley and Sons. Retrieved from https://ebookcentral-proquest-com.torrens.idm.oclc.org/lib/think/reader.action?docID=5747364&ppg=145
@@ -660,7 +667,7 @@ Lee, W. (2019). Python machine learning. Indianapolis, IN: John Wiley and Sons. 
 
     Using the ‘Boston Dataset’ about house and price data in the Boston area, this chapter demonstrates how to build these regression models using Python.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed - see [module08_notes.md](module-08-predictive-modelling/module08_notes.md)*
 
 #### 3. Logistic Regression
 - Lee, W. (2019). Python machine learning. Indianapolis, IN: John Wiley and Sons. Retrieved from https://ebookcentral-proquest-com.torrens.idm.oclc.org/lib/think/reader.action?docID=5747364&ppg=177
@@ -671,7 +678,7 @@ Lee, W. (2019). Python machine learning. Indianapolis, IN: John Wiley and Sons. 
 
     Read ‘Chapter 7: Supervised Learning—Classification Using Logistic Regression’ (pp. 151–175). The problem of linear regression is that the predicted output does not always fall within the desired range. One of the main components of logistic regression is the Sigmoid function, which transforms values in the range (-∞, ∞) to (0, 1). This chapter first explains the characteristics of the Sigmoid function. Logistic regression models can be used for binary classification by thresholding the outputs; that is, by mapping any value less than 0.5 to 0 and any value greater than or equal to 0.5 to 1. Using the ‘Breast Cancer Wisconsin (Diagnostic) Dataset’, this chapter then demonstrates how to build logistic regression models to predict if a diagnosis is malignant or benign using Python.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed - see [module08_notes.md](module-08-predictive-modelling/module08_notes.md)*
 
 ### Learning Activities
 
