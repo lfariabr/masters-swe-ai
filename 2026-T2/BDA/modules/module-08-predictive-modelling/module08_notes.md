@@ -204,7 +204,9 @@ There is *"a lot of competition among words"* - predictive analytics, data scien
 - **Odds worked examples:** a fair coin → 0.5/0.5 = **odds of 1** (a 50% chance). A rigged coin at P(head) = 0.8 → 0.8/0.2 = **4** (four times more likely to land heads than tails); the odds of a tail are 0.2/0.8 = **0.25**.
 - 🔵 **The elegant bit:** *"the sigmoid curve is obtained when you **flip the axes** of the logit curve."* The logit has probability on x and the real line on y; flip it and you have exactly the function you want - real numbers in, probability out. The sigmoid is not invented, it is the logit read backwards.
 - **With the model's parameters:** `P = 1 / (1 + e^(-(β₀ + xβ)))` - the familiar linear expression `β₀ + xβ` is simply **fed through the sigmoid**. β₀ = intercept, xβ = coefficient, both estimated by **Maximum Likelihood Estimation (MLE)**, not least squares.
-- **Threshold:** output ≤ **0.5** → one class, > 0.5 → the other. *(Module 7's entire cost-sensitive threshold discussion attaches right here.)*
+- **Threshold (naming the classes explicitly):** the sigmoid returns `P(positive class)`. Lee's convention is **`P ≤ 0.5` → negative class, `P > 0.5` → positive class** - in his voting example, *"anything less than (or equal to) 0.5... will be considered as voting for candidate B, and anything greater than 0.5... candidate A."* **scikit-learn behaves the same way**: `predict()` is `decision_function > 0`, so a probability of **exactly 0.5 lands in the negative class**. Use this convention throughout.
+  - ⚠️ **The course brief in `notes.md` states the opposite boundary** (*"any value less than 0.5 to 0 and any value greater than or equal to 0.5 to 1"*, putting exactly 0.5 in the **positive** class). The brief is quoted verbatim from the subject outline so it is left as-is, but be aware the two disagree **only at exactly 0.5** - a measure-zero case with continuous probabilities that will essentially never fire in practice. If it ever matters, **scikit-learn's actual behaviour (0.5 → negative) is what your code will do.**
+  - *(Module 7's entire cost-sensitive threshold discussion attaches right here - 0.5 is a default, not a law.)*
 
 #### 3. The Breast Cancer walkthrough
 
@@ -253,15 +255,51 @@ PRED 0(mal)  TN=48   FN=3
 
 ## 4. ⚠️ Activity 1 - `load_boston()` is dead (read before you start)
 
-The chapter's code opens with `from sklearn.datasets import load_boston`. **This will not run on any modern scikit-learn.** It was deprecated in 1.0 and **removed in 1.2**, on ethical grounds: the `B` column (`1000(Bk - 0.63)²`, a proportion-of-Black-residents term) was engineered on the assumption that racial composition influences house prices, and scikit-learn removed the dataset rather than keep shipping it.
+The chapter's code opens with `from sklearn.datasets import load_boston`. **This will not run on any modern scikit-learn.** It was deprecated in 1.0 and **removed in 1.2**, on ethical grounds.
 
-**This matters for the activity - and it is worth a sentence in the forum post.** It is a live, current example of the data-ethics thread running through BDA601 (SLO b), and Module 12 covers privacy and ethics directly.
+**Source (scikit-learn's own deprecation notice, v1.0):** *"The Boston housing prices dataset has an ethical problem: as investigated in [1], the authors of this dataset engineered a non-invertible variable 'B' assuming that racial self-segregation had a positive impact on house prices [2]. Furthermore the goal of the research that led to the creation of this dataset was to study the impact of air quality but it did not give adequate demonstration of the validity of this assumption."*
+- Retrieved from https://scikit-learn.org/1.0/modules/generated/sklearn.datasets.load_boston.html
+- `[1]` Carlisle, M. (2019). *Racist data destruction?* Retrieved from https://medium.com/@docintangible/racist-data-destruction-113e3eff54a8
+- `[2]` Harrison, D. & Rubinfeld, D. L. (1978). Hedonic housing prices and the demand for clean air. *Journal of Environmental Economics and Management, 5*(1), 81-102. https://doi.org/10.1016/0095-0696(78)90006-2
 
-**How to get the data anyway** - the activity's own URL (`lib.stat.cmu.edu/datasets/boston`) still serves the raw file:
+#### Why `B` is different from an ordinary demographic column
+
+The dataset's own header defines it as **`B = 1000(Bk - 0.63)²`**, where `Bk` is the proportion of Black residents by town. The problem is not that it *records* demographics - it is the **shape of the transform**.
+
+**The square makes it a parabola with its minimum at `Bk = 0.63`.** So `B` is lowest when a town is ~63% Black, and **rises as you move away from that point in either direction**:
+
+| `Bk` (proportion) | `B` |
+|---|---|
+| **0.00** | **396.90** ← the maximum in the data |
+| 0.10 | 280.90 |
+| 0.30 | 108.90 |
+| 0.50 | 16.90 |
+| **0.63** | **0.00** ← the minimum |
+| 0.80 | 28.90 |
+| 1.00 | 136.90 |
+
+Now pair that with the correlation matrix in Ch6: **`B` correlates +0.3335 with `MEDV`** - higher `B` means higher predicted price. Chain the two together and the encoded claim is: **prices rise the further a town sits from 63%, in either direction.** That is the "racial self-segregation has a positive impact on house prices" assumption scikit-learn names - and it was **built into the arithmetic in 1978, before any model ran**. The `0.63` is a chosen inflection point, not a discovered one.
+
+**Check it against the raw file:** the first rows carry `B` = 396.90, 396.90, 392.83, 394.63. And `1000 × (0 - 0.63)² = 396.90` **exactly** - those are towns with `Bk ≈ 0`, receiving the **maximum** value of `B`, which pushes the predicted price **up**.
+
+**And it is non-invertible** - which is why the dataset could not simply be patched:
+
+```text
+Bk = 0.26  →  B = 136.9
+Bk = 1.00  →  B = 136.9   ← same output, opposite towns
+```
+
+Squaring destroys the information. Given `B = 136.9` you cannot recover whether the town was 26% or 100% Black, so you cannot undo the transform to audit the underlying data. Hence removal rather than repair.
+
+🔴 **The irony that completes the argument:** the Harrison & Rubinfeld paper was about **air quality** (`NOX`) - the title is *"Hedonic prices and the demand for clean air"*. `B` was a control variable, and per scikit-learn's notice the study *"did not give adequate demonstration of the validity of this assumption."*
+
+**This is worth a paragraph in the forum post.** It is a live, current example of the data-ethics thread running through BDA601 (**SLO b** - data security and privacy principles), and Module 12 covers privacy and ethics directly. It is also a concrete case of the Module 5 lesson that a *feature* carries the assumptions of whoever engineered it.
+
+**How to get the data anyway** - the activity's own URL still serves the raw file:
 
 ```python
 import pandas as pd, numpy as np
-raw = pd.read_csv("http://lib.stat.cmu.edu/datasets/boston", sep=r"\s+", skiprows=22, header=None)
+raw = pd.read_csv("https://lib.stat.cmu.edu/datasets/boston", sep=r"\s+", skiprows=22, header=None)
 data = np.hstack([raw.values[::2, :], raw.values[1::2, :2]])
 target = raw.values[1::2, 2]
 cols = ['CRIM','ZN','INDUS','CHAS','NOX','RM','AGE','DIS','RAD','TAX','PTRATIO','B','LSTAT']
