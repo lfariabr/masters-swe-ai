@@ -1,6 +1,6 @@
-# MLN601 Assessment 2 - Detailed Recording Walkthrough v2
+# MLN601 Assessment 2 - Detailed Recording Walkthrough v3
 
-This is the long-form rehearsal script for `MLN601FariaLuisBrief2.ipynb`.
+This is the long-form rehearsal script for `MLN601FariaLuisBrief2.ipynb` (the v6 notebook).
 
 - **Target duration:** 8:30-9:30 at 120-135 spoken words per minute.
 - **Recording language:** English.
@@ -8,36 +8,37 @@ This is the long-form rehearsal script for `MLN601FariaLuisBrief2.ipynb`.
   and use `assessment2-walkthrough.md` as the shorter cue sheet.
 - **Core story:** a laboratory sample represents a bottling-lot proxy; the model prioritises
   human quality-control review; it never releases or rejects a lot automatically.
+- **Structure guarantee:** every block below is ONE notebook section, in notebook order, with
+  the cell range on screen. If the screen shows a section, the script for that section is the
+  only thing you say. Nothing is narrated before its cell appears.
 
 ---
 
-## Take-3 Fixes (from the 16 Jul recording attempt)
+## Fixes From the 16 Jul Takes (read once before rehearsing)
 
-The first full take ran **12:41 against a 10:00 limit** and broke at four specific joints.
-Every one of them now has a scripted line below (marked **Transition** or flagged inline).
+**Take 2 (12:41)** broke at four joints; **take 3 (aborted at 7:36)** confirmed the root cause:
+the old script narrated in an order the notebook does not have (correlation table narrated in
+"preparation", ablation narrated before 4.1). This version mirrors the notebook cell by cell,
+so that failure mode is structurally gone. What remains is discipline:
 
-1. **Clock discipline.** The overrun came from Data Understanding: heatmap and pairplot were
-   narrated element by element. Each is worth ONE sentence (already scripted in Block 3).
-   Time each block against its window; if a block overruns by 15 seconds, cut commentary,
-   never numbers.
-2. **The Section 2 → 3 joint** ("I lost myself"). Use the diagnosis-to-treatment transition
-   at the end of Block 2. Do not re-explain the dedup in Section 3; it was already told.
-3. **The SVM scaling sentence** ("I don't have a clue how to explain that"). Scripted in
-   Block 4: the scaler lives inside the pipeline, fit only on each fold's training data.
-4. **The Section 4 → 5 joint** ("I need a hook"). Scripted: selection frozen in CV, the test
-   set is the final exam, not a second chance to pick.
-5. **The 398 mystery.** 398 is the bottom ROW SUM of the confusion matrix (292 caught + 106
-   missed = all genuinely low proxies in the 1,064-row test set; 483 + 183 = 666 high). The
-   figure shows the four cells only, so derive the sums aloud - scripted in Block 5.
-6. **Fact traps from the take:** it is **6,497** raw rows, not 6,400; enunciate **"Gini"**
-   and **"SMOTE"** slowly once (the transcript heard "genie" and "smart"); say **"balanced
-   tree"**, not "balance said tree".
-7. **Long paragraphs are for the marker, not for narration.** Never read them. Speak the
-   three numbers against the three gates and move on.
+1. **Clock.** Time each block against its window. Over by 15 seconds means cut commentary,
+   never numbers. Take 2 lost two minutes narrating heatmap and pairplot element by element;
+   they get one sentence each.
+2. **Fact traps (all three happened on camera):**
+   - **6,497** raw rows. Take 2 said "6,400"; take 3 said "6,597". Say it slowly: "six thousand,
+     four hundred and ninety-seven".
+   - **1,473** IQR-flagged rows. Take 3 said "fourteen thousand". Say: "one thousand, four
+     hundred and seventy-three rows, about twenty-three percent".
+   - **62.6 / 37.4** class balance. Take 3 stumbled on "thirty-seven point four".
+3. **Pronunciation:** "Gini" (not "genie"), "SMOTE" as "ess-mote" once slowly, "balanced tree".
+4. **Long markdown paragraphs are for the marker, not for narration.** Never read them. Speak
+   the numbers against the gates and move on.
+5. The scripted transitions worked in take 3 (the diagnosis-to-treatment line landed well).
+   Keep delivering them; they are the joints.
 
 ---
 
-## Block 0 - Introduction and Story (0:00-0:50)
+## Block 0 - Title (cell 0) - 0:00-0:50
 
 **Screen:** Notebook title and metadata.
 
@@ -58,7 +59,7 @@ Every one of them now has a scripted line below (marked **Transition** or flagge
 
 ---
 
-## Block 1 - Business Understanding (0:50-1:55)
+## Block 1 - Section 1: Business Understanding (cell 1) - 0:50-1:55
 
 **Screen:** Section 1, especially the business question and success criteria.
 
@@ -84,23 +85,25 @@ language. Why are sensitivity and specificity both required?
 
 ---
 
-## Block 2 - Data Acquisition and Quality (1:55-3:10)
+## Block 2 - Sections 2.1-2.3: Acquisition, Quality, Duplicates (cells 2-9) - 1:55-3:00
 
-**Screen:** Sections 2.1-2.3, data-quality table and class-balance chart.
+**Screen:** Sections 2.1-2.2, the validation register and outlier audit outputs, then 2.3 with
+the class-balance chart.
 
 **Spoken walkthrough:**
 
 > I combine the red and white wine files from the UCI Machine Learning Repository. Together they
-> contain 6,497 observations, 11 laboratory measurements and the expert quality score. I add
-> `wine_type` to distinguish red and white samples.
+> contain six thousand, four hundred and ninety-seven observations, 11 laboratory measurements and
+> the expert quality score. I add `wine_type` to distinguish red and white samples.
 >
 > The validation register checks schema, numeric types, missing and non-finite values, non-negative
 > measurements, valid quality levels and the rule that free sulfur dioxide cannot exceed total
 > sulfur dioxide. Every hard check passes.
 >
-> The IQR audit flags 1,473 rows as statistically unusual. I retain them because their laboratory
-> values remain plausible, an IQR flag is not evidence of an error, and rare weak lots are important
-> to this screening problem.
+> The IQR audit flags one thousand, four hundred and seventy-three rows as statistically unusual,
+> about twenty-three percent. I retain them: the values remain plausible laboratory measurements,
+> an IQR flag is not evidence of an error, and rare weak lots are important to this screening
+> problem.
 >
 > The material issue is 1,177 identical rows. Without sample IDs, I cannot prove they are all
 > accidental duplicates; some may be separate samples with identical values. However, retaining
@@ -109,104 +112,139 @@ language. Why are sensitivity and specificity both required?
 >
 > The resulting balance is 62.6 percent high and 37.4 percent low, so accuracy alone is misleading.
 
-**Transition into Section 3 (say this - it is the joint that broke take 2):**
-
-> Everything up to here was diagnosis: the audit tells me the data is clean, but duplicated and
-> imbalanced. Section 3 is the treatment. It decides what the model is allowed to see: which
-> features enter, how the target is encoded, and how the split protects the test set.
-
 **Check your understanding:** Why is deduplication a conservative choice rather than proof that the
 data is wrong? What would duplicate leakage do to the reported metrics?
 
 ---
 
-## Block 3 - Exploration and Data Preparation (3:10-4:25)
+## Block 3 - Section 2.4: Relationships With the Target (cells 10-13) - 3:00-3:45
 
-**Screen:** Correlation ranking, pairplot, Section 3 and feature-ablation output.
+**Screen:** Heatmap, pairplot, target-correlation ranking and the interpretation cell. This is
+still Data Understanding - preparation has not started yet.
 
 **Spoken walkthrough:**
 
-> In the target-correlation table, low quality is encoded as 1, so the sign must be interpreted
+> The heatmap confirms what Assessment 1 showed: alcohol dominates. The required pairplot shows
+> class overlap: there is useful signal, but no single feature separates the classes cleanly,
+> which is why we need a model.
+>
+> In the target-correlation ranking, low quality is encoded as 1, so the sign must be interpreted
 > carefully. Alcohol is strongest at negative 0.4145, meaning higher alcohol is associated with a
 > lower probability of low quality. Density and volatile acidity have the strongest positive
 > relationships. Correlation is association, not causation or tree importance.
 >
-> Between laboratory attributes, free and total sulfur dioxide have the strongest positive
-> correlation at 0.720, while density and alcohol have a strong negative relationship at minus
-> 0.668. This means the predictors should not be interpreted as independent evidence.
->
-> The heatmap confirms what Assessment 1 showed: alcohol dominates. The pairplot shows class
-> overlap: there is useful signal, but no single feature separates the classes cleanly, which
-> is why we need a model.
+> Between laboratory attributes, free and total sulfur dioxide correlate at plus 0.720, while
+> density and alcohol correlate at minus 0.668. So the predictors should not be interpreted as
+> independent evidence.
 
-*(Clock note: those two figures get one sentence each, exactly as scripted above. This is where
-take 2 lost its two minutes.)*
->
-> I exclude the original quality score and derived labels from predictors. A stratified 80/20 split
-> produces 4,256 training and 1,064 test observations, preserves class proportions and has zero
-> exact overlap.
->
-> I also test bound sulfur dioxide and the free-to-total sulfur ratio. CV AUC falls from 0.7910 to
-> 0.7892, while balanced accuracy improves only 0.0075, below my 0.01 rule. I retain the simpler
-> 12-feature set.
+*(Clock note: the heatmap and pairplot get exactly the one sentence each scripted above. This is
+where take 2 lost its two minutes.)*
 
-**Transition into Section 4:**
+**Transition into Section 3 (this landed well in take 3 - keep it):**
 
-> The data is now ready and locked. Section 4 is where the candidates compete, all of them under
-> the same cross-validation rules.
+> Everything up to here was diagnosis: the audit tells me the data is clean, but duplicated and
+> imbalanced. Section 3 is the treatment. It decides what the model is allowed to see: which
+> features enter, how the target is encoded, and how the split protects the test set.
 
 **Check your understanding:** Why is alcohol's negative correlation not a negative business result?
-Why is rejecting engineered features evidence of good model development?
+Why does correlation between predictors matter for interpretation?
 
 ---
 
-## Block 4 - Modelling and Cross-Validation (4:25-5:55)
+## Block 4 - Section 3: Data Preparation (cells 14-15) - 3:45-4:30
 
-**Screen:** Section 4, tuning parameters and the compact CV comparison table.
+**Screen:** Section 3 markdown (the four safeguards) and the split cell with its assertions.
 
 **Spoken walkthrough:**
 
-> The Decision Tree is the required classification technique and remains the central model. I
-> compare it with a majority baseline and an unconstrained default tree, which can overfit by
-> creating rules around small groups and noise.
+> Preparation uses four safeguards. First, the exact duplicate rows I just described are removed
+> before target engineering and splitting. Second, the source quality score and derived labels are
+> excluded from predictors, while `wine_type` remains. Third, an 80/20 stratified split produces
+> 4,256 training and 1,064 test observations, preserves class proportions and is checked for zero
+> exact overlap. Fourth, scaling and SMOTE stay inside pipelines, so each validation fold learns
+> preprocessing from its own training portion only.
 >
-> GridSearchCV tunes criterion, depth and minimum leaf size for AUC. In five-fold CV, the model
-> trains on four training-data folds and validates on the fifth, rotating five times. The test set
-> remains closed. The selected tree uses Gini, depth 5 and minimum leaf size 20.
->
-> The Balanced Tree keeps this structure but makes low-class mistakes more costly. SMOTE creates
-> synthetic minority examples only inside training folds. RBF SVM remains a technical benchmark.
-> Unlike the trees, the SVM needs feature scaling, so the scaler lives inside the pipeline: it is
-> fit only on each fold's training data, and the validation fold never leaks into it. That is the
-> same discipline as SMOTE - anything learned from data happens inside the fold.
-> The RBF kernel reaches CV AUC 0.826 compared with 0.804 for the linear kernel, using C equal to 1
-> and gamma set to scale. This supports a moderately nonlinear boundary, consistent with the
-> overlapping classes in the pairplot.
->
-> CV is the selection point. The AUC tree fails sensitivity at 0.643. SMOTE fails specificity at
-> 0.696. SVM has AUC 0.827 but sensitivity 0.631. Only the Balanced Tree passes every gate: AUC
-> 0.787, sensitivity 0.731 and specificity 0.703.
+> I also announce two candidate engineered features here: bound sulfur dioxide and the free-to-total
+> sulfur ratio. They will be retained only if AUC or balanced accuracy improves by at least 0.01.
+> The verdict comes from training data only, in Section 4.1.
 
-**Transition into Section 5 (say this - it is the other joint that broke take 2):**
+*(Do NOT give the ablation numbers here - the screen for them is 4.1. Announcing the rule here and
+delivering the verdict there is exactly how the notebook is written.)*
+
+**Check your understanding:** Why is each of the four safeguards a leakage control? Why announce
+the feature rule before seeing the result?
+
+---
+
+## Block 5 - Section 4: Modelling (cells 16-17) - 4:30-5:20
+
+**Screen:** Section 4 markdown with the candidate line-up and parameter rationale.
+
+**Spoken walkthrough:**
+
+> The Decision Tree is the required classification technique and remains the central model. A
+> majority baseline establishes the no-skill floor, and an unconstrained default tree exposes
+> overfitting, because it can create rules around small groups and noise.
+>
+> Five-fold GridSearchCV tunes criterion, depth and minimum leaf size for AUC. In five-fold CV, the
+> model trains on four training-data folds and validates on the fifth, rotating five times. The
+> test set remains closed. The parameter ranges are deliberate: depths 3 to 8 test readable trees,
+> and minimum leaf sizes up to 20 test whether broader rules generalise better.
+>
+> The Balanced Tree keeps the tuned structure but makes low-class mistakes more costly. SMOTE
+> creates synthetic minority examples only inside training folds. The kernel SVM is a technical
+> benchmark. Unlike the trees, the SVM needs feature scaling, so the scaler lives inside the
+> pipeline: it is fit only on each fold's training data, and the validation fold never leaks into
+> it. That is the same discipline as SMOTE - anything learned from data happens inside the fold.
+
+**Check your understanding:** Describe five-fold CV in your own words. Why do the trees not need
+scaling while the SVM does?
+
+---
+
+## Block 6 - Section 4.1: Training-Only Selection and Ablation (cells 18-19) - 5:20-6:05
+
+**Screen:** Section 4.1 - tuning results, the candidate-versus-gates table and the ablation output.
+This is the block that had "nothing to say" in take 2; it is the selection moment of the whole
+assessment.
+
+**Spoken walkthrough:**
+
+> Section 4.1 is where selection happens, still on training data only. The selected tree uses
+> Gini, depth 5 and minimum leaf size 20.
+>
+> First, the feature verdict: with the two engineered sulfur features, cross-validated AUC falls
+> from 0.7910 to 0.7892 and balanced accuracy improves by only 0.0075, below my 0.01 rule. I retain
+> the simpler 12-feature set. Rejecting a feature by a predeclared rule is a result, not a failure.
+>
+> Then the gates. The AUC-tuned tree fails sensitivity at 0.643. SMOTE fails specificity at 0.696.
+> The SVM has the highest AUC at 0.827, but sensitivity is only 0.631. Only the Balanced Tree
+> passes every gate: AUC 0.787, sensitivity 0.731 and specificity 0.703.
+>
+> The RBF kernel also won the kernel search, 0.826 against 0.804 for linear, which supports a
+> moderately nonlinear boundary, consistent with the overlap in the pairplot.
+
+**Transition into Section 5 (the other joint that broke take 2):**
 
 > Section 4 ends with the candidates and their cross-validation numbers, and the selection is
 > frozen there. Section 5 opens the held-out test set with one job only: confirm the frozen
 > choice. It is the final exam, not a second chance to pick.
 
-**Check your understanding:** Describe five-fold CV in your own words. Why is the model with the
-highest AUC not automatically approved?
+**Check your understanding:** Why is the model with the highest AUC not automatically approved?
+Why is the ablation verdict delivered here and not in Section 3?
 
 ---
 
-## Block 5 - Final Evaluation, XAI and Model Approval (5:55-8:20)
+## Block 7 - Sections 5, 5.1-5.3: Evaluation, XAI, Approval (cells 20-31) - 6:05-8:15
 
-**Screen:** Test metrics, ROC curves, confusion matrices, tree, SHAP and approval table.
+**Screen:** Test metrics, ROC curves, confusion matrices, the tree, SHAP outputs (5.1), the
+operational result (5.2) and the approval table (5.3), in scroll order.
 
 **Spoken walkthrough:**
 
-> After freezing the selection from training cross-validation, I open the held-out test set. The
-> Balanced Tree confirms AUC 0.792, sensitivity 0.734, specificity 0.725, balanced accuracy 0.729
-> and F1 0.669. It meets the criteria defined in Business Understanding.
+> On the held-out test set, the Balanced Tree confirms AUC 0.792, sensitivity 0.734, specificity
+> 0.725, balanced accuracy 0.729 and F1 0.669. It meets the criteria defined in Business
+> Understanding.
 >
 > The confusion matrix makes this concrete. The test set has 1,064 proxies: 666 genuinely high
 > and 398 genuinely low. Those are the row sums of the matrix - the figure shows only the four
@@ -217,27 +255,28 @@ highest AUC not automatically approved?
 > additional acceptable proxies to review. This exchanges tasting effort and possible delay for
 > fewer weak lots escaping screening.
 >
-> RBF SVM has the highest test AUC, 0.824. AUC is the probability that a random low sample receives
-> a higher risk score than a random high sample; it is not 82.4 percent accuracy. At the current
-> threshold, SVM sensitivity is only 0.590, below the operational gate.
+> The SVM has the highest test AUC, 0.824. AUC is the probability that a random low sample receives
+> a higher risk score than a random high sample; it is not 82.4 percent accuracy. At the operating
+> threshold, SVM sensitivity is only 0.590, below the gate.
 >
-> I approve only the Balanced Decision Tree for a controlled, human-supervised pilot. It passes all
-> gates and exposes inspectable rules. No model is approved for automated release or rejection.
+> In Section 5.1 I add SHAP, because the tree diagram and feature importance are global views.
 > Alcohol has importance around 0.62, followed by volatile acidity, but importance does not prove
-> causation.
+> causation. Global SHAP adds direction, and local SHAP explains one prediction: for the selected
+> correctly flagged proxy, alcohol contributes plus 0.222 and volatile acidity plus 0.070 toward
+> low quality, producing a low-quality probability of 0.797. The additivity check reconstructs the
+> model probability within numerical tolerance. SHAP explains the model's reasoning; it does not
+> prove chemical causation.
 >
-> I then add SHAP because the tree diagram and feature importance are global views. Global SHAP adds
-> direction, while local SHAP explains one prediction. For the selected correctly flagged proxy,
-> alcohol contributes plus 0.222 and volatile acidity plus 0.070 toward low quality, producing a
-> low-quality probability of 0.797. The additivity check reconstructs the model probability within
-> numerical tolerance. SHAP explains the model's reasoning; it does not prove chemical causation.
+> In Section 5.3, I approve only the Balanced Decision Tree, for a controlled, human-supervised
+> pilot. It passes all gates and exposes inspectable rules. No model is approved for automated
+> release or rejection.
 
 **Check your understanding:** Explain AUC without saying "accuracy". Explain the 58 versus 69
 trade-off as if speaking to a quality-control manager.
 
 ---
 
-## Block 6 - Deployment, Monitoring and Lessons (8:20-9:40)
+## Block 8 - Section 6: Deployment, Monitoring and Lessons (cell 32) - 8:15-9:15
 
 **Screen:** Section 6.
 
@@ -265,7 +304,7 @@ or recalibration?
 
 ---
 
-## Block 7 - Closing (9:40-9:55)
+## Block 9 - Closing - 9:15-9:30
 
 **Screen:** Return to the title or keep the deployment conclusion visible.
 
@@ -300,11 +339,14 @@ This demonstrates more than model fitting:
 
 ## Recommended Rehearsal Sequence
 
-1. Read the entire detailed script aloud once, slowly.
-2. Explain every Portuguese checkpoint without looking at the answer.
-3. Rehearse the four scripted transitions (Blocks 2→3, 3→4, 4→5 and the 398 derivation) until
-   they come out without reading - these are exactly where take 2 broke.
+1. Scroll the notebook once with this script beside it and confirm every block's cell range
+   matches what you see. The blocks are in notebook order; nothing is narrated early.
+2. Rehearse the three scripted transitions (Blocks 3→4 and 6→7, plus the 398 derivation in
+   Block 7) until they come out without reading.
+3. Say the three fact traps aloud five times: "six thousand four hundred and ninety-seven",
+   "one thousand four hundred and seventy-three", "thirty-seven point four".
 4. Record one audio-only attempt from memory, with a stopwatch: note the time at the end of
    each block against its window. Over by 15 seconds means cut commentary, never numbers.
-5. Rehearse notebook scrolling with the shorter `assessment2-walkthrough.md`.
+5. Rehearse notebook scrolling with the shorter `assessment2-walkthrough.md` (note: the short
+   cue sheet still has the OLD block order - use this file until it is re-synced).
 6. Record the final video conversationally; use this detailed script only if you lose the thread.
