@@ -1,14 +1,14 @@
 <!--
 DLE602 Assessment 2 - Project Proposal Report - v4 Markdown source
 Body target: 1,000 words (+/-10%). The declared count covers prose and list items in Sections 1-6 only; it excludes headings, cover details, the Table of Contents, figure/table captions and contents, Mermaid code, references, appendices, and the acknowledgement.
-Reproducible count: select from "## 1. Abstract" through the line before "## 7. References"; remove headings, the fenced Mermaid block, Markdown table rows, captions, the example-review line, separators and the declaration; strip Markdown emphasis markers; then apply whitespace-token counting (`wc -w`). Result: 967.
+Reproducible count: select from "## 1. Abstract" through the line before "## 7. References"; remove headings, the fenced Mermaid block, Markdown table rows, captions, the example-review line, separators and the declaration; strip Markdown emphasis markers; then apply whitespace-token counting (`wc -w`). Result: 977.
 -->
 
-# Review Pulse v2: Aspect-Based Sentiment Analysis of Customer Reviews with Attention-Based Deep Learning
+# ReviewPulse v3.0: Aspect-Based Sentiment Analysis of Customer Reviews with Attention-Based Deep Learning
 
 **Subject:** DLE602 Deep Learning - Assessment 2: Deep Learning Project Proposal Presentation<br>
 **Group members:** Luis Guilherme de Barros Andrade Faria (A00187785); Victor Javier Dorantes Meneses (A00179705); Juan Sebastian Martinez Contreras (A00167145)<br>
-**Project name:** Review Pulse v2<br>
+**Project name:** ReviewPulse v3.0<br>
 **Learning facilitator:** Dr Tayab Din Memon<br>
 **Date:** July 2026
 
@@ -23,7 +23,7 @@ Reproducible count: select from "## 1. Abstract" through the line before "## 7. 
 5. Project Plan and Risk Management
 6. Conclusion
 7. References
-8. Appendix A - From Assessment 1 to Review Pulse v2
+8. Appendix A - From Assessment 1 to ReviewPulse v3.0
 9. Appendix B - Risk Register
 10. Statement of Acknowledgement
 
@@ -31,7 +31,7 @@ Reproducible count: select from "## 1. Abstract" through the line before "## 7. 
 
 ## 1. Abstract
 
-Customer reviews often praise one aspect while criticising another, yet sentence-level sentiment systems, including our Assessment 1 N-gram classifier, reduce a review to one label. This proposal designs **Review Pulse v2**, an aspect-based sentiment analysis (ABSA) system that predicts sentiment for specified aspects. Four models are compared on SemEval-2014 Restaurants: TF-IDF, a target-agnostic LSTM, ATAE-LSTM and DistilBERT. The study evaluates performance, efficiency and indicative token-level evidence, then packages aspect-aware predictions in a feasible Streamlit prototype for Assessment 3.
+Customer reviews often praise one aspect while criticising another, yet sentence-level sentiment systems - our Assessment 1 N-gram classifier and the ISY503 ReviewPulse v1.0.0/v2.x review-level classifiers alike - reduce a review to one label. This proposal designs **ReviewPulse v3.0**, a new aspect-based sentiment analysis (ABSA) system that predicts sentiment for a specified aspect rather than the whole review. Four models are compared on SemEval-2014 Restaurants: TF-IDF, a target-agnostic LSTM, ATAE-LSTM and DistilBERT. The study evaluates performance, efficiency and indicative token-level evidence, then proposes a Streamlit v3 prototype for Assessment 3.
 
 ## 2. Problem Statement, Aim and Research Questions
 
@@ -47,7 +47,7 @@ Customer reviews often praise one aspect while criticising another, yet sentence
 
 ## 3. Literature Review
 
-Deep learning changed sentiment analysis by learning representations rather than relying only on engineered features. Zhao, Gui and Zhang (2018) report that a convolutional network over word vectors outperforms traditional baselines for Twitter sentiment. Nevertheless, their model, like Review Pulse v1, produces one label per text. Pontiki et al. (2014) define SemEval-2014 Task 4 and its aspect-level annotations, shifting the practical question from whether a review is positive to which aspect is positive.
+Deep learning changed sentiment analysis by learning representations rather than relying only on engineered features. Zhao, Gui and Zhang (2018) report that a convolutional network over word vectors outperforms traditional baselines for Twitter sentiment. Nevertheless, their model, like ReviewPulse v1.0.0, produces one label per text. Pontiki et al. (2014) define SemEval-2014 Task 4 and its aspect-level annotations, shifting the practical question from whether a review is positive to which aspect is positive.
 
 Sequence models address this gap through target conditioning. Tang et al. (2016) show that target-dependent LSTMs improve over target-agnostic variants by representing context around the target, although they do not selectively weight every context token. Wang et al. (2016) add an aspect embedding and attention in ATAE-LSTM, allowing the same sentence to be represented differently for each aspect. This makes ATAE-LSTM a suitable lightweight model and exposes attention weights, but the representation is still learned from a comparatively small benchmark and may overfit.
 
@@ -57,7 +57,7 @@ Accordingly, the project does not assume that the Transformer will win. It tests
 
 ## 4. Proposed Approach and Methods
 
-**Dataset and aspect origin.** SemEval-2014 Task 4 Restaurants is the primary domain; Laptops is an optional cross-domain extension. Training and evaluation use the dataset's gold aspect terms. The original `conflict` polarity label is removed from the three-class positive/neutral/negative task and its exclusions are counted and reported. In Streamlit v2, a user instead enters a review and manually specifies one or more aspects. Automatic aspect extraction and Topic Modelling remain outside the core scope.
+**Dataset and aspect origin.** SemEval-2014 Task 4 Restaurants is the primary domain; Laptops is an optional cross-domain extension. Training and evaluation use the dataset's gold aspect terms. The original `conflict` polarity label is removed from the three-class positive/neutral/negative task and its exclusions are counted and reported. In Streamlit v3, a user instead enters a review and manually specifies one or more aspects. Automatic aspect extraction and Topic Modelling remain outside the core scope.
 
 **Model progression.** TF-IDF with logistic regression and a target-agnostic LSTM consume only the review and establish sentence-level baselines. ATAE-LSTM consumes `(review, aspect)` through an aspect embedding and aspect-aware attention. DistilBERT also consumes `(review, aspect)`, representing the aspect as an auxiliary sentence. This four-model progression isolates recurrence, explicit conditioning and pretrained contextual representation.
 
@@ -79,12 +79,12 @@ flowchart LR
     M4 --> S
     M3 --> E["Attention weights"]
     M4 --> E2["Token attribution or attention visualisation"]
-    S --> D["Streamlit v2"]
+    S --> D["Streamlit v3"]
     E --> D
     E2 --> D
 ```
 
-*Figure 1. Review Pulse v2 pipeline. The sentence-level baselines receive only the review; the aspect-conditioned models receive a `(review, aspect)` pair. Only attention- or attribution-capable models produce token-level visual evidence.*
+*Figure 1. ReviewPulse v3.0 pipeline. The sentence-level baselines receive only the review; the aspect-conditioned models receive a `(review, aspect)` pair. Only attention- or attribution-capable models produce token-level visual evidence.*
 
 **Evaluation.** Accuracy, macro-F1, class-level results and efficiency are reported on fixed train/development/test splits. Splitting is grouped by sentence before aspect instances are formed, preventing the same review from leaking across partitions. A **mixed-polarity multi-aspect subset** contains sentences with at least two aspects associated with different polarities; it tests the cases that one sentence-level label cannot resolve.
 
@@ -121,18 +121,18 @@ Work is divided into dated, reviewable outcomes (Table 3). Luis owns the technic
 | Data + baseline | 18-26 Jul | Audited dataset and TF-IDF baseline | Luis |
 | LSTM + ATAE-LSTM | 27 Jul-2 Aug | Checkpoints and metrics | Luis |
 | DistilBERT | 3-8 Aug | Trained Transformer | Luis |
-| Evaluation + interface | 9-13 Aug | Comparison and Streamlit v2 | Group |
+| Evaluation + interface | 9-13 Aug | Comparison and Streamlit v3 | Group |
 | Report + package | 14-19 Aug | Report, code and ZIP | Group |
 
 The critical path is dataset audit, aspect-safe splitting, model training, common evaluation, interface integration and packaging. Zero-cost compute constrains Transformer experiments, so the accepted minimum product remains the audited baselines, ATAE-LSTM, shared evaluation and working interface. DistilBERT is retained when compute and validation checks pass; optional Laptops transfer, automatic aspect extraction and Topic Modelling are cut first.
 
 ## 6. Conclusion
 
-Sentence-level sentiment loses actionable aspect detail. Review Pulse v2 provides a controlled four-model comparison, with Restaurants as the core domain, explicit aspect-safe evaluation and a dated delivery plan. The prototype will visualise indicative token-level evidence where supported, without presenting attention as model reasoning or a causal explanation.
+Sentence-level sentiment loses actionable aspect detail. ReviewPulse v3.0 proposes a controlled four-model comparison, with Restaurants as the core domain, explicit aspect-safe evaluation and a dated delivery plan. The prototype will visualise indicative token-level evidence where supported, without presenting attention as model reasoning or a causal explanation.
 
 ---
 
-**Word count (Sections 1-6 prose and list items): 967 words.** The count excludes headings, cover details, the Table of Contents, figure/table captions and contents, Mermaid code, references, appendices, and this declaration.
+**Word count (Sections 1-6 prose and list items): 977 words.** The count excludes headings, cover details, the Table of Contents, figure/table captions and contents, Mermaid code, references, appendices, and this declaration.
 
 ---
 
@@ -160,13 +160,20 @@ Zhao, J., Gui, X., & Zhang, X. (2018). Deep convolution neural networks for Twit
 
 ---
 
-## Appendix A - From Assessment 1 to Review Pulse v2
+## Appendix A - From Assessment 1 to ReviewPulse v3.0
 
-Assessment 1 established a transparent sentence-level baseline using observed N-gram counts. Assessment 2 proposes the transition from fixed local probabilities to learned contextual representations and from one sentiment label per text to one label per specified aspect. The evaluation discipline remains continuous across both assessments.
+This appendix separates two lineages that are easy to conflate: the DLE602 assessment sequence (Assessment 1 to this proposal) and the ReviewPulse product releases (built independently for ISY503). The numbered list states plainly what ReviewPulse v3.0 does and does not inherit from the earlier releases; Table A1 then tracks the narrower Assessment 1 to Assessment 2/3 transition.
+
+1. **DLE602 Assessment 1 - N-gram sentiment classifier.** A conceptual precursor only: a transparent, hand-built bigram model over Twitter data. It is not part of the ReviewPulse codebase and was never released as ReviewPulse v1.0.0.
+2. **ReviewPulse v1.0.0 (ISY503, 2026-04-26).** The first ReviewPulse release: a TF-IDF + Logistic Regression baseline and a BiLSTM + GloVe neural model, both predicting one binary sentiment label (positive/negative) per whole Amazon review across four product domains.
+3. **ReviewPulse v2.x (ISY503, 2026-04-29 onward).** Adds a fine-tuned DistilBERT transformer alongside the v1.0.0 models, plus a modular package refactor, expanded test coverage and a hardened Streamlit deployment. The prediction unit is unchanged: one label per whole review.
+4. **ReviewPulse v3.0 (DLE602, this proposal).** A new implementation, not an extension of the same codebase's results: SemEval-2014 Restaurants replaces the Amazon dataset, the label space becomes three-class aspect sentiment (positive/neutral/negative), and the prediction unit becomes one label per `(review, aspect)` pair. All four models are trained from scratch on this new task; no ReviewPulse v1.0.0/v2.x checkpoint, metric or result is reused as an Assessment 3 outcome.
+
+ReviewPulse v3.0 reuses the ISY503 project's engineering discipline: the preprocessing/training/evaluation package structure, the fixed-seed and versioned-artifact conventions, and the Streamlit deployment pattern. It reuses none of the ISY503 results: the task, dataset, label space, model inputs and evaluation protocol described in Sections 4-5 are all new for this proposal, and the ABSA system remains a design, not a completed build - Table 1 and Table 2 report placeholders, not measured outcomes.
 
 *Table A1. Knowledge transition from Assessment 1 to the proposed Assessment 2 and 3 project.*
 
-| Assessment 1 - N-gram sentiment | Assessment 2/3 - Review Pulse v2 |
+| Assessment 1 - N-gram sentiment | Assessment 2/3 - ReviewPulse v3.0 |
 |---|---|
 | Count observed word sequences | Learn distributed and contextual representations |
 | Fixed Markov context window | LSTM recurrence, aspect-aware attention and Transformer context |
@@ -176,7 +183,7 @@ Assessment 1 established a transparent sentence-level baseline using observed N-
 | Inspect bigram probabilities and error examples | Inspect attention or attribution where supported, alongside error examples |
 | Accuracy, macro-F1 and confusion matrices | Retain the metrics for aspect-level predictions and add efficiency |
 
-Review Pulse v1 also supplies reusable preprocessing, experiment, metric and interface patterns. The Assessment 3 implementation changes the model input from review-only baselines to explicit `(review, aspect)` pairs for ATAE-LSTM and DistilBERT, then exposes per-aspect predictions in Streamlit v2.
+ReviewPulse v1.0.0 and v2.x also supply reusable preprocessing, experiment, metric and interface patterns. The Assessment 3 implementation changes the model input from review-only baselines to explicit `(review, aspect)` pairs for ATAE-LSTM and DistilBERT, then exposes per-aspect predictions in Streamlit v3.
 
 ## Appendix B - Risk Register
 
