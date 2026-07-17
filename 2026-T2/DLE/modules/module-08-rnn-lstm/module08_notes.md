@@ -32,7 +32,7 @@
 
 #### 2. Design patterns and how you train them
 - **Three canonical shapes:** (a) output at every step with hidden-to-hidden recurrence; (b) output at every step with *output-to-hidden* recurrence only; (c) read the whole sequence, then emit a **single** output at the end.
-- An RNN of finite size is **Turing-universal** — any function a Turing machine computes can be computed by such a net.
+- An RNN of finite size is **Turing-universal** — but only as a *theoretical* result: it assumes binary inputs, discretised outputs, and exact/unbounded-precision arithmetic (Siegelmann & Sontag's ~886-unit construction). It does **not** mean a small RNN on a GPU is a universal computer in practice.
 - **BPTT (Back-Propagation Through Time):** training is *just* ordinary back-propagation applied to the unrolled graph. "No specialized algorithms are necessary." The cost is that the gradient must flow back through the entire sequence length.
 - **Teacher forcing:** when the model has output-to-output connections, you train by feeding the *true* target `y(t-1)` (not the model's own prediction) as the next input. It decouples the steps so they can be trained in parallel, but creates a train/test mismatch (at test time the model must consume its *own* outputs).
 
@@ -49,6 +49,8 @@
 | **Forget gate** `f` | sigmoid → [0,1] | how much of the old cell state to keep vs erase |
 | **Input gate** `g` | sigmoid → [0,1] | how much of the new candidate to write into the cell |
 | **Output gate** `q` | sigmoid → [0,1] | how much of the cell state to expose as the hidden output |
+
+> **Notation note:** this table follows **Goodfellow Ch.10's own symbols** — forget `f` (eq 10.40), external input gate `g` (eq 10.42), output gate `q` (eq 10.43-44). Most other texts (and the Kelleher/Mittal readings) write the input gate as `i` and the output gate as `o`, with a separate **tanh candidate** unit feeding the cell. Same three jobs, different letters — don't let the symbols trip you in the exam.
 
 - **GRU** (gated recurrent unit) is the lean cousin: a single **update** gate does the job of LSTM's forget+input at once, plus a **reset** gate. Empirically GRU and LSTM are roughly tied; no variant clearly beats both.
 - **What actually matters:** Greff et al. (2015) found the **forget gate** is the crucial ingredient; Jozefowicz et al. (2015) found initialising the **forget-gate bias to 1** makes a vanilla LSTM as strong as any tuned variant.
@@ -149,7 +151,7 @@
 |---|---|
 | **RNN advantages** | models sequential/dependent data; can be combined with convolutional layers |
 | **RNN disadvantages** | **vanishing & exploding gradients**; hard to train; struggles with long sequences under tanh/ReLU |
-| **LSTM fix** | a modified RNN that "makes it easier to remember past data" and **resolves the vanishing-gradient problem**; well-suited to classifying/processing/predicting time series with unknown time lags |
+| **LSTM fix** | a modified RNN that "makes it easier to remember past data" and **mitigates the vanishing-gradient problem** (Mittal's blog says "resolves" — overstated; the gated self-loop *eases* it, does not delete it); well-suited to classifying/processing/predicting time series with unknown time lags |
 
 - **The three gates, restated simply:** **input gate** (which new values update the memory), **forget gate** (which details to discard — sigmoid outputs 0 = omit, 1 = keep), **output gate** (which memory to expose). Sigmoid decides *whether*, tanh weights *how much* (importance in [-1, 1]).
 

@@ -741,10 +741,10 @@ Discuss your views with the class. Support your views with scientific and techni
 
 ### TLDR
 - **RNNs process sequences** by reusing the *same* weights at every time step (**parameter sharing across time**), so one network handles variable-length inputs and generalises a pattern wherever it appears. The hidden state `h(t)` is a **lossy summary** of everything seen so far.
-- **They are hard to train.** Unrolled through time, backprop (**BPTT**) multiplies by the same weight matrix repeatedly, so gradients **vanish** (eigenvalues < 1) or **explode** (eigenvalues > 1). Plain RNNs fail beyond ~10-20 steps.
+- **They are hard to train.** Unrolled through time, backprop (**BPTT**) multiplies by the same weight matrix repeatedly, so gradients **vanish** (eigenvalues < 1) or **explode** (eigenvalues > 1). Plain-SGD RNNs fail beyond ~10-20 steps (Goodfellow et al. 2016, §10.7; Bengio et al. 1994).
 - **LSTM fixes this** with a gated **linear self-loop** (the cell state) plus three gates - **forget / input / output** - that let the network *learn* what to remember. **GRU** is the leaner 2-gate cousin. **Gradient clipping** tames the exploding half.
 - **CNN vs RNN:** CNN shares weights across *space* (grids/images, translation-invariant); RNN shares across *time* (sequences, order-sensitive). Combine them for image captioning (CNN encoder → LSTM decoder).
-- **Applied evidence** (Laib et al. 2019): per-cluster LSTMs beat MLP/SARIMAX/MLR baselines on day-ahead gas forecasting (MAPE 5.48%), especially on irregular days.
+- **Applied evidence** (Laib et al. 2019, *Energy* 177, p. 540): per-cluster LSTMs beat MLP/SARIMAX/MLR baselines on day-ahead gas forecasting (weighted-average test MAPE 5.48%), especially on irregular days.
 - Detailed source notes: [module08_notes.md](module-08-rnn-lstm/module08_notes.md).
 
 ### Introduction
@@ -770,7 +770,7 @@ Typically, RNNs are extremely difficult networks to train. This is where Long Sh
 > *Status: ✅ Read + Reviewed — see [module08_notes.md](module-08-rnn-lstm/module08_notes.md)*
 
 #### 2. Recurrent Neural Networks
-- Kelleher, J. D. (2019). Deep learning. Cambridge, MA: MIT Press. Retrieved from https://ebookcentral-proquest-com. torrens.idm.oclc.org/lib/think/reader.action?docID=5855529&ppg=173
+- Kelleher, J. D. (2019). Deep learning. Cambridge, MA: MIT Press. Retrieved from https://ebookcentral.proquest.com/lib/think/detail.action?docID=5855529
 
 *Resource Overview:*
     
@@ -781,7 +781,7 @@ Typically, RNNs are extremely difficult networks to train. This is where Long Sh
 > *Status: ✅ Read + Reviewed — see [module08_notes.md](module-08-rnn-lstm/module08_notes.md)*
 
 #### 3. Toward Efficient Energy Systems Based on Natural Gas Consumption Prediction with Long Short-Term Memory Recurrent Neural Networks
-- Laib, O., Khadir, T, M. & Mihaylova, L. (2019). Toward efficient energy systems based on natural gas consumption prediction with LSTM recurrent neural networks. Energy, 177, 530–542. Retrieved from https://www-sciencedirect-com.ezproxy. laureate.net.au/science/article/pii/S0360544219307054
+- Laib, O., Khadir, T, M. & Mihaylova, L. (2019). Toward efficient energy systems based on natural gas consumption prediction with LSTM recurrent neural networks. Energy, 177, 530–542. https://doi.org/10.1016/j.energy.2019.04.075
 
 *Resource Overview:*
     
@@ -796,9 +796,9 @@ Typically, RNNs are extremely difficult networks to train. This is where Long Sh
 
 *Resource Overview:*
     
-    One of the main focuses of this research paper was to find suitable forecasting methods for the effective management of energy resources. To do this, LSTM models are proposed that can efficiently predict natural gas consumption.
+    A short, accessible blog primer (~4 minutes) that introduces RNNs as feedforward networks with an internal memory, then walks through the vanishing/exploding-gradient problem and how LSTM's three gates (input, forget, output) address it.
 
-    Having read this paper, you should have a good understanding of the applications of RNNs and LSTM. Some of the implementations in this paper may seem complex but a basic understanding at this stage is fine.
+    Use it as a fast vocabulary and intuition refresher before the heavier Goodfellow and Kelleher readings. It is background material, not an academic source to cite in submissions.
 
 > *Status: ✅ Read + Reviewed — see [module08_notes.md](module-08-rnn-lstm/module08_notes.md)*
 
