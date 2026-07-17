@@ -737,6 +737,107 @@ Discuss your views with the class. Support your views with scientific and techni
 
 ---
 
+## Module 8 - Recurrent Neural Networks and Long Short-Term Memory
+
+### TLDR
+- **RNNs process sequences** by reusing the *same* weights at every time step (**parameter sharing across time**), so one network handles variable-length inputs and generalises a pattern wherever it appears. The hidden state `h(t)` is a **lossy summary** of everything seen so far.
+- **They are hard to train.** Unrolled through time, backprop (**BPTT**) multiplies by the same weight matrix repeatedly, so gradients **vanish** (eigenvalues < 1) or **explode** (eigenvalues > 1). Plain-SGD RNNs fail beyond ~10-20 steps (Goodfellow et al. 2016, §10.7; Bengio et al. 1994).
+- **LSTM fixes this** with a gated **linear self-loop** (the cell state) plus three gates - **forget / input / output** - that let the network *learn* what to remember. **GRU** is the leaner 2-gate cousin. **Gradient clipping** tames the exploding half.
+- **CNN vs RNN:** CNN shares weights across *space* (grids/images, translation-invariant); RNN shares across *time* (sequences, order-sensitive). Combine them for image captioning (CNN encoder → LSTM decoder).
+- **Applied evidence** (Laib et al. 2019, *Energy* 177, p. 540): per-cluster LSTMs beat MLP/SARIMAX/MLR baselines on day-ahead gas forecasting (weighted-average test MAPE 5.48%), especially on irregular days.
+- Detailed source notes: [module08_notes.md](module-08-rnn-lstm/module08_notes.md).
+
+### Introduction
+Recurrent neural networks (RNNs) are a class of neural networks that allow previous outputs to be used as inputs while having hidden states. An RNN is a type of neural network that is designed to capture information from sequences or time-series data. Its ability to do this is perhaps one of the most notable attributes of an RNN. Unlike RNNs, traditional feed forward neural networks are designed for fixed sized input and fixed sized output.
+
+The applications of RNNs are extremely versatile and may range from speech recognition applications to driverless cars. One can imagine that RNNs will be able to generate full-on music very easily in the near future without any human input.
+
+Typically, RNNs are extremely difficult networks to train. This is where Long Short-Term Memory (LSTM) networks come into play. LSTM networks are a modified version of RNNs that make it easier to remember past data in memory.
+
+### Resources
+
+#### 1. Recurrent Neural Networks and Long Short-Term Memory
+- Goodfellow, I., Bengio, Y. & Courville, A. (2016). Deep learning. Cambridge, MA: MIT Press. Retrieved from https://www.deeplearningbook.org/
+
+*Resource Overview:*
+    
+    This book contains an introduction to a broad range of topics in DL, including its mathematical and conceptual background, the DL techniques used in industry and different research perspectives. This book will be used throughout all the DLE602 modules.
+
+    Please read Chapter 10 for this Module. This chapter introduces you to RNNs and discusses an important variant of RNNs called LSTM. The main sections on the basics of RNNs and LSTM are '10.2: Recurrent Neural Networks' and '10.10: The Long Short-Term Memory and Other Gated RNNs'.
+
+    Finally, read about other variants of RNNs in this Chapter, as they all have their unique features.
+
+> *Status: ✅ Read + Reviewed — see [module08_notes.md](module-08-rnn-lstm/module08_notes.md)*
+
+#### 2. Recurrent Neural Networks
+- Kelleher, J. D. (2019). Deep learning. Cambridge, MA: MIT Press. Retrieved from https://ebookcentral.proquest.com/lib/think/detail.action?docID=5855529
+
+*Resource Overview:*
+    
+    This book contains an easy-to-read introduction on RNNs. The discussions start at the very basic level and build on top of that with examples.
+
+    Please read Chapter 5 for this Module. For this Module, you simply need to read the Recurrent Neural Networks section of the chapter.
+
+> *Status: ✅ Read + Reviewed — see [module08_notes.md](module-08-rnn-lstm/module08_notes.md)*
+
+#### 3. Toward Efficient Energy Systems Based on Natural Gas Consumption Prediction with Long Short-Term Memory Recurrent Neural Networks
+- Laib, O., Khadir, T, M. & Mihaylova, L. (2019). Toward efficient energy systems based on natural gas consumption prediction with LSTM recurrent neural networks. Energy, 177, 530–542. https://doi.org/10.1016/j.energy.2019.04.075
+
+*Resource Overview:*
+    
+    One of the main focuses of this research paper was to find suitable forecasting methods for the effective management of energy resources. To do this, LSTM models are proposed that can efficiently predict natural gas consumption.
+
+    Having read this paper, you should have a good understanding of the applications of RNNs and LSTM. Some of the implementations in this paper may seem complex but a basic understanding at this stage is fine.
+
+> *Status: ✅ Read + Reviewed — see [module08_notes.md](module-08-rnn-lstm/module08_notes.md)*
+
+#### 4. Understanding RNN and LSTM
+- Mittal, A. (2019, 12 October). Understanding RNN and LSTM. Retrieved from https://towardsdatascience.com/understanding-rnn-and-lstm-f7cdf6dfc14e
+
+*Resource Overview:*
+    
+    A short, accessible blog primer (~4 minutes) that introduces RNNs as feedforward networks with an internal memory, then walks through the vanishing/exploding-gradient problem and how LSTM's three gates (input, forget, output) address it.
+
+    Use it as a fast vocabulary and intuition refresher before the heavier Goodfellow and Kelleher readings. It is background material, not an academic source to cite in submissions.
+
+> *Status: ✅ Read + Reviewed — see [module08_notes.md](module-08-rnn-lstm/module08_notes.md)*
+
+### Learning Activities
+
+#### 1. Comparison
+For this activity, you will compare convolutional neural networks (CNNs) and RNNs.
+- First, explain what the most important difference is between the two above-mentioned networks as per your understanding.
+- Second, explain whether there is a situation in which you might still prefer CNNs to RNNs.
+
+Post your responses to the Module 8 discussion forum. Please read other students’ posts and provide feedback.
+
+> *Status: 🕐 To-Do*
+
+#### 2. What Do You Think?
+This activity requires you to look deep into RNNs and LSTM models.
+
+In this Module, you learned that LSTM models are expected to produce better outcomes than RNNs. Do you agree?
+- If no, provide your justification.
+- If yes, explain why LSTM models produce better accuracy than RNNs?
+Your post should be written in your own words and be no more than 100 words. Post your answer to the Module 8 discussion forum.
+
+Please read other students’ posts and provide feedback.
+
+> *Status: 🕐 To-Do*
+
+#### 3. Applications
+It is always a good idea to think of applications for any neural networks. As part of this activity, you are asked to think of suitable applications for RNNs.
+
+Throughout this subject, we have been highlighting applications in the field of natural language processing, speech recognition and computer vision. Are RNNs better suited to any of these applications (i.e., natural language processing, speech recognition or computer vision)?
+
+Present your views verbally to the class. Back your views with scientific and technical facts, examples or references.
+
+Please listen to other students and join in the conversation.
+
+> *Status: 🕐 To-Do*
+
+---
+
 ```bash
 --- PLACEHOLDER:
 ## Module X - ...
