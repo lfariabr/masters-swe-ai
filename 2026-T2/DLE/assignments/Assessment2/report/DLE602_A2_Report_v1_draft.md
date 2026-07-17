@@ -2,7 +2,7 @@
 DLE602 Assessment 2 - Project Proposal Report - DRAFT v1
 Body target: 1,000 words (+/-10%). Cover, ToC, captions, tables and references sit outside the count if allowed.
 Per-section word targets are noted in italics under each heading - delete before final export.
-Outstanding: figures/captions (Figure 1, Table 1); final word count check.
+Outstanding: figures/captions (Figure 1, Table 1, Table 2); final word count check.
 -->
 
 # Review Pulse v2: Aspect-Based Sentiment Analysis of Customer Reviews with Attention-Based Deep Learning
@@ -82,7 +82,7 @@ flowchart LR
 
 *Figure 1. Review Pulse v2 pipeline. A (review, aspect) pair flows through shared preprocessing to three comparable models, producing a per-aspect sentiment label and an interpretability heatmap surfaced in the Streamlit demo.*
 
-**Evaluation.** Accuracy and macro-F1 on aspect sentiment, with a per-class breakdown and a focused analysis of sentences containing conflicting aspect sentiment. Qualitative attention or attribution heatmaps assess interpretability. We use fixed seeds, explicit train/dev/test splits, and guard against data leakage. Cross-domain transfer from Restaurants to Laptops remains an optional extension because their aspect distributions differ. Every model reports into the same fixed shape (Table 1) so the comparison stays like-for-like, with per-class precision, recall and F1 and confusion matrices in an appendix.
+**Evaluation.** Accuracy and macro-F1 on aspect sentiment, with a per-class breakdown and a focused analysis of sentences containing conflicting aspect sentiment. We use fixed seeds, explicit train/dev/test splits, and guard against data leakage. Cross-domain transfer from Restaurants to Laptops is an optional extension. Every model reports into the same fixed shape (Table 1) so the comparison stays like-for-like, with per-class breakdowns and confusion matrices in an appendix.
 
 *Table 1. Results-reporting shell for Assessment 3. The conflicting-aspect subset is the decisive column: it isolates the sentences a sentence-level model cannot resolve.*
 
@@ -92,6 +92,17 @@ flowchart LR
 | Target-agnostic LSTM (sentence-only) | to be reported (A3) | to be reported (A3) | to be reported (A3) |
 | ATAE-LSTM (aspect-conditioned, attention) | to be reported (A3) | to be reported (A3) | to be reported (A3) |
 | DistilBERT (aspect as auxiliary sentence) | to be reported (A3) | to be reported (A3) | to be reported (A3) |
+
+**Interpretability output.** Transparency is a reviewed deliverable: for every prediction we surface the per-aspect label and the attention behind it (Table 2).
+
+*Table 2. Proposed interpretability output for one multi-aspect review. In the Streamlit demo the attention weights render as token shading; here bold marks the tokens the model weighted most for each aspect. Attention is indicative, not a causal explanation, unless perturbation tests confirm it.*
+
+Review: *"The food was great but the service was slow."*
+
+| Aspect | Predicted sentiment | Attention over tokens (bold = highest weight) |
+|---|---|---|
+| food | positive | the · **food** · was · **great** · but · service · was · slow |
+| service | negative | the · food · was · great · but · **service** · was · **slow** |
 
 **Deployment.** Assessment 3 ships a Streamlit demo where a user types a review and sees per-aspect sentiment plus the attention heatmap, mirroring the live Review Pulse v1 app.
 
@@ -109,7 +120,7 @@ Sentence-level sentiment loses the aspect-level detail that businesses act on. R
 
 ---
 
-**Word count (body, Sections 1-6): ~1,075 words.** *Inside the 900-1,100 valid band for 1,000 +/-10%. Cover page, ToC, the Figure 1 diagram, Table 1 and their captions, references and Appendix A are excluded. Re-count after final edits and conversion to the submission template.*
+**Word count (body, Sections 1-6): ~1,082 words.** *Inside the 900-1,100 valid band for 1,000 +/-10%. Cover page, ToC, the Figure 1 diagram, Tables 1 and 2 and their captions, references and Appendix A are excluded. Re-count after final edits and conversion to the submission template.*
 
 ---
 
