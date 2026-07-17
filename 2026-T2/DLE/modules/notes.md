@@ -740,6 +740,12 @@ Discuss your views with the class. Support your views with scientific and techni
 ## Module 8 - Recurrent Neural Networks and Long Short-Term Memory
 
 ### TLDR
+- **RNNs process sequences** by reusing the *same* weights at every time step (**parameter sharing across time**), so one network handles variable-length inputs and generalises a pattern wherever it appears. The hidden state `h(t)` is a **lossy summary** of everything seen so far.
+- **They are hard to train.** Unrolled through time, backprop (**BPTT**) multiplies by the same weight matrix repeatedly, so gradients **vanish** (eigenvalues < 1) or **explode** (eigenvalues > 1). Plain RNNs fail beyond ~10-20 steps.
+- **LSTM fixes this** with a gated **linear self-loop** (the cell state) plus three gates - **forget / input / output** - that let the network *learn* what to remember. **GRU** is the leaner 2-gate cousin. **Gradient clipping** tames the exploding half.
+- **CNN vs RNN:** CNN shares weights across *space* (grids/images, translation-invariant); RNN shares across *time* (sequences, order-sensitive). Combine them for image captioning (CNN encoder → LSTM decoder).
+- **Applied evidence** (Laib et al. 2019): per-cluster LSTMs beat MLP/SARIMAX/MLR baselines on day-ahead gas forecasting (MAPE 5.48%), especially on irregular days.
+- Detailed source notes: [module08_notes.md](module-08-rnn-lstm/module08_notes.md).
 
 ### Introduction
 Recurrent neural networks (RNNs) are a class of neural networks that allow previous outputs to be used as inputs while having hidden states. An RNN is a type of neural network that is designed to capture information from sequences or time-series data. Its ability to do this is perhaps one of the most notable attributes of an RNN. Unlike RNNs, traditional feed forward neural networks are designed for fixed sized input and fixed sized output.
@@ -761,7 +767,7 @@ Typically, RNNs are extremely difficult networks to train. This is where Long Sh
 
     Finally, read about other variants of RNNs in this Chapter, as they all have their unique features.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module08_notes.md](module-08-rnn-lstm/module08_notes.md)*
 
 #### 2. Recurrent Neural Networks
 - Kelleher, J. D. (2019). Deep learning. Cambridge, MA: MIT Press. Retrieved from https://ebookcentral-proquest-com. torrens.idm.oclc.org/lib/think/reader.action?docID=5855529&ppg=173
@@ -772,7 +778,7 @@ Typically, RNNs are extremely difficult networks to train. This is where Long Sh
 
     Please read Chapter 5 for this Module. For this Module, you simply need to read the Recurrent Neural Networks section of the chapter.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module08_notes.md](module-08-rnn-lstm/module08_notes.md)*
 
 #### 3. Toward Efficient Energy Systems Based on Natural Gas Consumption Prediction with Long Short-Term Memory Recurrent Neural Networks
 - Laib, O., Khadir, T, M. & Mihaylova, L. (2019). Toward efficient energy systems based on natural gas consumption prediction with LSTM recurrent neural networks. Energy, 177, 530–542. Retrieved from https://www-sciencedirect-com.ezproxy. laureate.net.au/science/article/pii/S0360544219307054
@@ -783,7 +789,7 @@ Typically, RNNs are extremely difficult networks to train. This is where Long Sh
 
     Having read this paper, you should have a good understanding of the applications of RNNs and LSTM. Some of the implementations in this paper may seem complex but a basic understanding at this stage is fine.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module08_notes.md](module-08-rnn-lstm/module08_notes.md)*
 
 #### 4. Understanding RNN and LSTM
 - Mittal, A. (2019, 12 October). Understanding RNN and LSTM. Retrieved from https://towardsdatascience.com/understanding-rnn-and-lstm-f7cdf6dfc14e
@@ -794,7 +800,7 @@ Typically, RNNs are extremely difficult networks to train. This is where Long Sh
 
     Having read this paper, you should have a good understanding of the applications of RNNs and LSTM. Some of the implementations in this paper may seem complex but a basic understanding at this stage is fine.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module08_notes.md](module-08-rnn-lstm/module08_notes.md)*
 
 ### Learning Activities
 
