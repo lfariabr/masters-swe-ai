@@ -3,7 +3,7 @@ marp: true
 theme: default
 paginate: true
 size: 16:9
-footer: "DLE602 Deep Learning · Assessment 2 · Review Pulse v2"
+footer: "DLE602 Deep Learning · Assessment 2 · ReviewPulse v3.0"
 style: |
   :root {
     --ink: #1b2733;
@@ -62,7 +62,7 @@ style: |
 <!-- _paginate: false -->
 <!-- _footer: "" -->
 
-# Review Pulse v2
+# ReviewPulse v3.0
 
 ### Aspect-Based Sentiment Analysis with Attention-Based Deep Learning
 
@@ -142,19 +142,21 @@ explainable model with faithful attention. That is where we sit.
   <div class="box"><strong>attention<br/>heatmap</strong></div>
 </div>
 
-- **Two models compared:** aspect-aware attention-LSTM vs fine-tuned DistilBERT
-- **Interpretability is the differentiator** - we show *why*, not just the label
+- **Four-model ladder:** TF-IDF + LogReg → target-agnostic LSTM → ATAE-LSTM → DistilBERT
+- **Interpretability is the differentiator** - only ATAE-LSTM and DistilBERT expose attention; we show *why*, not just the label
 - Optional neural **Topic Modelling** to discover aspects (scoped as stretch)
 
-<span class="chip">SemEval-2014: Restaurants + Laptops</span>
-<span class="chip">accuracy · macro-F1 · attention</span>
+<span class="chip">SemEval-2014: Restaurants (core) + Laptops (extension)</span>
+<span class="chip">accuracy · macro-F1 · efficiency · attention</span>
 
 <!--
 PRESENTER: Luis (~90 s)
-Two models on a PRE-ANNOTATED benchmark (that is the feasibility win - no manual labelling).
-ATAE-LSTM gives aspect-aware attention; DistilBERT gives contextual power at low compute.
-The attention/attribution layer is our differentiator - it shows which words drove each
-per-aspect call. Mention Topic Modelling as the OPTIONAL aspect-discovery stage, not core.
+Four models on a PRE-ANNOTATED benchmark (that is the feasibility win - no manual labelling):
+TF-IDF and a target-agnostic LSTM set the sentence-level baselines; ATAE-LSTM adds aspect-aware
+attention; DistilBERT adds contextual power at low compute. Only the last two expose attention -
+that is our differentiator, showing which words drove each per-aspect call. Efficiency is now
+part of the comparison, not just accuracy. Mention Topic Modelling as the OPTIONAL aspect-discovery
+stage, not core.
 -->
 
 ---

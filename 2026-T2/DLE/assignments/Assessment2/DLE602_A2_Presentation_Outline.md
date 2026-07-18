@@ -18,7 +18,7 @@
 **Presenter:** Victor · **Time:** ~25 s
 
 **On slide (visual cues only):**
-- Project: **Review Pulse v2 - Aspect-Based Sentiment Analysis with Attention-Based Deep Learning**
+- Project: **ReviewPulse v3.0 - Aspect-Based Sentiment Analysis with Attention-Based Deep Learning**
 - DLE602 Deep Learning - Assessment 2
 - Group: Luis Faria (A00187785), Victor [ID], Juan [ID]
 - One product-style logo/banner image
