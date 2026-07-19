@@ -91,24 +91,37 @@ not a word-by-word text.
 - **Transition (frozen selection)**: "The selection is frozen. Now the final exam:
   data the model has never seen."
 
-## Block 7 - Section 5 + 5.1-5.3: test, SHAP, approval (cells 36-57) | 6:10-8:20
+## Block 7 - Section 5: held-out test (cells 36-44) | 6:10-7:20
 
 - Table 5.1: "the balanced tree confirms its CV profile - AUC 0.792, sensitivity 0.734,
   specificity 0.725. Near-identical to CV: it generalizes." Note the baseline row:
   "62.6% accuracy, zero low lots caught - that is the accuracy trap."
-- Confusion matrices (Figure 5.2): derive the row - "398 low lots in the test set:
-  292 caught, 106 missed; 183 acceptable lots reviewed unnecessarily."
-- Trade line: "versus the AUC-tuned tree we catch 58 more weak lots and accept 69 more
-  false alarms - the right side of the trade, given Section 1's costs."
-- ROC (Figure 5.1) + SVM: "the SVM ranks best on AUC, 0.824, but at its threshold
-  catches only 59 percent of low lots - ranking alone doesn't meet the objective."
+- Table 5.2 (classification report): one line - "low-class recall 0.734, F1 0.669 -
+  we report the minority class, not accuracy."
+- ROC (Figure 5.1): "the SVM ranks best on AUC, 0.824 - but ranking is only half the
+  story; the threshold decides what actually gets caught."
+- Confusion matrices (Figure 5.2) - **the MIDDLE panel is the approved model**. Derive
+  the row: "398 low lots in the test set: 292 caught, 106 missed; 183 acceptable lots
+  reviewed unnecessarily." Comparison: left (AUC-tuned) misses 164; right (SVM)
+  misses 163 despite the best AUC.
+- Trade-offs barplot (Figure 5.3): "we catch 58 more weak lots than the AUC-tuned tree
+  and accept 69 more false alarms - the right side of the trade, given Section 1's costs."
 - Tree plot + importance (Figures 5.4-5.5): "alcohol dominates, 0.62 - the tree agrees
   with Section 2's correlation."
-- 5.1 SHAP - three beats: "the additivity check passes: explanations are exact
-  arithmetic"; global - "alcohol leads again, 0.19, low alcohol pushes toward low
-  quality"; local (Figure 5.7) - "THIS lot: alcohol nine point six adds plus 0.22,
-  volatile acidity plus 0.07, probability 0.797 - that is the answer QC needs."
-- 5.2-5.3: read the approval table decisions; then the strongest line, slowly:
+- **Transition**: "The numbers say what the model does. Now WHY it decides - per lot."
+
+## Block 7b - Sections 5.1-5.3: SHAP + approval (cells 46-57) | 7:20-8:20
+
+- 5.1 SHAP, three beats in scroll order:
+  - 5.1.1: "the additivity check passes - explanations are exact arithmetic, not estimates."
+  - 5.1.2 global (Table 5.4 / Figure 5.6): "alcohol leads again, 0.19; low alcohol
+    pushes toward low quality."
+  - 5.1.3 local (Table 5.5 / Figure 5.7): "THIS lot: alcohol nine point six adds
+    plus 0.22, volatile acidity plus 0.07, probability 0.797 - that is the answer
+    QC needs when asking why a lot was flagged."
+- 5.2 Operational result: point at the CV vs test table - "near-identical, frozen
+  before testing." Don't re-read numbers already said in Block 7.
+- 5.3 Approval table: read the four decisions; then the strongest line, slowly:
   "threshold optimisation is deferred - choosing it now would invent a business
   cost function."
 - **Transition**: "Approved for a pilot. What did the process teach?"
