@@ -31,7 +31,8 @@
 - 🔵 **Coefficients learned by MLE** (Maximum-Likelihood Estimation). In practice: L-BFGS / ADAM; from scratch: gradient descent.
 - 🔴 **"LR = one neuron"** - a linear combo through a non-linear activation. The single most useful sentence to carry into the neural-net / deep-learning subjects.
 
-## 🖤 Zone 3 - The one dial: `C` ⭐ SLO c) - THE GRADED CORE
+## 🖤 Zone 3 - Two dials: `C` and `penalty` ⭐ SLO c) - THE GRADED CORE
+- 🔴 **Lecturer (wk 8): tune `penalty` AND `C`, nothing else.** `penalty` = L1 / L2 (default L2); `C` ∈ `{0.2, 0.5, 0.8, 1.0}`. He expects no other hyperparameter to move your result. *(L1 needs `liblinear`/`saga`; `lbfgs` is L2-only. `penalty` deprecated in sklearn 1.8 → use `l1_ratio`: 0=L2, 1=L1.)*
 - 🖤 **`C = 1 / λ`** (inverse regularisation). The *counter-intuitive* exam trap:
 
   | `C` | Regularisation | Complexity | Risk |
@@ -63,6 +64,19 @@ lr.predict(X_test_std[:3])         # crisp labels = argmax of the probabilities
 - 🔴 **Two imbalance fixes:** `class_weight='balanced'` (built-in, light) **vs SMOTE** (resample) - *compare both & justify* = distinction-band move.
 - 🔴 **Fit ≠ predictive power** (Allison): report a pseudo-R² too - **Tjur's R²** (abs. diff of the two class mean-probabilities) is easy, capped at 1, and almost nobody in the cohort uses it.
 
+## 🖤 Zone 6 - Sigmoid vs softmax + limits (⭐ live class exercise, wk 8)
+| | **Sigmoid** | **Softmax** |
+|---|---|---|
+| Use for | **binary** (2 outcomes) | **multi-class** (3+ outcomes) |
+| Output | one number in (0,1) = a probability | distribution over classes, **sums to 1** |
+| Examples | COVID/not · rainy/not · low/high wine | rainy/windy/cloudy/sunny · cat/dog/bird |
+
+- 🔵 **Binomial LR** = 2 categories · **Multinomial LR** = 3+ **unordered** categories (grades HD/D/C/P are *ordered*; weather is not).
+- 🔴 **His trap:** share price **up or down** → sigmoid. Share **price itself** → *neither* - that's continuous = **regression**.
+- 🔵 **Assumptions:** observations independent · dependent variable binary.
+- 🔴 **Limitations:** assumes a **linear decision boundary** (struggles with non-linear data) · **sensitive to outliers** · overfits with many features + few rows · **can't handle missing values** (impute first).
+- 🔴 **"There is no best model."** Valid comparisons need the *same dataset and split*. You may *assume* LR will struggle on non-linear data - you can't *guarantee* it. Hence: implement 5+ models and compare in a table.
+
 ---
 
 ## 🔴 Assessment Hook (bottom red strip)
@@ -71,10 +85,12 @@ lr.predict(X_test_std[:3])         # crisp labels = argmax of the probabilities
 
 ## 🔴 If you only memorise 5 things
 1. **Sigmoid over a linear core** → probability → threshold `≥0.5` → class. `ln(p/(1−p)) = β₀+βᵢxᵢ`.
-2. **`C = 1/λ`**: smaller `C` = **stronger** regularisation = simpler model. (The classic trap.)
+2. **`C = 1/λ`**: smaller `C` = **stronger** regularisation = simpler model. (The classic trap.) Tune it with **`penalty`** (L1/L2) - the lecturer's only two dials.
 3. **Scale features, fixed seed, `GridSearchCV`** the `C` - the reproducible tuning drill.
 4. **Accuracy lies on imbalanced data** → confusion matrix + **precision / recall / F1**; pick precision-vs-recall consciously.
-5. **Imbalance levers:** `class_weight='balanced'` vs **SMOTE** - compare & justify. **Exp(β) = odds ratio** = the interpretability payoff.
+5. **Sigmoid = binary, softmax = multi-class.** Plus LR's limits: linear boundary, outlier-sensitive, no missing values.
+
+*(Runners-up: **Exp(β) = odds ratio** = the interpretability payoff · imbalance levers `class_weight='balanced'` vs **SMOTE** - compare & justify.)*
 
 ---
 
