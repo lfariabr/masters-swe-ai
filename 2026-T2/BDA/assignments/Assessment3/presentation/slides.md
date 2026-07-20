@@ -90,7 +90,7 @@ The line from raw data → phases → a neighbour recommendation.
 
 - **Canada (r = 0.85):** treat the US trajectory as a leading indicator; when the US enters a surge phase, pre-position testing and hospital capacity **1-2 weeks ahead**.
 - **Mexico (r = 0.70):** moderate coupling - watch US surges, but weight local signals more heavily.
-- **General:** plan capacity for the isolated **Omicron-style mega-surge cluster**, not the steady baseline - that single cluster carried ~8x the average weekly load.
+- **General:** plan capacity for the isolated **Omicron-style mega-surge cluster**, not the steady baseline - that single cluster carried ~7x the overall weekly average.
 
 ---
 

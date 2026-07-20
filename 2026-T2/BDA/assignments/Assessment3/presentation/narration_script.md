@@ -45,7 +45,7 @@ two to six and pick K equals 3 by the highest silhouette score, which was 0.705 
 What the clusters reveal is exactly what the straight line hid: the growth was not steady, it came in
 waves. Most strikingly, the algorithm isolates a single mega-surge - around 4.46 million new cases a
 week, across weeks 102 to 106, which is January 2022, the Omicron wave - as its own distinct cluster.
-That one cluster ran at roughly eight times the average weekly load. Clustering turns 'cases went up' into 'here is exactly when, and how hard.'"
+That one cluster ran at roughly seven times the overall weekly average. Clustering turns 'cases went up' into 'here is exactly when, and how hard.'"
 
 ### Slide 6 - Graph analytics  (~1:00)
 
@@ -68,7 +68,7 @@ as a leading indicator. When the US enters a surge phase, pre-position testing a
 to two weeks ahead - don't wait for your own numbers to climb. For Mexico, at 0.70: the coupling is
 moderate, so watch US surges but weight your own local signals more heavily. And for everyone: plan your
 capacity for the Omicron-style mega-surge cluster, not the steady baseline - because that single cluster
-carried about eight times the average weekly load. Planning for the average is how you get overwhelmed
+carried about seven times the overall weekly average. Planning for the average is how you get overwhelmed
 by the peak."
 
 ### Slide 9 - Limitations & close  (~0:50)
