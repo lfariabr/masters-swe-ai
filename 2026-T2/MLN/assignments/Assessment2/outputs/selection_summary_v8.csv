@@ -1,0 +1,6 @@
+role,model,treatment
+best untreated,SVM,Original
+best SMOTE,SVM,SMOTE
+best class weighted,Random Forest,Class weight
+best ensemble,Random Forest,Class weight
+approved,Random Forest,Class weight

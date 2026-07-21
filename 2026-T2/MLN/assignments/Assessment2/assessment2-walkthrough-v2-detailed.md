@@ -1,149 +1,222 @@
-# MLN601 Assessment 2 - Recording Walkthrough v4 (for notebook v7)
+# MLN601 Assessment 2 - Recording Walkthrough v5 (for notebook v8)
 
 Video: ENGLISH, 7-10 min, filename `MLN601FariaLuisBrief2.mp4`.
-Big change since v3: **the v7 notebook narrates itself** - every table/figure prints its
-number and a one-line conclusion. On camera: read the printed line, expand it with ONE
-sentence, move on. This script is now a safety net (timings + transitions + fact traps),
-not a word-by-word text.
 
-## Ground rules (from the 16 Jul takes)
+This version replaces the previous walkthrough. The central story is now the controlled
+comparison of model families and imbalance treatments. Read each printed conclusion, add one
+sentence about why it matters to the wine-lot operation, then move on.
 
-- **Clock rule**: if a block runs 15s over, cut commentary, never numbers.
-- **Fact traps - say these aloud 5x before recording:**
-  - "six thousand four hundred ninety-seven" (6,497 - NOT 6,400 / 6,597)
-  - "one thousand four hundred seventy-three, about twenty-three percent" (1,473 - NOT 14,000)
-  - "sixty-two point six versus thirty-seven point four" (62.6 / 37.4)
-- Pronounce: **Gini** = "JEE-nee" | **SMOTE** = "smote" (one syllable)
-- Never read long markdown paragraphs - point at the printed table captions instead.
-- Transitions are the joints. They are written below - say them as written.
+## Ground rules
 
-## Block 0 - Title (cells 0-1) | 0:00-0:50
+- Show the student card and state name, student number, subject and assessment at the start.
+- Record the executed notebook, not slides.
+- If a block runs 15 seconds over, shorten commentary but keep the key result.
+- Say clearly: class 1 means low quality and is the positive class.
+- Say clearly: the test set was never resampled or used during model selection.
+- Pronounce: **Gini** = "JEE-nee"; **SMOTE** = "smote"; **AUC** = "A-U-C".
+- Do not list every hyperparameter. Explain the experiment and show the selected values.
 
-- Name, subject, assessment; "an operational screening system for wine bottling lots".
-- One sentence: CRISP-DM start to finish, decision tree as the required technique.
+## Fact traps
 
-## Block 1 - Section 1 Business Understanding (cells 2-3) | 0:50-1:55
+- Raw data: 6,497 samples.
+- Exact duplicates removed: 1,177.
+- Modelling data: 5,320 rows.
+- Training and test: 4,256 and 1,064 rows.
+- Class balance: 62.6% high quality and 37.4% low quality.
+- Approved model: Random Forest with class weighting.
+- CV approved metrics: AUC 0.835, sensitivity 0.748, specificity 0.766, balanced accuracy 0.757.
+- Test approved metrics: AUC 0.834, sensitivity 0.714, specificity 0.806, balanced accuracy 0.760.
+- Test confusion matrix: 284 low-quality lots caught, 114 missed, 129 false alarms, 537 correctly cleared.
+- Average SMOTE movement: sensitivity +0.154, specificity -0.104, AUC approximately unchanged.
 
-- The story: one row = one lab sample = one bottling lot. Model flags risky lots for
-  extra tasting. "QC staff decide - the model never releases or rejects a lot."
-- FN (weak lot escapes) costs more than FP (unnecessary review).
-- Point at the gates: "success is defined BEFORE modelling - AUC 0.75, sensitivity 0.70,
-  specificity 0.70, in cross-validation."
-- **Transition**: "So what data do we have to work with?"
+## Block 0 - Identity and title (cells 0-1) | 0:00-0:35
 
-## Block 2 - Sections 2.1-2.3: data + audit (cells 4-14) | 1:55-3:00
+Suggested wording:
 
-- 2.1-2.2: quick scroll - source, variables table. "Six thousand four hundred
-  ninety-seven samples, red and white combined, wine_type flag added."
-- 2.3: one line - pinned versions, RANDOM_STATE 42, local-first loading.
-- Table 2.1: "every hard check passes." Table 2.2 + Figure 2.1 (boxplots):
-  "the IQR audit flags one thousand four hundred seventy-three rows, about
-  twenty-three percent - unusual but plausible wine, so they stay. Flag is not error."
-- **Transition**: "One issue does need action: duplicates."
+"Hello, my name is Luis Faria. This is MLN601 Assessment 2. I will present an operational
+screening system for wine bottling lots. The notebook follows CRISP-DM and compares nine model
+families under original, SMOTE and class-weighted training conditions."
 
-## Block 3 - Sections 2.4-2.5: target, balance, relationships (cells 15-23) | 3:00-3:55
+Show the student card briefly, then scroll to Business Understanding.
 
-- 2.4: "quality below six is low, class one - the positive class, because low is what
-  triggers review." 1,177 exact duplicates removed BEFORE splitting - leakage control.
-  Result: 5,320 rows, "sixty-two point six versus thirty-seven point four" (Figure 2.2).
-- 2.5 heatmap (Figure 2.3): ONE sentence - "free and total SO2 correlate at 0.72,
-  chemically expected - that motivates an engineered feature tested in Section 3."
-- Target ranking (Table 2.3 / Figure 2.4): "alcohol is the strongest signal, minus 0.41 -
-  more alcohol, less risk of low quality. Watch alcohol - it returns in every act."
-- Pairplot (Figure 2.5): ONE sentence - "the classes overlap everywhere; no single
-  measurement separates them, so we need a model."
-- Interpretation table: don't read it - "summarized here."
-- **Transition (diagnosis -> treatment, it worked in take 3)**: "That completes the
-  diagnosis. Now the treatment: preparing the data without fooling ourselves."
+## Block 1 - Business Understanding (cells 2-3) | 0:35-1:15
 
-## Block 4 - Section 3 Data Preparation (cells 24-26) | 3:55-4:35
+Suggested wording:
 
-- Four safeguards, count them on screen: dedup first; target columns excluded from
-  predictors; stratified 80/20 split - "four thousand two hundred fifty-six train,
-  one thousand sixty-four test, zero overlap, checked"; scaling and SMOTE inside pipelines.
-- Announce the ablation: "two sulfur features enter a pre-declared trial - kept only if
-  they gain at least 0.01. **The verdict comes in Section 4.1** - not here."
-- **Transition**: "With clean inputs, six candidates compete."
+"One row represents one laboratory sample treated as one bottling lot. The model does not
+release or reject wine. It flags lots for extra tasting by quality-control staff. Missing a weak
+lot is more costly than reviewing an acceptable one, but a model that flags everything is also
+not useful. I therefore declared three cross-validation gates before modelling: AUC, sensitivity
+and specificity must each be at least 0.75, 0.70 and 0.70 respectively."
 
-## Block 5 - Section 4 Modelling (cells 27-29) | 4:35-5:20
+Transition: "I will now show the data and the controls used before any model was trained."
 
-- Read the six-candidate list as questions: baseline = "what does no skill look like";
-  default tree = overfitting; tuned tree = GridSearchCV, 5 folds, ROC-AUC;
-  balanced tree = same structure, cost-weighted errors; SMOTE = synthetic alternative;
-  SVM = benchmark from another family.
-- One line on ranges: "each search range has a reason - depths three to eight keep the
-  tree readable; an unlimited tree is included as a control, and it loses."
-- SVM scaling line: "the scaler lives inside the pipeline - fit only on each fold's
-  training data. Same discipline as SMOTE."
-- **Transition**: "Selection happens in cross-validation, against the gates - the test
-  set is touched once, later."
+## Block 2 - Data Understanding (cells 4-23) | 1:15-2:20
 
-## Block 6 - Section 4.1: selection + ablation (cells 30-35) | 5:20-6:10
+Suggested wording:
 
-- 4.1.1 (Tables 4.1-4.2): "the search picks Gini, depth five, minimum leaf twenty.
-  RBF is the best SVM kernel."
-- 4.1.2 (Table 4.3) - THE table, slow down: "only the balanced tree passes all three
-  gates: 0.787, 0.731, 0.703. The AUC-tuned tree misses too many low lots - sensitivity
-  0.643. SMOTE fails specificity by a hair - 0.696. Cost-based balancing beats
-  synthetic examples. And the SVM has the best AUC, 0.826, but catches too few low lots."
-- 4.1.3 (Table 4.4): "the sulfur features gain 0.0075 - below my 0.01 rule - rejected.
-  I even re-tuned the tree with them included; they still don't earn their place."
-- **Transition (frozen selection)**: "The selection is frozen. Now the final exam:
-  data the model has never seen."
+"The source contains 6,497 red and white wine samples with eleven physicochemical measurements.
+I added wine type as a predictor. The reproducibility cell pins the runtime and random state.
+The quality audit found no schema, missing-value or range failures. The IQR review flagged 1,473
+unusual rows, but these remained because they are plausible wines rather than confirmed errors.
 
-## Block 7 - Section 5: held-out test (cells 36-44) | 6:10-7:20
+I removed 1,177 exact duplicates before splitting, leaving 5,320 independent rows. Quality below
+six is low quality, class 1 and the positive review class. The final balance is 62.6% high and
+37.4% low. Free and total sulphur dioxide have a positive correlation of 0.72. Alcohol has the
+strongest target relationship at minus 0.41, so higher alcohol is associated with lower modelled
+risk. The pair plot also shows substantial class overlap, which is why no single measurement is
+enough for screening."
 
-- Table 5.1: "the balanced tree confirms its CV profile - AUC 0.792, sensitivity 0.734,
-  specificity 0.725. Near-identical to CV: it generalizes." Note the baseline row:
-  "62.6% accuracy, zero low lots caught - that is the accuracy trap."
-- Table 5.2 (classification report): one line - "low-class recall 0.734, F1 0.669 -
-  we report the minority class, not accuracy."
-- ROC (Figure 5.1): "the SVM ranks best on AUC, 0.824 - but ranking is only half the
-  story; the threshold decides what actually gets caught."
-- Confusion matrices (Figure 5.2) - **the MIDDLE panel is the approved model**. Derive
-  the row: "398 low lots in the test set: 292 caught, 106 missed; 183 acceptable lots
-  reviewed unnecessarily." Comparison: left (AUC-tuned) misses 164; right (SVM)
-  misses 163 despite the best AUC.
-- Trade-offs barplot (Figure 5.3): "we catch 58 more weak lots than the AUC-tuned tree
-  and accept 69 more false alarms - the right side of the trade, given Section 1's costs."
-- Tree plot + importance (Figures 5.4-5.5): "alcohol dominates, 0.62 - the tree agrees
-  with Section 2's correlation."
-- **Transition**: "The numbers say what the model does. Now WHY it decides - per lot."
+Transition: "The next step prevents leakage and keeps the test partition untouched."
 
-## Block 7b - Sections 5.1-5.3: SHAP + approval (cells 46-57) | 7:20-8:20
+## Block 3 - Data Preparation (cells 24-26) | 2:20-2:55
 
-- 5.1 SHAP, three beats in scroll order:
-  - 5.1.1: "the additivity check passes - explanations are exact arithmetic, not estimates."
-  - 5.1.2 global (Table 5.4 / Figure 5.6): "alcohol leads again, 0.19; low alcohol
-    pushes toward low quality."
-  - 5.1.3 local (Table 5.5 / Figure 5.7): "THIS lot: alcohol nine point six adds
-    plus 0.22, volatile acidity plus 0.07, probability 0.797 - that is the answer
-    QC needs when asking why a lot was flagged."
-- 5.2 Operational result: point at the CV vs test table - "near-identical, frozen
-  before testing." Don't re-read numbers already said in Block 7.
-- 5.3 Approval table: read the four decisions; then the strongest line, slowly:
-  "threshold optimisation is deferred - choosing it now would invent a business
-  cost function."
-- **Transition**: "Approved for a pilot. What did the process teach?"
+Suggested wording:
 
-## Block 8 - Section 6 Lessons (cells 58-59) | 8:20-9:10
+"Target columns are excluded from predictors and the data is split once using stratification:
+4,256 training rows and 1,064 test rows, with zero overlap. Scaling, median binarisation and SMOTE
+are fitted inside each cross-validation fold. This means validation rows do not influence
+preprocessing or synthetic samples. Most importantly, the test set remains outside every search
+and is never resampled."
 
-- One from each list: went well - "gates before results made selection honest";
-  challenge - "a model can lead one metric and still be wrong for the business";
-  future - "real lot IDs, real costs, and comparing logistic regression and random
-  forest under the same gates."
-- Sommelier API: one sentence - "the delivery path already exists as a live FastAPI +
-  Streamlit project - Appendix B and the pipeline diagram in Appendix C."
+Optional transparent clarification:
 
-## Block 9 - Closing | 9:10-9:30
+"I answered this incorrectly in our conversation. After checking the implementation, the exact
+answer is that only training folds are resampled. The held-out test data is never resampled."
 
-- "A balanced decision tree, chosen by pre-declared gates, explained globally and
-  per lot, approved for human-supervised triage. Thank you."
+Transition: "With that boundary fixed, I can compare treatments fairly."
+
+## Block 4 - Candidate matrix and rationale (cells 27-29) | 2:55-3:40
+
+Suggested wording:
+
+"The matrix contains nine model families plus a majority baseline. Logistic Regression tests an
+interpretable linear boundary. KNN tests local similarity but is sensitive to scaling and twelve
+dimensions. Decision Tree tests readable rules, while SVM tests maximum-margin boundaries.
+Gaussian, Bernoulli, Multinomial and Complement Naive Bayes test different distributional
+assumptions. Bernoulli uses fold-fitted median binarisation, while Multinomial and Complement use
+MinMax scaling because they require non-negative inputs. Random Forest is the ensemble candidate:
+it averages 200 trees to reduce the variance of a single tree, at the cost of direct readability."
+
+Point at the pipeline definitions and five-fold StratifiedKFold. Mention that the grids are light
+and use ROC-AUC consistently.
+
+## Block 5 - Three experiments (cells 30-35) | 3:40-4:35
+
+Suggested wording:
+
+"Experiment A trains all nine families on the original distribution. This is the untreated
+reference and shows what each model can do without an imbalance intervention.
+
+Experiment B repeats the same models and grids with SMOTE inside the training part of each fold.
+The flow is fold training data, preprocessing, SMOTE, classifier, then untouched fold validation.
+The held-out test set remains outside this process.
+
+Experiment C uses class weighting for Logistic Regression, SVM, Decision Tree and Random Forest.
+Unlike SMOTE, weighting creates no synthetic observations. It changes the penalty assigned to
+classification errors. The three arms therefore isolate model choice from treatment choice."
+
+Transition: "The important question is not whether a technique sounds useful, but what movement
+it causes in the same metrics."
+
+## Block 6 - Comparison, gates and ablation (cells 36-43) | 4:35-6:05
+
+Suggested wording:
+
+"Table 4.5 is the master comparison. It contains 22 tuned model-treatment combinations plus the
+majority baseline, all measured on the same five folds. The delta table and scatter plot show the
+main trade-off. Across the nine families, SMOTE increases sensitivity by about 0.154 and reduces
+specificity by about 0.104, while average AUC is nearly unchanged. So SMOTE mostly changes the
+operating point. It catches more weak lots, but sends more acceptable lots to review.
+
+Class weighting creates a similar cost-sensitive effect without generating synthetic wines.
+Random Forest also improves stability by averaging trees. In this run its weighted version
+reaches 0.835 AUC, 0.748 sensitivity, 0.766 specificity and 0.757 balanced accuracy.
+
+The gates are applied without reading the test set. Among passing candidates, I select the
+highest balanced accuracy. Differences below 0.01 are treated as a technical tie and resolved by
+interpretability. This freezes four roles: best untreated, best SMOTE, best weighted and best
+ensemble. Duplicate roles are evaluated only once. Random Forest with class weighting is the
+approved model.
+
+The sulphur feature ablation was then applied to that approved family using training CV only. The
+gain was 0.0013, below the pre-declared 0.01 rule, so the engineered features were rejected. A
+negative result is useful because it avoids extra production complexity without measurable gain."
+
+Transition: "Only now do I open the test set, once, for the frozen finalists."
+
+## Block 7 - Held-out evaluation (cells 44-49) | 6:05-7:05
+
+Suggested wording:
+
+"The unique finalists are SVM on the original distribution, SVM with SMOTE and weighted Random
+Forest. On the untouched test set, the approved forest achieves AUC 0.834, sensitivity 0.714,
+specificity 0.806 and balanced accuracy 0.760. These values are close to cross-validation.
+
+The confusion matrix translates this into operations. Of 398 low-quality lots, 284 are caught and
+114 are missed. There are 129 false alarms among acceptable lots, while 537 are correctly cleared.
+The untreated SVM has high specificity but misses too many weak lots. SMOTE improves sensitivity
+but accepts more false alarms. The weighted forest provides the strongest balance under the
+declared gates."
+
+Point at the ROC curves and confusion matrices. Do not read every table row.
+
+Transition: "Performance explains what was selected. SHAP explains how the approved model reaches
+its scores."
+
+## Block 8 - Explainable AI and approval (cells 50-60) | 7:05-8:25
+
+Suggested wording:
+
+"Because the approved model is tree based, I use TreeExplainer on a fixed sample of 500 held-out
+rows. The maximum additivity error is approximately three times ten to the minus fifteen, so the
+feature contributions reconstruct the class-1 score at machine precision.
+
+Globally, alcohol is the most influential feature, followed by volatile acidity and density. The
+beeswarm adds direction: lower alcohol tends to push predictions toward low quality, consistent
+with the earlier exploratory result. This is an association learned by the model, not a causal
+claim.
+
+For a correctly flagged example, the predicted low-quality probability is 0.719. Alcohol at 9.4
+adds about 0.148 toward low-quality risk, with volatile acidity and density also contributing.
+This gives quality-control staff a concrete reason to inspect the laboratory record while keeping
+the final decision human supervised.
+
+The approval table documents the result for every finalist. Weighted Random Forest is approved
+for a shadow pilot. The alternatives remain useful benchmarks, but they do not provide the same
+balance at the default threshold."
+
+Transition: "I will finish with what changed in my understanding and what still needs production
+evidence."
+
+## Block 9 - Lessons, deployment and close (cells 61-69) | 8:25-9:30
+
+Suggested wording:
+
+"What went well was moving from one preferred model to a controlled matrix. The baseline, common
+folds and declared gates made the result measurable, and the A1 feedback helped me make the
+business context and chart interpretations explicit.
+
+The main challenge was moving from regression thinking to classification. AUC, sensitivity,
+specificity, precision, thresholds and confusion-matrix counts can move in different directions.
+SMOTE, weighting and ensemble learning also address different problems, which is why comparing
+them directly was important.
+
+The next step is to estimate the real cost of missed weak lots and unnecessary holds, then
+calibrate the threshold. A shadow pilot should monitor drift, calibration, hold rate, escapes and
+red-versus-white performance. The Sommelier API currently serves the earlier balanced tree, so
+aligning it with this approved weighted forest is a documented deployment backlog item rather
+than something I claim is already complete.
+
+In conclusion, this assessment recommends a class-weighted Random Forest for human-supervised
+wine-lot triage. It was selected through training-only cross-validation, confirmed once on an
+untouched test set and explained globally and per lot. Thank you."
 
 ## Rehearsal sequence
 
-1. Scroll v7 once with this script beside it - check every cell range lands where expected.
-2. Say the 6 transition lines out loud, twice each.
-3. Fact traps aloud, 5x each.
-4. One audio-only take with a stopwatch; adjust with the clock rule.
-5. Record. If a block derails, keep rolling - restart the BLOCK, not the video; cut later.
+1. Scroll the v8 notebook once and confirm every cell range.
+2. Rehearse the three experiment definitions without looking at the script.
+3. Say the fact traps aloud five times.
+4. Practise the test-set correction once in a neutral, factual tone.
+5. Do one audio-only take with a stopwatch and target 9:15 to 9:30.
+6. Record the screen, webcam and student card. Restart a block if needed and edit later.
