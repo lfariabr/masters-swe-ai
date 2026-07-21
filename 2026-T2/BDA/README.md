@@ -47,7 +47,7 @@ Dr. Chen Zhan
 - [X] Module 5 ✅ - Data Exploration and Cleaning
 - [X] Module 6 ✅ - Classification
 - [X] Module 7 ✅ - Model Evaluation
-- [ ] Module 8 🔥 - Predictive Modelling
+- [X] Module 8 ✅ - Predictive Modelling
 - [ ] Module 9 🕐 - Clustering
 - [ ] Module 10 🕐 - Association Rules
 - [ ] Module 11 🕐 - Graph Analytics

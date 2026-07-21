@@ -171,9 +171,11 @@ There is *"a lot of competition among words"* - predictive analytics, data scien
 #### Key Takeaways for BDA601
 1. **This chapter IS Activity 1**, step by step: `corr()` → top features → degree-2 polynomial → 70/30 split → R². The only differences: the activity asks for **three** features (the chapter uses two) via **PySpark** (the chapter uses scikit-learn).
 2. **R² is the metric that closes the loop with Module 7.** Dr. Chen's framing applies directly: R² = 0.6162 means **38% of the variability in house prices is unexplained** - by features not included, or by something unobserved. The lift to 0.7340 with a degree-2 polynomial is *"27% unexplained"* - progress, not victory.
-3. **The degree-4 R² = 1.0 demo is Module 7's Zone 3 in regression form.** A perfect metric on the data you fit is not evidence, it is a warning. Same lesson as resubstitution error, different metric.
-4. **Day-job anchor:** correlation-driven feature selection is what you already do informally when deciding which warehouse columns actually drive a KPI. The trap is the same one you hit in A2: `tenure` and `TotalCharges` correlated at **r = 0.826** - correlation finds the signal *and* the redundancy, and you have to decide which.
-5. Cross-links: the bias/variance material re-covers Module 6's overfitting/pruning theme with a regression lens; **RMSE** appears here as `mean_squared_error` and is defined properly in Module 7 R4.
+3. 🔴 **For Assessment 2/3 (not just this activity): default to multiple linear regression.** Dr. Chen said it directly in the Week 8 lecture - *"multiple linear regression should be your number one choice... your benchmarking or baseline model."* Polynomial/interaction terms are an escalation you add **cautiously, only if the baseline underperforms** - they raise both overfitting risk and compute cost. Activity 1 asks for polynomial specifically (it's a teaching exercise), but the general assessment advice is: start simple, justify any complexity you add.
+4. 🔴 **Unlike Module 7's AUC > 0.8 bar, regression metrics have no universal threshold.** Chen was asked directly ("is R² > 0.6 moderately good?") and declined to give one - R² depends on how complex the underlying relationship is. MAE/RMSE are worse still: they're **only meaningful for cross-model comparison** on the same dataset (model A's error 100 vs model B's 80 → B is better; there's no absolute "80 is good" line). Don't quote a regression metric as pass/fail in a report - quote it as a comparison.
+5. **The degree-4 R² = 1.0 demo is Module 7's Zone 3 in regression form.** A perfect metric on the data you fit is not evidence, it is a warning. Same lesson as resubstitution error, different metric.
+6. **Day-job anchor:** correlation-driven feature selection is what you already do informally when deciding which warehouse columns actually drive a KPI. The trap is the same one you hit in A2: `tenure` and `TotalCharges` correlated at **r = 0.826** - correlation finds the signal *and* the redundancy, and you have to decide which.
+7. Cross-links: the bias/variance material re-covers Module 6's overfitting/pruning theme with a regression lens; **RMSE** appears here as `mean_squared_error` and is defined properly in Module 7 R4.
 
 ---
 
@@ -311,6 +313,8 @@ df = pd.DataFrame(data, columns=cols); df['MEDV'] = target
 **Then the activity maps 1:1 onto Ch6:** `df.corr()` → `nlargest(4, 'MEDV')` (**4**, so that discarding MEDV itself still leaves **three** features - the activity asks for three, the chapter uses two) → `PolynomialFeatures(degree=2)` → 70/30 split → R² on the test set.
 
 In PySpark: `VectorAssembler` → `PolynomialExpansion(degree=2)` → `LinearRegression` → `RegressionEvaluator(metricName="r2")`.
+
+🔴 **The third feature, confirmed in class:** Dr. Chen ran this exact activity live (Week 8 lecture) and his `df.corr()` on Boston returned **LSTAT, RM, PTRATIO** as the top 3 - not just LSTAT/RM from the Lee textbook's 2-feature example. **PTRATIO** = pupil-teacher ratio by town district (the third correlate reflects the *suburb*, where LSTAT and RM reflect the *house/household*). His degree-2 polynomial model on those three features scored **R² ≈ 0.79-0.80** in the PySpark walkthrough - use that as your own Activity 1 benchmark.
 
 ---
 

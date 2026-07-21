@@ -38,6 +38,8 @@ GOAL ▶ LOW bias AND LOW variance (trade-off: push one down, other tends up)
 Cures: Regularization · Bagging · Boosting (ensemble learning)
 ```
 - 🔴 **BOOK ERRATUM:** Lee Fig 6.19 says *"aim for HIGH bias"* - **wrong by its own definitions.** A line hugging many points has **LOW** bias. **Answer "low bias, low variance" in any assessment.**
+- 🔴 **From class (Week 8):** the 3rd correlated feature for Activity 1 is **PTRATIO** (Chen's own `corr()` run gave LSTAT, RM, PTRATIO) - his degree-2 model on those three scored **R² ≈ 0.79-0.80**, your benchmark.
+- 🔴 **Assessment default:** Chen said it directly - **multiple linear regression is your A2/A3 baseline/#1 choice.** Polynomial is an escalation you justify, not a default. And unlike AUC>0.8, **regression metrics have no universal threshold** - R²/MAE/RMSE are for **cross-model comparison only**.
 
 ## 🖤 Zone 4 - Logistic regression: predict a PROBABILITY (Lee Ch7)
 - 🔴 **Naming trap:** it's a **CLASSIFIER**, despite "regression." Output = P(input belongs to a class), always in **[0,1]**.
@@ -77,6 +79,6 @@ Cures: Regularization · Bagging · Boosting (ensemble learning)
 2. In A2, `tenure` and `TotalCharges` correlate at r = 0.826. Which do you keep, and how is that the same judgement call as picking warehouse columns that actually drive a KPI?
 
 ### This-week to-dos (still 🕐 / 🔥 in your notes)
-- [ ] 🕐 **Activity 1:** Boston house-price - `corr()` → `nlargest(4,'MEDV')` (4, so 3 survive after dropping MEDV) → `PolynomialFeatures(degree=2)` → 70/30 split → R² on test + forum post. **`load_boston()` is dead** (removed sklearn 1.2) - use the `lib.stat.cmu.edu` CSV workaround or `fetch_california_housing()`.
+- [ ] 🕐 **Activity 1:** Boston house-price - `corr()` → `nlargest(4,'MEDV')` (4, so 3 survive after dropping MEDV → **LSTAT, RM, PTRATIO** confirmed in class) → `PolynomialFeatures(degree=2)` → 70/30 split → R² on test (benchmark **~0.79-0.80** from Chen's own run) + forum post. **`load_boston()` is dead** (removed sklearn 1.2) - use the `lib.stat.cmu.edu` CSV workaround or `fetch_california_housing()`.
 - [ ] 🔥 **Assessment 2** (due 26/07) - fold logistic regression in as the probability-output comparison model; reuse Ch7's eval code.
 - [ ] 🕐 Forum post: work the **`B = 1000(Bk-0.63)²`** data-ethics paragraph into the writeup (SLO b, non-invertible parabola encoding a self-segregation assumption).
