@@ -124,16 +124,18 @@ it causes in the same metrics."
 Cell-by-cell wording (cells 36, 39 and 41 are markdown titles only, no separate line - read
 them silently and move straight to the code cell below each):
 
-**Cell 37 (code -> Table 4.5, Table 4.6):**
+**Cell 37 (code -> Table 4.5, then Table 4.6, one screen after the other):**
 
-"Table 4.5 is the master comparison. It contains 22 tuned model-treatment combinations plus the
-majority baseline, all measured on the same five folds. Table 4.6 shows treatment deltas against
-each untreated model.
+Two tables print here. Say one short line per table, in order, then move on - do not try to
+summarise both at once.
 
-Class weighting creates a cost-sensitive effect without generating synthetic wines. Random Forest
-also improves stability by averaging trees. In this run its weighted version reaches 0.835 AUC,
-0.748 sensitivity, 0.766 specificity and 0.757 balanced accuracy - the row I will select as the
-approved model two cells from now."
+Scroll to Table 4.5, say:
+
+"Table 4.5 - 22 tuned combinations, nine models, three treatments, same five folds."
+
+Scroll to Table 4.6, say:
+
+"Table 4.6 - how much each treatment moved the numbers versus doing nothing."
 
 **Cell 38 (code -> Figure 4.1, sensitivity vs specificity scatter):**
 
@@ -149,17 +151,13 @@ increases sensitivity by about 0.154 and reduces specificity by about 0.104, whi
 nearly unchanged. So SMOTE mostly changes the operating point. It catches more weak lots, but
 sends more acceptable lots to review."
 
-**Cell 40 (code -> Table 4.7, gates and frozen finalists):**
+**Cell 40 (code -> Table 4.7, gates and frozen finalists). Yes, straight after the figure, go here:**
 
-Table 4.7 only lists role, model and treatment - no metrics. Do not read numbers off this table;
-those live in Table 4.5 from cell 37.
+"Table 4.7 freezes four finalists: best untreated, best SMOTE, best class weighted, best ensemble -
+one model per role, picked by balanced accuracy among those that pass the gates.
 
-"The gates are applied here, before I look at the test set. For each treatment, the model with the
-best balanced accuracy wins that role. That gives four finalists: best untreated, best SMOTE, best
-class weighted, and best ensemble.
-
-For the overall winner, if two models are within 0.01 of each other, I favour the more
-interpretable one. Random Forest with class weighting comes out on top."
+The overall winner is Random Forest with class weighting - 0.835 AUC, 0.748 sensitivity, 0.766
+specificity, 0.757 balanced accuracy."
 
 **Cell 42 (code -> Table 4.8, feature ablation):**
 
