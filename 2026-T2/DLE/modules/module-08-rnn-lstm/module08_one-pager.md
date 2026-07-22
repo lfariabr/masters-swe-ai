@@ -93,7 +93,17 @@
 
 - 🔵 **seq2seq / encoder-decoder** (Sutskever et al. 2014): encoder LSTM compresses the sentence into a vector; decoder LSTM generates the translation word by word, feeding its own output back until `<eos>`. Source words fed in **reverse** helps.
 - 🔵 **Image captioning** = swap the encoder for a **CNN** → CNN encodes image, LSTM decodes caption. The CNN+RNN bridge.
+- 🔴 **Input/output structures (he quizzed this in class):**
+
+| Structure | Task |
+|---|---|
+| one-to-one | image classification |
+| one-to-many | image caption generation |
+| **many-to-one** ⭐ | **sentiment / classify a whole review** ← the answer he wanted |
+| many-to-many | machine translation, sequence labelling |
+
 - 🔴 **Activity 3 verdict:** RNN/LSTM is strongest where the **output itself is a sequence** or the input is inherently temporal → **NLP and speech over computer vision**. Vision is CNN territory; RNNs only join for *video* or *captioning*.
+- 🔴 **His caveat = the Activity 1 answer:** *"CNN can also be used for sequential problems, particularly when **local patterns are more important than long-term dependencies**."*
 - 🔵 **Applied proof (Laib et al. 2019):** per-cluster LSTMs forecasting Algerian gas demand → **MAPE 5.48%**, beating MLP, SARIMAX and MLR, especially on irregular holiday days. Design: K-means (3 clusters) → MLP router → one LSTM per cluster.
 
 ## 🔵 Zone 6 - Your own evidence (answers his pre-class question) 🔴
@@ -113,7 +123,7 @@
 ## 🔴 Assessment Hook (bottom red strip)
 > **Assessment 2 - Deep Learning Project Proposal Presentation** · 1000-word report ±10% + presentation · **30%** · due **26/07/2026** · SLOs **b) c) d) e)**.
 > **Module 8 IS the A2 week.** Lecturer's live format supersedes the brief: **7-10 min + 4-5 min Q&A**, presented in class week 8 or 9; if you present live the class recording counts as submission, so you only hand in **PPT + report**.
-> 🔴 **From his email: "groups that are ready and interested are welcome to deliver their presentations during the class."** Decide with Victor and Juan BEFORE class whether you go this week.
+> ✅ **PRESENTED LIVE 22/07/2026** (Luis / Victor / Juan). His verdict: *"a good project... very nice presentation."* He liked the **differentiator** (aspect-level instead of averaging conflicting sentiment). Two pointers to fix for A3: **(1)** prove there are enough **conflicting-aspect samples** (he flagged reviews skew positive); **(2)** *"while comparing 2 LSTM variants, what value addition?"* → reframe the ladder as **four families** (linear → LSTM → attention-LSTM → transformer), not two LSTMs. Formal feedback comes after the report. Full detail in [module08_notes-class.md](module08_notes-class.md).
 > **Your angle:** Review Pulse **v2.3.0 → v3.0.0**, evolving document-level sentiment into **aspect-level (ABSA) with ATAE-LSTM** (Wang et al. 2016) - an LSTM **plus attention**, i.e. the exact bridge from Module 8 to the transformer. The BiLSTM-loses-to-baseline result is your *motivation*, not your embarrassment.
 > **A3** (source code + 1500 words · 40% · due **19/08/2026**) = implement and benchmark it.
 
@@ -131,8 +141,8 @@
 2. **Student attendance/enrolment across a term is sequential.** Which would you reach for: a SQL window function over lagged weeks, or an LSTM? Justify using the *same* argument that explains why your BiLSTM lost to TF-IDF (data volume vs model capacity, and whether order actually carries the signal).
 
 ### This-week to-dos (still 🕐 / 🔥 in your notes)
-- [ ] 🔴 **Pre-class:** have your one sequential/time-series problem ready to say out loud (Zone 6 or an ETL/attendance example).
-- [ ] 🕐 **Activity 1 - Comparison:** most important CNN vs RNN difference + when you would still prefer a CNN (forum).
-- [ ] 🕐 **Activity 2 - What Do You Think?:** do LSTMs beat RNNs, and why - **≤100 words**, own words (forum).
+- [x] ✅ **A2 presented live in class** (22/07). Report still due **26/07/2026**.
+- [x] ✅ **Module 08 Reflection posted** (CNN vs RNN · why LSTM remembers longer · is LSTM always better).
+- [ ] 🔴 **🆕 NEW activity he assigned in class:** ask a **generative AI** *"LSTM is always better than a basic RNN because it has more memory - correct?"*, then **critique the answer**: is the claim too general? does it get the **gates** right? does it weigh **computational cost**? does it consider **short/simple sequences**? Post to the forum (short response is fine).
 - [ ] 🕐 **Activity 3 - Applications:** are RNNs better for NLP, speech, or CV? **Presented verbally in class**, backed with references.
-- [ ] 🔥 **Decide with the group:** present A2 this week (week 8) or week 9.
+- [ ] 🔴 **A3 prep:** get the **exact** SemEval-2014 restaurant count into the report (in class "thousands"/"100,000" were both wrong - it is ~3k sentences) + report conflicting-aspect sample counts.
