@@ -121,96 +121,146 @@ it causes in the same metrics."
 
 ## Block 6 - Comparison, gates and ablation (cells 36-43) | 4:35-6:05
 
-Suggested wording:
+Cell-by-cell wording (cells 36, 39 and 41 are markdown titles only, no separate line - read
+them silently and move straight to the code cell below each):
+
+**Cell 37 (code -> Table 4.5, Table 4.6):**
 
 "Table 4.5 is the master comparison. It contains 22 tuned model-treatment combinations plus the
-majority baseline, all measured on the same five folds. The delta table and scatter plot show the
-main trade-off. Across the nine families, SMOTE increases sensitivity by about 0.154 and reduces
-specificity by about 0.104, while average AUC is nearly unchanged. So SMOTE mostly changes the
-operating point. It catches more weak lots, but sends more acceptable lots to review.
+majority baseline, all measured on the same five folds. Table 4.6 shows treatment deltas against
+each untreated model.
 
-Class weighting creates a similar cost-sensitive effect without generating synthetic wines.
-Random Forest also improves stability by averaging trees. In this run its weighted version
-reaches 0.835 AUC, 0.748 sensitivity, 0.766 specificity and 0.757 balanced accuracy.
+Class weighting creates a cost-sensitive effect without generating synthetic wines. Random Forest
+also improves stability by averaging trees. In this run its weighted version reaches 0.835 AUC,
+0.748 sensitivity, 0.766 specificity and 0.757 balanced accuracy - the row I will select as the
+approved model two cells from now."
 
-The gates are applied without reading the test set. Among passing candidates, I select the
-highest balanced accuracy. Differences below 0.01 are treated as a technical tie and resolved by
-interpretability. This freezes four roles: best untreated, best SMOTE, best weighted and best
-ensemble. Duplicate roles are evaluated only once. Random Forest with class weighting is the
-approved model.
+**Cell 38 (code -> Figure 4.1, sensitivity vs specificity scatter):**
 
-The sulphur feature ablation was then applied to that approved family using training CV only. The
+Legend note: "SMOTE endpoint" is the legend box title, not an entry - titles have no marker, which
+is why it looks blank. The real entries are the nine model names. Each colour is one model family:
+the circle (no separate label) is where it starts, untreated; the X marker, listed in the legend,
+is where it lands after SMOTE; the arrow shows the movement between the two.
+
+"This scatter plot shows the main trade-off. Each colour is one model family. The circle is where
+it starts, untreated. The X marker, which the legend calls the SMOTE endpoint, is where it lands
+after SMOTE. The arrow shows the movement between the two. Across the nine families, SMOTE
+increases sensitivity by about 0.154 and reduces specificity by about 0.104, while average AUC is
+nearly unchanged. So SMOTE mostly changes the operating point. It catches more weak lots, but
+sends more acceptable lots to review."
+
+**Cell 40 (code -> Table 4.7, gates and frozen finalists):**
+
+Table 4.7 only lists role, model and treatment - no metrics. Do not read numbers off this table;
+those live in Table 4.5 from cell 37.
+
+"The gates are applied here, before I look at the test set. For each treatment, the model with the
+best balanced accuracy wins that role. That gives four finalists: best untreated, best SMOTE, best
+class weighted, and best ensemble.
+
+For the overall winner, if two models are within 0.01 of each other, I favour the more
+interpretable one. Random Forest with class weighting comes out on top."
+
+**Cell 42 (code -> Table 4.8, feature ablation):**
+
+"The sulphur feature ablation was then applied to that approved family using training CV only. The
 gain was 0.0013, below the pre-declared 0.01 rule, so the engineered features were rejected. A
 negative result is useful because it avoids extra production complexity without measurable gain."
+
+**Cell 43 (markdown -> Interpretation / findings):**
+
+Read the printed findings on screen, then say the transition below.
 
 Transition: "Only now do I open the test set, once, for the frozen finalists."
 
 ## Block 7 - Held-out evaluation (cells 44-49) | 6:05-7:05
 
-Suggested wording:
+**Cells 44-45 (markdown, header + intro):**
 
-"The unique finalists are SVM on the original distribution, SVM with SMOTE and weighted Random
-Forest. On the untouched test set, the approved forest achieves AUC 0.834, sensitivity 0.714,
-specificity 0.806 and balanced accuracy 0.760. These values are close to cross-validation.
+"The test set is opened now, once, only for the three unique finalists: SVM original, SVM SMOTE,
+and weighted Random Forest."
 
-The confusion matrix translates this into operations. Of 398 low-quality lots, 284 are caught and
-114 are missed. There are 129 false alarms among acceptable lots, while 537 are correctly cleared.
-The untreated SVM has high specificity but misses too many weak lots. SMOTE improves sensitivity
-but accepts more false alarms. The weighted forest provides the strongest balance under the
-declared gates."
+**Cell 46 (code -> Table 5.1, finalist test metrics):**
 
-Point at the ROC curves and confusion matrices. Do not read every table row.
+"The approved forest scores AUC 0.834, sensitivity 0.714, specificity 0.806, balanced accuracy
+0.760 - close to its cross-validation numbers."
+
+**Cell 47 (code -> Figure 5.1, ROC curves):**
+
+"The ROC curve ranks the three finalists. Random Forest sits highest, confirming it separates the
+classes best overall."
+
+**Cell 48 (code -> Figure 5.2, confusion matrices, three panels left to right: SVM original, SVM
+SMOTE, weighted Random Forest):**
+
+"These are the operating points. The untreated SVM, on the left, has high specificity but misses
+too many weak lots. SMOTE, in the middle, catches more but raises false alarms. The weighted
+forest, on the right, is the approved model: 284 of 398 weak lots caught, 114 missed, 129 false
+alarms among acceptable lots."
+
+**Cell 49 (code -> Table 5.2, classification report):**
+
+"This report confirms the same result for the low-quality class specifically, not just overall
+accuracy."
 
 Transition: "Performance explains what was selected. SHAP explains how the approved model reaches
 its scores."
 
 ## Block 8 - Explainable AI and approval (cells 50-60) | 7:05-8:25
 
-Suggested wording:
+**Cell 50 (markdown, 5.1 header):**
 
-"Because the approved model is tree based, I use TreeExplainer on a fixed sample of 500 held-out
-rows. The maximum additivity error is approximately three times ten to the minus fifteen, so the
-feature contributions reconstruct the class-1 score at machine precision.
+"The approved model is tree based, so I use SHAP's TreeExplainer on 500 held-out rows."
 
-Globally, alcohol is the most influential feature, followed by volatile acidity and density. The
-beeswarm adds direction: lower alcohol tends to push predictions toward low quality, consistent
-with the earlier exploratory result. This is an association learned by the model, not a causal
-claim.
+**Cell 51 (code -> printed additivity check, no table/figure number) + Cell 52 (interpretation):**
 
-For a correctly flagged example, the predicted low-quality probability is 0.719. Alcohol at 9.4
-adds about 0.148 toward low-quality risk, with volatile acidity and density also contributing.
-This gives quality-control staff a concrete reason to inspect the laboratory record while keeping
-the final decision human supervised.
+"This check confirms the feature contributions add up exactly to each prediction, at machine
+precision."
 
-The approval table documents the result for every finalist. Weighted Random Forest is approved
-for a shadow pilot. The alternatives remain useful benchmarks, but they do not provide the same
-balance at the default threshold."
+**Cell 53 (code -> Table 5.3, then Figure 5.3 beeswarm, same cell) + Cell 54 (interpretation):**
+
+"Table 5.3 ranks features by SHAP importance: alcohol first, then volatile acidity, then density.
+Figure 5.3, the beeswarm plot below it, adds direction - lower alcohol pushes a lot toward low
+quality. This is a pattern the model learned, not a cause-and-effect claim."
+
+**Cell 55 (code -> Table 5.4, then Figure 5.4 waterfall, same cell) + Cell 56 (interpretation):**
+
+"Table 5.4 and Figure 5.4, the waterfall chart, break down one flagged lot: a 0.719 chance of low
+quality, with its low alcohol, 9.4, as the biggest reason why. This gives staff a concrete reason
+to check that lot by hand."
+
+**Cell 57-58 (markdown, 5.2 operational result):**
+
+"Weighted Random Forest is the approved model, with the test results shown earlier."
+
+**Cell 59-60 (markdown, 5.3 approval table):**
+
+"This table records the decision for every finalist. Weighted Random Forest is approved for a
+shadow pilot; the others remain benchmarks."
 
 Transition: "I will finish with what changed in my understanding and what still needs production
 evidence."
 
 ## Block 9 - Lessons, deployment and close (cells 61-69) | 8:25-9:30
 
-Suggested wording:
+**Cell 61-62 (markdown, §6 - What went well / Challenges / What can be improved):**
 
-"What went well was moving from one preferred model to a controlled matrix. The baseline, common
-folds and declared gates made the result measurable, and the A1 feedback helped me make the
-business context and chart interpretations explicit.
+"Section 6 covers lessons learned. What went well: the model matrix made selection measurable
+instead of assumed. The challenge was that classification needs several metrics at once, and
+SMOTE, weighting and ensembles each solve a different problem. What's next: calibrate the
+threshold with real costs, and run a supervised shadow pilot before any live deployment."
 
-The main challenge was moving from regression thinking to classification. AUC, sensitivity,
-specificity, precision, thresholds and confusion-matrix counts can move in different directions.
-SMOTE, weighting and ensemble learning also address different problems, which is why comparing
-them directly was important.
+**Cells 63-69 (markdown, Integrity Declaration, Acknowledgement, References, Appendices A-C -
+scroll through, no need to read aloud):**
 
-The next step is to estimate the real cost of missed weak lots and unnecessary holds, then
-calibrate the threshold. A shadow pilot should monitor drift, calibration, hold rate, escapes and
-red-versus-white performance. The Sommelier API currently serves the earlier balanced tree, so
-aligning it with this approved weighted forest is a documented deployment backlog item rather
-than something I claim is already complete.
+"The remaining sections cover academic integrity, AI tool acknowledgement, references, the
+glossary, and two appendices: the Sommelier API prototype and the proposed review pipeline."
 
-In conclusion, this assessment recommends a class-weighted Random Forest for human-supervised
-wine-lot triage. It was selected through training-only cross-validation, confirmed once on an
-untouched test set and explained globally and per lot. Thank you."
+Closing line:
+
+"In conclusion, this assessment recommends a class-weighted Random Forest for human-supervised
+wine-lot triage, selected through training-only cross-validation, confirmed once on an untouched
+test set, and explained globally and per lot. Thank you."
 
 ## Rehearsal sequence
 
