@@ -1,7 +1,7 @@
 <!--
 DLE602 Assessment 2 - Project Proposal Report - v4 Markdown source
 Body target: 1,000 words (+/-10%). The declared count covers prose and list items in Sections 1-6 only; it excludes headings, cover details, the Table of Contents, figure/table captions and contents, Mermaid code, references, appendices, and the acknowledgement.
-Reproducible count: select from "## 1. Abstract" through the line before "## 7. References"; remove headings, the fenced Mermaid block, Markdown table rows, captions, the example-review line, separators and the declaration; strip Markdown emphasis markers; then apply whitespace-token counting (`wc -w`). Result: 977.
+Reproducible count: select from "## 1. Abstract" through the line before "## 7. References"; remove headings, the fenced Mermaid block, Markdown table rows, captions, the example-review line, separators and the declaration; strip Markdown emphasis markers; then apply whitespace-token counting (`wc -w`). Result: 1017.
 -->
 
 # ReviewPulse v3.0: Aspect-Based Sentiment Analysis of Customer Reviews with Attention-Based Deep Learning
@@ -59,7 +59,7 @@ Accordingly, the project does not assume that the Transformer will win. It tests
 
 **Dataset and aspect origin.** SemEval-2014 Task 4 Restaurants is the primary domain; Laptops is an optional cross-domain extension. Training and evaluation use the dataset's gold aspect terms. The original `conflict` polarity label is removed from the three-class positive/neutral/negative task and its exclusions are counted and reported. In Streamlit v3, a user instead enters a review and manually specifies one or more aspects. Automatic aspect extraction and Topic Modelling remain outside the core scope.
 
-**Model progression.** TF-IDF with logistic regression and a target-agnostic LSTM consume only the review and establish sentence-level baselines. ATAE-LSTM consumes `(review, aspect)` through an aspect embedding and aspect-aware attention. DistilBERT also consumes `(review, aspect)`, representing the aspect as an auxiliary sentence. This four-model progression isolates recurrence, explicit conditioning and pretrained contextual representation.
+**Model progression.** TF-IDF with logistic regression and a target-agnostic LSTM consume only the review and establish sentence-level baselines. ATAE-LSTM consumes `(review, aspect)` through an aspect embedding and aspect-aware attention. DistilBERT also consumes `(review, aspect)`, representing the aspect as an auxiliary sentence. This four-model progression isolates recurrence, explicit conditioning and pretrained contextual representation. As optional exploratory extensions, a GRU variant may probe whether simpler gating changes the sentence-level floor, and a CNN baseline - closer to Zhao, Gui and Zhang (2018) - may test a non-recurrent alternative.
 
 ```mermaid
 flowchart LR
@@ -124,7 +124,7 @@ Work is divided into dated, reviewable outcomes (Table 3). Luis owns the technic
 | Evaluation + interface | 9-13 Aug | Comparison and Streamlit v3 | Group |
 | Report + package | 14-19 Aug | Report, code and ZIP | Group |
 
-The critical path is dataset audit, aspect-safe splitting, model training, common evaluation, interface integration and packaging. Zero-cost compute constrains Transformer experiments, so the accepted minimum product remains the audited baselines, ATAE-LSTM, shared evaluation and working interface. DistilBERT is retained when compute and validation checks pass; optional Laptops transfer, automatic aspect extraction and Topic Modelling are cut first.
+The critical path is dataset audit, aspect-safe splitting, model training, common evaluation, interface integration and packaging. Zero-cost compute constrains Transformer experiments, so the accepted minimum product remains the audited baselines, ATAE-LSTM, shared evaluation and working interface. DistilBERT is retained when compute and validation checks pass; optional Laptops transfer, automatic aspect extraction, Topic Modelling, a GRU variant and a CNN baseline are cut first.
 
 ## 6. Conclusion
 
@@ -132,7 +132,7 @@ Sentence-level sentiment loses actionable aspect detail. ReviewPulse v3.0 propos
 
 ---
 
-**Word count (Sections 1-6 prose and list items): 977 words.** The count excludes headings, cover details, the Table of Contents, figure/table captions and contents, Mermaid code, references, appendices, and this declaration.
+**Word count (Sections 1-6 prose and list items): 1017 words.** The count excludes headings, cover details, the Table of Contents, figure/table captions and contents, Mermaid code, references, appendices, and this declaration.
 
 ---
 

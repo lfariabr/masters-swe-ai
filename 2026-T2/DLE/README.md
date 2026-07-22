@@ -47,7 +47,7 @@ Dr. Tayab Din Memon
 - [X] Module 5 ✅ - Convolutional Neural Networks
 - [X] Module 6 ✅ - Linear Factor Models
 - [X] Module 7 ✅ - Autoencoders
-- [ ] Module 8 🔥 - Recurrent Neural Networks and Long Short-Term Memory
+- [X] Module 8 ✅ - Recurrent Neural Networks and Long Short-Term Memory
 - [ ] Module 9 🕐 - Representation Learning
 - [ ] Module 10 🕐 - Structured Probabilistic Models for Deep Learning
 - [ ] Module 11 🕐 - Visual Analytics in Deep Learning
@@ -55,7 +55,7 @@ Dr. Tayab Din Memon
 
 ## Assignments
 - [X] Assessment 1 - deadline 28/06/2026 ✅, **Programming Problems**: source code + 500-word report +/- 10%, individual, 30%, SLOs `a)`, `b)`, 90/100 pts
-- [ ] Assessment 2 - deadline 26/07/2026 🔥, **Deep Learning Project Proposal Presentation**: 1000-word report +/- 10% + 5-7 minute presentation, group, 30%, SLOs `b)`, `c)`, `d)`, `e)`, XX/100 pts
+- [X] Assessment 2 - deadline 26/07/2026 ✅, **Deep Learning Project Proposal Presentation**: 1000-word report +/- 10% + 5-7 minute presentation, group, 30%, SLOs `b)`, `c)`, `d)`, `e)`, XX/100 pts
 - [ ] Assessment 3 - deadline 19/08/2026 🕐, **Deep Learning Final Project**: source code + 1500-word report +/- 10%, group, 40%, SLOs `c)`, `d)`, `e)`, XX/100 pts
 
 ## Source Notes
