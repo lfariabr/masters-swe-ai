@@ -1168,6 +1168,39 @@ Watch the following video (available at: https://www.linkedin.com/learning/artif
 
 ### Learning Activities
 
+#### 1. Learning Activity 1: K-Means Clustering: The Pros and Cons of K-Means Clustering
+- 365 Data Science, (2019, 24 January). K means clustering: Pros and cons of K means clustering [Video file]. Retrieved from https://www.youtube.com/watch?v=YIGtalP1mv0
+
+To complete this learning activity, follow these steps:
+
+1. Load the notebook code (ClusterAnalysis_countries.ipynb) into your notebook and data (Country clusters.csv).
+2. Follow the video https://www.youtube.com/embed/YIGtalP1mv0 step by step.
+3. Execute the code and perform the K-means method from scikit using the fit method.
+4. Use the Within-Cluster-Sum-of-Squares (WCSS) to determine the number of clusters as shown within the code.
+5. Review the pros and cons as discussed on the video and the fixes.
+6. In the discussion forum, share how you established the number of clusters. Specifically, consider:
+- Did everyone you are communicating with have the same number or a different number?
+- If variation exists, discuss the reason/s for the difference others online.
+- What differences did you note between supervised and unsupervised learning?
+
+> *Status: 🕐 To-Do*
+
+#### 2. Weather Data Clustering Using K-means
+- Tewari, S. (2018, 11 January). Weather-data-clustering-using-K-means. Retrieved from: https://github.com/st186/Weather-Data-Clustering-Using-k-means
+
+To complete this learning activity, follow these steps:
+
+1. Load the notebook code (Weather_Data_Clustering_Using_K-Means.ipynb).
+2. Note that this is a large data file of 1 million records comprising minute weather data (https://drive.google.com/open?id=0B8iiZ7pSaSFZb3ItQ1l4LWRMTjg).
+3. Rather than downloading the large data file and ingesting it into your notebook, you can try modifying the code ‘pd.read_csv’ (name of dataset) and replace it with pd.read_csv (‘URL of the file found on google drive’ see Step 2 above).
+4. Note that the code uses 12 clusters to represent the data.
+5. In the discussion forum, discuss your ability to handle the large weather data set. Specifically, consider:
+- Did you succeed in reading the data directly from the Google drive or did you have to download it?
+- Was the K-means useful in looking at a bigger picture model of the weather?
+- Is this algorithm useful for the bike-sharing ML project assessment?
+Feel free to discuss key aspects of the questions noted in point 5 raised with others in the discussion forum.
+
+> *Status: 🕐 To-Do*
 
 ```bash
 --- PLACEHOLDER:
