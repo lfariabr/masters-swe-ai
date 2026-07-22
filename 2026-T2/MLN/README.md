@@ -47,7 +47,7 @@ Dr. Kamran Shaukat
 - [X] Module 6 ✅ - Support Vector Machines
 - [X] Module 7 ✅ - Automated and Explainable Machine Learning
 - [X] Module 8 ✅ - Logistic Regression
-- [ ] Module 9 🕐 - K-means Clustering
+- [ ] Module 9 🔥 - K-means Clustering
 - [ ] Module 10 🕐 - Learning Theory: PAC
 - [ ] Module 11 🕐 - The Perceptron
 - [ ] Module 12 🕐 - Future of Machine Learning (ML): Enterprise Grade ML and Weak Supervision

@@ -1114,6 +1114,61 @@ Reference
 
 ---
 
+## Module 9 - K-means Clustering
+
+### TLDR
+
+### Introduction
+- Rose, D. (2018, 29 March). Artificial intelligence foundations: Machine learning K-mean clustering [Video file]. Retrieved from https://www.linkedin.com/learning/artificial-intelligence-foundations-machine-learning/k-mean-clustering?resume=false&u=56744473
+
+K-means clustering is an unsupervised algorithm (i.e., an algorithm that does not require labels), which is used to bring similar observations or data points into clusters. The number of clusters, K, is predefined. Common applications of K-means exist across many industries from marketing to medical technology. Some examples include applications that:
+
+Identify viewers who like the same category of television shows (e.g., drama);
+Divide a corpus of brand stories into topic areas (e.g., fashion, luxury goods or travel); and
+Segment online shoppers by personality.
+Watch the following video (available at: https://www.linkedin.com/learning/artificial-intelligence-foundations-machine-learning/k-mean-clustering?resume=false&u=56744473) to gain a basic understanding of K-means clustering.
+ 
+### Resources
+
+#### 1. Ten Interesting Use Cases for the K-Means Algorithm
+- Raghupathi, K. (2018, 27 March). 10 interesting use cases for the K-means algorithm [Web log post]. Retrieved from https://dzone.com/articles/10-interesting-use-cases-for-the-k-means-algorithm
+
+*Resource Overview:*
+
+    This article commences with a brief recap of k-means by noting some interesting applications (e.g., Delivery Store Optimisation, Crime Locality Identification, Fantasy League Statistical Analysis, Insurance Fraud Detection, Rideshare Data Analysis and the Cyber-Profiling of Criminals). Ensure that you click on the links to the detailed papers (as available) to gain a better understanding of how the technique is applied.
+
+> *Status: 🕐 To-Do*
+
+#### 2. K-means Clustering Podcast 
+- Reference: Data Skeptic. (2015, 20 February). K-means clustering [Audio podcast]. Retrieved from https://podcasts.apple.com/no/podcast/mini-k-means-clustering/id890348705?i=1000335938852
+
+*Resource Overview:*
+
+    This podcast explains K-means in a way that is easily understandable. It notes that supervised applications are more prevalent than unsupervised applications. The podcast also uses a very simple analogy free of any mathematics to help you understand the key concept of the centroid and its relationships with K-means clustering. Some key application areas are also discussed.
+
+> *Status: 🕐 To-Do*
+
+#### 3. K-Means Clustering and Why It is Good For Business
+- Reference: Hodgson, E. (2020, 25 February). K-means clustering and why it’s good for business [Web log post]. Retrieved from https://www.dotactiv.com/blog/why-k-means-clustering-is-good-for-business
+
+*Resource Overview:*
+    
+    This easy-to-read article contextualises K-means for businesses. Three key questions are considered in the article: 1) What is k-means; 2) How can k-means (including the steps to run the algorithm) be used; and 3) What are some interesting use cases in business?
+
+> *Status: 🕐 To-Do*
+
+#### 4. Clustering (Scikit Learn Documentation)
+- Reference: Pedregosa, F.; Michel, V.; Grisel, O.; Blondel, M.; Prettenhofer, P.; Weiss, R.; Vanderplas, J.; Cournapeau, D.; Pedregosa, F.; Varoquaux, G.; et al. (2015). Scikit-learn: Machine Learning in Python. Journal of  Machine Learning Research 12, 2825–2830. Retrieved from https://scikit-learn.org/stable/modules/clustering.html#homogeneity-completeness-and-v-measurecitation
+
+*Resource Overview:*
+    
+    This resource examines different clustering algorithms. Focus on K-means to gain a better understanding of K-means advantages over other cluster algorithms. You can readily review other clustering algorithms on a visual basis and make comparisons with the other clustering methods that are illustrated. It is certainly worth perusing the different methods and reading more about K-means and the Mini Batch K-Means variation that helps reduce the computational time.
+
+> *Status: 🕐 To-Do*
+
+### Learning Activities
+
+
 ```bash
 --- PLACEHOLDER:
 ## Module X - ...
