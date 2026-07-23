@@ -715,12 +715,75 @@ Clustering does not necessarily have a response class. Indeed, after the initial
 #### 1. Cluster Analysis
 - Xu, R. & Wunsch, D. (2009). Clustering. Oxford, England: Wiley. Retrieved from http://torrens.idm.oclc.org/login?url=http://search.ebscohost.com/login.aspx?direct=true&db=nlebk&AN=254099&site=ehost-live&ebv=EB&ppid=pp_1
 
-This resource introduces you to the concept of data clustering with theories and applications. It emphasises that the need for clustering is related to the requirement to explore the unknown nature of data. 
+*Resource Overview:* 
+    
+    This resource introduces you to the concept of data clustering with theories and applications. It emphasises that the need for clustering is related to the requirement to explore the unknown nature of data. 
 
-Read Chapter 1: Cluster Analysis (pp. 1–12). This chapter discusses cluster analysis based on four basic steps: 1) feature selection or extraction; 2) clustering algorithm design or selection; 3) cluster validation; and 4) results interpretation. Pay attention to the variety of fields to which clustering algorithms can be applied as discussed in ‘Section 1.3: Clustering Applications’. 
+    Read Chapter 1: Cluster Analysis (pp. 1–12). This chapter discusses cluster analysis based on four basic steps: 1) feature selection or extraction; 2) clustering algorithm design or selection; 3) cluster validation; and 4) results interpretation. Pay attention to the variety of fields to which clustering algorithms can be applied as discussed in ‘Section 1.3: Clustering Applications’. 
+
+*Status: 🕐 To-Do* 
+
+#### 2. Types of Clustering
+- Le, J. (2019). An introduction to big data: Clustering. Retrieved from https://medium.com/cracking-the-data-science-interview/an-introduction-to-big-data-clustering-1a911b83e590
+
+*Resource Overview:* 
+    
+    This blog post is a great resource to learn about clustering and the different types of clustering. Its contents, as the post acknowledges, comes from the teaching materials developed by Professor Michael Mior and Professor Carlos Rivero at the Rochester Institute of Technology. 
+
+    It mainly highlights three clustering models: 1) K-means clustering; 2) hierarchical clustering; and 3) density-based spatial clustering of applications with noise (DBSCAN). The discussions in this post are brief, as it aims to introduce you to types of clustering other than K-means clustering. 
+
+*Status: 🕐 To-Do* 
+
+#### 3. The Most Comprehensive Guide to K-Means Clustering
+- Sharma, P. (2019, 19 August). The most comprehensive guide to K-Means clustering you’ll ever need [Web log post]. Retrieved from https://www.analyticsvidhya.com/blog/2019/08/comprehensive-guide-k-means-clustering/
+
+*Resource Overview:* 
+    
+    As the title suggests, this is a comprehensive guide to K-means clustering. It begins by defining clustering and then examines the K-means algorithm in more detail. The visuals used in this resource makes the discussions very easy to follow. 
+
+    This resource notes that K-Means clustering is a simple yet powerful algorithm for big data. In this post, in between various theoretical discussions about K-means clustering, you will also find discussions about the Python implementation of K-means clustering. 
+
+*Status: 🕐 To-Do* 
+
+#### 4. Spark for K-means Clustering
+- Sullivan, D. (2017). Spark for machine learning and AI: K-means clustering [Video file]. Retrieved from https://www.linkedin.com/learning/spark-for-machine-learning-ai/k-means-clustering?u=56744473
+
+*Resource Overview:* 
+    
+    This video works with a K-means clustering algorithm using PySpark. 
+
+    Watch the ‘K-means clustering’ sub-section of ‘Section 3: Clustering’, which explains how to load data from a CSV file and cluster the data using the K-means algorithm. You will become familiar with some different functions that you may need to use for your implementation of K-means. 
+
+*Status: 🕐 To-Do* 
 
 ### Learning Activities
 
+#### 1. 1: Determine the Value of K
+In this activity, you will work with an important step of the K-means algorithm. 
+
+As you know, K is the number of defined clusters in the K-means algorithm. As part of this activity, you are asked to explain the process that you would use to determine the best value of K for K-Means clustering for a data-driven project. 
+
+Describe the process step by step in your own words. Feel free to use any examples that you can think of. 
+
+Determine the value of K and submit your answer to the discussion forum. Read other students’ submissions and provide feedback.
+
+*Status: 🕐 To-Do* 
+
+#### 2. Clustering Tool
+- Scikit-learn.org. (n.d.). K-Means clustering. Retrieved from https://scikit-learn.org/stable/auto_examples/cluster/plot_cluster_iris.html#sphx-glr-auto-examples-cluster-plot-cluster-iris-py
+
+In this activity, you will use the link provided to execute a short K-means clustering Python code, which is available online, and explain the outcomes. 
+
+You can choose to download the code and configure it to run in your own environment or you can simply use Binder, which provides an executable environment for notebooks. 
+
+If you run the code without any modification, it will generate four (4) graphs (as detailed in the link). 
+
+Briefly explain each of the output graphs in your own words. Ensure that you highlight your comparative observations about the graphs for the ‘8 clusters’ and ‘3 clusters’. 
+
+Submit your answer to the ‘Clustering Tool’ discussion forum. Read other students’ submissions and provide feedback. 
+
+
+> *Status: 🕐 To-Do* 
 
 ---
 
