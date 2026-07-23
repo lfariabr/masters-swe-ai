@@ -1,5 +1,12 @@
 # Module 9 - Clustering
 
+## TL;DR
+- **Why:** Modules 6-8 were all **supervised** - labelled data, predict a target `y`. Module 9 drops the label entirely: **clustering** groups similar records with no target variable at all.
+- **K-means** (the module's core algorithm): pick k random centroids → assign every point to its nearest centroid → recompute centroids as the mean of their points → repeat until convergence. It's **distance-based**, and it **assumes clusters are round, similarly sized, and similarly dense** - real data that violates that assumption still gets an answer, just the wrong one.
+- **Choosing k has no single right answer** - the elbow method (k vs inertia) and silhouette score (per-point fit, -1 to +1) give a defensible range, not a verdict. Pushing k → n always "improves" inertia and is worthless - the same overfitting trap as Module 8's R²=1.0 demo.
+- **Alternatives when k-means' assumptions break:** `GaussianMixture` (elliptical/unequal-variance clusters), **hierarchical clustering** (dendrogram, no k needed upfront), **DBSCAN** (density-based, arbitrary shapes, auto-flags outliers instead of forcing every point into a cluster).
+- **Assessment 3 familiarisation** starts this module (due Week 12, 40%).
+
 ## Task List
 
 | # | Task | Status |
@@ -40,6 +47,7 @@
 
 - **Algorithm:** pick k random means → assign every point to its nearest mean (this partition is a **Voronoi diagram**) → recompute each cluster's centroid as the new mean → repeat until convergence.
 - 🔵 **Worked example** (9 points, k=2, Manhattan distance): random centroids `(2,8)` and `(8,1)` → after 1 round of reassign-and-recompute, centroids move to `(4,5)` and `(2,2)` → after another round, `(6,7)` and `(1,3)` → third round: **centroids stop moving** ((6,7) and (1,3) recur) → **converged**.
+  - ⚠️ **Source erratum:** Le's own worked example pairs **Manhattan distance** with **mean-based** centroid updates - that combination is internally inconsistent. Textbook k-means pairs **Euclidean** distance with the **mean** (minimising squared error); pairing Manhattan distance with a **median** update is the correct combination, and that variant is called **k-medians**, not k-means. Cite the worked steps for the mechanics, not as a precise definition of vanilla k-means.
 - 🔴 **Choosing k is a bias/variance problem in disguise:** increasing k **without penalty always reduces error**, down to zero error at k=n (every point its own cluster). That extreme is useless - it's Module 8's overfitting lesson wearing a different hat: a "perfect" clustering (k=n) is not evidence of a good model, it's a sign you've stopped modelling anything.
 - **Two selection criteria:**
   - **SSE (sum of squared errors):** minimise the within-cluster squared distance to centroid. Plotted against k, this is the **elbow method**.
@@ -95,7 +103,7 @@
 
 | Metric | What it measures | Direction |
 |---|---|---|
-| **Inertia** | sum of intracluster distances (point → its centroid) | **lower is better** (tight clusters) |
+| **Inertia** | sum of **squared** intracluster distances (point → its centroid) | **lower is better** (tight clusters) |
 | **Dunn Index** | min(inter-cluster distance) / max(intracluster distance) | **higher is better** (far-apart AND tight) |
 | **Silhouette score** | per-point fit to own cluster vs. nearest other cluster, in [-1, 1] | **closer to +1 is better**; ~0 = overlapping; negative = wrong cluster |
 
@@ -121,11 +129,11 @@
 | **Uneven cluster sizes** | k-means assumes roughly similar-sized, similar-density clusters | try a **higher k**, or a density method (DBSCAN) instead |
 | **Uneven density** | tightly-packed points dominate the mean, sparse points get reassigned away | same as above; consider density-based alternatives |
 | **Sensitivity to outliers** | squared-distance objective is pulled hard by extreme values | detect/remove/transform outliers *before* clustering, or use a robust variant |
-| **Feature scale mismatch** | distance-based algorithm - a feature with a bigger numeric range dominates the distance calculation | **`StandardScaler`** before fitting (worked in the Python example: raw `Channel`/`Region` columns have tiny magnitude vs `Fresh`/`Milk`/`Grocery` - unscaled, k-means would effectively ignore the small-magnitude columns) |
+| **Feature scale mismatch** | distance-based algorithm - when feature magnitudes aren't meaningfully comparable, the larger-range feature dominates the distance calculation | **`StandardScaler`** before fitting when magnitudes differ (worked in the Python example: raw `Channel`/`Region` columns have tiny magnitude vs `Fresh`/`Milk`/`Grocery` - unscaled, k-means would effectively ignore the small-magnitude columns) |
 
 #### Key Takeaways for BDA601
 1. **This is the deepest resource on the algorithm the module's own activities use** - Activity 2 literally runs a scikit-learn K-means example and asks you to compare 8-cluster vs 3-cluster output; the two defining properties (within-cluster similarity, between-cluster dissimilarity) are your vocabulary for describing *why* one number of clusters looks better than another in the graphs.
-2. **`StandardScaler` before k-means is not optional** - unlike a decision tree (Module 6), which is scale-invariant, k-means is **distance-based** and will silently let large-magnitude columns dominate. Same caution as `LSTAT`/`RM`/`PTRATIO` in Module 8, but here it's mandatory, not a modelling choice.
+2. **Scale your features whenever their magnitudes aren't already comparable** - unlike a decision tree (Module 6), which is scale-invariant, k-means is **distance-based** and will silently let large-magnitude columns dominate. `StandardScaler` is the default move here, the same caution as `LSTAT`/`RM`/`PTRATIO` in Module 8, but applied automatically rather than as a modelling choice. If the underlying geometry itself is the problem (elliptical or unequal-variance clusters), scaling alone won't fix it - that's when you reach for `GaussianMixture` or `DBSCAN` instead (see the bonus section below).
 3. **Day-job anchor:** the bank credit-card example maps directly onto customer segmentation you could run on warehouse transaction/usage data - k found via the elbow method, `StandardScaler`'d features, sanity-checked with silhouette before trusting the segments enough to act on them (echoing McCormick's "we're not done until we deploy" from Module 8 - a cluster nobody acts on is just a scatter plot).
 4. Cross-links: inertia/Dunn/silhouette here are Module 7's "no single metric tells the whole story" lesson, restated for unsupervised learning; the elbow method's "no universal answer, just a defensible range" echoes Dr. Chen's R²/AUC threshold guidance from Module 8's Week 8 lecture.
 
@@ -187,7 +195,7 @@ CSV (header, inferSchema)  →  VectorAssembler(inputCols=[col1,col2,col3], outp
 | **Unequal variance** | k-means is mathematically equivalent to maximum-likelihood estimation for gaussians with the **same** variance - it can't represent a mix of tight and spread-out clusters correctly | `GaussianMixture` again (models per-cluster variance) |
 | **Unevenly sized blobs** | not a hard k-means limitation per se, but sparse/high-dimensional data increases the risk of landing in a bad local minimum | increase `n_init` (more random restarts, keep the best-inertia run) |
 
-- 🔴 **The unifying insight:** every one of these failures traces back to the **same root cause** - k-means' objective function (minimise squared Euclidean distance to centroid) **bakes in an assumption that clusters are round, similarly sized, and similarly dense**. When real data violates that assumption, k-means still runs and still returns an answer - it just won't be the *right* answer. The algorithm never tells you it failed.
+- 🔴 **Two different problems, don't conflate them.** The first three rows are **geometric assumption violations**: k-means' objective function (minimise squared Euclidean distance to centroid) bakes in the assumption that clusters are round, similarly sized, and similarly dense - when real data isn't, k-means still runs and still returns an answer, just the wrong one, and **no choice of k or `n_init` fixes it** (only a different algorithm, like `GaussianMixture`, does). The fourth row (uneven-sized blobs risking a bad local minimum) is a **separate, unrelated problem**: it's about *initialisation luck*, not geometry - increasing `n_init` (more random restarts, keep the best-inertia run) fixes *that*, but it does nothing for anisotropic or unequal-variance data. **The algorithm never tells you which kind of failure you're looking at** - that judgement is on you.
 
 #### Key Takeaways for BDA601
 1. **This is the critical-thinking companion to Activity 2.** When you run the scikit-learn K-means example and compare 8 vs 3 clusters, this doc is your vocabulary for *why* a given cluster count can look "wrong" even when the code runs cleanly - shape/variance/size mismatches, not just "the wrong k".
