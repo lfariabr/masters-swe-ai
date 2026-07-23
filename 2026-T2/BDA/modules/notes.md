@@ -699,9 +699,16 @@ Using the Boston House-price dataset available at the URL provided below, perfor
 
 ---
 
-## Module X - Clustering
+## Module 9 - Clustering
 
 ### TLDR
+- **Why:** Modules 6-8 were all **supervised** - labelled data, predict a target `y`. Module 9 drops the label: **clustering** groups similar records with no target variable at all.
+- **K-means (the module's core algorithm):** pick k random centroids → assign every point to its nearest centroid → recompute centroids as the mean of their points → repeat until convergence. **Distance-based**, so features need `StandardScaler` first (unlike Module 6's scale-invariant decision trees).
+- **Choosing k has no single right answer** - like Module 8's R²/AUC thresholds, it's a defensible range, not a verdict. Two tools: the **elbow method** (plot k vs inertia, pick where the drop flattens) and the **silhouette score** (per-point fit, -1 to +1). Pushing k → n (one cluster per point) always "improves" inertia and is worthless - the same overfitting trap as Module 8's R²=1.0 demo.
+- **K-means has baked-in geometric assumptions:** it implicitly expects clusters that are **round, similarly sized, similarly dense** - real data that isn't (elliptical, uneven variance) will still get an answer, just the wrong one. `GaussianMixture` and `DBSCAN` are the fixes when those assumptions break.
+- **Alternatives to k-means:** **hierarchical clustering** (agglomerative merge-up into a dendrogram, no k needed upfront, choose a linkage method) and **DBSCAN** (density-based, finds arbitrary shapes, auto-flags outliers instead of forcing every point into a cluster).
+- **PySpark toolchain is familiar:** `VectorAssembler` → `KMeans(k=..., seed=...)` → `.fit()` → `.clusterCenters()` - same pipeline shape as every other model this subject has built.
+- Familiarise with **Assessment 3** this week (due Week 12, 40%). Full detail: [module09_notes.md](module-09-clustering/module09_notes.md).
 
 ### Introduction
 Clustering refers to the tasks of grouping data and creating partitions between those groups based on similarities. The data in each specific cluster will be similar to one another and dissimilar to the data in other clusters. Clustering is used in many applications; for example, it may be used to group the products of a large eCommerce site, segment customers of a retail business based on their purchasing habits or find clusters of similar genes in a scientific experiment.
@@ -721,7 +728,7 @@ Clustering does not necessarily have a response class. Indeed, after the initial
 
     Read Chapter 1: Cluster Analysis (pp. 1–12). This chapter discusses cluster analysis based on four basic steps: 1) feature selection or extraction; 2) clustering algorithm design or selection; 3) cluster validation; and 4) results interpretation. Pay attention to the variety of fields to which clustering algorithms can be applied as discussed in ‘Section 1.3: Clustering Applications’. 
 
-*Status: 🕐 To-Do* 
+> *Status: 🔥 WIP - needs manual access (EBSCO ebook, Torrens auth); see [module09_notes.md](module-09-clustering/module09_notes.md)*
 
 #### 2. Types of Clustering
 - Le, J. (2019). An introduction to big data: Clustering. Retrieved from https://medium.com/cracking-the-data-science-interview/an-introduction-to-big-data-clustering-1a911b83e590
@@ -732,7 +739,7 @@ Clustering does not necessarily have a response class. Indeed, after the initial
 
     It mainly highlights three clustering models: 1) K-means clustering; 2) hierarchical clustering; and 3) density-based spatial clustering of applications with noise (DBSCAN). The discussions in this post are brief, as it aims to introduce you to types of clustering other than K-means clustering. 
 
-*Status: 🕐 To-Do* 
+> *Status: ✅ Read + Reviewed - see [module09_notes.md](module-09-clustering/module09_notes.md)*
 
 #### 3. The Most Comprehensive Guide to K-Means Clustering
 - Sharma, P. (2019, 19 August). The most comprehensive guide to K-Means clustering you’ll ever need [Web log post]. Retrieved from https://www.analyticsvidhya.com/blog/2019/08/comprehensive-guide-k-means-clustering/
@@ -743,7 +750,7 @@ Clustering does not necessarily have a response class. Indeed, after the initial
 
     This resource notes that K-Means clustering is a simple yet powerful algorithm for big data. In this post, in between various theoretical discussions about K-means clustering, you will also find discussions about the Python implementation of K-means clustering. 
 
-*Status: 🕐 To-Do* 
+> *Status: ✅ Read + Reviewed - see [module09_notes.md](module-09-clustering/module09_notes.md)*
 
 #### 4. Spark for K-means Clustering
 - Sullivan, D. (2017). Spark for machine learning and AI: K-means clustering [Video file]. Retrieved from https://www.linkedin.com/learning/spark-for-machine-learning-ai/k-means-clustering?u=56744473
@@ -754,7 +761,7 @@ Clustering does not necessarily have a response class. Indeed, after the initial
 
     Watch the ‘K-means clustering’ sub-section of ‘Section 3: Clustering’, which explains how to load data from a CSV file and cluster the data using the K-means algorithm. You will become familiar with some different functions that you may need to use for your implementation of K-means. 
 
-*Status: 🕐 To-Do* 
+> *Status: ✅ Watched + Reviewed - see [module09_notes.md](module-09-clustering/module09_notes.md)*
 
 ### Learning Activities
 
