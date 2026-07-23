@@ -48,7 +48,7 @@ Dr. Chen Zhan
 - [X] Module 6 ✅ - Classification
 - [X] Module 7 ✅ - Model Evaluation
 - [X] Module 8 ✅ - Predictive Modelling
-- [ ] Module 9 🕐 - Clustering
+- [ ] Module 9 🔥 - Clustering
 - [ ] Module 10 🕐 - Association Rules
 - [ ] Module 11 🕐 - Graph Analytics
 - [ ] Module 12 🕐 - Big Data Privacy and Security

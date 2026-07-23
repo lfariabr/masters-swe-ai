@@ -699,6 +699,31 @@ Using the Boston House-price dataset available at the URL provided below, perfor
 
 ---
 
+## Module X - Clustering
+
+### TLDR
+
+### Introduction
+Clustering refers to the tasks of grouping data and creating partitions between those groups based on similarities. The data in each specific cluster will be similar to one another and dissimilar to the data in other clusters. Clustering is used in many applications; for example, it may be used to group the products of a large eCommerce site, segment customers of a retail business based on their purchasing habits or find clusters of similar genes in a scientific experiment.
+
+There are many clustering approaches or algorithms, each of which is suitable to a specific task. Perhaps one of the most common clustering algorithms is the K-means algorithm. The K-means algorithm is an iterative algorithm that tries to group data into K predefined distinct clusters where each data point belongs to only one group. 
+
+Clustering does not necessarily have a response class. Indeed, after the initial grouping of data into a number of clusters, a human may need to visually look at the clusters and adjust the value of the appropriate number of clusters for a given data set. For example, in the case of the K-means algorithm, the best K value will most likely be determined after a few iterative observations of clusters. 
+
+### Resources
+
+#### 1. Cluster Analysis
+- Xu, R. & Wunsch, D. (2009). Clustering. Oxford, England: Wiley. Retrieved from http://torrens.idm.oclc.org/login?url=http://search.ebscohost.com/login.aspx?direct=true&db=nlebk&AN=254099&site=ehost-live&ebv=EB&ppid=pp_1
+
+This resource introduces you to the concept of data clustering with theories and applications. It emphasises that the need for clustering is related to the requirement to explore the unknown nature of data. 
+
+Read Chapter 1: Cluster Analysis (pp. 1–12). This chapter discusses cluster analysis based on four basic steps: 1) feature selection or extraction; 2) clustering algorithm design or selection; 3) cluster validation; and 4) results interpretation. Pay attention to the variety of fields to which clustering algorithms can be applied as discussed in ‘Section 1.3: Clustering Applications’. 
+
+### Learning Activities
+
+
+---
+
 ```bash
 --- PLACEHOLDER:
 ## Module X - ...
