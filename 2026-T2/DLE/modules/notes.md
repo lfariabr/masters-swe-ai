@@ -842,6 +842,13 @@ Please listen to other students and join in the conversation.
 
 ### TLDR
 
+- **A good representation is one that makes the next task easier** - it is always defined *relative to a downstream task*, never in the absolute (Goodfellow Ch.15). The Roman-numeral test: `210 ÷ 6` is easy, `CCX ÷ VI` is not - same numbers, different encoding.
+- **Supervised nets already do representation learning as a side effect:** every layer before the final linear/softmax classifier exists to make the classes linearly separable. Representation learning just makes this explicit and controllable.
+- **Greedy layer-wise unsupervised pretraining** (§15.1, the assigned deep-dive) trained the first deep nets in 2006 (Hinton), one frozen layer at a time, then fine-tuned. Now **largely abandoned - except in NLP**, where one-hot words carry no similarity and learned embeddings (word2vec/GloVe → BERT) do.
+- **Four load-bearing ideas:** unsupervised pretraining · transfer learning & domain adaptation (Goodfellow's own example is books→electronics *sentiment* - the Review Pulse setup) · disentangling causal factors · **distributed representations** (`n` features → `kⁿ` concepts; `O(nᵈ)` regions vs `O(n)` for one-hot/k-means/kNN).
+- **Bengio et al. (2013)** unifies the field into three families - **probabilistic models, autoencoders, manifold learning** - and three open questions (what is good? how to compute it? what objective?). **Zhong et al. (2016)** gives the timeline: PCA (1901) → LDA (1936) → manifold learning (2000) → deep learning (Hinton, 2006) - *deep learning is not a new idea*, it is feature-learning + big data + GPUs.
+- **The unifying thesis** (Ch.15 last line, = Activity 2 prompt): *"Feedforward and recurrent networks, autoencoders and deep probabilistic models all learn and exploit representations."*
+
 ### Introduction
 Representation learning is very closely related to neural networks in many ways. One of the reasons that neural networks have been so successful is that they allow related algorithms to learn representations that are task specific. This means that the neural networks can decide what features to use as input, whereas alternatively the input had to be extracted manually.
 
@@ -862,7 +869,7 @@ In summary, representation learning is about learning good features from input d
 
     Read 'Section 15.1: Greedy Layer-Wise Unsupervised Pretraining', which describes one of the key representation learning techniques. For the rest of the chapter, you may concentrate on the discussions around the figures.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module09_notes.md](module-09-representation-learnign/module09_notes.md)*
 
 #### 2. Representation Learning: A Review and New Perspective
 - Reference: Bagnio, Y., Courville, A. & Vincent, P. (2014). Representation learning: A review and new perspectives. Retrieved from https://arxiv.org/pdf/1206.5538.pdf
@@ -873,7 +880,7 @@ In summary, representation learning is about learning good features from input d
 
     In the paper, the review of representation learning and DL has covered three major and apparently disconnected approaches: 1) the probabilistic models (both the directed kind, such as sparse coding, and the undirected kind, such as Boltzmann machines); 2) the reconstruction-based algorithms related to auto-encoders; and 3) the geometrically motivated manifold-learning approaches.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module09_notes.md](module-09-representation-learnign/module09_notes.md)*
 
 #### 3. An Overview on Data Representation Learning: From Traditional Feature Learning to Recent Deep Learning
 - Zhong, G., Wang, L., Ling, X. & Dong, J. (2016). An overview on data representation learning: From traditional feature learning to recent deep learning. Journal of Finance and Data Science, 2(4): 265–78. Retrieved from https://www-sciencedirect-com.torrens.idm.oclc.org/science/article/pii/S2405918816300459
@@ -884,7 +891,7 @@ In summary, representation learning is about learning good features from input d
 
     Pay attention to the history of data representation learning that is detailed in the paper. You will be provided with background information about the development of data representation learning and neural networks. Also, note that this paper draws an interesting conclusion; that is, from the development timeline of representation learning methods and artificial neural networks, it can be seen that DL is not a totally new idea.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module09_notes.md](module-09-representation-learnign/module09_notes.md)*
 
 #### 4. Representation Learning: A Review and Perspectives
 - Ghosh, A., (2019, 8 December). Representation learning: A review and perspectives. Retrieved from https://medium.com/@aganirbanghosh007/representation-learning-a-review-and-perspectives-ea923618d79c
@@ -895,7 +902,7 @@ In summary, representation learning is about learning good features from input d
 
     The best part of this post is how the author used some information from our Essential Resources. Thus, if you needed to clarify anything from the Essential Resources, you may find the answers here.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module09_notes.md](module-09-representation-learnign/module09_notes.md)*
 
 ### Learning Activities
 
