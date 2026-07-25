@@ -1,5 +1,13 @@
 # Module 09 — Representation Learning
 
+## TL;DR
+- **A good representation is one that makes the next task easier** - always defined *relative to a downstream task*, never absolutely (Goodfellow Ch.15). The Roman-numeral test: `210 ÷ 6` is easy, `CCX ÷ VI` is not - same numbers, different encoding.
+- **Supervised nets already do representation learning** as a side effect: everything before the final linear/softmax layer exists to hand it a linearly separable representation.
+- **Greedy layer-wise unsupervised pretraining** (§15.1, the assigned deep-dive) trained the first deep nets in 2006. That specific 2006 procedure is now **largely historical**; its descendant - **modern self-supervised pretraining** (word2vec/GloVe → BERT, and SSL in vision) - is very much alive across *both* language and vision.
+- **Four load-bearing ideas:** unsupervised/self-supervised pretraining · transfer learning & domain adaptation (Goodfellow's own example is books→electronics *sentiment* - the Review Pulse setup) · disentangling causal factors · **distributed representations** (`n` features → `kⁿ` concepts; `O(nᵈ)` regions vs `O(n)` for one-hot/k-means/kNN).
+- **Bengio et al. (2013)** unifies the field into three families - **probabilistic models, autoencoders, manifold learning**. **Zhong et al. (2016)** gives the timeline (PCA 1901 → LDA 1936 → manifold 2000 → deep 2006): *deep learning is not a new idea*, it is feature-learning + big data + GPUs.
+- **The unifying thesis** (Ch.15 last line, = Activity 2 prompt): *"Feedforward and recurrent networks, autoencoders and deep probabilistic models all learn and exploit representations."*
+
 ## Task List
 
 | # | Task | Status |
@@ -43,25 +51,25 @@
   - **Pretraining** — it is only phase 1; a supervised fine-tune usually follows.
 - **Historical weight:** this is the trick (Hinton et al., 2006) that *started the 2006 deep-learning renaissance* — the first way to train deep fully-connected nets before ReLU / dropout / batch-norm existed. It acts as **both a regulariser and a parameter initialisation.**
 
-| | Unsupervised pretraining | Modern supervised (ReLU + dropout + batchnorm) |
+| | Greedy layer-wise pretraining (2006) | Modern supervised (ReLU + dropout + batchnorm) |
 |---|---|---|
 | When it wins | tiny labelled set, huge unlabelled set, poor initial representation (words!) | medium-to-large labelled sets (CIFAR-10, MNIST) |
-| Status today | **largely abandoned — except NLP** | dominant |
-| Mechanism | learns input distribution `p(x)` first | learns `p(y\|x)` directly |
+| Status today | **the exact 2006 procedure is largely historical** | dominant for direct supervised tasks |
+| Mechanism | learns input distribution `p(x)` first, one frozen layer at a time | learns `p(y\|x)` directly |
 
 - **When/why it works (§15.1.1):** two ideas fused — (1) initialisation has a **regularising** effect (Erhan et al., 2010: pretrained nets consistently halt in the same, smaller region of function space → reduced variance); (2) features useful for modelling `p(x)` are often useful for `p(y|x)`. Most helpful when **labelled data is scarce, unlabelled data is abundant, and the true function is complicated.**
-- **Where it survived:** **NLP.** One-hot word vectors carry *zero* similarity info (every pair is √2 apart); learned word embeddings encode similarity by distance. Pretrain once on billions of words, fine-tune on a small labelled task. This is the direct ancestor of word2vec / GloVe → BERT.
+- **Historical vs modern — the distinction that matters:** the *specific 2006 greedy layer-wise* procedure Goodfellow calls "largely abandoned" *is* mostly historical. But its idea — **pretrain a representation on unlabelled data, then fine-tune** — did not die; it evolved into **modern self-supervised pretraining**, which is dominant across *both* language (word2vec / GloVe → BERT, DistilBERT) *and* vision (contrastive/masked SSL). One-hot word vectors carry *zero* similarity info (every pair is √2 apart); learned embeddings encode similarity by distance — which is why words were the first domain where pretraining decisively won and never left.
 
 #### 4. §15.2 — Transfer learning & domain adaptation
 - **Transfer learning:** exploit what was learned under distribution `P₁` to generalise better under `P₂`. Works when the two tasks share underlying factors (edges, shapes, lighting for vision). Deeper representations → fewer labelled examples needed in the transfer setting.
 - **Domain adaptation:** *same task, shifted input distribution.* The textbook's own example is **sentiment analysis trained on book / DVD / music reviews then applied to electronics reviews** — denoising-autoencoder pretraining handles this well (Glorot et al., 2011). *(This is literally the Review Pulse multi-domain Amazon setup — see the Module 8 bridge doc.)*
 - **Concept drift** = transfer learning across *time* (distribution drifts gradually).
-- **One-shot learning** (1 labelled example) and **zero-shot / zero-data learning** (0 examples) are the extremes — possible only because the representation cleanly separated the classes beforehand, and because extra task information `T` was exploited (e.g., recognising a cat from having *read* "cats have four legs and pointy ears"). Enables **multimodal** anchoring (image ↔ word).
+- **One-shot learning** (1 labelled example) works because the representation *already cleanly separated the classes* beforehand — one example is enough to label the cluster. **Zero-shot / zero-data learning** (0 examples) needs *more*: on top of a clean representation, it requires **task information `T` and a shared semantic representation** across modalities (e.g., recognising a cat from having *read* "cats have four legs and pointy ears"). That shared space is what enables **multimodal** anchoring (image ↔ word).
 
 #### 5. §15.3 — Disentangling causal factors (what makes a representation *good*, deeper answer)
 - **Central hypothesis:** an ideal representation has features that correspond to the **underlying causes** of the data, with separate directions for separate causes — it *disentangles* them.
 - If `y` is one of the salient causes of `x`, then modelling `p(x)` reveals `y` almost for free (the mixture-model figure): unsupervised learning of `p(x)` **helps** supervised `p(y|x)` — the theoretical justification for semi-supervised learning. When `p(x)` is uninformative about `y` (uniform `x`), it does **not** help.
-- **Salience is learned, not fixed:** MSE-trained autoencoders drop small-but-meaningful features (the ping-pong ball; the ears on a face). **GANs** redefine salience — any pattern the discriminator can recognise becomes salient — so they reconstruct ears that MSE misses.
+- **Salience is learned, not fixed:** MSE-trained models drop small-but-meaningful features (the ping-pong ball; the ears on a face). **GANs** redefine salience — any pattern the discriminator can recognise becomes salient — so they *generate* the ears that an MSE loss omits (Lotter et al., 2015, predictive generative networks). Note this is generation/prediction, not autoencoder-style reconstruction of the input.
 - **Causal bonus (Schölkopf et al., 2012):** modelling `p(x|cause)` is robust to shifts in `p(cause)` — good for domain shift and non-stationarity ("the laws of the universe are constant").
 
 #### 6. §15.4 — Distributed representations (the big statistical-efficiency argument)
@@ -163,9 +171,9 @@
 
 ---
 
-### 4. Ghosh, A. (2019, 9 December). Representation Learning: A Review and Perspectives.
+### 4. Ghosh, A. (2019, 8 December). Representation Learning: A Review and Perspectives.
 
-**Citation:** Ghosh, A. (2019, 9 December). *Representation learning: A review and perspectives* [Blog post]. Medium. https://medium.com/@aganirbanghosh007/representation-learning-a-review-and-perspectives-ea923618d79c
+**Citation:** Ghosh, A. (2019, 8 December). *Representation learning: A review and perspectives* [Blog post]. Medium. https://medium.com/@aganirbanghosh007/representation-learning-a-review-and-perspectives-ea923618d79c
 
 **Purpose:** A 42-minute practitioner synthesis that **stitches Goodfellow Ch.15 and Bengio et al. (2013) together in plain language**, adds concrete benchmark numbers, and includes a runnable Keras greedy-layer-wise pretraining example. Best used as the "clarify anything confusing" companion — as the module intro says, it answers questions the essential resources raise.
 
