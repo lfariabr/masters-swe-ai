@@ -1,0 +1,23 @@
+# ISY503 Assessment 3 - group presentation video edit list.
+# One row per slide, in playback order. Tab-separated.
+#
+# mode      passthru = clip already shows the slides (Teams screen-share) -> normalise only
+#           pip      = clip is bare webcam -> composite over the rendered slide, Teams-style
+#           missing  = not recorded yet; build.sh skips it and warns
+# in/out    seconds in the SOURCE file; "-" for "to the end". Used to trim dead air,
+#           and to split one source across two slides if needed.
+# Speaker allocation comes from docs/presentation-outline.md.
+#
+#slide	speaker	mode	source	in	out
+1	luis	missing	raw/luis_slide01.mp4	0	-
+2	samiran	pip	raw/samiran_slide02.mov	0	-
+3	victor	passthru	raw/victor_a.mp4	3.8	50.4
+4	luis	missing	raw/luis_slide04.mp4	0	-
+5	luis	missing	raw/luis_slide05.mp4	0	-
+6	luis	missing	raw/luis_slide06.mp4	0	-
+7	luis	missing	raw/luis_slide07.mp4	0	-
+8	victor	passthru	raw/victor_b.mp4	5.8	86.2
+9	samiran	pip	raw/samiran_slide09.mov	0	-
+10	victor	missing	raw/victor_slide10.mp4	0	-
+11	samiran	pip	raw/samiran_slide11.mov	0	-
+12	luis	missing	raw/luis_slide12.mp4	0	-
