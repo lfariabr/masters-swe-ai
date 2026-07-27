@@ -1,4 +1,4 @@
-# MLN601 Assessment 3 - plan for v3 (revision 4)
+# MLN601 Assessment 3 - plan for v3 (revision 5)
 
 Status: draft for review, nothing implemented yet.
 Base: `notebook/MLN601FariaLuisBrief3v2.ipynb` (46 cells, executed).
@@ -10,7 +10,9 @@ Due: 19/08/2026. Weight 40%. Issue #189.
 > fixed those with measured evidence but still described 2012 as an untouched holdout opened
 > once, which is false. Revision 3 corrects that framing and separates benchmarking from
 > operational approval. Revision 4 adds the hourly-file evidence on the `hum = 0` day, and
-> corrects a proposed guardrail that would have broken every temporal fold.
+> corrects a proposed guardrail that would have broken every temporal fold. Revision 5
+> recomputes the fold table on the real 358-row modelling set and fixes a silent encoding
+> corruption that was affecting every temporal fold.
 
 ## Framing statement for the report
 
@@ -80,26 +82,46 @@ ablation hypothesis, not as a fix.
 - **Encoding collision, verified:** with `OneHotEncoder(drop="first", handle_unknown="ignore")`
   fitted on categories [1, 2, 3], `weathersit = 1` (clear) encodes as `[0, 0]` and an unseen
   `weathersit = 4` (heavy rain/snow) also encodes as `[0, 0]`. They are identical. In
-  production the model would read a blizzard as perfect weather. This needs a guardrail, not
+  production the model would read severe weather as perfect weather. This needs a guardrail, not
   just a footnote.
+- **Modelling-set size after the lag warm-up.** The autoregressive features need seven prior
+  days, so the first 7 rows carry NaN and are dropped. The first fully valid date is
+  **2011-01-08**, leaving **358 rows in 2011**, not 365. All fold arithmetic below uses 358.
 - **The obvious guardrail does not work, verified.** Switching to
   `handle_unknown="error"` breaks the temporal protocol entirely. Under `TimeSeriesSplit` on a
   single year, the validation block always contains calendar categories the training block has
-  never seen, because time-ordered slicing is exactly what produces that. Measured on 2011:
+  never seen, because time-ordered slicing is exactly what produces that. Measured on the real
+  358-row 2011 modelling set:
 
-  | Split | Fold | Training window | Categories unseen in validation |
-  |---|---|---|---|
-  | n_splits=5 | 0 | Jan 1 - Mar 6 (65 rows) | `mnth` [4, 5], `season` [2] |
-  | n_splits=5 | 1 | Jan 1 - May 5 (125 rows) | `mnth` [6, 7], `season` [3] |
-  | n_splits=5 | 4 | Jan 1 - Nov 1 (305 rows) | `mnth` [12] |
-  | n_splits=3 | 0 | Jan 1 - Apr 2 (92 rows) | `mnth` [5, 6, 7], `season` [3] |
+  | Split | Fold | Training window | n train | n val | Unseen in validation |
+  |---|---|---|---|---|---|
+  | n=3 | 0 | 2011-01-08 to 2011-04-08 | 91 | 89 | `mnth` [5,6,7], `season` [3] |
+  | n=3 | 1 | 2011-01-08 to 2011-07-06 | 180 | 89 | `mnth` [8,9,10], `season` [4] |
+  | n=3 | 2 | 2011-01-08 to 2011-10-03 | 269 | 89 | `mnth` [11,12] |
+  | n=5 | 0 | 2011-01-08 to 2011-03-11 | 63 | 59 | `mnth` [4,5], `season` [2] |
+  | n=5 | 1 | 2011-01-08 to 2011-05-09 | 122 | 59 | `mnth` [6,7], `season` [3] |
+  | n=5 | 2 | 2011-01-08 to 2011-07-07 | 181 | 59 | `mnth` [8,9] |
+  | n=5 | 3 | 2011-01-08 to 2011-09-04 | 240 | 59 | `mnth` [10,11], `season` [4] |
+  | n=5 | 4 | 2011-01-08 to 2011-11-02 | 299 | 59 | `mnth` [12] |
 
   Every fold, in both configurations. `handle_unknown="error"` would raise on all of them and
-  the grid search would never complete. The correct architecture separates the two concerns:
-  keep `handle_unknown="ignore"` inside the pipeline because it is structurally required, and
-  put the out-of-domain guard **outside the pipeline** as an explicit input-validation step
-  before scoring. The model should not learn to handle category 4; it should refuse to answer.
-- **Fold composition is itself a limitation.** With `n_splits=5`, fold 0 trains on 65 days,
+  the grid search would never complete.
+- **Worse: `handle_unknown="ignore"` silently corrupts every temporal fold.** With
+  `drop="first"`, the dropped category is the reference and encodes as all zeros. An unseen
+  category also encodes as all zeros. Verified on an encoder fitted to months [1, 2, 3]:
+
+  ```
+  month 1 (reference) -> [0, 0]
+  month 2             -> [1, 0]
+  month 7 (unseen)    -> [0, 0]      identical to January
+  ```
+
+  So in fold 0 above, April and May are presented to the model **as January**. This is the same
+  bug class as the `weathersit = 4` collision, but it fires in every fold rather than on an
+  absent category, and it corrupts the very validation signal Protocol B uses to select
+  hyperparameters. Neither `ignore` nor `error` is acceptable for the cyclic calendar columns;
+  the fix is to stop one-hot encoding them at all (see Data Preparation).
+- **Fold composition is itself a limitation.** With `n_splits=5`, fold 0 trains on 63 days,
   all of them winter. A validation fold whose training window contains one season cannot
   validate seasonal behaviour. This constrains the choice of `n_splits` and must be reported
   rather than hidden.
@@ -241,10 +263,16 @@ df.loc[df["hum"] == 0, "hum"] = np.nan          # one row, 2011-03-10
 
   Median imputation inside the pipeline, never a global fill, so the imputer is fitted only on
   each training fold. Do **not** interpolate between neighbouring days: on the day-ahead
-  contract that would pull the following day's value backwards into the feature row. Report a
-  sensitivity check (results with the row imputed versus with the row dropped). One row in 731
-  will almost certainly change nothing, and demonstrating that is the point. Cite the hourly
-  corroboration from the verified-facts section.
+  contract that would pull the following day's value backwards into the feature row.
+
+  Report a sensitivity check comparing the row imputed against the row excluded. **Critical
+  detail for the excluded variant:** drop 2011-03-10 from the *modelling set only*, while
+  keeping its `cnt` in the ordered series used to build lag and rolling features. Its count is
+  needed to construct `lag_1` for 03-11, `lag_7` for 03-17 and the rolling windows in between.
+  Dropping the row before feature construction would break the temporal sequence and quietly
+  change seven other rows, which would make the sensitivity test measure the wrong thing.
+  One row in 731 will almost certainly change nothing, and demonstrating that is the point.
+  Cite the hourly corroboration from the verified-facts section.
 - An explicit note that `weathersit = 4` has zero rows, and that supported input is categories
   1 to 3 only.
 - Number every table and figure (`Table 2.1`, `Figure 2.3`) with a printed caption and a
@@ -252,11 +280,40 @@ df.loc[df["hum"] == 0, "hum"] = np.nan          # one row, 2011-03-10
 
 ### Section 3 - Data Preparation
 
+**Encoding change: cyclical for the calendar columns.** `mnth` and `weekday` are cyclic, and
+one-hot encoding them means any month absent from a training fold silently becomes January
+(verified above). Replace one-hot with sine and cosine pairs:
+
+```python
+df["mnth_sin"],    df["mnth_cos"]    = np.sin(2*np.pi*df.mnth/12),    np.cos(2*np.pi*df.mnth/12)
+df["weekday_sin"], df["weekday_cos"] = np.sin(2*np.pi*df.weekday/7),  np.cos(2*np.pi*df.weekday/7)
+```
+
+This is defined for every month regardless of training support, so a July validation row is
+never mistaken for January, and it encodes the genuine adjacency of December to January that
+one-hot throws away. Trees still cannot extrapolate beyond the observed range, but an unseen
+month now lands in a neighbouring region rather than collapsing onto the reference category.
+
+`season` carries the **same collision risk**: the measured fold table shows seasons 2, 3 and 4
+appearing in validation blocks that never saw them in training, so a one-hot season would also
+collapse onto the reference. Do not reuse the one-hot form under Protocol B. Test two variants
+there instead:
+
+```
+without season           vs           season_sin + season_cos
+```
+
+Under Protocol A the random split leaves no season unseen, so one-hot season remains
+acceptable there.
+
+`weathersit` stays one-hot, because it is genuinely categorical rather than cyclic, and it is
+the column the external guard protects.
+
 Keep the leakage-safe `ColumnTransformer` inside each pipeline. Organise features into **four**
 declared groups, each with its own independent ablation so that an interaction and a trend are
 never adopted or rejected as a single bundled decision:
 
-1. **Core**: the existing calendar and weather features.
+1. **Core**: weather plus the cyclical calendar features and the binary flags.
 2. **Context interactions**: `atemp_humidity_interaction` (renamed from the inaccurate
    `heat_index`, since inputs are normalised and `atemp` is already a feels-like measure) and
    `temp_squared`, which captures the "too hot is also bad" curvature the EDA hints at.
@@ -285,19 +342,25 @@ yesterday's totals are known by the time tomorrow is forecast. State this contra
   validation end, and row counts for each fold.
 
 **Severe-weather guardrail, as abstention rather than encoding.** `weathersit = 4` encodes
-identically to `weathersit = 1` under the current encoder, so a blizzard reads as clear
+identically to `weathersit = 1` under the current encoder, so severe weather reads as clear
 weather. Two things are true and both matter: `handle_unknown="error"` cannot be used, because
 it breaks every temporal fold (measured, see verified facts), and simply adding an explicit
 category-4 column would not help either, since the model has never seen that column active
 during training and has no basis for a prediction. The answer is refusal, implemented outside
 the pipeline:
 
-```python
-SUPPORTED_WEATHERSIT = {1, 2, 3}   # measured support of the training data
+The supported set must be **derived from the training data and persisted with the model**, not
+hardcoded, so it cannot go stale if the training window changes:
 
-def guarded_predict(model, X):
-    if not set(X["weathersit"]).issubset(SUPPORTED_WEATHERSIT):
-        raise OutOfDomainError("weathersit outside trained support; escalate to human review")
+```python
+supported_weathersit = set(X_train_frame["weathersit"].unique())   # measured, not assumed
+# persisted alongside the fitted model
+
+def guarded_predict(model, X, supported):
+    unseen = set(X["weathersit"]) - supported
+    if unseen:
+        raise OutOfDomainError(f"weathersit {sorted(unseen)} outside trained support; "
+                               "escalate to human review")
     return model.predict(X)
 ```
 
@@ -329,12 +392,14 @@ Scored on negative MAE. Baseline: mean.
 2012 only -> confirmation evaluation (retrospective benchmark, not a blind holdout)
 ```
 
-With roughly 365 training days, the `TimeSeriesSplit` windows need deliberate choice. Measured:
-at `n_splits=5` the first fold trains on 65 days, all winter, which cannot validate seasonal
-behaviour; at `n_splits=3` the first fold trains on 92 days, still winter and early spring.
-There is no configuration that fixes this with one year of data, so pick the setting, print
-every fold's date range and row count, and report the limitation rather than hide it. This is
-also the reason `handle_unknown="ignore"` must stay in the encoder.
+**Cross-validator: `TimeSeriesSplit(n_splits=3)`, decided.** With 358 usable training days
+after the lag warm-up, this is the most defensible compromise: the first fold trains on 91 days
+instead of 63, each of the three validation blocks holds 89 days, and tuning cost stays
+manageable. Neither setting escapes the seasonal limitation, since even 91 days covers only
+winter and early spring, so the constraint is documented rather than solved. Print every fold's
+date range and row count in the notebook. The full measured fold table is in the verified-facts
+section, and the same evidence is why the calendar columns must be cyclical rather than
+one-hot.
 
 Baselines for Protocol B: lag 1, lag 7 and shifted rolling 7-day mean, all scored on the same
 2012 dates as the models.
@@ -381,8 +446,12 @@ deployment requirements regardless of outcome:
 - the multi-year history needed before any trend or extrapolation claim is credible,
 - the gap between observed weather and forecast weather, which this study cannot measure.
 
-Keep the honest-evaluation lesson and connect it back to Assessment 2: declaring criteria
-before looking at results is what makes a negative result publishable rather than embarrassing.
+Keep the honest-evaluation lesson and connect it back to Assessment 2, stated precisely: the
+gates here were declared before any v3 result existed, but **after** the v2 exploration that
+revealed the naive baselines. That is weaker than a fully blind pre-registration and the report
+should say so plainly. Fixing criteria before the run you are about to judge is what makes a
+negative result publishable rather than embarrassing; claiming more independence than the
+process actually had would undo that.
 
 ### Appendices and closing
 
