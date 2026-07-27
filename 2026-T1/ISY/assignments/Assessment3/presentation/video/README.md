@@ -21,17 +21,35 @@ gitignored - together they are around 700 MB.
 
 ## Current state
 
-| Slides | Presenter | Source | Status |
-|---|---|---|---|
-| 2, 9, 11 | Samiran | `samiran_slide*.mov` | built |
-| 3 | Victor | `victor_a.mp4` | built |
-| 8 | Victor | `victor_b.mp4` | built |
-| 10 | Victor | - | **missing** |
-| 1, 4, 5, 6, 7, 12 | Luis | - | missing |
+Complete: 12 slides, 10 min 59 s, 46 MB.
 
-Victor sent two files. Scene detection and frame checks confirm each one holds a
+| Slides | Presenter | Source |
+|---|---|---|
+| 1, 4, 5, 6, 7, 12 | Luis | `luis_full.mp4` (one 14 min session, sliced) |
+| 2, 9, 11 | Samiran | `samiran_slide*.mov` |
+| 3, 8 | Victor | `victor_a.mp4`, `victor_b.mp4` |
+| 10 | Luis | `luis_full.mp4` |
+
+Victor sent two files. Scene detection and frame checks confirm each holds a
 single slide start to finish (3 and 8), so slide 10 (Ethical considerations) was
-never recorded.
+never recorded by him. Luis had covered 8 and 10 in his own session as a backup
+("Victor didn't do that part"), so slide 10 uses Luis's take while Victor's own
+recording is still used for slide 8. If Victor later sends slide 10, swapping it
+in is one manifest row.
+
+### Finding the cut points in Luis's single-take recording
+
+Luis recorded all his parts in one 14-minute session with retakes on camera. The
+cuts came from two sources cross-checked against each other:
+
+- **Slide boundaries** - `select='gt(scene,0.06)'` over the slide title band only.
+  The body of each slide animates, so a full-frame scene detect fires on every
+  bullet; the title band changes only when the slide does.
+- **Take boundaries** - a whisper transcript (`work/luis_full.srt`) to find the
+  retakes, snapped to a `silencedetect` map so no cut lands mid-word.
+
+Word-level whisper timings (`-ml 1`) drift by several seconds across silences, so
+where the two disagreed the silence map won. Every cut keeps the **last** take.
 
 ## How to record a part so it drops straight in
 

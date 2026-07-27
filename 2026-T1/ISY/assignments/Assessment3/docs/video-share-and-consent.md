@@ -13,15 +13,15 @@ is offered for promotional use.
 ## Status
 
 The presentation was delivered live in class, so no recording existed. Each
-member is recording their own slides now and the parts are being assembled into
-one video (`presentation/video/build.sh`).
+member recorded their own slides and the parts are assembled into one video by
+`presentation/video/build.sh`. The video is complete: 12 slides, 10 min 59 s.
 
 | Slides | Presenter | Recorded |
 |---|---|---|
 | 2, 9, 11 | Samiran | yes |
 | 3, 8 | Victor | yes |
-| 10 | Victor | **not yet** |
-| 1, 4, 5, 6, 7, 12 | Luis | not yet |
+| 10 | Victor | no - Luis's backup take is used instead |
+| 1, 4, 5, 6, 7, 12 | Luis | yes |
 
 ## Draft - consent request to the team
 

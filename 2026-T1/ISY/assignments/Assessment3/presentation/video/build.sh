@@ -74,12 +74,27 @@ PY
 }
 
 # Render one slide of the deck at the size it occupies inside the Teams layout.
+#
+# The deck was exported to PDF as A4 landscape (842x595pt), not 16:9, so every
+# page carries the 16:9 slide letterboxed between two white bands. Forcing the
+# page to 1674x942 would both stretch the slide and bake those bands in, so
+# render at the target width and crop the centre band out.
 render_slide() {
   local n=$1 out="$WORK/slide_$(printf '%02d' "$1").png"
   [[ -f $out ]] && { echo "$out"; return; }
-  pdftoppm -png -f "$n" -l "$n" -scale-to-x $SLIDE_W -scale-to-y $SLIDE_H \
+  pdftoppm -png -f "$n" -l "$n" -scale-to-x $SLIDE_W -scale-to-y -1 \
     "$SLIDE_PDF" "$WORK/_slide_tmp"
-  mv "$WORK"/_slide_tmp-*.png "$out"
+  python3 - "$WORK" "$out" "$SLIDE_W" "$SLIDE_H" <<'PY'
+import glob, sys
+from PIL import Image
+work, out, w, h = sys.argv[1], sys.argv[2], int(sys.argv[3]), int(sys.argv[4])
+src = glob.glob(f"{work}/_slide_tmp-*.png")[0]
+im = Image.open(src)
+band = round(im.width * 9 / 16)
+top = round((im.height - band) / 2)
+im.crop((0, top, im.width, top + band)).resize((w, h), Image.LANCZOS).save(out)
+PY
+  rm -f "$WORK"/_slide_tmp-*.png
   echo "$out"
 }
 
@@ -90,9 +105,12 @@ render_labels() {
   [[ -f $WORK/label_bar_$slug.png  ]] || python3 make_label.py "$name" "$WORK/label_bar_$slug.png"  246
 }
 
+# Segments are named by manifest row, not by slide, because a slide can need more
+# than one row: Luis fluffed a line mid-way through slide 12, so that slide is two
+# takes from the same source with the bad stretch cut out between them.
 build_segment() {
-  local slide=$1 speaker=$2 mode=$3 src=$4 tin=$5 tout=$6
-  local seg="$WORK/seg_$(printf '%02d' "$slide").mp4"
+  local row=$1 slide=$2 speaker=$3 mode=$4 src=$5 tin=$6 tout=$7
+  local seg="$WORK/seg_$(printf '%02d' "$row").mp4"
   local dur=""
   [[ $tout != "-" ]] && dur=$(python3 -c "print(round($tout - $tin, 3))")
 
@@ -156,11 +174,12 @@ verify() {
 }
 
 concat() {
-  local list="$WORK/concat.txt" total=0 missing=()
+  local list="$WORK/concat.txt" total=0 row=0 missing=()
   : > "$list"
   while IFS=$'\t' read -r slide speaker mode src tin tout; do
     [[ $slide == \#* || -z ${slide:-} ]] && continue
-    local seg="$WORK/seg_$(printf '%02d' "$slide").mp4"
+    row=$((row + 1))
+    local seg="$WORK/seg_$(printf '%02d' "$row").mp4"
     if [[ -f $seg ]]; then
       echo "file '$(basename "$seg")'" >> "$list"
       total=$((total + 1))
@@ -184,8 +203,11 @@ concat() {
 if [[ ${1:-} == --verify ]]; then verify; exit 0; fi
 
 ONLY=("$@")
+ROW=0
 while IFS=$'\t' read -r slide speaker mode src tin tout; do
   [[ $slide == \#* || -z ${slide:-} ]] && continue
+  # Increment before filtering so row numbers stay stable on partial rebuilds.
+  ROW=$((ROW + 1))
   if (( ${#ONLY[@]} )); then
     [[ " ${ONLY[*]} " == *" $slide "* ]] || continue
   fi
@@ -196,7 +218,7 @@ while IFS=$'\t' read -r slide speaker mode src tin tout; do
   [[ -f $src ]] || { warn "slide $slide: $src not found"; continue; }
   SPEAKER_NAME=$(speaker_name "$speaker")
   log "slide $slide - $SPEAKER_NAME ($mode)"
-  build_segment "$slide" "$speaker" "$mode" "$src" "$tin" "$tout"
+  build_segment "$ROW" "$slide" "$speaker" "$mode" "$src" "$tin" "$tout"
 done < manifest.tsv
 
 concat
