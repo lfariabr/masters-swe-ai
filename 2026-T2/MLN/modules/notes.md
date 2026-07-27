@@ -1124,8 +1124,10 @@ Reference
 - **Evaluation forks on ground truth.** With labels: **ARI, homogeneity, completeness, V-measure**. Without: **silhouette (−1 to 1, higher better)**, **Calinski-Harabasz (higher better)**, **Davies-Bouldin (lower better)**. ⚠️ All three are biased toward **convex** clusters.
 - **Weaknesses:** must specify k up front · **sensitive to outliers** · assumes **flat geometry and even cluster sizes** · converges only to a **local** minimum (fix with `init='k-means++'` + `n_init`) · degrades in high dimensions (run **PCA** first).
 - **Scale your features first** — K-means is distance-based, so an unscaled wide-range feature dominates every centroid. For big data use **`MiniBatchKMeans`**; for large k, **`BisectingKMeans`**.
+- **⭐ (Week 9 lecture, beyond the readings) Distance metrics are the foundation:** **Euclidean** (square then root — kills sign, re-normalises scale); **Minkowski** is the generic form → `r=1` **Manhattan**, `r=2` **Euclidean**, `r=∞` **Chebyshev/supremum**; for binary vectors **SMC vs Jaccard** (does a 0-0 match count as similar?); for documents **cosine similarity** (uses actual counts, not just present/absent). The objective is called **SSE** in class = inertia = WCSS.
+- **⭐ K-means is one of a family.** It only makes **spherical** clusters and uses the **mean** (outlier-sensitive) → **K-medoids/K-median** (median centre, robust to outliers), **DBSCAN** (density-based: eps + minPts, arbitrary shapes, handles noise, **no k needed**), **OPTICS** (DBSCAN for varying density). *Intra*-cluster similarity ↑, *inter*-cluster similarity ↓ ("**inter**state = between two states"). **Assessment 3 is regression, not clustering.**
 
-> Full per-resource breakdown: [module09_notes.md](module-09-kmeans-clustering/module09_notes.md)
+> Full per-resource breakdown: [module09_notes.md](module-09-kmeans-clustering/module09_notes.md) · Week 9 class write-up: [module09_notes-class.md](module-09-kmeans-clustering/module09_notes-class.md)
 
 ### Introduction
 - Rose, D. (2018, 29 March). Artificial intelligence foundations: Machine learning K-mean clustering [Video file]. Retrieved from https://www.linkedin.com/learning/artificial-intelligence-foundations-machine-learning/k-mean-clustering?resume=false&u=56744473

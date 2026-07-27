@@ -19,6 +19,12 @@
 > sum-of-squares, WCSS). The hard part is not the algorithm, it is **choosing k** (elbow / silhouette / gap statistic)
 > and **evaluating clusters** when you have no ground truth to check against.
 
+> **⭐ Week 9 lecture went well beyond these 4 readings** — see [module09_notes-class.md](module09_notes-class.md).
+> The class added the *foundation* the readings skip: **distance/similarity metrics** (Euclidean, Minkowski →
+> Manhattan/Euclidean/Chebyshev, SMC vs Jaccard, cosine) and the *rest of the clustering family*
+> (**K-medoids, DBSCAN, OPTICS**) as the answer to "why did K-means fail?". Also: the objective is called
+> **SSE** in class (= inertia = WCSS, a 4th synonym), and **Assessment 3 is a regression task, not clustering.**
+
 ---
 
 ## Key Highlights
