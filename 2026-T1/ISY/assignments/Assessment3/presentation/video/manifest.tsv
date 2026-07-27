@@ -15,11 +15,11 @@
 # Speaker allocation comes from docs/presentation-outline.md.
 #
 #slide	speaker	mode	source	in	out
-1	luis	passthru	raw/luis_full.mp4	13.4	40.7
+1	luis	passthru	raw/luis_full.mp4	15.7	40.7
 2	samiran	pip	raw/samiran_slide02.mov	0	-
 3	victor	passthru	raw/victor_a.mp4	3.8	50.4
 4	luis	passthru	raw/luis_full.mp4	121.6	177.8
-5	luis	passthru	raw/luis_full.mp4	200.0	265.4
+5	luis	passthru	raw/luis_full.mp4	200.8	265.4
 6	luis	passthru	raw/luis_full.mp4	283.2	339.1
 7	luis	passthru	raw/luis_full.mp4	424.9	484.1
 8	victor	passthru	raw/victor_b.mp4	5.8	86.2

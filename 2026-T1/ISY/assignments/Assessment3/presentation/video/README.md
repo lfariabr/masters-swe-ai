@@ -21,7 +21,7 @@ gitignored - together they are around 700 MB.
 
 ## Current state
 
-Complete: 12 slides, 10 min 59 s, 46 MB.
+Complete: 12 slides, 10 min 56 s, 46 MB.
 
 | Slides | Presenter | Source |
 |---|---|---|

@@ -14,7 +14,7 @@ is offered for promotional use.
 
 The presentation was delivered live in class, so no recording existed. Each
 member recorded their own slides and the parts are assembled into one video by
-`presentation/video/build.sh`. The video is complete: 12 slides, 10 min 59 s.
+`presentation/video/build.sh`. The video is complete: 12 slides, 10 min 56 s.
 
 | Slides | Presenter | Recorded |
 |---|---|---|
