@@ -1,5 +1,6 @@
 {
   "total_weeks": 164,
+  "reporting_corrections": 24,
   "top3": [
     {
       "country": "US",
@@ -20,6 +21,7 @@
       "slope": 760753.0019982861,
       "intercept": -15181282.780712271,
       "r2": 0.9687813478947734,
+      "rmse": 6465215.653586873,
       "newcase_var": 635188834808.5568
     },
     {
@@ -27,6 +29,7 @@
       "slope": 357001.1568933387,
       "intercept": -3769474.6693101996,
       "r2": 0.9248721196625794,
+      "rmse": 4816976.180426131,
       "newcase_var": 248001607698.60736
     },
     {
@@ -34,6 +37,7 @@
       "slope": 291818.6938922369,
       "intercept": -9769356.313182719,
       "r2": 0.8706642604188533,
+      "rmse": 5324663.624264529,
       "newcase_var": 162218218933.05023
     }
   ],
@@ -53,33 +57,213 @@
         "weeks": 80,
         "wk_lo": 1,
         "wk_hi": 80,
-        "mean_new": 441979.6375
+        "mean_new": 441979.6375,
+        "vs_overall": 0.6982926181439862
       },
       {
         "cluster": 1,
         "weeks": 79,
         "wk_lo": 81,
         "wk_hi": 164,
-        "mean_new": 584309.4556962026
+        "mean_new": 584309.4556962026,
+        "vs_overall": 0.9231623925760354
       },
       {
         "cluster": 2,
         "weeks": 5,
         "wk_lo": 102,
         "wk_hi": 106,
-        "mean_new": 4456776.8
+        "mean_new": 4456776.8,
+        "vs_overall": 7.04135230699486
       }
-    ]
+    ],
+    "overall_mean_new": 632943.3,
+    "peak_vs_overall": 7.04
   },
   "graph": {
     "neighbours": [
       {
         "neighbour": "Canada",
-        "corr": 0.848
+        "corr": 0.848,
+        "ci_low": 0.264,
+        "ci_high": 0.92,
+        "weeks": 164
       },
       {
         "neighbour": "Mexico",
-        "corr": 0.697
+        "corr": 0.697,
+        "ci_low": 0.459,
+        "ci_high": 0.819,
+        "weeks": 164
+      }
+    ]
+  },
+  "lead_lag": {
+    "lags_tested": [
+      -4,
+      -3,
+      -2,
+      -1,
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "decision_rule": {
+      "min_lag_weeks": 1,
+      "min_corr": 0.6
+    },
+    "profile": [
+      {
+        "neighbour": "Canada",
+        "lag": -4,
+        "corr": 0.391,
+        "weeks": 160
+      },
+      {
+        "neighbour": "Canada",
+        "lag": -3,
+        "corr": 0.606,
+        "weeks": 161
+      },
+      {
+        "neighbour": "Canada",
+        "lag": -2,
+        "corr": 0.789,
+        "weeks": 162
+      },
+      {
+        "neighbour": "Canada",
+        "lag": -1,
+        "corr": 0.882,
+        "weeks": 163
+      },
+      {
+        "neighbour": "Canada",
+        "lag": 0,
+        "corr": 0.848,
+        "weeks": 164
+      },
+      {
+        "neighbour": "Canada",
+        "lag": 1,
+        "corr": 0.711,
+        "weeks": 163
+      },
+      {
+        "neighbour": "Canada",
+        "lag": 2,
+        "corr": 0.549,
+        "weeks": 162
+      },
+      {
+        "neighbour": "Canada",
+        "lag": 3,
+        "corr": 0.413,
+        "weeks": 161
+      },
+      {
+        "neighbour": "Canada",
+        "lag": 4,
+        "corr": 0.312,
+        "weeks": 160
+      },
+      {
+        "neighbour": "Canada",
+        "lag": 5,
+        "corr": 0.234,
+        "weeks": 159
+      },
+      {
+        "neighbour": "Canada",
+        "lag": 6,
+        "corr": 0.18,
+        "weeks": 158
+      },
+      {
+        "neighbour": "Mexico",
+        "lag": -4,
+        "corr": 0.08,
+        "weeks": 160
+      },
+      {
+        "neighbour": "Mexico",
+        "lag": -3,
+        "corr": 0.19,
+        "weeks": 161
+      },
+      {
+        "neighbour": "Mexico",
+        "lag": -2,
+        "corr": 0.342,
+        "weeks": 162
+      },
+      {
+        "neighbour": "Mexico",
+        "lag": -1,
+        "corr": 0.523,
+        "weeks": 163
+      },
+      {
+        "neighbour": "Mexico",
+        "lag": 0,
+        "corr": 0.697,
+        "weeks": 164
+      },
+      {
+        "neighbour": "Mexico",
+        "lag": 1,
+        "corr": 0.799,
+        "weeks": 163
+      },
+      {
+        "neighbour": "Mexico",
+        "lag": 2,
+        "corr": 0.805,
+        "weeks": 162
+      },
+      {
+        "neighbour": "Mexico",
+        "lag": 3,
+        "corr": 0.715,
+        "weeks": 161
+      },
+      {
+        "neighbour": "Mexico",
+        "lag": 4,
+        "corr": 0.569,
+        "weeks": 160
+      },
+      {
+        "neighbour": "Mexico",
+        "lag": 5,
+        "corr": 0.429,
+        "weeks": 159
+      },
+      {
+        "neighbour": "Mexico",
+        "lag": 6,
+        "corr": 0.305,
+        "weeks": 158
+      }
+    ],
+    "best": [
+      {
+        "neighbour": "Canada",
+        "lag": -1,
+        "corr": 0.882,
+        "weeks": 163,
+        "warned": false
+      },
+      {
+        "neighbour": "Mexico",
+        "lag": 2,
+        "corr": 0.805,
+        "weeks": 162,
+        "warned": true
       }
     ]
   }

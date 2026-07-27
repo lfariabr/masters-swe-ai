@@ -1,8 +1,10 @@
 # BDA601 Assessment 3 - narration script
 
-**Target: ~8:15 of a 7-10 minute video.** Read at a calm pace; numbers are exact from
+**Target: ~9:00 of a 7-10 minute video, across 10 slides.** Read at a calm pace; numbers are exact from
 `outputs/metrics.json`. Audience = the focal country's non-bordering neighbours (policymakers).
-Narrate the *decision*, not the code. Times are per-slide; rehearse once to confirm you land under 10:00.
+Narrate the *decision*, not the code. Times are per-slide; rehearse once to confirm you land under 10:00 -
+if you are running long, slide 8 (the summary panel) is the safest one to shorten, since slides 6, 7 and 9
+carry the argument.
 
 ---
 
@@ -47,39 +49,56 @@ waves. Most strikingly, the algorithm isolates a single mega-surge - around 4.46
 week, across weeks 102 to 106, which is January 2022, the Omicron wave - as its own distinct cluster.
 That one cluster ran at roughly seven times the overall weekly average. Clustering turns 'cases went up' into 'here is exactly when, and how hard.'"
 
-### Slide 6 - Graph analytics  (~1:00)
+### Slide 6 - Graph analytics  (~0:55)
 
 "Now the decision step. I connect the US to two non-bordering neighbours - Canada and Mexico, which
 don't border each other - and weight each link by how strongly that neighbour's weekly new cases
-correlate with the US. Canada comes in at 0.85, a strong correlation; Mexico at 0.70. In plain terms,
-Canada's waves move almost in lockstep with the United States. That makes Canada the strongest
-candidate to use the US trajectory as an early-warning signal."
+correlate with the US. Canada comes in at 0.85, a strong correlation; Mexico at 0.70. The obvious
+reading is that Canada's waves move almost in lockstep with the United States, so Canada is the one to
+warn. But that same-week correlation is answering the wrong question. It asks whether two curves *look*
+alike. What a neighbour actually needs to know is whether its own wave arrives *after* the American one -
+because if both peak in the same week, there is nothing to warn about."
 
-### Slide 7 - The whole story in one frame  (~0:45)
+### Slide 7 - Lead-lag: who can actually be warned?  (~1:10)
 
-"This panel ties it together. On the left, the US infection waves coloured by their cluster phase; on
-the right, how strongly each neighbour's curve correlates with the US. You can read the entire argument
-left to right: raw cases, then the phases clustering found, then the neighbour most exposed to them."
+"So I recomputed the correlation at a range of time offsets, sliding each neighbour's series against the
+US week by week, from four weeks early to six weeks late. I fixed the decision rule before looking:
+recommend an early-warning arrangement only if the correlation peaks at a lag of at least one week, and
+is at least 0.6 at that lag. The result reverses the ranking. Canada's correlation peaks at *minus* one
+week, at 0.88 - meaning Canada moves with, or even slightly ahead of, the United States. There is no
+warning window there. Mexico is the opposite: its correlation climbs from 0.70 in the same week to 0.81
+when you shift it forward two weeks. Mexico genuinely follows the US, by about a fortnight. The
+neighbour that looked weaker is the one that can actually act on the signal."
 
-### Slide 8 - Recommendations  (~1:15)
+### Slide 8 - The whole story in one frame  (~0:40)
 
-"So what should the neighbours actually do? For Canada, with a 0.85 correlation: treat the US trajectory
-as a leading indicator. When the US enters a surge phase, pre-position testing and hospital capacity one
-to two weeks ahead - don't wait for your own numbers to climb. For Mexico, at 0.70: the coupling is
-moderate, so watch US surges but weight your own local signals more heavily. And for everyone: plan your
-capacity for the Omicron-style mega-surge cluster, not the steady baseline - because that single cluster
-carried about seven times the overall weekly average. Planning for the average is how you get overwhelmed
-by the peak."
+"This panel ties it together. On the left, the US infection waves coloured by their cluster phase. In the
+middle, the same-week correlation that pointed at Canada. On the right, the lead-lag profile that
+overturns it. You can read the whole argument left to right: raw cases, then the phases clustering found,
+then which neighbour those phases can genuinely warn."
 
-### Slide 9 - Limitations & close  (~0:50)
+### Slide 9 - Recommendations  (~1:10)
 
-"Two honest caveats. On the data: these counts are cumulative and depend on each country's reporting,
-and the Johns Hopkins series stopped on the 10th of March 2023. On the method: I used week number as a
-clustering input, so the phases are partly temporal by construction, and 'neighbour' here means
-geography, not true population mobility. The next steps would be to model weekly new cases directly, add
-mobility and vaccination data, and test the lead-lag explicitly to quantify the warning window. But the
-core result stands: data turned a wall of numbers into a concrete, actionable warning for neighbours.
-Thank you."
+"So what should the neighbours actually do? Mexico is the real early-warning case: at a two-week lag the
+correlation is 0.81, so when the US enters a surge phase, Mexico should pre-position testing and hospital
+capacity roughly two weeks ahead of its own expected peak. Judging on same-week correlation alone would
+have missed this entirely. Canada is the opposite lesson: highly correlated, but synchronous. The US is
+not a leading indicator for Canada, so Canada's investment belongs in its own domestic surveillance -
+by the time American numbers climb, Canadian ones already are. And for everyone: plan capacity for the
+Omicron-style mega-surge cluster, not the steady baseline, because that single cluster carried about
+seven times the overall weekly average. Planning for the average is how you get overwhelmed by the peak."
+
+### Slide 10 - Limitations & close  (~0:50)
+
+"Some honest caveats. On the data: these are *confirmed* cases, so they measure testing and reporting as
+much as transmission, and the Johns Hopkins series stopped on the 9th of March 2023. On the method: I
+used week number as a clustering input, so the phases are partly temporal by construction; 'neighbour'
+here means geography rather than true population mobility; and I fit a single lag averaged over three
+years, when different variants clearly travelled at different speeds. And correlation is not causation -
+a lagged match may simply mean a new variant reached both countries in sequence. The natural next steps
+are mobility and vaccination data, and a lag estimated per wave rather than once. But the core result
+stands: the same-week number said Canada. Shifting the series by two weeks said Mexico - and that is the
+recommendation that would actually have bought someone time. Thank you."
 
 ---
 

@@ -32,7 +32,7 @@ Every big-data project runs **prepare → analyse → decide**.
 
 One analytical chain, each step feeding the next:
 
-**top-3 countries → linear regression → pick the most volatile → K-Means waves → graph to neighbours → recommendation**
+**top-3 countries → linear regression → pick the most volatile → K-Means waves → graph to neighbours → lead-lag → recommendation**
 
 Tools: **Apache Spark MLlib** (regression + K-Means) · **networkx** (graph) · 164 weeks of data.
 
@@ -72,32 +72,45 @@ All three rise - but at very different rates and shapes. Which one is the *most 
 ![h:380](../outputs/figures/fig04_neighbour_graph.png)
 
 - US linked to non-bordering neighbours **Canada** and **Mexico** (they do not border each other).
-- Edge = correlation of weekly new cases: **Canada r = 0.85 (strong)**, **Mexico r = 0.70**.
-- Canada's waves track the US most closely → the strongest early-warning candidate.
+- Edge = correlation of weekly new cases **in the same week**: Canada **r = 0.85**, Mexico **r = 0.70**.
+- Obvious reading: Canada tracks the US most closely, so warn Canada.
+- **But same-week correlation answers the wrong question.** It asks *"do these curves look alike?"*, not *"does my wave arrive after theirs?"*
+
+---
+
+# Lead-lag: who can actually be warned?
+
+![h:300](../outputs/figures/fig07_lead_lag.png)
+
+Correlation of US at week *t* vs neighbour at week *t+k*. **Rule set in advance:** warn only if peak lag ≥ +1 week and r ≥ 0.60.
+
+- **Canada peaks at k = -1** (r = 0.88): moves *with or ahead of* the US → **no warning window**.
+- **Mexico peaks at k = +2** (r = 0.81, up from 0.70): follows the US → **~2 weeks of warning**.
 
 ---
 
 # The whole story in one frame
 
-![h:400](../outputs/figures/fig05_story_panel.png)
+![h:340](../outputs/figures/fig05_story_panel.png)
 
-Left: the US waves by phase. Right: how strongly each neighbour correlates.
-The line from raw data → phases → a neighbour recommendation.
+Left: US waves by phase. Middle: same-week correlation. Right: the lead-lag profile that overturns it.
+Raw data → phases → *who actually gets a warning*.
 
 ---
 
 # Recommendations to the neighbours
 
-- **Canada (r = 0.85):** treat the US trajectory as a leading indicator; when the US enters a surge phase, pre-position testing and hospital capacity **1-2 weeks ahead**.
-- **Mexico (r = 0.70):** moderate coupling - watch US surges, but weight local signals more heavily.
+- **Mexico (lag +2, r = 0.81):** the real early-warning case. When the US enters a surge phase, pre-position testing and hospital capacity **~2 weeks ahead**. Same-week correlation understated this.
+- **Canada (lag -1, r = 0.88):** highly correlated but **synchronous** - the US is *not* a leading indicator here. Invest in domestic surveillance; by the time US numbers climb, Canada's already are.
 - **General:** plan capacity for the isolated **Omicron-style mega-surge cluster**, not the steady baseline - that single cluster carried ~7x the overall weekly average.
 
 ---
 
 # Limitations & close
 
-- **Data:** counts are cumulative and reporting-dependent; the JHU series **stopped 10 Mar 2023**.
-- **Method:** `week` is a clustering input, so the phases are partly temporal by construction; "neighbour" is defined by geography, not true population mobility.
-- **Next steps:** model weekly new cases directly, add mobility/vaccination data, and test lead-lag (cross-correlation) to quantify the warning window.
+- **Data:** counts are *confirmed cases*, so they track testing and reporting as much as transmission; the JHU series **stopped 9 Mar 2023**.
+- **Method:** `week` is a clustering input, so phases are partly temporal by construction; "neighbour" is geography, not mobility; one fixed lag averages over three years of variants.
+- **Correlation is not causation** - a lagged match may reflect a shared driver, such as a variant reaching the region.
+- **Next steps:** mobility and vaccination data, and a time-varying lag per wave.
 
-**Close:** data turned a wall of numbers into a concrete, actionable warning for neighbours.
+**Close:** the same-week number said *Canada*. Shifting the series by two weeks said *Mexico* - and that is the recommendation that would actually have bought someone time.
