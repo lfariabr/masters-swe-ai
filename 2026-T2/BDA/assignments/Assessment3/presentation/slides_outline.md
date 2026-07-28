@@ -1,6 +1,6 @@
 # BDA601 Assessment 3 - Video presentation outline (skeleton)
 
-**Format:** 8-10 slides, video <= 10 minutes. Audience = the focal country's **non-bordering neighbours**, who need it to make COVID policy decisions. Tie together predictive modelling + clustering + graph analytics + visualisation (the rubric rewards "all analytical tasks correlated").
+**Format:** 8-10 slides, video <= 10 minutes. Audience = the focal country's neighbouring countries, selected so those neighbours do not border each other. Tie together predictive modelling + clustering + graph analytics + visualisation (the rubric rewards "all analytical tasks correlated").
 
 **Deliverables to submit (zip):** Python source code (the notebook, with run instructions in a comment at the top) + the video file + this slide deck exported to PDF.
 
@@ -33,21 +33,25 @@
 - This **validates** that growth was *not* steady: it came in waves (up - down - up).
 
 ### Slide 6 - Graph analytics: who moves with the US? (~60s) · **fig04_neighbour_graph.png**
-- The US linked to non-bordering neighbours (Canada, Mexico - they do not border each other).
+- The US linked to Canada and Mexico, two neighbours that do not border each other.
 - Edge = correlation of weekly new cases: **Canada r = 0.85 (strong)**, **Mexico r = 0.70**.
-- Canada's waves track the US most closely -> strongest early-warning candidate.
+- Same-week correlation makes Canada look like the strongest early-warning candidate, but this needs lead-lag testing.
 
-### Slide 7 - The whole story in one frame (~45s) · **fig05_story_panel.png**
-- Left: US waves by phase. Right: how strongly each neighbour correlates.
-- The line from raw data -> phases -> a neighbour recommendation.
+### Slide 7 - Lead-lag: who can actually be warned? (~60s) · **fig07_lead_lag.png**
+- Canada peaks at lag -1 (r = 0.88), so it moves with or ahead of the US and has no warning window.
+- Mexico peaks at lag +2 (r = 0.81), so it follows the US and has about two weeks of warning.
 
-### Slide 8 - Recommendations to the neighbours (~75s)
-- **Canada (r = 0.85):** treat the US trajectory as a leading indicator; when the US enters a surge phase, pre-position testing + hospital capacity ~1-2 weeks ahead.
-- **Mexico (r = 0.70):** moderate coupling; watch US surges but weight local signals more.
+### Slide 8 - The whole story in one frame (~45s) · **fig05_story_panel.png**
+- Left: US waves by phase. Middle: same-week correlation. Right: lead-lag profile.
+- The line from raw data -> phases -> who actually gets a warning.
+
+### Slide 9 - Recommendations to the neighbours (~75s)
+- **Mexico (lag +2, r = 0.81):** treat the US trajectory as an early-warning signal and pre-position testing + hospital capacity about two weeks ahead.
+- **Canada (lag -1, r = 0.88):** highly correlated but synchronous; invest in domestic surveillance rather than relying on US numbers.
 - General: the isolated Omicron-style cluster is the scenario to plan capacity for, not the steady baseline.
 
-### Slide 9 - Limitations & close (~45s)
-- Data caveats: counts are **cumulative** and **reporting-dependent**; the JHU series **stopped 10 Mar 2023**; "neighbour" defined by geography, not true mobility.
+### Slide 10 - Limitations & close (~45s)
+- Data caveats: counts are **confirmed cases** and **reporting-dependent**; this file ends **9 Mar 2023**, and JHU ceased collection on **10 Mar 2023**; "neighbour" defined by geography, not true mobility.
 - Next steps: model **weekly new cases** directly, add mobility/vaccination data, test lead-lag (cross-correlation) to quantify the warning window.
 - Close: data turned a wall of numbers into a concrete, actionable warning for neighbours.
 
