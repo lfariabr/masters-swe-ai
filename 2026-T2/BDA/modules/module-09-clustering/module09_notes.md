@@ -11,23 +11,41 @@
 
 | # | Task | Status |
 |---|------|--------|
-| 1 | Read & summarise Xu & Wunsch (2009) - Cluster Analysis (Ch1, pp. 1-12) | 🔥 WIP - needs manual access (ebook) |
+| 1 | Read & summarise Xu & Wunsch (2009) - Cluster Analysis (Ch1, pp. 1-12) | 🔥 WIP - needs manual access (ebook); 4-step workflow now covered from lecture slides, see §1 below |
 | **2** | Read & summarise Le (2019) - An Introduction to Big Data: Clustering | ✅ |
 | **3** | Read & summarise Sharma (2019) - The Most Comprehensive Guide to K-Means Clustering | ✅ |
 | **4** | Watch & summarise Sullivan (2017) - Spark for Machine Learning and AI: K-means Clustering | ✅ |
-| 5 | Activity 1: Determine the Value of K (forum post) | 🕐 |
-| 6 | Activity 2: Clustering Tool - run the scikit-learn K-means example, explain the 4 graphs (8 vs 3 clusters) | 🕐 |
+| 5 | Activity 1: Determine the Value of K (forum post) - synthetic income/age dataset, elbow method, code walked through live in Week 9 class | 🕐 |
+| 6 | Activity 2: Iris K-means comparison - 8 clusters vs 3 clusters vs 3-clusters-poor-start vs actual species, code walked through live in Week 9 class | 🕐 |
 
 **Local sources (this folder):**
 - `r2_An-Introduction-to-Big-Data-Clustering_Le-2019.pdf` (Resource 2)
 - `r3_The-Most-Comprehensive-Guide-to-K-Means-Clustering_Sharma-2019.pdf` (Resource 3 - Sharma's article; site has since retitled/updated it from "The Most Comprehensive Guide" but it's the same Analytics Vidhya piece)
 - `r4_Spark-for-ML-and-AI-K-means-Clustering_Sullivan-2017.md` (Resource 4 - Sullivan video transcript)
-- `bonus_Demonstration-of-K-means-Assumptions_scikit-learn-docs.pdf` - not one of the four listed resources, but directly useful for Activities 1 and 2 (see the bonus section below)
-- ⚠️ **Resource 1** (Xu & Wunsch, *Cluster Analysis*) is a ProQuest/EBSCO ebook behind Torrens auth - no local PDF exists. Summarise once you can access and paste/export the chapter text; until then this file's Key Highlights below cover Resources 2-4 plus the bonus scikit-learn doc.
+- `bonus_Demonstration-of-K-means-Assumptions_scikit-learn-docs.pdf` - not one of the four listed resources, and **not** the two graded activities either (see the corrected note in the bonus section below) - it's conceptual background only
+- `Module_9_Clustering.ipynb` - the actual Week 9 code practical, covering **both** learning activities with real datasets and code (see "From class" section below)
+- `BDA week 9.docx` (lecture transcript) / `BDA_S9_V2.pptx` (slides) - source of the "From class" section below
+- ⚠️ **Resource 1** (Xu & Wunsch, *Cluster Analysis*) is a ProQuest/EBSCO ebook behind Torrens auth - no local PDF exists. The 4-step cluster-analysis workflow slide 4 quotes from it is captured in §1 below; full chapter summary still pending manual access.
 
 ---
 
 ## Key Highlights
+
+### 1. Cluster Analysis (Xu & Wunsch 2009) - partial, from lecture slide 4
+
+**Citation:** Xu, R., & Wunsch, D. (2009). *Clustering*. Wiley-IEEE Press. (ProQuest/EBSCO ebook, Torrens auth - full chapter not yet accessed)
+**Source for this excerpt:** `BDA_S9_V2.pptx`, slide 4, which explicitly credits Xu & Wunsch for framing clustering as more than "just applying an algorithm."
+
+- 🖤 **Cluster analysis is a 4-step workflow, not a single algorithm call:**
+  1. **Feature selection / extraction** - keep variables that reflect meaningful similarity.
+  2. **Choose algorithm** - k-means, hierarchical, DBSCAN, or another method.
+  3. **Validate clusters** - check cohesion, separation, stability, and practical sense.
+  4. **Interpret results** - translate groups into business or scientific insight.
+- 🔴 **"Weak feature choices can produce weak clusters, even when the algorithm runs correctly."** This is the module's framing device - it's why Zone/Key-Takeaway sections below keep returning to feature selection and interpretation rather than just the k-means mechanics.
+
+*Full ebook chapter summary still pending manual access - the above is the workflow skeleton from the lecture slide, not a substitute for reading Ch1 pp. 1-12.*
+
+---
 
 ### 2. An Introduction to Big Data: Clustering (Le 2019)
 
@@ -48,6 +66,7 @@
 - **Algorithm:** pick k random means → assign every point to its nearest mean (this partition is a **Voronoi diagram**) → recompute each cluster's centroid as the new mean → repeat until convergence.
 - 🔵 **Worked example** (9 points, k=2, Manhattan distance): random centroids `(2,8)` and `(8,1)` → after 1 round of reassign-and-recompute, centroids move to `(4,5)` and `(2,2)` → after another round, `(6,7)` and `(1,3)` → third round: **centroids stop moving** ((6,7) and (1,3) recur) → **converged**.
   - ⚠️ **Source erratum:** Le's own worked example pairs **Manhattan distance** with **mean-based** centroid updates - that combination is internally inconsistent. Textbook k-means pairs **Euclidean** distance with the **mean** (minimising squared error); pairing Manhattan distance with a **median** update is the correct combination, and that variant is called **k-medians**, not k-means. Cite the worked steps for the mechanics, not as a precise definition of vanilla k-means.
+  - 🔴 **From class (Week 9): why you'd actually pick k-medians over k-means.** Dr. Chen's reasoning is about outlier sensitivity, not just the distance metric: the **mean** is dragged toward extreme values (an outlier at the edge of a cluster pulls the whole centroid toward it), while the **median** only depends on relative rank, so it barely moves even if the most extreme point gets more extreme. His guidance: if you have **not** already done outlier detection/removal as part of data prep, k-medians is the more robust default; if you have (or your data is clean), k-means is the conventional choice.
 - 🔴 **Choosing k is a bias/variance problem in disguise:** increasing k **without penalty always reduces error**, down to zero error at k=n (every point its own cluster). That extreme is useless - it's Module 8's overfitting lesson wearing a different hat: a "perfect" clustering (k=n) is not evidence of a good model, it's a sign you've stopped modelling anything.
 - **Two selection criteria:**
   - **SSE (sum of squared errors):** minimise the within-cluster squared distance to centroid. Plotted against k, this is the **elbow method**.
@@ -132,7 +151,7 @@
 | **Feature scale mismatch** | distance-based algorithm - when feature magnitudes aren't meaningfully comparable, the larger-range feature dominates the distance calculation | **`StandardScaler`** before fitting when magnitudes differ (worked in the Python example: raw `Channel`/`Region` columns have tiny magnitude vs `Fresh`/`Milk`/`Grocery` - unscaled, k-means would effectively ignore the small-magnitude columns) |
 
 #### Key Takeaways for BDA601
-1. **This is the deepest resource on the algorithm the module's own activities use** - Activity 2 literally runs a scikit-learn K-means example and asks you to compare 8-cluster vs 3-cluster output; the two defining properties (within-cluster similarity, between-cluster dissimilarity) are your vocabulary for describing *why* one number of clusters looks better than another in the graphs.
+1. **This is the deepest resource on the algorithm the module's own activities use** - Activity 2 (the Iris comparison, see "From class" below) literally compares 8-cluster vs 3-cluster output; the two defining properties (within-cluster similarity, between-cluster dissimilarity) are your vocabulary for describing *why* one number of clusters looks better than another in the graphs.
 2. **Scale your features whenever their magnitudes aren't already comparable** - unlike a decision tree (Module 6), which is scale-invariant, k-means is **distance-based** and will silently let large-magnitude columns dominate. `StandardScaler` is the default move here, the same caution as `LSTAT`/`RM`/`PTRATIO` in Module 8, but applied automatically rather than as a modelling choice. If the underlying geometry itself is the problem (elliptical or unequal-variance clusters), scaling alone won't fix it - that's when you reach for `GaussianMixture` or `DBSCAN` instead (see the bonus section below).
 3. **Day-job anchor:** the bank credit-card example maps directly onto customer segmentation you could run on warehouse transaction/usage data - k found via the elbow method, `StandardScaler`'d features, sanity-checked with silhouette before trusting the segments enough to act on them (echoing McCormick's "we're not done until we deploy" from Module 8 - a cluster nobody acts on is just a scatter plot).
 4. Cross-links: inertia/Dunn/silhouette here are Module 7's "no single metric tells the whole story" lesson, restated for unsupervised learning; the elbow method's "no universal answer, just a defensible range" echoes Dr. Chen's R²/AUC threshold guidance from Module 8's Week 8 lecture.
@@ -182,7 +201,7 @@ CSV (header, inferSchema)  →  VectorAssembler(inputCols=[col1,col2,col3], outp
 **Citation:** scikit-learn developers. (n.d.). *Demonstration of k-means assumptions* [Documentation]. scikit-learn 1.9.0. Retrieved from https://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_assumptions.html
 **Local source:** `bonus_Demonstration-of-K-means-Assumptions_scikit-learn-docs.pdf`
 
-**Purpose:** Not one of the four listed Module 9 resources, but it's already in the module folder and it directly primes **both** learning activities - it's the "here's exactly when k-means lies to you" companion piece to R2/R3's theory.
+**Purpose:** Not one of the four listed Module 9 resources, and - correcting an earlier version of this file - **not** the graded Activity 2 either. The actual Activity 1 and Activity 2 datasets/code come from `Module_9_Clustering.ipynb` (see "From class" below); this scikit-learn doc uses a *different* toy dataset (anisotropic/unequal-variance/unevenly-sized synthetic blobs) and is background reading only. It's still useful: it's the "here's exactly when k-means lies to you" companion piece to R2/R3's theory, and its vocabulary (geometric assumption vs. initialisation luck) transfers directly to interpreting Activity 2's graphs.
 
 ---
 
@@ -198,14 +217,56 @@ CSV (header, inferSchema)  →  VectorAssembler(inputCols=[col1,col2,col3], outp
 - 🔴 **Two different problems, don't conflate them.** The first three rows are **geometric assumption violations**: k-means' objective function (minimise squared Euclidean distance to centroid) bakes in the assumption that clusters are round, similarly sized, and similarly dense - when real data isn't, k-means still runs and still returns an answer, just the wrong one, and **no choice of k or `n_init` fixes it** (only a different algorithm, like `GaussianMixture`, does). The fourth row (uneven-sized blobs risking a bad local minimum) is a **separate, unrelated problem**: it's about *initialisation luck*, not geometry - increasing `n_init` (more random restarts, keep the best-inertia run) fixes *that*, but it does nothing for anisotropic or unequal-variance data. **The algorithm never tells you which kind of failure you're looking at** - that judgement is on you.
 
 #### Key Takeaways for BDA601
-1. **This is the critical-thinking companion to Activity 2.** When you run the scikit-learn K-means example and compare 8 vs 3 clusters, this doc is your vocabulary for *why* a given cluster count can look "wrong" even when the code runs cleanly - shape/variance/size mismatches, not just "the wrong k".
+1. **This is background vocabulary for Activity 2, not Activity 2 itself.** When you run the actual Iris comparison (8 vs 3 vs poor-start clusters, see "From class" below), this doc supplies the *why* for cluster-count and initialisation weirdness - shape/variance/size mismatches, not just "the wrong k".
 2. **Ties directly to Activity 1** ("describe how you'd determine k") - a complete answer should mention that **the elbow/silhouette method assumes k-means' own geometric assumptions hold**; if they don't (elliptical, uneven-density data), no choice of k fixes it and you need a different algorithm (GaussianMixture, DBSCAN) instead.
 3. This is the unsupervised-learning analogue of Module 6's "know your model's assumptions" theme (e.g. decision trees assuming axis-aligned splits) - **every algorithm has blind spots baked into its objective function**, and reading real data through that lens is what separates running code from actually modelling.
+
+---
+
+### From class (Week 9 lecture + code practical, 27/07/2026)
+
+**Sources:** `BDA week 9.docx` (lecture transcript), `BDA_S9_V2.pptx` (slides), `Module_9_Clustering.ipynb` (the code Dr. Chen ran live in Google Colab).
+
+**Correction to earlier notes:** the module's two graded activities do **not** use the scikit-learn "k-means assumptions" bonus doc's anisotropic-blob data. They use two different, concrete datasets, both walked through live in class.
+
+#### Activity 1: synthetic income/age customer data, K found via elbow
+- **Data:** `create_clustered_data(100, 5)` - 100 synthetic customers from **5 groups**, each group with its own random income centre (`$20k-$200k`) and age centre (`20-70`), points scattered normally around those centres. Two features: income, age.
+- **Pipeline:** `StandardScaler()` (income is in the tens of thousands, age is in years - unscaled, income would dominate every distance calculation) → loop `k=1..10`, fit `KMeans(n_clusters=k, n_init=10, random_state=42)`, record `.inertia_` → plot k vs inertia → **elbow lands at k=5**, matching the data's true generating structure (5 groups).
+- **Final model:** `KMeans(n_clusters=5, n_init=10, random_state=42).fit_predict(scaled_data)` - `n_init=10` (ten random restarts, keep the best-inertia run) is the actual default used in this subject's code, not `"auto"`.
+- 🔴 **Discussion-forum answer skeleton (from the notebook's own guide):** select features → clean missing/incorrect values → scale variables in different units → run k-means across several k → record inertia per k → plot the elbow → find where improvement flattens → check the chosen k is meaningful/useful. This is your literal Activity 1 answer structure.
+
+#### Activity 2: Iris dataset, 8 vs 3 vs 3-poor-start vs actual species
+- **Data:** the classic `load_iris()` (150 flowers, 4 measurements: sepal length/width, petal length/width). `X` = measurements used by k-means; `y` = true species labels, held back and only used afterward for comparison - k-means never sees them.
+- **Four models compared, plotted as 3D scatter (petal width, sepal length, petal length):**
+  1. **8 clusters** (`n_init=10`) - **over-clustering**: splits the 3 real species into many small fragments.
+  2. **3 clusters** (`n_init=10`) - matches the true species count; one species clearly separates, the other two overlap somewhat. Reasonably close to ground truth.
+  3. **3 clusters, poor start** (`init="random", n_init=1, random_state=43`) - correct k, but only one random starting position instead of ten - demonstrates that k-means can settle on a **weaker local solution** purely from bad initial centroids, independent of k being right.
+  4. **Actual Iris species** - the ground-truth reference panel, not a k-means output.
+- 🔴 **Cluster labels are arbitrary.** Cluster `0` from k-means is not guaranteed to correspond to any particular species - you have to inspect and label clusters after the fact, the same point made generically in Sharma's resource.
+- 🔴 **This IS the module's real "8 vs 3" activity** - not the bonus scikit-learn anisotropic-blob demo. The comparison teaches two separate lessons at once: **k too large fragments real structure** (panel 1 vs 2) and **bad initialisation weakens a correctly-sized k** (panel 2 vs 3) - the same two-different-problems distinction the bonus doc makes conceptually, now on real data.
+
+#### Live silhouette score demo
+- Dr. Chen extended the Iris practical live to compute `silhouette_score` on the final model - result **≈0.78** (transcribed inaccurately as "cigarette"/"pseudo-ette" score - it's **silhouette**). Confirms Sharma's framing: **closer to 1 is better**, and 0.78 is a strong result.
+- 🔴 **Q&A - does a lower inertia always mean a better model?** A student asked whether k=10's lower inertia than k=5's makes k=10 "better." Chen's answer: **no** - "all this statistical metric is for your reference, the interpretation is always much more important." Same "no universal threshold" lesson as Module 8's R²/MAE guidance, now stated explicitly for clustering.
+- 🔴 **Q&A - does the elbow/silhouette method still work with more than 2 features?** Yes - "all the methods, metrics is irrelevant with number of features." The 2D income/age example is just for visualisation; the method itself doesn't care how many dimensions you're clustering on.
+
+#### Q&A: feature selection, unsupervised vs supervised
+A student asked how to decide which features to feed the model. Chen's answer had two tracks:
+- **Manual/domain-knowledge check** (always applies): drop IDs (no descriptive meaning), drop columns with extensive duplicate or missing values, drop columns where every row has the same value - none of these can meaningfully separate individuals by distance.
+- **Data-driven/statistical check**: for **supervised** learning (Modules 6-8), run correlation analysis against your target variable to find the best predictive features. For **unsupervised** learning (this module, and Assessment 3), there's no target to correlate against - Chen's explicit guidance is to **focus on the data-cleaning stage and eliminate obviously redundant/meaningless features**, not to chase a statistical feature-selection test that doesn't have a clear target to test against.
+
+#### Toolchain note
+- The **live practical and both learning activities run in scikit-learn via Google Colab**, not PySpark. R4 (Sullivan) remains the only PySpark resource in the module - useful for the PySpark toolchain pattern, but not the tool actually used for Activities 1/2 or (per the slides' Assessment 3 checklist) expected for Assessment 3 either.
+
+#### Extra context from the lecture (not on the slides)
+- **Task/target-variable comparison** (slide 5): Classification (target = categorical, "which class?"), Regression (target = numeric, "what value?"), Clustering (**no target**, "what groups naturally exist?"). Useful one-line differentiator when asked to justify why a problem is a clustering problem.
+- **Day-job framing from Chen's own research** (genomics): clustering used at the sampling/sequencing stage to group cells by gene-expression pattern *before* knowing cell type or disease status - clustering as a discovery step that speeds up, not replaces, further analysis. Direct analogue to warehouse anomaly/segment discovery before you have labels to work with.
+- **Assessment 3 prep checklist** (slide 15) - Before modelling: understand the dataset, clean it, select relevant features, scale where needed. During modelling: try more than one k, record parameter choices, use k-means (required), visualise/compare outputs. In the report: justify the chosen k, describe each cluster in plain language, connect findings to the case context, note limitations. **"Marks usually come from reasoning and interpretation, not just running the algorithm."**
 
 ---
 
 ## Where this module fits
 
 - **Modules 6-8** were all **supervised**: labelled data → predict `y` (classification or regression). **Module 9 drops the label entirely** - clustering finds structure with no target variable, which is why R3 spends real time establishing "clustering is an unsupervised learning problem" as its own idea, not an assumed one.
-- **The throughline across all four resources:** k-means is one algorithm, covered at four depths - definition + alternatives (R2), full implementation + failure modes (R3), the exact PySpark toolchain (R4), and the exact geometric assumptions that break it (bonus). By the time Activity 2 asks you to explain 8-vs-3 clusters, you have theory, code, and a labelled failure-mode checklist to draw on.
+- **The throughline across all four resources:** k-means is one algorithm, covered at four depths - definition + alternatives (R2), full implementation + failure modes (R3), the PySpark toolchain (R4, background - the actual activities run in scikit-learn), and the exact geometric assumptions that break it (bonus). By the time Activity 2 asks you to explain the Iris 8-vs-3-vs-poor-start comparison (see "From class"), you have theory, code, and a labelled failure-mode checklist to draw on.
 - **Feeds Assessment 3** (familiarisation only this week - due Week 12): clustering plus Module 8's predictive modelling and Module 7's evaluation are the toolkit A3 draws from.
