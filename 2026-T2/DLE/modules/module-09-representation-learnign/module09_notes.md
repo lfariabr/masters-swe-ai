@@ -35,7 +35,7 @@
 #### 1. What is a "good" representation? (the framing)
 - **The Roman-numeral test.** `210 ÷ 6` is trivial in Arabic numerals, near-impossible in `CCX ÷ VI`. Same information, different *representation* — the task is easy or hard depending on how the data is encoded. This is the whole chapter in one image.
 - **Operational definition:** *a good representation is one that makes a subsequent learning task easier.* It is always defined **relative to the downstream task** — there is no context-free "best" representation.
-- **Sorting analogy (day-job hook):** inserting into a sorted list is `O(n)` on a linked list but `O(log n)` on a red-black tree — same data, the index structure *is* the representation. This is exactly why you build indexed / star-schema warehouse tables instead of querying raw event logs.
+- **Day-job hook (St Cat's):** the same student record is easy or hard to work with depending on how you represent it - raw Synergetic tables vs the shaped **Student 360** profile, or a hand-thresholded "at-risk" SQL flag vs a learned low-dimensional engagement vector. The representation you choose decides how hard the next question is to answer.
 
 #### 2. Supervised nets already do representation learning
 - A feedforward net trained by supervised learning = **representation learning in disguise**. The last layer is a linear (softmax) classifier; **everything before it exists to hand that classifier a linearly separable representation.**
