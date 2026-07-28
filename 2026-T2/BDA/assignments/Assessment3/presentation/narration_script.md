@@ -1,7 +1,7 @@
 # BDA601 Assessment 3 - narration script
 
 **Target: ~9:00 of a 7-10 minute video, across 10 slides.** Read at a calm pace; numbers are exact from
-`outputs/metrics.json`. Audience = the focal country's non-bordering neighbours (policymakers).
+`outputs/metrics.json`. Audience = the focal country's neighbours (policymakers).
 Narrate the *decision*, not the code. Times are per-slide; rehearse once to confirm you land under 10:00 -
 if you are running long, slide 8 (the summary panel) is the safest one to shorten, since slides 6, 7 and 9
 carry the argument.
@@ -51,9 +51,9 @@ That one cluster ran at roughly seven times the overall weekly average. Clusteri
 
 ### Slide 6 - Graph analytics  (~0:55)
 
-"Now the decision step. I connect the US to two non-bordering neighbours - Canada and Mexico, which
-don't border each other - and weight each link by how strongly that neighbour's weekly new cases
-correlate with the US. Canada comes in at 0.85, a strong correlation; Mexico at 0.70. The obvious
+"Now the decision step. I connect the US to two of its neighbours - Canada and Mexico, which as the
+brief requires do not border each other - and weight each link by how strongly that neighbour's
+weekly new cases correlate with the US. Canada comes in at 0.85, a strong correlation; Mexico at 0.70. The obvious
 reading is that Canada's waves move almost in lockstep with the United States, so Canada is the one to
 warn. But that same-week correlation is answering the wrong question. It asks whether two curves *look*
 alike. What a neighbour actually needs to know is whether its own wave arrives *after* the American one -
@@ -91,7 +91,8 @@ seven times the overall weekly average. Planning for the average is how you get 
 ### Slide 10 - Limitations & close  (~0:50)
 
 "Some honest caveats. On the data: these are *confirmed* cases, so they measure testing and reporting as
-much as transmission, and the Johns Hopkins series stopped on the 9th of March 2023. On the method: I
+much as transmission; this file's last date is the 9th of March 2023, and Johns Hopkins ceased
+collecting and reporting the day after, on the 10th. On the method: I
 used week number as a clustering input, so the phases are partly temporal by construction; 'neighbour'
 here means geography rather than true population mobility; and I fit a single lag averaged over three
 years, when different variants clearly travelled at different speeds. And correlation is not causation -

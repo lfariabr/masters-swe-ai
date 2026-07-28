@@ -23,8 +23,8 @@ md(r"""# BDA601 Assessment 3 - Model Evaluation
 | Deliverables | Source code (this notebook) + video presentation + PDF slides |
 
 **Story in one line:** find the three worst-hit countries, model their growth, pick the most volatile
-one, use clustering to expose its infection *waves*, then work out which non-bordering neighbour the
-focal country can actually give an early warning to - and how many weeks of warning that is.""")
+one, use clustering to expose its infection *waves*, then work out which neighbour the focal country
+can actually give an early warning to - and how many weeks of warning that is.""")
 
 # ---------------------------------------------------------------- How to run
 md(r"""## How to run this notebook
@@ -153,9 +153,10 @@ An enterprise big-data analytics project runs in three phases: **prepare** the d
 visualise** it, and **make decisions** from the insight. Here the decision context is public health:
 using the Johns Hopkins confirmed-case series, I identify the three most-infected countries, fit a
 linear growth model to each, select the most volatile country, use K-Means to reveal how its infection
-*waves* rose and fell over time, then use graph analytics to work out which non-bordering neighbours
-track its trend - and, crucially, *with what time lag*, because only a neighbour that follows the focal
-country can be warned by it. The chain is deliberate: each step feeds the next
+*waves* rose and fell over time, then use graph analytics to work out which neighbours track its trend.
+Following the brief, those neighbours are selected so that they do not share a border with each other.
+The decisive question is *with what time lag* they track it, because only a neighbour that follows the
+focal country can be warned by it. The chain is deliberate: each step feeds the next
 (regression -> selection -> clustering -> graph -> lead-lag -> recommendation).""")
 
 # ---------------------------------------------------------------- 2. Task 1 prep
@@ -273,8 +274,9 @@ for ax, c in zip(axes, TOP3):
     ax.plot(d["week"], (slope * d["week"] + intercept) / 1e6, "r-", label="linear fit")
     r2 = reg.loc[reg.country == c, "r2"].values[0]
     ax.set_title(f"{c}  (R2={r2:.3f})"); ax.set_xlabel("week"); ax.set_ylabel("confirmed (M)"); ax.legend()
-plt.suptitle("Linear regression fits - cumulative confirmed vs week", y=1.03)
-plt.tight_layout(); plt.savefig(FIG_DIR / "fig02_regression_fits.png"); plt.show()""")
+plt.suptitle("Linear regression fits - cumulative confirmed vs week", y=0.99)
+# rect reserves headroom so the suptitle stays inside the saved bounding box.
+plt.tight_layout(rect=[0, 0, 1, 0.93]); plt.savefig(FIG_DIR / "fig02_regression_fits.png"); plt.show()""")
 
 code(r"""# Residual diagnostics: if a straight line were adequate, these would look like noise around zero.
 fig, axes = plt.subplots(1, 3, figsize=(15, 3.6), sharey=False)
@@ -284,8 +286,8 @@ for ax, c in zip(axes, TOP3):
     ax.plot(d["week"], residuals[c] / 1e6, color="#C44E52", lw=1.5)
     r2 = reg.loc[reg.country == c, "r2"].values[0]
     ax.set_title(f"{c} residuals (R2={r2:.3f})"); ax.set_xlabel("week"); ax.set_ylabel("residual (M)")
-plt.suptitle("Residuals are S-shaped, not noise - the straight line is systematically wrong", y=1.06)
-plt.tight_layout(); plt.savefig(FIG_DIR / "fig06_regression_residuals.png"); plt.show()
+plt.suptitle("Residuals are S-shaped, not noise - the straight line is systematically wrong", y=0.99)
+plt.tight_layout(rect=[0, 0, 1, 0.90]); plt.savefig(FIG_DIR / "fig06_regression_residuals.png"); plt.show()
 
 # Quantify the structure: how many runs of consecutive same-sign residuals?
 for c in TOP3:
@@ -297,7 +299,7 @@ for c in TOP3:
 # ---------------------------------------------------------------- 4. Clustering
 md(r"""## 4. Clustering - K-Means on the most volatile country
 
-A straight line cannot show *when* infections surged - the residuals above prove the line misses the
+A straight line cannot show *when* infections surged - the residuals above show the line misses the
 shape entirely. So for the selected country I cluster its weekly points on `[week, weekly new cases]`
 with Spark MLlib **K-Means**, choosing K by the highest silhouette score over a small range. The
 clusters group the timeline into **phases** (quiet start, surges, peaks, declines), which validates that
@@ -345,7 +347,7 @@ print(phase.assign(mean_new=phase["mean_new"].map(lambda x: f"{x:,.0f}"),
 print(f"\nOverall mean weekly new cases for {FOCAL}: {overall_mean:,.0f}")""")
 
 # ---------------------------------------------------------------- 5. Graph
-md(r"""## 5. Graph analytics - the focal country and its non-bordering neighbours
+md(r"""## 5. Graph analytics - the focal country and its neighbours
 
 I connect the focal country to a set of **neighbours that do not share borders with each other** and
 weight each edge by the **correlation of weekly new cases** between the neighbour and the focal country.
@@ -427,16 +429,22 @@ for e in edges:
     G.add_edge(FOCAL, n, weight=e["corr"])
     pos[n] = (float(centroid.loc[n, "Long"]), float(centroid.loc[n, "Lat"]))
 
-plt.figure(figsize=(9, 6))
-widths = [max(0.5, abs(G[u][v]["weight"]) * 5) for u, v in G.edges()]
-nx.draw_networkx_nodes(G, pos, nodelist=[FOCAL], node_color="#DD8452", node_size=1400)
+plt.figure(figsize=(8, 5))
+widths = [max(0.5, abs(G[u][v]["weight"]) * 6) for u, v in G.edges()]
+nx.draw_networkx_nodes(G, pos, nodelist=[FOCAL], node_color="#DD8452", node_size=3000)
 nx.draw_networkx_nodes(G, pos, nodelist=[n for n in G.nodes if n != FOCAL],
-                       node_color="#4C72B0", node_size=900)
+                       node_color="#4C72B0", node_size=2400)
 nx.draw_networkx_edges(G, pos, width=widths, edge_color="grey")
-nx.draw_networkx_labels(G, pos, font_size=9, font_color="white")
-nx.draw_networkx_edge_labels(G, pos, edge_labels={(u, v): f"r={G[u][v]['weight']}" for u, v in G.edges()})
-plt.title(f"{FOCAL} and non-bordering neighbours\n(edge = correlation of weekly new cases)")
-plt.axis("off"); plt.tight_layout(); plt.savefig(FIG_DIR / "fig04_neighbour_graph.png"); plt.show()""")
+nx.draw_networkx_labels(G, pos, font_size=13, font_color="white", font_weight="bold")
+nx.draw_networkx_edge_labels(G, pos, font_size=12,
+                             edge_labels={(u, v): f"r = {G[u][v]['weight']}" for u, v in G.edges()},
+                             bbox=dict(boxstyle="round,pad=0.25", fc="white", ec="none", alpha=0.85))
+plt.title(f"{FOCAL} and two neighbours that do not border each other"
+          "\n(edge = correlation of weekly new cases)", fontsize=13)
+plt.axis("off")
+plt.margins(0.14)                                  # keep node labels off the frame edge
+# bbox_inches="tight" trims the dead space the geographic layout leaves around the nodes.
+plt.savefig(FIG_DIR / "fig04_neighbour_graph.png", bbox_inches="tight"); plt.show()""")
 
 # ---------------------------------------------------------------- 6. Lead-lag
 md(r"""## 6. Lead-lag analysis - who can actually be warned?
@@ -540,8 +548,8 @@ ax[2].axvspan(MIN_LAG - 0.5, LAGS[-1] + 0.5, color="green", alpha=0.06)
 ax[2].set_title("3. Lead-lag: who gets a warning"); ax[2].set_xlabel("lag k (weeks)")
 ax[2].set_ylabel("Pearson r"); ax[2].legend(fontsize=8)
 
-plt.suptitle("From raw cases to a neighbour early-warning recommendation", y=1.03)
-plt.tight_layout(); plt.savefig(FIG_DIR / "fig05_story_panel.png"); plt.show()""")
+plt.suptitle("From raw cases to a neighbour early-warning recommendation", y=0.99)
+plt.tight_layout(rect=[0, 0, 1, 0.93]); plt.savefig(FIG_DIR / "fig05_story_panel.png"); plt.show()""")
 
 # ---------------------------------------------------------------- 8. Persist
 code(r"""peak_phase = phase.iloc[-1]
@@ -601,7 +609,8 @@ md(r"""## 9. Limitations
   reporting policy as much as transmission. Cross-country comparisons inherit those differences.
 - **Cumulative source data.** Weekly new cases are derived by differencing a running total; retrospective
   corrections appear as negative differences and are clipped to zero, which slightly flattens the series.
-- **The series ends 9 March 2023.** Johns Hopkins stopped updating, so nothing after that date is covered.
+- **The series ends 9 March 2023.** That is the last date column in this file; Johns Hopkins ceased
+  collecting and reporting COVID-19 data on 10 March 2023, so nothing after that is covered.
 - **`week` is a clustering input.** Because time is a feature, the K-Means phases are partly temporal by
   construction; they should be read as "periods that behave alike", not as a purely behavioural grouping.
 - **Geography is a stand-in for mobility.** Neighbours are chosen by shared land borders, whereas
@@ -678,7 +687,7 @@ md(r"""## Appendix A - Glossary
 | Lag k | Offset in weeks when comparing two series; positive k means the neighbour follows the focal country |
 | Lead-lag profile | Correlation plotted across a range of lags; its peak locates the offset at which two curves align best |
 | Warning window | The positive lag at which a neighbour's correlation peaks - how far ahead it could act |
-| Non-bordering neighbours | Neighbours of the focal country that do not share borders with each other, as the brief requires |""")
+| Mutually non-bordering neighbours | Neighbours *of the focal country* that do not share a border *with each other*, as the brief requires. Both still border the focal country itself |""")
 
 md(r"""## Appendix B - Analytical decision log
 

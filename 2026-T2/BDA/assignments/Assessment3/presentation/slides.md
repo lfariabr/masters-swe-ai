@@ -49,7 +49,7 @@ All three rise - but at very different rates and shapes. Which one is the *most 
 
 # Predictive modelling: a line is not enough
 
-![h:360](../outputs/figures/fig02_regression_fits.png)
+![h:280](../outputs/figures/fig02_regression_fits.png)
 
 - Linear regression of cumulative cases on week number, per country.
 - **US is the most volatile** - by the variance of its *weekly new cases* (6.4e11 vs India 2.5e11, France 1.6e11), not merely its size. Slope ~760k cases/week, **R² = 0.97**.
@@ -59,22 +59,22 @@ All three rise - but at very different rates and shapes. Which one is the *most 
 
 # Clustering reveals the waves
 
-![h:380](../outputs/figures/fig03_clusters_waves.png)
+![h:290](../outputs/figures/fig03_clusters_waves.png)
 
 - K-Means on `[week, weekly new cases]`, best **K = 3** (silhouette 0.705).
 - It isolates a **mega-surge of ~4.46M new cases/week around weeks 102-106** (the Omicron wave, Jan 2022) as its own cluster.
-- This **proves** growth was not steady: it came in waves (up - down - up).
+- This **shows** growth was not steady: it came in waves (up - down - up).
 
 ---
 
 # Graph analytics: who moves with the US?
 
-![h:380](../outputs/figures/fig04_neighbour_graph.png)
+![h:255](../outputs/figures/fig04_neighbour_graph.png)
 
-- US linked to non-bordering neighbours **Canada** and **Mexico** (they do not border each other).
+- US linked to **Canada** and **Mexico**, two neighbours that do not border *each other*.
 - Edge = correlation of weekly new cases **in the same week**: Canada **r = 0.85**, Mexico **r = 0.70**.
 - Obvious reading: Canada tracks the US most closely, so warn Canada.
-- **But same-week correlation answers the wrong question.** It asks *"do these curves look alike?"*, not *"does my wave arrive after theirs?"*
+- **But that is the wrong question.** It asks *do these curves look alike?*, not *does my wave arrive after theirs?*
 
 ---
 
@@ -108,7 +108,7 @@ Raw data → phases → *who actually gets a warning*.
 
 # Limitations & close
 
-- **Data:** counts are *confirmed cases*, so they track testing and reporting as much as transmission; the JHU series **stopped 9 Mar 2023**.
+- **Data:** counts are *confirmed cases*, so they track testing and reporting as much as transmission; this file ends **9 Mar 2023**, and JHU ceased collection on **10 Mar 2023**.
 - **Method:** `week` is a clustering input, so phases are partly temporal by construction; "neighbour" is geography, not mobility; one fixed lag averages over three years of variants.
 - **Correlation is not causation** - a lagged match may reflect a shared driver, such as a variant reaching the region.
 - **Next steps:** mobility and vaccination data, and a time-varying lag per wave.
