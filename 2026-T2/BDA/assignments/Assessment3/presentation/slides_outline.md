@@ -52,7 +52,7 @@
 
 ### Slide 10 - Limitations & close (~45s)
 - Data caveats: counts are **confirmed cases** and **reporting-dependent**; this file ends **9 Mar 2023**, and JHU ceased collection on **10 Mar 2023**; "neighbour" defined by geography, not true mobility.
-- Next steps: model **weekly new cases** directly, add mobility/vaccination data, test lead-lag (cross-correlation) to quantify the warning window.
+- Next steps: model **weekly new cases** directly, add mobility/vaccination data, and estimate a **time-varying lag per wave** rather than one lag averaged over three years.
 - Close: data turned a wall of numbers into a concrete, actionable warning for neighbours.
 
 ---
