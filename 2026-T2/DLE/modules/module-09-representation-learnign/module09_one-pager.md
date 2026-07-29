@@ -21,11 +21,14 @@
 - 🔴 **Zhong (2016) draws the line explicitly:** TF-IDF is *feature engineering*, **excluded** from feature *learning*. → this is exactly where your **Review Pulse TF-IDF baseline vs BiLSTM/DistilBERT** sits: hand-crafted vs learned representation.
 - 🔵 **Supervised nets do it as a side effect** (no explicit constraint on hidden features); autoencoders/sparse coding do it *explicitly* (shape `h` for sparsity/independence). **Core trade-off:** preserve input info **vs** attain nice properties. Can't max both.
 
-## 🖤 Zone 2 - §15.1 Greedy layer-wise unsupervised pretraining ⭐ SLO c) - THE ASSIGNED DEEP-DIVE
-- 🖤 **What:** train a deep net **one frozen layer at a time**, each via an unsupervised single-layer learner (RBM / autoencoder / sparse coding), then **fine-tune** the whole stack.
-- 🔵 **The three words:** **greedy** (each layer optimised alone) · **layer-wise** (lower layers fixed once trained) · **pretraining** (phase 1 only; supervised fine-tune follows).
-- 🔵 **Why it worked (§15.1.1):** (1) init has a **regularising** effect (Erhan 2010: pretrained nets halt in the same smaller region → less variance); (2) features for `p(x)` help `p(y|x)`. Best when **labels scarce + unlabelled abundant + true function complex**.
-- 🔴 **Historical vs modern - the distinction that matters:** the *exact 2006 procedure* is **largely historical**. But its idea - *pretrain on unlabelled data, then fine-tune* - became **modern self-supervised pretraining**, dominant in **both** NLP (word2vec/GloVe → BERT/DistilBERT) **and** vision (contrastive/masked SSL). One-hot words carry **zero** similarity (every pair √2 apart) → embeddings won here first and never left.
+## 🖤 Zone 2 - Greedy layer-wise unsupervised pretraining ⭐ SLO c) - THE ASSIGNED DEEP-DIVE
+*(Goodfellow Ch.15, Section 15.1 - the section Tayab told you to read)*
+- 🖤 **What:** before training the whole net, train it **one layer at a time on UNLABELLED data** (freeze each layer once done), then **fine-tune** the full stack on your labelled task. Pretrain first, then specialise.
+- 🔵 **The three words:** **greedy** = one layer at a time (not all together) · **layer-wise** = a layer is frozen once trained · **pretraining** = this is only phase 1; the labelled fine-tune comes after.
+- 🔵 **Why it helped - reason 1 (better starting point):** nets start from random weights; pretraining gives a **smarter start**, so the net lands in a smaller, consistent region → less overfitting (Erhan 2010). *"regularising" = anything that curbs overfitting.*
+- 🔵 **Why it helped - reason 2 (learning the data helps the task):** learning **what the data looks like** (`p(x)` - free, no labels) hands you features that also help **predict the label** (`p(y|x)`). → best when **you have few labels but tons of unlabelled data** (your exact case: thousands of student records, few hand-labelled "at-risk").
+- 🔴 **Old trick, living idea:** the *specific 2006 procedure* is **mostly dead**. But its idea - *pretrain on unlabelled data → fine-tune* - is **exactly what BERT/DistilBERT do** (= your winning Review Pulse model). Now called **self-supervised pretraining**, dominant in text *and* vision.
+- 🔵 **Why text adopted it first:** one-hot words (`cat=[1,0,0]`, `dog=[0,1,0]`) are **all equally far apart** (√2) - the model can't tell cat is closer to dog than to table. **Embeddings fix that** (put cat near dog) → NLP jumped on pretraining and never let go.
 
 ## 🖤 Zone 3 - Transfer, domain adaptation & the extremes ⭐ SLO e)
 - 🖤 **Transfer learning:** exploit `P₁` to generalise on `P₂` when they share underlying factors. Deeper reps → fewer labels needed downstream.
