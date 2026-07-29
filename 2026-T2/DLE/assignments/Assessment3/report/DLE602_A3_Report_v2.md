@@ -4,10 +4,11 @@ Brief requirement: 1,500 words (+/-10%), i.e. 1,350-1,650 words, Report and Sour
 The declared count covers prose and list items in Sections 1-6 only. It excludes headings, cover details,
 the Table of Contents, Markdown table contents and captions, references and appendices.
 Reproducible count: select from "## 1. Project Evolution" through the line before "## 7. References";
-remove headings, Markdown table rows, image rows, captions, separators and the word-count declaration;
+remove headings, fenced Mermaid blocks, Markdown table rows, image rows, captions, separators and the word-count declaration;
 strip Markdown emphasis markers; then apply whitespace-token counting (`wc -w`).
 Canonical four-model source: review-pulse commit bf36c3b3.
 Supplemental six-model sources: artifact commit cef08fa and evaluation commit 941148c, merged in 0f02be3.
+Release packaging and Git LFS deployment source: merged PR #101, commit 0ef3a26.
 No result below is invented or illustrative.
 -->
 
@@ -44,6 +45,17 @@ No result below is invented or illustrative.
 
 ReviewPulse began in ISY503 as a review-level binary sentiment classifier: v1.0 established the classical pipeline and v2.x hardened the application and added a Transformer option. Those releases assign one label to a whole review and therefore average away mixed opinions. DLE602 v3.0 implements aspect-based sentiment analysis (ABSA), so *"the food was great but the service was slow"* can produce separate labels for `food` and `service`. This report evaluates the implementation actually built against the research questions submitted in Assessment 2; historical ISY503 checkpoints and metrics are not reused as DLE602 results.
 
+```mermaid
+flowchart LR
+    V1["ReviewPulse v1.0<br/>ISY503"] --> V2["ReviewPulse v2.x<br/>ISY503"]
+    V2 --> V3["ReviewPulse v3.0<br/>DLE602"]
+    V1 --- C1["Binary review sentiment<br/>TF-IDF + BiLSTM"]
+    V2 --- C2["Hardened review sentiment<br/>+ DistilBERT"]
+    V3 --- C3["Three-class aspect sentiment<br/>six-model ABSA comparison"]
+```
+
+*Figure 1. ReviewPulse evolved from one binary label per Amazon review to one three-class prediction per supplied restaurant aspect.*
+
 **Aim.** Implement and critically evaluate a low-compute ABSA system on SemEval-2014 Restaurants, testing whether explicit aspect conditioning improves sentiment classification, comparing ATAE-LSTM with DistilBERT, and presenting indicative token-level evidence.
 
 **Research questions.** RQ1: does aspect conditioning improve classification on multi-aspect sentences over target-agnostic baselines? RQ2: how do ATAE-LSTM and DistilBERT compare on accuracy, macro-F1 and efficiency? RQ3: what human-readable evidence do attention or attribution outputs provide?
@@ -68,9 +80,26 @@ The neural trainers use Adam or AdamW, configured regularisation, development ma
 
 ATAE-LSTM exposes its learned attention distribution. DistilBERT evidence uses gradient × input attribution for the predicted class, aggregates wordpieces onto exact visible spans, and excludes special and aspect-sequence tokens. Both methods return aligned tokens, offsets and normalised within-view scores. Review-only models explicitly report token evidence as unsupported.
 
+```mermaid
+flowchart LR
+    XML["SemEval Restaurants XML"] --> AUDIT["Parse, audit and validate offsets"]
+    AUDIT --> SPLIT["Sentence-grouped train/dev<br/>+ official test"]
+    SPLIT --> R["Review only"]
+    SPLIT --> RA["Review + aspect"]
+    R --> BASE["TF-IDF · LSTM · GRU · TextCNN"]
+    RA --> COND["ATAE-LSTM · DistilBERT"]
+    BASE --> EVAL["Shared three-class evaluation"]
+    COND --> EVAL
+    COND --> EVID["Indicative token evidence"]
+    EVAL --> APP["predict_aspects API + Streamlit v3"]
+    EVID --> APP
+```
+
+*Figure 2. ReviewPulse v3 data, model-input and delivery flow. GRU and TextCNN are exploratory review-only controls.*
+
 The Streamlit workflow accepts one review and comma-separated manual aspects. It validates and de-duplicates the list, preserves input order and scores each aspect independently. A sample generator supports repeatable demonstrations. Missing artifacts, empty reviews, empty aspect lists and unknown models surface controlled messages, allowing the same interface to demonstrate both successful inference and predictable failure handling.
 
-Implementation is separated into data, model, training, inference, evaluation and presentation modules under `src/absa`, with model adapters enforcing one prediction payload. Automated tests cover parsing and split leakage, trainer controls, artifact provenance, all six inference paths, exact evidence offsets, safe heatmap rendering and legacy compatibility. At the merged six-model baseline, the complete local suite records 266 passing tests and eight expected skips. Appendix C identifies the commands that regenerate the documented evidence.
+Implementation is separated into data, model, training, inference, evaluation and presentation modules under `src/absa`, with model adapters enforcing one prediction payload. Automated tests cover parsing and split leakage, trainer controls, artifact provenance, all six inference paths, exact evidence offsets, safe heatmap rendering, packaging and legacy compatibility. At the merged release-package baseline, the complete local suite records 271 passing tests and eight expected skips. Appendix C identifies the commands that regenerate the documented evidence.
 
 ## 4. Deep Learning Principles Applied
 
@@ -97,7 +126,7 @@ Attention and gradient attribution are treated as diagnostic views rather than m
 
 ![Four canonical model confusion matrices](assets/four-model-confusion-matrices.png)
 
-*Figure 1. Full-test confusion matrices generated by the canonical #84 evaluation runner at commit `bf36c3b3`; rows are gold labels and columns are predictions.*
+*Figure 3. Full-test confusion matrices generated by the canonical #84 evaluation runner at commit `bf36c3b3`; rows are gold labels and columns are predictions.*
 
 **RQ1.** Both aspect-conditioned models outperform both review-only neural and classical controls on mixed-polarity accuracy and macro-F1. Against the review-only LSTM, DistilBERT gains 24.6 percentage points of mixed accuracy and 31.6 points of mixed macro-F1. ATAE-LSTM gains 5.7 and 12.3 points respectively. Four-model error analysis found 61 mixed cases where both aspect-conditioned models were correct and both review-only models were wrong, against four in the reverse direction. The result supports the benefit of explicit aspect input specifically where identical review text carries opposing labels.
 
@@ -124,7 +153,7 @@ The 228-instance mixed subset is comparatively small, and results come from one 
 
 ReviewPulse v3.0 nevertheless answers the submitted questions with measured implementation evidence. Explicit aspect conditioning materially improves classification on the mixed-polarity subset. DistilBERT provides the strongest predictions at substantially greater storage cost, while ATAE-LSTM offers a small aspect-aware alternative with stronger mixed-polarity behaviour than the review-only controls. Its attention and DistilBERT attribution provide indicative token-level evidence, not exposed reasoning. The completed GRU and TextCNN extensions reinforce rather than change this result. Next research steps are multi-seed uncertainty estimates, controlled same-device efficiency measurement, cross-domain evaluation and automatic aspect extraction; the remaining delivery step is the reproducible v3.0.0 submission package.
 
-**Word count (Sections 1-6 prose and list items): 1,461 words.**
+**Word count (Sections 1-6 prose and list items): 1,462 words.**
 
 ## 7. References
 
@@ -187,6 +216,7 @@ The restricted SemEval XML files must be acquired separately and placed as docum
 ```bash
 python -m venv .venv
 .venv/bin/pip install -r requirements.txt -c constraints-a3.txt
+git lfs pull
 .venv/bin/python -m pytest -q
 .venv/bin/python -m src.absa.data.audit
 .venv/bin/python -m src.absa.evaluation.runner --device auto
