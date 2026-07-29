@@ -1213,6 +1213,104 @@ Feel free to discuss key aspects of the questions noted in point 5 raised with o
 
 > *Status: 🕐 To-Do*
 
+---
+
+## Module 10 - Learning Theory: PAC
+
+### TLDR
+
+### Introduction
+This Module focuses on the mathematical and theoretical perspective of machine learning (ML). Specifically, it examines the Probably-Approximately-Correct (PAC) framework. The theoretical perspective of the PAC framework has applicability in understanding how humans acquire knowledge. The PAC framework is about the theory of ML (the theory of learning) and requires not only curiosity but some degree of attention to mathematical rigour when consulting the resources. The theoretical perspective of the PAC framework does not distinguish between ML and non-ML (humans). Most importantly, the theory of learning provides the justification and rationalisation for following the steps we take when solving a ML problem. An understanding the basics of the PAC framework helps inform the practice of ML.
+
+### Resources
+
+#### 1. The Probably-Approximately-Correct Framework and Machine Learning (Scikit-Learn)
+- Pedregosa, F., Varoquaux, G., Gramfort, A. , Michel, V., Thirion, B. , Grisel, O. , Blondel, M. , Prettenhofer, P., Weiss, R., Dubourg, V., Vanderplas, J.,  Passos, A., Cournapeau, D.,  Brucher, M., Perrot, M. & Duchesnay, E (2015). Scikit-learn: Machine Learning in Python. Journal of  Machine Learning Research, 12, 2825–2830. Retrieved from https://scikit-learn.org/stable/modules/svm.html
+
+*Resource Overview:*
+    
+    Did you ever think about why we do the steps we do in ML? The PAC framework justifies the need to split our data into test and training data sets and provides the rationale for hyperparameter tuning—the learner is independent of the data distribution. This scikit-learn tutorial serves as a reminder of the different steps in ML that you will need to follow in your projects. This resource provides a context for exploring the PAC framework and will help you to understand its relationship to ML.
+
+> *Status: 🕐 To-Do*
+
+#### 2. Learning Theory
+- Daumé III, H. (2017, January). Chapter 12 Learning Theory.In A Course in Machine Learning (pp. 154-163). Retrieved from http://ciml.info/dl/v0_99/ciml-v0_99-ch12.pdf
+
+*Resource Overview:*
+    
+    This book chapter will help you to understand the importance of theory in ML. The chapter explains the importance of PAC learning and its relationship to Occam’s Razor (i.e., simple solutions generalise). After reading this chapter, you will be more familiar with the terms of PAC and learning theory.
+
+> *Status: 🕐 To-Do*
+
+#### 3. What is a Hypothesis in Machine Learning?
+- Brownlee, J. (2019, 25 June). What is a hypothesis in machine learning? [Web log post]. Retrieved from https://machinelearningmastery.com/what-is-a-hypothesis-in-machine-learning/
+
+*Resource Overview:*
+
+    This resource helps lay the foundation for understanding the correct vocabulary when discussing the term hypothesis. The PAC framework uses this term frequently. Conversely, ML uses the term ‘model’. In ML we start with some data and build on it. When unseen data becomes available, we try to return something close to the original model. Thus, the model and hypothesis may appear to be interchangeable depending upon the area of focus. This resource serves as a reminder of the history of statistics and the importance of hypothesis testing and discusses how these led to the foundation of ML.
+
+> *Status: 🕐 To-Do*
+
+#### 4. The Probably-Approximately-Correct Learning Theory for the Everyman
+- Kelly, A. (2020, 21 April). PAC learning theory for the everyman: An uncomplicated introduction to the theory behind supervised machine learning. Retrieved from https://medium.com/swlh/pac-learning-theory-for-the-everyman-93c917c126f5
+
+*Resource Overview:*
+
+    This reading explains the PAC theory and puts it in the context of supervised learning. To gain a sound understanding of the PAC theory, mathematics cannot be ignored. The reading also introduces the mathematical portion of PAC learning theory in a formula and provides a link to a resource on the mathematical theory behind the PAC theory should you wish to explore it further.
+
+> *Status: 🕐 To-Do*
+
+#### 5. The Hunt for the Algorithms that Drive Life on Earth
+- Pavlus, J . (2016, 7 February). The hunt for the algorithms that drive life on earth. Wired. Retrieved from https://www.wired.com/2016/02/the-hunt-for-the-algorithms-that-drive-life-on-earth/
+
+*Resource Overview:*
+
+    This very-easy-to-read article will provide you with an understanding of the PAC theory and the motivations and longer-term objectives of Leslie Valiant, the computer scientist who invented the PAC theory. Ensure that you review the short video of Valiant embedded in this resource to understand the distinction between an ecorithm and an algorithm.
+
+> *Status: 🕐 To-Do*
+
+#### 6. Reaching for the Gut of Machine Learning: A Brief Introduction to Computational Learning Theory
+- Sarkar, T. (2018, 15 July). Reaching for the gut of machine learning: A brief intro to CLT: Knowing the fundamentals of the computational learning theory can empower you immensely as a practitioner of machine learning [Web log post]. Retrieved from https://towardsdatascience.com/how-to-analyze-learning-short-tour-of-computational-learning-theory-9d93b15fc3e5
+
+*Resource Overview:*
+
+    This article examines the fundamental concepts of ML theory while providing an introduction to Computational Learning Theory (CLT) terms (e.g., data, target concept, hypothesis space and response variables). The CLT tries to answer fundamental questions about ML. The PAC theory is discussed in the context of learners and the concept of the Haussler bound. Consideration is also given to how it relates to ML practice in terms of training data, examples and hypothesis space.
+
+> *Status: 🕐 To-Do*
+
+#### 7. Computational Learning Theory (James Worrell)
+- Worrell, J. (2019, 22 July). James Worrell: Computational learning theory I [Video file]. Retrieved from https://www.youtube.com/watch?v=DhmDnNoKoPg
+
+*Resource Overview:*
+
+    This video brings to life the mathematics and concepts of PAC learning and also provides some proof of PAC learnability. This video will first provide you with an understanding of some of the concepts before jumping into some complex and rigorous papers that you might wish to consult in future. You should watch the first 30 minutes of this video at least to gain an appreciation of the effects of PAC on computer science.
+
+> *Status: 🕐 To-Do*
+
+### Learning Activities
+
+#### 1. Learning Activity 1: On-Device Machine Learning: An Algorithms and Learning Theory Perspective
+- Dhar, S., Guo, J., Liu, J., Tripathi, S., Kurup, U. & Shah, M. (2020, 24 July). On-device machine learning: An algorithms and learning theory perspective. Retrieved from https://arxiv.org/pdf/1911.00623
+- McMahan, B. & Ramage, D. (2017, 6 April). Federated learning: Collaborative machine learning without centralized training data [Web log post]. Retrieved from https://ai.googleblog.com/2017/04/federated-learning-collaborative.html
+
+The importance of PAC theory in making computational advances in 2020 and beyond cannot be understated. PAC and other learning theories have majorly affected the progress of ML-powered devices. Currently, the practice of ML takes place on the cloud where access to computational resources is plentiful. However, what happens as the paradigm shifts to so-called edge computing or more specifically, ML being executed on a device rather than on the cloud? This shift to computing at the edge provides significant benefits not the least being that it removes the need to move large amounts of data around networks in near real time and opens up the vision of Federated Learning to becoming a reality. In Federated computing, the user data is no longer held in the cloud; rather, it is held at the edge device itself. Further, only the updates to the ML model are made available at the centre and the training data found on the device cannot be accessed.
+
+To complete this learning activity, follow these steps:
+
+1. Keep the two references (Dhar et al., 2020; McMahan & Ramage 2017) available for reference during this activity.
+2. Read both these papers. Note that Dhar et al. (2020) discuss on-device ML while McMahan and Ramage (2017) introduce the term 'federated learning'.
+3. Review Dhar et al. (2020) in greater detail. Pay particular attention to the role of learning theories and theoretical considerations (see Section 4.2).
+4. Once you have an overall high-level understanding of the reading by Dhar et al. (2020), commence your discussions on the forum by answering these questions:
+    - Why is PAC theory relevant to ML on edge devices?
+    - What are the limitations of PAC theory that prevents edge devices becoming a reality?
+    - Without undertaking any rigorous mathematics, can you indicate the theory propositions being discussed by the authors?
+    - By linking the theory and practice of ML, can you think of any ways to help make on-device ML available?
+    - What use cases do you have in mind for the devices?
+
+> *Status: 🕐 To-Do*
+
+---
+
 ```bash
 --- PLACEHOLDER:
 ## Module X - ...
