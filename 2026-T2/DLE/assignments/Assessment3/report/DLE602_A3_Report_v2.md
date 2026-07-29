@@ -199,15 +199,17 @@ GRU uses 10.31% fewer parameters than LSTM and obtains slightly higher full-test
 | Sentence leakage | Group development split by `sentence_id` | Automated disjointness checks pass |
 | Artifact loading failure | Explicit paths, validation and controlled UI errors | Missing models fail visibly rather than changing model silently |
 | Optional-scope delay | Four-model result frozen before GRU/CNN activation | Six-model track completed without replacing the canonical experiment |
-| Unequal contribution | Issue ownership, pull-request review and contribution record | Final non-code contributions require group confirmation before submission |
+| Unequal contribution | Issue ownership, pull-request review and contribution record | Validation work assigned on 29 July; only completed, evidenced work will be claimed |
 
 ### Contribution log
 
-| Contributor | Verified contribution | Evidence / hand-off |
-|---|---|---|
-| Luis Faria | ABSA implementation, training/evaluation integration, token-evidence integration, six-model integration and report consolidation | ReviewPulse PRs #90, #92, #93, #97 and #100; academic report commits |
-| Victor Dorantes | [CONFIRM A3 CONTRIBUTIONS BEFORE SUBMISSION] | Add reviewed evidence, dates and hand-offs |
-| Juan Martinez | [CONFIRM A3 CONTRIBUTIONS BEFORE SUBMISSION] | Add reviewed evidence, dates and hand-offs |
+| Contributor | Status | Contribution / assigned validation | Evidence / hand-off |
+|---|---|---|---|
+| Luis Faria | Completed | Architecture, ABSA implementation, all training/evaluation integration, token evidence, six-model integration, Streamlit integration, Git LFS deployment, release packaging and report consolidation | ReviewPulse PRs #90, #92, #93, #97, #98-#102; academic commits `f3b7247`, `6d50ac0` |
+| Victor Dorantes | Assigned 29 Jul; evidence pending | Independently reproduce the constrained installation/tests, validate RQ1/RQ2 results and verify the cited publications | Required evidence: `validation-victor.md`, commands/results and a reviewed PR |
+| Juan Martinez | Assigned 29 Jul; evidence pending | Test all six Streamlit models, sample generation, evidence views, controlled errors and v2/v3 release workflow; capture report-ready screenshots | Required evidence: `validation-juan.md`, screenshots, commands/results and a reviewed PR |
+
+Assignments are not treated as completed contributions. The final report will replace each pending status only after the named contributor submits traceable evidence and the group reviews it.
 
 ## 10. Appendix C - Reproduction Commands
 
