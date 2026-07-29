@@ -121,3 +121,120 @@ He was explicit: *"this is not part of your ML course, but you should know these
 3. **DBSCAN / OPTICS / K-medoids** are lecture-only but he leaned on them hard as the answer to "why K-means failed". This is exactly the module09_notes.md "algorithm comparison" material made concrete - cross-link it.
 4. **intra vs inter-cluster + the interstate mnemonic** - clean framing worth capturing.
 5. **A3 is regression, not clustering** - important expectation-setting; note it so we don't over-invest clustering into A3.
+
+---
+
+# Appendix - The lecturer's own paper (emailed with the slides)
+
+**Shaukat, K., Luo, S., & Varadharajan, V. (2024). A novel machine learning approach for detecting
+first-time-appeared malware. _Engineering Applications of Artificial Intelligence, 131_, 107801.**
+Elsevier, open access (CC BY), Q1 journal. Dr Kamran is **first + corresponding author**
+(kamran.shaukat@uon.edu.au). File: `lecturer_Detecting-First-Time-Appeared-Malware_Shaukat-2024.pdf`.
+
+> ⚠️ **This is barely a K-means paper.** The method is deep learning + one-class SVM. He shared it as
+> (a) a real-world example of the *distance/anomaly* thinking behind clustering, and (b) a **writing model**
+> - the results-reporting style is exactly what he rewards in assessments. Treat it as a writing template,
+> not a method to reproduce.
+
+## A. The problem, plainly
+
+- **Malware** = code that disrupts a system. **First-time-appeared malware** = variants no detector has seen:
+  **polymorphic** (mutates its own code each infection) and **zero-day** (brand-new, no signature yet).
+- **Why traditional detection fails on these:** signature/static analysis needs a *known* pattern;
+  dynamic analysis (run it in a sandbox) is slow and resource-heavy; both need domain experts and
+  reverse engineering, and neither generalises to unseen variants.
+- **The core bind:** malware datasets are **massively imbalanced** (tons of benign, few malicious; and
+  within malicious, some families have 2942 samples vs others 42). Classic fixes - oversampling/SMOTE,
+  augmentation - are *dangerous here*: rotating a malware image 2° might turn it into something that
+  looks benign. So you cannot safely synthesise malware data.
+
+## B. The four-step pipeline
+
+His whole framework is four steps. This is the figure to internalise:
+
+```mermaid
+flowchart LR
+    A["Windows PE files<br/>(benign + malicious<br/>raw binaries)"] --> B["Step 1<br/>Binary to RGB image<br/>(no hand-crafted features)"]
+    B --> C["Step 2<br/>Pretrained CNN<br/>extracts deep features<br/>from last FC layer"]
+    C --> D["Step 3<br/>PCA feature selection<br/>keep ~400 most<br/>influential components"]
+    D --> E["Step 4<br/>One-class classifier<br/>(one-class SVM)"]
+    E --> F{"Inside the<br/>benign boundary?"}
+    F -->|Yes| G["Benign"]
+    F -->|No| H["Anomaly =<br/>malware<br/>(incl. zero-day)"]
+```
+
+**The four ideas, one per step:**
+
+1. **Malware as a picture.** Each executable's raw bytes are drawn as an image. Nataraj (2011) did this
+   in *greyscale*; Shaukat's contribution is **RGB colour**, which represents variants that greyscale
+   blurs together. This **eliminates feature extraction entirely** - no expert, no reverse engineering.
+2. **Transfer learning as a feature extractor.** Instead of training a deep net end-to-end (expensive),
+   take a CNN **already trained** on images and read the vector from its **last fully-connected layer** -
+   those are the "deep features". He compared three of increasing depth: **VGG19 (19 layers, 20.1M params)
+   → ResNet152V2 (54.4M) → RegNetY320 (320 deep, 145M)**. Deeper = richer features = ~10% better.
+3. **PCA to slim the features.** The feature vector is huge → run **PCA**, keep `n_components ≈ 400`.
+   Fewer dimensions = faster detector *and* higher accuracy (curse-of-dimensionality again - the exact
+   reason module 9 says "PCA before clustering").
+4. **One-class classification** - the clever part (below).
+
+## C. Why one-class classification (the module-9 connection)
+
+A normal classifier learns a boundary *between* two labelled classes. But you **can't** enumerate every
+future zero-day - so you can't label the "malware" side. Solution: learn a boundary around the **benign
+class only**, and call **anything outside** it an anomaly.
+
+```mermaid
+flowchart TD
+    subgraph TRAIN["Training - benign data only"]
+        B1["Benign feature vectors"] --> B2["One-class SVM fits a<br/>tight hypersphere / boundary<br/>enclosing benign region"]
+    end
+    subgraph TEST["Testing - unseen file"]
+        T1["New PE to deep features"] --> T2{"Distance to<br/>benign region"}
+        B2 -.defines boundary.-> T2
+        T2 -->|inside| T3["Benign"]
+        T2 -->|outside| T4["Malicious<br/>(zero-day caught<br/>without ever seeing it)"]
+    end
+```
+
+**This is a clustering idea in disguise:** it's about **distance to a region** and **anomaly = far away** -
+the same intra/inter-distance logic as K-means, but with a single learned boundary. The `ν` (nu)
+hyperparameter controls how tight the boundary is (roughly, the fraction of benign points allowed
+outside). The `kernel` (RBF/linear/sigmoid/poly) sets the boundary's shape - like linear vs RBF in an SVM.
+
+## D. How he evaluates (steal this for imbalanced problems)
+
+He **never trusts plain accuracy** on imbalanced data (your A2 lesson exactly). He reports a whole panel:
+**balanced accuracy, precision, recall, specificity, F1, G-means, AUC** - and reads them together. Best
+config: **RBF kernel + ν = 0.2**, features from **RegNetY320**, then PCA + feature selection →
+**89% → 92% accuracy**, and **99.30%** headline on Malimg. Then he proves the gains aren't luck with a
+**Wilcoxon signed-rank test (P ≪ 0.0001)** - non-parametric significance testing across models.
+
+## E. The writing patterns to copy (why his style earns marks)
+
+You noticed his writing resembles yours - here is *what specifically* makes it score, distilled into a
+reusable formula. **Every table/figure gets a paragraph built like this:**
+
+```mermaid
+flowchart LR
+    S1["1. Point to it<br/>'Table 4 shows the<br/>effectiveness of X'"] --> S2["2. State the winner<br/>+ the EXACT config<br/>'81% with RBF, nu=0.2'"]
+    S2 --> S3["3. Compare<br/>'lower than<br/>ResNet152V2'"]
+    S3 --> S4["4. Explain WHY<br/>'linear kernel can't<br/>separate the variants'"]
+    S4 --> S5["5. Note the trade-off<br/>'recall up, but<br/>precision down'"]
+```
+
+Five habits worth transplanting into A3:
+
+1. **A paragraph per visual** - never drop a chart/table without saying what to look at, who won, and why.
+2. **Interpret correlations, don't just report them** - narrate direction (up/down) *and* the trade-off
+   (recall↑ at the cost of precision↓).
+3. **Justify with numbers, not adjectives** - "richer features because depth 320 vs 19", not "better model".
+4. **An honest `Limitations` section** - he has one (4.3.2: "sensitive to noisy data"). Your lecturer
+   explicitly docks students who under-write limitations/deployment.
+5. **Prove significance** - even a simple statistical test on your model comparison lifts you above the cohort.
+
+**IMRaD skeleton he uses** (maps cleanly onto your CRISP-DM):
+`Introduction → Related work → Methodology (numbered steps + a flow figure) → Results & discussion
+(one sub-section per experiment) → Time complexity → Limitations → Conclusion`.
+
+> **Bottom line:** he is the marker. Matching his results-reporting rhythm - point, quantify, compare,
+> explain, qualify - is literally writing to the rubric's author.
