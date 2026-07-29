@@ -6,6 +6,7 @@
 - **Greedy layer-wise unsupervised pretraining** (§15.1, the assigned deep-dive) trained the first deep nets in 2006. That specific 2006 procedure is now **largely historical**; its descendant - **modern self-supervised pretraining** (word2vec/GloVe → BERT, and SSL in vision) - is very much alive across *both* language and vision.
 - **Four load-bearing ideas:** unsupervised/self-supervised pretraining · transfer learning & domain adaptation (Goodfellow's own example is books→electronics *sentiment* - the Review Pulse setup) · disentangling causal factors · **distributed representations** (`n` features → `kⁿ` concepts; `O(nᵈ)` regions vs `O(n)` for one-hot/k-means/kNN).
 - **Bengio et al. (2013)** unifies the field into three families - **probabilistic models, autoencoders, manifold learning**. **Zhong et al. (2016)** gives the timeline (PCA 1901 → LDA 1936 → manifold 2000 → deep 2006): *deep learning is not a new idea*, it is feature-learning + big data + GPUs.
+- **A rep can reconstruct well yet be useless for the task** - *compact ≠ useful* (the live-class autoencoder-vs-PCA point, and the answer to reflection Q3). Always evaluate a representation **against its downstream task**, and beware **shortcut features** (learning the *background* instead of the object).
 - **The unifying thesis** (Ch.15 last line, = Activity 2 prompt): *"Feedforward and recurrent networks, autoencoders and deep probabilistic models all learn and exploit representations."*
 
 ## Task List
@@ -16,9 +17,22 @@
 | **2** | Read & summarise Bengio, Courville & Vincent (2013) — *Representation Learning: A Review and New Perspectives* | ✅ |
 | **3** | Read & summarise Zhong, Wang, Ling & Dong (2016) — *An Overview on Data Representation Learning* | ✅ |
 | **4** | Read & summarise Ghosh (2019) — *Representation Learning: A Review and Perspectives* (Medium synthesis) | ✅ |
-| 5 | Activity 1: Discussion warm-up — "Why should we care about representation learning?" (verbal) | 🕐 |
-| 6 | Activity 2: Think Before You Write — critique "FF/RNN, autoencoders & deep probabilistic models all learn and exploit representations" (≤100 words, forum) | 🕐 |
-| 7 | Activity 3: Applications — a computer-vision app that would produce poorer outcomes without representation learning (≤100 words, forum) | 🕐 |
+| 5 | **Forum reflection** (≤100 words + example): pick one — *what makes a rep good* / *learned vs manual* / *reconstruct-well-but-unsuitable-for-classification* | 🕐 |
+| 6 | **Autoencoder-vs-PCA notebook** (`DLE602_Module_09_..._Activity.ipynb`): run it, fill the `LATENT_DIM` 2/4/8/16 table, answer embedded Qs + write reflection | 🕐 |
+| 7 | **GenAI-critique** (forum): evaluate "representation learning is *always* better than manual feature engineering" — attack *always* / *best* (data size, interpretability, bias/shortcuts) | 🕐 |
+| 8 | **Design-a-solution** (forum): pick image/text/audio/time-series/graph → raw input · preserve · ignore · rep model · latent rep · downstream task · one ethical risk | 🕐 |
+
+---
+
+## Live Class Notes (Wk 9, Tayab) — what the lecture added beyond the readings
+
+*Class recording 29 Jul 2026 (1h12). Framing question: "How can a neural network learn the most useful way to represent data?" These five points are the parts of the live lecture the four readings did **not** already cover.*
+
+1. **Representation = a way of encoding data for a model, and the same data has many.** image→pixels · word→numerical vector · audio→waveform/spectrogram · customer→behavioural features · face→learned facial features · graph node→embedding. *Which* encoding you pick is decided by the task.
+2. **Task-specific: same image, different task, different features.** One face → **emotion** needs mouth/eyes/eyebrow · **identity** needs stable facial structure · **age** needs skin texture · **face direction** needs head pose. Proof there is no absolute "best" representation — only best *for a task*.
+3. **Shortcuts / spurious features (ethics, SLO d).** Classify apples vs oranges where every apple is on a white background and every orange on black → the model learns the **background**, not the fruit, and fails to generalise. A good rep must show **invariance** — stay stable under position, scale, lighting, background, minor noise — and keep only task-relevant signal.
+4. **Compact ≠ useful (the notebook's central question).** The autoencoder-vs-PCA activity's thesis: *"Has the model learned a useful representation, or only a compact one?"* Good **reconstruction** optimises `p(x)`; it does **not** guarantee a latent space a classifier can separate. Don't over-compress the bottleneck to the point the input can't be reproduced. → this is exactly **reflection Q3**.
+5. **Live A3 mapping (do use this in the report).** Tayab's five rep-learning families = **CNN · RNN/LSTM · autoencoders · language models · GNN.** He told the group **Review Pulse uses approach 2 — RNN/LSTM** (sequential context + temporal patterns) — and *could* fold in **4 — language-model sentence embeddings** and **3 — autoencoder latent/compression.** Transfer learning framed as the norm now: *"reuse learned features and fine-tune for a new task instead of training from scratch"* (cost is the driver).
 
 ---
 

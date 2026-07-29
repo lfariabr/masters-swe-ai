@@ -50,6 +50,9 @@
 
 ## 🖤 Zone 5 - What makes a rep "good", the deeper answer + the map
 - 🖤 **Disentangling causal factors (§15.3):** ideal rep = separate directions for the **underlying causes**. If `y` is a salient cause of `x`, modelling `p(x)` reveals `y` almost free → justifies semi-supervised learning.
+- 🔴 **Shortcuts / spurious features (class - SLO d, ethics):** apples always on white bg, oranges on black bg → the net learns **background, not fruit** → collapses out of distribution. A good rep must **ignore irrelevant variation** (position, scale, lighting, background, noise = **invariance**) and keep only task-relevant signal. *[St Cat's: don't let an "at-risk" model latch onto which campus/teacher instead of real engagement.]*
+- 🔴 **Compact ≠ useful (the autoencoder notebook's thesis = reflection Q3 answer):** an autoencoder can **reconstruct** digits beautifully yet hand a classifier a latent space it can't separate - reconstruction optimises `p(x)`, not class separation. *"Has the model learned a **useful** representation, or only a **compact** one?"* → judge a rep **against its downstream task**, never by compression alone.
+- 🔵 **Task-specific = same image, different task (class):** one face → **emotion** needs mouth/eyes/brow · **identity** needs stable bone structure · **age** needs skin texture · **head-direction** needs pose. Same data, different useful features → proof there is no absolute "best" rep.
 - 🔵 **Salience is learned, not fixed:** MSE drops small features (ping-pong ball, ears); **GANs** *generate* them by redefining salience (Lotter 2015).
 - 🔵 **Bengio's 3 families (the mental index):** **probabilistic models** (RBM/DBN, sparse coding) · **autoencoders** (Module 7) · **manifold learning** (PCA, Isomap, LLE).
 - 🔵 **Zhong's timeline:** PCA 1901 → LDA 1936 → manifold 2000 → deep learning (Hinton 2006). *Deep learning is not a new idea* = feature-learning + big data + GPUs.
@@ -59,6 +62,7 @@
 > **Assessment 3 - Deep Learning Final Project** · source code + 1500-word report · **group** · **40%** · due **19/08/2026** · SLOs **c) d) e)**.
 > Module 9 feeds A3 directly: *"analyse the dataset, consider how best to represent input data, evaluate the impact of representation learning."* 🔴 **Tayab's pre-class reflection = your prep:** *how is your input represented, and could another representation make the task easier?*
 > **Answer (Review Pulse):** today = **GloVe 100d embeddings → BiLSTM → one 512-d document vector** (document-level). A single vector **can't** separate *"camera great, battery terrible."* **ATAE-LSTM (v3.0.0)** appends an **aspect embedding** + aspect-conditioned attention → the *same sentence gets a different representation per aspect*. That is the Roman-numeral point applied: better encoding → easier task.
+> 🔴 **Tayab mapped it live (Wk9 class):** the 5 rep-learning families = **CNN · RNN/LSTM · autoencoders · language models · GNN.** He said your project uses **approach 2 - RNN/LSTM** (sequential context + temporal patterns), and you *could* fold in **4 - language-model sentence embeddings** and **3 - autoencoder latent/compression.** Name-drop this mapping in the A3 report to show you placed your architecture in the taxonomy.
 
 ## 🔴 If you only memorise 5 things
 1. **Good rep = makes the next task easier** (Roman numeral); always relative to the downstream task.
@@ -73,8 +77,8 @@
 1. **Student 360** represents each girl as raw Synergetic fields (attendance %, marks, house, cohort). Tayab's point is that "engagement" isn't one column - it's a **low-dimensional learned state vector**. Which raw signals would you feed a net to *learn* a student-engagement representation, instead of hand-bucketing "at-risk" with SQL thresholds?
 2. Teacher **effort/report free-text comments** are your closest Review-Pulse analogue: text → learned embedding (not hand-coded keywords). If you had to justify to Lucas *why* a learned embedding of comment text beats a one-hot keyword flag, what's the one-sentence reason? (hint: one-hot = every word √2 apart, zero similarity; embeddings encode it by distance.)
 
-### This-week to-dos (still 🕐 / 🔥 in your notes)
-- [ ] 🕐 **Pre-class (do in the first hour, 4:00pm start):** re-read Ch.15 §15.1, prep the reflection answer above.
-- [ ] 🕐 **Activity 1** - Warm-up (verbal): *"why should we care about representation learning?"* → recite distributed → depth → disentangle → objectives.
-- [ ] 🕐 **Activity 2** - Think Before You Write (≤100 words, forum): critique the thesis sentence; agree, cite the 4 families as evidence.
-- [ ] 🕐 **Activity 3** - Applications (≤100 words, forum): a computer-vision app that degrades *without* representation learning + why.
+### This-week to-dos (actual post-class deliverables Tayab assigned Wk9)
+- [ ] 🕐 **Forum reflection (≤100 words + 1 example):** pick one - *what makes a rep good* / *learned vs manual* / *reconstruct-well-but-unsuitable-for-classification*. Draft ready (TF-IDF→GloVe example); post it.
+- [ ] 🕐 **Autoencoder-vs-PCA notebook:** run `DLE602_Module_09_..._Activity.ipynb`, fill the `LATENT_DIM` 2/4/8/16 table, answer the embedded questions + write the reflection (central Q: *useful or only compact?*).
+- [ ] 🕐 **GenAI-critique activity (forum):** evaluate the claim *"representation learning is always better than manual feature engineering because neural nets discover the best features."* Attack **"always"** + **"best"** → dataset size, interpretability, bias/shortcuts, expert features still valuable.
+- [ ] 🕐 **Design-a-solution activity (forum):** pick a problem (image/text/audio/time-series/graph) → raw input · info to preserve · irrelevant variation to ignore · suitable rep-learning model · expected latent rep · downstream task · **one limitation / ethical risk.**
