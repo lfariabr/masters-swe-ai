@@ -797,6 +797,11 @@ Submit your answer to the ‘Clustering Tool’ discussion forum. Read other stu
 ## Module 10 - Association Rules
 
 ### TLDR
+- **What:** association rules find if-then patterns in unlabelled transactional data - "if a customer buys bread, they likely also buy butter" (**market basket analysis**). Unsupervised, like Module 9's clustering, but asks a different question: item-level co-occurrence within records, not record-level grouping.
+- **Three metrics, one job each:** **support** (how often X and Y appear together, out of everyone), **confidence** (of the X-buyers, what fraction also buy Y - direction matters, `{A⇒B} ≠ {B⇒A}`), **lift** (is Y more likely given X than Y's own baseline rate - the tie-breaker that catches confidence's "Y is just generally popular" trap).
+- **Algorithm family, one throughline:** AIS → SETM → Apriori → AprioriTID → AprioriHybrid all suffer from expensive candidate generation and repeated full database scans. **FP-Growth** fixes both by compressing transactions into an **FP-tree** once (2 scans total) and mining it recursively with no candidate generation - the module's clear "best" algorithm across every resource. **Eclat** (vertical TID-list intersection) is a third family, best for dense data with few unique items.
+- **Two famous real-world hooks:** Walmart's pre-hurricane Strawberry Pop-Tart spike, and the Friday-evening beer-and-diapers pattern - both illustrate that ARM surfaces *correlation*, and a human still supplies the causal story.
+- **Bridges to Module 9:** clusters are broad, generic patterns over large groups; association rules are narrow and granular (a rule's support might be a couple of percent, not tens) - "two sides of the same coin," per McCormick's video, looking at the same customer data through different lenses.
 
 ### Introduction
 Association rules find patterns in data that state that when an event occurs, another event is likely to occur with a certain probability. Association rules are similar to the if-then statements of any programming language that helps to discover relationships between different data records in a large data set. 
@@ -816,7 +821,7 @@ Association rules are created by thoroughly analysing data and looking for frequ
 
     In discussing association rules, this paper highlights six algorithms: Ais, Setm, Apriori, Aprioritid, Apriorihybrid and FP-growth. Significant scientific research has been conducted on all these algorithms; however, this paper argues that FP-growth performs better than all the other algorithms. Pay special attention to the comparative discussions presented in this paper. 
 
-> *Status: 🕐 To-Do* 
+> *Status: ✅ Read + Reviewed — see [module10_notes.md](module-10-association-rules/module10_notes.md)*
 
 #### 2. Understand and Build a FP-Growth Algorithm in Python
 - Andrewngai. (2020, 17 March). Understand and build FP-Growth algorithm in Python. Retrieved from https://towardsdatascience.com/understand-and-build-fp-growth-algorithm-in-python-d8b989bab342
@@ -827,7 +832,7 @@ Association rules are created by thoroughly analysing data and looking for frequ
 
     This resource then uses a simple example to explain the FP-Growth algorithm and demonstrate a sample Python implementation of the FP-Growth algorithm. 
 
-> *Status: 🕐 To-Do* 
+> *Status: ✅ Read + Reviewed — see [module10_notes.md](module-10-association-rules/module10_notes.md)*
 
 #### 3. Clustering and Association
 - McCormick, K. (2018). Machine learning and AI foundations: Clustering and association [Video file]. Retrieved from https://www.linkedin.com/learning/machine-learning-and-ai-foundations-clustering-and-association/intro-to-association-rules-and-sequence-analysis?u=56744473
@@ -838,7 +843,7 @@ Association rules are created by thoroughly analysing data and looking for frequ
 
     Watch ‘Section 6: Association Rules and Sequence Detection’. You do not need to go through the entire section, instead watch to the     sub-sections entitled, ‘Intro to association rules and sequence analysis’, ‘Some association rules terminology’ and ‘Compare clustering and association rules’. 
 
-> *Status: 🕐 To-Do* 
+> *Status: ✅ Watched + Reviewed — see [module10_notes.md](module-10-association-rules/module10_notes.md)*
 
 #### 4. Association Rule Mining
 - Shanbhag, A. (2020, 21 May). Association rule mining. Retrieved from https://medium.com/analytics-vidhya/association-rule-mining-7f06401f0601
@@ -849,7 +854,7 @@ Association rules are created by thoroughly analysing data and looking for frequ
 
     Pay special attention to the section entitled, ‘Steps involved in Association Rule Mining’, as it describes a two-step process for association rule mining. This resource finishes with an interesting discussion on the apriori algorithm and highlights the drawbacks of the apriori algorithm. 
 
-> *Status: 🕐 To-Do* 
+> *Status: ✅ Read + Reviewed — see [module10_notes.md](module-10-association-rules/module10_notes.md)*
 
 #### 5. An Overview of Association Rule Mining and Its Applications
 - Rai, A. (2019, 4 June). An overview of association rule mining and its applications. Retrieved from https://www.upgrad.com/blog/association-rule-mining-an-overview-and-its-applications/
@@ -860,7 +865,7 @@ Association rules are created by thoroughly analysing data and looking for frequ
 
     You should focus on the section entitled, ‘Let’s look at some areas where Association Rule Mining has helped quite a lot’, as it provides examples of application domains in which association rules have proven effective. 
 
-> *Status: 🕐 To-Do* 
+> *Status: ✅ Read + Reviewed — see [module10_notes.md](module-10-association-rules/module10_notes.md)*
 
 ### Learning Activities
 
