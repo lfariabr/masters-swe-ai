@@ -238,3 +238,43 @@ Five habits worth transplanting into A3:
 
 > **Bottom line:** he is the marker. Matching his results-reporting rhythm - point, quantify, compare,
 > explain, qualify - is literally writing to the rubric's author.
+
+---
+
+# Appendix B - Dr Kamran's malware-detection trilogy (reference)
+
+The 2024 paper he emailed is the **last of three** he published in the *same* journal (*Engineering
+Applications of Artificial Intelligence*), all with the **same author trio: Kamran Shaukat, Suhuai Luo,
+Vijay Varadharajan**. Verified via Crossref. Knowing the arc is useful context (and answers a question he
+raised in class about malware *adapting* to detectors).
+
+| Year | Title | Where | Theme |
+|---|---|---|---|
+| **2022** | *A novel method for improving the **robustness** of deep learning-based malware detectors **against adversarial attacks*** | EAAI, vol. 116, art. 105461 | Malware that **adapts to evade** the detector (adversarial ML) |
+| **2023** | *A novel deep learning-based approach for malware detection* | EAAI (S0952197623002142) | Core deep-learning detection |
+| **2024** | *A novel machine learning approach for detecting first-time-appeared malware* | EAAI, vol. 131, art. 107801 | Zero-day / one-class SVM (the one on file) |
+
+## The "malware adapted to it" thing (chronology corrected)
+
+- In class he mentioned that after publishing, malware **adapted** and he had to respond. The technical name
+  is **adversarial attacks / adversarial examples**: an attacker makes a tiny perturbation to a binary that
+  does **not** change its malicious behaviour, but pushes its feature vector across the classifier's decision
+  boundary - so the malware keeps working while the detector now reads it as benign. (Same fragility as
+  "rotate a malware image 2° and it looks benign", but weaponised on purpose.)
+- **⚠️ Chronology (confirmed by the author):** in an email reply, Dr Kamran confirmed the pipeline reading
+  above is correct **and** that the adversarial-attack work was **not** incorporated into the 2024 paper - it
+  was *"one of the research questions during my PhD"*, done earlier with his supervisors. So the adversarial-
+  **robustness** work (**2022**) *precedes* the 2024 first-time-appeared paper; "2024 is the latest of the
+  trilogy" is correct, but the adaptation response is **not** a follow-up *to* it. His 2022 method proposed
+  adversarial-example generators (**NI-FGSM / NMI-FGSM**, negative + momentum variants of the Fast Gradient
+  Sign Method) and then hardened the detector by training against them.
+
+## Why this ties back to Module 10 (PAC)
+
+- PAC assumes train and test are drawn from the **same fixed distribution**. **Adversarial ML is the
+  attacker deliberately breaking that assumption** at test time. It is learning theory's core premise turning
+  into a security problem - a sharp example to cite when discussing the *limits* of PAC / learning theory.
+
+*Refs:* [2022 robustness paper](https://www.sciencedirect.com/science/article/abs/pii/S0952197622004511) ·
+[2023 detection paper](https://www.sciencedirect.com/science/article/abs/pii/S0952197623002142) ·
+2024 first-time-appeared paper = `lecturer_Detecting-First-Time-Appeared-Malware_Shaukat-2024.pdf` (on file).
