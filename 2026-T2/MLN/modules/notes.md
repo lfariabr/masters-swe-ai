@@ -1218,6 +1218,16 @@ Feel free to discuss key aspects of the questions noted in point 5 raised with o
 ## Module 10 - Learning Theory: PAC
 
 ### TLDR
+**PAC (Probably Approximately Correct)** is the *theory of learning* — it explains **why** ML works and bounds **how much data** it needs (Valiant, 1984; Turing Award 2011).
+- **Perfect learning is impossible** (label noise + finite sampling), so aim to be **approximately correct** (error ≤ **ε**) **probably** (confidence ≥ **1 − δ**). ε = accuracy, δ = confidence.
+- **Learning = searching a hypothesis space H** for a good hypothesis `h` (Brownlee: `h` = one model, `H` = the set). "Model" in practice ≈ "hypothesis" in theory.
+- **Occam's Razor / Occam's Bound (Daumé):** simpler hypotheses generalise — sample complexity ~ **log |H|**. This is the theoretical licence for regularisation + feature selection.
+- **Sample complexity** (how many examples), **computational complexity** (how much compute), **mistake bound** — quantified by the **Haussler bound** (Sarkar): more data ⇒ lower error + higher confidence; richer H ⇒ needs more data.
+- **Richer ≠ bigger H** (Sarkar): infinite straight lines still can't fit a quadratic — add the *right* term, don't just pile on parameters.
+- **Infinite H → VC dimension** (max points a class can **shatter**). **Finite VC ⇔ PAC-learnable** (Worrell); SVM's **margin = complexity control** = a good PAC learner (Vapnik lineage).
+- **PAC is theory-of-*learning*, not machine-learning** — Valiant's **"ecorithm"** applies it to biological evolution too (Pavlus). Module feeds SLOs `a)` + `d)` only; **no coding assessment**.
+
+> Full per-resource breakdown: [module10_notes.md](module-10-learning-theory-pac/module10_notes.md)
 
 ### Introduction
 This Module focuses on the mathematical and theoretical perspective of machine learning (ML). Specifically, it examines the Probably-Approximately-Correct (PAC) framework. The theoretical perspective of the PAC framework has applicability in understanding how humans acquire knowledge. The PAC framework is about the theory of ML (the theory of learning) and requires not only curiosity but some degree of attention to mathematical rigour when consulting the resources. The theoretical perspective of the PAC framework does not distinguish between ML and non-ML (humans). Most importantly, the theory of learning provides the justification and rationalisation for following the steps we take when solving a ML problem. An understanding the basics of the PAC framework helps inform the practice of ML.
@@ -1231,7 +1241,7 @@ This Module focuses on the mathematical and theoretical perspective of machine l
     
     Did you ever think about why we do the steps we do in ML? The PAC framework justifies the need to split our data into test and training data sets and provides the rationale for hyperparameter tuning—the learner is independent of the data distribution. This scikit-learn tutorial serves as a reminder of the different steps in ML that you will need to follow in your projects. This resource provides a context for exploring the PAC framework and will help you to understand its relationship to ML.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed - see [module10_notes.md](module-10-learning-theory-pac/module10_notes.md#1-pedregosa-et-al-2015-scikit-learn--14-support-vector-machines)*
 
 #### 2. Learning Theory
 - Daumé III, H. (2017, January). Chapter 12 Learning Theory.In A Course in Machine Learning (pp. 154-163). Retrieved from http://ciml.info/dl/v0_99/ciml-v0_99-ch12.pdf
@@ -1240,7 +1250,7 @@ This Module focuses on the mathematical and theoretical perspective of machine l
     
     This book chapter will help you to understand the importance of theory in ML. The chapter explains the importance of PAC learning and its relationship to Occam’s Razor (i.e., simple solutions generalise). After reading this chapter, you will be more familiar with the terms of PAC and learning theory.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed - see [module10_notes.md](module-10-learning-theory-pac/module10_notes.md#2-daumé-iii-h-2017-learning-theory-ch12-a-course-in-machine-learning)*
 
 #### 3. What is a Hypothesis in Machine Learning?
 - Brownlee, J. (2019, 25 June). What is a hypothesis in machine learning? [Web log post]. Retrieved from https://machinelearningmastery.com/what-is-a-hypothesis-in-machine-learning/
@@ -1249,7 +1259,7 @@ This Module focuses on the mathematical and theoretical perspective of machine l
 
     This resource helps lay the foundation for understanding the correct vocabulary when discussing the term hypothesis. The PAC framework uses this term frequently. Conversely, ML uses the term ‘model’. In ML we start with some data and build on it. When unseen data becomes available, we try to return something close to the original model. Thus, the model and hypothesis may appear to be interchangeable depending upon the area of focus. This resource serves as a reminder of the history of statistics and the importance of hypothesis testing and discusses how these led to the foundation of ML.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed - see [module10_notes.md](module-10-learning-theory-pac/module10_notes.md#3-brownlee-j-2019-what-is-a-hypothesis-in-machine-learning)*
 
 #### 4. The Probably-Approximately-Correct Learning Theory for the Everyman
 - Kelly, A. (2020, 21 April). PAC learning theory for the everyman: An uncomplicated introduction to the theory behind supervised machine learning. Retrieved from https://medium.com/swlh/pac-learning-theory-for-the-everyman-93c917c126f5
@@ -1258,7 +1268,7 @@ This Module focuses on the mathematical and theoretical perspective of machine l
 
     This reading explains the PAC theory and puts it in the context of supervised learning. To gain a sound understanding of the PAC theory, mathematics cannot be ignored. The reading also introduces the mathematical portion of PAC learning theory in a formula and provides a link to a resource on the mathematical theory behind the PAC theory should you wish to explore it further.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed - see [module10_notes.md](module-10-learning-theory-pac/module10_notes.md#4-kelly-a-2020-pac-learning-theory-for-the-everyman)*
 
 #### 5. The Hunt for the Algorithms that Drive Life on Earth
 - Pavlus, J . (2016, 7 February). The hunt for the algorithms that drive life on earth. Wired. Retrieved from https://www.wired.com/2016/02/the-hunt-for-the-algorithms-that-drive-life-on-earth/
@@ -1267,7 +1277,7 @@ This Module focuses on the mathematical and theoretical perspective of machine l
 
     This very-easy-to-read article will provide you with an understanding of the PAC theory and the motivations and longer-term objectives of Leslie Valiant, the computer scientist who invented the PAC theory. Ensure that you review the short video of Valiant embedded in this resource to understand the distinction between an ecorithm and an algorithm.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed - see [module10_notes.md](module-10-learning-theory-pac/module10_notes.md#5-pavlus-j-2016-the-hunt-for-the-algorithms-that-drive-life-on-earth)*
 
 #### 6. Reaching for the Gut of Machine Learning: A Brief Introduction to Computational Learning Theory
 - Sarkar, T. (2018, 15 July). Reaching for the gut of machine learning: A brief intro to CLT: Knowing the fundamentals of the computational learning theory can empower you immensely as a practitioner of machine learning [Web log post]. Retrieved from https://towardsdatascience.com/how-to-analyze-learning-short-tour-of-computational-learning-theory-9d93b15fc3e5
@@ -1276,7 +1286,7 @@ This Module focuses on the mathematical and theoretical perspective of machine l
 
     This article examines the fundamental concepts of ML theory while providing an introduction to Computational Learning Theory (CLT) terms (e.g., data, target concept, hypothesis space and response variables). The CLT tries to answer fundamental questions about ML. The PAC theory is discussed in the context of learners and the concept of the Haussler bound. Consideration is also given to how it relates to ML practice in terms of training data, examples and hypothesis space.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed - see [module10_notes.md](module-10-learning-theory-pac/module10_notes.md#6-sarkar-t-2018-reaching-for-the-gut-of-machine-learning-a-brief-intro-to-clt)*
 
 #### 7. Computational Learning Theory (James Worrell)
 - Worrell, J. (2019, 22 July). James Worrell: Computational learning theory I [Video file]. Retrieved from https://www.youtube.com/watch?v=DhmDnNoKoPg
@@ -1285,7 +1295,7 @@ This Module focuses on the mathematical and theoretical perspective of machine l
 
     This video brings to life the mathematics and concepts of PAC learning and also provides some proof of PAC learnability. This video will first provide you with an understanding of some of the concepts before jumping into some complex and rigorous papers that you might wish to consult in future. You should watch the first 30 minutes of this video at least to gain an appreciation of the effects of PAC on computer science.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Watched + Reviewed - see [module10_notes.md](module-10-learning-theory-pac/module10_notes.md#7-worrell-j-2019-computational-learning-theory-i)*
 
 ### Learning Activities
 
