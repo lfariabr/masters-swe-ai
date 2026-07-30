@@ -1,11 +1,17 @@
 # Module 10 - Association Rules
 
+## TL;DR
+- **What:** association rules find if-then patterns in unlabelled transactional data (market basket analysis) - unsupervised, like Module 9's clustering, but asking a different question: item-level co-occurrence within records, not record-level grouping.
+- **Three metrics:** **support** (how often X and Y appear together, out of all transactions), **confidence** (of the X-transactions, what fraction also has Y - direction matters, `{A⇒B} ≠ {B⇒A}`), **lift** (is Y more likely given X than Y's own baseline rate - catches confidence's "Y is just generally popular" trap).
+- **Algorithm lineage:** AIS → SETM → Apriori → AprioriTID → AprioriHybrid all pay for expensive candidate generation and repeated database scans (R1). **FP-Growth** compresses transactions into an **FP-tree** once and mines it recursively with no candidate generation (R1, R2) - the strongest general-purpose choice in this paper's comparison, though **Eclat** (R5) can win on dense data with few unique items.
+- **Practical examples:** Walmart's pre-hurricane Pop-Tart spike and the Friday beer-and-diapers pattern (R4) - both show ARM surfaces *correlation*, and a human supplies the causal story afterward.
+
 ## Task List
 
 | # | Task | Status |
 |---|------|--------|
 | **1** | Read & summarise Kumbhare & Chobe (2014) - An Overview of Association Rule Mining Algorithms | ✅ |
-| **2** | Read & summarise Andrewngai (2020) - Understand and Build FP-Growth Algorithm in Python | ✅ |
+| **2** | Read & summarise Andrewngai (2020) - Understand and Build FP-Growth Algorithm in Python | ✅ - ⚠️ see source-mismatch note in §2 (local PDF is actually Chonyy 2020, not Andrewngai) |
 | **3** | Watch & summarise McCormick (2018) - Machine Learning and AI Foundations: Clustering and Association | ✅ |
 | **4** | Read & summarise Shanbhag (2020) - Association Rule Mining | ✅ |
 | **5** | Read & summarise Rai (2019/2026) - An Overview of Association Rule Mining and Its Applications | ✅ |
@@ -14,7 +20,7 @@
 
 **Local sources (this folder):**
 - `r1_An-Overview-of-Association-Rule-Mining-Algorithms_Kumbhare-Chobe-2014.pdf` (Resource 1)
-- `r2_FP-Growth-Frequent-Pattern-Generation-in-Data-Mining-with-Python_Andrewngai-2020.pdf` (Resource 2)
+- `r2_FP-Growth-Frequent-Pattern-Generation-in-Data-Mining-with-Python_Andrewngai-2020.pdf` (Resource 2; filename says Andrewngai but the actual content is a different article by Chonyy - see the mismatch note in §2)
 - `r3_Clustering-and-Association-transcript_McCormick-2018.md` (Resource 3 - video transcript, 3 sub-sections)
 - `r4_Association-Rule-Mining_Shanbhag-2020.pdf` (Resource 4)
 - `r5_Association-Rule-Mining-Overview-and-Applications_Rai-2019.pdf` (Resource 5; the live upGrad page has since been substantially rewritten/expanded from the original 2019 article - see the erratum note in §5 below)
@@ -48,21 +54,23 @@
 | **Apriori** | Level-wise search: k-itemsets explore (k+1)-itemsets; breadth-first + hash tree for efficient counting | Complex candidate generation (time/space/memory-heavy); multiple full database scans |
 | **AprioriTID** | Same candidate generation as Apriori, but after the first pass, support is counted from a derived TID-itemset structure, not the raw database | Better than Apriori in **later** passes only |
 | **AprioriHybrid** | Uses Apriori in early passes (where it's faster), switches to AprioriTID in later passes | Combines strengths but still inherits both algorithms' complexity |
-| **FP-Growth** | Two database scans only; builds a compressed **FP-tree**, mines it recursively with **no candidate generation step at all** | The most complex data structure to implement, but this paper's comparison table shows it winning on every axis |
+| **FP-Growth** | Two scans of the **original database**; builds a compressed **FP-tree**, mines it recursively with **no candidate generation step at all** | The most complex data structure to implement, but this paper's comparison table shows it scoring best on every axis it tests |
 
-- 🔴 **Comparison table (data support / speed / accuracy):** FP-Growth scores **"very large" data support, "high" speed in both initial and later phases, and "most accurate"** - strictly better than every predecessor on every criterion the paper tests. This is the paper's explicit conclusion, not implied - **"the performance of FP-growth is better than all other algorithms discussed here."**
+- 🔴 **Comparison table (data support / speed / accuracy):** FP-Growth scores **"very large" data support, "high" speed in both initial and later phases, and "most accurate"** - the best performer on every criterion *this paper* tests. That's the paper's explicit conclusion - **"the performance of FP-growth is better than all other algorithms discussed here"** - not a universal guarantee about every dataset or workload. Note also that AprioriTID/AprioriHybrid don't keep re-scanning the raw database after the first pass either - they switch to counting from a derived structure - so "FP-Growth is the only one that avoids repeated scans" overstates it; its real edge is avoiding candidate generation *and* fixing the scan count at exactly 2, in this comparison.
 
 #### Key Takeaways for BDA601
-1. **This is the "why" behind R2 and R3's shared FP-Growth focus.** Every other resource in this module assumes FP-Growth is the superior choice - this paper is the academic evidence for that claim, tracing the lineage AIS → SETM → Apriori → AprioriTID → AprioriHybrid → FP-Growth as successive fixes to the same two problems (candidate-set explosion, repeated full scans).
-2. **Two-scans-only is the number to remember.** Every other algorithm here needs as many passes as the largest frequent itemset; FP-Growth needs exactly 2, regardless of itemset size. That's the concrete, citable reason it wins the comparison table.
+1. **This is the "why" behind R2 and R3's shared FP-Growth focus.** Every other resource in this module treats FP-Growth as the strong default choice - this paper is the empirical evidence for that claim (within its own comparison), tracing the lineage AIS → SETM → Apriori → AprioriTID → AprioriHybrid → FP-Growth as successive attempts to fix the same two problems (candidate-set explosion, repeated full scans). R5 (Rai) adds the caveat that Eclat can still win on dense data with few unique items - "best" here means best in this paper's tested conditions, not universally.
+2. **Two-scans-only (of the original database) is the number to remember.** Every Apriori-family algorithm here needs as many *initial-style* passes as the largest frequent itemset (or switches counting strategy after the first pass, as AprioriTID/AprioriHybrid do); FP-Growth fixes its scan count at 2 regardless of itemset size. That's the concrete, citable mechanism behind this paper's result - not proof that no other algorithm could ever match it on a different workload.
 3. **Day-job anchor:** this is the same "count candidates vs. compress-and-recurse" tradeoff you'd hit choosing between a naive `GROUP BY` scan-per-threshold approach and a pre-aggregated/indexed structure in a warehouse query - repeated full scans get expensive fast as data grows, which is exactly the drawback table's message.
 
 ---
 
-### 2. Understand and Build FP-Growth Algorithm in Python (Andrewngai 2020)
+### 2. FP Growth: Frequent Pattern Generation in Data Mining with Python Implementation (Chonyy 2020)
 
-**Citation:** Andrewngai. (2020, 30 October). *Understand and build FP-Growth algorithm in Python*. Towards Data Science. Retrieved from https://towardsdatascience.com/understand-and-build-fp-growth-algorithm-in-python-d8b989bab342
-**Local source:** `r2_FP-Growth-Frequent-Pattern-Generation-in-Data-Mining-with-Python_Andrewngai-2020.pdf`
+⚠️ **Source mismatch, caught in review:** notes.md's Resource 2 citation is *Andrewngai (2020, 17 March), "Understand and build FP-Growth algorithm in Python," Towards Data Science*. The PDF actually saved in this folder is a **different article by a different author** - Chonyy (2020, 30 October), *"FP Growth: Frequent Pattern Generation in Data Mining with Python Implementation,"* also on Towards Data Science, different URL. Same topic and near-identical structure (both walk through FP-tree construction and a Python implementation), but they are not the same source. The citation below and all Key Highlights in this section describe **the file actually on disk (Chonyy)**, not the officially assigned Andrewngai article - if strict citation accuracy matters for an assessment, fetch the Andrewngai original separately (https://towardsdatascience.com/understand-and-build-fp-growth-algorithm-in-python-d8b989bab342).
+
+**Citation:** Chonyy. (2020, 30 October). *FP Growth: Frequent pattern generation in data mining with Python implementation*. Towards Data Science. Retrieved from https://towardsdatascience.com/fp-growth-frequent-pattern-generation-in-data-mining-with-python-implementation-244e561ab1c3/
+**Local source:** `r2_FP-Growth-Frequent-Pattern-Generation-in-Data-Mining-with-Python_Andrewngai-2020.pdf` (filename kept as-is to match the folder's existing resource slot; content is Chonyy's article - see mismatch note above)
 
 **Purpose:** The module's only from-scratch Python implementation of FP-Growth, and the direct source for Activity 2 - the `mineTree` conditional-tree code the activity asks you to explain lives here.
 
@@ -142,10 +150,10 @@ def mineTree(headerTable, minSup, preFix, freqItemList):
 | **Consequent** | the "Then" item/code | pizza→beer and beer→pizza can *both* be valid rules with the same two products |
 | **Confidence** | % of antecedent-buyers who also buy the consequent | "accuracy" of the rule; McCormick's own synonym for it |
 | **Rule support** | how many of **all** cases include both the antecedent AND consequent | denominator = everyone, not just antecedent-buyers |
-| **Antecedent support** | how many cases include just the antecedent | denominator = antecedent-buyers only - this is what rule support gets divided by (conceptually) to reach confidence |
+| **Antecedent support** | how often the antecedent alone appears | denominator = **all transactions** (same denominator as rule support) - only the numerator differs (X alone, not X AND Y) |
 | **Lift** | how many times more likely the consequent is, given the antecedent, vs. its baseline rate | "buyers of pizza are 3x as likely to buy beer" - a multiplier, not a percentage |
 
-- 🔴 **Confidence vs. support, in one line:** confidence asks "of the people who bought the antecedent, how many also bought the consequent" (narrow denominator); support asks "out of everyone, how many bought both" (wide denominator, tells you the rule's overall *relevance*, not just its accuracy).
+- 🔴 **Confidence vs. support, in one line:** confidence asks "of the people who bought the antecedent, how many also bought the consequent" (`rule support ÷ antecedent support` - antecedent-buyers as the effective base); support asks "out of everyone, how many bought both" (all transactions as the base, tells you the rule's overall *relevance*, not just its accuracy). Rule support and antecedent support share the same "all transactions" denominator - confidence is what you get by dividing one by the other.
 
 #### 3. Clustering vs. association rules: "two sides of the same coin"
 
@@ -235,7 +243,8 @@ def mineTree(headerTable, minSup, preFix, freqItemList):
 | **Confidence** | `P(Y \| X)` | of the transactions containing X, what fraction also contain Y |
 | **Lift** | `P(Y \| X) / P(Y)` | how much more likely Y is when X is present, vs. Y's baseline rate |
 
-- 🔵 **Worked example:** 30% of transactions contain both Basmati Rice and Ghee → **support = 0.30**. Of transactions with Basmati Rice, 40% also have Ghee → **confidence = 0.40**. Ghee appears in 20% of all transactions overall → **lift = 0.40/0.20 = 2.0** - Ghee is **twice as likely** to be bought when Basmati Rice is purchased, meaning this is a real association, not just Ghee being popular on its own.
+- 🔵 **Worked example, corrected (see erratum below):** 10% of transactions contain both Basmati Rice and Ghee → **support = 0.10**. Of transactions with Basmati Rice, 40% also have Ghee → **confidence = 0.40**. Ghee appears in 20% of all transactions overall → **lift = 0.40/0.20 = 2.0** - Ghee is **twice as likely** to be bought when Basmati Rice is purchased, meaning this is a real association, not just Ghee being popular on its own.
+  - ⚠️ **Source erratum:** Rai's article states the joint support as **0.30** while keeping confidence at 0.40 and Ghee's own support at 0.20. That combination is mathematically impossible - a joint support (both items together) can never exceed either item's individual support, and `0.30 > 0.20` breaks that. Working backwards from confidence and lift (`support(X∩Y) = confidence × support(X)`, and `support(X) = support(X∩Y) / confidence`) shows the internally consistent version needs **joint support = 0.10**, which is what's used above. Cite the mechanics (support/confidence/lift, how they combine) from this example, not the article's literal 0.30 figure.
 - 🔴 **Lift is the tie-breaker metric** - the same "confidence alone can mislead" caution as Shanbhag's umbrella example, but here it's formalised: confidence only tells you how often Y follows X, not whether that's *more* than Y's baseline popularity. A rule can have high confidence purely because Y is generally popular, and lift is what exposes that.
 
 #### 3. Three algorithms compared - adds Eclat to the module's usual Apriori/FP-Growth pair
