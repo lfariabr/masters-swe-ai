@@ -794,6 +794,112 @@ Submit your answer to the ‘Clustering Tool’ discussion forum. Read other stu
 
 ---
 
+## Module 10 - Association Rules
+
+### TLDR
+
+### Introduction
+Association rules find patterns in data that state that when an event occurs, another event is likely to occur with a certain probability. Association rules are similar to the if-then statements of any programming language that helps to discover relationships between different data records in a large data set. 
+
+A widely used example of the application of association rules is the market basket analysis. For example, a market basket analysis is able to suggest that if a customer buys bread as part of their regular grocery shopping, then that customer might also buy butter. The discovery of the relationship between bread and butter for that customer from the huge dataset of the grocery shop is called an association rule. Similarly, a market basket analysis is also able to suggest that if a customer buys a laptop then that customer may also buy a laptop bag. The benefit of creating such association rules for both these examples is that the businesses can promote related products to their customers and increase sales. 
+
+Association rules are created by thoroughly analysing data and looking for frequent if-then patterns. To do this, data professionals rely on different machine learning algorithms to generate patterns.
+
+### Resources
+
+#### 1. An Overview of Association Rule Mining Algorithms
+- Kumbhare, A. T. & Chobe, V.S. (2014). An overview of association rule mining algorithms. Retrieved from https://pdfs.semanticscholar.org/d405/8d9f3f66c53ddea776c974fbd740afd994b4.pdf
+
+*Resource Overview:*
+
+    This research paper presents an overview of association rules and association rule mining algorithms. All the algorithms are discussed with proper examples and compared based on performance factors, such as accuracy, data support and execution speed. 
+
+    In discussing association rules, this paper highlights six algorithms: Ais, Setm, Apriori, Aprioritid, Apriorihybrid and FP-growth. Significant scientific research has been conducted on all these algorithms; however, this paper argues that FP-growth performs better than all the other algorithms. Pay special attention to the comparative discussions presented in this paper. 
+
+> *Status: 🕐 To-Do* 
+
+#### 2. Understand and Build a FP-Growth Algorithm in Python
+- Andrewngai. (2020, 17 March). Understand and build FP-Growth algorithm in Python. Retrieved from https://towardsdatascience.com/understand-and-build-fp-growth-algorithm-in-python-d8b989bab342
+
+*Resource Overview:*
+
+    This resource describes the Frequent Pattern (FP)-Growth algorithm. It begins with a short comparative discussion of the Apriori and FP-Growth algorithms. Pay attention to the subtle but interesting differences between the two algorithms. 
+
+    This resource then uses a simple example to explain the FP-Growth algorithm and demonstrate a sample Python implementation of the FP-Growth algorithm. 
+
+> *Status: 🕐 To-Do* 
+
+#### 3. Clustering and Association
+- McCormick, K. (2018). Machine learning and AI foundations: Clustering and association [Video file]. Retrieved from https://www.linkedin.com/learning/machine-learning-and-ai-foundations-clustering-and-association/intro-to-association-rules-and-sequence-analysis?u=56744473
+
+*Resource Overview:*
+
+    This resource introduces association rules and compares them to clustering, which was covered in Module 9. 
+
+    Watch ‘Section 6: Association Rules and Sequence Detection’. You do not need to go through the entire section, instead watch to the     sub-sections entitled, ‘Intro to association rules and sequence analysis’, ‘Some association rules terminology’ and ‘Compare clustering and association rules’. 
+
+> *Status: 🕐 To-Do* 
+
+#### 4. Association Rule Mining
+- Shanbhag, A. (2020, 21 May). Association rule mining. Retrieved from https://medium.com/analytics-vidhya/association-rule-mining-7f06401f0601
+
+*Resource Overview:*
+
+    This resource describes association rule mining as a data mining technique that finds patterns in data. The patterns found by association rule mining represent relationships between data items, which is described using market basket analysis. 
+
+    Pay special attention to the section entitled, ‘Steps involved in Association Rule Mining’, as it describes a two-step process for association rule mining. This resource finishes with an interesting discussion on the apriori algorithm and highlights the drawbacks of the apriori algorithm. 
+
+> *Status: 🕐 To-Do* 
+
+#### 5. An Overview of Association Rule Mining and Its Applications
+- Rai, A. (2019, 4 June). An overview of association rule mining and its applications. Retrieved from https://www.upgrad.com/blog/association-rule-mining-an-overview-and-its-applications/
+
+*Resource Overview:*
+
+    This resource introduces association rules in terms of if-then statements. It also introduces related concepts, such as support, confidence and lift. 
+
+    You should focus on the section entitled, ‘Let’s look at some areas where Association Rule Mining has helped quite a lot’, as it provides examples of application domains in which association rules have proven effective. 
+
+> *Status: 🕐 To-Do* 
+
+### Learning Activities
+
+#### 1. Create Association Rules
+- Ditaranto, J. (2020, 10 March). Seven bad travel habits and how to quit them. Retrieved from https://www.smartertravel.com/bad-travel-habits/
+
+In this activity, you will create some association rules that could be useful for the travel industry. 
+
+As part of this activity, read the article entitled ‘Seven Bad Travel Habits and How to Quit Them’, which discusses the following seven bad travel habits: 1) not learning basic vocabulary; 2) booking at the last minute; 3) not giving yourself enough time to pack; 4) packing more than you need; 5) not splurging when you should; 6) not learning the exchange rate ahead of time; and 7) overbooking yourself. 
+
+Once you understand these bad habits from the article, create seven association rules in the if-then format (i.e., one association rule for each bad habit). For each IF (i.e., for each bad habit), list any other bad habit/s from the remaining six that you believe are likely to take place (i.e., the THEN block). 
+
+For example: 
+> IF (someone has this bad habit ‘Not Learning Basic Vocabulary’) 
+
+THEN
+> (List as many bad habits that you think are relatable to ‘Not Learning Basic Vocabulary’. Leave it NULL if you think none are relatable). 
+
+You are required to create the seven If-Then blocks in a Word file. Do not create these blocks using a programming language. Decide the THEN blocks based on your reading while visualising the persona of a traveller making those mistakes. 
+
+Submit your answers to the ‘Association Rules’ discussion forum. Read other students’ submissions and provide feedback. 
+
+> *Status: 🕐 To-Do* 
+
+#### 2. Let’s Explore FP-Growth
+In this activity, we want you to explore the FP-Growth algorithm further and undertake a Python implementation. 
+
+Andrewngai (2020) presented a sample Python code for FP-Growth. Please review the code presented and pay special attention to the code block ‘#Find frequent word list by creating conditional tree’.  
+
+Once you understand the code block ‘#Find frequent word list by creating conditional tree’, answer the following two questions: 
+
+1. What is this block of code doing? 
+2. What is the significance of this block in relation to the other parts of the code? 
+Submit your answer to the ‘Let’s Explore FP-Growth discussion forum’. Read other students’ submissions and provide feedback. 
+
+> *Status: 🕐 To-Do* 
+
+---
+
 ```bash
 --- PLACEHOLDER:
 ## Module X - ...
