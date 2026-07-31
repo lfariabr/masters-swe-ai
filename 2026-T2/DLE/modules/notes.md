@@ -955,6 +955,8 @@ Please read other students’ posts and provide feedback.
 - **The hard parts:** the partition function `Z` and exact inference are usually **intractable (#P-hard)** → deep learning uses **energy-based models (RBMs)**, **Gibbs sampling**, and **variational (approximate) inference** (MCMC / EM / variational is the recurring trio).
 - **Deep-learning twist (§16.7):** many latent variables, dense matrix connectivity, training *invents* the latent semantics (scalable but uninterpretable) - vs traditional GMs' few, hand-designed, interpretable nodes. The **RBM** (`E(v,h)=−bᵀv−cᵀh−vᵀWh`) is the canonical example - and this whole family = the "**deep probabilistic models**" from Module 9's thesis.
 
+*Sources: Goodfellow, Bengio & Courville (2016) Ch.16; Murphy (1998); Airoldi (2007) - see the Resources section below for full citations.*
+
 ### Introduction
 Structured probabilistic models represent different knowledge domains using probability distributions and have numerous applications in computer vision, natural language processing and speech recognition. Structured probabilistic models are also often referred to as graphical models that bring together graph theory and probability theory and provide a flexible framework for modelling large collections of random variables with complex interactions.
 

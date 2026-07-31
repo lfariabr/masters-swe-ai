@@ -8,6 +8,8 @@
 - **The DL twist (16.7):** deep models use *many* latent variables with dense, matrix-parametrised connectivity and let training *invent* the latent semantics (uninterpretable but scalable) - the opposite of traditional GMs' few, hand-designed, interpretable latent nodes. **The RBM** (`E(v,h) = −bᵀv − cᵀh − vᵀWh`) is the canonical example.
 - **This is the 4th family from Module 9's thesis:** "deep probabilistic models" = graphical models. Module 10 is the *language* under RBMs/DBNs, HMMs, and every latent-variable model in the course.
 
+> *Sources for the claims above: Goodfellow, Bengio & Courville (2016) Ch.16; Murphy (1998); Airoldi (2007) - full citations in Key Highlights below.*
+
 ## Task List
 
 | # | Task | Status |
@@ -43,7 +45,7 @@
 | | **Directed** (Bayesian / belief network) | **Undirected** (Markov random field / Markov network) |
 |---|---|---|
 | Edge | arrow `a → b`: `b`'s distribution defined *given* `a` | plain edge: symmetric affinity, **no** conditional distribution |
-| Factorisation | `p(x) = Πᵢ p(xᵢ | Pa_G(xᵢ))` (local CPDs) | `p̃(x) = Π_C φ(C)` over cliques, then `p(x)=p̃(x)/Z` |
+| Factorisation | `p(x) = Πᵢ p(xᵢ &#124; Pa_G(xᵢ))` (local CPDs) | `p̃(x) = Π_C φ(C)` over cliques, then `p(x)=p̃(x)/Z` |
 | Best when | clear **causal**, one-directional story (relay race) | **symmetric / mutual** interaction, no clean direction (spreading a cold) |
 | Sampling | **ancestral sampling** — cheap, topological order | **Gibbs sampling** — expensive, multipass |
 | Parameter cost | `O(kᵐ)` where `m` = max vars in one CPD (vs `O(kⁿ)`) | cheap iff all cliques are small |
@@ -62,13 +64,13 @@ graph TD
     end
 ```
 
-*Directed: arrows = "defines the distribution of B given A" (Alice can affect Bob, never the reverse). Undirected: plain edges = mutual affinity (you and your roommate infect each other either way); roommate↔coworker interact only indirectly through you.*
+*Directed: an arrow `A → B` is a **factorisation** statement - `B`'s distribution is defined by a conditional `p(B|A)`, i.e. `A` appears on the right of `B`'s conditioning bar. It is **not** intrinsically causal; a causal reading (Alice runs before Bob, so only Alice's time enters Bob's) is an **optional interpretation** you add when the domain justifies it. Undirected: plain edges = mutual affinity (you and your roommate infect each other either way); roommate↔coworker interact only indirectly through you.*
 
 - **Directed cost win (relay race):** discretise each time into 100 bins → a full table needs **999,999** values; three conditional tables need **19,899** — a **×50** reduction. General rule: `O(kⁿ) → O(kᵐ)` when each node has few parents (`m ≪ n`).
 - **Undirected specifics:** a **clique potential** `φ(C) ≥ 0` scores the affinity of a clique's joint states; the product is *unnormalised*.
 - **Partition function `Z`** (§16.2.3): `Z = Σ/∫ p̃(x)` normalises to a valid distribution (a **Gibbs distribution**). Borrowed from statistical physics; **usually intractable** in deep learning → forces approximation. `Z` can even *fail to exist* if a continuous integral diverges.
 - **Energy-based models (EBMs, §16.2.4):** set `p̃(x) = exp(−E(x))` — guarantees positivity, allows *unconstrained* optimisation. Any such distribution is a **Boltzmann distribution**; latent-variable EBMs = **Boltzmann machines**. Each energy term = an **"expert"** enforcing one soft constraint (**product of experts**, Hinton). **Free energy** `F(x) = −log Σ_h exp(−E(x,h))`.
-- **Separation & d-separation (§16.2.5):** which variables are conditionally independent given others. **Active path** = all intermediate nodes unobserved; **inactive** = contains an observed node. Undirected = *separation*; directed = *d-separation* (trickier). The **V-structure / collider** (`a → s ← b`) is the twist: `a` and `b` are independent **until you observe `s`** (or any descendant) — then they become dependent = **explaining away**.
+- **Separation & d-separation (§16.2.5):** which variables are conditionally independent given others. **Undirected (*separation*):** a path is **active** iff *every* intermediate node is unobserved; observing any node on it blocks it. **Directed (*d-separation*)** flips the rule at colliders: a path is active iff **every non-collider on it is unobserved AND every collider is observed (or has an observed descendant)**. The **V-structure / collider** (`a → s ← b`) is the twist: `a` and `b` are independent **until you observe `s`** (or any descendant) — then they become dependent = **explaining away**.
 
 ```mermaid
 graph TD
@@ -145,7 +147,7 @@ graph TD
 #### 1. Representation — the water sprinkler network
 - **Graphical models = "a marriage between probability theory and graph theory"** (Jordan): probability is the *glue* that keeps a modular system consistent; the graph is the human-readable interface **and** an efficient data structure. Mixture models, factor analysis, HMMs, Kalman filters, Ising models are all special cases.
 - **Nodes = random variables; (lack of) arcs = conditional independence** → compact joint. **Undirected (MRF):** simple separation (A ⊥ B | C if C blocks every path). **Directed (BN):** arcs carry direction.
-- **Why directed models are popular:** an arc `A → B` can be read as "**A causes B**" (a guide for building structure); they encode **deterministic** relationships and are **easier to learn** (fit to data).
+- **Why directed models are popular:** an arc `A → B` *can* be given a causal reading ("**A causes B**") - but only as an **optional interpretation you assume**, not something the arrow guarantees (formally it just says `B`'s CPD is conditioned on `A`). Under that assumption it becomes a useful guide for building structure; directed models also encode **deterministic** relationships and are **easier to learn** (fit to data).
 - **Sprinkler network:** `Cloudy → {Sprinkler, Rain} → WetGrass`. Each node has a **Conditional Probability Table (CPT)**. **Rule:** a node is independent of its ancestors given its parents. Chain rule `P(C,S,R,W)=P(C)P(S|C)P(R|C,S)P(W|C,S,R)` simplifies (via independences) to `P(C)P(S|C)P(R|C)P(W|S,R)`. Space: `O(2ⁿ) → O(n·2ᵏ)` (`k` = max fan-in).
 - **"Bayesian" networks aren't necessarily Bayesian** — the name comes from using *Bayes' rule* for inference; parameters are often fit with frequentist methods.
 
@@ -157,7 +159,7 @@ graph TD
 
 #### 3. Inference algorithms & learning
 - **Exact inference:** **variable elimination** ("push sums in"); **junction tree / dynamic programming** for multiple marginals — cost is exponential in the graph's **induced width** (minimising it is NP-hard).
-- **Approximate inference** (needed for large induced width; itself #P-hard): **variational / mean-field**, **MCMC** (Gibbs, Metropolis-Hastings), **loopy belief propagation**, cutset conditioning.
+- **Approximate inference** (needed when the induced width is large, since **exact marginal computation is #P-hard**): **variational / mean-field**, **MCMC** (Gibbs, Metropolis-Hastings), **loopy belief propagation**, cutset conditioning. *(Guaranteed-accuracy approximation is itself hard in the worst case, but these heuristics work well in practice.)*
 - **Learning — the 4 cases:**
 
 | Structure | Observability | Method |
@@ -167,7 +169,7 @@ graph TD
 | Unknown | Full | **Search** through model space (BIC / MDL score) |
 | Unknown | Partial | **EM + structure search** (Structural EM) |
 
-- **Structure learning is NP-hard** (super-exponential number of DAGs); scored by likelihood − complexity penalty (**BIC = MDL**, Occam's razor). Hidden nodes can make a model dramatically more compact (his example: 45 vs 708 parameters).
+- **Structure learning is NP-hard** (super-exponential number of DAGs); scored by likelihood − complexity penalty (**BIC**, which *asymptotically* coincides with an **MDL**-style penalty under the usual regularity assumptions - Occam's razor). Hidden nodes can make a model dramatically more compact (his example: 45 vs 708 parameters).
 
 #### 4. Decision theory & applications
 - **Decision theory = probability theory + utility theory** → **influence diagrams** (add utility + action nodes) → optimal policy (reinforcement learning when the model is complex).
