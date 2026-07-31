@@ -566,7 +566,7 @@ The gated six-model extension is complete only when:
 
 ## 17. Immediate next actions
 
-1. Finalise #88 from `DLE602_A3_Report_v2.md`, preserving Table 1 as the canonical four-model result and Appendix A as the exploratory six-model result.
-2. Confirm Group ID and the evidence-backed contributions/hand-offs for Victor and Juan.
+1. Finalise #88 from `DLE602_A3_Report_v3.md`, preserving the canonical four-model result and Appendix A as the exploratory six-model result.
+2. Confirm the evidence-backed contributions/hand-offs for Victor and Juan.
 3. Prepare #89: rewrite the v3 quick-start and submission checklist, choose the artifact strategy after confirming the LMS upload limit, and build a deterministic ZIP.
 4. Create `v3.0.0` only after clean-install CPU smoke, artifact/ZIP size checks and final source-to-report consistency.
