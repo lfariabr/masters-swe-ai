@@ -949,6 +949,13 @@ Please read other students’ posts and provide feedback.
 ## Module 10 - Structured Probabilistic Models for Deep Learning
 
 ### TLDR
+- **Structured probabilistic model = graphical model:** a graph describing a probability distribution - **nodes = random variables, edges = direct interactions.** The power is in the *missing* edges: each one asserts a conditional independence, which is what makes the model cheap.
+- **The problem it solves:** a naive joint table over `n` `k`-valued variables costs `kⁿ` parameters (a 32×32 RGB image → `2³⁰⁷²`). Structure cuts this to `O(kᵐ)` (few parents each) → less memory, less data, cheaper inference/sampling. Relay-race example: ~1,000,000 → ~19,899 params (×50).
+- **Two languages:** **directed** (Bayesian/belief networks, DAGs, `p(x)=Πp(xᵢ|Paᵢ)`) suit *causal, one-directional* stories + cheap **ancestral sampling**; **undirected** (Markov random fields, cliques + factors `φ(C)`, partition function `Z`) suit *symmetric* interactions. Neither dominates.
+- **The hard parts:** the partition function `Z` and exact inference are usually **intractable (#P-hard)** → deep learning uses **energy-based models (RBMs)**, **Gibbs sampling**, and **variational (approximate) inference** (MCMC / EM / variational is the recurring trio).
+- **Deep-learning twist (§16.7):** many latent variables, dense matrix connectivity, training *invents* the latent semantics (scalable but uninterpretable) - vs traditional GMs' few, hand-designed, interpretable nodes. The **RBM** (`E(v,h)=−bᵀv−cᵀh−vᵀWh`) is the canonical example - and this whole family = the "**deep probabilistic models**" from Module 9's thesis.
+
+*Sources: Goodfellow, Bengio & Courville (2016) Ch.16; Murphy (1998); Airoldi (2007) - see the Resources section below for full citations.*
 
 ### Introduction
 Structured probabilistic models represent different knowledge domains using probability distributions and have numerous applications in computer vision, natural language processing and speech recognition. Structured probabilistic models are also often referred to as graphical models that bring together graph theory and probability theory and provide a flexible framework for modelling large collections of random variables with complex interactions.
@@ -970,7 +977,7 @@ In summary, structured probabilistic models or graphical models can simply be de
 
     Pay special attention to ‘Section 16.2: Using Graphs to Describe Model Structure’, as it considers both directed and undirected structured probabilistic models. Try to understand the advantages of using structured probabilistic models.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module10_notes.md](../modules/module-10-structured-probabilistic-models/module10_notes.md)*
 
 #### 2. A Brief Introduction to Graphical Models and Bayesian Networks
 - Murphy, K. (1998). A brief introduction to graphical models and Bayesian networks. Retrieved from https://www.cs.ubc.ca/~murphyk/Bayes/bnintro.html
@@ -981,7 +988,7 @@ In summary, structured probabilistic models or graphical models can simply be de
 
     It also discusses Bayesian Networks or Belief Networks (BNs), otherwise known as directed graphical models. This resource argues that directed graphical models are becoming more popular than undirected graphical models with artificial intelligence (AI) and statistics communities.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module10_notes.md](../modules/module-10-structured-probabilistic-models/module10_notes.md)*
 
 #### 3. Getting Started in Probabilistic Graphical Models: E252
 - Airoldi, E. M. (2007). Getting started in probabilistic graphical models: E252. PLoS Computational Biology, 3(12), e252. Retrieved from http://ezproxy.laureate .net.au/login?url=https://search-proquest-com.torrens.idm.oclc.org/docview/1314383407?accountid=176901
@@ -992,7 +999,7 @@ In summary, structured probabilistic models or graphical models can simply be de
 
     This paper shows how graphical models offer a common conceptual architecture in which biological and mathematical objects can be expressed with a common, intuitive formalism.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module10_notes.md](../modules/module-10-structured-probabilistic-models/module10_notes.md)*
 
 ### Learning Activities
 
