@@ -946,6 +946,91 @@ Please read other students’ posts and provide feedback.
 
 ---
 
+## Module 10 - Structured Probabilistic Models for Deep Learning
+
+### TLDR
+
+### Introduction
+Structured probabilistic models represent different knowledge domains using probability distributions and have numerous applications in computer vision, natural language processing and speech recognition. Structured probabilistic models are also often referred to as graphical models that bring together graph theory and probability theory and provide a flexible framework for modelling large collections of random variables with complex interactions.
+
+It is widely accepted in the research community that graphical models first made their way into computer science and deep learning (DL) through medical diagnosis applications. It is safe to assume that any medical diagnosis application has a very large number of variables and that there are always uncertain factors attached to the outcomes of such applications due to any potential disaster. Graphical models provide frameworks for dealing with this kind of application.
+
+In summary, structured probabilistic models or graphical models can simply be defined as a way of describing probability distributions by using a graph to describe which variables interact with each other directly.
+
+### Resources
+
+#### 1. Deep Learning: Structured Probabilistic Models for Deep Learning
+- Goodfellow, I., Bagnio, Y. & Courville, A. (2016). Deep learning. Cambridge, MA: MIT Press. Retrieved from https://www.deeplearningbook.org/
+
+*Resource Overview:*
+
+    This book contains an introduction to a broad range of topics in DL, including its mathematical and conceptual background, the DL techniques used in industry and different research perspectives. This book will be used throughout all the DLE602 modules.
+
+    Please read Chapter 16 for this Module. This chapter introduces you to structured probabilistic models or graphical models. It also discusses how structured probabilistic models can help improve the outcome of DL models.
+
+    Pay special attention to ‘Section 16.2: Using Graphs to Describe Model Structure’, as it considers both directed and undirected structured probabilistic models. Try to understand the advantages of using structured probabilistic models.
+
+> *Status: 🕐 To-Do*
+
+#### 2. A Brief Introduction to Graphical Models and Bayesian Networks
+- Murphy, K. (1998). A brief introduction to graphical models and Bayesian networks. Retrieved from https://www.cs.ubc.ca/~murphyk/Bayes/bnintro.html
+
+*Resource Overview:*
+
+    This great resource introduces graphical models step by step. It also has plenty of related information sources for graphical models.
+
+    It also discusses Bayesian Networks or Belief Networks (BNs), otherwise known as directed graphical models. This resource argues that directed graphical models are becoming more popular than undirected graphical models with artificial intelligence (AI) and statistics communities.
+
+> *Status: 🕐 To-Do*
+
+#### 3. Getting Started in Probabilistic Graphical Models: E252
+- Airoldi, E. M. (2007). Getting started in probabilistic graphical models: E252. PLoS Computational Biology, 3(12), e252. Retrieved from http://ezproxy.laureate .net.au/login?url=https://search-proquest-com.torrens.idm.oclc.org/docview/1314383407?accountid=176901
+
+*Resource Overview:*
+
+    This short research paper demonstrates how graphical models have become a popular tool for the computational analysis of biological data. Pay special attention to this paper, as it provides you with an opportunity to see how graphical models are used in biological sciences. Note: You do not have to have expert-level knowledge in biological science to understand this paper; rather, you should read this paper to understand the applicability of graphical model.
+
+    This paper shows how graphical models offer a common conceptual architecture in which biological and mathematical objects can be expressed with a common, intuitive formalism.
+
+> *Status: 🕐 To-Do*
+
+### Learning Activities
+
+#### 1. Directed versus Undirected
+Graphical models can be largely divided into two categories: 1) models based on directed graphs; and 2) models based on undirected graphs.
+
+There must be good reasons why both directed and undirected graphical models exist. Do you know any of these reasons?
+
+Describe the reasons in your own words. Post your answer (of no more than 100 words) to the Module 10 discussion forum.
+
+Please read other students’ posts and provide feedback.
+
+> *Status: 🕐 To-Do*
+
+#### 2. Advantages of Structured Modelling
+The primary advantage of using structured probabilistic models is that they allow us to dramatically reduce the cost of representing probability distributions and enable us to learn and draw inferences.
+
+If the above is true, how does that help DL models?
+
+Share your thoughts in your own words, highlighting the relevant scientific and technical information. Post your answer (of no more than 100 words) to the Module 10 discussion forum.
+
+Please read other students’ posts and provide feedback.
+
+> *Status: 🕐 To-Do*
+
+#### 3. Graphical Models for COVID-19
+In this activity, you will brainstorm about COVID-19 based on the essential resource entitled, ‘Getting started in probabilistic graphical models: E252’ (Airoldi, 2007).
+
+Airoldi (2007) argues that graphical models offer a common conceptual architecture in which biological objects can be expressed with a common, intuitive formalism. If that is true, do you think COVID-19 researchers could benefit from graphical models, given that COVID-19 research involves similar objects?
+
+Share your thoughts in your own words (your post should be no more than 100 words). For this activity, you do not need any in-depth knowledge about COVID-19. Write your answer based on your reading of Airoldi’s article (2007). Post your answer to the Module 10 discussion forum.
+
+Please read other students’ posts and provide feedback.
+
+> *Status: 🕐 To-Do*
+
+---
+
 ```bash
 --- PLACEHOLDER:
 ## Module X - ...
