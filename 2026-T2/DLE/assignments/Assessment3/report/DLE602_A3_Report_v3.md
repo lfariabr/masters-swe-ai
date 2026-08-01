@@ -9,7 +9,7 @@ strip Markdown emphasis markers; then apply whitespace-token counting (`wc -w`).
 Canonical four-model source: review-pulse commit bf36c3b3.
 Supplemental six-model sources: artifact commit cef08fa and evaluation commit 941148c, merged in 0f02be3.
 Release packaging and Git LFS deployment source: merged PR #101, commit 0ef3a26.
-Current ReviewPulse main baseline: commit 49395f5 (merged PR #117).
+Reviewed ReviewPulse baseline for this report: commit 49395f5 (merged PR #117).
 No result below is invented or illustrative.
 -->
 
