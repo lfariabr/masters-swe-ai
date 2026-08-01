@@ -1,0 +1,5 @@
+protocol,declared criterion,measured,verdict
+A,beat the mean baseline by >= 40% on MAE,MAE 383.8 vs 1477.3: 74.0% improvement,Pass
+A,report MAE against mean daily demand,MAE 383.8 = 8.5% of 4535,Reported
+B,MAE <= 805.5 (5% better than Naive rolling-7),Linear Regression: MAE 1047.4,Fail
+B,R-squared > 0.565 (Naive rolling-7),Linear Regression: R2 0.546,Fail

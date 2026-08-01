@@ -1,0 +1,5 @@
+feature set,MAE,RMSE,R2
+core only,2145.3,2366.8,-0.756
+core + interactions,2044.3,2214.5,-0.537
+core + interactions + autoregressive,1047.4,1204.0,0.546
+core + interactions + autoregressive + trend,1124.4,1279.3,0.487

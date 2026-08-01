@@ -1,0 +1,4 @@
+use case,protocol,model,verdict,reason,supported input domain
+Explaining demand across the observed period (interpolation),A,Gradient Boosting (core + interactions + trend),"Selected as benchmark winner, not operationally approved","MAE 383.8, 74% better than the mean baseline, but a random split cannot support a claim about tomorrow","weathersit [1, 2, 3]"
+Day-ahead demand forecasting,B,Linear Regression,Rejected,MAE 1047.4 against 847.8 for Naive rolling-7; fails both declared gates and is beaten by a rule needing no model,"weathersit [1, 2, 3]"
+Day-ahead demand forecasting,B,Naive rolling-7,Retained as the operating procedure,"Lowest MAE and highest R-squared of anything tested, essentially unbiased (mean residual -2), and needs no training or maintenance",not applicable: uses only recorded demand

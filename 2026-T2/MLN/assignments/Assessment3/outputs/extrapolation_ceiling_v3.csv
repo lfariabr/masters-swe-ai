@@ -1,0 +1,6 @@
+model,largest 2012 forecast,mean residual (actual - predicted)
+Linear Regression,8247,832
+K-Nearest Neighbors,5294,1586
+Random Forest,5569,1572
+Gradient Boosting,5752,1528
+Naive rolling-7,7988,-2
