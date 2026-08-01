@@ -9,7 +9,7 @@ strip Markdown emphasis markers; then apply whitespace-token counting (`wc -w`).
 Canonical four-model source: review-pulse commit bf36c3b3.
 Supplemental six-model sources: artifact commit cef08fa and evaluation commit 941148c, merged in 0f02be3.
 Release packaging and Git LFS deployment source: merged PR #101, commit 0ef3a26.
-Current ReviewPulse main baseline: commit ed090d3 (merged PR #102).
+Current ReviewPulse main baseline: commit 49395f5 (merged PR #117).
 No result below is invented or illustrative.
 -->
 
@@ -111,7 +111,7 @@ flowchart LR
 
 The Streamlit workflow accepts one review and comma-separated manual aspects. It validates and de-duplicates the list, preserves input order and scores each aspect independently. A sample generator supports repeatable demonstrations. Missing artifacts, empty reviews, empty aspect lists and unknown models surface controlled messages, allowing the same interface to demonstrate both successful inference and predictable failure handling.
 
-Implementation is separated into data, model, training, inference, evaluation and presentation modules under `src/absa`, with model adapters enforcing one prediction payload. Automated tests cover parsing and split leakage, trainer controls, artifact provenance, all six inference paths, exact evidence offsets, safe heatmap rendering, packaging and legacy compatibility. At the merged release-package baseline, the complete local suite records 271 passing tests and eight expected skips. Appendix C identifies the commands that regenerate the documented evidence.
+Implementation is separated into data, model, training, inference, evaluation and presentation modules under `src/absa`, with model adapters enforcing one prediction payload. Automated tests cover parsing and split leakage, trainer controls, artifact provenance, all six inference paths, exact evidence offsets, safe heatmap rendering, packaging and legacy compatibility. At the merged release-package baseline, the complete local suite records 363 passing tests and three expected skips. Appendix C identifies the commands that regenerate the documented evidence.
 
 ## 4. Deep Learning Principles Applied
 
