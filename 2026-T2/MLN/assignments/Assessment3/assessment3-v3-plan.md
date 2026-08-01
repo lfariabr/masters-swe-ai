@@ -203,13 +203,29 @@ determined by the measured numbers:
 Note the distinction between rows 2 and 3. If a model scores MAE 830 against the naive 847.8,
 the correct statement is "the improvement is not material", **not** "the naive rule wins".
 
+**Luis has confirmed he will submit whichever verdict fires, including "naive wins".** That
+removes the only incentive to bend the analysis, so the decision rules above are binding. The
+report must not hedge a negative result into sounding like a positive one.
+
+**Paired significance test on the Protocol B comparison.** A 5% MAE margin on its own does not
+establish that a difference is more than sampling noise. The winning model and the strongest
+naive baseline predict the *same* 2012 dates, so their absolute errors are naturally paired:
+run a Wilcoxon signed-rank test over the paired daily absolute errors and report the p-value
+next to the MAE delta. Two honesty constraints. First, the test is a supplement to the declared
+gate, not a replacement: the approval decision is still the 5% rule, and the p-value cannot
+rescue a model that failed the gate. Second, daily demand errors are autocorrelated, which
+violates the independence assumption the test relies on, so the p-value must be reported as
+indicative and that limitation stated in the same paragraph. Copying the technique without
+copying the caveat would be the same overclaim this plan exists to avoid.
+
 ## Decisions taken (flagged for Luis to overrule)
 
-**Forecast horizon: rolling day-ahead, decided.** The brief asks to predict demand "for a given
-day and weather forecast", and the operationally realistic question is what tomorrow looks
-like, with yesterday's counts already known. This is what makes autoregressive features and
-baselines legitimate. Under an "forecast all of 2012 on 1 January" horizon they would be
-invalid. The horizon must be stated explicitly in section 1.
+**Forecast horizon: rolling day-ahead, confirmed by Luis.** The brief asks to predict demand
+"for a given day and weather forecast", and the operationally realistic question is what
+tomorrow looks like, with yesterday's counts already known. This is what makes autoregressive
+features and baselines legitimate. Under a "forecast all of 2012 on 1 January" horizon they
+would be invalid. This is now a settled decision rather than a working assumption, and section
+1 carries it as a declared information-availability statement.
 
 **Use case: system-wide daily rental demand, not station rebalancing.** The dataset is a daily
 aggregate for the whole system, with no station, location, inventory or availability columns.
@@ -230,7 +246,27 @@ the conclusion.
 
 - Frame the problem as **next-day, system-wide rental demand**, with the Lime-grounded
   rationale, phrased within the limits above.
-- State the forecast horizon explicitly.
+- **State the forecast horizon explicitly, as its own declared paragraph, not a passing
+  clause.** Confirmed by Luis: the model is run at the close of day D to predict day D+1, so
+  the counts for D and earlier are already recorded and available as inputs. Write it in the
+  report as an information-availability statement, because that is what it controls:
+
+  > At prediction time the system knows every daily count up to and including yesterday, plus
+  > the calendar attributes and the weather forecast for the target day. It does not know the
+  > target day's realised demand.
+
+  Three consequences follow from that sentence and must be named in the same place, so a reader
+  never has to reconstruct why the design looks the way it does:
+  1. `lag_1`, `lag_7` and the shifted rolling-7 mean are legitimate features rather than
+     leakage, because the data they read has genuinely occurred by prediction time.
+  2. The naive day-ahead rules are therefore available to any operator for free, which is
+     exactly what makes the strongest of them (rolling-7, MAE 847.8) the honest adversary
+     instead of the constant mean.
+  3. The alternative horizon is explicitly ruled out and said so: forecasting all of 2012 from
+     2011 alone would make every autoregressive input unavailable, force recursive prediction
+     with compounding error, and leave the 2011 constant mean (MAE 2,488.7, R-squared -1.509)
+     as the only valid baseline. Naming the rejected horizon is what stops the day-ahead choice
+     from looking like a convenient way to pick an easy comparison.
 - Declare both protocols up front, with what each can and cannot support: A is a benchmark, B
   is the approval basis.
 - Declare the success criteria, the decision rules and the tie-break, and label them as
@@ -463,11 +499,27 @@ process actually had would undo that.
 
 ## Compliance notes
 
-**Word count.** The brief specifies 2,000 words +/- 10%, so 1,800 to 2,200. Dr Kamran's verbal
-flexibility on Assessment 2 does not automatically transfer. Also note the brief does **not**
-say appendices are excluded from the count, so moving text into an appendix may not remove it
-from the total. Recommendation: keep the whole document near the range rather than relying on
-an exclusion that is not written down.
+**Word count: decided by Luis, write to Kamran's stated preference.** The brief specifies 2,000
+words +/- 10%, so 1,800 to 2,200. Luis has decided to follow the facilitator's declared
+preference for fuller text rather than hold the hard ceiling, on the same basis that carried
+Assessment 2. Two constraints still apply, so this is not a licence to pad. Every added
+paragraph must do one of the five jobs in the reporting pattern below; anything that only
+restates a table gets cut. And the brief does **not** say appendices are excluded from the
+count, so moving text into an appendix does not reliably remove it from the total. Record the
+final count in the notebook rather than leaving it unstated.
+
+**Reporting pattern, taken from the marker's own paper.** Dr Kamran shared Shaukat, Luo and
+Varadharajan (2024) in Module 9 explicitly as a writing model, and the Module 9 class notes
+distil the rhythm he rewards: **point at the visual, state the winner with its exact
+configuration, compare it against a baseline, explain why, then qualify the trade-off.** Every
+numbered table and figure in v3 gets one paragraph built that way. Three of his habits map
+directly onto this plan and should be honoured rather than paraphrased: justify with numbers
+instead of adjectives ("MAE 805.4 against the naive 847.8", never "performed better"); write a
+real limitations section, because the notes record that he docks students who under-write
+limitations and deployment; and support a claimed improvement with a statistical test, which is
+what the Wilcoxon addition above is for. His IMRaD skeleton also includes a short time-complexity
+section, so record training and inference cost per model. It is cheap to measure and it is a
+section the cohort will skip.
 
 **PDF export route: accepted deviation, closed, not a pending item.** The brief says "direct
 PDF download via LaTeX from the Notebook", while the pipeline used on Assessments 1 and 2 is
@@ -501,9 +553,13 @@ Same export pipeline as Assessments 1 and 2. Verify no table is cut across pages
 
 ## Open questions for Luis
 
-- Day-ahead horizon confirmed? Everything autoregressive depends on it.
-- Word count: hold the whole document to roughly 2,000, or take the risk on Kamran's stated
-  preference for longer text?
-- If the decision rules land on "naive wins" or "no material improvement", are you comfortable
-  submitting that as the headline conclusion? It is the strongest and most honest result
-  available, but it is a bolder report than "Random Forest achieved R-squared 0.88".
+All three are resolved. Nothing blocks implementation.
+
+- ~~Day-ahead horizon~~ **resolved:** scenario A, rolling day-ahead. The model runs at the close
+  of day D to predict day D+1, so all counts up to D are available inputs. Section 1 states this
+  as a declared information-availability paragraph and explicitly names the rejected
+  season-ahead alternative.
+- ~~Word count~~ **resolved:** follow Kamran's stated preference for fuller text, under the two
+  constraints recorded in the compliance notes.
+- ~~Negative-result headline~~ **resolved:** Luis will submit whichever verdict the decision
+  rules produce, including "naive wins". The rules are binding.
