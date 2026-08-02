@@ -1,2 +1,2 @@
-selected_model,feature_set,best_params,holdout_MAE,holdout_RMSE,holdout_R2,mean_baseline_MAE,baseline_improvement_pct,MAE_pct_of_mean_demand
-Gradient Boosting,core + interactions + trend,lr=0.1; depth=2; estimators=400,433.8632836667488,630.5616732259313,0.8968306099765291,1662.9779127278528,73.91046024447405,9.632097764780392
+selected_model,feature_set,best_params,holdout_MAE,holdout_RMSE,holdout_R2,mean_baseline_MAE,baseline_improvement_pct,MAE_pct_of_holdout_mean_demand
+Gradient Boosting,core + interactions + trend,lr=0.1; depth=2; estimators=400,433.8632836667488,630.5616732259313,0.8968306099765291,1662.9779127278528,73.91046024447405,10.106797641362437

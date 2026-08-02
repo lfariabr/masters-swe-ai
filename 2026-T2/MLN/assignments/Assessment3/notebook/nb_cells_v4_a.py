@@ -36,23 +36,23 @@ Capital Bikeshare is a docked bicycle-sharing system. This project asks:
 
 > **Given calendar attributes and expected weather conditions, how accurately can regression models estimate Capital Bikeshare's system-wide daily rental demand?**
 
-The estimate may inform fleet-capacity, staffing and maintenance planning. It does not estimate station inventory, bike availability or rebalancing needs. I use Lime in Sydney as a contemporary dockless analogy that motivated my interest; its operating model is different and supplies no evidence for this analysis. Capital Bikeshare's own service information establishes the docked operating context, while ITDP describes demand, network integration and performance as linked system-planning concerns (Capital Bikeshare, n.d.; ITDP, 2018).
+The estimate may support fleet-capacity, staffing and maintenance planning, but cannot resolve station inventory or rebalancing. Lime in Sydney is a contemporary dockless analogy that motivated my interest; it supplies no evidence here. Capital Bikeshare establishes the docked context, while ITDP links demand, integration and performance to system planning (Capital Bikeshare, n.d.; ITDP, 2018).
 
 ### 1.2 Data and prediction scope
 
 The modelling unit is one calendar day for the whole system. Predictors are calendar attributes and expected weather conditions. The primary random 75/25 experiment estimates conditional demand across the observed 2011-2012 domain and includes no past-demand features. It answers the assessment question directly.
 
-The secondary experiment tests whether a model selected within 2011 remains useful for rolling one-day-ahead prediction in 2012. At the end of day D, counts through D and the next day's calendar and weather are assumed available. This makes lagged demand causal for this check. Forecasting all of 2012 from 1 January is a different task because later 2012 counts would then be unavailable.
+The secondary experiment tests rolling one-day-ahead prediction: counts through day D plus next-day calendar and weather predict D+1. Forecasting all of 2012 on 1 January is a different task because later counts would be unavailable.
 
 ### 1.3 Evaluation criteria
 
-MAE is primary because it reports an average miss in rentals per day. MSE, RMSE and R-squared provide supporting views of large errors and explained variance.
+MAE reports the average daily miss; MSE, RMSE and R-squared provide supporting views.
 
 - **Conditional demand estimation:** improve MAE by at least 40% over a training-mean baseline on the fixed 25% holdout.
 - **Forward temporal robustness:** improve MAE by at least 5% over the rolling seven-day baseline on the identical 2012 dates.
 - **Selection rule:** choose the lowest cross-validated MAE; configurations within 5% of that value are compared by cross-validated RMSE and then simplicity.
 
-These study-defined criteria came from earlier exploratory versions. They support consistent analysis but are not stakeholder-validated service levels.
+These study-defined criteria came from earlier exploratory versions and are not stakeholder-validated service levels.
 
 ### 1.4 Assumptions and limitations
 
@@ -139,7 +139,7 @@ print(f"Hourly panel audit: {incomplete_dates} dates have fewer than 24 rows; "
 ''')
 
 GRANULARITY_READ = md(r"""
-`hour.csv` is not a balanced panel: 76 of 731 dates contribute fewer than 24 observations, with 165 hourly rows omitted in total. The hourly counts still reconstruct each daily total exactly, so those omitted rows contribute zero demand to the daily aggregate. An hourly model would change the target granularity, weight dates unequally and fail to observe those zero-demand periods, which could bias hourly estimates upward. `day.csv` already incorporates the complete daily total and gives each target day exactly one observation. The hourly file remains useful for intraday interpretation without altering the modelling unit.
+`hour.csv` is unbalanced: 76 of 731 dates have fewer than 24 observations, with 165 zero-demand rows omitted. An hourly model would change granularity, weight dates unequally and omit those periods. Selecting `day.csv` gives every target day one complete observation **to avoid hourly bias**. The hourly counts still reconstruct all daily totals and remain useful for intraday interpretation.
 """)
 
 HOURLY = co(r'''
@@ -165,7 +165,7 @@ plt.tight_layout(); plt.savefig(FIG_DIR / "v4_hourly_demand.png", dpi=160); plt.
 ''')
 
 HOURLY_READ = md(r"""
-Working-day demand peaks at 17:00 with a mean of 525.3 rentals, while non-working-day demand peaks at 13:00 with 372.7. The concentrated evening working-day peak is consistent with commute-oriented use; the broader midday profile is consistent with daytime leisure and errands. Aggregate counts do not identify trip purpose, so these are pattern interpretations, not proof of why a trip occurred.
+Working-day demand peaks at 17:00 (525.3 rentals), while non-working-day demand peaks at 13:00 (372.7). The profiles are consistent with commute-oriented and broader daytime use, respectively; aggregate counts do not prove trip purpose.
 """)
 
 QUALITY = co(r'''
@@ -196,9 +196,9 @@ assert day_df.hum.isna().sum() == 1
 ''')
 
 QUALITY_READ = md(r"""
-The daily series is structurally complete and the identity `casual + registered = cnt` holds on every row. One date reports zero relative humidity; its companion hourly records contain only 22 rows and all repeat zero. The value is treated as a recording fault, changed to missing, and median-imputed inside each training fold. A later sensitivity check measures whether this correction changes the selected model's conclusion. Statistical tail values are retained because they remain plausible demand or weather observations.
+The daily series is complete and `casual + registered = cnt` holds throughout. One date reports zero humidity across 22 hourly rows. It is treated as a recording fault, changed to missing and median-imputed inside each training fold; a sensitivity check tests the decision. Plausible tail values are retained.
 
-Weather category 4 does not occur. The supported input domain is therefore categories 1-3; an implementation using `handle_unknown="ignore"` still needs an input guard because silent encoding is not evidence of supported prediction.
+Weather category 4 is absent, so the supported domain is 1-3 and still requires an input guard.
 """)
 
 VARIABLES = md(r"""
@@ -231,6 +231,7 @@ sns.barplot(data=day_df, x="season_name", y="cnt", order=["spring", "summer", "f
 ax[1, 0].set(title="Mean demand by season", xlabel="")
 sns.boxplot(data=day_df, x="weather_name", y="cnt", order=["clear", "mist", "light rain/snow", "heavy rain/snow"], ax=ax[1, 1])
 ax[1, 1].set(title="Demand by weather category", xlabel="")
+fig.suptitle("Figure 2.2 - Daily demand, season and weather", y=1.01)
 plt.tight_layout(); plt.savefig(FIG_DIR / "v4_daily_eda.png", dpi=150); plt.show()
 
 comp = day_df.groupby("season_name")[["casual", "registered"]].mean().reindex(["spring", "summer", "fall", "winter"])
@@ -242,11 +243,65 @@ for c, color in zip(["temp", "atemp", "hum", "windspeed"], ["#20639B", "#3CAEA3"
     ax[1].scatter(day_df[c], day_df.cnt, s=10, alpha=.28, label=c, color=color)
 ax[1].set(title="Continuous weather measures and demand", xlabel="normalised weather value", ylabel="cnt")
 ax[1].legend()
+fig.suptitle("Figure 2.3 - User composition and continuous weather", y=1.02)
 plt.tight_layout(); plt.savefig(FIG_DIR / "v4_composition_weather.png", dpi=150); plt.show()
 ''')
 
 EDA_READ = md(r"""
-Demand rises across the two years, follows a strong seasonal pattern and is lower under adverse weather. Temperature and feels-like temperature have the clearest positive associations; humidity and wind are weaker and generally negative. Registered users provide most rentals, while the casual share expands in warmer seasons. The group composition remains descriptive because either component would leak the target into a predictor list.
+Demand rises across the two years, peaks in warmer seasons and falls in adverse weather. Registered users provide most rentals, while the casual share expands in warmer seasons. Both user columns remain descriptive because they sum to the target.
+""")
+
+CALENDAR_EDA = co(r'''
+weekday_lbl = {0: "Sun", 1: "Mon", 2: "Tue", 3: "Wed", 4: "Thu", 5: "Fri", 6: "Sat"}
+day_df["weekday_name"] = day_df.weekday.map(weekday_lbl)
+
+fig, ax = plt.subplots(1, 2, figsize=(13, 4.5))
+sns.lineplot(data=day_df, x="mnth", y="cnt", hue="year_name", marker="o", ax=ax[0])
+ax[0].set(title="Figure 2.4 - Mean rentals by month and year", xlabel="month", ylabel="mean cnt")
+ax[0].set_xticks(range(1, 13))
+sns.barplot(data=day_df, x="weekday_name", y="cnt",
+            order=["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"], ax=ax[1])
+ax[1].set(title="Figure 2.5 - Mean rentals by weekday", xlabel="weekday", ylabel="mean cnt")
+plt.tight_layout(); plt.savefig(FIG_DIR / "v4_month_weekday.png", dpi=160); plt.show()
+''')
+
+CALENDAR_READ = md(r"""
+Monthly demand follows the seasonal wave and every 2012 month exceeds its 2011 counterpart. Weekday means vary much less, showing that aggregation blends working-day and leisure patterns visible in the hourly profiles.
+""")
+
+CORRELATION = co(r'''
+corr_cols = ["season", "yr", "mnth", "holiday", "weekday", "workingday",
+             "weathersit", "temp", "atemp", "hum", "windspeed", "cnt"]
+corr_matrix = day_df[corr_cols].corr()
+cnt_correlations = corr_matrix["cnt"].drop("cnt").sort_values(ascending=False)
+assert cnt_correlations.index[0] == "atemp"
+assert cnt_correlations.loc["weathersit"] < 0 and cnt_correlations.loc["windspeed"] < 0
+
+plt.figure(figsize=(10, 8))
+sns.heatmap(corr_matrix, annot=True, fmt=".2f", cmap="coolwarm", center=0,
+            square=True, cbar_kws={"shrink": .8}, annot_kws={"size": 7})
+plt.title("Figure 2.6 - Correlation matrix for daily variables")
+plt.tight_layout(); plt.savefig(FIG_DIR / "v4_correlation_heatmap.png", dpi=160); plt.show()
+print("Table 2.4 - Correlations with cnt")
+display(cnt_correlations.round(3).to_frame("correlation_with_cnt"))
+''')
+
+CORRELATION_READ = md(r"""
+`atemp` has the highest correlation with `cnt` (+0.631), followed by `temp` (+0.627) and `yr` (+0.567). Adverse weather (`weathersit`, -0.297), windspeed (-0.235) and corrected humidity (-0.115) are negative. The near-collinearity of `temp` and `atemp` cautions against interpreting linear coefficients independently; categorical codes also limit causal interpretation.
+""")
+
+PAIRPLOT = co(r'''
+# Stage 2.6: use seaborn's pairplot function and include its output.
+pairplot_data = day_df[["temp", "atemp", "hum", "windspeed", "cnt"]].dropna()
+pair_grid = sns.pairplot(pairplot_data, corner=True, diag_kind="kde",
+                         plot_kws={"alpha": .3, "s": 12})
+pair_grid.fig.suptitle("Figure 2.7 - Seaborn pairplot of weather variables and daily demand", y=1.02)
+pair_grid.savefig(FIG_DIR / "v4_pairplot.png", dpi=140, bbox_inches="tight")
+plt.show()
+''')
+
+PAIRPLOT_READ = md(r"""
+The pairplot confirms positive, nonlinear relationships between demand and both temperature measures. Humidity and windspeed show weaker negative patterns and broad scatter. `temp` and `atemp` move almost identically, consistent with their high correlation, while no single weather variable fully explains demand.
 """)
 
 PREP_HEAD = md(r"""
@@ -363,4 +418,5 @@ def choose_configuration(rows):
 
 CELLS_A = [TITLE, BUSINESS, DATA_HEAD, IMPORT_LOAD, GRANULARITY, GRANULARITY_READ,
            HOURLY, HOURLY_READ, QUALITY, QUALITY_READ, VARIABLES, EDA, EDA_READ,
-           PREP_HEAD, PREP, DESIGN]
+           CALENDAR_EDA, CALENDAR_READ, CORRELATION, CORRELATION_READ,
+           PAIRPLOT, PAIRPLOT_READ, PREP_HEAD, PREP, DESIGN]

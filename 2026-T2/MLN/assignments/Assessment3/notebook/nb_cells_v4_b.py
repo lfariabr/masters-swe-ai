@@ -104,7 +104,7 @@ primary_baseline = primary_holdout_table.loc[
     primary_holdout_table.model.eq("Mean baseline")
 ].iloc[0]
 primary_improvement = 1 - primary_metrics.MAE / primary_baseline.MAE
-primary_mae_pct = primary_metrics.MAE / primary_df.cnt.mean()
+primary_mae_pct = primary_metrics.MAE / primary_holdout.cnt.mean()
 primary_summary = pd.DataFrame([{
     "selected_model": primary_winner_name,
     "feature_set": primary_winner_features,
@@ -114,7 +114,7 @@ primary_summary = pd.DataFrame([{
     "holdout_R2": primary_metrics.R2,
     "mean_baseline_MAE": primary_baseline.MAE,
     "baseline_improvement_pct": 100 * primary_improvement,
-    "MAE_pct_of_mean_demand": 100 * primary_mae_pct,
+    "MAE_pct_of_holdout_mean_demand": 100 * primary_mae_pct,
 }])
 primary_summary.to_csv(OUTPUT_DIR / "primary_summary_v4.csv", index=False)
 print("Table 4.2 - Frozen family configurations on the primary holdout")
@@ -145,11 +145,11 @@ display(humidity_sensitivity.round({"MAE": 2, "MSE": 1, "RMSE": 2, "R2": 4}))
 ''')
 
 PRIMARY_READ = md(r"""
-**Primary result.** Gradient Boosting with core inputs, interactions and elapsed-time trend was frozen from the training partition at CV MAE 477.0 (standard deviation 34.1) and CV RMSE 657.6. Random Forest fell within the 5% MAE shortlist at 498.0, then its higher CV RMSE of 723.5 separated the configurations. The selected Gradient Boosting grid point used learning rate 0.1, depth 2 and 400 estimators.
+**Primary result.** Gradient Boosting with interactions and elapsed-time trend was frozen at CV MAE 477.0 (SD 34.1) and RMSE 657.6. Random Forest entered the 5% shortlist at MAE 498.0 but had higher RMSE (723.5). The selected grid point used learning rate 0.1, depth 2 and 400 estimators.
 
-On the untouched 183-day holdout, the selected model reached MAE 433.9, RMSE 630.6 and R-squared 0.897. Its MAE was 73.9% below the training-mean baseline's 1,663.0 and equalled 9.6% of mean demand across all 731 days. It therefore meets the 40% primary assessment criterion. Random Forest reached MAE 446.6, KNN 501.0 and Linear Regression 529.9; no holdout result was used to revise the frozen winner.
+On the untouched 183-day holdout it reached MAE 433.9, RMSE 630.6 and R-squared 0.897. MAE was 73.9% below the baseline's 1,663.0 and equalled **10.1% of mean holdout demand**, meeting the 40% criterion. Random Forest reached 446.6, KNN 501.0 and Linear Regression 529.9; the winner remained frozen.
 
-Marking the zero-humidity value missing produced MAE 433.9, compared with 430.9 when the raw zero was retained. The three-rental difference is under 1%, so the model-selection conclusion is insensitive to the correction. Fold-fitted imputation is retained because it represents the physically implausible source value transparently.
+Marking zero humidity missing produced MAE 433.9 versus 430.9 when retained. The sub-1% difference leaves the conclusion unchanged; fold-fitted imputation preserves the physically plausible treatment.
 """)
 
 TEMPORAL_HEAD = md(r"""

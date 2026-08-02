@@ -31,23 +31,23 @@
 # 
 # > **Given calendar attributes and expected weather conditions, how accurately can regression models estimate Capital Bikeshare's system-wide daily rental demand?**
 # 
-# The estimate may inform fleet-capacity, staffing and maintenance planning. It does not estimate station inventory, bike availability or rebalancing needs. I use Lime in Sydney as a contemporary dockless analogy that motivated my interest; its operating model is different and supplies no evidence for this analysis. Capital Bikeshare's own service information establishes the docked operating context, while ITDP describes demand, network integration and performance as linked system-planning concerns (Capital Bikeshare, n.d.; ITDP, 2018).
+# The estimate may support fleet-capacity, staffing and maintenance planning, but cannot resolve station inventory or rebalancing. Lime in Sydney is a contemporary dockless analogy that motivated my interest; it supplies no evidence here. Capital Bikeshare establishes the docked context, while ITDP links demand, integration and performance to system planning (Capital Bikeshare, n.d.; ITDP, 2018).
 # 
 # ### 1.2 Data and prediction scope
 # 
 # The modelling unit is one calendar day for the whole system. Predictors are calendar attributes and expected weather conditions. The primary random 75/25 experiment estimates conditional demand across the observed 2011-2012 domain and includes no past-demand features. It answers the assessment question directly.
 # 
-# The secondary experiment tests whether a model selected within 2011 remains useful for rolling one-day-ahead prediction in 2012. At the end of day D, counts through D and the next day's calendar and weather are assumed available. This makes lagged demand causal for this check. Forecasting all of 2012 from 1 January is a different task because later 2012 counts would then be unavailable.
+# The secondary experiment tests rolling one-day-ahead prediction: counts through day D plus next-day calendar and weather predict D+1. Forecasting all of 2012 on 1 January is a different task because later counts would be unavailable.
 # 
 # ### 1.3 Evaluation criteria
 # 
-# MAE is primary because it reports an average miss in rentals per day. MSE, RMSE and R-squared provide supporting views of large errors and explained variance.
+# MAE reports the average daily miss; MSE, RMSE and R-squared provide supporting views.
 # 
 # - **Conditional demand estimation:** improve MAE by at least 40% over a training-mean baseline on the fixed 25% holdout.
 # - **Forward temporal robustness:** improve MAE by at least 5% over the rolling seven-day baseline on the identical 2012 dates.
 # - **Selection rule:** choose the lowest cross-validated MAE; configurations within 5% of that value are compared by cross-validated RMSE and then simplicity.
 # 
-# These study-defined criteria came from earlier exploratory versions. They support consistent analysis but are not stakeholder-validated service levels.
+# These study-defined criteria came from earlier exploratory versions and are not stakeholder-validated service levels.
 # 
 # ### 1.4 Assumptions and limitations
 # 
@@ -134,7 +134,7 @@ print(f"Hourly panel audit: {incomplete_dates} dates have fewer than 24 rows; "
       f"{omitted_hour_rows} zero-demand hour rows are omitted in total.")
 
 
-# `hour.csv` is not a balanced panel: 76 of 731 dates contribute fewer than 24 observations, with 165 hourly rows omitted in total. The hourly counts still reconstruct each daily total exactly, so those omitted rows contribute zero demand to the daily aggregate. An hourly model would change the target granularity, weight dates unequally and fail to observe those zero-demand periods, which could bias hourly estimates upward. `day.csv` already incorporates the complete daily total and gives each target day exactly one observation. The hourly file remains useful for intraday interpretation without altering the modelling unit.
+# `hour.csv` is unbalanced: 76 of 731 dates have fewer than 24 observations, with 165 zero-demand rows omitted. An hourly model would change granularity, weight dates unequally and omit those periods. Selecting `day.csv` gives every target day one complete observation **to avoid hourly bias**. The hourly counts still reconstruct all daily totals and remain useful for intraday interpretation.
 
 # In[3]:
 
@@ -160,7 +160,7 @@ ax.set_xticks(range(0, 24, 2)); ax.legend()
 plt.tight_layout(); plt.savefig(FIG_DIR / "v4_hourly_demand.png", dpi=160); plt.show()
 
 
-# Working-day demand peaks at 17:00 with a mean of 525.3 rentals, while non-working-day demand peaks at 13:00 with 372.7. The concentrated evening working-day peak is consistent with commute-oriented use; the broader midday profile is consistent with daytime leisure and errands. Aggregate counts do not identify trip purpose, so these are pattern interpretations, not proof of why a trip occurred.
+# Working-day demand peaks at 17:00 (525.3 rentals), while non-working-day demand peaks at 13:00 (372.7). The profiles are consistent with commute-oriented and broader daytime use, respectively; aggregate counts do not prove trip purpose.
 
 # In[4]:
 
@@ -191,9 +191,9 @@ day_df.loc[day_df.hum.eq(0), "hum"] = np.nan
 assert day_df.hum.isna().sum() == 1
 
 
-# The daily series is structurally complete and the identity `casual + registered = cnt` holds on every row. One date reports zero relative humidity; its companion hourly records contain only 22 rows and all repeat zero. The value is treated as a recording fault, changed to missing, and median-imputed inside each training fold. A later sensitivity check measures whether this correction changes the selected model's conclusion. Statistical tail values are retained because they remain plausible demand or weather observations.
+# The daily series is complete and `casual + registered = cnt` holds throughout. One date reports zero humidity across 22 hourly rows. It is treated as a recording fault, changed to missing and median-imputed inside each training fold; a sensitivity check tests the decision. Plausible tail values are retained.
 # 
-# Weather category 4 does not occur. The supported input domain is therefore categories 1-3; an implementation using `handle_unknown="ignore"` still needs an input guard because silent encoding is not evidence of supported prediction.
+# Weather category 4 is absent, so the supported domain is 1-3 and still requires an input guard.
 
 # ### 2.2 Variables and exploratory analysis
 # 
@@ -225,6 +225,7 @@ sns.barplot(data=day_df, x="season_name", y="cnt", order=["spring", "summer", "f
 ax[1, 0].set(title="Mean demand by season", xlabel="")
 sns.boxplot(data=day_df, x="weather_name", y="cnt", order=["clear", "mist", "light rain/snow", "heavy rain/snow"], ax=ax[1, 1])
 ax[1, 1].set(title="Demand by weather category", xlabel="")
+fig.suptitle("Figure 2.2 - Daily demand, season and weather", y=1.01)
 plt.tight_layout(); plt.savefig(FIG_DIR / "v4_daily_eda.png", dpi=150); plt.show()
 
 comp = day_df.groupby("season_name")[["casual", "registered"]].mean().reindex(["spring", "summer", "fall", "winter"])
@@ -236,16 +237,70 @@ for c, color in zip(["temp", "atemp", "hum", "windspeed"], ["#20639B", "#3CAEA3"
     ax[1].scatter(day_df[c], day_df.cnt, s=10, alpha=.28, label=c, color=color)
 ax[1].set(title="Continuous weather measures and demand", xlabel="normalised weather value", ylabel="cnt")
 ax[1].legend()
+fig.suptitle("Figure 2.3 - User composition and continuous weather", y=1.02)
 plt.tight_layout(); plt.savefig(FIG_DIR / "v4_composition_weather.png", dpi=150); plt.show()
 
 
-# Demand rises across the two years, follows a strong seasonal pattern and is lower under adverse weather. Temperature and feels-like temperature have the clearest positive associations; humidity and wind are weaker and generally negative. Registered users provide most rentals, while the casual share expands in warmer seasons. The group composition remains descriptive because either component would leak the target into a predictor list.
+# Demand rises across the two years, peaks in warmer seasons and falls in adverse weather. Registered users provide most rentals, while the casual share expands in warmer seasons. Both user columns remain descriptive because they sum to the target.
+
+# In[6]:
+
+
+weekday_lbl = {0: "Sun", 1: "Mon", 2: "Tue", 3: "Wed", 4: "Thu", 5: "Fri", 6: "Sat"}
+day_df["weekday_name"] = day_df.weekday.map(weekday_lbl)
+
+fig, ax = plt.subplots(1, 2, figsize=(13, 4.5))
+sns.lineplot(data=day_df, x="mnth", y="cnt", hue="year_name", marker="o", ax=ax[0])
+ax[0].set(title="Figure 2.4 - Mean rentals by month and year", xlabel="month", ylabel="mean cnt")
+ax[0].set_xticks(range(1, 13))
+sns.barplot(data=day_df, x="weekday_name", y="cnt",
+            order=["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"], ax=ax[1])
+ax[1].set(title="Figure 2.5 - Mean rentals by weekday", xlabel="weekday", ylabel="mean cnt")
+plt.tight_layout(); plt.savefig(FIG_DIR / "v4_month_weekday.png", dpi=160); plt.show()
+
+
+# Monthly demand follows the seasonal wave and every 2012 month exceeds its 2011 counterpart. Weekday means vary much less, showing that aggregation blends working-day and leisure patterns visible in the hourly profiles.
+
+# In[7]:
+
+
+corr_cols = ["season", "yr", "mnth", "holiday", "weekday", "workingday",
+             "weathersit", "temp", "atemp", "hum", "windspeed", "cnt"]
+corr_matrix = day_df[corr_cols].corr()
+cnt_correlations = corr_matrix["cnt"].drop("cnt").sort_values(ascending=False)
+assert cnt_correlations.index[0] == "atemp"
+assert cnt_correlations.loc["weathersit"] < 0 and cnt_correlations.loc["windspeed"] < 0
+
+plt.figure(figsize=(10, 8))
+sns.heatmap(corr_matrix, annot=True, fmt=".2f", cmap="coolwarm", center=0,
+            square=True, cbar_kws={"shrink": .8}, annot_kws={"size": 7})
+plt.title("Figure 2.6 - Correlation matrix for daily variables")
+plt.tight_layout(); plt.savefig(FIG_DIR / "v4_correlation_heatmap.png", dpi=160); plt.show()
+print("Table 2.4 - Correlations with cnt")
+display(cnt_correlations.round(3).to_frame("correlation_with_cnt"))
+
+
+# `atemp` has the highest correlation with `cnt` (+0.631), followed by `temp` (+0.627) and `yr` (+0.567). Adverse weather (`weathersit`, -0.297), windspeed (-0.235) and corrected humidity (-0.115) are negative. The near-collinearity of `temp` and `atemp` cautions against interpreting linear coefficients independently; categorical codes also limit causal interpretation.
+
+# In[8]:
+
+
+# Stage 2.6: use seaborn's pairplot function and include its output.
+pairplot_data = day_df[["temp", "atemp", "hum", "windspeed", "cnt"]].dropna()
+pair_grid = sns.pairplot(pairplot_data, corner=True, diag_kind="kde",
+                         plot_kws={"alpha": .3, "s": 12})
+pair_grid.fig.suptitle("Figure 2.7 - Seaborn pairplot of weather variables and daily demand", y=1.02)
+pair_grid.savefig(FIG_DIR / "v4_pairplot.png", dpi=140, bbox_inches="tight")
+plt.show()
+
+
+# The pairplot confirms positive, nonlinear relationships between demand and both temperature measures. Humidity and windspeed show weaker negative patterns and broad scatter. `temp` and `atemp` move almost identically, consistent with their high correlation, while no single weather variable fully explains demand.
 
 # ## 3. Data Preparation
 # 
 # Two frames prevent the temporal question from shrinking the primary sample. `primary_df` contains all 731 days and no past-demand inputs. `temporal_df` starts after a causal seven-day warm-up and contains 724 days.
 
-# In[6]:
+# In[9]:
 
 
 # Shared calendar/weather engineering. Interactions use only target-day exogenous inputs.
@@ -273,7 +328,7 @@ assert len(temporal_df) == 724
 print("primary_df rows:", len(primary_df), "| temporal_df rows:", len(temporal_df))
 
 
-# In[7]:
+# In[10]:
 
 
 PRIMARY_NOMINAL = ["season", "mnth", "weekday", "weathersit"]
@@ -363,7 +418,7 @@ def choose_configuration(rows):
 # 
 # The split is created once with `random_state=42`. Only the 75% training partition participates in family, feature-set and hyperparameter selection. Each of the 12 family/feature-set combinations uses shuffled five-fold `KFold` and MAE scoring. The 25% holdout is accessed only after the global configuration and one configuration per family have been frozen.
 
-# In[8]:
+# In[11]:
 
 
 all_indices = primary_df.index.to_numpy()
@@ -426,7 +481,7 @@ print("Frozen primary configuration:", primary_winner_name, "|", primary_winner_
       "|", primary_choice["best_params"])
 
 
-# In[9]:
+# In[12]:
 
 
 # First use of the fixed 25% holdout: score one training-selected configuration per family.
@@ -459,7 +514,7 @@ primary_baseline = primary_holdout_table.loc[
     primary_holdout_table.model.eq("Mean baseline")
 ].iloc[0]
 primary_improvement = 1 - primary_metrics.MAE / primary_baseline.MAE
-primary_mae_pct = primary_metrics.MAE / primary_df.cnt.mean()
+primary_mae_pct = primary_metrics.MAE / primary_holdout.cnt.mean()
 primary_summary = pd.DataFrame([{
     "selected_model": primary_winner_name,
     "feature_set": primary_winner_features,
@@ -469,7 +524,7 @@ primary_summary = pd.DataFrame([{
     "holdout_R2": primary_metrics.R2,
     "mean_baseline_MAE": primary_baseline.MAE,
     "baseline_improvement_pct": 100 * primary_improvement,
-    "MAE_pct_of_mean_demand": 100 * primary_mae_pct,
+    "MAE_pct_of_holdout_mean_demand": 100 * primary_mae_pct,
 }])
 primary_summary.to_csv(OUTPUT_DIR / "primary_summary_v4.csv", index=False)
 print("Table 4.2 - Frozen family configurations on the primary holdout")
@@ -478,7 +533,7 @@ print("Table 4.3 - Final selected-model summary")
 display(primary_summary.round(3))
 
 
-# In[10]:
+# In[13]:
 
 
 # Sensitivity of the frozen primary winner to retaining the raw hum=0 record.
@@ -501,17 +556,17 @@ print("Table 4.4 - Humidity correction sensitivity on the frozen primary model")
 display(humidity_sensitivity.round({"MAE": 2, "MSE": 1, "RMSE": 2, "R2": 4}))
 
 
-# **Primary result.** Gradient Boosting with core inputs, interactions and elapsed-time trend was frozen from the training partition at CV MAE 477.0 (standard deviation 34.1) and CV RMSE 657.6. Random Forest fell within the 5% MAE shortlist at 498.0, then its higher CV RMSE of 723.5 separated the configurations. The selected Gradient Boosting grid point used learning rate 0.1, depth 2 and 400 estimators.
+# **Primary result.** Gradient Boosting with interactions and elapsed-time trend was frozen at CV MAE 477.0 (SD 34.1) and RMSE 657.6. Random Forest entered the 5% shortlist at MAE 498.0 but had higher RMSE (723.5). The selected grid point used learning rate 0.1, depth 2 and 400 estimators.
 # 
-# On the untouched 183-day holdout, the selected model reached MAE 433.9, RMSE 630.6 and R-squared 0.897. Its MAE was 73.9% below the training-mean baseline's 1,663.0 and equalled 9.6% of mean demand across all 731 days. It therefore meets the 40% primary assessment criterion. Random Forest reached MAE 446.6, KNN 501.0 and Linear Regression 529.9; no holdout result was used to revise the frozen winner.
+# On the untouched 183-day holdout it reached MAE 433.9, RMSE 630.6 and R-squared 0.897. MAE was 73.9% below the baseline's 1,663.0 and equalled **10.1% of mean holdout demand**, meeting the 40% criterion. Random Forest reached 446.6, KNN 501.0 and Linear Regression 529.9; the winner remained frozen.
 # 
-# Marking the zero-humidity value missing produced MAE 433.9, compared with 430.9 when the raw zero was retained. The three-rental difference is under 1%, so the model-selection conclusion is insensitive to the correction. Fold-fitted imputation is retained because it represents the physically implausible source value transparently.
+# Marking zero humidity missing produced MAE 433.9 versus 430.9 when retained. The sub-1% difference leaves the conclusion unchanged; fold-fitted imputation preserves the physically plausible treatment.
 
 # ### 4.2 Secondary temporal robustness check
 # 
 # Selection now uses `TimeSeriesSplit(n_splits=3)` inside 2011. The temporal design excludes `yr`, which is constant in the training year. It compares core cyclical calendar/weather inputs, interactions, causal recent-demand inputs and an optional elapsed-time trend. One configuration per family and the global temporal configuration are frozen before any 2012 score is produced.
 
-# In[11]:
+# In[14]:
 
 
 temporal_train = temporal_df[temporal_df.yr.eq(0)].copy().reset_index(drop=True)
@@ -573,7 +628,7 @@ print("Frozen temporal configuration:", temporal_winner_name, "|", temporal_winn
       "|", temporal_choice["best_params"])
 
 
-# In[12]:
+# In[15]:
 
 
 # First 2012 scoring: frozen family candidates and causal baselines use identical dates.
@@ -625,7 +680,7 @@ display(temporal_holdout_table.round({"MAE": 1, "MSE": 1, "RMSE": 1, "R2": 3}))
 # 
 # The primary assessment criterion and secondary robustness criterion are reported separately. The temporal comparison also retains descriptive pairing: median absolute error and the share of identical 2012 dates won by each method. These summaries do not require an independence assumption. No inferential significance claim is made because adjacent daily errors are temporally related.
 
-# In[13]:
+# In[16]:
 
 
 primary_pass = primary_improvement >= 0.40
@@ -664,7 +719,7 @@ print("Table 5.2 - Paired descriptive comparison on identical 2012 dates")
 display(paired_summary.round(1))
 
 
-# In[14]:
+# In[17]:
 
 
 train_ceiling = int(temporal_train.cnt.max())
@@ -706,7 +761,7 @@ plt.tight_layout(); plt.savefig(FIG_DIR / "v4_temporal_robustness.png", dpi=160)
 # 
 # Permutation importance is model-agnostic and measures the increase in holdout MAE after one raw input is shuffled. It is computed only after model selection and does not change the winner. Contributions describe predictive associations in this dataset, not causal effects. TreeSHAP is added only when the frozen primary family is Random Forest or Gradient Boosting.
 
-# In[15]:
+# In[18]:
 
 
 perm = permutation_importance(
@@ -731,7 +786,7 @@ ax.set(title=f"Figure 5.3 - Permutation importance: {primary_winner_name}",
 plt.tight_layout(); plt.savefig(FIG_DIR / "v4_permutation_importance.png", dpi=160); plt.show()
 
 
-# In[16]:
+# In[19]:
 
 
 shap_table = None
@@ -758,7 +813,7 @@ else:
     print("TreeSHAP omitted: the frozen primary winner is", primary_winner_name)
 
 
-# In[17]:
+# In[20]:
 
 
 primary_pred = primary_winner.predict(primary_holdout[primary_winner_columns])
@@ -780,23 +835,23 @@ plt.tight_layout(); plt.savefig(FIG_DIR / "v4_primary_diagnostics.png", dpi=160)
 # 
 # Permutation confirms that elapsed time is the dominant predictive association in the primary holdout: shuffling it increases MAE by about 950 rentals. Feels-like temperature follows at 410, then humidity at 144 and squared temperature at 111. TreeSHAP produces the same leading order, with mean absolute contributions of about 1,018, 586, 235 and 201 rentals. These values explain predictions across the observed sample; they do not imply that advancing time causes demand or that weather effects are causal.
 # 
-# The primary assessment result is strong: MAE 433.9, RMSE 630.6, R-squared 0.897, a 73.9% improvement over the mean baseline and MAE equal to 9.6% of mean demand. The forward result narrows its use. Linear Regression lost to rolling-7 by 23.5%; its median daily absolute error was 1,045 versus 636, and it was closer on only 116 of 366 dates (31.7%). Rolling-7 was closer on 250 dates. This paired description reinforces the temporal failure without treating autocorrelated days as independent evidence for a p-value.
+# The primary result is MAE 433.9, RMSE 630.6 and R-squared 0.897: 73.9% better than the baseline and 10.1% of mean holdout demand. Temporally, Linear Regression lost to rolling-7 by 23.5%; median error was 1,045 versus 636, with wins on 116 versus 250 dates. This paired description makes no independence claim.
 
 # ## 6. Lessons Learned
 # 
 # ### 6.1 What went well
 # 
-# The primary design now matches the assessment question: all 731 daily units remain available, the holdout is isolated from every modelling decision, and four families compete across three exogenous predictor sets. Loading the hourly companion file strengthened data understanding by validating every daily total and revealing both intraday peaks and an unbalanced hourly panel. Separate primary and temporal frames kept causal lags available for robustness testing without reducing the primary sample.
+# All 731 daily units remain available, the holdout is isolated from selection, and four families compete across three exogenous feature sets. The hourly file validates every daily total and exposes intraday peaks and panel imbalance. Separate frames preserve the full primary sample and causal temporal lags.
 # 
 # ### 6.2 Challenges
 # 
-# The zero-humidity record required a correction that could preserve sample size and avoid training-fold leakage. Median imputation inside the pipeline supplies that control, and the sensitivity table checks its practical effect. The larger challenge is temporal growth: a tree selected for conditional estimation can interpolate well across 2011-2012 yet be unable to reach later demand when trained only on 2011. Observed weather also gives the temporal experiment information that a real planner would receive with forecast error.
+# The zero-humidity correction had to preserve sample size and avoid fold leakage; pipeline imputation and sensitivity analysis provide that control. Temporal growth is harder: a tree can interpolate across both years yet fail to reach 2012 demand when trained on 2011. Observed weather also omits real forecast error.
 # 
 # ### 6.3 What can be improved
 # 
-# Deployment was not required for this assessment, and the evidence determines whether future deployment is currently supportable. A stronger study would collect several more years, retain archived weather forecasts, and evaluate repeated forward windows. Station-level planning would additionally require station identifiers, dock capacity, origins and destinations, transit connections and local demand. ITDP treats integration and performance as system-wide planning concerns; NACTO's station-siting guidance shows why spacing, placement and surrounding network context matter. Category-4 weather should remain blocked by a supported-domain guard until direct evidence exists.
+# Deployment was not required. A stronger study needs more years, archived weather forecasts and repeated forward windows. Station planning also requires identifiers, dock capacity, origins, destinations, transit connections and local demand. ITDP and NACTO show why network integration, spacing and context matter. Category-4 weather remains outside the supported domain.
 # 
-# Future work could compare explicit trend-seasonality models, differenced targets and forecast-aware weather inputs. The primary model can support conditional system-wide demand analysis inside the observed domain. Any operational use would still require fresh forward evidence, monitoring, human review and station-level data appropriate to the decision.
+# Future work could compare trend-seasonality models, differenced targets and forecast-aware inputs. Operational use still requires new forward evidence, monitoring, human review and decision-appropriate station data.
 
 # ---
 # 
@@ -817,7 +872,7 @@ plt.tight_layout(); plt.savefig(FIG_DIR / "v4_primary_diagnostics.png", dpi=160)
 # 
 # ## Appendix B - Reproducibility and integrity evidence
 
-# In[18]:
+# In[21]:
 
 
 import sys

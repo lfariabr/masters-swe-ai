@@ -160,7 +160,7 @@ EVAL_READ = md(r"""
 
 Permutation confirms that elapsed time is the dominant predictive association in the primary holdout: shuffling it increases MAE by about 950 rentals. Feels-like temperature follows at 410, then humidity at 144 and squared temperature at 111. TreeSHAP produces the same leading order, with mean absolute contributions of about 1,018, 586, 235 and 201 rentals. These values explain predictions across the observed sample; they do not imply that advancing time causes demand or that weather effects are causal.
 
-The primary assessment result is strong: MAE 433.9, RMSE 630.6, R-squared 0.897, a 73.9% improvement over the mean baseline and MAE equal to 9.6% of mean demand. The forward result narrows its use. Linear Regression lost to rolling-7 by 23.5%; its median daily absolute error was 1,045 versus 636, and it was closer on only 116 of 366 dates (31.7%). Rolling-7 was closer on 250 dates. This paired description reinforces the temporal failure without treating autocorrelated days as independent evidence for a p-value.
+The primary result is MAE 433.9, RMSE 630.6 and R-squared 0.897: 73.9% better than the baseline and 10.1% of mean holdout demand. Temporally, Linear Regression lost to rolling-7 by 23.5%; median error was 1,045 versus 636, with wins on 116 versus 250 dates. This paired description makes no independence claim.
 """)
 
 LESSONS = md(r"""
@@ -168,17 +168,17 @@ LESSONS = md(r"""
 
 ### 6.1 What went well
 
-The primary design now matches the assessment question: all 731 daily units remain available, the holdout is isolated from every modelling decision, and four families compete across three exogenous predictor sets. Loading the hourly companion file strengthened data understanding by validating every daily total and revealing both intraday peaks and an unbalanced hourly panel. Separate primary and temporal frames kept causal lags available for robustness testing without reducing the primary sample.
+All 731 daily units remain available, the holdout is isolated from selection, and four families compete across three exogenous feature sets. The hourly file validates every daily total and exposes intraday peaks and panel imbalance. Separate frames preserve the full primary sample and causal temporal lags.
 
 ### 6.2 Challenges
 
-The zero-humidity record required a correction that could preserve sample size and avoid training-fold leakage. Median imputation inside the pipeline supplies that control, and the sensitivity table checks its practical effect. The larger challenge is temporal growth: a tree selected for conditional estimation can interpolate well across 2011-2012 yet be unable to reach later demand when trained only on 2011. Observed weather also gives the temporal experiment information that a real planner would receive with forecast error.
+The zero-humidity correction had to preserve sample size and avoid fold leakage; pipeline imputation and sensitivity analysis provide that control. Temporal growth is harder: a tree can interpolate across both years yet fail to reach 2012 demand when trained on 2011. Observed weather also omits real forecast error.
 
 ### 6.3 What can be improved
 
-Deployment was not required for this assessment, and the evidence determines whether future deployment is currently supportable. A stronger study would collect several more years, retain archived weather forecasts, and evaluate repeated forward windows. Station-level planning would additionally require station identifiers, dock capacity, origins and destinations, transit connections and local demand. ITDP treats integration and performance as system-wide planning concerns; NACTO's station-siting guidance shows why spacing, placement and surrounding network context matter. Category-4 weather should remain blocked by a supported-domain guard until direct evidence exists.
+Deployment was not required. A stronger study needs more years, archived weather forecasts and repeated forward windows. Station planning also requires identifiers, dock capacity, origins, destinations, transit connections and local demand. ITDP and NACTO show why network integration, spacing and context matter. Category-4 weather remains outside the supported domain.
 
-Future work could compare explicit trend-seasonality models, differenced targets and forecast-aware weather inputs. The primary model can support conditional system-wide demand analysis inside the observed domain. Any operational use would still require fresh forward evidence, monitoring, human review and station-level data appropriate to the decision.
+Future work could compare trend-seasonality models, differenced targets and forecast-aware inputs. Operational use still requires new forward evidence, monitoring, human review and decision-appropriate station data.
 """)
 
 APPENDIX = md(r"""
