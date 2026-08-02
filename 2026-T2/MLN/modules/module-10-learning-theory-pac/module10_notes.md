@@ -13,7 +13,7 @@
 | **5** | Read & summarise Pavlus (2016) — The hunt for the algorithms that drive life on earth (Wired/Quanta) | ✅ |
 | **6** | Read & summarise Sarkar (2018) — Reaching for the gut of ML: a brief intro to CLT | ✅ |
 | **7** | Watch & summarise Worrell (2019) — Computational Learning Theory I (transcript on file) | ✅ |
-| 8 | Activity 1: On-device ML + Federated Learning (Dhar et al. 2020; McMahan & Ramage 2017) — forum | 🕐 |
+| 8 | Activity 1: On-device ML + Federated Learning (Dhar et al. 2020; McMahan & Ramage 2017) — forum | 🔥 |
 
 > **One-line frame:** PAC (**Probably Approximately Correct**) is the *theory* that says why machine
 > learning works at all. Perfect learning is **impossible** (noise + finite sampling), so the best you can
@@ -331,3 +331,45 @@ is a vocabulary — **ε, δ, hypothesis space, sample complexity, VC dimension,
 *justify* the habits from Modules 1–9 (train/test split, regularisation, feature selection, preferring simpler
 models). Activity 1 (on-device / federated learning) applies that lens to edge ML: *why* is PAC relevant when
 compute and data are scarce, and what are its limits?
+
+---
+
+## Learning Activity 1 — On-Device ML & Federated Learning (forum draft)
+
+> **Refs:** Dhar et al. (2020), *On-device ML: an algorithms and learning theory perspective* (arXiv:1911.00623,
+> §4.2) · McMahan & Ramage (2017), *Federated learning* (Google AI Blog). **Status: 🔥 draft.**
+
+**1. Why is PAC relevant to edge ML?** PAC connects two things: how big/complex your model is allowed to be, and
+how many examples you need to train it well. A phone or sensor has very little memory and very little data, so you
+are forced to use a **small, simple model**. The nice news from PAC (Occam's Razor) is that simpler models need
+*less* data to work - which suits the edge perfectly. The catch is you can go too simple: shrink the model too
+far and it just can't learn the pattern well enough. PAC is basically the theory that helps you find that
+sweet spot.
+
+**2. What limits does PAC have that hold edge ML back?**
+- Its rules are **too cautious** - the theory asks for far more training data than devices actually get away with
+  in practice.
+- It assumes the data you *train* on looks like the data you *test* on. On real devices that is not true - every
+  phone sees a different, personal, changing slice of the world.
+- It only counts **data and compute**. It says nothing about the things that actually break an edge device:
+  battery life, memory, and speed. A model can look "cheap" on paper and still be too big to fit.
+
+**3. What theory ideas are the authors discussing (Dhar et al. §4.2)?** In plain terms: making a model smaller
+changes how much data it needs and how accurate it can get; there is always a gap between how well a model does on
+its training data vs new data; and the data on different devices doesn't match, which is the hard part.
+
+**4. How could we actually make on-device ML work?** Train a big model in the cloud, then teach a small one to
+copy it (distillation); trim and compress the model until it fits in memory; start from a pre-trained model and
+only fine-tune a little (same trick as Dr Kamran's Module 9 paper); or use **Federated Learning** - keep the raw
+data on the device and only send back the model's *updates*, so everyone's device helps train a shared model
+without their private data ever leaving.
+
+**5. Use cases (from my day job at St Catherine's).** An early-warning tool that spots at-risk students from
+attendance/grades *without* ever sending a student's data to the cloud; a phone keyboard that learns your typing
+locally (Google's own example); offline sensors that have to work with no internet and a small battery; and a
+**campus-wide federated model** where every device improves a shared model but the raw student data never moves -
+privacy built into the design, not just the policy.
+
+> **Forum hook:** the irony is that PAC *likes* the small, simple models edge devices force on us (they need less
+> data) - but it also assumes the data never changes, which is exactly what breaks on real devices. Federated
+> Learning is the workaround.
