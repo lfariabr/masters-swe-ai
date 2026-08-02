@@ -1,0 +1,9 @@
+check,expected,observed,result
+Primary rows retained,731,731,Pass
+Temporal rows after causal warm-up,724,724,Pass
+Primary holdout rows excluded from selection,183,183,Pass
+Temporal selection years,2011 only,[2011],Pass
+Hourly/daily dates reconciled,731,731,Pass
+Dates with incomplete hourly panels,76,76,Pass
+Omitted zero-demand hourly rows,165,165,Pass
+Leakage components in predictor lists,0,0,Pass

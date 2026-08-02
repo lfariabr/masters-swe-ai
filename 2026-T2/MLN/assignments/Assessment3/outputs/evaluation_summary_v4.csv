@@ -1,0 +1,3 @@
+evaluation,criterion,measured,result
+Conditional demand estimation,>= 40% MAE improvement over training-mean baseline,73.9% improvement,Meets
+Forward temporal robustness,>= 5% MAE advantage over rolling-7,-23.5% advantage,Fails
