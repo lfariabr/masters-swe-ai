@@ -36,30 +36,32 @@ Capital Bikeshare is a docked bicycle-sharing system. This project asks:
 
 > **Given calendar attributes and expected weather conditions, how accurately can regression models estimate Capital Bikeshare's system-wide daily rental demand?**
 
-The estimate may support fleet-capacity, staffing and maintenance planning, but cannot resolve station inventory or rebalancing. Lime in Sydney is a contemporary dockless analogy that motivated my interest; it supplies no evidence here. Capital Bikeshare establishes the docked context, while ITDP links demand, integration and performance to system planning (Capital Bikeshare, n.d.; ITDP, 2018).
+Daily demand is total network rentals in one day. An accurate estimate could support fleet-capacity, staffing and maintenance planning. Station inventory and rebalancing are outside scope because the CSVs lack station identifiers, locations and capacity; station-level data could extend the work.
+
+Lime in Sydney is a contemporary dockless analogy that motivates my interest and makes the assessment closer to my reality. Although its operations differ, it raises a parallel question: how could calendar and weather patterns inform fleet planning in a local system? It motivates the work but is not model evidence.
 
 ### 1.2 Data and prediction scope
 
-The modelling unit is one calendar day for the whole system. Predictors are calendar attributes and expected weather conditions. The primary random 75/25 experiment estimates conditional demand across the observed 2011-2012 domain and includes no past-demand features. It answers the assessment question directly.
+Each row represents one system-wide day, with `cnt` as total rentals. Calendar attributes are known in advance. Observed weather proxies expected weather; real use would require forecasts. The hourly file supports exploration without changing the daily target.
 
-The secondary experiment tests rolling one-day-ahead prediction: counts through day D plus next-day calendar and weather predict D+1. Forecasting all of 2012 on 1 January is a different task because later counts would be unavailable.
+The primary random 75/25 experiment estimates demand for days resembling 2011-2012 using calendar and weather without past demand. The secondary experiment tests transfer through time: selection uses 2011, then counts through day D plus next-day conditions predict D+1 in 2012. Forecasting all of 2012 on 1 January is separate because later counts would be unavailable.
 
 ### 1.3 Evaluation criteria
 
-MAE reports the average daily miss; MSE, RMSE and R-squared provide supporting views.
+MAE is primary because it reports the average miss in rentals per day. RMSE gives more weight to large errors, while R-squared shows explained variation relative to predicting the sample mean.
 
-- **Conditional demand estimation:** improve MAE by at least 40% over a training-mean baseline on the fixed 25% holdout.
-- **Forward temporal robustness:** improve MAE by at least 5% over the rolling seven-day baseline on the identical 2012 dates.
-- **Selection rule:** choose the lowest cross-validated MAE; configurations within 5% of that value are compared by cross-validated RMSE and then simplicity.
+The training-mean baseline tests whether predictors add value; the primary model must improve MAE by 40%. Rolling seven-day demand is the temporal reference because it adapts to recent demand; the frozen ML model must beat it by 5% on identical 2012 dates.
+
+Model, feature and hyperparameter choices use training-only cross-validation. Lowest MAE leads; configurations within 5% are separated by RMSE and then simplicity. The holdout is used only after selection.
 
 These study-defined criteria came from earlier exploratory versions and are not stakeholder-validated service levels.
 
 ### 1.4 Assumptions and limitations
 
-- The records contain observed weather. Treating it as expected next-day weather assumes perfect forecasts and makes the temporal check optimistic.
-- Two years provide only one year-on-year transition, limiting evidence about persistent trend and seasonality.
-- Daily `weathersit` category 4 is absent, so predictions require a supported-domain guard for categories 1-3.
-- System-wide totals cannot answer station questions. ITDP and NACTO show that real network planning also needs station IDs, capacity, origin-destination flows, transit connections and local station demand (ITDP, 2018; NACTO, 2016).
+- Observed weather omits forecast error, making reported day-ahead accuracy optimistic.
+- Two years provide one year-on-year transition, weak evidence for persistent growth.
+- Weather category 4 is absent; an input guard must restrict use to supported categories 1-3.
+- System totals cannot answer station questions. The Institute for Transportation and Development Policy (ITDP) publishes bikeshare planning guidance; the National Association of City Transportation Officials (NACTO) publishes network and station-siting guidance. They explain why future station planning also needs identifiers, capacity, trip flows, transit connections and local demand (ITDP, 2018; NACTO, 2016).
 """)
 
 DATA_HEAD = md(r"""
