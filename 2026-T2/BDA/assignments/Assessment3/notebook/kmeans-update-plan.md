@@ -1,65 +1,60 @@
-# A3 K-Means section - update plan
+# A3 K-Means section - update plan (shipped)
 
-**Source of the ideas:** MLN601 module 9 notes (`2026-T2/MLN/modules/module-09-kmeans-clustering/module09_notes.md`, `module09_notes-class.md`) and Dr Kamran's writing-style guidance (same folder, Appendix A-E). Nothing here changes the analytical chain or any already-reported number (top-3, regression, K=3, silhouette scores, lead-lag) - all three items are additive.
+**Status:** done. Implemented on `study-bda601/a3-kmeans-wcss-elbow`, PR [#233](https://github.com/lfariabr/masters-swe-ai/pull/233).
 
-**Target file:** `2026-T2/BDA/assignments/Assessment3/notebook/build_nb.py`, section 4 ("Clustering - K-Means on the most volatile country"), plus one line in section 9 ("Limitations").
+**Source of the ideas:** MLN601 module 9 notes (`2026-T2/MLN/modules/module-09-kmeans-clustering/module09_notes.md`, `module09_notes-class.md`) and Dr Kamran's writing-style guidance (same folder, Appendix A-E).
 
-**Not in scope:** slides, narration script, `metrics.json` restructuring beyond adding the new WCSS values, or the graph/lead-lag sections - none of that is touched by this plan.
+**Target file:** `2026-T2/BDA/assignments/Assessment3/notebook/build_nb.py` only - section 4 (clustering), the glossary, section 9 (Limitations), Appendix B (decision log), Appendix C (reproducibility), and the `metrics.json` persist block. Nothing changes the analytical chain or any pre-existing number (top-3, regression, K=3, silhouette scores, lead-lag) - confirmed by diffing `metrics.json` before/after: the only additions are `clustering.wcss` and `clustering.elbow_k`.
+
+**Confirmed out of scope, unaffected:** `presentation/slides.md`, `slides_outline.md`, `narration_script.md` all state "K=3 (silhouette 0.705)" as the sole justification - that remains true since silhouette stays authoritative, so none of the three needed edits. `README.md` has no clustering references.
 
 ---
 
-## 1. Elbow (WCSS) alongside silhouette
+## 1. WCSS elbow alongside silhouette
 
-**Why:** module09_notes.md lists elbow and silhouette as the two standard methods for choosing K ("Three ways to choose k"). The notebook currently only reports silhouette per K, so the choice of K=3 rests on one signal. Plotting WCSS next to silhouette costs nothing (the `KMeans` fit already happening in the `for k in range(2, 7)` loop exposes `.summary.trainingCost`, Spark's inertia) and directly strengthens the "Analysis and insights" rubric criterion (30%) by showing two independent methods agree.
+**Why:** module09_notes.md lists elbow and silhouette as the two standard methods for choosing K. The notebook previously reported only silhouette, so K=3 rested on one signal.
 
-**Where:** `build_nb.py` lines ~320-327, inside the existing K-search loop.
-
-**Change:**
-- Capture `km.summary.trainingCost` per K alongside the existing silhouette score.
-- Print both series (K → silhouette, K → WCSS) in the existing print statement.
-- Add a small two-panel figure (silhouette vs K, WCSS vs K with the elbow visible) - reuse the existing `fig03`-adjacent figure numbering, likely `fig03b_k_selection.png` inserted before the current `fig03_clusters_waves.png`.
-- One sentence in the markdown cell above section 4's code: "K is chosen by the highest silhouette score over K=2..6, cross-checked against the WCSS elbow."
-- `metrics.json`: add a `clustering.wcss` dict (K → trainingCost) next to the existing `clustering.silhouette` dict.
-
-**Risk:** none to existing numbers - `best_k` selection logic (`max(sil, key=sil.get)`) is unchanged, only a second metric is now computed and reported alongside it.
+**What shipped:**
+- `km.summary.trainingCost` (verified against `pyspark==3.5.3` in the `bda-spark` kernel - `KMeansSummary.trainingCost`, "equivalent to sklearn's inertia") captured per K alongside silhouette, in the existing `for k in range(2, 7)` loop.
+- WCSS is monotonically non-increasing in K, so it can't be chosen by `min()` - that would always return K=6. The elbow is instead the K whose WCSS point sits furthest from the straight chord joining the first and last tested K (a small numpy-only knee-detection heuristic, no `np.cross` - that's deprecated for 2D vectors in NumPy 2.x, so the perpendicular-distance formula is written out directly).
+- New figure `fig08_k_selection.png` (not `fig03b` - existing figures are numbered by logical/slide order, not code position, so a trailing `fig08` fits the convention without renumbering anything).
+- **Decision rule fixed before results:** silhouette stays authoritative (`best_k` unchanged); WCSS is corroborating evidence only. If they disagreed, the notebook prints a note rather than silently picking one. In the actual run both agree on K=3 (silhouette 0.705 at K=3; WCSS elbow also K=3), so the disagreement branch exists in code but wasn't exercised.
+- `metrics.json`: added `clustering.wcss` (K → trainingCost) and `clustering.elbow_k`, siblings of the existing `clustering.silhouette`.
 
 ---
 
 ## 2. Name the initialisation method (k-means||)
 
-**Why:** Pedregosa/module09_notes.md flags initialisation as the reason K-means can converge to a local minimum, and recommends k-means++ explicitly. Spark's `KMeans` already defaults to `initMode="k-means||"` (the scalable, parallel k-means++ variant) - this is correct practice already in place, it's just never stated. A one-line comment plus a clause in the glossary closes that gap without changing any code behaviour.
-
-**Where:**
-- `build_nb.py` ~line 323: inline comment on the `KMeans(...)` call noting `initMode` defaults to `"k-means||"` (parallel k-means++), so no explicit `n_init`/multi-run loop is needed the way scikit-learn would need one.
-- Glossary table (~line 679-682): add or extend the `K-Means` row to mention k-means|| initialisation.
-
-**Risk:** none - documentation-only, zero code/number changes.
+**What shipped:** inline comment on the `KMeans(...)` call noting Spark's `initMode` default is `"k-means||"` (parallel k-means++), so no separate multi-run/`n_init` loop is needed. Glossary's `K-Means` row extended with the same clause; new `WCSS (inertia)` row added directly after `Silhouette score`, matching the glossary's one-concept-per-row pattern.
 
 ---
 
-## 3. Honest limitation: spherical/convex-cluster assumption
+## 3. Honest limitation: convex-cluster assumption
 
-**Why:** both Pedregosa (module09_notes.md §3, "known drawbacks") and Dr Kamran's lecture (module09_notes-class.md §6) name the same weakness: K-means assumes roughly spherical, similar-size, similar-density clusters. Our clusters are contiguous week-ranges on a 2D `[week, new_cases]` feature space - defensible, but worth naming rather than leaving implicit, matching the "honest Limitations section" habit Kamran's own paper models (module09_notes-class.md Appendix, habit #4).
-
-**Where:** section 9 Limitations list (~line 614 area, where the "week is a clustering input" caveat already lives) - add one adjacent bullet, not a new subsection.
-
-**Draft wording:** "K-Means assumes clusters are roughly convex and similarly sized; the phases found here read as contiguous week-ranges partly because the true underlying structure (sequential pandemic waves) happens to fit that assumption reasonably well, not because K-Means would flag a mismatch if it did not."
-
-**Risk:** none - prose-only addition to an existing list.
+**What shipped:** merged into the *existing* `week is a clustering input` bullet (section 9) rather than added as a new adjacent one. The original plan's draft had two separate bullets explaining the same observed contiguity from different angles (mechanical: week is a feature; geometric: K-means favours convex shapes) - stacking them read as two competing explanations for the same thing. One merged bullet naming both is internally consistent.
 
 ---
 
-## Execution order
+## 4. Ripple effects (found during plan review, not in the original draft)
 
-1. Edit `build_nb.py` (all three items).
-2. Rebuild: `python3 build_nb.py`.
-3. Re-execute: `jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.kernel_name=bda-spark --ExecutePreprocessor.timeout=600`.
-4. Diff-check `metrics.json` - confirm every pre-existing key/value is untouched, only `clustering.wcss` and (if added) a new `fig03b` entry appear.
-5. Confirm zero-error execution via the existing error-scan check.
-6. No deck/slides/script changes required - this plan only touches the notebook.
+- **Appendix B** (decision log): row 4 ("Choice of K") updated to mention the WCSS cross-check; new row 9 added for the silhouette-vs-WCSS tie-break rule itself, matching the table's own stated purpose of recording rules fixed before results.
+- **Appendix C** (reproducibility): `fig08_k_selection.png` added to the generated-artefacts table; "seven figures" → "eight figures" (the only place in the file stating a figure count); "Sources of determinism" extended to note WCSS is deterministic under the same seed.
 
-## Explicitly out of scope (flagged, not actioned)
+These were missed in the first draft of this plan - it scoped edits to section 4 and one Limitations line without checking that Appendix B and C, in the same file, describe exactly the things this change touches.
 
-- DBSCAN/K-medoids comparison (Kamran's lecture, §6) - genuinely interesting but the brief scores K-Means specifically; adding a second algorithm would be scope creep, not requested.
-- MiniBatchKMeans (Pedregosa, large-data variant) - our per-country weekly series is small (~164 rows), doesn't apply.
-- Gap statistic as a third K-selection method - diminishing return once silhouette + WCSS agree; not planned unless the two disagree once results are in.
+---
+
+## Execution order (as run)
+
+1. Edited `build_nb.py` (all five points above, one file).
+2. `python3 build_nb.py` → 32 cells (was 31).
+3. Re-executed via `jupyter nbconvert ... --ExecutePreprocessor.kernel_name=bda-spark` - zero errors.
+4. Diffed `metrics.json` before/after: only `clustering.wcss` and `clustering.elbow_k` added, everything else byte-identical.
+5. Visually checked `fig08_k_selection.png` - clean elbow at K=3, matches the silhouette peak.
+6. Committed on branch `study-bda601/a3-kmeans-wcss-elbow`, pushed, opened PR #233 for review (not committed straight to master).
+
+## Explicitly out of scope (unchanged from v1)
+
+- DBSCAN/K-medoids comparison - the brief scores K-Means specifically; would be scope creep.
+- MiniBatchKMeans - the per-country weekly series is small (~164 rows), doesn't apply.
+- Gap statistic as a third K-selection method - not needed once silhouette and WCSS agree.
