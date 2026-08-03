@@ -29,6 +29,10 @@
 > conceptual vocabulary (ε, δ, hypothesis space, sample complexity, VC dimension, Occam) and being able to
 > *justify* the ML steps you already perform.
 
+> 🎥 **Week 10 live session** (lecture-only material — ε/4 four-strip derivation, the ~1,753-sample worked
+> example, CRISP-DM success-criteria framing, and the Module 11 preview): see
+> [module10_notes-class.md](module10_notes-class.md).
+
 ---
 
 ## Key Highlights
