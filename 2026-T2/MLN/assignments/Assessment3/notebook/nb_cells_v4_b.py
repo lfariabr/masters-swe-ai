@@ -5,7 +5,7 @@ from nb_cells_v4_a import md, co
 MODELLING_HEAD = md(r"""
 ## 4. Modelling
 
-Four regression families are compared with lightweight grids. Linear Regression tests a global additive relationship; K-Nearest Neighbors tests local similarity; Random Forest averages decorrelated trees; Gradient Boosting sequentially corrects residuals. Scaling and fold-fitted median imputation live inside every pipeline.
+Four regression families are compared with lightweight grids in scikit-learn (Pedregosa et al., 2011). Linear Regression tests a global additive relationship; K-Nearest Neighbors tests local similarity; Random Forest averages decorrelated trees; Gradient Boosting sequentially corrects residuals (Friedman, 2001). Scaling and fold-fitted median imputation live inside every pipeline.
 
 ### 4.1 Primary model comparison: random 75/25 holdout
 

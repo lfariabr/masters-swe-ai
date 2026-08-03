@@ -2,67 +2,67 @@
 # coding: utf-8
 
 # # Predicting Daily Demand for Capital Bikeshare
-#
+# 
 # ## Regression Model Comparison and Temporal Robustness Testing
-#
+# 
 # *MLN601 Assessment 3 - CRISP-DM*
-#
+# 
 # Design and Creative Technologies, Torrens University
-#
+# 
 # - **Student:** Luis Guilherme de Barros Andrade Faria - A00187785
 # - **Subject:** Machine Learning (MLN601)
 # - **Lecturer:** Dr. Kamran Shaukat
 # - **Assessment:** 3
 # - **Date:** August 2026
-#
+# 
 # | Field | Scope |
 # |---|---|
 # | Dataset | UCI Bike Sharing, Capital Bikeshare daily and hourly files, Washington DC, 2011-2012 |
 # | Target | `cnt`: system-wide daily rentals |
 # | Primary question | Conditional daily-demand estimation from calendar attributes and expected weather |
 # | Secondary check | Rolling day-ahead temporal robustness, trained in 2011 and evaluated in 2012 |
-# | Method | Regression comparison within CRISP-DM |
+# | Method | Regression comparison within CRISP-DM (Chapman et al., 2000) |
 
 # ## 1. Business Understanding
-#
+# 
 # ### 1.1 Business objective
-#
-# Capital Bikeshare is a docked bicycle-sharing system. This project asks:
-#
+# 
+# Capital Bikeshare is a docked bicycle-sharing system (Capital Bikeshare, n.d.). This project asks:
+# 
 # > **Given calendar attributes and expected weather conditions, how accurately can regression models estimate Capital Bikeshare's system-wide daily rental demand?**
-#
+# 
 # Daily demand is total network rentals in one day. An accurate estimate could support fleet-capacity, staffing and maintenance planning. Station inventory and rebalancing are outside scope because the CSVs lack station identifiers, locations and capacity; station-level data could extend the work.
-#
+# 
 # Lime in Sydney is a contemporary dockless analogy that motivates my interest and makes the assessment closer to my reality. Although its operations differ, it raises a parallel question: how could calendar and weather patterns inform fleet planning in a local system? It motivates the work but is not model evidence.
-#
+# 
 # ### 1.2 Data and prediction scope
-#
+# 
 # Each row represents one system-wide day, with `cnt` as total rentals. Calendar attributes are known in advance. Observed weather proxies expected weather; real use would require forecasts. The hourly file supports exploration without changing the daily target.
-#
+# 
 # The primary random 75/25 experiment estimates demand for days resembling 2011-2012 using calendar and weather without past demand. The secondary experiment tests transfer through time: selection uses 2011, then counts through day D plus next-day conditions predict D+1 in 2012. Forecasting all of 2012 on 1 January is separate because later counts would be unavailable.
-#
+# 
 # ### 1.3 Evaluation criteria
-#
+# 
 # MAE is primary because it reports the average miss in rentals per day. RMSE gives more weight to large errors, while R-squared shows explained variation relative to predicting the sample mean.
-#
+# 
 # The training-mean baseline tests whether predictors add value; the primary model must improve MAE by 40%. Rolling seven-day demand is the temporal reference because it adapts to recent demand; the frozen ML model must beat it by 5% on identical 2012 dates.
-#
+# 
 # Model, feature and hyperparameter choices use training-only cross-validation. Lowest MAE leads; configurations within 5% are separated by RMSE and then simplicity. The holdout is used only after selection.
-#
+# 
 # These study-defined criteria came from earlier exploratory versions and are not stakeholder-validated service levels.
-#
+# 
 # ### 1.4 Assumptions and limitations
-#
+# 
 # - Observed weather omits forecast error, making reported day-ahead accuracy optimistic.
 # - Two years provide one year-on-year transition, weak evidence for persistent growth.
 # - Weather category 4 is absent; an input guard must restrict use to supported categories 1-3.
 # - System totals cannot answer station questions. The Institute for Transportation and Development Policy (ITDP) publishes bikeshare planning guidance; the National Association of City Transportation Officials (NACTO) publishes network and station-siting guidance. They explain why future station planning also needs identifiers, capacity, trip flows, transit connections and local demand (ITDP, 2018; NACTO, 2016).
 
 # ## 2. Data Understanding
-#
+# 
 # ### 2.1 Source, loading and granularity
-#
-# The UCI Bike Sharing dataset supplies `day.csv` and `hour.csv` for Capital Bikeshare in 2011-2012 (Fanaee-T & Gama, 2014). The daily file is the modelling source. The hourly file is loaded separately for intraday EDA and cross-file validation.
+# 
+# The UCI Bike Sharing dataset supplies `day.csv` and `hour.csv` for Capital Bikeshare in 2011-2012 (Fanaee-T & Gama, 2014; University of California, Irvine, n.d.). The daily file is the modelling source. The hourly file is loaded separately for intraday EDA and cross-file validation.
 
 # In[1]:
 
@@ -194,11 +194,11 @@ assert day_df.hum.isna().sum() == 1
 
 
 # The daily series is complete and `casual + registered = cnt` holds throughout. One date reports zero humidity across 22 hourly rows. It is treated as a recording fault, changed to missing and median-imputed inside each training fold; a sensitivity check tests the decision. Plausible tail values are retained.
-#
+# 
 # Weather category 4 is absent, so the supported domain is 1-3 and still requires an input guard.
 
 # ### 2.2 Variables and exploratory analysis
-#
+# 
 # | Variables | Role |
 # |---|---|
 # | `cnt` | Continuous target: system-wide rentals per day |
@@ -206,7 +206,7 @@ assert day_df.hum.isna().sum() == 1
 # | `weathersit`, `temp`, `atemp`, `hum`, `windspeed` | Weather predictors |
 # | `dteday` | Ordering and elapsed-time construction; not passed directly to a model |
 # | `casual`, `registered` | Descriptive plots only; excluded because they sum exactly to `cnt` |
-#
+# 
 # `casual` and `registered` describe user groups, not independent predictors. Registered users may include commuters, but membership status does not prove trip purpose.
 
 # In[5]:
@@ -299,7 +299,7 @@ plt.show()
 # The pairplot confirms positive, nonlinear relationships between demand and both temperature measures. Humidity and windspeed show weaker negative patterns and broad scatter. `temp` and `atemp` move almost identically, consistent with their high correlation, while no single weather variable fully explains demand.
 
 # ## 3. Data Preparation
-#
+# 
 # Two frames prevent the temporal question from shrinking the primary sample. `primary_df` contains all 731 days and no past-demand inputs. `temporal_df` starts after a causal seven-day warm-up and contains 724 days.
 
 # In[9]:
@@ -413,11 +413,11 @@ def choose_configuration(rows):
 
 
 # ## 4. Modelling
-#
-# Four regression families are compared with lightweight grids. Linear Regression tests a global additive relationship; K-Nearest Neighbors tests local similarity; Random Forest averages decorrelated trees; Gradient Boosting sequentially corrects residuals. Scaling and fold-fitted median imputation live inside every pipeline.
-#
+# 
+# Four regression families are compared with lightweight grids in scikit-learn (Pedregosa et al., 2011). Linear Regression tests a global additive relationship; K-Nearest Neighbors tests local similarity; Random Forest averages decorrelated trees; Gradient Boosting sequentially corrects residuals (Friedman, 2001). Scaling and fold-fitted median imputation live inside every pipeline.
+# 
 # ### 4.1 Primary model comparison: random 75/25 holdout
-#
+# 
 # The split is created once with `random_state=42`. Only the 75% training partition participates in family, feature-set and hyperparameter selection. Each of the 12 family/feature-set combinations uses shuffled five-fold `KFold` and MAE scoring. The 25% holdout is accessed only after the global configuration and one configuration per family have been frozen.
 
 # In[11]:
@@ -559,13 +559,13 @@ display(humidity_sensitivity.round({"MAE": 2, "MSE": 1, "RMSE": 2, "R2": 4}))
 
 
 # **Primary result.** Gradient Boosting with interactions and elapsed-time trend was frozen at CV MAE 477.0 (SD 34.1) and RMSE 657.6. Random Forest entered the 5% shortlist at MAE 498.0 but had higher RMSE (723.5). The selected grid point used learning rate 0.1, depth 2 and 400 estimators.
-#
+# 
 # On the untouched 183-day holdout it reached MAE 433.9, RMSE 630.6 and R-squared 0.897. MAE was 73.9% below the baseline's 1,663.0 and equalled **10.1% of mean holdout demand**, meeting the 40% criterion. Random Forest reached 446.6, KNN 501.0 and Linear Regression 529.9; the winner remained frozen.
-#
+# 
 # Marking zero humidity missing produced MAE 433.9 versus 430.9 when retained. The sub-1% difference leaves the conclusion unchanged; fold-fitted imputation preserves the physically plausible treatment.
 
 # ### 4.2 Secondary temporal robustness check
-#
+# 
 # Selection now uses `TimeSeriesSplit(n_splits=3)` inside 2011. The temporal design excludes `yr`, which is constant in the training year. It compares core cyclical calendar/weather inputs, interactions, causal recent-demand inputs and an optional elapsed-time trend. One configuration per family and the global temporal configuration are frozen before any 2012 score is produced.
 
 # In[14]:
@@ -671,15 +671,15 @@ display(temporal_holdout_table.round({"MAE": 1, "MSE": 1, "RMSE": 1, "R2": 3}))
 
 
 # **Temporal result.** Linear Regression with interactions and causal autoregressive inputs was frozen from 2011 at CV MAE 602.5 and CV RMSE 763.2. Adding elapsed-time trend raised CV MAE to 665.8, so the trend was excluded before 2012 evaluation. This contrast with the primary result shows that elapsed time helps interpolate within a mixed-year domain but does not establish a transferable growth law.
-#
+# 
 # In 2012, the frozen Linear Regression reached MAE 1,047.4, RMSE 1,204.0 and R-squared 0.546. Rolling-7 reached MAE 847.8, RMSE 1,178.3 and R-squared 0.565, leaving the selected model 23.5% worse on MAE. Random Forest scored MAE 1,673.3, while the 2011-selected Gradient Boosting and KNN configurations exceeded 2,000. Forward temporal robustness therefore fails.
-#
+# 
 # A rolling one-day-ahead test can update lags after every observed day. A forecast issued for all of 2012 on 1 January could not use those later counts and would be a different experiment with a longer horizon and recursively unavailable inputs.
 
 # ## 5. Evaluation
-#
+# 
 # ### 5.1 Criteria summary and paired temporal description
-#
+# 
 # The primary assessment criterion and secondary robustness criterion are reported separately. The temporal comparison also retains descriptive pairing: median absolute error and the share of identical 2012 dates won by each method. These summaries do not require an independence assumption. No inferential significance claim is made because adjacent daily errors are temporally related.
 
 # In[16]:
@@ -756,12 +756,12 @@ plt.tight_layout(); plt.savefig(FIG_DIR / "v4_temporal_robustness.png", dpi=160)
 
 
 # Tree ensembles predict averages within terminal regions and therefore have an extrapolation ceiling tied to observed training targets. The 2011 maximum was 6,043 rentals, while 2012 reached 8,714. Random Forest's largest prediction was 5,567 and Gradient Boosting's was 5,491; their mean under-predictions were 1,568 and 1,995 rentals per day. KNN also stayed below the training ceiling.
-#
+# 
 # Linear Regression extended to 8,248 and reduced mean under-prediction to 832, explaining why it led the 2011-selected ML candidates. Rolling-7 reached 7,988 and had a mean residual of -2.5 because each new observation re-anchored the next prediction. Conditional accuracy within a mixed-year sample therefore did not transfer to the later growth period.
 
 # ### 5.2 Explaining the frozen primary model
-#
-# Permutation importance is model-agnostic and measures the increase in holdout MAE after one raw input is shuffled. It is computed only after model selection and does not change the winner. Contributions describe predictive associations in this dataset, not causal effects. TreeSHAP is added only when the frozen primary family is Random Forest or Gradient Boosting.
+# 
+# Permutation importance is model-agnostic and measures the increase in holdout MAE after one raw input is shuffled. It is computed only after model selection and does not change the winner. Contributions describe predictive associations in this dataset, not causal effects. TreeSHAP (Lundberg & Lee, 2017) is added only when the frozen primary family is Random Forest or Gradient Boosting.
 
 # In[18]:
 
@@ -834,31 +834,37 @@ plt.tight_layout(); plt.savefig(FIG_DIR / "v4_primary_diagnostics.png", dpi=160)
 
 
 # ### 5.3 Interpretation
-#
+# 
 # Permutation confirms that elapsed time is the dominant predictive association in the primary holdout: shuffling it increases MAE by about 950 rentals. Feels-like temperature follows at 410, then humidity at 144 and squared temperature at 111. TreeSHAP produces the same leading order, with mean absolute contributions of about 1,018, 586, 235 and 201 rentals. These values explain predictions across the observed sample; they do not imply that advancing time causes demand or that weather effects are causal.
-#
+# 
 # The primary result is MAE 433.9, RMSE 630.6 and R-squared 0.897: 73.9% better than the baseline and 10.1% of mean holdout demand. Temporally, Linear Regression lost to rolling-7 by 23.5%; median error was 1,045 versus 636, with wins on 116 versus 250 dates. This paired description makes no independence claim.
 
 # ## 6. Lessons Learned
-#
+# 
 # ### 6.1 What went well
-#
-# All 731 daily units remain available, the holdout is isolated from selection, and four families compete across three exogenous feature sets. The hourly file validates every daily total and exposes intraday peaks and panel imbalance. Separate frames preserve the full primary sample and causal temporal lags.
-#
+# 
+# The method built during Assessments 1 and 2 carried straight into this project and shortened the setup considerably. Declaring criteria before modelling, keeping a holdout untouched until selection finishes, running an ablation to attribute a metric change to a cause, and operating the notebook as a submission artefact were all decided in earlier assessments, so this one reached a working pipeline much faster. The remaining effort went into the questions specific to this dataset instead of into process.
+# 
+# The design also held up under its own checks. All 731 daily units remain available for the primary question, the holdout is isolated from every selection decision, and four families compete across three exogenous feature sets. The hourly file validates every daily total and exposes both intraday peaks and panel imbalance.
+# 
 # ### 6.2 Challenges
-#
-# The zero-humidity correction had to preserve sample size and avoid fold leakage; pipeline imputation and sensitivity analysis provide that control. Temporal growth is harder: a tree can interpolate across both years yet fail to reach 2012 demand when trained on 2011. Observed weather also omits real forecast error.
-#
+# 
+# Understanding the data took longer than fitting the models. Two files describe the same system at different granularities, `casual` and `registered` sum to the target and cannot be predictors, and one humidity reading is physically impossible. Diagnosing that reading required cross-checking the hourly file, and the correction then had to preserve sample size and stay inside the pipeline folds.
+# 
+# The concept that took longest to internalise is the difference between interpolation and extrapolation. A tree fits both years comfortably when they are shuffled together, and the same tree cannot reach 2012 demand when trained on 2011 alone, because a terminal region can only average values it has already seen. That is a property of the model class rather than a tuning failure, and it explains why the simplest candidate transferred best.
+# 
 # ### 6.3 What can be improved
-#
-# Deployment was not required. A stronger study needs more years, archived weather forecasts and repeated forward windows. Station planning also requires identifiers, dock capacity, origins, destinations, transit connections and local demand. ITDP and NACTO show why network integration, spacing and context matter. Category-4 weather remains outside the supported domain.
-#
-# Future work could compare trend-seasonality models, differenced targets and forecast-aware inputs. Operational use still requires new forward evidence, monitoring, human review and decision-appropriate station data.
+# 
+# The strongest limitations are evidential. More years, archived weather forecasts and repeated forward windows would test whether the temporal result reflects this transition or a permanent property. Station-level planning would additionally need identifiers, dock capacity, trip origins and destinations, transit connections and local demand, which is why the ITDP and NACTO guidance points beyond this dataset. Category-4 weather remains outside the supported domain.
+# 
+# Methodologically, trend-seasonality decomposition, differenced targets and forecast-aware inputs are the natural next comparisons.
+# 
+# The extension I would most like to build is a small service that turns the frozen primary model into something usable: send it a date, its season and a weather forecast, and receive an estimated daily volume with the supported-domain guard applied. Appendix C sketches that idea, including the parts this study shows it must not claim.
 
 # ---
-#
+# 
 # ## Appendix A - Glossary
-#
+# 
 # | Term | Meaning in this report |
 # |---|---|
 # | **MAE** | Mean absolute error: average miss in rentals per day. |
@@ -871,7 +877,7 @@ plt.tight_layout(); plt.savefig(FIG_DIR / "v4_primary_diagnostics.png", dpi=160)
 # | **TimeSeriesSplit** | Expanding-window cross-validation that preserves temporal order. |
 # | **Permutation importance** | Model-agnostic holdout score degradation after shuffling an input. |
 # | **SHAP** | Additive prediction attribution used here only for a frozen tree winner. |
-#
+# 
 # ## Appendix B - Reproducibility and integrity evidence
 
 # In[21]:
@@ -909,32 +915,112 @@ print("Python:", sys.version.split()[0], "| pandas:", pd.__version__,
 print("RANDOM_STATE:", RANDOM_STATE)
 
 
+# ## Appendix C - Proposed extension: a demand estimation service
+# 
+# This appendix sketches the engineering extension named in Section 6.3. It is a proposal, not a
+# deployed system, and the evidence in Section 5 constrains what it may offer.
+# 
+# ### C.1 What it would do
+# 
+# A caller sends a date, its season and a weather forecast; the service returns an estimated daily
+# rental volume from the frozen primary model, together with the supported input domain.
+# 
+# ```
+# POST /estimate
+# { "date": "2013-04-18", "season": 2, "weathersit": 1,
+#   "temp": 0.58, "atemp": 0.55, "hum": 0.61, "windspeed": 0.18 }
+# 
+# -> { "estimated_daily_rentals": 5120,
+#      "expected_absolute_error": 434,
+#      "basis": "conditional estimate, observed 2011-2012 distribution",
+#      "supported_weathersit": [1, 2, 3] }
+# ```
+# 
+# Returning the expected error alongside the point estimate matters more than the estimate itself.
+# A planner who receives 5,120 without 434 will read a precision the model does not have.
+# 
+# ### C.2 Proposed layers
+# 
+# | Layer | Technology | Purpose |
+# |---|---|---|
+# | Model artefact | scikit-learn pipeline, joblib | The frozen Gradient Boosting configuration and its preprocessing, serialised together |
+# | Contract | JSON | Feature order, supported `weathersit` categories, holdout metrics, source notebook hash |
+# | API | FastAPI, Pydantic | Typed request validation and the domain guard |
+# | Interface | Streamlit | A form for planners who will not call an API |
+# | Monitoring | Scheduled job | Daily scoring of yesterday's estimate against realised demand |
+# 
+# The pattern follows my Sommelier API project from Assessments 1 and 2, where the same separation
+# between a framework-agnostic model core and thin serving surfaces is already implemented.
+# 
+# ### C.3 What this study forbids it from claiming
+# 
+# The temporal check is the reason this appendix is short about forecasting.
+# 
+# - The service may answer **conditional** questions: given these conditions, what does the
+#   2011-2012 relationship imply? That is the question the primary experiment evaluated.
+# - It may **not** be presented as a next-day forecaster. Section 4.2 measured the frozen model
+#   at 23.5% worse than a rolling seven-day mean on 2012. A forecasting endpoint would either
+#   serve the rolling mean or wait for new forward evidence.
+# - Any request outside `weathersit` 1 to 3 must be rejected for human review rather than scored,
+#   because category 4 never appears in training.
+# 
+# ### C.4 Geolocation and alerts
+# 
+# Two ideas worth recording, with their preconditions.
+# 
+# **Station-level geolocation.** Plotting expected demand onto a map through a mapping API is
+# straightforward as an interface, and unsupported as an inference. This dataset carries no station
+# identifier, coordinate, dock capacity or trip origin, so nothing in this notebook can attribute
+# system demand to a location. Delivering it honestly means acquiring station-level data first;
+# ITDP and NACTO describe the network, spacing and capacity variables that work would need
+# (ITDP, 2018; NACTO, 2016).
+# 
+# **Custom alerts.** Two alert types are supported by evidence already collected. A *domain alert*
+# fires when a request falls outside the supported weather categories. A *drift alert* fires when
+# the rolling error of the deployed estimate exceeds its holdout MAE over a defined window, which is
+# the mechanism that would have caught the temporal failure in production rather than in a notebook.
+# A demand-threshold alert for staffing would be useful but needs a stakeholder-defined threshold
+# that this project does not have.
+
 # ---
-#
+# 
 # ## Academic Integrity Declaration
-#
+# 
 # I declare that this submission is my own work. All sources of information, ideas and code have been acknowledged. The dataset is publicly available from the UCI Machine Learning Repository. The analysis, modelling decisions, interpretation and written commentary are my own.
-#
+# 
 # ## Statement of Acknowledgement
-#
-# Analysis was performed in Python with pandas, NumPy, scikit-learn, Matplotlib, Seaborn and, when applicable, SHAP. I used AI assistants (Anthropic Claude and OpenAI Codex) as study and review aids to challenge the experimental design, audit empirical claims, implement the reproducible notebook and check that narrative metrics matched executed outputs. I reviewed and accepted the final modelling decisions, interpretations and submission.
-#
+# 
+# Analysis was performed in Python with pandas, NumPy, scikit-learn, Matplotlib, Seaborn and SHAP.
+# 
+# I acknowledge that I have used the following AI tool(s) in the creation of this report:
+# - Anthropic Claude Opus 5
+# - OpenAI ChatGPT Codex 5.6
+# 
+# Both tools were used to assist with understanding ML concepts, challenging the experimental design, auditing empirical claims against executed outputs, structuring the technical pipeline, improving clarity of academic language, and supporting APA 7th referencing conventions.
+# 
+# Prompt examples:
+# 1. "Explain why a random split over a two-year time series supports a conditional demand estimate but not a next-day forecast, and how to run both experiments so that neither contaminates the other."
+# 2. "Show why a tree ensemble trained on 2011 cannot predict 2012 demand above its training maximum, and propose a way to measure that ceiling instead of asserting it."
+# 3. "Build a causal seven-day rolling baseline for a day-ahead comparison using shift before rolling, and write the assertion that proves the window never includes the target day."
+# 
+# I confirm that the use of these tools has been in accordance with the Torrens University Australia Academic Integrity Policy and TUA, Think and MDS's Position Paper on the Use of AI. I confirm that the final output is authored by me and represents my own critical thinking, analysis, and synthesis of sources. I take full responsibility for the final content of this report.
+# 
 # ## References
-#
+# 
 # Capital Bikeshare. (n.d.). *How it works*. https://capitalbikeshare.com/how-it-works
-#
+# 
 # Chapman, P., Clinton, J., Kerber, R., Khabaza, T., Reinartz, T., Shearer, C., & Wirth, R. (2000). *CRISP-DM 1.0: Step-by-step data mining guide*. SPSS Inc.
-#
+# 
 # Fanaee-T, H., & Gama, J. (2014). Event labeling combining ensemble detectors and background knowledge. *Progress in Artificial Intelligence, 2*, 113-127. https://doi.org/10.1007/s13748-013-0040-3
-#
+# 
 # Friedman, J. H. (2001). Greedy function approximation: A gradient boosting machine. *Annals of Statistics, 29*(5), 1189-1232. https://doi.org/10.1214/aos/1013203451
-#
+# 
 # Institute for Transportation & Development Policy. (2018). *The bikeshare planning guide*. https://itdp.org/publication/the-bike-share-planning-guide/
-#
+# 
 # Lundberg, S. M., & Lee, S.-I. (2017). A unified approach to interpreting model predictions. *Advances in Neural Information Processing Systems, 30*, 4765-4774.
-#
+# 
 # National Association of City Transportation Officials. (2016). *Bike share station siting guide*. https://nacto.org/publication/bike-share-station-siting-guide/
-#
+# 
 # Pedregosa, F., Varoquaux, G., Gramfort, A., Michel, V., Thirion, B., Grisel, O., et al. (2011). Scikit-learn: Machine learning in Python. *Journal of Machine Learning Research, 12*, 2825-2830.
-#
+# 
 # University of California, Irvine. (n.d.). *Bike Sharing Dataset*. UCI Machine Learning Repository. https://archive.ics.uci.edu/dataset/275/bike+sharing+dataset

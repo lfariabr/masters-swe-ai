@@ -88,7 +88,7 @@ Linear Regression extended to 8,248 and reduced mean under-prediction to 832, ex
 EXPLAIN_HEAD = md(r"""
 ### 5.2 Explaining the frozen primary model
 
-Permutation importance is model-agnostic and measures the increase in holdout MAE after one raw input is shuffled. It is computed only after model selection and does not change the winner. Contributions describe predictive associations in this dataset, not causal effects. TreeSHAP is added only when the frozen primary family is Random Forest or Gradient Boosting.
+Permutation importance is model-agnostic and measures the increase in holdout MAE after one raw input is shuffled. It is computed only after model selection and does not change the winner. Contributions describe predictive associations in this dataset, not causal effects. TreeSHAP (Lundberg & Lee, 2017) is added only when the frozen primary family is Random Forest or Gradient Boosting.
 """)
 
 PERMUTATION = co(r'''
@@ -168,17 +168,23 @@ LESSONS = md(r"""
 
 ### 6.1 What went well
 
-All 731 daily units remain available, the holdout is isolated from selection, and four families compete across three exogenous feature sets. The hourly file validates every daily total and exposes intraday peaks and panel imbalance. Separate frames preserve the full primary sample and causal temporal lags.
+The method built during Assessments 1 and 2 carried straight into this project and shortened the setup considerably. Declaring criteria before modelling, keeping a holdout untouched until selection finishes, running an ablation to attribute a metric change to a cause, and operating the notebook as a submission artefact were all decided in earlier assessments, so this one reached a working pipeline much faster. The remaining effort went into the questions specific to this dataset instead of into process.
+
+The design also held up under its own checks. All 731 daily units remain available for the primary question, the holdout is isolated from every selection decision, and four families compete across three exogenous feature sets. The hourly file validates every daily total and exposes both intraday peaks and panel imbalance.
 
 ### 6.2 Challenges
 
-The zero-humidity correction had to preserve sample size and avoid fold leakage; pipeline imputation and sensitivity analysis provide that control. Temporal growth is harder: a tree can interpolate across both years yet fail to reach 2012 demand when trained on 2011. Observed weather also omits real forecast error.
+Understanding the data took longer than fitting the models. Two files describe the same system at different granularities, `casual` and `registered` sum to the target and cannot be predictors, and one humidity reading is physically impossible. Diagnosing that reading required cross-checking the hourly file, and the correction then had to preserve sample size and stay inside the pipeline folds.
+
+The concept that took longest to internalise is the difference between interpolation and extrapolation. A tree fits both years comfortably when they are shuffled together, and the same tree cannot reach 2012 demand when trained on 2011 alone, because a terminal region can only average values it has already seen. That is a property of the model class rather than a tuning failure, and it explains why the simplest candidate transferred best.
 
 ### 6.3 What can be improved
 
-Deployment was not required. A stronger study needs more years, archived weather forecasts and repeated forward windows. Station planning also requires identifiers, dock capacity, origins, destinations, transit connections and local demand. ITDP and NACTO show why network integration, spacing and context matter. Category-4 weather remains outside the supported domain.
+The strongest limitations are evidential. More years, archived weather forecasts and repeated forward windows would test whether the temporal result reflects this transition or a permanent property. Station-level planning would additionally need identifiers, dock capacity, trip origins and destinations, transit connections and local demand, which is why the ITDP and NACTO guidance points beyond this dataset. Category-4 weather remains outside the supported domain.
 
-Future work could compare trend-seasonality models, differenced targets and forecast-aware inputs. Operational use still requires new forward evidence, monitoring, human review and decision-appropriate station data.
+Methodologically, trend-seasonality decomposition, differenced targets and forecast-aware inputs are the natural next comparisons.
+
+The extension I would most like to build is a small service that turns the frozen primary model into something usable: send it a date, its season and a weather forecast, and receive an estimated daily volume with the supported-domain guard applied. Appendix C sketches that idea, including the parts this study shows it must not claim.
 """)
 
 APPENDIX = md(r"""
@@ -200,6 +206,75 @@ APPENDIX = md(r"""
 | **SHAP** | Additive prediction attribution used here only for a frozen tree winner. |
 
 ## Appendix B - Reproducibility and integrity evidence
+""")
+
+APPENDIX_C = md(r"""
+## Appendix C - Proposed extension: a demand estimation service
+
+This appendix sketches the engineering extension named in Section 6.3. It is a proposal, not a
+deployed system, and the evidence in Section 5 constrains what it may offer.
+
+### C.1 What it would do
+
+A caller sends a date, its season and a weather forecast; the service returns an estimated daily
+rental volume from the frozen primary model, together with the supported input domain.
+
+```
+POST /estimate
+{ "date": "2013-04-18", "season": 2, "weathersit": 1,
+  "temp": 0.58, "atemp": 0.55, "hum": 0.61, "windspeed": 0.18 }
+
+-> { "estimated_daily_rentals": 5120,
+     "expected_absolute_error": 434,
+     "basis": "conditional estimate, observed 2011-2012 distribution",
+     "supported_weathersit": [1, 2, 3] }
+```
+
+Returning the expected error alongside the point estimate matters more than the estimate itself.
+A planner who receives 5,120 without 434 will read a precision the model does not have.
+
+### C.2 Proposed layers
+
+| Layer | Technology | Purpose |
+|---|---|---|
+| Model artefact | scikit-learn pipeline, joblib | The frozen Gradient Boosting configuration and its preprocessing, serialised together |
+| Contract | JSON | Feature order, supported `weathersit` categories, holdout metrics, source notebook hash |
+| API | FastAPI, Pydantic | Typed request validation and the domain guard |
+| Interface | Streamlit | A form for planners who will not call an API |
+| Monitoring | Scheduled job | Daily scoring of yesterday's estimate against realised demand |
+
+The pattern follows my Sommelier API project from Assessments 1 and 2, where the same separation
+between a framework-agnostic model core and thin serving surfaces is already implemented.
+
+### C.3 What this study forbids it from claiming
+
+The temporal check is the reason this appendix is short about forecasting.
+
+- The service may answer **conditional** questions: given these conditions, what does the
+  2011-2012 relationship imply? That is the question the primary experiment evaluated.
+- It may **not** be presented as a next-day forecaster. Section 4.2 measured the frozen model
+  at 23.5% worse than a rolling seven-day mean on 2012. A forecasting endpoint would either
+  serve the rolling mean or wait for new forward evidence.
+- Any request outside `weathersit` 1 to 3 must be rejected for human review rather than scored,
+  because category 4 never appears in training.
+
+### C.4 Geolocation and alerts
+
+Two ideas worth recording, with their preconditions.
+
+**Station-level geolocation.** Plotting expected demand onto a map through a mapping API is
+straightforward as an interface, and unsupported as an inference. This dataset carries no station
+identifier, coordinate, dock capacity or trip origin, so nothing in this notebook can attribute
+system demand to a location. Delivering it honestly means acquiring station-level data first;
+ITDP and NACTO describe the network, spacing and capacity variables that work would need
+(ITDP, 2018; NACTO, 2016).
+
+**Custom alerts.** Two alert types are supported by evidence already collected. A *domain alert*
+fires when a request falls outside the supported weather categories. A *drift alert* fires when
+the rolling error of the deployed estimate exceeds its holdout MAE over a defined window, which is
+the mechanism that would have caught the temporal failure in production rather than in a notebook.
+A demand-threshold alert for staffing would be useful but needs a stakeholder-defined threshold
+that this project does not have.
 """)
 
 REPRO = co(r'''
@@ -244,7 +319,20 @@ I declare that this submission is my own work. All sources of information, ideas
 
 ## Statement of Acknowledgement
 
-Analysis was performed in Python with pandas, NumPy, scikit-learn, Matplotlib, Seaborn and, when applicable, SHAP. I used AI assistants (Anthropic Claude and OpenAI Codex) as study and review aids to challenge the experimental design, audit empirical claims, implement the reproducible notebook and check that narrative metrics matched executed outputs. I reviewed and accepted the final modelling decisions, interpretations and submission.
+Analysis was performed in Python with pandas, NumPy, scikit-learn, Matplotlib, Seaborn and SHAP.
+
+I acknowledge that I have used the following AI tool(s) in the creation of this report:
+- Anthropic Claude Opus 5
+- OpenAI ChatGPT Codex 5.6
+
+Both tools were used to assist with understanding ML concepts, challenging the experimental design, auditing empirical claims against executed outputs, structuring the technical pipeline, improving clarity of academic language, and supporting APA 7th referencing conventions.
+
+Prompt examples:
+1. "Explain why a random split over a two-year time series supports a conditional demand estimate but not a next-day forecast, and how to run both experiments so that neither contaminates the other."
+2. "Show why a tree ensemble trained on 2011 cannot predict 2012 demand above its training maximum, and propose a way to measure that ceiling instead of asserting it."
+3. "Build a causal seven-day rolling baseline for a day-ahead comparison using shift before rolling, and write the assertion that proves the window never includes the target day."
+
+I confirm that the use of these tools has been in accordance with the Torrens University Australia Academic Integrity Policy and TUA, Think and MDS's Position Paper on the Use of AI. I confirm that the final output is authored by me and represents my own critical thinking, analysis, and synthesis of sources. I take full responsibility for the final content of this report.
 
 ## References
 
@@ -268,4 +356,5 @@ University of California, Irvine. (n.d.). *Bike Sharing Dataset*. UCI Machine Le
 """)
 
 CELLS_C = [EVALUATION_HEAD, SUMMARY, CEILING, CEILING_READ, EXPLAIN_HEAD,
-           PERMUTATION, SHAP_CELL, DIAGNOSTICS, EVAL_READ, LESSONS, APPENDIX, REPRO, CLOSING]
+           PERMUTATION, SHAP_CELL, DIAGNOSTICS, EVAL_READ, LESSONS, APPENDIX, REPRO,
+           APPENDIX_C, CLOSING]

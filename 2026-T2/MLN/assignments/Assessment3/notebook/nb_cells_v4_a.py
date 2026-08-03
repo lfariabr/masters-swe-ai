@@ -24,7 +24,7 @@ Design and Creative Technologies, Torrens University
 | Target | `cnt`: system-wide daily rentals |
 | Primary question | Conditional daily-demand estimation from calendar attributes and expected weather |
 | Secondary check | Rolling day-ahead temporal robustness, trained in 2011 and evaluated in 2012 |
-| Method | Regression comparison within CRISP-DM |
+| Method | Regression comparison within CRISP-DM (Chapman et al., 2000) |
 """)
 
 BUSINESS = md(r"""
@@ -32,7 +32,7 @@ BUSINESS = md(r"""
 
 ### 1.1 Business objective
 
-Capital Bikeshare is a docked bicycle-sharing system. This project asks:
+Capital Bikeshare is a docked bicycle-sharing system (Capital Bikeshare, n.d.). This project asks:
 
 > **Given calendar attributes and expected weather conditions, how accurately can regression models estimate Capital Bikeshare's system-wide daily rental demand?**
 
@@ -69,7 +69,7 @@ DATA_HEAD = md(r"""
 
 ### 2.1 Source, loading and granularity
 
-The UCI Bike Sharing dataset supplies `day.csv` and `hour.csv` for Capital Bikeshare in 2011-2012 (Fanaee-T & Gama, 2014). The daily file is the modelling source. The hourly file is loaded separately for intraday EDA and cross-file validation.
+The UCI Bike Sharing dataset supplies `day.csv` and `hour.csv` for Capital Bikeshare in 2011-2012 (Fanaee-T & Gama, 2014; University of California, Irvine, n.d.). The daily file is the modelling source. The hourly file is loaded separately for intraday EDA and cross-file validation.
 """)
 
 IMPORT_LOAD = co(r'''
