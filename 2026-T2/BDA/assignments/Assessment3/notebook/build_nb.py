@@ -302,9 +302,11 @@ md(r"""## 4. Clustering - K-Means on the most volatile country
 A straight line cannot show *when* infections surged - the residuals above show the line misses the
 shape entirely. So for the selected country I cluster its weekly points on `[week, weekly new cases]`
 with Spark MLlib **K-Means**, choosing K by the highest silhouette score over a small range and
-cross-checking that choice against the WCSS elbow (`fig08_k_selection.png`). The clusters group the
-timeline into **phases** (quiet start, surges, peaks, declines), which validates that growth was *not*
-steady but came in waves.""")
+cross-checking that choice against the WCSS elbow (`fig08_k_selection.png`). Silhouette stays the
+authoritative selector - WCSS is corroborating evidence, not an independent vote - and whether the two
+agree or disagree on this run is reported below rather than assumed. The clusters group the timeline
+into **phases** (quiet start, surges, peaks, declines), which validates that growth was *not* steady but
+came in waves.""")
 
 code(r"""from pyspark.ml.clustering import KMeans
 from pyspark.ml.feature import VectorAssembler, StandardScaler
@@ -318,34 +320,44 @@ va = VectorAssembler(inputCols=["week", "new_cases"], outputCol="f_raw")
 scaler = StandardScaler(inputCol="f_raw", outputCol="features", withMean=True, withStd=True)
 prep = scaler.fit(va.transform(sdf)).transform(va.transform(sdf)).cache()
 
-# initMode defaults to "k-means||" (the scalable, parallel k-means++), so a single fit already
-# avoids the poor-local-minimum risk of random initialisation - no separate multi-run/n_init loop needed.
+# initMode defaults to "k-means||" (the scalable, parallel k-means++), which seeds centroids more
+# carefully than random init and so reduces (not eliminates) the risk of a poor local minimum. Spark
+# has no separate n_init/multi-run option the way scikit-learn does - k-means|| is the only lever here,
+# and results still depend on the fixed seed.
 evaluator = ClusteringEvaluator(featuresCol="features", metricName="silhouette")
-sil, wcss = {}, {}
+sil, wcss, models = {}, {}, {}
 for k in range(2, 7):
     km = KMeans(k=k, seed=RANDOM_SEED, featuresCol="features").fit(prep)
     sil[k] = evaluator.evaluate(km.transform(prep))
     wcss[k] = km.summary.trainingCost
+    models[k] = km
 best_k = max(sil, key=sil.get)
 
-# WCSS is monotonically non-increasing in K, so it cannot be chosen by argmin (that would always
-# return the largest K tested). The elbow is instead the K whose WCSS point sits furthest from the
-# straight chord joining the first and last tested K - a small, reproducible knee-detection rule.
+# WCSS is monotonically non-increasing in K for a globally optimal fit; that isn't formally guaranteed
+# for one seeded heuristic run (a larger K could land in a worse local optimum), but it holds throughout
+# this run. Either way it cannot be chosen by argmin (that would always return the largest K tested), so
+# the elbow is instead the K whose WCSS point sits furthest from the straight chord joining the first and
+# last tested K - a small, reproducible knee-detection rule. Because both chord endpoints have zero
+# distance from themselves by construction, this method can only ever return an interior K (here, 3, 4
+# or 5), never the smallest or largest K tested.
 ks = np.array(sorted(wcss))
-w = np.array([wcss[k] for k in ks], dtype=float)
-x1, y1, x2, y2 = ks[0], w[0], ks[-1], w[-1]
+wcss_vals = np.array([wcss[k] for k in ks], dtype=float)
+x1, y1, x2, y2 = ks[0], wcss_vals[0], ks[-1], wcss_vals[-1]
 chord_len = np.hypot(x2 - x1, y2 - y1)
-dist = np.abs((x2 - x1) * (y1 - w) - (x1 - ks) * (y2 - y1)) / chord_len
+dist = np.abs((x2 - x1) * (y1 - wcss_vals) - (x1 - ks) * (y2 - y1)) / chord_len
 elbow_k = int(ks[np.argmax(dist)])
 
 print("Silhouette by K:", {k: round(v, 3) for k, v in sil.items()})
 print("WCSS by K:", {k: round(v, 1) for k, v in wcss.items()})
 print(f"Silhouette-selected K = {best_k}  |  WCSS-elbow K = {elbow_k}")
-if elbow_k != best_k:
+if elbow_k == best_k:
+    print(f"The two methods agree on K = {best_k}: cluster separation (silhouette) and diminishing "
+          f"returns (WCSS elbow) point the same way, which is the cross-check this section set out to run.")
+else:
     print(f"Note: the two methods disagree. Silhouette (K={best_k}) is kept as authoritative because "
           f"it directly measures cluster separation, whereas WCSS always favours more clusters.")
 
-km = KMeans(k=best_k, seed=RANDOM_SEED, featuresCol="features").fit(prep)
+km = models[best_k]
 fc["cluster"] = [int(r["prediction"]) for r in km.transform(prep).select("prediction").collect()]""")
 
 code(r"""# K-selection cross-check: silhouette (choose max) next to the WCSS elbow (choose the knee).
@@ -355,8 +367,8 @@ ax[0].axvline(best_k, color="green", ls="--", lw=1, label=f"chosen K={best_k}")
 ax[0].set_xlabel("K"); ax[0].set_ylabel("Silhouette score"); ax[0].set_title("Silhouette by K")
 ax[0].legend()
 
-ax[1].plot(ks, w, marker="o")
-ax[1].plot([ks[0], ks[-1]], [w[0], w[-1]], color="grey", ls=":", lw=1, label="chord")
+ax[1].plot(ks, wcss_vals, marker="o")
+ax[1].plot([ks[0], ks[-1]], [wcss_vals[0], wcss_vals[-1]], color="grey", ls=":", lw=1, label="chord")
 ax[1].axvline(elbow_k, color="orange", ls="--", lw=1, label=f"elbow K={elbow_k}")
 ax[1].set_xlabel("K"); ax[1].set_ylabel("WCSS (training cost)"); ax[1].set_title("WCSS elbow by K")
 ax[1].legend()
@@ -745,7 +757,7 @@ preferred conclusion.
 | 6 | Neighbour selection | Nearest by centroid distance, or named land borders that do not touch each other | The brief requires neighbours that do not share borders with each other, which centroid distance cannot guarantee | Explicit curated sets, validated against the country names actually present in the data |
 | 7 | Correlation uncertainty | Ordinary p-value, or a resampling interval | Weekly series are strongly autocorrelated, so an ordinary test overstates significance | Moving-block bootstrap (8-week blocks, 2,000 draws) reported as a 95% interval |
 | 8 | Early-warning recommendation | Recommend on same-week correlation, or on the lag at which correlation peaks | A neighbour only gains warning if it *follows*; the rule was set in advance at lag >= +1 week and r >= 0.60 | Recommendation follows the measured lag, which reverses the ranking that lag-zero correlation suggested |
-| 9 | Silhouette-vs-WCSS disagreement | Trust silhouette, trust the WCSS elbow, or search a wider K range until they agree | Fixed before results: silhouette measures separation directly; WCSS always favours more clusters, so it cannot be the deciding vote | Silhouette stays authoritative; a disagreement would be reported, not resolved by picking whichever K looks more convenient |
+| 9 | Silhouette-vs-WCSS disagreement | Trust silhouette, trust the WCSS elbow, or search a wider K range until they agree | Fixed before results: silhouette measures separation directly; WCSS always favours more clusters, so it cannot be the deciding vote | On this run the two agree at K=3; had they disagreed, silhouette would have been kept and the disagreement reported, not resolved by picking whichever K looks more convenient |
 
 ## Appendix C - Reproducibility and environment
 
