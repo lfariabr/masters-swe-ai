@@ -61,7 +61,7 @@
 #### Key Takeaways for BDA601
 1. **This is the "why" behind R2 and R3's shared FP-Growth focus.** Every other resource in this module treats FP-Growth as the strong default choice - this paper is the empirical evidence for that claim (within its own comparison), tracing the lineage AIS → SETM → Apriori → AprioriTID → AprioriHybrid → FP-Growth as successive attempts to fix the same two problems (candidate-set explosion, repeated full scans). R5 (Rai) adds the caveat that Eclat can still win on dense data with few unique items - "best" here means best in this paper's tested conditions, not universally.
 2. **Two-scans-only (of the original database) is the number to remember.** Every Apriori-family algorithm here needs as many *initial-style* passes as the largest frequent itemset (or switches counting strategy after the first pass, as AprioriTID/AprioriHybrid do); FP-Growth fixes its scan count at 2 regardless of itemset size. That's the concrete, citable mechanism behind this paper's result - not proof that no other algorithm could ever match it on a different workload.
-3. **Day-job anchor:** this is the same "count candidates vs. compress-and-recurse" tradeoff you'd hit choosing between a naive `GROUP BY` scan-per-threshold approach and a pre-aggregated/indexed structure in a warehouse query - repeated full scans get expensive fast as data grows, which is exactly the drawback table's message.
+3. **Day-job anchor:** this is the same "count candidates vs. compress-and-recurse" tradeoff you'd hit choosing between a naive `GROUP BY` scan-per-threshold approach against raw Synergetic tables and a pre-aggregated/indexed structure in the Raw Lake/typed model - repeated full scans get expensive fast as data grows, which is exactly the drawback table's message.
 
 ---
 
@@ -123,7 +123,7 @@ def mineTree(headerTable, minSup, preFix, freqItemList):
 #### Key Takeaways for BDA601
 1. **This IS Activity 2's source code.** The `mineTree`/conditional-tree block the activity asks you to explain is walked through step-by-step above - the answer is "it's the pattern-growth recursion: grow the prefix, build a conditional tree from that item's occurrences, recurse into it," and its significance is that this recursion is *why* FP-Growth needs no candidate generation.
 2. **Descending-order sort is the module's most citable "small detail, big effect" fact** - same shape as Module 9's `StandardScaler` lesson: a preprocessing choice that looks cosmetic but measurably changes performance.
-3. **Day-job anchor:** the header table's linked-list-per-item is functionally an index - the same reason you'd add a DB index on a frequently-filtered column instead of re-scanning the table every query. FP-tree construction *is* a one-time indexing cost that pays for itself across every subsequent recursive lookup.
+3. **Day-job anchor:** the header table's linked-list-per-item is functionally an index - the same reason you'd add a DB index on a frequently-filtered column (e.g. Student ID) instead of re-scanning a Synergetic/Student 360 table every query. FP-tree construction *is* a one-time indexing cost that pays for itself across every subsequent recursive lookup.
 
 ---
 
@@ -164,7 +164,7 @@ def mineTree(headerTable, minSup, preFix, freqItemList):
 #### Key Takeaways for BDA601
 1. **This is the module's terminology anchor** - support/confidence/lift are used, mostly undefined-from-first-principles, in every other resource; McCormick's plain-language definitions (with the pizza/beer example) are the ones to fall back on if a definition elsewhere feels circular.
 2. **Direct bridge to Module 9** - if an assessment or exam asks "how does clustering relate to association rules," this resource's cluster-vs-rules granularity distinction (broad/generic vs. narrow/granular) plus the big-screen-TV worked example is the citable answer.
-3. **Day-job anchor:** the Customer ID vs. Transaction ID granularity trade-off maps directly onto warehouse fact-table grain decisions - do you have a stable customer key across sessions, or are you stuck working from transaction-level receipts because identity resolution is missing? The same "what can you actually link" constraint applies.
+3. **Day-job anchor:** the Customer ID vs. Transaction ID granularity trade-off maps directly onto Student ID grain decisions across Synergetic/SEQTA/Schoolbox - do you have a stable Student ID to link a kid's attendance record to their academic report and their fee statement, or are you stuck working from a per-system, per-event record because identity resolution across systems is missing? The same "what can you actually link" constraint applies.
 
 ---
 
@@ -206,7 +206,7 @@ def mineTree(headerTable, minSup, preFix, freqItemList):
 #### Key Takeaways for BDA601
 1. **This is your go-to resource for Activity 1's if-then framing** - the bread/butter worked example is the cleanest illustration in the module of *why* `{A⇒B}` and `{B⇒A}` need to be evaluated as separate rules with separate confidence values, directly relevant when writing the 7 travel-habit if-then rules.
 2. **The umbrella caveat is the module's "correlation ≠ causation" checkpoint** - worth citing anywhere an assessment asks you to critique or validate a discovered rule, not just report it.
-3. **Day-job anchor:** support vs. confidence is the same "how common is this pattern overall" vs. "how reliable is this pattern when the trigger occurs" distinction you'd want before wiring an automated alert off a data-quality rule - a rule with high confidence but tiny support fires rarely and might not be worth automating; the reverse (common but unreliable) is worse.
+3. **Day-job anchor:** support vs. confidence is the same "how common is this pattern overall" vs. "how reliable is this pattern when the trigger occurs" distinction you'd want before wiring an automated alert off a data-quality rule (e.g. flagging Synergetic records with missing Mandatory Data) - a rule with high confidence but tiny support fires rarely and might not be worth automating; the reverse (common but unreliable) is worse.
 
 ---
 
@@ -285,7 +285,7 @@ def mineTree(headerTable, minSup, preFix, freqItemList):
 #### Key Takeaways for BDA601
 1. **This is the module's formula reference** - if an assessment or exam question asks you to *compute* support/confidence/lift rather than just define them, the Basmati Rice/Ghee worked example here is the cleanest template to follow.
 2. **Eclat rounds out the algorithm picture** - R1/R2/R4 only compare Apriori vs. FP-Growth; this resource adds the third major family (vertical/TID-based) and explains *when* it wins (dense data, few unique items) vs. loses (sparse, high-cardinality).
-3. **Day-job anchor:** the multi-level and quantitative rule types map directly onto warehouse dimension hierarchies (SKU → category → department) and fact-table measures (spend buckets, quantity tiers) - the same discretisation-before-mining step you'd need if you ever ran ARM against warehouse transaction data rather than raw POS receipts.
+3. **Day-job anchor:** the multi-level and quantitative rule types map directly onto school data hierarchies (subject → faculty → year level) and academic/attendance measures (mark bands, absence-day tiers) - the same discretisation-before-mining step you'd need if you ever ran ARM against Synergetic academic/attendance data rather than raw event logs.
 
 ---
 

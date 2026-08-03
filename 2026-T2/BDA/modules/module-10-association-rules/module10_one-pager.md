@@ -57,7 +57,7 @@ AIS → SETM → Apriori → AprioriTID → AprioriHybrid → FP-Growth
 - **Multi-level:** brand vs category hierarchy ("Tata Salt → Aashirvaad Atta" vs "salt → flour").
 - **Quantitative:** numeric attrs bucketed first (price/qty tiers).
 - **Negative rules:** absence patterns (`{Not_Vegetables} → {Frozen_Meals}`).
-- **Applications:** retail bundling/shelf/inventory · web/clickstream UX bottlenecks · healthcare phenotype-treatment rules · **feature engineering** (a triggered rule becomes a binary feature like `combo_ABC=1` feeding a downstream classifier - composes with supervised learning, doesn't replace it).
+- **Applications:** retail bundling/shelf/inventory · web/clickstream UX bottlenecks · healthcare phenotype-treatment rules · **feature engineering** (a triggered rule becomes a binary feature like `combo_ABC=1` feeding a downstream classifier - composes with supervised learning, doesn't replace it). School-domain version: `{low attendance, missing Mandatory Data} → {fee statement overdue}` becoming a flag inside a Student 360 risk view.
 
 ## 🔴 Assessment Hook (bottom red strip)
 > **Assessment 3 - Model Evaluation** · source code + presentation (7-10 min) · **40%** · due **19/08/2026** · SLOs **c), d), e)**.
@@ -73,8 +73,8 @@ AIS → SETM → Apriori → AprioriTID → AprioriHybrid → FP-Growth
 ---
 
 ### Margin prompts (answer in blue while you write - anchor to your day job)
-1. If you ran Apriori/FP-Growth against your warehouse's transaction fact table, would you use Customer ID or Transaction ID as the basket grain - and what breaks if cash/anonymous transactions have no stable customer key?
-2. The FP-tree's header table (linked list per item) is functionally an index - what warehouse query would you speed up the same way, by building a one-time structure instead of re-scanning on every lookup?
+1. If you ran Apriori/FP-Growth against Synergetic/SEQTA/Schoolbox data, would you use Student ID as the "basket" grain - and what breaks if a system's event log can't reliably link back to a stable Student ID?
+2. The FP-tree's header table (linked list per item) is functionally an index - what Student 360 or Synergetic query would you speed up the same way, by building a one-time structure instead of re-scanning on every lookup?
 
 ### This-week to-dos (still 🕐 in your notes)
 - [ ] Activity 1: Create Association Rules (7 Bad Travel Habits, discussion forum) - write if-then rules using Shanbhag's bread/butter directional-confidence reasoning.
