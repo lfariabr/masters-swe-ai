@@ -301,9 +301,12 @@ md(r"""## 4. Clustering - K-Means on the most volatile country
 
 A straight line cannot show *when* infections surged - the residuals above show the line misses the
 shape entirely. So for the selected country I cluster its weekly points on `[week, weekly new cases]`
-with Spark MLlib **K-Means**, choosing K by the highest silhouette score over a small range. The
-clusters group the timeline into **phases** (quiet start, surges, peaks, declines), which validates that
-growth was *not* steady but came in waves.""")
+with Spark MLlib **K-Means**, choosing K by the highest silhouette score over a small range and
+cross-checking that choice against the WCSS elbow (`fig08_k_selection.png`). Silhouette stays the
+authoritative selector - WCSS is corroborating evidence, not an independent vote - and whether the two
+agree or disagree on this run is reported below rather than assumed. The clusters group the timeline
+into **phases** (quiet start, surges, peaks, declines), which validates that growth was *not* steady but
+came in waves.""")
 
 code(r"""from pyspark.ml.clustering import KMeans
 from pyspark.ml.feature import VectorAssembler, StandardScaler
@@ -317,17 +320,60 @@ va = VectorAssembler(inputCols=["week", "new_cases"], outputCol="f_raw")
 scaler = StandardScaler(inputCol="f_raw", outputCol="features", withMean=True, withStd=True)
 prep = scaler.fit(va.transform(sdf)).transform(va.transform(sdf)).cache()
 
+# initMode defaults to "k-means||" (the scalable, parallel k-means++), which seeds centroids more
+# carefully than random init and so reduces (not eliminates) the risk of a poor local minimum. Spark
+# has no separate n_init/multi-run option the way scikit-learn does - k-means|| is the only lever here,
+# and results still depend on the fixed seed.
 evaluator = ClusteringEvaluator(featuresCol="features", metricName="silhouette")
-sil = {}
+sil, wcss, models = {}, {}, {}
 for k in range(2, 7):
     km = KMeans(k=k, seed=RANDOM_SEED, featuresCol="features").fit(prep)
     sil[k] = evaluator.evaluate(km.transform(prep))
+    wcss[k] = km.summary.trainingCost
+    models[k] = km
 best_k = max(sil, key=sil.get)
-print("Silhouette by K:", {k: round(v, 3) for k, v in sil.items()})
-print("Best K =", best_k)
 
-km = KMeans(k=best_k, seed=RANDOM_SEED, featuresCol="features").fit(prep)
+# WCSS is monotonically non-increasing in K for a globally optimal fit; that isn't formally guaranteed
+# for one seeded heuristic run (a larger K could land in a worse local optimum), but it holds throughout
+# this run. Either way it cannot be chosen by argmin (that would always return the largest K tested), so
+# the elbow is instead the K whose WCSS point sits furthest from the straight chord joining the first and
+# last tested K - a small, reproducible knee-detection rule. Because both chord endpoints have zero
+# distance from themselves by construction, this method can only ever return an interior K (here, 3, 4
+# or 5), never the smallest or largest K tested.
+ks = np.array(sorted(wcss))
+wcss_vals = np.array([wcss[k] for k in ks], dtype=float)
+x1, y1, x2, y2 = ks[0], wcss_vals[0], ks[-1], wcss_vals[-1]
+chord_len = np.hypot(x2 - x1, y2 - y1)
+dist = np.abs((x2 - x1) * (y1 - wcss_vals) - (x1 - ks) * (y2 - y1)) / chord_len
+elbow_k = int(ks[np.argmax(dist)])
+
+print("Silhouette by K:", {k: round(v, 3) for k, v in sil.items()})
+print("WCSS by K:", {k: round(v, 1) for k, v in wcss.items()})
+print(f"Silhouette-selected K = {best_k}  |  WCSS-elbow K = {elbow_k}")
+if elbow_k == best_k:
+    print(f"The two methods agree on K = {best_k}: cluster separation (silhouette) and diminishing "
+          f"returns (WCSS elbow) point the same way, which is the cross-check this section set out to run.")
+else:
+    print(f"Note: the two methods disagree. Silhouette (K={best_k}) is kept as authoritative because "
+          f"it directly measures cluster separation, whereas WCSS always favours more clusters.")
+
+km = models[best_k]
 fc["cluster"] = [int(r["prediction"]) for r in km.transform(prep).select("prediction").collect()]""")
+
+code(r"""# K-selection cross-check: silhouette (choose max) next to the WCSS elbow (choose the knee).
+fig, ax = plt.subplots(1, 2, figsize=(11, 4))
+ax[0].plot(list(sil.keys()), list(sil.values()), marker="o")
+ax[0].axvline(best_k, color="green", ls="--", lw=1, label=f"chosen K={best_k}")
+ax[0].set_xlabel("K"); ax[0].set_ylabel("Silhouette score"); ax[0].set_title("Silhouette by K")
+ax[0].legend()
+
+ax[1].plot(ks, wcss_vals, marker="o")
+ax[1].plot([ks[0], ks[-1]], [wcss_vals[0], wcss_vals[-1]], color="grey", ls=":", lw=1, label="chord")
+ax[1].axvline(elbow_k, color="orange", ls="--", lw=1, label=f"elbow K={elbow_k}")
+ax[1].set_xlabel("K"); ax[1].set_ylabel("WCSS (training cost)"); ax[1].set_title("WCSS elbow by K")
+ax[1].legend()
+
+plt.tight_layout(); plt.savefig(FIG_DIR / "fig08_k_selection.png"); plt.show()""")
 
 code(r"""# Show the waves: weekly new cases over time, coloured by cluster.
 plt.figure(figsize=(11, 5))
@@ -562,6 +608,8 @@ metrics = {
     "clustering": {
         "best_k": int(best_k),
         "silhouette": {int(k): round(v, 3) for k, v in sil.items()},
+        "wcss": {int(k): round(v, 1) for k, v in wcss.items()},
+        "elbow_k": int(elbow_k),
         "phases": phase.reset_index().to_dict(orient="records"),
         "overall_mean_new": round(overall_mean, 1),
         "peak_vs_overall": round(float(peak_phase["vs_overall"]), 2),
@@ -611,8 +659,11 @@ md(r"""## 9. Limitations
   corrections appear as negative differences and are clipped to zero, which slightly flattens the series.
 - **The series ends 9 March 2023.** That is the last date column in this file; Johns Hopkins ceased
   collecting and reporting COVID-19 data on 10 March 2023, so nothing after that is covered.
-- **`week` is a clustering input.** Because time is a feature, the K-Means phases are partly temporal by
-  construction; they should be read as "periods that behave alike", not as a purely behavioural grouping.
+- **`week` is a clustering input, and K-Means assumes convex clusters.** Because time is a feature, the
+  phases are partly temporal by construction; they should be read as "periods that behave alike", not as
+  a purely behavioural grouping. K-Means also assumes clusters are roughly convex and similarly sized, so
+  it would produce contiguous-looking week-ranges even if the true underlying structure did not - the two
+  effects compound here rather than being independently verifiable.
 - **Geography is a stand-in for mobility.** Neighbours are chosen by shared land borders, whereas
   transmission follows air travel and trade. A mobility-weighted graph would be a better model.
 - **Correlation is not causation.** A lagged correlation shows that two curves move together with an
@@ -676,8 +727,9 @@ md(r"""## Appendix A - Glossary
 | RMSE | Typical size of the model's error, in cases; unlike R-squared it stays on the original scale |
 | Residual | Actual minus predicted; structure in residuals means the model shape is wrong |
 | Volatility | Variance of *weekly new cases*, used to pick the focal country; the variance of the cumulative total would just rank countries by size |
-| K-Means | Clustering that assigns each week to the nearest of K centres |
+| K-Means | Clustering that assigns each week to the nearest of K centres; initialised via Spark's `k-means||`, the scalable parallel form of k-means++ |
 | Silhouette score | Cluster-separation measure in [-1, 1]; used here to choose K |
+| WCSS (inertia) | Sum of squared distances to the nearest centroid; always decreases as K grows, so it locates an elbow rather than a maximum, and here cross-checks (not overrides) the silhouette-chosen K |
 | Phase | A cluster read as a period of the pandemic (quiet, rising, mega-surge) |
 | Standardisation | Rescaling features to mean 0 and standard deviation 1 so week number and case counts contribute comparably |
 | Graph / edge weight | Countries are nodes; each edge carries the correlation between the two weekly new-case series |
@@ -700,11 +752,12 @@ preferred conclusion.
 | 1 | Weekly aggregation | Sum daily new cases, or take the weekly maximum of the cumulative series | The source is cumulative and non-decreasing, so the weekly maximum is the week-ending total by definition | Weekly max of cumulative, then first difference for new cases |
 | 2 | Reporting corrections | Keep negative differences, or floor at zero | Negative "new cases" are not physically meaningful; they are retrospective corrections | Clipped to zero, and the count of affected country-weeks is reported |
 | 3 | Which country to carry forward | Variance of the cumulative total, or variance of weekly new cases | The brief asks for the highest-variance model; variance of a cumulative series scales with country size, so it would just select the largest country by construction | Ranked on weekly new cases - a genuine volatility measure, and the same signal the clustering uses |
-| 4 | Choice of K | Fix K in advance, or search a range | Select the K with the highest silhouette score over K = 2..6 | Chosen by silhouette, reported for every K tested |
+| 4 | Choice of K | Fix K in advance, or search a range | Select the K with the highest silhouette score over K = 2..6, cross-checked against the WCSS elbow | Chosen by silhouette, reported for every K tested alongside its WCSS |
 | 5 | Clustering features | `[new_cases]` alone, or `[week, new_cases]` | The brief asks for the trend *over a period*, which requires time in the feature space | `[week, new_cases]`, standardised - with the resulting temporal circularity disclosed in Section 9 |
 | 6 | Neighbour selection | Nearest by centroid distance, or named land borders that do not touch each other | The brief requires neighbours that do not share borders with each other, which centroid distance cannot guarantee | Explicit curated sets, validated against the country names actually present in the data |
 | 7 | Correlation uncertainty | Ordinary p-value, or a resampling interval | Weekly series are strongly autocorrelated, so an ordinary test overstates significance | Moving-block bootstrap (8-week blocks, 2,000 draws) reported as a 95% interval |
 | 8 | Early-warning recommendation | Recommend on same-week correlation, or on the lag at which correlation peaks | A neighbour only gains warning if it *follows*; the rule was set in advance at lag >= +1 week and r >= 0.60 | Recommendation follows the measured lag, which reverses the ranking that lag-zero correlation suggested |
+| 9 | Silhouette-vs-WCSS disagreement | Trust silhouette, trust the WCSS elbow, or search a wider K range until they agree | Fixed before results: silhouette measures separation directly; WCSS always favours more clusters, so it cannot be the deciding vote | On this run the two agree at K=3; had they disagreed, silhouette would have been kept and the disagreement reported, not resolved by picking whichever K looks more convenient |
 
 ## Appendix C - Reproducibility and environment
 
@@ -720,12 +773,12 @@ The notebook is deterministic: the same input file produces the same figures and
 | Configuration required | None - `JAVA_HOME` is auto-detected and all paths resolve relative to the notebook |
 | Runtime | Approximately 1-2 minutes end to end |
 
-**Sources of determinism.** K-Means is seeded, so cluster labels and the silhouette scores are stable.
-The moving-block bootstrap draws from a seeded `numpy` generator, so the confidence intervals reproduce
-exactly. Spark's linear regression solves a closed-form least-squares problem on a single feature, so it
-has no stochastic component.
+**Sources of determinism.** K-Means is seeded, so cluster labels, the silhouette scores and the WCSS
+values are all stable. The moving-block bootstrap draws from a seeded `numpy` generator, so the
+confidence intervals reproduce exactly. Spark's linear regression solves a closed-form least-squares
+problem on a single feature, so it has no stochastic component.
 
-**Generated artefacts.** Running the notebook writes `outputs/metrics.json` plus seven figures:
+**Generated artefacts.** Running the notebook writes `outputs/metrics.json` plus eight figures:
 
 | File | Content |
 |---|---|
@@ -736,6 +789,7 @@ has no stochastic component.
 | `fig05_story_panel.png` | Three-panel summary: waves, same-week correlation, lead-lag |
 | `fig06_regression_residuals.png` | Residual diagnostics showing the linear model's structural error |
 | `fig07_lead_lag.png` | Lead-lag correlation profile with each neighbour's peak marked |
+| `fig08_k_selection.png` | Silhouette and WCSS-elbow cross-check used to choose K |
 
 **Error handling.** Environment and data problems raise `SetupError` with a message naming the cause and
 the fix, rather than surfacing a raw traceback: missing or malformed dataset, absent Java installation,
