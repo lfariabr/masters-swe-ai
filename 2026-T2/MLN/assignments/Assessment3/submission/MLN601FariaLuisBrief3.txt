@@ -41,6 +41,18 @@
 # 
 # The primary random 75/25 experiment estimates demand for days resembling 2011-2012 using calendar and weather without past demand. The secondary experiment tests transfer through time: selection uses 2011, then counts through day D plus next-day conditions predict D+1 in 2012. Forecasting all of 2012 on 1 January is separate because later counts would be unavailable.
 # 
+# This report therefore runs three comparisons. The first two answer the assessment question; the third tests whether that answer transfers forward in time.
+# 
+# **Table 1 - What this report compares**
+# 
+# | # | Comparison | Split | Compared against | Question answered | Where |
+# |---|---|---|---|---|---|
+# | 1 | Model selection | Random 75/25, training partition only | The other 11 family and feature-set configurations | Which configuration predicts most accurately? | Table 6 |
+# | 2 | Value of modelling | Random 75/25, holdout opened once | A constant training-mean prediction | Does the selected model beat not modelling at all? | Tables 7 and 8 |
+# | 3 | Forward transfer | Time-ordered: trained in 2011, scored on 2012 | Naive lag-1, lag-7 and rolling seven-day rules | Does the approach still work on a period it has not seen? | Table 12 |
+# 
+# Comparisons 1 and 2 address the brief. Comparison 3 is an additional check that limits how the result may be used.
+# 
 # ### 1.3 Evaluation criteria
 # 
 # MAE is primary because it reports the average miss in rentals per day. RMSE gives more weight to large errors, while R-squared shows explained variation relative to predicting the sample mean.
@@ -129,7 +141,7 @@ granularity = pd.DataFrame([
     {"file": "hour.csv", "rows": len(hour_df), "observation": "correlated hourly observations",
      "role": "intraday understanding and cross-file validation"},
 ])
-print("Table 2.1 - Granularity and role")
+print("Table 2 - Granularity and role")
 display(granularity)
 print(f"Cross-file validation passed: hourly cnt sums exactly to daily cnt on all {len(cross_file)} dates.")
 print(f"Hourly panel audit: {incomplete_dates} dates have fewer than 24 rows; "
@@ -146,7 +158,7 @@ peaks = (hour_profile.loc[hour_profile.groupby("workingday")["cnt"].idxmax()]
          .assign(day_type=lambda x: x["workingday"].map({0: "Non-working day", 1: "Working day"}))
          [["day_type", "hr", "cnt"]].rename(columns={"hr": "peak_hour", "cnt": "mean_cnt"}))
 peaks["mean_cnt"] = peaks["mean_cnt"].round(1)
-print("Table 2.2 - Peak hourly demand")
+print("Table 3 - Peak hourly demand")
 display(peaks)
 assert int(peaks.loc[peaks.day_type == "Working day", "peak_hour"].iloc[0]) == 17
 assert np.isclose(peaks.loc[peaks.day_type == "Working day", "mean_cnt"].iloc[0], 525.3)
@@ -157,7 +169,7 @@ fig, ax = plt.subplots(figsize=(10.5, 4.6))
 for flag, label, color in [(1, "Working day", "#20639B"), (0, "Non-working day", "#ED553B")]:
     p = hour_profile[hour_profile.workingday == flag]
     ax.plot(p.hr, p.cnt, marker="o", ms=3, lw=2, label=label, color=color)
-ax.set(title="Figure 2.1 - Mean hourly rentals by day type", xlabel="hour of day", ylabel="mean hourly cnt")
+ax.set(title="Figure 1 - Mean hourly rentals by day type", xlabel="hour of day", ylabel="mean hourly cnt")
 ax.set_xticks(range(0, 24, 2)); ax.legend()
 plt.tight_layout(); plt.savefig(FIG_DIR / "v4_hourly_demand.png", dpi=160); plt.show()
 
@@ -179,7 +191,7 @@ quality = pd.DataFrame([
     ("Humidity above zero", (day_df.hum > 0).all(), f"{int((day_df.hum == 0).sum())} zero reading"),
     ("Daily weather categories supported", set(day_df.weathersit.unique()) == {1, 2, 3}, "category 4 absent"),
 ], columns=["check", "pass", "evidence"])
-print("Table 2.3 - Data quality audit")
+print("Table 4 - Data quality audit")
 display(quality)
 
 zero_hum_date = day_df.loc[day_df.hum.eq(0), "dteday"].iloc[0]
@@ -212,7 +224,7 @@ assert day_df.hum.isna().sum() == 1
 # In[5]:
 
 
-season_lbl = {1: "spring", 2: "summer", 3: "fall", 4: "winter"}
+season_lbl = {1: "winter", 2: "spring", 3: "summer", 4: "autumn"}
 weather_lbl = {1: "clear", 2: "mist", 3: "light rain/snow", 4: "heavy rain/snow"}
 day_df["season_name"] = day_df.season.map(season_lbl)
 day_df["weather_name"] = day_df.weathersit.map(weather_lbl)
@@ -223,14 +235,14 @@ sns.histplot(day_df.cnt, bins=30, kde=True, ax=ax[0, 0], color="#20639B")
 ax[0, 0].set(title="Daily-rental distribution", xlabel="daily cnt")
 sns.lineplot(data=day_df, x="dteday", y="cnt", hue="year_name", ax=ax[0, 1])
 ax[0, 1].set(title="Daily demand over time", xlabel="date", ylabel="cnt")
-sns.barplot(data=day_df, x="season_name", y="cnt", order=["spring", "summer", "fall", "winter"], ax=ax[1, 0])
+sns.barplot(data=day_df, x="season_name", y="cnt", order=["winter", "spring", "summer", "autumn"], ax=ax[1, 0])
 ax[1, 0].set(title="Mean demand by season", xlabel="")
 sns.boxplot(data=day_df, x="weather_name", y="cnt", order=["clear", "mist", "light rain/snow", "heavy rain/snow"], ax=ax[1, 1])
 ax[1, 1].set(title="Demand by weather category", xlabel="")
-fig.suptitle("Figure 2.2 - Daily demand, season and weather", y=1.01)
+fig.suptitle("Figure 2 - Daily demand, season and weather", y=1.01)
 plt.tight_layout(); plt.savefig(FIG_DIR / "v4_daily_eda.png", dpi=150); plt.show()
 
-comp = day_df.groupby("season_name")[["casual", "registered"]].mean().reindex(["spring", "summer", "fall", "winter"])
+comp = day_df.groupby("season_name")[["casual", "registered"]].mean().reindex(["winter", "spring", "summer", "autumn"])
 fig, ax = plt.subplots(1, 2, figsize=(13, 4.5))
 comp.plot(kind="bar", stacked=True, ax=ax[0], color=["#ED553B", "#20639B"])
 ax[0].set(title="Mean user-group composition by season", xlabel="", ylabel="mean daily rentals")
@@ -239,11 +251,13 @@ for c, color in zip(["temp", "atemp", "hum", "windspeed"], ["#20639B", "#3CAEA3"
     ax[1].scatter(day_df[c], day_df.cnt, s=10, alpha=.28, label=c, color=color)
 ax[1].set(title="Continuous weather measures and demand", xlabel="normalised weather value", ylabel="cnt")
 ax[1].legend()
-fig.suptitle("Figure 2.3 - User composition and continuous weather", y=1.02)
+fig.suptitle("Figure 3 - User composition and continuous weather", y=1.02)
 plt.tight_layout(); plt.savefig(FIG_DIR / "v4_composition_weather.png", dpi=150); plt.show()
 
 
 # Demand rises across the two years, peaks in warmer seasons and falls in adverse weather. Registered users provide most rentals, while the casual share expands in warmer seasons. Both user columns remain descriptive because they sum to the target.
+# 
+# **A documentation correction.** The dataset description states `season (1:springer, 2:summer, 3:fall, 4:winter)`. The dates disagree. Code 1 covers December to March at a mean of 12.2 degrees Celsius and the lowest mean demand of 2,604; code 3 covers June to September at 29.0 degrees and the highest mean demand of 5,644. The codes are therefore offset by one quarter from the published labels, and this notebook labels them `1 = winter, 2 = spring, 3 = summer, 4 = autumn` on the evidence of the calendar and temperature rather than the documentation. Nothing in the modelling changes, because `season` enters every pipeline as a categorical code and never as a name; the correction affects the readability of Figures 2, 3 and 13 and the wording of this section.
 
 # In[6]:
 
@@ -253,11 +267,11 @@ day_df["weekday_name"] = day_df.weekday.map(weekday_lbl)
 
 fig, ax = plt.subplots(1, 2, figsize=(13, 4.5))
 sns.lineplot(data=day_df, x="mnth", y="cnt", hue="year_name", marker="o", ax=ax[0])
-ax[0].set(title="Figure 2.4 - Mean rentals by month and year", xlabel="month", ylabel="mean cnt")
+ax[0].set(title="Figure 4 - Mean rentals by month and year", xlabel="month", ylabel="mean cnt")
 ax[0].set_xticks(range(1, 13))
 sns.barplot(data=day_df, x="weekday_name", y="cnt",
             order=["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"], ax=ax[1])
-ax[1].set(title="Figure 2.5 - Mean rentals by weekday", xlabel="weekday", ylabel="mean cnt")
+ax[1].set(title="Figure 5 - Mean rentals by weekday", xlabel="weekday", ylabel="mean cnt")
 plt.tight_layout(); plt.savefig(FIG_DIR / "v4_month_weekday.png", dpi=160); plt.show()
 
 
@@ -276,9 +290,9 @@ assert cnt_correlations.loc["weathersit"] < 0 and cnt_correlations.loc["windspee
 plt.figure(figsize=(10, 8))
 sns.heatmap(corr_matrix, annot=True, fmt=".2f", cmap="coolwarm", center=0,
             square=True, cbar_kws={"shrink": .8}, annot_kws={"size": 7})
-plt.title("Figure 2.6 - Correlation matrix for daily variables")
+plt.title("Figure 6 - Correlation matrix for daily variables")
 plt.tight_layout(); plt.savefig(FIG_DIR / "v4_correlation_heatmap.png", dpi=160); plt.show()
-print("Table 2.4 - Correlations with cnt")
+print("Table 5 - Correlations with cnt")
 display(cnt_correlations.round(3).to_frame("correlation_with_cnt"))
 
 
@@ -291,7 +305,7 @@ display(cnt_correlations.round(3).to_frame("correlation_with_cnt"))
 pairplot_data = day_df[["temp", "atemp", "hum", "windspeed", "cnt"]].dropna()
 pair_grid = sns.pairplot(pairplot_data, corner=True, diag_kind="kde",
                          plot_kws={"alpha": .3, "s": 12})
-pair_grid.fig.suptitle("Figure 2.7 - Seaborn pairplot of weather variables and daily demand", y=1.02)
+pair_grid.fig.suptitle("Figure 7 - Seaborn pairplot of weather variables and daily demand", y=1.02)
 pair_grid.savefig(FIG_DIR / "v4_pairplot.png", dpi=140, bbox_inches="tight")
 plt.show()
 
@@ -416,11 +430,24 @@ def choose_configuration(rows):
 # 
 # Four regression families are compared with lightweight grids in scikit-learn (Pedregosa et al., 2011). Linear Regression tests a global additive relationship; K-Nearest Neighbors tests local similarity; Random Forest averages decorrelated trees; Gradient Boosting sequentially corrects residuals (Friedman, 2001). Scaling and fold-fitted median imputation live inside every pipeline.
 # 
+# Both experiments run over the same 731 days and differ in how those days are split and which inputs are permitted. Each produces one learned estimate and one reference estimate, giving the four columns compared in Table 13.
+
+# In[11]:
+
+
+from IPython.display import Image, display as show_image
+
+# Figure 8 is authored in Mermaid and rendered to PNG so that it survives the notebook,
+# HTML and PDF exports identically. The source is kept in the repository alongside it.
+show_image(Image(filename=str(FIG_DIR / "v4_pipeline.png"), width=760))
+print("Figure 8 - How the two experiments produce the four estimates compared in Table 13")
+
+
 # ### 4.1 Primary model comparison: random 75/25 holdout
 # 
 # The split is created once with `random_state=42`. Only the 75% training partition participates in family, feature-set and hyperparameter selection. Each of the 12 family/feature-set combinations uses shuffled five-fold `KFold` and MAE scoring. The 25% holdout is accessed only after the global configuration and one configuration per family have been frozen.
 
-# In[11]:
+# In[12]:
 
 
 all_indices = primary_df.index.to_numpy()
@@ -476,14 +503,14 @@ primary_winner = primary_estimators[(primary_winner_name, primary_winner_feature
 selection_indices = set(primary_train_idx)
 assert selection_indices.isdisjoint(set(primary_holdout_idx))
 assert len(primary_df) == 731
-print("Table 4.1 - Primary CV selection (training partition only)")
+print("Table 6 - Primary CV selection (training partition only)")
 display(primary_cv_table.round({"cv_mean_MAE": 1, "cv_std_MAE": 1,
                                 "cv_mean_RMSE": 1, "cv_std_RMSE": 1}))
 print("Frozen primary configuration:", primary_winner_name, "|", primary_winner_features,
       "|", primary_choice["best_params"])
 
 
-# In[12]:
+# In[13]:
 
 
 # First use of the fixed 25% holdout: score one training-selected configuration per family.
@@ -529,13 +556,13 @@ primary_summary = pd.DataFrame([{
     "MAE_pct_of_holdout_mean_demand": 100 * primary_mae_pct,
 }])
 primary_summary.to_csv(OUTPUT_DIR / "primary_summary_v4.csv", index=False)
-print("Table 4.2 - Frozen family configurations on the primary holdout")
+print("Table 7 - Frozen family configurations on the primary holdout")
 display(primary_holdout_table.round({"MAE": 1, "MSE": 1, "RMSE": 1, "R2": 3}))
-print("Table 4.3 - Final selected-model summary")
+print("Table 8 - Final selected-model summary")
 display(primary_summary.round(3))
 
 
-# In[13]:
+# In[14]:
 
 
 # Sensitivity of the frozen primary winner to retaining the raw hum=0 record.
@@ -554,7 +581,7 @@ humidity_sensitivity = pd.DataFrame([
     {"treatment": "raw hum=0 retained", **metrics(primary_holdout.cnt, sens_pred)},
 ])
 humidity_sensitivity.to_csv(OUTPUT_DIR / "humidity_sensitivity_v4.csv", index=False)
-print("Table 4.4 - Humidity correction sensitivity on the frozen primary model")
+print("Table 9 - Humidity correction sensitivity on the frozen primary model")
 display(humidity_sensitivity.round({"MAE": 2, "MSE": 1, "RMSE": 2, "R2": 4}))
 
 
@@ -568,7 +595,7 @@ display(humidity_sensitivity.round({"MAE": 2, "MSE": 1, "RMSE": 2, "R2": 4}))
 # 
 # Selection now uses `TimeSeriesSplit(n_splits=3)` inside 2011. The temporal design excludes `yr`, which is constant in the training year. It compares core cyclical calendar/weather inputs, interactions, causal recent-demand inputs and an optional elapsed-time trend. One configuration per family and the global temporal configuration are frozen before any 2012 score is produced.
 
-# In[14]:
+# In[15]:
 
 
 temporal_train = temporal_df[temporal_df.yr.eq(0)].copy().reset_index(drop=True)
@@ -585,7 +612,7 @@ for fold, (tr, va) in enumerate(temporal_cv.split(temporal_train), 1):
         "train_window": f"{temporal_train.dteday.iloc[tr[0]].date()} to {temporal_train.dteday.iloc[tr[-1]].date()}",
         "validation_window": f"{temporal_train.dteday.iloc[va[0]].date()} to {temporal_train.dteday.iloc[va[-1]].date()}",
     })
-print("Table 4.5 - TimeSeriesSplit folds within 2011")
+print("Table 10 - TimeSeriesSplit folds within 2011")
 display(pd.DataFrame(fold_table))
 
 temporal_rows, temporal_estimators = [], {}
@@ -623,14 +650,14 @@ temporal_winner = temporal_estimators[(temporal_winner_name, temporal_winner_fea
 # Selection records and fitted estimators contain 2011 only. 2012 has not been scored yet.
 assert temporal_train.yr.eq(0).all()
 assert not temporal_train.dteday.isin(temporal_test.dteday).any()
-print("Table 4.6 - Temporal CV selection (2011 only)")
+print("Table 11 - Temporal CV selection (2011 only)")
 display(temporal_cv_table.round({"cv_mean_MAE": 1, "cv_std_MAE": 1,
                                  "cv_mean_RMSE": 1, "cv_std_RMSE": 1}))
 print("Frozen temporal configuration:", temporal_winner_name, "|", temporal_winner_features,
       "|", temporal_choice["best_params"])
 
 
-# In[15]:
+# In[16]:
 
 
 # First 2012 scoring: frozen family candidates and causal baselines use identical dates.
@@ -666,7 +693,7 @@ rolling_metrics = temporal_holdout_table.loc[
     temporal_holdout_table.model.eq("Naive rolling-7")
 ].iloc[0]
 temporal_advantage = 1 - temporal_selected_metrics.MAE / rolling_metrics.MAE
-print("Table 4.7 - Frozen temporal candidates and baselines on 2012")
+print("Table 12 - Frozen temporal candidates and baselines on 2012")
 display(temporal_holdout_table.round({"MAE": 1, "MSE": 1, "RMSE": 1, "R2": 3}))
 
 
@@ -676,13 +703,71 @@ display(temporal_holdout_table.round({"MAE": 1, "MSE": 1, "RMSE": 1, "R2": 3}))
 # 
 # A rolling one-day-ahead test can update lags after every observed day. A forecast issued for all of 2012 on 1 January could not use those later counts and would be a different experiment with a longer horizon and recursively unavailable inputs.
 
+# ### 4.3 Worked example
+# 
+# Aggregate error statistics hide what a prediction actually is. Table 13 takes six holdout dates that both experiments scored, and shows the same day estimated four ways: by the frozen primary model, by the constant-mean reference it must beat, by the frozen temporal model, and by the rolling seven-day rule it must beat. Reading one row left to right is the shortest description of this entire report.
+
+# In[17]:
+
+
+# Table 13 - the same dates scored by every approach compared in this report.
+primary_view = primary_holdout.assign(
+    primary_prediction=primary_winner.predict(primary_holdout[primary_winner_columns]),
+    mean_reference=primary_train.cnt.mean(),
+)
+temporal_view = temporal_test[["dteday"]].assign(
+    temporal_prediction=temporal_predictions[temporal_winner_name],
+    rolling7_reference=temporal_predictions["Naive rolling-7"],
+)
+shared = primary_view.merge(temporal_view, on="dteday", how="inner").sort_values("dteday")
+
+# Six evenly spaced dates across the shared period, so the sample is reproducible.
+positions = np.linspace(0, len(shared) - 1, 6).round().astype(int)
+sample = shared.iloc[positions]
+
+season_lbl = {1: "winter", 2: "spring", 3: "summer", 4: "autumn"}
+weather_lbl = {1: "clear", 2: "mist", 3: "light rain/snow", 4: "severe"}
+worked = pd.DataFrame({
+    "date": sample.dteday.dt.strftime("%Y-%m-%d"),
+    "season": sample.season.map(season_lbl),
+    "day": sample.dteday.dt.strftime("%a"),
+    "weather": sample.weathersit.map(weather_lbl),
+    "temp_C": (sample.temp * 41).round(1),
+    "humidity_pct": (sample.hum * 100).round(0),
+    "ACTUAL": sample.cnt.astype(int),
+    f"{primary_winner_name} (primary)": sample.primary_prediction.round(0).astype(int),
+    "mean reference": sample.mean_reference.round(0).astype(int),
+    f"{temporal_winner_name} (temporal)": sample.temporal_prediction.round(0).astype(int),
+    "rolling-7 reference": sample.rolling7_reference.round(0).astype(int),
+}).reset_index(drop=True)
+worked.to_csv(OUTPUT_DIR / "worked_example_v4.csv", index=False)
+
+print("Table 13 - Six shared dates scored by every approach")
+print("Each row is one day: inputs on the left, the realised count, then four estimates of it.")
+display(worked)
+
+for label, column in [(f"{primary_winner_name} (primary)", "primary_prediction"),
+                      ("mean reference", "mean_reference"),
+                      (f"{temporal_winner_name} (temporal)", "temporal_prediction"),
+                      ("rolling-7 reference", "rolling7_reference")]:
+    print(f"  mean absolute error on these six dates, {label:34s}: "
+          f"{np.abs(sample.cnt - sample[column]).mean():7.0f}")
+print(f"\nShared dates available: {len(shared)} (2012 days that are also primary holdout days).")
+
+
+# Six days cannot establish anything, and the criteria in Section 5 are computed across the full 183-day holdout and the full 366-day 2012 period for that reason. What the rows do show is the shape of each approach.
+# 
+# The primary model tracks the realised count in both directions, from a 2,368-rental January day to a 7,494-rental June day. The constant reference cannot move: it answers 4,575 to every question, which is why its error grows with distance from the annual mean. The temporal model follows the direction of change but sits below the realised count on the growth days, because it was fitted on a smaller 2011 system and has no mechanism for the expansion that followed. The rolling seven-day rule carries no model at all and stays close, because each new observed day re-anchors the next estimate.
+# 
+# The primary and rolling-7 columns must not be read as a head-to-head contest. They belong to different comparisons in Table 1: the primary model was fitted on days drawn from both years, including days adjacent to these, and answers a conditional question; the rolling rule answers a forward one and needs no training. Their apparent similarity on six shared dates is a property of this sample, not a finding. The comparison that matters for each is in Tables 7 and 12 respectively.
+
 # ## 5. Evaluation
 # 
 # ### 5.1 Criteria summary and paired temporal description
 # 
 # The primary assessment criterion and secondary robustness criterion are reported separately. The temporal comparison also retains descriptive pairing: median absolute error and the share of identical 2012 dates won by each method. These summaries do not require an independence assumption. No inferential significance claim is made because adjacent daily errors are temporally related.
 
-# In[16]:
+# In[18]:
 
 
 primary_pass = primary_improvement >= 0.40
@@ -698,7 +783,7 @@ evaluation_summary = pd.DataFrame([
      "result": "Passes" if temporal_pass else "Fails"},
 ])
 evaluation_summary.to_csv(OUTPUT_DIR / "evaluation_summary_v4.csv", index=False)
-print("Table 5.1 - Evaluation summary")
+print("Table 14 - Evaluation summary")
 display(evaluation_summary)
 
 y2012 = temporal_test.cnt.to_numpy()
@@ -717,11 +802,11 @@ paired_summary = pd.DataFrame([
 ])
 paired_summary["tied_dates"] = int(ties.sum())
 paired_summary.to_csv(OUTPUT_DIR / "paired_temporal_comparison_v4.csv", index=False)
-print("Table 5.2 - Paired descriptive comparison on identical 2012 dates")
+print("Table 15 - Paired descriptive comparison on identical 2012 dates")
 display(paired_summary.round(1))
 
 
-# In[17]:
+# In[19]:
 
 
 train_ceiling = int(temporal_train.cnt.max())
@@ -737,7 +822,7 @@ for name in list(GRIDS) + ["Naive rolling-7"]:
     })
 extrapolation_ceiling = pd.DataFrame(ceiling_rows)
 extrapolation_ceiling.to_csv(OUTPUT_DIR / "extrapolation_ceiling_v4.csv", index=False)
-print("Table 5.3 - Extrapolation ceiling analysis")
+print("Table 16 - Extrapolation ceiling analysis")
 display(extrapolation_ceiling.round(1))
 
 fig, ax = plt.subplots(1, 2, figsize=(14, 5))
@@ -746,11 +831,11 @@ ax[0].plot(temporal_test.dteday, selected_temporal_pred, lw=.9, color="#ED553B",
            label=f"frozen {temporal_winner_name}")
 ax[0].plot(temporal_test.dteday, rolling_pred, lw=.9, color="#3CAEA3", label="rolling-7")
 ax[0].axhline(train_ceiling, color="black", ls="--", lw=1, label=f"2011 ceiling = {train_ceiling}")
-ax[0].set(title="Figure 5.1 - Rolling day-ahead predictions in 2012", xlabel="date", ylabel="cnt")
+ax[0].set(title="Figure 9 - Rolling day-ahead predictions in 2012", xlabel="date", ylabel="cnt")
 ax[0].legend(fontsize=8)
 ax[1].scatter(selected_temporal_pred, y2012-selected_temporal_pred, s=14, alpha=.4, color="#ED553B")
 ax[1].axhline(0, color="black", ls="--")
-ax[1].set(title=f"Figure 5.2 - {temporal_winner_name} temporal residuals",
+ax[1].set(title=f"Figure 10 - {temporal_winner_name} temporal residuals",
           xlabel="predicted cnt", ylabel="actual - predicted")
 plt.tight_layout(); plt.savefig(FIG_DIR / "v4_temporal_robustness.png", dpi=160); plt.show()
 
@@ -763,7 +848,7 @@ plt.tight_layout(); plt.savefig(FIG_DIR / "v4_temporal_robustness.png", dpi=160)
 # 
 # Permutation importance is model-agnostic and measures the increase in holdout MAE after one raw input is shuffled. It is computed only after model selection and does not change the winner. Contributions describe predictive associations in this dataset, not causal effects. TreeSHAP (Lundberg & Lee, 2017) is added only when the frozen primary family is Random Forest or Gradient Boosting.
 
-# In[18]:
+# In[20]:
 
 
 perm = permutation_importance(
@@ -776,19 +861,19 @@ permutation_table = (pd.DataFrame({
     "MAE_increase_std": perm.importances_std,
 }).sort_values("MAE_increase_mean", ascending=False).reset_index(drop=True))
 permutation_table.to_csv(OUTPUT_DIR / "permutation_importance_v4.csv", index=False)
-print("Table 5.4 - Model-agnostic permutation importance on the primary holdout")
+print("Table 17 - Model-agnostic permutation importance on the primary holdout")
 display(permutation_table.head(12).round(2))
 
 top_perm = permutation_table.head(12).sort_values("MAE_increase_mean")
 fig, ax = plt.subplots(figsize=(9, 5.5))
 ax.barh(top_perm.feature, top_perm.MAE_increase_mean, xerr=top_perm.MAE_increase_std,
         color="#20639B", alpha=.85)
-ax.set(title=f"Figure 5.3 - Permutation importance: {primary_winner_name}",
+ax.set(title=f"Figure 11 - Permutation importance: {primary_winner_name}",
        xlabel="increase in holdout MAE after permutation", ylabel="")
 plt.tight_layout(); plt.savefig(FIG_DIR / "v4_permutation_importance.png", dpi=160); plt.show()
 
 
-# In[19]:
+# In[21]:
 
 
 shap_table = None
@@ -805,17 +890,17 @@ if primary_winner_name in {"Random Forest", "Gradient Boosting"}:
                                 "mean_absolute_SHAP": np.abs(shap_values).mean(axis=0)})
                   .sort_values("mean_absolute_SHAP", ascending=False).reset_index(drop=True))
     shap_table.to_csv(OUTPUT_DIR / "shap_global_importance_v4.csv", index=False)
-    print("Table 5.5 - TreeSHAP global importance for the frozen primary model")
+    print("Table 18 - TreeSHAP global importance for the frozen primary model")
     display(shap_table.head(12).round(2))
     shap.summary_plot(shap_values, transformed, feature_names=transformed_names,
                       max_display=12, show=False)
-    plt.title(f"Figure 5.4 - TreeSHAP summary: {primary_winner_name}")
+    plt.title(f"Figure 12 - TreeSHAP summary: {primary_winner_name}")
     plt.tight_layout(); plt.savefig(FIG_DIR / "v4_shap_summary.png", dpi=160, bbox_inches="tight"); plt.show()
 else:
     print("TreeSHAP omitted: the frozen primary winner is", primary_winner_name)
 
 
-# In[20]:
+# In[22]:
 
 
 primary_pred = primary_winner.predict(primary_holdout[primary_winner_columns])
@@ -824,11 +909,11 @@ ax[0].scatter(primary_holdout.cnt, primary_pred, alpha=.45, s=18, color="#20639B
 lims = [min(primary_holdout.cnt.min(), primary_pred.min()),
         max(primary_holdout.cnt.max(), primary_pred.max())]
 ax[0].plot(lims, lims, "k--")
-ax[0].set(title="Figure 5.5 - Primary holdout: predicted vs actual",
+ax[0].set(title="Figure 13 - Primary holdout: predicted vs actual",
           xlabel="actual cnt", ylabel="predicted cnt")
 ax[1].scatter(primary_pred, primary_holdout.cnt-primary_pred, alpha=.45, s=18, color="#ED553B")
 ax[1].axhline(0, color="black", ls="--")
-ax[1].set(title="Figure 5.6 - Primary holdout residuals",
+ax[1].set(title="Figure 14 - Primary holdout residuals",
           xlabel="predicted cnt", ylabel="actual - predicted")
 plt.tight_layout(); plt.savefig(FIG_DIR / "v4_primary_diagnostics.png", dpi=160); plt.show()
 
@@ -880,7 +965,7 @@ plt.tight_layout(); plt.savefig(FIG_DIR / "v4_primary_diagnostics.png", dpi=160)
 # 
 # ## Appendix B - Reproducibility and integrity evidence
 
-# In[21]:
+# In[23]:
 
 
 import sys

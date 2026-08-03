@@ -46,6 +46,18 @@ Each row represents one system-wide day, with `cnt` as total rentals. Calendar a
 
 The primary random 75/25 experiment estimates demand for days resembling 2011-2012 using calendar and weather without past demand. The secondary experiment tests transfer through time: selection uses 2011, then counts through day D plus next-day conditions predict D+1 in 2012. Forecasting all of 2012 on 1 January is separate because later counts would be unavailable.
 
+This report therefore runs three comparisons. The first two answer the assessment question; the third tests whether that answer transfers forward in time.
+
+**Table 1 - What this report compares**
+
+| # | Comparison | Split | Compared against | Question answered | Where |
+|---|---|---|---|---|---|
+| 1 | Model selection | Random 75/25, training partition only | The other 11 family and feature-set configurations | Which configuration predicts most accurately? | Table 6 |
+| 2 | Value of modelling | Random 75/25, holdout opened once | A constant training-mean prediction | Does the selected model beat not modelling at all? | Tables 7 and 8 |
+| 3 | Forward transfer | Time-ordered: trained in 2011, scored on 2012 | Naive lag-1, lag-7 and rolling seven-day rules | Does the approach still work on a period it has not seen? | Table 12 |
+
+Comparisons 1 and 2 address the brief. Comparison 3 is an additional check that limits how the result may be used.
+
 ### 1.3 Evaluation criteria
 
 MAE is primary because it reports the average miss in rentals per day. RMSE gives more weight to large errors, while R-squared shows explained variation relative to predicting the sample mean.
@@ -133,7 +145,7 @@ granularity = pd.DataFrame([
     {"file": "hour.csv", "rows": len(hour_df), "observation": "correlated hourly observations",
      "role": "intraday understanding and cross-file validation"},
 ])
-print("Table 2.1 - Granularity and role")
+print("Table 2 - Granularity and role")
 display(granularity)
 print(f"Cross-file validation passed: hourly cnt sums exactly to daily cnt on all {len(cross_file)} dates.")
 print(f"Hourly panel audit: {incomplete_dates} dates have fewer than 24 rows; "
@@ -150,7 +162,7 @@ peaks = (hour_profile.loc[hour_profile.groupby("workingday")["cnt"].idxmax()]
          .assign(day_type=lambda x: x["workingday"].map({0: "Non-working day", 1: "Working day"}))
          [["day_type", "hr", "cnt"]].rename(columns={"hr": "peak_hour", "cnt": "mean_cnt"}))
 peaks["mean_cnt"] = peaks["mean_cnt"].round(1)
-print("Table 2.2 - Peak hourly demand")
+print("Table 3 - Peak hourly demand")
 display(peaks)
 assert int(peaks.loc[peaks.day_type == "Working day", "peak_hour"].iloc[0]) == 17
 assert np.isclose(peaks.loc[peaks.day_type == "Working day", "mean_cnt"].iloc[0], 525.3)
@@ -161,7 +173,7 @@ fig, ax = plt.subplots(figsize=(10.5, 4.6))
 for flag, label, color in [(1, "Working day", "#20639B"), (0, "Non-working day", "#ED553B")]:
     p = hour_profile[hour_profile.workingday == flag]
     ax.plot(p.hr, p.cnt, marker="o", ms=3, lw=2, label=label, color=color)
-ax.set(title="Figure 2.1 - Mean hourly rentals by day type", xlabel="hour of day", ylabel="mean hourly cnt")
+ax.set(title="Figure 1 - Mean hourly rentals by day type", xlabel="hour of day", ylabel="mean hourly cnt")
 ax.set_xticks(range(0, 24, 2)); ax.legend()
 plt.tight_layout(); plt.savefig(FIG_DIR / "v4_hourly_demand.png", dpi=160); plt.show()
 ''')
@@ -183,7 +195,7 @@ quality = pd.DataFrame([
     ("Humidity above zero", (day_df.hum > 0).all(), f"{int((day_df.hum == 0).sum())} zero reading"),
     ("Daily weather categories supported", set(day_df.weathersit.unique()) == {1, 2, 3}, "category 4 absent"),
 ], columns=["check", "pass", "evidence"])
-print("Table 2.3 - Data quality audit")
+print("Table 4 - Data quality audit")
 display(quality)
 
 zero_hum_date = day_df.loc[day_df.hum.eq(0), "dteday"].iloc[0]
@@ -218,7 +230,7 @@ VARIABLES = md(r"""
 """)
 
 EDA = co(r'''
-season_lbl = {1: "spring", 2: "summer", 3: "fall", 4: "winter"}
+season_lbl = {1: "winter", 2: "spring", 3: "summer", 4: "autumn"}
 weather_lbl = {1: "clear", 2: "mist", 3: "light rain/snow", 4: "heavy rain/snow"}
 day_df["season_name"] = day_df.season.map(season_lbl)
 day_df["weather_name"] = day_df.weathersit.map(weather_lbl)
@@ -229,14 +241,14 @@ sns.histplot(day_df.cnt, bins=30, kde=True, ax=ax[0, 0], color="#20639B")
 ax[0, 0].set(title="Daily-rental distribution", xlabel="daily cnt")
 sns.lineplot(data=day_df, x="dteday", y="cnt", hue="year_name", ax=ax[0, 1])
 ax[0, 1].set(title="Daily demand over time", xlabel="date", ylabel="cnt")
-sns.barplot(data=day_df, x="season_name", y="cnt", order=["spring", "summer", "fall", "winter"], ax=ax[1, 0])
+sns.barplot(data=day_df, x="season_name", y="cnt", order=["winter", "spring", "summer", "autumn"], ax=ax[1, 0])
 ax[1, 0].set(title="Mean demand by season", xlabel="")
 sns.boxplot(data=day_df, x="weather_name", y="cnt", order=["clear", "mist", "light rain/snow", "heavy rain/snow"], ax=ax[1, 1])
 ax[1, 1].set(title="Demand by weather category", xlabel="")
-fig.suptitle("Figure 2.2 - Daily demand, season and weather", y=1.01)
+fig.suptitle("Figure 2 - Daily demand, season and weather", y=1.01)
 plt.tight_layout(); plt.savefig(FIG_DIR / "v4_daily_eda.png", dpi=150); plt.show()
 
-comp = day_df.groupby("season_name")[["casual", "registered"]].mean().reindex(["spring", "summer", "fall", "winter"])
+comp = day_df.groupby("season_name")[["casual", "registered"]].mean().reindex(["winter", "spring", "summer", "autumn"])
 fig, ax = plt.subplots(1, 2, figsize=(13, 4.5))
 comp.plot(kind="bar", stacked=True, ax=ax[0], color=["#ED553B", "#20639B"])
 ax[0].set(title="Mean user-group composition by season", xlabel="", ylabel="mean daily rentals")
@@ -245,12 +257,14 @@ for c, color in zip(["temp", "atemp", "hum", "windspeed"], ["#20639B", "#3CAEA3"
     ax[1].scatter(day_df[c], day_df.cnt, s=10, alpha=.28, label=c, color=color)
 ax[1].set(title="Continuous weather measures and demand", xlabel="normalised weather value", ylabel="cnt")
 ax[1].legend()
-fig.suptitle("Figure 2.3 - User composition and continuous weather", y=1.02)
+fig.suptitle("Figure 3 - User composition and continuous weather", y=1.02)
 plt.tight_layout(); plt.savefig(FIG_DIR / "v4_composition_weather.png", dpi=150); plt.show()
 ''')
 
 EDA_READ = md(r"""
 Demand rises across the two years, peaks in warmer seasons and falls in adverse weather. Registered users provide most rentals, while the casual share expands in warmer seasons. Both user columns remain descriptive because they sum to the target.
+
+**A documentation correction.** The dataset description states `season (1:springer, 2:summer, 3:fall, 4:winter)`. The dates disagree. Code 1 covers December to March at a mean of 12.2 degrees Celsius and the lowest mean demand of 2,604; code 3 covers June to September at 29.0 degrees and the highest mean demand of 5,644. The codes are therefore offset by one quarter from the published labels, and this notebook labels them `1 = winter, 2 = spring, 3 = summer, 4 = autumn` on the evidence of the calendar and temperature rather than the documentation. Nothing in the modelling changes, because `season` enters every pipeline as a categorical code and never as a name; the correction affects the readability of Figures 2, 3 and 13 and the wording of this section.
 """)
 
 CALENDAR_EDA = co(r'''
@@ -259,11 +273,11 @@ day_df["weekday_name"] = day_df.weekday.map(weekday_lbl)
 
 fig, ax = plt.subplots(1, 2, figsize=(13, 4.5))
 sns.lineplot(data=day_df, x="mnth", y="cnt", hue="year_name", marker="o", ax=ax[0])
-ax[0].set(title="Figure 2.4 - Mean rentals by month and year", xlabel="month", ylabel="mean cnt")
+ax[0].set(title="Figure 4 - Mean rentals by month and year", xlabel="month", ylabel="mean cnt")
 ax[0].set_xticks(range(1, 13))
 sns.barplot(data=day_df, x="weekday_name", y="cnt",
             order=["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"], ax=ax[1])
-ax[1].set(title="Figure 2.5 - Mean rentals by weekday", xlabel="weekday", ylabel="mean cnt")
+ax[1].set(title="Figure 5 - Mean rentals by weekday", xlabel="weekday", ylabel="mean cnt")
 plt.tight_layout(); plt.savefig(FIG_DIR / "v4_month_weekday.png", dpi=160); plt.show()
 ''')
 
@@ -282,9 +296,9 @@ assert cnt_correlations.loc["weathersit"] < 0 and cnt_correlations.loc["windspee
 plt.figure(figsize=(10, 8))
 sns.heatmap(corr_matrix, annot=True, fmt=".2f", cmap="coolwarm", center=0,
             square=True, cbar_kws={"shrink": .8}, annot_kws={"size": 7})
-plt.title("Figure 2.6 - Correlation matrix for daily variables")
+plt.title("Figure 6 - Correlation matrix for daily variables")
 plt.tight_layout(); plt.savefig(FIG_DIR / "v4_correlation_heatmap.png", dpi=160); plt.show()
-print("Table 2.4 - Correlations with cnt")
+print("Table 5 - Correlations with cnt")
 display(cnt_correlations.round(3).to_frame("correlation_with_cnt"))
 ''')
 
@@ -297,7 +311,7 @@ PAIRPLOT = co(r'''
 pairplot_data = day_df[["temp", "atemp", "hum", "windspeed", "cnt"]].dropna()
 pair_grid = sns.pairplot(pairplot_data, corner=True, diag_kind="kde",
                          plot_kws={"alpha": .3, "s": 12})
-pair_grid.fig.suptitle("Figure 2.7 - Seaborn pairplot of weather variables and daily demand", y=1.02)
+pair_grid.fig.suptitle("Figure 7 - Seaborn pairplot of weather variables and daily demand", y=1.02)
 pair_grid.savefig(FIG_DIR / "v4_pairplot.png", dpi=140, bbox_inches="tight")
 plt.show()
 ''')

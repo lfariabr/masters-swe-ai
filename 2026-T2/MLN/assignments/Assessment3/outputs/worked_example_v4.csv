@@ -1,0 +1,7 @@
+date,season,day,weather,temp_C,humidity_pct,ACTUAL,Gradient Boosting (primary),mean reference,Linear Regression (temporal),rolling-7 reference
+2012-01-04,winter,Wed,mist,4.4,41.0,2368,2405,4575,1131,2384
+2012-03-19,winter,Mon,clear,22.3,73.0,6153,6596,4575,5114,5965
+2012-06-07,spring,Thu,clear,24.7,57.0,7494,7373,4575,6142,6897
+2012-08-03,summer,Fri,mist,31.4,64.0,7175,6422,4575,5495,7050
+2012-10-12,autumn,Fri,clear,17.9,54.0,7282,7453,4575,5769,6680
+2012-12-30,winter,Sun,clear,10.5,48.0,1796,1557,4575,1579,1530

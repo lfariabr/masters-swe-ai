@@ -24,7 +24,7 @@ evaluation_summary = pd.DataFrame([
      "result": "Passes" if temporal_pass else "Fails"},
 ])
 evaluation_summary.to_csv(OUTPUT_DIR / "evaluation_summary_v4.csv", index=False)
-print("Table 5.1 - Evaluation summary")
+print("Table 14 - Evaluation summary")
 display(evaluation_summary)
 
 y2012 = temporal_test.cnt.to_numpy()
@@ -43,7 +43,7 @@ paired_summary = pd.DataFrame([
 ])
 paired_summary["tied_dates"] = int(ties.sum())
 paired_summary.to_csv(OUTPUT_DIR / "paired_temporal_comparison_v4.csv", index=False)
-print("Table 5.2 - Paired descriptive comparison on identical 2012 dates")
+print("Table 15 - Paired descriptive comparison on identical 2012 dates")
 display(paired_summary.round(1))
 ''')
 
@@ -61,7 +61,7 @@ for name in list(GRIDS) + ["Naive rolling-7"]:
     })
 extrapolation_ceiling = pd.DataFrame(ceiling_rows)
 extrapolation_ceiling.to_csv(OUTPUT_DIR / "extrapolation_ceiling_v4.csv", index=False)
-print("Table 5.3 - Extrapolation ceiling analysis")
+print("Table 16 - Extrapolation ceiling analysis")
 display(extrapolation_ceiling.round(1))
 
 fig, ax = plt.subplots(1, 2, figsize=(14, 5))
@@ -70,11 +70,11 @@ ax[0].plot(temporal_test.dteday, selected_temporal_pred, lw=.9, color="#ED553B",
            label=f"frozen {temporal_winner_name}")
 ax[0].plot(temporal_test.dteday, rolling_pred, lw=.9, color="#3CAEA3", label="rolling-7")
 ax[0].axhline(train_ceiling, color="black", ls="--", lw=1, label=f"2011 ceiling = {train_ceiling}")
-ax[0].set(title="Figure 5.1 - Rolling day-ahead predictions in 2012", xlabel="date", ylabel="cnt")
+ax[0].set(title="Figure 9 - Rolling day-ahead predictions in 2012", xlabel="date", ylabel="cnt")
 ax[0].legend(fontsize=8)
 ax[1].scatter(selected_temporal_pred, y2012-selected_temporal_pred, s=14, alpha=.4, color="#ED553B")
 ax[1].axhline(0, color="black", ls="--")
-ax[1].set(title=f"Figure 5.2 - {temporal_winner_name} temporal residuals",
+ax[1].set(title=f"Figure 10 - {temporal_winner_name} temporal residuals",
           xlabel="predicted cnt", ylabel="actual - predicted")
 plt.tight_layout(); plt.savefig(FIG_DIR / "v4_temporal_robustness.png", dpi=160); plt.show()
 ''')
@@ -102,14 +102,14 @@ permutation_table = (pd.DataFrame({
     "MAE_increase_std": perm.importances_std,
 }).sort_values("MAE_increase_mean", ascending=False).reset_index(drop=True))
 permutation_table.to_csv(OUTPUT_DIR / "permutation_importance_v4.csv", index=False)
-print("Table 5.4 - Model-agnostic permutation importance on the primary holdout")
+print("Table 17 - Model-agnostic permutation importance on the primary holdout")
 display(permutation_table.head(12).round(2))
 
 top_perm = permutation_table.head(12).sort_values("MAE_increase_mean")
 fig, ax = plt.subplots(figsize=(9, 5.5))
 ax.barh(top_perm.feature, top_perm.MAE_increase_mean, xerr=top_perm.MAE_increase_std,
         color="#20639B", alpha=.85)
-ax.set(title=f"Figure 5.3 - Permutation importance: {primary_winner_name}",
+ax.set(title=f"Figure 11 - Permutation importance: {primary_winner_name}",
        xlabel="increase in holdout MAE after permutation", ylabel="")
 plt.tight_layout(); plt.savefig(FIG_DIR / "v4_permutation_importance.png", dpi=160); plt.show()
 ''')
@@ -129,11 +129,11 @@ if primary_winner_name in {"Random Forest", "Gradient Boosting"}:
                                 "mean_absolute_SHAP": np.abs(shap_values).mean(axis=0)})
                   .sort_values("mean_absolute_SHAP", ascending=False).reset_index(drop=True))
     shap_table.to_csv(OUTPUT_DIR / "shap_global_importance_v4.csv", index=False)
-    print("Table 5.5 - TreeSHAP global importance for the frozen primary model")
+    print("Table 18 - TreeSHAP global importance for the frozen primary model")
     display(shap_table.head(12).round(2))
     shap.summary_plot(shap_values, transformed, feature_names=transformed_names,
                       max_display=12, show=False)
-    plt.title(f"Figure 5.4 - TreeSHAP summary: {primary_winner_name}")
+    plt.title(f"Figure 12 - TreeSHAP summary: {primary_winner_name}")
     plt.tight_layout(); plt.savefig(FIG_DIR / "v4_shap_summary.png", dpi=160, bbox_inches="tight"); plt.show()
 else:
     print("TreeSHAP omitted: the frozen primary winner is", primary_winner_name)
@@ -146,11 +146,11 @@ ax[0].scatter(primary_holdout.cnt, primary_pred, alpha=.45, s=18, color="#20639B
 lims = [min(primary_holdout.cnt.min(), primary_pred.min()),
         max(primary_holdout.cnt.max(), primary_pred.max())]
 ax[0].plot(lims, lims, "k--")
-ax[0].set(title="Figure 5.5 - Primary holdout: predicted vs actual",
+ax[0].set(title="Figure 13 - Primary holdout: predicted vs actual",
           xlabel="actual cnt", ylabel="predicted cnt")
 ax[1].scatter(primary_pred, primary_holdout.cnt-primary_pred, alpha=.45, s=18, color="#ED553B")
 ax[1].axhline(0, color="black", ls="--")
-ax[1].set(title="Figure 5.6 - Primary holdout residuals",
+ax[1].set(title="Figure 14 - Primary holdout residuals",
           xlabel="predicted cnt", ylabel="actual - predicted")
 plt.tight_layout(); plt.savefig(FIG_DIR / "v4_primary_diagnostics.png", dpi=160); plt.show()
 ''')

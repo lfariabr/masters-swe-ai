@@ -7,6 +7,19 @@ MODELLING_HEAD = md(r"""
 
 Four regression families are compared with lightweight grids in scikit-learn (Pedregosa et al., 2011). Linear Regression tests a global additive relationship; K-Nearest Neighbors tests local similarity; Random Forest averages decorrelated trees; Gradient Boosting sequentially corrects residuals (Friedman, 2001). Scaling and fold-fitted median imputation live inside every pipeline.
 
+Both experiments run over the same 731 days and differ in how those days are split and which inputs are permitted. Each produces one learned estimate and one reference estimate, giving the four columns compared in Table 13.
+""")
+
+PIPELINE_FIGURE = co(r'''
+from IPython.display import Image, display as show_image
+
+# Figure 8 is authored in Mermaid and rendered to PNG so that it survives the notebook,
+# HTML and PDF exports identically. The source is kept in the repository alongside it.
+show_image(Image(filename=str(FIG_DIR / "v4_pipeline.png"), width=760))
+print("Figure 8 - How the two experiments produce the four estimates compared in Table 13")
+''')
+
+PRIMARY_HEAD = md(r"""
 ### 4.1 Primary model comparison: random 75/25 holdout
 
 The split is created once with `random_state=42`. Only the 75% training partition participates in family, feature-set and hyperparameter selection. Each of the 12 family/feature-set combinations uses shuffled five-fold `KFold` and MAE scoring. The 25% holdout is accessed only after the global configuration and one configuration per family have been frozen.
@@ -66,7 +79,7 @@ primary_winner = primary_estimators[(primary_winner_name, primary_winner_feature
 selection_indices = set(primary_train_idx)
 assert selection_indices.isdisjoint(set(primary_holdout_idx))
 assert len(primary_df) == 731
-print("Table 4.1 - Primary CV selection (training partition only)")
+print("Table 6 - Primary CV selection (training partition only)")
 display(primary_cv_table.round({"cv_mean_MAE": 1, "cv_std_MAE": 1,
                                 "cv_mean_RMSE": 1, "cv_std_RMSE": 1}))
 print("Frozen primary configuration:", primary_winner_name, "|", primary_winner_features,
@@ -117,9 +130,9 @@ primary_summary = pd.DataFrame([{
     "MAE_pct_of_holdout_mean_demand": 100 * primary_mae_pct,
 }])
 primary_summary.to_csv(OUTPUT_DIR / "primary_summary_v4.csv", index=False)
-print("Table 4.2 - Frozen family configurations on the primary holdout")
+print("Table 7 - Frozen family configurations on the primary holdout")
 display(primary_holdout_table.round({"MAE": 1, "MSE": 1, "RMSE": 1, "R2": 3}))
-print("Table 4.3 - Final selected-model summary")
+print("Table 8 - Final selected-model summary")
 display(primary_summary.round(3))
 ''')
 
@@ -140,7 +153,7 @@ humidity_sensitivity = pd.DataFrame([
     {"treatment": "raw hum=0 retained", **metrics(primary_holdout.cnt, sens_pred)},
 ])
 humidity_sensitivity.to_csv(OUTPUT_DIR / "humidity_sensitivity_v4.csv", index=False)
-print("Table 4.4 - Humidity correction sensitivity on the frozen primary model")
+print("Table 9 - Humidity correction sensitivity on the frozen primary model")
 display(humidity_sensitivity.round({"MAE": 2, "MSE": 1, "RMSE": 2, "R2": 4}))
 ''')
 
@@ -173,7 +186,7 @@ for fold, (tr, va) in enumerate(temporal_cv.split(temporal_train), 1):
         "train_window": f"{temporal_train.dteday.iloc[tr[0]].date()} to {temporal_train.dteday.iloc[tr[-1]].date()}",
         "validation_window": f"{temporal_train.dteday.iloc[va[0]].date()} to {temporal_train.dteday.iloc[va[-1]].date()}",
     })
-print("Table 4.5 - TimeSeriesSplit folds within 2011")
+print("Table 10 - TimeSeriesSplit folds within 2011")
 display(pd.DataFrame(fold_table))
 
 temporal_rows, temporal_estimators = [], {}
@@ -211,7 +224,7 @@ temporal_winner = temporal_estimators[(temporal_winner_name, temporal_winner_fea
 # Selection records and fitted estimators contain 2011 only. 2012 has not been scored yet.
 assert temporal_train.yr.eq(0).all()
 assert not temporal_train.dteday.isin(temporal_test.dteday).any()
-print("Table 4.6 - Temporal CV selection (2011 only)")
+print("Table 11 - Temporal CV selection (2011 only)")
 display(temporal_cv_table.round({"cv_mean_MAE": 1, "cv_std_MAE": 1,
                                  "cv_mean_RMSE": 1, "cv_std_RMSE": 1}))
 print("Frozen temporal configuration:", temporal_winner_name, "|", temporal_winner_features,
@@ -252,7 +265,7 @@ rolling_metrics = temporal_holdout_table.loc[
     temporal_holdout_table.model.eq("Naive rolling-7")
 ].iloc[0]
 temporal_advantage = 1 - temporal_selected_metrics.MAE / rolling_metrics.MAE
-print("Table 4.7 - Frozen temporal candidates and baselines on 2012")
+print("Table 12 - Frozen temporal candidates and baselines on 2012")
 display(temporal_holdout_table.round({"MAE": 1, "MSE": 1, "RMSE": 1, "R2": 3}))
 ''')
 
@@ -264,5 +277,66 @@ In 2012, the frozen Linear Regression reached MAE 1,047.4, RMSE 1,204.0 and R-sq
 A rolling one-day-ahead test can update lags after every observed day. A forecast issued for all of 2012 on 1 January could not use those later counts and would be a different experiment with a longer horizon and recursively unavailable inputs.
 """)
 
-CELLS_B = [MODELLING_HEAD, PRIMARY_SELECT, PRIMARY_HOLDOUT, HUM_SENSITIVITY, PRIMARY_READ,
-           TEMPORAL_HEAD, TEMPORAL_SELECT, TEMPORAL_SCORE, TEMPORAL_READ]
+WORKED_HEAD = md(r"""
+### 4.3 Worked example
+
+Aggregate error statistics hide what a prediction actually is. Table 13 takes six holdout dates that both experiments scored, and shows the same day estimated four ways: by the frozen primary model, by the constant-mean reference it must beat, by the frozen temporal model, and by the rolling seven-day rule it must beat. Reading one row left to right is the shortest description of this entire report.
+""")
+
+WORKED_EXAMPLE = co(r'''
+# Table 13 - the same dates scored by every approach compared in this report.
+primary_view = primary_holdout.assign(
+    primary_prediction=primary_winner.predict(primary_holdout[primary_winner_columns]),
+    mean_reference=primary_train.cnt.mean(),
+)
+temporal_view = temporal_test[["dteday"]].assign(
+    temporal_prediction=temporal_predictions[temporal_winner_name],
+    rolling7_reference=temporal_predictions["Naive rolling-7"],
+)
+shared = primary_view.merge(temporal_view, on="dteday", how="inner").sort_values("dteday")
+
+# Six evenly spaced dates across the shared period, so the sample is reproducible.
+positions = np.linspace(0, len(shared) - 1, 6).round().astype(int)
+sample = shared.iloc[positions]
+
+season_lbl = {1: "winter", 2: "spring", 3: "summer", 4: "autumn"}
+weather_lbl = {1: "clear", 2: "mist", 3: "light rain/snow", 4: "severe"}
+worked = pd.DataFrame({
+    "date": sample.dteday.dt.strftime("%Y-%m-%d"),
+    "season": sample.season.map(season_lbl),
+    "day": sample.dteday.dt.strftime("%a"),
+    "weather": sample.weathersit.map(weather_lbl),
+    "temp_C": (sample.temp * 41).round(1),
+    "humidity_pct": (sample.hum * 100).round(0),
+    "ACTUAL": sample.cnt.astype(int),
+    f"{primary_winner_name} (primary)": sample.primary_prediction.round(0).astype(int),
+    "mean reference": sample.mean_reference.round(0).astype(int),
+    f"{temporal_winner_name} (temporal)": sample.temporal_prediction.round(0).astype(int),
+    "rolling-7 reference": sample.rolling7_reference.round(0).astype(int),
+}).reset_index(drop=True)
+worked.to_csv(OUTPUT_DIR / "worked_example_v4.csv", index=False)
+
+print("Table 13 - Six shared dates scored by every approach")
+print("Each row is one day: inputs on the left, the realised count, then four estimates of it.")
+display(worked)
+
+for label, column in [(f"{primary_winner_name} (primary)", "primary_prediction"),
+                      ("mean reference", "mean_reference"),
+                      (f"{temporal_winner_name} (temporal)", "temporal_prediction"),
+                      ("rolling-7 reference", "rolling7_reference")]:
+    print(f"  mean absolute error on these six dates, {label:34s}: "
+          f"{np.abs(sample.cnt - sample[column]).mean():7.0f}")
+print(f"\nShared dates available: {len(shared)} (2012 days that are also primary holdout days).")
+''')
+
+WORKED_READ = md(r"""
+Six days cannot establish anything, and the criteria in Section 5 are computed across the full 183-day holdout and the full 366-day 2012 period for that reason. What the rows do show is the shape of each approach.
+
+The primary model tracks the realised count in both directions, from a 2,368-rental January day to a 7,494-rental June day. The constant reference cannot move: it answers 4,575 to every question, which is why its error grows with distance from the annual mean. The temporal model follows the direction of change but sits below the realised count on the growth days, because it was fitted on a smaller 2011 system and has no mechanism for the expansion that followed. The rolling seven-day rule carries no model at all and stays close, because each new observed day re-anchors the next estimate.
+
+The primary and rolling-7 columns must not be read as a head-to-head contest. They belong to different comparisons in Table 1: the primary model was fitted on days drawn from both years, including days adjacent to these, and answers a conditional question; the rolling rule answers a forward one and needs no training. Their apparent similarity on six shared dates is a property of this sample, not a finding. The comparison that matters for each is in Tables 7 and 12 respectively.
+""")
+
+CELLS_B = [MODELLING_HEAD, PIPELINE_FIGURE, PRIMARY_HEAD, PRIMARY_SELECT, PRIMARY_HOLDOUT, HUM_SENSITIVITY, PRIMARY_READ,
+           TEMPORAL_HEAD, TEMPORAL_SELECT, TEMPORAL_SCORE, TEMPORAL_READ,
+           WORKED_HEAD, WORKED_EXAMPLE, WORKED_READ]
