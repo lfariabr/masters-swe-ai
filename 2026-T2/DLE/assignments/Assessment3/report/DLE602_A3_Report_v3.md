@@ -37,8 +37,10 @@ No result below is invented or illustrative.
 9. Appendix B - Project Delivery Record
 10. Appendix C - Reproduction Commands
 11. Appendix D - Future Expansion Roadmap
-12. Academic Integrity Declaration
-13. Statement of Acknowledgement
+12. Appendix E - Application Acceptance Evidence
+13. Appendix F - Independent Reproduction Record
+14. Academic Integrity Declaration
+15. Statement of Acknowledgement
 
 ---
 
@@ -231,8 +233,8 @@ GRU uses 10.31% fewer parameters than LSTM and obtains slightly higher full-test
 | Contributor | Status | Contribution / assigned validation | Evidence / hand-off |
 |---|---|---|---|
 | Luis Faria | Completed | Architecture, ABSA implementation, all training/evaluation integration, token evidence, six-model integration, Streamlit integration, Git LFS deployment, release packaging and report consolidation | ReviewPulse PRs #90, #92, #93, #97, #98-#102; academic commits `f3b7247`, `6d50ac0` |
-| Victor Dorantes | Assigned 29 Jul; evidence pending | Independently reproduce the constrained installation/tests, validate RQ1/RQ2 results and verify the cited publications | Required evidence: `validation-victor.md`, commands/results and a reviewed PR |
-| Juan Martinez | Assigned 29 Jul; evidence pending | Test all six Streamlit models, sample generation, evidence views, controlled errors and v2/v3 release workflow; capture report-ready screenshots | Required evidence: `validation-juan.md`, screenshots, commands/results and a reviewed PR |
+| Victor Dorantes | Assigned 29 Jul; evidence pending | Independently reproduce the constrained installation/tests, validate RQ1/RQ2 results and verify the cited publications | Required evidence: `validation-victor.md`, commands/results and a reviewed PR; summarised in Appendix F |
+| Juan Martinez | Assigned 29 Jul; evidence pending | Test all six Streamlit models, sample generation, evidence views, controlled errors and v2/v3 release workflow; capture report-ready screenshots | Required evidence: `validation-juan.md`, screenshots, commands/results and a reviewed PR; screenshots in Appendix E |
 
 *Table B2. Contribution status, assigned validation work and required traceable evidence.*
 
@@ -289,11 +291,57 @@ flowchart LR
 
 The model strategy would also change with scale. TF-IDF, LSTM, GRU and TextCNN remain useful controls for research and regression detection, while operational traffic would normally use one validated aspect-conditioned model, with a second model retained only when its cost, latency or diagnostic value justifies deployment. Cross-domain use in e-commerce, hospitality, software support or other sectors would require new representative data and domain-specific evaluation rather than assuming that Restaurants performance transfers unchanged.
 
-## 12. Academic Integrity Declaration
+## 12. Appendix E - Application Acceptance Evidence
+
+**Owner: Juan Martinez.** This appendix records what the running application actually shows a user. It complements the automated suite rather than repeating it: the tests confirm that evidence payloads align to visible offsets, while the screenshots below confirm that a marker opening the application sees the intended interface, the intended evidence views and controlled failure states rather than tracebacks.
+
+The full QA record, including the commands run, the environment and any defects raised, is kept as `docs/dle602-a3/validation-juan.md` in the ReviewPulse repository and merged through a reviewed pull request. This appendix carries only the images and their descriptions.
+
+| Figure | What it must show | Status |
+|---|---|---|
+| E1 | v3 page: a multi-aspect review, the aspect inputs and one result card per aspect with its predicted label and confidence | Pending |
+| E2 | ATAE-LSTM attention heatmap for one aspect, with the token shading visible over the original review text | Pending |
+| E3 | DistilBERT gradient-based attribution view for the same review, showing the evidence changes with the supplied aspect | Pending |
+| E4 | One controlled failure: either the missing-artifact message for the v3 DistilBERT or an input-validation message, with no stack trace | Pending |
+| E5 | Compare mode: the same review scored by more than one model side by side | Optional |
+
+*Table E1. Required application acceptance captures, their intent and current status.*
+
+Images are added to `report/assets/` and referenced with the same pattern already used for Figure 3:
+
+```markdown
+![Short alt text](assets/e1-v3-result-view.png)
+
+*Figure E1. One sentence stating what is shown, which model produced it and any caveat.*
+```
+
+Each figure needs a one-sentence caption naming the model that produced the view. Attention and attribution captions must repeat that the evidence is indicative, consistent with the RQ3 answer in Section 5. Rows that receive no evidence before submission are removed from this appendix rather than published as empty claims.
+
+## 13. Appendix F - Independent Reproduction Record
+
+**Owner: Victor Dorantes.** This appendix records a second person reproducing the reported results from the repository alone, on a machine that is not the development machine. Its purpose is to establish that the numbers in Section 5 are properties of the artifacts and instructions rather than of one local environment.
+
+The full record, including the exact commands, console output and machine specification, is kept as `docs/dle602-a3/validation-victor.md` in the ReviewPulse repository and merged through a reviewed pull request. This appendix carries the summary.
+
+| Check | Expected | Observed | Result |
+|---|---|---|---|
+| F1. Constrained installation | `pip install -r requirements.txt -c constraints-a3.txt` succeeds with no undocumented manual step | | Pending |
+| F2. Artifact retrieval | `git lfs pull` materialises all six artifacts; `git lfs ls-files -s` shows no unresolved pointer | | Pending |
+| F3. Test suite | Clean clone reports 357 passed and 9 skipped; the skips are the documented licensed-data absences | | Pending |
+| F4. Offline smoke | `scripts/smoke_absa.py` returns one prediction per aspect with no SemEval data present | | Pending |
+| F5. Dataset audit | Official retained test count 1,120; mixed-polarity subset 228 instances across 80 sentences | | Pending |
+| F6. Headline results | Table 2 accuracy and macro-F1 reproduce from the shipped artifacts | | Pending |
+| F7. Reference verification | Each cited work is checked against the original publication and supports the claim made | | Pending |
+
+*Table F1. Independent reproduction checks, expected values and outcomes.*
+
+Where an observed value differs from the expected value, the difference is recorded as observed and explained rather than adjusted. A reproduction that surfaces a genuine discrepancy is more valuable to this report than one that confirms every figure, and F3 in particular is expected to differ from the development machine by design: the six sample-provenance tests skip wherever the frozen evaluation predictions are absent. Rows that receive no evidence before submission are removed from this appendix rather than published as empty claims.
+
+## 14. Academic Integrity Declaration
 
 We declare that, except where referenced, the work we are submitting for this assessment task is our own work. We have read and are aware of the Academic Integrity Policy and Procedure of Torrens University Australia. We are also aware that we need to keep a copy of all submitted material and any drafts, and we agree to do so.
 
-## 13. Statement of Acknowledgement
+## 15. Statement of Acknowledgement
 
 We acknowledge that we used the following AI-assisted tools in the creation of this assessment:
 
