@@ -1326,12 +1326,12 @@ To complete this learning activity, follow these steps:
 ## Module 11 - The Perceptron
 
 ### TLDR
-**The perceptron** (Rosenblatt, 1958) is the **first artificial neural network** and the atom every deep net is built from.
+**The perceptron** (Rosenblatt, 1958) is the **first trainable artificial neural network** (McCulloch-Pitts, 1943, modelled a neuron; Rosenblatt's is the one that *learns*) and the atom every deep net is built from.
 - **Structure:** `inputs × weights + bias → weighted sum → activation → output`. The **bias** is the threshold the sum must clear (folded in as `w₀` with `x₀ = 1`).
 - **Learning rule (online):** after each misclassified example, `w ← w + η·(target − pred)·x`, where **η** = learning rate. Weights update **per example**, not as a batch.
-- **Perceptron Convergence Theorem:** if the data is **linearly separable**, the rule is **guaranteed** to find a separator; if not, it **never converges** (Iris versicolor/virginica; the **XOR** problem).
+- **Perceptron Convergence Theorem:** if the data is **linearly separable**, the rule is **guaranteed** to find a separator; if not, there is **no convergence guarantee** - the updates can cycle, so you cap the epochs (Iris versicolor/virginica; the **XOR** problem).
 - **The fix = depth + smooth activation:** the **XOR** limitation (Minsky-Papert, 1969) is solved by **stacking layers** and swapping the hard **step** function for a **differentiable** one (**sigmoid / tanh / ReLU / softmax**) so error can be **back-propagated** - the road to deep learning.
-- **Family:** perceptron ≈ **SVM** (max-margin) ≈ **logistic regression** (sigmoid → probability); all share the McCulloch-Pitts neuron. Its guarantee is **memorization, not generalization** - the perfect foil to **Module 10's PAC**.
+- **Family:** perceptron, **SVM** (max-margin; soft margin tolerates errors) and **logistic regression** (sigmoid → probability) all share the McCulloch-Pitts linear-neuron lineage, but *not* the same objective or guarantee. The perceptron's own result is **memorization, not generalization** - the perfect foil to **Module 10's PAC**.
 
 > Full per-resource breakdown: [module11_notes.md](module-11-the-perceptron/module11_notes.md) · Week 10 lecturer preview: [module10_notes-class.md](module-10-learning-theory-pac/module10_notes-class.md)
 
@@ -1352,7 +1352,7 @@ This Module introduces the perceptron. The perceptron algorithm was invented by 
 > *Status: ✅ Watched + Reviewed - see [module11_notes.md](module-11-the-perceptron/module11_notes.md)*
 
 #### 2. Fundamentals of Perceptrons and Neural Networks
-- Sharma, S. (2017, 9 September). What the hell is perceptron? [Web log post]. Retrieved from https://towardsdatascience.com/what-the-hell-is-perceptron-626217814f53
+- Bhardwaj, A. (2020, 11 October). What is a perceptron? Basics of neural networks [Web log post]. Towards Data Science. *(Resource on file; the original module brief listed Sharma, S. (2017), "What the hell is perceptron?", https://towardsdatascience.com/what-the-hell-is-perceptron-626217814f53 - swap back if you prefer the brief's source.)*
 
 *Resource Overview:*
 
@@ -1388,7 +1388,7 @@ This Module introduces the perceptron. The perceptron algorithm was invented by 
 > *Status: ✅ Watched + Reviewed - see [module11_notes.md](module-11-the-perceptron/module11_notes.md)*
 
 #### 6. Which Activation Function Should I Use?
-- Sharma, S. (2017, 7 September). Activation functions in neural networks [Web log post]. Retrieved from https://towardsdatascience.com/activation-functions-neural-networks-1cbd9f8d91d6
+- Lang, N. (2024, 12 December). Activation functions in neural networks: How to choose the right one [Web log post]. Towards Data Science. *(Resource on file; the original module brief listed Sharma, S. (2017), "Activation functions in neural networks", https://towardsdatascience.com/activation-functions-neural-networks-1cbd9f8d91d6 - swap back if you prefer the brief's source.)*
 
 *Resource Overview:*
 
