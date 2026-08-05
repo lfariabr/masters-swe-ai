@@ -1,0 +1,357 @@
+ Sorry, this week 10 and we are discussing structured probabilistic models for deep learning.
+ The central question is how can we represent uncertainty in relationships among variables
+ using graphs.
+ This is the central question for today's lecture and there are several things that we will
+ discuss, first is module 9 recap, probability distribution, Bayes theorem, you may be already
+ aware of the Bayes theorem, then structured probabilistic models, how they work, conditional
+ independence, directed and undirected models, how Bayesian networks in connection with deep
+ learning it has and we will close the session with some reflection and some critic activities.
+ Okay, I think I am presenting yes, I am presenting correct, but just bear with me, this is with
+ module 9 that we discussed with respect to the module 9.
+ So the primary question, first question is what is the representation in machine learning?
+ So representation in machine learning, we discussed last week about the representation
+ and its importance and we discussed several aspects of representation and we discussed
+ that representation is not a measure of training time, it is not a fixed prediction produced
+ by a model and it's not a deleting, but it is a way of describing or encoding data and
+ then what is the main purpose of representation learning?
+ It is to remove the need for model evaluation, to decrease the size of the raw dataset, to
+ manually select every feature, to automatically discover useful features from data, what is
+ the main purpose of representation learning, I think would be the correct answer, to automatically
+ discover useful features from data proof and then which model learns a compressed latent
+ representation through reconstruction, which model do you think is the correct one, A,
+ auto-encoders, yeah perfect, these are not the options, which statement about learned
+ representation is correct, learning representation, usefulness depends on the task and learning
+ objectives, yes, okay so do you have any question regarding assessment 3, do you have any specific
+ concern regarding assessment 3 or anything you would like to know, so I may have missed
+ the last class, so I don't think there was a discussion about this, actually that was
+ the last class, but I did not think there was a discussion about this, the marks for
+ assessment 2 has already been released, sorry marks for assessment 2, it has already been
+ released, no, no, no, okay, yeah I will mark in a day or two, so yeah I have not yet released
+ marks for assessment 2, and assessment 3 is basically is a group task, a report and source
+ code should be submitted and due by the end of week 12, Wednesday in total weightage is
+ 40%, so in assessment 2 your task was to present research project along with 5 to 7 minutes
+ of individual seminar and couple of groups presented during the class, others you should
+ have submitted recorded version, in assessment 3 you will implement that project based on
+ deep learning principles, you will produce a professional report detailing the entire
+ implementation process, including clear list of requirements or functionalities, steps
+ taken to address those requirements and the deep learning principles considered for the
+ implementation, the methods used and an analysis of the outcomes, so the aim of this assessment
+ is to gain implementation experience of a deep learning project concerning a life, real
+ life issue, so some of you, one of the projects was predicting, one of the project was related
+ to agriculture and the other project was presented based on sentiment analysis but with variable
+ probability because if there are sentences with positive and negative aspects, so you
+ are going to prepare 1500 word report and this report, you should write a report based
+ on your whole process, means what you plan, how the steps were taken because you should
+ have a data and you will process the data, what outcome you achieve, what output you
+ achieved and before that even what is the data set itself, describe the data set and
+ then what libraries you are using, bring those libraries in the report and how the data set
+ look like, you can put a header of the data set, maybe header from the Python into the
+ report and then what libraries you are using into it and which algorithms you have chosen
+ to make use of and then training part and then testing part and how data sets were divided
+ and in the testing phase you have to show results, clear results, aid them into the
+ report step by step, whatever the results you have achieved and what parameters were
+ used and if you have made some changes into the parameters what was the effect and finally
+ your conclusion and your overall opinion and learning.
+ So what I am trying to say, your report should not be just a linear straight forward some
+ commentary but there should be steps, step by step things, what you did, what you achieved,
+ what went wrong, how did you achieve the better results and what were the parameters so everything
+ that could tell the overall process of what you have done instead of general final outcome.
+ So it should be 1500 word report concise summary of the previous assessment you can present
+ your report using instead of writing format of the cover page state the word count I don't
+ mind if you add 1800 to 2000 words I don't mind but if you put everything step by step
+ along with the snapshots from the Python code with the results and it would be excellent.
+ Application instruction you can submit word file better you submit the word file as I
+ can add or PDF file whichever you prefer academic integrity declaration you have to sign and
+ assessment attributes a completeness and efficiency is one of the attributes we did 20% all of
+ the major requirements have been implemented the system functions properly exceptions are
+ handled very well coding convention and quality of code the code is exactly written there
+ are no more than two errors in the terms of the naming conventions I usually run the code
+ I usually try to download the code and check it's working and so on I believe at this stage
+ you are very mature and your responses regarding the code would be excellent but now the interpretation
+ of the results and the steps that you have taken the overall process that you will put
+ it into the report would be evaluated based on the integration of knowledge topic for
+ depth of discussion this will be based on your report and communication overall would
+ be that's what I am saying means a step by step things you have added into documentation
+ so these things are 30% is almost that how you are presenting your findings into the
+ report or how you are putting your findings into the report and the challenges you have
+ faced and results you achieved and why if the results were poor why it for poor justifications
+ are rational so yeah this is all about the assessment three and I'm happy to answer your
+ question if you have any or if you are feeling any difficulty or if you want to clarify anything
+ then feel free to ask okay with the assessment oh good thank you so now with respect to today's
+ topic for example we have to diagnose we have a medical diagnosis in problem under uncertainty
+ then suppose a patient has fewer cough and fatigue and the positive test result and history
+ of exposure and there are combination of issues like fever cough and fatigue and as it is
+ positive so you want to develop a probabilistic you want to predict estimate the disease based
+ on the probabilistic model so the same system symptoms may have several causes and not every
+ patient shows every symptom so test result may be imperfect and some relevant information
+ may be unknown so what is the main idea the main idea is basically you are trying to develop
+ a holistic probabilistic best model for GP then you have to understand how you represent
+ these relationships and uncertainties clearly because your model is working with the guidance
+ of doctor or your model can be working independently so they should not diagnose something that
+ is irrelevant so what could be the structure behind the variables so there could be one
+ possible structure could be exposure disease and symptoms expires already there and there
+ is a identified disease and that can reveal the symptoms there is a disease and it could
+ be identified by test result our test results can bring there is disease so variables are
+ not treated as an unrelated list so what we are trying to figure out we are trying to
+ figure out what is the relationship among disease and symptoms and then final conclusion
+ so for a structure based solution there are some ways to represent them and that one way
+ is graphical models that make the structure of uncertainty visible so why structure help
+ us because the structure can tell you the indirect directly and which variables depend
+ on others and how evidence changes probabilities and which relationships need to be modeled
+ because our not every relationship could be producing a significant result so in such
+ cases graphical model could be helpful and that structure probabilistic models are basically
+ the graphical models describe a probability distribution using a graph so the graphical
+ model is basically the sum of probability theory plus graph theory and these graphical
+ models are in fact a language for representing complete relationship among many variables
+ for example so what is the graphical model this graphical model what is in the graphical
+ model in graphical model there could be nodes there could be edges and there could be missing
+ edges are you using are we using graphical model anywhere in our daily life any idea
+ do you know where the graphical models are being used most often GPS maybe GPS is using
+ graphical models because graphical model is in fact used where for the relationship mostly
+ with how two things are related to each other maybe you check for the GPS I was thinking
+ about yes sorry I was thinking about for example if we want to go from point A to point B we
+ maybe it would be used to calculate faster route that was my thought at least such algorithms
+ are used for GPS but you can check on the graphical models yeah it's a good idea means
+ a relationship among the cities and destinations you are thinking in that way
+ I mean most of the time it would be for medical applications diagnosis as well that yeah medical
+ applications yes yeah I doubt is yeah so maybe if they have couple of symptoms what's the
+ relationship of the end diagnosis that kind of relationship yeah even Facebook may be
+ using this graphical models oh yeah what about like dating apps like tinder or bumble they
+ use this as well so maybe if you write down what kind of attributes your you prefer the
+ might sort of match it up with similar attributes being sick by others notice basically you
+ are a node and there can be too many other nodes B C D and based on your network they
+ can advise you which person you would like to connect because you are seeing the recommendations
+ on Facebook that this is the most relevant person with you this means common friends
+ based on that because oh you have you have a connection with someone and then someone
+ has a common common entities and then they are telling you you should connect with this
+ person and so on so yeah what about Netflix like the suggestions on Netflix yeah based
+ on history yeah they are the recommendation systems yes in recommendation systems so you
+ should also check how these recommendation systems may be related to the graph theory
+ because in those recommendation systems you are being recommended with different types
+ of movies or stories based on your prayer of history so yeah okay now in understanding
+ this probabilistic models and the basic probability I have added few slides on the basic probability
+ I think you may be already aware of these things like a conditional probability is what
+ is the probability of a given B means B is known is unknown so it is a joint probability
+ divided by the marginal probability for example we have one example joint probability of for
+ example X is a disease and Y is a symptom and we are finding disease with the symptoms
+ so joint probability of X means disease is 0 comma Y is 0 is 0.5 so this is the thing
+ joint probability but if you find conditional probability means what is the probability
+ that disease is X given conditions are Y conditions are symptoms sorry so for example if you say
+ what is the probability that disease is 0 means 0 means no toothache or no headache
+ whatever you say one means headache so what is the probability that there is no headache
+ given that Y symptom is one something like that no toothache if the symptom is one one
+ means test result may be something like that so if X is 0 given that Y is 1 so X is 0 given
+ that Y is 1 result is 0.1 that is the joint probability and marginal probability is the
+ whole thing so the probability of X means no toothache Y condition is output is one
+ is 0.25 means it is 25 percent time a 25 percent chance so this is basically a way of calculating
+ the probability I'm not going further into detail anything and I added this slide Bayes
+ theorem because it's basically based on Bayes and other experts so Bayes theorem is basically
+ worldwide renowned approach for computing the probability with with an additional belief
+ or additional information and Bayes theorem is highly admired in probabilistic models
+ because it's adding the evidence calculating the evidence adding the evidence and generating
+ or finding the or proofing the belief so for example what is the probability of A given
+ B and Bayes theorem says probability of B given A means and probability of A and probability
+ of B so what is the probability of disease given that it is a positive test so it means
+ if you want to check if this is a disease and given the positive test depends on how
+ common the disease is and how likely a positive result is when the disease is present and
+ how frequently positive results occur overall it means the evidence changes our belief about
+ an uncertain event so Bayes theorem is basically a theorem that is used to find out whatever
+ your belief is statistically means Bayesian statistics often refers to probabilities as
+ representing beliefs or opinions about a proposition kind of statement that can be true or false
+ for example the third world war will be in x year this is your belief or you can say
+ the next pandemic will be in C years or you are Duan this is your belief then you can
+ prove your belief by the help of Bayesian theorem with marginal probabilities and known
+ probability conditional probability results and it's not necessary you can prove it but
+ you can keep calculating the keep collecting the evidence and can prove it so for example
+ this is B of A this and this is A of B given A what is the B so if probability of puppy
+ given cute and probability of cute given puppy they both are not same so what does it mean
+ what is the probability of cute given puppy there is 95% probability that puppy is given
+ then it should be cute 95% but what is the probability of puppy given cute or maybe low
+ probability because if something is good not necessarily it should be puppies I hope it
+ makes sense and there is a chain rule of probability where you have to find random variables probabilities
+ with different conditions like probability of x1 x2 x3 x4 then it is calculated based
+ on some assumptions with a joint probability without assumptions this can become complicated
+ as the number of variables increases so graphical model is used to simplify the expression of
+ identifying which variables depend directly on another so this is how it works so probability
+ of x1 given x2 x3 x4 x2 on x3 x4 this is x3 to x4 and x4 to be honest I don't have proper
+ other slides that can explain how you are going to summarize in for random variables
+ computation of these probabilities are in it is to be honest beyond the scope of this
+ lecture as well this is just I have added few basic probability rules just as we can
+ move ahead now what is the conditional independence for example there is a disease like a fever
+ and there is a disease a cough so if we say they are conditionally independent means we
+ can say fever and cough may be related because both depend on the disease but once the disease
+ is known either fever or cough we may assume fever has no relationship with cough given
+ the disease means conditional independence means fever is conditionally independent of
+ cough given the disease this is some way of exclusively treating two things separately
+ okay any questions or anything you would like to clarify
+ is everyone okay okay take maybe five minutes break and then we will continue thanks
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ you
+ so let us discuss where does the structure help we need a structure because without the
+ structure of full joint distribution can require a very large number of probabilities but with
+ the structure we can represent conditional independence assumptions supporting inference
+ about unknown variables supporting efficient learning and this structure is producing representation
+ only direct dependencies and easier to inspect so these are few of the advantages but there
+ are two ways to represent the structure of graphical models one is directed graph and
+ other is undirected graphical models and in directed graphical models it uses arrows for
+ relationship like there was a disease and there was something so these arrows are used
+ often called Bayesian networks and in undirected graphical models there are edges there is
+ no arrows and often called Markov random fields they have a conditional dependencies but they
+ have a mutual compatibility or association the two nodes and can represent directional
+ processes can be useful when direction is unclear or unnecessary undirected graph and
+ must not contain directed cycles may contain cycles means there is a neighboring mutual
+ understanding or mutual association it uses conditional probabilities because it has a
+ Bayesian network and commonly use potential functions so which model should be used it
+ depends upon the conditions and assumptions that you are making use of so a Bayesian network
+ is a directed graphical model it contains a directed cyclic graph for example disease
+ is a fever and disease has been identified by a test result or requires a test result
+ means favor fever or any other thing that requires a test result so the arrow shows
+ how the probability distribution is factorized so an arrow represent the probabilistic dependency
+ our disease can be identified by a test result so it does not automatically prove a cause
+ for example disease is a fever and disease a requires a test result so the joint distribution
+ becomes probability of disease whereas the probability of fever given disease and probability
+ of test result given disease so instead of modeling every combination separately the
+ network uses some other local distributions and try to identify the actual cause and effect
+ so what is the cause and what is the effect so there is maybe a cause maybe like a viral
+ or something and disease can be in effect that they have a fever and it is identified
+ by test result so you have to have an inference means identifying the effect of based on the
+ cause means you are trying to determine the evidence to estimate unknown variables unknown
+ variable is whether it is a disease or not based on some cause and it can be verified
+ by test results so probability of disease given symptoms or probability of failed component
+ given sensor readings so failed component is a effect based on the cause that is sorry
+ yeah there was a effect related to the cause and it was identified proof based on the evidence
+ of sensor reading and probably of world label given surrounding words and probably of fraud
+ given transition behavior so there was an effect of fraud based on some issues and then
+ it was identified by a behavior so observed evidence update probabilities and estimate
+ unknown variables so inference in a Bayesian network is basically talking about what we
+ have observed what should we now believe so Bayesian network is very good in proving your
+ belief based on further evidence as much as evidences are added Bayesian network will
+ keep working and will sum up all the new evidences and update the probability in the result whereas
+ undirected graph it doesn't produce any direct relationship it has edges like this one so
+ it connects related variable without specifying a direction it says there is a relationship
+ between cause and effect but does not necessarily identify what is what is that relationship
+ so relationships are mutual causal direction is not required neighboring variables should
+ have compatible values so the problem contains special or sequential relationships for example
+ neighboring image regions may have a relationship but it would not be telling explicitly connected
+ words or labels they could have a relationship social networks they could have a relationship
+ for example if I am getting a feed for many of my colleagues who are working in a same
+ institute or I have graduated from some in university then it would be giving me a right
+ of vision that you should connect with this person are based on my connections like we
+ have a mutual five six connections and it will be giving me that this person are based
+ on my post if it could be giving that this person could be relevant you should also be
+ receiving such kind of notifications isn't it in molecular interactions so this is undirected
+ graphical models and the probabilities in undirected models is determined by this relationship
+ so probability of x is equal to one upon z that is z normalizes the scores and sum of
+ phi of k and x of k this is basically phi of k is measures compatibility among related
+ variables and x is your input so the product combined local relationship so higher potential
+ indicates a more compatible configuration so directed graph is using probability but
+ this undirected graph model is using potential functions to determine the relationship among
+ different variables now this is one learning activity I would appreciate if you could contribute
+ in which activity we should use directed graph and which activity we should use undirected
+ graph so you can just say one for example undirected or directed graph two undirected
+ or directed graph three same so can you please contribute in the chat which activity do you
+ think should be directed graph and which activity should be undirected graph for example undirected
+ or directed you can just write in the chat to undirected or directed undirected or directed
+ undirected or directed directed undirected or directed just choose one option for each
+ activity and just write into the chat and then we can discuss is this okay I take maybe
+ few minutes you can write your response and then we can discuss
+ you
+ which one is correct Lewis Harr no mayor disease influencing symptoms
+ symptoms this is a directed Lewis because it has a relationship we have been discussing
+ under Bayesian network this in disease influencing symptoms are you listening Lewis yeah I got
+ a little bit confused with that one thinking that maybe one disease or multiple disease
+ could influence symptoms I don't know that that was the tricky one for me no no that's
+ okay that's excellent that's absolutely fine because disease has a relationship with symptoms
+ it can be determined by symptoms but rain influencing road condition has also a relationship
+ so it could be a directed compatibility among neighboring image pixels is undirected exactly
+ it's undirected relationship among connected people are undirected yes until you prove
+ it a sequence of neighboring word levels is undirected correct component failure influencing
+ warning signals is directed because it has a relationship it looks like yeah excellent
+ so it means you have understood the lecture very well and everything is going perfectly
+ fine isn't it yes looking at that because I did a bit of reading that's 16.2 so based
+ on that I was able to get a bit of gist on what could be the directed and the undirected
+ one which characteristics might may influence the outcome okay excellent excellent here
+ excellent very good because I thought this exercise would be very engaging and I loved
+ it your responses yeah so
+ so structure prediction how classification and structure prediction are different there's
+ a one basic difference in classification you have one label for each and everything x relationship
+ with y like email is spam or not spam whereas structure prediction can have a several related
+ outputs sorry I was trying to type at the last moment I just edited this equation so
+ anyway I will make it clear but this is clear y1 y2 dash dash dash yn so it was basically
+ y1 y2 dash dash yn means there could be a possibly too many labels because it is a sentence
+ label for every word whereas classification is just a one one relation it could be multiple
+ but it could be at a time one but here it could be at a time many so output level must
+ be considered together because they influence one another so structured prediction like
+ part of speech tagging there could be one grammatical label per word whereas speech
+ recognition there could be an ordered sequence of words handwritten recognition an ordered
+ sequence of characters so we are just trying to discuss this part in ordered output sentence
+ like machine translation biological sequence analyzers could have a label for each sequence
+ position so the output is not a single independent prediction it has an internal structure like
+ consider we discussed this part in nlp where when we discussed natural language processing
+ like consider the sentence time flies like an arrow so time is a down flies is a verb
+ like is a proposition and is a determinant arrow is a noun so appropriate label for each
+ word depends partly on neighboring words and levels means you cannot be just adding up
+ one level there could be as multiple levels and a structure prediction model's relationship
+ among the output levels so and then can predict the next word and uh what could be the next
+ result uh connecting this was observed in latent variables so observed variables are
+ like image pixels words and latent variables are object parts like hidden topics disease
+ state uh speaker intention so there is again both relationship between observed data and
+ output based on the latent structure
+ I was adding some uh activities this is here yeah
+ so what are the advantages and challenges when we are presenting structure based models
+ that could be direct graphs and uh indirect graphs so they can clearly represent relationship
+ challenges graph structure may be difficult to design and handles uncertainty it could
+ be incorrect assumptions can mislead the model it uses conditional independence the primary
+ question is are we using uh graph based models for generative AI better we discuss the import
+ this direct question are we are graphical models used in the development of deep learning
+ based applications.
+ uh.
+ and are we using them for uh yeah we have already responded generative AI based development
+ or applications I was just curious to know uh how you are seeing this relevance uh relevance
+ of these applications uh relevance of this topic
+ I think that uh in my experience given that the way that uh they're being able to uh consistently
+ enhance the experience on gathering context it has been very positive when I compare two
+ years ago to last year to this year the change has been very different and um I could see
+ a very clear uh evolution pattern on how they're able to recognize patterns and act on those
+ patterns of context excellent excellent thank you uh I have uh some activities uh based
+ on today's discussion uh you may consider your assessment three and identify the main
+ observed variables uh any possible latent variables hidden variables a relationship
+ among variables whether the relationships are directed or undirected like an agriculture
+ project that was shared by the candidate or your sentiment analysis uh our output to be
+ predicted whether the output has an internal structure how a graphical model could support
+ the neural network and one modeling assumption that would require justification you can consider
+ these uh uh this design uh uh activity you can consider it and you can maybe respond
+ on discussion forum or you can solve or answer it at your own time but I have added just
+ to give you a flavor that would structured probabilistic modeling add genuine value to
+ your project yes or no it's not necessary but it could be so you just have to check
+ what is the value of probabilistic more structure probabilistic modeling in your project the
+ other thing that I have added is a generative AI critical uh critical analysis of generative
+ AI response so you can add a design a graphical model for a medical diagnosis system using
+ disease symptoms patient history and test result and you have to add the disease symptoms
+ and patient disease are just write this one and then evaluate the proposed model based
+ on these questions so this activity is again you have to relate what you have learned today
+ and how this generative AI took this response me and this activity I would uh like everyone
+ should respond on discussion forum you can choose one question or all and why do both
+ directed and direct graphical models exist how can a structure called as modest support
+ deep learning select a real world problem and explain how a graphical model could represent
+ its variables and relationships it could be your own assessment three project or anything
+ else so just write in your own words uh the response of one or all the questions I can
+ maybe I can get this over here this is all about today's lecture and what relationship
+ does your model need to understand not merely predict uh maybe in your uh Lewis for example
+ in your project the main thing was understanding the relationship between a positive and negative
+ attributes or maybe the words so you can describe based on your own understanding you know I
+ would appreciate if you could write a reflection on discussion forum do you have any further
+ questions or anything you would like to know oh good thank you for the lecture
+ and are you going okay with the group project I mean any issues or anything you would like
+ to report for the group project or any difficulties
+ no I'm on the group who is one and victor and on our case we are progressing well we
+ have been working on the code and on the report and I we have divided well the rows I think
+ so on our on our case is progressing solid.

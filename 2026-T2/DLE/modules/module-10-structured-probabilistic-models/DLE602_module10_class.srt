@@ -1,0 +1,1428 @@
+1
+00:00:00,000 --> 00:00:26,440
+ Sorry, this week 10 and we are discussing structured probabilistic models for deep learning.
+
+2
+00:00:26,440 --> 00:00:34,960
+ The central question is how can we represent uncertainty in relationships among variables
+
+3
+00:00:34,960 --> 00:00:38,640
+ using graphs.
+
+4
+00:00:38,640 --> 00:00:46,360
+ This is the central question for today's lecture and there are several things that we will
+
+5
+00:00:46,360 --> 00:00:57,080
+ discuss, first is module 9 recap, probability distribution, Bayes theorem, you may be already
+
+6
+00:00:57,080 --> 00:01:09,000
+ aware of the Bayes theorem, then structured probabilistic models, how they work, conditional
+
+7
+00:01:09,000 --> 00:01:20,680
+ independence, directed and undirected models, how Bayesian networks in connection with deep
+
+8
+00:01:20,680 --> 00:01:41,200
+ learning it has and we will close the session with some reflection and some critic activities.
+
+9
+00:01:50,680 --> 00:02:15,360
+ Okay, I think I am presenting yes, I am presenting correct, but just bear with me, this is with
+
+10
+00:02:15,360 --> 00:02:24,360
+ module 9 that we discussed with respect to the module 9.
+
+11
+00:02:24,360 --> 00:02:38,320
+ So the primary question, first question is what is the representation in machine learning?
+
+12
+00:02:38,320 --> 00:02:44,340
+ So representation in machine learning, we discussed last week about the representation
+
+13
+00:02:44,340 --> 00:02:52,820
+ and its importance and we discussed several aspects of representation and we discussed
+
+14
+00:02:52,820 --> 00:02:59,920
+ that representation is not a measure of training time, it is not a fixed prediction produced
+
+15
+00:02:59,920 --> 00:03:12,840
+ by a model and it's not a deleting, but it is a way of describing or encoding data and
+
+16
+00:03:12,840 --> 00:03:19,920
+ then what is the main purpose of representation learning?
+
+17
+00:03:19,920 --> 00:03:29,200
+ It is to remove the need for model evaluation, to decrease the size of the raw dataset, to
+
+18
+00:03:29,200 --> 00:03:36,740
+ manually select every feature, to automatically discover useful features from data, what is
+
+19
+00:03:36,740 --> 00:03:54,960
+ the main purpose of representation learning, I think would be the correct answer, to automatically
+
+20
+00:03:54,960 --> 00:04:03,300
+ discover useful features from data proof and then which model learns a compressed latent
+
+21
+00:04:03,300 --> 00:04:12,320
+ representation through reconstruction, which model do you think is the correct one, A,
+
+22
+00:04:12,320 --> 00:04:23,920
+ auto-encoders, yeah perfect, these are not the options, which statement about learned
+
+23
+00:04:23,920 --> 00:04:37,000
+ representation is correct, learning representation, usefulness depends on the task and learning
+
+24
+00:04:37,000 --> 00:04:51,340
+ objectives, yes, okay so do you have any question regarding assessment 3, do you have any specific
+
+25
+00:04:51,340 --> 00:05:00,340
+ concern regarding assessment 3 or anything you would like to know, so I may have missed
+
+26
+00:05:00,340 --> 00:05:04,380
+ the last class, so I don't think there was a discussion about this, actually that was
+
+27
+00:05:04,380 --> 00:05:08,500
+ the last class, but I did not think there was a discussion about this, the marks for
+
+28
+00:05:08,500 --> 00:05:14,940
+ assessment 2 has already been released, sorry marks for assessment 2, it has already been
+
+29
+00:05:14,940 --> 00:05:27,260
+ released, no, no, no, okay, yeah I will mark in a day or two, so yeah I have not yet released
+
+30
+00:05:27,260 --> 00:05:49,820
+ marks for assessment 2, and assessment 3 is basically is a group task, a report and source
+
+31
+00:05:49,820 --> 00:06:01,820
+ code should be submitted and due by the end of week 12, Wednesday in total weightage is
+
+32
+00:06:01,820 --> 00:06:16,120
+ 40%, so in assessment 2 your task was to present research project along with 5 to 7 minutes
+
+33
+00:06:16,120 --> 00:06:22,780
+ of individual seminar and couple of groups presented during the class, others you should
+
+34
+00:06:22,780 --> 00:06:32,460
+ have submitted recorded version, in assessment 3 you will implement that project based on
+
+35
+00:06:32,460 --> 00:06:40,380
+ deep learning principles, you will produce a professional report detailing the entire
+
+36
+00:06:40,380 --> 00:06:48,440
+ implementation process, including clear list of requirements or functionalities, steps
+
+37
+00:06:48,440 --> 00:06:54,860
+ taken to address those requirements and the deep learning principles considered for the
+
+38
+00:06:54,860 --> 00:07:05,500
+ implementation, the methods used and an analysis of the outcomes, so the aim of this assessment
+
+39
+00:07:05,500 --> 00:07:11,460
+ is to gain implementation experience of a deep learning project concerning a life, real
+
+40
+00:07:11,460 --> 00:07:22,260
+ life issue, so some of you, one of the projects was predicting, one of the project was related
+
+41
+00:07:22,260 --> 00:07:36,260
+ to agriculture and the other project was presented based on sentiment analysis but with variable
+
+42
+00:07:36,260 --> 00:07:45,740
+ probability because if there are sentences with positive and negative aspects, so you
+
+43
+00:07:45,740 --> 00:07:59,160
+ are going to prepare 1500 word report and this report, you should write a report based
+
+44
+00:07:59,160 --> 00:08:10,940
+ on your whole process, means what you plan, how the steps were taken because you should
+
+45
+00:08:10,940 --> 00:08:18,460
+ have a data and you will process the data, what outcome you achieve, what output you
+
+46
+00:08:18,460 --> 00:08:27,940
+ achieved and before that even what is the data set itself, describe the data set and
+
+47
+00:08:27,940 --> 00:08:37,460
+ then what libraries you are using, bring those libraries in the report and how the data set
+
+48
+00:08:37,460 --> 00:08:48,660
+ look like, you can put a header of the data set, maybe header from the Python into the
+
+49
+00:08:48,660 --> 00:09:03,700
+ report and then what libraries you are using into it and which algorithms you have chosen
+
+50
+00:09:03,700 --> 00:09:13,660
+ to make use of and then training part and then testing part and how data sets were divided
+
+51
+00:09:13,660 --> 00:09:20,040
+ and in the testing phase you have to show results, clear results, aid them into the
+
+52
+00:09:20,040 --> 00:09:28,260
+ report step by step, whatever the results you have achieved and what parameters were
+
+53
+00:09:28,260 --> 00:09:35,620
+ used and if you have made some changes into the parameters what was the effect and finally
+
+54
+00:09:35,620 --> 00:09:44,100
+ your conclusion and your overall opinion and learning.
+
+55
+00:09:44,100 --> 00:09:49,700
+ So what I am trying to say, your report should not be just a linear straight forward some
+
+56
+00:09:49,700 --> 00:09:57,140
+ commentary but there should be steps, step by step things, what you did, what you achieved,
+
+57
+00:09:57,140 --> 00:10:03,140
+ what went wrong, how did you achieve the better results and what were the parameters so everything
+
+58
+00:10:03,140 --> 00:10:13,920
+ that could tell the overall process of what you have done instead of general final outcome.
+
+59
+00:10:13,920 --> 00:10:24,660
+ So it should be 1500 word report concise summary of the previous assessment you can present
+
+60
+00:10:24,660 --> 00:10:30,900
+ your report using instead of writing format of the cover page state the word count I don't
+
+61
+00:10:30,900 --> 00:10:40,140
+ mind if you add 1800 to 2000 words I don't mind but if you put everything step by step
+
+62
+00:10:40,140 --> 00:10:49,380
+ along with the snapshots from the Python code with the results and it would be excellent.
+
+63
+00:10:49,380 --> 00:10:54,740
+ Application instruction you can submit word file better you submit the word file as I
+
+64
+00:10:54,740 --> 00:11:07,060
+ can add or PDF file whichever you prefer academic integrity declaration you have to sign and
+
+65
+00:11:07,060 --> 00:11:14,620
+ assessment attributes a completeness and efficiency is one of the attributes we did 20% all of
+
+66
+00:11:14,620 --> 00:11:22,100
+ the major requirements have been implemented the system functions properly exceptions are
+
+67
+00:11:22,100 --> 00:11:29,460
+ handled very well coding convention and quality of code the code is exactly written there
+
+68
+00:11:29,460 --> 00:11:35,900
+ are no more than two errors in the terms of the naming conventions I usually run the code
+
+69
+00:11:35,900 --> 00:11:46,460
+ I usually try to download the code and check it's working and so on I believe at this stage
+
+70
+00:11:46,460 --> 00:11:53,660
+ you are very mature and your responses regarding the code would be excellent but now the interpretation
+
+71
+00:11:53,660 --> 00:12:00,180
+ of the results and the steps that you have taken the overall process that you will put
+
+72
+00:12:00,180 --> 00:12:06,420
+ it into the report would be evaluated based on the integration of knowledge topic for
+
+73
+00:12:06,420 --> 00:12:13,420
+ depth of discussion this will be based on your report and communication overall would
+
+74
+00:12:13,420 --> 00:12:19,460
+ be that's what I am saying means a step by step things you have added into documentation
+
+75
+00:12:19,460 --> 00:12:28,540
+ so these things are 30% is almost that how you are presenting your findings into the
+
+76
+00:12:28,540 --> 00:12:33,580
+ report or how you are putting your findings into the report and the challenges you have
+
+77
+00:12:33,580 --> 00:12:42,100
+ faced and results you achieved and why if the results were poor why it for poor justifications
+
+78
+00:12:42,100 --> 00:12:51,180
+ are rational so yeah this is all about the assessment three and I'm happy to answer your
+
+79
+00:12:51,180 --> 00:12:57,580
+ question if you have any or if you are feeling any difficulty or if you want to clarify anything
+
+80
+00:12:57,580 --> 00:13:20,500
+ then feel free to ask okay with the assessment oh good thank you so now with respect to today's
+
+81
+00:13:20,500 --> 00:13:34,580
+ topic for example we have to diagnose we have a medical diagnosis in problem under uncertainty
+
+82
+00:13:34,580 --> 00:13:48,540
+ then suppose a patient has fewer cough and fatigue and the positive test result and history
+
+83
+00:13:48,540 --> 00:13:59,380
+ of exposure and there are combination of issues like fever cough and fatigue and as it is
+
+84
+00:13:59,380 --> 00:14:08,740
+ positive so you want to develop a probabilistic you want to predict estimate the disease based
+
+85
+00:14:08,740 --> 00:14:17,340
+ on the probabilistic model so the same system symptoms may have several causes and not every
+
+86
+00:14:17,340 --> 00:14:24,500
+ patient shows every symptom so test result may be imperfect and some relevant information
+
+87
+00:14:24,500 --> 00:14:31,940
+ may be unknown so what is the main idea the main idea is basically you are trying to develop
+
+88
+00:14:31,940 --> 00:14:45,420
+ a holistic probabilistic best model for GP then you have to understand how you represent
+
+89
+00:14:45,420 --> 00:14:52,900
+ these relationships and uncertainties clearly because your model is working with the guidance
+
+90
+00:14:52,900 --> 00:15:02,660
+ of doctor or your model can be working independently so they should not diagnose something that
+
+91
+00:15:02,660 --> 00:15:13,260
+ is irrelevant so what could be the structure behind the variables so there could be one
+
+92
+00:15:13,260 --> 00:15:21,700
+ possible structure could be exposure disease and symptoms expires already there and there
+
+93
+00:15:21,700 --> 00:15:31,140
+ is a identified disease and that can reveal the symptoms there is a disease and it could
+
+94
+00:15:31,140 --> 00:15:40,060
+ be identified by test result our test results can bring there is disease so variables are
+
+95
+00:15:40,060 --> 00:15:48,020
+ not treated as an unrelated list so what we are trying to figure out we are trying to
+
+96
+00:15:48,020 --> 00:15:56,700
+ figure out what is the relationship among disease and symptoms and then final conclusion
+
+97
+00:15:56,700 --> 00:16:11,060
+ so for a structure based solution there are some ways to represent them and that one way
+
+98
+00:16:11,060 --> 00:16:20,500
+ is graphical models that make the structure of uncertainty visible so why structure help
+
+99
+00:16:20,500 --> 00:16:27,380
+ us because the structure can tell you the indirect directly and which variables depend
+
+100
+00:16:27,380 --> 00:16:37,220
+ on others and how evidence changes probabilities and which relationships need to be modeled
+
+101
+00:16:37,220 --> 00:16:45,500
+ because our not every relationship could be producing a significant result so in such
+
+102
+00:16:45,500 --> 00:16:58,500
+ cases graphical model could be helpful and that structure probabilistic models are basically
+
+103
+00:16:58,500 --> 00:17:09,380
+ the graphical models describe a probability distribution using a graph so the graphical
+
+104
+00:17:09,380 --> 00:17:19,660
+ model is basically the sum of probability theory plus graph theory and these graphical
+
+105
+00:17:19,660 --> 00:17:27,500
+ models are in fact a language for representing complete relationship among many variables
+
+106
+00:17:27,500 --> 00:17:40,940
+ for example so what is the graphical model this graphical model what is in the graphical
+
+107
+00:17:40,940 --> 00:17:47,540
+ model in graphical model there could be nodes there could be edges and there could be missing
+
+108
+00:17:47,540 --> 00:18:02,340
+ edges are you using are we using graphical model anywhere in our daily life any idea
+
+109
+00:18:02,340 --> 00:18:30,500
+ do you know where the graphical models are being used most often GPS maybe GPS is using
+
+110
+00:18:30,500 --> 00:18:39,780
+ graphical models because graphical model is in fact used where for the relationship mostly
+
+111
+00:18:39,780 --> 00:18:49,180
+ with how two things are related to each other maybe you check for the GPS I was thinking
+
+112
+00:18:49,180 --> 00:19:00,380
+ about yes sorry I was thinking about for example if we want to go from point A to point B we
+
+113
+00:19:00,380 --> 00:19:08,140
+ maybe it would be used to calculate faster route that was my thought at least such algorithms
+
+114
+00:19:08,140 --> 00:19:22,140
+ are used for GPS but you can check on the graphical models yeah it's a good idea means
+
+115
+00:19:22,140 --> 00:19:33,900
+ a relationship among the cities and destinations you are thinking in that way
+
+116
+00:19:33,900 --> 00:19:40,900
+ I mean most of the time it would be for medical applications diagnosis as well that yeah medical
+
+117
+00:19:40,900 --> 00:19:50,020
+ applications yes yeah I doubt is yeah so maybe if they have couple of symptoms what's the
+
+118
+00:19:50,020 --> 00:19:59,060
+ relationship of the end diagnosis that kind of relationship yeah even Facebook may be
+
+119
+00:19:59,060 --> 00:20:05,780
+ using this graphical models oh yeah what about like dating apps like tinder or bumble they
+
+120
+00:20:05,780 --> 00:20:13,340
+ use this as well so maybe if you write down what kind of attributes your you prefer the
+
+121
+00:20:13,340 --> 00:20:22,760
+ might sort of match it up with similar attributes being sick by others notice basically you
+
+122
+00:20:22,760 --> 00:20:34,460
+ are a node and there can be too many other nodes B C D and based on your network they
+
+123
+00:20:34,460 --> 00:20:41,240
+ can advise you which person you would like to connect because you are seeing the recommendations
+
+124
+00:20:41,240 --> 00:20:48,460
+ on Facebook that this is the most relevant person with you this means common friends
+
+125
+00:20:48,460 --> 00:20:56,020
+ based on that because oh you have you have a connection with someone and then someone
+
+126
+00:20:56,020 --> 00:21:01,480
+ has a common common entities and then they are telling you you should connect with this
+
+127
+00:21:01,480 --> 00:21:10,140
+ person and so on so yeah what about Netflix like the suggestions on Netflix yeah based
+
+128
+00:21:10,140 --> 00:21:20,860
+ on history yeah they are the recommendation systems yes in recommendation systems so you
+
+129
+00:21:20,860 --> 00:21:26,540
+ should also check how these recommendation systems may be related to the graph theory
+
+130
+00:21:26,540 --> 00:21:36,820
+ because in those recommendation systems you are being recommended with different types
+
+131
+00:21:36,820 --> 00:21:53,960
+ of movies or stories based on your prayer of history so yeah okay now in understanding
+
+132
+00:21:53,960 --> 00:22:00,820
+ this probabilistic models and the basic probability I have added few slides on the basic probability
+
+133
+00:22:00,820 --> 00:22:07,540
+ I think you may be already aware of these things like a conditional probability is what
+
+134
+00:22:07,540 --> 00:22:17,300
+ is the probability of a given B means B is known is unknown so it is a joint probability
+
+135
+00:22:17,300 --> 00:22:30,140
+ divided by the marginal probability for example we have one example joint probability of for
+
+136
+00:22:30,140 --> 00:22:43,380
+ example X is a disease and Y is a symptom and we are finding disease with the symptoms
+
+137
+00:22:43,380 --> 00:22:54,540
+ so joint probability of X means disease is 0 comma Y is 0 is 0.5 so this is the thing
+
+138
+00:22:54,540 --> 00:23:01,900
+ joint probability but if you find conditional probability means what is the probability
+
+139
+00:23:01,900 --> 00:23:11,780
+ that disease is X given conditions are Y conditions are symptoms sorry so for example if you say
+
+140
+00:23:11,780 --> 00:23:21,660
+ what is the probability that disease is 0 means 0 means no toothache or no headache
+
+141
+00:23:21,660 --> 00:23:28,540
+ whatever you say one means headache so what is the probability that there is no headache
+
+142
+00:23:28,540 --> 00:23:37,080
+ given that Y symptom is one something like that no toothache if the symptom is one one
+
+143
+00:23:37,080 --> 00:23:46,660
+ means test result may be something like that so if X is 0 given that Y is 1 so X is 0 given
+
+144
+00:23:46,660 --> 00:23:55,860
+ that Y is 1 result is 0.1 that is the joint probability and marginal probability is the
+
+145
+00:23:55,860 --> 00:24:06,780
+ whole thing so the probability of X means no toothache Y condition is output is one
+
+146
+00:24:06,780 --> 00:24:15,540
+ is 0.25 means it is 25 percent time a 25 percent chance so this is basically a way of calculating
+
+147
+00:24:15,540 --> 00:24:22,660
+ the probability I'm not going further into detail anything and I added this slide Bayes
+
+148
+00:24:22,660 --> 00:24:29,460
+ theorem because it's basically based on Bayes and other experts so Bayes theorem is basically
+
+149
+00:24:29,460 --> 00:24:40,020
+ worldwide renowned approach for computing the probability with with an additional belief
+
+150
+00:24:40,020 --> 00:24:48,180
+ or additional information and Bayes theorem is highly admired in probabilistic models
+
+151
+00:24:48,180 --> 00:24:54,220
+ because it's adding the evidence calculating the evidence adding the evidence and generating
+
+152
+00:24:54,220 --> 00:25:01,580
+ or finding the or proofing the belief so for example what is the probability of A given
+
+153
+00:25:01,580 --> 00:25:10,100
+ B and Bayes theorem says probability of B given A means and probability of A and probability
+
+154
+00:25:10,100 --> 00:25:20,180
+ of B so what is the probability of disease given that it is a positive test so it means
+
+155
+00:25:20,180 --> 00:25:25,300
+ if you want to check if this is a disease and given the positive test depends on how
+
+156
+00:25:25,300 --> 00:25:31,660
+ common the disease is and how likely a positive result is when the disease is present and
+
+157
+00:25:31,660 --> 00:25:41,660
+ how frequently positive results occur overall it means the evidence changes our belief about
+
+158
+00:25:41,660 --> 00:25:57,700
+ an uncertain event so Bayes theorem is basically a theorem that is used to find out whatever
+
+159
+00:25:57,700 --> 00:26:05,860
+ your belief is statistically means Bayesian statistics often refers to probabilities as
+
+160
+00:26:05,860 --> 00:26:12,200
+ representing beliefs or opinions about a proposition kind of statement that can be true or false
+
+161
+00:26:12,200 --> 00:26:24,580
+ for example the third world war will be in x year this is your belief or you can say
+
+162
+00:26:24,580 --> 00:26:35,380
+ the next pandemic will be in C years or you are Duan this is your belief then you can
+
+163
+00:26:35,380 --> 00:26:46,180
+ prove your belief by the help of Bayesian theorem with marginal probabilities and known
+
+164
+00:26:46,180 --> 00:26:51,300
+ probability conditional probability results and it's not necessary you can prove it but
+
+165
+00:26:51,300 --> 00:27:03,260
+ you can keep calculating the keep collecting the evidence and can prove it so for example
+
+166
+00:27:03,260 --> 00:27:12,380
+ this is B of A this and this is A of B given A what is the B so if probability of puppy
+
+167
+00:27:12,380 --> 00:27:20,860
+ given cute and probability of cute given puppy they both are not same so what does it mean
+
+168
+00:27:20,860 --> 00:27:29,580
+ what is the probability of cute given puppy there is 95% probability that puppy is given
+
+169
+00:27:29,580 --> 00:27:37,620
+ then it should be cute 95% but what is the probability of puppy given cute or maybe low
+
+170
+00:27:37,620 --> 00:27:44,780
+ probability because if something is good not necessarily it should be puppies I hope it
+
+171
+00:27:44,780 --> 00:27:55,300
+ makes sense and there is a chain rule of probability where you have to find random variables probabilities
+
+172
+00:27:55,300 --> 00:28:05,320
+ with different conditions like probability of x1 x2 x3 x4 then it is calculated based
+
+173
+00:28:05,320 --> 00:28:13,660
+ on some assumptions with a joint probability without assumptions this can become complicated
+
+174
+00:28:13,660 --> 00:28:20,300
+ as the number of variables increases so graphical model is used to simplify the expression of
+
+175
+00:28:20,300 --> 00:28:26,020
+ identifying which variables depend directly on another so this is how it works so probability
+
+176
+00:28:26,020 --> 00:28:36,260
+ of x1 given x2 x3 x4 x2 on x3 x4 this is x3 to x4 and x4 to be honest I don't have proper
+
+177
+00:28:36,260 --> 00:28:45,700
+ other slides that can explain how you are going to summarize in for random variables
+
+178
+00:28:45,700 --> 00:28:51,160
+ computation of these probabilities are in it is to be honest beyond the scope of this
+
+179
+00:28:51,160 --> 00:28:56,720
+ lecture as well this is just I have added few basic probability rules just as we can
+
+180
+00:28:56,720 --> 00:29:07,500
+ move ahead now what is the conditional independence for example there is a disease like a fever
+
+181
+00:29:07,500 --> 00:29:16,540
+ and there is a disease a cough so if we say they are conditionally independent means we
+
+182
+00:29:16,540 --> 00:29:23,820
+ can say fever and cough may be related because both depend on the disease but once the disease
+
+183
+00:29:23,820 --> 00:29:33,100
+ is known either fever or cough we may assume fever has no relationship with cough given
+
+184
+00:29:33,100 --> 00:29:40,420
+ the disease means conditional independence means fever is conditionally independent of
+
+185
+00:29:40,420 --> 00:29:49,780
+ cough given the disease this is some way of exclusively treating two things separately
+
+186
+00:29:49,780 --> 00:30:09,580
+ okay any questions or anything you would like to clarify
+
+187
+00:30:09,580 --> 00:30:22,100
+ is everyone okay okay take maybe five minutes break and then we will continue thanks
+
+188
+00:30:39,580 --> 00:30:40,080
+ you
+
+189
+00:31:09,580 --> 00:31:10,080
+ you
+
+190
+00:31:39,580 --> 00:31:40,080
+ you
+
+191
+00:32:09,580 --> 00:32:10,080
+ you
+
+192
+00:32:39,580 --> 00:32:40,080
+ you
+
+193
+00:33:09,580 --> 00:33:10,080
+ you
+
+194
+00:33:39,580 --> 00:33:40,080
+ you
+
+195
+00:34:09,580 --> 00:34:10,080
+ you
+
+196
+00:34:39,580 --> 00:34:40,080
+ you
+
+197
+00:35:09,580 --> 00:35:10,080
+ you
+
+198
+00:35:39,580 --> 00:35:48,840
+ so let us discuss where does the structure help we need a structure because without the
+
+199
+00:35:48,840 --> 00:35:56,560
+ structure of full joint distribution can require a very large number of probabilities but with
+
+200
+00:35:56,560 --> 00:36:07,760
+ the structure we can represent conditional independence assumptions supporting inference
+
+201
+00:36:07,760 --> 00:36:18,780
+ about unknown variables supporting efficient learning and this structure is producing representation
+
+202
+00:36:18,780 --> 00:36:27,860
+ only direct dependencies and easier to inspect so these are few of the advantages but there
+
+203
+00:36:27,860 --> 00:36:38,700
+ are two ways to represent the structure of graphical models one is directed graph and
+
+204
+00:36:38,700 --> 00:36:51,460
+ other is undirected graphical models and in directed graphical models it uses arrows for
+
+205
+00:36:51,460 --> 00:37:03,140
+ relationship like there was a disease and there was something so these arrows are used
+
+206
+00:37:03,140 --> 00:37:12,060
+ often called Bayesian networks and in undirected graphical models there are edges there is
+
+207
+00:37:12,060 --> 00:37:21,820
+ no arrows and often called Markov random fields they have a conditional dependencies but they
+
+208
+00:37:21,820 --> 00:37:31,500
+ have a mutual compatibility or association the two nodes and can represent directional
+
+209
+00:37:31,500 --> 00:37:43,140
+ processes can be useful when direction is unclear or unnecessary undirected graph and
+
+210
+00:37:43,140 --> 00:37:51,700
+ must not contain directed cycles may contain cycles means there is a neighboring mutual
+
+211
+00:37:51,700 --> 00:38:00,180
+ understanding or mutual association it uses conditional probabilities because it has a
+
+212
+00:38:00,180 --> 00:38:08,380
+ Bayesian network and commonly use potential functions so which model should be used it
+
+213
+00:38:08,380 --> 00:38:18,660
+ depends upon the conditions and assumptions that you are making use of so a Bayesian network
+
+214
+00:38:18,660 --> 00:38:28,020
+ is a directed graphical model it contains a directed cyclic graph for example disease
+
+215
+00:38:28,020 --> 00:38:39,460
+ is a fever and disease has been identified by a test result or requires a test result
+
+216
+00:38:39,460 --> 00:38:46,340
+ means favor fever or any other thing that requires a test result so the arrow shows
+
+217
+00:38:46,340 --> 00:38:54,020
+ how the probability distribution is factorized so an arrow represent the probabilistic dependency
+
+218
+00:38:54,020 --> 00:39:01,740
+ our disease can be identified by a test result so it does not automatically prove a cause
+
+219
+00:39:01,740 --> 00:39:14,380
+ for example disease is a fever and disease a requires a test result so the joint distribution
+
+220
+00:39:14,380 --> 00:39:24,740
+ becomes probability of disease whereas the probability of fever given disease and probability
+
+221
+00:39:24,740 --> 00:39:30,780
+ of test result given disease so instead of modeling every combination separately the
+
+222
+00:39:30,780 --> 00:39:40,280
+ network uses some other local distributions and try to identify the actual cause and effect
+
+223
+00:39:40,280 --> 00:39:52,500
+ so what is the cause and what is the effect so there is maybe a cause maybe like a viral
+
+224
+00:39:52,500 --> 00:39:59,200
+ or something and disease can be in effect that they have a fever and it is identified
+
+225
+00:39:59,200 --> 00:40:11,660
+ by test result so you have to have an inference means identifying the effect of based on the
+
+226
+00:40:11,660 --> 00:40:17,780
+ cause means you are trying to determine the evidence to estimate unknown variables unknown
+
+227
+00:40:17,780 --> 00:40:25,700
+ variable is whether it is a disease or not based on some cause and it can be verified
+
+228
+00:40:25,700 --> 00:40:34,500
+ by test results so probability of disease given symptoms or probability of failed component
+
+229
+00:40:34,500 --> 00:40:46,180
+ given sensor readings so failed component is a effect based on the cause that is sorry
+
+230
+00:40:46,180 --> 00:40:59,440
+ yeah there was a effect related to the cause and it was identified proof based on the evidence
+
+231
+00:40:59,440 --> 00:41:07,860
+ of sensor reading and probably of world label given surrounding words and probably of fraud
+
+232
+00:41:07,860 --> 00:41:18,740
+ given transition behavior so there was an effect of fraud based on some issues and then
+
+233
+00:41:18,740 --> 00:41:24,820
+ it was identified by a behavior so observed evidence update probabilities and estimate
+
+234
+00:41:24,820 --> 00:41:31,880
+ unknown variables so inference in a Bayesian network is basically talking about what we
+
+235
+00:41:31,880 --> 00:41:40,020
+ have observed what should we now believe so Bayesian network is very good in proving your
+
+236
+00:41:40,020 --> 00:41:48,180
+ belief based on further evidence as much as evidences are added Bayesian network will
+
+237
+00:41:48,180 --> 00:41:58,060
+ keep working and will sum up all the new evidences and update the probability in the result whereas
+
+238
+00:41:58,060 --> 00:42:07,760
+ undirected graph it doesn't produce any direct relationship it has edges like this one so
+
+239
+00:42:07,760 --> 00:42:13,460
+ it connects related variable without specifying a direction it says there is a relationship
+
+240
+00:42:13,460 --> 00:42:22,860
+ between cause and effect but does not necessarily identify what is what is that relationship
+
+241
+00:42:22,860 --> 00:42:29,260
+ so relationships are mutual causal direction is not required neighboring variables should
+
+242
+00:42:29,260 --> 00:42:36,220
+ have compatible values so the problem contains special or sequential relationships for example
+
+243
+00:42:36,220 --> 00:42:44,540
+ neighboring image regions may have a relationship but it would not be telling explicitly connected
+
+244
+00:42:44,540 --> 00:42:53,680
+ words or labels they could have a relationship social networks they could have a relationship
+
+245
+00:42:53,680 --> 00:42:58,860
+ for example if I am getting a feed for many of my colleagues who are working in a same
+
+246
+00:42:58,860 --> 00:43:06,100
+ institute or I have graduated from some in university then it would be giving me a right
+
+247
+00:43:06,100 --> 00:43:15,120
+ of vision that you should connect with this person are based on my connections like we
+
+248
+00:43:15,120 --> 00:43:19,620
+ have a mutual five six connections and it will be giving me that this person are based
+
+249
+00:43:19,620 --> 00:43:31,140
+ on my post if it could be giving that this person could be relevant you should also be
+
+250
+00:43:31,140 --> 00:43:37,180
+ receiving such kind of notifications isn't it in molecular interactions so this is undirected
+
+251
+00:43:37,180 --> 00:43:45,900
+ graphical models and the probabilities in undirected models is determined by this relationship
+
+252
+00:43:45,900 --> 00:43:52,400
+ so probability of x is equal to one upon z that is z normalizes the scores and sum of
+
+253
+00:43:52,400 --> 00:44:01,060
+ phi of k and x of k this is basically phi of k is measures compatibility among related
+
+254
+00:44:01,060 --> 00:44:12,420
+ variables and x is your input so the product combined local relationship so higher potential
+
+255
+00:44:12,420 --> 00:44:25,300
+ indicates a more compatible configuration so directed graph is using probability but
+
+256
+00:44:25,300 --> 00:44:32,140
+ this undirected graph model is using potential functions to determine the relationship among
+
+257
+00:44:32,140 --> 00:44:41,860
+ different variables now this is one learning activity I would appreciate if you could contribute
+
+258
+00:44:41,860 --> 00:44:47,600
+ in which activity we should use directed graph and which activity we should use undirected
+
+259
+00:44:47,600 --> 00:44:56,000
+ graph so you can just say one for example undirected or directed graph two undirected
+
+260
+00:44:56,000 --> 00:45:05,300
+ or directed graph three same so can you please contribute in the chat which activity do you
+
+261
+00:45:05,300 --> 00:45:11,020
+ think should be directed graph and which activity should be undirected graph for example undirected
+
+262
+00:45:11,020 --> 00:45:19,920
+ or directed you can just write in the chat to undirected or directed undirected or directed
+
+263
+00:45:19,920 --> 00:45:28,460
+ undirected or directed directed undirected or directed just choose one option for each
+
+264
+00:45:28,460 --> 00:45:41,500
+ activity and just write into the chat and then we can discuss is this okay I take maybe
+
+265
+00:45:41,500 --> 00:45:58,540
+ few minutes you can write your response and then we can discuss
+
+266
+00:46:11,500 --> 00:46:11,580
+ you
+
+267
+00:46:41,500 --> 00:47:11,480
+ which one is correct Lewis Harr no mayor disease influencing symptoms
+
+268
+00:47:11,480 --> 00:47:24,520
+ symptoms this is a directed Lewis because it has a relationship we have been discussing
+
+269
+00:47:24,520 --> 00:47:36,120
+ under Bayesian network this in disease influencing symptoms are you listening Lewis yeah I got
+
+270
+00:47:36,120 --> 00:47:45,240
+ a little bit confused with that one thinking that maybe one disease or multiple disease
+
+271
+00:47:45,240 --> 00:47:52,080
+ could influence symptoms I don't know that that was the tricky one for me no no that's
+
+272
+00:47:52,080 --> 00:47:58,960
+ okay that's excellent that's absolutely fine because disease has a relationship with symptoms
+
+273
+00:47:58,960 --> 00:48:05,960
+ it can be determined by symptoms but rain influencing road condition has also a relationship
+
+274
+00:48:05,960 --> 00:48:14,520
+ so it could be a directed compatibility among neighboring image pixels is undirected exactly
+
+275
+00:48:14,520 --> 00:48:22,200
+ it's undirected relationship among connected people are undirected yes until you prove
+
+276
+00:48:22,200 --> 00:48:29,200
+ it a sequence of neighboring word levels is undirected correct component failure influencing
+
+277
+00:48:29,200 --> 00:48:40,520
+ warning signals is directed because it has a relationship it looks like yeah excellent
+
+278
+00:48:40,520 --> 00:48:46,320
+ so it means you have understood the lecture very well and everything is going perfectly
+
+279
+00:48:46,320 --> 00:48:58,920
+ fine isn't it yes looking at that because I did a bit of reading that's 16.2 so based
+
+280
+00:48:58,920 --> 00:49:03,360
+ on that I was able to get a bit of gist on what could be the directed and the undirected
+
+281
+00:49:03,360 --> 00:49:13,720
+ one which characteristics might may influence the outcome okay excellent excellent here
+
+282
+00:49:13,720 --> 00:49:19,400
+ excellent very good because I thought this exercise would be very engaging and I loved
+
+283
+00:49:19,400 --> 00:49:23,080
+ it your responses yeah so
+
+284
+00:49:23,080 --> 00:49:45,320
+ so structure prediction how classification and structure prediction are different there's
+
+285
+00:49:45,320 --> 00:49:52,760
+ a one basic difference in classification you have one label for each and everything x relationship
+
+286
+00:49:52,760 --> 00:49:58,840
+ with y like email is spam or not spam whereas structure prediction can have a several related
+
+287
+00:49:58,840 --> 00:50:10,640
+ outputs sorry I was trying to type at the last moment I just edited this equation so
+
+288
+00:50:10,640 --> 00:50:17,680
+ anyway I will make it clear but this is clear y1 y2 dash dash dash yn so it was basically
+
+289
+00:50:17,680 --> 00:50:26,960
+ y1 y2 dash dash yn means there could be a possibly too many labels because it is a sentence
+
+290
+00:50:26,960 --> 00:50:34,720
+ label for every word whereas classification is just a one one relation it could be multiple
+
+291
+00:50:34,720 --> 00:50:40,160
+ but it could be at a time one but here it could be at a time many so output level must
+
+292
+00:50:40,160 --> 00:50:46,640
+ be considered together because they influence one another so structured prediction like
+
+293
+00:50:46,640 --> 00:50:52,000
+ part of speech tagging there could be one grammatical label per word whereas speech
+
+294
+00:50:52,000 --> 00:50:59,720
+ recognition there could be an ordered sequence of words handwritten recognition an ordered
+
+295
+00:50:59,720 --> 00:51:07,280
+ sequence of characters so we are just trying to discuss this part in ordered output sentence
+
+296
+00:51:07,280 --> 00:51:12,160
+ like machine translation biological sequence analyzers could have a label for each sequence
+
+297
+00:51:12,160 --> 00:51:22,120
+ position so the output is not a single independent prediction it has an internal structure like
+
+298
+00:51:22,120 --> 00:51:29,520
+ consider we discussed this part in nlp where when we discussed natural language processing
+
+299
+00:51:29,520 --> 00:51:36,840
+ like consider the sentence time flies like an arrow so time is a down flies is a verb
+
+300
+00:51:36,840 --> 00:51:43,460
+ like is a proposition and is a determinant arrow is a noun so appropriate label for each
+
+301
+00:51:43,460 --> 00:51:48,360
+ word depends partly on neighboring words and levels means you cannot be just adding up
+
+302
+00:51:48,360 --> 00:51:54,320
+ one level there could be as multiple levels and a structure prediction model's relationship
+
+303
+00:51:54,320 --> 00:52:01,840
+ among the output levels so and then can predict the next word and uh what could be the next
+
+304
+00:52:01,840 --> 00:52:15,360
+ result uh connecting this was observed in latent variables so observed variables are
+
+305
+00:52:15,360 --> 00:52:22,680
+ like image pixels words and latent variables are object parts like hidden topics disease
+
+306
+00:52:22,680 --> 00:52:31,560
+ state uh speaker intention so there is again both relationship between observed data and
+
+307
+00:52:31,560 --> 00:52:38,840
+ output based on the latent structure
+
+308
+00:52:38,840 --> 00:52:57,160
+ I was adding some uh activities this is here yeah
+
+309
+00:52:57,160 --> 00:53:06,000
+ so what are the advantages and challenges when we are presenting structure based models
+
+310
+00:53:06,000 --> 00:53:14,080
+ that could be direct graphs and uh indirect graphs so they can clearly represent relationship
+
+311
+00:53:14,080 --> 00:53:21,440
+ challenges graph structure may be difficult to design and handles uncertainty it could
+
+312
+00:53:21,440 --> 00:53:31,800
+ be incorrect assumptions can mislead the model it uses conditional independence the primary
+
+313
+00:53:31,800 --> 00:53:41,200
+ question is are we using uh graph based models for generative AI better we discuss the import
+
+314
+00:53:41,200 --> 00:53:53,520
+ this direct question are we are graphical models used in the development of deep learning
+
+315
+00:53:53,520 --> 00:54:17,360
+ based applications.
+
+316
+00:54:17,360 --> 00:54:40,160
+ uh.
+
+317
+00:54:47,360 --> 00:55:01,720
+ and are we using them for uh yeah we have already responded generative AI based development
+
+318
+00:55:01,720 --> 00:55:15,640
+ or applications I was just curious to know uh how you are seeing this relevance uh relevance
+
+319
+00:55:15,640 --> 00:55:25,840
+ of these applications uh relevance of this topic
+
+320
+00:55:25,840 --> 00:55:35,680
+ I think that uh in my experience given that the way that uh they're being able to uh consistently
+
+321
+00:55:35,680 --> 00:55:43,300
+ enhance the experience on gathering context it has been very positive when I compare two
+
+322
+00:55:43,300 --> 00:55:52,840
+ years ago to last year to this year the change has been very different and um I could see
+
+323
+00:55:52,840 --> 00:56:03,000
+ a very clear uh evolution pattern on how they're able to recognize patterns and act on those
+
+324
+00:56:03,000 --> 00:56:18,580
+ patterns of context excellent excellent thank you uh I have uh some activities uh based
+
+325
+00:56:18,580 --> 00:56:26,800
+ on today's discussion uh you may consider your assessment three and identify the main
+
+326
+00:56:26,800 --> 00:56:35,480
+ observed variables uh any possible latent variables hidden variables a relationship
+
+327
+00:56:35,480 --> 00:56:43,600
+ among variables whether the relationships are directed or undirected like an agriculture
+
+328
+00:56:43,600 --> 00:56:51,920
+ project that was shared by the candidate or your sentiment analysis uh our output to be
+
+329
+00:56:51,920 --> 00:56:57,840
+ predicted whether the output has an internal structure how a graphical model could support
+
+330
+00:56:57,840 --> 00:57:04,200
+ the neural network and one modeling assumption that would require justification you can consider
+
+331
+00:57:04,200 --> 00:57:19,880
+ these uh uh this design uh uh activity you can consider it and you can maybe respond
+
+332
+00:57:19,880 --> 00:57:29,640
+ on discussion forum or you can solve or answer it at your own time but I have added just
+
+333
+00:57:29,640 --> 00:57:35,280
+ to give you a flavor that would structured probabilistic modeling add genuine value to
+
+334
+00:57:35,280 --> 00:57:45,800
+ your project yes or no it's not necessary but it could be so you just have to check
+
+335
+00:57:45,800 --> 00:57:51,280
+ what is the value of probabilistic more structure probabilistic modeling in your project the
+
+336
+00:57:51,280 --> 00:57:59,560
+ other thing that I have added is a generative AI critical uh critical analysis of generative
+
+337
+00:57:59,560 --> 00:58:07,120
+ AI response so you can add a design a graphical model for a medical diagnosis system using
+
+338
+00:58:07,120 --> 00:58:15,340
+ disease symptoms patient history and test result and you have to add the disease symptoms
+
+339
+00:58:15,340 --> 00:58:20,800
+ and patient disease are just write this one and then evaluate the proposed model based
+
+340
+00:58:20,800 --> 00:58:27,520
+ on these questions so this activity is again you have to relate what you have learned today
+
+341
+00:58:27,520 --> 00:58:35,840
+ and how this generative AI took this response me and this activity I would uh like everyone
+
+342
+00:58:35,840 --> 00:58:46,800
+ should respond on discussion forum you can choose one question or all and why do both
+
+343
+00:58:46,800 --> 00:58:54,160
+ directed and direct graphical models exist how can a structure called as modest support
+
+344
+00:58:54,160 --> 00:59:01,160
+ deep learning select a real world problem and explain how a graphical model could represent
+
+345
+00:59:01,160 --> 00:59:07,080
+ its variables and relationships it could be your own assessment three project or anything
+
+346
+00:59:07,080 --> 00:59:18,200
+ else so just write in your own words uh the response of one or all the questions I can
+
+347
+00:59:18,200 --> 00:59:38,160
+ maybe I can get this over here this is all about today's lecture and what relationship
+
+348
+00:59:38,160 --> 00:59:46,840
+ does your model need to understand not merely predict uh maybe in your uh Lewis for example
+
+349
+00:59:46,840 --> 00:59:54,360
+ in your project the main thing was understanding the relationship between a positive and negative
+
+350
+00:59:54,360 --> 01:00:03,880
+ attributes or maybe the words so you can describe based on your own understanding you know I
+
+351
+01:00:03,880 --> 01:00:09,040
+ would appreciate if you could write a reflection on discussion forum do you have any further
+
+352
+01:00:09,040 --> 01:00:22,160
+ questions or anything you would like to know oh good thank you for the lecture
+
+353
+01:00:22,160 --> 01:00:28,840
+ and are you going okay with the group project I mean any issues or anything you would like
+
+354
+01:00:28,840 --> 01:00:32,600
+ to report for the group project or any difficulties
+
+355
+01:00:32,600 --> 01:00:42,160
+ no I'm on the group who is one and victor and on our case we are progressing well we
+
+356
+01:00:42,160 --> 01:00:50,160
+ have been working on the code and on the report and I we have divided well the rows I think
+
+357
+01:00:50,160 --> 01:01:03,000
+ so on our on our case is progressing solid.
+

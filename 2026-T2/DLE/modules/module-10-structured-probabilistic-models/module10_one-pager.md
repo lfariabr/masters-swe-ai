@@ -21,6 +21,7 @@
 - 🖤 **The fix = model only DIRECT interactions.** Most variables interact only *indirectly*; drop those edges.
 - 🔵 **Relay race (Alice→Bob→Carol):** Carol depends **only on the previous stage (Bob)**; once you know Bob, Alice adds nothing → **erase the Alice→Carol edge.** (= the *Markov property*.)
 - 🔴 **The payoff number:** relay-race full table ≈ **1,000,000** params → with 2 edges ≈ **19,899** (×50). Cost drops `O(kⁿ) → O(kᵐ)` when each node has few parents (`m ≪ n`).
+- 🔴 **Classification vs structured prediction (class agenda):** *classification* = input → **one label**, can ignore most of the input (cheap). *Structured prediction* = **interdependent outputs at once** (segment every pixel, label every word, sample a whole image) → needs the full joint → **the job graphical models exist for.** (Review Pulse: doc-level sentiment = classification; aspect-level = structured prediction.)
 
 ## 🖤 Zone 2 - The two languages: directed vs undirected ⭐ Activity 1 - THE FORUM CORE
 - 🖤 Two ways to draw the direct interactions; the **edge semantics** differ:
@@ -82,6 +83,7 @@ Directed (relay race):        Undirected (cold spreads):
 ## 🔴 Assessment Hook (bottom red strip)
 > **Assessment 3 - Deep Learning Final Project** · source code + 1500-word report (±10%) · **group** · **40%** · due **19/08/2026** · SLOs **c) d) e)**.
 > Module 10 feeds A3 via *"consider structured and unstructured modelling where applicable"* (SLOs c/e). 🔴 **How to use it:** name the **representation-cost** argument (why you don't model every interaction) and, if you discuss generative/latent structure, use the graphical-model vocabulary (directed vs undirected, latent variables, why exact inference is intractable → you approximate). For **Review Pulse** the honest line: sentiment is a *discriminative* `p(y|x)` task, so a full generative graphical model is overkill - but the **latent-variable / distributed-representation** framing (your BiLSTM/embedding is `h`, an `E[h|v]` feature map) is exactly §16.5's argument.
+> 🔴 **Tayab's pre-class reflection — *"does your project have variables that influence/depend on one another, representable as a graph?"*** Answer **yes, but shallowly**: words within a review depend on each other sequentially, and your **BiLSTM already IS an implicit chain graph** (HMM relative). Go **aspect-level (ATAE-LSTM v3.0.0)** → genuine **structured prediction** (interdependent aspect outputs per review, where a CRF-style graph would help). That is the non-forced Module 10 → A3 link.
 
 ## 🔴 If you only memorise 5 things
 1. **The joint table has `2ⁿ` rows - doubles per variable.** A graph escapes it by drawing only **direct** interactions; every missing edge = a conditional independence = the saving.

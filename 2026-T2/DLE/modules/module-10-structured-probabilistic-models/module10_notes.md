@@ -20,6 +20,51 @@
 | 4 | Activity 1: Directed versus Undirected — why do both exist? (≤100 words, forum) | 🕐 |
 | 5 | Activity 2: Advantages of Structured Modelling — how does cheaper representation help DL? (≤100 words, forum) | 🕐 |
 | 6 | Activity 3: Graphical Models for COVID-19 — could COVID researchers benefit? (Airoldi-based, ≤100 words, forum) | 🕐 |
+| 7 | **Module 10 Reflection (forum, graded)**: pick one/all — why both directed & undirected exist? / how do SPMs support DL? / model a real-world problem's variables (≤100 words + variable relationship + example + justify structure) | 🕐 |
+| 8 | Design-a-model activity (own time): map your A3 — observed vars · latent vars · relationships (directed/undirected) · does output have internal structure · one assumption to justify | 🕐 |
+| 9 | GenAI critical-analysis activity (own time): design a graphical model for medical diagnosis (disease/symptoms/history/test) then critique a GenAI answer | 🕐 |
+
+---
+
+## Live Class Notes (Wk 11, Tayab) — what the lecture added beyond the readings
+
+*Class recording 05 Aug 2026 (~61 min). Central question: "How can we represent uncertainty in relationships among variables using graphs?" These points are the parts of the live lecture the three readings did not already frame.*
+
+### 1. Probability primer (Tayab spent real time here - the readings skip it)
+- **Conditional probability** `P(A|B) = P(A,B) / P(B)` (joint ÷ marginal).
+- **Bayes theorem = belief-updating:** `P(A|B) = P(B|A)·P(A) / P(B)`. Framed as *"evidence changes our belief about an uncertain event."* Keep collecting evidence → keep updating the belief. His asymmetry gag: `P(cute|puppy) ≈ 95%` but `P(puppy|cute)` is low - `P(A|B) ≠ P(B|A)`.
+- **Chain rule of probability:** `p(x1,x2,x3,x4)` factorises into conditionals; without independence assumptions this explodes as variables grow → the graph tells you *which variables depend directly on which*, so you drop terms.
+- **Conditional independence (the key definition):** *fever and cough both depend on the disease, but once the disease is known, fever ⊥ cough given the disease.* This "treat two things as separate once you condition on the cause" is the exact property a missing edge encodes.
+
+### 2. Tayab's running example = medical diagnosis DAG
+`exposure → disease → {symptoms, test result}`. Uncertainty everywhere (a symptom has several causes, not every patient shows every symptom, tests are imperfect, some info is unknown). This is *his* canonical directed model - pair it with Murphy's sprinkler when you need a directed example. The joint factorises `p(disease)·p(fever|disease)·p(test|disease)` instead of modelling every combination.
+
+### 3. The directed-vs-undirected classification exercise (great revision - he quizzed the class live)
+Classify each relationship. Rule: **clear cause/order → directed; mutual/symmetric → undirected.**
+
+| Relationship | Answer | Why |
+|---|---|---|
+| Disease influencing symptoms | **Directed** | disease causes/reveals symptoms (one-way) |
+| Rain influencing road condition | **Directed** | clear causal direction |
+| Component failure → warning signals | **Directed** | failure drives the signal |
+| Compatibility among neighbouring image pixels | **Undirected** | mutual, no "who first" |
+| Relationship among connected people (social) | **Undirected** | symmetric ties |
+| Sequence of neighbouring word labels | **Undirected** | mutual context, no direction |
+
+*(Luis was called on for "disease → symptoms" = directed; got it, with the nuance that multiple diseases could influence symptoms. Tayab: "you understood the lecture very well.")*
+
+### 4. Observed vs latent, and the DL relevance
+- **Observed** = pixels, words. **Latent (hidden)** = object parts, hidden topics, disease state, speaker intention. Structured prediction models the relationship *between* the interdependent output labels (the classification-vs-structured-prediction point in §16.1 above).
+- **Real-world graphical-model apps he named:** GPS routing, medical diagnosis, Facebook/social recommendations ("you are a node; connect via common friends"), Tinder/Bumble matching, Netflix recommenders.
+
+### 5. The activities he assigned (beyond the 3 forum reflection Qs)
+- **Design-a-model (own time):** for your A3, list **observed variables · latent variables · relationships (directed/undirected) · whether the output has internal structure · how a graphical model could support the neural net · one modeling assumption that needs justification.** His framing to you directly: *"what relationship does your model need to understand, not merely predict?"* - for Review Pulse = the relationship between positive/negative aspects (and between words). Bottom line he gave: *would structured probabilistic modelling add genuine value to your project? Not necessary, but check.*
+- **GenAI critical-analysis (own time):** design a graphical model for a medical-diagnosis system (disease, symptoms, patient history, test result), then evaluate a generative-AI answer against it.
+
+### 6. A3 report spec (he was specific - use this when writing)
+- **1500 words** (he said 1800-2000 is fine *if* it's genuinely step-by-step); Word or PDF; academic-integrity declaration signed.
+- **Not linear commentary - step by step:** requirements/functionalities → steps taken → DL principles used → dataset description (+ a header snapshot from Python) → libraries → algorithms chosen → training → testing with **clear results + code/output snapshots** → parameters used and **the effect of changing them** → what went wrong and how you improved it → conclusion + your learning.
+- **He downloads and runs your code.** Marking weights he mentioned: completeness & efficiency ~20%, coding convention/quality, integration of knowledge / depth of discussion ~30%, communication. Due **end of Week 12, Wednesday** (Assessment 3, 40%, group).
 
 ---
 
@@ -38,6 +83,7 @@
 - **Three costs of the naive table:** **memory** (storing it), **statistical efficiency** (astronomically many parameters need astronomically much data → severe overfitting), and **runtime** (inference *and* sampling both scan the whole table).
 - **Real distributions are simpler:** most variables interact only *indirectly*. **Relay race (Alice→Bob→Carol):** Bob's time depends on Alice's; Carol's depends on Bob's; Carol depends on Alice *only through* Bob. Model just the two direct interactions, drop the indirect one.
 - **Payoff:** structured models model **only direct interactions** → far fewer parameters, reliable estimation from less data, dramatically cheaper storage/inference/sampling.
+- **Classification vs structured prediction (Tayab's agenda item):** *classification* maps input → **one categorical label** and may **ignore most of the input** (the background of a photo) - cheap. But many tasks need the **entire joint**: **density estimation, denoising, missing-value imputation, sampling** - here the output is itself **structured** (many interdependent variables you cannot ignore). **Structured prediction = predicting interdependent outputs at once**, and that is exactly the job graphical models exist for. *(Review Pulse tie: document-level sentiment = classification, one label; aspect-level sentiment / aspect extraction = closer to structured prediction, several interdependent outputs per review.)*
 
 #### 2. §16.2 — Using graphs to describe structure
 - **Nodes = random variables; edges = direct interactions.** Indirect interactions are *implied*, never drawn. Two families: **directed acyclic graphs** and **undirected graphs**.
@@ -133,6 +179,7 @@ graph TD
 2. **Activity 1 lives in §16.2:** directed = causal/one-directional + cheap sampling; undirected = symmetric interactions + natural for approximate inference. Neither dominates.
 3. **Activity 2 lives in §16.4:** cheaper representation ⇒ fewer parameters ⇒ less data, less memory, tractable-ish inference/sampling ⇒ DL can *scale* to high-dimensional data (images, audio, text) that a lookup table could never touch.
 4. **Day-job hook (St Cat's):** the **explaining-away / V-structure** is your "why is this student flagged?" problem — *absent-from-class* has two competing causes (genuinely disengaged vs one-off sick day); observing one explains away the other. And a **latent "engagement" variable** driving many observed signals (attendance, effort marks, LMS logins) is exactly §16.5's argument for hidden variables over hand-wired SQL rules.
+5. **Tayab's pre-class reflection — *"does your project have variables that influence/depend on one another, representable as a graph?"*** Honest Review Pulse answer: **yes, but shallowly.** Sentiment is a *discriminative* `p(y|x)` task (one label), so a rich generative graph is overkill - *but* the **words within a review depend on each other sequentially**, and your BiLSTM already models that as an implicit **chain graph** (a linear-chain relative of HMMs). Go **aspect-level** (v3.0.0 ATAE-LSTM) and it becomes genuine **structured prediction** - several interdependent aspect-sentiment outputs per review, where an explicit graph (e.g. a CRF layer) would actually help. That is the credible, non-forced way to connect Module 10 to A3.
 
 ---
 
