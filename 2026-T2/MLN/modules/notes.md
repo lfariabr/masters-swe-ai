@@ -1359,7 +1359,6 @@ This Module introduces the perceptron. The perceptron algorithm was invented by 
 
 > *Status: 🕐 To-Do* 
 
-
 #### 4. The Perceptron
 - Kennedy, M. Jaffe, B. & Malone, K. (2017, 10 March). The perceptron [Audio podcast]. Retrieved from https://podtail.com/en/podcast/data-skeptic/mini-the-perceptron/
 
@@ -1396,7 +1395,7 @@ This Module introduces the perceptron. The perceptron algorithm was invented by 
 
 > *Status: 🕐 To-Do* 
 
-#### 7. The Perceptron: A Probabilistic Model for Information Storage and Organisation in The Brain (1958)
+#### 8. The Perceptron: A Probabilistic Model for Information Storage and Organisation in The Brain (1958)
 - Rosenblatt, F. (1958). The perceptron: A probabilistic model for information storage and organization in the brain. Retrieved from https://citeseerx.ist.psu.edu/viewdoc/download;jsessionid=227D35CBBF71E5B71F159B7D5E57682E?doi=10.1.1.588.3775&rep=rep1&type=pdf
 
 *Resource Overview:*
@@ -1405,7 +1404,7 @@ This Module introduces the perceptron. The perceptron algorithm was invented by 
 
 > *Status: 🕐 To-Do* 
 
-#### 8. Training a Perceptron Model in Python
+#### 9. Training a Perceptron Model in Python
 - Roach, J. (2016, 24 September). Training a perceptron model in Python [Web log post]. Retrieved from https://johnpatrickroach.com/2016/09/24/training-a-perceptron-model-in-python/
 
 *Resource Overview:*
