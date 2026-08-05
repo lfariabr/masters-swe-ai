@@ -1326,6 +1326,16 @@ To complete this learning activity, follow these steps:
 ## Module 11 - The Perceptron
 
 ### TLDR
+**The perceptron** (Rosenblatt, 1958) is the **first artificial neural network** and the atom every deep net is built from.
+- **Structure:** `inputs × weights + bias → weighted sum → activation → output`. The **bias** is the threshold the sum must clear (folded in as `w₀` with `x₀ = 1`).
+- **Learning rule (online):** after each misclassified example, `w ← w + η·(target − pred)·x`, where **η** = learning rate. Weights update **per example**, not as a batch.
+- **Perceptron Convergence Theorem:** if the data is **linearly separable**, the rule is **guaranteed** to find a separator; if not, it **never converges** (Iris versicolor/virginica; the **XOR** problem).
+- **The fix = depth + smooth activation:** the **XOR** limitation (Minsky-Papert, 1969) is solved by **stacking layers** and swapping the hard **step** function for a **differentiable** one (**sigmoid / tanh / ReLU / softmax**) so error can be **back-propagated** - the road to deep learning.
+- **Family:** perceptron ≈ **SVM** (max-margin) ≈ **logistic regression** (sigmoid → probability); all share the McCulloch-Pitts neuron. Its guarantee is **memorization, not generalization** - the perfect foil to **Module 10's PAC**.
+
+> Full per-resource breakdown: [module11_notes.md](module-11-the-perceptron/module11_notes.md) · Week 10 lecturer preview: [module10_notes-class.md](module-10-learning-theory-pac/module10_notes-class.md)
+
+> ⚠️ **Citation note:** the local PDFs for Resources **2** and **6** are **Bhardwaj (2020)** and **Lang (2024)**, not the **Sharma (2017)** articles cited below (same topics, different authors/years). Reconcile before quoting in an assessment.
 
 ### Introduction
 This Module introduces the perceptron. The perceptron algorithm was invented by Frank Rosenblatt in 1958 and represents the first-generation artificial neural network (ANN). Rosenblatt’s inspiration for the perceptron and thus the ANN came from his desire to build a model of the brain from networks of neurons that process visual data and recognise objects. In essence, the perceptron is a computer program that learns from data. The theory or computational mechanism of the perceptron emanates from a hypothetical nervous system called a perceptron. The perceptron is an algorithm that makes a yes/no decision based on the sum of weighted inputs meeting a threshold value. Knowledge in the perceptron is captured in weights and thresholds, as no explicit rules exist.
@@ -1339,7 +1349,7 @@ This Module introduces the perceptron. The perceptron algorithm was invented by 
 
     The title of this video is misleading, as it only covers the first 80 years of neural network research and the history of the perceptron with some visualisations. The last few minutes of the video includes the commencement of a talk by Geoff Hinton, the key researcher of deep learning.
 
-> *Status: 🕐 To-Do* 
+> *Status: ✅ Watched + Reviewed - see [module11_notes.md](module-11-the-perceptron/module11_notes.md)*
 
 #### 2. Fundamentals of Perceptrons and Neural Networks
 - Sharma, S. (2017, 9 September). What the hell is perceptron? [Web log post]. Retrieved from https://towardsdatascience.com/what-the-hell-is-perceptron-626217814f53
@@ -1348,7 +1358,7 @@ This Module introduces the perceptron. The perceptron algorithm was invented by 
 
     As a perceptron is a single-layer neural network, the importance of understanding the fundamentals is even more important outside this course. This is especially true as you move to deep learning and transition from shallow learning and single-layer neural networks. The activation determines if the neuron should be ‘fired’ (activated). This resource focuses on helping you understand how the perceptron works, commencing with the weighted sum of inputs.
 
-> *Status: 🕐 To-Do* 
+> *Status: ✅ Read + Reviewed - see [module11_notes.md](module-11-the-perceptron/module11_notes.md) (local PDF: Bhardwaj 2020)*
 
 #### 3. How to Build a Machine that Can Learn Anything (The Perceptron)
 - Golden, R. (2014, 27 October). LM101-015: How to build a machine that can learn anything (The Perceptron) [Audio podcast]. Retrieved from https://www.learningmachines101.com/lm101-015-perceptron/
@@ -1357,7 +1367,7 @@ This Module introduces the perceptron. The perceptron algorithm was invented by 
 
     This podcast takes a deep dive into the perceptron work of Rosenblatt and the theoretical contributions of the perceptron learning theorem. This theorem can solve any arbitrary logic problem but has fundamental limitations. The perceptron is closely related to the Support Vector Machines (SVM) and logistic regression models with computational or ML equivalence in special cases.
 
-> *Status: 🕐 To-Do* 
+> *Status: ✅ Listened + Reviewed - see [module11_notes.md](module-11-the-perceptron/module11_notes.md)*
 
 #### 4. The Perceptron
 - Kennedy, M. Jaffe, B. & Malone, K. (2017, 10 March). The perceptron [Audio podcast]. Retrieved from https://podtail.com/en/podcast/data-skeptic/mini-the-perceptron/
@@ -1366,7 +1376,7 @@ This Module introduces the perceptron. The perceptron algorithm was invented by 
 
     The above podcast (Golden, 2014) focuses on the context of the development of the perceptron. Conversely, this podcast conveys an overview of the perceptron algorithm in simple terms. Important aspects to recognise are the updating of weights after every example and the use of the step function as an activation function. Of course, the technique of using the perceptron algorithm is only suitable for linearly separable data.
 
-> *Status: 🕐 To-Do* 
+> *Status: ✅ Listened + Reviewed - see [module11_notes.md](module-11-the-perceptron/module11_notes.md)*
 
 #### 5. A Manual Walkthrough of the Perceptron Algorithm
 - Ritvikmath. (2019, 30 January). Perceptron [Video file]. Retrieved from https://www.youtube.com/watch?v=4Gac5I64LM4
@@ -1375,7 +1385,7 @@ This Module introduces the perceptron. The perceptron algorithm was invented by 
     
     This resource provides an overview of the perceptron algorithm using real values. This video includes a manual walkthrough, explains the development of the perceptron algorithm and includes the parameters and inputs, including the learning rate. This video also explains how the learning rate determines how fast the perceptron converges to the optimal classifier line.
 
-> *Status: 🕐 To-Do* 
+> *Status: ✅ Watched + Reviewed - see [module11_notes.md](module-11-the-perceptron/module11_notes.md)*
 
 #### 6. Which Activation Function Should I Use?
 - Sharma, S. (2017, 7 September). Activation functions in neural networks [Web log post]. Retrieved from https://towardsdatascience.com/activation-functions-neural-networks-1cbd9f8d91d6
@@ -1384,7 +1394,7 @@ This Module introduces the perceptron. The perceptron algorithm was invented by 
 
     This resource provides a very practical explanation of the activation functions (otherwise known as transfer functions) of a perceptron or neural network. The activation determines if the neuron should be ‘fired’ (activated). This resource also discusses the difference between the different types of activations (e.g., Sigmoid, tanh, Softmax, ReLU and Leaky ReLU).
 
-> *Status: 🕐 To-Do* 
+> *Status: ✅ Read + Reviewed - see [module11_notes.md](module-11-the-perceptron/module11_notes.md) (local PDF: Lang 2024)*
 
 #### 7. Practical Application of Classification and Perceptron Algorithms
 - Forsyth, J. (2014, 29 January). The noble perceptron [Web log post]. Retrieved from https://jaredforsyth.com/posts/the-noble-perceptron
@@ -1393,7 +1403,7 @@ This Module introduces the perceptron. The perceptron algorithm was invented by 
 
     This resource outlines some applications of a perceptron for classification, including a heart attack classification system for a hospital, the graphs of a voting data set and the Iris data set. This resource will help you to understand the intuition behind the perceptron when dealing with a variety of different data.
 
-> *Status: 🕐 To-Do* 
+> *Status: ✅ Read + Reviewed - see [module11_notes.md](module-11-the-perceptron/module11_notes.md)*
 
 #### 8. The Perceptron: A Probabilistic Model for Information Storage and Organisation in The Brain (1958)
 - Rosenblatt, F. (1958). The perceptron: A probabilistic model for information storage and organization in the brain. Retrieved from https://citeseerx.ist.psu.edu/viewdoc/download;jsessionid=227D35CBBF71E5B71F159B7D5E57682E?doi=10.1.1.588.3775&rep=rep1&type=pdf
@@ -1402,7 +1412,7 @@ This Module introduces the perceptron. The perceptron algorithm was invented by 
 
     This is the original paper from Rosenblatt showing the theory development of the perceptron for a hypothetical nervous system. You can see how the author positions the concepts between psychology, biophysics and the ability to predict learning curves from neurological variables.
 
-> *Status: 🕐 To-Do* 
+> *Status: ✅ Read + Reviewed - see [module11_notes.md](module-11-the-perceptron/module11_notes.md)*
 
 #### 9. Training a Perceptron Model in Python
 - Roach, J. (2016, 24 September). Training a perceptron model in Python [Web log post]. Retrieved from https://johnpatrickroach.com/2016/09/24/training-a-perceptron-model-in-python/
@@ -1411,7 +1421,7 @@ This Module introduces the perceptron. The perceptron algorithm was invented by 
 
     This resource is a theory refresher that focuses on an actual Python code implementation. This reading provides the example of using the iris training set to make decisions with respect to a number of passes over the data set and the threshold for misclassification. The author refers to the old version of the Raschka book (i.e., an edition that is not the 3rd edition of the book).
 
-> *Status: 🕐 To-Do* 
+> *Status: ✅ Read + Reviewed - see [module11_notes.md](module-11-the-perceptron/module11_notes.md)*
 
 ### Learning Activities
 
