@@ -224,7 +224,7 @@ GRU uses 10.31% fewer parameters than LSTM and obtains slightly higher full-test
 | Sentence leakage | Group development split by `sentence_id` | Automated disjointness checks pass |
 | Artifact loading failure | Explicit paths, validation and controlled UI errors | Missing models fail visibly rather than changing model silently |
 | Optional-scope delay | Four-model result frozen before GRU/CNN activation | Six-model track completed without replacing the canonical experiment |
-| Unequal contribution | Issue ownership, pull-request review and contribution record | Validation work assigned on 29 July; only completed, evidenced work will be claimed |
+| Unequal contribution | Issue ownership, pull-request review and contribution record | Juan delivered independent Streamlit QA in PR #120; Victor's reproduction remains pending, and only evidenced work is claimed |
 
 *Table B1. Implemented project-risk mitigations, observed outcomes and retained contingencies.*
 
@@ -234,11 +234,11 @@ GRU uses 10.31% fewer parameters than LSTM and obtains slightly higher full-test
 |---|---|---|---|
 | Luis Faria | Completed | Architecture, ABSA implementation, all training/evaluation integration, token evidence, six-model integration, Streamlit integration, Git LFS deployment, release packaging and report consolidation | ReviewPulse PRs #90, #92, #93, #97, #98-#102; academic commits `f3b7247`, `6d50ac0` |
 | Victor Dorantes | Assigned 29 Jul; evidence pending | Independently reproduce the constrained installation/tests, validate RQ1/RQ2 results and verify the cited publications | Required evidence: `validation-victor.md`, commands/results and a reviewed PR; summarised in Appendix F |
-| Juan Martinez | Assigned 29 Jul; evidence pending | Test all six Streamlit models, sample generation, evidence views, controlled errors and v2/v3 release workflow; capture report-ready screenshots | Required evidence: `validation-juan.md`, screenshots, commands/results and a reviewed PR; screenshots in Appendix E |
+| Juan Martinez | Independent QA delivered; corrective review in progress | Executed 12 deployed-Streamlit cases across all six models, multi-aspect inputs, sample generation, evidence views, invalid inputs, model switching and v2/v3 compatibility; recorded predictions, screenshots and five behaviours requiring triage/retest | ReviewPulse PR #120, merge commit `1e6689f`; `docs/dle602-a3/validation-juan.md`; companion screenshot record; selected evidence mapped in Appendix E |
 
 *Table B2. Contribution status, assigned validation work and required traceable evidence.*
 
-Assignments are not treated as completed contributions. The final report will replace each pending status only after the named contributor submits traceable evidence and the group reviews it.
+Assignments are not treated as completed contributions. Juan's executed QA is recorded as an evidenced contribution even where it exposes failures rather than confirming acceptance. Victor remains pending until his reproduction record is submitted and reviewed.
 
 ## 10. Appendix C - Reproduction Commands
 
@@ -293,29 +293,24 @@ The model strategy would also change with scale. TF-IDF, LSTM, GRU and TextCNN r
 
 ## 12. Appendix E - Application Acceptance Evidence
 
-**Owner: Juan Martinez.** This appendix records what the running application actually shows a user. It complements the automated suite rather than repeating it: the tests confirm that evidence payloads align to visible offsets, while the screenshots below confirm that a marker opening the application sees the intended interface, the intended evidence views and controlled failure states rather than tracebacks.
+**Owner: Juan Martinez.** This appendix records what the running application actually showed an independent group tester. It complements the automated suite rather than repeating it: automated tests verify payload and offset contracts, while Juan's screenshots record the deployed interface, model outputs and failure states visible to a user.
 
-The full QA record, including the commands run, the environment and any defects raised, is kept as `docs/dle602-a3/validation-juan.md` in the ReviewPulse repository and merged through a reviewed pull request. This appendix carries only the images and their descriptions.
+Juan executed 12 authenticated Streamlit cases covering all six models, multi-aspect input, sample generation, model switching, attention and attribution, invalid inputs and v2/v3 compatibility. The initial record contained five passes, two passes with observation and five failures requiring technical triage or retest. A wrong model prediction was treated as a model-quality observation; behaviour contradicting a UI acceptance criterion was treated as a failure.
 
-| Figure | What it must show | Status |
+The complete case record is kept as `docs/dle602-a3/validation-juan.md` in the ReviewPulse repository and was introduced through PR #120. Rather than reproducing all 12 cases, the final appendix selects four captures that demonstrate the breadth and critical value of the validation.
+
+| Figure | Selected evidence | Source evidence |
 |---|---|---|
-| E1 | v3 page: a multi-aspect review, the aspect inputs and one result card per aspect with its predicted label and confidence | Pending |
-| E2 | ATAE-LSTM attention heatmap for one aspect, with the token shading visible over the original review text | Pending |
-| E3 | DistilBERT gradient-based attribution view for the same review, showing the evidence changes with the supplied aspect | Pending |
-| E4 | One controlled failure: either the missing-artifact message for the v3 DistilBERT or an input-validation message, with no stack trace | Pending |
-| E5 | Compare mode: the same review scored by more than one model side by side | Optional |
+| E1 | Model selector and successful deployed inference confirming availability of the six-model ladder | EV-01 and EV-02 |
+| E2 | Separate aspect results for the mixed-polarity `food`/`service` example, including the observed model-quality errors | EV-03A and EV-03B |
+| E3 | Side-by-side ATAE-LSTM attention and DistilBERT attribution views used to assess aspect sensitivity and visible-token alignment | EV-07 and EV-08 |
+| E4 | Controlled invalid-input state showing the exact user-facing message and the stale-state observation raised during QA | EV-10 and EV-11 |
 
-*Table E1. Required application acceptance captures, their intent and current status.*
+*Table E1. Four report-facing captures selected from Juan's complete 12-case validation record.*
 
-Images are added to `report/assets/` and referenced with the same pattern already used for Figure 3:
+Attention and attribution captions will repeat that the evidence is indicative rather than causal. Failed cases remain visible because independent QA that identifies a release risk is stronger evidence than a selectively green demonstration. Anonymous public access was outside Juan's authenticated session and remains a separate release gate.
 
-```markdown
-![Short alt text](assets/e1-v3-result-view.png)
-
-*Figure E1. One sentence stating what is shown, which model produced it and any caveat.*
-```
-
-Each figure needs a one-sentence caption naming the model that produced the view. Attention and attribution captions must repeat that the evidence is indicative, consistent with the RQ3 answer in Section 5. Rows that receive no evidence before submission are removed from this appendix rather than published as empty claims.
+<!-- FINAL ASSET IMPORT: export four readable captures or composites from Juan's companion Word evidence record into report/assets/ using stable e1-e4 filenames. Insert each image with a one-sentence caption, and do not render an empty image placeholder if an asset is unavailable. -->
 
 ## 13. Appendix F - Independent Reproduction Record
 
