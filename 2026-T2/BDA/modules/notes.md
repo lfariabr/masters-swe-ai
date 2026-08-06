@@ -908,6 +908,11 @@ Submit your answer to the ‘Let’s Explore FP-Growth discussion forum’. Read
 ## Module 11 - Graph Analytics
 
 ### TLDR
+- **What:** graph analytics represents entities as **nodes** and relationships as **edges**, then asks questions about *connectivity* - who's linked to whom, how strongly, and how that structure changes - rather than grouping records (clustering, Module 9) or finding item co-occurrence (association rules, Module 10) (R1).
+- **When to choose it over a relational/warehouse approach:** undirected/exploratory discovery, no fixed schema, relationships themselves carry the meaning, and the questions weren't known in advance (R1) - it's explicitly a complement to, not a replacement for, existing warehouses/OLAP.
+- **Graph databases** (R2) make relationship queries fast by storing edges as first-class data instead of reconstructing them via joins - property graphs (analytics/querying) vs RDF graphs (semantic search, knowledge graphs, LLM grounding).
+- **Link prediction** (R3) reframes "will these two nodes connect?" as ordinary supervised ML: derive positive/negative examples from a single graph snapshot (dropped edges = positive, unconnected pairs = negative), extract features with **node2vec**, then classify - LightGBM (AUC 0.93) beats logistic regression (AUC 0.78) in the worked example.
+- **PageRank** (R4) is graph analytics' most famous concrete instance: pages "vote" for each other via links, votes from high-PageRank pages count more, and each page's vote is diluted across all its outgoing links.
 
 ### Introduction
 Graph analytics are analytic processes used to determine relationships between objects in a graph. In the world of big data, these objects can refer to humans, products, technologies or anything else that can be represented by big data. 
@@ -929,7 +934,7 @@ Finally, relational data analytics works best on structured and unchanging data 
 
     Read ‘Chapter 10: Using Graph Analytics of Big Data’ (pp. 91–103). This Chapter also presents some relevant cases to help explain different graph analytics approaches. Finally, this Chapter also highlights the technical complexity of analysing graphs. 
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module11_notes.md](module-11-graph-analytics/module11_notes.md)*
 
 #### 2. Graph Database
 - Oracle.com. (n.d.). Graph database. Retrieved from https://www.oracle.com/big-data/what-is-graph-database
@@ -940,7 +945,7 @@ Finally, relational data analytics works best on structured and unchanging data 
 
     This resource notes that a graph database treats the relationships between data as equally important as the data themselves. It starts with graph database fundamentals and finishes with a use case. Finally, and most importantly, it highlights how graph analytics is better supported through a graph database. 
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module11_notes.md](module-11-graph-analytics/module11_notes.md) - ⚠️ live page has changed since this citation, see source-update note*
 
 #### 3. A Guide to Link Prediction—How to Predict your Future Connections on Facebook
 - Joshi, P. (2020, 16 January). A guide to link prediction—How to predict your future connections on Facebook. Retrieved from https://www.analyticsvidhya.com/blog/2020/01/link-prediction-how-to-predict-your-future-connections-on-facebook/
@@ -951,7 +956,7 @@ Finally, relational data analytics works best on structured and unchanging data 
 
     Link prediction is one of the most important research topics in the field of social media, and graph analytics is a natural fit to address this topic. This post demonstrates how Facebook suggests new friends using graph analytics. Finally, this post also contains the Python code that can be used to implement a link prediction model. 
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module11_notes.md](module-11-graph-analytics/module11_notes.md)*
 
 #### 4. PageRank
 -  Kent, P. (2017, 12 July). SEO: Link building in depth: PageRank [Video file]. Retrieved from https://www.linkedin.com/learning/seo-link-building-in-depth-2/pagerank?u=56744473
@@ -962,7 +967,7 @@ Finally, relational data analytics works best on structured and unchanging data 
 
     The World Wide Web (WWW) is the biggest graph that is available today and links all the webpages from around the world to each other. The PageRank algorithm helps Google to parse through this complex graph based on those links. The algorithm is run over the graph that the WWW creates that contains shared objects and connections. 
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Watched + Reviewed — see [module11_notes.md](module-11-graph-analytics/module11_notes.md)*
 
 ### Learning Activities
 
