@@ -224,7 +224,7 @@ GRU uses 10.31% fewer parameters than LSTM and obtains slightly higher full-test
 | Sentence leakage | Group development split by `sentence_id` | Automated disjointness checks pass |
 | Artifact loading failure | Explicit paths, validation and controlled UI errors | Missing models fail visibly rather than changing model silently |
 | Optional-scope delay | Four-model result frozen before GRU/CNN activation | Six-model track completed without replacing the canonical experiment |
-| Unequal contribution | Issue ownership, pull-request review and contribution record | Juan delivered independent Streamlit QA in PR #120; Victor's reproduction remains pending, and only evidenced work is claimed |
+| Unequal contribution | Issue ownership, pull-request review and contribution record | Juan delivered independent Streamlit QA in PR #120, hardened in PR #121; Victor's reproduction remains pending, and only evidenced work is claimed |
 
 *Table B1. Implemented project-risk mitigations, observed outcomes and retained contingencies.*
 
@@ -234,7 +234,7 @@ GRU uses 10.31% fewer parameters than LSTM and obtains slightly higher full-test
 |---|---|---|---|
 | Luis Faria | Completed | Architecture, ABSA implementation, all training/evaluation integration, token evidence, six-model integration, Streamlit integration, Git LFS deployment, release packaging and report consolidation | ReviewPulse PRs #90, #92, #93, #97, #98-#102; academic commits `f3b7247`, `6d50ac0` |
 | Victor Dorantes | Assigned 29 Jul; evidence pending | Independently reproduce the constrained installation/tests, validate RQ1/RQ2 results and verify the cited publications | Required evidence: `validation-victor.md`, commands/results and a reviewed PR; summarised in Appendix F |
-| Juan Martinez | Independent QA delivered; corrective review in progress | Executed 12 deployed-Streamlit cases across all six models, multi-aspect inputs, sample generation, evidence views, invalid inputs, model switching and v2/v3 compatibility; recorded predictions, screenshots and five behaviours requiring triage/retest | ReviewPulse PR #120, merge commit `1e6689f`; `docs/dle602-a3/validation-juan.md`; companion screenshot record; selected evidence mapped in Appendix E |
+| Juan Martinez | Independent QA delivered and reviewed | Executed 12 deployed-Streamlit cases across all six models, multi-aspect inputs, sample generation, evidence views, invalid inputs, model switching and v2/v3 compatibility; recorded predictions, screenshots, three acceptance failures and two stale-state checks blocked pending reproducible detail | ReviewPulse PR #120, merge commit `1e6689f`; corrective PR #121, merge commit `9071553`; `docs/dle602-a3/validation-juan.md`; companion screenshot record; selected evidence mapped in Appendix E |
 
 *Table B2. Contribution status, assigned validation work and required traceable evidence.*
 
@@ -295,7 +295,7 @@ The model strategy would also change with scale. TF-IDF, LSTM, GRU and TextCNN r
 
 **Owner: Juan Martinez.** This appendix records what the running application actually showed an independent group tester. It complements the automated suite rather than repeating it: automated tests verify payload and offset contracts, while Juan's screenshots record the deployed interface, model outputs and failure states visible to a user.
 
-Juan executed 12 authenticated Streamlit cases covering all six models, multi-aspect input, sample generation, model switching, attention and attribution, invalid inputs and v2/v3 compatibility. The initial record contained five passes, two passes with observation and five failures requiring technical triage or retest. A wrong model prediction was treated as a model-quality observation; behaviour contradicting a UI acceptance criterion was treated as a failure.
+Juan executed 12 authenticated Streamlit cases covering all six models, multi-aspect input, sample generation, model switching, attention and attribution, invalid inputs and v2/v3 compatibility. After review, the record contains five passes, two passes with observation, three failures requiring technical triage and two stale-state checks blocked because the exact leaked fields and transitions were not recorded. A wrong model prediction was treated as a model-quality observation; behaviour contradicting a UI acceptance criterion was treated as a failure, while an unreproducible observation was not promoted to a confirmed defect.
 
 The complete case record is kept as `docs/dle602-a3/validation-juan.md` in the ReviewPulse repository and was introduced through PR #120. Rather than reproducing all 12 cases, the final appendix selects four captures that demonstrate the breadth and critical value of the validation.
 
