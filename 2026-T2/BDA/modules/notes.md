@@ -905,6 +905,102 @@ Submit your answer to the ‘Let’s Explore FP-Growth discussion forum’. Read
 
 ---
 
+## Module 11 - Graph Analytics
+
+### TLDR
+
+### Introduction
+Graph analytics are analytic processes used to determine relationships between objects in a graph. In the world of big data, these objects can refer to humans, products, technologies or anything else that can be represented by big data. 
+
+The structure of a graph is made up of nodes or vertices and edges. Nodes denote objects in the graph; for example, customers, organisations, products or locations may all be represented as nodes. Edges refer to the relationships between the nodes; for example, in a scenario in which customers purchase products, a ‘purchase’ is the relationship between a customer node and a product node. 
+
+The World Wide Web (WWW) is a great example of a large graph that represents relationships between all the websites in the world. Search engines, such as Google, use graphs to improve recommendations in its search engines by studying the search history patterns of users. If you are a fan of social media, graph analytics can help you identify all the potential customers who have Twitter/Facebook accounts and who their friends are. 
+
+Finally, relational data analytics works best on structured and unchanging data that are sorted in tables and columns. Conversely, graph analytics is resourceful at interpreting unstructured and variable data sets, as it provides context in terms of relationships between objects. 
+
+### Resources
+
+#### 1. Using Graph Analytics for Big Data
+- Loshin, D. (2013). Big data analytics: From strategic planning to enterprise integration with tools, techniques, NoSQL, and graph. Waltham, MA: Morgan Kaufmann. Retrieved from http://torrens.idm.oclc.org/login?url=http://search.ebscohost.com/login.aspx?direct=true&db=nlebk&AN=601351&site=ehost-live&ebv=EB&ppid=pp_91
+
+*Resource Overview:*
+
+    This resource introduces you to graph analytics. It also discusses the types of problems that are suited to graph analytics, the types of questions that are addressed using graph analytics and the types of graphs that are commonly encountered. 
+
+    Read ‘Chapter 10: Using Graph Analytics of Big Data’ (pp. 91–103). This Chapter also presents some relevant cases to help explain different graph analytics approaches. Finally, this Chapter also highlights the technical complexity of analysing graphs. 
+
+> *Status: 🕐 To-Do*
+
+#### 2. Graph Database
+- Oracle.com. (n.d.). Graph database. Retrieved from https://www.oracle.com/big-data/what-is-graph-database
+
+*Resource Overview:*
+
+    This post from Oracle introduces the concept of the graph database, which it defines as a specialised, single-purpose platform for creating and manipulating graphs. Graphs contain nodes, edges and properties, all of which are used to represent and store data in a way that relational databases are not equipped to do. 
+
+    This resource notes that a graph database treats the relationships between data as equally important as the data themselves. It starts with graph database fundamentals and finishes with a use case. Finally, and most importantly, it highlights how graph analytics is better supported through a graph database. 
+
+> *Status: 🕐 To-Do*
+
+#### 3. A Guide to Link Prediction—How to Predict your Future Connections on Facebook
+- Joshi, P. (2020, 16 January). A guide to link prediction—How to predict your future connections on Facebook. Retrieved from https://www.analyticsvidhya.com/blog/2020/01/link-prediction-how-to-predict-your-future-connections-on-facebook/
+
+*Resource Overview:*
+
+    This resource demonstrates that social media platforms, such as Facebook, can be structured as graphs. Based on this concept, it describes a common application of graphs (e.g., the prediction of future connections on Facebook). This type of prediction is formally referred to as link prediction. 
+
+    Link prediction is one of the most important research topics in the field of social media, and graph analytics is a natural fit to address this topic. This post demonstrates how Facebook suggests new friends using graph analytics. Finally, this post also contains the Python code that can be used to implement a link prediction model. 
+
+> *Status: 🕐 To-Do*
+
+#### 4. PageRank
+-  Kent, P. (2017, 12 July). SEO: Link building in depth: PageRank [Video file]. Retrieved from https://www.linkedin.com/learning/seo-link-building-in-depth-2/pagerank?u=56744473
+
+*Resource Overview:* 
+
+    This video talks about Google’s PageRank algorithm. Google uses a PageRank algorithm to rank web pages in their search engine results. 
+
+    The World Wide Web (WWW) is the biggest graph that is available today and links all the webpages from around the world to each other. The PageRank algorithm helps Google to parse through this complex graph based on those links. The algorithm is run over the graph that the WWW creates that contains shared objects and connections. 
+
+> *Status: 🕐 To-Do*
+
+### Learning Activities
+
+#### 1. University Popularity Ranking Using PageRank Graph Analytics
+- Checkpagerank. (n.d.). Check PageRank. Retrieved from https://checkpagerank.net/
+
+In this activity you will rank the online popularity of different Australian universities using PageRank graph analytics. Remember, the entire WWW is a graph and the PageRank algorithm is based on a graph; thus, the ranking that you are about to produce is based on graph analytics. 
+
+You do not have to implement the PageRank algorithm yourself. Instead, use this online PageRank tool https://checkpagerank.net/. to get a sense of the popularity of different Australian universities. 
+
+Rank the following universities: 
+- Torrens University: torrens.edu.au; 
+- Victoria University: vu.edu.au; 
+- RMIT: rmit.edu.au; and 
+- Melbourne Institute of Technology: mit.edu.au. 
+Copy and paste the university links provided above, one by one, into the single text box of the tool. Then press ‘Submit’. Wait until the website returns some statistics at the bottom of the text box. Take note of the number that you see against the ‘External Backlinks’ label from the statistics for each university. The numbers against the ‘External Backlinks’ show how many external webpages have a connection to a given university website. Thus, ‘External Backlinks’ are a good indicator of the online popularity of a university. Rank the universities based on the numbers of the ‘External Backlinks’ from highest to lowest. 
+
+Submit your university ranking along with the ‘External Backlinks’ numbers to the ‘Graph Analytics’ discussion forum. Outline your understanding of the PageRank algorithm in your own words using this example. 
+
+Review other students’ submissions and verify whether their rankings are similar to yours. Provide feedback about their understandings of the PageRank algorithm. Did they describe the PageRank algorithm well? Did they use the above case study well in their discussions? 
+
+> *Status: 🕐 To-Do*
+
+#### 2. Facebook Graph Analytics
+- Joshi, P. (2020, 16 January). A guide to link prediction—How to predict your future connections on Facebook. Retrieved from https://www.analyticsvidhya.com/blog/2020/01/link-prediction-how-to-predict-your-future-connections-on-facebook/
+
+In this activity, you will explore a case study involving Facebook graph analytics and a Python implementation. 
+
+Joshi (2020) presents a case study on predicting future connections between Facebook Pages. In introducing the case study, Joshi states, ‘We will work with a graph dataset in which the nodes are Facebook pages of popular food joints and well-renowned chefs from across the globe. If any two pages (nodes) like each other, then there is an edge (link) between them’. Joshi further notes that the objective is to ‘[b]uild a link prediction model to predict future links (mutual likes) between unconnected nodes (Facebook pages)’. 
+
+First, review all the Python codes presented in relation to the above case study. Second, present a summary of all the outputs of codes under the ‘Dataset Preparation for Model Building’ section. Could any part of the code from the ‘Dataset Preparation for Model Building’ section be removed without changing the expected outcome? If yes, what would be the effect? 
+
+Submit your answer to the ‘Graph Analytics’ discussion forum. Review other students’ submissions and provide feedback. 
+
+> *Status: 🕐 To-Do*
+
+---
+
 ```bash
 --- PLACEHOLDER:
 ## Module X - ...

@@ -50,7 +50,7 @@ Dr. Chen Zhan
 - [X] Module 8 ✅ - Predictive Modelling
 - [X] Module 9 ✅ - Clustering
 - [X] Module 10 ✅ - Association Rules
-- [ ] Module 11 🕐 - Graph Analytics
+- [ ] Module 11 🔥 - Graph Analytics
 - [ ] Module 12 🕐 - Big Data Privacy and Security
 
 ## Assignments
