@@ -308,7 +308,17 @@ The complete case record is kept as `docs/dle602-a3/validation-juan.md` in the R
 
 *Table E1. Four report-facing captures selected from Juan's complete 12-case validation record.*
 
+*Figure E1. Model selector in the deployed ReviewPulse v3 page, confirming that all six ABSA models were available during Juan's authenticated validation session.*
+
+*Figure E2. Separate `food` and `service` result cards for the mixed-polarity review; both models rendered one result per aspect but each missed one gold polarity.*
+
+*Figure E3. ATAE-LSTM attention and DistilBERT attribution views inspected for aspect-specific change and visible-token alignment; the views are indicative evidence rather than causal explanations.*
+
+*Figure E4. Invalid-input validation state preserving the exact user-facing message and the stale-result behaviour raised for corrective triage.*
+
 Attention and attribution captions will repeat that the evidence is indicative rather than causal. Failed cases remain visible because independent QA that identifies a release risk is stronger evidence than a selectively green demonstration. Anonymous public access was outside Juan's authenticated session and remains a separate release gate.
+
+**Complete screenshot record:** [Juan Martinez's full 12-case Streamlit QA evidence](https://laustu-my.sharepoint.com/:w:/g/personal/juan_contreras_student_torrens_edu_au/IQCZCy0A4REuQazXkp8Tsd2cAa_PIJSnHeZKKz41hQLov3g?isSPOFile=1&ovuser=66e44254-c0ce-4745-9255-907eee03faf6%2CLuis.faria%40Student.Torrens.edu.au&wdExp=TEAMS-TREATMENT&web=1&clickparams=eyJBcHBOYW1lIjoiVGVhbXMtRGVza3RvcCIsIkFwcFZlcnNpb24iOiI1MC8yNjA3MTYxNjAxMSJ9). Access requires the shared Torrens/SharePoint permissions.
 
 <!-- FINAL ASSET IMPORT: export four readable captures or composites from Juan's companion Word evidence record into report/assets/ using stable e1-e4 filenames. Insert each image with a one-sentence caption, and do not render an empty image placeholder if an asset is unavailable. -->
 
