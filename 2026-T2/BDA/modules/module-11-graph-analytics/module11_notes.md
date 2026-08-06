@@ -1,5 +1,12 @@
 # Module 11 - Graph Analytics
 
+## TL;DR
+- **What:** graph analytics represents entities as **nodes** and relationships as **edges**, then asks connectivity questions - who's linked to whom, how strongly, how the structure changes - a third lens alongside clustering (Module 9) and association rules (Module 10).
+- **When to choose it:** exploratory/undirected discovery, no fixed schema, relationships carry the meaning - complements a relational warehouse rather than replacing it (Loshin 2013).
+- **Graph databases** (Erickson 2026) store edges as first-class data for subsecond relationship queries - property graphs (analytics) vs RDF graphs (semantic search, knowledge graphs).
+- **Link prediction** (Joshi 2020) reframes "will these nodes connect?" as supervised ML: derive positive/negative examples from one graph snapshot, extract features with node2vec, classify (LightGBM AUC 0.93 beats logistic regression AUC 0.78).
+- **PageRank** (Kent 2017): pages vote for each other via links; votes from high-PageRank pages count more, and each page's vote is diluted across its outgoing links.
+
 ## Task List
 
 | # | Task | Status |
@@ -34,14 +41,15 @@
 
 - A **graph** = a collection of **vertices** (nodes - entities like customers, products, locations) connected by **edges** (relationships - "purchased," "is married to," "is employed by").
 - 🖤 **Enhancements that add meaning:** vertices/edges can be **labeled** (what type of entity/relationship), edges can be **directed** (flow) or **weighted**, and both can carry **properties** - a plain unlabeled undirected graph has "limited utility" on its own.
-- **Triples (RDF):** subject → predicate → object, e.g. "John Smith - is father of - Brad Smith." A collection of triples is a **semantic database**. This is the standards-based representation (RDF + SPARQL) a real graph analytics platform is expected to support.
+- **Triples (RDF):** subject → predicate → object, e.g. "John Smith - is father of - Brad Smith." A collection of triples is what Loshin's chapter calls a **semantic database** - more commonly termed an **RDF graph** or triplestore today, queryable via **SPARQL**.
+  - ⚠️ **Dated claim, worth flagging:** Loshin (2013) states "any graph analytics platform must employ RDF" - true of the era's semantic-web-first tooling, but not true of the **property graphs** covered in R2 (Erickson 2026), which use Cypher/Gremlin/PGQL and don't require RDF at all. Treat RDF+SPARQL as one representation family, not a universal requirement.
 
 #### 2. When to choose graph analytics over a data warehouse
 
 | Signal | What it means |
 |---|---|
 | **Connectivity** | The problem needs analysis of relationships/connectivity across many entity types |
-| **Undirected discovery** | You're doing iterative, exploratory analysis for unknown patterns - not running a known report |
+| **Undirected discovery** | Loshin's own term - "undirected" describes the *analysis approach* (iterative, exploratory, no known report shape), not the direction of graph edges |
 | **Absence of structure** | Source data has no consistent imposed schema |
 | **Flexible semantics** | Meaning depends on context attributed to connections, not fixed columns |
 | **Extensibility** | New data sources/streams need to be added on the fly |
@@ -61,7 +69,7 @@
 - **Hubs complicate partitioning:** small groups of highly-connected nodes shorten distances (good for analysis) but make it hard to split the graph across processing units without huge cross-partition network traffic (bad for distributed compute).
 
 #### Key Takeaways for BDA601
-1. **This is the "why graphs, and why they're hard" chapter** - R2/R3/R4 all assume this context; if an assessment or exam asks "when would you choose graph analytics over a relational approach," the five-signal checklist (§2) is the citable answer.
+1. **This is the "why graphs, and why they're hard" chapter** - R2/R3/R4 all assume this context; if an assessment or exam asks "when would you choose graph analytics over a relational approach," the six-signal checklist (§2) is the citable answer.
 2. **Complementary, not a replacement** - the explicit "graph analytics augments, doesn't replace, existing warehouses/OLAP/Hadoop" framing is worth remembering if a question tries to frame this as an either/or choice.
 3. **Day-job anchor:** Synergetic/SEQTA/Schoolbox data is fundamentally relational - but a question like "which staff, subjects, and co-curricular groups cluster around a given student's engagement pattern" is exactly the kind of undirected, relationship-first question this chapter says a graph model is suited for and a table-per-entity schema is not.
 
@@ -101,7 +109,7 @@
 
 #### 4. Real-world use cases (the module's most concrete list)
 
-- **Social media bot detection:** Oracle's own case study - bots repost content to inflate popularity, producing a detectably different connection pattern (density + repost count) than naturally popular accounts. Flagging based on this pattern hit **91.2%** accuracy (89% suspended, 2.2% deleted after a month's follow-up check).
+- **Social media bot detection:** Oracle's own case study - bots repost content to inflate popularity, producing a detectably different connection pattern (density + repost count) than naturally popular accounts. Of accounts flagged by this pattern, **91.2%** were later suspended or deleted (89% suspended, 2.2% deleted) when checked a month on - a strong outcome signal, though not a formal accuracy score against labelled ground truth.
 - **Credit card fraud:** nodes = accounts, purchase locations, purchase categories, transactions, terminals. Anomalies (a Bay Area cardholder suddenly transacting in Florida at night) get flagged by deviation from established connection patterns.
 - **Money laundering:** a query finds accounts sending funds to each other while sharing identity attributes (email, address, phone) across "different" synthetic identities - a pattern a table-per-account view would never surface without an explicit, expensive multi-way join.
 
@@ -146,7 +154,7 @@
 | LightGBM (`is_unbalance: true`, early stopping at iteration 208) | **0.9273** | Substantially stronger - the article's headline result |
 
 #### Key Takeaways for BDA601
-1. **This IS Activity 2's source material.** The activity asks you to summarise the outputs under "Dataset Preparation for Model Building" and consider whether any code there could be removed without changing the outcome - the negative-sampling (adjacency matrix traversal) and positive-sampling (removable-edge check) steps in §2 above are the two blocks to focus on; both are necessary (removing either collapses the training set to all-negative or risks a disconnected graph), which is the citable answer if the activity is asking you to justify that.
+1. **This IS Activity 2's source material.** The activity asks you to summarise the outputs under "Dataset Preparation for Model Building" and consider whether any code there could be removed without changing the outcome - the negative-sampling (adjacency matrix traversal) and positive-sampling (removable-edge check) steps in §2 above are the two blocks to focus on; both are necessary, but for different reasons: **skip negative sampling and the training set becomes all-positive** (no examples of "no link" to learn from); **skip positive sampling and it becomes all-negative**, and it's *this* step alone that carries the disconnected-graph risk, since it's the one removing real edges from the graph.
 2. **Class imbalance (19,018 vs 1,483) is the module's most transferable ML lesson** - it's not a graph-specific quirk, it's what happens whenever you frame a "does X happen" problem as classification over all possible pairs; the fix (`class_weight`/`is_unbalance`) generalises well beyond graphs.
 3. **Day-job anchor:** framing "will these two things connect in the future" as a supervised problem over node-pair features is the same pattern you'd use to predict "will this family enrol a sibling" or "will this donor lapse" - derive positive/negative examples from historical Synergetic snapshots rather than needing a literal future dataset.
 
@@ -173,8 +181,10 @@
 - When two pages are an equally good topical match for a search query, the page with the **higher PageRank** ranks higher - "the web has voted for that page."
 - PageRank is one input among others Google doesn't fully disclose - but it's presented as foundational, and "all major search engines use something similar."
 
+⚠️ **Historical model, not current Google reality:** Kent's 2017 explanation is a simplified, pre-2017 picture of PageRank. Google has since confirmed PageRank is only one of several ranking systems it uses, and the exact algorithm has evolved well beyond this description. Activity 1's tool (checkpagerank.net) is a **third-party site, not affiliated with Google** - its "External Backlinks" metric is a raw backlink count, not Google's actual (long-unpublished) PageRank score. Use Kent's vote/dilution mechanics to *explain the concept*, not to claim the tool's number *is* PageRank or that it drives current search rankings.
+
 #### Key Takeaways for BDA601
-1. **This is Activity 1's algorithm.** The activity asks you to rank universities by "External Backlinks" using an online PageRank tool and explain the algorithm in your own words - the vote/dilution mechanics above (more links = more votes, but votes are shared across outgoing links, and votes from high-PageRank pages count more) is the explanation to reuse.
+1. **This is Activity 1's algorithm.** The activity asks you to rank universities by "External Backlinks" using a third-party online tool and explain the PageRank *algorithm* in your own words - the vote/dilution mechanics above (more links = more votes, but votes are shared across outgoing links, and votes from high-PageRank pages count more) is the explanation to reuse, with the caveat above that the tool's number is a backlink count, not a live Google PageRank score.
 2. **PageRank is a graph metric, not a separate technique** - it's a concrete instance of Loshin's "centrality" graph metric family (§1.3) and Erickson's degree/closeness centrality examples (§2.3), applied specifically to the WWW-as-a-graph.
 3. **Day-job anchor:** the "votes shared across outgoing links" mechanic maps onto how influence/attention should be modelled in any network you'd analyse - e.g. a staff member connected to many students/committees "dilutes" their per-relationship influence the same way a page with many outgoing links dilutes its passed PageRank; concentration of connections (not just raw count) is what centrality measures actually capture.
 
