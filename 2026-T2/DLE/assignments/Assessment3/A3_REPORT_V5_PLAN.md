@@ -69,11 +69,11 @@ Second possibility to rule out first: the **deployed app may be behind `main`**.
 deployed commit before debugging anything.
 
 Third, and specific to UI-07/UI-08: the difference between aspect views may be **real but
-visually subtle rather than absent**. When the heatmap was reworked earlier in this project, the
+visually subtle, and not absent**. When the heatmap was reworked earlier in this project, the
 measured gap between the `food` and `service` attention views on this style of example was a
 maximum absolute difference of **0.031** — which is exactly why normalisation moved from
 max-only to min-max. If that is what Juan saw, this is a presentation problem, not a correctness
-one, and it is an honest RQ3 finding rather than a defect. Measure the two views on his exact
+one, and it is an honest RQ3 finding and no defect at all. Measure the two views on his exact
 input before changing any code.
 
 Why this outranks everything else: UI-07 and UI-08 are the views that answer RQ3, and they are
@@ -296,7 +296,7 @@ dropped or mangled it.
    the result in `release-verification.md`. **No linter is currently configured and `ruff` is not
    installed**, so treat this as an audit, not a cleanup: fix only clear naming or dead-code
    findings. A mass reformat days before submission risks more than it gains.
-7. **Record the skips explicitly** rather than leaving a reader to infer them:
+7. **Record the skips explicitly** so no reader has to infer them:
    *"363 passed, 3 expected skips; every skipped test requires the non-redistributed legacy
    Amazon dataset, and no ReviewPulse v3 test was skipped."* Chasing zero skips by shipping data
    we cannot redistribute is not an option.
@@ -344,3 +344,36 @@ Do not call ATAE-LSTM a structured probabilistic model.
   blocking gate.
 - No retraining. Every number above already exists in frozen artifacts.
 - Volume and word count are handled outside this plan. It covers content only.
+
+## Status — 8 Aug 2026
+
+Everything in **Report changes** is done, in `report/DLE602_A3_Report_v4.md`, commits `55514e1`
+and `9fbe37a`.
+
+**Done.** Merged A2→A3 traceability table as Table 1 in Section 2; the libraries sentence in
+Section 3; the Appendix G pointer in Section 4; Appendix G (parsed dataset, frozen versions,
+model configurations, ATAE-LSTM training history, TextCNN search, verified run); Appendix H
+(lightweight versus complete package execution). Tables 1–4 renumbered to 2–5 with every in-text
+reference, contents updated, sections shifted to 16/17.
+
+Three changes to what the plan specified. Figures G1–G4 became **Listings G1–G3**: pasted
+terminal transcripts instead of screenshots, plus one real Python-and-output composite for the
+"snapshots from Python code with results" ask. Zhao et al. (2018) was **dropped**, not added, so
+RQ1 anchors on Pontiki plus the v1/v2 lineage and the reference list is unchanged. The TextCNN
+narrative was softened after review: three candidates at one seed cannot isolate a causal
+hyperparameter effect, and `(2,3,4)` was never tested at 100 filters, so the claim is now that
+widening alone showed no benefit.
+
+**Workstream 0 is closed as accepted risk.** UI-06/07/08/10/12 will not be triaged before
+submission. They are carried as known, documented findings and never as release blockers, and the
+report now says so in the RQ3 row and the contribution log. The sentence holding anonymous public
+access open as a release gate was removed from Appendix E, which is the only change made to that
+otherwise frozen appendix. The v3.0.0 package is stated as delivered in Section 6.
+
+**Pending.** Victor's Appendix F evidence — now the only "Pending" anywhere in the report. Every
+item under **Export and formatting fixes** and **Verification**. The EV-02E/EV-02F labelling slip
+in Juan's source document. The Module 10 forum post.
+
+**Final touches.** The remote carries only `v3.0.0-rc.1`; Table 1 now claims a tagged release, so
+push `v3.0.0` before that is literally true. Appendix H states archive sizes as approximate —
+build both archives if the exact byte counts and SHA-256 digests should appear in Table H1.

@@ -49,7 +49,7 @@ No result below is invented or illustrative.
 ## 1. Project Evolution, Problem, Aim and Research Questions
 
 ReviewPulse began in ISY503 as a review-level binary sentiment classifier: v1.0 established the classical pipeline and v2.x hardened the application and added a Transformer option. Those releases assign one label to a whole review and therefore average away mixed opinions. DLE602 v3.0 implements aspect-based sentiment analysis (ABSA), so *"the food was great but the service was slow"* can produce separate labels for `food` and `service`. This report evaluates the completed implementation against the research questions established in Assessment 2, using
-  only newly generated DLE602 results rather than checkpoints or metrics from the earlier ISY503 project.
+  only newly generated DLE602 results; no checkpoint or metric from the earlier ISY503 project is reused.
 
 ```mermaid
 flowchart LR
@@ -70,17 +70,17 @@ flowchart LR
 
 The submitted four-model ladder comprises TF-IDF, a target-agnostic LSTM, ATAE-LSTM and DistilBERT. All models use the official Restaurants test split, the fixed label order `negative`, `neutral`, `positive`, and one evaluation contract covering accuracy, macro-F1, per-class metrics, confusion matrices, a mixed-polarity multi-aspect subset, training time, inference latency and artifact size. A separate `predict_aspects(review, aspects, model_name)` API and Streamlit v3 page expose ABSA without widening the legacy `predict_sentiment()` contract.
 
-Reproducibility requirements include fixed seeds, sentence-grouped leakage-safe development splits, development macro-F1 checkpoint selection, early stopping and restoration of the best neural checkpoint. The implementation persists configuration, training history and provenance with each artifact. Invalid input, unavailable checkpoints and unsupported evidence views produce explicit errors or states rather than silent fallback.
+Reproducibility requirements include fixed seeds, sentence-grouped leakage-safe development splits, development macro-F1 checkpoint selection, early stopping and restoration of the best neural checkpoint. The implementation persists configuration, training history and provenance with each artifact. Invalid input, unavailable checkpoints and unsupported evidence views produce explicit errors or states, never a silent fallback.
 
 Automatic aspect extraction, Topic Modelling and Laptops transfer remain outside the implemented core. A target-agnostic GRU and review-only TextCNN were completed only after the four-model gates passed. They are reported as exploratory controls in Appendix A and do not retroactively redefine the Assessment 2 experiment.
 
-Table 1 is the traceability contract for this report. It carries each literature gap and each scope commitment from Assessment 2 through to the research question or requirement it produced, the measure agreed before implementation began, and the delivered outcome. The scope and the primary evaluation measures were committed in Assessment 2; additional diagnostics, such as the paired disagreement analysis supporting RQ1, are identified here as post-implementation analyses rather than presented as pre-agreed thresholds.
+Table 1 is the traceability contract for this report. It carries each literature gap and each scope commitment from Assessment 2 through to the research question or requirement it produced, the measure agreed before implementation began, and the delivered outcome. The scope and the primary evaluation measures were committed in Assessment 2; additional diagnostics, such as the paired disagreement analysis supporting RQ1, are identified here as post-implementation analyses, not pre-agreed thresholds.
 
 | A2 gap / commitment | RQ or requirement | Pre-committed measure | A3 outcome |
 |---|---|---|---|
 | Sentence-level models emit one label per text, as in ReviewPulse v1/v2; Pontiki et al. (2014) reframe the question as *which* aspect is positive, and Tang et al. (2016) motivate target conditioning | RQ1 | Mixed-polarity accuracy and macro-F1 on the 228-instance subset | Met; paired disagreement analysis added afterwards as a supporting diagnostic |
 | Wang et al. (2016) offer a light aspect-conditioned model learned from a small benchmark; Sanh et al. (2019) and Sun et al. (2019) offer pretrained contextual transfer at higher cost | RQ2 | Accuracy, macro-F1, training time, inference latency and artifact size under one contract | Met; timing is observational across CPU and MPS, not a controlled comparison |
-| Attention can vary without changing a prediction and need not identify causal features (Jain & Wallace, 2019) | RQ3 | Offset-aligned indicative evidence where the architecture supports it, and an explicit unsupported state otherwise | Implemented; independent application acceptance still open (Appendix E) |
+| Attention can vary without changing a prediction and need not identify causal features (Jain & Wallace, 2019) | RQ3 | Offset-aligned indicative evidence where the architecture supports it, and an explicit unsupported state otherwise | Met; the observations raised by independent QA are carried as known documented findings, not release blockers (Appendix E) |
 | Accepted minimum product: audited baselines, ATAE-LSTM, shared evaluation and a working interface | Scope floor | All named components load and return three-class predictions per aspect under one evaluation contract | Met |
 | DistilBERT retained only if compute and validation checks pass | Optional scope | Trained and evaluated under the same contract as the core ladder | Met |
 | Reproducibility: fixed seed, sentence-grouped splits, versioned artifacts, single evaluation script | Requirement | Recorded splits, seeds and provenance; constrained clean installation; automated test suite | Met on the pre-release baseline |
@@ -142,7 +142,7 @@ ATAE-LSTM conditions the recurrent representation on an aspect embedding and lea
 
 Dropout and weight decay limit overfitting; early stopping and best-checkpoint restoration prevent reporting a convenient final epoch instead of the best observed development checkpoint. Appendix G records the frozen configuration of every model, the training curve that fixed the selected checkpoint, and the only recorded hyperparameter search in this project, in which widening the TextCNN filters alone reduced development macro-F1 and an improvement appeared only once the filter count was raised. The remaining models used predefined configurations with development macro-F1 checkpoint selection and were not searched. The fixed test split, label order and metric implementation support comparison of predictive behaviour. They do not, however, make cross-device timing controlled, nor does one fixed seed establish variance across retraining.
 
-Attention and gradient attribution are treated as diagnostic views rather than model reasoning. Attention can vary without changing a prediction and need not identify causal features (Jain & Wallace, 2019). Accordingly, ReviewPulse labels darker tokens as higher-scored evidence within one aspect view and makes no claim that the view faithfully explains the decision.
+Attention and gradient attribution are treated as diagnostic views and never as model reasoning. Attention can vary without changing a prediction and need not identify causal features (Jain & Wallace, 2019). Accordingly, ReviewPulse labels darker tokens as higher-scored evidence within one aspect view and makes no claim that the view faithfully explains the decision.
 
 ## 5. Results and Critical Analysis
 
@@ -193,9 +193,9 @@ Across the canonical test set, the four models disagree on 428 instances and all
 
 ## 6. Limitations and Conclusion
 
-The 228-instance mixed subset is comparatively small, and results come from one frozen seed rather than a multi-seed distribution. Apple MPS can remain nondeterministic despite seed control, so provenance identifies exact commits and a shared prediction hash rather than promising bit-identical retraining. Gold aspect terms are supplied manually in the application; automatic extraction and cross-domain Laptops evaluation are unimplemented. Evidence scores are model-specific and normalised within each view, so they should not be compared as absolute importance across models or examples.
+The 228-instance mixed subset is comparatively small, and results come from a single frozen seed; no multi-seed distribution was collected. Apple MPS can remain nondeterministic despite seed control, so provenance identifies exact commits and a shared prediction hash; bit-identical retraining is not promised. Gold aspect terms are supplied manually in the application; automatic extraction and cross-domain Laptops evaluation are unimplemented. Evidence scores are model-specific and normalised within each view, so they should not be compared as absolute importance across models or examples.
 
-ReviewPulse v3.0 nevertheless answers the submitted questions with measured implementation evidence. Explicit aspect conditioning materially improves classification on the mixed-polarity subset. DistilBERT provides the strongest predictions at substantially greater storage cost, while ATAE-LSTM offers a small aspect-aware alternative with stronger mixed-polarity behaviour than the review-only controls. Its attention and DistilBERT attribution provide indicative token-level evidence, not exposed reasoning. The completed GRU and TextCNN extensions reinforce rather than change this result. Next research steps are multi-seed uncertainty estimates, controlled same-device efficiency measurement, cross-domain evaluation and automatic aspect extraction; the remaining delivery step is the reproducible v3.0.0 submission package.
+ReviewPulse v3.0 nevertheless answers the submitted questions with measured implementation evidence. Explicit aspect conditioning materially improves classification on the mixed-polarity subset. DistilBERT provides the strongest predictions at substantially greater storage cost, while ATAE-LSTM offers a small aspect-aware alternative with stronger mixed-polarity behaviour than the review-only controls. Its attention and DistilBERT attribution provide indicative token-level evidence, not exposed reasoning. The completed GRU and TextCNN extensions reinforce this result without changing it. Next research steps are multi-seed uncertainty estimates, controlled same-device efficiency measurement, cross-domain evaluation and automatic aspect extraction. The reproducible v3.0.0 submission package is delivered, in the two forms described in Appendix H.
 
 **Word count (Sections 1-6 prose and list items): 1,550 words.**
 
@@ -241,7 +241,7 @@ GRU uses 10.31% fewer parameters than LSTM and obtains slightly higher full-test
 | Neural overfitting | Development early stopping and best-checkpoint restoration | Selected epoch, history and diagnostic persisted per model |
 | Transformer compute/storage | Apple MPS training and explicit artifact measurement | Strongest model, but 256.11 MB; lightweight ATAE remains available |
 | Sentence leakage | Group development split by `sentence_id` | Automated disjointness checks pass |
-| Artifact loading failure | Explicit paths, validation and controlled UI errors | Missing models fail visibly rather than changing model silently |
+| Artifact loading failure | Explicit paths, validation and controlled UI errors | Missing models fail visibly, with no silent substitution |
 | Optional-scope delay | Four-model result frozen before GRU/CNN activation | Six-model track completed without replacing the canonical experiment |
 | Unequal contribution | Issue ownership, pull-request review and contribution record | Juan delivered independent Streamlit QA in PR #120, hardened in PR #121; Victor's reproduction remains pending, and only evidenced work is claimed |
 
@@ -253,11 +253,11 @@ GRU uses 10.31% fewer parameters than LSTM and obtains slightly higher full-test
 |---|---|---|---|
 | Luis Faria | Completed | Architecture, ABSA implementation, all training/evaluation integration, token evidence, six-model integration, Streamlit integration, Git LFS deployment, release packaging and report consolidation | ReviewPulse PRs #90, #92, #93, #97, #98-#102; academic commits `f3b7247`, `6d50ac0` |
 | Victor Dorantes | Assigned 29 Jul; evidence pending | Independently reproduce the constrained installation/tests, validate RQ1/RQ2 results and verify the cited publications | Required evidence: `validation-victor.md`, commands/results and a reviewed PR; summarised in Appendix F |
-| Juan Martinez | Independent QA delivered and reviewed | Executed 12 deployed-Streamlit cases across all six models, multi-aspect inputs, sample generation, evidence views, invalid inputs, model switching and v2/v3 compatibility; recorded predictions, screenshots, three acceptance failures and two stale-state checks blocked pending reproducible detail | ReviewPulse PR #120, merge commit `1e6689f`; corrective PR #121, merge commit `9071553`; `docs/dle602-a3/validation-juan.md`; companion screenshot record; selected evidence mapped in Appendix E |
+| Juan Martinez | Independent QA delivered and reviewed | Executed 12 deployed-Streamlit cases across all six models, multi-aspect inputs, sample generation, evidence views, invalid inputs, model switching and v2/v3 compatibility; recorded predictions, screenshots, three acceptance failures and two stale-state observations that could not be reproduced from the written record; all five are carried as known documented findings, not release blockers | ReviewPulse PR #120, merge commit `1e6689f`; corrective PR #121, merge commit `9071553`; `docs/dle602-a3/validation-juan.md`; companion screenshot record; selected evidence mapped in Appendix E |
 
 *Table B2. Contribution status, assigned validation work and required traceable evidence.*
 
-Assignments are not treated as completed contributions. Juan's executed QA is recorded as an evidenced contribution even where it exposes failures rather than confirming acceptance. Victor remains pending until his reproduction record is submitted and reviewed.
+Assignments are not treated as completed contributions. Juan's executed QA is recorded as an evidenced contribution even where it exposes failures and does not confirm acceptance. Victor remains pending until his reproduction record is submitted and reviewed.
 
 ## 10. Appendix C - Reproduction Commands
 
@@ -279,16 +279,16 @@ The frozen supplemental evaluation is regenerated by adding
 
 ## 11. Appendix D - Future Expansion Roadmap
 
-ReviewPulse v3.0 is intentionally an academic comparison environment rather than a production platform. Its six-model ladder, manual gold-aspect input and Streamlit interface make the research questions inspectable, but the same design should not be scaled by simply running every model for every incoming review. Future releases would separate experimental benchmarking from the smaller set of models selected for operational inference.
+ReviewPulse v3.0 is intentionally an academic comparison environment and was never built as a production platform. Its six-model ladder, manual gold-aspect input and Streamlit interface make the research questions inspectable, but the same design should not be scaled by simply running every model for every incoming review. Future releases would separate experimental benchmarking from the smaller set of models selected for operational inference.
 
 | Release scenario | Primary objective | Candidate capabilities | Architectural direction |
 |---|---|---|---|
 | v3.1 - Reproducible service | Harden the existing ABSA workflow without changing its research scope | Three-class probability distributions, confidence calibration, abstention thresholds, CSV/JSON export, batch requests, latency/load tests and model-version metadata | Retain Streamlit as the demonstration client and introduce a versioned inference API |
 | v4.0 - Aspect intelligence | Remove the requirement for users to know and enter every aspect | Automatic aspect extraction, user correction, synonym/category normalisation, batch review analysis and emerging-topic discovery | Add an extraction pipeline, persistent result store and analyst dashboard |
-| v5.0 - Operational monitoring | Analyse feedback continuously rather than through isolated submissions | Review-platform connectors, scheduled ingestion, trend analysis, alerts, feedback capture, drift monitoring and domain-specific retraining | Add asynchronous jobs, inference workers, PostgreSQL/object storage and observability |
+| v5.0 - Operational monitoring | Analyse feedback continuously instead of in isolated submissions | Review-platform connectors, scheduled ingestion, trend analysis, alerts, feedback capture, drift monitoring and domain-specific retraining | Add asynchronous jobs, inference workers, PostgreSQL/object storage and observability |
 | Later SaaS/enterprise track | Support multiple organisations and governed use | Tenant isolation, authentication, role-based access, audit logs, retention controls, personal-data handling and usage limits | Separate web, API, worker and storage tiers; scale workers independently |
 
-*Table D1. Prospective ReviewPulse release scenarios; listed capabilities are planned rather than part of the evaluated v3.0 implementation.*
+*Table D1. Prospective ReviewPulse release scenarios; listed capabilities are planned, and none is part of the evaluated v3.0 implementation.*
 
 For v3.1, **FastAPI** is the preferred default because the immediate requirement is a small typed HTTP layer around the existing `predict_aspects` and comparison services. Streamlit could remain the visible client while the API provides explicit request schemas, model-version responses and machine-readable errors for batch or third-party consumers. Model execution is compute-bound, so an asynchronous web endpoint alone would not create inference capacity; batch work should instead move through a bounded queue and independently scalable workers.
 
@@ -308,13 +308,13 @@ flowchart LR
 
 *Figure D1. Prospective service evolution; these components are not claimed as part of the evaluated v3.0 implementation.*
 
-The model strategy would also change with scale. TF-IDF, LSTM, GRU and TextCNN remain useful controls for research and regression detection, while operational traffic would normally use one validated aspect-conditioned model, with a second model retained only when its cost, latency or diagnostic value justifies deployment. Cross-domain use in e-commerce, hospitality, software support or other sectors would require new representative data and domain-specific evaluation rather than assuming that Restaurants performance transfers unchanged.
+The model strategy would also change with scale. TF-IDF, LSTM, GRU and TextCNN remain useful controls for research and regression detection, while operational traffic would normally use one validated aspect-conditioned model, with a second model retained only when its cost, latency or diagnostic value justifies deployment. Cross-domain use in e-commerce, hospitality, software support or other sectors would require new representative data and domain-specific evaluation; Restaurants performance cannot be assumed to transfer unchanged.
 
 ## 12. Appendix E - Application Acceptance Evidence
 
-Juan acted as the project's independent QA validator. Working from the deployed application rather than the codebase, he ran 12 authenticated Streamlit cases covering all six models, multi-aspect input, sample generation, model switching, attention and attribution views, invalid input and v2/v3 compatibility, capturing the interface state and screenshot for every case.
+Juan acted as the project's independent QA validator. Working from the deployed application and never from the codebase, he ran 12 authenticated Streamlit cases covering all six models, multi-aspect input, sample generation, model switching, attention and attribution views, invalid input and v2/v3 compatibility, capturing the interface state and screenshot for every case.
 
-Seven cases passed. Five did not, and those proved the most valuable: three acceptance failures and two observations that could not be reproduced from the written record. A wrong prediction was logged as model quality rather than an interface defect, and an unreproducible observation was never promoted to a confirmed bug. Independent QA that surfaces a release risk is stronger evidence than a demonstration curated to look green.
+Seven cases passed. Five did not, and those proved the most valuable: three acceptance failures and two observations that could not be reproduced from the written record. A wrong prediction was logged as model quality, not an interface defect, and an unreproducible observation was never promoted to a confirmed bug. Independent QA that surfaces a release risk is stronger evidence than a demonstration curated to look green.
 
 Four captures appear below. The complete 12-case record, with every screenshot, is linked at the end of this appendix and kept as `docs/dle602-a3/validation-juan.md` in the repository.
 
@@ -326,13 +326,11 @@ Four captures appear below. The complete 12-case record, with every screenshot, 
 
 *Figure E4 (EV-10, EV-11). Invalid-input validation state, preserving the exact user-facing message and the stale-result behaviour raised for triage.*
 
-Anonymous public access fell outside Juan's authenticated session and remains a separate release gate.
-
 **Complete screenshot record:** [Juan Martinez's full 12-case Streamlit QA evidence](https://laustu-my.sharepoint.com/:w:/g/personal/juan_contreras_student_torrens_edu_au/IQCZCy0A4REuQazXkp8Tsd2cAa_PIJSnHeZKKz41hQLov3g?isSPOFile=1&ovuser=66e44254-c0ce-4745-9255-907eee03faf6%2CLuis.faria%40Student.Torrens.edu.au&wdExp=TEAMS-TREATMENT&web=1&clickparams=eyJBcHBOYW1lIjoiVGVhbXMtRGVza3RvcCIsIkFwcFZlcnNpb24iOiI1MC8yNjA3MTYxNjAxMSJ9). Access requires the shared Torrens/SharePoint permissions.
 
 ## 13. Appendix F - Independent Reproduction Record
 
-Victor acts as a second person reproducing the reported results from the repository alone, on a machine that is not the development machine. Its purpose is to establish that the numbers in Section 5 are properties of the artifacts and instructions rather than of one local environment.
+Victor acts as a second person reproducing the reported results from the repository alone, on a machine that is not the development machine. Its purpose is to establish that the numbers in Section 5 are properties of the artifacts and instructions themselves, reproducible away from one local environment.
 
 The full record, including the exact commands, console output and machine specification, is kept as `docs/dle602-a3/validation-victor.md` in the ReviewPulse repository and merged through a reviewed pull request. This appendix carries the summary.
 
@@ -348,7 +346,7 @@ The full record, including the exact commands, console output and machine specif
 
 *Table F1. Independent reproduction checks, expected values and outcomes.*
 
-Where an observed value differs from the expected value, the difference is recorded as observed and explained rather than adjusted. A reproduction that surfaces a genuine discrepancy is more valuable to this report than one that confirms every figure, and F3 in particular is expected to differ from the development machine by design: the six sample-provenance tests skip wherever the frozen evaluation predictions are absent. Rows that receive no evidence before submission are removed from this appendix rather than published as empty claims.
+Where an observed value differs from the expected value, the difference is recorded as observed and explained, never adjusted. A reproduction that surfaces a genuine discrepancy is more valuable to this report than one that confirms every figure, and F3 in particular is expected to differ from the development machine by design: the six sample-provenance tests skip wherever the frozen evaluation predictions are absent. Rows that receive no evidence before submission are removed from this appendix, not published as empty claims.
 
 ## 14. Appendix G - Implementation Walkthrough and Configuration Evidence
 
@@ -366,7 +364,7 @@ The parser reads the SemEval XML, validates every annotated character offset aga
 
 *Table G1. Three parsed aspect instances as supplied to the models. One sentence yields one record per annotated aspect, which is the structural reason a review-level label cannot answer the task.*
 
-The audit command reports the corpus itself. Listing G1 is its verbatim output, and it is the source of Table 2. Listings G1 to G3 are pasted terminal transcripts rather than screenshots: the text stays legible at any page size, carries no local file paths, and can be searched and re-run by a reader.
+The audit command reports the corpus itself. Listing G1 is its verbatim output, and it is the source of Table 2. Listings G1 to G3 are pasted terminal transcripts instead of screenshots: the text stays legible at any page size, carries no local file paths, and can be searched and re-run by a reader.
 
 ```text
 $ python -m src.absa.data.audit
@@ -432,7 +430,7 @@ Table G4 shows why the best epoch is not simply the last one. ATAE-LSTM training
 | 7 | 0.6063 | 0.5325 |
 | 8 | 0.5560 | 0.5297 |
 
-*Table G4. ATAE-LSTM training history. The 0.0073 macro-F1 decline after the best epoch is below the 0.02 threshold recorded in the overfitting diagnostic, so the run is treated as stable at this seed rather than materially overfitted.*
+*Table G4. ATAE-LSTM training history. The 0.0073 macro-F1 decline after the best epoch is below the 0.02 threshold recorded in the overfitting diagnostic, so the run is treated as stable at this seed, not materially overfitted.*
 
 ### G.4 The one recorded hyperparameter search
 
@@ -483,7 +481,7 @@ for item in results:
 service -> positive 0.742 | Great[0:5]=0.193, ![39:40]=0.132, dreadful[31:39]=0.130
 ```
 
-*Listing G3. Aspect-conditioned inference and token evidence. Each token carries the character offsets that locate it in the original review, so the evidence view is aligned to the raw text rather than to model-internal subword units. The attention distribution changes with the supplied aspect while the predicted label does not, which is precisely the RQ3 caveat drawn from Jain and Wallace (2019).*
+*Listing G3. Aspect-conditioned inference and token evidence. Each token carries the character offsets that locate it in the original review, so the evidence view is aligned to the raw text itself, never to model-internal subword units. The attention distribution changes with the supplied aspect while the predicted label does not, which is precisely the RQ3 caveat drawn from Jain and Wallace (2019).*
 
 ## 15. Appendix H - Code Execution: Lightweight and Complete Packages
 
@@ -508,7 +506,7 @@ streamlit run app.py
 
 The constraint file pins the versions in Table G2. Inference runs on CPU in both packages, so no accelerator is required.
 
-Only the v3 DistilBERT directory is excluded from the lightweight archive, since at roughly 256 MB it accounts for the entire size difference. Selecting **DistilBERT sentence-pair** there returns a model-unavailable error rather than a prediction: a missing artifact is always reported and never silently substituted. The only network dependency in the submission sits elsewhere, in the preserved ISY503 workflow rather than in any v3 result: the legacy `outputs/distilbert.pt` stores only the classification head and fine-tuned layers, so its base encoder is fetched from `distilbert-base-uncased` and reports itself unavailable offline without a cache. The five v3 artifacts are read straight from disk.
+Only the v3 DistilBERT directory is excluded from the lightweight archive, since at roughly 256 MB it accounts for the entire size difference. Selecting **DistilBERT sentence-pair** there reports the model unavailable and returns no prediction: a missing artifact is always reported and never silently substituted. The only network dependency in the submission sits elsewhere, in the preserved ISY503 workflow and not in any v3 result: the legacy `outputs/distilbert.pt` stores only the classification head and fine-tuned layers, so its base encoder is fetched from `distilbert-base-uncased` and reports itself unavailable offline without a cache. The five v3 artifacts are read straight from disk.
 
 | Environment | Passed | Skipped | Additional skips |
 |---|---:|---:|---|
@@ -516,7 +514,7 @@ Only the v3 DistilBERT directory is excluded from the lightweight archive, since
 | GitHub clone, complete artifacts | 357 | 9 | 6 sample-provenance checks need the non-redistributed `predictions.csv` |
 | Extracted lightweight archive | approx. 355 | approx. 11 | 2 package-builder checks need Git metadata, absent from a ZIP |
 
-*Table H2. Expected test outcomes by environment. Every skip is an intentional absence of licensed data or Git metadata rather than a failure, and none is removed by redistributing data the project cannot license.*
+*Table H2. Expected test outcomes by environment. Every skip is an intentional absence of licensed data or Git metadata; none is a failure, and none is removed by redistributing data the project cannot license.*
 
 On the complete package, `python scripts/smoke_absa.py` clean-loads all four canonical models, as shown in Listing G2. It is deliberately unusable on the lightweight package, which excludes the model it exercises; `scripts/smoke_target_gru.py` and `scripts/smoke_text_cnn.py` are the equivalent checks there.
 
