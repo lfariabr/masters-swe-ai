@@ -1079,7 +1079,9 @@ Visual analytics in DL is one of the newest branches of research in this space. 
 
     This is a great resource to realise the importance of visual analytics in DL from the point of view of convolutional neural networks (CNNs).
 
-    In this paper, the authors present a visual analytics approach to provide some insights into the designing or training of a better CNN model. This paper compares two different models using visualisations.
+    In this paper, the authors present a visual analytics approach to provide some insights into the designing or training of a better CNN model. This paper compares two snapshots of the same model, taken at different epochs of a single training process, using visualisations.
+
+    *(Correction to the subject blurb: the paper deliberately compares two snapshots from **one** training run, not two different models - the authors state that cross-run/cross-architecture comparison is confounded by random initialisation and is left as future work.)*
 
     This paper introduces an interactive visualisation system called CNNComparator, which enables users to explore the evolution of CNN parameters over one training process and the generated learned features.
 
