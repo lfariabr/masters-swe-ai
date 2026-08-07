@@ -7,8 +7,8 @@ Dr Tayab spent lines 24–80 of the 5 Aug lecture on A3 expectations
 Cross-checking his words against the formal brief
 (`2026-T2/DLE/assignments/DLE602_Assessment 3_20240603.pdf`), the report source
 (`report/DLE602_A3_Report_v3.md`) and the exported
-`report/v4_DLE602_Faria_L_Assessment_3.pdf` surfaced two **submission-blocking export defects**
-plus a set of content elements he named explicitly that the report does not contain.
+`report/v4_DLE602_Faria_L_Assessment_3.pdf` surfaced a set of export defects plus content
+elements he named explicitly that the report does not contain.
 
 The core model implementation and frozen experimental results are complete. Submission
 hardening, independent reproduction and targeted UI retesting remain open. Everything below is
@@ -25,7 +25,7 @@ the section below.
 
 | Claim | Verdict |
 |---|---|
-| Body stays 1,500 ±10% = 1,350–1,650 | **Confirmed** (brief line 8). His verbal "1,800–2,000 is fine" does not override the written rubric. Do not inflate the body. |
+| Brief sets 1,500 ±10% | **Confirmed** (brief line 8), against his verbal "1,800–2,000 is fine". Volume is handled separately. |
 | Word count goes on the cover | **False.** Brief line 76: *"State the word count at the end of the report (before the reference section)"*. The Markdown already does this correctly at the end of Section 6. Only the export dropped it. |
 | Footer needs page numbers + group id | **Confirmed** (brief lines 77–78). v4 has page numbers in the **header** and no group identifier. |
 | Academic Integrity Declaration missing from v4 PDF | **Confirmed.** v4 runs Appendix F → Statement of Acknowledgment → References. The "We declare…" section is gone. He said explicitly: *"academic integrity declaration you have to sign"*. |
@@ -80,11 +80,13 @@ Why this outranks everything else: UI-07 and UI-08 are the views that answer RQ3
 what Appendix E is meant to screenshot. Publishing a screenshot of a view that is under triage
 would be worse than publishing nothing.
 
-**Evidence status is settled.** Juan's companion Word document holds a complete screenshot set,
-EV-01 through EV-12 including the six per-model smoke captures. The `Repository evidence status`
-field in `validation-juan.md` still says captures are pending and is stale; ignore it. The
-outstanding task is exporting four readable composites into `report/assets/`, not chasing
-evidence.
+**Evidence status is settled and Appendix E is closed.** Juan's companion Word document holds a
+complete screenshot set, EV-01 through EV-12 including the six per-model smoke captures. The
+`Repository evidence status` field in `validation-juan.md` still says captures are pending and is
+stale; ignore it.
+
+**Appendix E ships as currently written. No further changes to it**, including no image imports
+and no rewording of the acceptance-failure paragraph. Triage outcomes below do not reopen it.
 
 One labelling slip to check in the source document: the six-model smoke set lists **EV-02E and
 EV-02F both as ATAE-LSTM**. EV-02F is presumably DistilBERT. As written the sixth model is absent
@@ -115,8 +117,7 @@ header-instead-of-footer pagination and the mismatched appendix numbering (`7.x`
 numbered headings and properly labelled tables and figures.
 
 > Tables X and Y are specified separately below for clarity, but **ship as one merged table**
-> (`A2 gap/commitment | RQ or requirement | Pre-committed measure | A3 outcome`) to cut the
-> all-inclusive word cost. See the body word-budget section.
+> (`A2 gap/commitment | RQ or requirement | Pre-committed measure | A3 outcome`).
 
 ### Table X — Literature gap → research question → A3 evidence
 
@@ -161,11 +162,11 @@ baseline are cut first."* Anchor the table to that.
 The last row is worth keeping: it shows scope discipline *and* overdelivery against a
 pre-committed cut list, which is exactly what the planning criterion rewards.
 
-### Literature synthesis — optional, and not in counted prose
+### Literature synthesis — optional
 
 A2 asked for *"further critical comparison of the selected studies and models."* A3 has no
-literature criterion, and the word budget does not allow it as prose. If included, make it a
-table (uncounted): Tang et al. motivates conditioning without explicit attention; ATAE-LSTM is
+literature criterion, so this is optional. If included, make it a
+table: Tang et al. motivates conditioning without explicit attention; ATAE-LSTM is
 light and aspect-conditioned but its attention is not causal; DistilBERT wins on the benchmark at
 roughly 100× the storage; TextCNN approximates Zhao et al. and confirms that swapping the
 review-only encoder does not supply the missing aspect signal.
@@ -177,45 +178,26 @@ Table 2 has four rows in both the Markdown source and the v4 PDF. The string app
 extracted PDF text because **Table 2** (headline comparison) and **Table 3** (per-class F1)
 legitimately list the same four models. Do not delete anything.
 
-## The two defects that must be fixed regardless of anything else
+## Frozen: do not touch
 
-**1. Restore the Academic Integrity Declaration.** Present in `DLE602_A3_Report_v3.md` §14, absent
-from the PDF. Highest-severity item in this plan.
+- **Appendix E** ships exactly as written. No image imports, no rewording, no further edits.
+- **Academic Integrity Declaration** stays as it is in `DLE602_A3_Report_v3.md` §14.
+- The broken-image block that produced the fake `placeholder` figure in v4 is already gone from
+  the source.
 
-**2. Remove the broken image block in Appendix E.** Author-facing instructions (a fenced markdown
-snippet showing the image syntax) were placed inside the report body, and the exporter rendered
-the broken image as the word `placeholder` plus a caption that reads as a real figure. Move that
-guidance out of the report into `docs/dle602-a3/validation-juan.md` in review-pulse.
-
-> Distinction that matters: keeping **"Pending"** rows visible is a deliberate honesty choice.
-> A broken-image `placeholder` masquerading as Figure E1 is a rendering bug. Fix the second,
-> keep the first.
+Keeping **"Pending"** rows visible in Appendix F is a deliberate honesty choice, not an oversight.
 
 ## Report changes
 
-### Body — Sections 1–6, target 1,580–1,630 words (ceiling 1,650)
+### Body — Sections 1–6
 
-Both counts were measured on the current source:
-
-| Counting basis | Now | After planned additions |
-|---|---:|---:|
-| Declared rule (tables and captions excluded) | **1,550** | ~1,620 |
-| All-inclusive (tables and captions counted) | **1,867** | ~2,050 if X and Y stay separate |
-
-This kills the idea of holding *both* counts under 1,650 — the all-inclusive figure is already
-1,867 before adding anything, and stripping tables to fix it would wreck the report.
-
-The defensible position: the **declared count stays inside the written brief** (1,350–1,650), and
-the all-inclusive figure lands inside the **1,800–2,000 Tayab explicitly blessed verbally**. Both
-readings are safe — but only if the additions stay small.
-
-**Therefore merge Tables X and Y into one table**, which removes a duplicated lead-in and roughly
-120 all-inclusive words:
+**Merge Tables X and Y into one table.** Two tables covering the same A2-to-A3 traceability is
+repetition, and one table reads better:
 
 | A2 gap / commitment | RQ or requirement | Pre-committed measure | A3 outcome |
 |---|---|---|---|
 
-Spend the counted headroom on:
+Content to add:
 
 - **Section 3** — one sentence naming the libraries and their roles: `defusedxml` (safe XML
   parsing), `scikit-learn` (TF-IDF + logistic regression), `PyTorch` (LSTM, GRU, TextCNN,
@@ -223,8 +205,7 @@ Spend the counted headroom on:
   (confusion matrices), `streamlit` (application). Zero mentions of any of these today.
 - **Section 4** — one clause pointing at the frozen hyperparameters and the TextCNN configuration
   search in the new Appendix G.
-- **Section 1 or 2** — insert **Table X** (gap → RQ → evidence) and **Table Y** (success criteria
-  and status) with short lead-ins. Both tables are uncounted; only the lead-ins cost words.
+- **Section 1 or 2** — insert the merged traceability table with a short lead-in.
 
 Renumber the existing tables after insertion: today's Table 1 (dataset audit) through Table 4
 (token evidence) shift, and every in-text reference plus the ToC must follow. The Documentation
@@ -235,7 +216,7 @@ used predefined configurations with development macro-F1 checkpoint selection.
 
 ### New Appendix G — Implementation Walkthrough and Configuration Evidence
 
-One appendix, not two. Appendices are excluded from the declared count, so this is free.
+One appendix, not two.
 
 **Table G1 — Parsed dataset preview.** Three records: `sentence_id`, shortened review text,
 aspect, gold polarity, offset validity. Answers his *"put a header of the data set"*. Use only
@@ -283,16 +264,9 @@ Captures must come from the frozen commit and stay legible on A4.
 
 ## Export and formatting fixes
 
-- Restore the **Academic Integrity Declaration**, signed by all three members.
-- Remove the Appendix E broken-image block; move the instructions to `validation-juan.md`.
-- **Appendix E has been rewritten** (done). Its real flaw was duplication: Table E1 and the four
-  figure captions described the same four captures twice over. The table is gone, EV traceability
-  moved into the captions (`Figure E1 (EV-01, EV-02)`), and the case-by-case census gave way to
-  the line that actually lands: seven passed, five did not, and the five that did not are the
-  valuable ones. Juan now reads as the project's independent QA validator, with selected examples
-  in the report and the complete record behind the link.
-- Export four readable composites from Juan's Word evidence into `report/assets/` as `e1`–`e4`
-  and insert them above the existing captions. Never render an empty image placeholder.
+All of these are Word/export-layer fixes. The Markdown already carries the content; the v4 export
+dropped or mangled it.
+
 - Move page numbers to the **footer**. No group identifier was issued, so use
   `A00187785 · A00179705 · A00167145 | Page X` and add one line stating that no group identifier
   was assigned.
@@ -303,35 +277,32 @@ Captures must come from the frozen commit and stay legible on A4.
 - Fix Table B2: restore the **Status** column and the caveat sentence *"Assignments are not
   treated as completed contributions…"*, both dropped in v4. Restore the Appendix E/F
   cross-references.
-- Rename Appendix F to *Independent Reproduction Record* (v4 says "Reproducible"), restore the
-  `Owner:` lines on E and F, and update the ToC.
 - Export **both DOCX and PDF**. He said *"better you submit the word file as I can add"* — he
   annotates. Ship both in the ZIP.
 
 ## Verification
 
-1. Recount the body under the declared rule; confirm 1,350 ≤ count ≤ 1,650.
-2. `pdftotext` the export and grep for: the word count, "We declare", "Statement of
+1. `pdftotext` the export and grep for: the word count, "We declare", "Statement of
    Acknowledgment", each library name, the Table G values — and confirm **zero** hits for
    `placeholder`, `TODO`, `Short alt text`.
-3. Render every page and check footer, pagination, captions, ToC and figure legibility.
-4. Confirm no `/Users/luisfaria/` string survives in any figure.
-5. Full suite on the frozen commit (currently 363 passed / 3 skipped).
-6. Test the public Streamlit link in an incognito session. It currently redirects to
+2. Render every page and check footer, pagination, captions, ToC and figure legibility.
+3. Confirm no `/Users/luisfaria/` string survives in any figure.
+4. Full suite on the frozen commit (currently 363 passed / 3 skipped).
+5. Test the public Streamlit link in an incognito session. It currently redirects to
    authentication — do not put the link in the report or package until it opens clean.
-7. **Static code-quality audit** — criterion 2 is 20% and "already strong" is not evidence. Run a
+6. **Static code-quality audit** — criterion 2 is 20% and "already strong" is not evidence. Run a
    read-only lint pass over `app.py`, `pages/`, `src/`, `scripts/` and `tests/`, checking naming,
    imports, formatting and dead code, and confirm docstrings on the principal functions. Record
    the result in `release-verification.md`. **No linter is currently configured and `ruff` is not
    installed**, so treat this as an audit, not a cleanup: fix only clear naming or dead-code
    findings. A mass reformat days before submission risks more than it gains.
-8. **Record the skips explicitly** rather than leaving a reader to infer them:
+7. **Record the skips explicitly** rather than leaving a reader to infer them:
    *"363 passed, 3 expected skips; every skipped test requires the non-redistributed legacy
    Amazon dataset, and no ReviewPulse v3 test was skipped."* Chasing zero skips by shipping data
    we cannot redistribute is not an option.
-9. Build **both** archives, extract each to a clean directory, and run the documented quickstart
+8. Build **both** archives, extract each to a clean directory, and run the documented quickstart
    with `quickstart.md` at the archive root.
-10. Record the final commit and both ZIP SHA-256 digests, then tag `v3.0.0`.
+9. Record the final commit and both ZIP SHA-256 digests, then tag `v3.0.0`.
 
 ### Distribution decision — ship both packages
 
@@ -372,4 +343,4 @@ Do not call ATAE-LSTM a structured probabilistic model.
   `all` goes to OneDrive and the link travels with the submission. The LMS limit is no longer a
   blocking gate.
 - No retraining. Every number above already exists in frozen artifacts.
-- Body stays inside the written brief; the verbal 1,800–2,000 allowance is not used.
+- Volume and word count are handled outside this plan. It covers content only.
