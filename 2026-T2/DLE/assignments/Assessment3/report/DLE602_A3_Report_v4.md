@@ -1,5 +1,5 @@
 <!--
-DLE602 Assessment 3 - Deep Learning Final Project Report - v3 Markdown source
+DLE602 Assessment 3 - Deep Learning Final Project Report - v4 Markdown source
 Brief requirement: 1,500 words (+/-10%), i.e. 1,350-1,650 words, Report and Source Code.
 The declared count covers prose and list items in Sections 1-6 only. It excludes headings, cover details,
 the Table of Contents, Markdown table contents and captions, references and appendices.
@@ -39,8 +39,9 @@ No result below is invented or illustrative.
 11. Appendix D - Future Expansion Roadmap
 12. Appendix E - Application Acceptance Evidence
 13. Appendix F - Independent Reproduction Record
-14. Academic Integrity Declaration
-15. Statement of Acknowledgement
+14. Appendix G - Implementation Walkthrough and Configuration Evidence
+15. Academic Integrity Declaration
+16. Statement of Acknowledgement
 
 ---
 
@@ -72,9 +73,24 @@ Reproducibility requirements include fixed seeds, sentence-grouped leakage-safe 
 
 Automatic aspect extraction, Topic Modelling and Laptops transfer remain outside the implemented core. A target-agnostic GRU and review-only TextCNN were completed only after the four-model gates passed. They are reported as exploratory controls in Appendix A and do not retroactively redefine the Assessment 2 experiment.
 
+Table 1 is the traceability contract for this report. It carries each literature gap and each scope commitment from Assessment 2 through to the research question or requirement it produced, the measure agreed before implementation began, and the delivered outcome. Every measure was fixed in advance, so no threshold in this report is retrospective.
+
+| A2 gap / commitment | RQ or requirement | Pre-committed measure | A3 outcome |
+|---|---|---|---|
+| Sentence-level models emit one label per text, as in ReviewPulse v1/v2; Pontiki et al. (2014) reframe the question as *which* aspect is positive, and Tang et al. (2016) motivate target conditioning | RQ1 | Mixed-polarity accuracy and macro-F1 on the 228-instance subset, plus paired disagreement analysis against review-only controls | Met |
+| Wang et al. (2016) offer a light aspect-conditioned model learned from a small benchmark; Sanh et al. (2019) and Sun et al. (2019) offer pretrained contextual transfer at higher cost | RQ2 | Accuracy, macro-F1, training time, inference latency and artifact size under one contract | Met; timing is observational across CPU and MPS, not a controlled comparison |
+| Attention can vary without changing a prediction and need not identify causal features (Jain & Wallace, 2019) | RQ3 | Offset-aligned indicative evidence where the architecture supports it, and an explicit unsupported state otherwise | Implemented; independent application acceptance still open (Appendix E) |
+| Accepted minimum product: audited baselines, ATAE-LSTM, shared evaluation and a working interface | Scope floor | All named components load and return three-class predictions per aspect under one evaluation contract | Met |
+| DistilBERT retained only if compute and validation checks pass | Optional scope | Trained and evaluated under the same contract as the core ladder | Met |
+| Reproducibility: fixed seed, sentence-grouped splits, versioned artifacts, single evaluation script | Requirement | Recorded splits, seeds and provenance; constrained clean installation; automated test suite | Met on the pre-release baseline |
+| Cut-first list under compute pressure: Laptops transfer, automatic aspect extraction, Topic Modelling, GRU and TextCNN | Scope discipline | Optional work begins only after the core gates pass | Laptops, automatic extraction and Topic Modelling cut as planned; GRU and TextCNN delivered as exploratory extras afterwards |
+| Release: public access, reproducible archive, version tag | Delivery | Packaged v3.0.0 release with recorded digests | Pending at the time of writing |
+
+*Table 1. Assessment 2 gaps and scope commitments traced to their pre-committed measures and delivered outcomes.*
+
 ## 3. Data and Implementation Method
 
-The dataset is SemEval-2014 Task 4 Restaurants (Pontiki et al., 2014). The reproducible audit in Table 1 found 105 original `conflict` annotations: 91 in training and 14 in the official test data. All were counted before exclusion from the three-class task.
+The dataset is SemEval-2014 Task 4 Restaurants (Pontiki et al., 2014). The reproducible audit in Table 2 found 105 original `conflict` annotations: 91 in training and 14 in the official test data. All were counted before exclusion from the three-class task.
 
 | Split | Original aspect instances | Positive | Negative | Neutral | Excluded `conflict` | Retained three-class instances |
 |---|---:|---:|---:|---:|---:|---:|
@@ -82,7 +98,7 @@ The dataset is SemEval-2014 Task 4 Restaurants (Pontiki et al., 2014). The repro
 | Official test | 1,134 | 728 | 196 | 196 | 14 | 1,120 |
 | **Total** | **4,827** | **2,892** | **1,001** | **829** | **105** | **4,722** |
 
-*Table 1. SemEval Restaurants audit before three-class filtering; all annotated offsets were valid.*
+*Table 2. SemEval Restaurants audit before three-class filtering; all annotated offsets were valid.*
 
 The official test set therefore contains 1,120 retained aspect instances. Of these, 228 instances across 80 sentences form the **mixed-polarity multi-aspect subset**: sentences with at least two retained gold aspects carrying different polarities. This analytical subset is distinct from the removed SemEval `conflict` label.
 
@@ -113,6 +129,8 @@ flowchart LR
 
 The Streamlit workflow accepts one review and comma-separated manual aspects. It validates and de-duplicates the list, preserves input order and scores each aspect independently. A sample generator supports repeatable demonstrations. Missing artifacts, empty reviews, empty aspect lists and unknown models surface controlled messages, allowing the same interface to demonstrate both successful inference and predictable failure handling.
 
+The implementation uses `defusedxml` for safe SemEval XML parsing, `scikit-learn` for the TF-IDF and logistic-regression baseline, `PyTorch` for the LSTM, GRU, TextCNN and ATAE-LSTM models, `transformers` for DistilBERT, `pandas` and `NumPy` for the evidence and evaluation tables, `matplotlib` for the confusion matrices, and `streamlit` for the application; every version is pinned in `constraints-a3.txt` and listed in Appendix G.
+
 Implementation is separated into data, model, training, inference, evaluation and presentation modules under `src/absa`, with model adapters enforcing one prediction payload. Automated tests cover parsing and split leakage, trainer controls, artifact provenance, all six inference paths, exact evidence offsets, safe heatmap rendering, packaging and legacy compatibility. At the merged release-package baseline, the complete local suite records 363 passing tests and three expected skips. Appendix C identifies the commands that regenerate the documented evidence.
 
 ## 4. Deep Learning Principles Applied
@@ -121,13 +139,13 @@ The model ladder isolates a principle at each stage. TF-IDF uses sparse engineer
 
 ATAE-LSTM conditions the recurrent representation on an aspect embedding and learns a weighted combination of hidden states. It can therefore read the same sentence differently for `food` and `service`. DistilBERT transfers contextual knowledge from BERT-style pretraining (Devlin et al., 2019) and allows review and aspect tokens to interact throughout the Transformer encoder. Its substantially larger parameter count tests whether pretrained contextual transfer justifies additional compute and storage.
 
-Dropout and weight decay limit overfitting; early stopping and best-checkpoint restoration prevent reporting a convenient final epoch instead of the best observed development checkpoint. The fixed test split, label order and metric implementation support comparison of predictive behaviour. They do not, however, make cross-device timing controlled, nor does one fixed seed establish variance across retraining.
+Dropout and weight decay limit overfitting; early stopping and best-checkpoint restoration prevent reporting a convenient final epoch instead of the best observed development checkpoint. Appendix G records the frozen configuration of every model, the training curve that fixed the selected checkpoint, and the only recorded hyperparameter search in this project, in which widening the TextCNN filters alone reduced development macro-F1 and the gain came from added capacity rather than a wider receptive field. The remaining models used predefined configurations with development macro-F1 checkpoint selection and were not searched. The fixed test split, label order and metric implementation support comparison of predictive behaviour. They do not, however, make cross-device timing controlled, nor does one fixed seed establish variance across retraining.
 
 Attention and gradient attribution are treated as diagnostic views rather than model reasoning. Attention can vary without changing a prediction and need not identify causal features (Jain & Wallace, 2019). Accordingly, ReviewPulse labels darker tokens as higher-scored evidence within one aspect view and makes no claim that the view faithfully explains the decision.
 
 ## 5. Results and Critical Analysis
 
-**Table 2** reports the canonical four-model experiment on the shared official test set.
+**Table 3** reports the canonical four-model experiment on the shared official test set.
 
 | Model | Test accuracy | Test macro-F1 | Mixed accuracy | Mixed macro-F1 | Training | Warm ms/example | Artifact |
 |---|---:|---:|---:|---:|---:|---:|---:|
@@ -136,7 +154,7 @@ Attention and gradient attribution are treated as diagnostic views rather than m
 | ATAE-LSTM | 0.6438 | 0.4799 | **0.4737** | **0.4491** | 14.17 s | 0.128 | 2.64 MB |
 | DistilBERT sentence-pair | **0.8259** | **0.7231** | **0.6623** | **0.6427** | 133.65 s | 3.506 | 256.11 MB |
 
-*Table 2. Canonical four-model comparison: 1,120 test instances and 228 mixed-polarity instances, commit `bf36c3b3`. Timing is observational across CPU and MPS.*
+*Table 3. Canonical four-model comparison: 1,120 test instances and 228 mixed-polarity instances, commit `bf36c3b3`. Timing is observational across CPU and MPS.*
 
 ![Four canonical model confusion matrices](assets/four-model-confusion-matrices.png)
 
@@ -146,7 +164,7 @@ Attention and gradient attribution are treated as diagnostic views rather than m
 
 **RQ2.** DistilBERT leads every predictive metric, but its 256.11 MB artifact is almost 100 times ATAE-LSTM's 2.64 MB artifact. ATAE-LSTM is weaker on full-test accuracy than TF-IDF and the LSTM, yet stronger on mixed macro-F1 and neutral-class discrimination. This is an important negative result: lightweight attention improves the target-sensitive behaviour central to RQ1 without guaranteeing higher aggregate accuracy. DistilBERT took longer and had higher latency in the recorded runs, but numerical timing ratios are not interpreted as architectural speedups because it ran on MPS while ATAE-LSTM ran on CPU.
 
-The class-level results in Table 3 expose the positive-class dominance hidden by accuracy. DistilBERT leads all three classes, while every smaller model performs substantially worse on neutral examples. ATAE-LSTM nevertheless provides the strongest neutral F1 among the lightweight neural models.
+The class-level results in Table 4 expose the positive-class dominance hidden by accuracy. DistilBERT leads all three classes, while every smaller model performs substantially worse on neutral examples. ATAE-LSTM nevertheless provides the strongest neutral F1 among the lightweight neural models.
 
 | Model | Negative F1 | Neutral F1 | Positive F1 |
 |---|---:|---:|---:|
@@ -155,9 +173,9 @@ The class-level results in Table 3 expose the positive-class dominance hidden by
 | ATAE-LSTM | 0.3759 | **0.2888** | 0.7749 |
 | DistilBERT sentence-pair | **0.7772** | **0.4931** | **0.8991** |
 
-*Table 3. Full-test per-class F1 from the canonical four-model evaluation; bold identifies the overall best and the strongest lightweight neutral result.*
+*Table 4. Full-test per-class F1 from the canonical four-model evaluation; bold identifies the overall best and the strongest lightweight neutral result.*
 
-**Table 4** presents the verified report example used to answer RQ3.
+**Table 5** presents the verified report example used to answer RQ3.
 
 | Model / aspect | Prediction | Confidence | Highest-scored visible tokens |
 |---|---|---:|---|
@@ -166,7 +184,7 @@ The class-level results in Table 3 expose the positive-class dominance hidden by
 | DistilBERT / food | negative | 82.7% | `dreadful` 0.288; `the` 0.163; `service` 0.151 |
 | DistilBERT / service | negative | 91.3% | `dreadful` 0.488; `food` 0.095; `service` 0.095 |
 
-*Table 4. Indicative evidence for “Great food but the service was dreadful!” from the verified #85 export. Gold labels are food-positive and service-negative.*
+*Table 5. Indicative evidence for “Great food but the service was dreadful!” from the verified #85 export. Gold labels are food-positive and service-negative.*
 
 **RQ3.** The evidence changes with the supplied aspect, but neither model resolves both gold labels in this example. ATAE-LSTM predicts both aspects positive; DistilBERT predicts both negative. Some high-scored tokens are sentiment-bearing, while others are function words or belong to the opposite aspect. The visualisation is therefore useful for inspecting model sensitivity and diagnosing errors, not for claiming a faithful or causal explanation.
 
@@ -324,18 +342,130 @@ The full record, including the exact commands, console output and machine specif
 | F3. Test suite | Clean clone reports 357 passed and 9 skipped; the skips are the documented licensed-data absences | | Pending |
 | F4. Offline smoke | `scripts/smoke_absa.py` returns one prediction per aspect with no SemEval data present | | Pending |
 | F5. Dataset audit | Official retained test count 1,120; mixed-polarity subset 228 instances across 80 sentences | | Pending |
-| F6. Headline results | Table 2 accuracy and macro-F1 reproduce from the shipped artifacts | | Pending |
+| F6. Headline results | Table 3 accuracy and macro-F1 reproduce from the shipped artifacts | | Pending |
 | F7. Reference verification | Each cited work is checked against the original publication and supports the claim made | | Pending |
 
 *Table F1. Independent reproduction checks, expected values and outcomes.*
 
 Where an observed value differs from the expected value, the difference is recorded as observed and explained rather than adjusted. A reproduction that surfaces a genuine discrepancy is more valuable to this report than one that confirms every figure, and F3 in particular is expected to differ from the development machine by design: the six sample-provenance tests skip wherever the frozen evaluation predictions are absent. Rows that receive no evidence before submission are removed from this appendix rather than published as empty claims.
 
-## 14. Academic Integrity Declaration
+## 14. Appendix G - Implementation Walkthrough and Configuration Evidence
+
+This appendix records what the system was fed, what it was built from, how it was configured and what it printed. Every value is read from the frozen artifacts; nothing here was retrained for the report.
+
+### G.1 Parsed dataset
+
+The parser reads the SemEval XML, validates every annotated character offset against the raw sentence and expands each sentence into one instance per aspect term. Table G1 shows three parsed records in the form the models receive them. All three are official test-split sentences already quoted as attributed demonstration samples in the application; the corpus itself is not redistributed.
+
+| `sentence_id` | Review sentence | Aspect | Gold polarity | Offsets valid |
+|---|---|---|---|---|
+| `11351513#832512#0` | Great food but the service was dreadful! | `food` | positive | Yes |
+| `11351513#832512#0` | Great food but the service was dreadful! | `service` | negative | Yes |
+| `33060905#1138585#0` | i went in one day asking for a table for a group and was greeted by a very rude hostess. | `hostess` | negative | Yes |
+
+*Table G1. Three parsed aspect instances as supplied to the models. One sentence yields one record per annotated aspect, which is the structural reason a review-level label cannot answer the task.*
+
+The audit command reports the corpus itself. Figure G1 is its verbatim output, and it is the source of Table 2.
+
+```text
+$ python -m src.absa.data.audit
+{
+  "train": {
+    "aspect_examples": 3693,
+    "sentences_with_aspects": 2021,
+    "polarity_counts": {"conflict": 91, "negative": 805, "neutral": 633, "positive": 2164},
+    "offset_valid": 3693,
+    "offset_invalid": 0,
+    "invalid_offsets": []
+  },
+  "test": {
+    "aspect_examples": 1134,
+    "sentences_with_aspects": 606,
+    "polarity_counts": {"conflict": 14, "negative": 196, "neutral": 196, "positive": 728},
+    "offset_valid": 1134,
+    "offset_invalid": 0,
+    "invalid_offsets": []
+  }
+}
+```
+
+*Figure G1. Dataset audit output. Zero invalid offsets is the precondition for the offset-aligned token evidence reported in Section 5.*
+
+### G.2 Libraries and frozen versions
+
+| Library | Role in the system | Frozen version |
+|---|---|---|
+| Python | Runtime | 3.12.10 |
+| `defusedxml` | Safe SemEval XML parsing | 0.7.1 |
+| `scikit-learn` | TF-IDF vectoriser and logistic regression | 1.8.0 |
+| `PyTorch` | LSTM, GRU, TextCNN and ATAE-LSTM | 2.13.0 |
+| `transformers` | DistilBERT sentence-pair classifier | 5.14.1 |
+| `pandas` / `NumPy` | Evaluation and evidence tables | 3.0.3 / 2.5.1 |
+| `matplotlib` | Confusion-matrix figures | 3.11.0 |
+| `streamlit` | Application interface | 1.59.2 |
+
+*Table G2. Libraries and the versions pinned in `constraints-a3.txt`, which is the file a reader installs against.*
+
+### G.3 Frozen model configurations
+
+| Model | Batch | Learning rate | Weight decay | Max length | Best epoch | Other |
+|---|---:|---:|---:|---:|---:|---|
+| Target LSTM | 64 | 1e-3 | 1e-4 | 80 | 8 | Adam, patience 2 |
+| Target GRU | 64 | 1e-3 | 1e-4 | 80 | 8 | Adam, embedding 100, hidden 128, dropout 0.5 |
+| TextCNN | 64 | 1e-3 | 1e-4 | 80 | 6 | Adam, embedding 100, filters (3,4,5)x100, dropout 0.5 |
+| ATAE-LSTM | 64 | 1e-3 | 1e-4 | 80 | 6 | Adam, aspect max length 12, patience 2 |
+| DistilBERT | 8 | 2e-5 | 1e-2 | 128 | 2 | AdamW, `distilbert-base-uncased`, patience 2 |
+
+*Table G3. Configuration persisted alongside each artifact, seed 42 throughout. TF-IDF is omitted because it is not a neural trainer: it uses logistic regression, lbfgs, `max_iter` 1000 and 1-2 grams.*
+
+Table G4 shows why the best epoch is not simply the last one. ATAE-LSTM training loss falls monotonically to epoch 8 while development macro-F1 peaks at epoch 6 and then declines, so the restored checkpoint is epoch 6.
+
+| Epoch | Training loss | Development macro-F1 |
+|---:|---:|---:|
+| 1 | 0.9637 | 0.3350 |
+| 2 | 0.8695 | 0.3591 |
+| 3 | 0.8150 | 0.4624 |
+| 4 | 0.7607 | 0.5023 |
+| 5 | 0.7173 | 0.4863 |
+| 6 | 0.6578 | **0.5370** |
+| 7 | 0.6063 | 0.5325 |
+| 8 | 0.5560 | 0.5297 |
+
+*Table G4. ATAE-LSTM training history. The 0.0073 macro-F1 decline after the best epoch is below the 0.02 threshold recorded in the overfitting diagnostic, so the run is treated as stable at this seed rather than materially overfitted.*
+
+### G.4 The one recorded hyperparameter search
+
+Only TextCNN was searched. The search selected on development macro-F1 alone; the official test split took no part in it, which the record states explicitly as `official_test_evaluated: false`.
+
+| Filter widths | Filters | Development macro-F1 | Parameters | Training time |
+|---|---:|---:|---:|---:|
+| (2, 3, 4) | 64 | 0.4309 | 393,371 | 7.7 s |
+| (3, 4, 5) | 64 | 0.3776 | 412,571 | 8.9 s |
+| (3, 4, 5) | 100 | **0.4722** | 456,203 | 12.1 s |
+
+*Table G5. TextCNN configuration search, seed 42, four epochs per candidate.*
+
+The result is more informative than the winner. Widening the filters from (2,3,4) to (3,4,5) at the same filter count made the model **worse**, from 0.4309 to 0.3776. Only when the filter count rose to 100 did macro-F1 improve to 0.4722. The gain therefore came from added capacity, not from a wider receptive field, and the selected configuration still records zero neutral F1 on the mixed-polarity subset in Appendix A. Searching a review-only encoder does not supply the aspect signal it never receives.
+
+### G.5 Verified end-to-end run
+
+Figure G2 is the verbatim output of the offline smoke check, which loads each canonical artifact and scores a two-aspect review with no dataset present.
+
+```text
+$ python scripts/smoke_absa.py
+absa_tfidf: food=positive, service=positive
+absa_target_lstm: food=negative, service=negative
+absa_atae_lstm: food=positive, service=positive
+absa_distilbert: food=negative, service=negative
+```
+
+*Figure G2. Four-model prediction for "The food was great but the service was slow." Every model returns one label per aspect, which is the delivered contract; no model resolves both gold labels here, which is the honest limitation reported in Section 5.*
+
+## 15. Academic Integrity Declaration
 
 We declare that, except where referenced, the work we are submitting for this assessment task is our own work. We have read and are aware of the Academic Integrity Policy and Procedure of Torrens University Australia. We are also aware that we need to keep a copy of all submitted material and any drafts, and we agree to do so.
 
-## 15. Statement of Acknowledgement
+## 16. Statement of Acknowledgement
 
 We acknowledge that we used the following AI-assisted tools in the creation of this assessment:
 
