@@ -293,30 +293,21 @@ The model strategy would also change with scale. TF-IDF, LSTM, GRU and TextCNN r
 
 ## 12. Appendix E - Application Acceptance Evidence
 
-**Owner: Juan Martinez.** This appendix records what the running application actually showed an independent group tester. It complements the automated suite rather than repeating it: automated tests verify payload and offset contracts, while Juan's screenshots record the deployed interface, model outputs and failure states visible to a user.
+**Owner: Juan Martinez.** Juan acted as the project's independent QA validator. Working from the deployed application rather than the codebase, he ran 12 authenticated Streamlit cases covering all six models, multi-aspect input, sample generation, model switching, attention and attribution views, invalid input and v2/v3 compatibility, capturing the interface state and screenshot for every case.
 
-Juan executed 12 authenticated Streamlit cases covering all six models, multi-aspect input, sample generation, model switching, attention and attribution, invalid inputs and v2/v3 compatibility. After review, the record contains five passes, two passes with observation, three failures requiring technical triage and two stale-state checks blocked because the exact leaked fields and transitions were not recorded. A wrong model prediction was treated as a model-quality observation; behaviour contradicting a UI acceptance criterion was treated as a failure, while an unreproducible observation was not promoted to a confirmed defect.
+Seven cases passed. Five did not, and those proved the most valuable: three acceptance failures and two observations that could not be reproduced from the written record. A wrong prediction was logged as model quality rather than an interface defect, and an unreproducible observation was never promoted to a confirmed bug. Independent QA that surfaces a release risk is stronger evidence than a demonstration curated to look green.
 
-The complete case record is kept as `docs/dle602-a3/validation-juan.md` in the ReviewPulse repository and was introduced through PR #120. Rather than reproducing all 12 cases, the final appendix selects four captures that demonstrate the breadth and critical value of the validation.
+Four captures appear below. The complete 12-case record, with every screenshot, is linked at the end of this appendix and kept as `docs/dle602-a3/validation-juan.md` in the repository.
 
-| Figure | Selected evidence | Source evidence |
-|---|---|---|
-| E1 | Model selector and successful deployed inference confirming availability of the six-model ladder | EV-01 and EV-02 |
-| E2 | Separate aspect results for the mixed-polarity `food`/`service` example, including the observed model-quality errors | EV-03A and EV-03B |
-| E3 | Side-by-side ATAE-LSTM attention and DistilBERT attribution views used to assess aspect sensitivity and visible-token alignment | EV-07 and EV-08 |
-| E4 | Controlled invalid-input state showing the exact user-facing message and the stale-state observation raised during QA | EV-10 and EV-11 |
+*Figure E1 (EV-01, EV-02). Model selector in the deployed v3 page, with all six ABSA models available and returning predictions.*
 
-*Table E1. Four report-facing captures selected from Juan's complete 12-case validation record.*
+*Figure E2 (EV-03). Separate `food` and `service` result cards for the mixed-polarity review. Each model returned one result per aspect, and each missed one gold polarity.*
 
-*Figure E1. Model selector in the deployed ReviewPulse v3 page, confirming that all six ABSA models were available during Juan's authenticated validation session.*
+*Figure E3 (EV-07, EV-08). ATAE-LSTM attention beside DistilBERT attribution, inspected for aspect-specific change and visible-token alignment. Both are indicative evidence, not causal explanations.*
 
-*Figure E2. Separate `food` and `service` result cards for the mixed-polarity review; both models rendered one result per aspect but each missed one gold polarity.*
+*Figure E4 (EV-10, EV-11). Invalid-input validation state, preserving the exact user-facing message and the stale-result behaviour raised for triage.*
 
-*Figure E3. ATAE-LSTM attention and DistilBERT attribution views inspected for aspect-specific change and visible-token alignment; the views are indicative evidence rather than causal explanations.*
-
-*Figure E4. Invalid-input validation state preserving the exact user-facing message and the stale-result behaviour raised for corrective triage.*
-
-Attention and attribution captions will repeat that the evidence is indicative rather than causal. Failed cases remain visible because independent QA that identifies a release risk is stronger evidence than a selectively green demonstration. Anonymous public access was outside Juan's authenticated session and remains a separate release gate.
+Anonymous public access fell outside Juan's authenticated session and remains a separate release gate.
 
 **Complete screenshot record:** [Juan Martinez's full 12-case Streamlit QA evidence](https://laustu-my.sharepoint.com/:w:/g/personal/juan_contreras_student_torrens_edu_au/IQCZCy0A4REuQazXkp8Tsd2cAa_PIJSnHeZKKz41hQLov3g?isSPOFile=1&ovuser=66e44254-c0ce-4745-9255-907eee03faf6%2CLuis.faria%40Student.Torrens.edu.au&wdExp=TEAMS-TREATMENT&web=1&clickparams=eyJBcHBOYW1lIjoiVGVhbXMtRGVza3RvcCIsIkFwcFZlcnNpb24iOiI1MC8yNjA3MTYxNjAxMSJ9). Access requires the shared Torrens/SharePoint permissions.
 
