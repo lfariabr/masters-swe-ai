@@ -293,7 +293,7 @@ The model strategy would also change with scale. TF-IDF, LSTM, GRU and TextCNN r
 
 ## 12. Appendix E - Application Acceptance Evidence
 
-**Owner: Juan Martinez.** Juan acted as the project's independent QA validator. Working from the deployed application rather than the codebase, he ran 12 authenticated Streamlit cases covering all six models, multi-aspect input, sample generation, model switching, attention and attribution views, invalid input and v2/v3 compatibility, capturing the interface state and screenshot for every case.
+Juan acted as the project's independent QA validator. Working from the deployed application rather than the codebase, he ran 12 authenticated Streamlit cases covering all six models, multi-aspect input, sample generation, model switching, attention and attribution views, invalid input and v2/v3 compatibility, capturing the interface state and screenshot for every case.
 
 Seven cases passed. Five did not, and those proved the most valuable: three acceptance failures and two observations that could not be reproduced from the written record. A wrong prediction was logged as model quality rather than an interface defect, and an unreproducible observation was never promoted to a confirmed bug. Independent QA that surfaces a release risk is stronger evidence than a demonstration curated to look green.
 
@@ -311,11 +311,9 @@ Anonymous public access fell outside Juan's authenticated session and remains a 
 
 **Complete screenshot record:** [Juan Martinez's full 12-case Streamlit QA evidence](https://laustu-my.sharepoint.com/:w:/g/personal/juan_contreras_student_torrens_edu_au/IQCZCy0A4REuQazXkp8Tsd2cAa_PIJSnHeZKKz41hQLov3g?isSPOFile=1&ovuser=66e44254-c0ce-4745-9255-907eee03faf6%2CLuis.faria%40Student.Torrens.edu.au&wdExp=TEAMS-TREATMENT&web=1&clickparams=eyJBcHBOYW1lIjoiVGVhbXMtRGVza3RvcCIsIkFwcFZlcnNpb24iOiI1MC8yNjA3MTYxNjAxMSJ9). Access requires the shared Torrens/SharePoint permissions.
 
-<!-- FINAL ASSET IMPORT: export four readable captures or composites from Juan's companion Word evidence record into report/assets/ using stable e1-e4 filenames. Insert each image with a one-sentence caption, and do not render an empty image placeholder if an asset is unavailable. -->
-
 ## 13. Appendix F - Independent Reproduction Record
 
-**Owner: Victor Dorantes.** This appendix records a second person reproducing the reported results from the repository alone, on a machine that is not the development machine. Its purpose is to establish that the numbers in Section 5 are properties of the artifacts and instructions rather than of one local environment.
+Victor acts as a second person reproducing the reported results from the repository alone, on a machine that is not the development machine. Its purpose is to establish that the numbers in Section 5 are properties of the artifacts and instructions rather than of one local environment.
 
 The full record, including the exact commands, console output and machine specification, is kept as `docs/dle602-a3/validation-victor.md` in the ReviewPulse repository and merged through a reviewed pull request. This appendix carries the summary.
 
