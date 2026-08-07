@@ -1038,6 +1038,110 @@ Please read other students’ posts and provide feedback.
 
 ---
 
+## Module 11 - Visual Analytics in Deep Learning
+
+### TLDR
+
+### Introduction
+Deep learning (DL) has recently seen rapid development due to its advanced performance in previously thought difficult problems, such as recognising objects in images. However, because of the inherent complexity of deep neural networks, the underlying decision-making processes that enable these models to perform so well are challenging and sometimes mystifying to interpret.
+
+To address the above issue, visual analytics systems for DL have now been developed to support the explanation, interpretation, debugging and improvement of neural networks. Visual analytics for DL excel at communicating information and discovering insights by using visual encodings to transform abstract data into meaningful representations.
+
+Visual analytics in DL is one of the newest branches of research in this space. It is also possibly one of the best tools that is being actively researched to make the complex world of DL more understandable.
+
+### Resources
+
+#### 1. Visual Analytics in Deep Learning: An Interrogative Survey for the Next Frontiers
+- Hohman, F., Kahng, M., Pienta, R. & Chau, H. (2018). Visual analytics in deep learning: An interrogative survey for the next frontiers. Retrieved from https://arxiv.org/pdf/1801.06889.pdf
+
+*Resource Overview:*
+    
+    This research paper is one of the best scientific papers on visual analytics in DL. This paper presents a comprehensive, timely survey on visualisation and visual analytics in DL research, using a human-centred, interrogative framework.
+
+    Please focus on the authors' presentation of the five 'Ws' (why, who, what, how, when and where) and the one 'H' (how) in relation to the flow of discussions in this paper.
+
+    It is recommended that you take a quick look at the analytics tools that this paper mentions. You do not have to explore the tools and you do not need to know the tools. It is simply to help you better understand the concepts discussed in the paper. Simply locate the tools on Google and look at their interfaces.
+
+> *Status: 🕐 To-Do*
+
+#### 2. CNNComparator: Comparative Analytics of Convolutional Neural Networks
+- Zeng, H., Haleem, H., Plantaz, X., Cao, N. & Qu, H. (2017). CNNComparator: Comparative analytics of convolutional neural networks. Retrieved from https://vadl2017.github.io/paper/vadl_0108-paper.pdf
+
+*Resource Overview:*
+
+    This is a great resource to realise the importance of visual analytics in DL from the point of view of convolutional neural networks (CNNs).
+
+    In this paper, the authors present a visual analytics approach to provide some insights into the designing or training of a better CNN model. This paper compares two different models using visualisations.
+
+    This paper introduces an interactive visualisation system called CNNComparator, which enables users to explore the evolution of CNN parameters over one training process and the generated learned features.
+
+> *Status: 🕐 To-Do*
+
+#### 3. RNNbow: Visualising Learning via Backpropagation Gradients in Recurrent Neural Networks
+- Cashman, D., Patterson, G., Mosca, A. & Chang, R. (2017). RNNbow: Visualizing learning via backpropagation gradients in recurrent neural networks. Retrieved from https://vadl2017.github.io/paper/vadl_0107-paper.pdf
+
+*Resource Overview:*
+
+    This is a great resource to realise the importance of visual analytics in DL from the point of view of recurrent neural networks (RNNs).
+
+    This paper presents RNNbow, an interactive tool for visualising the gradient flow during backpropagation training in RNNs.
+
+    The authors demonstrate how the proposed tool can be used to find endemic properties in a network and how it can provide insights into the learning process.
+
+> *Status: 🕐 To-Do*
+
+#### 4. A Guide to Understanding Convolutional Neural Networks Using Visualisation
+- Pal, S., (2019, 6 May). A guide to understanding convolutional neural networks (CNNs) using visualization [Web log post]. Retrieved from https://www.analyticsvidhya.com/blog/2019/05/understanding-visualizing-neural-networks/
+
+*Resource Overview:*
+
+    This resource is a great post to understand the importance of visual analytics in DL. It answers basic questions, such as 'Why Should we use Visualisation to Decode Neural Networks?' and also examines advanced topics, such as 'Accessing Individual Layers of a CNN'.
+
+    The best part of this post is that it contains some example scenarios associated with codes.
+
+> *Status: 🕐 To-Do*
+
+### Learning Activities
+
+#### 1. Learning Activity 1: Opinion Matters
+In your essential resource, ‘Visual Analytics in Deep Learning: An Interrogative Survey for the Next Frontiers’, Hohman et al. (2018) state that, ‘We highlighted visual analytics as an integral component in addressing pressing issues in modern AI, helping to discover and communicate insight, from discerning model bias, understanding models, to promoting AI safety’.
+
+What does this statement mean to you? Do you agree or disagree with this statement? Would you express this differently?
+
+Share your opinions in no more than 100 words. Post your answer to the Module 11 discussion forum.
+
+Please read other students’ posts and provide feedback.
+
+> *Status: 🕐 To-Do*
+
+#### 2. Interactive Learning Activity
+This activity wants you to put your knowledge about neural networks into practice.
+
+To do so, visit playground.tensorflow.org. This free tool will allow you to get your hands dirty with DL visualisation.
+
+This tool was developed by Tensorflow. It has data input, hidden layers and output, all of which are built into the site. You can change different parameters as you like. As you change the parameters on the site, the visualisation will change accordingly.
+
+Share your experience of visualisation in DL from this tool in your own words in no more than 100 words. Did the visualisation help you to better understand the DL model on the site?
+
+Post your answer to the Module 11 discussion forum.
+
+Please read other students’ posts and provide feedback.
+
+> *Status: 🕐 To-Do*
+
+#### 3. Discussion
+In this activity, you will brainstorm how visual analytics could be helpful for your final assessment based on the following questions:
+- Are you going to use visual analytics in DL for your assessment?
+- Are you convinced of the importance of visual analytics in DL?
+- Have you discovered any unique benefit of visual analytics in DL while working on your assessment?
+Discuss your views with the class. You do not have to submit anything for this activity.
+
+Please listen to other students and join in the conversation.
+
+> *Status: 🕐 To-Do*
+
+---
+
 ```bash
 --- PLACEHOLDER:
 ## Module X - ...
