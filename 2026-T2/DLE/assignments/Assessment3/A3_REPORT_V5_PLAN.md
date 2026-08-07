@@ -10,7 +10,12 @@ Cross-checking his words against the formal brief
 `report/v4_DLE602_Faria_L_Assessment_3.pdf` surfaced two **submission-blocking export defects**
 plus a set of content elements he named explicitly that the report does not contain.
 
-The engineering is finished. Everything below is report, export and packaging work.
+The core model implementation and frozen experimental results are complete. Submission
+hardening, independent reproduction and targeted UI retesting remain open. Everything below is
+report, export and packaging work.
+
+A2 was returned at **85/100** (`../Assessment2/A2-grade.md`). Its five comments are answered in
+the section below.
 
 ### Verified against the brief, not just the lecture
 
@@ -21,6 +26,77 @@ The engineering is finished. Everything below is report, export and packaging wo
 | Footer needs page numbers + group id | **Confirmed** (brief lines 77–78). v4 has page numbers in the **header** and no group identifier. |
 | Academic Integrity Declaration missing from v4 PDF | **Confirmed.** v4 runs Appendix F → Statement of Acknowledgment → References. The "We declare…" section is gone. He said explicitly: *"academic integrity declaration you have to sign"*. |
 | Literal `placeholder` rendered in Appendix E | **Confirmed** (v4 text line 954), with a fake *"Figure E1"* caption beneath it. |
+
+## Responding to the A2 feedback, weighted by the A3 rubric
+
+A2 and A3 are marked on **different criteria**. A2 weighted literature at 25%; A3 does not mark
+literature at all. Prioritise accordingly:
+
+| A3 criterion | Weight | What moves it here |
+|---|---:|---|
+| Completeness; system runs without configuration | 20% | Artifact-mode decision (below), quickstart at archive root |
+| Coding convention and code quality | 20% | Already strong; he downloads and runs the code |
+| **Integration of knowledge, topic focus, depth of discussion** | **30%** | Success-criteria table, gap→RQ table, Appendix G |
+| Effective communication (written) | 15% | Body stays tight and inside the limit |
+| Documentation: numbered headings, labelled tables/figures, referencing | 15% | Every export fix in this plan |
+
+The Documentation criterion reframes the export defects: the broken `placeholder`/fake Figure E1,
+header-instead-of-footer pagination and the mismatched appendix numbering (`7.x` appendices then
+`8. References`) are not cosmetic. They land on a graded 15% criterion whose top band requires
+numbered headings and properly labelled tables and figures.
+
+### Table X — Literature gap → research question → A3 evidence
+
+Answers *"The connection between the research questions and the identified literature gap could
+be made more explicit."* Place in Section 1 or 2. Anchor to the actual A2 literature review text:
+
+| Gap identified in A2 | RQ | A3 evidence |
+|---|---|---|
+| Zhao et al. (2018) and ReviewPulse v1/v2 emit one label per text; Pontiki et al. (2014) shift the question to *which* aspect is positive | RQ1 | 228-instance mixed-polarity subset; aspect-conditioned versus review-only paired comparison |
+| Tang et al. (2016) condition on the target but do not selectively weight context; Wang et al. (2016) add attention yet learn from a small benchmark and may overfit | RQ2 | ATAE-LSTM versus DistilBERT on accuracy, macro-F1, training time, latency and artifact size |
+| Neither transformer attention nor post-hoc attribution is automatically a faithful causal explanation (Devlin et al., 2019; Sun et al., 2019; Jain & Wallace, 2019) | RQ3 | Offset-aligned attention and gradient × input evidence, reported as indicative |
+
+### Table Y — Success criteria and delivered status
+
+Answers *"The measures used to determine the overall success of the project could be stated more
+explicitly."* This is the single highest-value addition, because criterion 3 (30%) demands a
+*"clear list of the requirements/functionalities manageable within the project scope."*
+
+**Do not invent retrospective thresholds.** A2 already committed a scope contract at its
+Section 4: *"the accepted minimum product remains the audited baselines, ATAE-LSTM, shared
+evaluation and working interface. DistilBERT is retained when compute and validation checks pass;
+optional Laptops transfer, automatic aspect extraction, Topic Modelling, a GRU variant and a CNN
+baseline are cut first."* Anchor the table to that.
+
+| Committed in A2 | Measure | Status |
+|---|---|---|
+| Accepted minimum product: audited baselines, ATAE-LSTM, shared evaluation, working interface | All load and return three-class predictions per aspect under one evaluation contract | Met |
+| DistilBERT retained if compute and validation checks pass | Trained and evaluated under the same contract | Met |
+| RQ1 | Mixed-polarity macro-F1 plus paired disagreement analysis | Met |
+| RQ2 | Accuracy, macro-F1, training time, latency, artifact size | Met; timing observational, not a controlled comparison |
+| RQ3 | Offset-aligned indicative evidence where supported, explicit unsupported state otherwise | Met in implementation; independent UI retest pending |
+| Reproducibility: fixed seed, grouped splits, versioned artifacts, single evaluation script | Splits, seeds, provenance, clean install, test suite | Met on the pre-release baseline |
+| Cut-first list under compute pressure | Scope discipline | Laptops, automatic extraction and Topic Modelling correctly cut; GRU and TextCNN delivered as exploratory extras only after the core gates passed |
+| Release: public access, final archive, tag | — | Pending |
+
+The last row is worth keeping: it shows scope discipline *and* overdelivery against a
+pre-committed cut list, which is exactly what the planning criterion rewards.
+
+### Literature synthesis — optional, and not in counted prose
+
+A2 asked for *"further critical comparison of the selected studies and models."* A3 has no
+literature criterion, and the word budget does not allow it as prose. If included, make it a
+table (uncounted): Tang et al. motivates conditioning without explicit attention; ATAE-LSTM is
+light and aspect-conditioned but its attention is not causal; DistilBERT wins on the benchmark at
+roughly 100× the storage; TextCNN approximates Zhao et al. and confirms that swapping the
+review-only encoder does not supply the missing aspect signal.
+
+### Rejected: the "duplicated LSTM row" in Table 2
+
+A review flagged Table 2 as rendering five rows with `LSTM review-only` twice. **This is false.**
+Table 2 has four rows in both the Markdown source and the v4 PDF. The string appears twice in the
+extracted PDF text because **Table 2** (headline comparison) and **Table 3** (per-class F1)
+legitimately list the same four models. Do not delete anything.
 
 ## The two defects that must be fixed regardless of anything else
 
@@ -40,8 +116,17 @@ guidance out of the report into `docs/dle602-a3/validation-juan.md` in review-pu
 
 ### Body — Sections 1–6, target 1,580–1,630 words (ceiling 1,650)
 
-Currently 1,550. The ~50-word headroom buys the one element he named that genuinely belongs in
-the counted body:
+Currently 1,550, so roughly 100 counted words are available. Tables and captions are excluded
+under the declared rule, which is what makes the two new tables nearly free:
+
+| Addition | Counted cost | Running total |
+|---|---:|---:|
+| Table X lead-in (gap → RQ) | ~15 | 1,565 |
+| Table Y lead-in (success criteria) | ~15 | 1,580 |
+| Libraries sentence in Section 3 | ~40 | 1,620 |
+| *Literature synthesis as prose* | *~90* | *1,710 — over the limit, do not* |
+
+Spend the headroom on:
 
 - **Section 3** — one sentence naming the libraries and their roles: `defusedxml` (safe XML
   parsing), `scikit-learn` (TF-IDF + logistic regression), `PyTorch` (LSTM, GRU, TextCNN,
@@ -49,6 +134,12 @@ the counted body:
   (confusion matrices), `streamlit` (application). Zero mentions of any of these today.
 - **Section 4** — one clause pointing at the frozen hyperparameters and the TextCNN configuration
   search in the new Appendix G.
+- **Section 1 or 2** — insert **Table X** (gap → RQ → evidence) and **Table Y** (success criteria
+  and status) with short lead-ins. Both tables are uncounted; only the lead-ins cost words.
+
+Renumber the existing tables after insertion: today's Table 1 (dataset audit) through Table 4
+(token evidence) shift, and every in-text reference plus the ToC must follow. The Documentation
+criterion marks exactly this.
 
 Do not claim all models were tuned. **Only TextCNN has a recorded configuration search.** The rest
 used predefined configurations with development macro-F1 checkpoint selection.
@@ -131,10 +222,17 @@ Captures must come from the frozen commit and stay legible on A4.
 5. Full suite on the frozen commit (currently 363 passed / 3 skipped).
 6. Test the public Streamlit link in an incognito session. It currently redirects to
    authentication — do not put the link in the report or package until it opens clean.
-7. Build the lightweight ZIP, extract to a clean directory, run the documented quickstart. He
-   said *"I usually try to download the code and check it's working"*, so this is graded
-   behaviour, not hygiene. Keep `quickstart.md` at the archive root.
-8. Record the final commit and ZIP SHA-256, then tag `v3.0.0`.
+7. **Confirm the LMS upload limit before choosing the artifact mode — this is a grade decision,
+   not admin.** Criterion 1 (20%) bands read *"The system functions only if certain additional
+   conditions are met"* (74%) versus *"functions without any additional conditions"* (84%+).
+   Shipping `lightweight` leaves DistilBERT absent, so the marker must fetch it separately, which
+   is by the rubric's own wording an additional condition. Tayab also said *"I usually try to
+   download the code and check it's working."* **If 288 MB fits, ship `all`.** If it does not,
+   the missing model and its one-command retrieval must be the first thing visible in the archive
+   root README.
+8. Build the chosen ZIP, extract to a clean directory, run the documented quickstart with
+   `quickstart.md` at the archive root.
+9. Record the final commit and ZIP SHA-256, then tag `v3.0.0`.
 
 ## Low-cost parallel task
 
