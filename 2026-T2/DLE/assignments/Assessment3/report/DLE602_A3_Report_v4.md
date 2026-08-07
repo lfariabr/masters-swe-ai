@@ -40,8 +40,9 @@ No result below is invented or illustrative.
 12. Appendix E - Application Acceptance Evidence
 13. Appendix F - Independent Reproduction Record
 14. Appendix G - Implementation Walkthrough and Configuration Evidence
-15. Academic Integrity Declaration
-16. Statement of Acknowledgement
+15. Appendix H - Code Execution: Lightweight and Complete Packages
+16. Academic Integrity Declaration
+17. Statement of Acknowledgement
 
 ---
 
@@ -73,18 +74,18 @@ Reproducibility requirements include fixed seeds, sentence-grouped leakage-safe 
 
 Automatic aspect extraction, Topic Modelling and Laptops transfer remain outside the implemented core. A target-agnostic GRU and review-only TextCNN were completed only after the four-model gates passed. They are reported as exploratory controls in Appendix A and do not retroactively redefine the Assessment 2 experiment.
 
-Table 1 is the traceability contract for this report. It carries each literature gap and each scope commitment from Assessment 2 through to the research question or requirement it produced, the measure agreed before implementation began, and the delivered outcome. Every measure was fixed in advance, so no threshold in this report is retrospective.
+Table 1 is the traceability contract for this report. It carries each literature gap and each scope commitment from Assessment 2 through to the research question or requirement it produced, the measure agreed before implementation began, and the delivered outcome. The scope and the primary evaluation measures were committed in Assessment 2; additional diagnostics, such as the paired disagreement analysis supporting RQ1, are identified here as post-implementation analyses rather than presented as pre-agreed thresholds.
 
 | A2 gap / commitment | RQ or requirement | Pre-committed measure | A3 outcome |
 |---|---|---|---|
-| Sentence-level models emit one label per text, as in ReviewPulse v1/v2; Pontiki et al. (2014) reframe the question as *which* aspect is positive, and Tang et al. (2016) motivate target conditioning | RQ1 | Mixed-polarity accuracy and macro-F1 on the 228-instance subset, plus paired disagreement analysis against review-only controls | Met |
+| Sentence-level models emit one label per text, as in ReviewPulse v1/v2; Pontiki et al. (2014) reframe the question as *which* aspect is positive, and Tang et al. (2016) motivate target conditioning | RQ1 | Mixed-polarity accuracy and macro-F1 on the 228-instance subset | Met; paired disagreement analysis added afterwards as a supporting diagnostic |
 | Wang et al. (2016) offer a light aspect-conditioned model learned from a small benchmark; Sanh et al. (2019) and Sun et al. (2019) offer pretrained contextual transfer at higher cost | RQ2 | Accuracy, macro-F1, training time, inference latency and artifact size under one contract | Met; timing is observational across CPU and MPS, not a controlled comparison |
 | Attention can vary without changing a prediction and need not identify causal features (Jain & Wallace, 2019) | RQ3 | Offset-aligned indicative evidence where the architecture supports it, and an explicit unsupported state otherwise | Implemented; independent application acceptance still open (Appendix E) |
 | Accepted minimum product: audited baselines, ATAE-LSTM, shared evaluation and a working interface | Scope floor | All named components load and return three-class predictions per aspect under one evaluation contract | Met |
 | DistilBERT retained only if compute and validation checks pass | Optional scope | Trained and evaluated under the same contract as the core ladder | Met |
 | Reproducibility: fixed seed, sentence-grouped splits, versioned artifacts, single evaluation script | Requirement | Recorded splits, seeds and provenance; constrained clean installation; automated test suite | Met on the pre-release baseline |
 | Cut-first list under compute pressure: Laptops transfer, automatic aspect extraction, Topic Modelling, GRU and TextCNN | Scope discipline | Optional work begins only after the core gates pass | Laptops, automatic extraction and Topic Modelling cut as planned; GRU and TextCNN delivered as exploratory extras afterwards |
-| Release: public access, reproducible archive, version tag | Delivery | Packaged v3.0.0 release with recorded digests | Pending at the time of writing |
+| Release: public access, reproducible archive, version tag | Delivery | Packaged v3.0.0 release with recorded digests | Met; the deployed application, the reproducible archives and the tagged release are delivered |
 
 *Table 1. Assessment 2 gaps and scope commitments traced to their pre-committed measures and delivered outcomes.*
 
@@ -139,7 +140,7 @@ The model ladder isolates a principle at each stage. TF-IDF uses sparse engineer
 
 ATAE-LSTM conditions the recurrent representation on an aspect embedding and learns a weighted combination of hidden states. It can therefore read the same sentence differently for `food` and `service`. DistilBERT transfers contextual knowledge from BERT-style pretraining (Devlin et al., 2019) and allows review and aspect tokens to interact throughout the Transformer encoder. Its substantially larger parameter count tests whether pretrained contextual transfer justifies additional compute and storage.
 
-Dropout and weight decay limit overfitting; early stopping and best-checkpoint restoration prevent reporting a convenient final epoch instead of the best observed development checkpoint. Appendix G records the frozen configuration of every model, the training curve that fixed the selected checkpoint, and the only recorded hyperparameter search in this project, in which widening the TextCNN filters alone reduced development macro-F1 and the gain came from added capacity rather than a wider receptive field. The remaining models used predefined configurations with development macro-F1 checkpoint selection and were not searched. The fixed test split, label order and metric implementation support comparison of predictive behaviour. They do not, however, make cross-device timing controlled, nor does one fixed seed establish variance across retraining.
+Dropout and weight decay limit overfitting; early stopping and best-checkpoint restoration prevent reporting a convenient final epoch instead of the best observed development checkpoint. Appendix G records the frozen configuration of every model, the training curve that fixed the selected checkpoint, and the only recorded hyperparameter search in this project, in which widening the TextCNN filters alone reduced development macro-F1 and an improvement appeared only once the filter count was raised. The remaining models used predefined configurations with development macro-F1 checkpoint selection and were not searched. The fixed test split, label order and metric implementation support comparison of predictive behaviour. They do not, however, make cross-device timing controlled, nor does one fixed seed establish variance across retraining.
 
 Attention and gradient attribution are treated as diagnostic views rather than model reasoning. Attention can vary without changing a prediction and need not identify causal features (Jain & Wallace, 2019). Accordingly, ReviewPulse labels darker tokens as higher-scored evidence within one aspect view and makes no claim that the view faithfully explains the decision.
 
@@ -365,7 +366,7 @@ The parser reads the SemEval XML, validates every annotated character offset aga
 
 *Table G1. Three parsed aspect instances as supplied to the models. One sentence yields one record per annotated aspect, which is the structural reason a review-level label cannot answer the task.*
 
-The audit command reports the corpus itself. Figure G1 is its verbatim output, and it is the source of Table 2.
+The audit command reports the corpus itself. Listing G1 is its verbatim output, and it is the source of Table 2. Listings G1 to G3 are pasted terminal transcripts rather than screenshots: the text stays legible at any page size, carries no local file paths, and can be searched and re-run by a reader.
 
 ```text
 $ python -m src.absa.data.audit
@@ -389,7 +390,7 @@ $ python -m src.absa.data.audit
 }
 ```
 
-*Figure G1. Dataset audit output. Zero invalid offsets is the precondition for the offset-aligned token evidence reported in Section 5.*
+*Listing G1. Dataset audit command and output. Zero invalid offsets is the precondition for the offset-aligned token evidence reported in Section 5.*
 
 ### G.2 Libraries and frozen versions
 
@@ -445,11 +446,11 @@ Only TextCNN was searched. The search selected on development macro-F1 alone; th
 
 *Table G5. TextCNN configuration search, seed 42, four epochs per candidate.*
 
-The result is more informative than the winner. Widening the filters from (2,3,4) to (3,4,5) at the same filter count made the model **worse**, from 0.4309 to 0.3776. Only when the filter count rose to 100 did macro-F1 improve to 0.4722. The gain therefore came from added capacity, not from a wider receptive field, and the selected configuration still records zero neutral F1 on the mixed-polarity subset in Appendix A. Searching a review-only encoder does not supply the aspect signal it never receives.
+The result is more informative than the winner. Widening the filters from (2,3,4) to (3,4,5) at the same filter count made the model **worse**, from 0.4309 to 0.3776; macro-F1 only improved, to 0.4722, once the filter count rose to 100. The search therefore provides no evidence that widening alone helped, and the improvement appeared only after capacity increased. It cannot isolate a causal hyperparameter effect: three candidates at one seed leave the wider filters untested at the higher filter count, and no variance estimate is available. What the search does establish is that the selected configuration still records zero neutral F1 on the mixed-polarity subset in Appendix A. Searching a review-only encoder does not supply the aspect signal it never receives.
 
 ### G.5 Verified end-to-end run
 
-Figure G2 is the verbatim output of the offline smoke check, which loads each canonical artifact and scores a two-aspect review with no dataset present.
+Listing G2 is the verbatim output of the smoke check, which loads each canonical artifact and scores a two-aspect review. The smoke path reads the artifacts only and does not open the SemEval dataset, which is why it also passed in a clean-room clone where no corpus was present.
 
 ```text
 $ python scripts/smoke_absa.py
@@ -459,13 +460,71 @@ absa_atae_lstm: food=positive, service=positive
 absa_distilbert: food=negative, service=negative
 ```
 
-*Figure G2. Four-model prediction for "The food was great but the service was slow." Every model returns one label per aspect, which is the delivered contract; no model resolves both gold labels here, which is the honest limitation reported in Section 5.*
+*Listing G2. Four-model prediction for "The food was great but the service was slow." Every model returns one label per aspect, which is the delivered contract; no model resolves both gold labels here, which is the honest limitation reported in Section 5.*
 
-## 15. Academic Integrity Declaration
+Listing G3 is the Python that produces the aspect-conditioned evidence, run against the frozen ATAE-LSTM artifact, together with its output. It is the code behind Table 5, and re-running it reproduces that table's ATAE-LSTM rows exactly.
+
+```python
+from src.absa.inference.api import predict_aspects
+from src.absa.inference.predictors import get_predictor
+
+review = "Great food but the service was dreadful!"
+predictor = get_predictor("absa_atae_lstm")
+results = predict_aspects(review, ["food", "service"], "absa_atae_lstm", predictor)
+
+for item in results:
+    top = sorted(item["token_evidence"]["tokens"], key=lambda t: -t["score"])[:3]
+    tokens = ", ".join(f"{t['token']}[{t['start']}:{t['end']}]={t['score']:.3f}" for t in top)
+    print(f"{item['aspect']:>7} -> {item['label']:<8} {item['confidence']:.3f} | {tokens}")
+```
+
+```text
+   food -> positive 0.864 | Great[0:5]=0.241, food[6:10]=0.131, was[27:30]=0.127
+service -> positive 0.742 | Great[0:5]=0.193, ![39:40]=0.132, dreadful[31:39]=0.130
+```
+
+*Listing G3. Aspect-conditioned inference and token evidence. Each token carries the character offsets that locate it in the original review, so the evidence view is aligned to the raw text rather than to model-internal subword units. The attention distribution changes with the supplied aspect while the predicted label does not, which is precisely the RQ3 caveat drawn from Jain and Wallace (2019).*
+
+## 15. Appendix H - Code Execution: Lightweight and Complete Packages
+
+Two archives are submitted from the same commit, differing only in which trained artifacts they carry. Both are built by `scripts/build_a3_package.py`, which rejects unresolved Git LFS pointers and writes a SHA-256 manifest; repeated builds of one mode produce an identical digest. Appendix C lists the underlying commands.
+
+| Package | Build mode | Size | v3 models | Needs SemEval corpus |
+|---|---|---:|---:|---|
+| Lightweight | `--artifact-mode lightweight` | approx. 52 MB | 5 of 6 | No |
+| Complete | `--artifact-mode all` | approx. 288 MB | 6 of 6 | No |
+
+*Table H1. The two submitted archives. The difference is the single v3 DistilBERT directory. Both are supplied: where the upload limit refuses the larger file, it is provided through a shared link recorded with the submission.*
+
+The procedure is identical for both, and neither reads the dataset, because the trained artifacts are shipped:
+
+```bash
+unzip ReviewPulse-v3.0.0-DLE602-A3.zip && cd ReviewPulse-v3.0.0
+python3 -m venv .venv && source .venv/bin/activate   # Windows: .venv\Scripts\activate
+pip install -r requirements.txt -c constraints-a3.txt
+python -m pytest -q
+streamlit run app.py
+```
+
+The constraint file pins the versions in Table G2. Inference runs on CPU in both packages, so no accelerator is required.
+
+Only the v3 DistilBERT directory is excluded from the lightweight archive, since at roughly 256 MB it accounts for the entire size difference. Selecting **DistilBERT sentence-pair** there returns a model-unavailable error rather than a prediction: a missing artifact is always reported and never silently substituted. The only network dependency in the submission sits elsewhere, in the preserved ISY503 workflow rather than in any v3 result: the legacy `outputs/distilbert.pt` stores only the classification head and fine-tuned layers, so its base encoder is fetched from `distilbert-base-uncased` and reports itself unavailable offline without a cache. The five v3 artifacts are read straight from disk.
+
+| Environment | Passed | Skipped | Additional skips |
+|---|---:|---:|---|
+| Development machine | 363 | 3 | Legacy Amazon `.review` corpus is not redistributed |
+| GitHub clone, complete artifacts | 357 | 9 | 6 sample-provenance checks need the non-redistributed `predictions.csv` |
+| Extracted lightweight archive | approx. 355 | approx. 11 | 2 package-builder checks need Git metadata, absent from a ZIP |
+
+*Table H2. Expected test outcomes by environment. Every skip is an intentional absence of licensed data or Git metadata rather than a failure, and none is removed by redistributing data the project cannot license.*
+
+On the complete package, `python scripts/smoke_absa.py` clean-loads all four canonical models, as shown in Listing G2. It is deliberately unusable on the lightweight package, which excludes the model it exercises; `scripts/smoke_target_gru.py` and `scripts/smoke_text_cnn.py` are the equivalent checks there.
+
+## 16. Academic Integrity Declaration
 
 We declare that, except where referenced, the work we are submitting for this assessment task is our own work. We have read and are aware of the Academic Integrity Policy and Procedure of Torrens University Australia. We are also aware that we need to keep a copy of all submitted material and any drafts, and we agree to do so.
 
-## 16. Statement of Acknowledgement
+## 17. Statement of Acknowledgement
 
 We acknowledge that we used the following AI-assisted tools in the creation of this assessment:
 
