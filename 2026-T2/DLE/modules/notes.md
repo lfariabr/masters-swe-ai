@@ -1041,6 +1041,14 @@ Please read other students’ posts and provide feedback.
 ## Module 11 - Visual Analytics in Deep Learning
 
 ### TLDR
+- **The problem:** deep nets perform but cannot explain themselves. **Visual analytics** turns internals into pictures humans can reason about, to **explain, interpret, debug and improve** models.
+- **The organising framework:** Hohman et al.'s **Five W's and How** - **Why** (interpretability · debugging · model comparison · teaching) · **Who** (model developers · model users · non-experts) · **What** (computational graph · learned parameters · activations & gradients · neurons as high-dim space · aggregated metrics) · **How** (node-link · dim-reduction + scatter · line charts · instance analysis · interactive experimentation · attribution/feature visualisation) · **When** (during vs after training) · **Where** (domains + the hybrid VIS/AI community).
+- **Activations vs gradients:** activations show how a network **decides**; gradients show how it **learns**. **RNNbow** is the rare gradient-based tool, and it renders the **vanishing gradient** visible.
+- **Comparing snapshots:** **CNNComparator** compares one CNN at epoch 10 vs 100 across four linked views, connecting *parameter change* to *performance change* (and catching a colour shortcut - daffodil misread as buttercup because of yellow).
+- **The practical CNN toolkit:** filters → **activation maximisation** → **occlusion maps** → **saliency maps** → **Grad-CAM** → **layerwise outputs** (edges early, objects late). Motivation: without it you cannot tell whether the model learned *the leopard* or *the snow*.
+- **Open problems:** scalability, real design studies/user evaluation, human-AI pairing, **bias detection**, and **adversarial robustness**.
+
+> *Sources: Hohman et al. (2018); Zeng et al. (2017); Cashman et al. (2017); Pal (2019) - see [module11_notes.md](module-11-visual-analytics-in-dl/module11_notes.md).*
 
 ### Introduction
 Deep learning (DL) has recently seen rapid development due to its advanced performance in previously thought difficult problems, such as recognising objects in images. However, because of the inherent complexity of deep neural networks, the underlying decision-making processes that enable these models to perform so well are challenging and sometimes mystifying to interpret.
@@ -1062,7 +1070,7 @@ Visual analytics in DL is one of the newest branches of research in this space. 
 
     It is recommended that you take a quick look at the analytics tools that this paper mentions. You do not have to explore the tools and you do not need to know the tools. It is simply to help you better understand the concepts discussed in the paper. Simply locate the tools on Google and look at their interfaces.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module11_notes.md](module-11-visual-analytics-in-dl/module11_notes.md)*
 
 #### 2. CNNComparator: Comparative Analytics of Convolutional Neural Networks
 - Zeng, H., Haleem, H., Plantaz, X., Cao, N. & Qu, H. (2017). CNNComparator: Comparative analytics of convolutional neural networks. Retrieved from https://vadl2017.github.io/paper/vadl_0108-paper.pdf
@@ -1075,7 +1083,7 @@ Visual analytics in DL is one of the newest branches of research in this space. 
 
     This paper introduces an interactive visualisation system called CNNComparator, which enables users to explore the evolution of CNN parameters over one training process and the generated learned features.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module11_notes.md](module-11-visual-analytics-in-dl/module11_notes.md)*
 
 #### 3. RNNbow: Visualising Learning via Backpropagation Gradients in Recurrent Neural Networks
 - Cashman, D., Patterson, G., Mosca, A. & Chang, R. (2017). RNNbow: Visualizing learning via backpropagation gradients in recurrent neural networks. Retrieved from https://vadl2017.github.io/paper/vadl_0107-paper.pdf
@@ -1088,7 +1096,7 @@ Visual analytics in DL is one of the newest branches of research in this space. 
 
     The authors demonstrate how the proposed tool can be used to find endemic properties in a network and how it can provide insights into the learning process.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module11_notes.md](module-11-visual-analytics-in-dl/module11_notes.md)*
 
 #### 4. A Guide to Understanding Convolutional Neural Networks Using Visualisation
 - Pal, S., (2019, 6 May). A guide to understanding convolutional neural networks (CNNs) using visualization [Web log post]. Retrieved from https://www.analyticsvidhya.com/blog/2019/05/understanding-visualizing-neural-networks/
@@ -1099,7 +1107,7 @@ Visual analytics in DL is one of the newest branches of research in this space. 
 
     The best part of this post is that it contains some example scenarios associated with codes.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module11_notes.md](module-11-visual-analytics-in-dl/module11_notes.md)*
 
 ### Learning Activities
 
