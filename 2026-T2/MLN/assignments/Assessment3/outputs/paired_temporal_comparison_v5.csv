@@ -1,0 +1,3 @@
+series,median_absolute_error,days_closer,win_rate_excluding_ties_pct,tied_dates
+Linear Regression,1045.2307167139938,116,31.693989071038253,0
+Naive rolling-7,636.0714285714284,250,68.30601092896175,0
