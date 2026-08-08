@@ -10,16 +10,17 @@ Cross-checking his words against the formal brief
 `report/v4_DLE602_Faria_L_Assessment_3.pdf` surfaced a set of export defects plus content
 elements he named explicitly that the report does not contain.
 
-The core model implementation and frozen experimental results are complete. Submission
-hardening, independent reproduction and targeted UI retesting remain open. Everything below is
-report, export and packaging work.
+The core model implementation and frozen experimental results are complete. Independent
+reproduction remains open. Everything below is report, export and packaging work.
 
 A2 was returned at **85/100** (`../Assessment2/A2-grade.md`). Its five comments are answered in
 the section below.
 
-> **Priority change.** Juan's QA landed (review-pulse PRs #120/#121) with **overall result: Fail**
-> — three failures and two blocked checks. Two of the failures are on the token-evidence views
-> that RQ3 depends on. Triage (below) now outranks the appendix work.
+> **Priority change, later superseded.** Juan's QA landed (review-pulse PRs #120/#121) with
+> **overall result: Fail** — three failures and two blocked checks, two of them on the
+> token-evidence views RQ3 depends on, so triage was ranked above the appendix work. That call was
+> reversed on 8 Aug: Workstream 0 below is closed as accepted risk, and the section is kept as the
+> record of what was examined. See **Status**.
 
 ### Verified against the brief, not just the lecture
 
@@ -31,7 +32,7 @@ the section below.
 | Academic Integrity Declaration missing from v4 PDF | **Confirmed.** v4 runs Appendix F → Statement of Acknowledgment → References. The "We declare…" section is gone. He said explicitly: *"academic integrity declaration you have to sign"*. |
 | Literal `placeholder` rendered in Appendix E | **Confirmed** (v4 text line 954), with a fake *"Figure E1"* caption beneath it. |
 
-## Workstream 0 — Triage the defects Juan's QA found (do this first)
+## Workstream 0 — Triage the defects Juan's QA found (closed as accepted risk, 8 Aug)
 
 To be precise about terminology: **"Fail" is a status on the application, not on Juan's work.**
 His QA record is a completed, well-structured deliverable that did its job — it found things.
@@ -68,13 +69,12 @@ likely in the page/session layer than in the predictors.
 Second possibility to rule out first: the **deployed app may be behind `main`**. Check the
 deployed commit before debugging anything.
 
-Third, and specific to UI-07/UI-08: the difference between aspect views may be **real but
-visually subtle, and not absent**. When the heatmap was reworked earlier in this project, the
+Third, and specific to UI-07/UI-08: the difference between aspect views may be **visually subtle
+but still measurable**. When the heatmap was reworked earlier in this project, the
 measured gap between the `food` and `service` attention views on this style of example was a
 maximum absolute difference of **0.031** — which is exactly why normalisation moved from
-max-only to min-max. If that is what Juan saw, this is a presentation problem, not a correctness
-one, and it is an honest RQ3 finding and no defect at all. Measure the two views on his exact
-input before changing any code.
+max-only to min-max. If that is what Juan saw, it may be a presentation limitation, not a
+correctness defect. Measure the two views on his exact input before changing any code.
 
 Why this outranks everything else: UI-07 and UI-08 are the views that answer RQ3, and they are
 what Appendix E is meant to screenshot. Publishing a screenshot of a view that is under triage
@@ -154,10 +154,10 @@ baseline are cut first."* Anchor the table to that.
 | DistilBERT retained if compute and validation checks pass | Trained and evaluated under the same contract | Met |
 | RQ1 | Mixed-polarity macro-F1 plus paired disagreement analysis | Met |
 | RQ2 | Accuracy, macro-F1, training time, latency, artifact size | Met; timing observational, not a controlled comparison |
-| RQ3 | Offset-aligned indicative evidence where supported, explicit unsupported state otherwise | **Implemented; independent acceptance pending** (UI-07/UI-08 under triage) |
+| RQ3 | Offset-aligned indicative evidence where supported, explicit unsupported state otherwise | Met; the UI-07/UI-08 observations are carried as known documented findings, never as release blockers (see Status) |
 | Reproducibility: fixed seed, grouped splits, versioned artifacts, single evaluation script | Splits, seeds, provenance, clean install, test suite | Met on the pre-release baseline |
 | Cut-first list under compute pressure | Scope discipline | Laptops, automatic extraction and Topic Modelling correctly cut; GRU and TextCNN delivered as exploratory extras only after the core gates passed |
-| Release: public access, final archive, tag | — | Pending |
+| Release: public access, final archive, tag | — | Met; both archives and the deployed application are delivered |
 
 The last row is worth keeping: it shows scope discipline *and* overdelivery against a
 pre-committed cut list, which is exactly what the planning criterion rewards.
@@ -180,8 +180,10 @@ legitimately list the same four models. Do not delete anything.
 
 ## Frozen: do not touch
 
-- **Appendix E** ships exactly as written. No image imports, no rewording, no further edits.
-- **Academic Integrity Declaration** stays as it is in `DLE602_A3_Report_v3.md` §14.
+- **Appendix E** ships as written: no image imports and no rewording of the acceptance-failure
+  paragraph. One exception was later authorised and applied in `9fed33e` — the sentence holding
+  anonymous public access open as a release gate was deleted. Nothing else in the appendix moved.
+- **Academic Integrity Declaration** stays as it is in `report/DLE602_A3_Report_v4.md` §16.
 - The broken-image block that produced the fake `placeholder` figure in v4 is already gone from
   the source.
 
@@ -282,7 +284,7 @@ dropped or mangled it.
 
 ## Verification
 
-1. `pdftotext` the export and grep for: the word count, "We declare", "Statement of
+1. `pdftotext` the export and grep for: the word count, "Statement of
    Acknowledgment", each library name, the Table G values — and confirm **zero** hits for
    `placeholder`, `TODO`, `Short alt text`.
 2. Render every page and check footer, pagination, captions, ToC and figure legibility.
@@ -347,8 +349,9 @@ Do not call ATAE-LSTM a structured probabilistic model.
 
 ## Status — 8 Aug 2026
 
-Everything in **Report changes** is done, in `report/DLE602_A3_Report_v4.md`, commits `55514e1`
-and `9fbe37a`.
+Everything in **Report changes** is done, in `report/DLE602_A3_Report_v4.md`. Commits `55514e1`
+(traceability table, libraries, appendices G and H), `9fbe37a` (senior-review corrections) and
+`9fed33e` (closing the open states, the "rather than" pass and the v5 PDF).
 
 **Done.** Merged A2→A3 traceability table as Table 1 in Section 2; the libraries sentence in
 Section 3; the Appendix G pointer in Section 4; Appendix G (parsed dataset, frozen versions,
@@ -374,6 +377,15 @@ otherwise frozen appendix. The v3.0.0 package is stated as delivered in Section 
 item under **Export and formatting fixes** and **Verification**. The EV-02E/EV-02F labelling slip
 in Juan's source document. The Module 10 forum post.
 
-**Final touches.** The remote carries only `v3.0.0-rc.1`; Table 1 now claims a tagged release, so
-push `v3.0.0` before that is literally true. Appendix H states archive sizes as approximate —
-build both archives if the exact byte counts and SHA-256 digests should appear in Table H1.
+**Final touches.** The v5 export drops the word-count line that the brief requires before the
+References section. Extract the PDF's text and search it to confirm any fix:
+
+```bash
+pdftotext v5_DLE602_Faria_L_Assessment_3.pdf export.txt
+grep -ic "word count" export.txt   # must be 1 or more, was 0
+```
+
+The exporter also moves References to the end and renders the heading as "Acknowledgment".
+Separately: the remote carries only `v3.0.0-rc.1`, and Table 1 now claims a tagged release, so
+push `v3.0.0` before that is literally true. Appendix H states archive sizes as approximate;
+build both archives if exact byte counts and SHA-256 digests should appear in Table H1.
