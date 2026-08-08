@@ -4,8 +4,17 @@ Sections 1-3 (title, business, data understanding, preparation), section 4 (mode
 sections 5-6 (evaluation, lessons, appendices, references). Assembled by build_v5.py.
 """
 
-md = lambda s: ("markdown", s.strip("\n"))
-co = lambda s: ("code", s.strip("\n"))
+Cell = tuple[str, str]
+
+
+def md(source: str) -> Cell:
+    """A markdown cell."""
+    return ("markdown", source.strip("\n"))
+
+
+def co(source: str) -> Cell:
+    """A code cell."""
+    return ("code", source.strip("\n"))
 
 TITLE = md(r"""
 # Predicting Daily Demand for Capital Bikeshare
@@ -372,7 +381,9 @@ The daily file arrives with no missing cells, no duplicate rows and no gaps in t
 
 **One humidity reading is not a low value, it is a fault.** Section 2.1 recorded `hum = 0` on one date. Relative humidity of exactly zero does not occur in Washington DC, and cross-checking `hour.csv` confirms the diagnosis: all 22 hourly rows for that date also read zero, which is the signature of a failed sensor rather than of dry weather.
 
-**The value is estimated, not deleted.** Deleting the row would have discarded a complete demand observation to fix one input, so the reading is marked missing and then estimated by the median of the training data. The estimation happens inside `SimpleImputer(strategy="median")` within every pipeline, so the median is refitted on each training fold and never sees the validation fold or the holdout. A single `fillna` computed over the whole frame would have been simpler and would have leaked a statistic of the test data into a training input. The interaction term `atemp_hum` inherits the correction automatically, because it is rebuilt from the corrected column.
+**The value is estimated, not deleted.** Deleting the row would have discarded a complete demand observation to fix one input, so the reading is marked missing and then estimated by the median of the training data. The estimation happens inside `SimpleImputer(strategy="median")` within every pipeline, so the median is refitted on each training fold and never sees the validation fold or the holdout. A single `fillna` computed over the whole frame would have been simpler and would have leaked a statistic of the test data into a training input.
+
+One consequence is worth stating plainly. The interaction `atemp_hum` is built before imputation, so it carries the same missing value and the imputer fills it as a column in its own right. Its estimated value is the median interaction, not the product of the imputed humidity, which leaves the two very slightly inconsistent on that single row out of 731. Rebuilding the interaction after imputation, inside the pipeline, would remove the inconsistency; it was not done because Table 9 already bounds the entire humidity treatment at 3 rentals of holdout MAE, which is smaller than the effect being corrected.
 
 **The decision is checked rather than asserted.** Table 9 refits the frozen primary model on the uncorrected data and reports both results. If the correction had been load-bearing, that table would say so.
 
@@ -491,6 +502,38 @@ def compact_params(params):
               "model__n_neighbors": "neighbors", "model__weights": "weights"}
     return "; ".join(f"{labels.get(key, key)}={value}" for key, value in params.items())
 
+# Display-only column labels. The saved CSVs keep their long self-describing names; the
+# printed tables use short ones so that every column survives the width of a PDF page.
+# Labels avoid spaces on purpose: a printed table wraps at spaces first, so "mean residual"
+# would break across two lines while "mean_residual" holds together in the same width.
+NARROW = {
+    "feature_set": "features", "best_params": "params", "selected_model": "model",
+    "cv_mean_MAE": "CV_MAE", "cv_std_MAE": "CV_MAE_SD",
+    "cv_mean_RMSE": "CV_RMSE", "cv_std_RMSE": "CV_RMSE_SD",
+    "holdout_MAE": "MAE", "holdout_RMSE": "RMSE", "holdout_R2": "R2",
+    "mean_baseline_MAE": "baseline_MAE", "baseline_improvement_pct": "vs_baseline_pct",
+    "MAE_pct_of_holdout_mean_demand": "MAE_pct_of_mean",
+    "train_rows": "train", "validation_rows": "val",
+    "train_window": "train_window", "validation_window": "val_window",
+    "largest_2012_prediction": "max_pred_2012", "2011_training_ceiling": "ceiling_2011",
+    "2012_actual_maximum": "actual_max_2012",
+    "mean_residual_actual_minus_prediction": "mean_residual",
+    "median_absolute_error": "median_AE", "days_closer": "days_won",
+    "win_rate_excluding_ties_pct": "win_rate_pct", "tied_dates": "ties",
+    "MAE_increase_mean": "MAE_increase", "MAE_increase_std": "SD",
+    "mean_absolute_SHAP": "mean_abs_SHAP",
+    "humidity_pct": "hum_pct", "mean reference": "mean_ref",
+    "rolling-7 reference": "roll7_ref", "correlation_with_cnt": "correlation_with_cnt",
+}
+ABBREV = {"Linear Regression": "LR", "K-Nearest Neighbors": "KNN",
+          "Random Forest": "RF", "Gradient Boosting": "GB"}
+
+
+def narrow(frame):
+    """Shorten column labels for display only. Saved artefacts keep the long names."""
+    return frame.rename(columns=NARROW)
+
+
 def choose_configuration(rows):
     frame = pd.DataFrame(rows).copy()
     best_mae = frame["cv_mean_MAE"].min()
@@ -511,7 +554,7 @@ MODELLING_HEAD = md(r"""
 
 Four regression families are compared with lightweight grids in scikit-learn (Pedregosa et al., 2011). Linear Regression tests a global additive relationship; K-Nearest Neighbors tests local similarity; Random Forest averages decorrelated trees; Gradient Boosting sequentially corrects residuals (Friedman, 2001). Scaling and fold-fitted median imputation live inside every pipeline.
 
-Both experiments run over the same 731 days and differ in how those days are split and which inputs are permitted. Each produces one learned estimate and one reference estimate, giving the four columns compared in Table 13.
+Both experiments draw on the same daily records and differ in how those records are split and which inputs are permitted. The primary experiment uses all 731 days; the temporal experiment uses the 724 that remain once the seven-day causal warm-up is excluded. Each produces one learned estimate and one reference estimate, giving the four columns compared in Table 13.
 """)
 
 PIPELINE_FIGURE = co(r'''
@@ -584,8 +627,8 @@ selection_indices = set(primary_train_idx)
 assert selection_indices.isdisjoint(set(primary_holdout_idx))
 assert len(primary_df) == 731
 print("Table 6 - Primary CV selection (training partition only)")
-display(primary_cv_table.round({"cv_mean_MAE": 1, "cv_std_MAE": 1,
-                                "cv_mean_RMSE": 1, "cv_std_RMSE": 1}))
+display(narrow(primary_cv_table.round({"cv_mean_MAE": 1, "cv_std_MAE": 1,
+                                       "cv_mean_RMSE": 1, "cv_std_RMSE": 1})))
 print("Frozen primary configuration:", primary_winner_name, "|", primary_winner_features,
       "|", primary_choice["best_params"])
 ''')
@@ -635,9 +678,10 @@ primary_summary = pd.DataFrame([{
 }])
 primary_summary.to_csv(OUTPUT_DIR / "primary_summary_v5.csv", index=False)
 print("Table 7 - Frozen family configurations on the primary holdout")
-display(primary_holdout_table.round({"MAE": 1, "MSE": 1, "RMSE": 1, "R2": 3}))
+display(narrow(primary_holdout_table.round({"MAE": 1, "MSE": 1, "RMSE": 1, "R2": 3})))
 print("Table 8 - Final selected-model summary")
-display(primary_summary.round(3))
+# Transposed: one record with nine fields reads better, and prints, as a tall table.
+display(narrow(primary_summary.round(3)).T.rename(columns={0: "value"}))
 ''')
 
 HUM_SENSITIVITY = co(r'''
@@ -658,7 +702,7 @@ humidity_sensitivity = pd.DataFrame([
 ])
 humidity_sensitivity.to_csv(OUTPUT_DIR / "humidity_sensitivity_v5.csv", index=False)
 print("Table 9 - Humidity correction sensitivity on the frozen primary model")
-display(humidity_sensitivity.round({"MAE": 2, "MSE": 1, "RMSE": 2, "R2": 4}))
+display(narrow(humidity_sensitivity.round({"MAE": 2, "MSE": 1, "RMSE": 2, "R2": 4})))
 ''')
 
 PRIMARY_READ = md(r"""
@@ -691,7 +735,7 @@ for fold, (tr, va) in enumerate(temporal_cv.split(temporal_train), 1):
         "validation_window": f"{temporal_train.dteday.iloc[va[0]].date()} to {temporal_train.dteday.iloc[va[-1]].date()}",
     })
 print("Table 10 - TimeSeriesSplit folds within 2011")
-display(pd.DataFrame(fold_table))
+display(narrow(pd.DataFrame(fold_table)))
 
 temporal_rows, temporal_estimators = [], {}
 for feature_name, columns in TEMPORAL_FEATURE_SETS.items():
@@ -729,8 +773,8 @@ temporal_winner = temporal_estimators[(temporal_winner_name, temporal_winner_fea
 assert temporal_train.yr.eq(0).all()
 assert not temporal_train.dteday.isin(temporal_test.dteday).any()
 print("Table 11 - Temporal CV selection (2011 only)")
-display(temporal_cv_table.round({"cv_mean_MAE": 1, "cv_std_MAE": 1,
-                                 "cv_mean_RMSE": 1, "cv_std_RMSE": 1}))
+display(narrow(temporal_cv_table.round({"cv_mean_MAE": 1, "cv_std_MAE": 1,
+                                        "cv_mean_RMSE": 1, "cv_std_RMSE": 1})))
 print("Frozen temporal configuration:", temporal_winner_name, "|", temporal_winner_features,
       "|", temporal_choice["best_params"])
 ''')
@@ -770,7 +814,7 @@ rolling_metrics = temporal_holdout_table.loc[
 ].iloc[0]
 temporal_advantage = 1 - temporal_selected_metrics.MAE / rolling_metrics.MAE
 print("Table 12 - Frozen temporal candidates and baselines on 2012")
-display(temporal_holdout_table.round({"MAE": 1, "MSE": 1, "RMSE": 1, "R2": 3}))
+display(narrow(temporal_holdout_table.round({"MAE": 1, "MSE": 1, "RMSE": 1, "R2": 3})))
 ''')
 
 TEMPORAL_READ = md(r"""
@@ -822,7 +866,10 @@ worked.to_csv(OUTPUT_DIR / "worked_example_v5.csv", index=False)
 
 print("Table 13 - Six shared dates scored by every approach")
 print("Each row is one day: inputs on the left, the realised count, then four estimates of it.")
-display(worked)
+display(narrow(worked).rename(columns={
+    f"{primary_winner_name} (primary)": f"{ABBREV[primary_winner_name]}_primary",
+    f"{temporal_winner_name} (temporal)": f"{ABBREV[temporal_winner_name]}_temporal",
+}))
 
 for label, column in [(f"{primary_winner_name} (primary)", "primary_prediction"),
                       ("mean reference", "mean_reference"),
@@ -884,7 +931,7 @@ paired_summary = pd.DataFrame([
 paired_summary["tied_dates"] = int(ties.sum())
 paired_summary.to_csv(OUTPUT_DIR / "paired_temporal_comparison_v5.csv", index=False)
 print("Table 15 - Paired descriptive comparison on identical 2012 dates")
-display(paired_summary.round(1))
+display(narrow(paired_summary.round(1)))
 ''')
 
 CEILING = co(r'''
@@ -902,7 +949,7 @@ for name in list(GRIDS) + ["Naive rolling-7"]:
 extrapolation_ceiling = pd.DataFrame(ceiling_rows)
 extrapolation_ceiling.to_csv(OUTPUT_DIR / "extrapolation_ceiling_v5.csv", index=False)
 print("Table 16 - Extrapolation ceiling analysis")
-display(extrapolation_ceiling.round(1))
+display(narrow(extrapolation_ceiling.round(1)))
 
 fig, ax = plt.subplots(1, 2, figsize=(14, 5))
 ax[0].plot(temporal_test.dteday, y2012, lw=.9, color="#20639B", label="actual 2012")
@@ -943,7 +990,7 @@ permutation_table = (pd.DataFrame({
 }).sort_values("MAE_increase_mean", ascending=False).reset_index(drop=True))
 permutation_table.to_csv(OUTPUT_DIR / "permutation_importance_v5.csv", index=False)
 print("Table 17 - Model-agnostic permutation importance on the primary holdout")
-display(permutation_table.head(12).round(2))
+display(narrow(permutation_table.head(12).round(2)))
 
 top_perm = permutation_table.head(12).sort_values("MAE_increase_mean")
 fig, ax = plt.subplots(figsize=(9, 5.5))
@@ -970,7 +1017,7 @@ if primary_winner_name in {"Random Forest", "Gradient Boosting"}:
                   .sort_values("mean_absolute_SHAP", ascending=False).reset_index(drop=True))
     shap_table.to_csv(OUTPUT_DIR / "shap_global_importance_v5.csv", index=False)
     print("Table 18 - TreeSHAP global importance for the frozen primary model")
-    display(shap_table.head(12).round(2))
+    display(narrow(shap_table.head(12).round(2)))
     shap.summary_plot(shap_values, transformed, feature_names=transformed_names,
                       max_display=12, show=False)
     plt.title(f"Figure 13 - TreeSHAP summary: {primary_winner_name}")
@@ -1061,14 +1108,17 @@ rental volume from the frozen primary model, together with the supported input d
 
 ```
 POST /estimate
-{ "date": "2013-04-18", "season": 2, "weathersit": 1,
+{ "date": "2012-04-18", "weathersit": 1,
   "temp": 0.58, "atemp": 0.55, "hum": 0.61, "windspeed": 0.18 }
 
 -> { "estimated_daily_rentals": 5120,
      "expected_absolute_error": 434,
      "basis": "conditional estimate, observed 2011-2012 distribution",
+     "supported_date_range": ["2011-01-01", "2012-12-31"],
      "supported_weathersit": [1, 2, 3] }
 ```
+
+The caller sends a date and a forecast, and nothing else. Season, month, weekday, working-day status, elapsed time and the interaction terms are all derived from that date on the server, because they are deterministic functions of it and a client that supplies them can contradict itself.
 
 Returning the expected error alongside the point estimate matters more than the estimate itself.
 A planner who receives 5,120 without 434 will read a precision the model does not have.
@@ -1097,6 +1147,13 @@ The temporal check is the reason this appendix is short about forecasting.
   serve the rolling mean or wait for new forward evidence.
 - Any request outside `weathersit` 1 to 3 must be rejected for human review rather than scored,
   because category 4 never appears in training.
+- **Requests must also be bounded in time, and this is the guard the report itself demands.**
+  The frozen primary model reads `yr` and `days_since_start`. A 2013 date supplies a `yr` value
+  never observed and an elapsed time beyond every training row, which is exactly the
+  extrapolation that Section 5.1 measured and found the tree families incapable of. A service
+  that accepted such a date would contradict its own evidence while returning a confident
+  number. Dates outside 2011-2012 must be rejected until a model is refitted and revalidated on
+  the new period.
 
 ### C.4 Geolocation and alerts
 
