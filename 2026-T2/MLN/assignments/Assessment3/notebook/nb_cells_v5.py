@@ -1167,12 +1167,26 @@ rolling seven-day mean, because it beat every frozen machine-learning candidate 
 
 A defensible rollout therefore inverts the usual order:
 
-1. **Rolling-7 as the production champion.** It needs no training, adapts to recent demand, and
-   is the only candidate with forward evidence behind it.
+1. **Rolling-7 as the provisional champion for a controlled deployment trial.** It needs no
+   training and adapts to recent demand. It is the strongest forward candidate evaluated in this
+   study, not a production-validated forecasting method: its advantage rests on one retrospective
+   window, and C.6 sets out what would have to be true before that word could be dropped.
 2. **The machine-learning model in shadow mode.** It scores the same days, records its error, and
    serves nobody.
 3. **Promotion only on forward evidence.** It replaces the baseline when it beats rolling-7 across
    several independent forward windows, not because it won a random holdout.
+
+The two questions in Table 1 then map onto two endpoints, which is the cleanest way to stop one
+being read as the other:
+
+| Endpoint | Method served | Question it answers | Domain |
+|---|---|---|---|
+| `POST /historical-estimate` | Frozen Gradient Boosting | Given these conditions, what does the 2011-2012 relationship imply? | Dates within 2011-2012 |
+| `POST /forecast` | Rolling seven-day mean | What should we expect tomorrow? | The last seven realised counts |
+
+`/forecast` takes no weather forecast at all while rolling-7 is the served method, because the
+rolling mean reads only realised demand. That is worth stating rather than hiding: the endpoint
+with forward evidence behind it needs less input than the one without.
 
 Winning the random 75/25 comparison in Section 4.1 earned the model an explanation in Section 5.2.
 It did not earn it production traffic. Keeping those two things separate is the main engineering
@@ -1187,7 +1201,7 @@ Normalisation by the dataset's own divisors is preprocessing, so it belongs behi
 than in the contract: a planner should never be asked for a temperature of 0.58.
 
 ```
-POST /estimate
+POST /historical-estimate
 { "date": "2012-04-18",
   "weather": "clear",
   "temperature_c": 23.8, "feels_like_c": 27.5,
@@ -1204,7 +1218,22 @@ POST /estimate
 ```
 
 `weather` is a typed enum rather than the raw UCI integer, so the contract is readable without the
-dataset documentation and category 4 is unrepresentable rather than merely rejected.
+dataset documentation. The enum includes `severe`, even though the model never saw it. Severe
+weather exists, and a schema that cannot express it forces a caller facing a storm to either
+misreport the conditions or give up, which is a worse failure than an error. The category is
+therefore representable and refused explicitly, before inference rather than inside it:
+
+```
+{ "date": "2012-04-18", "weather": "severe", ... }
+
+-> 422 { "error": "unsupported_model_domain",
+         "message": "The model was not trained on severe weather (weathersit 4 is absent from
+                     the 2011-2012 data). No estimate is returned.",
+         "supported_weather": ["clear", "mist", "light_rain_snow"] }
+```
+
+Refusing is the correct behaviour precisely because those are the days a planner would most want
+an answer for, and the ones this study has no evidence about.
 
 The error figure is deliberately not called an expected error for this request. MAE 434 is an
 aggregate over 183 days; quoting it beside a single estimate would imply a calibrated per-request
@@ -1214,14 +1243,15 @@ prediction, none of which were fitted here.
 
 ### C.4 Proposed layers
 
-| Layer | Technology | Purpose |
-|---|---|---|
-| Model artefact | scikit-learn pipeline, joblib | The frozen Gradient Boosting configuration and its preprocessing, serialised together |
-| Contract | JSON | Feature order, supported weather categories and date range, holdout metrics, source notebook hash |
-| API | FastAPI, Pydantic | Typed request validation, unit conversion and the domain guards |
-| Interface | Streamlit | A form for planners who will not call an API |
-| Champion | Rolling seven-day mean | The method actually served for day-ahead use, per C.2 |
-| Monitoring | Scheduled job | Daily scoring of both the served baseline and the shadow model against realised demand |
+| Layer | Technology | Serves | Purpose |
+|---|---|---|---|
+| Model artefact | scikit-learn pipeline, joblib | `/historical-estimate` | The frozen Gradient Boosting configuration and its preprocessing, serialised together |
+| Baseline | Rolling seven-day mean over realised counts | `/forecast` | The provisional champion of C.2; needs no artefact and no weather input |
+| Contract | JSON | both | Feature order, supported weather categories and date range, evaluation metrics, source notebook hash |
+| API | FastAPI, Pydantic | both | Typed request validation, unit conversion and the domain guards |
+| Interface | Streamlit | both | A form for planners who will not call an API |
+| Shadow runner | Scheduled job | neither | Scores the machine-learning model on the same days `/forecast` answers, and serves nobody |
+| Monitoring | Scheduled job | both | Daily scoring of the served baseline and the shadow model against realised demand, per C.7 |
 
 The pattern follows my Sommelier API project from Assessments 1 and 2, where the same separation
 between a framework-agnostic model core and thin serving surfaces is already implemented.
@@ -1231,8 +1261,9 @@ between a framework-agnostic model core and thin serving surfaces is already imp
 - The service may answer **conditional** questions: given these conditions, what does the
   2011-2012 relationship imply? That is the question the primary experiment evaluated.
 - It may **not** be presented as a next-day forecaster, for the reason set out in C.1.
-- Weather outside the three observed categories must be unrepresentable in the request rather
-  than merely rejected, because category 4 never appears in training.
+- Weather outside the three observed categories must be refused before inference with an explicit
+  `unsupported_model_domain` error, because category 4 never appears in training. It stays
+  expressible in the request, per C.3: the caller has to be able to say what the weather is.
 - **Requests must be bounded in time.** The frozen primary model reads `yr` and
   `days_since_start`. A 2013 date supplies a `yr` value never observed and an elapsed time beyond
   every training row: a temporal transfer that Section 4.2 found unreliable for the fitted
@@ -1272,10 +1303,28 @@ system demand to a location. Delivering it honestly means acquiring station-leve
 ITDP and NACTO describe the network, spacing and capacity variables that work would need
 (ITDP, 2018; NACTO, 2016).
 
-**Custom alerts.** Two alert types are supported by evidence already collected. A *domain alert*
-fires when a request falls outside the supported weather categories. A *drift alert* fires when
-the rolling error of the deployed estimate exceeds its holdout MAE over a defined window, which is
-the mechanism that would have caught the temporal failure in production rather than in a notebook.
+**Custom alerts.** Two alert types are supported by evidence already collected.
+
+A *domain alert* fires when a request falls outside the supported weather categories or date
+range, which is the `unsupported_model_domain` response of C.3 recorded rather than merely
+returned.
+
+A *drift alert* fires when rolling error exceeds a declared reference, and each method needs its
+own reference rather than a shared one:
+
+| Monitored | Reference | Value |
+|---|---|---|
+| `/forecast`, rolling-7 | Its own 2012 temporal benchmark | MAE 847.8 |
+| Shadow model | Daily and rolling-window comparison against the served champion | relative, no fixed threshold |
+| `/historical-estimate` | The random-holdout MAE it was evaluated against | MAE 433.9 |
+
+The 433.9 figure must not become a forecasting threshold. It is the mean error of a conditional
+estimator over a random holdout drawn from both years, and applying it to day-ahead forecasting
+would be repeating the confusion between the two protocols that Section 4.2 exists to expose: a
+forecasting service held to it would alarm permanently, since no method in this study reached it
+going forward. This is the mechanism that would have caught the temporal failure in production
+rather than in a notebook, but only if it is pointed at the right number.
+
 A demand-threshold alert for staffing would be useful but needs a stakeholder-defined threshold
 that this project does not have.
 """)
