@@ -496,7 +496,7 @@ NARROW = {
     "MAE_pct_of_holdout_mean_demand": "MAE_pct_of_mean",
     "train_rows": "train", "validation_rows": "val",
     "train_window": "train_window", "validation_window": "val_window",
-    "largest_2012_prediction": "max_pred_2012", "2011_training_ceiling": "ceiling_2011",
+    "largest_2012_prediction": "max_pred_2012", "2011_training_target_max": "train_max_2011",
     "2012_actual_maximum": "actual_max_2012",
     "mean_residual_actual_minus_prediction": "mean_residual",
     "median_absolute_error": "median_AE", "days_closer": "days_won",
@@ -914,28 +914,30 @@ display(narrow(paired_summary.round(1)))
 # In[20]:
 
 
-train_ceiling = int(temporal_train.cnt.max())
-ceiling_rows = []
+train_target_max = int(temporal_train.cnt.max())
+range_rows = []
 for name in list(GRIDS) + ["Naive rolling-7"]:
     pred = temporal_predictions[name]
-    ceiling_rows.append({
+    range_rows.append({
         "model": name,
         "largest_2012_prediction": float(np.max(pred)),
-        "2011_training_ceiling": train_ceiling,
+        "2011_training_target_max": train_target_max,
         "2012_actual_maximum": int(temporal_test.cnt.max()),
         "mean_residual_actual_minus_prediction": float(np.mean(y2012 - pred)),
     })
-extrapolation_ceiling = pd.DataFrame(ceiling_rows)
-extrapolation_ceiling.to_csv(OUTPUT_DIR / "extrapolation_ceiling_v5.csv", index=False)
-print("Table 16 - Extrapolation ceiling analysis")
-display(narrow(extrapolation_ceiling.round(1)))
+forward_range = pd.DataFrame(range_rows)
+forward_range.to_csv(OUTPUT_DIR / "forward_prediction_range_v5.csv", index=False)
+# Deliberately not called a ceiling: only Random Forest and KNN have one.
+print("Table 16 - Forward prediction range analysis")
+display(narrow(forward_range.round(1)))
 
 fig, ax = plt.subplots(1, 2, figsize=(14, 5))
 ax[0].plot(temporal_test.dteday, y2012, lw=.9, color="#20639B", label="actual 2012")
 ax[0].plot(temporal_test.dteday, selected_temporal_pred, lw=.9, color="#ED553B",
            label=f"frozen {temporal_winner_name}")
 ax[0].plot(temporal_test.dteday, rolling_pred, lw=.9, color="#3CAEA3", label="rolling-7")
-ax[0].axhline(train_ceiling, color="black", ls="--", lw=1, label=f"2011 ceiling = {train_ceiling}")
+ax[0].axhline(train_target_max, color="black", ls="--", lw=1,
+              label=f"2011 training maximum = {train_target_max}")
 ax[0].set(title="Figure 10 - Rolling day-ahead predictions in 2012", xlabel="date", ylabel="cnt")
 ax[0].legend(fontsize=8)
 ax[1].scatter(selected_temporal_pred, y2012-selected_temporal_pred, s=14, alpha=.4, color="#ED553B")
@@ -945,19 +947,52 @@ ax[1].set(title=f"Figure 11 - {temporal_winner_name} temporal residuals",
 plt.tight_layout(); plt.savefig(FIG_DIR / "v5_temporal_robustness.png", dpi=160); plt.show()
 
 
-# Two different mechanisms are at work here, and they are worth separating rather than calling both an extrapolation ceiling.
+# Two different mechanisms are at work here. Calling both an extrapolation ceiling, as an earlier draft of this report did, hides the difference between them.
 # 
 # Random Forest and K-Nearest Neighbors are **structurally** bounded. Every prediction is an average of observed training targets, so neither can return a value above the largest target it was trained on. Gradient Boosting is not bounded in that way. It adds residual corrections rather than averaging targets (Friedman, 2001), and a day that falls into the high-correction region of several trees at once can be pushed past the training maximum. Its poor extrapolation comes from its prediction function being piecewise constant, not from an arithmetic ceiling.
 # 
-# The measurement settles what actually happened. The 2011 maximum was 6,043 rentals, while 2012 reached 8,714. Random Forest's largest prediction was 5,567 and Gradient Boosting's was 5,491, both below the 2011 ceiling, with mean under-predictions of 1,568 and 1,995 rentals per day. KNN also stayed below it. So Gradient Boosting was free to exceed the ceiling and did not, which is a stronger result than saying it could not: nothing in the 2011 data pushed it upward, because the growth it needed to reproduce was not there to learn.
+# The measurement settles what actually happened. The largest 2011 training target was 6,043 rentals, while 2012 demand reached 8,714. Random Forest's largest 2012 prediction was 5,567 and Gradient Boosting's was 5,491, both below that training maximum, with mean under-predictions of 1,568 and 1,995 rentals per day. KNN also stayed below it.
+# 
+# Gradient Boosting is the informative case, because it was free to exceed 6,043 and did not: across all 366 days of 2012, its fitted residual corrections never combined into a prediction above 5,491. That is a measured outcome for this model on these inputs, not a structural guarantee, and it is the stronger statement of the two.
 # 
 # Linear Regression extended to 8,248 and reduced mean under-prediction to 832, explaining why it led the 2011-selected ML candidates. Rolling-7 reached 7,988 and had a mean residual of -2.5 because each new observation re-anchored the next prediction. Conditional accuracy within a mixed-year sample therefore did not transfer to the later growth period.
+
+# In[21]:
+
+
+# The paragraph above makes a claim about model mechanics, so it is checked rather than cited.
+# The design isolates the mechanism: an additive target y = x1 + x2, with every training row
+# in the joint-high corner removed. One test point is then placed in that unobserved corner.
+# A forest must average targets it has seen. Boosting sums residual corrections drawn from
+# several trees at once, and those corrections can add up past anything in the training set.
+check_rng = np.random.default_rng(RANDOM_STATE)
+cx1, cx2 = check_rng.uniform(0, 1, 600), check_rng.uniform(0, 1, 600)
+observed = ~((cx1 > 0.6) & (cx2 > 0.6))
+check_X = np.c_[cx1[observed], cx2[observed]]
+check_y = cx1[observed] + cx2[observed]
+unobserved_corner = np.array([[1.0, 1.0]])
+
+print(f"Synthetic check on {observed.sum()} rows. Largest training target: {check_y.max():.4f}")
+print(f"True value at the unobserved corner (1.0, 1.0): 2.0000\n")
+for label, estimator in [
+    ("Random Forest", RandomForestRegressor(random_state=RANDOM_STATE, n_estimators=400)),
+    ("Gradient Boosting", GradientBoostingRegressor(random_state=RANDOM_STATE, n_estimators=400)),
+]:
+    prediction = estimator.fit(check_X, check_y).predict(unobserved_corner)[0]
+    exceeds = prediction > check_y.max()
+    print(f"  {label:18s} predicts {prediction:.4f} and "
+          f"{'EXCEEDS the largest training target' if exceeds else 'stays within the training range'}")
+
+
+# The check confirms the distinction. Random Forest cannot leave the range of what it has seen, and does not. Gradient Boosting does, by roughly 14% above the largest training target, without ever having been shown a value that high. One counterexample is enough to retire the claim that tree ensembles share a target-range ceiling.
+# 
+# This is why Table 16 is a range analysis and not a ceiling analysis, and why the 2012 result reads as evidence rather than as arithmetic. Gradient Boosting had the freedom demonstrated here and still did not use it on the real data, because nothing in a single low year of demand produced corrections large enough to reach a system 44% bigger.
 
 # ### 5.2 Explaining the frozen primary model
 # 
 # Permutation importance is model-agnostic and measures the increase in holdout MAE after one raw input is shuffled. It is computed only after model selection and does not change the winner. Contributions describe predictive associations in this dataset, not causal effects. TreeSHAP (Lundberg & Lee, 2017) is added only when the frozen primary family is Random Forest or Gradient Boosting.
 
-# In[21]:
+# In[22]:
 
 
 perm = permutation_importance(
@@ -982,7 +1017,7 @@ ax.set(title=f"Figure 12 - Permutation importance: {primary_winner_name}",
 plt.tight_layout(); plt.savefig(FIG_DIR / "v5_permutation_importance.png", dpi=160); plt.show()
 
 
-# In[22]:
+# In[23]:
 
 
 shap_table = None
@@ -1009,7 +1044,7 @@ else:
     print("TreeSHAP omitted: the frozen primary winner is", primary_winner_name)
 
 
-# In[23]:
+# In[24]:
 
 
 primary_pred = primary_winner.predict(primary_holdout[primary_winner_columns])
@@ -1047,7 +1082,7 @@ plt.tight_layout(); plt.savefig(FIG_DIR / "v5_primary_diagnostics.png", dpi=160)
 # 
 # The concept that took longest to internalise is the difference between interpolation and extrapolation, and my first explanation of it was wrong in a way worth recording. I had written that tree ensembles cannot predict above their training maximum, because a terminal region can only average values it has already seen. That is true of a single decision tree, of Random Forest and of K-Nearest Neighbors, which all average observed targets. It is not true of Gradient Boosting, which sums residual corrections and can be pushed beyond the training range (Friedman, 2001) - the very model this report freezes as its primary winner.
 # 
-# The measured conclusion survived the correction: every tree-based candidate did stay below the 2011 ceiling here. What changed is why. It is an empirical finding about this dataset rather than an arithmetic guarantee, and I had been presenting an assumption as a property. Checking a claim against the mechanism instead of against the models that happen to share a name is the thing I actually took away, and it is why the simplest candidate transferring best is a result rather than a foregone conclusion.
+# The measured conclusion survived the correction: every tree-based candidate did stay below the largest 2011 training target here. What changed is why. It is an empirical finding about this dataset rather than an arithmetic guarantee, and I had been presenting an assumption as a property. Checking a claim against the mechanism instead of against the models that happen to share a name is the thing I actually took away, and it is why the simplest candidate transferring best is a result rather than a foregone conclusion.
 # 
 # ### 6.3 What can be improved
 # 
@@ -1055,7 +1090,7 @@ plt.tight_layout(); plt.savefig(FIG_DIR / "v5_primary_diagnostics.png", dpi=160)
 # 
 # Methodologically, trend-seasonality decomposition, differenced targets and forecast-aware inputs are the natural next comparisons.
 # 
-# The extension I would most like to build is a small service that turns the frozen primary model into something usable: send it a date, its season and a weather forecast, and receive an estimated daily volume with the supported-domain guard applied. Appendix C sketches that idea, including the parts this study shows it must not claim.
+# The extension I would most like to build is a small service around this model, and working out what it may honestly offer changed my answer about what to deploy. The frozen model won the random holdout but lost the forward test, so the method this study's evidence supports for day-ahead use is the rolling seven-day baseline, with the machine-learning model running in shadow mode until it earns promotion on forward windows. Appendix C sets out that reasoning, the request contract, and the gap between the assessment artefact and an operational forecasting service.
 
 # ---
 # 
@@ -1076,7 +1111,7 @@ plt.tight_layout(); plt.savefig(FIG_DIR / "v5_primary_diagnostics.png", dpi=160)
 # 
 # ## Appendix B - Reproducibility and integrity evidence
 
-# In[24]:
+# In[25]:
 
 
 import sys
@@ -1111,66 +1146,131 @@ print("Python:", sys.version.split()[0], "| pandas:", pd.__version__,
 print("RANDOM_STATE:", RANDOM_STATE)
 
 
-# ## Appendix C - Proposed extension: a demand estimation service
+# ## Appendix C - Deployment readiness and proposed service design
 # 
-# This appendix sketches the engineering extension named in Section 6.3. It is a proposal, not a
-# deployed system, and the evidence in Section 5 constrains what it may offer.
+# This appendix sketches the engineering extension named in Section 6.3. The binding constraint on
+# it is Section 4.2, not Section 4.1: what the model may be deployed to do is set by the experiment
+# it failed, not by the one it won.
 # 
-# ### C.1 What it would do
+# ### C.1 What the frozen model supports, and what it does not
 # 
-# A caller sends a date, its season and a weather forecast; the service returns an estimated daily
-# rental volume from the frozen primary model, together with the supported input domain.
+# The frozen Gradient Boosting configuration is a historical conditional estimator. It supports
+# reproducing conditional estimates for days inside the observed 2011-2012 domain, demonstrating
+# model serving and input validation end to end, and exploring how calendar and weather relate to
+# demand within that domain. As portfolio evidence of taking a pipeline through to an API it is
+# worth building.
+# 
+# It does not support a live forecasting product, and the reason is measured rather than assumed.
+# On 2012 it lost to a rolling seven-day mean by 23.5% on MAE. A service that presented it to a
+# planner as next-day guidance would be selling the losing method.
+# 
+# Accepting only 2011-2012 dates makes this a historical replay interface rather than an
+# operational one. That is the honest description, and the response is not to loosen the guard so
+# that confident numbers can be returned for dates the model was never evaluated on. It is to say
+# plainly that the assessment artefact is not deployment-ready as a forecaster.
+# 
+# ### C.2 What the evidence would actually deploy today
+# 
+# The only method this study's forward evidence supports for rolling day-ahead use is the naive
+# rolling seven-day mean, because it beat every frozen machine-learning candidate on 2012.
+# 
+# A defensible rollout therefore inverts the usual order:
+# 
+# 1. **Rolling-7 as the production champion.** It needs no training, adapts to recent demand, and
+#    is the only candidate with forward evidence behind it.
+# 2. **The machine-learning model in shadow mode.** It scores the same days, records its error, and
+#    serves nobody.
+# 3. **Promotion only on forward evidence.** It replaces the baseline when it beats rolling-7 across
+#    several independent forward windows, not because it won a random holdout.
+# 
+# Winning the random 75/25 comparison in Section 4.1 earned the model an explanation in Section 5.2.
+# It did not earn it production traffic. Keeping those two things separate is the main engineering
+# conclusion of this project.
+# 
+# ### C.3 A request contract for the historical estimator
+# 
+# The caller sends a date and a weather forecast in physical units, and nothing else. Season, month,
+# weekday, working-day status, elapsed time and the interaction terms are deterministic functions of
+# the date and are derived on the server, because a client that supplies them can contradict itself.
+# Normalisation by the dataset's own divisors is preprocessing, so it belongs behind the API rather
+# than in the contract: a planner should never be asked for a temperature of 0.58.
 # 
 # ```
 # POST /estimate
-# { "date": "2012-04-18", "weathersit": 1,
-#   "temp": 0.58, "atemp": 0.55, "hum": 0.61, "windspeed": 0.18 }
+# { "date": "2012-04-18",
+#   "weather": "clear",
+#   "temperature_c": 23.8, "feels_like_c": 27.5,
+#   "humidity_pct": 61, "windspeed_kmh": 12.1 }
 # 
 # -> { "estimated_daily_rentals": 5120,
-#      "expected_absolute_error": 434,
-#      "basis": "conditional estimate, observed 2011-2012 distribution",
-#      "supported_date_range": ["2011-01-01", "2012-12-31"],
-#      "supported_weathersit": [1, 2, 3] }
+#      "basis": "conditional estimate over the observed 2011-2012 distribution",
+#      "evaluation_context": {
+#         "holdout_mae": 434,
+#         "scope": "mean error across the 183-day random holdout, not an interval for this request"
+#      },
+#      "supported_dates": ["2011-01-01", "2012-12-31"],
+#      "supported_weather": ["clear", "mist", "light_rain_snow"] }
 # ```
 # 
-# The caller sends a date and a forecast, and nothing else. Season, month, weekday, working-day status, elapsed time and the interaction terms are all derived from that date on the server, because they are deterministic functions of it and a client that supplies them can contradict itself.
+# `weather` is a typed enum rather than the raw UCI integer, so the contract is readable without the
+# dataset documentation and category 4 is unrepresentable rather than merely rejected.
 # 
-# Returning the expected error alongside the point estimate matters more than the estimate itself.
-# A planner who receives 5,120 without 434 will read a precision the model does not have.
+# The error figure is deliberately not called an expected error for this request. MAE 434 is an
+# aggregate over 183 days; quoting it beside a single estimate would imply a calibrated per-request
+# confidence that this study never produced. Nesting it under `evaluation_context` says what it is.
+# Genuine per-request uncertainty would need prediction intervals, quantile regression or conformal
+# prediction, none of which were fitted here.
 # 
-# ### C.2 Proposed layers
+# ### C.4 Proposed layers
 # 
 # | Layer | Technology | Purpose |
 # |---|---|---|
 # | Model artefact | scikit-learn pipeline, joblib | The frozen Gradient Boosting configuration and its preprocessing, serialised together |
-# | Contract | JSON | Feature order, supported `weathersit` categories, holdout metrics, source notebook hash |
-# | API | FastAPI, Pydantic | Typed request validation and the domain guard |
+# | Contract | JSON | Feature order, supported weather categories and date range, holdout metrics, source notebook hash |
+# | API | FastAPI, Pydantic | Typed request validation, unit conversion and the domain guards |
 # | Interface | Streamlit | A form for planners who will not call an API |
-# | Monitoring | Scheduled job | Daily scoring of yesterday's estimate against realised demand |
+# | Champion | Rolling seven-day mean | The method actually served for day-ahead use, per C.2 |
+# | Monitoring | Scheduled job | Daily scoring of both the served baseline and the shadow model against realised demand |
 # 
 # The pattern follows my Sommelier API project from Assessments 1 and 2, where the same separation
 # between a framework-agnostic model core and thin serving surfaces is already implemented.
 # 
-# ### C.3 What this study forbids it from claiming
-# 
-# The temporal check is the reason this appendix is short about forecasting.
+# ### C.5 What this study forbids it from claiming
 # 
 # - The service may answer **conditional** questions: given these conditions, what does the
 #   2011-2012 relationship imply? That is the question the primary experiment evaluated.
-# - It may **not** be presented as a next-day forecaster. Section 4.2 measured the frozen model
-#   at 23.5% worse than a rolling seven-day mean on 2012. A forecasting endpoint would either
-#   serve the rolling mean or wait for new forward evidence.
-# - Any request outside `weathersit` 1 to 3 must be rejected for human review rather than scored,
-#   because category 4 never appears in training.
-# - **Requests must also be bounded in time, and this is the guard the report itself demands.**
-#   The frozen primary model reads `yr` and `days_since_start`. A 2013 date supplies a `yr` value
-#   never observed and an elapsed time beyond every training row, which is exactly the
-#   extrapolation that Section 5.1 measured and found the tree families incapable of. A service
-#   that accepted such a date would contradict its own evidence while returning a confident
-#   number. Dates outside 2011-2012 must be rejected until a model is refitted and revalidated on
-#   the new period.
+# - It may **not** be presented as a next-day forecaster, for the reason set out in C.1.
+# - Weather outside the three observed categories must be unrepresentable in the request rather
+#   than merely rejected, because category 4 never appears in training.
+# - **Requests must be bounded in time.** The frozen primary model reads `yr` and
+#   `days_since_start`. A 2013 date supplies a `yr` value never observed and an elapsed time beyond
+#   every training row: a temporal transfer that Section 4.2 found unreliable for the fitted
+#   tree-based candidates. The objection is insufficient evidence and an unsupported input domain,
+#   not mathematical incapability, since Section 5.1 shows Gradient Boosting is not bounded by its
+#   training range. Dates outside 2011-2012 must be rejected until a model is refitted and
+#   revalidated on the new period.
 # 
-# ### C.4 Geolocation and alerts
+# ### C.6 What an operational forecasting service would require
+# 
+# Everything above describes the current artefact. A service a planner could actually rely on is a
+# different piece of work, and the gap is worth stating so that it is not mistaken for a small one:
+# recent multi-year demand rather than two years; archived weather **forecasts** rather than observed
+# weather, so that forecast error is inside the measurement; rolling-origin validation across several
+# forward windows; a declared forecast horizon; scheduled retraining; calibrated prediction intervals;
+# monitoring against realised demand; and, as the gate, beating the rolling seven-day baseline forward
+# in time.
+# 
+# Its supported window would then move with the model rather than being frozen at the assessment
+# period:
+# 
+# ```
+# { "model_version": "2026-08-01",
+#   "trained_through": "2026-07-31",
+#   "forecast_horizon_days": 1,
+#   "supported_forecast_until": "2026-08-01" }
+# ```
+# 
+# ### C.7 Geolocation and alerts
 # 
 # Two ideas worth recording, with their preconditions.
 # 
