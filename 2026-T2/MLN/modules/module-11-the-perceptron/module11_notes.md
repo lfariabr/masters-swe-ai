@@ -417,6 +417,78 @@ and **n_iter**, watch the errors-per-epoch curve, and reason about which setting
 
 ---
 
+## Deep-dive - XOR and the family (the back half, made concrete)
+
+> Added as a revision callout - the two ideas that make Module 11 "click" past the mechanism.
+
+### Why one perceptron can't do XOR
+
+XOR outputs 1 when the inputs **disagree**, 0 when they **agree**:
+
+```
+ x1  x2 | out          x2=1 │  ①(0,1)=1     ⓪(1,1)=0
+  0   0 |  0                │
+  0   1 |  1                │
+  1   0 |  1           x2=0 │  ⓪(0,0)=0     ①(1,0)=1
+  1   1 |  0                └──────────────────────────
+                               x1=0            x1=1
+```
+
+The **1s sit on one diagonal, the 0s on the other.** No single straight line puts both ①s on one side and both
+⓪s on the other. And **one perceptron = one line**, so one perceptron cannot do XOR (Minsky-Papert, 1969 → first
+AI winter). XOR is simply the smallest, cleanest example of the "not linearly separable" case.
+
+### The fix: a hidden layer manufactures separability
+
+XOR = "at least one on, but **not both**" = **OR minus AND**. Each of OR and AND *is* separable by one line:
+
+```
+ x1 ──┐
+      ├──▶ [h1 = OR ]  ─┐
+ x2 ──┤                 ├──▶ [ output = h1 AND (NOT h2) ] ──▶ XOR
+      ├──▶ [h2 = AND]  ─┘
+ x1 ──┘
+   INPUT      HIDDEN LAYER          OUTPUT NEURON
+```
+
+**The one sentence to keep:** the hidden layer's job is to **bend the input space until the classes become
+linearly separable**, then the output neuron does the plain perceptron thing on the re-mapped data. More layers
+= more bending = more abstraction power = deep learning.
+
+### Why we couldn't train it until step → smooth
+
+- The **step** function is flat everywhere (slope 0) then jumps. A zero slope gives **no direction** to nudge a
+  hidden weight - dead end for training buried neurons.
+- A **smooth** activation (sigmoid/tanh/ReLU) has a **non-zero slope everywhere** → "nudge this way to lower the
+  error." That slope lets the error flow **backwards** through the layers (chain rule) = **backpropagation**.
+
+**The forced chain (every arrow is "this made the next necessary"):**
+
+```
+one line can't do XOR → need a HIDDEN LAYER (bends space until separable)
+   → to TRAIN it you need a slope to follow → swap STEP for SMOOTH activation
+      → error flows backward = BACKPROPAGATION → deep nets are trainable = DEEP LEARNING
+```
+
+### The family, in one frame (Zone 5)
+
+All three compute the **same** McCulloch-Pitts weighted sum `z = w·x + b`; they differ only in the **finisher**
+and the **objective**:
+
+| Model | Finisher on `z` | It optimizes for | Fixes which perceptron weakness |
+|---|---|---|---|
+| **Perceptron** | hard **step** → ±1 | just be right on training data | baseline (memorizes; needs separability) |
+| **SVM** (Mod 6) | hard ±1 | the **max-margin** line; **soft margin** allows some errors | (A) picks a *good* line, not any line → generalization; (B) tolerates non-separable data |
+| **Logistic reg.** (Mod 8) | **sigmoid** → probability | most-probable, smooth boundary | gives calibrated **odds**; smooth → trains without oscillating |
+
+- Logistic's sigmoid **is** the Zone 4 step→smooth swap - it is basically one neuron with the activation that
+  makes backprop possible, which is why it bridges into neural nets.
+- **Non-separable rescue = the same "bend the space" move:** map to polar / a new feature space so a circle
+  becomes a line (Ritvikmath) → the **kernel trick** (SVM). A **hidden layer *learns*** the bending; a **kernel**
+  applies a **fixed** transform. Two roads, same destination: manufacture separability.
+
+---
+
 ## Learning Activity 1 - Perceptron Settings (forum draft)
 
 > **Deliverable:** run `a1_MLN601_Module11_perceptron_with_visualization.ipynb` (Iris, setosa vs versicolor,
