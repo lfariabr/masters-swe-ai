@@ -1191,7 +1191,7 @@ print("RANDOM_STATE:", RANDOM_STATE)
 # | Endpoint | Method served | Question it answers | Domain |
 # |---|---|---|---|
 # | `POST /historical-estimate` | Frozen Gradient Boosting | Given these conditions, what does the 2011-2012 relationship imply? | Dates within 2011-2012 |
-# | `POST /forecast` | Rolling seven-day mean | What should we expect tomorrow? | The last seven realised counts |
+# | `POST /forecast` | Rolling seven-day mean | What should we expect tomorrow? | One-day horizon; requires seven complete prior daily counts |
 # 
 # `/forecast` takes no weather forecast at all while rolling-7 is the served method, because the
 # rolling mean reads only realised demand. That is worth stating rather than hiding: the endpoint
@@ -1265,11 +1265,19 @@ print("RANDOM_STATE:", RANDOM_STATE)
 # The pattern follows my Sommelier API project from Assessments 1 and 2, where the same separation
 # between a framework-agnostic model core and thin serving surfaces is already implemented.
 # 
-# ### C.5 What this study forbids it from claiming
+# ### C.5 What this study forbids each endpoint from claiming
 # 
-# - The service may answer **conditional** questions: given these conditions, what does the
-#   2011-2012 relationship imply? That is the question the primary experiment evaluated.
-# - It may **not** be presented as a next-day forecaster, for the reason set out in C.1.
+# The two endpoints answer different questions and are constrained by different experiments, so the
+# limits are stated separately. Reading them as one set is what produced the earlier confusion
+# between a conditional estimator and a forecaster.
+# 
+# **`/historical-estimate`, constrained by Section 4.1.**
+# 
+# - It may answer **conditional** questions within 2011-2012: given these conditions, what does the
+#   relationship observed in those two years imply? That is the question the primary experiment
+#   evaluated.
+# - It may **not** be presented as a next-day forecaster, for the reason set out in C.1. That is
+#   what `/forecast` exists for.
 # - Weather outside the three observed categories must be refused before inference with an explicit
 #   `unsupported_model_domain` error, because category 4 never appears in training. It stays
 #   expressible in the request, per C.3: the caller has to be able to say what the weather is.
@@ -1280,6 +1288,16 @@ print("RANDOM_STATE:", RANDOM_STATE)
 #   not mathematical incapability, since Section 5.1 shows Gradient Boosting is not bounded by its
 #   training range. Dates outside 2011-2012 must be rejected until a model is refitted and
 #   revalidated on the new period.
+# 
+# **`/forecast`, constrained by Section 4.2.**
+# 
+# - It may be presented only as a **provisional** rolling-7 baseline under a controlled trial, never
+#   as a production-validated forecasting service. Its evidence is one retrospective window.
+# - It carries no weather guard and no date-domain guard, because it takes neither input. Its one
+#   precondition is data completeness: seven consecutive prior daily counts must exist, and a gap in
+#   the series must produce an error rather than a mean over whatever rows happen to remain.
+# - It may **not** be described as machine learning, because it is not. Presenting a seven-day mean
+#   as a model would misrepresent the one honest finding this project has about forecasting.
 # 
 # ### C.6 What an operational forecasting service would require
 # 
@@ -1314,9 +1332,11 @@ print("RANDOM_STATE:", RANDOM_STATE)
 # 
 # **Custom alerts.** Two alert types are supported by evidence already collected.
 # 
-# A *domain alert* fires when a request falls outside the supported weather categories or date
-# range, which is the `unsupported_model_domain` response of C.3 recorded rather than merely
-# returned.
+# A *domain alert* belongs to `/historical-estimate` alone, and fires when a request falls outside
+# its supported weather categories or date range: the `unsupported_model_domain` response of C.3
+# recorded rather than merely returned. `/forecast` has no equivalent, because it accepts neither
+# weather nor an arbitrary date. Its counterpart is a *completeness alert*, firing when the seven
+# prior daily counts it needs are not all present.
 # 
 # A *drift alert* fires when rolling error exceeds a declared reference, and each method needs its
 # own reference rather than a shared one:
@@ -1326,6 +1346,12 @@ print("RANDOM_STATE:", RANDOM_STATE)
 # | `/forecast`, rolling-7 | Its own 2012 temporal benchmark | MAE 847.8 |
 # | Shadow model | Daily and rolling-window comparison against the served champion | relative, no fixed threshold |
 # | `/historical-estimate` | The random-holdout MAE it was evaluated against | MAE 433.9 |
+# 
+# A single crossing is noise rather than drift, so the alert needs a window and a tolerance as well
+# as a reference. A workable starting rule for `/forecast` is a rolling 30-day MAE above 1.20 times
+# 847.8 across two consecutive windows. Both constants are provisional: they are set here to make
+# the mechanism concrete, and choosing what degradation is worth waking someone for is a
+# stakeholder's decision, not a modelling one, exactly as with the demand threshold below.
 # 
 # The 433.9 figure must not become a forecasting threshold. It is the mean error of a conditional
 # estimator over a random holdout drawn from both years, and applying it to day-ahead forecasting
