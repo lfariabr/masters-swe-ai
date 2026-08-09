@@ -1090,7 +1090,7 @@ plt.tight_layout(); plt.savefig(FIG_DIR / "v5_primary_diagnostics.png", dpi=160)
 # 
 # Methodologically, trend-seasonality decomposition, differenced targets and forecast-aware inputs are the natural next comparisons.
 # 
-# The extension I would most like to build is a small service around this model, and working out what it may honestly offer changed my answer about what to deploy. The frozen model won the random holdout but lost the forward test, so the method this study's evidence supports for day-ahead use is the rolling seven-day baseline, with the machine-learning model running in shadow mode until it earns promotion on forward windows. Appendix C sets out that reasoning, the request contract, and the gap between the assessment artefact and an operational forecasting service.
+# The extension I would most like to build is a two-endpoint serving experiment that keeps these results separate: Gradient Boosting for historical conditional estimates, and rolling-7 as the provisional day-ahead baseline, with the machine-learning model running in shadow mode until it earns promotion on forward windows. Working out what each endpoint may honestly offer changed my answer about what to deploy, since the frozen model won the random holdout but lost the forward test. Appendix C sets out that reasoning, the two request contracts, and the gap between the assessment artefact and an operational forecasting service.
 
 # ---
 # 
@@ -1148,9 +1148,11 @@ print("RANDOM_STATE:", RANDOM_STATE)
 
 # ## Appendix C - Deployment readiness and proposed service design
 # 
-# This appendix sketches the engineering extension named in Section 6.3. The binding constraint on
-# it is Section 4.2, not Section 4.1: what the model may be deployed to do is set by the experiment
-# it failed, not by the one it won.
+# This appendix sketches the engineering extension named in Section 6.3, and maps the two
+# experiments onto two separate service concepts. Section 4.1 bounds what the historical
+# conditional estimator may claim; Section 4.2 determines what may be trialled for forward
+# day-ahead use. Neither experiment can substitute for the other, and the appendix is organised so
+# that no part of one is read as licence for the other.
 # 
 # ### C.1 What the frozen model supports, and what it does not
 # 
@@ -1296,8 +1298,9 @@ print("RANDOM_STATE:", RANDOM_STATE)
 # - It carries no weather guard and no date-domain guard, because it takes neither input. Its one
 #   precondition is data completeness: seven consecutive prior daily counts must exist, and a gap in
 #   the series must produce an error rather than a mean over whatever rows happen to remain.
-# - It may **not** be described as machine learning, because it is not. Presenting a seven-day mean
-#   as a model would misrepresent the one honest finding this project has about forecasting.
+# - It may **not** be described as machine learning, because it is not. A rolling seven-day mean is
+#   a forecasting model, and a legitimate statistical baseline; presenting it as a
+#   **machine-learning** model would misrepresent the central forecasting result of this study.
 # 
 # ### C.6 What an operational forecasting service would require
 # 
