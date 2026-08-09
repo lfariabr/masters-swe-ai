@@ -1437,7 +1437,7 @@ To complete this learning activity, follow these steps:
 - Discuss which settings had a greater effect on the classification if your settings differ from your peers.
 - Note any other observations from your learnings from this notebook.
 
-> *Status: 🕐 To-Do* 
+> *Status: 🔥 Draft ready - forum post + reproducible sweep in [module11_notes.md](module-11-the-perceptron/module11_notes.md#learning-activity-1---perceptron-settings-forum-draft); run `a1_perceptron_settings_sweep.py`. Still to post to the forum.* 
 
 #### 2. Interactive Demonstrations of Perceptrons
 This activity requires you to review and engage with some interactive perceptron demonstrations (see below) that are available online.

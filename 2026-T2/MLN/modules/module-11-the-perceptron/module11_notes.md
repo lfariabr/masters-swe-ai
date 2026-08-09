@@ -15,7 +15,7 @@
 | **7** | Read & summarise Forsyth (2014) - The Noble Perceptron | ✅ |
 | **8** | Read & summarise Rosenblatt (1958) - The Perceptron: A Probabilistic Model (original paper) | ✅ |
 | **9** | Read & summarise Roach (2016) - Training a Perceptron Model in Python | ✅ |
-| 10 | Activity 1: Perceptron Settings (`a1_..._perceptron_with_visualization.ipynb`) - forum | 🕐 |
+| 10 | Activity 1: Perceptron Settings (`a1_..._perceptron_with_visualization.ipynb`) - forum | 🔥 |
 | 11 | Activity 2: Interactive perceptron demos (owenshen24 / TF Playground / Khan) - forum | 🕐 |
 
 > **One-line frame:** the **perceptron** (Rosenblatt, 1958) is the *first trainable* artificial neural network
@@ -414,3 +414,69 @@ and **n_iter**, watch the errors-per-epoch curve, and reason about which setting
 > **off-curriculum** unsupervised topics next class - **anomaly/outlier detection** and **association analysis
 > (a priori algorithm)** - worth knowing as "graduate general knowledge." See
 > [module10_notes-class.md](../module-10-learning-theory-pac/module10_notes-class.md) §2.
+
+---
+
+## Learning Activity 1 - Perceptron Settings (forum draft)
+
+> **Deliverable:** run `a1_MLN601_Module11_perceptron_with_visualization.ipynb` (Iris, setosa vs versicolor,
+> features = sepal length + petal length), then post on (1) the best settings, (2) which settings mattered
+> most, (3) other observations. The numbers below come from a reproducible sweep,
+> [`a1_perceptron_settings_sweep.py`](a1_perceptron_settings_sweep.py), which reuses the notebook's exact
+> `Perceptron` class. Figure: [`a1_perceptron_settings_sweep.png`](a1_perceptron_settings_sweep.png).
+
+**The numbers I got (50-epoch cap unless noted):**
+
+| Setup | Learning rate | Converged? | Epoch it converged |
+|---|---|---|---|
+| **Zero init** | 0.0001 → 1.0 (all five) | Yes | **6, every time** |
+| **Random init** (seed 1) | 0.0001 | Yes | 42 |
+| **Random init** | 0.001 | Yes | 5 |
+| **Random init** | 0.01 - 0.1 | Yes | **2** |
+| **Random init** | 1.0 | Yes | 5 |
+| **Not-separable pair** (versicolor vs virginica) | any | **No** | never - stuck at 2 errors forever |
+
+*num_iterations sweep (zero init, lr 0.01):* a cap below 6 never finishes; a cap of 10, 50 or 500 all land on
+epoch 6. It is a budget, not a dial.
+
+---
+
+**My post:**
+
+I expected the learning rate to be the big lever. It was not. Here is what actually moved the result.
+
+**The setting that mattered most was the starting weights, not the learning rate.** When I initialised the
+weights to zero, the perceptron converged at **epoch 6 for every learning rate I tried, from 0.0001 all the way
+to 1.0** - the learning rate made literally no difference. That surprised me until it clicked: from a zero
+start, every weight ends up as the learning rate times the same set of numbers, and the classification only
+looks at the *sign* of the weighted sum. Scaling all the weights by a constant does not change any sign, so you
+get the identical boundary and the identical number of epochs. The learning rate is a red herring for a
+perceptron that starts from zero on separable data.
+
+**The learning rate only started to matter once I initialised the weights randomly.** With a random start it
+swung the convergence time hard: `0.0001` took **42 epochs** (too small - it can barely overwrite the bad random
+starting point), `0.01`-`0.1` snapped to **2 epochs**, and `1.0` bounced back up to **5**. So the sweet spot was
+in the middle. Too small is slow, too large overshoots.
+
+**Best settings, and why:** zero-initialised weights, a mid-range learning rate (I would use `0.01`), and
+`num_iterations` set comfortably above the convergence epoch (50 is fine). Justification: zero init is the
+robust, reproducible choice because it converges in the fewest epochs *regardless* of the learning rate, so
+there is no learning rate to tune and everyone gets the same answer. `num_iterations` is not really a tuning
+knob - anything below 6 failed to finish, and 10, 50 and 500 all gave the same epoch-6 result. Set it high
+enough to be safe and forget it.
+
+**Other observations:**
+- **Linear separability beats every hyperparameter.** On the hard pair (versicolor vs virginica, which overlap),
+  *no* setting converged - it sat at 2 misclassifications forever, at every learning rate. No amount of tuning
+  fixes non-separable data; you need a different model (an SVM soft margin, or a multilayer network). This is the
+  single most important practical lesson.
+- **The error count does not fall smoothly.** Even on the easy pair it wobbled (1, then 3, then 3, then 1)
+  before snapping to 0 at epoch 6, because fixing one misclassified point can briefly break a point that was
+  already correct.
+- **Day-job connection:** if I framed a St Catherine's "flag an at-risk student" model as a perceptron on two
+  features, this activity says the honest first question is not *what learning rate?* but *are these two features
+  even linearly separable?* If the classes overlap - which real attendance/engagement data almost always does -
+  the perceptron will never settle and I should reach for a soft-margin or multilayer model instead.
+
+**How to reproduce:** `python3 a1_perceptron_settings_sweep.py` (Homebrew python3.14; numpy/pandas/sklearn/
+matplotlib). It prints all three sweep tables and saves the errors-per-epoch figure.
