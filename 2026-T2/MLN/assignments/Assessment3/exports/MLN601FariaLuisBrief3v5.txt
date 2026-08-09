@@ -945,7 +945,11 @@ ax[1].set(title=f"Figure 11 - {temporal_winner_name} temporal residuals",
 plt.tight_layout(); plt.savefig(FIG_DIR / "v5_temporal_robustness.png", dpi=160); plt.show()
 
 
-# Tree ensembles predict averages within terminal regions and therefore have an extrapolation ceiling tied to observed training targets. The 2011 maximum was 6,043 rentals, while 2012 reached 8,714. Random Forest's largest prediction was 5,567 and Gradient Boosting's was 5,491; their mean under-predictions were 1,568 and 1,995 rentals per day. KNN also stayed below the training ceiling.
+# Two different mechanisms are at work here, and they are worth separating rather than calling both an extrapolation ceiling.
+# 
+# Random Forest and K-Nearest Neighbors are **structurally** bounded. Every prediction is an average of observed training targets, so neither can return a value above the largest target it was trained on. Gradient Boosting is not bounded in that way. It adds residual corrections rather than averaging targets (Friedman, 2001), and a day that falls into the high-correction region of several trees at once can be pushed past the training maximum. Its poor extrapolation comes from its prediction function being piecewise constant, not from an arithmetic ceiling.
+# 
+# The measurement settles what actually happened. The 2011 maximum was 6,043 rentals, while 2012 reached 8,714. Random Forest's largest prediction was 5,567 and Gradient Boosting's was 5,491, both below the 2011 ceiling, with mean under-predictions of 1,568 and 1,995 rentals per day. KNN also stayed below it. So Gradient Boosting was free to exceed the ceiling and did not, which is a stronger result than saying it could not: nothing in the 2011 data pushed it upward, because the growth it needed to reproduce was not there to learn.
 # 
 # Linear Regression extended to 8,248 and reduced mean under-prediction to 832, explaining why it led the 2011-selected ML candidates. Rolling-7 reached 7,988 and had a mean residual of -2.5 because each new observation re-anchored the next prediction. Conditional accuracy within a mixed-year sample therefore did not transfer to the later growth period.
 
@@ -1041,7 +1045,9 @@ plt.tight_layout(); plt.savefig(FIG_DIR / "v5_primary_diagnostics.png", dpi=160)
 # 
 # Understanding the data took longer than fitting the models. Two files describe the same system at different granularities, `casual` and `registered` sum to the target and cannot be predictors, and one humidity reading is physically impossible. Diagnosing that reading required cross-checking the hourly file, and the correction then had to preserve sample size and stay inside the pipeline folds.
 # 
-# The concept that took longest to internalise is the difference between interpolation and extrapolation. A tree fits both years comfortably when they are shuffled together, and the same tree cannot reach 2012 demand when trained on 2011 alone, because a terminal region can only average values it has already seen. That is a property of the model class rather than a tuning failure, and it explains why the simplest candidate transferred best.
+# The concept that took longest to internalise is the difference between interpolation and extrapolation, and my first explanation of it was wrong in a way worth recording. I had written that tree ensembles cannot predict above their training maximum, because a terminal region can only average values it has already seen. That is true of a single decision tree, of Random Forest and of K-Nearest Neighbors, which all average observed targets. It is not true of Gradient Boosting, which sums residual corrections and can be pushed beyond the training range (Friedman, 2001) - the very model this report freezes as its primary winner.
+# 
+# The measured conclusion survived the correction: every tree-based candidate did stay below the 2011 ceiling here. What changed is why. It is an empirical finding about this dataset rather than an arithmetic guarantee, and I had been presenting an assumption as a property. Checking a claim against the mechanism instead of against the models that happen to share a name is the thing I actually took away, and it is why the simplest candidate transferring best is a result rather than a foregone conclusion.
 # 
 # ### 6.3 What can be improved
 # 
@@ -1200,7 +1206,7 @@ print("RANDOM_STATE:", RANDOM_STATE)
 # 
 # Prompt examples:
 # 1. "Explain why a random split over a two-year time series supports a conditional demand estimate but not a next-day forecast, and how to run both experiments so that neither contaminates the other."
-# 2. "Show why a tree ensemble trained on 2011 cannot predict 2012 demand above its training maximum, and propose a way to measure that ceiling instead of asserting it."
+# 2. "Is a gradient boosting ensemble mathematically bounded by its training target range the way a random forest is? Give me a counterexample if it is not, and tell me which of my claims it breaks."
 # 3. "Build a causal seven-day rolling baseline for a day-ahead comparison using shift before rolling, and write the assertion that proves the window never includes the target day."
 # 
 # I confirm that the use of these tools has been in accordance with the Torrens University Australia Academic Integrity Policy and TUA, Think and MDS's Position Paper on the Use of AI. I confirm that the final output is authored by me and represents my own critical thinking, analysis, and synthesis of sources. I take full responsibility for the final content of this report.
