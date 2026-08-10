@@ -68,7 +68,7 @@ Spark workers are pinned to this Python kernel (driver == executor) so there is 
 mismatch, `JAVA_HOME` is discovered rather than hard-coded, and the seed is fixed for reproducibility.
 Each check fails with an actionable message instead of an obscure traceback.""")
 
-code(r"""import os, sys, json, subprocess, warnings
+code(r"""import os, sys, json, re, subprocess, warnings
 from pathlib import Path
 
 warnings.filterwarnings("ignore")
@@ -86,21 +86,34 @@ def require(condition, message):
         raise SetupError(message)
 
 
-def _java_runs(home):
-    '''A JAVA_HOME candidate is only valid if `bin/java` actually executes - a directory
-    existing on disk is not enough (a broken or partial install still passes that check).'''
+def _java_version_ok(home):
+    '''A JAVA_HOME candidate is only valid if `bin/java` runs AND reports version 8 or 11 -
+    Spark 3.5 supports neither older nor newer JDKs, and a directory merely existing on disk,
+    or a working-but-wrong-version `java`, both pass a shallower check and fail later with an
+    opaque JAVA_GATEWAY_EXITED when Spark actually tries to start.'''
     java_bin = Path(home) / "bin" / "java"
     try:
-        return subprocess.run([str(java_bin), "-version"], capture_output=True,
-                               text=True, timeout=10).returncode == 0
+        result = subprocess.run([str(java_bin), "-version"], capture_output=True,
+                                text=True, timeout=10)
     except (OSError, subprocess.SubprocessError):
         return False
+    if result.returncode != 0:
+        return False
+    # `java -version` writes to stderr by long-standing convention (stdout on some vendors).
+    output = result.stderr or result.stdout
+    match = re.search(r'version "(\d+)(?:\.(\d+))?', output)
+    if not match:
+        return False
+    major = int(match.group(1))
+    if major == 1:  # legacy "1.8.0_xxx" scheme used by Java 8 and earlier
+        major = int(match.group(2)) if match.group(2) else 0
+    return major in (8, 11)
 
 
 def find_java_home():
     '''Locate a working Java 8/11 installation. Spark 3.5 will not start without one.'''
     env = os.environ.get("JAVA_HOME")
-    if env and _java_runs(env):
+    if env and _java_version_ok(env):
         return env
     # macOS ships a helper that reports installed JVMs.
     for version in ("1.8", "11"):
@@ -119,7 +132,7 @@ def find_java_home():
     candidates += sorted(str(p) for p in Path("/usr/lib/jvm").glob("java-8-openjdk-*")) \
         if Path("/usr/lib/jvm").exists() else []
     for candidate in candidates:
-        if _java_runs(candidate):
+        if _java_version_ok(candidate):
             return candidate
     return None
 
