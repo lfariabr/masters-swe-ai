@@ -138,12 +138,20 @@ def find_java_home():
 
 
 if IN_COLAB:
-    # Colab's base image has neither pyspark nor a JVM. Both are one-off, silent installs -
-    # this is the expected starting state there, not a misconfiguration to blame the user for.
+    # Colab's base image ships pyspark preinstalled - but as of writing, a newer major version
+    # (4.x) whose launcher is compiled for Java 17+, not the Java 8/11 this notebook is built
+    # and verified against (pyspark 3.5.3, matching the local bda-spark kernel). Checking via
+    # importlib.metadata (not `import pyspark`) avoids ever loading the wrong version into this
+    # process before the pinned one can replace it - `pip install` is idempotent, so this is a
+    # silent no-op on an environment that already has 3.5.3.
+    from importlib.metadata import version as _pkg_version, PackageNotFoundError as _PkgNotFound
     try:
-        import pyspark  # noqa: F401
-    except ImportError:
-        print("Installing pyspark for Colab (one-off, ~20s)...")
+        _pyspark_ok = _pkg_version("pyspark") == "3.5.3"
+    except _PkgNotFound:
+        _pyspark_ok = False
+    if not _pyspark_ok:
+        print("Installing pyspark==3.5.3 for Colab (one-off, ~30-60s) - "
+              "a different pyspark version was preinstalled...")
         subprocess.run([sys.executable, "-m", "pip", "install", "-q", "pyspark==3.5.3"], check=True)
     if find_java_home() is None:
         # `apt-get update` first: Colab's package index can be stale enough that `install`
