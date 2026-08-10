@@ -265,7 +265,7 @@ plt.tight_layout(); plt.savefig(FIG_DIR / "v5_daily_eda.png", dpi=150); plt.show
 EDA_READ = md(r"""
 Demand rises across the two years, peaks in warmer seasons and falls in adverse weather.
 
-**A documentation correction.** The dataset description states `season (1:springer, 2:summer, 3:fall, 4:winter)`. The dates disagree. Code 1 covers December to March at a mean of 12.2 degrees Celsius and the lowest mean demand of 2,604; code 3 covers June to September at 29.0 degrees and the highest mean demand of 5,644. The codes are therefore offset by one quarter from the published labels, and this notebook labels them `1 = winter, 2 = spring, 3 = summer, 4 = autumn` on the evidence of the calendar and temperature rather than the documentation. Nothing in the modelling changes, because `season` enters every pipeline as a categorical code and never as a name; the correction affects the readability of Figures 2 and 3 and of Table 13, and the wording of this section.
+**A documentation correction.** The dataset description states `season (1:springer, 2:summer, 3:fall, 4:winter)`. The dates disagree. Code 1 covers December to March at a mean of 12.2 degrees Celsius and the lowest mean demand of 2,604; code 3 covers June to September at 29.0 degrees and the highest mean demand of 5,644. The codes are therefore offset by one quarter from the published labels, and this notebook labels them `1 = winter, 2 = spring, 3 = summer, 4 = autumn` on the evidence of the calendar and temperature, not the documentation. Nothing in the modelling changes, because `season` enters every pipeline as a categorical code and never as a name; the correction affects the readability of Figures 2 and 3 and of Table 13, and the wording of this section.
 """)
 
 COMPOSITION_WEATHER = co(r'''
@@ -304,7 +304,7 @@ Registered users provide most rentals in every season, while the casual share ex
 
 Plotting each weather variable on its own axis in real units matters for reading the strength of each relationship. Demand climbs steeply with temperature to roughly 30 degrees Celsius and then stops climbing, which is the curvature the pairplot also shows and the reason a squared temperature term is built in Section 3.3. Feels-like temperature repeats the same shape, as its correlation of +0.631 against +0.627 would suggest.
 
-The other two behave differently from each other, which the shared axis in the earlier version of this figure concealed. Wind speed declines steadily across its range. Humidity does not: the guide line peaks near 60% and falls away at both ends, so the weak -0.115 correlation in Table 5 is summarising a non-monotonic pattern rather than a gentle slope, and the extremes are thinly populated. Neither variable separates high-demand from low-demand days on its own; the scatter at any given humidity or wind speed spans most of the observed range of `cnt`.
+The other two behave differently from each other, which the shared axis in the earlier version of this figure concealed. Wind speed declines steadily across its range. Humidity does not: the guide line peaks near 60% and falls away at both ends, so the weak -0.115 correlation in Table 5 is summarising a non-monotonic pattern, not a gentle slope, and the extremes are thinly populated. Neither variable separates high-demand from low-demand days on its own; the scatter at any given humidity or wind speed spans most of the observed range of `cnt`.
 
 A single normalised axis would have hidden all of this by placing 20.5 degrees Celsius, 25 degrees Celsius, 50% humidity and 33.5 km/h at the same x position.
 """)
@@ -379,19 +379,21 @@ Section 2 reported what the data contains. This section records the decisions ta
 
 The daily file arrives with no missing cells, no duplicate rows and no gaps in the date sequence, so cleaning reduces to a single judgement call.
 
-**One humidity reading is not a low value, it is a fault.** Section 2.1 recorded `hum = 0` on one date. Relative humidity of exactly zero does not occur in Washington DC, and cross-checking `hour.csv` confirms the diagnosis: all 22 hourly rows for that date also read zero, which is the signature of a failed sensor rather than of dry weather.
+**One humidity reading is not a low value, it is a fault.** Section 2.1 recorded `hum = 0` on one date. Relative humidity of exactly zero does not occur in Washington DC, and cross-checking `hour.csv` confirms the diagnosis: all 22 hourly rows for that date also read zero, which is the signature of a failed sensor, not of dry weather.
 
 **The value is estimated, not deleted.** Deleting the row would have discarded a complete demand observation to fix one input, so the reading is marked missing and then estimated by the median of the training data. The estimation happens inside `SimpleImputer(strategy="median")` within every pipeline, so the median is refitted on each training fold and never sees the validation fold or the holdout. A single `fillna` computed over the whole frame would have been simpler and would have leaked a statistic of the test data into a training input.
 
 One consequence is worth stating plainly. The interaction `atemp_hum` is built before imputation, so it carries the same missing value and the imputer fills it as a column in its own right. Its estimated value is the median interaction, not the product of the imputed humidity, which leaves the two very slightly inconsistent on that single row out of 731. Rebuilding the interaction after imputation, inside the pipeline, would remove the inconsistency; it was not done because Table 9 already bounds the entire humidity treatment at 3 rentals of holdout MAE, which is smaller than the effect being corrected.
 
-**The decision is checked rather than asserted.** Table 9 refits the frozen primary model on the uncorrected data and reports both results. If the correction had been load-bearing, that table would say so.
+**The decision is checked, not asserted.** Table 9 refits the frozen primary model on the uncorrected data and reports both results. If the correction had been load-bearing, that table would say so.
 
 **No outlier removal.** Extreme but physically plausible values are retained. Low-demand days are real events, mostly adverse weather, and removing them would flatter the error statistics while making the model worse at exactly the days a planner cares about.
 
+**No resampling, and why SMOTE does not apply.** In Assessment 2 I applied SMOTE inside the training folds, because the target there was a discrete classification label and the minority class could be identified. Here `cnt` is continuous and has no minority class, so standard SMOTE cannot be applied without first binning demand into artificial categories, which would convert the regression task the brief specifies into a classification one. The 76 incomplete hourly panels reported in Section 2.1 describe unequal numbers of rows per day, not class imbalance, and are handled by the choice of daily records in Section 3.1, not by resampling. Rare demand values are therefore kept and their cost is measured directly, through MAE, RMSE, the residual diagnostics in Section 5.2 and the forward comparison in Section 4.2. A regression-specific variant would need a stakeholder definition of which demand levels matter disproportionately, and its own temporal validation.
+
 ### 3.3 Engineering, encoding and the split
 
-**What the correlations imply for preparation.** `atemp` correlates with `cnt` at +0.631 and `temp` at +0.627, and the two move almost identically with each other. Both are retained, because the tree families are untroubled by collinear inputs and dropping one would discard information the ensembles use. The consequence is recorded instead: individual linear coefficients on `temp` and `atemp` are not interpretable in isolation, which is one reason Section 5.2 explains the model through permutation importance and TreeSHAP rather than through coefficients. `weathersit` (-0.297), `windspeed` (-0.235) and corrected `hum` (-0.115) are the negative correlates, and all three are kept as predictors.
+**What the correlations imply for preparation.** `atemp` correlates with `cnt` at +0.631 and `temp` at +0.627, and the two move almost identically with each other. Both are retained, because the tree families are untroubled by collinear inputs and dropping one would discard information the ensembles use. The consequence is recorded instead: individual linear coefficients on `temp` and `atemp` are not interpretable in isolation, which is one reason Section 5.2 explains the model through permutation importance and TreeSHAP in place of coefficients. `weathersit` (-0.297), `windspeed` (-0.235) and corrected `hum` (-0.115) are the negative correlates, and all three are kept as predictors.
 
 **Interaction and curvature terms.** `atemp * hum` and `temp` squared are constructed so that the additive families can express what the scatter plots show: warm and humid days behave differently from warm and dry ones, and demand stops rising once temperature passes roughly 30 degrees Celsius. Both are built only from target-day exogenous inputs, so neither smuggles in past demand.
 
@@ -399,7 +401,7 @@ One consequence is worth stating plainly. The interaction `atemp_hum` is built b
 
 **`yr` is excluded from the temporal predictors.** It is constant at 0 across the whole 2011 training year, so the model can learn nothing from it, and it then arrives as a constant 1 in 2012, a value never observed during fitting. It stays in the primary feature sets, where both values appear on both sides of the split.
 
-**Autoregressive inputs are built causally.** `lag_1_cnt`, `lag_7_cnt` and `roll_7_cnt` use only demand observed strictly before the target day; the rolling mean shifts first and then rolls, never the reverse. The code cell below asserts this for every row rather than trusting the expression, because shift-after-roll is the easiest way to leak a target into its own predictor.
+**Autoregressive inputs are built causally.** `lag_1_cnt`, `lag_7_cnt` and `roll_7_cnt` use only demand observed strictly before the target day; the rolling mean shifts first and then rolls, never the reverse. The code cell below asserts this for every row instead of trusting the expression, because shift-after-roll is the easiest way to leak a target into its own predictor.
 
 **The split, declared here and executed in Section 4.** The primary experiment uses a single random 75/25 partition created once at `random_state=42`, giving 548 training and 183 holdout days. Selection of family, feature set and hyperparameters happens entirely inside the 548 training rows by cross-validation; the 183 holdout rows are scored once, after everything is frozen. The temporal experiment splits by calendar instead, fitting on 2011 and scoring on 2012.
 """)
@@ -543,7 +545,7 @@ def choose_configuration(rows):
 ''')
 
 PREP_READ = md(r"""
-Preparation leaves 731 primary rows and 724 temporal rows, with no observation deleted and one input value estimated. The assertions above are part of the deliverable rather than scaffolding: they prove that the rolling window closes before the target day, that no predictor list contains `casual` or `registered`, that past-demand inputs never reach the primary experiment, and that `yr` never reaches the temporal one. Each is a failure this design could plausibly have suffered, so each is checked by the notebook instead of being claimed by the report.
+Preparation leaves 731 primary rows and 724 temporal rows, with no observation deleted and one input value estimated. The assertions above are part of the deliverable, not scaffolding: they prove that the rolling window closes before the target day, that no predictor list contains `casual` or `registered`, that past-demand inputs never reach the primary experiment, and that `yr` never reaches the temporal one. Each is a failure this design could plausibly have suffered, so each is checked by the notebook instead of being claimed by the report.
 
 Every transformation that learns anything from the data, meaning median imputation and standard scaling, is defined inside the pipeline and not applied to the frame beforehand. That placement is what allows Section 4 to refit the whole chain on each cross-validation fold without a training statistic escaping into evaluation data.
 """)
@@ -971,7 +973,7 @@ plt.tight_layout(); plt.savefig(FIG_DIR / "v5_temporal_robustness.png", dpi=160)
 CEILING_READ = md(r"""
 Two different mechanisms are at work here. Calling both an extrapolation ceiling, as an earlier draft of this report did, hides the difference between them.
 
-Random Forest and K-Nearest Neighbors are **structurally** bounded. Every prediction is an average of observed training targets, so neither can return a value above the largest target it was trained on. Gradient Boosting is not bounded in that way. It adds residual corrections rather than averaging targets (Friedman, 2001), and a day that falls into the high-correction region of several trees at once can be pushed past the training maximum. Its poor extrapolation comes from its prediction function being piecewise constant, not from an arithmetic ceiling.
+Random Forest and K-Nearest Neighbors are **structurally** bounded. Every prediction is an average of observed training targets, so neither can return a value above the largest target it was trained on. Gradient Boosting is not bounded in that way. It adds residual corrections instead of averaging targets (Friedman, 2001), and a day that falls into the high-correction region of several trees at once can be pushed past the training maximum. Its poor extrapolation comes from its prediction function being piecewise constant, not from an arithmetic ceiling.
 
 The measurement settles what actually happened. The largest 2011 training target was 6,043 rentals, while 2012 demand reached 8,714. Random Forest's largest 2012 prediction was 5,567 and Gradient Boosting's was 5,491, both below that training maximum, with mean under-predictions of 1,568 and 1,995 rentals per day. KNN also stayed below it.
 
@@ -981,7 +983,7 @@ Linear Regression extended to 8,248 and reduced mean under-prediction to 832, ex
 """)
 
 BOUND_CHECK = co(r'''
-# The paragraph above makes a claim about model mechanics, so it is checked rather than cited.
+# The paragraph above makes a claim about model mechanics, so it is checked here, not cited.
 # The design isolates the mechanism: an additive target y = x1 + x2, with every training row
 # in the joint-high corner removed. One test point is then placed in that unobserved corner.
 # A forest must average targets it has seen. Boosting sums residual corrections drawn from
@@ -1008,7 +1010,7 @@ for label, estimator in [
 BOUND_READ = md(r"""
 The check confirms the distinction. Random Forest cannot leave the range of what it has seen, and does not. Gradient Boosting does, by roughly 14% above the largest training target, without ever having been shown a value that high. One counterexample is enough to retire the claim that tree ensembles share a target-range ceiling.
 
-This is why Table 16 is a range analysis and not a ceiling analysis, and why the 2012 result reads as evidence rather than as arithmetic. Gradient Boosting had the freedom demonstrated here and still did not use it on the real data, because nothing in a single low year of demand produced corrections large enough to reach a system 44% bigger.
+This is why Table 16 is a range analysis and not a ceiling analysis, and why the 2012 result reads as evidence, not as arithmetic. Gradient Boosting had the freedom demonstrated here and still did not use it on the real data, because nothing in a single low year of demand produced corrections large enough to reach a system 44% bigger.
 """)
 
 EXPLAIN_HEAD = md(r"""
@@ -1104,13 +1106,26 @@ Understanding the data took longer than fitting the models. Two files describe t
 
 The concept that took longest to internalise is the difference between interpolation and extrapolation, and my first explanation of it was wrong in a way worth recording. I had written that tree ensembles cannot predict above their training maximum, because a terminal region can only average values it has already seen. That is true of a single decision tree, of Random Forest and of K-Nearest Neighbors, which all average observed targets. It is not true of Gradient Boosting, which sums residual corrections and can be pushed beyond the training range (Friedman, 2001) - the very model this report freezes as its primary winner.
 
-The measured conclusion survived the correction: every tree-based candidate did stay below the largest 2011 training target here. What changed is why. It is an empirical finding about this dataset rather than an arithmetic guarantee, and I had been presenting an assumption as a property. Checking a claim against the mechanism instead of against the models that happen to share a name is the thing I actually took away, and it is why the simplest candidate transferring best is a result rather than a foregone conclusion.
+The measured conclusion survived the correction: every tree-based candidate did stay below the largest 2011 training target here. What changed is why. It is an empirical finding about this dataset, not an arithmetic guarantee, and I had been presenting an assumption as a property. Checking a claim against the mechanism instead of against the models that happen to share a name is the thing I actually took away, and it is why the simplest candidate transferring best is a result, not a foregone conclusion.
 
 ### 6.3 What can be improved
 
-The strongest limitations are evidential. More years, archived weather forecasts and repeated forward windows would test whether the temporal result reflects this transition or a permanent property. Station-level planning would additionally need identifiers, dock capacity, trip origins and destinations, transit connections and local demand, which is why the ITDP and NACTO guidance points beyond this dataset. Category-4 weather remains outside the supported domain.
+The strongest limitations are evidential. Station-level planning would additionally need identifiers, dock capacity, trip origins and destinations, transit connections and local demand, which is why the ITDP and NACTO guidance points beyond this dataset.
 
-Methodologically, trend-seasonality decomposition, differenced targets and forecast-aware inputs are the natural next comparisons.
+Table 19 sets out the changes I would make next, what each one would actually do, and what it should be expected to move. They are separated on purpose, because not every improvement improves a score: some would raise accuracy, some would lower the reported figure while making the evaluation honest, and some change nothing measurable and instead decide how far the conclusion may be carried.
+
+**Table 19 - Proposed improvements, their mechanism and their expected effect**
+
+| Improvement | Mechanism | Expected effect |
+|---|---|---|
+| Differenced target, or trend-seasonality decomposition | Models change in demand instead of its absolute level, so a single low training year no longer sets the scale of every prediction | May reduce forward MAE. This is the one change aimed directly at the 23.5% gap, and it is a hypothesis to be tested, not a promised gain |
+| More years of demand | Gives selection more than one year-on-year transition to learn from and to be validated against | Would improve the strength of the evidence and the stability of selection. It would not necessarily improve the reported score |
+| Archived weather forecasts instead of observed weather | Places forecast error inside the measurement, where a deployed service would meet it | Likely to make the reported score **worse**, and the evaluation operationally valid. Section 1.4 already records the current figures as optimistic for this reason |
+| Rolling-origin validation across several forward windows | Tests transfer repeatedly instead of across one transition | Changes no score. It is what would allow the temporal conclusion to generalise beyond 2011-to-2012 |
+| Calibrated prediction intervals | Attaches uncertainty to each estimate instead of quoting an aggregate | Improves decisions and risk communication, not point accuracy. Appendix C.3 is explicit that MAE 434 cannot serve this purpose |
+| Category-4 weather in the training data | Extends the supported input domain to severe conditions | Expands what may be answered. It may not improve mean performance and could worsen it, by adding rare and extreme days |
+
+The first row is the one I would try first, because it addresses the mechanism the temporal experiment actually exposed instead of the symptom.
 
 The extension I would most like to build is a two-endpoint serving experiment that keeps these results separate: Gradient Boosting for historical conditional estimates, and rolling-7 as the provisional day-ahead baseline, with the machine-learning model running in shadow mode until it earns promotion on forward windows. Working out what each endpoint may honestly offer changed my answer about what to deploy, since the frozen model won the random holdout but lost the forward test. Appendix C sets out that reasoning, the two request contracts, and the gap between the assessment artefact and an operational forecasting service.
 """)
@@ -1153,11 +1168,11 @@ model serving and input validation end to end, and exploring how calendar and we
 demand within that domain. As portfolio evidence of taking a pipeline through to an API it is
 worth building.
 
-It does not support a live forecasting product, and the reason is measured rather than assumed.
+It does not support a live forecasting product, and the reason is measured, not assumed.
 On 2012 it lost to a rolling seven-day mean by 23.5% on MAE. A service that presented it to a
 planner as next-day guidance would be selling the losing method.
 
-Accepting only 2011-2012 dates makes this a historical replay interface rather than an
+Accepting only 2011-2012 dates makes this a historical replay interface, not an
 operational one. That is the honest description, and the response is not to loosen the guard so
 that confident numbers can be returned for dates the model was never evaluated on. It is to say
 plainly that the assessment artefact is not deployment-ready as a forecaster.
@@ -1187,7 +1202,7 @@ being read as the other:
 | `POST /forecast` | Rolling seven-day mean | What should we expect tomorrow? | One-day horizon; requires seven complete prior daily counts |
 
 `/forecast` takes no weather forecast at all while rolling-7 is the served method, because the
-rolling mean reads only realised demand. That is worth stating rather than hiding: the endpoint
+rolling mean reads only realised demand. That is worth stating instead of hiding: the endpoint
 with forward evidence behind it needs less input than the one without.
 
 Winning the random 75/25 comparison in Section 4.1 earned the model an explanation in Section 5.2.
@@ -1219,11 +1234,11 @@ POST /historical-estimate
      "supported_weather": ["clear", "mist", "light_rain_snow"] }
 ```
 
-`weather` is a typed enum rather than the raw UCI integer, so the contract is readable without the
+`weather` is a typed enum, not the raw UCI integer, so the contract is readable without the
 dataset documentation. The enum includes `severe`, even though the model never saw it. Severe
 weather exists, and a schema that cannot express it forces a caller facing a storm to either
 misreport the conditions or give up, which is a worse failure than an error. The category is
-therefore representable and refused explicitly, before inference rather than inside it:
+therefore representable and refused explicitly, before inference, not inside it:
 
 ```
 { "date": "2012-04-18", "weather": "severe", ... }
@@ -1288,7 +1303,7 @@ between a conditional estimator and a forecaster.
   as a production-validated forecasting service. Its evidence is one retrospective window.
 - It carries no weather guard and no date-domain guard, because it takes neither input. Its one
   precondition is data completeness: seven consecutive prior daily counts must exist, and a gap in
-  the series must produce an error rather than a mean over whatever rows happen to remain.
+  the series must produce an error instead of a mean over whatever rows happen to remain.
 - It may **not** be described as machine learning, because it is not. A rolling seven-day mean is
   a forecasting model, and a legitimate statistical baseline; presenting it as a
   **machine-learning** model would misrepresent the central forecasting result of this study.
@@ -1297,13 +1312,13 @@ between a conditional estimator and a forecaster.
 
 Everything above describes the current artefact. A service a planner could actually rely on is a
 different piece of work, and the gap is worth stating so that it is not mistaken for a small one:
-recent multi-year demand rather than two years; archived weather **forecasts** rather than observed
+recent multi-year demand in place of two years; archived weather **forecasts** instead of observed
 weather, so that forecast error is inside the measurement; rolling-origin validation across several
 forward windows; a declared forecast horizon; scheduled retraining; calibrated prediction intervals;
 monitoring against realised demand; and, as the gate, beating the rolling seven-day baseline forward
 in time.
 
-Its supported window would then move with the model rather than being frozen at the assessment
+Its supported window would then move with the model instead of being frozen at the assessment
 period:
 
 ```
@@ -1328,12 +1343,12 @@ ITDP and NACTO describe the network, spacing and capacity variables that work wo
 
 A *domain alert* belongs to `/historical-estimate` alone, and fires when a request falls outside
 its supported weather categories or date range: the `unsupported_model_domain` response of C.3
-recorded rather than merely returned. `/forecast` has no equivalent, because it accepts neither
+recorded, not merely returned. `/forecast` has no equivalent, because it accepts neither
 weather nor an arbitrary date. Its counterpart is a *completeness alert*, firing when the seven
 prior daily counts it needs are not all present.
 
 A *drift alert* fires when rolling error exceeds a declared reference, and each method needs its
-own reference rather than a shared one:
+own reference, never a shared one:
 
 | Monitored | Reference | Value |
 |---|---|---|
@@ -1341,7 +1356,7 @@ own reference rather than a shared one:
 | Shadow model | Daily and rolling-window comparison against the served champion | relative, no fixed threshold |
 | `/historical-estimate` | The random-holdout MAE it was evaluated against | MAE 433.9 |
 
-A single crossing is noise rather than drift, so the alert needs a window and a tolerance as well
+A single crossing is noise, not drift, so the alert needs a window and a tolerance as well
 as a reference. A workable starting rule for `/forecast` is a rolling 30-day MAE above 1.20 times
 847.8 across two consecutive windows. Both constants are provisional: they are set here to make
 the mechanism concrete, and choosing what degradation is worth waking someone for is a
@@ -1351,8 +1366,7 @@ The 433.9 figure must not become a forecasting threshold. It is the mean error o
 estimator over a random holdout drawn from both years, and applying it to day-ahead forecasting
 would be repeating the confusion between the two protocols that Section 4.2 exists to expose: a
 forecasting service held to it would alarm permanently, since no method in this study reached it
-going forward. This is the mechanism that would have caught the temporal failure in production
-rather than in a notebook, but only if it is pointed at the right number.
+going forward. This is the mechanism that would have caught the temporal failure in production instead of in a notebook, but only if it is pointed at the right number.
 
 A demand-threshold alert for staffing would be useful but needs a stakeholder-defined threshold
 that this project does not have.
