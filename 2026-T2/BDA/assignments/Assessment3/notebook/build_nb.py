@@ -11,13 +11,21 @@ def code(s): cells.append(nbf.v4.new_code_cell(s))
 
 # ---------------------------------------------------------------- Title
 md(r"""# BDA601 Assessment 3 - Model Evaluation
-### COVID-19 analytics: regression, clustering and graph analytics on the Johns Hopkins time series
 
-| Item | Detail |
+## COVID-19 Analytics: Regression, Clustering and Graph Analytics on the Johns Hopkins Time Series
+
+*BDA601 Assessment 3 - Model Evaluation*
+
+Torrens University Australia
+
+- **Student:** Luis Guilherme de Barros Andrade Faria - A00187785
+- **Subject:** Big Data and Analytics (BDA601)
+- **Lecturer:** Dr. Chen Zhan
+- **Assessment:** 3
+- **Date:** August 2026
+
+| Field | Scope |
 |---|---|
-| Student | Luis Faria |
-| Subject | BDA601 - Big Data and Analytics |
-| Assessment | Assessment 3 - Model Evaluation (40%) |
 | Dataset | JHU CSSE confirmed-cases global time series (22 Jan 2020 - 9 Mar 2023) |
 | Engine | Apache Spark MLlib (`pyspark.ml`) for regression + K-Means; networkx for graph |
 | Deliverables | Source code (this notebook) + video presentation + PDF slides |
@@ -34,7 +42,7 @@ md(r"""## How to run this notebook
 needed: `JAVA_HOME` is detected automatically in Section 0, and every path is resolved relative to
 this notebook.
 
-**Steps**
+**Steps (local)**
 
 1. Place `time_series_covid19_confirmed_global.csv` in the `dataset/` folder next to this notebook's
    parent (that is, `Assessment3/dataset/`). The file is the *confirmed cases* global time series from
@@ -42,6 +50,12 @@ this notebook.
    <https://data.humdata.org/dataset/novel-coronavirus-2019-ncov-cases>.
 2. Run all cells top to bottom (`Kernel -> Restart & Run All`). Total runtime is about 1-2 minutes.
 3. Outputs are written automatically to `outputs/figures/*.png` and `outputs/metrics.json`.
+
+**Google Colab** - if this notebook is opened on its own (no `dataset/` folder present), Section 0
+detects Colab and self-configures: it `pip install`s `pyspark`, `apt-get install`s OpenJDK if no JVM is
+present, and downloads the same JHU CSSE file from its canonical GitHub source (byte-identical to the
+copy in this repo's `dataset/` folder) into a fresh working folder under `/content`. No manual upload
+or setup step is required in Colab either.
 
 **If something goes wrong** - each stage validates its inputs and raises a message that names the
 problem and the fix (missing dataset, missing Java, unknown country, insufficient overlap). Read the
@@ -58,6 +72,8 @@ code(r"""import os, sys, json, subprocess, warnings
 from pathlib import Path
 
 warnings.filterwarnings("ignore")
+
+IN_COLAB = "google.colab" in sys.modules
 
 
 class SetupError(RuntimeError):
@@ -92,6 +108,18 @@ def find_java_home():
     return None
 
 
+if IN_COLAB:
+    # Colab's base image has neither pyspark nor a JVM. Both are one-off, silent installs -
+    # this is the expected starting state there, not a misconfiguration to blame the user for.
+    try:
+        import pyspark  # noqa: F401
+    except ImportError:
+        print("Installing pyspark for Colab (one-off, ~20s)...")
+        subprocess.run([sys.executable, "-m", "pip", "install", "-q", "pyspark==3.5.3"], check=True)
+    if find_java_home() is None:
+        print("Installing OpenJDK 11 for Colab (one-off, ~15s)...")
+        subprocess.run(["apt-get", "install", "-y", "-qq", "openjdk-11-jdk-headless"], check=False)
+
 os.environ["PYSPARK_PYTHON"] = sys.executable
 os.environ["PYSPARK_DRIVER_PYTHON"] = sys.executable
 
@@ -118,6 +146,23 @@ ASSESS = CWD if (CWD / "dataset").exists() else CWD.parent
 DATA = ASSESS / "dataset" / "time_series_covid19_confirmed_global.csv"
 OUT_DIR = ASSESS / "outputs"
 FIG_DIR = OUT_DIR / "figures"
+
+if not DATA.exists() and IN_COLAB:
+    # A bare notebook opened in Colab has none of this repo's folders - the local fallback
+    # above resolves to nowhere sensible. Recreate the expected layout under /content and
+    # fetch the same file from its canonical GitHub source (verified byte-identical, via
+    # sha256, to the copy tracked in this repo's dataset/ folder).
+    print("Dataset not found locally - downloading JHU CSSE confirmed-cases series for Colab...")
+    import urllib.request
+    ASSESS = Path("/content/BDA601_Assessment3")
+    DATA = ASSESS / "dataset" / "time_series_covid19_confirmed_global.csv"
+    OUT_DIR = ASSESS / "outputs"
+    FIG_DIR = OUT_DIR / "figures"
+    DATA.parent.mkdir(parents=True, exist_ok=True)
+    urllib.request.urlretrieve(
+        "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/"
+        "csse_covid_19_time_series/time_series_covid19_confirmed_global.csv", DATA)
+
 FIG_DIR.mkdir(parents=True, exist_ok=True)
 
 require(DATA.exists(),
@@ -795,7 +840,14 @@ problem on a single feature, so it has no stochastic component.
 the fix, rather than surfacing a raw traceback: missing or malformed dataset, absent Java installation,
 Spark start-up failure, an unconfigured focal country, a neighbour absent from the data, missing
 coordinates, and series too short to model or correlate. Non-fatal issues (a neighbour missing from the
-dataset, or missing map coordinates) emit a warning and continue with the remaining countries.""")
+dataset, or missing map coordinates) emit a warning and continue with the remaining countries.
+
+**Google Colab.** A bare `.ipynb` opened in Colab starts with none of this repo's folders, so the local
+path-resolution fallback in Section 0 would otherwise raise `SetupError`. Section 0 detects Colab
+(`"google.colab" in sys.modules`) and self-heals instead: installs `pyspark` and OpenJDK if either is
+missing, then downloads the same JHU CSSE file from its canonical GitHub source into a fresh working
+folder. The downloaded file is byte-identical (verified via sha256) to the one tracked in this repo's
+`dataset/` folder, so every downstream number is unaffected by which environment produced it.""")
 
 code(r"""spark.stop(); print("Spark stopped.")""")
 
