@@ -49,7 +49,7 @@ Dr. Kamran Shaukat
 - [X] Module 8 ✅ - Logistic Regression
 - [X] Module 9 ✅ - K-means Clustering
 - [X] Module 10 ✅ - Learning Theory: PAC
-- [ ] Module 11 🔥 - The Perceptron
+- [X] Module 11 ✅ - The Perceptron
 - [ ] Module 12 🕐 - Future of Machine Learning (ML): Enterprise Grade ML and Weak Supervision
 
 ## Assignments
