@@ -86,10 +86,21 @@ def require(condition, message):
         raise SetupError(message)
 
 
+def _java_runs(home):
+    '''A JAVA_HOME candidate is only valid if `bin/java` actually executes - a directory
+    existing on disk is not enough (a broken or partial install still passes that check).'''
+    java_bin = Path(home) / "bin" / "java"
+    try:
+        return subprocess.run([str(java_bin), "-version"], capture_output=True,
+                               text=True, timeout=10).returncode == 0
+    except (OSError, subprocess.SubprocessError):
+        return False
+
+
 def find_java_home():
-    '''Locate a Java 8/11 installation. Spark 3.5 will not start without one.'''
+    '''Locate a working Java 8/11 installation. Spark 3.5 will not start without one.'''
     env = os.environ.get("JAVA_HOME")
-    if env and Path(env).exists():
+    if env and _java_runs(env):
         return env
     # macOS ships a helper that reports installed JVMs.
     for version in ("1.8", "11"):
@@ -100,10 +111,15 @@ def find_java_home():
                 return found.stdout.strip()
         except (OSError, subprocess.SubprocessError):
             pass
-    for candidate in ("/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home",
-                      "/usr/lib/jvm/java-11-openjdk-amd64",
-                      "/usr/lib/jvm/java-8-openjdk-amd64"):
-        if Path(candidate).exists():
+    candidates = ["/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home"]
+    # Glob rather than a single hard-coded path: Debian/Ubuntu suffix the JVM directory by
+    # architecture (amd64, arm64, ...), and Colab's exact image has changed over time.
+    candidates += sorted(str(p) for p in Path("/usr/lib/jvm").glob("java-11-openjdk-*")) \
+        if Path("/usr/lib/jvm").exists() else []
+    candidates += sorted(str(p) for p in Path("/usr/lib/jvm").glob("java-8-openjdk-*")) \
+        if Path("/usr/lib/jvm").exists() else []
+    for candidate in candidates:
+        if _java_runs(candidate):
             return candidate
     return None
 
@@ -117,8 +133,16 @@ if IN_COLAB:
         print("Installing pyspark for Colab (one-off, ~20s)...")
         subprocess.run([sys.executable, "-m", "pip", "install", "-q", "pyspark==3.5.3"], check=True)
     if find_java_home() is None:
-        print("Installing OpenJDK 11 for Colab (one-off, ~15s)...")
-        subprocess.run(["apt-get", "install", "-y", "-qq", "openjdk-11-jdk-headless"], check=False)
+        # `apt-get update` first: Colab's package index can be stale enough that `install`
+        # silently resolves nothing for a specific package without it.
+        print("Installing OpenJDK 11 for Colab (one-off, ~20-40s)...")
+        subprocess.run(["apt-get", "update", "-qq"], check=False)
+        install = subprocess.run(["apt-get", "install", "-y", "-qq", "openjdk-11-jdk-headless"],
+                                 capture_output=True, text=True)
+        if install.returncode != 0 or find_java_home() is None:
+            print("Automatic Java install did not complete. If Spark still fails to start below, "
+                  "run this in a new Colab cell, then re-run this cell:\n"
+                  "  !apt-get update -qq && !apt-get install -y openjdk-11-jdk-headless")
 
 os.environ["PYSPARK_PYTHON"] = sys.executable
 os.environ["PYSPARK_DRIVER_PYTHON"] = sys.executable
