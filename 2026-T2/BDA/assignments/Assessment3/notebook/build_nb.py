@@ -11,13 +11,21 @@ def code(s): cells.append(nbf.v4.new_code_cell(s))
 
 # ---------------------------------------------------------------- Title
 md(r"""# BDA601 Assessment 3 - Model Evaluation
-### COVID-19 analytics: regression, clustering and graph analytics on the Johns Hopkins time series
 
-| Item | Detail |
+## COVID-19 Analytics: Regression, Clustering and Graph Analytics on the Johns Hopkins Time Series
+
+*BDA601 Assessment 3 - Model Evaluation*
+
+Torrens University Australia
+
+- **Student:** Luis Guilherme de Barros Andrade Faria - A00187785
+- **Subject:** Big Data and Analytics (BDA601)
+- **Lecturer:** Dr. Chen Zhan
+- **Assessment:** 3
+- **Date:** August 2026
+
+| Field | Scope |
 |---|---|
-| Student | Luis Faria |
-| Subject | BDA601 - Big Data and Analytics |
-| Assessment | Assessment 3 - Model Evaluation (40%) |
 | Dataset | JHU CSSE confirmed-cases global time series (22 Jan 2020 - 9 Mar 2023) |
 | Engine | Apache Spark MLlib (`pyspark.ml`) for regression + K-Means; networkx for graph |
 | Deliverables | Source code (this notebook) + video presentation + PDF slides |
@@ -34,7 +42,7 @@ md(r"""## How to run this notebook
 needed: `JAVA_HOME` is detected automatically in Section 0, and every path is resolved relative to
 this notebook.
 
-**Steps**
+**Steps (local)**
 
 1. Place `time_series_covid19_confirmed_global.csv` in the `dataset/` folder next to this notebook's
    parent (that is, `Assessment3/dataset/`). The file is the *confirmed cases* global time series from
@@ -42,6 +50,12 @@ this notebook.
    <https://data.humdata.org/dataset/novel-coronavirus-2019-ncov-cases>.
 2. Run all cells top to bottom (`Kernel -> Restart & Run All`). Total runtime is about 1-2 minutes.
 3. Outputs are written automatically to `outputs/figures/*.png` and `outputs/metrics.json`.
+
+**Google Colab** - if this notebook is opened on its own (no `dataset/` folder present), Section 0
+detects Colab and self-configures: it `pip install`s `pyspark`, `apt-get install`s OpenJDK if no JVM is
+present, and downloads the same JHU CSSE file from its canonical GitHub source (byte-identical to the
+copy in this repo's `dataset/` folder) into a fresh working folder under `/content`. No manual upload
+or setup step is required in Colab either.
 
 **If something goes wrong** - each stage validates its inputs and raises a message that names the
 problem and the fix (missing dataset, missing Java, unknown country, insufficient overlap). Read the
@@ -54,10 +68,12 @@ Spark workers are pinned to this Python kernel (driver == executor) so there is 
 mismatch, `JAVA_HOME` is discovered rather than hard-coded, and the seed is fixed for reproducibility.
 Each check fails with an actionable message instead of an obscure traceback.""")
 
-code(r"""import os, sys, json, subprocess, warnings
+code(r"""import os, sys, json, re, subprocess, warnings
 from pathlib import Path
 
 warnings.filterwarnings("ignore")
+
+IN_COLAB = "google.colab" in sys.modules
 
 
 class SetupError(RuntimeError):
@@ -70,10 +86,34 @@ def require(condition, message):
         raise SetupError(message)
 
 
+def _java_version_ok(home):
+    '''A JAVA_HOME candidate is only valid if `bin/java` runs AND reports version 8 or 11 -
+    Spark 3.5 supports neither older nor newer JDKs, and a directory merely existing on disk,
+    or a working-but-wrong-version `java`, both pass a shallower check and fail later with an
+    opaque JAVA_GATEWAY_EXITED when Spark actually tries to start.'''
+    java_bin = Path(home) / "bin" / "java"
+    try:
+        result = subprocess.run([str(java_bin), "-version"], capture_output=True,
+                                text=True, timeout=10)
+    except (OSError, subprocess.SubprocessError):
+        return False
+    if result.returncode != 0:
+        return False
+    # `java -version` writes to stderr by long-standing convention (stdout on some vendors).
+    output = result.stderr or result.stdout
+    match = re.search(r'version "(\d+)(?:\.(\d+))?', output)
+    if not match:
+        return False
+    major = int(match.group(1))
+    if major == 1:  # legacy "1.8.0_xxx" scheme used by Java 8 and earlier
+        major = int(match.group(2)) if match.group(2) else 0
+    return major in (8, 11)
+
+
 def find_java_home():
-    '''Locate a Java 8/11 installation. Spark 3.5 will not start without one.'''
+    '''Locate a working Java 8/11 installation. Spark 3.5 will not start without one.'''
     env = os.environ.get("JAVA_HOME")
-    if env and Path(env).exists():
+    if env and _java_version_ok(env):
         return env
     # macOS ships a helper that reports installed JVMs.
     for version in ("1.8", "11"):
@@ -84,13 +124,46 @@ def find_java_home():
                 return found.stdout.strip()
         except (OSError, subprocess.SubprocessError):
             pass
-    for candidate in ("/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home",
-                      "/usr/lib/jvm/java-11-openjdk-amd64",
-                      "/usr/lib/jvm/java-8-openjdk-amd64"):
-        if Path(candidate).exists():
+    candidates = ["/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home"]
+    # Glob rather than a single hard-coded path: Debian/Ubuntu suffix the JVM directory by
+    # architecture (amd64, arm64, ...), and Colab's exact image has changed over time.
+    candidates += sorted(str(p) for p in Path("/usr/lib/jvm").glob("java-11-openjdk-*")) \
+        if Path("/usr/lib/jvm").exists() else []
+    candidates += sorted(str(p) for p in Path("/usr/lib/jvm").glob("java-8-openjdk-*")) \
+        if Path("/usr/lib/jvm").exists() else []
+    for candidate in candidates:
+        if _java_version_ok(candidate):
             return candidate
     return None
 
+
+if IN_COLAB:
+    # Colab's base image ships pyspark preinstalled - but as of writing, a newer major version
+    # (4.x) whose launcher is compiled for Java 17+, not the Java 8/11 this notebook is built
+    # and verified against (pyspark 3.5.3, matching the local bda-spark kernel). Checking via
+    # importlib.metadata (not `import pyspark`) avoids ever loading the wrong version into this
+    # process before the pinned one can replace it - `pip install` is idempotent, so this is a
+    # silent no-op on an environment that already has 3.5.3.
+    from importlib.metadata import version as _pkg_version, PackageNotFoundError as _PkgNotFound
+    try:
+        _pyspark_ok = _pkg_version("pyspark") == "3.5.3"
+    except _PkgNotFound:
+        _pyspark_ok = False
+    if not _pyspark_ok:
+        print("Installing pyspark==3.5.3 for Colab (one-off, ~30-60s) - "
+              "a different pyspark version was preinstalled...")
+        subprocess.run([sys.executable, "-m", "pip", "install", "-q", "pyspark==3.5.3"], check=True)
+    if find_java_home() is None:
+        # `apt-get update` first: Colab's package index can be stale enough that `install`
+        # silently resolves nothing for a specific package without it.
+        print("Installing OpenJDK 11 for Colab (one-off, ~20-40s)...")
+        subprocess.run(["apt-get", "update", "-qq"], check=False)
+        install = subprocess.run(["apt-get", "install", "-y", "-qq", "openjdk-11-jdk-headless"],
+                                 capture_output=True, text=True)
+        if install.returncode != 0 or find_java_home() is None:
+            print("Automatic Java install did not complete. If Spark still fails to start below, "
+                  "run this in a new Colab cell, then re-run this cell:\n"
+                  "  !apt-get update -qq && !apt-get install -y openjdk-11-jdk-headless")
 
 os.environ["PYSPARK_PYTHON"] = sys.executable
 os.environ["PYSPARK_DRIVER_PYTHON"] = sys.executable
@@ -118,6 +191,23 @@ ASSESS = CWD if (CWD / "dataset").exists() else CWD.parent
 DATA = ASSESS / "dataset" / "time_series_covid19_confirmed_global.csv"
 OUT_DIR = ASSESS / "outputs"
 FIG_DIR = OUT_DIR / "figures"
+
+if not DATA.exists() and IN_COLAB:
+    # A bare notebook opened in Colab has none of this repo's folders - the local fallback
+    # above resolves to nowhere sensible. Recreate the expected layout under /content and
+    # fetch the same file from its canonical GitHub source (verified byte-identical, via
+    # sha256, to the copy tracked in this repo's dataset/ folder).
+    print("Dataset not found locally - downloading JHU CSSE confirmed-cases series for Colab...")
+    import urllib.request
+    ASSESS = Path("/content/BDA601_Assessment3")
+    DATA = ASSESS / "dataset" / "time_series_covid19_confirmed_global.csv"
+    OUT_DIR = ASSESS / "outputs"
+    FIG_DIR = OUT_DIR / "figures"
+    DATA.parent.mkdir(parents=True, exist_ok=True)
+    urllib.request.urlretrieve(
+        "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/"
+        "csse_covid_19_time_series/time_series_covid19_confirmed_global.csv", DATA)
+
 FIG_DIR.mkdir(parents=True, exist_ok=True)
 
 require(DATA.exists(),
@@ -795,7 +885,14 @@ problem on a single feature, so it has no stochastic component.
 the fix, rather than surfacing a raw traceback: missing or malformed dataset, absent Java installation,
 Spark start-up failure, an unconfigured focal country, a neighbour absent from the data, missing
 coordinates, and series too short to model or correlate. Non-fatal issues (a neighbour missing from the
-dataset, or missing map coordinates) emit a warning and continue with the remaining countries.""")
+dataset, or missing map coordinates) emit a warning and continue with the remaining countries.
+
+**Google Colab.** A bare `.ipynb` opened in Colab starts with none of this repo's folders, so the local
+path-resolution fallback in Section 0 would otherwise raise `SetupError`. Section 0 detects Colab
+(`"google.colab" in sys.modules`) and self-heals instead: installs `pyspark` and OpenJDK if either is
+missing, then downloads the same JHU CSSE file from its canonical GitHub source into a fresh working
+folder. The downloaded file is byte-identical (verified via sha256) to the one tracked in this repo's
+`dataset/` folder, so every downstream number is unaffected by which environment produced it.""")
 
 code(r"""spark.stop(); print("Spark stopped.")""")
 
