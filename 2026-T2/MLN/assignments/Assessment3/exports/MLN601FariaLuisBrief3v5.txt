@@ -1090,16 +1090,16 @@ plt.tight_layout(); plt.savefig(FIG_DIR / "v5_primary_diagnostics.png", dpi=160)
 # 
 # The strongest limitations are evidential. Station-level planning would additionally need identifiers, dock capacity, trip origins and destinations, transit connections and local demand, which is why the ITDP and NACTO guidance points beyond this dataset.
 # 
-# Table 19 sets out the changes I would make next, what each one would actually do, and what it should be expected to move. They are separated on purpose, because not every improvement improves a score: some would raise accuracy, some would lower the reported figure while making the evaluation honest, and some change nothing measurable and instead decide how far the conclusion may be carried.
+# Table 19 sets out the changes I would make next, what each one would actually do, and what it should be expected to move. They are separated on purpose, because not every improvement improves the same thing. Some target point accuracy; others improve the validity of the evaluation, quantify uncertainty, strengthen the evidence behind selection, or expand the supported domain.
 # 
 # **Table 19 - Proposed improvements, their mechanism and their expected effect**
 # 
 # | Improvement | Mechanism | Expected effect |
 # |---|---|---|
-# | Differenced target, or trend-seasonality decomposition | Models change in demand instead of its absolute level, so a single low training year no longer sets the scale of every prediction | May reduce forward MAE. This is the one change aimed directly at the 23.5% gap, and it is a hypothesis to be tested, not a promised gain |
+# | Differenced target, or trend-seasonality decomposition | Two different mechanisms with the same purpose: differencing predicts change anchored to the last observed demand, while decomposition separates trend, seasonality and residual variation before modelling. Under neither does a single low training year set the scale of every prediction | May reduce temporal bias and forward MAE. Both are aimed directly at the 23.5% gap, and both remain hypotheses that rolling-origin validation would have to confirm |
 # | More years of demand | Gives selection more than one year-on-year transition to learn from and to be validated against | Would improve the strength of the evidence and the stability of selection. It would not necessarily improve the reported score |
 # | Archived weather forecasts instead of observed weather | Places forecast error inside the measurement, where a deployed service would meet it | Likely to make the reported score **worse**, and the evaluation operationally valid. Section 1.4 already records the current figures as optimistic for this reason |
-# | Rolling-origin validation across several forward windows | Tests transfer repeatedly instead of across one transition | Changes no score. It is what would allow the temporal conclusion to generalise beyond 2011-to-2012 |
+# | Rolling-origin validation across several forward windows | Tests transfer repeatedly instead of across one transition | Does not improve predictions by itself. It produces repeated out-of-time scores, may change which configuration is selected, and shows whether the temporal conclusion repeats beyond a single transition |
 # | Calibrated prediction intervals | Attaches uncertainty to each estimate instead of quoting an aggregate | Improves decisions and risk communication, not point accuracy. Appendix C.3 is explicit that MAE 434 cannot serve this purpose |
 # | Category-4 weather in the training data | Extends the supported input domain to severe conditions | Expands what may be answered. It may not improve mean performance and could worsen it, by adding rare and extreme days |
 # 
