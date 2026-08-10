@@ -30,24 +30,25 @@ India at 44.7 million, and France at 39.9 million. You can see all three climb s
 but they climb at very different rates and with very different shapes. So the next question is: which
 of these three is the *most volatile* - the one whose surges are sharpest and most worth studying?"
 
-### Slide 4 - Predictive modelling  (~1:05)
+### Slide 4 - Predictive modelling  (~0:55)
 
-"I fit a Spark linear regression of cumulative cases on week number for each country. To pick the most
-volatile one I rank them by the variance of their *weekly new cases* - a real measure of volatility -
-rather than the variance of the cumulative total, which would just pick the biggest country by default.
-On that measure the US is clearly the most volatile: 6.4 times ten-to-the-eleven, against 2.5 for India
-and 1.6 for France. Its regression slope is about 760 thousand cases a week, with an R-squared of 0.97.
-But here's the key point: even an R-squared of 0.97 *hides* the real story. A straight line tells you
-the average growth - it can't tell you *when* the surges hit. For that, we need clustering."
+"I fit a linear regression of cumulative cases on week number, per country - these are the three fits.
+The US line looks strong: R-squared of 0.97, slope of about 760 thousand cases a week. But look at the
+residuals below - they trace a clear S-curve, not noise. The US residual only changes sign five times
+across 164 weeks, when pure noise would flip it about eighty, and even with that 0.97 R-squared the
+typical miss is 6.47 million cases. So the line is confidently wrong: it hides exactly when the surges
+hit. To choose who goes into clustering, I rank all three by the variance of their *weekly new cases* -
+the US is clearly highest, 6.4 times ten-to-the-eleven against 2.5 for India and 1.6 for France."
 
 ### Slide 5 - Clustering reveals the waves  (~1:15)
 
 "So for the US I run K-Means clustering on each week's number and its weekly new cases. I test K from
-two to six and pick K equals 3 by the highest silhouette score, which was 0.705 - a clean separation.
-What the clusters reveal is exactly what the straight line hid: the growth was not steady, it came in
-waves. Most strikingly, the algorithm isolates a single mega-surge - around 4.46 million new cases a
-week, across weeks 102 to 106, which is January 2022, the Omicron wave - as its own distinct cluster.
-That one cluster ran at roughly seven times the overall weekly average. Clustering turns 'cases went up' into 'here is exactly when, and how hard.'"
+two to six and pick K equals 3 by the highest silhouette score, 0.705, cross-checked against the WCSS
+elbow - both agree. What the clusters reveal is exactly what the straight line hid: the growth was not
+steady, it came in waves. Most strikingly, the algorithm isolates a single mega-surge - around 4.46
+million new cases a week, across weeks 102 to 106, which is January 2022, the Omicron wave - as its own
+distinct cluster. That one cluster ran at roughly seven times the overall weekly average. Clustering
+turns 'cases went up' into 'here is exactly when, and how hard.'"
 
 ### Slide 6 - Graph analytics  (~0:55)
 
@@ -88,18 +89,16 @@ by the time American numbers climb, Canadian ones already are. And for everyone:
 Omicron-style mega-surge cluster, not the steady baseline, because that single cluster carried about
 seven times the overall weekly average. Planning for the average is how you get overwhelmed by the peak."
 
-### Slide 10 - Limitations & close  (~0:50)
+### Slide 10 - Limitations & close  (~0:45)
 
-"Some honest caveats. On the data: these are *confirmed* cases, so they measure testing and reporting as
-much as transmission; this file's last date is the 9th of March 2023, and Johns Hopkins ceased
-collecting and reporting the day after, on the 10th. On the method: I
-used week number as a clustering input, so the phases are partly temporal by construction; 'neighbour'
-here means geography rather than true population mobility; and I fit a single lag averaged over three
-years, when different variants clearly travelled at different speeds. And correlation is not causation -
-a lagged match may simply mean a new variant reached both countries in sequence. The natural next steps
-are mobility and vaccination data, and a lag estimated per wave rather than once. But the core result
-stands: the same-week number said Canada. Shifting the series by two weeks said Mexico - and that is the
-recommendation that would actually have bought someone time. Thank you."
+"Some honest caveats. These are *confirmed* cases, so they reflect testing and reporting as much as
+transmission - and the file ends 9 March 2023, just before Johns Hopkins stopped collecting data. On
+method: week number is a clustering input, so phases are partly temporal by construction; 'neighbour'
+means geography, not real mobility; and I used one lag averaged over three years, when variants actually
+moved at different speeds. Correlation isn't causation either - a lagged match could just mean a variant
+hit both countries in sequence. Next steps: mobility data, and a lag per wave. But the core result
+stands: same-week said Canada. Shift the series two weeks and it says Mexico - the recommendation that
+would actually have bought someone time. Thank you."
 
 ---
 
