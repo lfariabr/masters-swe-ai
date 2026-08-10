@@ -141,7 +141,7 @@ def export() -> None:
     script_path = EXPORT_DIR / f"{STEM}.py"
     if script_path.exists():
         script_path.replace(txt_path)
-    kept = [line for line in txt_path.read_text().splitlines()
+    kept = [line.rstrip() for line in txt_path.read_text().splitlines()
             if not re.match(r"^#?\s*(iVBOR|data:image|[A-Za-z0-9+/]{200,}=*$)", line.strip())]
     txt_path.write_text("\n".join(kept) + "\n")
 

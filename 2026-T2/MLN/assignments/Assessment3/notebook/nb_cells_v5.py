@@ -66,7 +66,7 @@ This report therefore runs three comparisons. The first two answer the assessmen
 | # | Comparison | Split | Compared against | Question answered | Where |
 |---|---|---|---|---|---|
 | 1 | Model selection | Random 75/25, training partition only | The other 11 family and feature-set configurations | Which configuration predicts most accurately? | Table 7 |
-| 2 | Value of modelling | Random 75/25, holdout opened once | A constant training-mean prediction | Does the selected model beat not modelling at all? | Tables 7 and 8 |
+| 2 | Value of modelling | Random 75/25, holdout opened once | A constant training-mean prediction | Does the selected model beat not modelling at all? | Tables 8 and 9 |
 | 3 | Forward transfer | Time-ordered: trained in 2011, scored on 2012 | Naive lag-1, lag-7 and rolling seven-day rules | Does the approach still work on a period it has not seen? | Table 13 |
 
 Comparisons 1 and 2 address the brief. Comparison 3 is an additional check that limits how the result may be used.
@@ -245,14 +245,14 @@ VARIABLES = md(r"""
 | `hr` | Categorical | 0 to 23. Present in `hour.csv` only | Intraday exploration only |
 | `holiday` | Binary | 0 = no, 1 = yes | Calendar predictor |
 | `weekday` | Categorical | 0 = Sunday to 6 = Saturday | Calendar predictor |
-| `workingday` | Binary | 1 = neither weekend nor holiday | Calendar predictor |
+| `workingday` | Binary | 0 = weekend or holiday, 1 = neither | Calendar predictor |
 | `weathersit` | Categorical | 1 = clear, 2 = mist, 3 = light rain or snow, 4 = heavy rain or snow. Level 4 never occurs in the daily file | Weather predictor |
 | `temp` | Continuous | Celsius, normalised by dividing by 41 | Weather predictor |
 | `atemp` | Continuous | Feels-like Celsius, normalised by dividing by 50 | Weather predictor |
 | `hum` | Continuous | Relative humidity %, normalised by dividing by 100 | Weather predictor |
-| `windspeed` | Continuous | Wind speed, normalised by dividing by 67 | Weather predictor |
-| `casual`, `registered` | Count | Rentals per day by user group | Descriptive plots only; excluded because they sum exactly to `cnt` |
-| `cnt` | Count | Rentals per day | **Target** |
+| `windspeed` | Continuous | km/h, normalised by dividing by 67 | Weather predictor |
+| `casual`, `registered` | Count | Rentals per observation: daily in `day.csv`, hourly in `hour.csv` | Descriptive plots only; excluded because they sum exactly to `cnt` |
+| `cnt` | Count | Total rentals per observation: daily in `day.csv`, hourly in `hour.csv` | **Daily target** |
 
 The four weather columns arrive pre-normalised, which is why Figure 4 multiplies them back by their divisors before plotting: 0.58 is not a temperature a reader can judge. Registered users may include commuters, but membership status does not prove trip purpose.
 """)
@@ -573,12 +573,14 @@ Four regression families are compared in scikit-learn (Pedregosa et al., 2011). 
 
 The grids are deliberately small, because 548 training rows will not support an exhaustive search without the cross-validation estimate becoming the thing being optimised. Each range is chosen to span a behaviour, not to fill space:
 
+**Parameter search rationale**
+
 | Family | Values searched | Why these values |
 |---|---|---|
 | Linear Regression | none | No hyperparameter to set. It is the reference for what a global additive fit achieves |
 | K-Nearest Neighbors | `n_neighbors` 3, 5, 7, 9, 11, 15; `weights` uniform or distance | Spans very local to heavily smoothed neighbourhoods, roughly 0.5% to 3% of the training rows. The weighting choice tests whether near neighbours should dominate |
 | Random Forest | `n_estimators` 200, 400; `max_depth` None, 8, 16; `min_samples_leaf` 1, 2, 4 | Depth and leaf size are the variance controls: unlimited depth against two bounded settings, and leaves of one against sizes that force averaging. Two forest sizes check that the result is not sensitive to ensemble size |
-| Gradient Boosting | `n_estimators` 200, 400; `max_depth` 2, 3; `learning_rate` 0.05, 0.1 | Rate and count trade against each other, so both move together: many small corrections against fewer larger ones. Depth is held at 2 or 3 on purpose, since boosting works through many shallow learners and deeper trees would fit noise in 548 rows |
+| Gradient Boosting | `n_estimators` 200, 400; `max_depth` 2, 3; `learning_rate` 0.05, 0.1 | The Cartesian grid tests whether more boosting rounds compensate for a smaller learning rate and whether the gain remains at the larger rate. Depth 2 or 3 permits low-order interactions while limiting the overfitting risk that deeper trees would introduce with 548 rows |
 
 Both experiments draw on the same daily records and differ in how those records are split and which inputs are permitted. The primary experiment uses all 731 days; the temporal experiment uses the 724 that remain once the seven-day causal warm-up is excluded. Each produces one learned estimate and one reference estimate, giving the four columns compared in Table 14.
 """)
@@ -911,7 +913,7 @@ Six days cannot establish anything, and the criteria in Section 5 are computed a
 
 The primary model tracks the realised count in both directions, from a 2,368-rental January day to a 7,494-rental June day. The constant reference cannot move: it answers 4,575 to every question, which is why its error grows with distance from the annual mean. The temporal model follows the direction of change but sits below the realised count on the growth days, because it was fitted on a smaller 2011 system and has no mechanism for the expansion that followed. The rolling seven-day rule carries no model at all and stays close, because each new observed day re-anchors the next estimate.
 
-The primary and rolling-7 columns must not be read as a head-to-head contest. They belong to different comparisons in Table 1: the primary model was fitted on days drawn from both years, including days adjacent to these, and answers a conditional question; the rolling rule answers a forward one and needs no training. Their apparent similarity on six shared dates is a property of this sample, not a finding. The comparison that matters for each is in Tables 7 and 12 respectively.
+The primary and rolling-7 columns must not be read as a head-to-head contest. They belong to different comparisons in Table 1: the primary model was fitted on days drawn from both years, including days adjacent to these, and answers a conditional question; the rolling rule answers a forward one and needs no training. Their apparent similarity on six shared dates is a property of this sample, not a finding. The comparison that matters for each is in Tables 8 and 13 respectively.
 """)
 
 
@@ -1114,9 +1116,9 @@ Permutation confirms that elapsed time is the dominant predictive association in
 
 **Why Gradient Boosting outperformed, read from these results.** The ranking is consistent with what each family can represent, and the interpretation below is supported by the measurements without being proved by them.
 
-Linear Regression finished last on the holdout at MAE 529.9. It fits one global additive surface, so the curvature Figure 4 shows in temperature and the interaction between warmth and humidity are structural bias it cannot remove, whatever its coefficients. K-Nearest Neighbors reached 501.0: averaging near neighbours works locally, but the neighbourhood is defined across a dozen mixed calendar and weather dimensions, where distance means less and the nearest days are not necessarily the most similar ones.
+Linear Regression finished last on the holdout at MAE 529.9. It receives `temp_sq` and `atemp_hum`, so it can represent that specific curvature and interaction, but only as fixed terms in one global additive surface. It cannot discover additional thresholds or context-dependent effects from the data, and its result is consistent with residual nonlinear structure beyond that fixed basis. K-Nearest Neighbors reached 501.0: averaging near neighbours works locally, but the neighbourhood is defined across mixed calendar and weather dimensions, where distance means less and the nearest days are not necessarily the most similar ones.
 
-The two ensembles could both represent that structure, and separated on how they build it. Random Forest came close at 446.6, averaging deep decorrelated trees. Gradient Boosting reached 433.9 by adding many shallow corrections, each fitting what the previous ones left behind; with depth held at 2 or 3, it composes low-order interactions and the elapsed-time trend step by step instead of resolving them inside single deep trees. That showed up before the holdout was opened, in the CV statistics that made the choice: the two were within the 5% MAE shortlist, and Gradient Boosting was selected on the tie-break of lower CV RMSE, 657.6 against 723.5, meaning it made fewer large misses on the training folds. The permutation and TreeSHAP results above are consistent with this, since the inputs it relies on most are precisely the trend and interaction terms.
+The two ensembles could both represent that structure, and separated on how they build it. Random Forest came close at 446.6, averaging deep decorrelated trees. Gradient Boosting reached 433.9 by adding many shallow corrections, each fitting what the previous ones left behind; with depth held at 2 or 3, it composes low-order effects step by step instead of resolving them inside single deep trees. That showed up before the holdout was opened, in the CV statistics that made the choice: the two were within the 5% MAE shortlist, and Gradient Boosting was selected on the tie-break of lower CV RMSE, 657.6 against 723.5, meaning it made fewer large misses on the training folds. The permutation and TreeSHAP results are consistent with a model using elapsed time, temperature, humidity and engineered curvature, without proving that this mechanism alone caused the ranking.
 
 The temporal experiment reverses the ranking, and Section 5.1 explains why: representational richness helps inside a domain and does not create evidence about a period never observed.
 """)

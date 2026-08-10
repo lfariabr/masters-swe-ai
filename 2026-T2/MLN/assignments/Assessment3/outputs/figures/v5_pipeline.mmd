@@ -1,0 +1,50 @@
+flowchart TB
+    A["day.csv<br/>731 days, 2011 and 2012"]
+
+    subgraph P["Primary experiment - section 4.1"]
+        P1["Random 75/25 split<br/>548 training / 183 holdout"]
+        P2["Shuffled KFold(5)<br/>12 configurations<br/>Table 7"]
+        P3["Freeze one configuration"]
+        P4["Open holdout once<br/>Tables 8 and 9"]
+        P1 --> P2 --> P3 --> P4
+    end
+
+    subgraph T["Temporal check - section 4.2"]
+        T1["Time-ordered split<br/>358 days of 2011 / 366 days of 2012"]
+        T2["TimeSeriesSplit(3) inside 2011<br/>16 configurations<br/>Table 12"]
+        T3["Freeze one configuration"]
+        T4["Score 2012 once<br/>Table 13"]
+        T1 --> T2 --> T3 --> T4
+    end
+
+    A --> P1
+    A --> T1
+
+    P4 --> E1["Learned estimate<br/>best model"]
+    P4 --> E2["Reference estimate<br/>training mean"]
+    T4 --> E3["Learned estimate<br/>best model"]
+    T4 --> E4["Reference estimate<br/>rolling 7-day mean"]
+
+    E1 --> C["Table 14<br/>the four estimates, day by day"]
+    E2 --> C
+    E3 --> C
+    E4 --> C
+    C --> G["Table 15<br/>Meets / Fails"]
+
+    style P fill:#fffed9,stroke:#d1bc38
+    style T fill:#fffed9,stroke:#d1bc38
+    style A fill:#efecff,stroke:#8b79ff
+    style P1 fill:#efecff,stroke:#8b79ff
+    style P2 fill:#efecff,stroke:#8b79ff
+    style P3 fill:#efecff,stroke:#8b79ff
+    style P4 fill:#efecff,stroke:#8b79ff
+    style T1 fill:#efecff,stroke:#8b79ff
+    style T2 fill:#efecff,stroke:#8b79ff
+    style T3 fill:#efecff,stroke:#8b79ff
+    style T4 fill:#efecff,stroke:#8b79ff
+    style E1 fill:#efecff,stroke:#8b79ff
+    style E2 fill:#efecff,stroke:#8b79ff
+    style E3 fill:#efecff,stroke:#8b79ff
+    style E4 fill:#efecff,stroke:#8b79ff
+    style C fill:#efecff,stroke:#8b79ff
+    style G fill:#efecff,stroke:#8b79ff
