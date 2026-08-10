@@ -47,9 +47,9 @@
 # 
 # | # | Comparison | Split | Compared against | Question answered | Where |
 # |---|---|---|---|---|---|
-# | 1 | Model selection | Random 75/25, training partition only | The other 11 family and feature-set configurations | Which configuration predicts most accurately? | Table 6 |
+# | 1 | Model selection | Random 75/25, training partition only | The other 11 family and feature-set configurations | Which configuration predicts most accurately? | Table 7 |
 # | 2 | Value of modelling | Random 75/25, holdout opened once | A constant training-mean prediction | Does the selected model beat not modelling at all? | Tables 7 and 8 |
-# | 3 | Forward transfer | Time-ordered: trained in 2011, scored on 2012 | Naive lag-1, lag-7 and rolling seven-day rules | Does the approach still work on a period it has not seen? | Table 12 |
+# | 3 | Forward transfer | Time-ordered: trained in 2011, scored on 2012 | Naive lag-1, lag-7 and rolling seven-day rules | Does the approach still work on a period it has not seen? | Table 13 |
 # 
 # Comparisons 1 and 2 address the brief. Comparison 3 is an additional check that limits how the result may be used.
 # 
@@ -74,7 +74,9 @@
 # 
 # ### 2.1 Source, loading and granularity
 # 
-# The UCI Bike Sharing dataset supplies `day.csv` and `hour.csv` for Capital Bikeshare in 2011-2012 (Fanaee-T & Gama, 2014; University of California, Irvine, n.d.). The daily file is the modelling source. The hourly file is loaded separately for intraday EDA and cross-file validation.
+# **Source and acquisition.** The data is the Bike Sharing Dataset from the UCI Machine Learning Repository (Fanaee-T & Gama, 2014; University of California, Irvine, n.d.), covering Capital Bikeshare in Washington DC across 2011 and 2012. It was obtained by downloading the archive `Bike-Sharing-Dataset.zip` from `https://archive.ics.uci.edu/dataset/275/bike+sharing+dataset`, extracting it, and storing the three extracted files unmodified in this project's `dataset/` directory: `day.csv`, `hour.csv` and the archive's own `Readme.txt`. The files retain their original 2013 archive timestamps, and nothing was edited outside the notebook. Appendix B records their hashes so any later change would be visible.
+# 
+# `day.csv` is the modelling source; `hour.csv` is loaded separately for intraday exploration and to validate every daily total.
 
 # In[1]:
 
@@ -211,15 +213,28 @@ assert day_df.hum.isna().sum() == 1
 
 # ### 2.2 Variables and exploratory analysis
 # 
-# | Variables | Role |
-# |---|---|
-# | `cnt` | Continuous target: system-wide rentals per day |
-# | `season`, `yr`, `mnth`, `holiday`, `weekday`, `workingday` | Calendar predictors |
-# | `weathersit`, `temp`, `atemp`, `hum`, `windspeed` | Weather predictors |
-# | `dteday` | Ordering and elapsed-time construction; not passed directly to a model |
-# | `casual`, `registered` | Descriptive plots only; excluded because they sum exactly to `cnt` |
+# **Table 5 - Data dictionary: variables, units and levels**
 # 
-# `casual` and `registered` describe user groups, not independent predictors. Registered users may include commuters, but membership status does not prove trip purpose.
+# | Variable | Type | Unit or levels | Role here |
+# |---|---|---|---|
+# | `instant` | Integer | Record index, 1 to 731 | Discarded; carries no information about demand |
+# | `dteday` | Date | Calendar date, 2011-01-01 to 2012-12-31 | Ordering and elapsed time; never passed to an estimator |
+# | `season` | Categorical | 1 to 4. Labelled here 1 = winter, 2 = spring, 3 = summer, 4 = autumn, per the correction below | Calendar predictor |
+# | `yr` | Binary | 0 = 2011, 1 = 2012 | Calendar predictor; excluded from the temporal experiment |
+# | `mnth` | Categorical | 1 to 12 | Calendar predictor |
+# | `hr` | Categorical | 0 to 23. Present in `hour.csv` only | Intraday exploration only |
+# | `holiday` | Binary | 0 = no, 1 = yes | Calendar predictor |
+# | `weekday` | Categorical | 0 = Sunday to 6 = Saturday | Calendar predictor |
+# | `workingday` | Binary | 1 = neither weekend nor holiday | Calendar predictor |
+# | `weathersit` | Categorical | 1 = clear, 2 = mist, 3 = light rain or snow, 4 = heavy rain or snow. Level 4 never occurs in the daily file | Weather predictor |
+# | `temp` | Continuous | Celsius, normalised by dividing by 41 | Weather predictor |
+# | `atemp` | Continuous | Feels-like Celsius, normalised by dividing by 50 | Weather predictor |
+# | `hum` | Continuous | Relative humidity %, normalised by dividing by 100 | Weather predictor |
+# | `windspeed` | Continuous | Wind speed, normalised by dividing by 67 | Weather predictor |
+# | `casual`, `registered` | Count | Rentals per day by user group | Descriptive plots only; excluded because they sum exactly to `cnt` |
+# | `cnt` | Count | Rentals per day | **Target** |
+# 
+# The four weather columns arrive pre-normalised, which is why Figure 4 multiplies them back by their divisors before plotting: 0.58 is not a temperature a reader can judge. Registered users may include commuters, but membership status does not prove trip purpose.
 
 # In[5]:
 
@@ -245,7 +260,7 @@ plt.tight_layout(); plt.savefig(FIG_DIR / "v5_daily_eda.png", dpi=150); plt.show
 
 # Demand rises across the two years, peaks in warmer seasons and falls in adverse weather.
 # 
-# **A documentation correction.** The dataset description states `season (1:springer, 2:summer, 3:fall, 4:winter)`. The dates disagree. Code 1 covers December to March at a mean of 12.2 degrees Celsius and the lowest mean demand of 2,604; code 3 covers June to September at 29.0 degrees and the highest mean demand of 5,644. The codes are therefore offset by one quarter from the published labels, and this notebook labels them `1 = winter, 2 = spring, 3 = summer, 4 = autumn` on the evidence of the calendar and temperature, not the documentation. Nothing in the modelling changes, because `season` enters every pipeline as a categorical code and never as a name; the correction affects the readability of Figures 2 and 3 and of Table 13, and the wording of this section.
+# **A documentation correction.** The dataset description states `season (1:springer, 2:summer, 3:fall, 4:winter)`. The dates disagree. Code 1 covers December to March at a mean of 12.2 degrees Celsius and the lowest mean demand of 2,604; code 3 covers June to September at 29.0 degrees and the highest mean demand of 5,644. The codes are therefore offset by one quarter from the published labels, and this notebook labels them `1 = winter, 2 = spring, 3 = summer, 4 = autumn` on the evidence of the calendar and temperature, not the documentation. Nothing in the modelling changes, because `season` enters every pipeline as a categorical code and never as a name; the correction affects the readability of Figures 2 and 3 and of Table 14, and the wording of this section.
 
 # In[6]:
 
@@ -284,7 +299,7 @@ plt.tight_layout(); plt.savefig(FIG_DIR / "v5_weather_units.png", dpi=160, bbox_
 # 
 # Plotting each weather variable on its own axis in real units matters for reading the strength of each relationship. Demand climbs steeply with temperature to roughly 30 degrees Celsius and then stops climbing, which is the curvature the pairplot also shows and the reason a squared temperature term is built in Section 3.3. Feels-like temperature repeats the same shape, as its correlation of +0.631 against +0.627 would suggest.
 # 
-# The other two behave differently from each other, which the shared axis in the earlier version of this figure concealed. Wind speed declines steadily across its range. Humidity does not: the guide line peaks near 60% and falls away at both ends, so the weak -0.115 correlation in Table 5 is summarising a non-monotonic pattern, not a gentle slope, and the extremes are thinly populated. Neither variable separates high-demand from low-demand days on its own; the scatter at any given humidity or wind speed spans most of the observed range of `cnt`.
+# The other two behave differently from each other, which the shared axis in the earlier version of this figure concealed. Wind speed declines steadily across its range. Humidity does not: the guide line peaks near 60% and falls away at both ends, so the weak -0.115 correlation in Table 6 is summarising a non-monotonic pattern, not a gentle slope, and the extremes are thinly populated. Neither variable separates high-demand from low-demand days on its own; the scatter at any given humidity or wind speed spans most of the observed range of `cnt`.
 # 
 # A single normalised axis would have hidden all of this by placing 20.5 degrees Celsius, 25 degrees Celsius, 50% humidity and 33.5 km/h at the same x position.
 
@@ -321,7 +336,7 @@ sns.heatmap(corr_matrix, annot=True, fmt=".2f", cmap="coolwarm", center=0,
             square=True, cbar_kws={"shrink": .8}, annot_kws={"size": 7})
 plt.title("Figure 7 - Correlation matrix for daily variables")
 plt.tight_layout(); plt.savefig(FIG_DIR / "v5_correlation_heatmap.png", dpi=160); plt.show()
-print("Table 5 - Correlations with cnt")
+print("Table 6 - Correlations with cnt")
 display(cnt_correlations.round(3).to_frame("correlation_with_cnt"))
 
 
@@ -361,9 +376,9 @@ plt.show()
 # 
 # **The value is estimated, not deleted.** Deleting the row would have discarded a complete demand observation to fix one input, so the reading is marked missing and then estimated by the median of the training data. The estimation happens inside `SimpleImputer(strategy="median")` within every pipeline, so the median is refitted on each training fold and never sees the validation fold or the holdout. A single `fillna` computed over the whole frame would have been simpler and would have leaked a statistic of the test data into a training input.
 # 
-# One consequence is worth stating plainly. The interaction `atemp_hum` is built before imputation, so it carries the same missing value and the imputer fills it as a column in its own right. Its estimated value is the median interaction, not the product of the imputed humidity, which leaves the two very slightly inconsistent on that single row out of 731. Rebuilding the interaction after imputation, inside the pipeline, would remove the inconsistency; it was not done because Table 9 already bounds the entire humidity treatment at 3 rentals of holdout MAE, which is smaller than the effect being corrected.
+# One consequence is worth stating plainly. The interaction `atemp_hum` is built before imputation, so it carries the same missing value and the imputer fills it as a column in its own right. Its estimated value is the median interaction, not the product of the imputed humidity, which leaves the two very slightly inconsistent on that single row out of 731. Rebuilding the interaction after imputation, inside the pipeline, would remove the inconsistency; it was not done because Table 10 already bounds the entire humidity treatment at 3 rentals of holdout MAE, which is smaller than the effect being corrected.
 # 
-# **The decision is checked, not asserted.** Table 9 refits the frozen primary model on the uncorrected data and reports both results. If the correction had been load-bearing, that table would say so.
+# **The decision is checked, not asserted.** Table 10 refits the frozen primary model on the uncorrected data and reports both results. If the correction had been load-bearing, that table would say so.
 # 
 # **No outlier removal.** Extreme but physically plausible values are retained. Low-demand days are real events, mostly adverse weather, and removing them would flatter the error statistics while making the model worse at exactly the days a planner cares about.
 # 
@@ -531,9 +546,18 @@ def choose_configuration(rows):
 
 # ## 4. Modelling
 # 
-# Four regression families are compared with lightweight grids in scikit-learn (Pedregosa et al., 2011). Linear Regression tests a global additive relationship; K-Nearest Neighbors tests local similarity; Random Forest averages decorrelated trees; Gradient Boosting sequentially corrects residuals (Friedman, 2001). Scaling and fold-fitted median imputation live inside every pipeline.
+# Four regression families are compared in scikit-learn (Pedregosa et al., 2011). Linear Regression tests a global additive relationship; K-Nearest Neighbors tests local similarity; Random Forest averages decorrelated trees; Gradient Boosting sequentially corrects residuals (Friedman, 2001). Scaling and fold-fitted median imputation live inside every pipeline.
 # 
-# Both experiments draw on the same daily records and differ in how those records are split and which inputs are permitted. The primary experiment uses all 731 days; the temporal experiment uses the 724 that remain once the seven-day causal warm-up is excluded. Each produces one learned estimate and one reference estimate, giving the four columns compared in Table 13.
+# The grids are deliberately small, because 548 training rows will not support an exhaustive search without the cross-validation estimate becoming the thing being optimised. Each range is chosen to span a behaviour, not to fill space:
+# 
+# | Family | Values searched | Why these values |
+# |---|---|---|
+# | Linear Regression | none | No hyperparameter to set. It is the reference for what a global additive fit achieves |
+# | K-Nearest Neighbors | `n_neighbors` 3, 5, 7, 9, 11, 15; `weights` uniform or distance | Spans very local to heavily smoothed neighbourhoods, roughly 0.5% to 3% of the training rows. The weighting choice tests whether near neighbours should dominate |
+# | Random Forest | `n_estimators` 200, 400; `max_depth` None, 8, 16; `min_samples_leaf` 1, 2, 4 | Depth and leaf size are the variance controls: unlimited depth against two bounded settings, and leaves of one against sizes that force averaging. Two forest sizes check that the result is not sensitive to ensemble size |
+# | Gradient Boosting | `n_estimators` 200, 400; `max_depth` 2, 3; `learning_rate` 0.05, 0.1 | Rate and count trade against each other, so both move together: many small corrections against fewer larger ones. Depth is held at 2 or 3 on purpose, since boosting works through many shallow learners and deeper trees would fit noise in 548 rows |
+# 
+# Both experiments draw on the same daily records and differ in how those records are split and which inputs are permitted. The primary experiment uses all 731 days; the temporal experiment uses the 724 that remain once the seven-day causal warm-up is excluded. Each produces one learned estimate and one reference estimate, giving the four columns compared in Table 14.
 
 # In[12]:
 
@@ -543,7 +567,7 @@ from IPython.display import Image, display as show_image
 # Figure 9 is authored in Mermaid and rendered to PNG so that it survives the notebook,
 # HTML and PDF exports identically. The source is kept in the repository alongside it.
 show_image(Image(filename=str(FIG_DIR / "v5_pipeline.png"), width=760))
-print("Figure 9 - How the two experiments produce the four estimates compared in Table 13")
+print("Figure 9 - How the two experiments produce the four estimates compared in Table 14")
 
 
 # ### 4.1 Primary model comparison: random 75/25 holdout
@@ -606,7 +630,7 @@ primary_winner = primary_estimators[(primary_winner_name, primary_winner_feature
 selection_indices = set(primary_train_idx)
 assert selection_indices.isdisjoint(set(primary_holdout_idx))
 assert len(primary_df) == 731
-print("Table 6 - Primary CV selection (training partition only)")
+print("Table 7 - Primary CV selection (training partition only)")
 display(narrow(primary_cv_table.round({"cv_mean_MAE": 1, "cv_std_MAE": 1,
                                        "cv_mean_RMSE": 1, "cv_std_RMSE": 1})))
 print("Frozen primary configuration:", primary_winner_name, "|", primary_winner_features,
@@ -659,9 +683,9 @@ primary_summary = pd.DataFrame([{
     "MAE_pct_of_holdout_mean_demand": 100 * primary_mae_pct,
 }])
 primary_summary.to_csv(OUTPUT_DIR / "primary_summary_v5.csv", index=False)
-print("Table 7 - Frozen family configurations on the primary holdout")
+print("Table 8 - Frozen family configurations on the primary holdout")
 display(narrow(primary_holdout_table.round({"MAE": 1, "MSE": 1, "RMSE": 1, "R2": 3})))
-print("Table 8 - Final selected-model summary")
+print("Table 9 - Final selected-model summary")
 # Transposed: one record with nine fields reads better, and prints, as a tall table.
 display(narrow(primary_summary.round(3)).T.rename(columns={0: "value"}))
 
@@ -685,7 +709,7 @@ humidity_sensitivity = pd.DataFrame([
     {"treatment": "raw hum=0 retained", **metrics(primary_holdout.cnt, sens_pred)},
 ])
 humidity_sensitivity.to_csv(OUTPUT_DIR / "humidity_sensitivity_v5.csv", index=False)
-print("Table 9 - Humidity correction sensitivity on the frozen primary model")
+print("Table 10 - Humidity correction sensitivity on the frozen primary model")
 display(narrow(humidity_sensitivity.round({"MAE": 2, "MSE": 1, "RMSE": 2, "R2": 4})))
 
 
@@ -716,7 +740,7 @@ for fold, (tr, va) in enumerate(temporal_cv.split(temporal_train), 1):
         "train_window": f"{temporal_train.dteday.iloc[tr[0]].date()} to {temporal_train.dteday.iloc[tr[-1]].date()}",
         "validation_window": f"{temporal_train.dteday.iloc[va[0]].date()} to {temporal_train.dteday.iloc[va[-1]].date()}",
     })
-print("Table 10 - TimeSeriesSplit folds within 2011")
+print("Table 11 - TimeSeriesSplit folds within 2011")
 display(narrow(pd.DataFrame(fold_table)))
 
 temporal_rows, temporal_estimators = [], {}
@@ -754,7 +778,7 @@ temporal_winner = temporal_estimators[(temporal_winner_name, temporal_winner_fea
 # Selection records and fitted estimators contain 2011 only. 2012 has not been scored yet.
 assert temporal_train.yr.eq(0).all()
 assert not temporal_train.dteday.isin(temporal_test.dteday).any()
-print("Table 11 - Temporal CV selection (2011 only)")
+print("Table 12 - Temporal CV selection (2011 only)")
 display(narrow(temporal_cv_table.round({"cv_mean_MAE": 1, "cv_std_MAE": 1,
                                         "cv_mean_RMSE": 1, "cv_std_RMSE": 1})))
 print("Frozen temporal configuration:", temporal_winner_name, "|", temporal_winner_features,
@@ -797,7 +821,7 @@ rolling_metrics = temporal_holdout_table.loc[
     temporal_holdout_table.model.eq("Naive rolling-7")
 ].iloc[0]
 temporal_advantage = 1 - temporal_selected_metrics.MAE / rolling_metrics.MAE
-print("Table 12 - Frozen temporal candidates and baselines on 2012")
+print("Table 13 - Frozen temporal candidates and baselines on 2012")
 display(narrow(temporal_holdout_table.round({"MAE": 1, "MSE": 1, "RMSE": 1, "R2": 3})))
 
 
@@ -809,12 +833,12 @@ display(narrow(temporal_holdout_table.round({"MAE": 1, "MSE": 1, "RMSE": 1, "R2"
 
 # ### 4.3 Worked example
 # 
-# Aggregate error statistics hide what a prediction actually is. Table 13 takes six holdout dates that both experiments scored, and shows the same day estimated four ways: by the frozen primary model, by the constant-mean reference it must beat, by the frozen temporal model, and by the rolling seven-day rule it must beat. Reading one row left to right is the shortest description of this entire report.
+# Aggregate error statistics hide what a prediction actually is. Table 14 takes six holdout dates that both experiments scored, and shows the same day estimated four ways: by the frozen primary model, by the constant-mean reference it must beat, by the frozen temporal model, and by the rolling seven-day rule it must beat. Reading one row left to right is the shortest description of this entire report.
 
 # In[18]:
 
 
-# Table 13 - the same dates scored by every approach compared in this report.
+# Table 14 - the same dates scored by every approach compared in this report.
 primary_view = primary_holdout.assign(
     primary_prediction=primary_winner.predict(primary_holdout[primary_winner_columns]),
     mean_reference=primary_train.cnt.mean(),
@@ -846,7 +870,7 @@ worked = pd.DataFrame({
 }).reset_index(drop=True)
 worked.to_csv(OUTPUT_DIR / "worked_example_v5.csv", index=False)
 
-print("Table 13 - Six shared dates scored by every approach")
+print("Table 14 - Six shared dates scored by every approach")
 print("Each row is one day: inputs on the left, the realised count, then four estimates of it.")
 display(narrow(worked).rename(columns={
     f"{primary_winner_name} (primary)": f"{ABBREV[primary_winner_name]}_primary",
@@ -890,7 +914,7 @@ evaluation_summary = pd.DataFrame([
      "result": "Passes" if temporal_pass else "Fails"},
 ])
 evaluation_summary.to_csv(OUTPUT_DIR / "evaluation_summary_v5.csv", index=False)
-print("Table 14 - Evaluation summary")
+print("Table 15 - Evaluation summary")
 display(evaluation_summary)
 
 y2012 = temporal_test.cnt.to_numpy()
@@ -909,7 +933,7 @@ paired_summary = pd.DataFrame([
 ])
 paired_summary["tied_dates"] = int(ties.sum())
 paired_summary.to_csv(OUTPUT_DIR / "paired_temporal_comparison_v5.csv", index=False)
-print("Table 15 - Paired descriptive comparison on identical 2012 dates")
+print("Table 16 - Paired descriptive comparison on identical 2012 dates")
 display(narrow(paired_summary.round(1)))
 
 
@@ -930,7 +954,7 @@ for name in list(GRIDS) + ["Naive rolling-7"]:
 forward_range = pd.DataFrame(range_rows)
 forward_range.to_csv(OUTPUT_DIR / "forward_prediction_range_v5.csv", index=False)
 # Deliberately not called a ceiling: only Random Forest and KNN have one.
-print("Table 16 - Forward prediction range analysis")
+print("Table 17 - Forward prediction range analysis")
 display(narrow(forward_range.round(1)))
 
 fig, ax = plt.subplots(1, 2, figsize=(14, 5))
@@ -988,7 +1012,7 @@ for label, estimator in [
 
 # The check confirms the distinction. Random Forest cannot leave the range of what it has seen, and does not. Gradient Boosting does, by roughly 14% above the largest training target, without ever having been shown a value that high. One counterexample is enough to retire the claim that tree ensembles share a target-range ceiling.
 # 
-# This is why Table 16 is a range analysis and not a ceiling analysis, and why the 2012 result reads as evidence, not as arithmetic. Gradient Boosting had the freedom demonstrated here and still did not use it on the real data, because nothing in a single low year of demand produced corrections large enough to reach a system 44% bigger.
+# This is why Table 17 is a range analysis and not a ceiling analysis, and why the 2012 result reads as evidence, not as arithmetic. Gradient Boosting had the freedom demonstrated here and still did not use it on the real data, because nothing in a single low year of demand produced corrections large enough to reach a system 44% bigger.
 
 # ### 5.2 Explaining the frozen primary model
 # 
@@ -1007,7 +1031,7 @@ permutation_table = (pd.DataFrame({
     "MAE_increase_std": perm.importances_std,
 }).sort_values("MAE_increase_mean", ascending=False).reset_index(drop=True))
 permutation_table.to_csv(OUTPUT_DIR / "permutation_importance_v5.csv", index=False)
-print("Table 17 - Model-agnostic permutation importance on the primary holdout")
+print("Table 18 - Model-agnostic permutation importance on the primary holdout")
 display(narrow(permutation_table.head(12).round(2)))
 
 top_perm = permutation_table.head(12).sort_values("MAE_increase_mean")
@@ -1036,7 +1060,7 @@ if primary_winner_name in {"Random Forest", "Gradient Boosting"}:
                                 "mean_absolute_SHAP": np.abs(shap_values).mean(axis=0)})
                   .sort_values("mean_absolute_SHAP", ascending=False).reset_index(drop=True))
     shap_table.to_csv(OUTPUT_DIR / "shap_global_importance_v5.csv", index=False)
-    print("Table 18 - TreeSHAP global importance for the frozen primary model")
+    print("Table 19 - TreeSHAP global importance for the frozen primary model")
     display(narrow(shap_table.head(12).round(2)))
     shap.summary_plot(shap_values, transformed, feature_names=transformed_names,
                       max_display=12, show=False)
@@ -1068,7 +1092,13 @@ plt.tight_layout(); plt.savefig(FIG_DIR / "v5_primary_diagnostics.png", dpi=160)
 # 
 # Permutation confirms that elapsed time is the dominant predictive association in the primary holdout: shuffling it increases MAE by about 950 rentals. Feels-like temperature follows at 410, then humidity at 144 and squared temperature at 111. TreeSHAP produces the same leading order, with mean absolute contributions of about 1,018, 586, 235 and 201 rentals. These values explain predictions across the observed sample; they do not imply that advancing time causes demand or that weather effects are causal.
 # 
-# The primary result is MAE 433.9, RMSE 630.6 and R-squared 0.897: 73.9% better than the baseline and 10.1% of mean holdout demand. Temporally, Linear Regression lost to rolling-7 by 23.5%; median error was 1,045 versus 636, with wins on 116 versus 250 dates. This paired description makes no independence claim.
+# **Why Gradient Boosting outperformed, read from these results.** The ranking is consistent with what each family can represent, and the interpretation below is supported by the measurements without being proved by them.
+# 
+# Linear Regression finished last on the holdout at MAE 529.9. It fits one global additive surface, so the curvature Figure 4 shows in temperature and the interaction between warmth and humidity are structural bias it cannot remove, whatever its coefficients. K-Nearest Neighbors reached 501.0: averaging near neighbours works locally, but the neighbourhood is defined across a dozen mixed calendar and weather dimensions, where distance means less and the nearest days are not necessarily the most similar ones.
+# 
+# The two ensembles could both represent that structure, and separated on how they build it. Random Forest came close at 446.6, averaging deep decorrelated trees. Gradient Boosting reached 433.9 by adding many shallow corrections, each fitting what the previous ones left behind; with depth held at 2 or 3, it composes low-order interactions and the elapsed-time trend step by step instead of resolving them inside single deep trees. That showed up before the holdout was opened, in the CV statistics that made the choice: the two were within the 5% MAE shortlist, and Gradient Boosting was selected on the tie-break of lower CV RMSE, 657.6 against 723.5, meaning it made fewer large misses on the training folds. The permutation and TreeSHAP results above are consistent with this, since the inputs it relies on most are precisely the trend and interaction terms.
+# 
+# The temporal experiment reverses the ranking, and Section 5.1 explains why: representational richness helps inside a domain and does not create evidence about a period never observed.
 
 # ## 6. Lessons Learned
 # 
@@ -1090,9 +1120,9 @@ plt.tight_layout(); plt.savefig(FIG_DIR / "v5_primary_diagnostics.png", dpi=160)
 # 
 # The strongest limitations are evidential. Station-level planning would additionally need identifiers, dock capacity, trip origins and destinations, transit connections and local demand, which is why the ITDP and NACTO guidance points beyond this dataset.
 # 
-# Table 19 sets out the changes I would make next, what each one would actually do, and what it should be expected to move. They are separated on purpose, because not every improvement improves the same thing. Some target point accuracy; others improve the validity of the evaluation, quantify uncertainty, strengthen the evidence behind selection, or expand the supported domain.
+# Table 20 sets out the changes I would make next, what each one would actually do, and what it should be expected to move. They are separated on purpose, because not every improvement improves the same thing. Some target point accuracy; others improve the validity of the evaluation, quantify uncertainty, strengthen the evidence behind selection, or expand the supported domain.
 # 
-# **Table 19 - Proposed improvements, their mechanism and their expected effect**
+# **Table 20 - Proposed improvements, their mechanism and their expected effect**
 # 
 # | Improvement | Mechanism | Expected effect |
 # |---|---|---|
