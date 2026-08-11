@@ -54,15 +54,21 @@
 - ⚠️ **Historical model, not current reality:** Kent's 2017 explanation is simplified; Google confirms PageRank is now just one of several ranking signals. Activity 1's tool (checkpagerank.net) is **third-party, not Google-affiliated** - its "External Backlinks" number is a raw backlink count, **not** a live PageRank score. Use the vote/dilution mechanics to explain the *concept*, not to claim the tool's number *is* PageRank.
 - 🖤 PageRank = one concrete instance of the **centrality** graph metric family (Zone 1/2) applied to the WWW-as-a-graph.
 
+## 🔴 Zone 5 - From class (Week 11, 11/08/2026): THIS is the A3 method ⭐ graded, not breadth
+- 🔴 **A3 is 4 steps in order:** (a) linear regression per country (week → infections, pick **highest-variance** country) → (b) **K-Means** on that country's series (Module 9) → (c) **Graph Analytics** - network of that country + its "neighbours" (Module 11) → (d) visualisation. All four are graded (SLOs c/d/e).
+- ⚠️ **The single biggest trap, repeated every year:** the written brief says you may use lat/long **or geography knowledge** to define "neighbours." Dr. Chen verbally **overrode this in class** - "forget about the geography concept... the US may neighbour China as long as it shows a similar pattern." Define neighbours by **correlation on the infection-count series only**, never by the map. Students who use real geographic borders get marked down.
+- 🔵 **The actual technique (live-demoed on a swimmer dataset, same method for A3's countries):** compute the **Pearson correlation matrix** between every pair's time series → pick a **threshold** (0.3 in the demo, on the fixed ±1 correlation scale) → any pair above threshold gets a weighted edge; below it, no edge. Build with `networkx`: empty graph → add nodes → add edges for correlated pairs → run `degree/betweenness/closeness/eigenvector` centrality + `networkx.pagerank` → scale node size by centrality in the plot.
+- 🖤 **PageRank's damping factor** (missing from Kent's 2017 video, R4): a small % of each node's score is redistributed **randomly**, not just along outgoing links - this stops the algorithm getting trapped in a closed loop (A→B→C→A forever) and is why it's run **iteratively** until scores stabilise. Final score = relative importance, not a class label.
+
 ## 🔴 Assessment Hook (bottom red strip)
 > **Assessment 3 - Model Evaluation** · source code + presentation (7-10 min) · **40%** · due **19/08/2026** · SLOs **c), d), e)**.
-> A3's required algorithm is **K-means** (Module 9) - graph analytics, like Module 10's association rules, is curriculum breadth, not a direct A3 requirement.
+> Graph analytics IS A3 step (c), graded - not curriculum breadth. Build the country-neighbour network from **correlation on infection data**, never from actual geography, per Dr. Chen's explicit in-class correction.
 
 ## 🔴 If you only memorise 5 things
-1. Graphs = nodes + edges; a third lens next to clustering (groups records) and association rules (item co-occurrence) - graphs ask "how is everything connected?"
-2. Property graphs (Cypher/Gremlin) vs RDF graphs (triples/SPARQL) are two different paradigms - not every graph platform needs RDF.
+1. **Graph analytics IS required for A3** (step c, graded) - not optional breadth. Build it right after K-Means, on the same highest-variance country.
+2. **Never use real geography to define "neighbours" in A3** - correlation on the data only. This is the #1 mistake Chen sees every year.
 3. Link prediction = supervised ML in disguise: drop real edges for positives, unconnected pairs for negatives, extract features with node2vec, classify.
-4. PageRank = votes via links, weighted by voter importance, diluted across outgoing links - that's centrality, a graph metric, not a separate technique.
+4. PageRank = votes via links, weighted by voter importance, diluted across outgoing links, with a **damping factor** to escape closed loops - run iteratively until stable.
 5. checkpagerank.net's "External Backlinks" ≠ Google's actual PageRank score - it's a third-party backlink count, useful for explaining the concept only.
 
 ---

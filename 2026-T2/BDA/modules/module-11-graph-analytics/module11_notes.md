@@ -6,6 +6,7 @@
 - **Graph databases** (Erickson 2026) store edges as first-class data for subsecond relationship queries - property graphs (analytics) vs RDF graphs (semantic search, knowledge graphs).
 - **Link prediction** (Joshi 2020) reframes "will these nodes connect?" as supervised ML: derive positive/negative examples from one graph snapshot, extract features with node2vec, classify (LightGBM AUC 0.93 beats logistic regression AUC 0.78).
 - **PageRank** (Kent 2017): pages vote for each other via links; votes from high-PageRank pages count more, and each page's vote is diluted across its outgoing links.
+- 🔴 **Assessment 3 correction:** graph analytics is a **required, graded A3 section** (correlation-based network of a country and its "neighbours," explicitly NOT geography-based per the live lecture) - not curriculum breadth as earlier module notes claimed. See "From class" below.
 
 ## Task List
 
@@ -23,6 +24,7 @@
 - `r2_What-Is-a-Graph-Database_Erickson-2026.pdf` (Resource 2; notes.md cites "Oracle.com (n.d.)" but the saved page is now a dated, bylined Jeffrey Erickson piece - see mismatch note in §2)
 - `r3_A-Guide-to-Link-Prediction_Joshi-2020.pdf` (Resource 3 - also Activity 2's source article)
 - `r4_PageRank-transcript_Kent-2017.md` (Resource 4 - video transcript)
+- `BDA week 11.docx` (Week 11 live-class transcript, 11/08/2026), `BDA_S11_V2.pptx` (Week 11 slides) - source for the "From class" section (§5) and the Assessment 3 correction below
 
 ---
 
@@ -190,10 +192,56 @@
 
 ---
 
+### 5. From class (Week 11 lecture + code practical, 11/08/2026)
+
+🔴 **Correction to earlier modules' A3 claims:** Module 9's and Module 10's notes both stated A3 only requires K-means and that graph analytics/association rules are "curriculum breadth, not a direct requirement." **That was wrong for graph analytics** - checked directly against `BDA601_Assessment 3_20240603.pdf`: A3 is a four-part pipeline on the JHU COVID-19 dataset (top-3 infected countries by total case count): **(a) linear regression** per country (week number → infection count, pick the highest-variance country) → **(b) K-Means clustering** on that country's series → **(c) Graph Analytics** - build a network between that country and its "neighbours" based on weekly infection counts, assuming neighbours don't share borders → **(d) visualisation**, then an 8-10 slide, <10-min video presentation. Graph analytics is a **required, graded section (SLOs c, d, e)**, not breadth.
+
+⚠️ **Written brief vs. live lecture instruction - a real conflict, worth flagging:** the brief itself says "to determine the neighbouring countries, you can either use the latitude and longitude information from the dataset **or your own knowledge of geography**." Dr. Chen's live lecture explicitly **overrode this** for the majority of the class: "forget about the concept about all the geography concept... the United States may have a neighbouring country as China or Australia as long as it showing the similar patterns... we are defining the relation purely but does it [the data]." He stated this is the single most common mistake he sees "every year" - students who use literal map-adjacency (e.g. "US neighbouring Canada/Mexico") are marked down, because that reintroduces geography through the back door. **Practical takeaway: define "neighbour" via a correlation/similarity threshold on the infection-count time series, not lat/long or a mental map**, even though the written brief technically allows either. If in doubt, default to Chen's verbal instruction over the brief's looser wording - confirmed directly by Monica's question and his answer (§ Q&A below).
+
+#### The actual code practical (a close proxy for A3's method, using a "swimmer daily distance" dataset instead of COVID-19 countries)
+
+1. **Reshape wide → long:** convert a wide table (1 row per swimmer, ~700 daily-distance columns) into a long format (swimmer, date, distance) using `pandas.melt`, then aggregate daily → monthly distance per swimmer.
+2. **Regression (per swimmer)** → fit linear regression (month number → distance) for the top-3 swimmers by average distance; the swimmer with the **highest variance/lowest R²** (distance not well explained by time) is carried into clustering - mirrors A3 step (a).
+3. **K-Means clustering** on that swimmer's 24 monthly values (elbow method → K=5 in the demo); silhouette score ≈0.5, "relatively good."
+4. **Graph construction - the actual technique for A3's step (c):** compute the **Pearson correlation matrix** between every pair of swimmers' monthly-distance patterns. Set a **threshold** (0.3 in the demo, on the ±1 correlation scale) - any pair above threshold gets an **edge**, weighted by the correlation coefficient; pairs below threshold stay unconnected. Lower the threshold → more edges/less isolation; raise it → sparser, more selective graph. Build with `networkx`: empty graph → add nodes → add weighted edges for correlated pairs.
+5. **Centrality via `networkx`:** compute degree, betweenness, closeness, eigenvector centrality, and **`networkx.pagerank`** on the constructed graph; scale node size in the visualisation by centrality/PageRank score so visually "bigger" nodes are more central.
+
+#### PageRank - what the lecture adds that Kent's 2017 video (R4) doesn't cover
+
+- ⚠️ **Damping factor (missing from R4):** a small fraction of each node's score is redistributed **randomly** to all pages, not just along its outgoing links. This models occasional random browsing and, critically, **prevents the algorithm from getting trapped in closed loops** (e.g. A→B→C→A forever, never reaching any other node). Kent's video never mentions this safety mechanism.
+- **Simplified formula:** `new rank = base score + score received from incoming links`, applied **iteratively** until scores stabilise (stop changing materially between passes) - not a one-shot calculation.
+- 🖤 **The final score is a relative importance score, not a class label** - a higher PageRank means "more influential within this specific link structure," not a probability or a category.
+- **Same logic generalises** beyond webpages to accounts, papers, products, airports, or genes - any graph with directed, influence-like links.
+
+#### The 5 named types of graph analytics questions (from slide 6 - a cleaner framing than R1's 6-signal checklist)
+
+| Question type | Asks | Example |
+|---|---|---|
+| **Connectivity** | Are two objects connected? Shortest path? | Fraud rings, supply-chain dependencies, route planning |
+| **Centrality** | Which nodes are most important/influential? | Social-media influencers, key webpages, critical infrastructure |
+| **Community detection** | Which groups naturally form? | Customer segments, research communities |
+| **Similarity** | Which nodes behave alike? | Product recommendations, similar users |
+| **Link prediction** | Which connection forms next? | Friend suggestions, product cross-sell |
+
+- This is the practical vocabulary to use when framing an A3 graph-analytics question, alongside the 5-step workflow: **define objects → define relationships → build graph → run analytics → interpret & report.**
+
+#### Q&A takeaways (Monica Taniya Soetanto, re: Assessment 3)
+
+- **Dataset access:** the JHU dataset link in the brief may be stale (last maintained ~2020) - Chen confirmed using the **MyLinkedIn (LMS)-provided copy** of the dataset is acceptable if the original source link is unavailable.
+- **"Why cluster after regression?"** Monica's own framing, confirmed correct by Chen: clustering is meant to **capture what the regression couldn't explain** - you pick the country/swimmer with the *highest variance* (weakest regression fit) specifically because that's the case where a simple linear trend misses something, and clustering can reveal the structure regression didn't. Chen was explicit this is an open, "critical thinking" question in the rubric - multiple defensible approaches exist as long as they're justified in the report (e.g. highest variance vs. highest residual variance are both defensible readings).
+- **Geography confirmed excluded:** directly answering the neighbours-and-borders question (see the ⚠️ conflict note above) - "forget about the geography concept... we are doing our own definitions to define the correlations and the labelling."
+
+#### Key Takeaways for BDA601
+1. **This is the direct A3 dry-run.** The code practical's correlation-threshold graph construction + `networkx` centrality/PageRank is essentially A3 step (c) with swimmers standing in for countries - reuse this method, not a geography-based one.
+2. **The geography trap is the single highest-value warning in this module** - Chen explicitly said this is the most common error he sees every year, and it's graded under "Analysis and insights" (30% of A3).
+3. **Day-job anchor:** choosing a correlation threshold to decide "is this an edge or not" is the same judgment call as choosing a similarity/distance cutoff for deduplicating Synergetic family records (Module 10's money-laundering analogy) - the threshold is a data-driven decision you justify, not a fixed rule.
+
+---
+
 ## Where this module fits
 
 - **Graph analytics is the module's third and last "alternative to relational/warehouse thinking"** after clustering (Module 9, groups records) and association rules (Module 10, finds item co-occurrence) - graphs ask a third kind of question: how are entities *connected*, and what can that connectivity structure itself tell you (Loshin §2, the "choose graph analytics" checklist)?
 - **The throughline across four resources:** Loshin (R1) supplies the formal "what is it and when do I choose it" foundation; Erickson (R2) narrows to graph *databases* as the implementation layer and adds concrete fraud/bot use cases; Joshi (R3) is the only hands-on code resource, reframing link prediction as ordinary supervised ML over graph-derived features; Kent (R4) drills into one specific, famous graph metric (PageRank) that both activities lean on.
 - **Activity 1** (PageRank ranking of universities) draws directly on R4's vote/dilution explanation - no coding required, just applying the concept to a real tool's output.
 - **Activity 2** (Facebook link prediction code walkthrough) draws directly on R3 - the negative/positive sampling steps (§2) are the near-complete answer to "what does this code do and can any of it be removed."
-- **Feeds Assessment 3?** No - A3 (due Week 12, 40%) requires **K-means** (Module 9) as its algorithm per the Week 9 lecture. Graph analytics, like Module 10's association rules, is curriculum breadth rather than a direct A3 requirement.
+- **Feeds Assessment 3? Yes - directly, and it's graded.** A3 (due Week 12, 40%, SLOs c/d/e) requires regression → K-Means (Module 9) → **Graph Analytics** → visualisation, in that order, on the JHU COVID-19 dataset. Graph analytics is A3 step (c): build a correlation-based network between the highest-variance country and its "neighbours" - **not** a geography-based one, despite the brief's wording (see the Week 11 lecture section above for the full correction and the correlation-threshold method that matches it).
