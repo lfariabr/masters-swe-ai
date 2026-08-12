@@ -1,6 +1,6 @@
 # DLE602 A3 — Submission Checklist (short form)
 
-**Due:** 19 August 2026, 11:55pm AEST · **Today:** 12 August · **7 days left**
+**Due:** 19 August 2026, 11:55pm AEST · **Today:** 13 August · **6 days left**
 **Submit:** report PDF (and DOCX), source code, execution instructions, submission ZIP
 
 This is the academic-side summary. The full engineering gate list lives in the ReviewPulse repo at
@@ -39,23 +39,24 @@ pdftotext v6_DLE602_Faria_L_Assessment_3.pdf export.txt
 grep -ic "word count" export.txt   # must be 1 or more, was 0 in v5
 ```
 
-### 2. Victor — Appendix F, the only "Pending" left in the report
+### 2. Victor — scientific validation delivered; Appendix F release checks remain
 
 Hard cutoff: **16 August**. Rows without evidence are removed from the appendix, never shipped
 as empty claims.
 
-- [ ] Rebase onto current upstream `main` (his branch predates Juan's merges)
-- [ ] Rename his document to `docs/dle602-a3/validation-victor.md`, which is the name the report cites
+- [x] Independent RQ1/RQ2 validation and CUDA reproduction merged in ReviewPulse PR #123 (`8787a73`)
+- [x] Validation record available at `docs/dle602-a3/validation-victor.md`
 - [ ] F1 clean constrained installation
 - [ ] F2 `git lfs pull`, six artifacts materialised, no unresolved pointer
 - [ ] F3 full test suite, not the 48 focused tests
 - [ ] F4 offline smoke with no SemEval data present
 - [ ] F5 the explicit counts: 1,120 retained test / 228 mixed / 80 sentences
 - [ ] F6 Table 3 reproduced **from the shipped artifacts**, kept separate from his retrain
-- [ ] F7 reference verification — each cited work checked against the original publication
+- [x] F7 reference verification — seven cited works audited; the DistilBERT venue uncertainty was resolved against the official EMC² NeurIPS 2019 programme and workshop paper
 
 His fresh DistilBERT retrain stays a separately versioned reproduction and does not replace the
-canonical numbers. BERT-Small FP16 stays on the experimental branch as post-submission work.
+canonical numbers. The second PR must validate the shipped artifacts without running the training
+runner. BERT-Small FP16 stays on the experimental branch as post-submission work.
 
 ### 3. Package and release
 
@@ -80,7 +81,7 @@ canonical numbers. BERT-Small FP16 stays on the experimental branch as post-subm
 ## Order of operations
 
 1. Fix the export and re-export both formats.
-2. Land Victor's Appendix F evidence, or remove its rows.
+2. Land Victor's second PR with the remaining Appendix F release evidence, or remove unevidenced rows.
 3. Freeze the report and source commits.
 4. Build both archives from the frozen commit; extract and retest.
 5. Record sizes and digests.

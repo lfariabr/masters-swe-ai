@@ -338,9 +338,10 @@ Do not call ATAE-LSTM a structured probabilistic model.
 - No group identifier issued → student IDs in the footer.
 - **Appendix E is delivered**, not pending: Juan's QA is complete and merged (PRs #120/#121) and
   the screenshot set exists. Only the asset export remains.
-- Appendix F still ships **with "Pending" visible** if Victor's evidence does not arrive. The risk
-  is that it contradicts the "we have divided well the rows" statement made in class at transcript
-  line 355.
+- Victor's scientific validation is delivered in PR #123 and F7 is complete. Appendix F keeps
+  **Pending** only on the clean F1–F6 frozen-package checks until his second PR arrives; any
+  unevidenced rows are removed before
+  submission instead of being presented as completed work.
 - **Both archives ship**: `lightweight` and `all` both go to the LMS; if the larger is refused,
   `all` goes to OneDrive and the link travels with the submission. The LMS limit is no longer a
   blocking gate.
@@ -373,7 +374,9 @@ report now says so in the RQ3 row and the contribution log. The sentence holding
 access open as a release gate was removed from Appendix E, which is the only change made to that
 otherwise frozen appendix. The v3.0.0 package is stated as delivered in Section 6.
 
-**Pending.** Victor's Appendix F evidence — now the only "Pending" anywhere in the report. Every
+**Pending.** Victor's scientific RQ1/RQ2 validation and CUDA reproduction were delivered in
+ReviewPulse PR #123, and F7 is complete; only the second-PR F1–F6 frozen-package checks in
+Appendix F remain pending. Every
 item under **Export and formatting fixes** and **Verification**. The EV-02E/EV-02F labelling slip
 in Juan's source document. The Module 10 forum post.
 

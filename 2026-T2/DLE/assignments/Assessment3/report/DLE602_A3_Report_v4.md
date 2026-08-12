@@ -243,7 +243,7 @@ GRU uses 10.31% fewer parameters than LSTM and obtains slightly higher full-test
 | Sentence leakage | Group development split by `sentence_id` | Automated disjointness checks pass |
 | Artifact loading failure | Explicit paths, validation and controlled UI errors | Missing models fail visibly, with no silent substitution |
 | Optional-scope delay | Four-model result frozen before GRU/CNN activation | Six-model track completed without replacing the canonical experiment |
-| Unequal contribution | Issue ownership, pull-request review and contribution record | Juan delivered independent Streamlit QA in PR #120, hardened in PR #121; Victor's reproduction remains pending, and only evidenced work is claimed |
+| Unequal contribution | Issue ownership, pull-request review and contribution record | Juan delivered independent Streamlit QA in PR #120, hardened in PR #121; Victor delivered independent RQ1/RQ2 validation, a CUDA reproduction and clean frozen-package verification recorded in Appendix F |
 
 *Table B1. Implemented project-risk mitigations, observed outcomes and retained contingencies.*
 
@@ -252,12 +252,12 @@ GRU uses 10.31% fewer parameters than LSTM and obtains slightly higher full-test
 | Contributor | Status | Contribution / assigned validation | Evidence / hand-off |
 |---|---|---|---|
 | Luis Faria | Completed | Architecture, ABSA implementation, all training/evaluation integration, token evidence, six-model integration, Streamlit integration, Git LFS deployment, release packaging and report consolidation | ReviewPulse PRs #90, #92, #93, #97, #98-#102; academic commits `f3b7247`, `6d50ac0` |
-| Victor Dorantes | Assigned 29 Jul; evidence pending | Independently reproduce the constrained installation/tests, validate RQ1/RQ2 results and verify the cited publications | Required evidence: `validation-victor.md`, commands/results and a reviewed PR; summarised in Appendix F |
+| Victor Dorantes | Independent validation and release reproduction delivered | Recomputed stored metrics from the six confusion matrices, independently trained and evaluated the four canonical models on CUDA, validated RQ1/RQ2, verified SemEval provenance and audited the cited publications; then completed clean installation, Git LFS, full-suite, offline-smoke, dataset and shipped-artifact checks | ReviewPulse PR #123, merge commit `8787a73`; `docs/dle602-a3/validation-victor.md`; complete evidence summarised in Appendix F |
 | Juan Martinez | Independent QA delivered and reviewed | Executed 12 deployed-Streamlit cases across all six models, multi-aspect inputs, sample generation, evidence views, invalid inputs, model switching and v2/v3 compatibility; recorded predictions, screenshots, three acceptance failures and two stale-state observations that could not be reproduced from the written record; all five are carried as known documented findings, not release blockers | ReviewPulse PR #120, merge commit `1e6689f`; corrective PR #121, merge commit `9071553`; `docs/dle602-a3/validation-juan.md`; companion screenshot record; selected evidence mapped in Appendix E |
 
 *Table B2. Contribution status, assigned validation work and required traceable evidence.*
 
-Assignments are not treated as completed contributions. Juan's executed QA is recorded as an evidenced contribution even where it exposes failures and does not confirm acceptance. Victor remains pending until his reproduction record is submitted and reviewed.
+Assignments are not treated as completed contributions. Juan's executed QA is recorded as evidenced work even where it exposes failures and does not confirm acceptance. Victor's reviewed validation is likewise recorded even though the fresh CUDA DistilBERT result diverges from the frozen result; that divergence strengthens the reproducibility record and does not replace the canonical metrics. His subsequent clean verification of the shipped package closes the operational checks in Appendix F.
 
 ## 10. Appendix C - Reproduction Commands
 
@@ -332,21 +332,54 @@ Four captures appear below. The complete 12-case record, with every screenshot, 
 
 Victor acts as a second person reproducing the reported results from the repository alone, on a machine that is not the development machine. Its purpose is to establish that the numbers in Section 5 are properties of the artifacts and instructions themselves, reproducible away from one local environment.
 
-The full record, including the exact commands, console output and machine specification, is kept as `docs/dle602-a3/validation-victor.md` in the ReviewPulse repository and merged through a reviewed pull request. This appendix carries the summary.
+The first independent record is kept as `docs/dle602-a3/validation-victor.md` and was merged through ReviewPulse PR #123. On Linux with NVIDIA CUDA, Victor recomputed the stored full-test metrics from all six confusion matrices, reproduced the TF-IDF, LSTM and ATAE-LSTM values in a fresh four-model run, and confirmed the RQ1/RQ2 conclusions. His fresh DistilBERT obtained 0.8366 accuracy and 0.7490 macro-F1, above the frozen 0.8259 and 0.7231; the run is retained as separately versioned evidence because one seed does not guarantee identical Transformer retraining across devices. He then completed a clean validation of the shipped artifacts without retraining; Table F1 records those checks separately from the CUDA experiment.
 
 | Check | Expected | Observed | Result |
 |---|---|---|---|
-| F1. Constrained installation | `pip install -r requirements.txt -c constraints-a3.txt` succeeds with no undocumented manual step | | Pending |
-| F2. Artifact retrieval | `git lfs pull` materialises all six artifacts; `git lfs ls-files -s` shows no unresolved pointer | | Pending |
-| F3. Test suite | Clean clone reports 357 passed and 9 skipped; the skips are the documented licensed-data absences | | Pending |
-| F4. Offline smoke | `scripts/smoke_absa.py` returns one prediction per aspect with no SemEval data present | | Pending |
-| F5. Dataset audit | Official retained test count 1,120; mixed-polarity subset 228 instances across 80 sentences | | Pending |
-| F6. Headline results | Table 3 accuracy and macro-F1 reproduce from the shipped artifacts | | Pending |
-| F7. Reference verification | Each cited work is checked against the original publication and supports the claim made | | Pending |
+| F1. Constrained installation | `pip install -r requirements.txt -c constraints-a3.txt` succeeds with no undocumented manual step | A fresh checkout installed successfully against `constraints-a3.txt`; no undocumented manual installation step was required | Pass |
+| F2. Artifact retrieval | `git lfs pull` materialises all six artifacts; `git lfs ls-files -s` shows no unresolved pointer | `git lfs pull` completed and `git lfs ls-files -s` marked all six artifacts with `*`, including the 268 MB DistilBERT weights | Pass |
+| F3. Test suite | Clean clone reports 357 passed and 9 skipped; the skips are the documented licensed-data absences | The complete suite reported 366 passed and 48 warnings in 64.99 seconds, with zero skips because this checkout contained the licensed corpus and prediction evidence | Pass |
+| F4. Offline smoke | `scripts/smoke_absa.py` returns one prediction per aspect with no SemEval data present | With the SemEval XML unavailable, the forced-offline smoke loaded the four canonical artifacts and returned one prediction per supplied aspect without attempting corpus or network access | Pass |
+| F5. Dataset audit | Official retained test count 1,120; mixed-polarity subset 228 instances across 80 sentences | The audit verified 3,693 train and 1,134 raw test annotations, 91/14 excluded `conflict` labels and zero invalid offsets; the retained test contains 1,120 instances, of which 228 across 80 sentences form the mixed-polarity subset | Pass |
+| F6. Headline results | Table 3 accuracy and macro-F1 reproduce from the shipped artifacts | Direct evaluation of the materialised artifacts reproduced TF-IDF, LSTM and ATAE-LSTM exactly; the shipped DistilBERT matched the separately frozen supplemental record, while the older Table 3 artifact and fresh CUDA retraining remain distinct versioned results | Pass with provenance note |
+| F7. Reference verification | Each cited work is checked against the original publication and supports the claim made | Seven cited works were audited and all six ACL Anthology records matched; Victor correctly raised that the arXiv page alone did not establish the DistilBERT venue, which the official EMC² programme and hosted workshop paper independently confirmed | Pass |
 
 *Table F1. Independent reproduction checks, expected values and outcomes.*
 
-Where an observed value differs from the expected value, the difference is recorded as observed and explained, never adjusted. A reproduction that surfaces a genuine discrepancy is more valuable to this report than one that confirms every figure, and F3 in particular is expected to differ from the development machine by design: the six sample-provenance tests skip wherever the frozen evaluation predictions are absent. Rows that receive no evidence before submission are removed from this appendix, not published as empty claims.
+The DistilBERT venue query demonstrates the purpose of independent review. The source Victor initially checked supported the authors, title and year but not the workshop claim, so he reported the uncertainty instead of assuming it away. The [official EMC² NeurIPS 2019 programme](https://www.emc2-ai.org/neurips-19) and [hosted workshop paper](https://www.emc2-ai.org/assets/docs/neurips-19/emc2-neurips19-paper-33.pdf) identify the work as part of the 5th Workshop on Energy Efficient Machine Learning and Cognitive Computing; the report citation therefore remains unchanged. Victor audited the earlier report baseline, but its seven-entry bibliography is unchanged in this version.
+
+Where an observed value differs from the expected value, the difference is recorded as observed and explained, never adjusted. A reproduction that surfaces a genuine discrepancy is more valuable to this report than one that confirms every figure. F3 differs from the clean-room expectation because Victor's checkout contained the licensed corpus and frozen prediction evidence, so the provenance tests ran instead of skipping.
+
+### F.1 Scope of the independent evidence
+
+Victor's independent record covers the clean constrained installation, Git LFS materialisation, complete suite, forced-offline smoke test, dataset audit and shipped-artifact evaluation. Every status in Table F1 is based on observed command output from the recorded environment.
+
+### F.2 Canonical shipped artifact results
+
+Table F2 reports values obtained directly from the materialised shipped artifacts. They match the frozen supplemental artifact set. The older report row and the fresh retraining row remain separate versioned DistilBERT results.
+
+| Model | Test accuracy | Test macro-F1 | Mixed accuracy | Mixed macro-F1 |
+|---|---:|---:|---:|---:|
+| TF-IDF | 0.7018 | 0.4605 | 0.4430 | 0.3319 |
+| LSTM | 0.6687 | 0.4326 | 0.4167 | 0.3264 |
+| ATAE-LSTM | 0.6438 | 0.4799 | 0.4737 | 0.4491 |
+| DistilBERT shipped suplemental artifact | 0.8250 | 0.7199 | 0.6667 | 0.6473 |
+| DistilBERT retrained (not shipped) | 0.8366 | 0.7490 | 0.7061 | 0.6956 |
+
+*Table F2. Materialised shipped four-model artifact results on 1,120 retained official test instances and the 228-instance mixed-polarity subset drawn from 80 sentences.*
+
+### F.3 Experimental branch
+
+The `ABSA-Experimental` branch is a bounded research track and is not the source of the canonical Table 3 artifacts. Commits `52c18fd` and `4aa8c68` add compact-encoder experiments, their scripts and an optional Streamlit connection while keeping the entry points separate from `src.absa.training.runner` and `src.absa.evaluation.runner`. The branch compares domain-adapted BERT-Mini with a compressed BERT-Small candidate under a strict sub-100 MB artifact limit.
+
+| Candidate | Precision | Artifact | Test accuracy | Test macro-F1 |
+|---|---|---:|---:|---:|
+| Tuned BERT-Mini | FP32 | 43.31 MB | 0.7598 | 0.6531 |
+| BERT-Small | FP16 | 55.55 MB | 0.7938 | 0.6951 |
+
+*Table F3. Experimental compact-encoder results. BERT-Small FP16 is stronger within the storage constraint, while both candidates remain below the fresh 256.11 MB DistilBERT result (0.8366 accuracy, 0.7490 macro-F1).*
+
+The experiment supports an artifact-size and predictive-quality comparison only. FP16 verification was performed on CUDA and does not establish CPU or MPS portability or latency. An initial verifier also exposed the need to exclude SemEval `conflict` labels; the corrected path uses `split_official_data` and therefore matches the canonical negative/neutral/positive task. None of these experimental values replaces the shipped four-model record.
 
 ## 14. Appendix G - Implementation Walkthrough and Configuration Evidence
 
