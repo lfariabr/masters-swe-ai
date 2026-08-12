@@ -22,6 +22,57 @@
 | 5 | Activity 1: Opinion Matters — react to Hohman et al.'s claim about visual analytics as an integral component of modern AI (≤100 words, forum) | 🕐 |
 | 6 | Activity 2: Interactive Learning Activity — play with playground.tensorflow.org and report the experience (≤100 words, forum) | 🕐 |
 | 7 | Activity 3: Discussion — will you use visual analytics in A3? (no submission, live discussion) | 🕐 |
+| 8 | **Pre-class activity (Tayab): TensorFlow Playground** — change 1-2 parameters, record **one** observation | 🕐 |
+| 9 | **A3 deliverable from this module:** pick **one visualisation** from the project and write **2-3 sentences** on what it shows | 🕐 |
+| 10 | In-class activity: pick an application (medical / facial recognition / autonomous vehicles / recruitment / credit) — what happens on a wrong decision, who needs the explanation, what should it contain | 🕐 |
+| 11 | Optional: record a **4-6 min demo video** of the running A3 code | 🕐 |
+
+---
+
+## Live Class Notes (Wk 12, Tayab) — what the lecture added beyond the readings
+
+*Class recording 12 Aug 2026 (~34 min; the session ended early so students could complete the subject/lecturer evaluation survey, so the CNN/RNN visual-analytics content was not covered live). Framing question: **"making neural networks easier to understand."***
+
+### 1. A3 instructions given in this class (act on these)
+
+- **Due at the end of Module 12.**
+- **Optional 4-6 minute demo video**, submitted alongside the report and code. *"Just show the exact thing running and how the results are being produced"* — no explanation, no detail, just the demo. Not compulsory.
+- **The Module 11 → A3 link, stated explicitly:** *select one visualisation from your project and write two to three sentences explaining what it shows.*
+- **His expected minimum for sentiment-analysis projects:** *"you have to demonstrate confusion matrices and show how the results are appearing."* Anything richer (attention, attribution) is above the bar, not instead of it.
+
+### 2. Visualisation vs visual analytics (a named learning outcome he listed)
+
+- **Visualisation** = the representation itself (a chart, a heatmap, a confusion matrix).
+- **Visual analytics** = visualisation **plus interaction plus a human reasoning loop** — you explore, form hypotheses, filter, and drill down. This is why Hohman et al.'s survey is about *systems*, not pictures.
+
+### 3. His framing of the black-box problem
+
+- Scale: thousands to millions of parameters (billions in generative models), complex non-linear relationships, features learned **automatically** from data. The automatic feature learning is the advantage *and* the reason it is opaque.
+- The four questions to ask of any prediction: **why was this decision made · which information influenced it · is the result reliable · can you trace it back.**
+- Why it is a problem in practice: high accuracy can coexist with **unidentified bias**; training data is mostly publicly scraped and therefore human-generated, so bias is inherited; poor-quality training data is hard to detect; decisions are hard to explain to users, which blocks trust.
+- His stakes examples: **rejecting a loan application · identifying a medical condition · misrecognising a person · recruitment · credit assessment.**
+
+### 4. The anecdote worth remembering (his own paper)
+
+A PhD student on a bacterial-detection deep learning paper produced *"exceptionally good"* results. Tayab was **sceptical**, asked for checks before submission, and the student found discrepancies; corrected, the results were *"reasonably okay."* His conclusion, said twice:
+
+> **Do not expect very high accuracy. Expect to know why the result is what it is, and what evidence produced it.**
+
+- Related student contribution (Victor): undocumented HuggingFace image-generation models give beautiful outputs with **no documentation of training data or parameters** — a black box you cannot interrogate.
+
+### 5. His answer to "what actually opens the black box"
+
+Not a technique. He pushed the class until they got to **domain knowledge / domain expertise** and **critical thinking**. Visualisation supports the judgement; it does not replace it. Worth quoting in the Opinion Matters post.
+
+### 6. Module 10 recap quiz he re-ran (free revision)
+
+| Q | Answer |
+|---|---|
+| Main purpose of a structured probabilistic model | Represent relationships among variables |
+| Which uses directed connections | **Bayesian network** |
+| *"Fever and cough..."* | **Conditionally independent given the disease** |
+| Model for neighbouring image pixels | **Markov random field** |
+| What is inference | **Using available evidence to estimate unknown variables** |
 
 ---
 

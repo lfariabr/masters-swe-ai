@@ -50,7 +50,7 @@ Dr. Tayab Din Memon
 - [X] Module 8 ✅ - Recurrent Neural Networks and Long Short-Term Memory
 - [X] Module 9 ✅ - Representation Learning
 - [X] Module 10 ✅ - Structurked Probabilistic Models for Deep Learning
-- [ ] Module 11 🔥 - Visual Analytics in Deep Learning
+- [X] Module 11 ✅ - Visual Analytics in Deep Learning
 - [ ] Module 12 🕐 - Practical Methodologies and the Future of Deep Learning
 
 ## Assignments

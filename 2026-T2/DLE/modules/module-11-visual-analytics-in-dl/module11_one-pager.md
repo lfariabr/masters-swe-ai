@@ -32,6 +32,8 @@
   *"To interpret representations (why), model developers (who) visualise neuron activations in CNNs (what) using t-SNE (how) after training (when) to solve an urban planning problem (where)."*
 - 🔵 **Interpretation vs explanation** (Montavon et al.): an **interpretation** maps an abstract concept into a human-sensible domain; an **explanation** is the set of interpretable-domain features that produced *this* decision (e.g. a heatmap). Lipton: an explanation can show predictions **without** revealing the mechanism.
 - 🔴 **There is NO agreed formal definition of interpretability.** The survey says so about itself. This is your critical-edge sentence.
+- 🔵 **Visualisation vs visual analytics** (Tayab named this as a learning outcome): **visualisation** = the picture (chart, heatmap, confusion matrix); **visual analytics** = picture **+ interaction + a human reasoning loop**. That is why the survey studies *systems*, not images.
+- 🔴 **What actually opens the black box** (his answer, after pushing the class): **domain expertise + critical thinking.** The visualisation supports the judgement; it does not replace it.
 
 ## 🖤 Zone 2 - WHAT maps to HOW ⭐ SLOs c) + d) - THE GRADED CORE
 
@@ -86,9 +88,11 @@
 ---
 
 ## 🔴 Assessment Hook (bottom red strip)
-> **Assessment 3 - Deep Learning Final Project** · source code + **1500-word report ±10%** · **group** · **40%** · due **19/08/2026** · SLOs **c) d) e)**.
-> Module 11's A3 task (README): *"explore visual analytics and how it may help explain, interpret, debug, and improve neural networks in the project."* One attribution figure on a few correct AND incorrect test instances is worth more than six half-done visualisations - it is direct evidence for SLO `d)` and feeds the 30% "integration of knowledge / depth of discussion" criterion.
+> **Assessment 3 - Deep Learning Final Project** · source code + **1500-word report ±10%** · **group** · **40%** · due **19/08/2026** (end of Module 12) · SLOs **c) d) e)**.
+> **What Tayab asked for in the Wk 12 class:** (1) pick **ONE visualisation** from your project and write **2-3 sentences** on what it shows; (2) for sentiment projects the expected minimum is a **confusion matrix** with the results explained; (3) an **optional 4-6 min demo video** of the running code, submitted with the report and code - *"just show the exact thing running"*, no commentary.
+> Anything richer (attention, gradient × input) sits **above** that bar, not instead of it, and feeds the 30% "integration / depth of discussion" criterion.
 > ⚠ For a **text** model the CNN techniques do not transfer: use **attention weights** aligned to token offsets and **gradient × input**, not Grad-CAM.
+> 🔴 His stated standard: ***"Do not expect very high accuracy. Expect to know why."*** (from his own paper - a PhD student's "exceptionally good" bacterial-detection results turned out to contain discrepancies).
 
 ## 🔴 If you only memorise 5 things
 1. **Five W's and How** = Why · Who · What · How · When · Where. It is the survey's whole structure and a template for positioning any tool.
@@ -105,6 +109,8 @@
 
 ### This-week to-dos (still 🕐 / 🔥 in your notes)
 - [ ] 🕐 **Activity 1 - Opinion Matters** (≤100 words, forum): react to Hohman et al.'s claim about visual analytics in modern AI. *Agree, then qualify with the survey's own three admissions.*
-- [ ] 🕐 **Activity 2 - Interactive Learning Activity** (≤100 words, forum): play with **playground.tensorflow.org**, report whether the visualisation helped you understand the model.
+- [ ] 🕐 **Activity 2 - Interactive Learning Activity** (≤100 words, forum): play with **playground.tensorflow.org**, report whether the visualisation helped you understand the model. *He set this as PRE-class work: change 1-2 parameters, record ONE observation.*
 - [ ] 🕐 **Activity 3 - Discussion** (no submission): will you use visual analytics in A3? Any unique benefit discovered while building?
+- [ ] 🕐 **A3 (his explicit ask):** choose ONE visualisation from ReviewPulse + write 2-3 sentences on what it shows. Confusion matrix is the floor.
+- [ ] 🕐 Decide on the **optional 4-6 min demo video** (running code only).
 - [ ] 🔥 Produce ONE real figure for A3 (attention + gradient × input on a mixed-polarity case) and write its limitation caption.
