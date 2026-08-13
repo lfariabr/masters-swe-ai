@@ -1456,6 +1456,137 @@ To complete this learning activity, follow these steps:
 
 ---
 
+## Module 12 - Future of Machine Learning (ML): Enterprise Grade ML and Weak Supervision
+
+### TLDR
+
+### Introduction
+The future of machine learning (ML) depends heavily on projects moving from the notebook to production (the last stage of the CRISP-DM) across entire government departments or business enterprises and providing individuals other than data scientists and data analysts with access to the model.
+
+This Module focuses on the current trends in enterprise ML, including the handoff from the data science team who build the models to the emerging role of the data engineers responsible for production deployment. If production is one major bottleneck in the use of ML models, the other major issue is the labelling of training data. One way to overcome the availability of suitable training data for models under development is to use humans to label data sets. However, manually generating labels is not only resource intensive but time consuming and subject to human error. To overcome such a human intensive activity weak supervision can be used to efficiently provide lower quality labels. This approach to using labels of varying quality could be used to help programmatically generate very large training data sets and thus become a major area of focus for the deployment of ML.
+
+Two major challenges are holding back the widespread deployment and usage of ML model software applications within organisations and the government. The first relates to the ability to readily handover ML models generated within notebooks to IT department with an expectation of an immediate company-wide deployment. Unfortunately, considerable effort is required before the models can enter production. The second aspect relates to harnessing the weak supervision of lower quality label data sets to help generate labelled training data. Both these areas are examined in this final module.
+
+### Resources
+
+#### 1. Building Machine Learning Projects in the Enterprise—Episode 69
+- Macey, T. (Interviewer). (2019, 11 February). Episode #69: Building machine learning projects in the enterprise [Audio podcast]. Retrieved from https://www.dataengineeringpodcast.com/prolego-ml-consulting-episode-69/
+
+*Resource Overview:*
+    
+    This podcast focuses entirely on putting ML models into production. The role of the data engineer is discussed at length as is the necessity of having SQL skills. Some suggestions are made as to the positioning of the data engineering role and how this role is required to put the plumbing into place before the production deployment of the ML model.
+
+    If you wish to work as a data engineer, you should listen to the entire podcast. If not, focus on the first 20 minutes of the podcast.
+
+> *Status: 🕐 To-Do* 
+
+#### 2. Machine Learning in the Enterprise: Five Hard Truths
+- Casey, K. (2020, 30 July). Machine learning in the enterprise: 5 hard truths. Retrieved from https://enterprisersproject.com/article/2020/7/machine-learning-5-lessons-learned
+
+*Resource Overview:*
+
+    This short article covers some lessons that have been learned in trying to put ML models into production. The lessons relate to talent, training data, managing business expectations and the automation of the production pipeline to avoid software development issues.
+
+> *Status: 🕐 To-Do* 
+
+#### 3. Machine Learning in the Enterprise: Where Will the Next Trillion Dollars of Value Accrue?
+- Xu, L. (2020, 15 July). Machine Learning in the enterprise: Where will the next trillion dollars of value accrue? Retrieved from https://www.forbes.com/sites/louisaxu/2020/07/15/machine-learning-in-the-enterprise-where-will-the-next-trillion-dollars-of-value-accrue/#4d75152be1aa
+
+*Resource Overview:*
+
+    This article looks at the companies and tools that help to overcome the issues holding back ML from having a massive impact in industries. Not only is ML being embedded across industries, but vertically integrated ML applications are impacting healthcare, industry, security and agriculture in ways not thought possible.
+
+> *Status: 🕐 To-Do* 
+
+#### 4. State of Enterprise Machine Learning in 2020: Seven Key Findings
+- Bayern, M. (2019, 12 December). State of enterprise machine learning in 2020: 7 key findings. Retrieved from https://www.techrepublic.com/article/state-of-enterprise-machine-learning-in-2020-7-key-findings/
+
+*Resource Overview:*
+    
+    This article provides another take on the obstacles facing companies seeking to implement ML across their enterprises. Particularly noteworthy is the length of time it takes to deploy a model. Twenty per cent of the companies consulted for the study take over 90 days to deploy a model. Of the companies, 38 per cent cited cost cutting as a major reason for ML deployment and nearly half (43 per cent) viewed scaling as a key challenge that requires individuals with a different skill set to model builders.
+
+> *Status: 🕐 To-Do* 
+
+#### 5. A 10-year Prediction for Enterprise-Grade Machine Learning
+- Agrawal, A. Chatterjee, R., Curino, C., Floratou, A. Gowdal, N., Interlandi, M. . . . Zhu, Y. (2019, 12 December). Cloudy with high chance of DBMS: A 10-year prediction for enterprise-grade ML. Retrieved from http://cidrdb.org/cidr2020/papers/p8-agrawal-cidr20.pdf
+
+*Resource Overview:*
+
+    This interesting vision paper from Microsoft experts foreshadows a transition from ML consumer applications to enterprise applications. This paper refers to an emerging class of applications (apps) referred to as Enterprise Grade Machine Learning (EGML) apps. The boldest prediction by the paper relates to models migrating into database systems. This seems to be a natural move given that databases have widespread acceptance as key components of enterprise applications. Further, the authors ‘predict that in the next 10 years, hundreds of thousands of small teams will build millions of ML-infused applications—most just moderately remunerative, but with huge collective value’.
+
+> *Status: 🕐 To-Do* 
+
+#### 6. Weak Supervision: A New Paradigm for Unreliable Data
+- Bell, E. (2019, 19 July). Eddie Bell: Weak supervision: A new paradigm for unreliable data [Video file]. Retrieved from https://www.youtube.com/watch?v=KRcgteDTm3k
+
+*Resource Overview:*
+
+    This video explains the importance of labelled training data sets for real-world tasks. To address the bottleneck of labelled training data, a set of approaches helps programmatically label the data. The context of the presentation is a fraud application ideal for the programmatic approach. You are encouraged to watch the video in its entirety. The key areas of coverage are the importance of labels and making use of unreliable labels and opportunities to engineer the labels themselves. The greatest gains in ML are expected to come from new labels and approaches to labelling (e.g., combining high-quality and low-quality labels).
+
+> *Status: 🕐 To-Do* 
+
+#### 7. Snorkel: Extracting Value from Dark Data with Alex Ratner—Episode 15
+- Macey, T. (Interviewer). (2018, 22 January). Episode #15: Snorkel: Extracting value from dark data [Audio podcast]. Retrieved from https://www.dataengineeringpodcast.com/snorkel-with-alex-ratner-episode-15/
+
+*Resource Overview:*
+
+    Snorkel is a system for programmatically building and managing training datasets without manual labelling. In Snorkel, users can develop large training data sets in hours or days rather than hand-labelling them over weeks or months. This podcast looks at the Snorkel Python library to generate training sets for ML models. Notably, dark data relates to unstructured data. An opportunity exists to label this untapped resource for supervised ML.
+
+> *Status: 🕐 To-Do* 
+
+#### 8. The Cold-Start Problem with Stanford Snorkel
+- Powell, A. (2020, 8 February). The cold-start problem with Stanford Snorkel. Retrieved from https://medium.com/analytics-vidhya/the-cold-start-problem-with-stanford-snorkel-6fc5b55ec216
+
+*Resource Overview:*
+
+    This resource provides an introduction to Snorkel and weakly supervised ML. It answers the question of what to do when you do not have training data. The author shares his experience of using the library to address real problems. The takeaways are not convincing, but the alternative is to have many humans label the data by hand. Using human labour to label data is not really tenable in the generation of very large training data sets.
+
+> *Status: 🕐 To-Do* 
+
+### Learning Activities
+
+#### 1. Microsoft Azure SQL Edge
+- Microsoft. (n.d.). Azure SQL Edge. Retrieved from https://azure.microsoft.com/en-au/services/sql-edge/#product-overview
+- ODSC. (2020, 4 April). What is federated learning? [Web log post]. Retrieved from https://medium.com/@ODSC/what-is-federated-learning-99c7fc9bc4f5
+
+The paper entitled Cloudy with High Chance of DBMS: A 10-year Prediction for Enterprise-Grade ML (Agarwal et al., 2019; see the essential resources) discusses the long-term cross over between ML and database systems. The future has already arrived in the form of the Microsoft Azure SQL Edge (Preview) database (https://azure.microsoft.com/en-au/services/sql-edge/). This database is optimised for Internet of Things workloads on edge devices.
+
+To complete this learning activity, follow these steps:
+
+1. Watch a demo on real-time analytics over time-series data in which data from a simulation of robot sensors are inserted into a SQL database and ML algorithms are run over the data. (https://azure.microsoft.com/en-us/asset/video-player/sql-database-edge-streaming-machine-learning).
+2. Review the frequently asked questions about Azure SQL Edge (https://azure.microsoft.com/en-us/services/sql-edge/#faqs) to understand its commercial availability and details.
+3. Consider the deployment scenario (https://docs.microsoft.com/en-au/azure/azure-sql-edge/overview).
+4. Explore ML in Azure SQL Edge (Preview) and obtain models in the Open Neural Network Exchange (ONNX) format.
+5. Familiarise yourself with the ONNX open format that was built to represent machine learning models (https://onnx.ai/).
+6. At the conclusion of these learning activities, share your views on the usefulness (or not) of ONNX, (v1.7) in the discussion forum and describe in detail your own deployment scenarios for the SQL Edge database. If you do not have access to the SQL Edge product, how would you try to achieve the same capability? Could SQL Edge be used to achieve Federated Learning? (OSDC, 2020).
+
+> *Status: 🕐 To-Do* 
+
+#### 2. Snorkel Tutorial
+As mentioned in the essential resources, Snorkel is a system for programmatically building and managing training datasets without manual labelling. In Snorkel, users can develop large training datasets in hours or days rather than hand-labelling them over weeks or months.
+
+Review the basics of writing labelling functions (https://www.snorkel.org/get-started/).
+
+Complete the Snorkel Introduction Tutorial: Data Labelling (https://www.snorkel.org/use-cases/01-spam-tutorial).
+
+Once complete, share details of your experience to the discussion forum. In your post, answer the following questions:
+- Can you follow and comment on the approach suggested in the use of Snorkel to develop large training data sets?
+- Do you have any training data sets in mind that you feel will be suitable for training?
+- Can you identify any other approaches that might be suitable?
+
+> *Status: 🕐 To-Do* 
+
+#### 3. The Human Factor in Machine Learning Adoption
+- Bell, T. (2018, 28 March). The human side of implementing AI. CIO Australia. Retrieved from https://www.cio.com/article/3263791/the-human-side-of-implementing-ai.html
+
+Imagine that the organisation that you have joined is launching ML and its supporting applications across the entire enterprise. How can you go about ensuring the acceptance of ML in your organisation? What role will you adopt? Do you see yourself as an evangelist in the area who helps others benefit from the forthcoming implementations of ML?
+
+Bell (2018) is a short resource that you might wish to consult to gain some ideas. Upon completion of this activity, share your thoughts with others to the online discussion forum on how best you could help the enterprise to overcome any resistance to the use of ML to create a highly productive environment.
+
+> *Status: 🕐 To-Do* 
+
+---
+
 ```bash
 --- PLACEHOLDER:
 ## Module X - ...
