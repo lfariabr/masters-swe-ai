@@ -51,7 +51,7 @@ Dr. Chen Zhan
 - [X] Module 9 ✅ - Clustering
 - [X] Module 10 ✅ - Association Rules
 - [X] Module 11 ✅ - Graph Analytics
-- [ ] Module 12 🕐 - Big Data Privacy and Security
+- [ ] Module 12 🔥 - Big Data Privacy and Security
 
 ## Assignments
 - [X] Assessment 1 - deadline 28/06/2026 ✅, **Design Data Pipeline**: report, 1500 words +/- 10% with supporting images, 30%, SLOs `a)`, `b)`, `e)`, 93/100 pts

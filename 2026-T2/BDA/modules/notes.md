@@ -1006,6 +1006,91 @@ Submit your answer to the ‘Graph Analytics’ discussion forum. Review other s
 
 ---
 
+## Module 12 - Big Data Privacy and Security
+
+### TLDR
+
+### Introduction
+The privacy and the security of big data is an important issue. People use the terms interchangeably; however, despite being tied together, big data privacy and security are not necessarily the same thing. Privacy is like the roof of your home, while security is like an important pillar that supports the roof. Security is more about how you protect big data from unauthorised access. Conversely, data privacy not only incorporates data security aspects but also regulates issues, such as what data are permissible to collect, how the data can be used and who else can have access to the data. 
+
+In the world of big data, we are collecting more data about more people from more sources than ever before. We connect these data sources using both private and public networks and aggregate the information into distributed databases. As a result, the privacy and security concerns of big data are not limited to single network database nodes; rather, the privacy and security concerns are spread across the entire big data processing life cycle.
+
+Finally, unlike traditional datasets, challenges arise in relation to big data privacy and security due to the Vs of big data (e.g., volume, velocity and variety), as these add that extra complexities to the data life cycle. 
+
+### Resources
+
+#### 1. Big Data Analytics: Security, Compliance, Auditing and Protection
+- Ohlhorst, F. (2013). Big data analytics: Turning big data into big money. Hoboken, NJ: John Wiley. Retrieved from https://ebookcentral-proquest-com.torrens.idm.oclc.org/lib/think/reader.action?docID=821833&ppg=79
+
+*Resource Overview:*
+
+    This resource discusses security, compliance, auditing and the protection of big data. This resource argues that despite the complexity of big data, effective security of big data is an attainable goal. 
+
+    Read ‘Chapter 7: Security, compliance, auditing and protection’ (pp. 63–77). This chapter discusses some pragmatic steps to securing big data. It also highlights relevant issues using examples that make the discussion easy to follow. 
+
+> *Status: 🕐 To-Do*
+
+#### 2. Data Security
+- Chapple, M. (2018, 18 May). Data security [Video file]. Retrieved from https://www.linkedin.com/learning/sscp-cert-prep-2-security-operations-and-administration/understanding-data-security?u=56744473
+
+*Resource Overview:*
+
+    This video talks about different aspects of data security and briefly relates these aspects to big data. One of the interesting points it highlights is the two different states at which data security can be looked at; that is, data at rest and data at motion. 
+
+    Watch all the short clips from ‘Section 4: Data Security’. The data security principles discussed in this video are applicable to big data security. 
+
+> *Status: 🕐 To-Do*
+
+#### 3. Big Data and Analytics
+- Torrens University. (2020). Big data and analytics interview [Video file]. Retrieved from https://cdnapisec.kaltura.com/p/1282131/sp/128213100/embedIframeJs/uiconf_id/42833962/partner_id/1282131?iframeembed=true&playerId=kaltura_player_1600412732&entry_id=0_e8jrgx86"Links to an external site.
+
+*Resource Overview:*
+
+    This video talks about the potential of big data and analysis and is a great way to finish the subject! 
+
+    In the video, industry leader Suresh Sood shares his experiences and provides guidelines for emerging data scientists. This video will help you to understand all the jargon, such as big data, data analysis, machine learning and deep learning. 
+
+> *Status: 🕐 To-Do*
+
+#### 4. General Data Protection Regulation
+- Gdpr-info.eu. (n.d.). General Data Protection Regulation (GDPR). Retrieved from https://gdpr-info.eu/
+
+*Resource Overview:*
+
+    This additional resource will introduce you to the General Data Protection Regulation (GDPR). These regulations represent European Union (EU) law on data protection and privacy in the EU. 
+
+    Despite only coming into effect recently, the GDPR was years in the making. It is the single biggest regulation in this area that exists in the world, and it also applies to businesses in Australia and elsewhere. Read as much as you can from the website, as the information will help you secure a career in the big data privacy and security area. 
+
+> *Status: 🕐 To-Do*
+
+### Learning Activities
+
+#### 1. Analyse the Famous Facebook Data Privacy Scandal
+- Patters, D. (2020, 30 July). Facebook data privacy scandal: A cheat sheet. Retrieved from https://www.techrepublic.com/article/facebook-data-privacy-scandal-a-cheat-sheet/
+
+In this activity, you will read and analyse one of the most famous data privacy scandals of recent history involving Facebook. Read the article (below) carefully; however, note, you do not have to understand the meaning of each and every word in the article. Instead you should focus on learning about the scandal and most importantly, pay attention to Facebook’s response. 
+
+Now, put on your decision maker’s hat and think and decide whether you would have responded similarly to Facebook? What other recommendations would you have made?  
+
+Submit your descriptive answer to the ‘Big Data Privacy and Security’ discussion forum. 
+
+Review other students’ submissions and provide feedback. 
+
+> *Status: 🕐 To-Do*
+
+#### 2. Review All Things Big Data and Analytics
+This is the last activity of the subject and is an activity without any rigid format. Share your responses to the following questions vocally with the class: 
+
+- According to you, what is the most important topic of this entire subject? Why? 
+- What is the most interesting topic that you learned about in this subject? 
+- Over the 12 modules, you have studied different areas of big data and analytics. From what you have learned, which area of big data and analytics do you think is currently at its weakest? How could this weakness be overcome? 
+
+Please listen to other students’ answers and provide feedback.
+
+> *Status: 🕐 To-Do*
+
+---
+
 ```bash
 --- PLACEHOLDER:
 ## Module X - ...
