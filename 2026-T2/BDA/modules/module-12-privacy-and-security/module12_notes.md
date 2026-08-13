@@ -1,5 +1,12 @@
 # Module 12 — Big Data Privacy and Security
 
+## TL;DR
+- **Privacy ≠ security**: security controls unauthorised access; privacy governs what may be collected, how it's used, and who can access it - privacy incorporates security but adds governance on top.
+- Securing Big Data is a **four-way balancing act** (access, availability, performance, liability) with no clean solution - tightening one loosens another (Ohlhorst).
+- **Data classification** and the **at-rest/in-motion** split (Chapple) are the two practical levers for routing the right control to the right data.
+- **GDPR** sets a risk-based legal floor for lawful processing within its scope: an Article 6 lawful basis, subject rights, breach notification "without undue delay," and tiered Article 83 fines.
+- 🔴 Module 12 is conceptual/ethical closing content, not a required A3 component - but its framing is a legitimate cross-reference if A3 discusses responsible data use.
+
 ## Task List
 
 | # | Task | Status |
@@ -48,7 +55,7 @@ Ohlhorst frames Big Data security as a **balancing act**, not a solvable problem
 - Workload shape is the worst case for backup appliances: **billions of small files + a handful of massive database files** simultaneously - this dual profile is the real engineering challenge, not raw volume alone.
 
 #### 5. Compliance: healthcare as the worked example
-- Big Data doesn't fit relational databases, which makes "does compliance law even apply to this new architecture" a genuinely unresolved question in places.
+- Regulatory scope follows the personal data being processed and the jurisdiction involved, not the database engine - a Hadoop/Cassandra/MongoDB store is not exempt from compliance law just because it isn't relational. Ohlhorst's own concern was historical: non-relational stores were, at the time of writing, less mature at *enforcing* compliance controls, not that the law didn't reach them. The practical implication is that privacy/security controls have to follow the data across every distributed store it touches.
 - **HIPAA-driven** electronic health records are Ohlhorst's case study for how compliance and Big Data collide: massive sensitive data volumes, real-time access, inter-enterprise exchange, and stores (Hadoop, Cassandra, MongoDB) that historically shipped with **little to no built-in data-level security**.
 - Four goals distilled from the healthcare industry's response:
   1. **Control access by process, not job function** - OS-level access ≠ entitlement to the data on that server.
@@ -59,7 +66,7 @@ Ohlhorst frames Big Data security as a **balancing act**, not a solvable problem
 
 #### 6. Intellectual property (IP) protection
 - Big Data consolidates diverse content (photos → patent filings) into one store, making it easy for IP to get swept up and exposed by design, since analytics is explicitly built to surface "nuggets" of information.
-- Seven practical rules given: understand & inventory what needs protecting, prioritise by risk/cost-benefit, label confidential data, physically lock down storage, train employees (the "weakest link"), use DLP tooling, take a holistic view (isolated incidents often hide one repeat offender), and think like an attacker ("counterintelligence mind-set").
+- Eight practical rules given: understand & inventory what needs protecting, prioritise by risk/cost-benefit, label confidential data, physically lock down storage, train employees (the "weakest link"), use DLP tooling, take a holistic view (isolated incidents often hide one repeat offender), and think like an attacker ("counterintelligence mind-set").
 
 #### Key Takeaways for BDA601
 1. **The classification-then-control pattern maps directly onto Synergetic**: student PII (medical/behavioural notes), financial data (fee accounts), and general comms records already sit in different sensitivity tiers in practice - Ohlhorst's four healthcare-derived goals (process-based access, encryption at rest, separated key management, hardened application stack) are the same controls a school SIS admin reasons about, just without the "Big Data" label.
@@ -72,7 +79,7 @@ Ohlhorst frames Big Data security as a **balancing act**, not a solvable problem
 
 **Citation:** Chapple, M. (2018, 18 May). Data security [Video file]. Retrieved from https://www.linkedin.com/learning/sscp-cert-prep-2-security-operations-and-administration/understanding-data-security
 
-**Purpose:** A short, practitioner-level primer distinguishing the two physical *states* data can be in - and therefore the two different attack surfaces - security controls have to cover.
+**Purpose:** A short, practitioner-level primer distinguishing the two *states* this clip covers - and therefore the two different attack surfaces - security controls have to address. (Not exhaustive: NIST also names "data in use" as a third state; this resource only covers the two below.)
 
 ---
 
@@ -106,10 +113,10 @@ Ohlhorst frames Big Data security as a **balancing act**, not a solvable problem
 ---
 
 #### 1. Scope: it reaches beyond the EU
-- Applies to all EU member states, **and** to non-EU organisations that process the data of EU residents or offer them goods/services/monitor their behaviour (Article 3, extraterritorial scope) - relevant to any Australian business handling EU customer data, not just EU-based firms.
+- Applies to all EU member states, **and** to non-EU organisations that process the data of, or offer goods/services/monitor the behaviour of, data subjects **in the Union** (Article 3, extraterritorial scope) - precisely "in the Union," not "EU resident," so it also covers visitors and temporary users physically present there. Relevant to any Australian business whose processing meets that test, not just EU-based firms.
 
 #### 2. Lawful basis for processing (Article 6)
-- Organisations must have a legitimate ground before processing personal data at all: **consent, contractual necessity, legal obligation, or legitimate interests.** Processing without one of these grounds is unlawful by default, not just risky.
+- Organisations must have at least one of Article 6's six lawful bases before processing personal data at all: **consent, contract, legal obligation, vital interests, public task, or legitimate interests.** Processing without one of these grounds is unlawful by default, not just risky.
 
 #### 3. Data subject rights (Chapter 3)
 | Right | What it gives the individual |
@@ -122,15 +129,16 @@ Ohlhorst frames Big Data security as a **balancing act**, not a solvable problem
 
 #### 4. Organisational obligations
 - **Data protection by design and default** (Article 25) - privacy has to be architected in, not bolted on.
-- **72-hour breach notification** to authorities (Article 33) - a hard operational deadline, not a best-effort guideline.
+- **Breach notification** to the supervisory authority "without undue delay" and, where feasible, **within 72 hours** (Article 33) - conditional on the breach being likely to result in a risk to individuals, not a universal deadline for every incident.
 - **Data Protection Impact Assessments** required for high-risk processing (Article 35).
 - **Records of processing activities** must be maintained (Article 30).
-- Penalties (Article 83) scale to be genuinely punitive: up to **€20 million or 4% of global annual turnover, whichever is higher**.
+- **Risk-based technical and organisational measures** required under Article 32 - encryption and access control are named examples, not a fixed universal checklist.
+- Penalties (Article 83) are **tiered by infringement severity**; the higher tier reaches up to **€20 million or 4% of global annual turnover, whichever is higher**.
 
 #### Key Takeaways for BDA601
-1. GDPR is the regulatory backbone that makes Ohlhorst's Ch.7 controls (encryption, access control, breach response) legally mandatory rather than optional best practice, for any organisation touching EU data.
-2. 🔴 **Direct A3 relevance if the report/video touches evaluation criteria or ethics**: the 72-hour breach notification clock and the "by design and default" principle are concrete, citable standards for what "good" data handling looks like - useful if A3 asks you to reflect on responsible use of the JHU COVID dataset or model outputs.
-3. School-domain anchor: Synergetic/SEQTA/Schoolbox hold minors' data, which in Australia is governed by the Privacy Act 1988 and APPs rather than GDPR directly - but the **same shape of obligations** (lawful basis, breach notification, data subject access/erasure) applies, making GDPR a useful reference model even outside its jurisdiction.
+1. For organisations within its scope, GDPR's Article 32 makes *some* form of technical and organisational security risk-based mandatory - Ohlhorst's controls (encryption, access control, breach response) are legitimate examples of what that can look like, not the literal text of the law.
+2. 🔴 **Direct A3 relevance if the report/video touches evaluation criteria or ethics**: the "without undue delay" breach-notification standard and the "by design and default" principle are concrete, citable standards for what "good" data handling looks like - useful if A3 asks you to reflect on responsible use of the JHU COVID dataset or model outputs.
+3. School-domain anchor: Synergetic/SEQTA/Schoolbox hold minors' data, governed in Australia by the Privacy Act 1988 and the Australian Privacy Principles (APPs), **not** GDPR. The two aren't equivalent - APPs give access and correction rights, and APP 11.2 requires destruction or de-identification of information once it's no longer needed, but Australia has **no general right to erasure, portability, or objection** the way GDPR does. Useful as a comparative reference model, not as a claim that the same rights apply here.
 
 ---
 

@@ -1013,7 +1013,7 @@ Submit your answer to the ‘Graph Analytics’ discussion forum. Review other s
 - Securing Big Data is a **four-way balancing act**: access, availability, performance, liability - tightening one loosens another, there's no clean solution (Ohlhorst).
 - **Data classification** (financial/HR/sales/inventory/comms) is the practical enabler for everything else - not all data deserves the same controls.
 - **Data at rest vs data in motion** is the core vocabulary for *where* a control applies: encryption differs by state; access control lists cover at-rest; TLS covers in-motion (Chapple).
-- **GDPR** is the binding legal floor for lawful processing: consent/contract/legal-obligation/legitimate-interest as a lawful basis, subject rights (access/rectification/erasure/portability), 72-hour breach notification, and fines up to €20M or 4% global turnover.
+- **GDPR** is a risk-based legal floor for lawful processing within its scope (data subjects "in the Union"): one of Article 6's six lawful bases, subject rights (access/rectification/erasure/portability), breach notification "without undue delay" (≤72hrs where feasible), and tiered fines up to €20M or 4% global turnover.
 - 🔴 Module 12 is **conceptual/ethical closing content, not a required A3 component** - A3's pipeline (regression → K-Means → Graph Analytics → visualisation) doesn't include a privacy/security step, but Ohlhorst's caveat framing and GDPR's principles are legitimate cross-references if A3 discusses responsible data use.
 
 ### Introduction
