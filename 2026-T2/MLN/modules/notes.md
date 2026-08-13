@@ -1458,7 +1458,20 @@ To complete this learning activity, follow these steps:
 
 ## Module 12 - Future of Machine Learning (ML): Enterprise Grade ML and Weak Supervision
 
-### TLDR
+### TL;DR
+The final module tackles the **two bottlenecks that stop ML reaching the real world**:
+- **Production / the last mile.** A trained notebook model is **<20% of the job**; value only lands when it is
+  **deployed, scaled, versioned, and governed** across an enterprise. Reality check: **55% of companies have never
+  deployed** a model and most take **31-90 days** to ship one (**Algorithmia 2020**). Fixes = **MLOps + DevOps
+  discipline**, the emerging **data-engineer** role, and Microsoft's 10-year vision - **train in the cloud, score
+  inside the DBMS, govern everywhere** (**Agrawal et al. 2020**, coining **EGML**), on the insight that *"an ML model
+  is software derived from data."*
+- **Training data / labels.** Supervised ML starves without labels, and hand-labelling does not scale.
+  **Weak supervision** (**Snorkel**) lets domain experts write noisy **labelling functions** (+1 / −1 / 0) that a
+  **generative model** fuses into **probabilistic labels** to train a normal **discriminative model** - programmatically
+  building large training sets (**Bell 2019**, **Ratner 2018**).
+- **So what:** this is the **deployment + communication** end of CRISP-DM - the difference between a notebook and an
+  enterprise system, and the theme of **Assessment 3**.
 
 ### Introduction
 The future of machine learning (ML) depends heavily on projects moving from the notebook to production (the last stage of the CRISP-DM) across entire government departments or business enterprises and providing individuals other than data scientists and data analysts with access to the model.
@@ -1478,7 +1491,7 @@ Two major challenges are holding back the widespread deployment and usage of ML 
 
     If you wish to work as a data engineer, you should listen to the entire podcast. If not, focus on the first 20 minutes of the podcast.
 
-> *Status: 🕐 To-Do* 
+> *Status: ✅ Read + Reviewed - see [module12_notes.md](module-12-future-of-ml/module12_notes.md)* 
 
 #### 2. Machine Learning in the Enterprise: Five Hard Truths
 - Casey, K. (2020, 30 July). Machine learning in the enterprise: 5 hard truths. Retrieved from https://enterprisersproject.com/article/2020/7/machine-learning-5-lessons-learned
@@ -1487,7 +1500,7 @@ Two major challenges are holding back the widespread deployment and usage of ML 
 
     This short article covers some lessons that have been learned in trying to put ML models into production. The lessons relate to talent, training data, managing business expectations and the automation of the production pipeline to avoid software development issues.
 
-> *Status: 🕐 To-Do* 
+> *Status: ✅ Read + Reviewed - see [module12_notes.md](module-12-future-of-ml/module12_notes.md)* 
 
 #### 3. Machine Learning in the Enterprise: Where Will the Next Trillion Dollars of Value Accrue?
 - Xu, L. (2020, 15 July). Machine Learning in the enterprise: Where will the next trillion dollars of value accrue? Retrieved from https://www.forbes.com/sites/louisaxu/2020/07/15/machine-learning-in-the-enterprise-where-will-the-next-trillion-dollars-of-value-accrue/#4d75152be1aa
@@ -1496,7 +1509,7 @@ Two major challenges are holding back the widespread deployment and usage of ML 
 
     This article looks at the companies and tools that help to overcome the issues holding back ML from having a massive impact in industries. Not only is ML being embedded across industries, but vertically integrated ML applications are impacting healthcare, industry, security and agriculture in ways not thought possible.
 
-> *Status: 🕐 To-Do* 
+> *Status: 🔥 Partial (paywalled - intro only) - see [module12_notes.md](module-12-future-of-ml/module12_notes.md)* 
 
 #### 4. State of Enterprise Machine Learning in 2020: Seven Key Findings
 - Bayern, M. (2019, 12 December). State of enterprise machine learning in 2020: 7 key findings. Retrieved from https://www.techrepublic.com/article/state-of-enterprise-machine-learning-in-2020-7-key-findings/
@@ -1505,7 +1518,7 @@ Two major challenges are holding back the widespread deployment and usage of ML 
     
     This article provides another take on the obstacles facing companies seeking to implement ML across their enterprises. Particularly noteworthy is the length of time it takes to deploy a model. Twenty per cent of the companies consulted for the study take over 90 days to deploy a model. Of the companies, 38 per cent cited cost cutting as a major reason for ML deployment and nearly half (43 per cent) viewed scaling as a key challenge that requires individuals with a different skill set to model builders.
 
-> *Status: 🕐 To-Do* 
+> *Status: ✅ Read + Reviewed - see [module12_notes.md](module-12-future-of-ml/module12_notes.md)* 
 
 #### 5. A 10-year Prediction for Enterprise-Grade Machine Learning
 - Agrawal, A. Chatterjee, R., Curino, C., Floratou, A. Gowdal, N., Interlandi, M. . . . Zhu, Y. (2019, 12 December). Cloudy with high chance of DBMS: A 10-year prediction for enterprise-grade ML. Retrieved from http://cidrdb.org/cidr2020/papers/p8-agrawal-cidr20.pdf
@@ -1514,7 +1527,7 @@ Two major challenges are holding back the widespread deployment and usage of ML 
 
     This interesting vision paper from Microsoft experts foreshadows a transition from ML consumer applications to enterprise applications. This paper refers to an emerging class of applications (apps) referred to as Enterprise Grade Machine Learning (EGML) apps. The boldest prediction by the paper relates to models migrating into database systems. This seems to be a natural move given that databases have widespread acceptance as key components of enterprise applications. Further, the authors ‘predict that in the next 10 years, hundreds of thousands of small teams will build millions of ML-infused applications—most just moderately remunerative, but with huge collective value’.
 
-> *Status: 🕐 To-Do* 
+> *Status: ✅ Read + Reviewed - see [module12_notes.md](module-12-future-of-ml/module12_notes.md)* 
 
 #### 6. Weak Supervision: A New Paradigm for Unreliable Data
 - Bell, E. (2019, 19 July). Eddie Bell: Weak supervision: A new paradigm for unreliable data [Video file]. Retrieved from https://www.youtube.com/watch?v=KRcgteDTm3k
@@ -1523,7 +1536,7 @@ Two major challenges are holding back the widespread deployment and usage of ML 
 
     This video explains the importance of labelled training data sets for real-world tasks. To address the bottleneck of labelled training data, a set of approaches helps programmatically label the data. The context of the presentation is a fraud application ideal for the programmatic approach. You are encouraged to watch the video in its entirety. The key areas of coverage are the importance of labels and making use of unreliable labels and opportunities to engineer the labels themselves. The greatest gains in ML are expected to come from new labels and approaches to labelling (e.g., combining high-quality and low-quality labels).
 
-> *Status: 🕐 To-Do* 
+> *Status: ✅ Read + Reviewed - see [module12_notes.md](module-12-future-of-ml/module12_notes.md)* 
 
 #### 7. Snorkel: Extracting Value from Dark Data with Alex Ratner—Episode 15
 - Macey, T. (Interviewer). (2018, 22 January). Episode #15: Snorkel: Extracting value from dark data [Audio podcast]. Retrieved from https://www.dataengineeringpodcast.com/snorkel-with-alex-ratner-episode-15/
@@ -1532,7 +1545,7 @@ Two major challenges are holding back the widespread deployment and usage of ML 
 
     Snorkel is a system for programmatically building and managing training datasets without manual labelling. In Snorkel, users can develop large training data sets in hours or days rather than hand-labelling them over weeks or months. This podcast looks at the Snorkel Python library to generate training sets for ML models. Notably, dark data relates to unstructured data. An opportunity exists to label this untapped resource for supervised ML.
 
-> *Status: 🕐 To-Do* 
+> *Status: ✅ Read + Reviewed - see [module12_notes.md](module-12-future-of-ml/module12_notes.md)* 
 
 #### 8. The Cold-Start Problem with Stanford Snorkel
 - Powell, A. (2020, 8 February). The cold-start problem with Stanford Snorkel. Retrieved from https://medium.com/analytics-vidhya/the-cold-start-problem-with-stanford-snorkel-6fc5b55ec216
@@ -1541,7 +1554,7 @@ Two major challenges are holding back the widespread deployment and usage of ML 
 
     This resource provides an introduction to Snorkel and weakly supervised ML. It answers the question of what to do when you do not have training data. The author shares his experience of using the library to address real problems. The takeaways are not convincing, but the alternative is to have many humans label the data by hand. Using human labour to label data is not really tenable in the generation of very large training data sets.
 
-> *Status: 🕐 To-Do* 
+> *Status: ✅ Read + Reviewed - see [module12_notes.md](module-12-future-of-ml/module12_notes.md)* 
 
 ### Learning Activities
 
