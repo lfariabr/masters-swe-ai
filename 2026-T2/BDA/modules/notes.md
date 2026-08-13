@@ -1009,6 +1009,12 @@ Submit your answer to the ‘Graph Analytics’ discussion forum. Review other s
 ## Module 12 - Big Data Privacy and Security
 
 ### TLDR
+- **Privacy ≠ security**: security is the pillar (unauthorised-access controls); privacy is the roof (what may be collected, how used, who can access it) - privacy incorporates security but adds governance on top.
+- Securing Big Data is a **four-way balancing act**: access, availability, performance, liability - tightening one loosens another, there's no clean solution (Ohlhorst).
+- **Data classification** (financial/HR/sales/inventory/comms) is the practical enabler for everything else - not all data deserves the same controls.
+- **Data at rest vs data in motion** is the core vocabulary for *where* a control applies: encryption differs by state; access control lists cover at-rest; TLS covers in-motion (Chapple).
+- **GDPR** is the binding legal floor for lawful processing: consent/contract/legal-obligation/legitimate-interest as a lawful basis, subject rights (access/rectification/erasure/portability), 72-hour breach notification, and fines up to €20M or 4% global turnover.
+- 🔴 Module 12 is **conceptual/ethical closing content, not a required A3 component** - A3's pipeline (regression → K-Means → Graph Analytics → visualisation) doesn't include a privacy/security step, but Ohlhorst's caveat framing and GDPR's principles are legitimate cross-references if A3 discusses responsible data use.
 
 ### Introduction
 The privacy and the security of big data is an important issue. People use the terms interchangeably; however, despite being tied together, big data privacy and security are not necessarily the same thing. Privacy is like the roof of your home, while security is like an important pillar that supports the roof. Security is more about how you protect big data from unauthorised access. Conversely, data privacy not only incorporates data security aspects but also regulates issues, such as what data are permissible to collect, how the data can be used and who else can have access to the data. 
@@ -1028,7 +1034,7 @@ Finally, unlike traditional datasets, challenges arise in relation to big data p
 
     Read ‘Chapter 7: Security, compliance, auditing and protection’ (pp. 63–77). This chapter discusses some pragmatic steps to securing big data. It also highlights relevant issues using examples that make the discussion easy to follow. 
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module12_notes.md](module-12-privacy-and-security/module12_notes.md)*
 
 #### 2. Data Security
 - Chapple, M. (2018, 18 May). Data security [Video file]. Retrieved from https://www.linkedin.com/learning/sscp-cert-prep-2-security-operations-and-administration/understanding-data-security?u=56744473
@@ -1039,7 +1045,7 @@ Finally, unlike traditional datasets, challenges arise in relation to big data p
 
     Watch all the short clips from ‘Section 4: Data Security’. The data security principles discussed in this video are applicable to big data security. 
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Watched + Reviewed — see [module12_notes.md](module-12-privacy-and-security/module12_notes.md)*
 
 #### 3. Big Data and Analytics
 - Torrens University. (2020). Big data and analytics interview [Video file]. Retrieved from https://cdnapisec.kaltura.com/p/1282131/sp/128213100/embedIframeJs/uiconf_id/42833962/partner_id/1282131?iframeembed=true&playerId=kaltura_player_1600412732&entry_id=0_e8jrgx86"Links to an external site.
@@ -1050,7 +1056,7 @@ Finally, unlike traditional datasets, challenges arise in relation to big data p
 
     In the video, industry leader Suresh Sood shares his experiences and provides guidelines for emerging data scientists. This video will help you to understand all the jargon, such as big data, data analysis, machine learning and deep learning. 
 
-> *Status: 🕐 To-Do*
+> *Status: 🔥 WIP — needs manual watch (embedded Kaltura player, no transcript URL available)*
 
 #### 4. General Data Protection Regulation
 - Gdpr-info.eu. (n.d.). General Data Protection Regulation (GDPR). Retrieved from https://gdpr-info.eu/
@@ -1061,7 +1067,7 @@ Finally, unlike traditional datasets, challenges arise in relation to big data p
 
     Despite only coming into effect recently, the GDPR was years in the making. It is the single biggest regulation in this area that exists in the world, and it also applies to businesses in Australia and elsewhere. Read as much as you can from the website, as the information will help you secure a career in the big data privacy and security area. 
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module12_notes.md](module-12-privacy-and-security/module12_notes.md)*
 
 ### Learning Activities
 
