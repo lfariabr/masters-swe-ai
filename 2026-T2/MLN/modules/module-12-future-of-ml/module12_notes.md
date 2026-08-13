@@ -18,13 +18,22 @@
 | 10 | Activity 2: Snorkel Introduction Tutorial (spam labelling) - forum | 🕐 |
 | 11 | Activity 3: The Human Factor in ML Adoption (change management) - forum | 🕐 |
 
-> **One-line frame:** the final module is about the **two bottlenecks that stop ML models reaching the real world**.
-> **(1) Production / the last mile:** a model in a notebook is <20% of the job - the value only lands when it is
-> **deployed, governed and maintained** across an enterprise (MLOps, the data-engineer role, "score in the DBMS,
-> govern everywhere"). **(2) Training data / labels:** supervised ML is starved of **labelled** data, and hand-
-> labelling does not scale - **weak supervision** (Snorkel) lets domain experts write noisy **labelling functions**
-> that a generative model fuses into **probabilistic labels**, programmatically building large training sets. Both
-> bottlenecks are where the next decade of ML value - and jobs - will be won.
+## TL;DR
+
+The final module is about the **two bottlenecks that stop ML models reaching the real world**:
+
+- **Production / the last mile:** model development is less than 20% of the project lifecycle; value depends on
+  deploying, scaling, versioning, and governing the model across an enterprise (Macey & Dewalt, 2019; Algorithmia,
+  2020; Agrawal et al., 2020).
+- **Training data / labels:** supervised ML is constrained by labels that are scarce, slow, expensive, or
+  inconsistent. Weak supervision lets domain experts write noisy labelling functions that Snorkel combines into
+  probabilistic labels for larger training sets (Bell, 2019; Macey & Ratner, 2018; Powell, 2020).
+- **Practical example:** a manufacturing team could train an ONNX model in the cloud, score sensor data inside Azure
+  SQL Edge, preserve model and data lineage, and use Snorkel labelling functions when verified equipment-failure
+  labels are scarce (Agrawal et al., 2020; Bell, 2019).
+- **Career signal:** future enterprise ML value depends on people who bridge these bottlenecks through data
+  engineering, MLOps, AI product management, domain-led labelling, and governance (Casey, 2020; Xu, 2020;
+  Algorithmia, 2020).
 
 > ℹ️ **Citation notes (files on hand vs the brief).**
 > - **Resource 4:** the brief cites **Bayern (2019, TechRepublic)** "State of enterprise ML in 2020: 7 key findings",
@@ -78,6 +87,7 @@
 ---
 
 #### 1. The five hard truths
+
 | # | Hard truth | What it really means |
 |---|---|---|
 | **1** | We didn't build the right team | ML needs a **tight-knit interdisciplinary team** (modelling, data pipelines, back-end/API, front-end, UI/UX, product). No single person has all of it. |
@@ -132,6 +142,7 @@
 ---
 
 #### 1. The seven key findings
+
 | # | Finding | Standout number |
 |---|---|---|
 | **1** | Data-science teams are **small but growing fast** | Half of companies have **1-10** data scientists; the **11+** bracket jumped 18% → **39%** since 2018 |
@@ -175,6 +186,7 @@
   - **models-as-data** → needs lineage, versioning, access control, provenance.
 
 #### 2. The three-part vision (Flock reference architecture)
+
 | Pillar | Prediction | Why |
 |---|---|---|
 | **Train in the Cloud** | Model dev/training → public or private **cloud** | Needs centralised data, spiky compute, newest hardware |
@@ -308,27 +320,28 @@
 
 ## Synthesis - how the eight fit together
 
-```
-   THE PRODUCTION BOTTLENECK              THE LABEL BOTTLENECK
-   (get the model OUT the door)           (get the training DATA)
+```mermaid
+flowchart LR
+  subgraph Production["Production bottleneck: get the model out the door"]
+    P1["Notebook model is less than 20% of the job<br/>(Macey & Dewalt R1; Agrawal et al. R5)"]
+    P2["Five hard truths:<br/>team, product bridge, ground truth, metrics, DevOps<br/>(Casey R2)"]
+    P3["Survey reality:<br/>55% never deploy; 31-90 days; scale is number one<br/>(Algorithmia R4)"]
+    P4["10-year vision:<br/>train in the cloud, score in the DBMS, govern everywhere<br/>(Agrawal et al. R5)"]
+    P5["Value capture:<br/>three enterprise ML company types<br/>(Xu R3)"]
+    P1 --> P2 --> P3 --> P4 --> P5
+  end
 
-  notebook is <20% of the job           labels are scarce/slow/costly
-   (Dewalt R1, Agrawal R5)                (Bell R6, Ratner R7)
-        │                                       │
-  5 hard truths: team, PM,               engineer the LABELS:
-   ground-truth, metrics, DevOps          expert systems→features→
-   (Casey R2)                             architecture→labels (R6)
-        │                                       │
-  survey reality: 55% never              Snorkel: LFs (+1/−1/0)
-   deploy; 31-90 days; scale              → generative model
-   is #1 (Algorithmia R4)                 → probabilistic labels
-        │                                 → discriminative model
-  the 10-yr vision: train in                    │
-   cloud, SCORE IN THE DBMS,             works best with MANY NOISY
-   govern everywhere (R5)                 labellers; honest caveats
-        │                                 (Powell R8)
-  "next trillion $" accrues to
-   3 company types (Xu R3)
+  subgraph Labels["Label bottleneck: get the training data"]
+    L1["Labels are scarce, slow, and costly<br/>(Bell R6; Macey & Ratner R7)"]
+    L2["Engineer the labels:<br/>expert systems to features to architecture to labels<br/>(Bell R6)"]
+    L3["Snorkel labelling functions:<br/>positive, negative, or abstain"]
+    L4["Generative model<br/>fuses noisy votes"]
+    L5["Probabilistic labels<br/>train a discriminative model"]
+    L6["Best with many noisy labellers;<br/>retain a gold set and check limitations<br/>(Powell R8)"]
+    L1 --> L2 --> L3 --> L4 --> L5 --> L6
+  end
+
+  P4 -. "Activity 1: Azure SQL Edge and ONNX" .-> L5
 ```
 
 **The through-line:** Module 12 is the **"from notebook to the real world"** module. ML value is blocked by two

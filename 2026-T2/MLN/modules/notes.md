@@ -1458,7 +1458,7 @@ To complete this learning activity, follow these steps:
 
 ## Module 12 - Future of Machine Learning (ML): Enterprise Grade ML and Weak Supervision
 
-### TLDR
+### TL;DR
 The final module tackles the **two bottlenecks that stop ML reaching the real world**:
 - **Production / the last mile.** A trained notebook model is **<20% of the job**; value only lands when it is
   **deployed, scaled, versioned, and governed** across an enterprise. Reality check: **55% of companies have never
