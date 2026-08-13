@@ -50,7 +50,7 @@ Dr. Kamran Shaukat
 - [X] Module 9 ✅ - K-means Clustering
 - [X] Module 10 ✅ - Learning Theory: PAC
 - [X] Module 11 ✅ - The Perceptron
-- [ ] Module 12 🕐 - Future of Machine Learning (ML): Enterprise Grade ML and Weak Supervision
+- [ ] Module 12 🔥 - Future of Machine Learning (ML): Enterprise Grade ML and Weak Supervision
 
 ## Assignments
 - [X] Assessment 1 - deadline 28/06/2026 ✅, **Regression Analysis**: notebook with mark-up, source code, and 1000 words +/- 10%, 20%, SLOs `b)`, `c)`, `d)`, 84/100 pts
