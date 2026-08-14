@@ -27,7 +27,7 @@ The Markdown is complete; the PDF export loses things. Fix and re-export.
 
 - [ ] Word count restored at the end of Section 6, before References (brief requirement)
 - [ ] References return to their §7 position; the exporter currently moves them to the end
-- [x] Heading reads "Statement of Acknowledgement", not "Acknowledgment"
+- [ ] Heading reads "Statement of Acknowledgement", not "Acknowledgment" (v9 still exports "Acknowledgment")
 - [x] Page numbers move to the footer, with the three student IDs
 - [x] Cover retitled, generic copyright notice dropped
 - [ ] Export **both** DOCX and PDF — Dr Tayab annotates the Word file
@@ -90,9 +90,9 @@ Full suite on the source tree: **363 passed / 3 skipped**, matching the recorded
 - [x] Extract each to a clean directory and verify contents; the lightweight archive also installed under the A3 constraints and reported 355 passed / 11 skipped
 - [ ] Upload both archives to the LMS, alongside the report PDF, the DOCX and the checksum note
 - [x] Report uploaded separately, never bundled inside either archive, so the export and the packages are independent
-- [ ] Tag `v3.0.0` — the remote currently carries only `v3.0.0-rc.1`
-- [ ] GitHub release notes match the submitted package
-- [ ] Close ReviewPulse #88 and #89
+- [x] Tag `v3.0.0` created and pushed, pointing at `review-pulse@c2ee52a`
+- [x] GitHub release published with both archive digests: https://github.com/lfariabr/review-pulse/releases/tag/v3.0.0
+- [x] Closed ReviewPulse #88, #89 and epic #72, each with an evidence summary
 
 ### 4. Optional, non-blocking
 
