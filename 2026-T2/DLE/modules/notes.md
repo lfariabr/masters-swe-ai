@@ -1152,6 +1152,101 @@ Please listen to other students and join in the conversation.
 
 ---
 
+## Module 12 - Practical Methodologies and the Future of Deep Learning
+
+### TLDR
+
+### Introduction
+In spite of decades of experimental and theoretical work on artificial neural networks and even with all the impressive progress made in the area of deep learning (DL), there is still much to be done to better train neural networks and understand the underlying issues that make the training task difficult. It is well acknowledged by DL practitioners that to get the best out of DL techniques, some practical methodologies must be pursued, such as methodologies that determine what error metric to use or how to incrementally gather new data.
+
+Any such practical methodology recommendations should consider our current understanding of the future of DL. It is predicted that in the future, DL applications will far surpass human intelligence, resulting in advanced cognitive systems that can intelligently and fluently interact with humans. Thus, it is equally important to have a clear understanding of where DL is heading in the future.
+
+In summary, best practices in DL must be understood in relation to the future of DL.
+
+In this Module, you will learn about practical methodologies and the best practices for deep learning (DL). Successfully applying DL techniques requires more than good knowledge of what algorithms exist and the principles that explain how they work. A good DL practitioner also needs to know how to choose an algorithm for a particular application and how to monitor and respond to feedback obtained from experiments to improve a DL system.
+
+A large part of this unit was about different DL models, training algorithms and objective functions. This may give the impression that the most important ingredient to being a DL expert is knowing a wide variety of DL techniques and being good at different kinds of mathematics. In practice, one can usually do much better with a correct application of a commonplace algorithm than by sloppily applying an obscure algorithm. The correct application of an algorithm depends on mastering some fairly simple methodologies.
+
+Finally, to wrap up this subject, this Module will also focus on the future of DL.
+
+### Resources
+
+#### 1. Deep Learning: Practical Methodology
+- Goodfellow, I., Bagnio, Y. & Courville, A. (2016). Deep learning. Cambridge, MA: MIT Press. Retrieved from https://www.deeplearningbook.org/
+
+This book contains an introduction to a broad range of topics in DL, including its mathematical and conceptual background, the DL techniques used in industry and different research perspectives. This book will be used throughout all the DLE602 modules.
+
+Please read Chapter 11 for this Module. This chapter discusses various practical methodologies for DL, such as what error metric to use, how to determine bottlenecks in performance and the process to follow to make incremental changes.
+
+Also, pay attention to 'Section 11.6: Example: Multi-Digit Number Recognition', which provides a description of how to apply design methodology in practice.
+
+> *Status: 🕐 To-Do*
+
+#### 2. Best Practices for Applying Deep Learning to Novel Applications
+- Smith, L. (2017). Best practices for applying deep learning to novel applications. Retrieved from https://arxiv.org/ftp/arxiv/papers/1704/1704.01568.pdf
+
+This paper is targeted at groups who are subject matter experts in their applications but DL novices. This paper presents some of the best practices for applying DL.
+
+Some of the contents from the first reading (Goodfellow, 2016) are repeated in this paper. However, this paper also discusses a number of additional factors and insights. Notably, the way this paper emphasizes finding an analogy between your application and the closest DL applications is very interesting.
+
+A great way to finish this subject would be to follow 'Appendix A: Table of various deep learning applications' in this paper.
+
+> *Status: 🕐 To-Do*
+
+#### 3. The Unreasonable Effectiveness of Deep Learning in Artificial Intelligence
+- Sejnowski, T. (2020). The unreasonable effectiveness of deep learning in artificial intelligence. Proceedings of the National Academy of Sciences. Retrieved from https://www.pnas.org/content/early/2020/01/23/1907373117
+
+This short research paper is a great read to learn about the future of DL. This paper shares some amazing information about the past or origins of DL and then discusses its future. Thus, it is a great way to relate the past to the future of DL.
+
+Pay attention to the various applications that this paper mentions. Perhaps this will help you to develop some amazing applications of the future using the principles of the DL.
+
+> *Status: 🕐 To-Do*
+
+#### 4. The Future of Deep Learning
+- Chollet, F. (2017). The future of deep learning [Web log post]. Retrieved from https://blog.keras.io/the-future-of-deep-learning.html
+This great post discusses the future of DL. The post is completely speculative; however, the future of DL is discussed based on what we know of how deep neural networks work, their limitations and the current state of the research landscape.
+
+This post discusses four main future directions for DL at a high-level. Perhaps the best way to engage with this post would be for you to ask yourself whether you agree or disagree with these suggested future directions as you read.
+
+> *Status: 🕐 To-Do*
+
+### Learning Activities
+
+#### 1. Last Opinion
+As part of this activity, you will provide your last analytical opinion on a DL topic.
+
+What is your opinion about this statement, ‘Error analysis for performance in deep learning is often seen as the difference between current performance and perfect performance’ (Smith, 2017)? Would you suggest this as a practical methodology for DL? Explain why.
+
+Share your thoughts in your own words, highlighting the relevant scientific and technical information. Post your answer (of no more than 100 words) to the Module 12 discussion forum.
+
+Please read other students’ posts and provide feedback.
+
+> *Status: 🕐 To-Do*
+
+#### 2. The Future is Here
+As part of this activity, share an idea of a DL application that you believe is not feasible today but that will surely make its way to the consumers in the near future.
+
+Explain why it is not possible to introduce the proposed application today. What changes need to take place in the world of DL before this application can be built.
+
+Share your thoughts in your own words, highlighting the relevant scientific and technical information. Post your answer (of no more than 100 words) to the Module 12 discussion forum.
+
+Please read other students’ posts and provide feedback.
+
+> *Status: 🕐 To-Do*
+
+#### 3. Discussion
+This is the last activity of this subject. In this activity, you will discuss the following questions:
+
+- According to you, what is the most important topic of this entire subject? Why?
+- What is the most interesting but complex topic that you learned?
+- Pick a topic where DL is still at its weakest. How can this weakness be overcome?
+
+Discuss your views with the class. You do not have to submit anything for this activity.
+
+> *Status: 🕐 To-Do*
+
+---
+
 ```bash
 --- PLACEHOLDER:
 ## Module X - ...
