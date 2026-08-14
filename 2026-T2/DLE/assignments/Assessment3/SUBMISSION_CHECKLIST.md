@@ -39,24 +39,25 @@ pdftotext v6_DLE602_Faria_L_Assessment_3.pdf export.txt
 grep -ic "word count" export.txt   # must be 1 or more, was 0 in v5
 ```
 
-### 2. Victor — scientific validation delivered; Appendix F release checks remain
+### 2. Victor — complete
 
-Hard cutoff: **16 August**. Rows without evidence are removed from the appendix, never shipped
-as empty claims.
+Appendix F is closed. All seven checks record observed command output and a Pass, and Table F2
+reports the shipped-artifact results alongside the separately versioned CUDA retrain.
 
 - [x] Independent RQ1/RQ2 validation and CUDA reproduction merged in ReviewPulse PR #123 (`8787a73`)
 - [x] Validation record available at `docs/dle602-a3/validation-victor.md`
-- [ ] F1 clean constrained installation
-- [ ] F2 `git lfs pull`, six artifacts materialised, no unresolved pointer
-- [ ] F3 full test suite, not the 48 focused tests
-- [ ] F4 offline smoke with no SemEval data present
-- [ ] F5 the explicit counts: 1,120 retained test / 228 mixed / 80 sentences
-- [ ] F6 Table 3 reproduced **from the shipped artifacts**, kept separate from his retrain
+- [x] F1 clean constrained installation
+- [x] F2 `git lfs pull`, six artifacts materialised, no unresolved pointer
+- [x] F3 full test suite: 366 passed, zero skips, because that checkout held the licensed corpus
+- [x] F4 offline smoke with no SemEval data present
+- [x] F5 the explicit counts: 1,120 retained test / 228 mixed / 80 sentences
+- [x] F6 Table 3 reproduced **from the shipped artifacts**, kept separate from his retrain
 - [x] F7 reference verification — seven cited works audited; the DistilBERT venue uncertainty was resolved against the official EMC² NeurIPS 2019 programme and workshop paper
 
 His fresh DistilBERT retrain stays a separately versioned reproduction and does not replace the
-canonical numbers. The second PR must validate the shipped artifacts without running the training
-runner. BERT-Small FP16 stays on the experimental branch as post-submission work.
+canonical numbers; Table F2 keeps the shipped artifact and the retrain on separate rows.
+BERT-Small FP16 stays on the experimental branch as post-submission work, reported in F.3 as a
+storage-versus-quality comparison and never as a shipped result.
 
 ### 3. Package and release
 
@@ -96,7 +97,8 @@ Full suite on the source tree: **363 passed / 3 skipped**, matching the recorded
 ## Order of operations
 
 1. Fix the export and re-export both formats.
-2. Land Victor's second PR with the remaining Appendix F release evidence, or remove unevidenced rows.
+2. Refresh `docs/releaseNotes/v3.0.0.md`, which ships inside the package and still reads as a
+   release candidate with closed items listed as open gates.
 3. Freeze the report and source commits.
 4. Build both archives from the frozen commit; extract and retest.
 5. Record sizes and digests.
