@@ -61,27 +61,35 @@ storage-versus-quality comparison and never as a shipped result.
 
 ### 3. Package and release
 
-**Dry run, 15 August, from `review-pulse@8787a73` with no report bundled.** The pipeline is proven
-end to end; the final build only adds the report PDF, which changes both digests. The stale July
-ZIPs in `dist/` are superseded and must not be shipped: the lightweight one is 11 MB because it was
-built before the LFS artifacts were materialised.
+**Final archives built 15 August from `review-pulse@c2ee52a`, in `dist/v3.0.0/`.** The report is
+uploaded separately and never bundled inside, so these digests are settled and the export cannot
+invalidate them. Two consecutive builds of one mode produced identical bytes.
 
 | Mode | Bytes | Size | SHA-256 |
 |---|---:|---:|---|
-| `lightweight` | 54,042,836 | 51.5 MB | `08ee82d7962352aca82f54ad54b82e6e17ac178d590b901d2b58a70f4fcc9181` |
-| `all` | 301,248,404 | 287.3 MB | `60f99ae6a2ee28ae773ec3ffe8246a0c6ef0f57a30c55ccbd4c6c180a08f2e30` |
+| `lightweight` | 54,048,531 | 51.5 MB | `935aabe3470082d0ecbb92596b60e65203e326caab91e46c3deb2609840ca9b9` |
+| `all` | 301,254,100 | 287.3 MB | `0c773f444de2c1459d488ae4ab2c534c3025cbd5b445b530812421705ea7c17d` |
+
+**This file is the authoritative digest record.** Every checklist and release document inside the
+repository ships inside the archives, so none of them can state an archive's own checksum without
+invalidating it. Publish these two values in the `v3.0.0` GitHub release and in the note
+accompanying the upload.
+
+The stale July ZIPs still in `dist/` are superseded and must not be shipped: the lightweight one is
+11 MB because it was built before the LFS artifacts were materialised, so it carries pointer files
+where the models belong.
 
 Verified on the extracted lightweight archive: no `.git`, `.venv`, `__pycache__`, `.pytest_cache`,
 `.env`, `.DS_Store`, no SemEval XML, no `predictions.csv`, no unresolved LFS pointer. `data/`
 carries only `.gitkeep`. Nine artifacts ship: five small v3 models and the four legacy v2 files.
 Full suite on the source tree: **363 passed / 3 skipped**, matching the recorded baseline.
 
-- [ ] Confirm the LMS upload limit
-- [ ] Rebuild both archives **with the final report PDF** once the export is settled
-- [ ] Record the rebuilt sizes and SHA-256 digests, superseding the dry-run values above
-- [ ] Extract each to a clean directory and run the documented quickstart
-- [ ] Upload both to the LMS; if the larger is refused, put it on OneDrive and include the link
-- [ ] Final PDF copied into the package
+- [x] Confirm the LMS upload limit: the 300 MB-class archive uploads directly, so both modes ship and no external link is needed
+- [x] Build both archives; the report is uploaded separately, so no rebuild depends on the export
+- [x] Record both sizes and SHA-256 digests
+- [x] Extract each to a clean directory and verify contents; the lightweight archive also installed under the A3 constraints and reported 355 passed / 11 skipped
+- [ ] Upload both archives to the LMS, alongside the report PDF, the DOCX and the checksum note
+- [x] Report uploaded separately, never bundled inside either archive, so the export and the packages are independent
 - [ ] Tag `v3.0.0` — the remote currently carries only `v3.0.0-rc.1`
 - [ ] GitHub release notes match the submitted package
 - [ ] Close ReviewPulse #88 and #89
