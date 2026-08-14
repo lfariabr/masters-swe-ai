@@ -1,6 +1,6 @@
 # DLE602 A3 — Submission Checklist (short form)
 
-**Due:** 19 August 2026, 11:55pm AEST · **Today:** 13 August · **6 days left**
+**Due:** 19 August 2026, 11:55pm AEST · **Today:** 15 August · **4 days left**
 **Submit:** report PDF (and DOCX), source code, execution instructions, submission ZIP
 
 This is the academic-side summary. The full engineering gate list lives in the ReviewPulse repo at
@@ -15,7 +15,7 @@ Implementation, frozen experiments, six model artifacts, 363-test suite, clean-r
 CPU-only inference, deterministic package builder, Juan's 12-case Streamlit QA, and the full
 report content including Appendices A–H.
 
-Report source: `report/DLE602_A3_Report_v4.md`, current at `masters-swe-ai@419f7ab`.
+Report source: `report/DLE602_A3_Report_v4.md`, current at `masters-swe-ai@6eaad14`.
 
 ---
 
@@ -60,9 +60,24 @@ runner. BERT-Small FP16 stays on the experimental branch as post-submission work
 
 ### 3. Package and release
 
+**Dry run, 15 August, from `review-pulse@8787a73` with no report bundled.** The pipeline is proven
+end to end; the final build only adds the report PDF, which changes both digests. The stale July
+ZIPs in `dist/` are superseded and must not be shipped: the lightweight one is 11 MB because it was
+built before the LFS artifacts were materialised.
+
+| Mode | Bytes | Size | SHA-256 |
+|---|---:|---:|---|
+| `lightweight` | 54,042,836 | 51.5 MB | `08ee82d7962352aca82f54ad54b82e6e17ac178d590b901d2b58a70f4fcc9181` |
+| `all` | 301,248,404 | 287.3 MB | `60f99ae6a2ee28ae773ec3ffe8246a0c6ef0f57a30c55ccbd4c6c180a08f2e30` |
+
+Verified on the extracted lightweight archive: no `.git`, `.venv`, `__pycache__`, `.pytest_cache`,
+`.env`, `.DS_Store`, no SemEval XML, no `predictions.csv`, no unresolved LFS pointer. `data/`
+carries only `.gitkeep`. Nine artifacts ship: five small v3 models and the four legacy v2 files.
+Full suite on the source tree: **363 passed / 3 skipped**, matching the recorded baseline.
+
 - [ ] Confirm the LMS upload limit
-- [ ] Build both archives: `lightweight` (~52 MB) and `all` (~288 MB)
-- [ ] Record both sizes and SHA-256 digests
+- [ ] Rebuild both archives **with the final report PDF** once the export is settled
+- [ ] Record the rebuilt sizes and SHA-256 digests, superseding the dry-run values above
 - [ ] Extract each to a clean directory and run the documented quickstart
 - [ ] Upload both to the LMS; if the larger is refused, put it on OneDrive and include the link
 - [ ] Final PDF copied into the package
