@@ -308,10 +308,11 @@ dropped or mangled it.
 
 ### Distribution decision — ship both packages
 
-**Both `lightweight` (~52 MB) and `all` (~288 MB) go to the LMS regardless of which one fits.**
-If the LMS refuses the larger archive, upload `all` to OneDrive and put the share link in the
-submission and the archive root README. The marker therefore always has a one-click route to the
-complete six-model build, and the LMS limit stops being a blocking gate.
+**Both `lightweight` (51.5 MB) and `all` (287.3 MB) go to the LMS.** Resolved on 15 August: the
+upload limit was confirmed to accept the larger archive, so both upload directly and the OneDrive
+fallback is dropped. No external link appears anywhere in the submission. The marker gets the
+complete six-model build straight from the LMS, and the lightweight archive remains as a faster
+download and never as a size workaround.
 
 This removes the artifact-mode decision from the critical path. It also protects criterion 1
 (20%, *"the system functions without any additional conditions"*): a marker who wants every model
@@ -339,12 +340,11 @@ Do not call ATAE-LSTM a structured probabilistic model.
 - **Appendix E is delivered**, not pending: Juan's QA is complete and merged (PRs #120/#121) and
   the screenshot set exists. Only the asset export remains.
 - Victor's scientific validation is delivered in PR #123 and F7 is complete. Appendix F keeps
-  **Pending** only on the clean F1–F6 frozen-package checks until his second PR arrives; any
-  unevidenced rows are removed before
-  submission instead of being presented as completed work.
-- **Both archives ship**: `lightweight` and `all` both go to the LMS; if the larger is refused,
-  `all` goes to OneDrive and the link travels with the submission. The LMS limit is no longer a
-  blocking gate.
+  Closed on 15 August: all seven checks record observed command output and a Pass, so no row had to
+  be removed and nothing ships as an unevidenced claim.
+- **Both archives ship**: `lightweight` and `all` both upload directly to the LMS. The limit was
+  confirmed on 15 August to accept the larger archive, so the OneDrive fallback is dropped and no
+  external link is involved.
 - No retraining. Every number above already exists in frozen artifacts.
 - Volume and word count are handled outside this plan. It covers content only.
 

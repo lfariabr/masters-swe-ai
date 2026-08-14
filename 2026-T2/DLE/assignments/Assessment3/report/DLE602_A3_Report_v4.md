@@ -34,13 +34,13 @@ No result below is invented or illustrative.
 6. Limitations and Conclusion
 7. References
 8. Appendix A - Supplemental Six-Model Track
-9. Appendix B - Project Delivery Record
-10. Appendix C - Reproduction Commands
-11. Appendix D - Future Expansion Roadmap
+9. Appendix B - Implementation Walkthrough and Configuration Evidence
+10. Appendix C - Code Execution: Lightweight and Complete Packages
+11. Appendix D - Reproduction Commands
 12. Appendix E - Application Acceptance Evidence
 13. Appendix F - Independent Reproduction Record
-14. Appendix G - Implementation Walkthrough and Configuration Evidence
-15. Appendix H - Code Execution: Lightweight and Complete Packages
+14. Appendix G - Project Delivery Record
+15. Appendix H - Future Expansion Roadmap
 16. Academic Integrity Declaration
 17. Statement of Acknowledgement
 
@@ -130,9 +130,9 @@ flowchart LR
 
 The Streamlit workflow accepts one review and comma-separated manual aspects. It validates and de-duplicates the list, preserves input order and scores each aspect independently. A sample generator supports repeatable demonstrations. Missing artifacts, empty reviews, empty aspect lists and unknown models surface controlled messages, allowing the same interface to demonstrate both successful inference and predictable failure handling.
 
-The implementation uses `defusedxml` for safe SemEval XML parsing, `scikit-learn` for the TF-IDF and logistic-regression baseline, `PyTorch` for the LSTM, GRU, TextCNN and ATAE-LSTM models, `transformers` for DistilBERT, `pandas` and `NumPy` for the evidence and evaluation tables, `matplotlib` for the confusion matrices, and `streamlit` for the application; every version is pinned in `constraints-a3.txt` and listed in Appendix G.
+The implementation uses `defusedxml` for safe SemEval XML parsing, `scikit-learn` for the TF-IDF and logistic-regression baseline, `PyTorch` for the LSTM, GRU, TextCNN and ATAE-LSTM models, `transformers` for DistilBERT, `pandas` and `NumPy` for the evidence and evaluation tables, `matplotlib` for the confusion matrices, and `streamlit` for the application; every version is pinned in `constraints-a3.txt` and listed in Appendix B.
 
-Implementation is separated into data, model, training, inference, evaluation and presentation modules under `src/absa`, with model adapters enforcing one prediction payload. Automated tests cover parsing and split leakage, trainer controls, artifact provenance, all six inference paths, exact evidence offsets, safe heatmap rendering, packaging and legacy compatibility. At the merged release-package baseline, the complete local suite records 363 passing tests and three expected skips. Appendix C identifies the commands that regenerate the documented evidence.
+Implementation is separated into data, model, training, inference, evaluation and presentation modules under `src/absa`, with model adapters enforcing one prediction payload. Automated tests cover parsing and split leakage, trainer controls, artifact provenance, all six inference paths, exact evidence offsets, safe heatmap rendering, packaging and legacy compatibility. At the merged release-package baseline, the complete local suite records 363 passing tests and three expected skips. Appendix D identifies the commands that regenerate the documented evidence.
 
 ## 4. Deep Learning Principles Applied
 
@@ -140,7 +140,7 @@ The model ladder isolates a principle at each stage. TF-IDF uses sparse engineer
 
 ATAE-LSTM conditions the recurrent representation on an aspect embedding and learns a weighted combination of hidden states. It can therefore read the same sentence differently for `food` and `service`. DistilBERT transfers contextual knowledge from BERT-style pretraining (Devlin et al., 2019) and allows review and aspect tokens to interact throughout the Transformer encoder. Its substantially larger parameter count tests whether pretrained contextual transfer justifies additional compute and storage.
 
-Dropout and weight decay limit overfitting; early stopping and best-checkpoint restoration prevent reporting a convenient final epoch instead of the best observed development checkpoint. Appendix G records the frozen configuration of every model, the training curve that fixed the selected checkpoint, and the only recorded hyperparameter search in this project, in which widening the TextCNN filters alone reduced development macro-F1 and an improvement appeared only once the filter count was raised. The remaining models used predefined configurations with development macro-F1 checkpoint selection and were not searched. The fixed test split, label order and metric implementation support comparison of predictive behaviour. They do not, however, make cross-device timing controlled, nor does one fixed seed establish variance across retraining.
+Dropout and weight decay limit overfitting; early stopping and best-checkpoint restoration prevent reporting a convenient final epoch instead of the best observed development checkpoint. Appendix B records the frozen configuration of every model, the training curve that fixed the selected checkpoint, and the only recorded hyperparameter search in this project, in which widening the TextCNN filters alone reduced development macro-F1 and an improvement appeared only once the filter count was raised. The remaining models used predefined configurations with development macro-F1 checkpoint selection and were not searched. The fixed test split, label order and metric implementation support comparison of predictive behaviour. They do not, however, make cross-device timing controlled, nor does one fixed seed establish variance across retraining.
 
 Attention and gradient attribution are treated as diagnostic views and never as model reasoning. Attention can vary without changing a prediction and need not identify causal features (Jain & Wallace, 2019). Accordingly, ReviewPulse labels darker tokens as higher-scored evidence within one aspect view and makes no claim that the view faithfully explains the decision.
 
@@ -195,7 +195,7 @@ Across the canonical test set, the four models disagree on 428 instances and all
 
 The 228-instance mixed subset is comparatively small, and results come from a single frozen seed; no multi-seed distribution was collected. Apple MPS can remain nondeterministic despite seed control, so provenance identifies exact commits and a shared prediction hash; bit-identical retraining is not promised. Gold aspect terms are supplied manually in the application; automatic extraction and cross-domain Laptops evaluation are unimplemented. Evidence scores are model-specific and normalised within each view, so they should not be compared as absolute importance across models or examples.
 
-ReviewPulse v3.0 nevertheless answers the submitted questions with measured implementation evidence. Explicit aspect conditioning materially improves classification on the mixed-polarity subset. DistilBERT provides the strongest predictions at substantially greater storage cost, while ATAE-LSTM offers a small aspect-aware alternative with stronger mixed-polarity behaviour than the review-only controls. Its attention and DistilBERT attribution provide indicative token-level evidence, not exposed reasoning. The completed GRU and TextCNN extensions reinforce this result without changing it. Next research steps are multi-seed uncertainty estimates, controlled same-device efficiency measurement, cross-domain evaluation and automatic aspect extraction. The reproducible v3.0.0 submission package is delivered, in the two forms described in Appendix H.
+ReviewPulse v3.0 nevertheless answers the submitted questions with measured implementation evidence. Explicit aspect conditioning materially improves classification on the mixed-polarity subset. DistilBERT provides the strongest predictions at substantially greater storage cost, while ATAE-LSTM offers a small aspect-aware alternative with stronger mixed-polarity behaviour than the review-only controls. Its attention and DistilBERT attribution provide indicative token-level evidence, not exposed reasoning. The completed GRU and TextCNN extensions reinforce this result without changing it. Next research steps are multi-seed uncertainty estimates, controlled same-device efficiency measurement, cross-domain evaluation and automatic aspect extraction. The reproducible v3.0.0 submission package is delivered, in the two forms described in Appendix C.
 
 **Word count (Sections 1-6 prose and list items): 1,550 words.**
 
@@ -232,34 +232,177 @@ The supplemental evaluation preserves the four-model experiment and adds target-
 
 GRU uses 10.31% fewer parameters than LSTM and obtains slightly higher full-test macro-F1, but lower mixed macro-F1. TextCNN records zero neutral F1 on the mixed subset. These negative results show that changing the review-only encoder does not supply the missing aspect information. In the shared six-model predictions, 55 mixed cases are correct for both aspect-conditioned models and wrong for all selected review-only models, versus three in the reverse direction; 454 instances contain disagreement and all six models miss 131.
 
-## 9. Appendix B - Project Delivery Record
+## 9. Appendix B - Implementation Walkthrough and Configuration Evidence
 
-### Implemented risk outcomes
+This appendix records what the system was fed, what it was built from, how it was configured and what it printed. Every value is read from the frozen artifacts; nothing here was retrained for the report.
 
-| Risk | Mitigation applied | Observed outcome / contingency |
+### B.1 Parsed dataset
+
+The parser reads the SemEval XML, validates every annotated character offset against the raw sentence and expands each sentence into one instance per aspect term. Table B1 shows three parsed records in the form the models receive them. All three are official test-split sentences already quoted as attributed demonstration samples in the application; the corpus itself is not redistributed.
+
+| `sentence_id` | Review sentence | Aspect | Gold polarity | Offsets valid |
+|---|---|---|---|---|
+| `11351513#832512#0` | Great food but the service was dreadful! | `food` | positive | Yes |
+| `11351513#832512#0` | Great food but the service was dreadful! | `service` | negative | Yes |
+| `33060905#1138585#0` | i went in one day asking for a table for a group and was greeted by a very rude hostess. | `hostess` | negative | Yes |
+
+*Table B1. Three parsed aspect instances as supplied to the models. One sentence yields one record per annotated aspect, which is the structural reason a review-level label cannot answer the task.*
+
+The audit command reports the corpus itself. Listing B1 is its verbatim output, and it is the source of Table 2. Listings G1 to G3 are pasted terminal transcripts instead of screenshots: the text stays legible at any page size, carries no local file paths, and can be searched and re-run by a reader.
+
+```text
+$ python -m src.absa.data.audit
+{
+  "train": {
+    "aspect_examples": 3693,
+    "sentences_with_aspects": 2021,
+    "polarity_counts": {"conflict": 91, "negative": 805, "neutral": 633, "positive": 2164},
+    "offset_valid": 3693,
+    "offset_invalid": 0,
+    "invalid_offsets": []
+  },
+  "test": {
+    "aspect_examples": 1134,
+    "sentences_with_aspects": 606,
+    "polarity_counts": {"conflict": 14, "negative": 196, "neutral": 196, "positive": 728},
+    "offset_valid": 1134,
+    "offset_invalid": 0,
+    "invalid_offsets": []
+  }
+}
+```
+
+*Listing B1. Dataset audit command and output. Zero invalid offsets is the precondition for the offset-aligned token evidence reported in Section 5.*
+
+### B.2 Libraries and frozen versions
+
+| Library | Role in the system | Frozen version |
 |---|---|---|
-| Neural overfitting | Development early stopping and best-checkpoint restoration | Selected epoch, history and diagnostic persisted per model |
-| Transformer compute/storage | Apple MPS training and explicit artifact measurement | Strongest model, but 256.11 MB; lightweight ATAE remains available |
-| Sentence leakage | Group development split by `sentence_id` | Automated disjointness checks pass |
-| Artifact loading failure | Explicit paths, validation and controlled UI errors | Missing models fail visibly, with no silent substitution |
-| Optional-scope delay | Four-model result frozen before GRU/CNN activation | Six-model track completed without replacing the canonical experiment |
-| Unequal contribution | Issue ownership, pull-request review and contribution record | Juan delivered independent Streamlit QA in PR #120, hardened in PR #121; Victor delivered independent RQ1/RQ2 validation, a CUDA reproduction and clean frozen-package verification recorded in Appendix F |
+| Python | Runtime | 3.12.10 |
+| `defusedxml` | Safe SemEval XML parsing | 0.7.1 |
+| `scikit-learn` | TF-IDF vectoriser and logistic regression | 1.8.0 |
+| `PyTorch` | LSTM, GRU, TextCNN and ATAE-LSTM | 2.13.0 |
+| `transformers` | DistilBERT sentence-pair classifier | 5.14.1 |
+| `pandas` / `NumPy` | Evaluation and evidence tables | 3.0.3 / 2.5.1 |
+| `matplotlib` | Confusion-matrix figures | 3.11.0 |
+| `streamlit` | Application interface | 1.59.2 |
 
-*Table B1. Implemented project-risk mitigations, observed outcomes and retained contingencies.*
+*Table B2. Libraries and the versions pinned in `constraints-a3.txt`, which is the file a reader installs against.*
 
-### Contribution log
+### B.3 Frozen model configurations
 
-| Contributor | Status | Contribution / assigned validation | Evidence / hand-off |
-|---|---|---|---|
-| Luis Faria | Completed | Architecture, ABSA implementation, all training/evaluation integration, token evidence, six-model integration, Streamlit integration, Git LFS deployment, release packaging and report consolidation | ReviewPulse PRs #90, #92, #93, #97, #98-#102; academic commits `f3b7247`, `6d50ac0` |
-| Victor Dorantes | Independent validation and release reproduction delivered | Recomputed stored metrics from the six confusion matrices, independently trained and evaluated the four canonical models on CUDA, validated RQ1/RQ2, verified SemEval provenance and audited the cited publications; then completed clean installation, Git LFS, full-suite, offline-smoke, dataset and shipped-artifact checks | ReviewPulse PR #123, merge commit `8787a73`; `docs/dle602-a3/validation-victor.md`; complete evidence summarised in Appendix F |
-| Juan Martinez | Independent QA delivered and reviewed | Executed 12 deployed-Streamlit cases across all six models, multi-aspect inputs, sample generation, evidence views, invalid inputs, model switching and v2/v3 compatibility; recorded predictions, screenshots, three acceptance failures and two stale-state observations that could not be reproduced from the written record; all five are carried as known documented findings, not release blockers | ReviewPulse PR #120, merge commit `1e6689f`; corrective PR #121, merge commit `9071553`; `docs/dle602-a3/validation-juan.md`; companion screenshot record; selected evidence mapped in Appendix E |
+| Model | Batch | Learning rate | Weight decay | Max length | Best epoch | Other |
+|---|---:|---:|---:|---:|---:|---|
+| Target LSTM | 64 | 1e-3 | 1e-4 | 80 | 8 | Adam, patience 2 |
+| Target GRU | 64 | 1e-3 | 1e-4 | 80 | 8 | Adam, embedding 100, hidden 128, dropout 0.5 |
+| TextCNN | 64 | 1e-3 | 1e-4 | 80 | 6 | Adam, embedding 100, filters (3,4,5)x100, dropout 0.5 |
+| ATAE-LSTM | 64 | 1e-3 | 1e-4 | 80 | 6 | Adam, aspect max length 12, patience 2 |
+| DistilBERT | 8 | 2e-5 | 1e-2 | 128 | 2 | AdamW, `distilbert-base-uncased`, patience 2 |
 
-*Table B2. Contribution status, assigned validation work and required traceable evidence.*
+*Table B3. Configuration persisted alongside each artifact, seed 42 throughout. TF-IDF is omitted because it is not a neural trainer: it uses logistic regression, lbfgs, `max_iter` 1000 and 1-2 grams.*
 
-Assignments are not treated as completed contributions. Juan's executed QA is recorded as evidenced work even where it exposes failures and does not confirm acceptance. Victor's reviewed validation is likewise recorded even though the fresh CUDA DistilBERT result diverges from the frozen result; that divergence strengthens the reproducibility record and does not replace the canonical metrics. His subsequent clean verification of the shipped package closes the operational checks in Appendix F.
+Table B4 shows why the best epoch is not simply the last one. ATAE-LSTM training loss falls monotonically to epoch 8 while development macro-F1 peaks at epoch 6 and then declines, so the restored checkpoint is epoch 6.
 
-## 10. Appendix C - Reproduction Commands
+| Epoch | Training loss | Development macro-F1 |
+|---:|---:|---:|
+| 1 | 0.9637 | 0.3350 |
+| 2 | 0.8695 | 0.3591 |
+| 3 | 0.8150 | 0.4624 |
+| 4 | 0.7607 | 0.5023 |
+| 5 | 0.7173 | 0.4863 |
+| 6 | 0.6578 | **0.5370** |
+| 7 | 0.6063 | 0.5325 |
+| 8 | 0.5560 | 0.5297 |
+
+*Table B4. ATAE-LSTM training history. The 0.0073 macro-F1 decline after the best epoch is below the 0.02 threshold recorded in the overfitting diagnostic, so the run is treated as stable at this seed, not materially overfitted.*
+
+### B.4 The one recorded hyperparameter search
+
+Only TextCNN was searched. The search selected on development macro-F1 alone; the official test split took no part in it, which the record states explicitly as `official_test_evaluated: false`.
+
+| Filter widths | Filters | Development macro-F1 | Parameters | Training time |
+|---|---:|---:|---:|---:|
+| (2, 3, 4) | 64 | 0.4309 | 393,371 | 7.7 s |
+| (3, 4, 5) | 64 | 0.3776 | 412,571 | 8.9 s |
+| (3, 4, 5) | 100 | **0.4722** | 456,203 | 12.1 s |
+
+*Table B5. TextCNN configuration search, seed 42, four epochs per candidate.*
+
+The result is more informative than the winner. Widening the filters from (2,3,4) to (3,4,5) at the same filter count made the model **worse**, from 0.4309 to 0.3776; macro-F1 only improved, to 0.4722, once the filter count rose to 100. The search therefore provides no evidence that widening alone helped, and the improvement appeared only after capacity increased. It cannot isolate a causal hyperparameter effect: three candidates at one seed leave the wider filters untested at the higher filter count, and no variance estimate is available. What the search does establish is that the selected configuration still records zero neutral F1 on the mixed-polarity subset in Appendix A. Searching a review-only encoder does not supply the aspect signal it never receives.
+
+### B.5 Verified end-to-end run
+
+Listing B2 is the verbatim output of the smoke check, which loads each canonical artifact and scores a two-aspect review. The smoke path reads the artifacts only and does not open the SemEval dataset, which is why it also passed in a clean-room clone where no corpus was present.
+
+```text
+$ python scripts/smoke_absa.py
+absa_tfidf: food=positive, service=positive
+absa_target_lstm: food=negative, service=negative
+absa_atae_lstm: food=positive, service=positive
+absa_distilbert: food=negative, service=negative
+```
+
+*Listing B2. Four-model prediction for "The food was great but the service was slow." Every model returns one label per aspect, which is the delivered contract; no model resolves both gold labels here, which is the honest limitation reported in Section 5.*
+
+Listing B3 is the Python that produces the aspect-conditioned evidence, run against the frozen ATAE-LSTM artifact, together with its output. It is the code behind Table 5, and re-running it reproduces that table's ATAE-LSTM rows exactly.
+
+```python
+from src.absa.inference.api import predict_aspects
+from src.absa.inference.predictors import get_predictor
+
+review = "Great food but the service was dreadful!"
+predictor = get_predictor("absa_atae_lstm")
+results = predict_aspects(review, ["food", "service"], "absa_atae_lstm", predictor)
+
+for item in results:
+    top = sorted(item["token_evidence"]["tokens"], key=lambda t: -t["score"])[:3]
+    tokens = ", ".join(f"{t['token']}[{t['start']}:{t['end']}]={t['score']:.3f}" for t in top)
+    print(f"{item['aspect']:>7} -> {item['label']:<8} {item['confidence']:.3f} | {tokens}")
+```
+
+```text
+   food -> positive 0.864 | Great[0:5]=0.241, food[6:10]=0.131, was[27:30]=0.127
+service -> positive 0.742 | Great[0:5]=0.193, ![39:40]=0.132, dreadful[31:39]=0.130
+```
+
+*Listing B3. Aspect-conditioned inference and token evidence. Each token carries the character offsets that locate it in the original review, so the evidence view is aligned to the raw text itself, never to model-internal subword units. The attention distribution changes with the supplied aspect while the predicted label does not, which is precisely the RQ3 caveat drawn from Jain and Wallace (2019).*
+
+## 10. Appendix C - Code Execution: Lightweight and Complete Packages
+
+Two archives are submitted from the same commit, differing only in which trained artifacts they carry. Both are built by `scripts/build_a3_package.py`, which rejects unresolved Git LFS pointers and writes a SHA-256 manifest; repeated builds of one mode produce an identical digest. Appendix D lists the underlying commands.
+
+| Package | Build mode | Size | v3 models | Needs SemEval corpus |
+|---|---|---:|---:|---|
+| Lightweight | `--artifact-mode lightweight` | 51.5 MB | 5 of 6 | No |
+| Complete | `--artifact-mode all` | 287.3 MB | 6 of 6 | No |
+
+*Table C1. The two submitted archives. The difference is the single v3 DistilBERT directory. Both are uploaded directly, since the confirmed submission limit accepts the larger file; no external link is involved. The lightweight archive is offered as a faster download and never as a size workaround.*
+
+The procedure is identical for both, and neither reads the dataset, because the trained artifacts are shipped:
+
+```bash
+unzip ReviewPulse-v3.0.0-all-models.zip && cd ReviewPulse-v3.0.0   # or -lightweight.zip
+python3 -m venv .venv && source .venv/bin/activate   # Windows: .venv\Scripts\activate
+pip install -r requirements.txt -c constraints-a3.txt
+python -m pytest -q
+streamlit run app.py
+```
+
+The constraint file pins the versions in Table B2. Inference runs on CPU in both packages, so no accelerator is required.
+
+Only the v3 DistilBERT directory is excluded from the lightweight archive, since at roughly 256 MB it accounts for the entire size difference. Selecting **DistilBERT sentence-pair** there reports the model unavailable and returns no prediction: a missing artifact is always reported and never silently substituted. The only network dependency in the submission sits elsewhere, in the preserved ISY503 workflow and not in any v3 result: the legacy `outputs/distilbert.pt` stores only the classification head and fine-tuned layers, so its base encoder is fetched from `distilbert-base-uncased` and reports itself unavailable offline without a cache. The five v3 artifacts are read straight from disk.
+
+| Environment | Passed | Skipped | Additional skips |
+|---|---:|---:|---|
+| Development machine | 363 | 3 | Legacy Amazon `.review` corpus is not redistributed |
+| GitHub clone, complete artifacts | 357 | 9 | 6 sample-provenance checks need the non-redistributed `predictions.csv` |
+| Extracted lightweight archive | 355 | 11 | 2 package-builder checks need Git metadata, absent from a ZIP |
+
+*Table C2. Expected test outcomes by environment. Every skip is an intentional absence of licensed data or Git metadata; none is a failure, and none is removed by redistributing data the project cannot license.*
+
+On the complete package, `python scripts/smoke_absa.py` clean-loads all four canonical models, as shown in Listing B2. It is deliberately unusable on the lightweight package, which excludes the model it exercises; `scripts/smoke_target_gru.py` and `scripts/smoke_text_cnn.py` are the equivalent checks there.
+
+## 11. Appendix D - Reproduction Commands
 
 The restricted SemEval XML files must be acquired separately and placed as documented in the repository. From the verified environment:
 
@@ -276,39 +419,6 @@ git lfs pull
 
 The frozen supplemental evaluation is regenerated by adding
 `--models tfidf target_lstm target_gru text_cnn atae_lstm distilbert` to the evaluation command after the six verified artifacts are available.
-
-## 11. Appendix D - Future Expansion Roadmap
-
-ReviewPulse v3.0 is intentionally an academic comparison environment and was never built as a production platform. Its six-model ladder, manual gold-aspect input and Streamlit interface make the research questions inspectable, but the same design should not be scaled by simply running every model for every incoming review. Future releases would separate experimental benchmarking from the smaller set of models selected for operational inference.
-
-| Release scenario | Primary objective | Candidate capabilities | Architectural direction |
-|---|---|---|---|
-| v3.1 - Reproducible service | Harden the existing ABSA workflow without changing its research scope | Three-class probability distributions, confidence calibration, abstention thresholds, CSV/JSON export, batch requests, latency/load tests and model-version metadata | Retain Streamlit as the demonstration client and introduce a versioned inference API |
-| v4.0 - Aspect intelligence | Remove the requirement for users to know and enter every aspect | Automatic aspect extraction, user correction, synonym/category normalisation, batch review analysis and emerging-topic discovery | Add an extraction pipeline, persistent result store and analyst dashboard |
-| v5.0 - Operational monitoring | Analyse feedback continuously instead of in isolated submissions | Review-platform connectors, scheduled ingestion, trend analysis, alerts, feedback capture, drift monitoring and domain-specific retraining | Add asynchronous jobs, inference workers, PostgreSQL/object storage and observability |
-| Later SaaS/enterprise track | Support multiple organisations and governed use | Tenant isolation, authentication, role-based access, audit logs, retention controls, personal-data handling and usage limits | Separate web, API, worker and storage tiers; scale workers independently |
-
-*Table D1. Prospective ReviewPulse release scenarios; listed capabilities are planned, and none is part of the evaluated v3.0 implementation.*
-
-For v3.1, **FastAPI** is the preferred default because the immediate requirement is a small typed HTTP layer around the existing `predict_aspects` and comparison services. Streamlit could remain the visible client while the API provides explicit request schemas, model-version responses and machine-readable errors for batch or third-party consumers. Model execution is compute-bound, so an asynchronous web endpoint alone would not create inference capacity; batch work should instead move through a bounded queue and independently scalable workers.
-
-**Django with Django REST Framework** becomes the stronger alternative if v3.1 is deliberately widened to include user accounts, administrative workflows, permissions, persistent business records or early multi-tenancy. Adopting Django only for model endpoints would add product infrastructure before it is required. The decision is therefore based on release scope: FastAPI for an inference-first service, or Django/DRF when application management becomes a first-class requirement.
-
-```mermaid
-flowchart LR
-    CLIENTS["Streamlit, batch client or future web UI"] --> API["Versioned service layer<br/>FastAPI initially<br/>Django/DRF if product workflows require it"]
-    API --> LIVE["Bounded synchronous inference"]
-    API --> QUEUE["Batch and scheduled job queue"]
-    LIVE --> WORKERS["Selected production model workers"]
-    QUEUE --> WORKERS
-    REGISTRY["Versioned artifacts and provenance"] --> WORKERS
-    WORKERS --> STORE["Predictions, feedback and metrics store"]
-    STORE --> OUTPUTS["Dashboard, exports, trends and alerts"]
-```
-
-*Figure D1. Prospective service evolution; these components are not claimed as part of the evaluated v3.0 implementation.*
-
-The model strategy would also change with scale. TF-IDF, LSTM, GRU and TextCNN remain useful controls for research and regression detection, while operational traffic would normally use one validated aspect-conditioned model, with a second model retained only when its cost, latency or diagnostic value justifies deployment. Cross-domain use in e-commerce, hospitality, software support or other sectors would require new representative data and domain-specific evaluation; Restaurants performance cannot be assumed to transfer unchanged.
 
 ## 12. Appendix E - Application Acceptance Evidence
 
@@ -363,7 +473,7 @@ Table F2 reports values obtained directly from the materialised shipped artifact
 | TF-IDF | 0.7018 | 0.4605 | 0.4430 | 0.3319 |
 | LSTM | 0.6687 | 0.4326 | 0.4167 | 0.3264 |
 | ATAE-LSTM | 0.6438 | 0.4799 | 0.4737 | 0.4491 |
-| DistilBERT shipped suplemental artifact | 0.8250 | 0.7199 | 0.6667 | 0.6473 |
+| DistilBERT shipped supplemental artifact | 0.8250 | 0.7199 | 0.6667 | 0.6473 |
 | DistilBERT retrained (not shipped) | 0.8366 | 0.7490 | 0.7061 | 0.6956 |
 
 *Table F2. Materialised shipped four-model artifact results on 1,120 retained official test instances and the 228-instance mixed-polarity subset drawn from 80 sentences.*
@@ -381,175 +491,63 @@ The `ABSA-Experimental` branch is a bounded research track and is not the source
 
 The experiment supports an artifact-size and predictive-quality comparison only. FP16 verification was performed on CUDA and does not establish CPU or MPS portability or latency. An initial verifier also exposed the need to exclude SemEval `conflict` labels; the corrected path uses `split_official_data` and therefore matches the canonical negative/neutral/positive task. None of these experimental values replaces the shipped four-model record.
 
-## 14. Appendix G - Implementation Walkthrough and Configuration Evidence
+## 14. Appendix G - Project Delivery Record
 
-This appendix records what the system was fed, what it was built from, how it was configured and what it printed. Every value is read from the frozen artifacts; nothing here was retrained for the report.
+### Implemented risk outcomes
 
-### G.1 Parsed dataset
-
-The parser reads the SemEval XML, validates every annotated character offset against the raw sentence and expands each sentence into one instance per aspect term. Table G1 shows three parsed records in the form the models receive them. All three are official test-split sentences already quoted as attributed demonstration samples in the application; the corpus itself is not redistributed.
-
-| `sentence_id` | Review sentence | Aspect | Gold polarity | Offsets valid |
-|---|---|---|---|---|
-| `11351513#832512#0` | Great food but the service was dreadful! | `food` | positive | Yes |
-| `11351513#832512#0` | Great food but the service was dreadful! | `service` | negative | Yes |
-| `33060905#1138585#0` | i went in one day asking for a table for a group and was greeted by a very rude hostess. | `hostess` | negative | Yes |
-
-*Table G1. Three parsed aspect instances as supplied to the models. One sentence yields one record per annotated aspect, which is the structural reason a review-level label cannot answer the task.*
-
-The audit command reports the corpus itself. Listing G1 is its verbatim output, and it is the source of Table 2. Listings G1 to G3 are pasted terminal transcripts instead of screenshots: the text stays legible at any page size, carries no local file paths, and can be searched and re-run by a reader.
-
-```text
-$ python -m src.absa.data.audit
-{
-  "train": {
-    "aspect_examples": 3693,
-    "sentences_with_aspects": 2021,
-    "polarity_counts": {"conflict": 91, "negative": 805, "neutral": 633, "positive": 2164},
-    "offset_valid": 3693,
-    "offset_invalid": 0,
-    "invalid_offsets": []
-  },
-  "test": {
-    "aspect_examples": 1134,
-    "sentences_with_aspects": 606,
-    "polarity_counts": {"conflict": 14, "negative": 196, "neutral": 196, "positive": 728},
-    "offset_valid": 1134,
-    "offset_invalid": 0,
-    "invalid_offsets": []
-  }
-}
-```
-
-*Listing G1. Dataset audit command and output. Zero invalid offsets is the precondition for the offset-aligned token evidence reported in Section 5.*
-
-### G.2 Libraries and frozen versions
-
-| Library | Role in the system | Frozen version |
+| Risk | Mitigation applied | Observed outcome / contingency |
 |---|---|---|
-| Python | Runtime | 3.12.10 |
-| `defusedxml` | Safe SemEval XML parsing | 0.7.1 |
-| `scikit-learn` | TF-IDF vectoriser and logistic regression | 1.8.0 |
-| `PyTorch` | LSTM, GRU, TextCNN and ATAE-LSTM | 2.13.0 |
-| `transformers` | DistilBERT sentence-pair classifier | 5.14.1 |
-| `pandas` / `NumPy` | Evaluation and evidence tables | 3.0.3 / 2.5.1 |
-| `matplotlib` | Confusion-matrix figures | 3.11.0 |
-| `streamlit` | Application interface | 1.59.2 |
+| Neural overfitting | Development early stopping and best-checkpoint restoration | Selected epoch, history and diagnostic persisted per model |
+| Transformer compute/storage | Apple MPS training and explicit artifact measurement | Strongest model, but 256.11 MB; lightweight ATAE remains available |
+| Sentence leakage | Group development split by `sentence_id` | Automated disjointness checks pass |
+| Artifact loading failure | Explicit paths, validation and controlled UI errors | Missing models fail visibly, with no silent substitution |
+| Optional-scope delay | Four-model result frozen before GRU/CNN activation | Six-model track completed without replacing the canonical experiment |
+| Unequal contribution | Issue ownership, pull-request review and contribution record | Juan delivered independent Streamlit QA in PR #120, hardened in PR #121; Victor delivered independent RQ1/RQ2 validation, a CUDA reproduction and clean frozen-package verification recorded in Appendix F |
 
-*Table G2. Libraries and the versions pinned in `constraints-a3.txt`, which is the file a reader installs against.*
+*Table G1. Implemented project-risk mitigations, observed outcomes and retained contingencies.*
 
-### G.3 Frozen model configurations
+### Contribution log
 
-| Model | Batch | Learning rate | Weight decay | Max length | Best epoch | Other |
-|---|---:|---:|---:|---:|---:|---|
-| Target LSTM | 64 | 1e-3 | 1e-4 | 80 | 8 | Adam, patience 2 |
-| Target GRU | 64 | 1e-3 | 1e-4 | 80 | 8 | Adam, embedding 100, hidden 128, dropout 0.5 |
-| TextCNN | 64 | 1e-3 | 1e-4 | 80 | 6 | Adam, embedding 100, filters (3,4,5)x100, dropout 0.5 |
-| ATAE-LSTM | 64 | 1e-3 | 1e-4 | 80 | 6 | Adam, aspect max length 12, patience 2 |
-| DistilBERT | 8 | 2e-5 | 1e-2 | 128 | 2 | AdamW, `distilbert-base-uncased`, patience 2 |
+| Contributor | Status | Contribution / assigned validation | Evidence / hand-off |
+|---|---|---|---|
+| Luis Faria | Completed | Architecture, ABSA implementation, all training/evaluation integration, token evidence, six-model integration, Streamlit integration, Git LFS deployment, release packaging and report consolidation | ReviewPulse PRs #90, #92, #93, #97, #98-#102; academic commits `f3b7247`, `6d50ac0` |
+| Victor Dorantes | Independent validation and release reproduction delivered | Recomputed stored metrics from the six confusion matrices, independently trained and evaluated the four canonical models on CUDA, validated RQ1/RQ2, verified SemEval provenance and audited the cited publications; then completed clean installation, Git LFS, full-suite, offline-smoke, dataset and shipped-artifact checks | ReviewPulse PR #123, merge commit `8787a73`; `docs/dle602-a3/validation-victor.md`; complete evidence summarised in Appendix F |
+| Juan Martinez | Independent QA delivered and reviewed | Executed 12 deployed-Streamlit cases across all six models, multi-aspect inputs, sample generation, evidence views, invalid inputs, model switching and v2/v3 compatibility; recorded predictions, screenshots, three acceptance failures and two stale-state observations that could not be reproduced from the written record; all five are carried as known documented findings, not release blockers | ReviewPulse PR #120, merge commit `1e6689f`; corrective PR #121, merge commit `9071553`; `docs/dle602-a3/validation-juan.md`; companion screenshot record; selected evidence mapped in Appendix E |
 
-*Table G3. Configuration persisted alongside each artifact, seed 42 throughout. TF-IDF is omitted because it is not a neural trainer: it uses logistic regression, lbfgs, `max_iter` 1000 and 1-2 grams.*
+*Table G2. Contribution status, assigned validation work and required traceable evidence.*
 
-Table G4 shows why the best epoch is not simply the last one. ATAE-LSTM training loss falls monotonically to epoch 8 while development macro-F1 peaks at epoch 6 and then declines, so the restored checkpoint is epoch 6.
+## 15. Appendix H - Future Expansion Roadmap
 
-| Epoch | Training loss | Development macro-F1 |
-|---:|---:|---:|
-| 1 | 0.9637 | 0.3350 |
-| 2 | 0.8695 | 0.3591 |
-| 3 | 0.8150 | 0.4624 |
-| 4 | 0.7607 | 0.5023 |
-| 5 | 0.7173 | 0.4863 |
-| 6 | 0.6578 | **0.5370** |
-| 7 | 0.6063 | 0.5325 |
-| 8 | 0.5560 | 0.5297 |
+ReviewPulse v3.0 is intentionally an academic comparison environment and was never built as a production platform. Its six-model ladder, manual gold-aspect input and Streamlit interface make the research questions inspectable, but the same design should not be scaled by simply running every model for every incoming review. Future releases would separate experimental benchmarking from the smaller set of models selected for operational inference.
 
-*Table G4. ATAE-LSTM training history. The 0.0073 macro-F1 decline after the best epoch is below the 0.02 threshold recorded in the overfitting diagnostic, so the run is treated as stable at this seed, not materially overfitted.*
+| Release scenario | Primary objective | Candidate capabilities | Architectural direction |
+|---|---|---|---|
+| v3.1 - Reproducible service | Harden the existing ABSA workflow without changing its research scope | Three-class probability distributions, confidence calibration, abstention thresholds, CSV/JSON export, batch requests, latency/load tests and model-version metadata | Retain Streamlit as the demonstration client and introduce a versioned inference API |
+| v4.0 - Aspect intelligence | Remove the requirement for users to know and enter every aspect | Automatic aspect extraction, user correction, synonym/category normalisation, batch review analysis and emerging-topic discovery | Add an extraction pipeline, persistent result store and analyst dashboard |
+| v5.0 - Operational monitoring | Analyse feedback continuously instead of in isolated submissions | Review-platform connectors, scheduled ingestion, trend analysis, alerts, feedback capture, drift monitoring and domain-specific retraining | Add asynchronous jobs, inference workers, PostgreSQL/object storage and observability |
+| Later SaaS/enterprise track | Support multiple organisations and governed use | Tenant isolation, authentication, role-based access, audit logs, retention controls, personal-data handling and usage limits | Separate web, API, worker and storage tiers; scale workers independently |
 
-### G.4 The one recorded hyperparameter search
+*Table H1. Prospective ReviewPulse release scenarios; listed capabilities are planned, and none is part of the evaluated v3.0 implementation.*
 
-Only TextCNN was searched. The search selected on development macro-F1 alone; the official test split took no part in it, which the record states explicitly as `official_test_evaluated: false`.
+For v3.1, **FastAPI** is the preferred default because the immediate requirement is a small typed HTTP layer around the existing `predict_aspects` and comparison services. Streamlit could remain the visible client while the API provides explicit request schemas, model-version responses and machine-readable errors for batch or third-party consumers. Model execution is compute-bound, so an asynchronous web endpoint alone would not create inference capacity; batch work should instead move through a bounded queue and independently scalable workers.
 
-| Filter widths | Filters | Development macro-F1 | Parameters | Training time |
-|---|---:|---:|---:|---:|
-| (2, 3, 4) | 64 | 0.4309 | 393,371 | 7.7 s |
-| (3, 4, 5) | 64 | 0.3776 | 412,571 | 8.9 s |
-| (3, 4, 5) | 100 | **0.4722** | 456,203 | 12.1 s |
+**Django with Django REST Framework** becomes the stronger alternative if v3.1 is deliberately widened to include user accounts, administrative workflows, permissions, persistent business records or early multi-tenancy. Adopting Django only for model endpoints would add product infrastructure before it is required. The decision is therefore based on release scope: FastAPI for an inference-first service, or Django/DRF when application management becomes a first-class requirement.
 
-*Table G5. TextCNN configuration search, seed 42, four epochs per candidate.*
-
-The result is more informative than the winner. Widening the filters from (2,3,4) to (3,4,5) at the same filter count made the model **worse**, from 0.4309 to 0.3776; macro-F1 only improved, to 0.4722, once the filter count rose to 100. The search therefore provides no evidence that widening alone helped, and the improvement appeared only after capacity increased. It cannot isolate a causal hyperparameter effect: three candidates at one seed leave the wider filters untested at the higher filter count, and no variance estimate is available. What the search does establish is that the selected configuration still records zero neutral F1 on the mixed-polarity subset in Appendix A. Searching a review-only encoder does not supply the aspect signal it never receives.
-
-### G.5 Verified end-to-end run
-
-Listing G2 is the verbatim output of the smoke check, which loads each canonical artifact and scores a two-aspect review. The smoke path reads the artifacts only and does not open the SemEval dataset, which is why it also passed in a clean-room clone where no corpus was present.
-
-```text
-$ python scripts/smoke_absa.py
-absa_tfidf: food=positive, service=positive
-absa_target_lstm: food=negative, service=negative
-absa_atae_lstm: food=positive, service=positive
-absa_distilbert: food=negative, service=negative
+```mermaid
+flowchart LR
+    CLIENTS["Streamlit, batch client or future web UI"] --> API["Versioned service layer<br/>FastAPI initially<br/>Django/DRF if product workflows require it"]
+    API --> LIVE["Bounded synchronous inference"]
+    API --> QUEUE["Batch and scheduled job queue"]
+    LIVE --> WORKERS["Selected production model workers"]
+    QUEUE --> WORKERS
+    REGISTRY["Versioned artifacts and provenance"] --> WORKERS
+    WORKERS --> STORE["Predictions, feedback and metrics store"]
+    STORE --> OUTPUTS["Dashboard, exports, trends and alerts"]
 ```
 
-*Listing G2. Four-model prediction for "The food was great but the service was slow." Every model returns one label per aspect, which is the delivered contract; no model resolves both gold labels here, which is the honest limitation reported in Section 5.*
+*Figure H1. Prospective service evolution; these components are not claimed as part of the evaluated v3.0 implementation.*
 
-Listing G3 is the Python that produces the aspect-conditioned evidence, run against the frozen ATAE-LSTM artifact, together with its output. It is the code behind Table 5, and re-running it reproduces that table's ATAE-LSTM rows exactly.
-
-```python
-from src.absa.inference.api import predict_aspects
-from src.absa.inference.predictors import get_predictor
-
-review = "Great food but the service was dreadful!"
-predictor = get_predictor("absa_atae_lstm")
-results = predict_aspects(review, ["food", "service"], "absa_atae_lstm", predictor)
-
-for item in results:
-    top = sorted(item["token_evidence"]["tokens"], key=lambda t: -t["score"])[:3]
-    tokens = ", ".join(f"{t['token']}[{t['start']}:{t['end']}]={t['score']:.3f}" for t in top)
-    print(f"{item['aspect']:>7} -> {item['label']:<8} {item['confidence']:.3f} | {tokens}")
-```
-
-```text
-   food -> positive 0.864 | Great[0:5]=0.241, food[6:10]=0.131, was[27:30]=0.127
-service -> positive 0.742 | Great[0:5]=0.193, ![39:40]=0.132, dreadful[31:39]=0.130
-```
-
-*Listing G3. Aspect-conditioned inference and token evidence. Each token carries the character offsets that locate it in the original review, so the evidence view is aligned to the raw text itself, never to model-internal subword units. The attention distribution changes with the supplied aspect while the predicted label does not, which is precisely the RQ3 caveat drawn from Jain and Wallace (2019).*
-
-## 15. Appendix H - Code Execution: Lightweight and Complete Packages
-
-Two archives are submitted from the same commit, differing only in which trained artifacts they carry. Both are built by `scripts/build_a3_package.py`, which rejects unresolved Git LFS pointers and writes a SHA-256 manifest; repeated builds of one mode produce an identical digest. Appendix C lists the underlying commands.
-
-| Package | Build mode | Size | v3 models | Needs SemEval corpus |
-|---|---|---:|---:|---|
-| Lightweight | `--artifact-mode lightweight` | approx. 52 MB | 5 of 6 | No |
-| Complete | `--artifact-mode all` | approx. 288 MB | 6 of 6 | No |
-
-*Table H1. The two submitted archives. The difference is the single v3 DistilBERT directory. Both are supplied: where the upload limit refuses the larger file, it is provided through a shared link recorded with the submission.*
-
-The procedure is identical for both, and neither reads the dataset, because the trained artifacts are shipped:
-
-```bash
-unzip ReviewPulse-v3.0.0-DLE602-A3.zip && cd ReviewPulse-v3.0.0
-python3 -m venv .venv && source .venv/bin/activate   # Windows: .venv\Scripts\activate
-pip install -r requirements.txt -c constraints-a3.txt
-python -m pytest -q
-streamlit run app.py
-```
-
-The constraint file pins the versions in Table G2. Inference runs on CPU in both packages, so no accelerator is required.
-
-Only the v3 DistilBERT directory is excluded from the lightweight archive, since at roughly 256 MB it accounts for the entire size difference. Selecting **DistilBERT sentence-pair** there reports the model unavailable and returns no prediction: a missing artifact is always reported and never silently substituted. The only network dependency in the submission sits elsewhere, in the preserved ISY503 workflow and not in any v3 result: the legacy `outputs/distilbert.pt` stores only the classification head and fine-tuned layers, so its base encoder is fetched from `distilbert-base-uncased` and reports itself unavailable offline without a cache. The five v3 artifacts are read straight from disk.
-
-| Environment | Passed | Skipped | Additional skips |
-|---|---:|---:|---|
-| Development machine | 363 | 3 | Legacy Amazon `.review` corpus is not redistributed |
-| GitHub clone, complete artifacts | 357 | 9 | 6 sample-provenance checks need the non-redistributed `predictions.csv` |
-| Extracted lightweight archive | approx. 355 | approx. 11 | 2 package-builder checks need Git metadata, absent from a ZIP |
-
-*Table H2. Expected test outcomes by environment. Every skip is an intentional absence of licensed data or Git metadata; none is a failure, and none is removed by redistributing data the project cannot license.*
-
-On the complete package, `python scripts/smoke_absa.py` clean-loads all four canonical models, as shown in Listing G2. It is deliberately unusable on the lightweight package, which excludes the model it exercises; `scripts/smoke_target_gru.py` and `scripts/smoke_text_cnn.py` are the equivalent checks there.
+The model strategy would also change with scale. TF-IDF, LSTM, GRU and TextCNN remain useful controls for research and regression detection, while operational traffic would normally use one validated aspect-conditioned model, with a second model retained only when its cost, latency or diagnostic value justifies deployment. Cross-domain use in e-commerce, hospitality, software support or other sectors would require new representative data and domain-specific evaluation; Restaurants performance cannot be assumed to transfer unchanged.
 
 ## 16. Academic Integrity Declaration
 
