@@ -1156,6 +1156,12 @@ Please listen to other students and join in the conversation.
 
 ### TLDR
 
+- Apply deep learning as an engineering loop: define the real metric, build a baseline, instrument failures, diagnose the bottleneck, and make one controlled change.
+- Match evaluation to real costs. Accuracy alone can hide rare-class failures, asymmetric consequences, and the value of abstaining on uncertain cases.
+- Compare training and validation performance before acting: poor results on both suggest capacity, optimisation, data, or implementation problems; good training but poor validation suggests overfitting or pipeline mismatch.
+- Debug with worst-case examples, tiny-set overfitting, gradient checks, activation distributions, learning curves, and consistent preprocessing before reaching for a more complex model.
+- Future deep learning may combine neural pattern recognition with program-like reasoning, modular reuse, automated model design, lifelong learning, memory, and self-supervision.
+
 ### Introduction
 In spite of decades of experimental and theoretical work on artificial neural networks and even with all the impressive progress made in the area of deep learning (DL), there is still much to be done to better train neural networks and understand the underlying issues that make the training task difficult. It is well acknowledged by DL practitioners that to get the best out of DL techniques, some practical methodologies must be pursued, such as methodologies that determine what error metric to use or how to incrementally gather new data.
 
@@ -1180,7 +1186,7 @@ Please read Chapter 11 for this Module. This chapter discusses various practical
 
 Also, pay attention to 'Section 11.6: Example: Multi-Digit Number Recognition', which provides a description of how to apply design methodology in practice.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module12_notes.md](module-12-future-of-dl/module12_notes.md)*
 
 #### 2. Best Practices for Applying Deep Learning to Novel Applications
 - Smith, L. (2017). Best practices for applying deep learning to novel applications. Retrieved from https://arxiv.org/ftp/arxiv/papers/1704/1704.01568.pdf
@@ -1191,7 +1197,7 @@ Some of the contents from the first reading (Goodfellow, 2016) are repeated in t
 
 A great way to finish this subject would be to follow 'Appendix A: Table of various deep learning applications' in this paper.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module12_notes.md](module-12-future-of-dl/module12_notes.md)*
 
 #### 3. The Unreasonable Effectiveness of Deep Learning in Artificial Intelligence
 - Sejnowski, T. (2020). The unreasonable effectiveness of deep learning in artificial intelligence. Proceedings of the National Academy of Sciences. Retrieved from https://www.pnas.org/content/early/2020/01/23/1907373117
@@ -1200,7 +1206,7 @@ This short research paper is a great read to learn about the future of DL. This 
 
 Pay attention to the various applications that this paper mentions. Perhaps this will help you to develop some amazing applications of the future using the principles of the DL.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module12_notes.md](module-12-future-of-dl/module12_notes.md)*
 
 #### 4. The Future of Deep Learning
 - Chollet, F. (2017). The future of deep learning [Web log post]. Retrieved from https://blog.keras.io/the-future-of-deep-learning.html
@@ -1208,7 +1214,7 @@ This great post discusses the future of DL. The post is completely speculative; 
 
 This post discusses four main future directions for DL at a high-level. Perhaps the best way to engage with this post would be for you to ask yourself whether you agree or disagree with these suggested future directions as you read.
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Read + Reviewed — see [module12_notes.md](module-12-future-of-dl/module12_notes.md)*
 
 ### Learning Activities
 
