@@ -182,3 +182,6 @@ T2-REM/assignments/Assessment2/sales/
 # ISY503 A3 group video - source recordings and build intermediates (~700 MB)
 2026-T1/ISY/assignments/Assessment3/presentation/video/raw/
 2026-T1/ISY/assignments/Assessment3/presentation/video/work/
+
+# DLE602 A3 packages are uploaded to the LMS/release, not stored in this repository
+2026-T2/DLE/assignments/Assessment3/submission/**/*.zip
