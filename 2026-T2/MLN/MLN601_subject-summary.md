@@ -56,9 +56,13 @@ The wine assessments became a production-oriented portfolio service instead of r
 - parity tests between notebook evidence and served behaviour;
 - FastAPI and Streamlit interfaces with model-card and decision-contract thinking.
 
+The project is documented as a two-article sequence. The first explains why the same dataset became two products. The second follows the 22 model-and-treatment runs from Assessment 2 and the production mismatch they exposed: the notebook had approved a class-weighted Random Forest while the API still served the earlier Decision Tree. Closing that gap required explicit lineage contracts, cross-platform probability parity, backward-compatible API semantics, and a release tied to verified evidence.
+
 Project: [Sommelier API](https://github.com/lfariabr/sommelier-api)
 
-Article: [I gave the same 6,497 wines to two models and asked them different questions](https://dev.to/lfariaus/i-gave-the-same-6497-wines-to-two-models-and-asked-them-different-questions-4hdn)
+Article 1: [I gave the same 6,497 wines to two models and asked them different questions](https://dev.to/lfariaus/i-gave-the-same-6497-wines-to-two-models-and-asked-them-different-questions-4hdn)
+
+Article 2: [I compared 22 ways to classify wine. The winner was not the model in production.](https://dev.to/lfariaus/i-compared-22-ways-to-classify-wine-the-winner-was-not-the-model-in-production-5d5l)
 
 ## Strategic Takeaways
 

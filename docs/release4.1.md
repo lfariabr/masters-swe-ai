@@ -18,6 +18,9 @@ Term | Subject | Status | Lecturer | Directory | Credit Points
   - wine-lot classification: `89.5/100`;
   - Capital Bikeshare demand regression: submitted, grade pending.
 - Turned the two wine assessments into the [Sommelier API](https://github.com/lfariabr/sommelier-api), with FastAPI, Streamlit, provenance, parity tests, and separate estimation and screening contracts.
+- Published a two-article Sommelier API series:
+  - [I gave the same 6,497 wines to two models and asked them different questions](https://dev.to/lfariaus/i-gave-the-same-6497-wines-to-two-models-and-asked-them-different-questions-4hdn);
+  - [I compared 22 ways to classify wine. The winner was not the model in production.](https://dev.to/lfariaus/i-compared-22-ways-to-classify-wine-the-winner-was-not-the-model-in-production-5d5l)
 - Preserved the negative A3 deployment finding: strong random-holdout improvement did not survive the forward-temporal baseline gate.
 - Added a closed-book Module 12 follow-up quiz for Thursday, 20 August 2026, with its answer key stored separately.
 - Added the full [MLN601 subject summary](../2026-T2/MLN/MLN601_subject-summary.md).
