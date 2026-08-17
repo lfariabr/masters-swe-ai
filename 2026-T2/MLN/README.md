@@ -36,6 +36,10 @@ This subject is designed to provide a graduate-level student an in-depth underst
 ## Learning Facilitator
 Dr. Kamran Shaukat
 
+## Completion Summary
+
+MLN601 is complete. See the [subject summary](MLN601_subject-summary.md) for the 12-module learning arc, assessment results, Sommelier API portfolio outcome, and the principles carried forward into production ML work.
+
 ## Modules
 > Tip: ✅ = Done, 🔥 = WIP, 🕐 = Not started, 🔌 = Discontinued
 

@@ -57,7 +57,7 @@ Term | Subject | Status | Lecturer | Directory | Credit Points
 | T3 | Intelligent Systems (***Core***) 2026 | ✅ | Dr. Nandini Sidnal | [ISY503](./2026-T1/ISY/) | 10
 | T4 | Big Data and Analytics (***Elective***) 2026 | 🔥 | Dr. Chen Zhan | [BDA601](./2026-T2/BDA/) | 10
 | T4 | Deep Learning (***Core***) 2026 | 🔥 | Dr. Tayab Din Memon | [DLE602](./2026-T2/DLE/) | 10
-| T4 | Machine Learning (***Core***) 2026 | 🔥 | Dr. Kamran Shaukat | [MLN601](./2026-T2/MLN/) | 10
+| T4 | Machine Learning (***Core***) 2026 | ✅ | Dr. Kamran Shaukat | [MLN601](./2026-T2/MLN/) | 10
 | T5 | Technology - Work Integrated Learning I (***Core***) 2026 | 🕐 | TBD | TBD | 20
 | T6 | Advanced Technology - Work Integrated Learning (***Core***) 2027 | 🕐 | TBD | TBD | 30
 
@@ -106,6 +106,7 @@ While this is primarily a personal repository, I welcome discussions and feedbac
 | 3.0.0   | T1-2026 Launch (ISY503+CCF501)          | 02-2026 | ✅ |
 | 3.2.0   | T1-2026 Complete (ISY503+CCF501)        | 05-2026 | ✅ |
 | 4.0.0   | T2-2026 Launch (MLN601+DLE602+BDA601)   | 06-2026 | ✅ |
+| 4.1.0   | MLN601 Complete                          | 08-2026 | ✅ |
 | 4.2.0   | T2-2026 Complete (MLN601+DLE602+BDA601) | 08-2026 | 🔥 |
 | 5.0.0   | T3-2026 Launch (TWL604)                 | 09-2026 | 🕐 |
 | 5.2.0   | T3-2026 Complete (TWL604)               | 12-2026 | 🕐 |
