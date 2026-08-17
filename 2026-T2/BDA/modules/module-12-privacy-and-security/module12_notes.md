@@ -123,7 +123,7 @@ Ohlhorst frames Big Data security as a **balancing act**, not a solvable problem
 |---|---|
 | **Right of Access** | See what data an organisation holds about them |
 | **Right to Rectification** | Correct inaccurate data |
-| **Right to Erasure** ("right to be forgotten", Art. 17) | Have their data deleted |
+| **Right to Erasure** ("right to be forgotten", Art. 17) | Request deletion when Article 17 conditions apply, subject to exceptions |
 | **Right to Data Portability** | Receive their data in a transferable format |
 | **Right to Object** | Oppose processing in specified circumstances |
 
@@ -131,14 +131,14 @@ Ohlhorst frames Big Data security as a **balancing act**, not a solvable problem
 - **Data protection by design and default** (Article 25) - privacy has to be architected in, not bolted on.
 - **Breach notification** to the supervisory authority "without undue delay" and, where feasible, **within 72 hours** (Article 33) - conditional on the breach being likely to result in a risk to individuals, not a universal deadline for every incident.
 - **Data Protection Impact Assessments** required for high-risk processing (Article 35).
-- **Records of processing activities** must be maintained (Article 30).
-- **Risk-based technical and organisational measures** required under Article 32 - encryption and access control are named examples, not a fixed universal checklist.
+- **Records of processing activities** must be maintained where Article 30 applies; its limited exemptions must be checked rather than assumed.
+- **Risk-based technical and organisational measures** required under Article 32 - encryption is a named example; access control is a practical way to support required confidentiality, not a fixed measure literally listed by name.
 - Penalties (Article 83) are **tiered by infringement severity**; the higher tier reaches up to **€20 million or 4% of global annual turnover, whichever is higher**.
 
 #### Key Takeaways for BDA601
 1. For organisations within its scope, GDPR's Article 32 makes *some* form of technical and organisational security risk-based mandatory - Ohlhorst's controls (encryption, access control, breach response) are legitimate examples of what that can look like, not the literal text of the law.
 2. 🔴 **Direct A3 relevance if the report/video touches evaluation criteria or ethics**: the "without undue delay" breach-notification standard and the "by design and default" principle are concrete, citable standards for what "good" data handling looks like - useful if A3 asks you to reflect on responsible use of the JHU COVID dataset or model outputs.
-3. School-domain anchor: Synergetic/SEQTA/Schoolbox hold minors' data, governed in Australia by the Privacy Act 1988 and the Australian Privacy Principles (APPs), **not** GDPR. The two aren't equivalent - APPs give access and correction rights, and APP 11.2 requires destruction or de-identification of information once it's no longer needed, but Australia has **no general right to erasure, portability, or objection** the way GDPR does. Useful as a comparative reference model, not as a claim that the same rights apply here.
+3. School-domain anchor: Synergetic/SEQTA/Schoolbox hold minors' data and are ordinarily governed by applicable Australian privacy law, including the Privacy Act 1988 and Australian Privacy Principles (APPs); GDPR applies only if its Article 3 scope is triggered. The regimes aren't equivalent - APPs give access and correction rights, and APP 11.2 requires reasonable steps to destroy or de-identify information once it's no longer needed unless a retention exception applies, but Australia has **no general right to erasure, portability, or objection** equivalent to GDPR. Useful as a comparative reference model, not as a claim that the same rights apply here.
 
 ---
 
