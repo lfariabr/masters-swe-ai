@@ -37,6 +37,10 @@ This subject teaches students techniques and best practices in collecting, stori
 ## Learning Facilitator
 Dr. Chen Zhan
 
+## Completion Summary
+
+BDA601 is complete. See the [subject summary](BDA601_subject-summary.md) for the 12-module learning arc, assessment results, three-assessment analytics portfolio, and the principles carried forward into governed data work.
+
 ## Modules
 > Tip: ✅ = Done, 🔥 = WIP, 🕐 = Not started, 🔌 = Discontinued
 
