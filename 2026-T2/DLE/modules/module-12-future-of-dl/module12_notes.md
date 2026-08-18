@@ -92,9 +92,9 @@ Measure again and repeat
 
 - **Learning rate first:** if only one hyperparameter can be tuned, tune the learning rate. Too large can diverge; too small can train slowly or remain stuck.
 - **Grid search:** reasonable for roughly three or fewer hyperparameters, but cost grows exponentially with dimensions.
-- **Random search:** usually explores influential hyperparameters more efficiently because every trial tests new values rather than repeating irrelevant grid combinations.
+- **Random search:** usually explores influential hyperparameters more efficiently because every trial tests new values instead of repeating irrelevant grid combinations.
 - **Debugging toolkit:** visualise predictions and worst errors; fit one or a few examples; compare analytical and numerical gradients; monitor activation and gradient histograms; verify train/test preprocessing consistency.
-- **Street View lesson:** the highest-confidence errors revealed crops that removed digits. Widening the crop improved coverage by **10 percentage points**, a data-pipeline fix rather than a novel architecture.
+- **Street View lesson:** the highest-confidence errors revealed crops that removed digits. Widening the crop improved coverage by **10 percentage points**, a data-pipeline fix, not a novel architecture.
 
 #### Key Takeaways for Deep Learning (DLE602)
 1. Module 12 turns the entire subject into an engineering loop: metric → baseline → diagnosis → controlled change → measurement.
@@ -179,7 +179,7 @@ Measure again and repeat
 | Nonconvex optimisation should get trapped | SGD often reaches useful solutions |
 | One good optimum must be found | many different parameter settings perform well |
 
-- **Saddle points:** in high-dimensional parameter spaces, many critical points are saddles rather than bad local minima.
+- **Saddle points:** in high-dimensional parameter spaces, many critical points are saddles, not bad local minima.
 - **Many good solutions:** overparameterisation changes the search from a "needle in a haystack" to a "haystack of needles."
 - **Theory gap:** we still lack a complete account of why SGD, architecture, inductive bias, and sample complexity combine so effectively.
 - **Blessing of dimensionality:** high-dimensional geometry can provide useful routes and representations that low-dimensional intuition misses.
@@ -192,7 +192,7 @@ Measure again and repeat
 
 #### 4. Future learning directions
 
-- **Self-supervised learning:** learn from abundant raw sensory streams by predicting hidden or future information rather than requiring large labelled datasets.
+- **Self-supervised learning:** learn from abundant raw sensory streams by predicting hidden or future information, without requiring large labelled datasets.
 - **Imitation and generative learning:** acquire behaviour from demonstrations and model joint distributions capable of producing new examples.
 - **Hybrid reasoning:** neural systems may need memory and algorithmic mechanisms for copying, sorting, navigation, planning, and general reasoning.
 - **Caution:** current success does not imply that scaling today's architectures alone will produce artificial general intelligence; Sejnowski explicitly anticipates major breakthroughs.
@@ -224,7 +224,7 @@ Measure again and repeat
 |---|---|---|
 | **Models as programs** | add manipulable loops, branches, variables, memory, lists, graphs, and search | stronger abstraction and reasoning |
 | **Beyond backprop alone** | combine gradients for differentiable modules with search/RL/evolution for discrete structures | train globally non-differentiable systems |
-| **Automated ML** | learn architectures and weights rather than hand-tuning every design choice | reduce engineering labour and move humans toward goal/loss design |
+| **Automated ML** | learn architectures and weights in place of hand-tuning every design choice | reduce engineering labour and move humans toward goal/loss design |
 | **Lifelong modular reuse** | reuse learned features, architectures, training procedures, and program-like subroutines | learn new tasks from little data and avoid starting from scratch |
 
 - **Backprop remains useful:** Chollet does not predict the disappearance of gradients; he argues that they will be one component inside richer systems.
