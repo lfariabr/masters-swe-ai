@@ -19,7 +19,7 @@
 
 - **Security is necessary but not sufficient for privacy:** perfectly encrypted data can still be collected or used unlawfully.
 - Big Data spreads risk across the lifecycle: source → ingest → store → process/model → share → archive/delete. Distributed stores do not escape legal or governance duties.
-- The Vs amplify the problem: **volume** increases breach impact; **velocity** compresses response time; **variety** makes classification/control inconsistent; **valence/linkage** raises re-identification risk.
+- The Vs amplify the problem: **volume** increases breach impact; **velocity** compresses review/response time; **variety** complicates classification; **veracity** can produce inaccurate or unfair decisions; **value/linkage** attracts misuse and raises re-identification risk.
 
 ## 🔴 Zone 2 - Ohlhorst's four-way balancing act
 
@@ -43,6 +43,7 @@
 - 🔵 **Big Data backup problem:** unique streams may be impossible to recreate; billions of tiny files plus a few huge stores strain conventional backup and deduplication.
 - 🔵 **Keys separate from ciphertext:** encryption with the key beside the data is a weak control. Harden configuration/access files too.
 - 🔵 **IP is data too:** inventory, label, prioritise, train staff, use DLP/monitoring, and investigate patterns across incidents.
+- 🔵 **De-identification is not magic:** age band + postcode + condition may still identify someone, especially in a small group or when linked with public/external data. Review combinations, not only direct identifiers.
 
 ## 🔵 Zone 4 - Match controls to the data state
 
@@ -50,9 +51,11 @@
 |---|---|---|---|
 | **At rest** | Stored on disk, cloud, USB, backup | Physical/logical storage access | File/disk/database encryption · ACL/RBAC · secure backup |
 | **In motion** | Moving between systems/networks | Interception/eavesdropping | TLS · authenticated endpoints · secure APIs/VPNs |
+| **In use** | In memory, notebooks, dashboards, or models | Excess privilege · exposed outputs · unsafe compute | Least privilege · sandboxing · logging · output control |
 
-- Chapple's clip covers these **two** states; it is a useful model, not an exhaustive security architecture.
+- Chapple's clip covers the first **two** states; the live Week 12 lecture adds **data in use**.
 - **Three-part control stack:** policy says what is allowed → encryption protects confidentiality → access control determines who/process can view, change, or delete.
+- **Operational loop:** prevent (authentication, least privilege, encryption) → detect (logs, monitoring, anomaly review, audit) → respond (incident plan, containment, notification, recovery, lessons learned).
 - Big Data/NoSQL changes where and how controls are enforced; performance architecture is not permission to weaken them. (Chapple 2018)
 
 ## 🔴 Zone 5 - GDPR: the legal spine (within scope)
@@ -81,13 +84,14 @@
 ## 🔴 Assessment Hook (bottom red strip)
 > **Assessment 3 - Model Evaluation** · source code + presentation (7-10 min) · **40%** · due **19/08/2026** · SLOs **c), d), e)**.
 > Module 12 is conceptual/ethical closing content, **not a required A3 pipeline step**. Use it only as a concise responsible-use limitation: lawful purpose, minimisation, access, retention, re-identification, or model/data governance.
+> **Live clarification:** do not treat geographic adjacency as the graph analysis by itself; define relationships from weekly infection patterns, using geography only for selection/context. Cumulative or weekly values are acceptable if used consistently and interpreted correctly. Keep the deck ≤10 slides for a mixed audience, foreground results/decisions, and submit an already-executed notebook with outputs visible.
 
 ## 🔴 If you only memorise 5 things
 
 1. **Privacy ≠ security:** security controls access; privacy governs lawful collection, purpose, sharing, retention, and rights.
 2. **Classify first, then control** - one security level for every dataset is wasteful and unsafe.
 3. Ohlhorst's four tensions: **access · availability · performance · liability**; every design is a justified trade-off.
-4. Match encryption/control to state: **at rest** vs **in motion**; protect keys/configuration separately.
+4. Match controls to state: **at rest · in motion · in use**, then cover **prevent · detect · respond**.
 5. GDPR is conditional: check **scope → lawful basis → rights/obligations → risk-based controls**. Australian APPs are related but not equivalent.
 
 ---
@@ -106,5 +110,6 @@
 ### Source anchors
 
 - Ohlhorst (2013), *Big Data Analytics*, Ch. 7; Chapple (2018), *Data Security* transcript.
+- Zhan (2026), Week 12 live lecture, 18 August: `BDA week 12.docx`; `BDA_S12_V2.pptx`.
 - GDPR: Articles 3, 6, 25, 30, 32, 33-35, 83; official text at https://eur-lex.europa.eu/eli/reg/2016/679/oj
 - OAIC, Australian Privacy Principles 11-13: https://www.oaic.gov.au/privacy/australian-privacy-principles/read-the-australian-privacy-principles

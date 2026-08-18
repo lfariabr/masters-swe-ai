@@ -142,6 +142,56 @@ Ohlhorst frames Big Data security as a **balancing act**, not a solvable problem
 
 ---
 
+### 4. Live Week 12 class — privacy, security, governance and A3 clarification
+
+**Source:** Zhan, C. (2026, 18 August). *BDA Week 12 class* [Lecture transcript and slides: `BDA week 12.docx`; `BDA_S12_V2.pptx`].
+
+**Lecture synthesis:** Security and privacy risks follow data through the full lifecycle rather than residing only in a central database. Security protects against unauthorised access, alteration, misuse and loss; privacy asks whether the data should be collected or used at all, for which purpose, by whom, and for how long. Security supports privacy but cannot make an unjustified use legitimate.
+
+#### Lifecycle controls
+
+| Stage/state | Main risk | Controls emphasised in class |
+|---|---|---|
+| **Collection** | Excess or unjustified personal data | Defined purpose, informed consent or other valid authority, scope control, data minimisation |
+| **Ingestion / in motion** | Interception, tampering, wrong endpoint | Encryption/TLS, authentication, integrity checks, validation, secure APIs |
+| **Storage / at rest** | Theft, loss, excessive access, unavailable service | Encryption, least privilege, protected backups, recovery, retention and secure deletion |
+| **Processing / in use** | Accidental changes, curiosity access, exposed notebooks or dashboards | Role/process-based access, sandboxing, logging, monitoring, secure compute, output control |
+| **Analysis** | Bias, discrimination, use outside the agreed purpose | Subpopulation/bias checks, privacy review, representative-data checks, documented justification |
+| **Reporting / sharing** | Outputs reveal individuals or sensitive facts | Aggregation, de-identification, suppression of small groups, disclosure review, purpose-limited sharing |
+
+The five Vs amplify these risks: **volume** increases attack surface and breach impact; **velocity** leaves less time for review; **variety** complicates classification and consistent controls; **veracity** can drive inaccurate or unfair decisions; and **value/linkability** attracts misuse and secondary exploitation.
+
+#### Governance is prevention + detection + response
+
+- **Prevent:** authenticate users/endpoints, apply least privilege, encrypt data, and use secure configurations. Convenience is not a reason to grant extra privileges.
+- **Detect:** keep meaningful logs, monitor activity, detect anomalies, review access, and audit regularly. A sensitive action that cannot be traced cannot be governed effectively.
+- **Respond:** predefine containment, notification and recovery workflows; maintain tested backups; restore service; and record lessons for prevention.
+- Threats are not only external attacks. They also include accidental alteration, insider curiosity/misuse, unauthorised exports, weak ownership/retention rules, over-detailed reports, public notebooks and unsafe sharing.
+
+Responsibility is distributed: **data owners** approve purpose, access and retention; **data engineers** implement secure pipelines/storage; **data scientists** request only necessary data and limit exposure; **security teams** monitor/respond; **legal and compliance teams** interpret and independently review obligations; **business users** use outputs appropriately. Good governance leaves evidence through approvals, ownership records, access reviews, logs, audits and retention decisions.
+
+#### Privacy, re-identification and ethical reporting
+
+- Remove direct identifiers and generalise details where possible, such as age bands instead of exact ages or suburb/postcode instead of a street address.
+- De-identification is useful but not a guarantee. Several quasi-identifiers can identify a person when combined, especially in small populations, and public data can be linked back to internal records.
+- Release only the detail needed for the decision. Aggregates, proportions and suppressed small cells are safer than row-level data, but outputs still require a disclosure review.
+- Ethical analysis includes checking whether subpopulations are represented, whether sensitive attributes create systematic privilege/discrimination, and whether a model is being used beyond the purpose agreed at collection.
+- Privacy failures reduce trust and participation and can undermine the fairness and legitimacy of the resulting analysis, even if no technical intrusion occurred.
+
+#### Assessment 3 live clarifications
+
+| Question | Lecturer clarification |
+|---|---|
+| **Weekly or cumulative counts?** | Either can be defensible. Use the same scale when comparing countries, align the interpretation with the chosen representation, and explain the choice. Cumulative counts were suggested for regression, but not mandated. |
+| **Model selection / variance?** | Analyse comparable residual variation or another clearly defined variance measure; do not silently substitute R². Define what the metric means and justify why it selects the country for clustering. |
+| **Graph neighbours?** | Apply Week 11 graph analytics: relationships must be based on infection data/patterns, not geographic adjacency alone. Geographic information can be used as a comparison or contextual feature. |
+| **Same-week or lagged relationship?** | Both are acceptable if the relationship is defined, justified and interpreted consistently. |
+| **Is there one correct pipeline?** | No fixed answer was prescribed. Technical choices and interpretation must agree; defensible alternatives may be compared if time permits. |
+| **Presentation?** | Use a mixed technical/stakeholder audience, concise method detail, and emphasis on results, insights and recommendations. Aim for roughly 8-9 slides and stay at or below 10 slides / 10 minutes. Keep a neutral tone and do not overclaim future outcomes. |
+| **Notebook/submission?** | Submit the source notebook/code with every cell already executed and outputs, tables and plots visible; the lecturer said markers should not need to rerun it. The live guidance named the notebook/code, video and slide deck as the key artifacts. |
+
+---
+
 ## Where this module fits
 
 **Feeds Assessment 3?** Indirectly. A3's four required components (regression → K-Means → Graph Analytics → visualisation, per the brief and Week 11 lecture) do not include a privacy/security or compliance step - Module 12 is the subject's closing **conceptual/ethical** module, not a technical A3 requirement. If A3's video/report includes any reflection on responsible use of the dataset or model limitations, Ohlhorst's caveat framing (access/availability/performance/liability) and GDPR's "by design and default" principle are legitimate, citable cross-references - but nothing in Module 12 changes the required pipeline.
