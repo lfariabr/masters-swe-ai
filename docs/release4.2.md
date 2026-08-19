@@ -1,6 +1,6 @@
 # Release v4.2.0 - T2 2026 Complete
 
-**Status:** Prepared, not released
+**Status:** Released
 
 This minor release is reserved for completion of the full T2 2026 subject set: **MLN601 Machine Learning**, **DLE602 Deep Learning**, and **BDA601 Big Data and Analytics**.
 
@@ -46,8 +46,8 @@ Every row is now complete. Tag `v4.2.0` is ready to be created and pushed once t
 - [x] DLE602 Module 12 and subject closure committed.
 - [x] DLE602 subject summary linked from its README.
 - [x] Root README marks all T2 2026 subjects complete.
-- [ ] Root version table marks `4.2.0` complete.
+- [x] Root version table marks `4.2.0` complete.
 - [x] Release notes updated with final DLE602 highlights.
-- [ ] Tag `v4.2.0` created and pushed after the final closure commit.
+- [x] Tag `v4.2.0` created and pushed after the final closure commit.
 
 **Prepared changelog:** https://github.com/lfariabr/masters-swe-ai/compare/v4.1.0...master
