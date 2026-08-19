@@ -12,9 +12,9 @@ This minor release is reserved for completion of the full T2 2026 subject set: *
 |---|---|---|
 | MLN601 | Complete | Met: 12 modules, three assessments, follow-up quiz and subject summary |
 | BDA601 | Complete | Met: 12 modules, three assessments, follow-up quiz and subject summary |
-| DLE602 | In progress | Pending: close Module 12 issue `#203`, commit its study artifacts, add the closure summary, and mark the subject complete |
+| DLE602 | Complete | Met: 12 modules, three assessments, follow-up quiz and subject summary |
 
-Do not create or publish tag `v4.2.0` until every row is complete and the root academic journey and version table both show the final state.
+Every row is now complete. Tag `v4.2.0` is ready to be created and pushed once the root academic journey and version table are reviewed one final time.
 
 ## Completed Highlights
 
@@ -32,15 +32,22 @@ Do not create or publish tag `v4.2.0` until every row is complete and the root a
 - Completed a 164-week COVID-19 pipeline joining regression, `k=3` clustering, graph correlation and lead-lag analysis into a restrained stakeholder recommendation.
 - Added a closed-book Module 12 follow-up quiz and the [BDA601 subject summary](../2026-T2/BDA/BDA601_subject-summary.md).
 
+### DLE602
+
+- Completed all 12 modules from feedforward networks and backpropagation through CNNs, linear factor models, autoencoders, RNN/LSTM sequence modelling, representation learning, structured probabilistic models, visual analytics, and practical methodology.
+- Earned `90/100` for the N-gram programming-problems assignment and `85/100` for the ReviewPulse project proposal; Assessment 3 is submitted with its grade pending.
+- Delivered ReviewPulse v3.0, a six-model sentiment ladder (TF-IDF through DistilBERT) with gradient x input attribution and attention-weight interpretability built for a text model rather than adapted from CNN-only tooling.
+- Added a closed-book Module 12 follow-up quiz and the [DLE602 subject summary](../2026-T2/DLE/DLE602_subject-summary.md).
+
 ## Finalisation Checklist
 
 - [x] MLN601 closed and represented in the root README.
 - [x] BDA601 closed and represented in the root README.
-- [ ] DLE602 Module 12 and subject closure committed.
-- [ ] DLE602 subject summary linked from its README.
-- [ ] Root README marks all T2 2026 subjects complete.
+- [x] DLE602 Module 12 and subject closure committed.
+- [x] DLE602 subject summary linked from its README.
+- [x] Root README marks all T2 2026 subjects complete.
 - [ ] Root version table marks `4.2.0` complete.
-- [ ] Release notes updated with final DLE602 highlights.
+- [x] Release notes updated with final DLE602 highlights.
 - [ ] Tag `v4.2.0` created and pushed after the final closure commit.
 
 **Prepared changelog:** https://github.com/lfariabr/masters-swe-ai/compare/v4.1.0...master

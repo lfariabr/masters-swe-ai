@@ -37,6 +37,10 @@ Deep learning is a subset of machine learning, and machine learning is a subset 
 ## Learning Facilitator
 Dr. Tayab Din Memon
 
+## Completion Summary
+
+DLE602 is complete. See the [subject summary](DLE602_subject-summary.md) for the 12-module learning arc, assessment results, the ReviewPulse v3.0 portfolio outcome, and the principles carried forward into interpretable, evidence-driven deep learning work.
+
 ## Modules
 > Tip: ✅ = Done, 🔥 = WIP, 🕐 = Not started, 🔌 = Discontinued
 
