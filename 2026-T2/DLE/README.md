@@ -51,7 +51,7 @@ Dr. Tayab Din Memon
 - [X] Module 9 ✅ - Representation Learning
 - [X] Module 10 ✅ - Structurked Probabilistic Models for Deep Learning
 - [X] Module 11 ✅ - Visual Analytics in Deep Learning
-- [ ] Module 12 🔥 - Practical Methodologies and the Future of Deep Learning
+- [X] Module 12 ✅ - Practical Methodologies and the Future of Deep Learning
 
 ## Assignments
 - [X] Assessment 1 - deadline 28/06/2026 ✅, **Programming Problems**: source code + 500-word report +/- 10%, individual, 30%, SLOs `a)`, `b)`, 90/100 pts
