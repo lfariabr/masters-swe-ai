@@ -5,10 +5,10 @@
 ## Study status
 
 - **Started:** 29 August 2026
-- **Last studied:** 31 August 2026
+- **Last studied:** 3 September 2026
 - **Source reviewed:** [`r1.md`](./r1.md), through approximately `00:10:10`
-- **Current position:** The request-response model is assembled. The next lab is inspecting listening TCP sockets with `lsof`.
-- **Last demonstrated understanding:** Reconstructed the browser-to-server flow and correctly separated DNS, IP addressing, ports, TCP reliability, TLS security, HTTP, firewalls, local listeners, and remote deployment. A few terms were tightened in the quick recap below.
+- **Current position:** Socket inspection with `lsof` and `netstat` is complete. The next lab introduces `ping`, ICMP, round-trip time, packet loss, and the limits of reachability testing.
+- **Last demonstrated understanding:** Correctly decoded a `netstat` row into local IP, ephemeral source port, remote IP, conventional HTTPS port, TCP state, and owning process. Also retained that `ESTABLISHED` can be idle.
 
 ## Table of contents and progress
 
@@ -25,8 +25,9 @@
 | Covered | [Firewalls, routes, and listening services](#firewalls-routes-and-listening-services) |
 | Covered | [The complete request-response route](#the-complete-request-response-route) |
 | Covered | [CLI evidence from the study session](#cli-evidence-from-the-study-session) |
+| Covered | Socket ownership and TCP states with `lsof` |
+| Covered | Network endpoints, queues, byte counts, and TCP states with `netstat` |
 | Covered | [Corrections that changed the mental model](#corrections-that-changed-the-mental-model) |
-| Pending | [CLI socket inspection with `lsof` and `netstat`](#pending-learning-path) |
 | Pending | `ping`, ICMP, and reachability |
 | Pending | `traceroute` and hop-by-hop routing |
 | Pending | Deeper DNS: record types, caching, and recursive resolution |
@@ -451,6 +452,70 @@ arp -an
 
 Observed: the gateway had a local MAC mapping; the remote server did not appear in the ARP table.
 
+### Listening and established TCP sockets
+
+```bash
+lsof -nP -iTCP -sTCP:LISTEN
+lsof -nP -iTCP -sTCP:ESTABLISHED
+```
+
+`lsof` means **list open files**. On macOS, network sockets are process-owned, file-like kernel resources represented by file descriptors. With the filters above, `lsof` maps processes to TCP sockets and their states.
+
+Observed:
+
+- `LISTEN` sockets wait for new inbound TCP connection attempts.
+- `ESTABLISHED` sockets carry both directions of an existing TCP connection.
+- `127.0.0.1:port` and `[::1]:port` are bound to IPv4 and IPv6 loopback and are reachable only from the same machine.
+- `*:port` is bound to all applicable local interfaces, making LAN access possible if routing and firewall policy also allow it.
+- A client such as `curl` creates an outbound socket with an ephemeral source port; it does not require a listening socket to receive the response.
+- The kernel uses the connection tuple to deliver returning traffic to the established socket.
+- Several established connections per application are normal for parallel work, persistent streams, background services, and connection reuse.
+- `ESTABLISHED` describes connection state, not continuous data transfer; the socket may be idle.
+
+`lsof` is process-focused: it answers who owns a socket.
+
+### Network state with `netstat`
+
+```bash
+netstat -anv -p tcp | grep -E 'LISTEN|ESTABLISHED' | head -20
+```
+
+`netstat` is network-stack-focused. In this command, `-a` includes active and listening sockets, `-n` preserves numeric addresses and ports, `-v` adds verbose macOS details, and `-p tcp` selects TCP. The pipeline retained `LISTEN` and `ESTABLISHED` rows and limited the sample to 20.
+
+The observed rows exposed:
+
+```text
+protocol | receive queue | send queue | local endpoint | remote endpoint
+         | TCP state | cumulative receive/send bytes | owning process
+```
+
+One row was correctly decoded as:
+
+```text
+Local endpoint:  192.168.0.3:50942
+Remote endpoint: 151.101.3.42:443
+State:           ESTABLISHED
+Owner:           Spotify Helper
+```
+
+Key conclusions:
+
+- The local high-numbered port is an ephemeral source port.
+- Empty send and receive queues mean no bytes were waiting in those kernel queues at that snapshot.
+- Cumulative receive and transmit byte counters show that data had travelled through the connection previously.
+- Multiple established connections are normal for parallel requests, background services, persistent streams, and connection reuse.
+- Port 443 is conventionally used for HTTPS, but `netstat` only proves a TCP connection to port 443; it cannot prove that TLS or HTTP succeeded.
+- Because the output was truncated to 20 rows, seeing only `ESTABLISHED` rows does not imply that no `LISTEN` sockets exist.
+
+Compared directly:
+
+```text
+lsof     → process-owned resources, sockets, and file descriptors
+netstat  → protocol endpoints, queues, counters, and TCP states
+```
+
+Verbose macOS `netstat` also reports owning processes, so the tools overlap.
+
 ## Corrections that changed the mental model
 
 | Initial idea | Correct model |
@@ -467,33 +532,32 @@ Observed: the gateway had a local MAC mapping; the remote server did not appear 
 | HTTP enters through port 443 and TLS adds security afterward | TCP targets port 443, then TLS establishes protection, then HTTP is exchanged inside TLS. |
 | `localhost:3000` means any local app is automatically reachable | A process must listen on port 3000, and the bind address determines which interfaces can reach it. |
 | A Vercel domain maps to one cloud server | DNS normally leads to Vercel edge infrastructure, which routes the request to the deployment. |
+| A client needs a `LISTEN` socket to receive its response | The response returns through the bidirectional `ESTABLISHED` socket created by the outbound connection. |
+| `ESTABLISHED` means bytes are currently moving | It means the TCP connection remains open; it can be idle and reused later. |
+| A TCP connection to remote port 443 proves HTTPS succeeded | Port 443 is conventional evidence only; socket tools do not validate TLS or HTTP. |
 
 ## Pending learning path
 
 Recommended order:
 
-1. **Inspect sockets:** distinguish `LISTEN` from `ESTABLISHED` using `lsof` and `netstat`.
-2. **Test reachability:** understand ICMP and the limits of `ping`.
-3. **Trace routes:** use `traceroute` and understand TTL expiry at successive hops.
-4. **Deepen DNS:** query `A`, `AAAA`, `CNAME`, `MX`, and `NS`; inspect caching and resolver roles.
-5. **Observe TCP and UDP:** compare connection-oriented streams with datagrams through safe CLI labs.
-6. **Inspect packets:** observe DNS, TCP handshake, TLS, and HTTP with `tcpdump` or Wireshark.
-7. **Study remote-access protocols:** SSH and RDP, including their port and security models.
-8. **Apply the foundation:** map a medical PDF upload through browser, HTTPS, firewall, private storage, quarantine, malware scanner, and authorised retrieval.
+1. **Test reachability:** understand ICMP and the limits of `ping`.
+2. **Trace routes:** use `traceroute` and understand TTL expiry at successive hops.
+3. **Deepen DNS:** query `A`, `AAAA`, `CNAME`, `MX`, and `NS`; inspect caching and resolver roles.
+4. **Observe TCP and UDP:** compare connection-oriented streams with datagrams through safe CLI labs.
+5. **Inspect packets:** observe DNS, TCP handshake, TLS, and HTTP with `tcpdump` or Wireshark.
+6. **Study remote-access protocols:** SSH and RDP, including their port and security models.
+7. **Apply the foundation:** map a medical PDF upload through browser, HTTPS, firewall, private storage, quarantine, malware scanner, and authorised retrieval.
 
 ## Resume checkpoint
 
 The next command is:
 
 ```bash
-lsof -nP -iTCP -sTCP:LISTEN
+ping -c 4 example.com
 ```
 
 Before continuing, retrieve these ideas without reading the sections above:
 
-1. What does DNS return, and what does it not do?
-2. Why does ARP show the gateway's MAC rather than the remote server's MAC?
-3. What does TCP provide before TLS begins?
-4. What does TLS add?
-5. If a route exists and the firewall allows port 443 but no process listens, what response is normally expected?
-6. Why does a returning HTTPS response target the client's ephemeral port?
+1. Does a TCP connection to port 443 prove that TLS and HTTP succeeded?
+2. What do empty `netstat` send and receive queues say about that instant?
+3. What is the main difference between the views provided by `lsof` and `netstat`?
