@@ -7,8 +7,8 @@
 - **Started:** 29 August 2026
 - **Last studied:** 3 September 2026
 - **Source reviewed:** [`r1.md`](./r1.md), through approximately `00:10:10`
-- **Current position:** Socket inspection with `lsof` and `netstat` is complete. The next lab introduces `ping`, ICMP, round-trip time, packet loss, and the limits of reachability testing.
-- **Last demonstrated understanding:** Correctly decoded a `netstat` row into local IP, ephemeral source port, remote IP, conventional HTTPS port, TCP state, and owning process. Also retained that `ESTABLISHED` can be idle.
+- **Current position:** `ping`/ICMP and TCP port testing with `nc` are complete. The session stopped immediately before the `traceroute` lab.
+- **Last demonstrated understanding:** Correctly diagnosed that successful `nc` proves TCP reachability and handshake completion, while a later certificate-verification failure belongs to TLS. Also separated ICMP reachability from website health.
 
 ## Table of contents and progress
 
@@ -27,8 +27,9 @@
 | Covered | [CLI evidence from the study session](#cli-evidence-from-the-study-session) |
 | Covered | Socket ownership and TCP states with `lsof` |
 | Covered | Network endpoints, queues, byte counts, and TCP states with `netstat` |
+| Covered | ICMP reachability, packet loss, TTL, and round-trip time with `ping` |
+| Covered | TCP port reachability with `nc`/Netcat |
 | Covered | [Corrections that changed the mental model](#corrections-that-changed-the-mental-model) |
-| Pending | `ping`, ICMP, and reachability |
 | Pending | `traceroute` and hop-by-hop routing |
 | Pending | Deeper DNS: record types, caching, and recursive resolution |
 | Pending | TCP lifecycle, termination, flow control, and congestion control |
@@ -56,7 +57,27 @@ The normal conceptual order is:
 DNS → route lookup → ARP → TCP → TLS → HTTP
 ```
 
+```mermaid
+flowchart LR
+    CLIENT["Browser or curl<br/>https://example.com"]
+    DNS["DNS<br/>hostname to IP address"]
+    ROUTE["Route lookup<br/>choose next-hop gateway"]
+    ARP["ARP<br/>gateway IPv4 to local MAC"]
+    TCP["TCP<br/>ephemeral port to 443<br/>SYN, SYN-ACK, ACK"]
+    TLS["TLS<br/>authenticate server<br/>establish protected channel"]
+    HTTP["HTTP<br/>encrypted request"]
+    SERVER["Server or edge<br/>process request"]
+    RESPONSE["HTTP response<br/>protected by TLS"]
+    RETURN["TCP/IP return path<br/>to ephemeral port"]
+    RESULT["Client<br/>verify, decrypt, interpret"]
+
+    CLIENT --> DNS --> ROUTE --> ARP --> TCP --> TLS --> HTTP --> SERVER
+    SERVER --> RESPONSE --> RETURN --> RESULT
+```
+
 DNS traffic itself also requires routing and local-link delivery. The sequence above focuses on what happens after the client decides it needs to reach a hostname.
+
+DNS and ARP results may already be cached. The diagram shows the full conceptual path rather than implying that every request repeats every lookup.
 
 ## Thirty-second recap
 
@@ -217,6 +238,27 @@ TCP | client IP | 53125 | server IP | 443
 ```
 
 The kernel demultiplexes returning traffic to the correct socket. The owning application then associates data with its own request. A browser tab is not necessarily equivalent to a socket: HTTP/2 can multiplex several request streams through one TCP connection.
+
+```mermaid
+sequenceDiagram
+    participant CA as Client application
+    participant CO as Client OS
+    participant SO as Server OS
+    participant SA as Server application
+
+    SA->>SO: Bind and LISTEN on TCP 443
+    CA->>CO: Connect to server port 443
+    CO->>SO: SYN from ephemeral port
+    SO-->>CO: SYN-ACK
+    CO->>SO: ACK
+    SO-->>SA: accept returns ESTABLISHED socket
+    CO-->>CA: connect succeeds
+    CA->>SA: Request through ESTABLISHED connection
+    SA-->>CA: Response through same connection
+    Note over SO,SA: LISTEN socket remains available for new clients
+```
+
+The server's listening socket accepts new connection attempts. Each accepted client receives a separate established socket. The client needs only its established socket for the response.
 
 ## TCP and UDP
 
@@ -516,6 +558,76 @@ netstat  → protocol endpoints, queues, counters, and TCP states
 
 Verbose macOS `netstat` also reports owning processes, so the tools overlap.
 
+### ICMP reachability with `ping`
+
+```bash
+ping -c 4 example.com
+```
+
+The hostname resolved to `172.66.147.243`. Four ICMP Echo Requests received four Echo Replies:
+
+```text
+4 packets transmitted
+4 packets received
+0.0% packet loss
+round-trip min/avg/max/stddev = 19.054/21.729/23.397/1.691 ms
+```
+
+Key conclusions:
+
+- `ping` uses ICMP, not TCP or UDP, and therefore does not test a port.
+- The sequence number identifies probes and helps reveal missing, duplicate, or reordered replies.
+- The reported time is round-trip latency, not one-way latency or bandwidth.
+- TTL is reduced by each router and prevents packets from circulating indefinitely. The received TTL does not reveal an exact hop count unless the sender's initial TTL is known.
+- Successful `ping` proves that DNS returned a usable address and ICMP worked in both directions at that time.
+- It does not prove TCP port 443, TLS, HTTP, or the website application is healthy.
+- Failed `ping` does not prove a host or website is unavailable because ICMP may be filtered while application traffic remains allowed.
+
+### TCP port reachability with Netcat
+
+```bash
+nc -vz example.com 443
+```
+
+Observed:
+
+```text
+Connection to example.com port 443 [tcp/https] succeeded!
+```
+
+`-v` enables verbose output and `-z` tests the port without exchanging application data. The successful result proves that DNS and routing produced a usable path and that the TCP three-way handshake to port 443 completed. It does not prove TLS, certificate validation, HTTP, or application health.
+
+The `[tcp/https]` label reflects the conventional service associated with TCP port 443. Netcat did not perform HTTPS.
+
+The diagnostic ladder is:
+
+```text
+ping → ICMP reachability
+nc   → TCP port reachability
+curl → TCP + TLS + HTTP
+```
+
+```mermaid
+flowchart TB
+    PING["ping example.com"] --> PINGOK["Evidence:<br/>DNS plus IP/ICMP reachability"]
+    PINGOK --> PINGLIMIT["Does not prove:<br/>TCP, TLS, HTTP, or app health"]
+
+    NC["nc -vz example.com 443"] --> NCOK["Evidence:<br/>DNS plus TCP handshake to port 443"]
+    NCOK --> NCLIMIT["Does not prove:<br/>TLS, HTTP, or app health"]
+
+    CURL["curl -v https://example.com"] --> CURLOK["Evidence by stage:<br/>DNS, TCP, TLS, and HTTP"]
+    CURLOK --> CURLVALUE["Verbose output reveals<br/>the last successful layer"]
+```
+
+Demonstrated diagnosis:
+
+```text
+nc succeeds + curl reports certificate verification failure
+→ DNS/routing/TCP are healthy for that attempt
+→ TLS certificate validation failed
+→ HTTP was not reached
+```
+
 ## Corrections that changed the mental model
 
 | Initial idea | Correct model |
@@ -535,29 +647,31 @@ Verbose macOS `netstat` also reports owning processes, so the tools overlap.
 | A client needs a `LISTEN` socket to receive its response | The response returns through the bidirectional `ESTABLISHED` socket created by the outbound connection. |
 | `ESTABLISHED` means bytes are currently moving | It means the TCP connection remains open; it can be idle and reused later. |
 | A TCP connection to remote port 443 proves HTTPS succeeded | Port 443 is conventional evidence only; socket tools do not validate TLS or HTTP. |
+| Successful `ping` means the website application is alive | It means the resolved endpoint answered ICMP; the application layers remain unproven. |
+| If `ping` works but `curl` times out, the firewall is definitely blocking port 443 | A silent firewall drop is one possibility; the failure stage and verbose evidence are needed to diagnose it. |
+| Netcat's `[tcp/https]` label proves HTTPS occurred | It is a conventional service-name label; `nc -z` completed TCP without performing TLS or HTTP. |
 
 ## Pending learning path
 
 Recommended order:
 
-1. **Test reachability:** understand ICMP and the limits of `ping`.
-2. **Trace routes:** use `traceroute` and understand TTL expiry at successive hops.
-3. **Deepen DNS:** query `A`, `AAAA`, `CNAME`, `MX`, and `NS`; inspect caching and resolver roles.
-4. **Observe TCP and UDP:** compare connection-oriented streams with datagrams through safe CLI labs.
-5. **Inspect packets:** observe DNS, TCP handshake, TLS, and HTTP with `tcpdump` or Wireshark.
-6. **Study remote-access protocols:** SSH and RDP, including their port and security models.
-7. **Apply the foundation:** map a medical PDF upload through browser, HTTPS, firewall, private storage, quarantine, malware scanner, and authorised retrieval.
+1. **Trace routes:** use `traceroute` and understand TTL expiry at successive hops.
+2. **Deepen DNS:** query `A`, `AAAA`, `CNAME`, `MX`, and `NS`; inspect caching and resolver roles.
+3. **Observe TCP and UDP:** compare connection-oriented streams with datagrams through safe CLI labs.
+4. **Inspect packets:** observe DNS, TCP handshake, TLS, and HTTP with `tcpdump` or Wireshark.
+5. **Study remote-access protocols:** SSH and RDP, including their port and security models.
+6. **Apply the foundation:** map a medical PDF upload through browser, HTTPS, firewall, private storage, quarantine, malware scanner, and authorised retrieval.
 
 ## Resume checkpoint
 
 The next command is:
 
 ```bash
-ping -c 4 example.com
+traceroute -n -m 15 -q 1 -w 1 example.com
 ```
 
 Before continuing, retrieve these ideas without reading the sections above:
 
-1. Does a TCP connection to port 443 prove that TLS and HTTP succeeded?
-2. What do empty `netstat` send and receive queues say about that instant?
-3. What is the main difference between the views provided by `lsof` and `netstat`?
+1. What does successful `ping` prove, and which layers does it leave unproven?
+2. What does successful `nc -vz example.com 443` prove, and what does it not prove?
+3. If `nc` succeeds but `curl` rejects the certificate, which layer failed?
