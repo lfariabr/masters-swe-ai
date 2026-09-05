@@ -1,6 +1,6 @@
 # DLE602 Deep Learning - Subject Summary
 
-**Status:** Coursework complete; Assessment 3 grade pending
+**Status:** Complete (Assessment 3 grade pending)
 
 **Term:** T2 2026
 
