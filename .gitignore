@@ -185,3 +185,6 @@ T2-REM/assignments/Assessment2/sales/
 
 # DLE602 A3 packages are uploaded to the LMS/release, not stored in this repository
 2026-T2/DLE/assignments/Assessment3/submission/**/*.zip
+
+# Working drafts and private lecturer correspondence — kept on disk, not in the repo
+**/_drafts/
