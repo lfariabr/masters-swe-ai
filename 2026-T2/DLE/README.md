@@ -53,7 +53,7 @@ DLE602 is complete. See the [subject summary](DLE602_subject-summary.md) for the
 - [X] Module 7 ✅ - Autoencoders
 - [X] Module 8 ✅ - Recurrent Neural Networks and Long Short-Term Memory
 - [X] Module 9 ✅ - Representation Learning
-- [X] Module 10 ✅ - Structurked Probabilistic Models for Deep Learning
+- [X] Module 10 ✅ - Structured Probabilistic Models for Deep Learning
 - [X] Module 11 ✅ - Visual Analytics in Deep Learning
 - [X] Module 12 ✅ - Practical Methodologies and the Future of Deep Learning
 
