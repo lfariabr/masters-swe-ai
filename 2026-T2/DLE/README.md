@@ -39,7 +39,7 @@ Dr. Tayab Din Memon
 
 ## Completion Summary
 
-DLE602 is complete. See the [subject summary](DLE602_subject-summary.md) for the 12-module learning arc, assessment results, the ReviewPulse v3.0 portfolio outcome, and the principles carried forward into interpretable, evidence-driven deep learning work.
+DLE602's coursework is complete; Assessment 3's grade is still pending from Torrens. See the [subject summary](DLE602_subject-summary.md) for the 12-module learning arc, assessment results, the ReviewPulse v3.0 portfolio outcome, and the principles carried forward into interpretable, evidence-driven deep learning work.
 
 ## Modules
 > Tip: ✅ = Done, 🔥 = WIP, 🕐 = Not started, 🔌 = Discontinued
