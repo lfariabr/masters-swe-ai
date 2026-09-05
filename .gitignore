@@ -179,6 +179,12 @@ T2-REM/assignments/Assessment2/sales/
 # (GitHub hard-rejects files over 100 MB)
 *.mp4
 
+# Large media — host externally, link from a .md stub (see docs/refs/devToRefs/RepoCleanup.md)
+*.mov
+*.mkv
+*.zip
+*.7z
+
 # ISY503 A3 group video - source recordings and build intermediates (~700 MB)
 2026-T1/ISY/assignments/Assessment3/presentation/video/raw/
 2026-T1/ISY/assignments/Assessment3/presentation/video/work/
