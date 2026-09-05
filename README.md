@@ -99,10 +99,10 @@ While this is primarily a personal repository, I welcome discussions and feedbac
 #### Version control
 | Version | Modules      | Timeline | Status |
 |---------|---------------------|---|---|
-| 1.0.0   | 2025-T2 Launch SDM+SEP subjects         | 06-2025 | ✅ |
-| 1.2.0   | 2025-T2 Complete (SDM+SEP)              | 08-2025 | ✅ |
-| 2.0.0   | 2025-T3 Launch (HCD+MFA+REM+SBD)        | 09-2025 | ✅ |
-| 2.4.0   | 2025-T3 Complete (HCD+MFA+REM+SBD)      | 12-2025 | ✅ |
+| 1.0.0   | 2025-T1 Launch SDM+SEP subjects         | 06-2025 | ✅ |
+| 1.2.0   | 2025-T1 Complete (SDM+SEP)              | 08-2025 | ✅ |
+| 2.0.0   | 2025-T2 Launch (HCD+MFA+REM+SBD)        | 09-2025 | ✅ |
+| 2.4.0   | 2025-T2 Complete (HCD+MFA+REM+SBD)      | 12-2025 | ✅ |
 | 3.0.0   | 2026-T1 Launch (ISY503+CCF501)          | 02-2026 | ✅ |
 | 3.2.0   | 2026-T1 Complete (ISY503+CCF501)        | 05-2026 | ✅ |
 | 4.0.0   | 2026-T2 Launch (MLN601+DLE602+BDA601)   | 06-2026 | ✅ |
