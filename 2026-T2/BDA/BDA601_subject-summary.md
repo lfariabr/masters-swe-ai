@@ -40,7 +40,7 @@ The three assessments formed a practical progression. A governed Big Retail lake
 - The tuned Random Forest achieved `AUC 0.833`, churn recall `0.754`, and churn F1 `0.618` at threshold `0.30`; a lower cost-based threshold could raise recall at a substantial precision cost.
 - Main feedback edge: preserve the analytical quality while cutting material that exceeds the brief, and phrase model outputs as risk signals rather than certainties.
 
-### Assessment 3 - Global COVID-19 analytics - submitted, grade pending
+### Assessment 3 - Global COVID-19 analytics - 84/100
 
 - Analysed 164 weeks of JHU confirmed-case data across regression, K-Means, graph analytics and stakeholder visualisation.
 - Selected the US as the focal country using consistently defined weekly-case variance, then selected `k=3` with silhouette `0.705` and a supporting elbow result.
@@ -73,6 +73,6 @@ Together they show the complete path from architecture to modelling to communica
 
 - All 12 modules completed with study notes and revision one-pagers.
 - Module 12 closed with the 18 August class synthesis and a scheduled closed-book follow-up quiz.
-- All three assessments submitted; Assessment 3 grade remains pending.
+- All three assessments submitted and graded: 93/100, 91/100, 84/100.
 - BDA601 module and assessment epics are ready to close.
 - Next learning edge: production-scale streaming, causal/temporal validation, privacy-preserving analytics, and measurable data-product operations.
