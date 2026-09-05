@@ -39,7 +39,7 @@ The main practical outcome was the **Sommelier API**: two models over the same 6
 - The approved class-weighted Random Forest achieved test `AUC 0.834`, sensitivity `0.714`, specificity `0.806`, and balanced accuracy `0.760`.
 - The operational contract remained human-in-the-loop: flag lots for expert tasting, never automate release or rejection.
 
-### Assessment 3 - Capital Bikeshare demand regression - submitted, grade pending
+### Assessment 3 - Capital Bikeshare demand regression - 89.5/100
 
 - Compared regression families against two different baselines under separate random-holdout and forward-temporal protocols.
 - The selected model improved MAE by `73.9%` over the training-mean baseline on the conditional holdout.
@@ -78,7 +78,7 @@ Article 2: [I compared 22 ways to classify wine. The winner was not the model in
 ## Closure State
 
 - All 12 modules completed with notes and revision one-pagers.
-- All three assessments submitted; Assessment 3 grade remains pending.
+- All three assessments submitted and graded: 84/100, 89.5/100, 89.5/100.
 - Sommelier API shipped as the subject portfolio project.
 - Module 12 follow-up quiz scheduled for Thursday, 20 August 2026.
 - Next learning edge: production monitoring, temporal retraining policy, calibration, and governed human intervention.

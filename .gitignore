@@ -179,9 +179,18 @@ T2-REM/assignments/Assessment2/sales/
 # (GitHub hard-rejects files over 100 MB)
 *.mp4
 
+# Large media — host externally, link from a .md stub (see docs/refs/devToRefs/RepoCleanup.md)
+*.mov
+*.mkv
+*.zip
+*.7z
+
 # ISY503 A3 group video - source recordings and build intermediates (~700 MB)
 2026-T1/ISY/assignments/Assessment3/presentation/video/raw/
 2026-T1/ISY/assignments/Assessment3/presentation/video/work/
 
 # DLE602 A3 packages are uploaded to the LMS/release, not stored in this repository
 2026-T2/DLE/assignments/Assessment3/submission/**/*.zip
+
+# Working drafts and private lecturer correspondence — kept on disk, not in the repo
+**/_drafts/
