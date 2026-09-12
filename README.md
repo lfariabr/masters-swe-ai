@@ -58,7 +58,7 @@ Term | Subject | Status | Lecturer | Directory | Credit Points
 | 2026-T2 | Big Data and Analytics (***Elective***) | ✅ | Dr. Chen Zhan | [BDA601](./2026-T2/BDA/) | 10
 | 2026-T2 | Deep Learning (***Core***) | ✅ | Dr. Tayab Din Memon | [DLE602](./2026-T2/DLE/) | 10
 | 2026-T2 | Machine Learning (***Core***) | ✅ | Dr. Kamran Shaukat | [MLN601](./2026-T2/MLN/) | 10
-| 2026-T3 | Technology - Work Integrated Learning I (***Core***) | 🔥 | TBD | TBD | 20
+| 2026-T3 | Information Technology - Work Integrated Learning (***Core***) | 🔥 | A/Prof. Tayab Din Memon | [ITW601](./2026-T3/ITW/) | 20
 | 2027-T1 | Advanced Technology - Work Integrated Learning (***Core***) | 🕐 | TBD | TBD | 30
 
 #### Goals
@@ -108,8 +108,8 @@ While this is primarily a personal repository, I welcome discussions and feedbac
 | 4.0.0   | 2026-T2 Launch (MLN601+DLE602+BDA601)   | 06-2026 | ✅ |
 | 4.1.0   | MLN601 Complete                         | 08-2026 | ✅ |
 | 4.2.0   | 2026-T2 Complete (MLN601+DLE602+BDA601)  | 08-2026 | ✅ |
-| 5.0.0   | 2026-T3 Launch (TWL604)                 | 09-2026 | 🔥 |
-| 5.2.0   | 2026-T3 Complete (TWL604)               | 12-2026 | 🕐 |
+| 5.0.0   | 2026-T3 Launch (ITW601)                 | 09-2026 | ✅ |
+| 5.2.0   | 2026-T3 Complete (ITW601)               | 12-2026 | 🕐 |
 | 6.0.0   | 2027-T1 Launch (ATW606)                 | 01-2027 | 🕐 |
 | 6.2.0   | 2027-T1 Complete (ATW606)               | 04-2027 | 🕐 |
 | 7.0.0   | Masters Degree Completed                | 06-2027 | 🕐 |
