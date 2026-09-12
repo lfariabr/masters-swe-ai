@@ -39,7 +39,7 @@ Dr. Tayab Din Memon
 
 ## Completion Summary
 
-DLE602's coursework is complete; Assessment 3's grade is still pending from Torrens. See the [subject summary](DLE602_subject-summary.md) for the 12-module learning arc, assessment results, the ReviewPulse v3.0 portfolio outcome, and the principles carried forward into interpretable, evidence-driven deep learning work.
+DLE602 is complete. See the [subject summary](DLE602_subject-summary.md) for the 12-module learning arc, assessment results, the ReviewPulse v3.0 portfolio outcome, and the principles carried forward into interpretable, evidence-driven deep learning work.
 
 ## Modules
 > Tip: ✅ = Done, 🔥 = WIP, 🕐 = Not started, 🔌 = Discontinued
@@ -60,7 +60,7 @@ DLE602's coursework is complete; Assessment 3's grade is still pending from Torr
 ## Assignments
 - [X] Assessment 1 - deadline 28/06/2026 ✅, **Programming Problems**: source code + 500-word report +/- 10%, individual, 30%, SLOs `a)`, `b)`, 90/100 pts
 - [X] Assessment 2 - deadline 26/07/2026 ✅, **Deep Learning Project Proposal Presentation**: 1000-word report +/- 10% + 5-7 minute presentation, group, 30%, SLOs `b)`, `c)`, `d)`, `e)`, 85/100 pts
-- [X] Assessment 3 - deadline 19/08/2026 ✅, **Deep Learning Final Project**: source code + 1500-word report +/- 10%, group, 40%, SLOs `c)`, `d)`, `e)`, grade pending
+- [X] Assessment 3 - deadline 19/08/2026 ✅, **Deep Learning Final Project**: source code + 1500-word report +/- 10%, group, 40%, SLOs `c)`, `d)`, `e)`, 86.4/100 pts
 
 ## Source Notes
 - [Subject Outline](notes/DLE602_Subject%20Outline_20240603.pdf)

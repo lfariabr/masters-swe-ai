@@ -35,7 +35,7 @@ Every row is now complete. Tag `v4.2.0` is ready to be created and pushed once t
 ### DLE602
 
 - Completed all 12 modules from feedforward networks and backpropagation through CNNs, linear factor models, autoencoders, RNN/LSTM sequence modelling, representation learning, structured probabilistic models, visual analytics, and practical methodology.
-- Earned `90/100` for the N-gram programming-problems assignment and `85/100` for the ReviewPulse project proposal; Assessment 3 is submitted with its grade pending.
+- Earned `90/100` for the N-gram programming-problems assignment, `85/100` for the ReviewPulse project proposal, and `86.4/100` for the final project.
 - Delivered ReviewPulse v3.0, a six-model sentiment ladder (TF-IDF through DistilBERT) with gradient x input attribution and attention-weight interpretability built for a text model rather than adapted from CNN-only tooling.
 - Added a closed-book Module 12 follow-up quiz and the [DLE602 subject summary](../2026-T2/DLE/DLE602_subject-summary.md).
 

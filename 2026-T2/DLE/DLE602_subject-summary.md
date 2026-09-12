@@ -1,6 +1,6 @@
 # DLE602 Deep Learning - Subject Summary
 
-**Status:** Complete (Assessment 3 grade pending)
+**Status:** Complete
 
 **Term:** T2 2026
 
@@ -36,7 +36,7 @@ The three assessments formed one deepening line of work on the same problem - re
 - Scoped ReviewPulse as a group aspect-based sentiment analysis system, defining the problem, dataset (SemEval-2014 Task 4 Restaurants), model ladder, and evaluation plan.
 - Delivered a 1000-word report and a 5-7 minute group presentation against SLOs `b)`, `c)`, `d)`, `e)`.
 
-### Assessment 3 - Deep Learning Final Project - submitted, grade pending
+### Assessment 3 - Deep Learning Final Project - 86.4/100
 
 - Delivered ReviewPulse v3.0: a shared label/evaluation contract across six models (TF-IDF, target LSTM, target GRU, TextCNN review-only, ATAE-LSTM, DistilBERT aspect-conditioned).
 - DistilBERT led on predictive metrics; the two aspect-conditioned models (ATAE-LSTM, DistilBERT) showed the smallest accuracy drop on the 228-instance mixed-polarity subset, evidence that reading the aspect specifically helps on the hardest cases.
@@ -70,6 +70,6 @@ Together they show the complete path from a shallow classical baseline to a deep
 
 - All 12 modules completed with study notes and revision one-pagers.
 - Module 12 closed with a closed-book follow-up quiz; no further live lecture was scheduled - Dr Tayab Din Memon's final session (19 August 2026) was feedback-only, with the next scheduled touchpoint roughly six to eight weeks into Work Integrated Learning I.
-- All three assessments submitted; Assessment 3 grade remains pending.
+- All three assessments submitted and graded: 90/100, 85/100, 86.4/100.
 - DLE602 module and assessment epics are ready to close.
 - Next learning edge: extending the ReviewPulse interpretability layer (attention, gradient x input) into production monitoring, and carrying the evidence-driven methodology from Module 12 into Work Integrated Learning I.
