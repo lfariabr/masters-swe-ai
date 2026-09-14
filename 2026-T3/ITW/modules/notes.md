@@ -4,6 +4,7 @@
 ## Module 1 - Introduction to WIL
 
 ### TLDR
+WIL turns theory into practice under real workplace constraints. Module 1 sets up why professional identity matters (Boughton's ICT professional types), what "quality" WIL looks like from five stakeholder perspectives (CEWIL's Triple-A framework: Aims, Actions, Achievements), and starts the career-facing groundwork (introductions, LinkedIn) that feeds Assessment 1. Practical example: this student's own placement — building a production parent-portal dashboard for St Catherine's School — is itself a live case study in balancing student aims (skill growth), host-organisation aims (a working system leadership can evaluate), and educator aims (assessable, reflective learning) at once.
 
 ### Introduction
 Welcome to ITW601 Information Technology: Work Integrated Learning. Work Integrated Learning is an umbrella term that is often used to encapsulate any kind of learning that has a practical element to it. Therefore, it’s not simply learning about the theory of the subject, it’s also learning how to apply it in the real world. This subject aims not only to develop your theoretical skills but also to enhance your skills in applying the theoretical concepts you learn about to the professional environment.
@@ -26,6 +27,8 @@ Work Integrated Learning is becoming very popular these days due to its importan
 
 APA Reference: Taylor Institute for Teaching and Learning. (2019, June 1). A quality framework for work-integrated learning (2019) [Video]. YouTube.
 
+Transcript and notes: [r2_wil-quality-framework-video.md](module-01-intro-to-wil/r2_wil-quality-framework-video.md)
+
 > *Status: 🕐 To-Do* 
 
 #### 3. Career Advice
@@ -41,7 +44,7 @@ APA Reference: Moran, G. (2021, May 2), 6 career coaches share the best career a
 Write a short paragraph about yourself in the Introduce Yourself discussion forum. The Introduce Yourself discussion forum is a great way for you to get to know other students and feel part of the university community. Building relationships and a supportive network will offer you opportunities to discuss concepts with your peers and share insights gained. This has the potential to provide supportive friendships throughout the subject.
 
 In your post, please discuss the following:
-- Organisation the organisation where you are currently placed in (if you have opted for the industry placement option)
+- If you have opted for the industry placement option, name the organisation where you are currently placed.
 - Your view on the ideal organisation
 - What the skill set and/or interests you have now
 - The skills you want to enhance or gain.
@@ -49,14 +52,20 @@ Post your responses in the Module 1 discussion forum.
 
 Please read other students’ posts and get yourself familiar with other students in the class as well.
 
+**Draft (for review before posting):**
+I'm Luis Faria, a Master of Software Engineering and AI student at Torrens, currently placed at St Catherine's School, Sydney, where I work part-time as a Data Analyst. My placement project is an ML-based Intervention System for Learning Enhancement and Optimisation, supervised by A/Prof Tayab Din Memon, built on de-identified data only. In parallel with study, I've been leading a production project at the school - a parent portal (Family Hub) built on Next.js/TypeScript with a governed read-only backend over the school's student management and data warehouse systems - which doubles as my case for a promotion at work. My ideal organisation is one where engineering decisions are visible and accountable: small enough that one person's judgement calls matter, disciplined enough that "de-identified data only" isn't a slogan but an actual constraint on the architecture. Right now my strongest skills are full-stack web development (React/Next.js, TypeScript, SQL) and applied ML for text/sentiment tasks (I maintain a side project comparing TF-IDF, BiLSTM and DistilBERT on review sentiment). What I want to grow this trimester is the *translation* skill - turning a placement observation into a scoped, defensible ICT intervention, which is exactly what Assessment 1 asks for.
+
 > *Status: 🕐 To-Do* 
 
 #### 2. Learning Activity 2: LinkedIn Account
-As you are about to graduate, it is essential that you have an online presence in the professional world. If you have not already done so, open a LinkedInLinks to an external site. account and write yourself a profile to establish your professional image online.
+As you are about to graduate, it is essential that you have an online presence in the professional world. If you have not already done so, open a [LinkedIn](https://www.linkedin.com/) account and write yourself a profile to establish your professional image online.
 
 Share your LinkedIn account in the Module 1 discussion forum and invite your classmates to connect with you on LinkedIn. This is a good opportunity to begin building your professional network. Remember: your network is your net worth.
 
 Please read other students’ posts and provide feedback on their posts.
+
+**Draft (for review before posting):**
+LinkedIn headline/summary draft: "Software Engineer (Data Analyst, St Catherine's School) building an ML-based intervention system for student learning outcomes, part of a Master of Software Engineering and AI at Torrens." Featured work to link: the Family Hub parent-portal project (production Next.js/TypeScript system, live since July 2026) and Review Pulse (open-source sentiment-analysis pipeline comparing classical and transformer models). Goal for this activity: connect with ITW601 classmates and at least two people from the WIL cohort working in ML/data roles, to compare placement approaches.
 
 > *Status: 🕐 To-Do* 
 
@@ -78,6 +87,12 @@ After reading the resource “What is an ICT Professional Anyway?” (Boughton, 
 Post your responses in the Module 1 discussion forum.
 
 Please read other students’ posts and get yourself familiar with other students in the class as well.
+
+**Draft (for review before posting; grounded in the Family Hub and Review Pulse projects):**
+- **'Highly broadly technical and you know it'**: a senior engineer I consulted while designing Family Hub's read-only BFF boundary - deep, correct opinions on every layer (SQL, auth, caching), freely shared, occasionally at a pace that steamrolls discussion. Pro: the architecture decisions held up under review. Con: junior input got talked over more than once.
+- **'Big-picture broadly technical'**: closer to how I'd describe my own role on Family Hub - I couldn't out-detail a database specialist on `mssql` internals, but I could hold the whole system (SSO boundary, data-minimisation rule, PDF export, promotion narrative) in view and sequence the build so each piece stayed defensible. Pro: kept scope aligned to the governance constraints. Con: verification of some low-level SQL query details needed a second pair of eyes.
+- **'I can do it'**: myself, early on Review Pulse - confident enough with BiLSTM to skip a proper baseline, until a plain TF-IDF model beat it on held-out data. Pro: the enthusiasm got a full experiment shipped fast. Con: no baseline meant I couldn't prove the fancier model earned its complexity until I went back and added one.
+- **'Concepts only'**: a stakeholder conversation about the ML intervention system - someone with a real sense of *what* the school needed (early signal on students needing support) but no view on *how* de-identified data constraints shape what's technically possible. Pro: kept the project anchored to an actual need. Con: the initial ask assumed data access that data-privacy rules would never allow.
 
 > *Status: 🕐 To-Do* 
 

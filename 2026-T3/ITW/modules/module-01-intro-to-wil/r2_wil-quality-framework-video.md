@@ -4,6 +4,21 @@ https://www.youtube.com/watch?v=8dLzTeB3oVE
 4,284 views
 Jun 1, 2019
 
+> **Note:** the timestamped section below is an unedited, auto-generated
+> transcript and may contain speech-to-text errors. Key terms corrected for
+> accuracy: "C will" / "see wheel" → CEWIL (Cooperative Education and
+> Work-Integrated Learning Canada); "candid learning" → work-integrated
+> learning.
+>
+> **Corrected summary:** the presenter (from the University of Waterloo)
+> introduces CEWIL's definition of work-integrated learning, its nine
+> recognised types (apprenticeships, co-op, internships, entrepreneurship,
+> service-learning, applied research, practicum/clinical placements, field
+> placements, work experience), and a "Triple-A" quality framework — Aims,
+> Actions, Achievements — applied across five stakeholders (students,
+> employers/host organisations, educators, institutions, governments), plus
+> a continuous-improvement/quality-assurance layer.
+
 Work-integrated learning (WIL), a form of experiential learning where the workplace or practice setting is a site for learning, is under increased pressure to grow. Some advocates are calling for all post-secondary students to have at least one WIL experience before they graduate. While this is a laudable goal given the many benefits of WIL, how can we ensure that this growth occurs without jeopardizing quality? This presentation introduces a quality framework for WIL that considers the perspectives of all five key stakeholders: students, employers/host organizations, educators, post-secondary institutions and governments (McRae, Pretti & Church, 2018).
 
 [00:00:04] [Music]
@@ -36,7 +51,7 @@ Work-integrated learning (WIL), a form of experiential learning where the workpl
 [00:01:16] a subset of experiential and this is a
 [00:01:20] definition that has been developed after
 [00:01:22] much debate and discussion by the
-[00:01:25] National Association which is C will
+[00:01:25] National Association which is CEWIL,
 [00:01:27] cooperative education and work
 [00:01:29] integrated learning Canada and the
 [00:01:32] Association after great deal of
@@ -51,7 +66,7 @@ Work-integrated learning (WIL), a form of experiential learning where the workpl
 [00:01:49] this definition and I'm going to break
 [00:01:51] it down a little bit for you because
 [00:01:53] there's some key components of it that
-[00:01:56] help us understand how we're candid
+[00:01:56] help us understand how work-integrated
 [00:01:58] learning is a subset of experiential
 [00:02:00] learning broadly so first of all it is a
 [00:02:03] type of experiential learning we'll just
