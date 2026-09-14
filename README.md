@@ -58,7 +58,7 @@ Term | Subject | Status | Lecturer | Directory | Credit Points
 | 2026-T2 | Big Data and Analytics (***Elective***) | ✅ | Dr. Chen Zhan | [BDA601](./2026-T2/BDA/) | 10
 | 2026-T2 | Deep Learning (***Core***) | ✅ | Dr. Tayab Din Memon | [DLE602](./2026-T2/DLE/) | 10
 | 2026-T2 | Machine Learning (***Core***) | ✅ | Dr. Kamran Shaukat | [MLN601](./2026-T2/MLN/) | 10
-| 2026-T3 | Information Technology - Work Integrated Learning (***Core***) | 🔥 | A/Prof. Tayab Din Memon | [ITW601](./2026-T3/ITW/) | 20
+| 2026-T3 | Information Technology - Work Integrated Learning (***Core***) | 🔥 | Dr. Bushra Naem / Dr. Sheng Shen | [ITW601](./2026-T3/ITW/) | 20
 | 2027-T1 | Advanced Technology - Work Integrated Learning (***Core***) | 🕐 | TBD | TBD | 30
 
 #### Goals
