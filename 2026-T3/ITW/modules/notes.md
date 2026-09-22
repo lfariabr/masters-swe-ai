@@ -106,8 +106,6 @@ In one paragraph, describe your ideal professional role and identify two skills 
 
 This activity will help you begin reflecting on your professional identity and career goals, both of which are important foundations for Assessment 1 and your broader Work Integrated Learning experience.
 
- 
-
 #### Assessment Progression
 Assessment 1 is due at the end of Module 4. Please refer to the assessment brief in the assessment area for more details.
 
@@ -138,6 +136,86 @@ Create a study and project schedule that allocates time for learning activities,
 Assessment 1 is due at the end of Module 4.
 
 Submitting early? First, complete this module's activities and check your work against the assessment brief. Successful submissions demonstrate an understanding of professional practice, career development, and how academic learning can be applied in workplace environments.
+
+---
+
+## Module 2 - Australian IT Governance and Regulations
+
+### TLDR
+Data is now the raw material every organisation runs on, and that is exactly why it needs regulating. Module 2 moves from Module 1's "who is a professional" lens to "what rules govern what that professional can do with data" - international regulatory challenges (Samuelson), practical compliance categories (CISSP: legislative, privacy, licensing), and how internet-governance principles intersect with trade law (Mishra). Practical example: the placement project can only use de-identified data with human review before any operational use - a live instance of the privacy-compliance and governance concepts this module covers, not just theory.
+
+### Introduction
+Nowadays, data plays a very vital role in the success of any organisation as the historical data allow companies to devise future plans. Data has become a pivotal point for any privacy laws or regulations in a given IT sector. Technologies like smart phones have allowed companies to collect extraordinary detail about the preferences, behaviours, financial transactions and associations of people all over the world. New database technologies have allowed these data to be cross-referenced and analysed at a speed and on a scale not previously imaginable. The myriad devices comprising the Internet of Things (IoT) has created its own mass of valuable data without human input. The ever-expanding internet has allowed these data to be shared, compiled and cross-analysed to provide a clearer picture and deeper understanding of individuals and groups than many people have of themselves. But not everyone wants this information to be collected, much less used.
+
+In this module, you will learn about the regulations and international laws around data privacy and also about Australian IT governance.
+
+### Resources
+
+#### 1. Benefits of WIL (Work Integrated Learning)
+This handout lists the key benefits for the three stakeholders of WIL: students, employers and academic institutions. This overview of stakeholders will increase your awareness of the system you are currently a part of - as you play the role of student - and how the other stakeholders interact with you.
+
+APA Reference: Ali, A. (2022). Benefits of WIL (Work Integrated Learning) Handout [Presentation]. Torrens University Australia.
+
+Handout: [r1_benefits-of-wil-handout.pdf](module-02-australian-it-governance-regulations/r1_benefits-of-wil-handout.pdf)
+
+> *Status: 🕐 To-Do*
+
+#### 2. Five Challenges for Regulating the Global Information Society
+The following seminal paper explores the ability of laws to effectively regulate the global exchange of data across the IT infrastructure between different nations. With an example of conflict between the US and the EU, this paper also discusses the creation of an effective forum where all such matters can be negotiated and appropriate laws can be made for the resolution of conflicts.
+
+APA Reference: Samuelson, P. (2000). Five challenges for regulating the global information society. SSRN. https://papers.ssrn.com/sol3/papers.cfm?abstract_id=234743
+
+Paper: [r2_five-challenges-global-information-society.pdf](module-02-australian-it-governance-regulations/r2_five-challenges-global-information-society.pdf)
+
+> *Status: 🕐 To-Do*
+
+#### 3. Compliance in Information System Security
+These videos are part of the preparation course for the Certified Information Systems Security Professional (CISSP) exam. The speaker discusses compliance requirements for an information security professional, related to privacy compliance and software licensing in an IT infrastructure. Watch at least the following recordings:
+
+- Legislative and Regulatory Compliance (4m 42s)
+- Privacy Compliance (4m 24s)
+- Software Licensing (2m)
+
+APA Reference: Chapple, M. (2021, January 21). CISSP cert prep: 1 Security and risk management [Videos]. LinkedIn Learning. https://www.linkedin.com/learning/cissp-cert-prep-1-security-and-risk-management-2
+
+Transcript and notes: [r3_security-risk-privacy-compliance-transcript.md](module-02-australian-it-governance-regulations/r3_security-risk-privacy-compliance-transcript.md) - covers Privacy Compliance and Software Licensing in full; Legislative and Regulatory Compliance still needs watching separately (transcript not captured).
+
+> *Status: 🕐 To-Do*
+
+#### 4. International Trade Law, Internet Governance, and the Regulation of Data Flows
+The following reading shows how IT governance and data flows affect international trade. The reading highlights three principles that underpin internet governance and argues that liberalised data flows help balance policy goals. This reading will help you gain a global awareness of IT governance.
+
+APA Reference: Mishra, N. (2019). Building bridges: International trade law, internet governance, and the regulation of data flows. Vanderbilt Journal of Transnational Law, 52(2), 463-509. https://cdn.vanderbilt.edu/vu-wp0/wp-content/uploads/sites/78/2019/05/25131405/8.20Mishra20.pdf
+
+Paper: [r4_trade-law-internet-governance-data-flows.pdf](module-02-australian-it-governance-regulations/r4_trade-law-internet-governance-data-flows.pdf)
+
+> *Status: 🕐 To-Do*
+
+### Learning Activities
+
+#### 1. Learning Activity 1: IT Regulation
+After reading the Essential Resources, you should now have a better understanding of why IT governance is required and how it affects the IT/data industry. Please answer the following questions:
+
+- Thinking about your career goals, are you likely to encounter any IT infrastructure where data regulation is required? If so, how would it affect the business?
+- How could those aspects be regulated and who should be responsible for creating and enforcing such regulations?
+
+Please post your responses in the Module 2 discussion forum. Read other students' posts and provide feedback.
+
+> *Status: 🕐 To-Do*
+
+#### 2. Learning Activity 2: Data Governance Regulation - An Australian Perspective
+After reading the paper titled "Data Governance Regulation, Practices and Cybersecurity Strategies for Business: An Australian Perspective", you should now have a better understanding of an Australian perspective of IT governance. Based on your understanding, reflect on the following topics, stating whether you agree or disagree with them:
+
+- Australian cybersecurity laws and regulation imply the current standards of cybersecurity.
+- Does Australian business need to rethink their data governance practices and cyber-security strategies?
+- After examining Australia's current cybersecurity framework and strategies for data governance and the European Union's General Data Protection Regulation, reflect if the Australian framework for cybersecurity meets similar provisions and strategies.
+- List and reflect on the given recommendations for incident response strategies for businesses to implement in order to mitigate and defend against cyber risks.
+
+Please post your responses in the Module 2 discussion forum. Read other students' posts and provide feedback.
+
+> **Note:** the "Data Governance Regulation, Practices and Cybersecurity Strategies for Business: An Australian Perspective" paper this activity requires is not yet saved in `module-02-australian-it-governance-regulations/` - it needs to be downloaded from the LMS reading list before this activity can be answered.
+
+> *Status: 🕐 To-Do*
 
 ---
 
