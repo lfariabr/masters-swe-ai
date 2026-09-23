@@ -201,6 +201,14 @@ After reading the Essential Resources, you should now have a better understandin
 
 Please post your responses in the Module 2 discussion forum. Read other students' posts and provide feedback.
 
+**Draft (for review before posting):**
+
+*Will I encounter regulated data infrastructure?* I already do. I work as a Data Analyst at an independent school in Sydney, and almost everything I touch is regulated data: student records, attendance, academic results, fee statements and, for boarders, health information. Independent schools are generally APP entities under the Privacy Act 1988 (Cth), so the 13 Australian Privacy Principles apply, health information also falls under NSW health records legislation, and all of it sits inside the school's child-safety obligations. My placement project, a learning analytics capability for student support, is scoped to de-identified data only, with every output reviewed by staff before any operational use.
+
+*How does it affect the business?* It shapes the architecture before a line of code is written. Access is read-only and role-based, data is minimised to what a feature actually needs, and anything analytical runs on de-identified data. It also adds process: security testing before a system goes live, and a plan for the Notifiable Data Breaches scheme if something goes wrong. That costs time, but it is also what earns the trust of families. Mishra (2019) makes the same point at a global level: privacy and security enable openness, they do not only restrict it.
+
+*Who should regulate and enforce?* I see it as layers. Parliament sets the baseline (the Privacy Act and its 2022 and 2024 amendments), the OAIC enforces it, the ASD's ACSC publishes technical guidance such as the Essential Eight, and professional bodies like the ACS set expectations for practitioners. The layer that decides whether any of it works day to day is the organisation's own governance: who signs off on which data a project may use. Samuelson's (2000) challenge of writing laws flexible enough for fast-changing technology is why that internal layer matters: the law will always lag the tools.
+
 > *Status: 🕐 To-Do*
 
 #### 2. Learning Activity 2: Data Governance Regulation - An Australian Perspective
@@ -214,6 +222,16 @@ After reading the paper titled "Data Governance Regulation, Practices and Cybers
 Please post your responses in the Module 2 discussion forum. Read other students' posts and provide feedback.
 
 **Note:** the "Data Governance Regulation, Practices and Cybersecurity Strategies for Business: An Australian Perspective" paper this activity requires is not yet saved in `module-02-australian-it-governance-regulations/` - it needs to be downloaded from the LMS reading list before this activity can be answered.
+
+**Draft (for review before posting; points 1-3 drafted from the current Australian framework, point 4 needs the paper):**
+
+*1. Do Australian laws reflect current cybersecurity standards?* Partly disagree. The law sets a floor, not the current standard. The ASD's Essential Eight is mandatory for non-corporate Commonwealth entities but remains guidance for most private organisations, so a business can be fully compliant with the law and still well behind current practice. Regulation has also tended to move after major incidents: the 2022 Optus and Medibank breaches were followed by much higher Privacy Act penalties later that year.
+
+*2. Do Australian businesses need to rethink data governance and cyber strategy?* Agree. The rules have shifted quickly: higher penalties (2022), a statutory tort for serious invasions of privacy and a Children's Online Privacy Code in development (2024 amendments), and mandatory ransomware payment reporting for larger businesses under the Cyber Security Act 2024. Treating governance as an annual compliance checkbox no longer matches that risk. In a school, where most records concern children, it means asking early which data a project genuinely needs, not only how to secure what has already been collected.
+
+*3. Does the Australian framework meet GDPR-like provisions?* Closer than before, but not yet equivalent. The Australian Privacy Principles cover similar ground to GDPR's Article 5 principles (purpose limitation, data quality, security), but Australia still has no general right to erasure, keeps the small business and employee records exemptions, and has not yet adopted the proposed "fair and reasonable" test for handling personal information. The GDPR applies broadly by default; the Australian framework still relies more on thresholds and exemptions.
+
+*4. Recommended incident response strategies:* **TODO after reading the paper** - list the paper's own recommendations and reflect on each. Do not post a generic list here: the activity asks specifically about the recommendations "given" in this reading.
 
 > *Status: 🕐 To-Do*
 
