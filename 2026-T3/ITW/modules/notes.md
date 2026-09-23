@@ -178,9 +178,9 @@ These videos are part of the preparation course for the Certified Information Sy
 
 APA Reference: Chapple, M. (2021, January 21). CISSP cert prep: 1 Security and risk management [Videos]. LinkedIn Learning. https://www.linkedin.com/learning/cissp-cert-prep-1-security-and-risk-management-2
 
-Transcript and notes: [r3_security-risk-privacy-compliance-transcript.md](module-02-australian-it-governance-regulations/r3_security-risk-privacy-compliance-transcript.md) - covers Privacy Compliance in full and Software Licensing only partially (capture cut off mid-sentence); Legislative and Regulatory Compliance still needs watching separately (transcript not captured).
+Transcript and notes: [r3_security-risk-privacy-compliance-transcript.md](module-02-australian-it-governance-regulations/r3_security-risk-privacy-compliance-transcript.md) - covers all three required videos: Privacy Compliance in full, Legislative and Regulatory Compliance and Software Licensing partially (both captures cut off mid-sentence).
 
-> *Status: 🕐 To-Do*
+> *Status: ✅ Watched + Reviewed*
 
 #### 4. International Trade Law, Internet Governance, and the Regulation of Data Flows
 The following reading shows how IT governance and data flows affect international trade. The reading highlights three principles that underpin internet governance and argues that liberalised data flows help balance policy goals. This reading will help you gain a global awareness of IT governance.
@@ -221,7 +221,9 @@ After reading the paper titled "Data Governance Regulation, Practices and Cybers
 
 Please post your responses in the Module 2 discussion forum. Read other students' posts and provide feedback.
 
-**Note:** the "Data Governance Regulation, Practices and Cybersecurity Strategies for Business: An Australian Perspective" paper this activity requires is not yet saved in `module-02-australian-it-governance-regulations/` - it needs to be downloaded from the LMS reading list before this activity can be answered.
+**Note:** the paper this activity requires is not yet saved in `module-02-australian-it-governance-regulations/`. No open-access PDF was found online; the Western Sydney University repository handle returns an error. Get it through the Torrens library / LMS reading list.
+
+APA Reference: Rajaretnam, T. (2019). A review of data governance regulation, practices and cyber security strategies for businesses: An Australian perspective. In *Proceedings of the 2019 International Conference on Education, Technology, Business and Social Science (ETBSS2019)* (pp. 6-21). Academia Industry Networks. https://hdl.handle.net/1959.7/uws:56996
 
 **Draft (for review before posting; points 1-3 drafted from the current Australian framework, point 4 needs the paper):**
 
