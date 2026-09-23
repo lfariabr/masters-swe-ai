@@ -142,7 +142,7 @@ Submitting early? First, complete this module's activities and check your work a
 ## Module 2 - Australian IT Governance and Regulations
 
 ### TLDR
-Data is now the raw material every organisation runs on, and that is exactly why it needs regulating. Module 2 moves from Module 1's "who is a professional" lens to "what rules govern what that professional can do with data" - international regulatory challenges (Samuelson), practical compliance categories (CISSP: legislative, privacy, licensing), and how internet-governance principles intersect with trade law (Mishra). Practical example: the placement project can only use de-identified data with human review before any operational use - a live instance of the privacy-compliance and governance concepts this module covers, not just theory.
+Data is now the raw material every organisation runs on, and that is why it needs regulating. Module 2 moves from Module 1's "who is a professional" lens to "what rules govern what that professional can do with data" - international regulatory challenges (Samuelson), practical compliance categories (CISSP: legislative, privacy, licensing), and how internet-governance principles intersect with trade law (Mishra). Practical example: the placement project can only use de-identified data with human review before any operational use - a live instance of the privacy-compliance and governance concepts this module covers, not just theory.
 
 ### Introduction
 Nowadays, data plays a very vital role in the success of any organisation as the historical data allow companies to devise future plans. Data has become a pivotal point for any privacy laws or regulations in a given IT sector. Technologies like smart phones have allowed companies to collect extraordinary detail about the preferences, behaviours, financial transactions and associations of people all over the world. New database technologies have allowed these data to be cross-referenced and analysed at a speed and on a scale not previously imaginable. The myriad devices comprising the Internet of Things (IoT) has created its own mass of valuable data without human input. The ever-expanding internet has allowed these data to be shared, compiled and cross-analysed to provide a clearer picture and deeper understanding of individuals and groups than many people have of themselves. But not everyone wants this information to be collected, much less used.
@@ -178,7 +178,7 @@ These videos are part of the preparation course for the Certified Information Sy
 
 APA Reference: Chapple, M. (2021, January 21). CISSP cert prep: 1 Security and risk management [Videos]. LinkedIn Learning. https://www.linkedin.com/learning/cissp-cert-prep-1-security-and-risk-management-2
 
-Transcript and notes: [r3_security-risk-privacy-compliance-transcript.md](module-02-australian-it-governance-regulations/r3_security-risk-privacy-compliance-transcript.md) - covers Privacy Compliance and Software Licensing in full; Legislative and Regulatory Compliance still needs watching separately (transcript not captured).
+Transcript and notes: [r3_security-risk-privacy-compliance-transcript.md](module-02-australian-it-governance-regulations/r3_security-risk-privacy-compliance-transcript.md) - covers Privacy Compliance in full and Software Licensing only partially (capture cut off mid-sentence); Legislative and Regulatory Compliance still needs watching separately (transcript not captured).
 
 > *Status: 🕐 To-Do*
 
@@ -213,7 +213,7 @@ After reading the paper titled "Data Governance Regulation, Practices and Cybers
 
 Please post your responses in the Module 2 discussion forum. Read other students' posts and provide feedback.
 
-> **Note:** the "Data Governance Regulation, Practices and Cybersecurity Strategies for Business: An Australian Perspective" paper this activity requires is not yet saved in `module-02-australian-it-governance-regulations/` - it needs to be downloaded from the LMS reading list before this activity can be answered.
+**Note:** the "Data Governance Regulation, Practices and Cybersecurity Strategies for Business: An Australian Perspective" paper this activity requires is not yet saved in `module-02-australian-it-governance-regulations/` - it needs to be downloaded from the LMS reading list before this activity can be answered.
 
 > *Status: 🕐 To-Do*
 

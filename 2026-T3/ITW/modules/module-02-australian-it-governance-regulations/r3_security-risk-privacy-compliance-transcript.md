@@ -1,9 +1,17 @@
 CISSP Cert Prep: 1 Security and Risk Management (Chapple, 2021)
 https://www.linkedin.com/learning/cissp-cert-prep-1-security-and-risk-management-2
 
-> **Note:** covers the "Privacy Compliance" and "Software Licensing" required videos in full;
-> the "Legislative and Regulatory Compliance" video's transcript is not captured below and
-> should be watched separately on LinkedIn Learning.
+> **Note:** covers the "Privacy Compliance" video in full and the "Software Licensing" video
+> only partially (the capture stops mid-sentence at "not in physical"). The "Legislative and
+> Regulatory Compliance" video's transcript is not captured below and should be watched
+> separately on LinkedIn Learning.
+>
+> **Historical material:** the text below is a verbatim course transcript, not current legal
+> guidance. Its GDPR passage describes "six principles" and presents 2018 as a future start
+> date. Current status: the GDPR has applied since 25 May 2018, and Article 5 sets out seven
+> principles - lawfulness, fairness and transparency; purpose limitation; data minimisation;
+> accuracy; storage limitation; integrity and confidentiality; accountability (Regulation (EU)
+> 2016/679, Art. 5).
 
 Security and Risk Management (course introduction)
 Selecting transcript lines in this section will navigate to timestamp in the video
