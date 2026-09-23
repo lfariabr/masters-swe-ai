@@ -44,7 +44,7 @@ Associate Professor Tayab Din Memon
 > Tip: ✅ = Done, 🔥 = WIP, 🕐 = Not started, 🔌 = Discontinued
 
 - [X] Module 1 ✅ - Introduction to WIL
-- [ ] Module 2 🔥 - Australian IT Governance and Regulations
+- [X] Module 2 ✅ - Australian IT Governance and Regulations
 - [ ] Module 3 🕐 - Ethics in Professional Environment
 - [ ] Module 4 🕐 - IT Project Management
 - [ ] Module 5 🕐 - Decision Making and Problem-Solving Skills in Project Management
