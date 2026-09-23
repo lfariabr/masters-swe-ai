@@ -106,8 +106,6 @@ In one paragraph, describe your ideal professional role and identify two skills 
 
 This activity will help you begin reflecting on your professional identity and career goals, both of which are important foundations for Assessment 1 and your broader Work Integrated Learning experience.
 
- 
-
 #### Assessment Progression
 Assessment 1 is due at the end of Module 4. Please refer to the assessment brief in the assessment area for more details.
 
@@ -138,6 +136,106 @@ Create a study and project schedule that allocates time for learning activities,
 Assessment 1 is due at the end of Module 4.
 
 Submitting early? First, complete this module's activities and check your work against the assessment brief. Successful submissions demonstrate an understanding of professional practice, career development, and how academic learning can be applied in workplace environments.
+
+---
+
+## Module 2 - Australian IT Governance and Regulations
+
+### TLDR
+Data is now the raw material every organisation runs on, and that is why it needs regulating. Module 2 moves from Module 1's "who is a professional" lens to "what rules govern what that professional can do with data" - international regulatory challenges (Samuelson), practical compliance categories (CISSP: legislative, privacy, licensing), and how internet-governance principles intersect with trade law (Mishra). Practical example: the placement project can only use de-identified data with human review before any operational use - a live instance of the privacy-compliance and governance concepts this module covers, not just theory.
+
+### Introduction
+Nowadays, data plays a very vital role in the success of any organisation as the historical data allow companies to devise future plans. Data has become a pivotal point for any privacy laws or regulations in a given IT sector. Technologies like smart phones have allowed companies to collect extraordinary detail about the preferences, behaviours, financial transactions and associations of people all over the world. New database technologies have allowed these data to be cross-referenced and analysed at a speed and on a scale not previously imaginable. The myriad devices comprising the Internet of Things (IoT) has created its own mass of valuable data without human input. The ever-expanding internet has allowed these data to be shared, compiled and cross-analysed to provide a clearer picture and deeper understanding of individuals and groups than many people have of themselves. But not everyone wants this information to be collected, much less used.
+
+In this module, you will learn about the regulations and international laws around data privacy and also about Australian IT governance.
+
+### Resources
+
+#### 1. Benefits of WIL (Work Integrated Learning)
+This handout lists the key benefits for the three stakeholders of WIL: students, employers and academic institutions. This overview of stakeholders will increase your awareness of the system you are currently a part of - as you play the role of student - and how the other stakeholders interact with you.
+
+APA Reference: Ali, A. (2022). Benefits of WIL (Work Integrated Learning) Handout [Presentation]. Torrens University Australia.
+
+Handout: [r1_benefits-of-wil-handout.pdf](module-02-australian-it-governance-regulations/r1_benefits-of-wil-handout.pdf)
+
+> *Status: 🕐 To-Do*
+
+#### 2. Five Challenges for Regulating the Global Information Society
+The following seminal paper explores the ability of laws to effectively regulate the global exchange of data across the IT infrastructure between different nations. With an example of conflict between the US and the EU, this paper also discusses the creation of an effective forum where all such matters can be negotiated and appropriate laws can be made for the resolution of conflicts.
+
+APA Reference: Samuelson, P. (2000). Five challenges for regulating the global information society. SSRN. https://papers.ssrn.com/sol3/papers.cfm?abstract_id=234743
+
+Paper: [r2_five-challenges-global-information-society.pdf](module-02-australian-it-governance-regulations/r2_five-challenges-global-information-society.pdf)
+
+> *Status: 🕐 To-Do*
+
+#### 3. Compliance in Information System Security
+These videos are part of the preparation course for the Certified Information Systems Security Professional (CISSP) exam. The speaker discusses compliance requirements for an information security professional, related to privacy compliance and software licensing in an IT infrastructure. Watch at least the following recordings:
+
+- Legislative and Regulatory Compliance (4m 42s)
+- Privacy Compliance (4m 24s)
+- Software Licensing (2m)
+
+APA Reference: Chapple, M. (2021, January 21). CISSP cert prep: 1 Security and risk management [Videos]. LinkedIn Learning. https://www.linkedin.com/learning/cissp-cert-prep-1-security-and-risk-management-2
+
+Transcript and notes: [r3_security-risk-privacy-compliance-transcript.md](module-02-australian-it-governance-regulations/r3_security-risk-privacy-compliance-transcript.md) - covers all three required videos: Privacy Compliance in full, Legislative and Regulatory Compliance and Software Licensing partially (both captures cut off mid-sentence).
+
+> *Status: ✅ Watched + Reviewed*
+
+#### 4. International Trade Law, Internet Governance, and the Regulation of Data Flows
+The following reading shows how IT governance and data flows affect international trade. The reading highlights three principles that underpin internet governance and argues that liberalised data flows help balance policy goals. This reading will help you gain a global awareness of IT governance.
+
+APA Reference: Mishra, N. (2019). Building bridges: International trade law, internet governance, and the regulation of data flows. Vanderbilt Journal of Transnational Law, 52(2), 463-509. https://cdn.vanderbilt.edu/vu-wp0/wp-content/uploads/sites/78/2019/05/25131405/8.20Mishra20.pdf
+
+Paper: [r4_trade-law-internet-governance-data-flows.pdf](module-02-australian-it-governance-regulations/r4_trade-law-internet-governance-data-flows.pdf)
+
+> *Status: 🕐 To-Do*
+
+### Learning Activities
+
+#### 1. Learning Activity 1: IT Regulation
+After reading the Essential Resources, you should now have a better understanding of why IT governance is required and how it affects the IT/data industry. Please answer the following questions:
+
+- Thinking about your career goals, are you likely to encounter any IT infrastructure where data regulation is required? If so, how would it affect the business?
+- How could those aspects be regulated and who should be responsible for creating and enforcing such regulations?
+
+Please post your responses in the Module 2 discussion forum. Read other students' posts and provide feedback.
+
+**Draft (for review before posting):**
+
+*Will I encounter regulated data infrastructure?* I already do. I work as a Data Analyst at an independent school in Sydney, and almost everything I touch is regulated data: student records, attendance, academic results, fee statements and, for boarders, health information. Independent schools are generally APP entities under the Privacy Act 1988 (Cth), so the 13 Australian Privacy Principles apply, health information also falls under NSW health records legislation, and all of it sits inside the school's child-safety obligations. My placement project, a learning analytics capability for student support, is scoped to de-identified data only, with every output reviewed by staff before any operational use.
+
+*How does it affect the business?* It shapes the architecture before a line of code is written. Access is read-only and role-based, data is minimised to what a feature actually needs, and anything analytical runs on de-identified data. It also adds process: security testing before a system goes live, and a plan for the Notifiable Data Breaches scheme if something goes wrong. That costs time, but it is also what earns the trust of families. Mishra (2019) makes the same point at a global level: privacy and security enable openness, they do not only restrict it.
+
+*Who should regulate and enforce?* I see it as layers. Parliament sets the baseline (the Privacy Act and its 2022 and 2024 amendments), the OAIC enforces it, the ASD's ACSC publishes technical guidance such as the Essential Eight, and professional bodies like the ACS set expectations for practitioners. The layer that decides whether any of it works day to day is the organisation's own governance: who signs off on which data a project may use. Samuelson's (2000) challenge of writing laws flexible enough for fast-changing technology is why that internal layer matters: the law will always lag the tools.
+
+> *Status: 🕐 To-Do*
+
+#### 2. Learning Activity 2: Data Governance Regulation - An Australian Perspective
+After reading the paper titled "Data Governance Regulation, Practices and Cybersecurity Strategies for Business: An Australian Perspective", you should now have a better understanding of an Australian perspective of IT governance. Based on your understanding, reflect on the following topics, stating whether you agree or disagree with them:
+
+- Australian cybersecurity laws and regulation imply the current standards of cybersecurity.
+- Does Australian business need to rethink their data governance practices and cyber-security strategies?
+- After examining Australia's current cybersecurity framework and strategies for data governance and the European Union's General Data Protection Regulation, reflect if the Australian framework for cybersecurity meets similar provisions and strategies.
+- List and reflect on the given recommendations for incident response strategies for businesses to implement in order to mitigate and defend against cyber risks.
+
+Please post your responses in the Module 2 discussion forum. Read other students' posts and provide feedback.
+
+**Note:** the paper this activity requires is not yet saved in `module-02-australian-it-governance-regulations/`. No open-access PDF was found online; the Western Sydney University repository handle returns an error. Get it through the Torrens library / LMS reading list.
+
+APA Reference: Rajaretnam, T. (2019). A review of data governance regulation, practices and cyber security strategies for businesses: An Australian perspective. In *Proceedings of the 2019 International Conference on Education, Technology, Business and Social Science (ETBSS2019)* (pp. 6-21). Academia Industry Networks. https://hdl.handle.net/1959.7/uws:56996
+
+**Draft (for review before posting; points 1-3 drafted from the current Australian framework, point 4 needs the paper):**
+
+*1. Do Australian laws reflect current cybersecurity standards?* Partly disagree. The law sets a floor, not the current standard. The ASD's Essential Eight is mandatory for non-corporate Commonwealth entities but remains guidance for most private organisations, so a business can be fully compliant with the law and still well behind current practice. Regulation has also tended to move after major incidents: the 2022 Optus and Medibank breaches were followed by much higher Privacy Act penalties later that year.
+
+*2. Do Australian businesses need to rethink data governance and cyber strategy?* Agree. The rules have shifted quickly: higher penalties (2022), a statutory tort for serious invasions of privacy and a Children's Online Privacy Code in development (2024 amendments), and mandatory ransomware payment reporting for larger businesses under the Cyber Security Act 2024. Treating governance as an annual compliance checkbox no longer matches that risk. In a school, where most records concern children, it means asking early which data a project genuinely needs, not only how to secure what has already been collected.
+
+*3. Does the Australian framework meet GDPR-like provisions?* Closer than before, but not yet equivalent. The Australian Privacy Principles cover similar ground to GDPR's Article 5 principles (purpose limitation, data quality, security), but Australia still has no general right to erasure, keeps the small business and employee records exemptions, and has not yet adopted the proposed "fair and reasonable" test for handling personal information. The GDPR applies broadly by default; the Australian framework still relies more on thresholds and exemptions.
+
+*4. Recommended incident response strategies:* **TODO after reading the paper** - list the paper's own recommendations and reflect on each. Do not post a generic list here: the activity asks specifically about the recommendations "given" in this reading.
+
+> *Status: 🕐 To-Do*
 
 ---
 
