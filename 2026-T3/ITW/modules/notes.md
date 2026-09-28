@@ -259,7 +259,7 @@ For comparison, the separate six-page local PDF is the **ACM** code, not the ITP
 ### Learning activities
 
 #### Activity 1 — Ethical thinking
-Draft a response of **no more than 100 words per scenario** for: casual employment, taking discarded office paper for a child-care activity, and personal calls or social media at work. Consider people affected, policy, privacy, fairness and proportionate alternatives. Draft responses are being prepared for review; nothing has been posted to the discussion forum. Read and respond to classmates after posting, if required by the LMS.
+Draft a response of **no more than 100 words per scenario** for: casual employment, taking discarded office paper for a child-care activity, and personal calls or social media at work. Consider people affected, policy, privacy, fairness and proportionate alternatives. The [draft responses](module-03-ethics/activity01_ethical-thinking_draft.md) are ready for review; nothing has been posted to the discussion forum. Read and respond to classmates after posting, if required by the LMS.
 
 > *Status: 🕐 Drafting; no forum submission claimed.*
 
