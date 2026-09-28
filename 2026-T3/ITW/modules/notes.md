@@ -239,6 +239,32 @@ APA Reference: Rajaretnam, T. (2019). A review of data governance regulation, pr
 
 ---
 
+## Module 3 - Ethics in Professional Environment
+
+### TLDR
+Professional ethics asks what ought to be done when a lawful or convenient action could still harm people. For each choice, identify who is affected, the applicable policy and professional principle, the practical alternatives, and a defensible decision. In the placement, confidentiality, honest reporting of data gaps and human review are concrete tests of that judgement.
+
+### Introduction
+Module 2 considered regulation; this module considers judgement where rules are incomplete or competing interests remain. Northcutt's introductory chapter distinguishes individual ethics, morals, organisational policy, law and culture. A code can guide a decision, but it cannot replace attention to context or to people affected by an ICT system. The three Activity 1 scenarios apply this distinction to ordinary workplace choices.
+
+### Resources
+
+1. **IT ethics handbook, introduction (pp. 1–14).** Northcutt's chapter introduces ethics, morals, policy, law and culture. The local excerpt is kept outside Git. Northcutt, S. (2004). *IT ethics handbook: Right and wrong for IT professionals*. Syngress. **Status:** to review.
+2. **[ITPA code of ethics](https://www.itpa.org.au/code-of-ethics/).** Use privacy, fairness, honesty and cooperation as prompts for professional judgement. The local one-page PDF reflects an older wording of the privacy principle; use the current site when discussing current obligations. Information Technology Professionals Association. (n.d.). *Code of ethics*. **Status:** to review.
+3. **[What good work ethic really means](https://www.youtube.com/watch?v=b_n6i1ug0tQ).** The short video links personal character, work habits and ethical conduct. Global Ethics Solutions. (2020). *Ethics in the workplace: What good work ethic really means* [Video]. YouTube. **Status:** to review.
+4. **[How to let go of being a “good” person](https://www.ted.com/talks/dolly_chugh_how_to_let_go_of_being_a_good_person_and_become_a_better_person).** Chugh argues that noticing bias and owning mistakes supports ethical learning. Chugh, D. (2018, October). *How to let go of being a “good” person—and become a better person* [Video]. TED. **Status:** to review.
+
+For comparison, the separate six-page local PDF is the **ACM** code, not the ITPA reading: [ACM code of ethics and professional conduct](https://www.acm.org/about-acm/acm-code-of-ethics-and-professional-conduct) (2018). The three renamed PDFs and full video transcripts remain local source copies, outside the public Git history.
+
+### Learning activities
+
+#### Activity 1 — Ethical thinking
+Draft a response of **no more than 100 words per scenario** for: casual employment, taking discarded office paper for a child-care activity, and personal calls or social media at work. Consider people affected, policy, privacy, fairness and proportionate alternatives. Draft responses are being prepared for review; nothing has been posted to the discussion forum. Read and respond to classmates after posting, if required by the LMS.
+
+> *Status: 🕐 Drafting; no forum submission claimed.*
+
+---
+
 ```bash
 --- PLACEHOLDER:
 ## Module X - ...

@@ -45,7 +45,7 @@ Contact details are available in the LMS.
 
 - [X] Module 1 ✅ - Introduction to WIL
 - [X] Module 2 ✅ - Australian IT Governance and Regulations
-- [ ] Module 3 🕐 - Ethics in Professional Environment
+- [ ] Module 3 🔥 - Ethics in Professional Environment
 - [ ] Module 4 🕐 - IT Project Management
 - [ ] Module 5 🕐 - Decision Making and Problem-Solving Skills in Project Management
 - [ ] Module 6 🕐 - IT Process and Industry

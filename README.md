@@ -107,9 +107,9 @@ While this is primarily a personal repository, I welcome discussions and feedbac
 | 3.2.0   | 2026-T1 Complete (ISY503+CCF501)        | 05-2026 | ✅ |
 | 4.0.0   | 2026-T2 Launch (MLN601+DLE602+BDA601)   | 06-2026 | ✅ |
 | 4.1.0   | MLN601 Complete                         | 08-2026 | ✅ |
-| 4.2.0   | 2026-T2 Complete (MLN601+DLE602+BDA601)  | 08-2026 | ✅ |
+| 4.2.0   | 2026-T2 Complete (MLN601+DLE602+BDA601) | 08-2026 | ✅ |
 | 5.0.0   | 2026-T3 Launch (ITW601)                 | 09-2026 | ✅ |
-| 5.2.0   | 2026-T3 Complete (ITW601)               | 12-2026 | 🕐 |
+| 5.2.0   | 2026-T3 In progress (ITW601)            | 12-2026 | 🔥 |
 | 6.0.0   | 2027-T1 Launch (ATW606)                 | 01-2027 | 🕐 |
 | 6.2.0   | 2027-T1 Complete (ATW606)               | 04-2027 | 🕐 |
 | 7.0.0   | Masters Degree Completed                | 06-2027 | 🕐 |
