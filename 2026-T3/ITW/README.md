@@ -3,7 +3,7 @@
 ## Subject Introduction
 This work-integrated learning (WIL) subject provides an opportunity to undertake a significant ICT project in a professional environment, developing skills that build career prospects and translate prior learning into real-world practice.
 
-This student is completing **Option 1: Industry Placement** - an industry placement at St Catherine's School, Sydney, where the student is already employed part-time as a Data Analyst. The placement was approved by Associate Professor Tayab Din Memon, who is supervising the project, scoped as an **ML-based Intervention System for Learning Enhancement and Optimisation** using dummy or de-identified data only. Assessments for this option are individual reflective e-Journals rather than group deliverables (that structure belongs to Option 2: Industry Project, not used here).
+This student is completing **Option 1: Industry Placement** - an industry placement at an independent school in Sydney, where the student is already employed part-time as a Data Analyst. The placement was approved by the academic facilitator, who is supervising the project, scoped as an **ML-based Intervention System for Learning Enhancement and Optimisation** using dummy or de-identified data only. Assessments for this option are individual reflective e-Journals rather than group deliverables (that structure belongs to Option 2: Industry Project, not used here).
 
 ## Subject Details
 - Subject level: 600, Credit points: 20
@@ -38,7 +38,7 @@ This student is completing **Option 1: Industry Placement** - an industry placem
 | 12 | Future of the IT Industry | Future of IT; selecting a career path in IT; entrepreneurship activity | Assessment 3 due: e-Journal - Industry Placement Outcome and Reflection (40%), Wednesday 02/12/2026 | `a)`, `b)`, `e)` |
 
 ## Learning Facilitator
-Associate Professor Tayab Din Memon
+Contact details are available in the LMS.
 
 ## Modules
 > Tip: ✅ = Done, 🔥 = WIP, 🕐 = Not started, 🔌 = Discontinued
@@ -60,6 +60,16 @@ Associate Professor Tayab Din Memon
 - [ ] Assessment 1 🕐 - deadline 11/10/2026, **e-Journal: Introduction to Organisation and its Requirements**: 500 words +/- 10%, individual, 25%, SLOs `a)`, `b)`
 - [ ] Assessment 2 🕐 - deadline 15/11/2026, **e-Journal: Industry Placement Interview and Project Synopsis**: 1000 words +/- 10%, individual, 35%, SLOs `a)`, `b)`, `c)`, `d)`, `e)`
 - [ ] Assessment 3 🕐 - deadline 02/12/2026, **e-Journal: Industry Placement Outcome and Reflection**: 3000 words +/- 10%, individual, 40%, SLOs `a)`, `b)`, `c)`, `d)`, `e)`
+
+## DataWrestler and Student360 Delivery Planning
+
+- [Public material and de-identification rules](deidentified/README.md)
+- [DataWrestler implementation handoff](deidentified/plan.md): project identity, delivery phases, assessment mapping and longer-term source independence.
+- [Data foundation and source evidence](deidentified/data-foundation.md): current pipeline behaviour, EDA/ML architecture and evidence boundaries.
+- [Assessment 1 review checklist](deidentified/a1-review-checklist.md): an unfilled guide to the brief's requirements.
+
+The working control journal, meeting handouts, evidence log and assessment drafts are held locally
+under ignored `notes/` and `_drafts/` directories. They are not part of the public checkout.
 
 ## Source Notes
 - [Subject Outline](notes/ITW601_Subject%20Outline_20260824.pdf)
