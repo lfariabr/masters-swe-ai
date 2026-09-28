@@ -195,3 +195,8 @@ T2-REM/assignments/Assessment2/sales/
 # Working drafts and private lecturer correspondence — kept on disk, not in the repo
 **/_drafts/
 /2026-T3/ITW/announcements
+/2026-T3/ITW/notes
+
+# External Module 3 source copies and full transcripts stay in local study files.
+/2026-T3/ITW/modules/module-03-ethics/*.pdf
+/2026-T3/ITW/modules/module-03-ethics/*-transcript.md
