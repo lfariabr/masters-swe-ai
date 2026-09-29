@@ -1,6 +1,6 @@
 # Module 3 · Activity 1 — Ethical thinking (draft)
 
-**Status:** written for Luis's review; not posted to the discussion forum. Each response must stay at or below the activity's 100-word limit after Luis edits it. These are general scenarios, not accounts of school events.
+**Status:** preparatory draft retained for reference. Luis reported posting his Activity 1 responses to the discussion forum on 29 September 2026. This file is not a copy of the final post. These are general scenarios, not accounts of school events.
 
 ## 1. Is employing casual staff ethical?
 
@@ -14,9 +14,7 @@ I would not take paper merely because it is in a recycling pile. A page can cont
 
 An urgent personal call is different from repeated social browsing while colleagues cover my work. I would follow the workplace policy, use breaks for routine personal activity, and tell a supervisor if a genuine need affects my availability. The same expectation should be applied fairly across the team. If my role gives access to student or staff information, I must also avoid discussing it in public or posting it online. Respecting time and confidentiality is more defensible than pretending every personal interruption can be banned.
 
-## Review before posting
+## Follow-up
 
-- Make each answer sound like Luis's own judgement and check any local policy or employment terms it mentions.
-- Check the word count of each response separately; the three answers are drafts, not a single 100-word answer.
-- Read classmates' posts and respond as required by the LMS. No peer feedback is claimed yet.
+- Read classmates' posts and respond if required by the LMS. No peer feedback is claimed yet.
 - The [ITPA code of ethics](https://www.itpa.org.au/code-of-ethics/) and [ACM code](https://www.acm.org/about-acm/acm-code-of-ethics-and-professional-conduct) offer principles for fairness, privacy, honesty and avoiding harm; they do not decide every scenario automatically.

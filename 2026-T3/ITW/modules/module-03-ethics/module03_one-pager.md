@@ -40,7 +40,7 @@ Ask: *Would I still defend this decision if the affected person, a supervisor an
 2. **Discarded office paper:** “waste” is not the same as cleared for release. Check confidentiality and permission before taking anything off site.
 3. **Personal calls or social media:** apply policy consistently, protect work time and allow proportionate handling of genuine personal needs.
 
-Write **no more than 100 words per scenario**. The [draft responses](activity01_ethical-thinking_draft.md) are for review, not forum submission.
+The activity allowed **no more than 100 words per scenario**. The [preparatory draft](activity01_ethical-thinking_draft.md) is retained for reference; Luis reported posting his own responses on 29 September 2026.
 
 ## 5. A1 placement hook
 
