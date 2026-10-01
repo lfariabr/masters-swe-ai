@@ -101,3 +101,13 @@ APA references are required: at least one recent industry or academic source per
 | Existing tables differ by period | Cohort reports could mix a snapshot with live data | Every view shows its source and date; known gaps are flagged, not hidden |
 | Staff-area access depends on another lead's release cycle | The profile could be ready before the staff area is | Hand off early with a written brief; demonstrate on mock data meanwhile |
 | A rule misunderstood | Wrong award ranks | Written rules note, stakeholder confirmation, reference cases |
+
+## Verified sources banked for A2 and A3
+
+Checked on 2 October 2026 against the publisher or indexing record. Confirm the exact claim against the full text before citing.
+
+| Source | Use it for |
+|---|---|
+| Slade, S., Prinsloo, P., & Khalil, M. (2023). "Trust us," they said. Mapping the contours of trustworthiness in learning analytics. *Information and Learning Sciences, 124*(9/10), 306–325. https://doi.org/10.1108/ILS-04-2023-0042 | Used in A1. Delphi study of 31 experts: trust depends on data completeness (sufficiency for decisions) and stakeholder engagement. |
+| Tan, M., Lee, H., Wang, D., & Subramonyam, H. (2024). Is a seat at the table enough? Engaging teachers and students in dataset specification for ML in education. *Proceedings of the ACM on Human-Computer Interaction, 8*(CSCW1), Article 81, 1–32. https://doi.org/10.1145/3637358 | A2 synopsis and A3 review: educators shaping data requirements needs defined iteration, shared data-quality standards and information scaffolds (weekly checkpoint, written rules confirmation). |
+| Whang, S. E., Roh, Y., Song, H., & Lee, J.-G. (2023). Data collection and quality challenges in deep learning: A data-centric AI perspective. *The VLDB Journal, 32*, 791–813. https://doi.org/10.1007/s00778-022-00775-9 | A2 technical plan and A3 reflection: data quality before modelling; why the curated layer precedes any ML experiment. |
