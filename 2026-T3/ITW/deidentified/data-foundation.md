@@ -57,9 +57,9 @@ Use incremental extraction only if the source supports a reliable change marker 
 2. Demonstrate one reporting period and one agreed cohort, including two dated source snapshots where available. Use synthetic fixtures or approved de-identified inputs for academic artifacts.
 3. Produce a run manifest, typed academic dataset, exception report and EDA report. Prove reruns do not double-count, ambiguous joins are quarantined, and a failed run preserves the last accepted dataset.
 4. Feed the existing Student360 academic adapter with the approved curated shape. Reconcile against the accepted report before adding fresher calculations.
-5. With the academic facilitator, define a learning-related question and target. Compare a simple baseline with one offline candidate model using suitable data and a split that prevents leakage. If target labels are inadequate, document that limitation rather than inventing intervention effectiveness.
+5. With the academic supervisor, define a learning-related question and target. Compare a simple baseline with one offline candidate model using suitable data and a split that prevents leakage. If target labels are inadequate, document that limitation rather than inventing intervention effectiveness.
 
-This is how the infrastructure work can support the approved ML direction. An EDA pipeline alone does not establish that the ML placement objective is satisfied; confirm the revised framing with the academic facilitator. The operational pilot remains read-only and carries no automated intervention decision.
+This is how the infrastructure work can support the approved ML direction. An EDA pipeline alone does not establish that the ML placement objective is satisfied; confirm the revised framing with the academic supervisor. The operational pilot remains read-only and carries no automated intervention decision.
 
 ## Proposed Wednesday checkpoints
 

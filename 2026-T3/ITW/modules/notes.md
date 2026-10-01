@@ -1,5 +1,5 @@
 # Information Technology - Work Integrated Learning (ITW601) Notes
-## Dr. Bushra Naem / Dr. Sheng Shen
+## Dr. Bushra Naeem / Dr. Sheng Shen
 
 ## Module 1 - Introduction to WIL
 

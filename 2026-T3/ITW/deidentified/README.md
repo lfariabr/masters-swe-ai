@@ -8,7 +8,7 @@ people, the school and its vendor systems are not named in workplace-derived pro
 
 | Private detail | Public form |
 |---|---|
-| People | Their role: academic stakeholder, ICT sponsor, placement supervisor, academic facilitator, data owner. The author is named. |
+| People | Their role: academic stakeholder, ICT sponsor, placement supervisor (workplace), academic supervisor (approves and oversees the placement scope), facilitator (the subject lecturer), data owner. The author is named. |
 | The school | "the school" (or "an independent school in Sydney" where context needs it) |
 | Vendor systems | Generic names: SIS (student information system), LMS (learning management system), report server, data warehouse. Microsoft SSIS and Power BI stay named as generic technology. |
 | The workplace repository and its paths | "the workplace repository"; evidence described by kind, not path |

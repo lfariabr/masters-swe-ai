@@ -146,7 +146,7 @@ Use existing app-specific required tests when editing either app. Source example
 | A2 — 15 November, 1,000 words ±10% | **Design and justify the response:** source contracts, inquiry method, governance and staged delivery | Interview preparation, ICT challenges, project synopsis, technical/managerial plan, tools, ethics and actual prototype progress |
 | A3 — 2 December, 3,000 words ±10% | **Evaluate the outcome:** reliability, usefulness, learning and limitations | Updated organizational context, positioning, review of A2, critical reflection, actual validation/feedback and offline experiment results |
 
-Use the section allocations and hour requirements in the existing delivery plan. Confirm LMS dates and revised scope with the academic facilitator. Assessment titles and required structures remain those of ITW; DataWrestler is the project identity within them.
+Use the section allocations and hour requirements in the existing delivery plan. Confirm LMS dates and revised scope with the academic supervisor. Assessment titles and required structures remain those of ITW; DataWrestler is the project identity within them.
 
 Evaluate what was actually achieved. EDA may demonstrate that the data cannot support the proposed target; that is evidence to discuss and a reason to revise the method, not permission to claim successful prediction or intervention effectiveness.
 
@@ -166,7 +166,7 @@ Do not delete a database, disable LMS, change parent publication, cancel service
 
 - The academic stakeholder: first cohort, useful academic questions, metric meanings, award rules and reviewer.
 - The ICT sponsor: delivery capacity, owning repository/runtime, source access and staff pilot boundary.
-- The academic facilitator: how DataWrestler's foundation plus offline experiment satisfies the approved ML intervention project; interview framing and evidence expectations.
+- The academic supervisor: how DataWrestler's foundation plus offline experiment satisfies the approved ML intervention project; interview framing and evidence expectations.
 - Data owners: approved extraction fields/method, publication scope, retention, identity mapping and correction authority.
 - Luis: first review slice and timing; proposed Wednesday 30–45 minute reviews are availability, not booked meetings.
 

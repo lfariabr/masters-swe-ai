@@ -3,7 +3,7 @@
 ## Subject Introduction
 This work-integrated learning (WIL) subject provides an opportunity to undertake a significant ICT project in a professional environment, developing skills that build career prospects and translate prior learning into real-world practice.
 
-This student is completing **Option 1: Industry Placement** - an industry placement at an independent school in Sydney, where the student is already employed part-time as a Data Analyst. The placement was approved by the academic facilitator, who is supervising the project, scoped as an **ML-based Intervention System for Learning Enhancement and Optimisation** using dummy or de-identified data only. Assessments for this option are individual reflective e-Journals rather than group deliverables (that structure belongs to Option 2: Industry Project, not used here).
+This student is completing **Option 1: Industry Placement** - an industry placement at an independent school in Sydney, where the student is already employed part-time as a Data Analyst. The placement was approved by the academic supervisor overseeing the project, scoped as an **ML-based Intervention System for Learning Enhancement and Optimisation** using dummy or de-identified data only. Assessments for this option are individual reflective e-Journals rather than group deliverables (that structure belongs to Option 2: Industry Project, not used here).
 
 ## Subject Details
 - Subject level: 600, Credit points: 20
@@ -38,7 +38,7 @@ This student is completing **Option 1: Industry Placement** - an industry placem
 | 12 | Future of the IT Industry | Future of IT; selecting a career path in IT; entrepreneurship activity | Assessment 3 due: e-Journal - Industry Placement Outcome and Reflection (40%), Wednesday 02/12/2026 | `a)`, `b)`, `e)` |
 
 ## Learning Facilitator
-Contact details are available in the LMS.
+Dr Bushra Naeem (Term 3 2026). Contact details are available in the LMS. The placement scope is approved and supervised separately by the academic supervisor.
 
 ## Modules
 > Tip: ✅ = Done, 🔥 = WIP, 🕐 = Not started, 🔌 = Discontinued
