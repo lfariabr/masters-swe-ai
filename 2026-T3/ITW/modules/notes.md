@@ -158,7 +158,7 @@ APA Reference: Ali, A. (2022). Benefits of WIL (Work Integrated Learning) Handou
 
 Handout: [r1_benefits-of-wil-handout.pdf](module-02-australian-it-governance-regulations/r1_benefits-of-wil-handout.pdf)
 
-> *Status: ✅ Read + Reviewed*
+> *Status: ✅ Read + Reviewed - see [module02_notes.md](module-02-australian-it-governance-regulations/module02_notes.md)*
 
 #### 2. Five Challenges for Regulating the Global Information Society
 The following seminal paper explores the ability of laws to effectively regulate the global exchange of data across the IT infrastructure between different nations. With an example of conflict between the US and the EU, this paper also discusses the creation of an effective forum where all such matters can be negotiated and appropriate laws can be made for the resolution of conflicts.
@@ -167,7 +167,7 @@ APA Reference: Samuelson, P. (2000). Five challenges for regulating the global i
 
 Paper: [r2_five-challenges-global-information-society.pdf](module-02-australian-it-governance-regulations/r2_five-challenges-global-information-society.pdf)
 
-> *Status: ✅ Read + Reviewed*
+> *Status: ✅ Read + Reviewed - see [module02_notes.md](module-02-australian-it-governance-regulations/module02_notes.md)*
 
 #### 3. Compliance in Information System Security
 These videos are part of the preparation course for the Certified Information Systems Security Professional (CISSP) exam. The speaker discusses compliance requirements for an information security professional, related to privacy compliance and software licensing in an IT infrastructure. Watch at least the following recordings:
@@ -180,7 +180,7 @@ APA Reference: Chapple, M. (2021, January 21). CISSP cert prep: 1 Security and r
 
 Transcript and notes: [r3_security-risk-privacy-compliance-transcript.md](module-02-australian-it-governance-regulations/r3_security-risk-privacy-compliance-transcript.md) - covers all three required videos: Privacy Compliance in full, Legislative and Regulatory Compliance and Software Licensing partially (both captures cut off mid-sentence).
 
-> *Status: ✅ Watched + Reviewed*
+> *Status: ✅ Watched + Reviewed - see [module02_notes.md](module-02-australian-it-governance-regulations/module02_notes.md)*
 
 #### 4. International Trade Law, Internet Governance, and the Regulation of Data Flows
 The following reading shows how IT governance and data flows affect international trade. The reading highlights three principles that underpin internet governance and argues that liberalised data flows help balance policy goals. This reading will help you gain a global awareness of IT governance.
@@ -189,7 +189,7 @@ APA Reference: Mishra, N. (2019). Building bridges: International trade law, int
 
 Paper: [r4_trade-law-internet-governance-data-flows.pdf](module-02-australian-it-governance-regulations/r4_trade-law-internet-governance-data-flows.pdf)
 
-> *Status: ✅ Read + Reviewed*
+> *Status: ✅ Read + Reviewed - see [module02_notes.md](module-02-australian-it-governance-regulations/module02_notes.md)*
 
 ### Learning Activities
 
