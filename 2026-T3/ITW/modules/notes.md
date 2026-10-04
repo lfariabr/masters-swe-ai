@@ -261,7 +261,92 @@ For comparison, the separate six-page local PDF is the **ACM** code, not the ITP
 #### Activity 1 — Ethical thinking
 Draft a response of **no more than 100 words per scenario** for: casual employment, taking discarded office paper for a child-care activity, and personal calls or social media at work. Consider people affected, policy, privacy, fairness and proportionate alternatives. The [draft responses](module-03-ethics/activity01_ethical-thinking_draft.md) are ready for review; nothing has been posted to the discussion forum. Read and respond to classmates after posting, if required by the LMS.
 
-> *Status: 🕐 Drafting; no forum submission claimed.*
+> *Status: ✅ Done*
+
+---
+
+## Module 4 - IT Project Management
+
+### TLDR
+
+### Introduction
+- Project Management Institute. (2018). A guide to the project management body of knowledge (PMBOK® Guide) (6th ed.).
+
+Project management is both an art and a skill that every IT professional needs to have on their profile. Essentially, it is the science of planning, scoping and managing the entire project. The Project Management Institute (PMI, 2018) divided the Project Management Body of Knowledge (PMBOK) into 10 main areas:
+
+1. Project Integration Management
+2. Project Scope Management
+3. Project Schedule Management
+4. Project Cost Management
+5. Project Quality Management
+6. Project Resource Management
+7. Project Communications Management
+8. Project Risk Management
+9. Project Procurement Management
+10. Project Stakeholder Management
+
+This module will help you to further your understanding regarding the main concepts of an IT project and will guide you through different activities integral to project management as well as the various techniques that can be used to manage a project.
+
+### Resources
+
+#### 1. Interview with Mark Eagar (Podcast)
+- APA Reference: Ali, A. & Eagar, M. (2022). Interview with Mark Eagar [Podcast]. Torrens University Australia.
+
+Listen to this 29-minute podcast with Mark Eagar, the Chief Strategist & General Manager (ATS) at Andvare Group, discussing how to make use of WIL. Mark outlines approaches for building a career path with a software engineer’s skill set.
+
+> *Status: 🕐 To-Do* 
+
+#### 2. Risk Management in Information Technology Projects
+- Taylor, J. (2004). Managing information technology projects. AMACOM. https://ebookcentral-proquest-com.torrens.idm.oclc.org/lib/think/reader.action?docID=243057&ppg=166
+
+There are multiple risks associated with any project and identifying and addressing those risks in a timely manner is very important for the successful completion of the project. A comprehensive risk management plan will help any organisation to manage the risks of the project by clearly identifying how the project will be impacted in case certain events occur.
+
+Please read “Chapter 7: Risk Management in Information Technology Projects” on pages 152 to 182 which will introduce you to the basic definitions of risk and risk management. A basic model is also presented that will prepare the organization to plan and reduce the risks.
+
+> *Status: 🕐 To-Do* 
+
+#### 3. Writing Project Proposals—A Case Study
+- Kerzner, H. R. (2013). Project management case studies (4th ed.). Wiley. https://ebookcentral-proquest-com.torrens.idm.oclc.org/lib/think/reader.action?docID=1108715&ppg=88
+
+This resource explains the process of writing an effective project proposal with the help of an example case study. Reading this will provide you with a better idea of how to write your project proposal for Assessment 1, which you will continue to refer to throughout the remainder of this subject.
+
+Please read through “MIS Project Management at First National Bank” on pages 72 to 85 to better understand the process of writing effective project proposals.
+
+> *Status: 🕐 To-Do* 
+
+#### 4. Project Proposal Writing: How to Write a Winning Project Proposal
+- ProjectManager. (2014, May 19). Project proposal writing: How to write a winning project proposal [Video]. YouTube.
+
+This 7-minute video discusses the art of writing effective project proposals and how to increase the likelihood of having it accepted by the business users or project stakeholders. The speaker also shares tips that assist with the acceptance of a project proposal in a professional practice scenario.
+
+> *Status: 🕐 To-Do* 
+
+#### 5. Project Management 101: Project Management Tutorial for Beginners—Project Management Fundamentals
+- Invensis Learning. (2021, February 16). Project management 101: Project management tutorial for beginners—Project management fundamentals [Video]. YouTube.
+This one-hour video discusses the fundamentals of project management and the various types of project management methodologies. The following areas are covered:
+
+- What is Project Management?
+- History of Project Management?
+- Project Life Cycle
+- Project Management Knowledge Areas and Methodologies
+- Project Management Tools
+- Project Management Certifications
+- Demo of a Project Management Life Cycle.
+
+> *Status: 🕐 To-Do* 
+
+### Learning Activities
+
+#### 1. Discussion Forum Post (Assessment 1 Preparation)
+Using the project management resources that you have read in this module, identify a list of actions to complete for Assessment 1. If you have not reviewed the assessment brief, please do so before creating the list.
+
+For each of the items mentioned in the resources, write one clear statement and identify any associated challenges for each point. This activity should demonstrate your ability to pinpoint any gaps that need to be addressed in order to complete the assessment. This should help you to connect with like-minded people in the class.
+
+Post your responses in the Module 4 discussion forum. Make sure your post is not more than 300 words.
+
+Please read other students’ posts and provide feedback on their ideas. Most importantly, identify other students who have plans similar to yours.
+
+> *Status: 🕐 To-Do* 
 
 ---
 
