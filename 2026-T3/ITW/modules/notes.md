@@ -269,6 +269,8 @@ Draft a response of **no more than 100 words per scenario** for: casual employme
 
 ### TLDR
 
+Module 4 is about getting a project approved and keeping it alive. A **proposal** sells a problem, vision, measurable benefits and SMART success criteria (ProjectManager, 2014). Kerzner's First National Bank case shows that a formal approval process still fails when requirements come from one voice, users are left off the team and the PM does not escalate. **Risk management** runs in eight steps, from planning to archiving lessons learned, with expected value for trade-offs and four responses: avoid, transfer, mitigate, accept (Taylor, 2004). **Methodology** follows the project: waterfall for fixed scope, agile, Scrum or Kanban for evolving requirements (Invensis Learning, 2021). Eagar adds the people side: meet the perceived need first. Practical anchor: A1 is due this week, and the proposal sections plus a top-10 risk table are the skeleton for the A2 synopsis. Key highlights: [module04_notes.md](module-04-it-project-management/module04_notes.md).
+
 ### Introduction
 - Project Management Institute. (2018). A guide to the project management body of knowledge (PMBOK® Guide) (6th ed.).
 
@@ -294,7 +296,7 @@ This module will help you to further your understanding regarding the main conce
 
 Listen to this 29-minute podcast with Mark Eagar, the Chief Strategist & General Manager (ATS) at Andvare Group, discussing how to make use of WIL. Mark outlines approaches for building a career path with a software engineer’s skill set.
 
-> *Status: 🕐 To-Do* 
+> *Status: 🕐 To-Do - summary in [module04_notes.md](module-04-it-project-management/module04_notes.md)*
 
 #### 2. Risk Management in Information Technology Projects
 - Taylor, J. (2004). Managing information technology projects. AMACOM. https://ebookcentral-proquest-com.torrens.idm.oclc.org/lib/think/reader.action?docID=243057&ppg=166
@@ -303,7 +305,7 @@ There are multiple risks associated with any project and identifying and address
 
 Please read “Chapter 7: Risk Management in Information Technology Projects” on pages 152 to 182 which will introduce you to the basic definitions of risk and risk management. A basic model is also presented that will prepare the organization to plan and reduce the risks.
 
-> *Status: 🕐 To-Do* 
+> *Status: 🕐 To-Do - summary in [module04_notes.md](module-04-it-project-management/module04_notes.md)*
 
 #### 3. Writing Project Proposals—A Case Study
 - Kerzner, H. R. (2013). Project management case studies (4th ed.). Wiley. https://ebookcentral-proquest-com.torrens.idm.oclc.org/lib/think/reader.action?docID=1108715&ppg=88
@@ -312,14 +314,14 @@ This resource explains the process of writing an effective project proposal with
 
 Please read through “MIS Project Management at First National Bank” on pages 72 to 85 to better understand the process of writing effective project proposals.
 
-> *Status: 🕐 To-Do* 
+> *Status: 🕐 To-Do - summary in [module04_notes.md](module-04-it-project-management/module04_notes.md)*
 
 #### 4. Project Proposal Writing: How to Write a Winning Project Proposal
 - ProjectManager. (2014, May 19). Project proposal writing: How to write a winning project proposal [Video]. YouTube.
 
 This 7-minute video discusses the art of writing effective project proposals and how to increase the likelihood of having it accepted by the business users or project stakeholders. The speaker also shares tips that assist with the acceptance of a project proposal in a professional practice scenario.
 
-> *Status: 🕐 To-Do* 
+> *Status: 🕐 To-Do - summary in [module04_notes.md](module-04-it-project-management/module04_notes.md)*
 
 #### 5. Project Management 101: Project Management Tutorial for Beginners—Project Management Fundamentals
 - Invensis Learning. (2021, February 16). Project management 101: Project management tutorial for beginners—Project management fundamentals [Video]. YouTube.
@@ -333,7 +335,7 @@ This one-hour video discusses the fundamentals of project management and the var
 - Project Management Certifications
 - Demo of a Project Management Life Cycle.
 
-> *Status: 🕐 To-Do* 
+> *Status: 🕐 To-Do - summary in [module04_notes.md](module-04-it-project-management/module04_notes.md)*
 
 ### Learning Activities
 
