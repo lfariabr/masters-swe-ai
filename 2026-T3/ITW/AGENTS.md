@@ -3,8 +3,8 @@
 Academic side of lead-cutman (the Student360 × DataWrestler lead in the workplace repository):
 use the `itw-corner` skill. Workplace-derived assessment and project prose committed or submitted
 from this subject comes from `deidentified/` and passes its leak scan. Original study notes about
-public course resources may live under `modules/`, after checking for workplace identifiers and
-copied source text.
+public course resources may live under `modules/`, after checking for workplace identifiers.
+Course source copies (PDFs, transcripts) sit beside the notes, as in the other subjects.
 
 For work aligning ITW assessments with Student360, read
 `notes/student360-plan/control-journal.md` at the start of the session.
