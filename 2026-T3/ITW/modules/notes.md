@@ -20,7 +20,7 @@ This chapter is written by Australia National University-based authors which wil
 
 APA Reference: Boughton, C. (2013). What is an ICT professional anyway? In J. Weckert & R. Lucas (Eds.), Professionalism in the information and communication technology industry (pp. 77-94). ANU E Press. https://ebookcentral-proquest-com.torrens.idm.oclc.org/lib/think/reader.action?docID=4585025&ppg=85
 
-> *Status: 🕐 To-Do* 
+> *Status: 🕐 To-Do - summary in [module01_notes.md](module-01-intro-to-wil/module01_notes.md)*
 
 #### 2. A Quality Framework for Work Integrated Learning
 Work Integrated Learning is becoming very popular these days due to its importance in developing successful professional careers. Please watch the following 41-minute video, in which the speaker introduces a quality framework for WIL that considers the perspectives of all five key stakeholders: students, employers/host organisations, educators, post-secondary institutions and governments.
@@ -29,14 +29,14 @@ APA Reference: Taylor Institute for Teaching and Learning. (2019, June 1). A qua
 
 Transcript and notes: [r2_wil-quality-framework-video.md](module-01-intro-to-wil/r2_wil-quality-framework-video.md)
 
-> *Status: 🕐 To-Do* 
+> *Status: 🕐 To-Do - summary in [module01_notes.md](module-01-intro-to-wil/module01_notes.md)*
 
 #### 3. Career Advice
 Career advice is one of the major parts in developing a good career in any field. When it comes to career advice, most people resort to career coaches and only a few people are able to understand the provided information and evaluate it based on their needs. Since career coaches help their clients with strategies to advance their careers and look for their next jobs, they’re aware of what works and what doesn’t. In this article, six career coaches share their best advice and how it helped them to move forward in their own careers.
 
 APA Reference: Moran, G. (2021, May 2), 6 career coaches share the best career advice they ever got. Fast Company. https://www.fastcompany.com/90601499/6-career-coaches-share-the-best-career-advice-they-ever-got
 
-> *Status: 🕐 To-Do* 
+> *Status: 🕐 To-Do - summary in [module01_notes.md](module-01-intro-to-wil/module01_notes.md)*
 
 ### Activities
 
