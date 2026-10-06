@@ -46,7 +46,7 @@ Dr Bushra Naeem (Term 3 2026). Contact details are available in the LMS. The pla
 - [X] Module 1 ✅ - Introduction to WIL
 - [X] Module 2 ✅ - Australian IT Governance and Regulations
 - [X] Module 3 ✅ - Ethics in Professional Environment
-- [ ] Module 4 🔥 - IT Project Management
+- [X] Module 4 ✅ - IT Project Management
 - [ ] Module 5 🕐 - Decision Making and Problem-Solving Skills in Project Management
 - [ ] Module 6 🕐 - IT Process and Industry
 - [ ] Module 7 🕐 - Communication Techniques in Tech Environment
@@ -57,7 +57,7 @@ Dr Bushra Naeem (Term 3 2026). Contact details are available in the LMS. The pla
 - [ ] Module 12 🕐 - Future of the IT Industry
 
 ## Assignments
-- [ ] Assessment 1 🕐 - deadline 11/10/2026, **e-Journal: Introduction to Organisation and its Requirements**: 500 words +/- 10%, individual, 25%, SLOs `a)`, `b)`
+- [ ] Assessment 1 🔥 - deadline 11/10/2026, **e-Journal: Introduction to Organisation and its Requirements**: 500 words +/- 10%, individual, 25%, SLOs `a)`, `b)`
 - [ ] Assessment 2 🕐 - deadline 15/11/2026, **e-Journal: Industry Placement Interview and Project Synopsis**: 1000 words +/- 10%, individual, 35%, SLOs `a)`, `b)`, `c)`, `d)`, `e)`
 - [ ] Assessment 3 🕐 - deadline 02/12/2026, **e-Journal: Industry Placement Outcome and Reflection**: 3000 words +/- 10%, individual, 40%, SLOs `a)`, `b)`, `c)`, `d)`, `e)`
 
