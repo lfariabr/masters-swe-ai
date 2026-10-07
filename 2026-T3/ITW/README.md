@@ -57,7 +57,7 @@ Dr Bushra Naeem (Term 3 2026). Contact details are available in the LMS. The pla
 - [ ] Module 12 🕐 - Future of the IT Industry
 
 ## Assignments
-- [ ] Assessment 1 🔥 - deadline 11/10/2026, **e-Journal: Introduction to Organisation and its Requirements**: 500 words +/- 10%, individual, 25%, SLOs `a)`, `b)`
+- [X] Assessment 1 - deadline 11/10/2026 ✅, **e-Journal: Introduction to Organisation and its Requirements**: 500 words +/- 10%, individual, 25%, SLOs `a)`, `b)`, submitted 08/10/2026
 - [ ] Assessment 2 🕐 - deadline 15/11/2026, **e-Journal: Industry Placement Interview and Project Synopsis**: 1000 words +/- 10%, individual, 35%, SLOs `a)`, `b)`, `c)`, `d)`, `e)`
 - [ ] Assessment 3 🕐 - deadline 02/12/2026, **e-Journal: Industry Placement Outcome and Reflection**: 3000 words +/- 10%, individual, 40%, SLOs `a)`, `b)`, `c)`, `d)`, `e)`
 
