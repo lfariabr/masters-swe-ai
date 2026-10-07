@@ -1,6 +1,6 @@
 ---
 name: assessment-checker
-description: Run an automated pre-submission check on an academic assessment report. Verifies structural compliance with the brief, checks citation consistency, and spot-checks references via web search.
+description: Run an automated pre-submission check on an academic assessment report. Verifies structural compliance with the brief, checks citation consistency, spot-checks references via web search, and checks the final Word and PDF files.
 argument-hint: "<SUBJECT_CODE> <ASSESSMENT_NUMBER>"
 disable-model-invocation: true
 ---
@@ -23,7 +23,7 @@ Arguments:
 
 ## Instructions
 
-You are running an automated pre-submission check on an academic assessment report. Follow **all 5 steps** in order. Output a final structured markdown report at the end.
+You are running an automated pre-submission check on an academic assessment report. Follow **all 6 steps** in order. Output a final structured markdown report at the end.
 
 ---
 
@@ -47,7 +47,7 @@ You are running an automated pre-submission check on an academic assessment repo
 
 **Find the skeleton file:**
 - Glob `<assessment-dir>/*Assessment<$1>*Skeleton*.md` or `<assessment-dir>/*Assessment<$1>*Report*.md`.
-- If not found, print an error and stop.
+- If not found and Step 5 finds a submission export, use the text extracted from its `.docx` as the skeleton. Otherwise print an error and stop.
 
 **Read both files** into memory for the steps below.
 
@@ -94,7 +94,13 @@ Focus spot-check effort on references with full author lists (most likely to con
 
 ---
 
-### Step 5 — Output Report
+### Step 5 - Final Files
+
+If `<assessment-dir>/` or its `_drafts/` holds the submission export (a `.docx` or `.pdf` named with the student's surname), run the final-file pass in [final-files.md](final-files.md). It catches what only the exported files show: a stale PDF, leftover tracked changes, an outdated contents table, split heading numbering, and links that do not work. With no export, mark the section SKIPPED.
+
+---
+
+### Step 6 — Output Report
 
 Print the following structured report:
 
@@ -153,6 +159,15 @@ Limit: NNN words (±10% = NNN–NNN)
 
 ---
 
+### Final Files                [PASS / N fixes / SKIPPED - no export]
+
+| Check | Result | Fix |
+|-------|--------|-----|
+| Fresh files | ✅ / ❌ | ... |
+...
+
+---
+
 ### Issues Summary
 
 The following issues require action before submission:
@@ -168,7 +183,7 @@ _(No issues found — report appears ready for submission.)_  ← use this line 
 
 ## Notes for the Agent
 
-- Always run all 5 steps even if some have nothing to report — output the section with "PASS" or "No issues found."
+- Always run all 6 steps even if some have nothing to report — output the section with "PASS" or "No issues found."
 - Web verification (Step 4) is mandatory — do not skip it.
 - If the brief file is not found, mark brief-dependent checks (Structural Compliance, Rubric Coverage) as SKIPPED, but still run Steps 3 and 4.
 - The word count must exclude non-assessable boilerplate — check for headings like "Working Notes", "AI Usage", "Checklist", "Rubric" to identify exclusion zones.
