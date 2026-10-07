@@ -67,6 +67,7 @@ Dr Bushra Naeem (Term 3 2026). Contact details are available in the LMS. The pla
 - [DataWrestler implementation handoff](deidentified/plan.md): project identity, delivery phases, assessment mapping and longer-term source independence.
 - [Data foundation and source evidence](deidentified/data-foundation.md): current pipeline behaviour, EDA/ML architecture and evidence boundaries.
 - [Assessment 1 review checklist](deidentified/a1-review-checklist.md): an unfilled guide to the brief's requirements.
+- [Assessment 1 review record](deidentified/a1-review-2026-10-01.md): the completed review, the fixes made and the final checks before submission on 8 Oct 2026.
 
 The working control journal, meeting handouts, evidence log and assessment drafts are held locally
 under ignored `notes/` and `_drafts/` directories. They are not part of the public checkout.
