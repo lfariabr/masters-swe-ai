@@ -356,6 +356,8 @@ Please read other students’ posts and provide feedback on their ideas. Most im
 
 ### TLDR
 
+Module 5 is about deciding well before building. Samuel and Weir (1999) show that most problems arrive **solution-oriented** and must be negotiated back to the real need, then hardened from soft to hard information through **islands of certainty** (data, budget, constraints, deadlines) before alternatives are compared. Their failure chapter adds that a model is not the real thing, and that failures are technical, operational or unpredictable. Wujec (2013) makes mental models visible as **nodes and links**, keeps a diagram to 5-13 nodes and shows that a model built with the group beats one presented to it. RedVectorOnline (2016) gives an **eight-step** process: clarify, find the gap, set targets, find root causes (five whys), develop three options, implement, confirm and standardise. Practical anchor: the A2 synopsis must justify its method against alternatives, and Activity 1 is a rehearsal of exactly that. Key highlights: [module05_notes.md](module-05-decision-making-and-problem-solving/module05_notes.md).
+
 ### Introduction
 Problem solving is the process of determining the best possible action to take in a given situation. The nature of problems that one must solve will vary in accordance with the context of the problem and the domain area that has the task of solving the problem. Due to the diversity of problems, there is no ‘one-size-fits-all’ list of procedures to accommodate every problem. However, a generic approach to the steps involved in design can be adopted to apply a series of models, methods and/or techniques to address a specific need (problem). The following is one such example of a generic approach, which includes the following steps:
 
@@ -389,14 +391,14 @@ The final stage of the design process is implementation. This process involves t
 
 This book analyses design problems as sophisticated systems comprising simpler constituents and provides evolving solutions that build on this experience. Parts 1 and 2 provide a comprehensive understanding of both the macro and micro considerations needed to solve problems.
 
-> *Status: 🕐 To-Do*
+> *Status: 🕐 To-Do - summary in [module05_notes.md](module-05-decision-making-and-problem-solving/module05_notes.md)*
 
 #### 2. Got a Wicked Problem? First, Tell Me How You Make Toast
 - APA Reference: Wujec, T. (2013, June) Got a wicked problem? First, tell me how you make toast [Video file]. Retrieved from https://www.ted.com/talks/tom_wujec_got_a_wicked_problem_first_tell_me_how_you_make_toast
 
 This short TED talk adopts an interesting approach to solving complex problems; it breaks down processes step-by-step.
 
-> *Status: 🕐 To-Do*
+> *Status: 🕐 To-Do - summary in [module05_notes.md](module-05-decision-making-and-problem-solving/module05_notes.md)*
 
 ### Learning Activities
 
@@ -413,7 +415,7 @@ How would you structure this presentation and what information would you include
 
 Post your answers to the discussion forum. Please read the posts of your colleagues and comment on at least two of the posts. You may wish to discuss why you agree or disagree or build on the insights that others have shared.
 
-> *Status: 🕐 To-Do*
+> *Status: 🕐 To-Do - video summary in [module05_notes.md](module-05-decision-making-and-problem-solving/module05_notes.md)*
 
 ---
 
