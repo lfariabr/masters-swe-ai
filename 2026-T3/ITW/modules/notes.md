@@ -352,6 +352,71 @@ Please read other students’ posts and provide feedback on their ideas. Most im
 
 ---
 
+## Module 5 - Decision Making and Problem-Solving Skills in Project Management
+
+### TLDR
+
+### Introduction
+Problem solving is the process of determining the best possible action to take in a given situation. The nature of problems that one must solve will vary in accordance with the context of the problem and the domain area that has the task of solving the problem. Due to the diversity of problems, there is no ‘one-size-fits-all’ list of procedures to accommodate every problem. However, a generic approach to the steps involved in design can be adopted to apply a series of models, methods and/or techniques to address a specific need (problem). The following is one such example of a generic approach, which includes the following steps:
+
+1. Identify the problem;
+2. Gather needed information;
+3. Search for multiple solutions;
+4. Analyse and select a preferred solution; and
+5. Implement the design (project implementation).
+
+#### Identifying the problem
+A failure to apply the appropriate rigour to the problem definition will lead to time wastage and deviations away from budgets. It is important that the stated needs are identified needs. these should not replicate other solutions or only serve the purpose of satisfying the needs of certain stakeholders. A thorough needs analysis needs to be undertaken from the outset.
+
+#### Gathering needed information
+Engineers should always try to build on what has been done before. Information about related problems that were solved or unsolved can assist engineers in the approach they adopt to engineer a solution.
+
+#### Searching for multiple solutions
+There are many techniques available to ‘act out’ possible solutions. The development of these new ideas may come from creativity, a subconscious effort or innovation or a conscious effort. Some techniques include brainstorming, checklists, attribute listing (whereby all ideas and approaches are listed), the forced relationship technique (whereby one approach is forced to adopt the attributes of another approach and comparisons are drawn from these) and adopting a different point of view.
+
+#### Analysing and selecting a preferred solution
+Depending on the nature of a problem, the criteria for analysing possible designs will vary. If the solution involves a software product, importance should be given to safety, cost, reliability and consumer satisfaction. Many designers use prototypes to test the operation of a design. This helps to identify weak areas and possible improvements.
+
+#### Implement the solution
+The final stage of the design process is implementation. This process involves the development and testing of the proposed solution (i.e., a component, process or system). A prototype (a preliminary form of the pilot project) can be undertaken to test the proposed design before further implementation. An opportunity exists at this point to evaluate possible problems and to act upon these.
+
+- APA Reference: Bernstein, L. & Yuhas, C. M. (2005). Chapter 1: Think like an engineer—Especially for software. In Trustworthy systems through quantitative software engineering (pp. 1–38). Hoboken, NJ: John Wiley & Sons. doi:10.1002/0471750336.ch1
+
+### Resources
+
+#### 1. Introduction to Engineering Design: Modelling, Synthesis and Problem-Solving Strategies
+- APA Reference: Samuel, A. E. & Weir, J. (1999). Introduction to engineering design: Modelling, synthesis and problem-solving strategies. Oxford, England: Butterworth-Heinemann. Retrieved from https://lesa.on.worldcat.org/oclc/53255103 *(got first 20 pages of part 1 and of part 2)*
+
+This book analyses design problems as sophisticated systems comprising simpler constituents and provides evolving solutions that build on this experience. Parts 1 and 2 provide a comprehensive understanding of both the macro and micro considerations needed to solve problems.
+
+> *Status: 🕐 To-Do*
+
+#### 2. Got a Wicked Problem? First, Tell Me How You Make Toast
+- APA Reference: Wujec, T. (2013, June) Got a wicked problem? First, tell me how you make toast [Video file]. Retrieved from https://www.ted.com/talks/tom_wujec_got_a_wicked_problem_first_tell_me_how_you_make_toast
+
+This short TED talk adopts an interesting approach to solving complex problems; it breaks down processes step-by-step.
+
+> *Status: 🕐 To-Do*
+
+### Learning Activities
+
+#### 1. Discussion Forum Post—Case Study Activity 1
+- APA Reference: RedVectorOnline. (2016, 28 April). Effective decision making, problem solving and critical thinking for engineers [Video file]. Retrieved from https://www.youtube.com/watch?v=Ie50Q4h4J4k
+
+Completing Learning Activity 1 will provide you with the necessary insight to address the elicitation requirements aspect of Assessment 2. The following video provides an overview of these requirements.
+
+Watch the full five minutes of this video (available at ). It provides a good overview of problem solving and critical thinking—two necessary abilities of an effective engineer.
+
+Now, consider the following: Organisation X’s IT team involved with the project, together with other stakeholders, have requested a presentation of the problem-solving methods/models that have been used in the project so far. The stakeholders are particularly interested in knowing the various approaches or solutions that could have been proposed, and how the team decided on the proposed current solution.
+
+How would you structure this presentation and what information would you include?
+
+Post your answers to the discussion forum. Please read the posts of your colleagues and comment on at least two of the posts. You may wish to discuss why you agree or disagree or build on the insights that others have shared.
+
+> *Status: 🕐 To-Do*
+
+---
+
 ```bash
 --- PLACEHOLDER:
 ## Module X - ...
