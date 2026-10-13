@@ -391,14 +391,14 @@ The final stage of the design process is implementation. This process involves t
 
 This book analyses design problems as sophisticated systems comprising simpler constituents and provides evolving solutions that build on this experience. Parts 1 and 2 provide a comprehensive understanding of both the macro and micro considerations needed to solve problems.
 
-> *Status: 🕐 To-Do - summary in [module05_notes.md](module-05-decision-making-and-problem-solving/module05_notes.md)*
+> *Status: ✅ Read + Reviewed - see [module05_notes.md](module-05-decision-making-and-problem-solving/module05_notes.md)*
 
 #### 2. Got a Wicked Problem? First, Tell Me How You Make Toast
 - APA Reference: Wujec, T. (2013, June) Got a wicked problem? First, tell me how you make toast [Video file]. Retrieved from https://www.ted.com/talks/tom_wujec_got_a_wicked_problem_first_tell_me_how_you_make_toast
 
 This short TED talk adopts an interesting approach to solving complex problems; it breaks down processes step-by-step.
 
-> *Status: 🕐 To-Do - summary in [module05_notes.md](module-05-decision-making-and-problem-solving/module05_notes.md)*
+> *Status: ✅ Read + Reviewed - see [module05_notes.md](module-05-decision-making-and-problem-solving/module05_notes.md)*
 
 ### Learning Activities
 
@@ -415,7 +415,7 @@ How would you structure this presentation and what information would you include
 
 Post your answers to the discussion forum. Please read the posts of your colleagues and comment on at least two of the posts. You may wish to discuss why you agree or disagree or build on the insights that others have shared.
 
-> *Status: 🕐 To-Do - video summary in [module05_notes.md](module-05-decision-making-and-problem-solving/module05_notes.md)*
+> *Status: ✅ Done - post: [activity01 draft](module-05-decision-making-and-problem-solving/activity01_problem-solving-presentation_draft.md); video summary in [module05_notes.md](module-05-decision-making-and-problem-solving/module05_notes.md)*
 
 ---
 

@@ -6,12 +6,12 @@
 
 | # | Task | Status |
 |---|------|--------|
-| 1 | Read & summarise Samuel & Weir (1999) - Part 1 (Ch. 1, modelling and synthesis) and Part 2 (Ch. 6, problem-solving strategies) | 🕐 |
-| 2 | Watch & summarise Wujec (2013) - Got a wicked problem? First, tell me how you make toast (TED, 9 min) | 🕐 |
-| 3 | Watch & summarise RedVectorOnline (2016) - Effective decision making, problem solving and critical thinking for engineers (5 min) | 🕐 |
-| 4 | Activity 1: Discussion forum post, presenting the project's problem-solving methods to stakeholders | 🕐 |
+| 1 | Read & summarise Samuel & Weir (1999) - Part 1 (Ch. 1, modelling and synthesis) and Part 2 (Ch. 6, problem-solving strategies) | ✅ |
+| 2 | Watch & summarise Wujec (2013) - Got a wicked problem? First, tell me how you make toast (TED, 9 min) | ✅ |
+| 3 | Watch & summarise RedVectorOnline (2016) - Effective decision making, problem solving and critical thinking for engineers (5 min) | ✅ |
+| 4 | Activity 1: Discussion forum post, presenting the project's problem-solving methods to stakeholders | ✅ |
 
-> Resource rows stay 🕐 until Luis confirms the reading or viewing. The summaries below are study aids built from the local copies and transcripts.
+> Readings and viewings confirmed by Luis on 13 Oct 2026. Activity 1 draft: [activity01_problem-solving-presentation_draft.md](activity01_problem-solving-presentation_draft.md).
 
 ---
 
