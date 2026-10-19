@@ -6,13 +6,13 @@
 
 | # | Task | Status |
 |---|------|--------|
-| 1 | Watch & summarise Vanersity Tech (2017) - Information technology processes and workflows (video) | 🕐 |
+| 1 | Watch & summarise Vanersity Tech (2017) - Information technology processes and workflows (video) | ✅ |
 | 2 | Read & summarise Alexander et al. (2020) - Ch. 3 Information security framework (pp. 39-87) | 🕐 |
 | 3 | Read & summarise Bandos (2022) - The five steps of incident response | 🕐 |
 | 4 | Read & summarise Canon Business Services (2023) - IT infrastructure management | 🕐 |
 | 5 | Activity 1: Discussion forum post, five ITIL processes for the project (≤250 words), plus feedback on other posts | 🕐 |
 
-> Resource rows stay 🕐 until Luis confirms the reading or viewing. The summaries below are study aids built from the local copies. Resource 1 has no local copy or transcript yet, so it has no summary.
+> Resource rows stay 🕐 until Luis confirms the reading or viewing. The summaries below are study aids built from the local copies. Resource 1 was watched by Luis (20 Oct 2026); the 2017 video has no transcript or captions, so it has no summary here.
 
 ---
 
@@ -24,7 +24,7 @@
 
 **Purpose (from the course overview):** Project vs process, IT domain terminology, and why processes and service workflows should be documented.
 
-> Summary pending: no transcript in the module folder yet.
+> Watched by Luis on 20 Oct 2026. No transcript or auto-captions exist for this 2017 video, so there is no written summary.
 
 ---
 

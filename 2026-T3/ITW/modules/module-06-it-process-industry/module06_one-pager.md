@@ -64,7 +64,7 @@ BCS:       reporting -> investigation -> assessment -> corrective action -> revi
 2. Write the first three lines of an incident procedure for "a ranking was published with missing rows".
 
 ### This-week to-dos (still 🕐 in your notes)
-- [ ] 🕐 Watch the Vanersity Tech video (no transcript yet)
+- [X] ✅ Watch the Vanersity Tech video (watched 20 Oct)
 - [ ] 🕐 Read Alexander et al. Ch. 3 (pp. 39-87)
 - [ ] 🕐 Read the incident response and infrastructure articles
 - [ ] 🕐 Activity 1: review the draft, post it (≤250 words), then comment on other posts

@@ -463,7 +463,7 @@ IT policies and procedures are more important when it comes to dealing the sensi
     
     Please watch the following video in which the speaker first explains the differences between a project and processes with the help of various examples. The speaker also discusses various terminologies associated with the Information technology domain. The speaker also discusses the importance of documenting the processes and IT service workflows.
 
-> *Status: 🕐 To-Do - no transcript yet; see [module06_notes.md](module-06-it-process-industry/module06_notes.md)*
+> *Status: ✅ Watched - no transcript or captions exist for this 2017 video*
 
 #### 2. Information security framework
 - Alexander, D., Finch, A., Sutton, D., & Taylor, A. (2020). Information security management principles. BCS Learning & Development Limited. Retrieved from: https://ebookcentral.proquest.com/lib/think/reader.action?docID=6023849&ppg=61
