@@ -439,6 +439,8 @@ The final stage of the design process is implementation. This process involves t
 
 ### TLDR
 
+Module 6 is about the processes that keep IT running and safe. Alexander et al. (2020) set out the information security framework: an accountable director, a working group and a security manager, every asset with an owner, and a clear ladder of **policy, standard, procedure and guideline**, proved through governance (risk register, dispensations, reviews, ISO/IEC 27001) and tested by incidents. Bandos (2022) gives the **five steps of incident response**: prepare, detect and report, triage, contain, learn. Canon Business Services (2023) defines **infrastructure** as software, hardware and network, with legacy integration, monitoring and change management as the hard parts (read as a vendor page). The Activity 1 reading maps **ITIL 4's 34 practices** in three groups. Practical anchor: A2's ethics, managerial plan and infrastructure challenges, with the UK law read through Australia's Privacy Act and APPs. Key highlights: [module06_notes.md](module-06-it-process-industry/module06_notes.md).
+
 ### Introduction
 In IT world a process is a set of interrelated activities and tasks to achieve a certain task. These processes can further be divided into IT policies and procedures that establish guidelines for the use of information technology within an organization. In other words, it outlines what everyone is expected to do while using company assets. In today’s IT industry clear guidelines need to be established in the form of IT policies and procedures to help with various aspects including information security, IT governance, responsible use of data, security awareness, business continuity and more. To come up with an effective framework for IT processes, it’s good to understand the differences between IT policies and procedures.
 
@@ -461,7 +463,7 @@ IT policies and procedures are more important when it comes to dealing the sensi
     
     Please watch the following video in which the speaker first explains the differences between a project and processes with the help of various examples. The speaker also discusses various terminologies associated with the Information technology domain. The speaker also discusses the importance of documenting the processes and IT service workflows.
 
-> *Status: 🕐 To-Do* 
+> *Status: 🕐 To-Do - no transcript yet; see [module06_notes.md](module-06-it-process-industry/module06_notes.md)*
 
 #### 2. Information security framework
 - Alexander, D., Finch, A., Sutton, D., & Taylor, A. (2020). Information security management principles. BCS Learning & Development Limited. Retrieved from: https://ebookcentral.proquest.com/lib/think/reader.action?docID=6023849&ppg=61
@@ -470,7 +472,7 @@ IT policies and procedures are more important when it comes to dealing the sensi
 
     To better implement the processes, understanding the framework is of outmost importance. The following resource will enable you to understand the information security framework in any organization. The resource covers the basic principles for establishing such framework within an organization and will look at the general area of information security management. It will consider the role and appropriate use of policy, standards and procedures.
 
-> *Status: 🕐 To-Do* 
+> *Status: 🕐 To-Do - summary in [module06_notes.md](module-06-it-process-industry/module06_notes.md)*
 
 #### 3. Incident Management Process
 - APA Reference: Bandos, T. (Dec. 28, 2022), The Five Steps of Incident Response, Digital Guardian. Retrieved from: https://digitalguardian.com/blog/five-steps-incident-response
@@ -479,7 +481,7 @@ IT policies and procedures are more important when it comes to dealing the sensi
 
     Incident management is another important aspect of information technology. More specifically, management of any incident whether it’s a security incident of failure of various an organization should have clearly defined process in order to reduce the impact of any incident. The following article will help you understand the five steps of any incident response.
 
-> *Status: 🕐 To-Do* 
+> *Status: 🕐 To-Do - summary in [module06_notes.md](module-06-it-process-industry/module06_notes.md)*
 
 #### 4. IT infrastructure Management
 - APA Reference: Canon Business Services, (2023), How does IT Infrastructure Management Work for an Organization. Retrieved from: https://business.canon.com.au/insights/how-does-it-infrastructure-management-work-for-an-organisation
@@ -488,7 +490,7 @@ IT policies and procedures are more important when it comes to dealing the sensi
 
     With the rapid advancement of cloud computing where organization have their whole infrastructure teams to make sure that the computing devices are readily available. The following resource covers this main concept and also allow you to understand the infrastructure part in the industry. Once you read the following article you will be in a better position to understand the roles and responsibilities of various stakeholders and under the processes.
 
-> *Status: 🕐 To-Do* 
+> *Status: 🕐 To-Do - summary in [module06_notes.md](module-06-it-process-industry/module06_notes.md)*
 
 ### Learning Activities
 
@@ -499,7 +501,7 @@ ITIL is an IT service management that align the IT services with the needs of th
 
 Please keep your post to 250 words limit and read other student post and provide constructive feedbacks.
 
-> *Status: 🕐 To-Do* 
+> *Status: 🕐 To-Do - post draft: [activity01 draft](module-06-it-process-industry/activity01_itil-processes-for-the-project_draft.md); reading summary in [module06_notes.md](module-06-it-process-industry/module06_notes.md)*
 
 
 
