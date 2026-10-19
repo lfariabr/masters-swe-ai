@@ -294,32 +294,40 @@ This module will help you to further your understanding regarding the main conce
 #### 1. Interview with Mark Eagar (Podcast)
 - APA Reference: Ali, A. & Eagar, M. (2022). Interview with Mark Eagar [Podcast]. Torrens University Australia.
 
-Listen to this 29-minute podcast with Mark Eagar, the Chief Strategist & General Manager (ATS) at Andvare Group, discussing how to make use of WIL. Mark outlines approaches for building a career path with a software engineer’s skill set.
+*Resource Overview:*
+
+    Listen to this 29-minute podcast with Mark Eagar, the Chief Strategist & General Manager (ATS) at Andvare Group, discussing how to make use of WIL. Mark outlines approaches for building a career path with a software engineer’s skill set.
 
 > *Status: 🕐 To-Do - summary in [module04_notes.md](module-04-it-project-management/module04_notes.md)*
 
 #### 2. Risk Management in Information Technology Projects
 - Taylor, J. (2004). Managing information technology projects. AMACOM. https://ebookcentral-proquest-com.torrens.idm.oclc.org/lib/think/reader.action?docID=243057&ppg=166
 
-There are multiple risks associated with any project and identifying and addressing those risks in a timely manner is very important for the successful completion of the project. A comprehensive risk management plan will help any organisation to manage the risks of the project by clearly identifying how the project will be impacted in case certain events occur.
+*Resource Overview:*
 
-Please read “Chapter 7: Risk Management in Information Technology Projects” on pages 152 to 182 which will introduce you to the basic definitions of risk and risk management. A basic model is also presented that will prepare the organization to plan and reduce the risks.
+    There are multiple risks associated with any project and identifying and addressing those risks in a timely manner is very important for the successful completion of the project. A comprehensive risk management plan will help any organisation to manage the risks of the project by clearly identifying how the project will be impacted in case certain events occur.
+
+    Please read “Chapter 7: Risk Management in Information Technology Projects” on pages 152 to 182 which will introduce you to the basic definitions of risk and risk management. A basic model is also presented that will prepare the organization to plan and reduce the risks.
 
 > *Status: 🕐 To-Do - summary in [module04_notes.md](module-04-it-project-management/module04_notes.md)*
 
 #### 3. Writing Project Proposals—A Case Study
 - Kerzner, H. R. (2013). Project management case studies (4th ed.). Wiley. https://ebookcentral-proquest-com.torrens.idm.oclc.org/lib/think/reader.action?docID=1108715&ppg=88
 
-This resource explains the process of writing an effective project proposal with the help of an example case study. Reading this will provide you with a better idea of how to write your project proposal for Assessment 1, which you will continue to refer to throughout the remainder of this subject.
+*Resource Overview:*
 
-Please read through “MIS Project Management at First National Bank” on pages 72 to 85 to better understand the process of writing effective project proposals.
+    This resource explains the process of writing an effective project proposal with the help of an example case study. Reading this will provide you with a better idea of how to write your project proposal for Assessment 1, which you will continue to refer to throughout the remainder of this subject.
+
+    Please read through “MIS Project Management at First National Bank” on pages 72 to 85 to better understand the process of writing effective project proposals.
 
 > *Status: 🕐 To-Do - summary in [module04_notes.md](module-04-it-project-management/module04_notes.md)*
 
 #### 4. Project Proposal Writing: How to Write a Winning Project Proposal
 - ProjectManager. (2014, May 19). Project proposal writing: How to write a winning project proposal [Video]. YouTube.
 
-This 7-minute video discusses the art of writing effective project proposals and how to increase the likelihood of having it accepted by the business users or project stakeholders. The speaker also shares tips that assist with the acceptance of a project proposal in a professional practice scenario.
+*Resource Overview:*
+
+    This 7-minute video discusses the art of writing effective project proposals and how to increase the likelihood of having it accepted by the business users or project stakeholders. The speaker also shares tips that assist with the acceptance of a project proposal in a professional practice scenario.
 
 > *Status: 🕐 To-Do - summary in [module04_notes.md](module-04-it-project-management/module04_notes.md)*
 
@@ -327,13 +335,15 @@ This 7-minute video discusses the art of writing effective project proposals and
 - Invensis Learning. (2021, February 16). Project management 101: Project management tutorial for beginners—Project management fundamentals [Video]. YouTube.
 This one-hour video discusses the fundamentals of project management and the various types of project management methodologies. The following areas are covered:
 
-- What is Project Management?
-- History of Project Management?
-- Project Life Cycle
-- Project Management Knowledge Areas and Methodologies
-- Project Management Tools
-- Project Management Certifications
-- Demo of a Project Management Life Cycle.
+*Resource Overview:*
+
+    - What is Project Management?
+    - History of Project Management?
+    - Project Life Cycle
+    - Project Management Knowledge Areas and Methodologies
+    - Project Management Tools
+    - Project Management Certifications
+    - Demo of a Project Management Life Cycle.
 
 > *Status: 🕐 To-Do - summary in [module04_notes.md](module-04-it-project-management/module04_notes.md)*
 
@@ -389,14 +399,18 @@ The final stage of the design process is implementation. This process involves t
 #### 1. Introduction to Engineering Design: Modelling, Synthesis and Problem-Solving Strategies
 - APA Reference: Samuel, A. E. & Weir, J. (1999). Introduction to engineering design: Modelling, synthesis and problem-solving strategies. Oxford, England: Butterworth-Heinemann. Retrieved from https://lesa.on.worldcat.org/oclc/53255103 *(got first 20 pages of part 1 and of part 2)*
 
-This book analyses design problems as sophisticated systems comprising simpler constituents and provides evolving solutions that build on this experience. Parts 1 and 2 provide a comprehensive understanding of both the macro and micro considerations needed to solve problems.
+*Resource Overview:*
+    
+    This book analyses design problems as sophisticated systems comprising simpler constituents and provides evolving solutions that build on this experience. Parts 1 and 2 provide a comprehensive understanding of both the macro and micro considerations needed to solve problems.
 
 > *Status: ✅ Read + Reviewed - see [module05_notes.md](module-05-decision-making-and-problem-solving/module05_notes.md)*
 
 #### 2. Got a Wicked Problem? First, Tell Me How You Make Toast
 - APA Reference: Wujec, T. (2013, June) Got a wicked problem? First, tell me how you make toast [Video file]. Retrieved from https://www.ted.com/talks/tom_wujec_got_a_wicked_problem_first_tell_me_how_you_make_toast
 
-This short TED talk adopts an interesting approach to solving complex problems; it breaks down processes step-by-step.
+*Resource Overview:*
+
+    This short TED talk adopts an interesting approach to solving complex problems; it breaks down processes step-by-step.
 
 > *Status: ✅ Read + Reviewed - see [module05_notes.md](module-05-decision-making-and-problem-solving/module05_notes.md)*
 
@@ -405,17 +419,89 @@ This short TED talk adopts an interesting approach to solving complex problems; 
 #### 1. Discussion Forum Post—Case Study Activity 1
 - APA Reference: RedVectorOnline. (2016, 28 April). Effective decision making, problem solving and critical thinking for engineers [Video file]. Retrieved from https://www.youtube.com/watch?v=Ie50Q4h4J4k
 
-Completing Learning Activity 1 will provide you with the necessary insight to address the elicitation requirements aspect of Assessment 2. The following video provides an overview of these requirements.
+*Resource Overview:*
 
-Watch the full five minutes of this video (available at ). It provides a good overview of problem solving and critical thinking—two necessary abilities of an effective engineer.
+    Completing Learning Activity 1 will provide you with the necessary insight to address the elicitation requirements aspect of Assessment 2. The following video provides an overview of these requirements.
 
-Now, consider the following: Organisation X’s IT team involved with the project, together with other stakeholders, have requested a presentation of the problem-solving methods/models that have been used in the project so far. The stakeholders are particularly interested in knowing the various approaches or solutions that could have been proposed, and how the team decided on the proposed current solution.
+    Watch the full five minutes of this video (available at ). It provides a good overview of problem solving and critical thinking—two necessary abilities of an effective engineer.
 
-How would you structure this presentation and what information would you include?
+    Now, consider the following: Organisation X’s IT team involved with the project, together with other stakeholders, have requested a presentation of the problem-solving methods/models that have been used in the project so far. The stakeholders are particularly interested in knowing the various approaches or solutions that could have been proposed, and how the team decided on the proposed current solution.
 
-Post your answers to the discussion forum. Please read the posts of your colleagues and comment on at least two of the posts. You may wish to discuss why you agree or disagree or build on the insights that others have shared.
+    How would you structure this presentation and what information would you include?
+
+    Post your answers to the discussion forum. Please read the posts of your colleagues and comment on at least two of the posts. You may wish to discuss why you agree or disagree or build on the insights that others have shared.
 
 > *Status: ✅ Done - post: [activity01 draft](module-05-decision-making-and-problem-solving/activity01_problem-solving-presentation_draft.md); video summary in [module05_notes.md](module-05-decision-making-and-problem-solving/module05_notes.md)*
+
+---
+
+## Module 6 - IT Process and Industry
+
+### TLDR
+
+### Introduction
+In IT world a process is a set of interrelated activities and tasks to achieve a certain task. These processes can further be divided into IT policies and procedures that establish guidelines for the use of information technology within an organization. In other words, it outlines what everyone is expected to do while using company assets. In today’s IT industry clear guidelines need to be established in the form of IT policies and procedures to help with various aspects including information security, IT governance, responsible use of data, security awareness, business continuity and more. To come up with an effective framework for IT processes, it’s good to understand the differences between IT policies and procedures.
+
+**Policies**: Policies are general guidelines about an organization’s IT plan. They provide the parameters for decision-making. However, they do not focus on the details of implementation. Policies mainly focus on communicating an organization’s values, culture and philosophy with regard to IT. A good policy explains the rules and presents them in a logical framework.
+
+**Procedures**: Procedures outline the step-by-step implementation of various tasks. From beginning to end, procedures will show what actions to take under specific circumstances. With procedures, one can achieve the desired outcome. For instance, an employee onboarding checklist provides a list of specific tasks for onboarding a new hire. In other words, it gives a step-by-step onboarding procedure.
+
+Every organization that uses computers has some defined IT policies and procedures that are mainly implemented by IT operations team. Elements of IT operations are chosen to deliver effective services at the required quality and cost. In the example of software development company, IT operations include all IT functions other than software development and management.
+
+For any organization IT processes mainly involve incident management, problem management, access management, infra structure management, facilities management, and technical management among others. All these management strategies are normally controlled by proper IT policies and procedures.
+
+IT policies and procedures are more important when it comes to dealing the sensitive information and data since the data must go through the IT infrastructure. In this module you will learn about the IT processes and various IT management techniques or principles.
+
+### Resources
+
+#### 1. Information Technology Processes and Workflows
+- Vanersity Tech. (2017). Information Technology Processes and workflows: [Video]: https://www.youtube.com/watch?v=B3a5sLpefas
+
+*Resource Overview:*
+    
+    Please watch the following video in which the speaker first explains the differences between a project and processes with the help of various examples. The speaker also discusses various terminologies associated with the Information technology domain. The speaker also discusses the importance of documenting the processes and IT service workflows.
+
+> *Status: 🕐 To-Do* 
+
+#### 2. Information security framework
+- Alexander, D., Finch, A., Sutton, D., & Taylor, A. (2020). Information security management principles. BCS Learning & Development Limited. Retrieved from: https://ebookcentral.proquest.com/lib/think/reader.action?docID=6023849&ppg=61
+
+*Resource Overview:*
+
+    To better implement the processes, understanding the framework is of outmost importance. The following resource will enable you to understand the information security framework in any organization. The resource covers the basic principles for establishing such framework within an organization and will look at the general area of information security management. It will consider the role and appropriate use of policy, standards and procedures.
+
+> *Status: 🕐 To-Do* 
+
+#### 3. Incident Management Process
+- APA Reference: Bandos, T. (Dec. 28, 2022), The Five Steps of Incident Response, Digital Guardian. Retrieved from: https://digitalguardian.com/blog/five-steps-incident-response
+
+*Resource Overview:*
+
+    Incident management is another important aspect of information technology. More specifically, management of any incident whether it’s a security incident of failure of various an organization should have clearly defined process in order to reduce the impact of any incident. The following article will help you understand the five steps of any incident response.
+
+> *Status: 🕐 To-Do* 
+
+#### 4. IT infrastructure Management
+- APA Reference: Canon Business Services, (2023), How does IT Infrastructure Management Work for an Organization. Retrieved from: https://business.canon.com.au/insights/how-does-it-infrastructure-management-work-for-an-organisation
+
+*Resource Overview:*
+
+    With the rapid advancement of cloud computing where organization have their whole infrastructure teams to make sure that the computing devices are readily available. The following resource covers this main concept and also allow you to understand the infrastructure part in the industry. Once you read the following article you will be in a better position to understand the roles and responsibilities of various stakeholders and under the processes.
+
+> *Status: 🕐 To-Do* 
+
+### Learning Activities
+
+#### 1. Processes for the project
+- APA Reference: KnowledgeHut (April 12, 2022), Official list of ITIL Processes in ITIL V4, Retrieved from: https://www.knowledgehut.com/blog/it-service-management/itil-process-list
+
+ITIL is an IT service management that align the IT services with the needs of the business. The ITIL is resource that assist companies in developing processes and management strategies around their IT needs. As part of this learning activity you are required to read the following article and list down at least 5 processes or management strategies which you think are beneficial for your project.
+
+Please keep your post to 250 words limit and read other student post and provide constructive feedbacks.
+
+> *Status: 🕐 To-Do* 
+
+
 
 ---
 
