@@ -7,12 +7,12 @@
 | # | Task | Status |
 |---|------|--------|
 | 1 | Watch & summarise Vanersity Tech (2017) - Information technology processes and workflows (video) | ✅ |
-| 2 | Read & summarise Alexander et al. (2020) - Ch. 3 Information security framework (pp. 39-87) | 🕐 |
-| 3 | Read & summarise Bandos (2022) - The five steps of incident response | 🕐 |
-| 4 | Read & summarise Canon Business Services (2023) - IT infrastructure management | 🕐 |
-| 5 | Activity 1: Discussion forum post, five ITIL processes for the project (≤250 words), plus feedback on other posts | 🕐 |
+| 2 | Read & summarise Alexander et al. (2020) - Ch. 3 Information security framework (pp. 39-87) | ✅ |
+| 3 | Read & summarise Bandos (2022) - The five steps of incident response | ✅ |
+| 4 | Read & summarise Canon Business Services (2023) - IT infrastructure management | ✅ |
+| 5 | Activity 1: Discussion forum post, five ITIL processes for the project (≤250 words), plus feedback on other posts | ✅ |
 
-> Resource rows stay 🕐 until Luis confirms the reading or viewing. The summaries below are study aids built from the local copies. Resource 1 was watched by Luis (20 Oct 2026); the 2017 video has no transcript or captions, so it has no summary here.
+> All resources and Activity 1 confirmed done by Luis (22 Oct 2026). The summaries below are study aids built from the local copies. Resource 1 was watched on 20 Oct 2026; the 2017 video has no transcript or captions, so it has no summary here.
 
 ---
 

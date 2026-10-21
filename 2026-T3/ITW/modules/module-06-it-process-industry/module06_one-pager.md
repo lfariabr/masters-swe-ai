@@ -63,9 +63,9 @@ BCS:       reporting -> investigation -> assessment -> corrective action -> revi
 1. Who is the information owner for the awards data, and who is the custodian?
 2. Write the first three lines of an incident procedure for "a ranking was published with missing rows".
 
-### This-week to-dos (still 🕐 in your notes)
+### This-week to-dos
 - [X] ✅ Watch the Vanersity Tech video (watched 20 Oct)
-- [ ] 🕐 Read Alexander et al. Ch. 3 (pp. 39-87)
-- [ ] 🕐 Read the incident response and infrastructure articles
-- [ ] 🕐 Activity 1: review the draft, post it (≤250 words), then comment on other posts
+- [X] ✅ Read Alexander et al. Ch. 3 (pp. 39-87)
+- [X] ✅ Read the incident response and infrastructure articles
+- [X] ✅ Activity 1: review the draft, post it (≤250 words), then comment on other posts
 - [ ] 🔥 Awards page in `/admin/student360`

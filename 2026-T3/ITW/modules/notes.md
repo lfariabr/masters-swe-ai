@@ -472,7 +472,7 @@ IT policies and procedures are more important when it comes to dealing the sensi
 
     To better implement the processes, understanding the framework is of outmost importance. The following resource will enable you to understand the information security framework in any organization. The resource covers the basic principles for establishing such framework within an organization and will look at the general area of information security management. It will consider the role and appropriate use of policy, standards and procedures.
 
-> *Status: 🕐 To-Do - summary in [module06_notes.md](module-06-it-process-industry/module06_notes.md)*
+> *Status: ✅ Read + Reviewed - summary in [module06_notes.md](module-06-it-process-industry/module06_notes.md)*
 
 #### 3. Incident Management Process
 - APA Reference: Bandos, T. (Dec. 28, 2022), The Five Steps of Incident Response, Digital Guardian. Retrieved from: https://digitalguardian.com/blog/five-steps-incident-response
@@ -481,7 +481,7 @@ IT policies and procedures are more important when it comes to dealing the sensi
 
     Incident management is another important aspect of information technology. More specifically, management of any incident whether it’s a security incident of failure of various an organization should have clearly defined process in order to reduce the impact of any incident. The following article will help you understand the five steps of any incident response.
 
-> *Status: 🕐 To-Do - summary in [module06_notes.md](module-06-it-process-industry/module06_notes.md)*
+> *Status: ✅ Read + Reviewed - summary in [module06_notes.md](module-06-it-process-industry/module06_notes.md)*
 
 #### 4. IT infrastructure Management
 - APA Reference: Canon Business Services, (2023), How does IT Infrastructure Management Work for an Organization. Retrieved from: https://business.canon.com.au/insights/how-does-it-infrastructure-management-work-for-an-organisation
@@ -490,7 +490,7 @@ IT policies and procedures are more important when it comes to dealing the sensi
 
     With the rapid advancement of cloud computing where organization have their whole infrastructure teams to make sure that the computing devices are readily available. The following resource covers this main concept and also allow you to understand the infrastructure part in the industry. Once you read the following article you will be in a better position to understand the roles and responsibilities of various stakeholders and under the processes.
 
-> *Status: 🕐 To-Do - summary in [module06_notes.md](module-06-it-process-industry/module06_notes.md)*
+> *Status: ✅ Read + Reviewed - summary in [module06_notes.md](module-06-it-process-industry/module06_notes.md)*
 
 ### Learning Activities
 
@@ -501,7 +501,7 @@ ITIL is an IT service management that align the IT services with the needs of th
 
 Please keep your post to 250 words limit and read other student post and provide constructive feedbacks.
 
-> *Status: 🕐 To-Do - post draft: [activity01 draft](module-06-it-process-industry/activity01_itil-processes-for-the-project_draft.md); reading summary in [module06_notes.md](module-06-it-process-industry/module06_notes.md)*
+> *Status: ✅ Done: [activity01 draft](module-06-it-process-industry/activity01_itil-processes-for-the-project_draft.md); reading summary in [module06_notes.md](module-06-it-process-industry/module06_notes.md)*
 
 
 

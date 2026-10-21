@@ -1,6 +1,6 @@
 # Module 6 · Activity 1 - ITIL processes for the project (draft)
 
-**Status:** draft for Luis to review and post. Limit is 250 words. Not posted yet.
+**Status:** ✅ posted to the discussion forum by Luis (Oct 2026). Limit is 250 words.
 
 ---
 
