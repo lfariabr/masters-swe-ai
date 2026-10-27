@@ -60,6 +60,6 @@ PREPARE                          SEND        CHECK            LOOP
 
 ### This-week to-dos
 - [X] ✅ Module text read (no separate readings this module)
-- [ ] 🕐 Activity 1: post, then comment on two posts
-- [ ] 🕐 Activity 2: post, then comment on two posts
+- [X] ✅ Activity 1: post, then comment on two posts
+- [X] ✅ Activity 2: post, then comment on two posts
 - [ ] 🔥 Call the stakeholder about the Year 11 workbook (step 5, for real)

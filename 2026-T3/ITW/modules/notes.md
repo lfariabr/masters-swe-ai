@@ -543,7 +543,7 @@ Post your answers to the following questions to the discussion forum:
 2. How can an understanding of the application of these skills and tools assist the software engineer in challenging communication situations?
 3. Please read the posts of your colleagues and comment on at least two of the posts. You may wish to discuss why you agree or disagree or you may wish to build on the insights that they have shared.
 
-> *Status: 🕐 To-Do - post draft: [activity01 draft](module-07-communication-techniques/activity01_communication-tools_draft.md)*
+> *Status: ✅ Done: [activity01 draft](module-07-communication-techniques/activity01_communication-tools_draft.md)*
 
 #### 2. Discussion Forum Post — Case Study Activity 2
 In this activity, we will continue on with our case study on Organisation X. As we learnt previously, Organisation X needs to integrate a number of IT systems (internal and external to the organisation) across its business environment. A number of pilot projects have been initiated to validate and verify the process(es) of integration.
@@ -557,7 +557,7 @@ Assuming the roles of the IT engineer and project manager, consider:
 
 Post your answers to the discussion forum. Please read the posts of your colleagues and comment on at least two of the posts. You may wish to discuss why you agree or disagree or you may wish to build on the insights that they have shared.
 
-> *Status: 🕐 To-Do - post draft: [activity02 draft](module-07-communication-techniques/activity02_organisation-x-scope-change_draft.md)*
+> *Status: ✅ Done: [activity02 draft](module-07-communication-techniques/activity02_organisation-x-scope-change_draft.md)*
 
 ---
 

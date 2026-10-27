@@ -49,7 +49,7 @@ Dr Bushra Naeem (Term 3 2026). Contact details are available in the LMS. The pla
 - [X] Module 4 ✅ - IT Project Management
 - [X] Module 5 ✅ - Decision Making and Problem-Solving Skills in Project Management
 - [X] Module 6 ✅ - IT Process and Industry
-- [ ] Module 7 🕐 - Communication Techniques in Tech Environment
+- [X] Module 7 ✅ - Communication Techniques in Tech Environment
 - [ ] Module 8 🕐 - Business-Related Models for IT Projects
 - [ ] Module 9 🕐 - The Role of Quality in IT Projects
 - [ ] Module 10 🕐 - Reporting in Professional Practice

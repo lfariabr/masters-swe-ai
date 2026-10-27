@@ -1,6 +1,6 @@
 # Module 7 · Activity 1 - Communication tools in project-based environments (draft)
 
-**Status:** draft for Luis to review and post. No word limit in the brief; kept near 250 words. Not posted yet.
+**Status:** ✅ posted to the discussion forum by Luis (Oct 2026). No word limit in the brief; kept near 250 words.
 
 ---
 

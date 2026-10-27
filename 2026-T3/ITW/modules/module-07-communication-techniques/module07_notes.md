@@ -8,10 +8,10 @@
 |---|------|--------|
 | 1 | Read & summarise the module text: communicating content in the right context (Eraut, 2004; Ferguson, 1977) | ✅ |
 | 2 | Read & summarise the module text: Cerri's (2000) seven-step communication process | ✅ |
-| 3 | Activity 1: Discussion forum post, communication tools in project-based environments, plus comments on two posts | 🕐 |
-| 4 | Activity 2: Discussion forum post, Organisation X case study, communication strategy for a scope-change pilot, plus comments on two posts | 🕐 |
+| 3 | Activity 1: Discussion forum post, communication tools in project-based environments, plus comments on two posts | ✅ |
+| 4 | Activity 2: Discussion forum post, Organisation X case study, communication strategy for a scope-change pilot, plus comments on two posts | ✅ |
 
-> Module 7 has no separate readings or videos. The three references are cited inside the module text itself, so the summaries below work from that text and from the abstracts of the cited papers. Activities stay 🕐 until Luis confirms the posts.
+> Module 7 has no separate readings or videos. The three references are cited inside the module text itself, so the summaries below work from that text and from the abstracts of the cited papers. Both activities confirmed posted by Luis (28 Oct 2026).
 
 ---
 
