@@ -503,7 +503,61 @@ Please keep your post to 250 words limit and read other student post and provide
 
 > *Status: ✅ Done: [activity01 draft](module-06-it-process-industry/activity01_itil-processes-for-the-project_draft.md); reading summary in [module06_notes.md](module-06-it-process-industry/module06_notes.md)*
 
+---
 
+## Module 7 - Communication Techniques in Tech Environment
+
+### TLDR
+Module 7 is about communicating across frames, not about writing better emails. Engineers default to content (the solution); in multidisciplinary workplaces the listener's context matters as much, and visual representation is the bridge between the two (Ferguson, 1977). Most workplace understanding is built through informal exchanges, with formal documents recording it (Eraut, 2004). Cerri's (2000) seven steps put preparation first (setting, mirroring, the listener's map), then the message, then the check that it landed, then the loop. The step engineers skip is the check. Notes: [module07_notes.md](module-07-communication-techniques/module07_notes.md) · one-pager: [module07_one-pager.md](module-07-communication-techniques/module07_one-pager.md).
+
+### Introduction
+This Module will focus on the communication skills and techniques that will be required of you in the workplaces in which you will likely find yourself. A few of the modules in this subject, ITW601, are structured differently. Specifically, in some courses, you will be required to read some key concepts on this topic, undertake a short course and complete learning activities.
+
+### Resources
+
+#### 1. Communicating Content in the ‘Right’ Context
+The communication approach in an engineering environment tends to focus on providing a solution to a given problem. Context is less important than content in arriving at the solution. However, communication takes on the role whereby mental and visual systems of representation together with linguistic/text representational systems form more of a ‘complete system’ of communication. Research clearly indicates the importance given to visual representation in engineering environments—both formally and informally—to provide a more informed approach to context (Eraut, 2004; Ferguson, 1977). Some professions, such as engineers, have a need in a current context to embrace diversity, stakeholder expectation and phenomena to arrive at an informed solution. As the working environment becomes more multidisciplinary in outlook, the communication skills (both formally and informally) required to navigate these complex work environments must complement these types of environments.
+
+#### 2. A Seven-Step Communication Process
+This is an approach to communication that defines a strategy for effective communication. It can be applied in any setting (Ceri, 2000). The approach comprises seven steps:
+
+1. Understand the verbal and non-verbal communication requirements across the project’s setting. Identifying the required mode to address the listener’s needs is essential;
+2. Mirror or match (the recipients’ communication; that is, what they are doing or saying), pacing (mirroring and matching) and leading (changing something);
+3. Understand complex mapping (e.g., outlook to knowledge and experience perspectives) or paradigms in relation to how an approach to a situation/problem is to be understood;
+4. The speaker sends the message—presenting ideas and issues (the message may not always be received positively);
+5. The sender checks whether the listener has received the message to verify that the message has been understood. Questioning around visual and non-visual cues aids understanding
+6. Review Steps 1, 2 and 3 to re-send the messages if the first attempt was not well received; and
+7. Send the next message if the Steps in 1, 2 and 3 were well received in the first message sent.
+
+#### 3. APA References:
+- Cerri, S. (2000). Effective communication skills for engineers. Proceedings of the 2000 IEEE Engineering Management Society, pp. 625–629, doi: 10.1109/EMS.2000.872578.
+- Eraut, M. (2004). Informal learning in the workplace. Studies in Continuing Education, 26(2), 247–273, doi: 10.1080/158037042000225245
+- Ferguson, E. S. (1977). The mind’s eye: Nonverbal thought in technology. Science, 197(4306), 827–836. doi:10.1126/science.197.4306.827
+
+### Learning Activities
+
+#### 1. Discussion Forum Post—Communication Tools in Project-Based Environments
+Post your answers to the following questions to the discussion forum:
+
+1. What are the some of the communication tools used in project-based environments?
+2. How can an understanding of the application of these skills and tools assist the software engineer in challenging communication situations?
+3. Please read the posts of your colleagues and comment on at least two of the posts. You may wish to discuss why you agree or disagree or you may wish to build on the insights that they have shared.
+
+> *Status: 🕐 To-Do - post draft: [activity01 draft](module-07-communication-techniques/activity01_communication-tools_draft.md)*
+
+#### 2. Discussion Forum Post — Case Study Activity 2
+In this activity, we will continue on with our case study on Organisation X. As we learnt previously, Organisation X needs to integrate a number of IT systems (internal and external to the organisation) across its business environment. A number of pilot projects have been initiated to validate and verify the process(es) of integration.
+
+To initiate these pilot projects, any possible changes to the project’s scope need to be identified before project implementation. The organisation has identified two specialists—an internal IT engineer and project manager—to oversee this event.
+
+Assuming the roles of the IT engineer and project manager, consider:
+
+- What contextual considerations would you factor into your communication strategy?
+- How would you go about communicating this strategy to other stakeholders?
+
+Post your answers to the discussion forum. Please read the posts of your colleagues and comment on at least two of the posts. You may wish to discuss why you agree or disagree or you may wish to build on the insights that they have shared.
+
+> *Status: 🕐 To-Do - post draft: [activity02 draft](module-07-communication-techniques/activity02_organisation-x-scope-change_draft.md)*
 
 ---
 
