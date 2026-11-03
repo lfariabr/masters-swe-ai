@@ -6,12 +6,12 @@
 
 | # | Task | Status |
 |---|------|--------|
-| 1 | Read & summarise: decision trees for longitudinal decisions (Coles & Rowley, 1995) | 🔥 |
-| 2 | Read & summarise: cost-benefit analysis for a software upgrade (Ali, 2012) | 🔥 |
-| 3 | Read & summarise: business process acceptance model (Degerli & Ozkan, 2014) | 🔥 |
-| 4 | Read & summarise: teamwork delivers value (Goodpasture, 2013, Ch. 4) | 🔥 |
-| 5 | Module concepts: forecasts vs budgets, project balance sheet, risk values | 🔥 |
-| 6 | Activity 1: watch Wang (2018), then the Organisation X feasibility-study post, plus comments on two posts | 🔥 draft ready |
+| 1 | Read & summarise: decision trees for longitudinal decisions (Coles & Rowley, 1995) | ✅ |
+| 2 | Read & summarise: cost-benefit analysis for a software upgrade (Ali, 2012) | ✅ |
+| 3 | Read & summarise: business process acceptance model (Degerli & Ozkan, 2014) | ✅ |
+| 4 | Read & summarise: teamwork delivers value (Goodpasture, 2013, Ch. 4) | ✅ |
+| 5 | Module concepts: forecasts vs budgets, project balance sheet, risk values | ✅ |
+| 6 | Activity 1: watch Wang (2018), then the Organisation X feasibility-study post, plus comments on two posts | ✅ |
 
 > Source corrections against the module text, checked against the PDFs (3 Nov 2026):
 > - The supplied Goodpasture file is **Chapter 4, "Teamwork delivers value"**. It does not cover business cases, the project balance sheet, earned value or game theory; those live in other chapters of the book that were not supplied. Cite Chapter 4 only for teams.

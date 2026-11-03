@@ -1,6 +1,6 @@
 # Module 8 · Activity 1 - Organisation X: building a feasibility study for system integration (draft)
 
-**Status:** 🔥 draft for Luis to review, then post to the discussion forum and comment on two posts. No word limit in the brief; kept near 300 words.
+**Status:** ✅ posted to the discussion forum by Luis (3 Nov 2026), in his own wording; this draft was the starting point. No word limit in the brief; kept near 300 words.
 
 ---
 

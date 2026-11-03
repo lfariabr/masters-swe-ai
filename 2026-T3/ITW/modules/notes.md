@@ -608,28 +608,28 @@ Chapter 4 on the building business cases is of relevance to your course in gener
 
 > Note (3 Nov 2026): the supplied file is Chapter 4, "Teamwork delivers value", which covers teams, not business cases.
 
-> *Status: 🔥 Summarised in [module08_notes.md](module-08-business-related-models-for-it-projects/module08_notes.md)*
+> *Status: ✅ Done: [module08_notes.md](module-08-business-related-models-for-it-projects/module08_notes.md)*
 
 #### 2. Business Performance Measurement and Management
 - APA Reference: Charles, V., & Kumar, M. (Eds.). (2014). Business performance measurement and management. Newcastle upon Tyne, England: Cambridge Scholars. (Supplied chapter: Degerli, M., & Ozkan, S., Ch. 13, pp. 292-333.) Retrieved from https://lesa.on.worldcat.org/oclc/892981996
 
 This publication includes a number of insightful case studies that apply business-related techniques and methods used by different organisations. Chapter 11 provides an overview of electrical energy management. Chapter 13 examines how to achieve and ensure business process acceptance for systems and IT managers. Chapter 16 covers decisions relating to the performance of the design process, and Chapter 21 examines the efficiency and effectiveness factors of decision-making units.
 
-> *Status: 🔥 Summarised in [module08_notes.md](module-08-business-related-models-for-it-projects/module08_notes.md)*
+> *Status: ✅ Done: [module08_notes.md](module-08-business-related-models-for-it-projects/module08_notes.md)*
 
 #### 3. Revisiting Decision Trees
 - APA Reference: Coles, S., & Rowley, J. (1995). Revisiting decision trees. Management Decision, 33(8), 46–50. Retrieved from https://lesa.on.worldcat.org/oclc/364443330
 
 This resource provides some appropriate examples and outlines the ways in which decision trees can be used by a manager to assist in the longitudinal decision-making process. As the mathematical concepts associated with decision trees can be complex, managers may be reluctant to use decision-tree models. Such models can be simply developed in a spreadsheet environment and can then be used for sensitivity analyses using different decision criteria. Thus, decision trees can offer valuable insights into the structure of a strategic decision problem.
 
-> *Status: 🔥 Summarised in [module08_notes.md](module-08-business-related-models-for-it-projects/module08_notes.md)*
+> *Status: ✅ Done: [module08_notes.md](module-08-business-related-models-for-it-projects/module08_notes.md)*
 
 #### 4. A Framework for Using Cost-Benefit Analysis in Making the Case for a Software Upgrade
 - APA Reference: Ali, A. (2012). A framework for using cost-benefit analysis in making the case for software upgrade. Issues in Informing Science and Information Technology, 9, 399–409. Retrieved from https://lesa.on.worldcat.org/oclc/7170258477 
 
 Software upgrade is one of the major tasks in anu IT project. A cost-benefit analysis (CBA) is a model widely used in economics by various organisations to help select among alternatives and to justify certain investments. Spending money or investing in software upgrade costs may need to be justified in some cases. In these cases, it would be helpful to use a framework, such as the CBA, to justify and make a case for investing in software upgrade. This paper intends to help with determining the feasibility (or lack of it) of paying for software upgrades by introducing this framework.
 
-> *Status: 🔥 Summarised in [module08_notes.md](module-08-business-related-models-for-it-projects/module08_notes.md)*
+> *Status: ✅ Done: [module08_notes.md](module-08-business-related-models-for-it-projects/module08_notes.md)*
 
 ### Learning Activities
 
@@ -651,7 +651,7 @@ What kinds of budgeting options would be relevant; and
 What controls and risk management considerations are necessary for evaluation?
 Post your answers to the discussion forum. Please read the posts of your colleagues and comment on at least two of the posts. You may wish to discuss why you agree or disagree or build on the insights that others have shared.
 
-> *Status: 🔥 Draft ready: [activity01 draft](module-08-business-related-models-for-it-projects/activity01_organisation-x-feasibility-study_draft.md)*
+> *Status: ✅ Done: [activity01 draft](module-08-business-related-models-for-it-projects/activity01_organisation-x-feasibility-study_draft.md)*
 
 ---
 

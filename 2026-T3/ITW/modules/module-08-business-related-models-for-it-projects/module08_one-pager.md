@@ -68,6 +68,6 @@ culture (OC) --> what colleagues expect (SN) ----^
 2. Fill one row of Ali's table for the awards page: what is the learning cost, and who pays it?
 
 ### This-week to-dos
-- [ ] 🔥 Read the four readings (summaries in `module08_notes.md`)
-- [ ] 🔥 Watch Wang (2018), 14 min
-- [ ] 🕐 Activity 1: post, then comment on two posts
+- [X] ✅ Read the four readings (summaries in `module08_notes.md`)
+- [X] ✅ Watch Wang (2018), 14 min
+- [X] ✅ Activity 1: post, then comment on two posts
