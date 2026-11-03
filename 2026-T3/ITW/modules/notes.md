@@ -561,6 +561,90 @@ Post your answers to the discussion forum. Please read the posts of your colleag
 
 ---
 
+## Module 8 - Business-Related Models for IT Projects
+
+### TLDR
+
+### Introduction
+Organisations operating in a global environment need to be transparent in what they do and how and when they do it. Specific questions usually need to be addressed, including:
+
+- What decisions need to be made?
+- Why is the information needed?
+- Who needs the information?
+- From where can the information be sourced?
+
+The answers to these questions require a structured and planned approach that starts with an organisation’s strategic planning. All organisations have at the centre of their strategic planning key goals and well thought–out objectives to support the goals.
+
+Organisations also need to take into consideration what financial planning is necessary to meet the information needs of internal and external stakeholders. When planning budgets, careful consideration needs to be given to:
+
+- The alternatives available;
+- The consequences of using these alternatives;
+- The types of business models that are relevant for the organisation; and
+- The financial model that will be used in the planning.
+
+The preparation and implementation of budgets are part of planning, and the use of budgets is part of controlling an organisation’s performance. Budgets aid in the overall development, planning and implementation of financial considerations for an organisation’s approach to business modelling. Budgets form part of a management information system (MIS). An organisation’s ability to manage and monitor its workflow to ensure performance and transparency will be dependent on the effectiveness of its MIS.
+
+### Resources
+
+#### 1. Maximising Project Value: A Project Manager’s Guide
+- APA Reference: Goodpasture, J. (2013). Maximizing project value: A project manager’s guide. Berrett-Koehler. Retrieved from https://ebookcentral-proquest-com.ezproxy.laureate.net.au/lib/think/reader.action?docID=5254151&ppg=57
+
+This book explores the nature of ‘value’ as tangible resources and moral or ethical attributes and how best to approach decision making. The book examines this essential aspect of project management. The tools and methods the author describes include:
+
+- Building a business case;
+- Using a project balance sheet;
+- Employing earned value; and
+- Using game theory to optimise strategies.
+
+Chapter 4 on the building business cases is of relevance to your course in general.
+
+> *Status: 🕐 To-Do*
+
+#### 2. Business Performance Measurement and Management
+- APA Reference: Vincent, C. & Kumar, M. (Eds.). (2014). Business performance measurement and management. Newcastle upon Tyne, England: Cambridge Scholars. Retrieved from https://lesa.on.worldcat.org/oclc/892981996
+
+This publication includes a number of insightful case studies that apply business-related techniques and methods used by different organisations. Chapter 11 provides an overview of electrical energy management. Chapter 13 examines how to achieve and ensure business process acceptance for systems and IT managers. Chapter 16 covers decisions relating to the performance of the design process, and Chapter 21 examines the efficiency and effectiveness factors of decision-making units.
+
+> *Status: 🕐 To-Do*
+
+#### 3. Revisiting Decision Trees
+- APA Reference: Susan, C. & Jennifer, R. (1995). Revisiting decision trees. Management Decision, 33(8), 46–50. Retrieved from https://lesa.on.worldcat.org/oclc/364443330
+
+This resource provides some appropriate examples and outlines the ways in which decision trees can be used by a manager to assist in the longitudinal decision-making process. As the mathematical concepts associated with decision trees can be complex, managers may be reluctant to use decision-tree models. Such models can be simply developed in a spreadsheet environment and can then be used for sensitivity analyses using different decision criteria. Thus, decision trees can offer valuable insights into the structure of a strategic decision problem.
+
+> *Status: 🕐 To-Do*
+
+#### 4. A Framework for Using Cost-Benefit Analysis in Making the Case for a Software Upgrade
+- APA Reference: Ali, A. (2012). A framework for using cost-benefit analysis in making the case for software upgrade. Issues in Informing Science and Information Technology, 9, 399–409. Retrieved from https://lesa.on.worldcat.org/oclc/7170258477 
+
+Software upgrade is one of the major tasks in anu IT project. A cost-benefit analysis (CBA) is a model widely used in economics by various organisations to help select among alternatives and to justify certain investments. Spending money or investing in software upgrade costs may need to be justified in some cases. In these cases, it would be helpful to use a framework, such as the CBA, to justify and make a case for investing in software upgrade. This paper intends to help with determining the feasibility (or lack of it) of paying for software upgrades by introducing this framework.
+
+> *Status: 🕐 To-Do*
+
+### Learning Activities
+
+#### 1. Learning Activity 1: Discussion Forum Post — Case Study Activity 3
+- APA Reference: Wang, J. (2018, March) Business versus engineering: The classic workplace struggle [Video file]. Retrieved from https://www.ted.com/talks/jeremy_wang_business_versus_engineering_the_classic_workplace_struggle
+
+This video emphasizes the importance of engineers adopting a business-like perspective in undertaking their work.
+
+Watch all 14 minutes of the video that is facilitated by Jeremy Wang. It provides a good overview of the ‘trade-offs’ engineers face in navigating a business environment.
+
+Now, we continue considering Organisation X and its need to integrate a number of information technology (IT) systems across its business environment. Senior management in consultation with the software engineers overseeing the project require a feasibility study to be undertaken of the current systems and their capabilities mapped against the requirements for the new integrated IT system.
+
+Feasibility study: An examination of a situation to decide if a suggested method, plan or piece of work is possible or reasonable (Cambridge Dictionary)
+
+In reference to the knowledge outlined in this Module (and others), answer the following questions:
+
+How might you go about building a feasibility study—What criteria is required;
+What kinds of budgeting options would be relevant; and
+What controls and risk management considerations are necessary for evaluation?
+Post your answers to the discussion forum. Please read the posts of your colleagues and comment on at least two of the posts. You may wish to discuss why you agree or disagree or build on the insights that others have shared.
+
+> *Status: 🕐 To-Do*
+
+---
+
 ```bash
 --- PLACEHOLDER:
 ## Module X - ...
