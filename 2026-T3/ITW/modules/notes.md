@@ -658,6 +658,14 @@ Post your answers to the discussion forum. Please read the posts of your colleag
 ## Module 9 - The Role of Quality in IT Projects
 
 ### TLDR
+Module 9 is about making quality something you can define, measure and keep improving. "If you cannot define, you cannot measure, and if you cannot measure, you cannot control, assure or improve" (Basu, 2012, p. 5).
+- **Policy and process.** A quality policy shows commitment; measurable objectives make it real. Every process runs its own Plan-Do-Check-Act cycle.
+- **Quality requirements.** Each one needs a description, a metric, a measurement and a rationale (Penzenstadler, 2018).
+- **Cost of quality.** Prevention and appraisal are cheaper than internal and external failure. Measuring the cost of poor quality is what brings it down (Mahmood et al., 2014).
+- **Testing.** Fixes can introduce faults, and coverage shows how much is left (Zhang & Pham, 2001).
+- **Two kinds of measure.** Quality looks different from inside and outside, and internal, objective measures come before the customer's view (Zhang, 2001).
+
+Notes: [module09_notes.md](module-09-the-role-of-quality-in-it-projects/module09_notes.md) · one-pager: [module09_one-pager.md](module-09-the-role-of-quality-in-it-projects/module09_one-pager.md).
 
 ### Introduction
 To maintain conformity with internal and external standards, processes and procedures, an organisation must ensure the effectiveness of the quality processes as part of a project governed by quality principles. Organisations, particularly small organisations, may be able to demonstrate conformity to quality principles without the need for extensive documentation. A quality policy should provide a framework for establishing and reviewing quality objectives. A quality policy that outlines clear and measurable objectives often forms the framework for undertaking projects, including software projects. Essentially, a quality policy should:
@@ -716,32 +724,32 @@ Ensuring an organisation conforms to standards and regulations is the responsibi
 ### Resources
 
 #### 1. Managing Quality in Projects
-- APA Reference: Basu, R. (2012). Managing quality in projects. Gower. Retrieved from https://lesa.on.worldcat.org/oclc/820850688
+- APA Reference: Basu, R. (2012). Managing quality in projects. Taylor & Francis. (Supplied: Introduction, pp. 1-12.) Retrieved from https://lesa.on.worldcat.org/oclc/820850688
 
 This book focuses on defining the dimensions of quality in project management and identifying sources of measurement for project excellence. It provides a good overall perspective of the relationship between quality and project success.
 
-> *Status: 🕐 To-Do*
+> *Status: 🔥 Summarised in [module09_notes.md](module-09-the-role-of-quality-in-it-projects/module09_notes.md)*
 
 #### 2. Recent Advances in Reliability and Quality Engineering
-- APA Reference: Pham, H. (2015). Recent advances in reliability and quality engineering. World Scientific. Retrieved from https://lesa.on.worldcat.org/oclc/261134489
+- APA Reference: Pham, H. (Ed.). (2001). Recent advances in reliability and quality engineering. World Scientific. (Supplied: Zhang, X., & Pham, H., Ch. 2, pp. 17-31.) Retrieved from https://lesa.on.worldcat.org/oclc/261134489
 
 This volume presents recent research in reliability and quality theory and its applications by many leading experts in the field. The subjects covered include reliability optimisation, software reliability, maintenance, quality engineering and system reliability. Of interest are Chapters 1, 3, 5, 9, 14 and 15.
 
-> *Status: 🕐 To-Do*
+> *Status: 🔥 Summarised in [module09_notes.md](module-09-the-role-of-quality-in-it-projects/module09_notes.md)*
 
 #### 3. Determining the Cost of Poor Quality and Its Effect on Productivity and Profitability
-- APA Reference: Mahmood, S., Ahmed, S. M., Panthi, K., & Kureshi, N. I. (2014). Determining the cost of poor quality and its impact on productivity and profitability. Built Environment Project and Asset Management, 4(3), 296-311. Retrieved from https://lesa.on.worldcat.org/oclc/7054501138
+- APA Reference: Mahmood, S., Ahmed, S. M., Panthi, K., & Kureshi, N. I. (2014). Determining the cost of poor quality and its impact on productivity and profitability. Built Environment Project and Asset Management, 4(3), 296-311. https://doi.org/10.1108/BEPAM-09-2013-0034 Retrieved from https://lesa.on.worldcat.org/oclc/7054501138
 
 The purpose of this paper is to examine how effectively a proposed cost appraisal system measures the cost of poor quality (COPQ) in a construction project. The paper formulates how COPQ can be measured and later clarifies the relationship between COPQ, labour productivity and profitability. To measure COPQ, the researchers prepare data entry forms for recording COPQ items on a daily basis and formulated the cost contribution of lost material, lost man-hours, lost machinery hours and lost overhead on the overall COPQ for the project. The proposed method was then applied in a case study. The paper's intent can be applied to any project (including software and technology-related projects) in any given context.
 
-> *Status: 🕐 To-Do*
+> *Status: 🔥 Summarised in [module09_notes.md](module-09-the-role-of-quality-in-it-projects/module09_notes.md)*
 
 #### 4. Quality Dimensions, Perspectives and Practices
-- APA Reference: Zhang, Q. (2001). Quality dimensions, perspectives and practices. International Journal of Quality and Reliability Management, 18(7), 708-722. Retrieved from https://lesa.on.worldcat.org/oclc/7054602965
+- APA Reference: Zhang, Q. (2001). Quality dimensions, perspectives and practices: A mapping analysis. International Journal of Quality & Reliability Management, 18(7), 708-721. Retrieved from https://lesa.on.worldcat.org/oclc/7054602965
 
 An integrated framework is developed to analyse the relationships among quality dimensions, perspectives and practices. This framework incorporates two dimensions of the internal-external focus and objective-subjective measurement. It clarifies the concept of quality and helps practitioners to position their quality management practices. It explains how to resolve and reduce uncertainty in improving the quality of the products, ultimately to achieve competitive advantage. It adopts a total quality management (TQM) stance for continuous improvement.
 
-> *Status: 🕐 To-Do*
+> *Status: 🔥 Summarised in [module09_notes.md](module-09-the-role-of-quality-in-it-projects/module09_notes.md)*
 
 ### Learning Activities
 
@@ -760,7 +768,7 @@ In reference to the knowledge outlined in this Module (and others), answer the f
 
 Post your answers to the discussion forum. Please read the posts of your colleagues and comment on at least two of the posts. You may wish to discuss why you agree or disagree or build on the insights that others have shared.
 
-> *Status: 🕐 To-Do*
+> *Status: 🔥 Draft ready: [activity01 draft](module-09-the-role-of-quality-in-it-projects/activity01_organisation-x-qa-review_draft.md)*
 
 ---
 
