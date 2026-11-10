@@ -655,6 +655,115 @@ Post your answers to the discussion forum. Please read the posts of your colleag
 
 ---
 
+## Module 9 - The Role of Quality in IT Projects
+
+### TLDR
+
+### Introduction
+To maintain conformity with internal and external standards, processes and procedures, an organisation must ensure the effectiveness of the quality processes as part of a project governed by quality principles. Organisations, particularly small organisations, may be able to demonstrate conformity to quality principles without the need for extensive documentation. A quality policy should provide a framework for establishing and reviewing quality objectives. A quality policy that outlines clear and measurable objectives often forms the framework for undertaking projects, including software projects. Essentially, a quality policy should:
+
+- demonstrate top management commitment to quality and the provision of adequate resources for its achievement; and
+- promote a commitment to quality across all levels of the organisation.
+
+The level of commitment outlined and demonstrated in a quality policy towards continuous improvement is achieved through the setting and meeting of quality objectives. Quality objectives should:
+
+- be set at each relevant function and level;
+- be measurable and consistent with the quality policy; and
+- include the necessary objectives to meet the requirements for the product.
+
+#### Process Approach to Quality
+Any activity that takes inputs and converts them to outputs can be considered a process. Very often, the output from one process becomes the input for another process. IT projects may comprise a number of linked processes (activities) that need to be identified and managed. A process approach is the systematic identification and management of these activities and the interactions between activities. If used effectively, the process approach provides control over the processes, the links between the processes and the combination and interaction of processes.
+
+The process approach emphasises the importance of:
+
+- understanding and fulfilling requirements;
+- considering processes in terms of added value;
+- obtaining results of process performance and effectiveness;
+- continually improving processes based on objective measures; and
+- implementing life-cycle process to meet organisational software quality objectives and achieve stakeholder satisfaction.
+
+*Figure 1. The relationship between processes and PDCA (Planning, Doing, Checking, Acting).* Note that each process has its own cycle of planning, doing, checking and acting. This is the underlying principle for continuous improvement initiatives across a product/project's life cycle.
+
+#### The Monitoring of Processes
+The performance of particular processes may be analysed through the monitoring and/or measurement of various factors, including:
+
+- accuracy;
+- timeliness;
+- dependability;
+- the reaction time of processes and people to special internal and external requests;
+- cycle time or throughput;
+- the effectiveness and efficiency of people;
+- the utilisation of resources and technologies;
+- key performance indicators; and/or
+- cost reductions.
+
+#### Analysing Data
+An organisation should ensure that the monitoring, measurement and analysis processes and the data collected have a real practical benefit in terms of:
+
+- providing a factual basis for decision making;
+- contributing towards improving the effectiveness of the quality principles;
+- adding value to the organisation;
+- indicating software-related levels of achievement (meeting milestones); and
+- analysing and understanding trends and variations (using relevant statistical techniques, such as control charts to measure process performance against quality criteria).
+
+#### Cost of Quality
+The cost of quality (COQ) is defined as a methodology that allows an organisation to determine the extent to which its current resources are used towards activities that prevent poor quality (products or services). The COQ also acts as a mechanism for determining organisational product/service conformance that result from internal and external failures. By evaluating such information, organisations are in a better position to determine potential savings gained by implementing process improvements.
+
+Ensuring an organisation conforms to standards and regulations is the responsibility of quality control (QC). QC typically involves inspecting and testing both the products and processes against software requirements, analyses and reporting (as identified above) and corrective action initiatives. QC is the compliance arm of quality assurance policies that act as the umbrella for ensuring quality-related requirements will be met.
+
+*Figure 2. Quality, cost and conformance (PMI, 2020).*
+
+### Resources
+
+#### 1. Managing Quality in Projects
+- APA Reference: Basu, R. (2012). Managing quality in projects. Gower. Retrieved from https://lesa.on.worldcat.org/oclc/820850688
+
+This book focuses on defining the dimensions of quality in project management and identifying sources of measurement for project excellence. It provides a good overall perspective of the relationship between quality and project success.
+
+> *Status: 🕐 To-Do*
+
+#### 2. Recent Advances in Reliability and Quality Engineering
+- APA Reference: Pham, H. (2015). Recent advances in reliability and quality engineering. World Scientific. Retrieved from https://lesa.on.worldcat.org/oclc/261134489
+
+This volume presents recent research in reliability and quality theory and its applications by many leading experts in the field. The subjects covered include reliability optimisation, software reliability, maintenance, quality engineering and system reliability. Of interest are Chapters 1, 3, 5, 9, 14 and 15.
+
+> *Status: 🕐 To-Do*
+
+#### 3. Determining the Cost of Poor Quality and Its Effect on Productivity and Profitability
+- APA Reference: Mahmood, S., Ahmed, S. M., Panthi, K., & Kureshi, N. I. (2014). Determining the cost of poor quality and its impact on productivity and profitability. Built Environment Project and Asset Management, 4(3), 296-311. Retrieved from https://lesa.on.worldcat.org/oclc/7054501138
+
+The purpose of this paper is to examine how effectively a proposed cost appraisal system measures the cost of poor quality (COPQ) in a construction project. The paper formulates how COPQ can be measured and later clarifies the relationship between COPQ, labour productivity and profitability. To measure COPQ, the researchers prepare data entry forms for recording COPQ items on a daily basis and formulated the cost contribution of lost material, lost man-hours, lost machinery hours and lost overhead on the overall COPQ for the project. The proposed method was then applied in a case study. The paper's intent can be applied to any project (including software and technology-related projects) in any given context.
+
+> *Status: 🕐 To-Do*
+
+#### 4. Quality Dimensions, Perspectives and Practices
+- APA Reference: Zhang, Q. (2001). Quality dimensions, perspectives and practices. International Journal of Quality and Reliability Management, 18(7), 708-722. Retrieved from https://lesa.on.worldcat.org/oclc/7054602965
+
+An integrated framework is developed to analyse the relationships among quality dimensions, perspectives and practices. This framework incorporates two dimensions of the internal-external focus and objective-subjective measurement. It clarifies the concept of quality and helps practitioners to position their quality management practices. It explains how to resolve and reduce uncertainty in improving the quality of the products, ultimately to achieve competitive advantage. It adopts a total quality management (TQM) stance for continuous improvement.
+
+> *Status: 🕐 To-Do*
+
+### Learning Activities
+
+#### 1. Learning Activity 1: Discussion Forum Post - Case Study Activity 4
+- APA Reference: Penzenstadler, B. (2018, April 16). Quality requirements - RE learning glass lecture 14 [Video]. Transcript: [activity01 transcript](module-09-the-role-of-quality-in-it-projects/activity01_penzenstadler-quality-requirements_transcript.md)
+
+Completing this activity will provide you with the necessary insights to address the elicitation requirements aspect of Assessment 3. Watch the full 11 minutes of the video facilitated by Professor Penzenstadler. It provides a good overview of quality requirements from an engineering perspective.
+
+Now, consider the following: Organisation X is a small- to medium-sized organisation working in the financial services sector. It needs to integrate a number of information technology (IT) systems (internal and external) across its business environment. Currently, these systems operate independently of one another. Senior management in consultation with the software engineers overseeing the project require a review of a number of pilot projects that have been validated and verified against the software process(es) of systems integration. This needs to occur in accordance with their QA programme. Their QA programme is managed by a team of external specialists together with the internal project engineer in charge of software systems and compliance. The QA needs to conform to requirements for the new integrated IT system.
+
+In reference to the knowledge outlined in this Module (and others), answer the following questions:
+
+- How would you undertake a review of the quality controls across Organisation X;
+- What are some of the key processes you would need to identify for analysis and review; and
+- As a result of the review, would the quality policy need updating and how would this be done?
+
+Post your answers to the discussion forum. Please read the posts of your colleagues and comment on at least two of the posts. You may wish to discuss why you agree or disagree or build on the insights that others have shared.
+
+> *Status: 🕐 To-Do*
+
+---
+
 ```bash
 --- PLACEHOLDER:
 ## Module X - ...
