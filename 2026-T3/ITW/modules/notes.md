@@ -728,28 +728,28 @@ Ensuring an organisation conforms to standards and regulations is the responsibi
 
 This book focuses on defining the dimensions of quality in project management and identifying sources of measurement for project excellence. It provides a good overall perspective of the relationship between quality and project success.
 
-> *Status: 🔥 Summarised in [module09_notes.md](module-09-the-role-of-quality-in-it-projects/module09_notes.md)*
+> *Status: ✅ Done: [module09_notes.md](module-09-the-role-of-quality-in-it-projects/module09_notes.md)*
 
 #### 2. Recent Advances in Reliability and Quality Engineering
 - APA Reference: Pham, H. (Ed.). (2001). Recent advances in reliability and quality engineering. World Scientific. (Supplied: Zhang, X., & Pham, H., Ch. 2, pp. 17-31.) Retrieved from https://lesa.on.worldcat.org/oclc/261134489
 
 This volume presents recent research in reliability and quality theory and its applications by many leading experts in the field. The subjects covered include reliability optimisation, software reliability, maintenance, quality engineering and system reliability. Of interest are Chapters 1, 3, 5, 9, 14 and 15.
 
-> *Status: 🔥 Summarised in [module09_notes.md](module-09-the-role-of-quality-in-it-projects/module09_notes.md)*
+> *Status: ✅ Done: [module09_notes.md](module-09-the-role-of-quality-in-it-projects/module09_notes.md)*
 
 #### 3. Determining the Cost of Poor Quality and Its Effect on Productivity and Profitability
 - APA Reference: Mahmood, S., Ahmed, S. M., Panthi, K., & Kureshi, N. I. (2014). Determining the cost of poor quality and its impact on productivity and profitability. Built Environment Project and Asset Management, 4(3), 296-311. https://doi.org/10.1108/BEPAM-09-2013-0034 Retrieved from https://lesa.on.worldcat.org/oclc/7054501138
 
 The purpose of this paper is to examine how effectively a proposed cost appraisal system measures the cost of poor quality (COPQ) in a construction project. The paper formulates how COPQ can be measured and later clarifies the relationship between COPQ, labour productivity and profitability. To measure COPQ, the researchers prepare data entry forms for recording COPQ items on a daily basis and formulated the cost contribution of lost material, lost man-hours, lost machinery hours and lost overhead on the overall COPQ for the project. The proposed method was then applied in a case study. The paper's intent can be applied to any project (including software and technology-related projects) in any given context.
 
-> *Status: 🔥 Summarised in [module09_notes.md](module-09-the-role-of-quality-in-it-projects/module09_notes.md)*
+> *Status: ✅ Done: [module09_notes.md](module-09-the-role-of-quality-in-it-projects/module09_notes.md)*
 
 #### 4. Quality Dimensions, Perspectives and Practices
 - APA Reference: Zhang, Q. (2001). Quality dimensions, perspectives and practices: A mapping analysis. International Journal of Quality & Reliability Management, 18(7), 708-721. Retrieved from https://lesa.on.worldcat.org/oclc/7054602965
 
 An integrated framework is developed to analyse the relationships among quality dimensions, perspectives and practices. This framework incorporates two dimensions of the internal-external focus and objective-subjective measurement. It clarifies the concept of quality and helps practitioners to position their quality management practices. It explains how to resolve and reduce uncertainty in improving the quality of the products, ultimately to achieve competitive advantage. It adopts a total quality management (TQM) stance for continuous improvement.
 
-> *Status: 🔥 Summarised in [module09_notes.md](module-09-the-role-of-quality-in-it-projects/module09_notes.md)*
+> *Status: ✅ Done: [module09_notes.md](module-09-the-role-of-quality-in-it-projects/module09_notes.md)*
 
 ### Learning Activities
 
