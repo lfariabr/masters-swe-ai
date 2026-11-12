@@ -60,6 +60,6 @@ quality policy (management commitment + resources)
 2. Which awards-round cost was external failure, and what prevention step would have stopped it?
 
 ### This-week to-dos
-- [ ] 🔥 Read the four readings (summaries in `module09_notes.md`)
-- [ ] 🔥 Watch Penzenstadler (2018), 11 min
-- [ ] 🕐 Activity 1: post, then comment on two posts
+- [X] ✅ Read the four readings (summaries in `module09_notes.md`)
+- [X] ✅ Watch Penzenstadler (2018), 11 min
+- [X] ✅ Activity 1: post, then comment on two posts

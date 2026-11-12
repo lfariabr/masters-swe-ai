@@ -768,7 +768,7 @@ In reference to the knowledge outlined in this Module (and others), answer the f
 
 Post your answers to the discussion forum. Please read the posts of your colleagues and comment on at least two of the posts. You may wish to discuss why you agree or disagree or build on the insights that others have shared.
 
-> *Status: 🔥 Draft ready: [activity01 draft](module-09-the-role-of-quality-in-it-projects/activity01_organisation-x-qa-review_draft.md)*
+> *Status: ✅ Done: [activity01 draft](module-09-the-role-of-quality-in-it-projects/activity01_organisation-x-qa-review_draft.md)*
 
 ---
 

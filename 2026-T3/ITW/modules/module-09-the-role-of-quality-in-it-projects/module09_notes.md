@@ -6,12 +6,12 @@
 
 | # | Task | Status |
 |---|------|--------|
-| 1 | Read & summarise the module text: quality policy and objectives, the process approach and PDCA, monitoring, cost of quality | 🔥 |
-| 2 | Read & summarise: why managing quality is essential in projects (Basu, 2012, Introduction) | 🔥 |
-| 3 | Read & summarise: a software reliability model with testing coverage and imperfect debugging (Zhang & Pham, 2001) | 🔥 |
-| 4 | Read & summarise: measuring the cost of poor quality (Mahmood et al., 2014) | 🔥 |
-| 5 | Read & summarise: quality dimensions, perspectives and practices (Zhang, 2001) | 🔥 |
-| 6 | Activity 1: watch Penzenstadler (2018), then the Organisation X QA review post, plus comments on two posts | 🔥 draft ready |
+| 1 | Read & summarise the module text: quality policy and objectives, the process approach and PDCA, monitoring, cost of quality | ✅ |
+| 2 | Read & summarise: why managing quality is essential in projects (Basu, 2012, Introduction) | ✅ |
+| 3 | Read & summarise: a software reliability model with testing coverage and imperfect debugging (Zhang & Pham, 2001) | ✅ |
+| 4 | Read & summarise: measuring the cost of poor quality (Mahmood et al., 2014) | ✅ |
+| 5 | Read & summarise: quality dimensions, perspectives and practices (Zhang, 2001) | ✅ |
+| 6 | Activity 1: watch Penzenstadler (2018), then the Organisation X QA review post, plus comments on two posts | ✅ |
 
 > Source corrections against the module text, checked against the PDFs (10 Nov 2026):
 > - The supplied Pham file is **Chapter 2 by Zhang and Pham**, published in **2001** (pp. 17-31), not "Pham (2015)". Cite the chapter's authors.

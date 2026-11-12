@@ -1,6 +1,6 @@
 # Module 9 · Activity 1 - Organisation X: reviewing quality controls across a systems integration (draft)
 
-**Status:** 🔥 draft for Luis to review, then post to the discussion forum and comment on two posts. No word limit in the brief; kept near 300 words.
+**Status:** ✅ posted to the discussion forum by Luis (Nov 2026). No word limit in the brief; kept near 300 words.
 
 ---
 
