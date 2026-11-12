@@ -58,7 +58,7 @@ Dr Bushra Naeem (Term 3 2026). Contact details are available in the LMS. The pla
 
 ## Assignments
 - [X] Assessment 1 - deadline 11/10/2026 ✅, **e-Journal: Introduction to Organisation and its Requirements**: 500 words +/- 10%, individual, 25%, SLOs `a)`, `b)`, submitted 08/10/2026, **85/100** (released 24/10/2026)
-- [ ] Assessment 2 🔥 - deadline 15/11/2026, **e-Journal: Industry Placement Interview and Project Synopsis**: 1000 words +/- 10%, individual, 35%, SLOs `a)`, `b)`, `c)`, `d)`, `e)`
+- [X] Assessment 2 - deadline 15/11/2026 ✅, **e-Journal: Industry Placement Interview and Project Synopsis**: 1000 words +/- 10%, individual, 35%, SLOs `a)`, `b)`, `c)`, `d)`, `e)`, submitted 12/11/2026, grade pending
 - [ ] Assessment 3 🕐 - deadline 02/12/2026, **e-Journal: Industry Placement Outcome and Reflection**: 3000 words +/- 10%, individual, 40%, SLOs `a)`, `b)`, `c)`, `d)`, `e)`
 
 ## DataWrestler and Student360 Delivery Planning
