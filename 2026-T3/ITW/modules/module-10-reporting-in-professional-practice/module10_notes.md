@@ -6,12 +6,12 @@
 
 | # | Task | Status |
 |---|------|--------|
-| 1 | Read & summarise the module text: contracts and contract review, specifications, internal control, controlling change, responsibility, authority and accountability | 🔥 |
-| 2 | Read & summarise: roles and responsibilities in project contract management (Smith, 2003, Ch1) | 🔥 |
-| 3 | Read & summarise: procurement systems, Ch2, Ch9, Ch13 (Walker & Rowlinson, 2008) | 🔥 |
-| 4 | Read & summarise: control engineering in development projects, Ch2, Ch4-6 (Rubin, 2016) | 🔥 |
-| 5 | Read & summarise: system engineering management, Ch2, Ch5, Ch7 (Blanchard & Blyler, 2016) | 🔥 |
-| 6 | Activity 1: watch de Weck (first 8 min), then the Organisation X reporting post, plus comments on two posts | 🕐 |
+| 1 | Read & summarise the module text: contracts and contract review, specifications, internal control, controlling change, responsibility, authority and accountability | ✅ |
+| 2 | Read & summarise: roles and responsibilities in project contract management (Smith, 2003, Ch1) | ✅ |
+| 3 | Read & summarise: procurement systems, Ch2, Ch9, Ch13 (Walker & Rowlinson, 2008) | ✅ |
+| 4 | Read & summarise: control engineering in development projects, Ch2, Ch4-6 (Rubin, 2016) | ✅ |
+| 5 | Read & summarise: system engineering management, Ch2, Ch5, Ch7 (Blanchard & Blyler, 2016) | ✅ |
+| 6 | Activity 1: watch de Weck (first 8 min), then the Organisation X reporting post, plus comments on two posts | ✅ |
 
 > Source corrections against the module text, checked against the PDFs (17 Nov 2026):
 > - Resource 1 is **Chapter 1 by Nigel Smith**, "Roles and responsibilities in project contract management", pp. 1-17, in Turner (Ed.), *Contracting for project management*, **2003, Routledge** - not Turner (2007), Ashgate. Cite Smith.

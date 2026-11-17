@@ -836,7 +836,7 @@ When tasks are assigned to someone, that person is given the resources to perfor
 
 In all but the smallest of projects, the project sponsor inevitably has to buy goods and services from other suppliers. This requires people to enter into contracts so that they know the basis on which they are working with each other and to deal with any disagreements that subsequently arise. Thus, a knowledge of contracting specifically for project management is essential if a project is to avoid difficulties and reach a successful conclusion. Chapter 1 concentrates specifically on the contracting issues that surround projects of any size.
 
-> *Status: 🔥 Summarised in [module10_notes.md](module-10-reporting-in-professional-practice/module10_notes.md)*
+> *Status: ✅ Summarised in [module10_notes.md](module-10-reporting-in-professional-practice/module10_notes.md)*
 
 #### 2. Procurement Systems: A Cross-Industry Project Management Perspective
 - APA Reference: Walker, D. H. T., & Rowlinson, S. (Eds.). (2008). Procurement systems: A cross-industry project management perspective. Taylor & Francis. (Supplied PDF: Ch1-4, Ch9, Ch13; Ch6 and Ch14 missing.) Retrieved from https://www.researchgate.net/publication/301813670_Procurement_Systems_A_cross-industry_project_management_perspective
@@ -844,7 +844,7 @@ In all but the smallest of projects, the project sponsor inevitably has to buy g
 
 This cross-disciplinary resource examines general historical issues and engages in practical discussions of different types of projects and their procurement needs. It provides and discusses cutting-edge research and thought leadership on issues such as stakeholder management, ethics, corporate governance issues, business strategy implications for procurement, e-business innovation, organisational learning, cultural dimensions and human resource development. Chapters 2, 6, 9, 13 and 14 are of interest.
 
-> *Status: 🔥 Summarised in [module10_notes.md](module-10-reporting-in-professional-practice/module10_notes.md)*
+> *Status: ✅ Summarised in [module10_notes.md](module-10-reporting-in-professional-practice/module10_notes.md)*
 
 #### 3. Control Engineering in Development Projects
 - APA Reference: Rubin, O. (2016). Control engineering in development projects. Artech House. Retrieved from https://lesa.on.worldcat.org/oclc/968273863
@@ -852,7 +852,7 @@ This cross-disciplinary resource examines general historical issues and engages 
 
 This book offers engineers guidance in their journey to obtain a greater understanding of the thought processes involved in designing and developing successful control systems for radar, flight control and several other applications. This constructive new resource takes engineers through various phases of project development. Clear examples and case studies are presented throughout demonstrating various management styles. Of interest are Chapters 2, 4, 5 and 6.
 
-> *Status: 🔥 Summarised in [module10_notes.md](module-10-reporting-in-professional-practice/module10_notes.md)*
+> *Status: ✅ Summarised in [module10_notes.md](module-10-reporting-in-professional-practice/module10_notes.md)*
 
 #### 4. System Engineering Management
 - APA Reference: Blanchard, B. S., & Blyler, J. E. (2016). System engineering management (5th ed.). Wiley. Retrieved from https://lesa.on.worldcat.org/oclc/967067552
@@ -860,7 +860,7 @@ This book offers engineers guidance in their journey to obtain a greater underst
 
 This book unifies these different skill sets into a single step-by-step approach that produces a well-rounded systems engineering management framework. This new edition has been fully updated to reflect the latest tools and best practices and includes a rich discussion on computer-based modelling and hardware and software systems integration. New case studies illustrate real-world application on both large- and small-scale systems in a variety of industries. Of interest are Chapters 2, 5, 6 and 7.
 
-> *Status: 🔥 Summarised in [module10_notes.md](module-10-reporting-in-professional-practice/module10_notes.md)*
+> *Status: ✅ Summarised in [module10_notes.md](module-10-reporting-in-professional-practice/module10_notes.md)*
 
 ### Learning Activities
 
@@ -878,7 +878,7 @@ Based on the knowledge you have acquired in this Module (and others), answer the
 
 Post your answers to the discussion forum. Please read the posts of your colleagues and comment on at least two of the posts. You may wish to discuss why you agree or disagree or build on the insights that others have shared.
 
-> *Status: 🔥 Draft: [activity01 draft](module-10-reporting-in-professional-practice/activity01_organisation-x-reporting-controls_draft.md)*
+> *Status: ✅ Posted: [activity01 draft](module-10-reporting-in-professional-practice/activity01_organisation-x-reporting-controls_draft.md)*
 
 ---
 

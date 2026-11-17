@@ -63,6 +63,6 @@ customer needs -> contract (what is wanted + what can be delivered)
 2. What would validation of the awards page look like, and who would do it?
 
 ### This-week to-dos
-- [ ] 🕐 Read the four readings (summaries in `module10_notes.md`)
-- [ ] 🕐 Watch de Weck (2017), first 8 min
-- [ ] 🕐 Activity 1: post, then comment on two posts
+- [X] ✅ Read the four readings (summaries in `module10_notes.md`)
+- [X] ✅ Watch de Weck (2017), first 8 min
+- [X] ✅ Activity 1: post, then comment on two posts

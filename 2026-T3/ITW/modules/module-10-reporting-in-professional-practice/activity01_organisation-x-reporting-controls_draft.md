@@ -1,6 +1,6 @@
 # Module 10 · Activity 1 - Organisation X: contractual responsibilities and internal controls (draft)
 
-**Status:** 🕐 draft for Luis to edit and post. No word limit in the brief; kept near 300 words.
+**Status:** ✅ posted to the discussion forum by Luis (17 Nov 2026), edited from this draft. No word limit in the brief; kept near 300 words.
 
 ---
 
