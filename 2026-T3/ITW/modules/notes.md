@@ -775,6 +775,14 @@ Post your answers to the discussion forum. Please read the posts of your colleag
 ## Module 10 - Reporting in Professional Practice
 
 ### TLDR
+Module 10 is about the agreement behind a project and the controls that keep delivery true to it. The contract records what the customer wants and what the provider can deliver, and it is reviewed for the whole period of performance, because requirements change.
+- **The contract builds the organisation.** It fixes roles and who holds authority. Handing over more scope hands over control, and change then goes through formal variation (Smith, 2003).
+- **Project type sets the procurement choice.** Fix the outcomes when the methods are open; trust and relational forms reduce the need for formal control (Walker & Rowlinson, 2008).
+- **Contract numbers become a specification, a design, a test and a decision.** Keep a margin for unknowns, integrate in small steps, and give every change an owner and a cost (Rubin, 2016).
+- **Specifications become baselines.** Design reviews check work against them, and change control protects them. Responsibility must come with authority (Blanchard & Blyler, 2016).
+- **Verification vs validation.** Verification asks whether it meets the requirements as written; validation asks whether it meets the stakeholders' intent. You can pass one and fail the other (MIT OpenCourseWare, 2017).
+
+Notes: [module10_notes.md](module-10-reporting-in-professional-practice/module10_notes.md).
 
 ### Introduction
 In an article written by Dirk Pons entitled, 'Relative importance of professional practice and engineering management competencies', the author identifies a number of competencies and their importance to the development of graduate engineers in New Zealand. He identifies two tier levels of topics that are directly related to professional competence and engineering management. The first level focuses on communication and project planning and the second level includes a number of topics. One of these topics is contracts.
@@ -816,30 +824,27 @@ Events that may require control in accordance with their rate of change and trac
 #### Responsibility, Authority and Accountability
 When tasks are assigned to someone, that person is given the resources to perform the task and is then held accountable for how well the task is achieved. In another sense, authority could be seen as having ownership of the resources necessary to complete a task. In implementing a software project, there may be a number of interested parties with vested authority over a finite range of resources. These interested parties can have either a direct or indirect relationship to the project. For example, the project's sponsor has a direct relationship in comparison to an outsourced programmer (contractor) who has an indirect relationship. However, both have authority and both have control over their authority. Accordingly, responsibility and accountability are also controls. Control is achieved through responsibility by precisely defining and assigning the task and metric of the performance function. Metric refers to the index of performance used to measure the achievement of quality in the task.
 
-- APA Reference: Stimson, W. A. (2018). Forensic systems engineering: Evaluating operations by discovery. John Wiley & Sons. Retrieved from https://lesa.on.worldcat.org/oclc/1003131649
+- APA Reference: Stimson, W. A. (2018). Forensic systems engineering: Evaluating operations by discovery. Wiley. Retrieved from https://lesa.on.worldcat.org/oclc/1003131649
 
 ### Resources
 
-> Supplied files, checked 17 Nov 2026 (corrections to confirm when the notes are written):
-> - Resource 1 is **Chapter 1 by Nigel Smith**, "Roles and responsibilities in project contract management", in Turner (Ed.), 2003, Routledge - not Turner (2007), Ashgate. Cite the chapter's author.
-> - Resource 3: chapters 2, 4, 5 and 6 supplied, plus chapter 9 (nuclear power plants), which is not on the "of interest" list.
-> - Resource 4: chapters 2, 5 and 7 supplied; **chapter 6 was not in Downloads**. A second file (pp. 74-95) was only the opening of chapter 2 and was not added.
+> Source corrections, checked against the PDFs: see the top of [module10_notes.md](module-10-reporting-in-professional-practice/module10_notes.md).
 
 #### 1. Contracting for Project Management
-- APA Reference: Turner, J. R. (2007). Contracting for project management. Ashgate Pub. Retrieved from https://lesa.on.worldcat.org/oclc/437113713
+- APA Reference: Turner, J. R. (Ed.). (2003). Contracting for project management. Routledge. (Supplied: Smith, N., Ch. 1, "Roles and responsibilities in project contract management", pp. 1-17; the module lists Turner, 2007, Ashgate.) Retrieved from https://lesa.on.worldcat.org/oclc/437113713
 - File: [r1 Smith ch1](module-10-reporting-in-professional-practice/r1_smith-roles-responsibilities-project-contract-management-ch1.pdf)
 
 In all but the smallest of projects, the project sponsor inevitably has to buy goods and services from other suppliers. This requires people to enter into contracts so that they know the basis on which they are working with each other and to deal with any disagreements that subsequently arise. Thus, a knowledge of contracting specifically for project management is essential if a project is to avoid difficulties and reach a successful conclusion. Chapter 1 concentrates specifically on the contracting issues that surround projects of any size.
 
-> *Status: 🕐 To-Do*
+> *Status: 🔥 Summarised in [module10_notes.md](module-10-reporting-in-professional-practice/module10_notes.md)*
 
 #### 2. Procurement Systems: A Cross-Industry Project Management Perspective
-- APA Reference: Walker, D., & Rowlinson, S. (Eds.). (2007). Procurement systems: A cross-industry project management perspective. Routledge. Retrieved from https://www.researchgate.net/publication/301813670_Procurement_Systems_A_cross-industry_project_management_perspective
+- APA Reference: Walker, D. H. T., & Rowlinson, S. (Eds.). (2008). Procurement systems: A cross-industry project management perspective. Taylor & Francis. (Supplied PDF: Ch1-4, Ch9, Ch13; Ch6 and Ch14 missing.) Retrieved from https://www.researchgate.net/publication/301813670_Procurement_Systems_A_cross-industry_project_management_perspective
 - File: [r2 Walker & Rowlinson](module-10-reporting-in-professional-practice/r2_walker-rowlinson-procurement-systems.pdf)
 
 This cross-disciplinary resource examines general historical issues and engages in practical discussions of different types of projects and their procurement needs. It provides and discusses cutting-edge research and thought leadership on issues such as stakeholder management, ethics, corporate governance issues, business strategy implications for procurement, e-business innovation, organisational learning, cultural dimensions and human resource development. Chapters 2, 6, 9, 13 and 14 are of interest.
 
-> *Status: 🕐 To-Do*
+> *Status: 🔥 Summarised in [module10_notes.md](module-10-reporting-in-professional-practice/module10_notes.md)*
 
 #### 3. Control Engineering in Development Projects
 - APA Reference: Rubin, O. (2016). Control engineering in development projects. Artech House. Retrieved from https://lesa.on.worldcat.org/oclc/968273863
@@ -847,7 +852,7 @@ This cross-disciplinary resource examines general historical issues and engages 
 
 This book offers engineers guidance in their journey to obtain a greater understanding of the thought processes involved in designing and developing successful control systems for radar, flight control and several other applications. This constructive new resource takes engineers through various phases of project development. Clear examples and case studies are presented throughout demonstrating various management styles. Of interest are Chapters 2, 4, 5 and 6.
 
-> *Status: 🕐 To-Do*
+> *Status: 🔥 Summarised in [module10_notes.md](module-10-reporting-in-professional-practice/module10_notes.md)*
 
 #### 4. System Engineering Management
 - APA Reference: Blanchard, B. S., & Blyler, J. E. (2016). System engineering management (5th ed.). Wiley. Retrieved from https://lesa.on.worldcat.org/oclc/967067552
@@ -855,14 +860,25 @@ This book offers engineers guidance in their journey to obtain a greater underst
 
 This book unifies these different skill sets into a single step-by-step approach that produces a well-rounded systems engineering management framework. This new edition has been fully updated to reflect the latest tools and best practices and includes a rich discussion on computer-based modelling and hardware and software systems integration. New case studies illustrate real-world application on both large- and small-scale systems in a variety of industries. Of interest are Chapters 2, 5, 6 and 7.
 
-> *Status: 🕐 To-Do*
+> *Status: 🔥 Summarised in [module10_notes.md](module-10-reporting-in-professional-practice/module10_notes.md)*
 
 ### Learning Activities
 
-#### 1. Learning Activity 1
-[Activity brief to paste from the LMS.]
+#### 1. Learning Activity 1: Discussion Forum Post - Case Study Activity 5
+- APA Reference: MIT OpenCourseWare. (2017, August 10). *9. Verification and validation* [Video]. YouTube. https://www.youtube.com/watch?v=-63JXElqPaY. Transcript (first eight minutes): [activity01 transcript](module-10-reporting-in-professional-practice/activity01_de-weck-verification-validation_transcript.md)
 
-> *Status: 🕐 To-Do*
+Completing Case Study Activity 5 will provide you with the necessary insights to address the contractual requirements aspect of Assessment 3. Watch the first eight minutes of the video facilitated by Professor de Weck. It provides a good overview of the terms 'verification' and 'validation' and how these apply to systems engineering.
+
+Now, we will consider Organisation X for one final time. Senior management in consultation with the software engineers overseeing the project require that a systems engineering approach be adopted in relation to the reporting of the project. As a mandatory requirement, the organisation will need to review its reporting requirements commencing with its contractual responsibilities. It will also need to consider how an approach to internal project control is to be undertaken and overseen.
+
+Based on the knowledge you have acquired in this Module (and others), answer the following questions:
+
+- What kinds of contractual responsibilities (internal and external) are required by the organisation in connection with the information technology (IT) system; and
+- How would you go about overseeing (and mapping) internal controls for such a project as this?
+
+Post your answers to the discussion forum. Please read the posts of your colleagues and comment on at least two of the posts. You may wish to discuss why you agree or disagree or build on the insights that others have shared.
+
+> *Status: 🔥 Draft: [activity01 draft](module-10-reporting-in-professional-practice/activity01_organisation-x-reporting-controls_draft.md)*
 
 ---
 
