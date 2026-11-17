@@ -782,7 +782,7 @@ Module 10 is about the agreement behind a project and the controls that keep del
 - **Specifications become baselines.** Design reviews check work against them, and change control protects them. Responsibility must come with authority (Blanchard & Blyler, 2016).
 - **Verification vs validation.** Verification asks whether it meets the requirements as written; validation asks whether it meets the stakeholders' intent. You can pass one and fail the other (MIT OpenCourseWare, 2017).
 
-Notes: [module10_notes.md](module-10-reporting-in-professional-practice/module10_notes.md).
+Notes: [module10_notes.md](module-10-reporting-in-professional-practice/module10_notes.md) · one-pager: [module10_one-pager.md](module-10-reporting-in-professional-practice/module10_one-pager.md).
 
 ### Introduction
 In an article written by Dirk Pons entitled, 'Relative importance of professional practice and engineering management competencies', the author identifies a number of competencies and their importance to the development of graduate engineers in New Zealand. He identifies two tier levels of topics that are directly related to professional competence and engineering management. The first level focuses on communication and project planning and the second level includes a number of topics. One of these topics is contracts.
