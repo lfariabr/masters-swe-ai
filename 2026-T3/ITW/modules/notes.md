@@ -772,6 +772,101 @@ Post your answers to the discussion forum. Please read the posts of your colleag
 
 ---
 
+## Module 10 - Reporting in Professional Practice
+
+### TLDR
+
+### Introduction
+In an article written by Dirk Pons entitled, 'Relative importance of professional practice and engineering management competencies', the author identifies a number of competencies and their importance to the development of graduate engineers in New Zealand. He identifies two tier levels of topics that are directly related to professional competence and engineering management. The first level focuses on communication and project planning and the second level includes a number of topics. One of these topics is contracts.
+
+This Module will look first at the role contracts play in systems-based project environments and how they are integral to being 'industry ready'. Other areas investigated include design specification, internal control, controlling change, responsibility, authority and accountability.
+
+#### Contracts
+The issuance of a contract in an engineering environment must record exactly what the customer wants and what the provider of services can deliver to ensure the agreement between them. The specifications must be correct translations of the customer's requirements, including all qualitative and quantitative data of interest. The performance of the contract must be done in an acceptable way in accordance with customer requirements, industry standards and government regulations. As technical data might be overlooked (due to its level of analysis), the terms and conditions within the contract must describe a process of procedure whereby an understanding is reached in accordance with customer requirements.
+
+Customer requirements are those expectations (needs) that a customer has concerning the desired product or service, its availability date and required support. The identification, review and communication of customer requirements can be achieved in a single process; that is, a comprehensive contract review.
+
+**Contract review:** An effective contracting process will track customer requirements and expectations during the entire period of performance. It is important to acknowledge that these might change as a result of developments that can occur during an extended period of performance.
+
+*Figure 1. An effective contracting process (Stimson, 2012).*
+
+Some of the events to be considered in a contract review process include:
+
+- balancing customer requirements against company capabilities, resources and regulatory requirements;
+- undertaking an initial joint review after the contract is drafted to ensure that the requirements are defined and confirmed and all the specifications are documented;
+- undertaking ongoing periodical reviews of contract performance with the customer; and
+- recording customer satisfaction.
+
+#### Specifications
+In the design phase of engineering, there are always quantitative criteria that describe the critical-to-quality characteristics of the product or service to be provided. For example, the design of an integrated software solution will include user-requirements criteria. Design criteria consist of a target value and limits above and below the target value that are relevant to the quality characteristic of the product or service. Run charts or control charts might be used to determine data ranges (the upper and lower limits) and to ensure that the range specified is compliant with, using the example above, the user-requirements criteria. This information helps to verify the processes used but does not ensure their validation. Validation is undertaken when the process is trialled and tested against specifications and all the measures are recorded against specifications.
+
+#### Internal Control
+An internal control is a process designed to provide some degree of assurance regarding the effectiveness of the project's operations, the authenticity and credibility of reliable records and reports and compliance with regulations.
+
+#### Control Elements in Operations
+In engineering environments, controls are required to self-regulate the flow of work and maintain the status of the process. As Figure 2 shows, a series of resources constitute the flow and behaviour of a generalised process for a standalone information system. Equipment refers to the software and hardware devices necessary to the process, such as monitoring and recording devices, embedded computers and associated software, position and rate controls, counters and the backup facility. The documented procedures are those that describe the process set up and the initial conditions of the process, rules and regulations, instructions on process operation, technical manuals, schematics and any associated information needed for proper operation. Skills include those necessary or appropriate to the process operation and maintenance and the technicians with those skills. The measures of effectiveness (MOE) include those metrics necessary to verify and validate both the process and the product to ensure the attainment of process objectives and contract requirements.
+
+*Figure 2. A diagram mapping relevant resources to a generic process (Stimson, 2012).*
+
+#### Controlling the Effect of Change
+The organisational structure should be designed to detect changes in either the process input, environment or in the process itself and to respond to these changes.
+
+Events that may require control in accordance with their rate of change and tracking a period of this rate of change. For example, technology changes may become a factor that effects the rate of change with just-in-time activities. Controls for these changes must be documented and updated.
+
+#### Responsibility, Authority and Accountability
+When tasks are assigned to someone, that person is given the resources to perform the task and is then held accountable for how well the task is achieved. In another sense, authority could be seen as having ownership of the resources necessary to complete a task. In implementing a software project, there may be a number of interested parties with vested authority over a finite range of resources. These interested parties can have either a direct or indirect relationship to the project. For example, the project's sponsor has a direct relationship in comparison to an outsourced programmer (contractor) who has an indirect relationship. However, both have authority and both have control over their authority. Accordingly, responsibility and accountability are also controls. Control is achieved through responsibility by precisely defining and assigning the task and metric of the performance function. Metric refers to the index of performance used to measure the achievement of quality in the task.
+
+- APA Reference: Stimson, W. A. (2018). Forensic systems engineering: Evaluating operations by discovery. John Wiley & Sons. Retrieved from https://lesa.on.worldcat.org/oclc/1003131649
+
+### Resources
+
+> Supplied files, checked 17 Nov 2026 (corrections to confirm when the notes are written):
+> - Resource 1 is **Chapter 1 by Nigel Smith**, "Roles and responsibilities in project contract management", in Turner (Ed.), 2003, Routledge - not Turner (2007), Ashgate. Cite the chapter's author.
+> - Resource 3: chapters 2, 4, 5 and 6 supplied, plus chapter 9 (nuclear power plants), which is not on the "of interest" list.
+> - Resource 4: chapters 2, 5 and 7 supplied; **chapter 6 was not in Downloads**. A second file (pp. 74-95) was only the opening of chapter 2 and was not added.
+
+#### 1. Contracting for Project Management
+- APA Reference: Turner, J. R. (2007). Contracting for project management. Ashgate Pub. Retrieved from https://lesa.on.worldcat.org/oclc/437113713
+- File: [r1 Smith ch1](module-10-reporting-in-professional-practice/r1_smith-roles-responsibilities-project-contract-management-ch1.pdf)
+
+In all but the smallest of projects, the project sponsor inevitably has to buy goods and services from other suppliers. This requires people to enter into contracts so that they know the basis on which they are working with each other and to deal with any disagreements that subsequently arise. Thus, a knowledge of contracting specifically for project management is essential if a project is to avoid difficulties and reach a successful conclusion. Chapter 1 concentrates specifically on the contracting issues that surround projects of any size.
+
+> *Status: 🕐 To-Do*
+
+#### 2. Procurement Systems: A Cross-Industry Project Management Perspective
+- APA Reference: Walker, D., & Rowlinson, S. (Eds.). (2007). Procurement systems: A cross-industry project management perspective. Routledge. Retrieved from https://www.researchgate.net/publication/301813670_Procurement_Systems_A_cross-industry_project_management_perspective
+- File: [r2 Walker & Rowlinson](module-10-reporting-in-professional-practice/r2_walker-rowlinson-procurement-systems.pdf)
+
+This cross-disciplinary resource examines general historical issues and engages in practical discussions of different types of projects and their procurement needs. It provides and discusses cutting-edge research and thought leadership on issues such as stakeholder management, ethics, corporate governance issues, business strategy implications for procurement, e-business innovation, organisational learning, cultural dimensions and human resource development. Chapters 2, 6, 9, 13 and 14 are of interest.
+
+> *Status: 🕐 To-Do*
+
+#### 3. Control Engineering in Development Projects
+- APA Reference: Rubin, O. (2016). Control engineering in development projects. Artech House. Retrieved from https://lesa.on.worldcat.org/oclc/968273863
+- Files: [ch2](module-10-reporting-in-professional-practice/r3a_rubin-control-engineering-ch2-technology-programs.pdf) · [ch4](module-10-reporting-in-professional-practice/r3b_rubin-control-engineering-ch4-project-definition.pdf) · [ch5](module-10-reporting-in-professional-practice/r3c_rubin-control-engineering-ch5-design.pdf) · [ch6](module-10-reporting-in-professional-practice/r3d_rubin-control-engineering-ch6-implementation.pdf) · [ch9](module-10-reporting-in-professional-practice/r3e_rubin-control-engineering-ch9-nuclear-power-plants.pdf)
+
+This book offers engineers guidance in their journey to obtain a greater understanding of the thought processes involved in designing and developing successful control systems for radar, flight control and several other applications. This constructive new resource takes engineers through various phases of project development. Clear examples and case studies are presented throughout demonstrating various management styles. Of interest are Chapters 2, 4, 5 and 6.
+
+> *Status: 🕐 To-Do*
+
+#### 4. System Engineering Management
+- APA Reference: Blanchard, B. S., & Blyler, J. E. (2016). System engineering management (5th ed.). Wiley. Retrieved from https://lesa.on.worldcat.org/oclc/967067552
+- Files: [ch2](module-10-reporting-in-professional-practice/r4a_blanchard-blyler-sem-ch2-system-engineering-process.pdf) · [ch5](module-10-reporting-in-professional-practice/r4b_blanchard-blyler-sem-ch5-design-review-evaluation.pdf) · [ch7](module-10-reporting-in-professional-practice/r4c_blanchard-blyler-sem-ch7-organization.pdf)
+
+This book unifies these different skill sets into a single step-by-step approach that produces a well-rounded systems engineering management framework. This new edition has been fully updated to reflect the latest tools and best practices and includes a rich discussion on computer-based modelling and hardware and software systems integration. New case studies illustrate real-world application on both large- and small-scale systems in a variety of industries. Of interest are Chapters 2, 5, 6 and 7.
+
+> *Status: 🕐 To-Do*
+
+### Learning Activities
+
+#### 1. Learning Activity 1
+[Activity brief to paste from the LMS.]
+
+> *Status: 🕐 To-Do*
+
+---
+
+
 ```bash
 --- PLACEHOLDER:
 ## Module X - ...
