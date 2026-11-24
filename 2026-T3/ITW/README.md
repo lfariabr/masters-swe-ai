@@ -53,7 +53,7 @@ Dr Bushra Naeem (Term 3 2026). Contact details are available in the LMS. The pla
 - [X] Module 8 ✅ - Business-Related Models for IT Projects
 - [X] Module 9 ✅ - The Role of Quality in IT Projects
 - [X] Module 10 ✅ - Reporting in Professional Practice
-- [ ] Module 11 🕐 - Job Readiness Skills for IT Professionals
+- [ ] Module 11 🔥 - Job Readiness Skills for IT Professionals
 - [ ] Module 12 🕐 - Future of the IT Industry
 
 ## Assignments

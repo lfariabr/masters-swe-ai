@@ -885,6 +885,57 @@ Post your answers to the discussion forum. Please read the posts of your colleag
 
 ```bash
 --- PLACEHOLDER:
+## Module 11 - Job Readiness Skills for IT Professionals
+
+### TLDR
+Module 11 is a map of the IT profession and of the skills that get a graduate hired. IT is no longer one job: it covers data, software, infrastructure, security, business-facing and support roles, and a career starts by choosing one on purpose.
+- **Know the map.** Each role has its own responsibilities and skill set; entry depends on skills you can demonstrate, not only on qualifications (Grant, 2026).
+- **Hard skills are listed; soft skills are shown.** A hard skill is teachable and easy to quantify. A soft skill needs a concrete example (Doyle, 2024).
+- **Ten soft skills IT leaders hire for:** communication, collaboration, the ability to learn, creativity, a healthy ego, accountability, critical thinking, empathy, flexibility and passion (Rudder, 2019).
+- **Hybrid skills win.** Employers find a hard skill easier to train than a soft one and look for both together. In interviews, tell it in STAR form (Doyle, 2024).
+
+Notes: [module11_notes.md](module-11-job-readiness-skills-for-it-professionals/module11_notes.md) · one-pager: [module11_one-pager.md](module-11-job-readiness-skills-for-it-professionals/module11_one-pager.md).
+
+### Introduction
+Traditionally, an IT professional has been considered as an equivalent to a software developer or an IT support specialist who fixes the framework and/or setup required to develop applications. However, over the past decade, with the prevalence of information systems and cloud computing, ICT as a profession has grown to encompass a wide variety of occupations which includes chief technology officer (CTO), cybersecurity specialist, product owners, business analyst, cloud engineers and more. Being an IT professional, you need to be aware of the potential domains where you can start your career. In this module, we will explore such occupations, their responsibilities and skill sets. This module will provide a comprehensive understanding of the landscape of IT occupations that will help you to choose a specialised career in IT.
+
+### Resources
+
+> Source corrections, checked against the saved pages: see the top of [module11_notes.md](module-11-job-readiness-skills-for-it-professionals/module11_notes.md).
+
+#### 1. 22 ICT Careers and Job Types
+- APA Reference (as the page stands now): Grant, D. (2026, January 17). *Information technology job descriptions (top 21 careers)*. Mallory Careers. https://mallory.com.au/information-technology-jobs-descriptions/ (The module cites it as Mallory, 2022, "22 ICT careers and job types".)
+
+> *Status: 🔥 Summarised in [module11_notes.md](module-11-job-readiness-skills-for-it-professionals/module11_notes.md)*
+
+#### 2. Career Advice
+- APA Reference: Moran, G. (2021, May 2). 6 career coaches share the best career advice they ever got. *Fast Company*. https://www.fastcompany.com/90601499/6-career-coaches-share-the-best-career-advice-they-ever-got
+
+> *Status: 🕐 Not summarised: the saved file was a different article*
+
+#### 3. Soft Skills Every IT Team Needs
+- APA Reference: Rudder, C. (2019, October 31). *10 soft skills every IT team needs*. The Enterprisers Project. https://enterprisersproject.com/article/2019/10/10-soft-skills-it-teams
+
+> *Status: 🔥 Summarised in [module11_notes.md](module-11-job-readiness-skills-for-it-professionals/module11_notes.md)*
+
+#### 4. Hard Skills vs. Soft Skills
+- APA Reference: Doyle, A. (2024, July 3). *Hard skills vs. soft skills: What's the difference?* The Balance. https://www.thebalancemoney.com/hard-skills-vs-soft-skills-2063780 (The module cites the 2021 version on thebalancecareers.com, which now redirects here.)
+
+> *Status: 🔥 Summarised in [module11_notes.md](module-11-job-readiness-skills-for-it-professionals/module11_notes.md)*
+
+### Learning Activities
+
+#### 1. Learning Activity 1: Discussion Forum - Technology Career Advice
+- APA Reference: GradAustralia. (2022). *Technology careers advice*. https://gradaustralia.com.au/information-technology
+
+This website contains the latest information about the evolving IT industry. It contains a list of top 100 employers and skills needed to succeed in the IT industry.
+
+As part of this learning activity, please browse through the webpage and list 10 employers and 10 skills that excite you the most and how would you start approaching your career path. Please post your findings in the Module 11 discussion forum and also read other student's posts and provide constructive feedback.
+
+> *Status: 🔥 Draft: [activity01 draft](module-11-job-readiness-skills-for-it-professionals/activity01_technology-career-advice_draft.md)*
+
+---
+
 ## Module X - ...
 ### TLDR
 ### Introduction
