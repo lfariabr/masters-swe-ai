@@ -27,7 +27,7 @@ An "IT professional" used to mean a software developer or a support specialist. 
 
 ## 2. IT job descriptions (Mallory Careers, 2026)
 
-The page argues that demand for capable IT workers stays strong, and that entry "usually depends on demonstrable skills rather than just qualifications". The roles it describes, grouped by what they work on:
+The page argues that demand for capable IT workers stays strong, and that entry usually depends on skills a candidate can demonstrate, not only on qualifications. The roles it describes, grouped by what they work on:
 
 | Group | Roles | What they do |
 |---|---|---|

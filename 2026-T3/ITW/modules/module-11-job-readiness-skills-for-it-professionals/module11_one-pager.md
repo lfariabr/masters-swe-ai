@@ -17,7 +17,7 @@ Data · Software · Infrastructure · Security · Business-facing · Support
 ```
 - 🔵 Data: analytics engineer, data scientist, database administrator.
 - 🔵 Business-facing: business analyst, systems analyst, consultant, IT manager.
-- 🔵 Entry "usually depends on demonstrable skills rather than just qualifications".
+- 🔵 Entry depends on skills you can demonstrate, not only on qualifications.
 - 🔴 **Mine:** data analyst by title; analytics engineer + developer + business analyst in practice.
 
 ## 🖤 Zone 2 - Hard vs soft (Doyle)
