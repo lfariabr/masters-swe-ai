@@ -906,22 +906,22 @@ Traditionally, an IT professional has been considered as an equivalent to a soft
 #### 1. 22 ICT Careers and Job Types
 - APA Reference (as the page stands now): Grant, D. (2026, January 17). *Information technology job descriptions (top 21 careers)*. Mallory Careers. https://mallory.com.au/information-technology-jobs-descriptions/ (The module cites it as Mallory, 2022, "22 ICT careers and job types".)
 
-> *Status: 🔥 Summarised in [module11_notes.md](module-11-job-readiness-skills-for-it-professionals/module11_notes.md)*
+> *Status: ✅ Summarised in [module11_notes.md](module-11-job-readiness-skills-for-it-professionals/module11_notes.md)*
 
 #### 2. Career Advice
 - APA Reference: Moran, G. (2021, May 2). 6 career coaches share the best career advice they ever got. *Fast Company*. https://www.fastcompany.com/90601499/6-career-coaches-share-the-best-career-advice-they-ever-got
 
-> *Status: 🕐 Not summarised: the saved file was a different article*
+> *Status: ✅ Read by Luis; not summarised (the saved file was a different article)*
 
 #### 3. Soft Skills Every IT Team Needs
 - APA Reference: Rudder, C. (2019, October 31). *10 soft skills every IT team needs*. The Enterprisers Project. https://enterprisersproject.com/article/2019/10/10-soft-skills-it-teams
 
-> *Status: 🔥 Summarised in [module11_notes.md](module-11-job-readiness-skills-for-it-professionals/module11_notes.md)*
+> *Status: ✅ Summarised in [module11_notes.md](module-11-job-readiness-skills-for-it-professionals/module11_notes.md)*
 
 #### 4. Hard Skills vs. Soft Skills
 - APA Reference: Doyle, A. (2024, July 3). *Hard skills vs. soft skills: What's the difference?* The Balance. https://www.thebalancemoney.com/hard-skills-vs-soft-skills-2063780 (The module cites the 2021 version on thebalancecareers.com, which now redirects here.)
 
-> *Status: 🔥 Summarised in [module11_notes.md](module-11-job-readiness-skills-for-it-professionals/module11_notes.md)*
+> *Status: ✅ Summarised in [module11_notes.md](module-11-job-readiness-skills-for-it-professionals/module11_notes.md)*
 
 ### Learning Activities
 
@@ -932,7 +932,7 @@ This website contains the latest information about the evolving IT industry. It 
 
 As part of this learning activity, please browse through the webpage and list 10 employers and 10 skills that excite you the most and how would you start approaching your career path. Please post your findings in the Module 11 discussion forum and also read other student's posts and provide constructive feedback.
 
-> *Status: 🔥 Draft: [activity01 draft](module-11-job-readiness-skills-for-it-professionals/activity01_technology-career-advice_draft.md)*
+> *Status: ✅ Posted: [activity01 draft](module-11-job-readiness-skills-for-it-professionals/activity01_technology-career-advice_draft.md)*
 
 ---
 

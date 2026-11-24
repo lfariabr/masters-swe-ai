@@ -56,5 +56,5 @@ Communication · Collaboration · Ability to learn · Creativity · Healthy ego 
 2. My best STAR story from the awards work, in four lines?
 
 ### This-week to-dos
-- [ ] 🕐 Read the readings (summaries in `module11_notes.md`); save the right Moran (2021) page
-- [ ] 🕐 Activity 1: edit the lists, post, then give feedback on other posts
+- [X] ✅ Read the readings (summaries in `module11_notes.md`)
+- [X] ✅ Activity 1: edit the lists, post, then give feedback on other posts

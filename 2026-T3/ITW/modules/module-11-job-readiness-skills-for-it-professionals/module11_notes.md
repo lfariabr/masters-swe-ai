@@ -6,12 +6,12 @@
 
 | # | Task | Status |
 |---|------|--------|
-| 1 | Read & summarise the module text: the widening range of IT occupations | 🔥 |
-| 2 | Read & summarise: IT jobs and descriptions (Mallory Careers, 2026) | 🔥 |
-| 3 | Read & summarise: six career coaches' best advice (Moran, 2021) | 🕐 source missing |
-| 4 | Read & summarise: 10 soft skills every IT team needs (Rudder, 2019) | 🔥 |
-| 5 | Read & summarise: hard skills vs soft skills (Doyle, 2024) | 🔥 |
-| 6 | Activity 1: 10 employers and 10 skills from GradAustralia, the forum post, plus feedback on other posts | 🔥 draft ready |
+| 1 | Read & summarise the module text: the widening range of IT occupations | ✅ |
+| 2 | Read & summarise: IT jobs and descriptions (Mallory Careers, 2026) | ✅ |
+| 3 | Read & summarise: six career coaches' best advice (Moran, 2021) | ✅ read by Luis; not summarised here (the saved file was a different article) |
+| 4 | Read & summarise: 10 soft skills every IT team needs (Rudder, 2019) | ✅ |
+| 5 | Read & summarise: hard skills vs soft skills (Doyle, 2024) | ✅ |
+| 6 | Activity 1: 10 employers and 10 skills from GradAustralia, the forum post, plus feedback on other posts | ✅ |
 
 > Source corrections against the module text, checked against the saved pages (24 Nov 2026):
 > - Resource 1: the module cites "Mallory (2022), 22 ICT careers and job types". The page is now titled **"Information Technology Job Descriptions (Top 21 Careers)"**, by **David Grant**, dated **17 January 2026** (updated 18 February 2026). The saved text shows 16 role headings. Cite the page as it stands today.
@@ -42,7 +42,7 @@ The page argues that demand for capable IT workers stays strong, and that entry 
 
 ## 3. Six career coaches' best advice (Moran, 2021)
 
-🕐 Not summarised: the saved file is a different article. To read from the right page.
+Not summarised here: the saved file was a different article. Read by Luis on the site.
 
 ## 4. Ten soft skills every IT team needs (Rudder, 2019)
 

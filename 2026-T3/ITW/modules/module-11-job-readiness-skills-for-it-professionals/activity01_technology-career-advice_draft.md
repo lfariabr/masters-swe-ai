@@ -1,6 +1,6 @@
 # Module 11 · Activity 1 - Technology career advice: 10 employers, 10 skills (draft)
 
-**Status:** 🕐 draft for Luis to edit and post. The employers below are picked from the list he saved from the site on 24 Nov 2026; swap in the ones that really excite you. No word limit in the brief; kept near 300 words.
+**Status:** ✅ posted to the discussion forum by Luis (24 Nov 2026), edited from this draft. No word limit in the brief; kept near 300 words.
 
 ---
 
